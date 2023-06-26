@@ -20,6 +20,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0c1566e_e8e2524b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T21:05:40Z",
+      "side": 1,
+      "message": "This isn\u0027t really a filter, is it? We simple select one of the rule sets just like user would do, right? If so, I\u0027d call this",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 85
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10651941_972b2328",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T21:05:40Z",
+      "side": 1,
+      "message": "This isn\u0027t really a filter, is it? We simple select one of the rule sets just like user would do, right? If so, I\u0027d turn this into this `selectRuleSet(ruleSetId: string)`.",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 85
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e5cfd7_e26865b0",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T21:05:40Z",
+      "side": 1,
+      "message": "This might just as well be inlined into the RuleSetGridRow",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cabebdc6_a728f1c2",
         "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
         "patchSetId": 7
@@ -31,6 +100,29 @@
       "writtenOn": "2023-06-26T20:50:42Z",
       "side": 1,
       "message": "Is there more appropriate icon?",
+      "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "905cc45a_ec804ea6",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-26T21:05:40Z",
+      "side": 1,
+      "message": "Instead of stringifying and parsing, just make preloadsRenderer accept RuleSetGridPreloadStatusSummary or if you follow my advice above, summary and ruleSetId as two separate parameters and call it here as \n\n    renderer: () \u003d\u003e preloadsRenderer(row.preloadsStatusSummary, row.ruleSetId)",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 59
+      },
       "revId": "afe8beca0c0115e0b944eb3cb3665de8a5ec98d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
