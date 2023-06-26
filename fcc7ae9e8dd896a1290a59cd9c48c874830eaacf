@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7faa2aed_d0e0aa2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T13:38:01Z",
+      "side": 1,
+      "message": "Thanks! Added some improvement suggestions",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608f97ff_8d7a929b",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T13:38:01Z",
+      "side": 1,
+      "message": "is the inline-button class used?",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "493d6b3f_9e45f3a8",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T13:38:01Z",
+      "side": 1,
+      "message": "why is the default an array? I think that should depend on whether the parameter type is an array",
+      "range": {
+        "startLine": 270,
+        "startChar": 50,
+        "endLine": 270,
+        "endChar": 52
+      },
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39bf49e0_ab7d83b0",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T13:38:01Z",
+      "side": 1,
+      "message": "lines 275-293 and lines 298-314 are very similar: let\u0027s extract it into a helper and create parameters that define the behaviour of the helper (e.g, key, value, deletable). For an array parameter, we can call it multiple times for every key/value and for the primitive parameters, we can call it once.",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a67cfc6_3f9c1796",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T13:38:01Z",
+      "side": 1,
+      "message": "remove `add-frame`",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "554ca946_43df388a",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T13:38:01Z",
+      "side": 1,
+      "message": "should not the delete button depend on whether the parameter is optional and not whether is is an array?",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e7880d_1f86c91f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T13:38:01Z",
+      "side": 1,
+      "message": "remove `add-frame`",
+      "revId": "fcc7ae9e8dd896a1290a59cd9c48c874830eaacf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
