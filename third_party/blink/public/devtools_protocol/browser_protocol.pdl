@@ -737,6 +737,7 @@ experimental domain Audits
       FormLabelHasNeitherForNorNestedInput
       FormLabelForMatchesNonExistingIdError
       FormInputHasWrongButWellIntendedAutocompleteValueError
+      ResponseWasBlockedByORB
 
   # Depending on the concrete errorType, different properties are set.
   type GenericIssueDetails extends object
@@ -746,6 +747,7 @@ experimental domain Audits
       optional Page.FrameId frameId
       optional DOM.BackendNodeId violatingNodeId
       optional string violatingNodeAttribute
+      optional AffectedRequest request
 
   # This issue tracks information needed to print a deprecation message.
   # https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/third_party/blink/renderer/core/frame/deprecation/README.md
@@ -5368,6 +5370,21 @@ domain Network
       # address space.
       UnexpectedPrivateNetworkAccess
       NoCorsRedirectModeNotFollow
+      # Request was a private network request and needed user permission yet did
+      # not carry `Private-Network-Access-Id` in the preflight response.
+      # https://github.com/WICG/private-network-access/blob/main/permission_prompt/explainer.md
+      PreflightMissingPrivateNetworkAccessId
+      # Request was a private network request and needed user permission yet did
+      # not carry `Private-Network-Access-Name` in the preflight response.
+      # https://github.com/WICG/private-network-access/blob/main/permission_prompt/explainer.md
+      PreflightMissingPrivateNetworkAccessName
+      # Request was a private network request and needed user permission yet not
+      # able to request for permission.
+      # https://github.com/WICG/private-network-access/blob/main/permission_prompt/explainer.md
+      PrivateNetworkAccessPermissionUnavailable
+      # Request was a private network request and is denied by user permission.
+      # https://github.com/WICG/private-network-access/blob/main/permission_prompt/explainer.md
+      PrivateNetworkAccessPermissionDenied
 
   type CorsErrorStatus extends object
     properties
@@ -7321,6 +7338,7 @@ domain Page
       ch-ua-platform
       ch-ua-model
       ch-ua-mobile
+      ch-ua-form-factor
       ch-ua-full-version
       ch-ua-full-version-list
       ch-ua-platform-version
@@ -7757,6 +7775,9 @@ domain Page
       # Specifies whether command line API should be available to the script, defaults
       # to false.
       experimental optional boolean includeCommandLineAPI
+      # If true, runs the script immediately on existing execution contexts or worlds.
+      # Default: false.
+      experimental optional boolean runImmediately
     returns
       # Identifier of the added script.
       ScriptIdentifier identifier
@@ -8540,6 +8561,7 @@ domain Page
       ErrorDocument
       FencedFramesEmbedder
       CookieDisabled
+      HTTPAuthRequired
       #Blocklisted features
       WebSocket
       WebTransport
@@ -8552,14 +8574,12 @@ domain Page
       DocumentLoaded
       DedicatedWorkerOrWorklet
       OutstandingNetworkRequestOthers
-      OutstandingIndexedDBTransaction
       RequestedMIDIPermission
       RequestedAudioCapturePermission
       RequestedVideoCapturePermission
       RequestedBackForwardCacheBlockedSensors
       RequestedBackgroundWorkPermission
       BroadcastChannel
-      IndexedDBConnection
       WebXR
       SharedWorker
       WebLocks
