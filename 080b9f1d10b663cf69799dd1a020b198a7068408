@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e2727b_ee8b6a3b",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T07:47:40Z",
+      "side": 1,
+      "message": "Where is the type used? I think we cannot simply change to array as there must have been a reason of why it is mapped to an object. Could you please investigate and describe how these types are currently used?",
+      "revId": "080b9f1d10b663cf69799dd1a020b198a7068408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
