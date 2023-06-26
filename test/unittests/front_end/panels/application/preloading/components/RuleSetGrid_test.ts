@@ -33,7 +33,9 @@ async function renderRuleSetsGrid(rows: PreloadingComponents.RuleSetGrid.RuleSet
 describeWithEnvironment('RuleSetGrid', async () => {
   it('renders grid with content', async () => {
     const rows = [{
-      id: 'ruleSetId:1',
+      id: 'ruleSetId:0.1',
+      processLocalId: '1',
+      preloads: '1 Not triggered / 0 Pending / 0 Running / 2 Ready / 0 Success / 3 Failure',
       validity: 'Valid',
       location: '<script>',
     }];
@@ -47,8 +49,8 @@ describeWithEnvironment('RuleSetGrid', async () => {
     });
     const bodyRows = getValuesOfAllBodyRows(grid.shadowRoot);
     assert.deepEqual([header, bodyRows], [
-      ['Validity', 'Location'],
-      [['Valid', '<script>']],
+      ['#', 'Validity', 'Location', 'Preloads'],
+      [['1', 'Valid', '<script>', '1 Not triggered / 0 Pending / 0 Running / 2 Ready / 0 Success / 3 Failure']],
     ]);
   });
 });
