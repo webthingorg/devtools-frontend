@@ -128,6 +128,24 @@
       "parentUuid": "a3e2727b_ee8b6a3b",
       "revId": "080b9f1d10b663cf69799dd1a020b198a7068408",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "433da012_d5f96f67",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T11:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cfffe5b_46e51f8b",
+      "revId": "080b9f1d10b663cf69799dd1a020b198a7068408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
