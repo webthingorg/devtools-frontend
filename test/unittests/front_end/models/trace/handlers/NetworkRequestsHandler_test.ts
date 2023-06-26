@@ -227,14 +227,16 @@ describe('NetworkRequestsHandler', function() {
             {
               url: 'http://localhost:3000/foo',
               priority: 'VeryHigh',
-              ts: 1311223447642,
-              dur: 7845,
+              requestMethod: 'GET',
+              ts: TraceModel.Types.Timing.MicroSeconds(1311223447642),
+              dur: TraceModel.Types.Timing.MicroSeconds(7845),
             },
             {
               url: 'http://localhost:3000/bar',
               priority: 'VeryHigh',
-              ts: 1311223455487,
-              dur: 3771,
+              requestMethod: 'GET',
+              ts: TraceModel.Types.Timing.MicroSeconds(1311223455487),
+              dur: TraceModel.Types.Timing.MicroSeconds(3771),
             },
           ],
           'Incorrect number of redirects (request 1)');
