@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "137a0d13_3ec841a0",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T11:03:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4afc8d94_c88bef82",
+      "range": {
+        "startLine": 47,
+        "startChar": 97,
+        "endLine": 47,
+        "endChar": 102
+      },
+      "revId": "080b9f1d10b663cf69799dd1a020b198a7068408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aeb18e9e_f1ef773f",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19344fa8_3c774e64",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T11:03:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb18e9e_f1ef773f",
+      "range": {
+        "startLine": 727,
+        "startChar": 2,
+        "endLine": 727,
+        "endChar": 13
+      },
+      "revId": "080b9f1d10b663cf69799dd1a020b198a7068408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3e2727b_ee8b6a3b",
@@ -60,6 +108,24 @@
       "writtenOn": "2023-06-26T07:47:40Z",
       "side": 1,
       "message": "Where is the type used? I think we cannot simply change to array as there must have been a reason of why it is mapped to an object. Could you please investigate and describe how these types are currently used?",
+      "revId": "080b9f1d10b663cf69799dd1a020b198a7068408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cfffe5b_46e51f8b",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T11:03:23Z",
+      "side": 1,
+      "message": "A check has been added inside the InpectorBackend.ts to make sure that the typeName remains object",
+      "parentUuid": "a3e2727b_ee8b6a3b",
       "revId": "080b9f1d10b663cf69799dd1a020b198a7068408",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

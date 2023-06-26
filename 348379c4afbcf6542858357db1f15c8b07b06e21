@@ -16,6 +16,24 @@
       "message": "we should not need an additional state here: instead we should use the existing parameters property",
       "revId": "348379c4afbcf6542858357db1f15c8b07b06e21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60da02ed_454780c0",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-26T11:03:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40219f71_ee9b1256",
+      "revId": "348379c4afbcf6542858357db1f15c8b07b06e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
