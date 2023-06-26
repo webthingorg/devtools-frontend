@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a396d439_8975cb26",
+        "filename": "front_end/third_party/puppeteer/package/lib/esm/puppeteer/common/Connection.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T07:27:36Z",
+      "side": 1,
+      "message": "This change will be upstreamed into Puppeteer.",
+      "revId": "be4b92d2a3f8c3c54c02a29a7b7d781c74abefd5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
