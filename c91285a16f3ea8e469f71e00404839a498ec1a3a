@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a910290_c209f181",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-26T11:07:59Z",
+      "side": 1,
+      "message": "please separate the title of the CL from its description with a new line:\n\n```\n[Protocol Monitor] Support for array parameters\n\nThis CL adds the ability to edit array parameters in the Protocol Monitor. To do that, this CL modifies code_generator_frontend.py to  report the array as a parameter type. Runtime type checks in InspectorBackendCommands.js are modified to account for the new parameter type.\n```",
+      "revId": "c91285a16f3ea8e469f71e00404839a498ec1a3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
