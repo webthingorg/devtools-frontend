@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "756accc3_61bac725",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-06-26T17:53:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91b752e_3312d191",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 88
+      },
+      "revId": "4b609f93e167d0a318027ff93a5cf18d9d3d1895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e85e639_2993b943",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "932f5ecf_9c0a8ad6",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-06-26T17:53:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e85e639_2993b943",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "4b609f93e167d0a318027ff93a5cf18d9d3d1895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f70ff9e6_621c3343",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-09T21:22:35Z",
       "side": 1,
       "message": "Note that this has to be implemented on the backend at https://source.chromium.org/chromium/chromium/src/+/main:content/browser/devtools/protocol/system_info_handler.cc;l\u003d443",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 100
+      },
+      "revId": "4b609f93e167d0a318027ff93a5cf18d9d3d1895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00058f69_f5df4978",
+        "filename": "front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2023-06-26T17:53:22Z",
+      "side": 1,
+      "message": "Since the feature is defined in [chromium/src/chrome/browser/dips](https://crsrc.org/c/chrome/browser/dips/dips_features.h), I implemented this in [chrome/browser/devtools/protocol/system_info_handler.cc](https://crsrc.org/c/chrome/browser/devtools/protocol/system_info_handler.cc) and used `protocol::Response::FallThrough()` in the case that the passed feature string isn\u0027t handled within that version of `SystemInfoHandler::GetFeatureState()` (in http://go/crvc/4514036).\n\n\nPlease let me know if that was incorrect though.",
+      "parentUuid": "f70ff9e6_621c3343",
       "range": {
         "startLine": 247,
         "startChar": 0,
