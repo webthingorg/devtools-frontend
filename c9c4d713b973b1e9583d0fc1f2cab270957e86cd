@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e744d1e2_aa7c26f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-27T10:45:51Z",
+      "side": 1,
+      "message": "scripts/build and front_end/core lgtm. I\u0027ll leave the component to Alex.",
+      "revId": "c9c4d713b973b1e9583d0fc1f2cab270957e86cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "363fc31e_1393f016",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-27T10:45:51Z",
+      "side": 1,
+      "message": "nit: Remove this comment. It does not add any info.",
+      "range": {
+        "startLine": 229,
+        "startChar": 6,
+        "endLine": 229,
+        "endChar": 61
+      },
+      "revId": "c9c4d713b973b1e9583d0fc1f2cab270957e86cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
