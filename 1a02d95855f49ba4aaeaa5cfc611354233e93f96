@@ -20,6 +20,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e67dccb5_615691fd",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-27T07:33:11Z",
+      "side": 1,
+      "message": "How about we create some interfaces for them?\n\nAnother suggestion for later is type can be a enum",
+      "range": {
+        "startLine": 25,
+        "startChar": 24,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574ba516_3bf12ae3",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-27T07:33:11Z",
+      "side": 1,
+      "message": "```suggestion\n    if (parameter.value \u003d\u003d\u003d undefined) {\n```",
+      "range": {
+        "startLine": 163,
+        "startChar": 8,
+        "endLine": 163,
+        "endChar": 38
+      },
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5ae46a7_ef22bad7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-27T07:33:11Z",
+      "side": 1,
+      "message": "Let\u0027s add a comment why empty string works.\nFor example array of numbers or booleans. Or Array of objects",
+      "range": {
+        "startLine": 167,
+        "startChar": 26,
+        "endLine": 167,
+        "endChar": 31
+      },
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53fc1417_039274a2",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 14
@@ -31,6 +100,24 @@
       "writtenOn": "2023-06-27T06:08:31Z",
       "side": 1,
       "message": "let\u0027s make the helper to accept a single argument called options with the arguments becoming attributes on options (so that the usages of the helper become more readable).",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03ca9105_75eb434d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-27T07:33:11Z",
+      "side": 1,
+      "message": "We can directly use the |Parameter| as argument",
+      "parentUuid": "53fc1417_039274a2",
       "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
