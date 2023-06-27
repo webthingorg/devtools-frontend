@@ -18,6 +18,57 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1035d968_dc564820",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T10:54:11Z",
+      "side": 1,
+      "message": "LGTM % nits \n\nWe will need to iterate more on this and render parameters recursively. Let\u0027s take time to refactor for that next.",
+      "revId": "c9c4d713b973b1e9583d0fc1f2cab270957e86cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f673a1_c2bca940",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T10:54:11Z",
+      "side": 1,
+      "message": "just `onClick\u003dhandleAdd`",
+      "revId": "c9c4d713b973b1e9583d0fc1f2cab270957e86cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29da0046_d518d83b",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T10:54:11Z",
+      "side": 1,
+      "message": "just `@blur\u003d${options.handleBlur}` should work",
+      "revId": "c9c4d713b973b1e9583d0fc1f2cab270957e86cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01e43bc7_937cbb2e",
