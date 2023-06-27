@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6af7ed96_e4658cf7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-27T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e67dccb5_615691fd",
+      "range": {
+        "startLine": 25,
+        "startChar": 24,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "574ba516_3bf12ae3",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34740da4_0b9612ad",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-27T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "574ba516_3bf12ae3",
+      "range": {
+        "startLine": 163,
+        "startChar": 8,
+        "endLine": 163,
+        "endChar": 38
+      },
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5ae46a7_ef22bad7",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-06-27T07:33:11Z",
       "side": 1,
       "message": "Let\u0027s add a comment why empty string works.\nFor example array of numbers or booleans. Or Array of objects",
+      "range": {
+        "startLine": 167,
+        "startChar": 26,
+        "endLine": 167,
+        "endChar": 31
+      },
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d246d2ca_e4ba28b4",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-27T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5ae46a7_ef22bad7",
       "range": {
         "startLine": 167,
         "startChar": 26,
@@ -122,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92863d4d_b16903e9",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-27T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03ca9105_75eb434d",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcea11ff_89672d10",
@@ -135,6 +225,24 @@
       "writtenOn": "2023-06-27T06:08:31Z",
       "side": 1,
       "message": "since you provide a handleDelete we could use its presence to check if smth is deletable:\n\n```\noptions: {\n   handleDelete?: () \u003d\u003e void,\n   handleBlur: (event: Event) \u003d\u003e void,\n   handleAdd?: () \u003d\u003e void,\n}\n```\n\nInstead of checking the type let\u0027s use handleAdd check and check the type when we call the helper.",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeb10a3f_b0b09ecc",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-27T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcea11ff_89672d10",
       "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -156,6 +264,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3f9b28_f739d1ee",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-27T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9be4d437_79ce605d",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "486e76d7_dc71e575",
@@ -169,6 +295,24 @@
       "writtenOn": "2023-06-27T06:08:31Z",
       "side": 1,
       "message": "let\u0027s use lit repeat directly here",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6773c9ca_0a6e7306",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-27T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "486e76d7_dc71e575",
       "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
