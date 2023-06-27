@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01e43bc7_937cbb2e",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T10:49:06Z",
+      "side": 1,
+      "message": "is it possible to improve these two lines? I am not sure why we need to call JSONEditor and then forward the data to editorWidget only to check results on the jsonEditor component. I think the  editorWidget can be removed from the test.",
+      "revId": "c9c4d713b973b1e9583d0fc1f2cab270957e86cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "363fc31e_1393f016",
         "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
         "patchSetId": 15
