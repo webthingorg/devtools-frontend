@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e788f7f9_721dc567",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-06-27T12:07:07Z",
+      "side": 1,
+      "message": "Maybe we do not add this one just yet.",
+      "range": {
+        "startLine": 154,
+        "startChar": 28,
+        "endLine": 154,
+        "endChar": 33
+      },
+      "revId": "b6da8403f6d972763ad7d126c473a4ce94dcaee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b8023b7_f04b5096",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-06-27T12:07:07Z",
+      "side": 1,
+      "message": "Maybe we do not add this one just yet.",
+      "range": {
+        "startLine": 172,
+        "startChar": 19,
+        "endLine": 172,
+        "endChar": 26
+      },
+      "revId": "b6da8403f6d972763ad7d126c473a4ce94dcaee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c61152_85c4ca5e",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-06-27T12:07:07Z",
+      "side": 1,
+      "message": "Pls make these includable only.",
+      "range": {
+        "startLine": 242,
+        "startChar": 8,
+        "endLine": 243,
+        "endChar": 56
+      },
+      "revId": "b6da8403f6d972763ad7d126c473a4ce94dcaee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
