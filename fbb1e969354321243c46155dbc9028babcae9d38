@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5f22748_c8ecb244",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1340064
+      },
+      "writtenOn": "2023-06-27T08:16:01Z",
+      "side": 1,
+      "message": "+1 on behalf of Chrome security",
+      "revId": "fbb1e969354321243c46155dbc9028babcae9d38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
