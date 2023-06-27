@@ -22,6 +22,30 @@
       },
       "revId": "5f7ff10a02d17d6c8668c57d9f91eb34d640fab1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "372294af_cdf6df8f",
+        "filename": "front_end/ui/components/render_coordinator/RenderCoordinator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-27T07:29:41Z",
+      "side": 1,
+      "message": "It was originally introduced for logging and there are API knobs like `observeOnlyNamed` referring to the label as well. I\u0027d rather keep as it.",
+      "parentUuid": "016048e4_b1480b60",
+      "range": {
+        "startLine": 121,
+        "startChar": 32,
+        "endLine": 121,
+        "endChar": 37
+      },
+      "revId": "5f7ff10a02d17d6c8668c57d9f91eb34d640fab1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
