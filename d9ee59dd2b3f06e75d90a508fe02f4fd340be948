@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7933cae0_65862678",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-27T07:21:53Z",
+      "side": 1,
+      "message": "value \u003d LitHtml.html`\n      \u003c${RequestLinkIcon.RequestLinkIcon.RequestLinkIcon.litTagName}\n        .data\u003d${{\n          affectedRequest: {requestId, url: attempt.key.url},\n          requestResolver: new Logs.RequestResolver.RequestResolver(),\n          displayURL: true,\n        } as RequestLinkIcon.RequestLinkIcon.RequestLinkIconData\u003e\n      \u003c/${RequestLinkIcon.RequestLinkIcon.RequestLinkIcon.litTagName}\u003e`;",
+      "range": {
+        "startLine": 674,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 27
+      },
+      "revId": "d9ee59dd2b3f06e75d90a508fe02f4fd340be948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
