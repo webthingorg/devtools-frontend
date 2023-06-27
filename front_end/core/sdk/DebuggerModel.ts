@@ -32,23 +32,21 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
+import * as Protocol from '../../generated/protocol.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
-import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import * as Protocol from '../../generated/protocol.js';
 
-import {ScopeRef, type GetPropertiesResult, type RemoteObject} from './RemoteObject.js';
+import {type GetPropertiesResult, type RemoteObject, ScopeRef} from './RemoteObject.js';
 import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
-
-import {RuntimeModel, type EvaluationOptions, type EvaluationResult, type ExecutionContext} from './RuntimeModel.js';
+import {type EvaluationOptions, type EvaluationResult, type ExecutionContext, RuntimeModel} from './RuntimeModel.js';
 import {Script} from './Script.js';
-
-import {Capability, Type, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {SourceMapManager} from './SourceMapManager.js';
+import {Capability, type Target, Type} from './Target.js';
 
 const UIStrings = {
   /**
@@ -704,7 +702,9 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     }
 
     if (script.sourceMapURL && !hasSyntaxError) {
-      this.#sourceMapManagerInternal.attachSourceMap(script, script.sourceURL, script.sourceMapURL);
+      this.#sourceMapManagerInternal.attachSourceMap(
+          script, script.sourceURL, script.sourceMapURL,
+          script.isContentScript() ? script.executionContext()?.name : undefined);
     }
 
     const isDiscardable = hasSyntaxError && script.isAnonymousScript();
@@ -719,7 +719,9 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     // Detach any previous source map from the `script` first.
     this.#sourceMapManagerInternal.detachSourceMap(script);
     script.sourceMapURL = newSourceMapURL;
-    this.#sourceMapManagerInternal.attachSourceMap(script, script.sourceURL, script.sourceMapURL);
+    this.#sourceMapManagerInternal.attachSourceMap(
+        script, script.sourceURL, script.sourceMapURL,
+        script.isContentScript() ? script.executionContext.name : undefined);
   }
 
   async setDebugInfoURL(script: Script, _externalURL: Platform.DevToolsPath.UrlString): Promise<void> {

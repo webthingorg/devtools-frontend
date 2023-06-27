@@ -51,7 +51,7 @@ describeWithMockConnection('SourceMapManager', () => {
         debuggerModel, '1' as Protocol.Runtime.ScriptId, scriptUrl, 0, 0, 0, 0, 0, '', false, false, sourceMapUrl,
         false, 0, null, null, null, null, null, null);
 
-    sourceMapManager.attachSourceMap(script, sourceUrl, sourceMapUrl);
+    sourceMapManager.attachSourceMap(script, sourceUrl, sourceMapUrl, undefined);
 
     const sourceMap = await sourceMapManager.sourceMapForClientPromise(script);
     // Check that the URLs are resolved relative to the frame.
@@ -85,7 +85,7 @@ describeWithMockConnection('SourceMapManager', () => {
         debuggerModel, '1' as Protocol.Runtime.ScriptId, scriptUrl, 0, 0, 0, 0, 0, '', false, false, sourceMapUrl,
         false, 0, null, null, null, null, null, null);
 
-    sourceMapManager.attachSourceMap(script, sourceUrl, sourceMapUrl);
+    sourceMapManager.attachSourceMap(script, sourceUrl, sourceMapUrl, undefined);
 
     const sourceMap = await sourceMapManager.sourceMapForClientPromise(script);
     assert.deepEqual(sourceMap?.sourceURLs(), ['/original-script.js' as Platform.DevToolsPath.UrlString]);
@@ -127,8 +127,8 @@ describe('SourceMapManager', () => {
       const sourceMapManager = new SDK.SourceMapManager.SourceMapManager(target);
       const client = new MockClient(target);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({content});
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
-      assert.throws(() => sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL));
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
+      assert.throws(() => sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined));
       await sourceMapManager.sourceMapForClientPromise(client);
     });
 
@@ -141,7 +141,7 @@ describe('SourceMapManager', () => {
       const sourceMapAttached = sinon.spy();
       sourceMapManager.addEventListener(SDK.SourceMapManager.Events.SourceMapAttached, sourceMapAttached);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({content});
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       assert.strictEqual(sourceMapWillAttach.callCount, 1, 'SourceMapWillAttach events');
       assert.isTrue(sourceMapWillAttach.calledWith(sinon.match.hasNested('data.client', client)));
       const sourceMap = await sourceMapManager.sourceMapForClientPromise(client);
@@ -160,7 +160,7 @@ describe('SourceMapManager', () => {
       const sourceMapFailedToAttach = sinon.spy();
       sourceMapManager.addEventListener(SDK.SourceMapManager.Events.SourceMapFailedToAttach, sourceMapFailedToAttach);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').rejects('Error');
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       assert.strictEqual(sourceMapWillAttach.callCount, 1, 'SourceMapWillAttach events');
       assert.isTrue(sourceMapWillAttach.calledWith(sinon.match.hasNested('data.client', client)));
       await sourceMapManager.sourceMapForClientPromise(client);
@@ -178,10 +178,10 @@ describe('SourceMapManager', () => {
       const sourceMapFailedToAttach = sinon.spy();
       sourceMapManager.addEventListener(SDK.SourceMapManager.Events.SourceMapFailedToAttach, sourceMapFailedToAttach);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({content});
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       sourceMapManager.detachSourceMap(client);
       assert.isTrue(sourceMapFailedToAttach.calledWith(sinon.match.hasNested('data.client', client)));
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       await sourceMapManager.sourceMapForClientPromise(client);
       assert.strictEqual(sourceMapAttached.callCount, 1, 'SourceMapAttached events');
       assert.isTrue(sourceMapAttached.calledWith(sinon.match.hasNested('data.client', client)));
@@ -194,8 +194,8 @@ describe('SourceMapManager', () => {
       const client1 = new MockClient(target);
       const client2 = new MockClient(target);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({content});
-      sourceMapManager.attachSourceMap(client1, sourceURL, sourceMappingURL);
-      sourceMapManager.attachSourceMap(client2, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client1, sourceURL, sourceMappingURL, undefined);
+      sourceMapManager.attachSourceMap(client2, sourceURL, sourceMappingURL, undefined);
       const [sourceMap1, sourceMap2] = await Promise.all([
         sourceMapManager.sourceMapForClientPromise(client1),
         sourceMapManager.sourceMapForClientPromise(client2),
@@ -209,7 +209,7 @@ describe('SourceMapManager', () => {
       sourceMapManager.setEnabled(false);
       const client = new MockClient(target);
       const loadResource = sinon.spy(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource');
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       assert.strictEqual(loadResource.callCount, 0, 'loadResource calls');
       assert.isUndefined(sourceMapManager.sourceMapForClient(client));
       assert.isUndefined(await sourceMapManager.sourceMapForClientPromise(client));
@@ -234,7 +234,7 @@ describe('SourceMapManager', () => {
       const sourceMapDetached = sinon.spy();
       sourceMapManager.addEventListener(SDK.SourceMapManager.Events.SourceMapDetached, sourceMapDetached);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({content});
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       const sourceMap = await sourceMapManager.sourceMapForClientPromise(client);
       sourceMapManager.detachSourceMap(client);
       assert.strictEqual(sourceMapDetached.callCount, 1, 'SourceMapDetached events');
@@ -247,7 +247,7 @@ describe('SourceMapManager', () => {
       const sourceMapManager = new SDK.SourceMapManager.SourceMapManager(target);
       const client = new MockClient(target);
       sourceMapManager.setEnabled(false);
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       const sourceMapFailedToAttach = sinon.spy();
       sourceMapManager.addEventListener(SDK.SourceMapManager.Events.SourceMapFailedToAttach, sourceMapFailedToAttach);
       const sourceMapDetached = sinon.spy();
@@ -266,7 +266,7 @@ describe('SourceMapManager', () => {
       const sourceMapManager = new SDK.SourceMapManager.SourceMapManager(target);
       const client = new MockClient(target);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').returns(new Promise(() => {}));
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       const sourceMapFailedToAttach = sinon.spy();
       sourceMapManager.addEventListener(SDK.SourceMapManager.Events.SourceMapFailedToAttach, sourceMapFailedToAttach);
 
@@ -281,7 +281,7 @@ describe('SourceMapManager', () => {
       const sourceMapManager = new SDK.SourceMapManager.SourceMapManager(target);
       const client = new MockClient(target);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({content});
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       const sourceMap = await sourceMapManager.sourceMapForClientPromise(client);
       const sourceMapDetached = sinon.spy();
       sourceMapManager.addEventListener(SDK.SourceMapManager.Events.SourceMapDetached, sourceMapDetached);
@@ -298,7 +298,7 @@ describe('SourceMapManager', () => {
       const sourceMapManager = new SDK.SourceMapManager.SourceMapManager(target);
       const client = new MockClient(target);
       sinon.stub(SDK.PageResourceLoader.PageResourceLoader.instance(), 'loadResource').resolves({content});
-      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL);
+      sourceMapManager.attachSourceMap(client, sourceURL, sourceMappingURL, undefined);
       await sourceMapManager.sourceMapForClientPromise(client);
       sourceMapManager.setEnabled(false);
       const sourceMapDetached = sinon.spy();

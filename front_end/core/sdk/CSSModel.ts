@@ -32,12 +32,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import * as Platform from '../platform/platform.js';
-import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import type * as Protocol from '../../generated/protocol.js';
 
 import {CSSFontFace} from './CSSFontFace.js';
 import {CSSMatchedStyles} from './CSSMatchedStyles.js';
@@ -45,19 +45,16 @@ import {CSSMedia} from './CSSMedia.js';
 import {CSSStyleRule} from './CSSRule.js';
 import {CSSStyleDeclaration, Type} from './CSSStyleDeclaration.js';
 import {CSSStyleSheetHeader} from './CSSStyleSheetHeader.js';
-
 import {DOMModel, type DOMNode} from './DOMModel.js';
-
 import {
   Events as ResourceTreeModelEvents,
-  ResourceTreeModel,
-  type ResourceTreeFrame,
   type PrimaryPageChangeType,
+  type ResourceTreeFrame,
+  ResourceTreeModel,
 } from './ResourceTreeModel.js';
-
-import {Capability, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
 import {SourceMapManager} from './SourceMapManager.js';
+import {Capability, type Target} from './Target.js';
 
 export class CSSModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.CSSApi;
@@ -627,7 +624,8 @@ export class CSSModel extends SDKModel<EventTypes> {
       }
       styleSheetIds.add(styleSheetHeader.id);
     }
-    this.#sourceMapManager.attachSourceMap(styleSheetHeader, styleSheetHeader.sourceURL, styleSheetHeader.sourceMapURL);
+    this.#sourceMapManager.attachSourceMap(
+        styleSheetHeader, styleSheetHeader.sourceURL, styleSheetHeader.sourceMapURL, undefined);
     this.dispatchEventToListeners(Events.StyleSheetAdded, styleSheetHeader);
   }
 
@@ -689,7 +687,7 @@ export class CSSModel extends SDKModel<EventTypes> {
 
     this.#sourceMapManager.detachSourceMap(header);
     header.setSourceMapURL(sourceMapURL);
-    this.#sourceMapManager.attachSourceMap(header, header.sourceURL, header.sourceMapURL);
+    this.#sourceMapManager.attachSourceMap(header, header.sourceURL, header.sourceMapURL, undefined);
     if (sourceMapURL === null) {
       return 'Error in CSS.setStyleSheetText';
     }
