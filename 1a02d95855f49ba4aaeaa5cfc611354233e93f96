@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e07ce6b5_b2dc78cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T06:08:31Z",
+      "side": 1,
+      "message": "Looks pretty great! A few final comments",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53fc1417_039274a2",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T06:08:31Z",
+      "side": 1,
+      "message": "let\u0027s make the helper to accept a single argument called options with the arguments becoming attributes on options (so that the usages of the helper become more readable).",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcea11ff_89672d10",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T06:08:31Z",
+      "side": 1,
+      "message": "since you provide a handleDelete we could use its presence to check if smth is deletable:\n\n```\noptions: {\n   handleDelete?: () \u003d\u003e void,\n   handleBlur: (event: Event) \u003d\u003e void,\n   handleAdd?: () \u003d\u003e void,\n}\n```\n\nInstead of checking the type let\u0027s use handleAdd check and check the type when we call the helper.",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9be4d437_79ce605d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T06:08:31Z",
+      "side": 1,
+      "message": "no need to create an intermediate function I think: onClick: handleDelete",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486e76d7_dc71e575",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-27T06:08:31Z",
+      "side": 1,
+      "message": "let\u0027s use lit repeat directly here",
+      "revId": "1a02d95855f49ba4aaeaa5cfc611354233e93f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
