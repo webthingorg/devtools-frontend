@@ -7416,7 +7416,7 @@
     },
     {
       name: "view-timeline",
-      longhands: ["view-timeline-name", "view-timeline-axis", "view-timeline-attachment"],
+      longhands: ["scroll-timeline-name", "scroll-timeline-axis", "scroll-timeline-attachment"],
       property_methods: ["ParseShorthand", "CSSValueFromComputedStyleInternal"],
       runtime_flag: "ScrollTimeline",
     },

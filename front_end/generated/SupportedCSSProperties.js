@@ -3610,9 +3610,9 @@ export const generatedProperties = [
  },
  {
   "longhands": [
-   "view-timeline-name",
-   "view-timeline-axis",
-   "view-timeline-attachment"
+   "scroll-timeline-name",
+   "scroll-timeline-axis",
+   "scroll-timeline-attachment"
   ],
   "name": "view-timeline"
  },

@@ -14475,6 +14475,80 @@
             ]
         },
         {
+            "domain": "OriginPrivateFileSystem",
+            "experimental": true,
+            "dependencies": [
+                "Runtime"
+            ],
+            "types": [
+                {
+                    "id": "Directory",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "Directory name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Directories",
+                            "description": "Directories nested directly in the given directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Directory"
+                            }
+                        },
+                        {
+                            "name": "files",
+                            "description": "Files nested directly in this directory.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "File"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "File",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "name",
+                            "description": "File name.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "lastModified",
+                            "description": "Last modified date.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "size",
+                            "description": "The size of the file in bytes.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "mimeType",
+                            "description": "The mime type of the file.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ],
+            "commands": [
+                {
+                    "name": "populateListWithMockData",
+                    "parameters": [
+                        {
+                            "name": "storageKey",
+                            "description": "Storage key.",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "domain": "Overlay",
             "description": "This domain provides various functionality related to drawing atop the inspected page.",
             "experimental": true,

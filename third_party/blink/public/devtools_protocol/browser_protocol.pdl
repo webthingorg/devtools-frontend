@@ -6750,6 +6750,34 @@ domain Network
     returns
       LoadNetworkResourcePageResult resource
 
+experimental domain OriginPrivateFileSystem
+  depends on Runtime
+
+  type Directory extends object
+    properties
+      # Directory name.
+      string name
+      # Directories nested directly in the given directory.
+      array of Directory Directories
+      # Files nested directly in this directory.
+      array of File files
+
+  type File extends object
+    properties
+      # File name.
+      string name
+      # Last modified date.
+      number lastModified
+      # The size of the file in bytes.
+      number size
+      # The mime type of the file.
+      string mimeType
+
+  command populateListWithMockData
+    parameters
+      # Storage key.
+      string storageKey
+
 # This domain provides various functionality related to drawing atop the inspected page.
 experimental domain Overlay
   depends on DOM

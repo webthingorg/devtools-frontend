@@ -519,6 +519,9 @@ inspectorBackend.registerCommand("Network.getSecurityIsolationStatus", [{"name":
 inspectorBackend.registerCommand("Network.enableReportingApi", [{"name": "enable", "type": "boolean", "optional": false}], []);
 inspectorBackend.registerCommand("Network.loadNetworkResource", [{"name": "frameId", "type": "string", "optional": true}, {"name": "url", "type": "string", "optional": false}, {"name": "options", "type": "object", "optional": false}], ["resource"]);
 
+// OriginPrivateFileSystem.
+inspectorBackend.registerCommand("OriginPrivateFileSystem.populateListWithMockData", [{"name": "storageKey", "type": "string", "optional": false}], []);
+
 // Overlay.
 inspectorBackend.registerEnum("Overlay.LineStylePattern", {Dashed: "dashed", Dotted: "dotted"});
 inspectorBackend.registerEnum("Overlay.ContrastAlgorithm", {Aa: "aa", Aaa: "aaa", Apca: "apca"});

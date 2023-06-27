@@ -2742,6 +2742,10 @@ export namespace ProtocolMapping {
       paramsType: [Protocol.Network.LoadNetworkResourceRequest];
       returnType: Protocol.Network.LoadNetworkResourceResponse;
     };
+    'OriginPrivateFileSystem.populateListWithMockData': {
+      paramsType: [Protocol.OriginPrivateFileSystem.PopulateListWithMockDataRequest];
+      returnType: void;
+    };
     /**
      * Disables domain notifications.
      */

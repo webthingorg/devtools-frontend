@@ -9800,6 +9800,50 @@ export namespace Network {
   }
 }
 
+export namespace OriginPrivateFileSystem {
+
+  export interface Directory {
+    /**
+     * Directory name.
+     */
+    name: string;
+    /**
+     * Directories nested directly in the given directory.
+     */
+    Directories: Directory[];
+    /**
+     * Files nested directly in this directory.
+     */
+    files: File[];
+  }
+
+  export interface File {
+    /**
+     * File name.
+     */
+    name: string;
+    /**
+     * Last modified date.
+     */
+    lastModified: number;
+    /**
+     * The size of the file in bytes.
+     */
+    size: number;
+    /**
+     * The mime type of the file.
+     */
+    mimeType: string;
+  }
+
+  export interface PopulateListWithMockDataRequest {
+    /**
+     * Storage key.
+     */
+    storageKey: string;
+  }
+}
+
 /**
  * This domain provides various functionality related to drawing atop the inspected page.
  */

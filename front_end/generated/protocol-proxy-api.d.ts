@@ -70,6 +70,8 @@ declare namespace ProtocolProxyApi {
 
     Network: NetworkApi;
 
+    OriginPrivateFileSystem: OriginPrivateFileSystemApi;
+
     Overlay: OverlayApi;
 
     Page: PageApi;
@@ -170,6 +172,8 @@ declare namespace ProtocolProxyApi {
     Memory: MemoryDispatcher;
 
     Network: NetworkDispatcher;
+
+    OriginPrivateFileSystem: OriginPrivateFileSystemDispatcher;
 
     Overlay: OverlayDispatcher;
 
@@ -2171,6 +2175,13 @@ declare namespace ProtocolProxyApi {
 
     reportingApiEndpointsChangedForOrigin(params: Protocol.Network.ReportingApiEndpointsChangedForOriginEvent): void;
 
+  }
+
+  export interface OriginPrivateFileSystemApi {
+    invoke_populateListWithMockData(params: Protocol.OriginPrivateFileSystem.PopulateListWithMockDataRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+  }
+  export interface OriginPrivateFileSystemDispatcher {
   }
 
   export interface OverlayApi {

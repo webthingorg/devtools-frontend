@@ -58,6 +58,7 @@ import {
 import {PreloadingTreeElement} from './PreloadingTreeElement.js';
 import resourcesSidebarStyles from './resourcesSidebar.css.js';
 import {ServiceWorkerCacheTreeElement} from './ServiceWorkerCacheTreeElement.js';
+import {TestTreeElement} from './TestTreeElement.js';
 
 import {DatabaseModel, Events as DatabaseModelEvents, type Database as DatabaseModelDatabase} from './DatabaseModel.js';
 import {DatabaseQueryView, Events as DatabaseQueryViewEvents} from './DatabaseQueryView.js';
@@ -265,6 +266,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   backgroundSyncTreeElement: BackgroundServiceTreeElement;
   bounceTrackingMitigationsTreeElement: BounceTrackingMitigationsTreeElement;
   notificationsTreeElement: BackgroundServiceTreeElement;
+  testTreeElement: TestTreeElement;
   paymentHandlerTreeElement: BackgroundServiceTreeElement;
   periodicBackgroundSyncTreeElement: BackgroundServiceTreeElement;
   pushMessagingTreeElement: BackgroundServiceTreeElement;
@@ -372,6 +374,10 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.cacheStorageListTreeElement = new ServiceWorkerCacheTreeElement(panel);
     storageTreeElement.appendChild(this.cacheStorageListTreeElement);
+
+    this.testTreeElement = new TestTreeElement(panel);
+    this.testTreeElement.setLeadingIcons([databaseIcon]);
+    storageTreeElement.appendChild(this.testTreeElement);
 
     const backgroundServiceSectionTitle = i18nString(UIStrings.backgroundServices);
     const backgroundServiceTreeElement = this.addSidebarSection(backgroundServiceSectionTitle);
@@ -494,6 +500,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     }
 
     this.target = target;
+    this.testTreeElement.initialize(this.target);
 
     this.databaseModel = target.model(DatabaseModel);
     if (this.databaseModel) {
