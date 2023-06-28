@@ -6,7 +6,7 @@ import * as Platform from '../../../core/platform/platform.js';
 import * as Helpers from '../helpers/helpers.js';
 import * as Types from '../types/types.js';
 import type * as Protocol from '../../../generated/protocol.js';
-
+import type * as SDK from '../../../core/sdk/sdk.js';
 import {HandlerState, EventCategory, KNOWN_EVENTS, type KnownEventName} from './types.js';
 
 /*
@@ -62,7 +62,7 @@ const profiles = new Map<Types.TraceEvents.ProfileID, Partial<SamplesProfile>>()
 const processes = new Map<Types.TraceEvents.ProcessID, SamplesProcess>();
 
 const profilesInProcess =
-    new Map<Types.TraceEvents.ProcessID, Map<Types.TraceEvents.ProfileID, Protocol.Profiler.Profile>>();
+    new Map<Types.TraceEvents.ProcessID, Map<Types.TraceEvents.ProfileID, SDK.CPUProfileDataModel.ExtendedProfile>>();
 
 let handlerState = HandlerState.UNINITIALIZED;
 
@@ -178,9 +178,11 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     const samples = nodesAndSamples?.samples || [];
     const nodes = nodesAndSamples?.nodes || [];
     const timeDeltas = event.args.data?.timeDeltas || [];
+    const lines = event.args.data?.lines || Array(samples.length).fill(0);
     cdpProfile.nodes.push(...nodes);
     cdpProfile.samples?.push(...samples);
     cdpProfile.timeDeltas?.push(...timeDeltas);
+    cdpProfile.lines?.push(...lines);
 
     if (cdpProfile.samples && cdpProfile.timeDeltas && cdpProfile.samples.length !== cdpProfile.timeDeltas.length) {
       console.error('Failed to parse CPU profile.');

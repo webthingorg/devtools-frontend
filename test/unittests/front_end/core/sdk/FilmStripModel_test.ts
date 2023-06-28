@@ -9,7 +9,7 @@ import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import {allModelsFromFile} from '../../helpers/TraceHelpers.js';
 
 describeWithEnvironment('FilmStripModel', () => {
-  it('parses out frames from a trace', async () => {
+  it('parses out frames from a trace', async function() {
     const {tracingModel} = await allModelsFromFile('web-dev.json.gz');
     const filmStrip = new SDK.FilmStripModel.FilmStripModel(tracingModel);
     assert.strictEqual(filmStrip.frames().length, 5);
