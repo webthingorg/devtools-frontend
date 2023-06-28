@@ -16,6 +16,24 @@
       "message": "Hi Danil, this is my naive approach to fix the missing initial update.\n\nAs for test: One complication here is that the update is async and there does not seem to be a good way to wait until it\u0027s finished (other than some busy microtask pumping). Any ideas how to test that the initial update was done?",
       "revId": "57c6e4d910bfb9637e99436089b72e8fc9b4d4c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "338d1409_39a09da0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-28T21:58:37Z",
+      "side": 1,
+      "message": "Won\u0027t `await coordinator.done({waitForWork: true})` suffice?",
+      "parentUuid": "2f3c237f_712b4cad",
+      "revId": "57c6e4d910bfb9637e99436089b72e8fc9b4d4c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
