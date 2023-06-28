@@ -16,6 +16,24 @@
       "message": "+kenoss Would you mind taking a look?",
       "revId": "c7e262ddd48d00ae4d8f1d53112846ca6afedda0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a024fd29_34f741f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-28T16:55:11Z",
+      "side": 1,
+      "message": "This should fail.\n\n```\n$ autoninja -C out/Default                                                                   (...snip...)\nTypeScript compilation failed. Used tsconfig gen/front_end/models/issues_manager/issues_manager-tsconfig.json\n\n../../front_end/models/issues_manager/CorsIssue.ts(49,67): error TS2366: Function lacks ending return statement and return type does not include \u0027undefined\u0027.\n```\n\nAnd I\u0027m not a frontend owner, sorry.",
+      "parentUuid": "61bb7055_3cd243b0",
+      "revId": "c7e262ddd48d00ae4d8f1d53112846ca6afedda0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
