@@ -155,6 +155,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74855e56_49e13231",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-28T16:28:00Z",
+      "side": 1,
+      "message": "I would still cut the `limited DevTools` part with the same arguments as above, and because to mit it makes it sound more fatal than the original phrasing.",
+      "parentUuid": "e51233e6_5532acfe",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94f9cba_bf29a9b9",
         "filename": "front_end/core/sdk/SourceMapManager.ts",
         "patchSetId": 1
