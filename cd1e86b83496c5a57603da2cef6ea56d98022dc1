@@ -119,6 +119,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebaaf30e_8f4afa64",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-06-28T15:52:17Z",
+      "side": 1,
+      "message": "Shorter isn\u0027t better if it\u0027s confusing. As I understand it, users didn\u0027t get not only if their code was affected or not, but also they wanted to know how to get rid of the warning. I suppose it\u0027s better if we explain what broke and that it\u0027s not a fatality. We don\u0027t want users turning off source maps (as suggested at SO) because they don\u0027t know what they\u0027re for and, therefore, they don\u0027t care.\n\nThinking about a better edit.",
+      "parentUuid": "2c24a178_41c645cf",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94f9cba_bf29a9b9",
         "filename": "front_end/core/sdk/SourceMapManager.ts",
         "patchSetId": 1
