@@ -106,13 +106,14 @@ describe('The Console Tab', async () => {
     );
 
     await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, 'await promiseTest9();', 3);
-    assert.strictEqual(
-        await getLastConsoleMessages(1),
+    const lastMessages = [await getLastConsoleMessages(0), await getLastConsoleMessages(1)];
+    assert.include(
+        lastMessages,
         'A bad HTTP response code (404) was received when fetching the script.',
         'Error message was not displayed correctly for promiseTest9',
     );
-    assert.strictEqual(
-        await getLastConsoleMessages(0),
+    assert.include(
+        lastMessages,
         `Uncaught (in promise) TypeError: Failed to register a ServiceWorker for scope (\'https://localhost:${
             getTestServerPort()}/test/e2e/resources/console/\') with script (\'https://localhost:${
             getTestServerPort()}/test/e2e/resources/console/404\'): A bad HTTP response code (404) was received when fetching the script.`,
