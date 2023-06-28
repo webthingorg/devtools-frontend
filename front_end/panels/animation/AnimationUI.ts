@@ -385,7 +385,12 @@ export class AnimationUI {
     this.#keyframeMoved = keyframeIndex;
     this.#downMouseX = mouseEvent.clientX;
     event.consume(true);
-    if (this.#node) {
+
+    const viewManagerInstance = UI.ViewManager.ViewManager.instance();
+
+    const animationLocation = viewManagerInstance.locationNameForViewId('animations');
+    const elementsLocation = viewManagerInstance.locationNameForViewId('elements');
+    if (this.#node && animationLocation !== elementsLocation) {
       void Common.Revealer.reveal(this.#node);
     }
     return true;
