@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba0aaa6_9b3269d4",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-28T08:16:29Z",
+      "side": 1,
+      "message": "Acknowledged, moved to includable only",
+      "parentUuid": "e788f7f9_721dc567",
+      "range": {
+        "startLine": 154,
+        "startChar": 28,
+        "endLine": 154,
+        "endChar": 33
+      },
+      "revId": "b6da8403f6d972763ad7d126c473a4ce94dcaee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b8023b7_f04b5096",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1db131c0_8e680476",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-28T08:16:29Z",
+      "side": 1,
+      "message": "Acknowledged, moved to includable only",
+      "parentUuid": "4b8023b7_f04b5096",
+      "range": {
+        "startLine": 172,
+        "startChar": 19,
+        "endLine": 172,
+        "endChar": 26
+      },
+      "revId": "b6da8403f6d972763ad7d126c473a4ce94dcaee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0c61152_85c4ca5e",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-27T12:07:07Z",
       "side": 1,
       "message": "Pls make these includable only.",
+      "range": {
+        "startLine": 242,
+        "startChar": 8,
+        "endLine": 243,
+        "endChar": 56
+      },
+      "revId": "b6da8403f6d972763ad7d126c473a4ce94dcaee9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "657e3ac0_3f12de5c",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-28T08:16:29Z",
+      "side": 1,
+      "message": "moved to includable only",
+      "parentUuid": "b0c61152_85c4ca5e",
       "range": {
         "startLine": 242,
         "startChar": 8,
