@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe816dfe_404c0b20",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-28T04:21:12Z",
+      "side": 1,
+      "message": "Do you know why we check that start location and end location point to the same script? Can that ever not be the case?",
+      "range": {
+        "startLine": 63,
+        "startChar": 41,
+        "endLine": 63,
+        "endChar": 80
+      },
+      "revId": "48d89cce781fa057c452ccd4d957e8651e4303e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

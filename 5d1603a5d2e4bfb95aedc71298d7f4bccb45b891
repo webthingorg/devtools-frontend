@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2daac779_cf64c143",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-28T04:21:12Z",
+      "side": 0,
+      "message": "Not gonna lie, removing this codes feels good 🎉",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "5d1603a5d2e4bfb95aedc71298d7f4bccb45b891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
