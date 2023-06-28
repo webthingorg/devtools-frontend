@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ffee879_8e0c9a45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-28T11:19:36Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a1c2877653828118e927e9c4fc1e9f56224b4356",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51f5ec18_fa8fa863",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-06-28T10:26:14Z",
       "side": 1,
       "message": "these tests are mostly duplicated, but once I remove the old film strip they will half again and not be dupes, so I figured the duplication was OK for now.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 55
+      },
+      "revId": "a1c2877653828118e927e9c4fc1e9f56224b4356",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eebe12fe_2a101a29",
+        "filename": "test/unittests/front_end/ui/legacy/components/perf_ui/FilmStripView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-28T11:19:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "51f5ec18_fa8fa863",
       "range": {
         "startLine": 209,
         "startChar": 0,
