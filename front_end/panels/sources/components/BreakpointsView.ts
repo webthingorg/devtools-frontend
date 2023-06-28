@@ -536,6 +536,7 @@ export class BreakpointsView extends LegacyWrapper.LegacyWrapper.WrappableCompon
   constructor() {
     super();
     this.#controller = BreakpointsSidebarController.instance();
+    void this.#controller.update();
   }
 
   static readonly litTagName = LitHtml.literal`devtools-breakpoint-view`;
