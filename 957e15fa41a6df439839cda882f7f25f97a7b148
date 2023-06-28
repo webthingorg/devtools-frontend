@@ -16,6 +16,29 @@
       "message": "Could you have a look?",
       "revId": "957e15fa41a6df439839cda882f7f25f97a7b148",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d790a0e_dc04b161",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-06-28T21:45:29Z",
+      "side": 1,
+      "message": "Use an enum instead?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 100
+      },
+      "revId": "957e15fa41a6df439839cda882f7f25f97a7b148",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
