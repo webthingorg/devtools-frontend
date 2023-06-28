@@ -213,6 +213,119 @@
   --color-turqoise-bright: rgb(0 152 196);
   --color-yellow: rgb(121 89 0);
   --color-yellow-bright: rgb(186 130 14);
+
+  /* Chrome Desktop Design System */
+
+  /* Use on all surfaces */
+
+  --sys-color-on-surface: var(--ref-palette-neutral10);
+  --sys-color-on-surface-subtle: var(--ref-palette-neutral30);
+  --sys-color-on-surface-secondary: var(--ref-palette-neutral30);
+  --sys-color-on-surface-primary: var(--ref-palette-primary10);
+
+  /* Universal surfaces */
+
+  --sys-color-surface: var(--ref-palette-neutral100);
+  --sys-color-surface-variant: var(--ref-palette-neutral-variant90);
+
+  /* Containers */
+
+  --sys-color-tonal-container: var(--ref-palette-primary90);
+  --sys-color-on-tonal-container: var(--ref-palette-primary10);
+  --sys-color-tertiary-container: var(--ref-palette-tertiary90);
+  --sys-color-on-tertiary-container: var(--ref-palette-tertiary10);
+  --sys-color-error-container: var(--ref-palette-error90);
+  --sys-color-on-error-container: var(--ref-palette-error10);
+  --sys-color-neutral-container: var(--ref-palette-neutral95);
+  --sys-color-omnibox-container: var(--sys-color-surface4);
+
+  /* Prominent accent colors */
+
+  --sys-color-primary: var(--ref-palette-primary40);
+  --sys-color-on-primary: var(--ref-palette-primary100);
+  --sys-color-secondary: var(--ref-palette-secondary40);
+  --sys-color-on-secondary: var(--ref-palette-secondary100);
+  --sys-color-tertiary: var(--ref-palette-tertiary40);
+  --sys-color-on-tertiary: var(--ref-palette-tertiary100);
+  --sys-color-error: var(--ref-palette-error40);
+  --sys-color-on-error: var(--ref-palette-error100);
+
+  /* Chrome base surface */
+
+  --sys-color-base: var(--ref-palette-neutral100);
+  --sys-color-base-container: var(--sys-color-surface4);
+  --sys-color-base-container-elevated: var(--ref-palette-neutral100);
+
+  /* Corresponding base on colors */
+
+  --sys-color-on-base: var(--ref-palette-neutral10);
+  --sys-color-on-base-divider: var(--ref-palette-primary90);
+
+  /* Inverse */
+
+  --sys-color-inverse-surface: var(--ref-palette-neutral20);
+  --sys-color-inverse-primary: var(--ref-palette-primary80);
+  --sys-color-inverse-on-surface: var(--ref-palette-neutral95);
+
+  /* Outlines */
+
+  --sys-color-color-outline: var(--ref-palette-neutral-variant50);
+  --sys-color-tonal-outline: var(--ref-palette-primary80);
+  --sys-color-neutral-outline: var(--ref-palette-neutral80);
+  --sys-color-divider: var(--ref-palette-primary90);
+
+  /* States */
+
+  --sys-color-state-hover-on-prominent: color-mix(in sRGB, var(--ref-palette-neutral99) 10%, transparent);
+  --sys-color-state-hover-on-subtle: color-mix(in sRGB, var(--ref-palette-neutral10) 6%, transparent);
+  --sys-color-state-hover-dim-blend-protection: color-mix(in sRGB, var(--ref-palette-neutral10) 6%, transparent);
+  --sys-color-state-hover-bright-blend-protection: color-mix(in sRGB, var(--ref-palette-neutral10) 6%, transparent);
+  --sys-color-state-ripple-neutral-on-prominent: color-mix(in sRGB, var(--ref-palette-neutral99) 16%, transparent);
+  --sys-color-state-ripple-neutral-on-subtle: color-mix(in sRGB, var(--ref-palette-neutral10) 8%, transparent);
+  --sys-color-state-ripple-primary: var(--ref-palette-primary40);
+  --sys-color-state-focus-ring: var(--ref-palette-primary40);
+  --sys-color-state-focus-highlight: color-mix(in sRGB, var(--ref-palette-neutral10) 6%, transparent);
+  --sys-color-state-disabled: color-mix(in sRGB, var(--ref-palette-neutral10) 38%, transparent);
+  --sys-color-state-disabled-container: color-mix(in sRGB, var(--ref-palette-neutral10) 12%, transparent);
+  --sys-color-state-header-hover: var(--ref-palette-primary80);
+  --sys-color-state-on-header-hover: var(--ref-palette-primary20);
+
+  /* Surfaces */
+
+  --sys-color-surface5: color-mix(in srgb, #6991d6 14%, #fff);
+  --sys-color-surface4: color-mix(in srgb, #6991d6 12%, #fff);
+  --sys-color-surface3: color-mix(in srgb, #6991d6 11%, #fff);
+  --sys-color-surface2: color-mix(in srgb, #6991d6 8%, #fff);
+  --sys-color-surface1: color-mix(in srgb, #6991d6 5%, #fff);
+
+  /* Chrome DevTools Design System */
+
+  --sys-color-primary-bright: var(--ref-palette-primary50);
+  --sys-color-tertiary-bright: var(--ref-palette-primary50);
+  --sys-color-error-bright: var(--ref-palette-error50);
+  --sys-color-orange: var(--ref-palette-orange40);
+  --sys-color-on-orange: var(--ref-palette-orange100);
+  --sys-color-orange-bright: var(--ref-palette-orange65);
+  --sys-color-yellow: var(--ref-palette-yellow40);
+  --sys-color-on-yellow: var(--ref-palette-yellow100);
+  --sys-color-yellow-bright: var(--ref-palette-yellow55);
+  --sys-color-turquoise: var(--ref-palette-turquoise40);
+  --sys-color-on-turquoise: var(--ref-palette-turquoise100);
+  --sys-color-turquoise-bright: var(--ref-palette-turquoise55);
+  --sys-color-purple: var(--ref-palette-purple40);
+  --sys-color-on-purple: var(--ref-palette-purple100);
+  --sys-color-purple-bright: var(--ref-palette-purple50);
+  --sys-color-neutral: var(--ref-palette-neutral70);
+  --sys-color-cdt-base: var(--sys-base-container);
+  --sys-color-cdt-base-container: var(--sys-base);
+  --sys-color-syntax1: var(--ref-palette-error40);
+  --sys-color-syntax2: var(--ref-palette-purple30);
+  --sys-color-syntax3: var(--ref-palette-primary40);
+  --sys-color-syntax4: var(--ref-palette-orange40);
+  --sys-color-syntax5: var(--ref-palette-turquoise80);
+  --sys-color-syntax6: var(--ref-palette-tertiary40);
+  --sys-color-syntax7: var(--ref-palette-neutral10);
+  --sys-color-syntax8: var(--ref-palette-neutral50);
 }
 
 .-theme-with-dark-background {
@@ -380,4 +493,117 @@
   --color-turqoise-bright: rgb(56 185 222);
   --color-yellow: rgb(251 188 5);
   --color-yellow-bright: rgb(217 162 0);
+
+  /* Chrome Desktop Design System */
+
+  /* Use on all surfaces */
+
+  --sys-color-on-surface: var(--ref-palette-neutral90);
+  --sys-color-on-surface-subtle: var(--ref-palette-neutral80);
+  --sys-color-on-surface-secondary: var(--ref-palette-neutral80);
+  --sys-color-on-surface-primary: var(--ref-palette-primary90);
+
+  /* Universal surfaces */
+
+  --sys-color-surface: var(--ref-palette-neutral10);
+  --sys-color-surface-variant: var(--ref-palette-neutral-variant30);
+
+  /* Containers */
+
+  --sys-color-tonal-container: var(--ref-palette-secondary30);
+  --sys-color-on-tonal-container: var(--ref-palette-secondary90);
+  --sys-color-tertiary-container: var(--ref-palette-tertiary30);
+  --sys-color-on-tertiary-container: var(--ref-palette-tertiary90);
+  --sys-color-error-container: var(--ref-palette-error30);
+  --sys-color-on-error-container: var(--ref-palette-error90);
+  --sys-color-neutral-container: var(--ref-palette-neutral15);
+  --sys-color-omnibox-container: var(--ref-palette-neutral15);
+
+  /* Prominent accent colors */
+
+  --sys-color-primary: var(--ref-palette-primary80);
+  --sys-color-on-primary: var(--ref-palette-primary20);
+  --sys-color-secondary: var(--ref-palette-secondary80);
+  --sys-color-on-secondary: var(--ref-palette-secondary20);
+  --sys-color-tertiary: var(--ref-palette-tertiary80);
+  --sys-color-on-tertiary: var(--ref-palette-tertiary20);
+  --sys-color-error: var(--ref-palette-error80);
+  --sys-color-on-error: var(--ref-palette-error20);
+
+  /* Chrome base surface */
+
+  --sys-base: var(--ref-palette-neutral25);
+  --sys-base-container: var(--ref-palette-neutral15);
+  --sys-base-container-elevated: var(--ref-palette-neutral25);
+
+  /* Corresponding base on colors */
+
+  --sys-on-base: var(--ref-palette-neutral90);
+  --sys-on-base-divider: var(--ref-palette-neutral40);
+
+  /* Inverse */
+
+  --sys-color-inverse-surface: var(--ref-palette-neutral90);
+  --sys-color-inverse-primary: var(--ref-palette-primary40);
+  --sys-color-inverse-on-surface: var(--ref-palette-neutral10);
+
+  /* Outlines */
+
+  --sys-color-outline: var(--ref-palette-neutral-variant60);
+  --sys-color-tonal-outline: var(--ref-palette-secondary40);
+  --sys-color-neutral-outline: var(--ref-palette-neutral40);
+  --sys-color-divider: var(--ref-palette-neutral30);
+
+  /* States */
+
+  --sys-color-state-hover-on-prominent: color-mix(in sRGB, var(--ref-palette-neutral10) 6%, transparent);
+  --sys-color-state-hover-on-subtle: color-mix(in sRGB, var(--ref-palette-neutral99) 10%, transparent);
+  --sys-color-state-hover-dim-blend-protection: color-mix(in sRGB, var(--ref-palette-neutral10) 10%, transparent);
+  --sys-color-state-hover-bright-blend-protection: color-mix(in sRGB, var(--ref-palette-neutral10) 16%, transparent);
+  --sys-color-state-ripple-neutral-on-prominent: color-mix(in sRGB, var(--ref-palette-neutral10) 12%, transparent);
+  --sys-color-state-ripple-neutral-on-subtle: color-mix(in sRGB, var(--ref-palette-neutral99) 16%, transparent);
+  --sys-color-state-ripple-primary: color-mix(in sRGB, var(--ref-palette-primary60) 32%, transparent);
+  --sys-color-state-focus-ring: var(--ref-palette-primary80);
+  --sys-color-state-focus-highlight: color-mix(in sRGB, var(--ref-palette-neutral99) 10%, transparent);
+  --sys-color-state-disabled: color-mix(in sRGB, var(--ref-palette-neutral90) 30%, transparent);
+  --sys-color-state-disabled-container: color-mix(in sRGB, var(--ref-neutral90) 12%, transparent);
+  --sys-color-state-header-hover: var(--ref-palette-secondary30);
+  --sys-color-state-on-header-hover: var(--ref-palette-secondary90);
+
+  /* Surfaces */
+
+  --sys-color-surface5: color-mix(in srgb, #d1e1ff 14%, #1f1f1f);
+  --sys-color-surface4: color-mix(in srgb, #d1e1ff 12%, #1f1f1f);
+  --sys-color-surface3: color-mix(in srgb, #d1e1ff 11%, #1f1f1f);
+  --sys-color-surface2: color-mix(in srgb, #d1e1ff 8%, #1f1f1f);
+  --sys-color-surface1: color-mix(in srgb, #d1e1ff 5%, #1f1f1f);
+
+  /* Chrome DevTools Design System */
+
+  --sys-color-primary-bright: var(--ref-palette-primary70);
+  --sys-color-tertiary-bright: var(--ref-palette-tertiary70);
+  --sys-color-error-bright: var(--ref-palette-error60);
+  --sys-color-orange: var(--ref-palette-orange80);
+  --sys-color-on-orange: var(--ref-palette-orange20);
+  --sys-color-orange-bright: var(--ref-palette-orange70);
+  --sys-color-yellow: var(--ref-palette-yellow80);
+  --sys-color-on-yellow: var(--ref-palette-yellow20);
+  --sys-color-yellow-bright: var(--ref-palette-yellow70);
+  --sys-color-turquoise: var(--ref-palette-turquoise80);
+  --sys-color-on-turquoise: var(--ref-palette-turquoise20);
+  --sys-color-turquoise-bright: var(--ref-palette-turquoise70);
+  --sys-color-purple: var(--ref-palette-purple80);
+  --sys-color-on-purple: var(--ref-palette-purple20);
+  --sys-color-purple-bright: var(--ref-palette-purple70);
+  --sys-color-neutral-bright: var(--ref-palette-neutral50);
+  --sys-color-cdt-base: var(--sys-base);
+  --sys-color-cdt-base-container: var(--sys-base-container);
+  --sys-color-syntax1: var(--ref-palette-turquoise80);
+  --sys-color-syntax2: var(--ref-palette-primary70);
+  --sys-color-syntax3: var(--ref-palette-orange80);
+  --sys-color-syntax4: var(--ref-palette-primary90);
+  --sys-color-syntax5: var(--ref-palette-turquoise90);
+  --sys-color-syntax6: var(--ref-palette-neutral60);
+  --sys-color-syntax7: var(--ref-palette-neutral90);
+  --sys-color-syntax8: var(--ref-palette-neutral70);
 }
