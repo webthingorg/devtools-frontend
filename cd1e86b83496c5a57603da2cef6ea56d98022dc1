@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "052da6c1_d7d9bc14",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-06-28T12:17:38Z",
+      "side": 1,
+      "message": "On second thought, let\u0027s replace \"debug power\" with debugging capabilities.",
+      "parentUuid": "d6a84133_75b641c1",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94f9cba_bf29a9b9",
         "filename": "front_end/core/sdk/SourceMapManager.ts",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2023-06-27T15:48:07Z",
       "side": 1,
       "message": "Suggestion: \u0027DevTools debug power is reduced due to source map loading failure in {name} extension: {message}\u0027\n\nThe term \"content script\" might also be confusing for people.",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa3536f_76891753",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-06-28T12:17:38Z",
+      "side": 1,
+      "message": "On second thought, let\u0027s replace \"debug power\" with debugging capabilities.",
+      "parentUuid": "e94f9cba_bf29a9b9",
       "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
