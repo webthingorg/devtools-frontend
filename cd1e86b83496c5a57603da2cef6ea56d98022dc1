@@ -137,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e51233e6_5532acfe",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-06-28T16:21:21Z",
+      "side": 1,
+      "message": "Better and shorted edit:\n\nSource map didn\u0027t load and limited DevTools: {message}",
+      "parentUuid": "ebaaf30e_8f4afa64",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94f9cba_bf29a9b9",
         "filename": "front_end/core/sdk/SourceMapManager.ts",
         "patchSetId": 1
@@ -166,6 +184,24 @@
       "side": 1,
       "message": "On second thought, let\u0027s replace \"debug power\" with debugging capabilities.",
       "parentUuid": "e94f9cba_bf29a9b9",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "913364e1_25e9debc",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-06-28T16:21:21Z",
+      "side": 1,
+      "message": "Shorted edit:\nSource map in {name} extension didn\u0027t load and limited DevTools: {message}",
+      "parentUuid": "5fa3536f_76891753",
       "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
