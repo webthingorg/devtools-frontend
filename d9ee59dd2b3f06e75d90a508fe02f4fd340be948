@@ -22,6 +22,30 @@
       },
       "revId": "d9ee59dd2b3f06e75d90a508fe02f4fd340be948",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad5c9c76_7280601b",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-28T13:01:11Z",
+      "side": 1,
+      "message": "RequestLinkIcon doesn\u0027t support full url. I\u0027ll leave it as is here and fix in the following CLs.\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4653818\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4653819",
+      "parentUuid": "7933cae0_65862678",
+      "range": {
+        "startLine": 674,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 27
+      },
+      "revId": "d9ee59dd2b3f06e75d90a508fe02f4fd340be948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
