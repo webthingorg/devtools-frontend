@@ -16,6 +16,7 @@ import {setupPageResourceLoaderForSourceMap} from '../../helpers/SourceMapHelper
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {allModelsFromFile, getAllTracingModelPayloadEvents} from '../../helpers/TraceHelpers.js';
 import * as Common from '../../../../../front_end/core/common/common.js';
+import {doubleRaf, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
@@ -338,6 +339,30 @@ describeWithMockConnection('TimelineUIUtils', () => {
           ],
       );
     });
+  });
+
+  it('can generate details for a frame', async () => {
+    const data = await allModelsFromFile('web-dev.json.gz');
+    const frame = data.performanceModel.frames()[0];
+    const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(data.traceParsedData);
+    const details =
+        Timeline.TimelineUIUtils.TimelineUIUtils.generateDetailsContentForFrame(frame, filmStrip, filmStrip.frames[0]);
+    const container = document.createElement('div');
+    renderElementIntoDOM(container);
+    container.appendChild(details);
+    // Give the image element time to render and load.
+    await doubleRaf();
+    const img = container.querySelector<HTMLImageElement>('.timeline-filmstrip-preview img');
+    assert.isTrue(img?.currentSrc.includes(filmStrip.frames[0].screenshotAsString));
+
+    const durationRow = container.querySelector<HTMLElement>('[data-row-title="Duration"]');
+    const durationValue = durationRow?.querySelector<HTMLSpanElement>('.timeline-details-view-row-value span');
+    if (!durationValue) {
+      throw new Error('Could not find duration');
+    }
+    // Strip the unicode spaces out and replace with simple spaces for easy assertions.
+    const value = (durationValue.innerText.replaceAll(/\s/g, ' '));
+    assert.strictEqual(value, '2.77 ms (at 136.45 ms)');
   });
 
   describe('buildNetworkRequestDetails', () => {
