@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8b4ca2b_a36fbddd",
+        "filename": "front_end/core/sdk/CSSModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-06-28T13:57:54Z",
+      "side": 1,
+      "message": "This can be omitted",
+      "range": {
+        "startLine": 628,
+        "startChar": 85,
+        "endLine": 628,
+        "endChar": 94
+      },
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a6f542_02cb4c12",
+        "filename": "front_end/core/sdk/CSSModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-06-28T13:57:54Z",
+      "side": 1,
+      "message": "Here as well",
+      "range": {
+        "startLine": 690,
+        "startChar": 90,
+        "endLine": 690,
+        "endChar": 99
+      },
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6a84133_75b641c1",
         "filename": "front_end/core/sdk/SourceMapManager.ts",
         "patchSetId": 1
