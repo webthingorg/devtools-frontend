@@ -34,6 +34,24 @@
       "parentUuid": "61bb7055_3cd243b0",
       "revId": "c7e262ddd48d00ae4d8f1d53112846ca6afedda0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dda3541a_7b8f1df5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-28T16:57:07Z",
+      "side": 1,
+      "message": "Note that this error says \"switch statement is not exhaustive\". You need to add branches for added errors by you.",
+      "parentUuid": "a024fd29_34f741f8",
+      "revId": "c7e262ddd48d00ae4d8f1d53112846ca6afedda0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
