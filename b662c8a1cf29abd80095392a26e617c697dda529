@@ -16,6 +16,46 @@
       "message": "PTAL!",
       "revId": "b662c8a1cf29abd80095392a26e617c697dda529",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "619d1055_4c6aa534",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-28T17:13:24Z",
+      "side": 1,
+      "message": "LGTM with nit\n\nnote: it seems the tests are complaining about the Meta handler data not being available? I wonder, de we also need to add it to the `FilmStripHandlers` type since we need the trace bounds?",
+      "revId": "b662c8a1cf29abd80095392a26e617c697dda529",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c69868_ca29b0d5",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-28T17:13:24Z",
+      "side": 1,
+      "message": "nit: let\u0027s use `setTraceModelTimeout` to prevent flakieness to this being potentially slow.\n\nI\u0027m thinking we should automate this for perf panel tests parsing traces. Maybe adding the test context as param to these helpers and bumping the timeout in there? (of course, we don\u0027t have to do it in this CL)",
+      "range": {
+        "startLine": 345,
+        "startChar": 23,
+        "endLine": 345,
+        "endChar": 40
+      },
+      "revId": "b662c8a1cf29abd80095392a26e617c697dda529",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
