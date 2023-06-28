@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c24a178_41c645cf",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-06-28T13:28:18Z",
+      "side": 1,
+      "message": "Isn\u0027t shorter better here? If the sourcemap doesn\u0027t belong to the part of the page you\u0027re debugging, like, e.g., a dependency or a content script, the debug power is effectively unaffected. If the sourcemap belongs to the part that you\u0027re debugging, the debug power is 0.",
+      "parentUuid": "d6a84133_75b641c1",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e94f9cba_bf29a9b9",
         "filename": "front_end/core/sdk/SourceMapManager.ts",
         "patchSetId": 1
