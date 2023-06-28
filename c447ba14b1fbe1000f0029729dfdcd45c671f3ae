@@ -16,6 +16,24 @@
       "message": "wouldn\u0027t it be simpler to use getCurrentConsoleMessages instead?",
       "revId": "c447ba14b1fbe1000f0029729dfdcd45c671f3ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73000ba0_d2da53e9",
+        "filename": "test/e2e/console/console-uncaught-promise_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-28T13:40:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "358db90e_762afcd1",
+      "revId": "c447ba14b1fbe1000f0029729dfdcd45c671f3ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
