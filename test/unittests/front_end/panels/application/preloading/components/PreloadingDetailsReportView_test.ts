@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import type * as Platform from '../../../../../../../front_end/core/platform/platform.js';
+import type * as Logs from '../../../../../../../front_end/models/logs/logs.js';
 
 import * as Protocol from '../../../../../../../front_end/generated/protocol.js';
 import * as PreloadingComponents from '../../../../../../../front_end/panels/application/preloading/components/components.js';
@@ -152,6 +153,12 @@ describeWithEnvironment('PreloadingDetailsReportView', async () => {
   });
 
   it('renders prefetch details with cancelled reason', async () => {
+    const fakeRequestResolver = {
+      waitFor: (_requestId: Protocol.Network.RequestId): Promise<void> => {
+        return Promise.reject();
+      },
+    } as unknown as Logs.RequestResolver.RequestResolver;
+
     const url = 'https://example.com/prefetch.html' as Platform.DevToolsPath.UrlString;
     const data: PreloadingComponents.PreloadingDetailsReportView.PreloadingDetailsReportViewData = {
       preloadingAttempt: {
@@ -184,6 +191,7 @@ describeWithEnvironment('PreloadingDetailsReportView', async () => {
 `,
         },
       ],
+      requestResolver: fakeRequestResolver,
     };
 
     const component = await renderPreloadingDetailsReportView(data);
@@ -191,6 +199,9 @@ describeWithEnvironment('PreloadingDetailsReportView', async () => {
 
     const keys = getCleanTextContentFromElements(report, 'devtools-report-key');
     const values = getCleanTextContentFromElements(report, 'devtools-report-value');
+    values[0] = report.querySelector('devtools-report-value:nth-of-type(1) devtools-request-link-icon')
+                    ?.shadowRoot?.textContent?.trim() ||
+        values[0];
     assert.deepEqual(zip2(keys, values), [
       ['URL', url],
       ['Action', 'prefetch'],
