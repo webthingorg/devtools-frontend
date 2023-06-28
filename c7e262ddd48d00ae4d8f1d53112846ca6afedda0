@@ -52,6 +52,24 @@
       "parentUuid": "a024fd29_34f741f8",
       "revId": "c7e262ddd48d00ae4d8f1d53112846ca6afedda0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad156d5f_90aa5d49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-06-28T17:01:41Z",
+      "side": 1,
+      "message": "Optional: I recommend you to use this protocol:\n\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4567965\nhttps://source.chromium.org/search?q\u003dhttps:%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1PnrfowsZMt62PX1EvvTp2Nqs3ji1zrklrAEe1JYbkTk",
+      "parentUuid": "dda3541a_7b8f1df5",
+      "revId": "c7e262ddd48d00ae4d8f1d53112846ca6afedda0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
