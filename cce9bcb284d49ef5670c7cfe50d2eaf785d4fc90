@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f4dc9d7_fd81f49b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-28T14:16:25Z",
+      "side": 1,
+      "message": "LGTM with some comments!",
+      "revId": "cce9bcb284d49ef5670c7cfe50d2eaf785d4fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b00e2de_980440fb",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-28T14:16:25Z",
+      "side": 1,
+      "message": "to check my understanding: we are now updating the SamplesHandler so that rather than parsing and representing samples in its own data format, it builds up profiles in the exact same format as the profiles we would get from CDP.\n\nTherefore, in the future when we have the standalone CDP Profile parsing library, we can give it a profile from the SamplesHandler, and it will work just fine?\n\n(perhaps worth a comment in the SamplesHandler noting this?)",
+      "range": {
+        "startLine": 177,
+        "startChar": 3,
+        "endLine": 178,
+        "endChar": 5
+      },
+      "revId": "cce9bcb284d49ef5670c7cfe50d2eaf785d4fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f9f7a36_b98e0c36",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-28T14:16:25Z",
+      "side": 1,
+      "message": "do you mean that the two maps above are redundant? It is a little unclear.",
+      "range": {
+        "startLine": 689,
+        "startChar": 1,
+        "endLine": 691,
+        "endChar": 15
+      },
+      "revId": "cce9bcb284d49ef5670c7cfe50d2eaf785d4fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "005e15c5_ad164871",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-28T14:16:25Z",
+      "side": 1,
+      "message": "I am not entirely clear on what lines represents here, please could you clarify and perhaps add a comment ?",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 29
+      },
+      "revId": "cce9bcb284d49ef5670c7cfe50d2eaf785d4fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
