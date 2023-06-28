@@ -101,6 +101,7 @@ export class InspectorBackend {
   readonly agentPrototypes: Map<ProtocolDomainName, _AgentPrototype> = new Map();
   #initialized: boolean = false;
   #eventParameterNamesForDomain = new Map<ProtocolDomainName, EventParameterNames>();
+  readonly typeMap: Map<QualifiedName, CommandParameter[]> = new Map();
 
   private getOrCreateEventParameterNamesForDomain(domain: ProtocolDomainName): EventParameterNames {
     let map = this.#eventParameterNamesForDomain.get(domain);
@@ -156,6 +157,11 @@ export class InspectorBackend {
 
     // @ts-ignore globalThis global namespace pollution
     globalThis.Protocol[domain][name] = values;
+    this.#initialized = true;
+  }
+
+  registerType(method: QualifiedName, parameters: CommandParameter[]): void {
+    this.typeMap.set(method, parameters);
     this.#initialized = true;
   }
 
@@ -973,8 +979,8 @@ class _AgentPrototype {
       if (optionalFlag && typeof value === 'undefined') {
         continue;
       }
-
-      if (typeof value !== typeName) {
+      const expectedJSType = typeName === 'array' ? 'object' : typeName;
+      if (typeof value !== expectedJSType) {
         errorCallback(
             `Protocol Error: Invalid type of argument '${paramName}' for method '${method}' call. ` +
             `It must be '${typeName}' but it is '${typeof value}'.`);
