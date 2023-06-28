@@ -148,7 +148,7 @@ def main():
                         help='Whether to output coverage')
     parser.add_argument('--expanded-reporting',
                         action='store_true',
-                        default=False,
+                        default=True,
                         dest='expanded_reporting',
                         help='Whether to output expanded report info')
     parser.add_argument('--chrome-binary',
