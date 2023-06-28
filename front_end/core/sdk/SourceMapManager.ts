@@ -3,16 +3,31 @@
 // found in the LICENSE file.
 
 import * as Common from '../common/common.js';
+import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 
 import {type FrameAssociated} from './FrameAssociated.js';
-
-import {Type, type Target} from './Target.js';
+import {PageResourceLoader, type PageResourceLoadInitiator} from './PageResourceLoader.js';
+import {parseSourceMap, SourceMap, type SourceMapV3} from './SourceMap.js';
+import {type Target, Type} from './Target.js';
 import {Events as TargetManagerEvents, TargetManager} from './TargetManager.js';
 
-import {PageResourceLoader, type PageResourceLoadInitiator} from './PageResourceLoader.js';
-
-import {parseSourceMap, SourceMap, type SourceMapV3} from './SourceMap.js';
+const UIStrings = {
+  /**
+   *@description Error message reporting loading failure for sourcemaps (e.g., when the network request failed)
+   *@example {Could not load content for http://example.com/foo.js.map} message
+   */
+  failedToLoadSourceMapMessage: 'DevTools failed to load source map: {message}',
+  /**
+   *@description Error message reporting loading failure for sourcemaps (e.g., when the network request failed) when the sourcemap is for a content script
+   *@example {MyExtension} name
+   *@example {Could not load content for http://example.com/foo.js.map} message
+   */
+  failedToLoadSourceMapMessageWithContentScriptHint:
+      'DevTools failed to load source map for content script (extension "{name}"): {message}',
+};
+const str_ = i18n.i18n.registerUIStrings('core/sdk/SourceMapManager.ts', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWrapper.ObjectWrapper<EventTypes<T>> {
   readonly #target: Target;
@@ -44,8 +59,8 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
       this.detachSourceMap(client);
     }
     this.#isEnabled = isEnabled;
-    for (const [client, {relativeSourceURL, relativeSourceMapURL}] of clientData) {
-      this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL);
+    for (const [client, {relativeSourceURL, relativeSourceMapURL, forContentScript}] of clientData) {
+      this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL, forContentScript);
     }
   }
 
@@ -71,9 +86,9 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     // in the loop body and trying to iterate over it at the same time
     // leads to an infinite loop.
     const clientData = [...this.#clientData.entries()];
-    for (const [client, {relativeSourceURL, relativeSourceMapURL}] of clientData) {
+    for (const [client, {relativeSourceURL, relativeSourceMapURL, forContentScript}] of clientData) {
       this.detachSourceMap(client);
-      this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL);
+      this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL, forContentScript);
     }
   }
 
@@ -97,7 +112,8 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
 
   // TODO(bmeurer): We are lying about the type of |relativeSourceURL| here.
   attachSourceMap(
-      client: T, relativeSourceURL: Platform.DevToolsPath.UrlString, relativeSourceMapURL: string|undefined): void {
+      client: T, relativeSourceURL: Platform.DevToolsPath.UrlString, relativeSourceMapURL: string|undefined,
+      forContentScript: string|undefined): void {
     if (this.#clientData.has(client)) {
       throw new Error('SourceMap is already attached or being attached to client');
     }
@@ -110,6 +126,7 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
       relativeSourceMapURL,
       sourceMap: undefined,
       sourceMapPromise: Promise.resolve(undefined),
+      forContentScript,
     };
     if (this.#isEnabled) {
       // The `// #sourceURL=foo` can be a random string, but is generally an absolute path.
@@ -133,7 +150,13 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
                       return sourceMap;
                     },
                     error => {
-                      Common.Console.Console.instance().warn(`DevTools failed to load source map: ${error.message}`);
+                      const message = error.message;
+                      const warning = forContentScript ?
+                          i18nString(
+                              UIStrings.failedToLoadSourceMapMessageWithContentScriptHint,
+                              {message, name: forContentScript}) :
+                          i18nString(UIStrings.failedToLoadSourceMapMessage, {message});
+                      Common.Console.Console.instance().warn(warning);
                       if (this.#clientData.get(client) === clientData) {
                         this.dispatchEventToListeners(Events.SourceMapFailedToAttach, {client});
                       }
@@ -185,6 +208,7 @@ type ClientData = {
   relativeSourceMapURL: string,
   sourceMap: SourceMap|undefined,
   sourceMapPromise: Promise<SourceMap|undefined>,
+  forContentScript: string|undefined,
 };
 
 // TODO(crbug.com/1167717): Make this a const enum again
