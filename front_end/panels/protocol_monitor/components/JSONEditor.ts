@@ -32,7 +32,7 @@ interface ArrayParameter {
 interface NonArrayParameter {
   type: 'string'|'number'|'boolean';
   optional: boolean;
-  value: string|undefined;
+  value: string|string[]|undefined;
   name: string;
 }
 
@@ -304,7 +304,6 @@ export class JSONEditor extends LitElement {
     parameters = Object.fromEntries(
         Object.entries(parameters).sort(([, a], [, b]) => Number(a.optional) - Number(b.optional)),
     );
-
     // clang-format off
     return html`
       <ul>
