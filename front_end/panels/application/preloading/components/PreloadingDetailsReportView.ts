@@ -6,10 +6,12 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
+import * as Logs from '../../../../models/logs/logs.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as LegacyWrapper from '../../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../ui/components/report_view/report_view.js';
+import * as RequestLinkIcon from '../../../../ui/components/request_link_icon/request_link_icon.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 import type * as UI from '../../../../ui/legacy/legacy.js';
@@ -569,6 +571,7 @@ export type PreloadingDetailsReportViewData = PreloadingDetailsReportViewDataInt
 interface PreloadingDetailsReportViewDataInternal {
   preloadingAttempt: SDK.PreloadingModel.PreloadingAttempt;
   ruleSets: Protocol.Preload.RuleSet[];
+  requestResolver?: Logs.RequestResolver.RequestResolver;
 }
 
 export class PreloadingDetailsReportView extends LegacyWrapper.LegacyWrapper.WrappableComponent<UI.Widget.VBox> {
@@ -612,11 +615,7 @@ export class PreloadingDetailsReportView extends LegacyWrapper.LegacyWrapper.Wra
           <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.detailsDetailedInformation)}</${
             ReportView.ReportView.ReportSectionHeader.litTagName}>
 
-          <${ReportView.ReportView.ReportKey.litTagName}>${i18n.i18n.lockedString('URL')}</${
-            ReportView.ReportView.ReportKey.litTagName}>
-          <${ReportView.ReportView.ReportValue.litTagName}>
-            <div class="text-ellipsis" title=${this.#data.preloadingAttempt.key.url}>${this.#data.preloadingAttempt.key.url}</div>
-          </${ReportView.ReportView.ReportValue.litTagName}>
+          ${this.#url()}
 
           <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsAction)}</${
             ReportView.ReportView.ReportKey.litTagName}>
@@ -640,6 +639,51 @@ export class PreloadingDetailsReportView extends LegacyWrapper.LegacyWrapper.Wra
       `, this.#shadow, {host: this});
       // clang-format on
     });
+  }
+
+  #url(): LitHtml.LitTemplate {
+    assertNotNullOrUndefined(this.#data);
+    const attempt = this.#data.preloadingAttempt;
+
+    let value;
+    if (attempt.action === Protocol.Preload.SpeculationAction.Prefetch && attempt.requestId !== undefined) {
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      value = LitHtml.html`
+          <${RequestLinkIcon.RequestLinkIcon.RequestLinkIcon.litTagName}
+            .data=${
+              {
+                affectedRequest: {
+                  requestId: attempt.requestId,
+                  url: attempt.key.url,
+                },
+                requestResolver: this.#data.requestResolver || new Logs.RequestResolver.RequestResolver(),
+                displayURL: true,
+                urlToDisplay: attempt.key.url,
+              } as RequestLinkIcon.RequestLinkIcon.RequestLinkIconData
+            }
+          >
+          </${RequestLinkIcon.RequestLinkIcon.RequestLinkIcon.litTagName}>
+      `;
+    } else {
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      value = LitHtml.html`
+          <div class="text-ellipsis" title=${attempt.key.url}>${attempt.key.url}</div>
+      `;
+      // clang-format on
+    }
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return LitHtml.html`
+        <${ReportView.ReportView.ReportKey.litTagName}>${i18n.i18n.lockedString('URL')}</${
+          ReportView.ReportView.ReportKey.litTagName}>
+        <${ReportView.ReportView.ReportValue.litTagName}>
+          ${value}
+        </${ReportView.ReportView.ReportValue.litTagName}>
+    `;
+    // clang-format on
   }
 
   #maybePrefetchFailureReason(): LitHtml.LitTemplate {
