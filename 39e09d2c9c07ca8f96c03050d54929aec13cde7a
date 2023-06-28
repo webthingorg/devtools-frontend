@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fde6a2a6_56d588b0",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-28T14:55:37Z",
+      "side": 0,
+      "message": "would this be equivalent to using the min bound in the trace engine?",
+      "range": {
+        "startLine": 505,
+        "startChar": 50,
+        "endLine": 505,
+        "endChar": 87
+      },
+      "revId": "39e09d2c9c07ca8f96c03050d54929aec13cde7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
