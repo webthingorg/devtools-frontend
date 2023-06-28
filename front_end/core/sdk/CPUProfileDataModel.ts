@@ -47,9 +47,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
   profileEndTime: number;
   timestamps: number[];
   samples: number[]|undefined;
-  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  lines: any;
+  lines?: number[];
   totalHitCount: number;
   profileHead: CPUProfileNode;
   /**
@@ -63,7 +61,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
   idleNode?: ProfileNode;
   #stackStartTimes?: Float64Array;
   #stackChildrenDuration?: Float64Array;
-  constructor(profile: Protocol.Profiler.Profile, target: Target|null) {
+  constructor(profile: ExtendedProfile, target: Target|null) {
     super(target);
     // @ts-ignore Legacy types
     const isLegacyFormat = Boolean(profile['head']);
@@ -81,7 +79,6 @@ export class CPUProfileDataModel extends ProfileTreeModel {
       this.timestamps = this.convertTimeDeltas(profile);
     }
     this.samples = profile.samples;
-    // @ts-ignore Legacy types
     this.lines = profile.lines;
     this.totalHitCount = 0;
     this.profileHead = this.translateProfileTree(profile.nodes);
@@ -499,3 +496,8 @@ export class CPUProfileDataModel extends ProfileTreeModel {
     return [...this.#idToParsedNode.values()];
   }
 }
+
+// Format used by profiles coming from traces.
+export type ExtendedProfileNode = Protocol.Profiler.ProfileNode&{parent?: number};
+export type ExtendedProfile =
+    Protocol.Profiler.Profile&{nodes: Protocol.Profiler.ProfileNode[] | ExtendedProfileNode[], lines?: number[]};
