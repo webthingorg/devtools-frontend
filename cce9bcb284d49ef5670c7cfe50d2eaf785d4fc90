@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e51e27cf_74cf737c",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-28T15:11:33Z",
+      "side": 1,
+      "message": "That\u0027s exactly right. In fact the library is already in place and we can use it after this change, I just wanted to do it in a different CL :). I\u0027ll add more comments to make this clearer.",
+      "parentUuid": "9b00e2de_980440fb",
+      "range": {
+        "startLine": 177,
+        "startChar": 3,
+        "endLine": 178,
+        "endChar": 5
+      },
+      "revId": "cce9bcb284d49ef5670c7cfe50d2eaf785d4fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f9f7a36_b98e0c36",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-28T14:16:25Z",
       "side": 1,
       "message": "do you mean that the two maps above are redundant? It is a little unclear.",
+      "range": {
+        "startLine": 689,
+        "startChar": 1,
+        "endLine": 691,
+        "endChar": 15
+      },
+      "revId": "cce9bcb284d49ef5670c7cfe50d2eaf785d4fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "644f7869_44193d25",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-06-28T15:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f9f7a36_b98e0c36",
       "range": {
         "startLine": 689,
         "startChar": 1,
