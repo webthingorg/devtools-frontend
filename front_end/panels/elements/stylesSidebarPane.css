@@ -8,7 +8,7 @@
   min-height: 18px;
   white-space: nowrap;
   user-select: text;
-  border-bottom: 1px solid var(--color-details-hairline);
+  border-bottom: 1px solid var(--sys-color-divider);
   position: relative;
   overflow: hidden;
 
@@ -164,7 +164,7 @@
 }
 
 .styles-sidebar-pane-toolbar-container {
-  --override-toolbar-background-color: var(--color-background-elevation-1);
+  --override-toolbar-background-color: var(--sys-cdt-base-container);
 
   flex-shrink: 0;
   overflow: hidden;
@@ -188,8 +188,8 @@
   display: flex;
 
   > input {
-    outline: none !important; /* stylelint-disable-line declaration-no-important */
-    border: none;
+    border: solid 1px var(--sys-color-neutral-outline);
+    border-radius: 4px;
     width: 100%;
     background: var(--color-background);
     padding-left: 4px;

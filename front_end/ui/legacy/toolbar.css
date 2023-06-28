@@ -89,7 +89,7 @@ select.toolbar-item:disabled + .toolbar-dropdown-arrow {
 .toolbar-text {
   margin: 0 5px;
   flex: none;
-  color: var(--color-text-secondary);
+  color: var(--sys-color-on-surface-subtle);
 }
 
 .toolbar-text:empty {
@@ -397,7 +397,7 @@ select.toolbar-item:focus-visible > * {
 /* Separator */
 
 .toolbar-divider {
-  background-color: var(--color-details-hairline);
+  background-color: var(--sys-color-divider);
   width: 1px;
   margin: 5px 4px;
   height: 16px;
