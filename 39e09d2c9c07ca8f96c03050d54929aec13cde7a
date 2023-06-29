@@ -22,6 +22,30 @@
       },
       "revId": "39e09d2c9c07ca8f96c03050d54929aec13cde7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e87ea6d1_e5610cb4",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-29T09:38:28Z",
+      "side": 0,
+      "message": "I am not sure because this number comes from the network CDP data, so it could be off subtly compared to the min trace engine bound. I will leave this alone for now I think to not inadvertently cause issues, but it is one to revisit.",
+      "parentUuid": "fde6a2a6_56d588b0",
+      "range": {
+        "startLine": 505,
+        "startChar": 50,
+        "endLine": 505,
+        "endChar": 87
+      },
+      "revId": "39e09d2c9c07ca8f96c03050d54929aec13cde7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

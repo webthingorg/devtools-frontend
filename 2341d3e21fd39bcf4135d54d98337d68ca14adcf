@@ -103,6 +103,30 @@
       },
       "revId": "2341d3e21fd39bcf4135d54d98337d68ca14adcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f8d49eb_fbd6791d",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-29T09:38:28Z",
+      "side": 1,
+      "message": "No, because that type defines the resulting parsed data, but I liked this idea so I added a new type representing the enabled handlers and used that. Thanks!",
+      "parentUuid": "eb16bfc3_f432050c",
+      "range": {
+        "startLine": 887,
+        "startChar": 14,
+        "endLine": 887,
+        "endChar": 15
+      },
+      "revId": "2341d3e21fd39bcf4135d54d98337d68ca14adcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
