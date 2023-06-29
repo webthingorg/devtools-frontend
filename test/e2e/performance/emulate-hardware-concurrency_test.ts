@@ -48,7 +48,7 @@ describe('The Performance panel', () => {
       assert.deepEqual(tooltipText, 'Hardware concurrency override is enabled');
     }
 
-    // Check that the warning is shonw on the settings gear:
+    // Check that the warning is shown on the settings gear:
     const gear =
         await waitForAria('- Hardware concurrency override is enabled') as puppeteer.ElementHandle<HTMLElement>;
     const gearColor = await gear.evaluate(
