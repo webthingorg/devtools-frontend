@@ -11,7 +11,7 @@ module.exports = {
   'rules': {
     'rulesdir/ban_imports_in_directory': [
       'error', {
-        bannedImportPaths: [path.join(__dirname, '..', '..', '..', 'core', 'sdk', 'sdk.js')]
+        bannedImportPaths: []
       }
     ]
   }
