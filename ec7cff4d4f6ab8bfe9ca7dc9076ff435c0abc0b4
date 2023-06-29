@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d1a388_4b360aa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T08:44:05Z",
+      "side": 1,
+      "message": "Thanks, lgtm with some last comments :)",
+      "revId": "ec7cff4d4f6ab8bfe9ca7dc9076ff435c0abc0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "992b667d_5b8671c5",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T08:44:05Z",
+      "side": 1,
+      "message": "nit: use browser_protocol.pdl here. It\u0027s the source of truth.",
+      "range": {
+        "startLine": 79,
+        "startChar": 89,
+        "endLine": 79,
+        "endChar": 93
+      },
+      "revId": "ec7cff4d4f6ab8bfe9ca7dc9076ff435c0abc0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c447f857_4ef46d1d",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T08:44:05Z",
+      "side": 1,
+      "message": "nit: Combine the \u0027ifs\u0027 with \u0027and\u0027.",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 53
+      },
+      "revId": "ec7cff4d4f6ab8bfe9ca7dc9076ff435c0abc0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b6ec3d_6d70cb6c",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T08:44:05Z",
+      "side": 1,
+      "message": "This is a bit unfortunate. This will put `\"typeRef\": \"None\"` into the JSON. If you puss `\"null\"`, it\u0027ll put the string `\"null\"` instead of just `null`.\n\nOne way to solve this is to pass `\"null\"` here and do the quote wrapping in the `if` where you assign `type_ref`.\n\nOtherwise I slightly prefer the `\"null\"` string constant over `\"None\"` since it\u0027s a bit more JS ideomatic. I\u0027ll leave it up to you which way you wanna go.",
+      "range": {
+        "startLine": 314,
+        "startChar": 54,
+        "endLine": 314,
+        "endChar": 58
+      },
+      "revId": "ec7cff4d4f6ab8bfe9ca7dc9076ff435c0abc0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
