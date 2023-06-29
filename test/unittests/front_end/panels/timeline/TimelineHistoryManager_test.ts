@@ -5,15 +5,13 @@
 import * as Timeline from '../../../../../front_end/panels/timeline/timeline.js';
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
-import {allModelsFromFile, setTraceModelTimeout} from '../../helpers/TraceHelpers.js';
+import {allModelsFromFile} from '../../helpers/TraceHelpers.js';
 
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 
 const {assert} = chai;
 
 describeWithEnvironment('TimelineHistoryManager', function() {
-  setTraceModelTimeout(this);
-
   let historyManager: Timeline.TimelineHistoryManager.TimelineHistoryManager;
   beforeEach(() => {
     UI.ActionRegistration.registerActionExtension({
@@ -47,14 +45,14 @@ describeWithEnvironment('TimelineHistoryManager', function() {
 
   it('can select from multiple parsed data objects', async () => {
     // Add two parsed data objects to the history manager.
-    const firstFileModels = await allModelsFromFile('slow-interaction-button-click.json.gz');
+    const firstFileModels = await allModelsFromFile(this, 'slow-interaction-button-click.json.gz');
     historyManager.addRecording(
         firstFileModels.performanceModel,
         firstFileModels.traceParsedData,
         firstFileModels.filmStripModel,
     );
 
-    const secondFileModels = await allModelsFromFile('slow-interaction-keydown.json.gz');
+    const secondFileModels = await allModelsFromFile(this, 'slow-interaction-keydown.json.gz');
     historyManager.addRecording(
         secondFileModels.performanceModel, secondFileModels.traceParsedData, secondFileModels.filmStripModel);
 

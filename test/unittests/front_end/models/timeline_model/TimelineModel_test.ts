@@ -1382,8 +1382,8 @@ describeWithEnvironment('TimelineData', () => {
     return allSDKEvents;
   }
 
-  it('stores data for an SDK.TracingModel.PayloadEvent using the raw payload as the key', async () => {
-    const data = await allModelsFromFile('web-dev.json.gz');
+  it('stores data for an SDK.TracingModel.PayloadEvent using the raw payload as the key', async function() {
+    const data = await allModelsFromFile(this, 'web-dev.json.gz');
     const allSDKEvents = getAllTracingModelPayloadEvents(data.tracingModel);
     // The exact event we use is not important, so let's use the first LCP event.
     const lcpSDKEvent =
@@ -1425,8 +1425,8 @@ describeWithEnvironment('TimelineData', () => {
     assert.strictEqual(dataForEvent, TimelineModel.TimelineModel.EventOnTimelineData.forEvent(fakeConstructedEvent));
   });
 
-  it('extracts backend node ids and image url for a Decode Image event', async () => {
-    const data = await allModelsFromFile('web-dev.json.gz');
+  it('extracts backend node ids and image url for a Decode Image event', async function() {
+    const data = await allModelsFromFile(this, 'web-dev.json.gz');
     const allSDKEvents = getAllTracingModelPayloadEvents(data.tracingModel);
 
     const decodeImageEvent =

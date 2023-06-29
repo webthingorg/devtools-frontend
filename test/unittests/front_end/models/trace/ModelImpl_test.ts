@@ -6,11 +6,9 @@ import * as TraceModel from '../../../../../front_end/models/trace/trace.js';
 
 const {assert} = chai;
 
-import {loadEventsFromTraceFile, setTraceModelTimeout} from '../../helpers/TraceHelpers.js';
+import {loadEventsFromTraceFile} from '../../helpers/TraceHelpers.js';
 
 describe('TraceModel', async function() {
-  setTraceModelTimeout(this);
-
   it('dispatches an end event when the trace is done', function(done) {
     const model = TraceModel.TraceModel.Model.createWithAllHandlers();
     const events: string[] = [];

@@ -7,7 +7,7 @@ import * as Timeline from '../../../../../../front_end/panels/timeline/timeline.
 import * as PerfUI from '../../../../../../front_end/ui/legacy/components/perf_ui/perf_ui.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import {traceModelFromTraceFile} from '../../../helpers/TimelineHelpers.js';
-import {loadModelDataFromTraceFile, setTraceModelTimeout} from '../../../helpers/TraceHelpers.js';
+import {loadModelDataFromTraceFile} from '../../../helpers/TraceHelpers.js';
 
 import type * as TimelineModel from '../../../../../../front_end/models/timeline_model/timeline_model.js';
 
@@ -25,8 +25,6 @@ function initTrackAppender(
 }
 
 describeWithEnvironment('GPUTrackAppender', function() {
-  setTraceModelTimeout(this);
-
   let traceParsedData: TraceEngine.Handlers.Types.TraceParseData;
   let timelineModel: TimelineModel.TimelineModel.TimelineModelImpl;
   let gpuTrackAppender: Timeline.GPUTrackAppender.GPUTrackAppender;
@@ -35,7 +33,7 @@ describeWithEnvironment('GPUTrackAppender', function() {
   let entryTypeByLevel: Timeline.TimelineFlameChartDataProvider.EntryType[] = [];
 
   beforeEach(async () => {
-    traceParsedData = await loadModelDataFromTraceFile('threejs-gpu.json.gz');
+    traceParsedData = await loadModelDataFromTraceFile(this, 'threejs-gpu.json.gz');
     timelineModel = (await traceModelFromTraceFile('threejs-gpu.json.gz')).timelineModel;
     gpuTrackAppender = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel, timelineModel);
     gpuTrackAppender.appendTrackAtLevel(0);

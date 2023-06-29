@@ -4,7 +4,7 @@
 
 const {assert} = chai;
 import * as TraceModel from '../../../../../../front_end/models/trace/trace.js';
-import {loadEventsFromTraceFile, setTraceModelTimeout} from '../../../helpers/TraceHelpers.js';
+import {loadEventsFromTraceFile} from '../../../helpers/TraceHelpers.js';
 
 type DataArgs = TraceModel.Types.TraceEvents.TraceEventSyntheticNetworkRequest['args']['data'];
 type DataArgsProcessedData =
@@ -26,8 +26,6 @@ async function parseAndFinalizeFile(traceFile: string) {
 }
 
 describe('NetworkRequestsHandler', function() {
-  setTraceModelTimeout(this);
-
   describe('error handling', () => {
     it('throws if handleEvent is called before it is initialized', () => {
       assert.throws(() => {

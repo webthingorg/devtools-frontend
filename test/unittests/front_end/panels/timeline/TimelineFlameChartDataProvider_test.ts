@@ -16,7 +16,7 @@ describeWithEnvironment('TimelineFlameChartDataProvider', () => {
   describe('groupTreeEvents', () => {
     it('returns the correct events for tree views given a flame chart group', async () => {
       const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
-      const {traceParsedData, performanceModel} = await allModelsFromFile('sync-like-timings.json.gz');
+      const {traceParsedData, performanceModel} = await allModelsFromFile(this, 'sync-like-timings.json.gz');
       dataProvider.setModel(performanceModel, traceParsedData);
       const timingsTrackGroup = dataProvider.timelineData().groups.find(g => g.name === 'Timings');
       if (!timingsTrackGroup) {
@@ -35,7 +35,7 @@ describeWithEnvironment('TimelineFlameChartDataProvider', () => {
 
     it('filters out async events if they cannot be added to the tree', async () => {
       const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
-      const {traceParsedData, performanceModel} = await allModelsFromFile('timings-track.json.gz');
+      const {traceParsedData, performanceModel} = await allModelsFromFile(this, 'timings-track.json.gz');
       dataProvider.setModel(performanceModel, traceParsedData);
       const timingsTrackGroup = dataProvider.timelineData().groups.find(g => g.name === 'Timings');
       if (!timingsTrackGroup) {
@@ -50,7 +50,7 @@ describeWithEnvironment('TimelineFlameChartDataProvider', () => {
 
     it('returns data from the old engine if necessary', async () => {
       const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
-      const {traceParsedData, performanceModel} = await allModelsFromFile('timings-track.json.gz');
+      const {traceParsedData, performanceModel} = await allModelsFromFile(this, 'timings-track.json.gz');
       dataProvider.setModel(performanceModel, traceParsedData);
       const mainTrack = dataProvider.timelineData().groups.find(g => g.name.includes('Main'));
       if (!mainTrack) {
@@ -63,7 +63,7 @@ describeWithEnvironment('TimelineFlameChartDataProvider', () => {
 
   it('adds candy stripe decorations to long tasks in the main thread', async () => {
     const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
-    const {traceParsedData, performanceModel} = await allModelsFromFile('one-second-interaction.json.gz');
+    const {traceParsedData, performanceModel} = await allModelsFromFile(this, 'one-second-interaction.json.gz');
     dataProvider.setModel(performanceModel, traceParsedData);
 
     const {entryDecorations} = dataProvider.timelineData();
@@ -91,7 +91,7 @@ describeWithEnvironment('TimelineFlameChartDataProvider', () => {
 
   it('populates the frames track with frames and screenshots', async () => {
     const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
-    const {traceParsedData, performanceModel} = await allModelsFromFile('web-dev.json.gz');
+    const {traceParsedData, performanceModel} = await allModelsFromFile(this, 'web-dev.json.gz');
     dataProvider.setModel(performanceModel, traceParsedData);
     const framesTrack = dataProvider.timelineData().groups.find(g => {
       return g.name.includes('Frames');
@@ -133,7 +133,7 @@ describeWithEnvironment('TimelineFlameChartDataProvider', () => {
       });
 
       const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
-      const {traceParsedData, performanceModel} = await allModelsFromFile('react-hello-world.json.gz');
+      const {traceParsedData, performanceModel} = await allModelsFromFile(this, 'react-hello-world.json.gz');
       dataProvider.setModel(performanceModel, traceParsedData);
 
       const eventCountBeforeIgnoreList = dataProvider.timelineData().entryStartTimes.length;
