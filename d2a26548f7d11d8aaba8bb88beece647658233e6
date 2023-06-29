@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9fbb80f_1b6bec57",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-29T14:50:09Z",
+      "side": 1,
+      "message": "We need to make the value a Parameter",
+      "parentUuid": "2e9a6e46_2d42e494",
+      "revId": "d2a26548f7d11d8aaba8bb88beece647658233e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c753d8c6_0f1a65a4",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 2
