@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35130e1e_499cd334",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-29T12:14:17Z",
+      "side": 1,
+      "message": "LGTM but looks like we might have to battle some layout tests. Worth considering if those failing tests can be recreated as unit tests perhaps?",
+      "revId": "9afa9a43f747054340bc06cd22dbcc34becca547",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
