@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eee93a3_fb1c8273",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T04:38:34Z",
+      "side": 1,
+      "message": "nit: The first line of a CL description should not be longer than 80 characters :)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 132
+      },
+      "revId": "4aae747e4fa7ffc4958942f7860ac4aa61eda690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df02c5e1_3b68cc1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T04:38:34Z",
+      "side": 1,
+      "message": "mostly lgtm\n\nleft some comments :)",
+      "revId": "4aae747e4fa7ffc4958942f7860ac4aa61eda690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da48a5ee_49046e31",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T04:38:34Z",
+      "side": 1,
+      "message": "```suggestion\n  readonly typeMap \u003d new Map\u003cQualifiedName, CommandParameter[]\u003e();\n```",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "4aae747e4fa7ffc4958942f7860ac4aa61eda690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc660dc_1cca7422",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T04:38:34Z",
+      "side": 1,
+      "message": "I\u0027d pass the json_type[\"id\"] and domain_name separately here, so you don\u0027t have to split them again in \"process_type\".",
+      "range": {
+        "startLine": 252,
+        "startChar": 51,
+        "endLine": 252,
+        "endChar": 60
+      },
+      "revId": "4aae747e4fa7ffc4958942f7860ac4aa61eda690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9dba569_1fef5864",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T04:38:34Z",
+      "side": 1,
+      "message": "Can we combine these two to skip one level of indent? `if js_bind_type \u003d\u003d \"object\" and \"$ref\" in json_parameter`. (The second condition is normally not checked if the first one is already false).",
+      "range": {
+        "startLine": 317,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 48
+      },
+      "revId": "4aae747e4fa7ffc4958942f7860ac4aa61eda690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9d8d57_6e1e9794",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T04:38:34Z",
+      "side": 1,
+      "message": "Extend the comment that we intentionally always want to include the domain for types.\n\nAlso let\u0027s stick with the same pattern as `optional` and write:\n\n```\ntype_ref \u003d json_ref if \u0027.\u0027 in json_ref else \"%s.%s\" % (domain_name, json_ref)\n```",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 0
+      },
+      "revId": "4aae747e4fa7ffc4958942f7860ac4aa61eda690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d772fa18_e39b705a",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T04:38:34Z",
+      "side": 1,
+      "message": "nit: If you initialize `type_ref` with `\"null\"`. Then you don\u0027t need the if/else here. Sure, we pass a superfluous \"typeRef: null\", but thats ok.",
+      "range": {
+        "startLine": 329,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 64
+      },
+      "revId": "4aae747e4fa7ffc4958942f7860ac4aa61eda690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
