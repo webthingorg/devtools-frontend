@@ -123,7 +123,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this.tabSelected, this);
   }
 
-  setModel(
+  getDetailsContentElementForTest(): HTMLElement {
+    return this.defaultDetailsContentElement;
+  }
+
+  async setModel(
       model: PerformanceModel|null, traceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null,
       filmStripModel: SDK.FilmStripModel.FilmStripModel|null,
       selectedEvents: SDK.TracingModel.CompatibleTraceEvent[]|null): void {
@@ -145,7 +149,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
     this.lazyPaintProfilerView = null;
     this.lazyLayersView = null;
-    this.setSelection(null);
+    await this.setSelection(null);
 
     // Add TBT info to the footer.
     this.additionalMetricsToolbar.removeToolbarItems();
@@ -225,7 +229,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     return filmStripFrame && filmStripFrame.timestamp - frame.endTime < 10 ? filmStripFrame : null;
   }
 
-  setSelection(selection: TimelineSelection|null): void {
+  async setSelection(selection: TimelineSelection|null): Promise<void> {
     this.detailsLinkifier.reset();
     this.selection = selection;
     if (!this.selection) {
@@ -235,9 +239,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     const selectionObject = this.selection.object;
     if (TimelineSelection.isTraceEventSelection(selectionObject)) {
       const event = selectionObject;
-      void TimelineUIUtils
-          .buildTraceEventDetails(event, this.model.timelineModel(), this.detailsLinkifier, true, this.#traceEngineData)
-          .then(fragment => this.appendDetailsTabsForTraceEventAndShowDetails(event, fragment));
+      const traceEventDetails = await TimelineUIUtils.buildTraceEventDetails(
+          event, this.model.timelineModel(), this.detailsLinkifier, true, this.#traceEngineData);
+      this.appendDetailsTabsForTraceEventAndShowDetails(event, traceEventDetails);
     } else if (TimelineSelection.isFrameObject(selectionObject)) {
       const frame = selectionObject;
       const filmStripFrame = this.#getFilmStripFrame(frame);
@@ -251,8 +255,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       }
     } else if (TimelineSelection.isNetworkRequestSelection(selectionObject)) {
       const request = selectionObject;
-      void TimelineUIUtils.buildNetworkRequestDetails(request, this.model.timelineModel(), this.detailsLinkifier)
-          .then(this.setContent.bind(this));
+      const networkDetails =
+          await TimelineUIUtils.buildNetworkRequestDetails(request, this.model.timelineModel(), this.detailsLinkifier);
+      this.setContent(networkDetails);
     } else if (TimelineSelection.isRangeSelection(selectionObject)) {
       this.updateSelectedRangeStats(this.selection.startTime, this.selection.endTime);
     }
