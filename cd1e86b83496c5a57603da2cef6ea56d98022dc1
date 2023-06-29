@@ -171,6 +171,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aecfb2d5_f7c68e8d",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-06-29T10:39:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "74855e56_49e13231",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e94f9cba_bf29a9b9",
@@ -220,6 +238,24 @@
       "side": 1,
       "message": "Shorted edit:\nSource map in {name} extension didn\u0027t load and limited DevTools: {message}",
       "parentUuid": "5fa3536f_76891753",
+      "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63dc08ff_ad16eeac",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-06-29T10:39:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "913364e1_25e9debc",
       "revId": "cd1e86b83496c5a57603da2cef6ea56d98022dc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
