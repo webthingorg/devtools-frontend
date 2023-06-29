@@ -16,6 +16,29 @@
       "message": "Liviu, am I doing this correctly?",
       "revId": "863507492e93db86f6d6251131fc2e9e829b19fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b96cb3eb_7b577109",
+        "filename": "scripts/test/run_auto_unittests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-29T08:09:27Z",
+      "side": 1,
+      "message": "Would you be able to turn it off if you want to in the future? you might need to change the action or replace this with `--no-expanded-reporting`.",
+      "range": {
+        "startLine": 45,
+        "startChar": 24,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "863507492e93db86f6d6251131fc2e9e829b19fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
