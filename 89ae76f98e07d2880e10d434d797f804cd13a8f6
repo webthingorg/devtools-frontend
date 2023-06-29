@@ -22,6 +22,30 @@
       },
       "revId": "89ae76f98e07d2880e10d434d797f804cd13a8f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f886a284_71a7cc0c",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineFlameChartNetworkDataProvider_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-29T12:42:33Z",
+      "side": 1,
+      "message": "They are from the original `preferredHeight()` function",
+      "parentUuid": "05330de9_e622a1de",
+      "range": {
+        "startLine": 51,
+        "startChar": 34,
+        "endLine": 51,
+        "endChar": 69
+      },
+      "revId": "89ae76f98e07d2880e10d434d797f804cd13a8f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
