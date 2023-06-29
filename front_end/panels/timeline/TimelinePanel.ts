@@ -1089,8 +1089,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   private setModel(
       model: PerformanceModel|null, exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null,
-      newTraceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null = null,
-      filmStripModel: SDK.FilmStripModel.FilmStripModel|null = null): void {
+      newTraceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null = null): void {
     if (this.performanceModel) {
       this.performanceModel.removeEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
     }
@@ -1101,7 +1100,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     } else {
       this.searchableViewInternal.hideWidget();
     }
-    this.flameChart.setModel(model, newTraceEngineData, filmStripModel);
+    this.flameChart.setModel(model, newTraceEngineData);
 
     this.updateOverviewControls();
     this.overviewPane.reset();
@@ -1297,7 +1296,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       ]);
       const traceParsedData = this.#traceEngineModel.traceParsedData();
       this.filmStripModel = new SDK.FilmStripModel.FilmStripModel(tracingModel);
-      this.setModel(this.performanceModel, exclusiveFilter, traceParsedData, this.filmStripModel);
+      this.setModel(this.performanceModel, exclusiveFilter, traceParsedData);
       // This code path is only executed when a new trace is recorded/imported,
       // so we know that the active index will be the size of the model because
       // the newest trace will be automatically set to active.
