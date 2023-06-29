@@ -1,0 +1,10 @@
+Name: Lit-HTML
+Short Name: lit-html
+URL: https://lit-html.polymer-project.org/
+Version: 2.4.0
+License: BSD-3
+License File: LICENSE
+Security Critical: no
+
+Description:
+lit-html lets you write HTML templates in JavaScript, then efficiently render and re-render those templates together with data to create and update DOM.
