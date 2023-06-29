@@ -22,6 +22,30 @@
       },
       "revId": "b0f3c550abf110bb4e15aae0a5f8f9a070b5d8f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df15dddc_839e7cd8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-06-29T08:29:54Z",
+      "side": 1,
+      "message": "Ah, the CL description is a bit missleading, sorry about that.\n\nWe have two ways to build release builds essentially: tsc + rollup + terser, and esbuild. Which of the two we pick is decided by \"devtools_skip_typecheck\".\n\nIndependently of those, we can enable source maps for release builds though. We don\u0027t do it by default as the average Chromium dev doesn\u0027t need it.\n\nUntil now we only did source maps for rollup release builds. This CL implements them for esbuild, but the source maps themselves are still gated behind \"devtools_release_sourcemaps\". I\u0027ll update the CL description to try and make this more clear :)",
+      "parentUuid": "3cc11841_f9adf9c4",
+      "range": {
+        "startLine": 9,
+        "startChar": 60,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "b0f3c550abf110bb4e15aae0a5f8f9a070b5d8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
