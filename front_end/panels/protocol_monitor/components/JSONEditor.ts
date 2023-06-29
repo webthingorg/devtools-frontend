@@ -36,7 +36,15 @@ interface NonArrayParameter {
   name: string;
 }
 
-export type Parameter = ArrayParameter|NonArrayParameter;
+interface ObjectParameter {
+  type: 'object';
+  optional: boolean;
+  value: {[x: string]: string|undefined};
+  name: string;
+  typeRef?: string;
+}
+
+export type Parameter = ArrayParameter|NonArrayParameter|ObjectParameter;
 
 export interface Command {
   command: string;
@@ -44,6 +52,11 @@ export interface Command {
   targetId?: string;
 }
 
+interface Type {
+  name: string;
+  type: string;
+  optional: boolean;
+}
 /**
  * Parents should listen for this event and register the listeners provided by
  * this event"
@@ -62,6 +75,8 @@ export class SubmitEditorEvent extends Event {
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
   @property() declare protocolMethodWithParametersMap: Map<string, Parameter[]>;
+  @property() declare protocolTypesMap: Map<string, Type[]>;
+  @property() declare objectOptionsParameterMap: Map<string, Type>;
   @property() declare targetManager;
   @state() declare parameters: Record<string, Parameter>;
   @state() command: string = '';
@@ -69,6 +84,7 @@ export class JSONEditor extends LitElement {
   constructor() {
     super();
     this.parameters = {};
+    this.objectOptionsParameterMap = new Map();
     this.targetManager = SDK.TargetManager.TargetManager.instance();
     this.targetId = this.targetManager.targets().length !== 0 ? this.targetManager.targets()[0].id() : undefined;
     this.addEventListener('keydown', (event: Event) => {
@@ -125,6 +141,21 @@ export class JSONEditor extends LitElement {
             value: parameter.value || undefined,
             name: parameter.name,
           } as Parameter;
+          if (parameter.type === 'object') {
+            const typeInfos = this.protocolTypesMap.get(parameter.typeRef as string) ?? [];
+            for (const type of typeInfos) {
+              this.objectOptionsParameterMap.set(type.name, {
+                'optional': type.optional,
+                'type': type.type,
+                'name': type.name,
+              });
+            }
+            const newValue: {[x: string]: string|undefined} = {};
+            for (const type of typeInfos) {
+              newValue[type.name] = undefined;
+            }
+            newParameters[parameter.name].value = newValue;
+          }
         }
         this.parameters = newParameters;
       }
@@ -139,6 +170,23 @@ export class JSONEditor extends LitElement {
         parameter.value = [value];
       } else if (Array.isArray(parameter.value)) {
         parameter.value[index] = value;
+      }
+    }
+  };
+
+  #handleObjectParameterInputBlur = (event: Event, parameterName: string, key: string): void => {
+    if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
+      const value = event.target.value;
+      const parameter = this.parameters[parameterName];
+      const options = this.objectOptionsParameterMap.get(key);
+      if (options && parameter && parameter.value) {
+        if (options.type === 'number') {
+          parameter.value[key] = Number(value);
+        } else if (options.type === 'boolean') {
+          parameter.value[key] = Boolean(value);
+        } else {
+          parameter.value[key] = value;
+        }
       }
     }
   };
@@ -264,6 +312,7 @@ export class JSONEditor extends LitElement {
   #renderParametersHelper(options: {
     value: Parameter['value'],
     optional: boolean,
+    object: boolean,
     handleDelete?: () => void, handleBlur: (event: Event) => void,
     handleAdd?: () => void, key: string,
   }): LitHtml.TemplateResult|undefined {
@@ -279,13 +328,15 @@ export class JSONEditor extends LitElement {
             iconName: 'plus',
             onClick: handleAdd,
           })}
-        `: html`
+        `: nothing}
+          ${!handleAdd && !options.object ? html`
           <devtools-recorder-input
             .disabled=${false}
             .value=${live(options.value ?? '')}
             .placeholder=${'Enter your parameter...'}
             @blur=${options.handleBlur}
-          ></devtools-recorder-input>`}
+          ></devtools-recorder-input>` : nothing}
+
           ${options.handleDelete ? html`
             ${this.#renderInlineButton({
                   title: 'Delete',
@@ -318,6 +369,7 @@ export class JSONEditor extends LitElement {
                 ${this.#renderParametersHelper({
                     value: value,
                     optional: false,
+                    object: false,
                     handleBlur: (event: Event) => {
                       this.#handleParameterInputBlur(event, key);
                     },
@@ -326,25 +378,38 @@ export class JSONEditor extends LitElement {
                     },
                     key: key,
                   })}
-                ` : html`
-                      ${this.#renderParametersHelper({
+                ` : nothing}
+              ${parameter.type === 'object' ? html`
+                ${this.#renderParametersHelper({
+                    value: value,
+                    optional: parameter.optional,
+                    object: true,
+                    handleBlur: (event: Event) => {
+                      this.#handleParameterInputBlur(event, key);
+                    },
+                    key: key,
+                  })}
+                ` : nothing}
+
+                ${parameter.type !== 'object' && parameter.type !== 'array' ? html`
+                ${this.#renderParametersHelper({
                         value: value,
                         optional: parameter.optional,
+                        object: false,
                         handleBlur: (event: Event) => {
                           this.#handleParameterInputBlur(event, key);
                         },
                         key: key,
                     })}
-              `}
+                ` : nothing}
               </div>
               <div class="column padded triple">
                 ${parameter.type === 'array'
-                  ? html`
-                      ${LitHtml.Directives.repeat(parameter.value || [], (value: string, index: number) => {
-                        return LitHtml.html`
-                          ${this.#renderParametersHelper({
+                  ? LitHtml.Directives.repeat(parameter.value || [], (value: string, index: number) => {
+                        return this.#renderParametersHelper({
                             value: value,
                             optional: true,
+                            object: false,
                             handleDelete: () => {
                               this.#handleDeleteArrayParameter(index, name);
                             },
@@ -352,10 +417,21 @@ export class JSONEditor extends LitElement {
                               this.#handleArrayParameterInputBlur(event, name, index);
                             },
                             key: String(index),
-                          })}
-                        `;
-                      })}
-                    `
+                          });
+                      })
+                  : nothing}
+                   ${parameter.type === 'object'
+                  ? LitHtml.Directives.repeat(Object.keys(parameter.value), (key: string) => {
+                        return this.#renderParametersHelper({
+                            value: parameter.value[key],
+                            optional: this.objectOptionsParameterMap.get(key).optional,
+                            object: false,
+                            handleBlur: (event: Event) => {
+                              this.#handleObjectParameterInputBlur(event, name, key);
+                            },
+                            key: key,
+                          });
+                      })
                   : nothing}
               </div>
             </div>
