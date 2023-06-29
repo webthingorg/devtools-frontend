@@ -46,6 +46,30 @@
       },
       "revId": "b0f3c550abf110bb4e15aae0a5f8f9a070b5d8f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6429d83a_aaa371fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-29T08:35:19Z",
+      "side": 1,
+      "message": "Crystal clear now, thanks!",
+      "parentUuid": "df15dddc_839e7cd8",
+      "range": {
+        "startLine": 9,
+        "startChar": 60,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "b0f3c550abf110bb4e15aae0a5f8f9a070b5d8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
