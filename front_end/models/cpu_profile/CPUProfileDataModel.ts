@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../common/common.js';
-import * as Platform from '../platform/platform.js';
+import * as Common from '../../core/common/common.js';
+import * as Platform from '../../core/platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 
 import {ProfileNode, ProfileTreeModel} from './ProfileTreeModel.js';

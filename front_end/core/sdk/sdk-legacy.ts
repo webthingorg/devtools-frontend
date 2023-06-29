@@ -10,9 +10,6 @@ self.SDK = self.SDK || {};
 SDK = SDK || {};
 
 /** @constructor */
-SDK.CPUProfileDataModel = SDKModule.CPUProfileDataModel.CPUProfileDataModel;
-
-/** @constructor */
 SDK.CPUProfilerModel = SDKModule.CPUProfilerModel.CPUProfilerModel;
 
 /** @constructor */
@@ -162,9 +159,6 @@ SDK.OverlayModel = SDKModule.OverlayModel.OverlayModel;
 
 /** @constructor */
 SDK.PerformanceMetricsModel = SDKModule.PerformanceMetricsModel.PerformanceMetricsModel;
-
-/** @constructor */
-SDK.ProfileTreeModel = SDKModule.ProfileTreeModel.ProfileTreeModel;
 
 /** @constructor */
 SDK.RemoteObject = SDKModule.RemoteObject.RemoteObject;
