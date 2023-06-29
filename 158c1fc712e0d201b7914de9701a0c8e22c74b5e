@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc39c29_5a055c54",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1143484
+      },
+      "writtenOn": "2023-06-29T20:16:29Z",
+      "side": 0,
+      "message": "Just double checking (I don\u0027t know what the prerender team is planning): are you sure you won\u0027t be using Prerender2Holdback anymore for A/B testing launches?\n\nIf you want to keep support for Prerender2Holdback, I think you could just check that flag in PreloadHandler::SendInitialPreloadEnabledState:\n\n```\nconfig.ShouldHoldback(\n          PreloadingType::kPrerender,\n          content::content_preloading_predictor::kSpeculationRules))\n    || base::FeatureList::IsEnabled(kPrerender2Holdback)\n```\n\nUp to you 😊",
+      "range": {
+        "startLine": 288,
+        "startChar": 6,
+        "endLine": 288,
+        "endChar": 24
+      },
+      "revId": "158c1fc712e0d201b7914de9701a0c8e22c74b5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
