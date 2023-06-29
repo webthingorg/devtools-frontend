@@ -22,6 +22,30 @@
       },
       "revId": "31ee34f2362598c79f7a247e7705bdec66ea4225",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bfcc808_cccfa341",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-06-29T16:14:49Z",
+      "side": 1,
+      "message": "It looks like we add a lot of messages to the console, and while most of them are not localized many are:\n\nhttps://source.chromium.org/search?q\u003dConsole%5C.instance%5C(%5C)%5C.(error%7Cwarn)%20file:%5Ethird_party%2Fdev\u0026ss\u003dchromium%2Fchromium%2Fsrc\n\nMaybe we should ask the team chat whether we should always do this or never?",
+      "parentUuid": "a80dd5d6_9b6b9191",
+      "range": {
+        "startLine": 155,
+        "startChar": 26,
+        "endLine": 155,
+        "endChar": 36
+      },
+      "revId": "31ee34f2362598c79f7a247e7705bdec66ea4225",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
