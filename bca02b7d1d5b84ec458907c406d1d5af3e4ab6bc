@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eecaa7b2_9016cce4",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-29T12:23:23Z",
+      "side": 1,
+      "message": "let\u0027s move the type checks inside the parameters so that we don\u0027t need to repeat the entire renderParametersHelper calls?",
+      "revId": "bca02b7d1d5b84ec458907c406d1d5af3e4ab6bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1635d4cb_e4550ade",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-29T12:23:23Z",
+      "side": 1,
+      "message": "let\u0027s move type checks inside the loop? it does not look like we need to duplicate the entire loop?",
+      "revId": "bca02b7d1d5b84ec458907c406d1d5af3e4ab6bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
