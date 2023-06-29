@@ -300,7 +300,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
     const customAcceptedEncodingSetting = Common.Settings.Settings.instance().createSetting(
         'customAcceptedEncodings',
         `${Protocol.Network.ContentEncoding.Gzip},${Protocol.Network.ContentEncoding.Br},${
-            Protocol.Network.ContentEncoding.Deflate}`);
+            Protocol.Network.ContentEncoding.Deflate},${Protocol.Network.ContentEncoding.Zstd}`);
 
     function onSettingChange(): void {
       if (!useCustomAcceptedEncodingSetting.get()) {
