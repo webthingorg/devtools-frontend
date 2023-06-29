@@ -8513,6 +8513,7 @@ export namespace Network {
     Deflate = 'deflate',
     Gzip = 'gzip',
     Br = 'br',
+    Zstd = 'zstd',
   }
 
   export const enum PrivateNetworkRequestPolicy {
