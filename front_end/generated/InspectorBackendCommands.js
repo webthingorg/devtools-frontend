@@ -447,7 +447,7 @@ inspectorBackend.registerEnum("Network.AuthChallengeSource", {Server: "Server", 
 inspectorBackend.registerEnum("Network.AuthChallengeResponseResponse", {Default: "Default", CancelAuth: "CancelAuth", ProvideCredentials: "ProvideCredentials"});
 inspectorBackend.registerEnum("Network.InterceptionStage", {Request: "Request", HeadersReceived: "HeadersReceived"});
 inspectorBackend.registerEnum("Network.SignedExchangeErrorField", {SignatureSig: "signatureSig", SignatureIntegrity: "signatureIntegrity", SignatureCertUrl: "signatureCertUrl", SignatureCertSha256: "signatureCertSha256", SignatureValidityUrl: "signatureValidityUrl", SignatureTimestamps: "signatureTimestamps"});
-inspectorBackend.registerEnum("Network.ContentEncoding", {Deflate: "deflate", Gzip: "gzip", Br: "br"});
+inspectorBackend.registerEnum("Network.ContentEncoding", {Deflate: "deflate", Gzip: "gzip", Br: "br", Zstd: "zstd"});
 inspectorBackend.registerEnum("Network.PrivateNetworkRequestPolicy", {Allow: "Allow", BlockFromInsecureToMorePrivate: "BlockFromInsecureToMorePrivate", WarnFromInsecureToMorePrivate: "WarnFromInsecureToMorePrivate", PreflightBlock: "PreflightBlock", PreflightWarn: "PreflightWarn"});
 inspectorBackend.registerEnum("Network.IPAddressSpace", {Local: "Local", Private: "Private", Public: "Public", Unknown: "Unknown"});
 inspectorBackend.registerEnum("Network.CrossOriginOpenerPolicyValue", {SameOrigin: "SameOrigin", SameOriginAllowPopups: "SameOriginAllowPopups", RestrictProperties: "RestrictProperties", UnsafeNone: "UnsafeNone", SameOriginPlusCoep: "SameOriginPlusCoep", RestrictPropertiesPlusCoep: "RestrictPropertiesPlusCoep"});
