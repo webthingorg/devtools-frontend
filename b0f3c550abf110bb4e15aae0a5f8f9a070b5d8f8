@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cc11841_f9adf9c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-29T08:24:34Z",
+      "side": 1,
+      "message": "I think I am misunderstanding how this works, but I would have expected to see in this CL code to turn the sourcemap flag on, but it is still defaulted to false. Do we still require users to set this flag in gn args to enable sourcemaps?",
+      "range": {
+        "startLine": 9,
+        "startChar": 60,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "b0f3c550abf110bb4e15aae0a5f8f9a070b5d8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
