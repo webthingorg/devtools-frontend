@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc20d101_d58295fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-29T09:52:14Z",
+      "side": 1,
+      "message": "Could we do this in a way that only enables it by default on the bots? I know personally I do not like the expanded reporting by default, but then maybe I am in the minority.\n\nI do think having it expanded on the bots by default would be really useful though.",
+      "revId": "863507492e93db86f6d6251131fc2e9e829b19fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b96cb3eb_7b577109",
