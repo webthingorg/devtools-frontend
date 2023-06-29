@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as TraceModel from '../../../../../../front_end/models/trace/trace.js';
-import {loadEventsFromTraceFile, setTraceModelTimeout} from '../../../helpers/TraceHelpers.js';
+import {loadEventsFromTraceFile} from '../../../helpers/TraceHelpers.js';
 
 async function processTrace(url: string): Promise<void> {
   TraceModel.Handlers.ModelHandlers.Meta.reset();
@@ -28,7 +28,6 @@ async function processTrace(url: string): Promise<void> {
 }
 
 describe('LayoutShiftsHandler', function() {
-  setTraceModelTimeout(this);
   beforeEach(async () => {
     // The layout shifts handler stores by process, so to make life easier we
     // run the meta handler here, too, so that later on we can get the IDs of

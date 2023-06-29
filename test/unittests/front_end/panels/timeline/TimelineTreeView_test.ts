@@ -24,7 +24,7 @@ describeWithEnvironment('TimelineTreeView', () => {
   const mockViewDelegate = new MockViewDelegate();
   describe('EventsTimelineTreeView', () => {
     it('Creates a tree from nestable async events', async () => {
-      const data = await allModelsFromFile('sync-like-timings.json.gz');
+      const data = await allModelsFromFile(this, 'sync-like-timings.json.gz');
       const eventTreeView = new Timeline.EventsTimelineTreeView.EventsTimelineTreeView(mockViewDelegate);
       const consoleTimings = [...data.traceParsedData.UserTimings.consoleTimings];
       eventTreeView.setModelWithEvents(data.performanceModel, consoleTimings, data.traceParsedData);
@@ -40,7 +40,7 @@ describeWithEnvironment('TimelineTreeView', () => {
       assert.strictEqual(bottomNode.event?.name, 'second console time');
     });
     it('shows instant events as nodes', async () => {
-      const data = await allModelsFromFile('user-timings.json.gz');
+      const data = await allModelsFromFile(this, 'user-timings.json.gz');
       const eventTreeView = new Timeline.EventsTimelineTreeView.EventsTimelineTreeView(mockViewDelegate);
       const consoleTimings = [...data.traceParsedData.UserTimings.performanceMarks];
       eventTreeView.setModelWithEvents(data.performanceModel, consoleTimings, data.traceParsedData);
@@ -55,7 +55,7 @@ describeWithEnvironment('TimelineTreeView', () => {
   });
   describe('BottomUpTimelineTreeView', () => {
     it('Creates a bottom up tree from nestable events', async () => {
-      const data = await allModelsFromFile('sync-like-timings.json.gz');
+      const data = await allModelsFromFile(this, 'sync-like-timings.json.gz');
       const bottomUpTreeView = new Timeline.TimelineTreeView.BottomUpTimelineTreeView();
       const consoleTimings = [...data.traceParsedData.UserTimings.consoleTimings];
       const startTime =
@@ -81,7 +81,7 @@ describeWithEnvironment('TimelineTreeView', () => {
   });
   describe('CallTreeTimelineTreeView', () => {
     it('Creates a call tree from nestable events', async () => {
-      const data = await allModelsFromFile('sync-like-timings.json.gz');
+      const data = await allModelsFromFile(this, 'sync-like-timings.json.gz');
       const callTreeView = new Timeline.TimelineTreeView.CallTreeTimelineTreeView();
       const consoleTimings = [...data.traceParsedData.UserTimings.consoleTimings];
       const startTime =
@@ -104,7 +104,7 @@ describeWithEnvironment('TimelineTreeView', () => {
   });
   describe('event groupping', () => {
     it('groups events by category in the Call Tree view', async () => {
-      const data = await allModelsFromFile('sync-like-timings.json.gz');
+      const data = await allModelsFromFile(this, 'sync-like-timings.json.gz');
       const callTreeView = new Timeline.TimelineTreeView.CallTreeTimelineTreeView();
       const consoleTimings = [...data.traceParsedData.UserTimings.consoleTimings];
       const startTime =
@@ -123,7 +123,7 @@ describeWithEnvironment('TimelineTreeView', () => {
       assert.strictEqual(children.next().value.event.name, 'third console time');
     });
     it('groups events by category in the Call Tree view', async () => {
-      const data = await allModelsFromFile('sync-like-timings.json.gz');
+      const data = await allModelsFromFile(this, 'sync-like-timings.json.gz');
       const callTreeView = new Timeline.TimelineTreeView.BottomUpTimelineTreeView();
       const consoleTimings = [...data.traceParsedData.UserTimings.consoleTimings];
       const startTime =

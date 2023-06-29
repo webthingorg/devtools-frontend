@@ -12,8 +12,6 @@ import {
   makeCompleteEvent,
   makeInstantEvent,
   prettyPrint,
-  setTraceModelTimeout,
-
 } from '../../../helpers/TraceHelpers.js';
 
 const MAIN_FRAME_PID = 2154214;
@@ -47,7 +45,6 @@ async function handleEventsFromTraceFile(
 }
 
 describe('RendererHandler', function() {
-  setTraceModelTimeout(this);
   it('finds all the renderers in a real world profile', async () => {
     const renderers = await handleEventsFromTraceFile('multiple-navigations-with-iframes.json.gz');
     assert.strictEqual(renderers.processes.size, 4);

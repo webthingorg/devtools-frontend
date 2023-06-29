@@ -6,11 +6,9 @@ import * as TraceModel from '../../../../../front_end/models/trace/trace.js';
 
 const {assert} = chai;
 
-import {loadEventsFromTraceFile, setTraceModelTimeout} from '../../helpers/TraceHelpers.js';
+import {loadEventsFromTraceFile} from '../../helpers/TraceHelpers.js';
 
 describe('TraceProcessor', async function() {
-  setTraceModelTimeout(this);
-
   it('can use a trace processor', async () => {
     const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
     const file = await loadEventsFromTraceFile('basic.json.gz');

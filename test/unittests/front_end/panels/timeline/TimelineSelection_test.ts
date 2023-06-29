@@ -21,7 +21,7 @@ describeWithEnvironment('TimelineSelection', () => {
   });
 
   it('can be created with a network request', async () => {
-    const data = await allModelsFromFile('web-dev.json.gz');
+    const data = await allModelsFromFile(this, 'web-dev.json.gz');
     // Does not matter which network request, just grab the first send request.
     const firstNetworkEvent = getAllTracingModelPayloadEvents(data.tracingModel).find(event => {
       return event.name === TimelineModel.TimelineModel.RecordType.ResourceSendRequest;
@@ -38,7 +38,7 @@ describeWithEnvironment('TimelineSelection', () => {
   });
 
   it('can be created with an SDK trace event', async () => {
-    const data = await allModelsFromFile('web-dev.json.gz');
+    const data = await allModelsFromFile(this, 'web-dev.json.gz');
     const firstLCPEvent = getAllTracingModelPayloadEvents(data.tracingModel).find(event => {
       return event.name === TimelineModel.TimelineModel.RecordType.MarkLCPCandidate;
     });
@@ -54,7 +54,7 @@ describeWithEnvironment('TimelineSelection', () => {
   });
 
   it('can be created with a TraceEngine event', async () => {
-    const data = await allModelsFromFile('web-dev.json.gz');
+    const data = await allModelsFromFile(this, 'web-dev.json.gz');
     const firstLCPEvent = data.traceParsedData.PageLoadMetrics.allMarkerEvents.find(event => {
       return event.name === 'largestContentfulPaint::Candidate';
     });

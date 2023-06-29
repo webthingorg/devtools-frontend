@@ -243,8 +243,8 @@ describeWithEnvironment('TracingModel', () => {
     });
   });
 
-  it('finds the browser main thread from the tracing model', async () => {
-    const {tracingModel} = await allModelsFromFile('web-dev.json.gz');
+  it('finds the browser main thread from the tracing model', async function() {
+    const {tracingModel} = await allModelsFromFile(this, 'web-dev.json.gz');
     const mainThread = SDK.TracingModel.TracingModel.browserMainThread(tracingModel);
     assert.strictEqual(mainThread?.id(), 775);
     assert.strictEqual(mainThread?.name(), 'CrBrowserMain');

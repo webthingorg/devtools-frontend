@@ -23,7 +23,7 @@ class MockViewDelegate implements Timeline.TimelinePanel.TimelineModeViewDelegat
 
 describeWithEnvironment('TimelineFlameChartView', () => {
   it('Can search for events by name in the timeline', async () => {
-    const {traceParsedData, performanceModel, filmStripModel} = await allModelsFromFile('lcp-images.json.gz');
+    const {traceParsedData, performanceModel, filmStripModel} = await allModelsFromFile(this, 'lcp-images.json.gz');
     // The timeline flamechart view will invoke the `select` method
     // of this delegate every time an event has matched on a search.
     const mockViewDelegate = new MockViewDelegate();
@@ -61,7 +61,7 @@ describeWithEnvironment('TimelineFlameChartView', () => {
   });
 
   it('Shows the network track correctly', async () => {
-    const {traceParsedData, performanceModel, filmStripModel} = await allModelsFromFile('load-simple.json.gz');
+    const {traceParsedData, performanceModel, filmStripModel} = await allModelsFromFile(this, 'load-simple.json.gz');
     // The timeline flamechart view will invoke the `select` method
     // of this delegate every time an event has matched on a search.
     const mockViewDelegate = new MockViewDelegate();
@@ -73,7 +73,7 @@ describeWithEnvironment('TimelineFlameChartView', () => {
   });
 
   it('Does not show the network track when there is no network request', async () => {
-    const {traceParsedData, performanceModel, filmStripModel} = await allModelsFromFile('basic.json.gz');
+    const {traceParsedData, performanceModel, filmStripModel} = await allModelsFromFile(this, 'basic.json.gz');
     // The timeline flamechart view will invoke the `select` method
     // of this delegate every time an event has matched on a search.
     const mockViewDelegate = new MockViewDelegate();

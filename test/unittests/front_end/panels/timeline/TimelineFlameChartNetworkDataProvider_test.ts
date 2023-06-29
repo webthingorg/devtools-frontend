@@ -7,10 +7,10 @@ import * as Timeline from '../../../../../front_end/panels/timeline/timeline.js'
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import {allModelsFromFile} from '../../helpers/TraceHelpers.js';
 
-describeWithEnvironment('TimelineFlameChartNetworkDataProvider', () => {
+describeWithEnvironment('TimelineFlameChartNetworkDataProvider', function() {
   it('renders the network track correctly', async () => {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const {timelineModel, traceParsedData, performanceModel} = await allModelsFromFile('load-simple.json.gz');
+    const {timelineModel, traceParsedData, performanceModel} = await allModelsFromFile(this, 'load-simple.json.gz');
 
     const minTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
     const maxTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
@@ -50,7 +50,7 @@ describeWithEnvironment('TimelineFlameChartNetworkDataProvider', () => {
 
   it('does not render the network track if there is no network requests', async () => {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const {traceParsedData, performanceModel} = await allModelsFromFile('basic.json.gz');
+    const {traceParsedData, performanceModel} = await allModelsFromFile(this, 'basic.json.gz');
 
     const minTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
     const maxTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
@@ -79,7 +79,7 @@ describeWithEnvironment('TimelineFlameChartNetworkDataProvider', () => {
 
   it('decorate a event correctly', async () => {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const {timelineModel} = await allModelsFromFile('cls-cluster-max-timeout.json.gz');
+    const {timelineModel} = await allModelsFromFile(this, 'cls-cluster-max-timeout.json.gz');
     const networkEvents = timelineModel.networkRequests();
     // The field that is important of this test:
     // {
@@ -129,7 +129,7 @@ describeWithEnvironment('TimelineFlameChartNetworkDataProvider', () => {
     // This test is used to check we handle the event "same" as OPP. Once
     // the migration is done, it should be removed.
     it('returns same events as old engine', async () => {
-      const {timelineModel, traceParsedData} = await allModelsFromFile('cls-cluster-max-timeout.json.gz');
+      const {timelineModel, traceParsedData} = await allModelsFromFile(this, 'cls-cluster-max-timeout.json.gz');
       const networkEventsFromOldEngine = timelineModel.networkRequests();
       // The first request of this file misses the SendRequest event, so we discarded it in Trace Engine.
       // So remove the first request for the test.

@@ -70,6 +70,7 @@ export async function loadTraceFileFromURL(url: URL): Promise<TraceModel.TraceMo
   traceFileCache.set(url.toString(), contents);
   return contents;
 }
+
 export async function loadTraceFileFromFixtures(name: string): Promise<TraceModel.TraceModel.TraceFileContents> {
   const urlForTest = new URL(`/fixtures/traces/${name}`, window.location.origin);
   const urlForComponentExample = new URL(`/test/unittests/fixtures/traces/${name}`, window.location.origin);
@@ -141,7 +142,9 @@ export function setTraceModelTimeout(context: Mocha.Context|Mocha.Suite): void {
   context.timeout(10_000);
 }
 
-export async function loadModelDataFromTraceFile(name: string): Promise<TraceModel.Handlers.Types.TraceParseData> {
+export async function loadModelDataFromTraceFile(
+    context: Mocha.Context|Mocha.Suite, name: string): Promise<TraceModel.Handlers.Types.TraceParseData> {
+  setTraceModelTimeout(context);
   let trace: TraceModel.Handlers.Types.TraceParseData;
   try {
     trace = (await generateModelDataForTraceFile(name)).traceParsedData;
@@ -170,6 +173,9 @@ export class MockFlameChartDelegate implements PerfUI.FlameChart.FlameChartDeleg
  * corresponding track appender registered in the
  * CompatibilityTracksAppender.
  *
+ * @param context The Mocha test context. |allModelsFromFile| function easily
+ * takes up more than our default Mocha timeout, which is 2s. So we have to
+ * increase this test's timeout.
  * @param traceFileName The name of the trace file to be loaded into the
  * flame chart.
  * @param trackAppenderNames A Set with the names of the tracks to be
@@ -177,14 +183,14 @@ export class MockFlameChartDelegate implements PerfUI.FlameChart.FlameChartDeleg
  * @returns a flame chart element and its corresponding data provider.
  */
 export async function getMainFlameChartWithTracks(
-    traceFileName: string, trackAppenderNames: Set<Timeline.CompatibilityTracksAppender.TrackAppenderName>,
-    expanded: boolean): Promise<{
+    context: Mocha.Context|Mocha.Suite, traceFileName: string,
+    trackAppenderNames: Set<Timeline.CompatibilityTracksAppender.TrackAppenderName>, expanded: boolean): Promise<{
   flameChart: PerfUI.FlameChart.FlameChart,
   dataProvider: Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider,
 }> {
   await initializeGlobalVars();
 
-  const {traceParsedData, performanceModel} = await allModelsFromFile(traceFileName);
+  const {traceParsedData, performanceModel} = await allModelsFromFile(context, traceFileName);
 
   const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
   // The data provider still needs a reference to the legacy model to
@@ -216,13 +222,14 @@ export async function getMainFlameChartWithTracks(
  * @returns a flame chart element and its corresponding data provider.
  */
 export async function getMainFlameChartWithLegacyTrack(
-    traceFileName: string, trackType: TimelineModel.TimelineModel.TrackType, expanded: boolean): Promise<{
+    context: Mocha.Context|Mocha.Suite, traceFileName: string, trackType: TimelineModel.TimelineModel.TrackType,
+    expanded: boolean): Promise<{
   flameChart: PerfUI.FlameChart.FlameChart,
   dataProvider: Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider,
 }> {
   await initializeGlobalVars();
 
-  const {traceParsedData, performanceModel, timelineModel} = await allModelsFromFile(traceFileName);
+  const {traceParsedData, performanceModel, timelineModel} = await allModelsFromFile(context, traceFileName);
 
   const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
   // The data provider still needs a reference to the legacy model to
@@ -251,13 +258,14 @@ export async function getMainFlameChartWithLegacyTrack(
  * @param expanded if the track is expanded
  * @returns a flame chart element and its corresponding data provider.
  */
-export async function getNetworkFlameChartWithLegacyTrack(traceFileName: string, expanded: boolean): Promise<{
+export async function getNetworkFlameChartWithLegacyTrack(
+    context: Mocha.Context|Mocha.Suite, traceFileName: string, expanded: boolean): Promise<{
   flameChart: PerfUI.FlameChart.FlameChart,
   dataProvider: Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider,
 }> {
   await initializeGlobalVars();
 
-  const {traceParsedData, performanceModel} = await allModelsFromFile(traceFileName);
+  const {traceParsedData, performanceModel} = await allModelsFromFile(context, traceFileName);
   const minTime = TraceModel.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
   const maxTime = TraceModel.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
   const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
@@ -284,13 +292,13 @@ type LoadedModels = {
 };
 const traceModelsCache = new Map<string, LoadedModels>();
 
-export async function allModelsFromFile(file: string): Promise<LoadedModels> {
+export async function allModelsFromFile(context: Mocha.Context|Mocha.Suite, file: string): Promise<LoadedModels> {
   const fromCache = traceModelsCache.get(file);
   if (fromCache) {
     return fromCache;
   }
 
-  const traceParsedData = await loadModelDataFromTraceFile(file);
+  const traceParsedData = await loadModelDataFromTraceFile(context, file);
   const events = await loadTraceEventsLegacyEventPayload(file);
   const tracingModel = new SDK.TracingModel.TracingModel();
   const performanceModel = new Timeline.PerformanceModel.PerformanceModel();
