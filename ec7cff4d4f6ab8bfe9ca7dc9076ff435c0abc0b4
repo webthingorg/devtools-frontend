@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9b2814d_b82fae5b",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-29T09:13:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "992b667d_5b8671c5",
+      "range": {
+        "startLine": 79,
+        "startChar": 89,
+        "endLine": 79,
+        "endChar": 93
+      },
+      "revId": "ec7cff4d4f6ab8bfe9ca7dc9076ff435c0abc0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c447f857_4ef46d1d",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f1c3633_d58df020",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-29T09:13:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c447f857_4ef46d1d",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 53
+      },
+      "revId": "ec7cff4d4f6ab8bfe9ca7dc9076ff435c0abc0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7b6ec3d_6d70cb6c",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-06-29T08:44:05Z",
       "side": 1,
       "message": "This is a bit unfortunate. This will put `\"typeRef\": \"None\"` into the JSON. If you puss `\"null\"`, it\u0027ll put the string `\"null\"` instead of just `null`.\n\nOne way to solve this is to pass `\"null\"` here and do the quote wrapping in the `if` where you assign `type_ref`.\n\nOtherwise I slightly prefer the `\"null\"` string constant over `\"None\"` since it\u0027s a bit more JS ideomatic. I\u0027ll leave it up to you which way you wanna go.",
+      "range": {
+        "startLine": 314,
+        "startChar": 54,
+        "endLine": 314,
+        "endChar": 58
+      },
+      "revId": "ec7cff4d4f6ab8bfe9ca7dc9076ff435c0abc0b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ff8137_c2b9e57b",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-06-29T09:13:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b6ec3d_6d70cb6c",
       "range": {
         "startLine": 314,
         "startChar": 54,
