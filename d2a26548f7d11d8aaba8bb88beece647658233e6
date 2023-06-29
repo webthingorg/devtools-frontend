@@ -33,6 +33,24 @@
       "message": "let\u0027s move this part to the renderParametersHelper in a follow-up",
       "revId": "d2a26548f7d11d8aaba8bb88beece647658233e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e5fadb2_757ba148",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-06-29T12:14:53Z",
+      "side": 1,
+      "message": "so that we can make the rendering recursive and render the complex types in array/objects",
+      "parentUuid": "3b2dc22f_d63fdfa7",
+      "revId": "d2a26548f7d11d8aaba8bb88beece647658233e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
