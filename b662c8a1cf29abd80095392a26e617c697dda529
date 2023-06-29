@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16d66a8_f2c99627",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-29T08:53:19Z",
+      "side": 1,
+      "message": "The types are wrapped in the type that ensures the Meta handler is present, so that should be OK. I think this is because on the layout tests we do not run the new trace engine, but it should not cause an error as if we do not have the data we do not attempt to generate a film strip, so I think I have a bug somewhere as I am trying to generate a film strip from undefined data. I will run the layout test locally and investigate!",
+      "parentUuid": "619d1055_4c6aa534",
+      "revId": "b662c8a1cf29abd80095392a26e617c697dda529",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2c69868_ca29b0d5",
