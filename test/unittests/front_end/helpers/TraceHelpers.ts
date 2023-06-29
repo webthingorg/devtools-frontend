@@ -275,21 +275,13 @@ export async function getNetworkFlameChartWithLegacyTrack(traceFileName: string,
   return {flameChart, dataProvider};
 }
 
-type LoadedModels = {
+export async function allModelsFromFile(file: string): Promise<{
   tracingModel: SDK.TracingModel.TracingModel,
   timelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
   performanceModel: Timeline.PerformanceModel.PerformanceModel,
   traceParsedData: TraceModel.Handlers.Types.TraceParseData,
   filmStripModel: SDK.FilmStripModel.FilmStripModel,
-};
-const traceModelsCache = new Map<string, LoadedModels>();
-
-export async function allModelsFromFile(file: string): Promise<LoadedModels> {
-  const fromCache = traceModelsCache.get(file);
-  if (fromCache) {
-    return fromCache;
-  }
-
+}> {
   const traceParsedData = await loadModelDataFromTraceFile(file);
   const events = await loadTraceEventsLegacyEventPayload(file);
   const tracingModel = new SDK.TracingModel.TracingModel();
@@ -299,15 +291,13 @@ export async function allModelsFromFile(file: string): Promise<LoadedModels> {
   await performanceModel.setTracingModel(tracingModel);
   const timelineModel = performanceModel.timelineModel();
   const filmStripModel = new SDK.FilmStripModel.FilmStripModel(tracingModel);
-  const result: LoadedModels = {
+  return {
     tracingModel,
     timelineModel,
     filmStripModel,
     performanceModel,
     traceParsedData,
   };
-  traceModelsCache.set(file, result);
-  return result;
 }
 
 /**
