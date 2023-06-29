@@ -137,6 +137,8 @@ export const buildProtocolCommandsParametersMap =
 const protocolMethodWithParametersMap = buildProtocolCommandsParametersMap(
     ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
 
+const protocolTypesMap = ProtocolClient.InspectorBackend.inspectorBackend.typeMap;
+
 export interface Message {
   id?: number;
   method: string;
@@ -716,6 +718,7 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     super();
     this.jsonEditor = new Components.JSONEditor.JSONEditor();
     this.jsonEditor.protocolMethodWithParametersMap = protocolMethodWithParametersMap;
+    this.jsonEditor.protocolTypesMap = protocolTypesMap;
     this.element.append(this.jsonEditor);
     this.jsonEditor.addEventListener(Components.JSONEditor.SubmitEditorEvent.eventName, (event: Event) => {
       this.dispatchEventToListeners(Events.CommandSent, (event as Components.JSONEditor.SubmitEditorEvent).data);
