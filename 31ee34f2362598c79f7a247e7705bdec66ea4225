@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a80dd5d6_9b6b9191",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-06-29T13:23:28Z",
+      "side": 1,
+      "message": "It is unconventional to localize an exception or log message. A developer should be able to search for the exact text.",
+      "range": {
+        "startLine": 155,
+        "startChar": 26,
+        "endLine": 155,
+        "endChar": 36
+      },
+      "revId": "31ee34f2362598c79f7a247e7705bdec66ea4225",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
