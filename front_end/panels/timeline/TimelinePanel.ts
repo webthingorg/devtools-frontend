@@ -335,6 +335,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   #traceEngineModel: TraceEngine.TraceModel.Model<typeof TraceEngine.Handlers.Migration.ENABLED_TRACE_HANDLERS>;
   // Tracks the index of the trace that the user is currently viewing.
   #traceEngineActiveTraceIndex = -1;
+
   constructor() {
     super('timeline');
     this.#traceEngineModel = TraceEngine.TraceModel.Model.createWithRequiredHandlersForMigration();
@@ -771,8 +772,12 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.overviewControls.push(new TimelineEventOverviewResponsiveness());
     this.overviewControls.push(new TimelineEventOverviewCPUActivity());
     this.overviewControls.push(new TimelineEventOverviewNetwork());
-    if (this.showScreenshotsSetting.get() && this.filmStripModel && this.filmStripModel.frames().length) {
-      this.overviewControls.push(new TimelineFilmStripOverview(this.filmStripModel));
+    if (this.showScreenshotsSetting.get()) {
+      const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
+      if (traceParsedData) {
+        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        this.overviewControls.push(new TimelineFilmStripOverview(filmStrip));
+      }
     }
     if (this.showMemorySetting.get()) {
       this.overviewControls.push(new TimelineEventOverviewMemory());
