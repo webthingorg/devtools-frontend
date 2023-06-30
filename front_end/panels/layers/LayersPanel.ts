@@ -30,6 +30,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as LayerViewer from '../layer_viewer/layer_viewer.js';
@@ -68,6 +69,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
     this.model = null;
 
     SDK.TargetManager.TargetManager.instance().observeTargets(this);
+    SDK.TargetManager.TargetManager.instance().addScopeChangeListener(this.onScopeChange.bind(this));
     this.layerViewHost = new LayerViewer.LayerViewHost.LayerViewHost();
     this.layerTreeOutline = new LayerViewer.LayerTreeOutline.LayerTreeOutline(this.layerViewHost);
     this.layerTreeOutline.addEventListener(
@@ -123,10 +125,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
     super.willHide();
   }
 
-  targetAdded(target: SDK.Target.Target): void {
-    if (target !== SDK.TargetManager.TargetManager.instance().primaryPageTarget()) {
-      return;
-    }
+  private setModel(target: SDK.Target.Target): void {
     this.model = target.model(LayerTreeModel);
     if (!this.model) {
       return;
@@ -135,17 +134,39 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
     this.model.addEventListener(Events.LayerPainted, this.onLayerPainted, this);
     if (this.isShowing()) {
       this.model.enable();
+      void this.update();
     }
   }
 
-  targetRemoved(target: SDK.Target.Target): void {
-    if (!this.model || this.model.target() !== target) {
+  private unsetModel(): void {
+    if (this.model) {
+      this.model.removeEventListener(Events.LayerTreeChanged, this.onLayerTreeUpdated, this);
+      this.model.removeEventListener(Events.LayerPainted, this.onLayerPainted, this);
+      void this.model.disable();
+      this.model = null;
+    }
+  }
+
+  targetAdded(target: SDK.Target.Target): void {
+    if (target !== SDK.TargetManager.TargetManager.instance().primaryPageTarget()) {
       return;
     }
-    this.model.removeEventListener(Events.LayerTreeChanged, this.onLayerTreeUpdated, this);
-    this.model.removeEventListener(Events.LayerPainted, this.onLayerPainted, this);
-    void this.model.disable();
-    this.model = null;
+    this.setModel(target);
+  }
+
+  targetRemoved(target: SDK.Target.Target): void {
+    if (this.model?.target() === target) {
+      this.unsetModel();
+    }
+  }
+
+  onScopeChange(): void {
+    const scopeTarget = SDK.TargetManager.TargetManager.instance().scopeTarget();
+    assertNotNullOrUndefined(scopeTarget);
+    if (this.model?.target() !== scopeTarget) {
+      this.unsetModel();
+      this.setModel(scopeTarget);
+    }
   }
 
   private onLayerTreeUpdated(): void {
