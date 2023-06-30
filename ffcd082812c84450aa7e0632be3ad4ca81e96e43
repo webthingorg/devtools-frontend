@@ -87,6 +87,30 @@
       },
       "revId": "ffcd082812c84450aa7e0632be3ad4ca81e96e43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa89a2b_5b5d4318",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-30T08:14:08Z",
+      "side": 1,
+      "message": "One of the most recent examples is this https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1141/overview. Note that this is not the only failure of this kind, it happened beofre with other tests.",
+      "parentUuid": "ab14a3f7_08c8ce81",
+      "range": {
+        "startLine": 527,
+        "startChar": 16,
+        "endLine": 527,
+        "endChar": 37
+      },
+      "revId": "ffcd082812c84450aa7e0632be3ad4ca81e96e43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
