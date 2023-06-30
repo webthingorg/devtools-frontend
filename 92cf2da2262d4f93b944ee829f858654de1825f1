@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dde4a30_29bd04a6",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-30T08:52:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6faef1ae_d5541219",
+      "range": {
+        "startLine": 176,
+        "startChar": 24,
+        "endLine": 176,
+        "endChar": 59
+      },
+      "revId": "92cf2da2262d4f93b944ee829f858654de1825f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fe938ef_b6468727",
@@ -77,6 +101,30 @@
       "writtenOn": "2023-06-30T08:50:41Z",
       "side": 1,
       "message": "More results leads to more confidence. I thought we agreed that linux bots are not a strained resource and we can have this one included in every try.",
+      "parentUuid": "2fe938ef_b6468727",
+      "range": {
+        "startLine": 241,
+        "startChar": 9,
+        "endLine": 241,
+        "endChar": 54
+      },
+      "revId": "92cf2da2262d4f93b944ee829f858654de1825f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fe8853_2da797c0",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-06-30T08:52:24Z",
+      "side": 1,
+      "message": "I agree, done",
       "parentUuid": "2fe938ef_b6468727",
       "range": {
         "startLine": 241,
