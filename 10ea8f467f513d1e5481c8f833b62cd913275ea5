@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ced32a_e3b35dd1",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-30T13:14:01Z",
+      "side": 1,
+      "message": "nits: we can use the PrimitiveParameter",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "10ea8f467f513d1e5481c8f833b62cd913275ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
