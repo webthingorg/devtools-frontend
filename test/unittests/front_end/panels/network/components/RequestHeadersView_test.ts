@@ -161,21 +161,29 @@ describeWithMockConnection('RequestHeadersView', () => {
         [[':method:', 'GET'], ['accept-encoding:', 'gzip, deflate, br'], ['cache-control:', 'no-cache']]);
   });
 
-  it('emits UMA event when a header value is being copied', async () => {
-    component = await renderHeadersComponent(defaultRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
-    assertElement(generalCategory, HTMLElement);
-
-    const spy = sinon.spy(Host.userMetrics, 'actionTaken');
-    const headerValue = generalCategory.querySelector('.header-value');
-    assertElement(headerValue, HTMLElement);
-
-    assert.isTrue(spy.notCalled);
-    dispatchCopyEvent(headerValue);
-    assert.isTrue(spy.calledWith(Host.UserMetrics.Action.NetworkPanelCopyValue));
-  });
+  for(let i = 0; i < 100; i++) {
+    it.only('emits UMA event when a header value is being copied', async () => {
+      let start = Date.now();
+      component = await renderHeadersComponent(defaultRequest);
+      assertShadowRoot(component.shadowRoot);
+  
+      const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
+      assertElement(generalCategory, HTMLElement);
+      let timeTaken = Date.now() - start;
+      console.log("Total time taken for first half: " + timeTaken + " milliseconds");
+  
+      start = Date.now();
+      const spy = sinon.spy(Host.userMetrics, 'actionTaken');
+      const headerValue = generalCategory.querySelector('.header-value');
+      assertElement(headerValue, HTMLElement);
+  
+      assert.isTrue(spy.notCalled);
+      dispatchCopyEvent(headerValue);
+      assert.isTrue(spy.calledWith(Host.UserMetrics.Action.NetworkPanelCopyValue));
+      timeTaken = Date.now() - start;
+      console.log("Total time taken for first half: " + timeTaken + " milliseconds");
+    });
+  }
 
   it('can switch between source and parsed view', async () => {
     component = await renderHeadersComponent(defaultRequest);
