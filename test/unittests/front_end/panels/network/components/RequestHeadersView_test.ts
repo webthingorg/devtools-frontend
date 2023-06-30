@@ -70,7 +70,16 @@ async function renderHeadersComponent(request: SDK.NetworkRequest.NetworkRequest
   const component = new NetworkComponents.RequestHeadersView.RequestHeadersView(request);
   renderElementIntoDOM(component);
   component.wasShown();
+
+  let start, timeTaken;
+  start = Date.now();
+
   await coordinator.done({waitForWork: true});
+
+  timeTaken = Date.now() - start;
+  // eslint-disable-next-line no-console
+  console.log("Total time: " + timeTaken + " milliseconds");
+
   return component;
 }
 
@@ -118,31 +127,32 @@ describeWithMockConnection('RequestHeadersView', () => {
     await deinitializeGlobalVars();
   });
 
-  it('renders the General section', async () => {
-    component = await renderHeadersComponent(defaultRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
-    assertElement(generalCategory, HTMLElement);
-
-    const names = getCleanTextContentFromElements(generalCategory, '.header-name');
-    assert.deepEqual(names, [
-      'Request URL:',
-      'Request Method:',
-      'Status Code:',
-      'Remote Address:',
-      'Referrer Policy:',
-    ]);
-
-    const values = getCleanTextContentFromElements(generalCategory, '.header-value');
-    assert.deepEqual(values, [
-      'https://www.example.com/index.html',
-      'GET',
-      '200 OK (from memory cache)',
-      '199.36.158.100:443',
-      'strict-origin-when-cross-origin',
-    ]);
-  });
+  for (let i = 0; i < 1000; i++) {
+    // eslint-disable-next-line rulesdir/no_only
+    it.only('renders the General section', async () => {
+      component = await renderHeadersComponent(defaultRequest);
+      assertShadowRoot(component.shadowRoot);
+      const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
+      assertElement(generalCategory, HTMLElement);
+      const names = getCleanTextContentFromElements(generalCategory, '.header-name');
+      assert.deepEqual(names, [
+        'Request URL:',
+        'Request Method:',
+        'Status Code:',
+        'Remote Address:',
+        'Referrer Policy:',
+      ]);
+  
+      const values = getCleanTextContentFromElements(generalCategory, '.header-value');
+      assert.deepEqual(values, [
+        'https://www.example.com/index.html',
+        'GET',
+        '200 OK (from memory cache)',
+        '199.36.158.100:443',
+        'strict-origin-when-cross-origin',
+      ]);
+    });
+  }
 
   it('renders request and response headers', async () => {
     component = await renderHeadersComponent(defaultRequest);
