@@ -118,31 +118,37 @@ describeWithMockConnection('RequestHeadersView', () => {
     await deinitializeGlobalVars();
   });
 
-  it('renders the General section', async () => {
-    component = await renderHeadersComponent(defaultRequest);
-    assertShadowRoot(component.shadowRoot);
-
-    const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
-    assertElement(generalCategory, HTMLElement);
-
-    const names = getCleanTextContentFromElements(generalCategory, '.header-name');
-    assert.deepEqual(names, [
-      'Request URL:',
-      'Request Method:',
-      'Status Code:',
-      'Remote Address:',
-      'Referrer Policy:',
-    ]);
-
-    const values = getCleanTextContentFromElements(generalCategory, '.header-value');
-    assert.deepEqual(values, [
-      'https://www.example.com/index.html',
-      'GET',
-      '200 OK (from memory cache)',
-      '199.36.158.100:443',
-      'strict-origin-when-cross-origin',
-    ]);
-  });
+  for (let i = 0; i < 100; i++) {
+    // eslint-disable-next-line rulesdir/no_only
+    it.only('renders the General section', async () => {
+      let start = Date.now();
+      component = await renderHeadersComponent(defaultRequest);
+      assertShadowRoot(component.shadowRoot);
+  
+      const generalCategory = component.shadowRoot.querySelector('[aria-label="General"]');
+      assertElement(generalCategory, HTMLElement);
+  
+      const names = getCleanTextContentFromElements(generalCategory, '.header-name');
+      assert.deepEqual(names, [
+        'Request URL:',
+        'Request Method:',
+        'Status Code:',
+        'Remote Address:',
+        'Referrer Policy:',
+      ]);
+  
+      const values = getCleanTextContentFromElements(generalCategory, '.header-value');
+      assert.deepEqual(values, [
+        'https://www.example.com/index.html',
+        'GET',
+        '200 OK (from memory cache)',
+        '199.36.158.100:443',
+        'strict-origin-when-cross-origin',
+      ]);
+      let timeTaken = Date.now() - start;
+      console.log("Total time taken : " + timeTaken + " milliseconds");
+    });
+  }
 
   it('renders request and response headers', async () => {
     component = await renderHeadersComponent(defaultRequest);
