@@ -3,16 +3,16 @@
 // found in the LICENSE file.
 
 import * as Common from '../../../../../front_end/core/common/common.js';
+import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as IssuesManager from '../../../../../front_end/models/issues_manager/issues_manager.js';
 import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
 import * as Console from '../../../../../front_end/panels/console/console.js';
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
-
-import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 
 const {assert} = chai;
 
@@ -20,6 +20,8 @@ describeWithMockConnection('ConsoleView', () => {
   let consoleView: Console.ConsoleView.ConsoleView;
 
   beforeEach(() => {
+    sinon.stub(IssuesManager.IssuesManager.IssuesManager, 'instance')
+        .returns(sinon.stub(new IssuesManager.IssuesManager.IssuesManager()));
     UI.ActionRegistration.maybeRemoveActionExtension('console.clear');
     UI.ActionRegistration.maybeRemoveActionExtension('console.clear.history');
     UI.ActionRegistration.maybeRemoveActionExtension('console.create-pin');
