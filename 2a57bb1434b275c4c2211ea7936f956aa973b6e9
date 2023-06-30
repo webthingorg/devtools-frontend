@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da8f6ed1_2eb66814",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-30T13:46:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22bd9b4b_5d14adc1",
+      "range": {
+        "startLine": 151,
+        "startChar": 29,
+        "endLine": 151,
+        "endChar": 111
+      },
+      "revId": "2a57bb1434b275c4c2211ea7936f956aa973b6e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a589cc8_6fe7478a",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-30T13:31:36Z",
       "side": 1,
       "message": "I think we need (in a separate CL) some helpers to make this less repetitive through our codebase, e.g this could be something like:\n\nconst {startTime, endTime} \u003d EventTimings.forEvent(event, MILLISECONDS)\n\nwdyt?",
+      "range": {
+        "startLine": 372,
+        "startChar": 5,
+        "endLine": 373,
+        "endChar": 75
+      },
+      "revId": "2a57bb1434b275c4c2211ea7936f956aa973b6e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71d7be5d_ce03efc4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-30T13:46:32Z",
+      "side": 1,
+      "message": "SG, I also think about add better helper function for microsecond \u003c\u003d\u003e milliseconds conversion. Just need more time, filed a bug for track: crbug.com/1459605",
+      "parentUuid": "3a589cc8_6fe7478a",
       "range": {
         "startLine": 372,
         "startChar": 5,
