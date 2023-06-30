@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9813669e_22f5c457",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-30T13:31:36Z",
+      "side": 1,
+      "message": "LGTM with two tiny thoughts, nice! So exciting to see this happening.",
+      "revId": "2a57bb1434b275c4c2211ea7936f956aa973b6e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22bd9b4b_5d14adc1",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-30T13:31:36Z",
+      "side": 1,
+      "message": "do we definitely need this cast given the type check above?",
+      "range": {
+        "startLine": 151,
+        "startChar": 29,
+        "endLine": 151,
+        "endChar": 111
+      },
+      "revId": "2a57bb1434b275c4c2211ea7936f956aa973b6e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a589cc8_6fe7478a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-06-30T13:31:36Z",
+      "side": 1,
+      "message": "I think we need (in a separate CL) some helpers to make this less repetitive through our codebase, e.g this could be something like:\n\nconst {startTime, endTime} \u003d EventTimings.forEvent(event, MILLISECONDS)\n\nwdyt?",
+      "range": {
+        "startLine": 372,
+        "startChar": 5,
+        "endLine": 373,
+        "endChar": 75
+      },
+      "revId": "2a57bb1434b275c4c2211ea7936f956aa973b6e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
