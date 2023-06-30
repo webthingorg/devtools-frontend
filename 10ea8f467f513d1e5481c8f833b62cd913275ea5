@@ -22,6 +22,75 @@
       },
       "revId": "10ea8f467f513d1e5481c8f833b62cd913275ea5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6f9491_b830bdd7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-30T13:27:10Z",
+      "side": 1,
+      "message": "Can we add some unit tests for this function in the later CL?",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 15
+      },
+      "revId": "10ea8f467f513d1e5481c8f833b62cd913275ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba6b030_f74bbad6",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-30T13:27:10Z",
+      "side": 1,
+      "message": "Can we add some unit tests for this function in the later CL?",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 30
+      },
+      "revId": "10ea8f467f513d1e5481c8f833b62cd913275ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d05172b3_b27709cf",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-06-30T13:27:10Z",
+      "side": 1,
+      "message": "Why we use `[]`, not `{}`?",
+      "range": {
+        "startLine": 194,
+        "startChar": 28,
+        "endLine": 194,
+        "endChar": 30
+      },
+      "revId": "10ea8f467f513d1e5481c8f833b62cd913275ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
