@@ -289,8 +289,7 @@ class Generator:
                     domain_name, json_ref)
             elif 'type' in json_parameter['items']:
                 json_ref = json_parameter['items']['type']
-                if json_ref != "string":
-                    type_ref = json_ref
+                type_ref = json_ref
 
         if js_bind_type == "object" and "$ref" in json_parameter:
             json_ref = json_parameter["$ref"]
@@ -298,6 +297,9 @@ class Generator:
             # Domain for types must always be included
             type_ref = json_ref if '.' in json_ref else "%s.%s" % (domain_name,
                                                                    json_ref)
+
+        if js_bind_type == "number" or js_bind_type == "boolean" or js_bind_type == "string" or js_bind_type == "any":
+            type_ref = js_bind_type
 
         optional = "true" if ("optional" in json_parameter
                               and json_parameter["optional"]) else "false"
