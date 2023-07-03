@@ -27,36 +27,36 @@
  */
 
 .webkit-css-property {
-  color: var(--webkit-css-property-color, var(--color-syntax-1)); /* stylelint-disable-line plugin/use_theme_colors */ /* See: crbug.com/1152736 for color variable migration. */
+  color: var(--webkit-css-property-color, var(--sys-color-syntax1)); /* stylelint-disable-line plugin/use_theme_colors */ /* See: crbug.com/1152736 for color variable migration. */
 }
 
 .webkit-html-comment {
-  color: var(--color-token-comment);
+  color: var(--sys-color-syntax6);
 }
 
 .webkit-html-tag {
-  color: var(--color-token-tag);
+  color: var(--text-tag);
 }
 
 .webkit-html-tag-name,
 .webkit-html-close-tag-name {
   /* Keep this in sync with view-source.css (.webkit-html-tag) */
-  color: var(--color-token-tag);
+  color: var(--text-tag);
 }
 
 .webkit-html-pseudo-element {
   /* This one is non-standard. */
-  color: var(--color-token-pseudo-element);
+  color: var(--sys-color-syntax9);
 }
 
 .webkit-html-js-node,
 .webkit-html-css-node {
-  color: var(--color-text-primary);
+  color: var(--text-primary);
   white-space: pre-wrap;
 }
 
 .webkit-html-text-node {
-  color: var(--color-text-primary);
+  color: var(--text-primary);
   unicode-bidi: -webkit-isolate;
 }
 
@@ -69,31 +69,31 @@
 
 .webkit-html-doctype {
   /* Keep this in sync with view-source.css (.webkit-html-doctype) */
-  color: rgb(192 192 192); /* stylelint-disable-line plugin/use_theme_colors */
+  color: var(--text-secondary);
   /* See: crbug.com/1152736 for color variable migration. */
 }
 
 .webkit-html-attribute-name {
   /* Keep this in sync with view-source.css (.webkit-html-attribute-name) */
-  color: var(--color-token-attribute);
+  color: var(--text-attribute);
   unicode-bidi: -webkit-isolate;
 }
 
 .webkit-html-attribute-value {
   /* Keep this in sync with view-source.css (.webkit-html-attribute-value) */
-  color: var(--color-token-attribute-value);
+  color: var(--sys-color-syntax3);
   unicode-bidi: -webkit-isolate;
   word-break: break-all;
 }
 
 .devtools-link {
-  color: var(--color-link);
+  color: var(--text-link);
   text-decoration: underline;
   outline-offset: 2px;
 }
 
 .elements-disclosure .devtools-link {
-  color: var(--color-link);
+  color: var(--text-link);
 }
 
 .devtools-link [is="ui-icon"] {
@@ -105,7 +105,7 @@
 }
 
 :focus .selected .devtools-link [is="ui-icon"].icon-mask {
-  background-color: var(--legacy-item-selection-bg-color);
+  background-color: var(--selection);
 }
 
 .devtools-link:focus-visible {
