@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "37a3393b68289ca9e2666dd430412d0f30c4ddc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfba58c4_992ef13e",
+        "filename": "front_end/panels/layers/LayersPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-03T07:37:46Z",
+      "side": 1,
+      "message": "Can we have `{scoped: true}` here and keep the code mostly as is?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 68
+      },
+      "revId": "37a3393b68289ca9e2666dd430412d0f30c4ddc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
