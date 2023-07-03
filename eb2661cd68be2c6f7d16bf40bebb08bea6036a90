@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "592d0c45_de36f284",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-03T08:27:09Z",
+      "side": 1,
+      "message": "I think we should not use typeRef for the array items nonetheless. Imagine the following protocol definition (not sure if we have it in practice but I think it might be possible if not now but later):\n\n```\ntype A extends object\n    B data\n\ntype B extends array of string\n``` \n\n\nso the type A will have the following parameters `[{\"name\", \"type\": \"array\", \"typeRef\": ???}]` should typeRef say B or string? I think we should only use it for B. WDYT?",
+      "parentUuid": "23e7b88a_1173f4a6",
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f68a0a64_8621c425",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 3
