@@ -132,9 +132,9 @@ export class CPUProfileDataModel extends ProfileTreeModel {
    * node being filtered.
    *
    * This function supports legacy and new definitions of the CDP Profiler.Profile
-   * type as well as the type of a CPU profile contained in trace events.
+   * type.
    */
-  private translateProfileTree(nodes: Protocol.Profiler.ProfileNode[]): CPUProfileNode {
+  translateProfileTree(nodes: Protocol.Profiler.ProfileNode[]): CPUProfileNode {
     function isNativeNode(node: Protocol.Profiler.ProfileNode): boolean {
       if (node.callFrame) {
         return Boolean(node.callFrame.url) && node.callFrame.url.startsWith('native ');
@@ -280,9 +280,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
       // Derive timestamps from profile start and stop times.
       const profileStartTime = this.profileStartTime;
       const interval = (this.profileEndTime - profileStartTime) / this.samples.length;
-      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      timestamps = (new Float64Array(this.samples.length + 1) as any);
+      timestamps = new Array(this.samples.length + 1);
       for (let i = 0; i < timestamps.length; ++i) {
         timestamps[i] = profileStartTime + i * interval;
       }
@@ -409,7 +407,6 @@ export class CPUProfileDataModel extends ProfileTreeModel {
       }
       node = idToNode.get(id);
       let prevNode: CPUProfileNode = (idToNode.get(prevId) as CPUProfileNode);
-
       if (node === gcNode) {
         // GC samples have no stack, so we just put GC node on top of the last recorded sample.
         gcParentNode = prevNode;
