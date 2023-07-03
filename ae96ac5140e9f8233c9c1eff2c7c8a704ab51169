@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "233fccbf_887c663e",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-03T10:30:08Z",
+      "side": 1,
+      "message": "Both of the branches scroll in both directions, they only differ in which direction they center. In particular, if we only need to scroll horizontally, then we likely do not want the editor to center the line vertically.\n\nNot sure about the !targetPos part, this patch does not change that behavior.",
+      "parentUuid": "853e13f4_04dae276",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 18
+      },
+      "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3e3b22f_a6698b8b",
         "filename": "test/e2e/helpers/console-helpers.ts",
         "patchSetId": 4
