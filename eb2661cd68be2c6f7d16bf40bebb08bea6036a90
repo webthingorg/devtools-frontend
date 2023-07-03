@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d43adc15_3ebcfee3",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-03T08:16:54Z",
+      "side": 1,
+      "message": "let\u0027s have the itemType and itemTypeRef for array? so that t here is no confusing about what kind of values are in the typeRefs?",
+      "parentUuid": "f9ac1ff4_1301e2c8",
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f68a0a64_8621c425",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 3
