@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37307df4_06a1f0c2",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T12:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "050474d1_ed3c15d4",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 8
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31dcffad_d0edd2b1",
@@ -87,6 +111,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da9367b_f6c2eaa6",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T12:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88074fe3_af1dcc9d",
+      "range": {
+        "startLine": 157,
+        "startChar": 32,
+        "endLine": 157,
+        "endChar": 38
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ae0780_a085a3ad",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T12:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31dcffad_d0edd2b1",
+      "range": {
+        "startLine": 157,
+        "startChar": 2,
+        "endLine": 157,
+        "endChar": 20
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1aac0eee_3718ebe0",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-07-03T08:39:50Z",
       "side": 1,
       "message": "why do we do this?",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2daba84b_1ca5cc2c",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T12:31:09Z",
+      "side": 1,
+      "message": "This is to add those events to the `maxLevel` level. And we return the `maxLevel` as max level which is in fact hiding those events.\nWe can\u0027t keep their levels as -1, because it will display the event on top of the title level.\nI currently keep this logic because I think it will be removed when fixing this bug: crbug.com/1459225, which will likely rewrite this `filterTimelineDataBetweenTimes` func entirely",
+      "parentUuid": "1aac0eee_3718ebe0",
       "range": {
         "startLine": 180,
         "startChar": 5,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8901034_975b9aee",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T12:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6529b550_6327a80b",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 64
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a72ad1a6_cfe26473",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-07-03T08:39:50Z",
       "side": 1,
       "message": "can this go? I think we do use this variable now.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 64
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc737a59_7dfe4acb",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T12:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a72ad1a6_cfe26473",
       "range": {
         "startLine": 32,
         "startChar": 0,
