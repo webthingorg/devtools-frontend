@@ -69,6 +69,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fad262f_def8ca9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-07-03T07:52:06Z",
+      "side": 1,
+      "message": "Thanks for your patience waiting for my review — I was OOO last week. LGTM with one more minor suggestion",
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98725410_1d2e8a82",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-07-03T07:52:06Z",
+      "side": 1,
+      "message": "Nit: Since we’re repeating `visibleAffectedResource[i].listItemElement` a few times here, WDYT about just doing it once and creating a binding for it?\n\n    const element \u003d visibleAffectedResource[i].listItemElement;\n\nMakes it a bit easier to follow IMHO.",
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7a3432e_5f8e86a9",
