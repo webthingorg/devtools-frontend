@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4845a560_985a08d6",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T09:09:24Z",
+      "side": 1,
+      "message": "Can we change to something like this to avoid force conversion `const param:Parameter \u003d {...}`",
+      "range": {
+        "startLine": 257,
+        "startChar": 8,
+        "endLine": 262,
+        "endChar": 22
+      },
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a91ab78b_669928f5",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T09:09:24Z",
+      "side": 1,
+      "message": "This is same in both `if` and `else`, we can move it outside the check",
+      "range": {
+        "startLine": 275,
+        "startChar": 12,
+        "endLine": 278,
+        "endChar": 7
+      },
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd5998a7_0c81dc7f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T09:09:24Z",
+      "side": 1,
+      "message": "same as the comment before\nLet\u0027s change to `const param:Parameter \u003d {...}`",
+      "range": {
+        "startLine": 279,
+        "startChar": 6,
+        "endLine": 284,
+        "endChar": 21
+      },
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
