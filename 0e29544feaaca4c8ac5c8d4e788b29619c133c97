@@ -50,6 +50,69 @@
       "message": "Hey Simon, this CL is adding some aria labels in the issues panel. PTAL, thank you!",
       "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e078c798_c34a1165",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-03T04:47:17Z",
+      "side": 1,
+      "message": "lgtm with 2 suggestions. Thanks!",
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a3432e_5f8e86a9",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-03T04:47:17Z",
+      "side": 1,
+      "message": "nit: Use JS private method syntax (`#`), then terser can minify the name :)",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 9
+      },
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6cd57f2_19e3f9a3",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-03T04:47:17Z",
+      "side": 1,
+      "message": "`++treeItemCount` and remove the post increment below.",
+      "range": {
+        "startLine": 345,
+        "startChar": 44,
+        "endLine": 345,
+        "endChar": 61
+      },
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
