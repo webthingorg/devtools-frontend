@@ -66,7 +66,7 @@ export class ProfileTreeModel {
 
   private assignDepthsAndParents(): void {
     const root = this.root;
-    root.depth = -1;
+    root.depth = 0;
     root.parent = null;
     this.maxDepth = 0;
     const nodesToTraverse = [root];
@@ -80,9 +80,7 @@ export class ProfileTreeModel {
       for (const child of children) {
         child.depth = depth;
         child.parent = parent;
-        if (child.children.length) {
-          nodesToTraverse.push(child);
-        }
+        nodesToTraverse.push(child);
       }
     }
   }
