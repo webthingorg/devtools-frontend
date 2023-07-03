@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07c9ac27_b1798bec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T08:39:50Z",
+      "side": 1,
+      "message": "Could we add some tests for the NetworkTrackAppender which work similar to the other Appender tests?",
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "050474d1_ed3c15d4",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T08:39:50Z",
+      "side": 1,
+      "message": "nit: typo / copy paste error",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 8
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31dcffad_d0edd2b1",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T08:39:50Z",
+      "side": 1,
+      "message": "nit: shall we change the name of this function to describe what it is doing? `filterTimelineDataBetweenTimes` ?",
+      "range": {
+        "startLine": 157,
+        "startChar": 2,
+        "endLine": 157,
+        "endChar": 20
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88074fe3_af1dcc9d",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T08:39:50Z",
+      "side": 1,
+      "message": "are these milliseconds? Can we use the trace engine Millisecond type?",
+      "range": {
+        "startLine": 157,
+        "startChar": 32,
+        "endLine": 157,
+        "endChar": 38
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aac0eee_3718ebe0",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T08:39:50Z",
+      "side": 1,
+      "message": "why do we do this?",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6529b550_6327a80b",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T08:39:50Z",
+      "side": 1,
+      "message": "think this comment can be removed",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 64
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a72ad1a6_cfe26473",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T08:39:50Z",
+      "side": 1,
+      "message": "can this go? I think we do use this variable now.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 64
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
