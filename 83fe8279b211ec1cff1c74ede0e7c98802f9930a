@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "255c074c_4efcc3ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-03T14:51:17Z",
+      "side": 1,
+      "message": "sayonara!\nLGTM!",
+      "revId": "83fe8279b211ec1cff1c74ede0e7c98802f9930a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae99d87f_d3dc5333",
+        "filename": "front_end/ui/legacy/components/perf_ui/FilmStripView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-03T14:51:17Z",
+      "side": 1,
+      "message": "I guess we no longer need this field?",
+      "range": {
+        "startLine": 148,
+        "startChar": 2,
+        "endLine": 148,
+        "endChar": 8
+      },
+      "revId": "83fe8279b211ec1cff1c74ede0e7c98802f9930a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "086dcbc0_710954f8",
@@ -31,6 +71,30 @@
       "writtenOn": "2023-07-03T12:45:52Z",
       "side": 1,
       "message": "there are a few places in the code where we can make the async code sync now it does not use the SDK FilmStripModel, but I will do those final tidy ups in a follow-up CL to avoid making huge CLs.",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 100
+      },
+      "revId": "83fe8279b211ec1cff1c74ede0e7c98802f9930a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d65ba32_71b30225",
+        "filename": "front_end/ui/legacy/components/perf_ui/FilmStripView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-03T14:51:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "086dcbc0_710954f8",
       "range": {
         "startLine": 276,
         "startChar": 0,
