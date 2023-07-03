@@ -75,7 +75,7 @@ export async function filterConsoleMessages(frontend: puppeteer.Page, filter: st
 
 export async function waitForConsoleMessagesToBeNonEmpty(numberOfMessages: number) {
   await waitForFunction(async () => {
-    const messages = await $$(CONSOLE_ALL_MESSAGES_SELECTOR);
+    const messages = await $$(CONSOLE_ALL_MEqSSAGES_SELECTOR);
     if (messages.length < numberOfMessages) {
       return false;
     }
