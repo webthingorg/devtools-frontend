@@ -206,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb56265_8ad0c3d1",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T12:34:13Z",
+      "side": 1,
+      "message": "so maxLevel isn\u0027t the last visible level, but a level that makes things hidden?",
+      "parentUuid": "2daba84b_1ca5cc2c",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6529b550_6327a80b",
