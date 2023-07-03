@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14c65d3d_91a0c578",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T11:42:14Z",
+      "side": 1,
+      "message": "do we know why the array is one larger than the number of samples?",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 54
+      },
+      "revId": "5720a037d4bf650ce67960a2ee49501eda93fc2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -22,6 +22,30 @@
       },
       "revId": "5001bc1f2aa09b786b00448d5546a671302e4242",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05aa639c_c6c06279",
+        "filename": "front_end/models/cpu_profile/ProfileTreeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T11:42:14Z",
+      "side": 0,
+      "message": "wow! good bug to find!",
+      "parentUuid": "78e94eae_72c992a9",
+      "range": {
+        "startLine": 83,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 33
+      },
+      "revId": "5001bc1f2aa09b786b00448d5546a671302e4242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
