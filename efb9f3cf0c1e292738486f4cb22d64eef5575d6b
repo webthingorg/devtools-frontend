@@ -278,6 +278,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80913745_cb173667",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-03T12:59:43Z",
+      "side": 1,
+      "message": "emm, but other than here, we use it as *max* level\nI added a comment here instead",
+      "parentUuid": "0be41527_8e14a050",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6529b550_6327a80b",
