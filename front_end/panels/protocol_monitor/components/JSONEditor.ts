@@ -25,8 +25,9 @@ declare global {
 interface ArrayParameter {
   type: 'array';
   optional: boolean;
-  value: string[]|undefined;
+  value: Parameter[];
   name: string;
+  typeRef?: string;
 }
 
 interface NonArrayParameter {
@@ -34,6 +35,7 @@ interface NonArrayParameter {
   optional: boolean;
   value: string|boolean|number|undefined;
   name: string;
+  typeRef?: string;
 }
 
 interface ObjectParameter {
@@ -81,6 +83,7 @@ export class JSONEditor extends LitElement {
   @state() command: string = '';
   @state() targetId?: string;
 
+  #counterOfArrayParameters = 0;
   constructor() {
     super();
     this.parameters = [];
@@ -126,6 +129,13 @@ export class JSONEditor extends LitElement {
         }
         return nestedParameters;
       }
+      if (parameter.type === 'array') {
+        const nestedParameters = [];
+        for (const subParameter of parameter.value) {
+          nestedParameters.push(formatParameterValue(subParameter));
+        }
+        return nestedParameters;
+      }
       return parameter.value;
     };
 
@@ -138,6 +148,7 @@ export class JSONEditor extends LitElement {
 
   populateParametersForCommand(): void {
     const commandParameters = this.protocolMethodWithParametersMap.get(this.command);
+
     if (!commandParameters) {
       return;
     }
@@ -147,6 +158,7 @@ export class JSONEditor extends LitElement {
         return {
           optional: parameter.optional,
           type: parameter.type,
+          typeRef: parameter.typeRef,
           value: typeInfos.map(type => {
             return {
               optional: type.optional,
@@ -161,6 +173,7 @@ export class JSONEditor extends LitElement {
       return {
         optional: parameter.optional,
         type: parameter.type,
+        typeRef: parameter.typeRef,
         value: parameter.value || undefined,
         name: parameter.name,
       } as Parameter;
@@ -174,10 +187,15 @@ export class JSONEditor extends LitElement {
       if (!parameter) {
         return;
       }
-      if (parameter.value === undefined) {
-        parameter.value = [value];
-      } else if (Array.isArray(parameter.value)) {
-        parameter.value[index] = value;
+      const subParameter = parameter.value.find(subParam => subParam.name === String(index));
+      if (subParameter) {
+        if (subParameter.type === 'number') {
+          subParameter.value = Number(value);
+        } else if (subParameter.type === 'boolean') {
+          subParameter.value = Boolean(value);
+        } else {
+          subParameter.value = value;
+        }
       }
     }
   };
@@ -219,6 +237,7 @@ export class JSONEditor extends LitElement {
   };
 
   #handleCommandInputBlur = async(event: Event): Promise<void> => {
+    this.#counterOfArrayParameters = 0;
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
       this.command = event.target.value;
     }
@@ -234,14 +253,41 @@ export class JSONEditor extends LitElement {
     if (!parameter) {
       return;
     }
-    if (parameter.type === 'array') {
-      // At the moment it only support arrays parameters containing string (Object and boolean will be considered as string)
+    const typeInfos = this.protocolTypesMap.get(parameter.typeRef as string) ?? [];
+    if (typeInfos.length !== 0) {
+      const innerParam = typeInfos.map(type => {
+        return {
+          optional: type.optional,
+          type: type.type,
+          name: type.name,
+          value: undefined,
+        } as Parameter;
+      });
+
       if (!parameter.value) {
         parameter.value = [];
       }
-      parameter.value.push('');
+      const objectParam: Parameter = {
+        optional: true,
+        type: 'object',
+        name: String(this.#counterOfArrayParameters),
+        value: innerParam,
+      };
+      parameter.value.push(objectParam);
+    } else {
+      const innerParam = {
+        optional: true,
+        type: parameter.typeRef,
+        name: String(this.#counterOfArrayParameters),
+        value: undefined,
+      } as Parameter;
+      if (!parameter.value) {
+        parameter.value = [];
+      }
+      parameter.value.push(innerParam);
     }
     this.requestUpdate();
+    this.#counterOfArrayParameters += 1;
   }
 
   #handleDeleteArrayParameter(index: number, parameterName: string): void {
@@ -253,6 +299,7 @@ export class JSONEditor extends LitElement {
       parameter.value.splice(index, 1);
     }
     this.requestUpdate();
+    this.#counterOfArrayParameters -= 1;
   }
 
   #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
@@ -309,7 +356,7 @@ export class JSONEditor extends LitElement {
     // clang-format on
   }
 
-  #renderInlineButton(opts: {title: string, iconName: string, onClick: (event: MouseEvent) => void}):
+  #renderInlineButton(opts: {title: string, iconName: string, class?: string, onClick: (event: MouseEvent) => void}):
       LitHtml.TemplateResult|undefined {
     return html`
       <devtools-button
@@ -317,6 +364,7 @@ export class JSONEditor extends LitElement {
         .size=${Buttons.Button.Size.MEDIUM}
         .iconName=${opts.iconName}
         .variant=${Buttons.Button.Variant.ROUND}
+        class=${opts.class}
         @click=${opts.onClick}
       ></devtools-button>
     `;
@@ -367,6 +415,7 @@ export class JSONEditor extends LitElement {
                   title: 'Delete',
                   iconName: 'minus',
                   onClick: options.handleDelete,
+                  class: 'delete-button',
             })}` : nothing}
       </div>
     `;
@@ -389,14 +438,7 @@ export class JSONEditor extends LitElement {
           };
            switch (parameter.type) {
             case 'array':
-              subparameters = (parameter.value || []).map((value, idx) => {
-                return {
-                  type: 'string',
-                  optional: true,
-                  value,
-                  name: String(idx),
-                };
-              });
+              subparameters = parameter.value ?? [];
               break;
             case 'object':
               subparameters = parameter.value ?? [];
