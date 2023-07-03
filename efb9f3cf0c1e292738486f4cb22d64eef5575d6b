@@ -302,6 +302,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a3866a_8eae8043",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-03T13:01:30Z",
+      "side": 1,
+      "message": "OK, perhaps we leave it for now, but I think it is very confusing that we have a variable maxLevel that sometimes means invisible, and other times means it is visible. Can you think about if we could clarify that please? Can be done in a follow up CL. Thanks!",
+      "parentUuid": "80913745_cb173667",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "efb9f3cf0c1e292738486f4cb22d64eef5575d6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6529b550_6327a80b",
