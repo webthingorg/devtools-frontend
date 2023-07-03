@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23e7b88a_1173f4a6",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-03T08:21:21Z",
+      "side": 1,
+      "message": "Actually since I convert strings to boolean and numbers after there is not a real need to know if it\u0027s pritimime type so maybe lets just keep typeRef with typeRef being a real reference (so not primitive type)",
+      "parentUuid": "d43adc15_3ebcfee3",
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f68a0a64_8621c425",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 3
