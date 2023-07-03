@@ -59,7 +59,7 @@ export class TimelineJSProfileProcessor {
         // For non Garbage Collection nodes, we just use its own call frames.
         callFrames = nodeToStackMap.get(node);
         if (!callFrames) {
-          callFrames = new Array(node.depth + 1) as Protocol.Runtime.CallFrame[];
+          callFrames = new Array(node.depth) as Protocol.Runtime.CallFrame[];
           nodeToStackMap.set(node, callFrames);
           let currentNode = node;
           for (let j = 0; currentNode.parent; currentNode = currentNode.parent) {
