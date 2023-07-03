@@ -103,6 +103,30 @@
       },
       "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9b7cb2_e0152d21",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-03T10:47:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3e3b22f_a6698b8b",
+      "range": {
+        "startLine": 78,
+        "startChar": 44,
+        "endLine": 78,
+        "endChar": 45
+      },
+      "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
