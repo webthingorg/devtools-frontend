@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78e94eae_72c992a9",
+        "filename": "front_end/models/cpu_profile/ProfileTreeModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-03T11:14:46Z",
+      "side": 0,
+      "message": "this was a bug I found adding tests to this: children weren\u0027t traversed if they didn\u0027t have children 😕",
+      "range": {
+        "startLine": 83,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 33
+      },
+      "revId": "5001bc1f2aa09b786b00448d5546a671302e4242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
