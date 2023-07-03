@@ -50,6 +50,23 @@
       "message": "Nice!",
       "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09e42d42_2c927be0",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-03T07:57:42Z",
+      "side": 1,
+      "message": "I think this check won\u0027t work as expected here? we are checking for the presence of the dot and this would not work now I assume (same is above)",
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
