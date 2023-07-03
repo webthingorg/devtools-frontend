@@ -16,6 +16,69 @@
       "message": "Simon, can you take a look please?",
       "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d767b7a_6e74137b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-03T09:27:26Z",
+      "side": 1,
+      "message": "lgtm, with a question",
+      "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853e13f4_04dae276",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-03T09:27:26Z",
+      "side": 1,
+      "message": "I\u0027m not sure I follow the code here.  If `targetPos` is `undefined` we still try to scroll it into view vertically but not horizontally?\n\nHow does CM know where to scroll if there is no selection?",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 18
+      },
+      "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e3b22f_a6698b8b",
+        "filename": "test/e2e/helpers/console-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-03T09:27:26Z",
+      "side": 1,
+      "message": "stray change?",
+      "range": {
+        "startLine": 78,
+        "startChar": 44,
+        "endLine": 78,
+        "endChar": 45
+      },
+      "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
