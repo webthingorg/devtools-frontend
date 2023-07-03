@@ -14,12 +14,14 @@ import * as Workspace from '../../../../../front_end/models/workspace/workspace.
 import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
 import {setupPageResourceLoaderForSourceMap} from '../../helpers/SourceMapHelpers.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
-import {allModelsFromFile, getAllTracingModelPayloadEvents} from '../../helpers/TraceHelpers.js';
+import {allModelsFromFile, getAllTracingModelPayloadEvents, setTraceModelTimeout} from '../../helpers/TraceHelpers.js';
 import * as Common from '../../../../../front_end/core/common/common.js';
+import {doubleRaf, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 
 const {assert} = chai;
 
-describeWithMockConnection('TimelineUIUtils', () => {
+describeWithMockConnection('TimelineUIUtils', function() {
+  setTraceModelTimeout(this);
   let tracingModel: SDK.TracingModel.TracingModel;
   let process: SDK.TracingModel.Process;
   let thread: SDK.TracingModel.Thread;
@@ -340,18 +342,42 @@ describeWithMockConnection('TimelineUIUtils', () => {
     });
   });
 
+  it('can generate details for a frame', async () => {
+    const data = await allModelsFromFile('web-dev.json.gz');
+    const frame = data.performanceModel.frames()[0];
+    const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(data.traceParsedData);
+    const details =
+        Timeline.TimelineUIUtils.TimelineUIUtils.generateDetailsContentForFrame(frame, filmStrip, filmStrip.frames[0]);
+    const container = document.createElement('div');
+    renderElementIntoDOM(container);
+    container.appendChild(details);
+    // Give the image element time to render and load.
+    await doubleRaf();
+    const img = container.querySelector<HTMLImageElement>('.timeline-filmstrip-preview img');
+    assert.isTrue(img?.currentSrc.includes(filmStrip.frames[0].screenshotAsString));
+
+    const durationRow = container.querySelector<HTMLElement>('[data-row-title="Duration"]');
+    const durationValue = durationRow?.querySelector<HTMLSpanElement>('.timeline-details-view-row-value span');
+    if (!durationValue) {
+      throw new Error('Could not find duration');
+    }
+    // Strip the unicode spaces out and replace with simple spaces for easy assertions.
+    const value = (durationValue.innerText.replaceAll(/\s/g, ' '));
+    assert.strictEqual(value, '2.77 ms (at 136.45 ms)');
+  });
+
   describe('buildNetworkRequestDetails', () => {
-    it('renders the right details for a network event', async () => {
+    it('renders the right details for a network event from TraceEngine', async () => {
       const data = await allModelsFromFile('lcp-web-font.json.gz');
-      const networkRequests = data.timelineModel.networkRequests();
+      const networkRequests = data.traceParsedData.NetworkRequests.byTime;
       const cssRequest = networkRequests.find(request => {
-        return request.url === 'http://localhost:3000/app.css';
+        return request.args.data.url === 'http://localhost:3000/app.css';
       });
       if (!cssRequest) {
         throw new Error('Could not find expected network request.');
       }
 
-      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.buildNetworkRequestDetails(
+      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.buildSyntheticNetworkRequestDetails(
           cssRequest,
           data.timelineModel,
           new Components.Linkifier.Linkifier(),
@@ -362,7 +388,7 @@ describeWithMockConnection('TimelineUIUtils', () => {
           rowData,
           [
             {title: 'URL', value: 'localhost:3000/app.css'},
-            {title: 'Duration', value: '4.07 ms (3.08 ms network transfer + 1.00 ms resource loading)'},
+            {title: 'Duration', value: '4.075ms (3.08ms network transfer + 995μs resource loading)'},
             {title: 'Request Method', value: 'GET'},
             {title: 'Priority', value: 'Highest'},
             {title: 'Mime Type', value: 'text/css'},

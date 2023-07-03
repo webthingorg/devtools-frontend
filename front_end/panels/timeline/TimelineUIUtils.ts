@@ -1169,7 +1169,9 @@ let eventDispatchDesciptors: EventDispatchTypeDescriptor[];
 
 let colorGenerator: Common.Color.Generator;
 
-const requestPreviewElements = new WeakMap<TimelineModel.TimelineModel.NetworkRequest, HTMLImageElement>();
+const requestPreviewElements = new WeakMap<
+    TimelineModel.TimelineModel.NetworkRequest|TraceEngine.Types.TraceEvents.TraceEventSyntheticNetworkRequest,
+    HTMLImageElement>();
 
 interface EventStylesMap {
   [x: string]: TimelineRecordStyle;
@@ -1478,9 +1480,10 @@ export class TimelineUIUtils {
     return frame.scriptId !== '0' && !(frame.url && frame.url.startsWith('native '));
   }
 
-  static networkRequestCategory(request: TimelineModel.TimelineModel.NetworkRequest): NetworkCategory {
+  static syntheticNetworkRequestCategory(request: TraceEngine.Types.TraceEvents.TraceEventSyntheticNetworkRequest):
+      NetworkCategory {
     const categories = NetworkCategory;
-    switch (request.mimeType) {
+    switch (request.args.data.mimeType) {
       case 'text/html':
         return categories.HTML;
       case 'application/javascript':
@@ -2535,39 +2538,43 @@ export class TimelineUIUtils {
     }
   }
 
-  static async buildNetworkRequestDetails(
-      request: TimelineModel.TimelineModel.NetworkRequest, model: TimelineModel.TimelineModel.TimelineModelImpl,
+  static async buildSyntheticNetworkRequestDetails(
+      event: TraceEngine.Types.TraceEvents.TraceEventSyntheticNetworkRequest,
+      model: TimelineModel.TimelineModel.TimelineModelImpl,
       linkifier: Components.Linkifier.Linkifier): Promise<DocumentFragment> {
-    const target = model.targetByEvent(request.children[0]);
-    const contentHelper = new TimelineDetailsContentHelper(target, linkifier);
-    const category = TimelineUIUtils.networkRequestCategory(request);
+    const maybeTarget = model.targetByEvent(event);
+    const contentHelper = new TimelineDetailsContentHelper(maybeTarget, linkifier);
+
+    const category = TimelineUIUtils.syntheticNetworkRequestCategory(event);
     const color = TimelineUIUtils.networkCategoryColor(category);
     contentHelper.addSection(i18nString(UIStrings.networkRequest), color);
 
-    if (request.url) {
-      const options = {
-        tabStop: true,
-        showColumnNumber: false,
-        inlineFrameIndex: 0,
-      };
-      contentHelper.appendElementRow(
-          i18n.i18n.lockedString('URL'), Components.Linkifier.Linkifier.linkifyURL(request.url, options));
-    }
+    const options = {
+      tabStop: true,
+      showColumnNumber: false,
+      inlineFrameIndex: 0,
+    };
+    contentHelper.appendElementRow(
+        i18n.i18n.lockedString('URL'),
+        Components.Linkifier.Linkifier.linkifyURL(event.args.data.url as Platform.DevToolsPath.UrlString, options));
 
     // The time from queueing the request until resource processing is finished.
-    const fullDuration = request.endTime - (request.getStartTime() || -Infinity);
+    const fullDuration = event.dur;
     if (isFinite(fullDuration)) {
-      let textRow = i18n.TimeUtilities.millisToString(fullDuration, true);
+      let textRow = TraceEngine.Helpers.Timing.formatMicrosecondsTime(fullDuration);
       // The time from queueing the request until the download is finished. This
       // corresponds to the total time reported for the request in the network tab.
-      const networkDuration = (request.finishTime || request.getStartTime()) - request.getStartTime();
+      const networkDuration = event.args.data.syntheticData.finishTime - event.ts;
       // The time it takes to make the resource available to the renderer process.
-      const processingDuration = request.endTime - (request.finishTime || 0);
+      const processingDuration = event.ts + event.dur - event.args.data.syntheticData.finishTime;
       if (isFinite(networkDuration) && isFinite(processingDuration)) {
-        const networkDurationStr = i18n.TimeUtilities.millisToString(networkDuration, true);
-        const processingDurationStr = i18n.TimeUtilities.millisToString(processingDuration, true);
+        const networkDurationStr =
+            TraceEngine.Helpers.Timing.formatMicrosecondsTime(networkDuration as TraceEngine.Types.Timing.MicroSeconds);
+        const processingDurationStr = TraceEngine.Helpers.Timing.formatMicrosecondsTime(
+            processingDuration as TraceEngine.Types.Timing.MicroSeconds);
+        const cached = event.args.data.syntheticData.isMemoryCached || event.args.data.syntheticData.isDiskCached;
         const cacheOrNetworkLabel =
-            request.cached() ? i18nString(UIStrings.loadFromCache) : i18nString(UIStrings.networkTransfer);
+            cached ? i18nString(UIStrings.loadFromCache) : i18nString(UIStrings.networkTransfer);
         textRow += i18nString(
             UIStrings.SSSResourceLoading,
             {PH1: networkDurationStr, PH2: cacheOrNetworkLabel, PH3: processingDurationStr});
@@ -2575,52 +2582,51 @@ export class TimelineUIUtils {
       contentHelper.appendTextRow(i18nString(UIStrings.duration), textRow);
     }
 
-    if (request.requestMethod) {
-      contentHelper.appendTextRow(i18nString(UIStrings.requestMethod), request.requestMethod);
+    if (event.args.data.requestMethod) {
+      contentHelper.appendTextRow(i18nString(UIStrings.requestMethod), event.args.data.requestMethod);
     }
-    if (typeof request.priority === 'string') {
-      const priority =
-          PerfUI.NetworkPriorities.uiLabelForNetworkPriority((request.priority as Protocol.Network.ResourcePriority));
-      contentHelper.appendTextRow(i18nString(UIStrings.priority), priority);
-    }
-    if (request.mimeType) {
-      contentHelper.appendTextRow(i18nString(UIStrings.mimeType), request.mimeType);
+    const priority = PerfUI.NetworkPriorities.uiLabelForNetworkPriority(
+        event.args.data.priority as Protocol.Network.ResourcePriority);
+    contentHelper.appendTextRow(i18nString(UIStrings.priority), priority);
+    if (event.args.data.mimeType) {
+      contentHelper.appendTextRow(i18nString(UIStrings.mimeType), event.args.data.mimeType);
     }
     let lengthText = '';
-    if (request.memoryCached()) {
+    if (event.args.data.syntheticData.isMemoryCached) {
       lengthText += i18nString(UIStrings.FromMemoryCache);
-    } else if (request.cached()) {
+    } else if (event.args.data.syntheticData.isDiskCached) {
       lengthText += i18nString(UIStrings.FromCache);
-    } else if (request.timing && request.timing.pushStart) {
+    } else if (event.args.data.timing?.pushStart) {
       lengthText += i18nString(UIStrings.FromPush);
     }
-    if (request.fromServiceWorker) {
+    if (event.args.data.fromServiceWorker) {
       lengthText += i18nString(UIStrings.FromServiceWorker);
     }
-    if (request.encodedDataLength || !lengthText) {
-      lengthText = `${Platform.NumberUtilities.bytesToString(request.encodedDataLength)}${lengthText}`;
+    if (event.args.data.encodedDataLength || !lengthText) {
+      lengthText = `${Platform.NumberUtilities.bytesToString(event.args.data.encodedDataLength)}${lengthText}`;
     }
     contentHelper.appendTextRow(i18nString(UIStrings.encodedData), lengthText);
-    if (request.decodedBodyLength) {
+    if (event.args.data.decodedBodyLength) {
       contentHelper.appendTextRow(
-          i18nString(UIStrings.decodedBody), Platform.NumberUtilities.bytesToString(request.decodedBodyLength));
+          i18nString(UIStrings.decodedBody), Platform.NumberUtilities.bytesToString(event.args.data.decodedBodyLength));
     }
     const title = i18nString(UIStrings.initiator);
-    const sendRequest = request.children[0];
-    const topFrame = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(sendRequest).topFrame();
+
+    // const sendRequest = event.args.data.children[0];
+    const topFrame = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event).topFrame();
     if (topFrame) {
       const link = linkifier.maybeLinkifyConsoleCallFrame(
-          target, topFrame, {tabStop: true, inlineFrameIndex: 0, showColumnNumber: true});
+          maybeTarget, topFrame, {tabStop: true, inlineFrameIndex: 0, showColumnNumber: true});
       if (link) {
         contentHelper.appendElementRow(title, link);
       }
     } else {
-      const initiator = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(sendRequest).initiator();
+      const initiator = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event).initiator();
       if (initiator) {
         const initiatorURL = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(initiator).url;
         if (initiatorURL) {
-          const link =
-              linkifier.maybeLinkifyScriptLocation(target, null, initiatorURL, 0, {tabStop: true, inlineFrameIndex: 0});
+          const link = linkifier.maybeLinkifyScriptLocation(
+              maybeTarget, null, initiatorURL, 0, {tabStop: true, inlineFrameIndex: 0});
           if (link) {
             contentHelper.appendElementRow(title, link);
           }
@@ -2628,16 +2634,19 @@ export class TimelineUIUtils {
       }
     }
 
-    if (!requestPreviewElements.get(request) && request.url && target) {
-      const previewElement = (await Components.ImagePreview.ImagePreview.build(target, request.url, false, {
-        imageAltText: Components.ImagePreview.ImagePreview.defaultAltTextForImageURL(request.url),
-        precomputedFeatures: undefined,
-      }) as HTMLImageElement);
+    if (!requestPreviewElements.get(event) && event.args.data.url && maybeTarget) {
+      const previewElement =
+          (await Components.ImagePreview.ImagePreview.build(
+               maybeTarget, event.args.data.url as Platform.DevToolsPath.UrlString, false, {
+                 imageAltText: Components.ImagePreview.ImagePreview.defaultAltTextForImageURL(
+                     event.args.data.url as Platform.DevToolsPath.UrlString),
+                 precomputedFeatures: undefined,
+               }) as HTMLImageElement);
 
-      requestPreviewElements.set(request, previewElement);
+      requestPreviewElements.set(event, previewElement);
     }
 
-    const requestPreviewElement = requestPreviewElements.get(request);
+    const requestPreviewElement = requestPreviewElements.get(event);
     if (requestPreviewElement) {
       contentHelper.appendElementRow(i18nString(UIStrings.preview), requestPreviewElement);
     }
@@ -3031,22 +3040,21 @@ export class TimelineUIUtils {
   }
 
   static generateDetailsContentForFrame(
-      frame: TimelineModel.TimelineFrameModel.TimelineFrame,
-      filmStripFrame: SDK.FilmStripModel.Frame|null): DocumentFragment {
+      frame: TimelineModel.TimelineFrameModel.TimelineFrame, filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData|null,
+      filmStripFrame: TraceEngine.Extras.FilmStrip.FilmStripFrame|null): DocumentFragment {
     const contentHelper = new TimelineDetailsContentHelper(null, null);
     contentHelper.addSection(i18nString(UIStrings.frame));
 
     const duration = TimelineUIUtils.frameDuration(frame);
     contentHelper.appendElementRow(i18nString(UIStrings.duration), duration, frame.hasWarnings());
     contentHelper.appendTextRow(i18nString(UIStrings.cpuTime), i18n.TimeUtilities.millisToString(frame.cpuTime, true));
-    if (filmStripFrame) {
+    if (filmStrip && filmStripFrame) {
       const filmStripPreview = document.createElement('div');
       filmStripPreview.classList.add('timeline-filmstrip-preview');
-      void filmStripFrame.imageDataPromise()
-          .then(data => UI.UIUtils.loadImageFromData(data))
+      void UI.UIUtils.loadImageFromData(filmStripFrame.screenshotAsString)
           .then(image => image && filmStripPreview.appendChild(image));
       contentHelper.appendElementRow('', filmStripPreview);
-      filmStripPreview.addEventListener('click', frameClicked.bind(null, filmStripFrame), false);
+      filmStripPreview.addEventListener('click', frameClicked.bind(null, filmStrip, filmStripFrame), false);
     }
 
     if (frame.layerTree) {
@@ -3055,8 +3063,10 @@ export class TimelineUIUtils {
           Components.Linkifier.Linkifier.linkifyRevealable(frame.layerTree, i18nString(UIStrings.show)));
     }
 
-    function frameClicked(filmStripFrame: SDK.FilmStripModel.Frame): void {
-      PerfUI.FilmStripView.Dialog.fromSDKFrame(filmStripFrame);
+    function frameClicked(
+        filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData,
+        filmStripFrame: TraceEngine.Extras.FilmStrip.FilmStripFrame): void {
+      PerfUI.FilmStripView.Dialog.fromFilmStrip(filmStrip, filmStripFrame.index);
     }
 
     return contentHelper.fragment;
@@ -3575,6 +3585,7 @@ export class TimelineDetailsContentHelper {
 
   appendElementRow(title: string, content: string|Node, isWarning?: boolean, isStacked?: boolean): void {
     const rowElement = this.tableElement.createChild('div', 'timeline-details-view-row');
+    rowElement.setAttribute('data-row-title', title);
     if (isWarning) {
       rowElement.classList.add('timeline-details-warning');
     }
