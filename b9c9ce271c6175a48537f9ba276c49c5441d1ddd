@@ -68,6 +68,23 @@
       },
       "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bcfe293_9ce0822f",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-03T09:25:58Z",
+      "side": 1,
+      "message": "let\u0027s extract a helper that converts json_parameter to js_param_text and use in process_command and process_type",
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
