@@ -111,6 +111,30 @@
       },
       "revId": "ffcd082812c84450aa7e0632be3ad4ca81e96e43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb9f5b5d_1c77fcff",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-03T11:05:15Z",
+      "side": 1,
+      "message": "That is a service worker that is not being cleaned up from a previous test. It doesn\u0027t have anything to do with this particular test.",
+      "parentUuid": "9aa89a2b_5b5d4318",
+      "range": {
+        "startLine": 527,
+        "startChar": 16,
+        "endLine": 527,
+        "endChar": 37
+      },
+      "revId": "ffcd082812c84450aa7e0632be3ad4ca81e96e43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
