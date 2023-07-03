@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ba6a4ad_407f9914",
+        "filename": "front_end/ui/components/text_editor/TextEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-03T11:16:49Z",
+      "side": 1,
+      "message": "Ah, thanks for the explanation :)",
+      "parentUuid": "233fccbf_887c663e",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 18
+      },
+      "revId": "ae96ac5140e9f8233c9c1eff2c7c8a704ab51169",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3e3b22f_a6698b8b",
