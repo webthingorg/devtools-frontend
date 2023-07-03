@@ -19,7 +19,7 @@ const {assert} = chai;
 
 describeWithEnvironment('FilmStripView', function() {
   setTraceModelTimeout(this);
-  async function renderView(filmStripData: TraceEngine.Extras.FilmStrip.FilmStripData):
+  async function renderView(filmStripData: TraceEngine.Extras.FilmStrip.Data):
       Promise<PerfUI.FilmStripView.FilmStripView> {
     const filmStripView = new PerfUI.FilmStripView.FilmStripView();
     filmStripView.setModel(filmStripData);
@@ -34,7 +34,7 @@ describeWithEnvironment('FilmStripView', function() {
 
   it('generates frames and timestamps', async () => {
     const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-    const filmStrip = await renderView(TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData));
+    const filmStrip = await renderView(TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData));
     const renderedFrames = Array.from(filmStrip.contentElement.querySelectorAll<HTMLElement>('div.frame'));
     assert.lengthOf(renderedFrames, 5);
     const expectedTimeLabelsForFrames = [
@@ -82,7 +82,7 @@ describeWithEnvironment('FilmStripView', function() {
     }
 
     async function renderDialogWithTraceEngine(
-        filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData,
+        filmStrip: TraceEngine.Extras.FilmStrip.Data,
         selectedFrameIndex: number): Promise<{dialog: PerfUI.FilmStripView.Dialog, shadowRoot: ShadowRoot}> {
       const dialogWidget = PerfUI.FilmStripView.Dialog.fromFilmStrip(filmStrip, selectedFrameIndex);
       // Give the dialog time to render
@@ -209,7 +209,7 @@ describeWithEnvironment('FilmStripView', function() {
     describe('using the TraceEngine filmstrip', () => {
       it('renders and shows the provided frame by default', async () => {
         const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
         const {dialog, shadowRoot} = await renderDialogWithTraceEngine(filmStrip, 0);
         const renderedImage = shadowRoot.querySelector<HTMLImageElement>('[data-film-strip-dialog-img]');
         assert.isTrue(renderedImage?.currentSrc.includes(traceParsedData.Screenshots[0].args.snapshot));
@@ -218,7 +218,7 @@ describeWithEnvironment('FilmStripView', function() {
 
       it('does not let the user navigate back if they are at the first frame already', async () => {
         const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
         const {dialog, shadowRoot} = await renderDialogWithTraceEngine(filmStrip, 0);
         const previousBtn = shadowRoot.querySelector<HTMLButtonElement>('[title="Previous frame"]');
         if (!previousBtn) {
@@ -233,7 +233,7 @@ describeWithEnvironment('FilmStripView', function() {
 
       it('lets the user navigate back to the previous frame with the mouse', async () => {
         const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
         const {dialog, shadowRoot} = await renderDialogWithTraceEngine(filmStrip, 1);
         const previousBtn = shadowRoot.querySelector<HTMLButtonElement>('[title="Previous frame"]');
         if (!previousBtn) {
@@ -248,7 +248,7 @@ describeWithEnvironment('FilmStripView', function() {
 
       it('lets the user navigate back to the previous frame with the keyboard', async () => {
         const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
         const {dialog, shadowRoot} = await renderDialogWithTraceEngine(filmStrip, 1);
         const renderedImage = shadowRoot.querySelector<HTMLImageElement>('[data-film-strip-dialog-img]');
         if (!renderedImage) {
@@ -265,7 +265,7 @@ describeWithEnvironment('FilmStripView', function() {
 
       it('lets the user navigate forwards to the next frame with the mouse', async () => {
         const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
         const {dialog, shadowRoot} = await renderDialogWithTraceEngine(filmStrip, 0);
 
         const nextBtn = shadowRoot.querySelector<HTMLButtonElement>('[title="Next frame"]');
@@ -281,7 +281,7 @@ describeWithEnvironment('FilmStripView', function() {
 
       it('does not let the user go beyond the last image', async () => {
         const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
         const numberOfFrames = filmStrip.frames.length;
         const {dialog, shadowRoot} = await renderDialogWithTraceEngine(filmStrip, numberOfFrames - 1);
 
@@ -303,7 +303,7 @@ describeWithEnvironment('FilmStripView', function() {
 
       it('lets the user navigate forwards to the next frame with the keyboard', async () => {
         const {traceParsedData} = await allModelsFromFile('web-dev.json.gz');
-        const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(traceParsedData);
+        const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
         const {dialog, shadowRoot} = await renderDialogWithTraceEngine(filmStrip, 0);
         const renderedImage = shadowRoot.querySelector<HTMLImageElement>('[data-film-strip-dialog-img]');
         if (!renderedImage) {
