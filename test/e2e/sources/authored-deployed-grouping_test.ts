@@ -211,6 +211,7 @@ const folderlessGroupedExpectedTree = [
   'multi-workers.min.js',
 ];
 
+// deflaking
 describe('Source Panel grouping', async function() {
   const targetPage = 'sources/multi-workers-sourcemap.html';
   const scriptFile = 'multi-workers.min.js';
