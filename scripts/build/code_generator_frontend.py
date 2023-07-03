@@ -311,13 +311,21 @@ class Generator:
             for json_parameter in json_params:
                 json_param_name = json_parameter["name"]
                 type_ref = json_parameter.get("$ref", None)
+                json_ref = ""
                 js_bind_type = resolve_param_raw_type_js(json_parameter, domain_name)
+                if js_bind_type == "array" and 'items' in json_parameter:
+                    if 'type' in json_parameter['items']:
+                        json_ref = json_parameter['items']['type']
+                        type_ref = json_ref
+                    if '$ref' in json_parameter['items']:
+                        json_ref = json_parameter['items']['$ref']
+                        type_ref = json_ref if '.' in json_ref != "" else "%s.%s" % (
+                            domain_name, json_ref)
                 if js_bind_type == "object" and "$ref" in json_parameter:
                     json_ref = json_parameter["$ref"]
-
                     # Checking if the ref has a prefix domain
                     # Domain for types must always be included
-                    type_ref = json_ref if '.' in json_ref else "%s.%s" % (
+                    type_ref = json_ref if '.' in json_ref != "" else "%s.%s" % (
                         domain_name, json_ref)
 
                 optional = "true" if ("optional" in json_parameter and
