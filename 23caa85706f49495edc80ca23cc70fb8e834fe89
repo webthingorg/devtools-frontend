@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33a12ebc_3e7d1acd",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-04T13:58:43Z",
+      "side": 1,
+      "message": "yeah that also sounds good, I\u0027ll do that shortly. In the meantime I\u0027ve added the comment you suggested",
+      "parentUuid": "591257f3_99aac176",
+      "range": {
+        "startLine": 17,
+        "startChar": 69,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96871939_858d186e",
