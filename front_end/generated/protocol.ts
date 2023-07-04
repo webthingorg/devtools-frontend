@@ -7794,6 +7794,10 @@ export namespace Network {
     InvalidPrivateNetworkAccess = 'InvalidPrivateNetworkAccess',
     UnexpectedPrivateNetworkAccess = 'UnexpectedPrivateNetworkAccess',
     NoCorsRedirectModeNotFollow = 'NoCorsRedirectModeNotFollow',
+    PreflightMissingPrivateNetworkAccessId = 'PreflightMissingPrivateNetworkAccessId',
+    PreflightMissingPrivateNetworkAccessName = 'PreflightMissingPrivateNetworkAccessName',
+    PrivateNetworkAccessPermissionUnavailable = 'PrivateNetworkAccessPermissionUnavailable',
+    PrivateNetworkAccessPermissionDenied = 'PrivateNetworkAccessPermissionDenied',
   }
 
   export interface CorsErrorStatus {

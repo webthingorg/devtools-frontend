@@ -11667,7 +11667,11 @@
                         "InsecurePrivateNetwork",
                         "InvalidPrivateNetworkAccess",
                         "UnexpectedPrivateNetworkAccess",
-                        "NoCorsRedirectModeNotFollow"
+                        "NoCorsRedirectModeNotFollow",
+                        "PreflightMissingPrivateNetworkAccessId",
+                        "PreflightMissingPrivateNetworkAccessName",
+                        "PrivateNetworkAccessPermissionUnavailable",
+                        "PrivateNetworkAccessPermissionDenied"
                     ]
                 },
                 {
