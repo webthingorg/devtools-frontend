@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "591257f3_99aac176",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-04T13:53:56Z",
+      "side": 1,
+      "message": "Ah I suspected there would be a circular DEP.\n\nPart of me wonders if we should push the timings types into Platform (like with DevToolsURL etc), and then use them everywhere. WDYT? (no need to do anything for this CL!).\n\n\nIs it worth noting in a comment what unit the interval is in?",
+      "parentUuid": "c29874f6_a4240c1c",
+      "range": {
+        "startLine": 17,
+        "startChar": 69,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96871939_858d186e",
         "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
         "patchSetId": 9
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "good questions!\n\n1. Elements in the lines array have a 1 to 1 correspondance with samples, using the array position. They can be 1 or 0 and indicate if there is line data for a given sample, i.e. if a given sample needs to be included to calculate the line level execution time data, which we show in the sources panel after recording a profile.\n\n2. The CDP profile doesn\u0027t have the `lines` property AFAIK, instead the line level execution time is calculated using the \"positionTicks\" property of nodes in CDP profiles (which isn\u0027t available in trace profiles, I don\u0027t know why).\n\nI\u0027ll add these comments to the code.",
       "parentUuid": "96871939_858d186e",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 19
+      },
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a13e6f60_72510a95",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-04T13:53:56Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "d855718b_221c145a",
       "range": {
         "startLine": 49,
         "startChar": 0,
