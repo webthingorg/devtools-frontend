@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23a2e88c_66a95dea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-04T17:42:25Z",
+      "side": 1,
+      "message": "+semel Hey! Would you mind taking a look of the *.md files?",
+      "revId": "6f132fa61038a57b9de95fe5ec11888dcbd9783f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
