@@ -5,7 +5,7 @@
 const {assert} = chai;
 
 import * as TraceModel from '../../../../../../front_end/models/trace/trace.js';
-import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
+import type * as CPUProfile from '../../../../../../front_end/models/cpu_profile/cpu_profile.js';
 
 import {loadEventsFromTraceFile, defaultTraceEvent, setTraceModelTimeout} from '../../../helpers/TraceHelpers.js';
 
@@ -1744,7 +1744,7 @@ describe('SamplesHandler', function() {
       assert.strictEqual(data.profilesInProcess.size, 1);
       const profileById = data.profilesInProcess.values().next().value;
       assert.strictEqual(profileById.size, 1);
-      const cpuProfile = profileById.values().next().value as Protocol.Profiler.Profile;
+      const cpuProfile = profileById.values().next().value as CPUProfile.CPUProfileDataModel.ExtendedProfile;
       assert.deepEqual(Object.keys(cpuProfile), ['startTime', 'endTime', 'nodes', 'samples', 'timeDeltas', 'lines']);
       assert.strictEqual(cpuProfile.nodes.length, 153);
       assert.strictEqual(cpuProfile.startTime, 287510826176);
