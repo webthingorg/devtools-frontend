@@ -212,10 +212,15 @@ export class CorsIssueDetailsView extends AffectedResourcesView {
         this.appendColumnTitle(header, i18nString(UIStrings.sourceLocation));
         break;
       default:
-        Platform.assertUnhandled<IssuesManager.CorsIssue.IssueCode.PreflightMissingAllowExternal|
-                                 IssuesManager.CorsIssue.IssueCode.PreflightInvalidAllowExternal|
-                                 IssuesManager.CorsIssue.IssueCode.InvalidPrivateNetworkAccess|
-                                 IssuesManager.CorsIssue.IssueCode.UnexpectedPrivateNetworkAccess>(issueCode);
+        Platform
+            .assertUnhandled<IssuesManager.CorsIssue.IssueCode.PreflightMissingAllowExternal|
+                             IssuesManager.CorsIssue.IssueCode.PreflightInvalidAllowExternal|
+                             IssuesManager.CorsIssue.IssueCode.InvalidPrivateNetworkAccess|
+                             IssuesManager.CorsIssue.IssueCode.UnexpectedPrivateNetworkAccess|
+                             IssuesManager.CorsIssue.IssueCode.PreflightMissingPrivateNetworkAccessId|
+                             IssuesManager.CorsIssue.IssueCode.PreflightMissingPrivateNetworkAccessName|
+                             IssuesManager.CorsIssue.IssueCode.PrivateNetworkAccessPermissionUnavailable|
+                             IssuesManager.CorsIssue.IssueCode.PrivateNetworkAccessPermissionDenied>(issueCode);
     }
 
     this.affectedResources.appendChild(header);
@@ -450,10 +455,15 @@ export class CorsIssueDetailsView extends AffectedResourcesView {
       default:
         element.appendChild(this.createRequestCell(details.request, opts));
         this.#appendStatus(element, details.isWarning);
-        Platform.assertUnhandled<IssuesManager.CorsIssue.IssueCode.PreflightMissingAllowExternal|
-                                 IssuesManager.CorsIssue.IssueCode.PreflightInvalidAllowExternal|
-                                 IssuesManager.CorsIssue.IssueCode.InvalidPrivateNetworkAccess|
-                                 IssuesManager.CorsIssue.IssueCode.UnexpectedPrivateNetworkAccess>(issueCode);
+        Platform
+            .assertUnhandled<IssuesManager.CorsIssue.IssueCode.PreflightMissingAllowExternal|
+                             IssuesManager.CorsIssue.IssueCode.PreflightInvalidAllowExternal|
+                             IssuesManager.CorsIssue.IssueCode.InvalidPrivateNetworkAccess|
+                             IssuesManager.CorsIssue.IssueCode.UnexpectedPrivateNetworkAccess|
+                             IssuesManager.CorsIssue.IssueCode.PreflightMissingPrivateNetworkAccessId|
+                             IssuesManager.CorsIssue.IssueCode.PreflightMissingPrivateNetworkAccessName|
+                             IssuesManager.CorsIssue.IssueCode.PrivateNetworkAccessPermissionUnavailable|
+                             IssuesManager.CorsIssue.IssueCode.PrivateNetworkAccessPermissionDenied>(issueCode);
         break;
     }
 
