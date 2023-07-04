@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c29874f6_a4240c1c",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-04T13:48:08Z",
+      "side": 1,
+      "message": "I also think having plain `number` for timings is not ideal, but unfortunately we cannot import the types from the trace engine here because that would create a circular dep and because those timings aren\u0027t necessarily coming from tracing, like when we use CPD.Profiler.\n\nWhat do you think if we introduce new timing types in the CPU library instead? We can add compatibility helpers in the trace engine to convert from the types of one source to another.",
+      "parentUuid": "0b16662d_a1f33ddc",
+      "range": {
+        "startLine": 17,
+        "startChar": 69,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96871939_858d186e",
         "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
         "patchSetId": 9
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-04T13:14:13Z",
       "side": 1,
       "message": "for my understanding, a couple of questions 😊\n\n1. What does this array represent? e.g. if this is [1, 2, 3, 4], what is that telling us?\n2. Does the CDP Profile type contain this information in a different form, or is it just not included at all?\n\nIs it perhaps worth a comment noting that we only get this properly if the data came from a trace?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 19
+      },
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d855718b_221c145a",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-04T13:48:08Z",
+      "side": 1,
+      "message": "good questions!\n\n1. Elements in the lines array have a 1 to 1 correspondance with samples, using the array position. They can be 1 or 0 and indicate if there is line data for a given sample, i.e. if a given sample needs to be included to calculate the line level execution time data, which we show in the sources panel after recording a profile.\n\n2. The CDP profile doesn\u0027t have the `lines` property AFAIK, instead the line level execution time is calculated using the \"positionTicks\" property of nodes in CDP profiles (which isn\u0027t available in trace profiles, I don\u0027t know why).\n\nI\u0027ll add these comments to the code.",
+      "parentUuid": "96871939_858d186e",
       "range": {
         "startLine": 49,
         "startChar": 0,
