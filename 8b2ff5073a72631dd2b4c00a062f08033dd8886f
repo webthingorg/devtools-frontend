@@ -112,6 +112,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d981011_133792c8",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-04T11:46:34Z",
+      "side": 1,
+      "message": "\u003e In all cases, the website should already be HTTPS and using the fetch option for the permission codepath to be taken, right?\n\nBy which I mean, these errors are only raised if the permission codepath is taken.",
+      "parentUuid": "0b37ee36_6d58a8f3",
+      "range": {
+        "startLine": 8,
+        "startChar": 7,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9372af5e_648d60e1",
         "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
         "patchSetId": 3
