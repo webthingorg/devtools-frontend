@@ -1,6 +1,115 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46945f2f_9af53a60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-04T11:45:44Z",
+      "side": 1,
+      "message": "See the big comment on `corsPrivateNetworkPermissionDenied.md` first, as it impacts the rest.",
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29e2a382_86c03acf",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetwork.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-04T11:45:44Z",
+      "side": 1,
+      "message": "Thanks for updating this! Maybe a more future-proof change is to stay vague about the exact milestone here, and link to the chromestatus entry and/or origin trial instead? Those are better kept up to date.",
+      "range": {
+        "startLine": 6,
+        "startChar": 153,
+        "endLine": 6,
+        "endChar": 177
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8b513e3_21509f1f",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-04T11:45:44Z",
+      "side": 1,
+      "message": "```suggestion\nA site requested a resource from a network that it could only access because of its users\u0027 privileged network position.\n```",
+      "range": {
+        "startLine": 3,
+        "startChar": 7,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c169c591_42259642",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-04T11:45:44Z",
+      "side": 1,
+      "message": "Same comment here.",
+      "range": {
+        "startLine": 6,
+        "startChar": 159,
+        "endLine": 6,
+        "endChar": 162
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b37ee36_6d58a8f3",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-04T11:45:44Z",
+      "side": 1,
+      "message": "IIUC this issue text is shown for the following errors (per `CorsIssue.ts`):\n\n1. `PreflightMissingPrivateNetworkAccessName`\n2. `PreflightMissingPrivateNetworkAccessId`\n3. `PrivateNetworkAccessPermissionUnavailable`\n4. `PrivateNetworkAccessPermissionDenied`\n\nIn all cases, the website should already be HTTPS and using the fetch option for the permission codepath to be taken, right?\n\nIn case #1 and #2, we can show an issue explaining that either header is missing.\nIn case #3, there really is not much point in showing an issue since the error is internal to the browser - the website probably cannot do much to fix it.\nIn case #4, the user must have rejected the permission request, so it also does make much sense to me to show an issue to the developer - they likely cannot do much about it?\n\nInstead, it seems to me that we should add the recommendation to migrate to HTTPS and use `targetAddressSpace` to `corsInsecurePrivateNetwork.md`. Even then, we probably want to wait to officially suggest it until we are closer to shipping it in Chrome? Otherwise, folks will try it and it won\u0027t work because the prompt is not yet shipped?",
+      "range": {
+        "startLine": 8,
+        "startChar": 7,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9372af5e_648d60e1",
@@ -14,6 +123,30 @@
       "writtenOn": "2023-07-04T11:25:36Z",
       "side": 1,
       "message": "+titouan Do we need to do anything to add the prompt into enterprise policies?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 213
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09526cc3_746d2320",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-04T11:45:44Z",
+      "side": 1,
+      "message": "Ideally, the existing enterprise policies should also work to disable the prompt entirely. They work by setting the client security state\u0027s private network request policy to `kAllow`. I can\u0027t remember if that disables the prompt or not - if it does not, we should change that.",
+      "parentUuid": "9372af5e_648d60e1",
       "range": {
         "startLine": 12,
         "startChar": 0,
