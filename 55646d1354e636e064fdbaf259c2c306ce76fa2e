@@ -20,6 +20,142 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29236662_0382d863",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "I believe we would need to use the parameterId here too.",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1acf3ba5_fcec34d4",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "move this if check to where the value is assigned (inline using a ternary operator)",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c766660_98776ea5",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "`class` is a reserved keyword, let\u0027s rename it to something else? I suggest we use the classMap from lit for this.",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f45c4dc7_34a84d81",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "is id used?",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4faecc8_1f16f9d0",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "let\u0027s pass ID as a data attribute on the input element and have a single instance of the blur handler instead of creating a new one for each id.",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb40fbd_52b5b43a",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "now that we removed the type differences let\u0027s move the check to the definition of the subparameters variable using a ternary operator.",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a149e07_1d3fc28e",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "nit: indentation.",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f17e905f_dd2d1180",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "I think we don\u0027t need this ternary operator here and we can always provide handleInputOnBlur",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd89fef7_337ab4bd",
         "filename": "scripts/build/code_generator_frontend.py",
         "patchSetId": 5
@@ -60,6 +196,23 @@
         "endLine": 305,
         "endChar": 65
       },
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c7e2396_78b22b73",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-04T08:10:06Z",
+      "side": 1,
+      "message": "nit: let\u0027s use `for (const key of Object.keys())",
       "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
