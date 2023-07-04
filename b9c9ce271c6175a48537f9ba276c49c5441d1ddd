@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d99e79c_cbf98774",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T13:37:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d1717fe_929453b8",
+      "range": {
+        "startLine": 257,
+        "startChar": 8,
+        "endLine": 262,
+        "endChar": 22
+      },
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a91ab78b_669928f5",
@@ -132,6 +156,30 @@
       "writtenOn": "2023-07-03T09:09:24Z",
       "side": 1,
       "message": "same as the comment before\nLet\u0027s change to `const param:Parameter \u003d {...}`",
+      "range": {
+        "startLine": 279,
+        "startChar": 6,
+        "endLine": 284,
+        "endChar": 21
+      },
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a72e83_6a82ef99",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T13:37:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd5998a7_0c81dc7f",
       "range": {
         "startLine": 279,
         "startChar": 6,
