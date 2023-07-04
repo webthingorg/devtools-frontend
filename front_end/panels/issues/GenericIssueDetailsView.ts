@@ -43,8 +43,11 @@ export class GenericIssueDetailsView extends AffectedResourcesView {
     this.affectedResources.appendChild(header);
     let count = 0;
     for (const genericIssue of genericIssues) {
-      count++;
-      void this.#appendDetail(genericIssue);
+      const isIssueOfInterest = genericIssue.details().frameId || genericIssue.details().violatingNodeId;
+      if (isIssueOfInterest) {
+        count++;
+        void this.#appendDetail(genericIssue);
+      }
     }
     this.updateAffectedResourceCount(count);
   }
