@@ -63,7 +63,8 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
 
   private constructor(
       targetManager: SDK.TargetManager.TargetManager, workspace: Workspace.Workspace.WorkspaceImpl,
-      debuggerWorkspaceBinding: Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding) {
+      debuggerWorkspaceBinding: Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding,
+      restoreInitialBreakpointCount?: number) {
     super();
     this.#workspace = workspace;
     this.targetManager = targetManager;
@@ -71,7 +72,10 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
 
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.SET_ALL_BREAKPOINTS_EAGERLY)) {
       this.storage.mute();
-      this.#setInitialBreakpoints();
+      if (!restoreInitialBreakpointCount) {
+        restoreInitialBreakpointCount = 100;
+      }
+      this.#setInitialBreakpoints(restoreInitialBreakpointCount);
       this.storage.unmute();
     }
 
@@ -82,8 +86,13 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     this.targetManager.observeModels(SDK.DebuggerModel.DebuggerModel, this);
   }
 
-  #setInitialBreakpoints(): void {
+  #setInitialBreakpoints(restoreInitialBreakpointCount: number): void {
+    let breakpointsToSkip = this.storage.breakpoints.size - restoreInitialBreakpointCount;
     for (const storageState of this.storage.breakpoints.values()) {
+      if (breakpointsToSkip > 0) {
+        breakpointsToSkip--;
+        continue;
+      }
       const storageId = Storage.computeId(storageState);
       const breakpoint = new Breakpoint(this, null, storageState, BreakpointOrigin.OTHER);
       this.#breakpointByStorageId.set(storageId, breakpoint);
@@ -95,8 +104,9 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
     targetManager: SDK.TargetManager.TargetManager|null,
     workspace: Workspace.Workspace.WorkspaceImpl|null,
     debuggerWorkspaceBinding: Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding|null,
+    restoreInitialBreakpointCount?: number,
   } = {forceNew: null, targetManager: null, workspace: null, debuggerWorkspaceBinding: null}): BreakpointManager {
-    const {forceNew, targetManager, workspace, debuggerWorkspaceBinding} = opts;
+    const {forceNew, targetManager, workspace, debuggerWorkspaceBinding, restoreInitialBreakpointCount} = opts;
     if (!breakpointManagerInstance || forceNew) {
       if (!targetManager || !workspace || !debuggerWorkspaceBinding) {
         throw new Error(
@@ -104,7 +114,8 @@ export class BreakpointManager extends Common.ObjectWrapper.ObjectWrapper<EventT
                 new Error().stack}`);
       }
 
-      breakpointManagerInstance = new BreakpointManager(targetManager, workspace, debuggerWorkspaceBinding);
+      breakpointManagerInstance =
+          new BreakpointManager(targetManager, workspace, debuggerWorkspaceBinding, restoreInitialBreakpointCount);
     }
 
     return breakpointManagerInstance;
@@ -1306,6 +1317,8 @@ class Storage {
     if (!storageId) {
       return;
     }
+    // Delete the breakpoint and re-insert it so that it is moved to the last position in the iteration order.
+    this.breakpoints.delete(storageId);
     this.breakpoints.set(storageId, storageState);
     this.save();
   }
