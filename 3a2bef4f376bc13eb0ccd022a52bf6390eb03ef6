@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e9a6ac_ffab3786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T15:32:53Z",
+      "side": 1,
+      "message": "Heyyy ! \nI submitted this CL without the previous one merged because I know Alex reviews them in the morning, so I figured that with just one CL tomorrow he might get bored ! 😋\nThe only files of interest here are the JSONEditor.css and the ProtocolMonitor.ts files. \n\nThank you very much in advance for your review and advices ! 😄",
+      "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
