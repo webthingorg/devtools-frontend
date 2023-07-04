@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75def82b_3ae06e49",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetwork.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-04T13:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29e2a382_86c03acf",
+      "range": {
+        "startLine": 6,
+        "startChar": 153,
+        "endLine": 6,
+        "endChar": 177
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8b513e3_21509f1f",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21e9bc40_f94a24d7",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-04T13:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8b513e3_21509f1f",
+      "range": {
+        "startLine": 3,
+        "startChar": 7,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c169c591_42259642",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-07-04T11:45:44Z",
       "side": 1,
       "message": "Same comment here.",
+      "range": {
+        "startLine": 6,
+        "startChar": 159,
+        "endLine": 6,
+        "endChar": 162
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22fdcbb8_e8bedb21",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-04T13:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c169c591_42259642",
       "range": {
         "startLine": 6,
         "startChar": 159,
@@ -136,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bea356f0_ac4bcb32",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-04T13:48:09Z",
+      "side": 1,
+      "message": "Add recommendation to migrate to HTTPS sounds reasonable to me, will do after ship the prompt.\n\nMoved case #3 and #4 to default messages.",
+      "parentUuid": "8d981011_133792c8",
+      "range": {
+        "startLine": 8,
+        "startChar": 7,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9372af5e_648d60e1",
         "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
         "patchSetId": 3
@@ -171,6 +267,30 @@
       "side": 1,
       "message": "Ideally, the existing enterprise policies should also work to disable the prompt entirely. They work by setting the client security state\u0027s private network request policy to `kAllow`. I can\u0027t remember if that disables the prompt or not - if it does not, we should change that.",
       "parentUuid": "9372af5e_648d60e1",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 213
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf8556cc_40a4360a",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-04T13:48:09Z",
+      "side": 1,
+      "message": "Does that mean we should block the request by mixed-content check if the client security state\u0027s private network request policy is `kAllow`?",
+      "parentUuid": "09526cc3_746d2320",
       "range": {
         "startLine": 12,
         "startChar": 0,
