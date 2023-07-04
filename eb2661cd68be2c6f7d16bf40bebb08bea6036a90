@@ -126,6 +126,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c6f0ea8_387c4e8a",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T06:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6d4ab84_8f48f42b",
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e13055b5_25956ab6",
@@ -157,6 +175,24 @@
       "side": 1,
       "message": "Very good catch thanks !!!",
       "parentUuid": "e13055b5_25956ab6",
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d1bebc_77634726",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T06:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae7eb91f_76e57471",
       "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -231,6 +267,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ab1109_e88d0735",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T06:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b44e2a56_89c0e6fd",
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09e42d42_2c927be0",
@@ -279,6 +333,30 @@
       "writtenOn": "2023-07-03T09:09:24Z",
       "side": 1,
       "message": "should this be object or array?",
+      "range": {
+        "startLine": 260,
+        "startChar": 19,
+        "endLine": 260,
+        "endChar": 25
+      },
+      "revId": "eb2661cd68be2c6f7d16bf40bebb08bea6036a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "979a2392_04a0fe6f",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T06:32:52Z",
+      "side": 1,
+      "message": "Actually both array and object param have as a value an array of parameters but I have added the case for array as well in the tests",
+      "parentUuid": "5cd8ed79_4f52d48b",
       "range": {
         "startLine": 260,
         "startChar": 19,

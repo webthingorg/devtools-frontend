@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f73a4a7_00e154b8",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T06:32:52Z",
+      "side": 1,
+      "message": "The problem is that then I get other typescript if I don\u0027t cast the type like this....",
+      "parentUuid": "4845a560_985a08d6",
+      "range": {
+        "startLine": 257,
+        "startChar": 8,
+        "endLine": 262,
+        "endChar": 22
+      },
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a91ab78b_669928f5",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-03T09:09:24Z",
       "side": 1,
       "message": "This is same in both `if` and `else`, we can move it outside the check",
+      "range": {
+        "startLine": 275,
+        "startChar": 12,
+        "endLine": 278,
+        "endChar": 7
+      },
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7a676d6_85098151",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T06:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a91ab78b_669928f5",
       "range": {
         "startLine": 275,
         "startChar": 12,
@@ -83,6 +131,24 @@
       "writtenOn": "2023-07-03T09:25:58Z",
       "side": 1,
       "message": "let\u0027s extract a helper that converts json_parameter to js_param_text and use in process_command and process_type",
+      "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41cd580_43b036f5",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-04T06:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bcfe293_9ce0822f",
       "revId": "b9c9ce271c6175a48537f9ba276c49c5441d1ddd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
