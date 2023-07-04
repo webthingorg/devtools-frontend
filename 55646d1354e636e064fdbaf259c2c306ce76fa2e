@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5627b9ca_804ae2e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-04T07:15:05Z",
+      "side": 1,
+      "message": "scripts/build lgtm % comments.\n\nIs it strictly necessary to land these changes together? Or could we land the \"scripts/build\" changes independently? It seems we only introduce the \"typeRef\" parameter, so why do we also make the protocol monitor changes in this CL?",
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd89fef7_337ab4bd",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-04T07:15:05Z",
+      "side": 1,
+      "message": "It is odd that we overwrite `json_ref`/`type_ref`. It\u0027s better to move this `if` case above the `if \u0027type\u0027 in ...` line and and turn the other if into an \"else if\".",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 42
+      },
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e5987f_112e2b78",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-04T07:15:05Z",
+      "side": 1,
+      "message": "Do I understand correctly that `typeRef` will reference the element type in case `type \u003d\u003d\u003d \u0027array\u0027`?\n\nMaybe you could add a comment that this is what we try to determine at the `if js_bind_type \u003d\u003d \"array\"` line.",
+      "range": {
+        "startLine": 305,
+        "startChar": 33,
+        "endLine": 305,
+        "endChar": 65
+      },
+      "revId": "55646d1354e636e064fdbaf259c2c306ce76fa2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
