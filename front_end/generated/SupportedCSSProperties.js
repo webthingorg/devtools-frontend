@@ -2773,6 +2773,12 @@ export const generatedProperties = [
   "name": "position-fallback"
  },
  {
+  "keywords": [
+   "normal"
+  ],
+  "name": "position-fallback-bounds"
+ },
+ {
   "name": "prefix"
  },
  {
@@ -3068,13 +3074,9 @@ export const generatedProperties = [
  {
   "longhands": [
    "scroll-timeline-name",
-   "scroll-timeline-axis",
-   "scroll-timeline-attachment"
+   "scroll-timeline-axis"
   ],
   "name": "scroll-timeline"
- },
- {
-  "name": "scroll-timeline-attachment"
  },
  {
   "name": "scroll-timeline-axis"
@@ -3611,13 +3613,9 @@ export const generatedProperties = [
  {
   "longhands": [
    "view-timeline-name",
-   "view-timeline-axis",
-   "view-timeline-attachment"
+   "view-timeline-axis"
   ],
   "name": "view-timeline"
- },
- {
-  "name": "view-timeline-attachment"
  },
  {
   "name": "view-timeline-axis"
@@ -5149,6 +5147,11 @@ export const generatedPropertyValues = {
  "position-fallback": {
   "values": [
    "none"
+  ]
+ },
+ "position-fallback-bounds": {
+  "values": [
+   "normal"
   ]
  },
  "quotes": {

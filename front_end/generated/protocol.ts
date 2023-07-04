@@ -17406,6 +17406,12 @@ export namespace Runtime {
      * Deep serialization depth. Default is full depth. Respected only in `deep` serialization mode.
      */
     maxDepth?: integer;
+    /**
+     * Embedder-specific parameters. For example if connected to V8 in Chrome these control DOM
+     * serialization via `maxNodeDepth: integer` and `includeShadowTree: "none" | "open" | "all"`.
+     * Values can be only of type string or integer.
+     */
+    additionalParameters?: any;
   }
 
   export const enum DeepSerializedValueType {
