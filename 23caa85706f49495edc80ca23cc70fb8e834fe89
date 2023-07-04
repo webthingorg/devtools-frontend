@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01edc400_244a7338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-04T13:14:13Z",
+      "side": 1,
+      "message": "lgtm with some thoughts!",
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b16662d_a1f33ddc",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-04T13:14:13Z",
+      "side": 1,
+      "message": "can be a follow-up, but should we aim to use the trace timings types for these in the future?",
+      "range": {
+        "startLine": 17,
+        "startChar": 69,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96871939_858d186e",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-04T13:14:13Z",
+      "side": 1,
+      "message": "for my understanding, a couple of questions 😊\n\n1. What does this array represent? e.g. if this is [1, 2, 3, 4], what is that telling us?\n2. Does the CDP Profile type contain this information in a different form, or is it just not included at all?\n\nIs it perhaps worth a comment noting that we only get this properly if the data came from a trace?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 19
+      },
+      "revId": "23caa85706f49495edc80ca23cc70fb8e834fe89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
