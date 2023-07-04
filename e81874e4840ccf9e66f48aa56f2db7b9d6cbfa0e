@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "e81874e4840ccf9e66f48aa56f2db7b9d6cbfa0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f3adfd_cb34a302",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-04T09:00:24Z",
+      "side": 1,
+      "message": "Please note that the failures in the stress tests are from the network test which we will deflake separately",
+      "revId": "e81874e4840ccf9e66f48aa56f2db7b9d6cbfa0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
