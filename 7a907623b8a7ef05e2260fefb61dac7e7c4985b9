@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49809392_3791bc06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-04T13:13:59Z",
+      "side": 1,
+      "message": "Could you take a look, please?\n\nI believe this patch does not update the breakpoint order in the storage in all the places where it should. That will be refined and perhaps optimized in later CLs.",
+      "revId": "7a907623b8a7ef05e2260fefb61dac7e7c4985b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
