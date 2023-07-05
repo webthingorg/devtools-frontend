@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da8ca3cb_ecfe8ae4",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-05T14:56:23Z",
+      "side": 1,
+      "message": "Please add an unit test for the correct behavior",
+      "range": {
+        "startLine": 272,
+        "startChar": 3,
+        "endLine": 272,
+        "endChar": 29
+      },
+      "revId": "419a3f055a6062f5b4924f0b0d0bc99db8c2b646",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12bcdc03_4c5017b3",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 1
@@ -31,6 +54,24 @@
       "writtenOn": "2023-07-05T14:47:25Z",
       "side": 1,
       "message": "second: let\u0027s just iterate over all params and set new name to the idx?\n\n```\nfor (const i \u003d 0; i \u003c parentParameter.value.length; i++) {\n  param.name \u003d String(i);\n}\n```",
+      "revId": "419a3f055a6062f5b4924f0b0d0bc99db8c2b646",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9ffb6a_a3459f65",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-05T14:56:23Z",
+      "side": 1,
+      "message": "+1, otherwise the index will be messy if we delete a param in the middle",
+      "parentUuid": "f97d351e_0e246a4d",
       "revId": "419a3f055a6062f5b4924f0b0d0bc99db8c2b646",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
