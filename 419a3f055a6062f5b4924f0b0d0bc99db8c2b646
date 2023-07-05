@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4555a1f9_fe794ec5",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T16:03:51Z",
+      "side": 1,
+      "message": "I have made the method public because it was easier this way but I know Alex doesn\u0027t really like that so tell me it that\u0027s okay otherwise I\u0027ll rewrite the test tomorrow to make listen to the deletion event",
+      "parentUuid": "da8ca3cb_ecfe8ae4",
+      "range": {
+        "startLine": 272,
+        "startChar": 3,
+        "endLine": 272,
+        "endChar": 29
+      },
+      "revId": "419a3f055a6062f5b4924f0b0d0bc99db8c2b646",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12bcdc03_4c5017b3",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 1
