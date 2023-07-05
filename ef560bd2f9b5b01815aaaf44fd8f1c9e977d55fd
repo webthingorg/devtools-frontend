@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16d93f7f_00807d7c",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T15:15:29Z",
+      "side": 1,
+      "message": "I have added a comment to explain it",
+      "parentUuid": "ab18b165_9869c6c8",
+      "range": {
+        "startLine": 610,
+        "startChar": 18,
+        "endLine": 610,
+        "endChar": 21
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67378c64_c4c01662",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 4
@@ -97,6 +121,24 @@
       "side": 1,
       "message": "it might be actually good if one wants to maximize the space and inspect some commands without closing the editor. So I think it would work if we just make the editor responsive and, thus, require fewer changes.",
       "parentUuid": "46b4cd6d_a5756ca3",
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49747553_542f817c",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T15:15:29Z",
+      "side": 1,
+      "message": "I have make the editor horizontally resizable",
+      "parentUuid": "5751058b_6c66d81a",
       "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -161,6 +203,24 @@
       "writtenOn": "2023-07-05T14:50:28Z",
       "side": 1,
       "message": "would not setSidebarSize result in a SidebarSizeChanged and, thus, in an infinite loop? if not, what if we starts emitting the event in the future? I think it is best if we avoid potentially recursive logic like this.",
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09585088_1300ea09",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T15:15:29Z",
+      "side": 1,
+      "message": "I have changed it",
+      "parentUuid": "d6900292_d6e140f5",
       "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
