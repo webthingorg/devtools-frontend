@@ -68,6 +68,7 @@ async function editHeaderRow(
   editable.innerText = newValue;
   dispatchInputEvent(editable, {inputType: 'insertText', data: newValue, bubbles: true, composed: true});
   editable.blur();
+  console.log('----------------------- editHeaderRow');
   await coordinator.done();
 }
 
@@ -123,6 +124,7 @@ async function setupHeaderEditingWithRequest(
 
   const component = await renderResponseHeaderSection(request);
   assertShadowRoot(component.shadowRoot);
+  console.log('----------------------- setupHeaderEditingWithRequest');
   return {component, spy};
 }
 
@@ -487,10 +489,12 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     checkHeaderSectionRow(rows[0], 'foo:', 'syn ax', false, false, true);
 
     await editHeaderRow(component, 0, HeaderAttribute.HeaderValue, 'syn ax');
+    console.log('After editHeaderRow 1');
     assert.isTrue(spy.notCalled);
     checkHeaderSectionRow(rows[0], 'foo:', 'syn ax', false, false, true);
 
     await editHeaderRow(component, 0, HeaderAttribute.HeaderValue, 'syntax');
+    console.log('After editHeaderRow 2');
     const expected = [{
       applyTo: 'index.html',
       headers: [
