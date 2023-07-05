@@ -33,6 +33,24 @@
       "message": "This LGTM - do we need to make the same changes to the new trace engine or does that not exhibit the problem?\n\nAnd on that topic - long term do you seen TimelineJSProfile being removed or do you think we will keep it in some form?",
       "revId": "686c0b282d0ddfd6d05a383a9e5561b9dc08d9ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64b6a30_2bf28c26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-05T10:46:00Z",
+      "side": 1,
+      "message": "the code touched in this CL does the JS calls merging with trace events, which is something the trace engine doesn\u0027t have yet. The plan is to add support for that in the new engine in an approach similar to the one in TimelineJSProfile. Once that is done and once we use the trace engine for thread tracks we can remove TimelineJSProfile.\n\nIn the future, we can experiment with a different approach to merge samples with trace events, given the inconsistencies that the current approach yields sometimes.",
+      "parentUuid": "e045bc41_199a7d37",
+      "revId": "686c0b282d0ddfd6d05a383a9e5561b9dc08d9ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
