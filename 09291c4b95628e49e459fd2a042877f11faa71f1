@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c28653b9_cfd7a279",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "In the chrome console, similar to https://i.imgur.com/UoaIEGM.png as for https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3307444",
+      "parentUuid": "030d494e_ed52c5c4",
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11fd59ae_08d8ef8a",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-05T10:06:39Z",
       "side": 1,
       "message": "```suggestion\nTo mitigate these risks, Chrome deprecates requests to non-public subresources when initiated from non-secure contexts. See the [feature status](https://chromestatus.com/feature/5954091755241472).\n```",
+      "range": {
+        "startLine": 6,
+        "startChar": 120,
+        "endLine": 6,
+        "endChar": 123
+      },
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc5e9b7_74d36852",
+        "filename": "front_end/models/issues_manager/descriptions/corsInsecurePrivateNetwork.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11fd59ae_08d8ef8a",
       "range": {
         "startLine": 6,
         "startChar": 120,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f94523e8_4569a220",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6d3a109_2ea91785",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 118
+      },
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc13fcac_e865d008",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-07-05T10:06:39Z",
       "side": 1,
       "message": "```suggestion\nThese requests expose devices and servers to the internet, increasing the risk of a cross-site request forgery (CSRF) attack and/or information leakage.\n```",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 153
+      },
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01c74bfd_983410d5",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc13fcac_e865d008",
       "range": {
         "startLine": 4,
         "startChar": 0,
@@ -104,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11458a85_0a4a16af",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bab449a_b096137b",
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ba0400f_93f15889",
@@ -117,6 +225,30 @@
       "writtenOn": "2023-07-05T10:06:39Z",
       "side": 1,
       "message": "```suggestion\nSetting a `targetAddressSpace` fetch option to `local` or `loopback` relaxes the mixed-content check. In this case, to allow the request, the user\u0027s permission is prompted after receiving a preflight response.\n```",
+      "range": {
+        "startLine": 8,
+        "startChar": 126,
+        "endLine": 8,
+        "endChar": 260
+      },
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4201fc_9877ebce",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ba0400f_93f15889",
       "range": {
         "startLine": 8,
         "startChar": 126,
@@ -144,6 +276,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc09176b_06be3763",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7abb1ed0_072c211b",
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6048bf8c_731d3fe5",
@@ -157,6 +307,24 @@
       "writtenOn": "2023-07-05T10:06:39Z",
       "side": 1,
       "message": "```suggestion\nAdministrators can use the `InsecurePrivateNetworkRequestsAllowed` and `InsecurePrivateNetworkRequestsAllowedForUrls` enterprise policies to temporarily disable this restriction on all or specific websites.\n```",
+      "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32ad1ce3_4b9f7c6b",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T10:56:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6048bf8c_731d3fe5",
       "revId": "09291c4b95628e49e459fd2a042877f11faa71f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
