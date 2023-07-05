@@ -16,6 +16,23 @@
       "message": "Heyyy ! \nI submitted this CL without the previous one merged because I know Alex reviews them in the morning, so I figured that with just one CL tomorrow he might get bored ! 😋\nThe only files of interest here are the JSONEditor.css and the ProtocolMonitor.ts files. \n\nThank you very much in advance for your review and advices ! 😄",
       "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2813c6d0_933c6ece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-05T08:14:14Z",
+      "side": 1,
+      "message": "Hi Hadrien, seems this depends on the crrev.com/c/4660466\nyou can try this locally to make the Gerrit recognizes the dependency https://chromium.googlesource.com/openscreen/+/HEAD/docs/advanced_gerrit.md#uploading-a-new-dependent-change",
+      "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
