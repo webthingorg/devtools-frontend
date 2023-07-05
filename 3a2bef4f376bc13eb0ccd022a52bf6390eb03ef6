@@ -33,6 +33,40 @@
       "message": "Hi Hadrien, seems this depends on the crrev.com/c/4660466\nyou can try this locally to make the Gerrit recognizes the dependency https://chromium.googlesource.com/openscreen/+/HEAD/docs/advanced_gerrit.md#uploading-a-new-dependent-change",
       "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0ca6f4_85b3a96d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-05T10:46:05Z",
+      "side": 1,
+      "message": "I am not able to review this as it includes changes from other CLs. Please set up the branch dependencies before git cl upload.",
+      "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e711b83e_02bdac98",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-05T10:46:05Z",
+      "side": 1,
+      "message": "why do we need to customize the scrollbar?",
+      "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
