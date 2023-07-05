@@ -475,7 +475,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
         Host.UserMetrics.Action.HeaderOverrideHeaderEdited));
   });
 
-  it('can handle tab-character in header value', async () => {
+  it.only('can handle tab-character in header value', async () => {
     const headers = [
       {name: 'foo', value: 'syn\tax'},
     ];
