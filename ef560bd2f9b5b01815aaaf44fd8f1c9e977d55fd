@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb9ea44b_f1fe1072",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-05T14:31:00Z",
+      "side": 1,
+      "message": "Where does this number come from? also I saw 350px in the bug description, what is the difference?\nPlz add a comment to explain it.",
+      "range": {
+        "startLine": 610,
+        "startChar": 18,
+        "endLine": 610,
+        "endChar": 21
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "141c1120_17f7a272",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-05T14:31:00Z",
+      "side": 1,
+      "message": "what will happen if the new width is bigger than 400px?",
+      "range": {
+        "startLine": 628,
+        "startChar": 4,
+        "endLine": 628,
+        "endChar": 6
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
