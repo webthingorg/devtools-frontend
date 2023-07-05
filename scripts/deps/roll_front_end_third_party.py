@@ -143,6 +143,8 @@ for package_info in THIRD_PARTY_NPM_PACKAGE_NAMES:
     # Get the names of all files
     members = [m.name for m in members]
 
+    print(members)
+
     try:
         excluded_sources = set(
             read_gn_var(f'./front_end/third_party/{folder_name}/BUILD.gn',
@@ -150,6 +152,7 @@ for package_info in THIRD_PARTY_NPM_PACKAGE_NAMES:
     except BaseException:
         excluded_sources = set()
 
+    print("excluded_sources", excluded_sources)
     # Update BUILD.gn
     update_gn_var(
         f'./front_end/third_party/{folder_name}/BUILD.gn', 'SOURCES', [
@@ -181,8 +184,9 @@ for package_info in THIRD_PARTY_NPM_PACKAGE_NAMES:
 
     tar.close()
 
+    subprocess.check_call(['git', 'cl', 'format'], cwd=DEVTOOLS_PATH)
+
     if args.upload_cl:
-        subprocess.check_call(['git', 'cl', 'format'], cwd=DEVTOOLS_PATH)
         subprocess.check_call(['git', 'add', '-A'], cwd=DEVTOOLS_PATH)
         subprocess.check_call(
             ['git', 'commit', '-m', f'Update {package_name} to {version}'],
