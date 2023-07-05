@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ee318c28_50b87b8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-05T11:59:37Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "5cb41561_5f253f7a",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "0f39212a5168ad582a802c5d518c63eab633f0e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "589da5da_c215a984",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
