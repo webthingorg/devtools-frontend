@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "686c0b282d0ddfd6d05a383a9e5561b9dc08d9ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e045bc41_199a7d37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-05T08:45:28Z",
+      "side": 1,
+      "message": "This LGTM - do we need to make the same changes to the new trace engine or does that not exhibit the problem?\n\nAnd on that topic - long term do you seen TimelineJSProfile being removed or do you think we will keep it in some form?",
+      "revId": "686c0b282d0ddfd6d05a383a9e5561b9dc08d9ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
