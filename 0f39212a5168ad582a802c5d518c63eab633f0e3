@@ -63,6 +63,23 @@
       "message": "Danil: PTAL! \nBenedikt: Needs your +1 on the new directory and the readmes and owner files!",
       "revId": "0f39212a5168ad582a802c5d518c63eab633f0e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd4d10b6_c93e39f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1247585
+      },
+      "writtenOn": "2023-07-05T13:20:15Z",
+      "side": 1,
+      "message": "I don\u0027t seem to have permission to add third-party +1, but LGTM.",
+      "revId": "0f39212a5168ad582a802c5d518c63eab633f0e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
