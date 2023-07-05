@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67378c64_c4c01662",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-05T14:43:41Z",
+      "side": 1,
+      "message": "do we absolutely have to restrict the resizing? can we just let it have scrollbars if it is narrower than ~300px?",
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "141c1120_17f7a272",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 4
