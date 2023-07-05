@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a966e43_46e8b80b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-07-05T09:06:17Z",
+      "side": 1,
+      "message": "LGTM, thanks for the fix! :)",
+      "revId": "5d545dd9dbdbcc34d294c1115a58f0a8f5628b84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe5e25e4_ccf96f34",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-07-05T09:06:17Z",
+      "side": 1,
+      "message": "(very small nit): Can we add a comment on this logic why we\u0027re doing this check? Essentially a short summary of the issue and the fix from the CL description :)",
+      "revId": "5d545dd9dbdbcc34d294c1115a58f0a8f5628b84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
