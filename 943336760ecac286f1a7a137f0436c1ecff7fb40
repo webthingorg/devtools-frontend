@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "307e8d6e_b9c3cbd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116053
+      },
+      "writtenOn": "2023-07-05T16:10:40Z",
+      "side": 1,
+      "message": "Do we need to copy this in or can we use DEPS for it instead?",
+      "revId": "943336760ecac286f1a7a137f0436c1ecff7fb40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
