@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "06d7db50_e1b8da7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T13:49:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dc3701d_01568ace",
+      "revId": "4a66ecb41abe7157c8f7decd4634ee4e60e91ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "39973738_3bc934cb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 10
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "738a0591_ec426ee7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T13:49:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09873a5_62db64e7",
+      "revId": "4a66ecb41abe7157c8f7decd4634ee4e60e91ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba5c33e2_7dc1d8b0",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-07-05T08:21:28Z",
       "side": 1,
       "message": "hm, I think I didn\u0027t mean this change with my previous comment. To clarify, let\u0027s add an opts attribute called `classMap`, pass it as is to the devtools-button. Then specify the specific classes when you call renderInlineButton.",
+      "revId": "4a66ecb41abe7157c8f7decd4634ee4e60e91ef8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f59c11ae_d074b940",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T13:49:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba5c33e2_7dc1d8b0",
       "revId": "4a66ecb41abe7157c8f7decd4634ee4e60e91ef8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
