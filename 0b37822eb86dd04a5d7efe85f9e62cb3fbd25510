@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f775642f_13c31741",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-07-05T12:53:01Z",
+      "side": 1,
+      "message": "Yes no problem. Just added. Just curious, is this a new process we\u0027re doing?",
+      "parentUuid": "d1a0b860_2dcc88f8",
+      "revId": "0b37822eb86dd04a5d7efe85f9e62cb3fbd25510",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "09474c61_aeb1dfe8",
