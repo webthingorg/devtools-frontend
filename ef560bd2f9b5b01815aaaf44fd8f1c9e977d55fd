@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5751058b_6c66d81a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-05T14:50:28Z",
+      "side": 1,
+      "message": "it might be actually good if one wants to maximize the space and inspect some commands without closing the editor. So I think it would work if we just make the editor responsive and, thus, require fewer changes.",
+      "parentUuid": "46b4cd6d_a5756ca3",
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "141c1120_17f7a272",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 4
@@ -126,6 +144,23 @@
         "endLine": 628,
         "endChar": 6
       },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6900292_d6e140f5",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-05T14:50:28Z",
+      "side": 1,
+      "message": "would not setSidebarSize result in a SidebarSizeChanged and, thus, in an infinite loop? if not, what if we starts emitting the event in the future? I think it is best if we avoid potentially recursive logic like this.",
       "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
