@@ -40,7 +40,7 @@ vars = {
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
   'chromium_win': '1165829',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
-  'chromium_mac': '1165867',
+  'chromium_mac': '1164363',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac_Arm/LAST_CHANGE
   'chromium_mac_arm': '1165859',
 }
