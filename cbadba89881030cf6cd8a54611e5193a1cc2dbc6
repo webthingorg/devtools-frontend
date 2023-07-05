@@ -34,6 +34,24 @@
       "parentUuid": "edaf91a2_a73d6123",
       "revId": "cbadba89881030cf6cd8a54611e5193a1cc2dbc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52ac8605_7e5f1804",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T13:22:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6201831c_0ad233b1",
+      "revId": "cbadba89881030cf6cd8a54611e5193a1cc2dbc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
