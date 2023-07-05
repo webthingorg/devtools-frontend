@@ -38,6 +38,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TraceEngine from '../trace/trace.js';
 import type * as Protocol from '../../generated/protocol.js';
+import * as CPUProfile from '../cpu_profile/cpu_profile.js';
 
 import {TimelineJSProfileProcessor} from './TimelineJSProfile.js';
 
@@ -120,7 +121,8 @@ export class TimelineModelImpl {
   private mainFrameNodeId!: number|null;
   private pageFrames!: Map<Protocol.Page.FrameId, PageFrame>;
   private auctionWorklets!: Map<string, AuctionWorklet>;
-  private cpuProfilesInternal!: SDK.CPUProfileDataModel.CPUProfileDataModel[];
+  private cpuProfilesInternal!:
+      {cpuProfileData: CPUProfile.CPUProfileDataModel.CPUProfileDataModel, target: SDK.Target.Target|null}[];
   private workerIdByThread!: WeakMap<SDK.TracingModel.Thread, string>;
   private requestsFromBrowser!: Map<string, SDK.TracingModel.Event>;
   private mainFrame!: PageFrame;
@@ -158,7 +160,6 @@ export class TimelineModelImpl {
     this.maximumRecordTimeInternal = 0;
     this.totalBlockingTimeInternal = 0;
     this.estimatedTotalBlockingTime = 0;
-
     this.reset();
     this.resetProcessingState();
 
@@ -315,7 +316,8 @@ export class TimelineModelImpl {
     return data && data['frame'] || null;
   }
 
-  cpuProfiles(): SDK.CPUProfileDataModel.CPUProfileDataModel[] {
+  cpuProfiles():
+      {cpuProfileData: CPUProfile.CPUProfileDataModel.CPUProfileDataModel, target: SDK.Target.Target|null}[] {
     return this.cpuProfilesInternal;
   }
 
@@ -343,8 +345,8 @@ export class TimelineModelImpl {
     }
     // FIXME: Consider returning null for loaded traces.
     const workerId = this.workerIdByThread.get(thread);
-    const primaryPageTarget = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
-    return workerId ? SDK.TargetManager.TargetManager.instance().targetById(workerId) : primaryPageTarget;
+    const rootTarget = SDK.TargetManager.TargetManager.instance().rootTarget();
+    return workerId ? SDK.TargetManager.TargetManager.instance().targetById(workerId) : rootTarget;
   }
 
   navStartTimes(): Map<string, SDK.TracingModel.PayloadEvent> {
@@ -684,7 +686,7 @@ export class TimelineModelImpl {
   }
 
   private extractCpuProfileDataModel(tracingModel: SDK.TracingModel.TracingModel, thread: SDK.TracingModel.Thread):
-      SDK.CPUProfileDataModel.CPUProfileDataModel|null {
+      CPUProfile.CPUProfileDataModel.CPUProfileDataModel|null {
     const events = thread.events();
     let cpuProfile;
     let target: (SDK.Target.Target|null)|null = null;
@@ -769,8 +771,8 @@ export class TimelineModelImpl {
 
     try {
       const profile = (cpuProfile as Protocol.Profiler.Profile);
-      const jsProfileModel = new SDK.CPUProfileDataModel.CPUProfileDataModel(profile, target);
-      this.cpuProfilesInternal.push(jsProfileModel);
+      const jsProfileModel = new CPUProfile.CPUProfileDataModel.CPUProfileDataModel(profile);
+      this.cpuProfilesInternal.push({cpuProfileData: jsProfileModel, target});
       return jsProfileModel;
     } catch (e) {
       Common.Console.Console.instance().error('Failed to parse CPU profile.');
@@ -1322,12 +1324,11 @@ export class TimelineModelImpl {
         let frame = this.pageFrames.get(data['frame']);
         if (!frame) {
           const parent = data['parent'] && this.pageFrames.get(data['parent']);
-          if (!parent) {
-            return;
-          }
           frame = new PageFrame(data);
           this.pageFrames.set(frame.frameId, frame);
-          parent.addChild(frame);
+          if (parent) {
+            parent.addChild(frame);
+          }
         }
         frame.update(event.startTime, data);
         return;
@@ -2520,6 +2521,11 @@ export class EventOnTimelineData {
   static forTraceEventData(event: TraceEngine.Types.TraceEvents.TraceEventData): EventOnTimelineData {
     return getOrCreateEventData(event);
   }
+  static reset(): void {
+    eventToData =
+        new Map<SDK.TracingModel.ConstructedEvent|TraceEngine.Types.TraceEvents.TraceEventData, EventOnTimelineData>();
+    eventToInvalidation = new WeakMap();
+  }
 }
 
 function getOrCreateEventData(event: SDK.TracingModel.ConstructedEvent|
@@ -2532,8 +2538,10 @@ function getOrCreateEventData(event: SDK.TracingModel.ConstructedEvent|
   return data;
 }
 
-const eventToData = new WeakMap<SDK.TracingModel.ConstructedEvent|TraceEngine.Types.TraceEvents.TraceEventData>();
-const eventToInvalidation = new WeakMap();
+let eventToData =
+    new Map<SDK.TracingModel.ConstructedEvent|TraceEngine.Types.TraceEvents.TraceEventData, EventOnTimelineData>();
+let eventToInvalidation = new WeakMap();
+
 export interface InvalidationCause {
   reason: string;
   stackTrace: Protocol.Runtime.CallFrame[]|null;

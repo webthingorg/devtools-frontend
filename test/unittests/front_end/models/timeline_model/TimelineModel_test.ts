@@ -12,12 +12,12 @@ import * as TimelineModel from '../../../../../front_end/models/timeline_model/t
 import * as TraceEngine from '../../../../../front_end/models/trace/trace.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import {
+  allModelsFromFile,
   DevToolsTimelineCategory,
   makeFakeSDKEventFromPayload,
   traceModelFromTraceFile,
-} from '../../helpers/TimelineHelpers.js';
-import {allModelsFromFile} from '../../helpers/TraceHelpers.js';
-import {StubbedThread} from '../../helpers/TimelineHelpers.js';
+  StubbedThread,
+} from '../../helpers/TraceHelpers.js';
 
 // Various events listing processes and threads used by all the tests.
 const preamble = [
@@ -1229,6 +1229,71 @@ describeWithEnvironment('TimelineModel', () => {
         'RunTaskB',
       ]);
     }
+  });
+
+  it('creates tracks for prerender targets', () => {
+    const {timelineModel} = traceWithEvents([
+      {
+        'args': {'name': 'CrRendererMain'},
+        'cat': '__metadata',
+        'name': 'thread_name',
+        'ph': 'M',
+        'pid': 1777777,
+        'tid': 1,
+        'ts': 0,
+      },
+      {
+        'args': {
+          'data': {
+            'frame': 'DEADBEEF1234567890987654321ABCDE',
+            'name': '',
+            'processId': 1777777,
+            'url': 'https://192.168.0.105/prerender.html',
+          },
+        },
+        'cat': 'disabled-by-default-devtools.timeline',
+        'name': 'FrameCommittedInBrowser',
+        'ph': 'I',
+        'pid': 1537480,
+        's': 't',
+        'tid': 1537480,
+        'ts': 962632244598,
+        'tts': 23622650,
+      },
+    ] as unknown as SDK.TracingManager.EventPayload[]);
+    const trackInfo = summarizeArray(timelineModel.tracks());
+    assert.deepEqual(trackInfo, [
+      {
+        'name': 'CrRendererMain',
+        'type': 'MainThread',
+        'forMainFrame': true,
+        'url': 'https://192.168.0.105/prerender.html',
+        'threadName': 'CrRendererMain',
+        'threadId': 1,
+        'processId': 1777777,
+        'processName': '',
+      },
+      {
+        'name': 'Thread 0',
+        'type': 'Other',
+        'forMainFrame': false,
+        'url': '',
+        'threadName': '',
+        'threadId': 0,
+        'processId': 1537729,
+        'processName': 'Renderer',
+      },
+      {
+        'name': 'CrRendererMain',
+        'type': 'MainThread',
+        'forMainFrame': true,
+        'url': 'https://192.168.0.105/run.html',
+        'threadName': 'CrRendererMain',
+        'threadId': 1,
+        'processId': 1537729,
+        'processName': 'Renderer',
+      },
+    ]);
   });
 
   describe('style invalidations', () => {
