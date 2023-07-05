@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1d5ef6_441aeded",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-05T11:55:58Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "70edec0c43e73781523ed5614b1640376ef88a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542cae43_99754a62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-05T11:55:58Z",
+      "side": 1,
+      "message": "It\u0027s a good habit to write technical documentation in active voice instead of passive. That is \"We need access to the typeRef for array parameters\". Or \"The protocol monitor needs access to the typeRef for array parameters\".",
+      "range": {
+        "startLine": 9,
+        "startChar": 49,
+        "endLine": 9,
+        "endChar": 112
+      },
+      "revId": "70edec0c43e73781523ed5614b1640376ef88a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3440f260_ac602e5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-05T11:55:58Z",
+      "side": 1,
+      "message": "What is the general plan? Do we refactor here and have a separate \"itemTypeRef\" for arrays? How would that relate to this change?",
+      "revId": "70edec0c43e73781523ed5614b1640376ef88a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
