@@ -16,6 +16,24 @@
       "message": "This looks invasive for merging to stable. The calls to the render coordinator look good to me, but someone else should have a look at the RenderCoordinator changes.\n\nHave you considered reverting crrev.com/c/4365827? That seems safer (if it applies cleanly).\n\nAdding Wolfi for a second pair of eyes on those risky-looking RenderCoordinator changes.",
       "revId": "13160384093263e202bc6b3977d38cfebb35c659",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d6d1de2_3717d0e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-05T12:58:12Z",
+      "side": 1,
+      "message": "I know it is not great, but revert won\u0027t back merge without conflicts either, as there were more CLs based on this. The change to the render coordinator has been in for a while and seems ok. Wolfgang, WDYT?",
+      "parentUuid": "a29d787d_af8e41a3",
+      "revId": "13160384093263e202bc6b3977d38cfebb35c659",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
