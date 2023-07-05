@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b7b6b8_b69bb7a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-05T16:38:13Z",
+      "side": 1,
+      "message": "+titouan would you mind having a second look?\n+szuend Would you mind taking the owner\u0027s review?",
+      "revId": "f1a6b926306fa5dcebddf2edeb467e2628c167f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
