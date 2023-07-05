@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed112463_68c8b1d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1117099
+      },
+      "writtenOn": "2023-07-05T15:59:20Z",
+      "side": 1,
+      "message": "Done \u0026 done.\n\nThe screenshot URL is a bit unwieldy. Should this really go into the CL description?\n\n\nScreenshot: https://ff22b409a9b271467f590c35586f0289930743413a78e6eeb28bd33-apidata.googleusercontent.com/download/storage/v1/b/monorail-prod.appspot.com/o/16%2Fattachments%2F2a94f76f-caa3-4eff-94f1-b2eb0552c0c3?jk\u003dAYvHSRGG28q0QBE-4BQGqmN59-ulrtboBE1DaLdUvlHcZHxAakD85C5T89qufn9hlVmdETFgZPh3tMLWCG8y5bAkoFU1Kh0gJe17UxJYvibcCTQr1iSeYSsKwREYp-aQNB_ha8qVCIA_5ex5p6z2B-zIaLO3tsbU98NperQ60WTd29q5pLeXSYAL5Em8VzY8wmIaDah1BOBlIUWXyiotFNsDBXX5hE1ZOnKoeK36TVjSAce78Rml7nelE74MxiZg7Go6JZBBM0ewVsDcSIWxqWNmNjkQagTeRRtT4W1k2mkNPD7uQVKpqSxxHZ8etF0s5_wQT51HGmPzdFqTz4rrw2LorMVBYNqXRWO632uyxr7xmL6oWgH-V5uPOKWfk1UhUhLj0WM0ELU6yecRuEHQDTM2Z8BSmH4bMaMNEzS5wO0YYQLWN69hxQ-WBQtdbn7l16Tgv12oORZEvxdDyUiO1Xhlco7qBYVILvgosY7MgV7Yyz76CKAR4GzxWmtw5DPr3KNLqgos9JHmB-uxO6_kS3j7Ipx5NUP_3K-9ECd8_WNtmVei7RT6Z9eJRlJaH4aBZHzQEayUDj1mOdMPglkDeUgNMl-rj8Mmgx8TXh2N_NPs6RXeWke_P45b6Yziiyd3OWqCyEgSqDNu4W095YCJ_FMK4_ykP-w6dt12Ivv9p4ura1DIaVIdprGjdrKI6bYTXdNuEQUyWDYtYE0ZkGbZmR6b6siCARVSJxGKbyzqHETsh1XJxyqPtSwcQa81GB-zIyQasnjnRUCerHF0d5jYkLZbVbFWc6wDdmTByxPXvnXKUdA7r_tjoJ4S7MZM-pWVgCPey97ih3krPngASDtJ-CBBqhuKUyRkswQn4kGWVtE-wsinsmbHsnWh0aaWRXpXp_HOJpht3xB--TgstB2M1dXodTzKRw5cASxKLaxCN9snSywQmACCqyd7UCRqTZ93mAnT0PvC3HdIkCo5kHykRW6tzDUfADFhqZeCp7Fh-7iZzWdWHw8RRJwGjFw5TpG20OyxA-KRBAHAWXS4jziWkqYSwGnaby5TpPuLDRbAU94jdEbbb_xnQT9TQwUscM_60xxJ3LbIEA4mCbP8GtNdfbJlOYB6OZscx-rsE5xDi0qkGpbPl67idon3k8zazQ4ni83BRfA8GC-PuQtrELHgEEdbAo6QYCTvGma_JI7FgVGGnEK-2fgjQrtyLL_Q4m46o-kKGizDCcd4Whw7B_yDNtAJiwZyiWg1WbumTJ0L9qYbHAtH58wPssS63wcVZq95HkgX8VkikJXLa4WfaxrHWCfnqo-aJ-koEsDSTVVKBEWjvt92MW6NfRLBMLWVJf4R859KzNyWtw_ozKaLelYa79IloLn3X6WSowisdCusfFUgQX4zH0PDy_FysJLzo_AEH-RgOn-iqozDikHMFavTkyIzyNR5buDAeCd0wqL8GPb8eLtAQK89TMlxwcWrQSPX-0K1QnXTc6-bZLXO83dbVTLvOPAoHlZbkKrbBQNeY-sFIwbGlgXBycCZlmNLriACtid8vQICsSnxych3yGUxGSWUmbcdpQEObodbWXq6h0oIk6ILSQyf7erKQCE6ZpGXA6Ft0peAlwOBIi_zHNvrM0C6nUCJ9gaUhNHIvyjuH1S19k00ih95M3ed1tCM_tlYAo2OD28wVIKHXGRXJYJ8rDXCJ4AL7XYWW8fYuqnEEgNxCLjh7b3ldW0apdeDhHMsktBjo_DEvOJ724fLx_D2Xyz4qR_B0WXhve4A-lW9fG79VV5tfD9EMYRrzXiUlPctOS4Qh52ZCYSHLr1x0KxaHkE4vChig-bVqzftMnY-ZDYci0AazBGaWoahOiwZkch1DP7yecPIGnQFR8del7z6PHKVN58RFCYusgX8VOI9E9cbgKLk6d6PymV6ZJFz6Ovs_UPHMfwwgNQXCcqzTtujHdXh39DMCZFkT1K7cIh9t6u0jL7UJtzUi9aK",
+      "parentUuid": "aed20c15_65a4c16b",
+      "revId": "8a9977afb8f68dcc1c0d9683cf76fb8cbdc604be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6870b632_4049b61e",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-07-05T11:46:39Z",
       "side": 1,
       "message": "Could you please rename this to smth like \u0027hasAffectedResources\u0027 and add a comment that a resources section will be added only in case those are present?\nit\u0027s a bit hard to follow with this naming",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 29
+      },
+      "revId": "8a9977afb8f68dcc1c0d9683cf76fb8cbdc604be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e088d43_8037c40e",
+        "filename": "front_end/panels/issues/GenericIssueDetailsView.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1117099
+      },
+      "writtenOn": "2023-07-05T15:59:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6870b632_4049b61e",
       "range": {
         "startLine": 46,
         "startChar": 12,
