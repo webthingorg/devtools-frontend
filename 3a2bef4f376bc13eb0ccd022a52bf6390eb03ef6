@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "317984aa_29ca57e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T13:58:59Z",
+      "side": 1,
+      "message": "Yep thanks for the tip !!",
+      "parentUuid": "2813c6d0_933c6ece",
+      "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e711b83e_02bdac98",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-07-05T10:46:05Z",
       "side": 1,
       "message": "why do we need to customize the scrollbar?",
+      "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da49792a_e671d0c9",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T13:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e711b83e_02bdac98",
       "revId": "3a2bef4f376bc13eb0ccd022a52bf6390eb03ef6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
