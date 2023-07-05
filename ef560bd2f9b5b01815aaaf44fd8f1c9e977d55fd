@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab18b165_9869c6c8",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T14:43:43Z",
+      "side": 1,
+      "message": "I thought that this was the best width to properly use the editor but we can discuss it !",
+      "parentUuid": "eb9ea44b_f1fe1072",
+      "range": {
+        "startLine": 610,
+        "startChar": 18,
+        "endLine": 610,
+        "endChar": 21
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67378c64_c4c01662",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-05T14:31:00Z",
       "side": 1,
       "message": "what will happen if the new width is bigger than 400px?",
+      "range": {
+        "startLine": 628,
+        "startChar": 4,
+        "endLine": 628,
+        "endChar": 6
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f46bdf0f_2c27cd84",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T14:43:43Z",
+      "side": 1,
+      "message": "Hum nothing this if statement just makes it impossible to resize the editor below 400px",
+      "parentUuid": "141c1120_17f7a272",
       "range": {
         "startLine": 628,
         "startChar": 4,
