@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edaf91a2_a73d6123",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-05T10:42:45Z",
+      "side": 1,
+      "message": "this should not be added for types that are already primitive. In general, I recommend that we separate the typeRef for the type itself from the itemType and itemTypeRef for the array item types",
+      "revId": "cbadba89881030cf6cd8a54611e5193a1cc2dbc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
