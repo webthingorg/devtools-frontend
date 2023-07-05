@@ -1,0 +1,15 @@
+[submodule "third_party/clang-format/script"]
+	path = third_party/clang-format/script
+	url = https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format.git
+[submodule "buildtools"]
+	path = buildtools
+	url = https://chromium.googlesource.com/chromium/src/buildtools.git
+[submodule "build"]
+	path = build
+	url = https://chromium.googlesource.com/chromium/src/build.git
+[submodule "third_party/depot_tools"]
+	path = third_party/depot_tools
+	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
+[submodule "third_party/inspector_protocol"]
+	path = third_party/inspector_protocol
+	url = https://chromium.googlesource.com/deps/inspector_protocol

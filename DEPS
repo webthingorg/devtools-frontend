@@ -43,6 +43,10 @@ vars = {
   'chromium_mac': '1165867',
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac_Arm/LAST_CHANGE
   'chromium_mac_arm': '1165859',
+
+  # 'magic' text to tell depot_tools that git submodules should be accepted but
+  # but parity with DEPS file is expected.
+  'SUBMODULE_MIGRATION': 'True'
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
