@@ -86,6 +86,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "626a7de3_6e9c6869",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-07-05T19:36:39Z",
+      "side": 1,
+      "message": "Done, thank you all for reviewing!",
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98725410_1d2e8a82",
@@ -99,6 +116,24 @@
       "writtenOn": "2023-07-03T07:52:06Z",
       "side": 1,
       "message": "Nit: Since we’re repeating `visibleAffectedResource[i].listItemElement` a few times here, WDYT about just doing it once and creating a binding for it?\n\n    const element \u003d visibleAffectedResource[i].listItemElement;\n\nMakes it a bit easier to follow IMHO.",
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7e808ab_df6da4b3",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-07-05T19:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98725410_1d2e8a82",
       "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -126,6 +161,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39d6f413_71a92cef",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-07-05T19:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a3432e_5f8e86a9",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 9
+      },
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6cd57f2_19e3f9a3",
@@ -139,6 +198,30 @@
       "writtenOn": "2023-07-03T04:47:17Z",
       "side": 1,
       "message": "`++treeItemCount` and remove the post increment below.",
+      "range": {
+        "startLine": 345,
+        "startChar": 44,
+        "endLine": 345,
+        "endChar": 61
+      },
+      "revId": "0e29544feaaca4c8ac5c8d4e788b29619c133c97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b5650d9_dffae853",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-07-05T19:36:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6cd57f2_19e3f9a3",
       "range": {
         "startLine": 345,
         "startChar": 44,
