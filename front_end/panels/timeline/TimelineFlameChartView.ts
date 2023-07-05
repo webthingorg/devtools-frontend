@@ -77,7 +77,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private selectedSearchResult?: number;
   private searchRegex?: RegExp;
   #traceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null;
-  #filmStripModel: SDK.FilmStripModel.FilmStripModel|null = null;
 
   constructor(delegate: TimelineModeViewDelegate) {
     super();
@@ -194,19 +193,17 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateTrack();
   }
 
-  setModel(
-      model: PerformanceModel|null, newTraceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null,
-      filmStripModel: SDK.FilmStripModel.FilmStripModel|null): void {
+  setModel(model: PerformanceModel|null, newTraceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null):
+      void {
     if (model === this.model) {
       return;
     }
-    this.#filmStripModel = filmStripModel;
     this.#traceEngineData = newTraceEngineData;
     Common.EventTarget.removeEventListeners(this.eventListeners);
     this.model = model;
     this.#selectedEvents = null;
     this.mainDataProvider.setModel(this.model, newTraceEngineData);
-    this.networkDataProvider.setModel(this.model, newTraceEngineData);
+    this.networkDataProvider.setModel(newTraceEngineData);
     if (this.model) {
       this.eventListeners = [
         this.model.addEventListener(PerformanceModelEvents.WindowChanged, this.onWindowChanged, this),
@@ -224,7 +221,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   private updateTrack(): void {
     this.countersView.setModel(this.model, this.#selectedEvents);
-    this.detailsView.setModel(this.model, this.#traceEngineData, this.#filmStripModel, this.#selectedEvents);
+    // TODO(crbug.com/1459265):  Change to await after migration work.
+    void this.detailsView.setModel(this.model, this.#traceEngineData, this.#selectedEvents);
   }
 
   private refresh(): void {
@@ -317,7 +315,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     index = this.networkDataProvider.entryIndexForSelection(selection);
     this.networkFlameChart.setSelectedEntry(index);
     if (this.detailsView) {
-      this.detailsView.setSelection(selection);
+      // TODO(crbug.com/1459265):  Change to await after migration work.
+      void this.detailsView.setSelection(selection);
     }
   }
 

@@ -99,10 +99,14 @@ describeWithMockConnection('Name resolving in the Performance panel', () => {
     const workspace = Workspace.Workspace.WorkspaceImpl.instance();
     const targetManager = SDK.TargetManager.TargetManager.instance();
     const resourceMapping = new Bindings.ResourceMapping.ResourceMapping(targetManager, workspace);
-    Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance({
+    const debuggerWorkspaceBinding = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance({
       forceNew: true,
       resourceMapping,
       targetManager,
+    });
+    Bindings.IgnoreListManager.IgnoreListManager.instance({
+      forceNew: true,
+      debuggerWorkspaceBinding,
     });
     SDK.PageResourceLoader.PageResourceLoader.instance({
       forceNew: true,
@@ -135,7 +139,7 @@ describeWithMockConnection('Name resolving in the Performance panel', () => {
        const cpuProfiles = performanceModel.timelineModel().cpuProfiles();
        assert.strictEqual(cpuProfiles.length, 1);
 
-       const nodes = cpuProfiles[0].nodes();
+       const nodes = cpuProfiles[0].cpuProfileData.nodes();
        assert.strictEqual(nodes?.length, profile.nodes.length);
 
        const sourceMapAttachedPromise = new Promise<void>(
@@ -185,7 +189,7 @@ describeWithMockConnection('Name resolving in the Performance panel', () => {
     }
 
     const cpuProfiles = performanceModel.timelineModel().cpuProfiles();
-    const nodes = cpuProfiles[0].nodes();
+    const nodes = cpuProfiles[0].cpuProfileData.nodes();
 
     Root.Runtime.experiments.setEnabled('wasmDWARFDebugging', true);
     const pluginManager =

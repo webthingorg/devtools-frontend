@@ -59,12 +59,14 @@ export class UserMetrics {
         BreakpointEditDialogRevealedFrom.MaxValue);
   }
 
-  panelShown(panelName: string): void {
+  panelShown(panelName: string, isLaunching?: boolean): void {
     const code = PanelCodes[panelName as keyof typeof PanelCodes] || 0;
     InspectorFrontendHostInstance.recordEnumeratedHistogram(EnumeratedHistogram.PanelShown, code, PanelCodes.MaxValue);
     InspectorFrontendHostInstance.recordUserMetricsAction('DevTools_PanelShown_' + panelName);
     // Store that the user has changed the panel so we know launch histograms should not be fired.
-    this.#panelChangedSinceLaunch = true;
+    if (!isLaunching) {
+      this.#panelChangedSinceLaunch = true;
+    }
   }
 
   /**
@@ -600,7 +602,8 @@ export enum PanelCodes {
   'performance_insights' = 63,
   'preloading' = 64,
   'bounce_tracking_mitigations' = 65,
-  MaxValue = 66,
+  'resource-loading-pane' = 66,
+  MaxValue = 67,
 }
 
 /* eslint-enable @typescript-eslint/naming-convention */

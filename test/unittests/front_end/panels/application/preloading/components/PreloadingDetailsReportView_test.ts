@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import type * as Platform from '../../../../../../../front_end/core/platform/platform.js';
+import type * as Logs from '../../../../../../../front_end/models/logs/logs.js';
 
 import * as Protocol from '../../../../../../../front_end/generated/protocol.js';
 import * as PreloadingComponents from '../../../../../../../front_end/panels/application/preloading/components/components.js';
@@ -38,6 +39,8 @@ const renderPreloadingDetailsReportView = async(
   return component;
 };
 
+// Note that testing Inspect/Activate buttons requires setup for targets.
+// These are tested in test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts.
 describeWithEnvironment('PreloadingDetailsReportView', async () => {
   it('renders place holder if not selected', async () => {
     const data = null;
@@ -152,6 +155,12 @@ describeWithEnvironment('PreloadingDetailsReportView', async () => {
   });
 
   it('renders prefetch details with cancelled reason', async () => {
+    const fakeRequestResolver = {
+      waitFor: (_requestId: Protocol.Network.RequestId): Promise<void> => {
+        return Promise.reject();
+      },
+    } as unknown as Logs.RequestResolver.RequestResolver;
+
     const url = 'https://example.com/prefetch.html' as Platform.DevToolsPath.UrlString;
     const data: PreloadingComponents.PreloadingDetailsReportView.PreloadingDetailsReportViewData = {
       preloadingAttempt: {
@@ -164,6 +173,7 @@ describeWithEnvironment('PreloadingDetailsReportView', async () => {
         },
         status: SDK.PreloadingModel.PreloadingStatus.Failure,
         prefetchStatus: Protocol.Preload.PrefetchStatus.PrefetchFailedNon2XX,
+        requestId: 'requestId:1' as Protocol.Network.RequestId,
         ruleSetIds: ['ruleSetId'] as Protocol.Preload.RuleSetId[],
         nodeIds: [1] as Protocol.DOM.BackendNodeId[],
       },
@@ -183,6 +193,7 @@ describeWithEnvironment('PreloadingDetailsReportView', async () => {
 `,
         },
       ],
+      requestResolver: fakeRequestResolver,
     };
 
     const component = await renderPreloadingDetailsReportView(data);
@@ -190,6 +201,9 @@ describeWithEnvironment('PreloadingDetailsReportView', async () => {
 
     const keys = getCleanTextContentFromElements(report, 'devtools-report-key');
     const values = getCleanTextContentFromElements(report, 'devtools-report-value');
+    values[0] = report.querySelector('devtools-report-value:nth-of-type(1) devtools-request-link-icon')
+                    ?.shadowRoot?.textContent?.trim() ||
+        values[0];
     assert.deepEqual(zip2(keys, values), [
       ['URL', url],
       ['Action', 'prefetch'],
