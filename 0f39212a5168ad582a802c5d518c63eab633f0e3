@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "589da5da_c215a984",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-05T11:55:00Z",
+      "side": 1,
+      "message": "Danil: PTAL! \nBenedikt: Needs your +1 on the new directory and the readmes and owner files!",
+      "revId": "0f39212a5168ad582a802c5d518c63eab633f0e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

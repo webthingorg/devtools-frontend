@@ -52,6 +52,24 @@
       "parentUuid": "98b3f403_f91c7eb4",
       "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b29245_019c7258",
+        "filename": "extensions/cxx_debugging/third_party/llvm/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-05T11:55:00Z",
+      "side": 1,
+      "message": "Added the Shipped label in both readmes, and also added a sentence to both to clarifiy that the packages are indeed shipped just not with chrome. Does this make sense?",
+      "parentUuid": "46c8717d_f9701859",
+      "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
