@@ -16,6 +16,46 @@
       "message": "Kateryna, please take a look.\n\nThis retains the wording of the current error message. My plan would be to finish the CORB/ORB transition in Chromium, and to then update the wording (and likely the \u0027learn more\u0027 URL) in a seperate CL.",
       "revId": "8a9977afb8f68dcc1c0d9683cf76fb8cbdc604be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed20c15_65a4c16b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-05T11:46:39Z",
+      "side": 1,
+      "message": "Thanks a lot, Daniel! The code looks good to me, just a small thing with the naming.\nCould you also please add a test to GenericIssue_test.ts? It would be awesome if you could add a screenshot of the issue to the CL description as well!",
+      "revId": "8a9977afb8f68dcc1c0d9683cf76fb8cbdc604be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6870b632_4049b61e",
+        "filename": "front_end/panels/issues/GenericIssueDetailsView.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-05T11:46:39Z",
+      "side": 1,
+      "message": "Could you please rename this to smth like \u0027hasAffectedResources\u0027 and add a comment that a resources section will be added only in case those are present?\nit\u0027s a bit hard to follow with this naming",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 29
+      },
+      "revId": "8a9977afb8f68dcc1c0d9683cf76fb8cbdc604be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
