@@ -277,6 +277,13 @@ export class JSONEditor extends LitElement {
     }
     if (parentParameter.value !== undefined && Array.isArray(parentParameter.value)) {
       parentParameter.value.splice(parentParameter.value.findIndex(p => p === parameter), 1);
+      if (parentParameter.value) {
+        for (const param of parentParameter.value) {
+          if (param.name !== '0') {
+            param.name = String(Number(param.name) - 1);
+          }
+        }
+      }
     }
     this.requestUpdate();
   }
