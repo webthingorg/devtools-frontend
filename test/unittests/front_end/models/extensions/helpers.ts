@@ -48,7 +48,7 @@ export function describeWithDevtoolsExtension(
     context.chrome = chrome;
   }
 
-  return describe(`with-extension-${title}`, function() {
+  return describeWithMockConnection(`with-extension-${title}`, function() {
     beforeEach(cleanup);
     beforeEach(setup);
     afterEach(cleanup);
