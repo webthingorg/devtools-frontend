@@ -70,6 +70,24 @@
       "parentUuid": "46c8717d_f9701859",
       "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac95d3ab_c2493b25",
+        "filename": "extensions/cxx_debugging/third_party/llvm/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1553262
+      },
+      "writtenOn": "2023-07-05T22:46:09Z",
+      "side": 1,
+      "message": "I think this is fine and LGTM but just want to clarify a potential edge case to address in the future. When you say \"shipped but not with Chrome\" is this shipped as part of a dynamic runtime or install thing or is it an entirely separate downloadable artifact.\n\nThe question I\u0027m trying to answer is where the WebAssembly sandbox is crediting this third party library when its used. Does it have its own credits page etc?",
+      "parentUuid": "80b29245_019c7258",
+      "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
