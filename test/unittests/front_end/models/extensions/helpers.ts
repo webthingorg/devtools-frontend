@@ -2,21 +2,45 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
+=======
+import {type Chrome} from '../../../../../extension-api/ExtensionAPI.js';
+import * as Host from '../../../../../front_end/core/host/host.js';
+>>>>>>> CHANGE (7d0fbc Tidy up ExtensionServer helpers)
 import * as Extensions from '../../../../../front_end/models/extensions/extensions.js';
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
 import {type Chrome} from '../../../../../extension-api/ExtensionAPI.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+=======
+import {describeWithEnvironment, setupActionRegistry} from '../../helpers/EnvironmentHelpers.js';
+>>>>>>> CHANGE (7d0fbc Tidy up ExtensionServer helpers)
 
 interface ExtensionContext {
   chrome: Partial<Chrome.DevTools.Chrome>;
+  extensionDescriptor: Extensions.ExtensionAPI.ExtensionDescriptor;
 }
 
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
 export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
+=======
+export function describeWithDevtoolsExtension(
+    title: string, extension: Partial<Host.InspectorFrontendHostAPI.ExtensionDescriptor>,
+    fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
+  const extensionDescriptor = {
+    startPage: `${window.location.origin}/blank.html`,
+    name: 'TestExtension',
+    exposeExperimentalAPIs: true,
+    ...extension,
+  };
+>>>>>>> CHANGE (7d0fbc Tidy up ExtensionServer helpers)
   const context: ExtensionContext = {
+    extensionDescriptor,
     chrome: {},
   };
 
   function setup() {
     const server = Extensions.ExtensionServer.ExtensionServer.instance({forceNew: true});
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
     const extensionDescriptor = {
       startPage: 'blank.html',
       name: 'TestExtension',
@@ -27,14 +51,26 @@ export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite
     (window as {chrome?: Partial<Chrome.DevTools.Chrome>}).chrome = chrome;
     self.injectedExtensionAPI(extensionDescriptor, 'main', 'dark', [], () => {}, 1, window);
     context.chrome = chrome;
+=======
+    sinon.stub(server, 'addExtensionFrame');
+
+    sinon.stub(Host.InspectorFrontendHost.InspectorFrontendHostInstance, 'setInjectedScriptForOrigin')
+        .callsFake((origin, _script) => {
+          if (origin === window.location.origin) {
+            const chrome: Partial<Chrome.DevTools.Chrome> = {};
+            (window as {chrome?: Partial<Chrome.DevTools.Chrome>}).chrome = chrome;
+            self.injectedExtensionAPI(extensionDescriptor, 'main', 'dark', [], () => {}, 1, window);
+            context.chrome = chrome;
+          }
+        });
+    server.addExtension(extensionDescriptor);
+>>>>>>> CHANGE (7d0fbc Tidy up ExtensionServer helpers)
   }
 
   function cleanup() {
-    try {
-      delete (window as {chrome?: Chrome.DevTools.Chrome}).chrome;
-    } catch {
-      // Eat errors in headful mode
-    }
+    const chrome: Partial<Chrome.DevTools.Chrome> = {};
+    (window as {chrome?: Partial<Chrome.DevTools.Chrome>}).chrome = chrome;
+    context.chrome = chrome;
   }
 
   return describe(`with-extension-${title}`, function() {
@@ -42,7 +78,10 @@ export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite
     beforeEach(setup);
     afterEach(cleanup);
 
-    describeWithEnvironment(title, fn.bind(this, context));
+    describeWithEnvironment(title, function() {
+      setupActionRegistry();
+      fn.call(this, context);
+    });
   });
 }
 
