@@ -40,7 +40,6 @@ devtools_module("sdk") {
     "DebuggerModel.ts",
     "EmulationModel.ts",
     "EventBreakpointsModel.ts",
-    "FilmStripModel.ts",
     "FrameAssociated.ts",
     "FrameManager.ts",
     "HeapProfilerModel.ts",
@@ -92,6 +91,7 @@ devtools_module("sdk") {
     "../../core/root:bundle",
     "../../generated",
     "../../generated:protocol",
+    "../../models/cpu_profile:bundle",
     "../../models/text_utils:bundle",
     "../../models/trace:bundle",
   ]

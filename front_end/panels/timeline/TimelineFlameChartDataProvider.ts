@@ -134,9 +134,8 @@ const LONG_MAIN_THREAD_TASK_THRESHOLD = TraceEngine.Types.Timing.MilliSeconds(50
 // and the new system proposed in go/rpp-flamechart-arch. In the future, once all
 // tracks have been migrated to the new system, all entries will be of the
 // TraceEventData type.
-export type TimelineFlameChartEntry =
-    (SDK.FilmStripModel.Frame|SDK.TracingModel.Event|TimelineModel.TimelineFrameModel.TimelineFrame|
-     TraceEngine.Types.TraceEvents.TraceEventData);
+export type TimelineFlameChartEntry = (SDK.TracingModel.Event|TimelineModel.TimelineFrameModel.TimelineFrame|
+                                       TraceEngine.Types.TraceEvents.TraceEventData);
 export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
     PerfUI.FlameChart.FlameChartDataProvider {
   private droppedFramePatternCanvas: HTMLCanvasElement;
@@ -177,6 +176,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   private entryParent!: SDK.TracingModel.Event[];
   private lastSelection?: Selection;
   private colorForEvent?: ((arg0: SDK.TracingModel.Event) => string);
+  #eventToDisallowRoot = new WeakMap<SDK.TracingModel.Event, boolean>();
+  #indexForEvent = new WeakMap<SDK.TracingModel.Event, number>();
   #font: string;
 
   constructor() {
@@ -336,7 +337,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           event.phase === TraceEngine.Types.TraceEvents.Phase.ASYNC_STEP_PAST) {
         return event.name + ':' + event.args['step'];
       }
-      if (eventToDisallowRoot.get(event)) {
+      if (this.#eventToDisallowRoot.get(event)) {
         return i18nString(UIStrings.onIgnoreList);
       }
       return TimelineUIUtils.eventTitle(event);
@@ -360,7 +361,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   textColor(index: number): string {
     const event = this.entryData[index];
-    return event && eventToDisallowRoot.get((event as SDK.TracingModel.Event)) ? '#888' : FlameChartStyle.textColor;
+    return event && this.#eventToDisallowRoot.get((event as SDK.TracingModel.Event)) ? '#888' :
+                                                                                       FlameChartStyle.textColor;
   }
 
   entryFont(_index: number): string|null {
@@ -377,6 +379,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.asyncColorByCategory = new Map();
     this.screenshotImageCache = new Map();
     this.compatibilityTracksAppender = null;
+    this.#eventToDisallowRoot = new WeakMap<SDK.TracingModel.Event, boolean>();
+    this.#indexForEvent = new WeakMap<SDK.TracingModel.Event, number>();
   }
 
   maxStackDepth(): number {
@@ -710,13 +714,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
              ((openEvents[openEvents.length - 1] as SDK.TracingModel.Event).endTime) <= event.startTime) {
         openEvents.pop();
       }
-      eventToDisallowRoot.set(event, false);
+      this.#eventToDisallowRoot.set(event, false);
       if (ignoreListingEnabled && this.isIgnoreListedEvent(event)) {
         const parent = openEvents[openEvents.length - 1];
-        if (parent && eventToDisallowRoot.get(parent)) {
+        if (parent && this.#eventToDisallowRoot.get(parent)) {
           continue;
         }
-        eventToDisallowRoot.set(event, true);
+        this.#eventToDisallowRoot.set(event, true);
       }
       if (!group && title) {
         group = this.appendHeader(title, (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
@@ -817,7 +821,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     // data model in place without creating a new TrackAppender. When we can
     // migrate the frames track to the new appender system, we can migrate the
     // screnshots then as well.
-    const filmStrip = TraceEngine.Extras.FilmStrip.filmStripFromTraceEngine(this.traceEngineData);
+    const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(this.traceEngineData);
     const hasScreenshots = filmStrip.frames.length > 0;
 
     this.framesHeader.collapsible = hasScreenshots;
@@ -837,7 +841,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.#appendScreenshots(filmStrip);
   }
 
-  #appendScreenshots(filmStrip: TraceEngine.Extras.FilmStrip.FilmStripData): void {
+  #appendScreenshots(filmStrip: TraceEngine.Extras.FilmStrip.Data): void {
     if (!this.timelineDataInternal || !this.legacyTimelineModel) {
       return;
     }
@@ -1171,7 +1175,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     timelineData.entryLevels[index] = level;
     timelineData.entryTotalTimes[index] = event.duration || InstantEventVisibleDurationMs;
     timelineData.entryStartTimes[index] = event.startTime;
-    indexForEvent.set(event, index);
+    this.#indexForEvent.set(event, index);
     return index;
   }
 
@@ -1229,7 +1233,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   entryIndexForSelection(selection: TimelineSelection|null): number {
     if (!selection || TimelineSelection.isRangeSelection(selection.object) ||
-        TimelineSelection.isNetworkRequestSelection(selection.object)) {
+        TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object)) {
       return -1;
     }
 
@@ -1274,8 +1278,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (!initiator || !event) {
         break;
       }
-      const eventIndex = (indexForEvent.get(event) as number);
-      const initiatorIndex = (indexForEvent.get(initiator) as number);
+      const eventIndex = (this.#indexForEvent.get(event) as number);
+      const initiatorIndex = (this.#indexForEvent.get(initiator) as number);
       td.flowStartTimes.push(initiator.endTime || initiator.startTime);
       td.flowStartLevels.push(td.entryLevels[initiatorIndex]);
       td.flowEndTimes.push(event.startTime);
@@ -1286,7 +1290,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   }
 
   private eventParent(event: SDK.TracingModel.Event): SDK.TracingModel.Event|null {
-    const eventIndex = indexForEvent.get(event);
+    const eventIndex = this.#indexForEvent.get(event);
     if (eventIndex === undefined) {
       return null;
     }
@@ -1319,9 +1323,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 }
 
 export const InstantEventVisibleDurationMs = 0.001;
-
-const eventToDisallowRoot = new WeakMap<SDK.TracingModel.Event, boolean>();
-const indexForEvent = new WeakMap<SDK.TracingModel.Event, number>();
 
 // TODO(crbug.com/1167717): Make this a const enum again
 // eslint-disable-next-line rulesdir/const_enum
