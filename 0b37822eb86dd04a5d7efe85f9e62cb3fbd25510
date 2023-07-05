@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1a0b860_2dcc88f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-05T12:41:52Z",
+      "side": 1,
+      "message": "Can we add the screenshot to the bug instead of the commit message?",
+      "revId": "0b37822eb86dd04a5d7efe85f9e62cb3fbd25510",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09474c61_aeb1dfe8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-05T12:41:52Z",
+      "side": 1,
+      "message": "Thanks, LGTM!",
+      "revId": "0b37822eb86dd04a5d7efe85f9e62cb3fbd25510",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
