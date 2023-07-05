@@ -67,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46b4cd6d_a5756ca3",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-05T14:45:24Z",
+      "side": 1,
+      "message": "I thought it was better to prevent resizing like it\u0027s done in the code editor in the recorder. But sure we can do that as well I just think the editor won\u0027t be very handy to use with horizontal scrollbar...",
+      "parentUuid": "67378c64_c4c01662",
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "141c1120_17f7a272",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 4
