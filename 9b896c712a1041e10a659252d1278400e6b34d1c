@@ -16,6 +16,29 @@
       "message": "Hey Danil, can you please take a look?",
       "revId": "9b896c712a1041e10a659252d1278400e6b34d1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ad64cfc_bf463b57",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 3
+      },
+      "lineNbr": 2061,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-05T12:50:26Z",
+      "side": 1,
+      "message": "color_tokens?",
+      "range": {
+        "startLine": 2061,
+        "startChar": 23,
+        "endLine": 2061,
+        "endChar": 29
+      },
+      "revId": "9b896c712a1041e10a659252d1278400e6b34d1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
