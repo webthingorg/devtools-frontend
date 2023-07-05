@@ -3068,13 +3068,9 @@ export const generatedProperties = [
  {
   "longhands": [
    "scroll-timeline-name",
-   "scroll-timeline-axis",
-   "scroll-timeline-attachment"
+   "scroll-timeline-axis"
   ],
   "name": "scroll-timeline"
- },
- {
-  "name": "scroll-timeline-attachment"
  },
  {
   "name": "scroll-timeline-axis"
@@ -3611,13 +3607,9 @@ export const generatedProperties = [
  {
   "longhands": [
    "view-timeline-name",
-   "view-timeline-axis",
-   "view-timeline-attachment"
+   "view-timeline-axis"
   ],
   "name": "view-timeline"
- },
- {
-  "name": "view-timeline-attachment"
  },
  {
   "name": "view-timeline-axis"

@@ -51,7 +51,8 @@ describeWithLocale('GenericIssue', async () => {
     assert.strictEqual(genericIssue.getCategory(), IssuesManager.Issue.IssueCategory.Generic);
     assert.strictEqual(
         genericIssue.primaryKey(),
-        `GenericIssue::CrossOriginPortalPostMessageError-(${'main' as Protocol.Page.FrameId})-(1)-(attribute)`);
+        `GenericIssue::CrossOriginPortalPostMessageError-(${
+        'main' as Protocol.Page.FrameId})-(1)-(attribute)-(no-request)`);
     assert.strictEqual(genericIssue.getKind(), IssuesManager.Issue.IssueKind.Improvement);
     assert.isNotNull(genericIssue.getDescription());
   });
