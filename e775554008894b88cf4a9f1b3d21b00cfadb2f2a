@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "991ca7ca_d72424bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-05T12:35:42Z",
+      "side": 1,
+      "message": "PTAL! Adding another shipped dependency for the extension.",
+      "revId": "e775554008894b88cf4a9f1b3d21b00cfadb2f2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
