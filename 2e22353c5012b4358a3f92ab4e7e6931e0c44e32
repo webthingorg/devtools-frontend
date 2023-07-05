@@ -16,6 +16,23 @@
       "message": "One other concern is our Mac bots currently timing out on render coordinator in the network panel. I think we should not move forward with the merge until we fully understand what is going on the bots.",
       "revId": "2e22353c5012b4358a3f92ab4e7e6931e0c44e32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a878d654_df478f07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-05T17:20:23Z",
+      "side": 1,
+      "message": "LGTM. (It seems the culprit for the failing MacBot tests on the tree was found and is unrelated https://crrev.com/c/4667152)",
+      "revId": "2e22353c5012b4358a3f92ab4e7e6931e0c44e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
