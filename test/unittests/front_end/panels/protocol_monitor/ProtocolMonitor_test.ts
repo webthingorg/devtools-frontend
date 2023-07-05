@@ -354,5 +354,31 @@ describe('ProtocolMonitor', () => {
       const commandReceived = editorWidget.jsonEditor.command;
       assert.deepStrictEqual(commandReceived, '');
     });
+
+    it('should delete the specified array parameter', async () => {
+      const inputParameters = [
+        {
+          type: 'array',
+          optional: true,
+          value: [
+            {name: '0', value: 'value0'},
+            {name: '1', value: 'value1'},
+            {name: '2', value: 'value2'},
+          ],
+          name: 'arrayParam',
+        },
+      ];
+
+      const expectedParams = {
+        'arrayParam': ['value1', 'value2'],
+      };
+      const editorWidget = renderEditorWidget();
+      const parameterId = 'arrayParam.0';
+      editorWidget.jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      editorWidget.jsonEditor.handleDeleteArrayParameter(parameterId);
+      const resultedParams = editorWidget.jsonEditor.getParameters();
+
+      assert.deepStrictEqual(expectedParams, resultedParams);
+    });
   });
 });

@@ -269,16 +269,26 @@ export class JSONEditor extends LitElement {
     this.requestUpdate();
   }
 
-  #handleDeleteArrayParameter(parameterId: string): void {
+  handleDeleteArrayParameter(parameterId: string): void {
     const realParamId = parameterId.split('.');
     const {parameter, parentParameter} = this.#getChildByPath(realParamId);
-    if (!parameter) {
-      return;
-    }
-    if (parentParameter.value !== undefined && Array.isArray(parentParameter.value)) {
+
+    if (parameter) {
+      if (!(parentParameter.value !== undefined && Array.isArray(parentParameter.value))) {
+        return;
+      }
+
       parentParameter.value.splice(parentParameter.value.findIndex(p => p === parameter), 1);
+
+      if (parentParameter.value) {
+        for (let i = 0; i < parentParameter.value.length; i++) {
+          const param = parentParameter.value[i];
+          param.name = String(i);
+        }
+      }
+
+      this.requestUpdate();
     }
-    this.requestUpdate();
   }
 
   #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
@@ -433,7 +443,7 @@ export class JSONEditor extends LitElement {
                     this.#handleAddArrayParameter(parameterId);
                   }: undefined,
                   handleDelete: parameter.optional ? () : void => {
-                    this.#handleDeleteArrayParameter(parameterId);
+                    this.handleDeleteArrayParameter(parameterId);
                   }: undefined,
                   handleInputOnBlur: parameter.type !== 'object' ? handleInputOnBlur: undefined,
                   key: parameter.name,
