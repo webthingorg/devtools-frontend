@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71d5b243_1ca649c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1117099
+      },
+      "writtenOn": "2023-07-05T11:26:49Z",
+      "side": 1,
+      "message": "Kateryna, please take a look.\n\nThis retains the wording of the current error message. My plan would be to finish the CORB/ORB transition in Chromium, and to then update the wording (and likely the \u0027learn more\u0027 URL) in a seperate CL.",
+      "revId": "8a9977afb8f68dcc1c0d9683cf76fb8cbdc604be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
