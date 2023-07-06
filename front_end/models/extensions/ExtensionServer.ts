@@ -68,6 +68,48 @@ const kAllowedOrigins = [].map(url => (new URL(url)).origin);
 
 let extensionServerInstance: ExtensionServer|null;
 
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
+=======
+export class HostsPolicy {
+  static create(policy?: Host.InspectorFrontendHostAPI.ExtensionHostsPolicy): HostsPolicy|null {
+    const runtimeAllowedHosts = [];
+    const runtimeBlockedHosts = [];
+    if (policy) {
+      for (const pattern of policy.runtimeAllowedHosts) {
+        const parsedPattern = HostUrlPattern.parse(pattern);
+        if (!parsedPattern) {
+          return null;
+        }
+        runtimeAllowedHosts.push(parsedPattern);
+      }
+      for (const pattern of policy.runtimeBlockedHosts) {
+        const parsedPattern = HostUrlPattern.parse(pattern);
+        if (!parsedPattern) {
+          return null;
+        }
+        runtimeBlockedHosts.push(parsedPattern);
+      }
+    }
+    return new HostsPolicy(runtimeAllowedHosts, runtimeBlockedHosts);
+  }
+  private constructor(readonly runtimeAllowedHosts: HostUrlPattern[], readonly runtimeBlockedHosts: HostUrlPattern[]) {
+  }
+
+  isAllowedOnCurrentTarget(): boolean {
+    const inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL();
+    if (!inspectedURL) {
+      // If there aren't any blocked hosts retain the old behavior and don't worry about the inspectedURL
+      return this.runtimeBlockedHosts.length === 0;
+    }
+    if (this.runtimeBlockedHosts.some(pattern => pattern.matchesUrl(inspectedURL)) &&
+        !this.runtimeAllowedHosts.some(pattern => pattern.matchesUrl(inspectedURL))) {
+      return false;
+    }
+    return true;
+  }
+}
+
+>>>>>>> CHANGE (8b8ce3 Check hosts policy when loading extensions)
 export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private readonly clientObjects: Map<string, unknown>;
   private readonly handlers:
@@ -967,6 +1009,13 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (!this.extensionsEnabled) {
       return;
     }
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
+=======
+    const hostsPolicy = HostsPolicy.create(extensionInfo.hostsPolicy);
+    if (!hostsPolicy || !hostsPolicy.isAllowedOnCurrentTarget()) {
+      return;
+    }
+>>>>>>> CHANGE (8b8ce3 Check hosts policy when loading extensions)
     try {
       const startPageURL = new URL((startPage as string));
       const extensionOrigin = startPageURL.origin;
@@ -1012,6 +1061,24 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
   };
 
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
+=======
+  private extensionEnabled(port: MessagePort): boolean {
+    if (!this.extensionsEnabled) {
+      return false;
+    }
+    const origin = extensionOrigins.get(port);
+    if (!origin) {
+      return false;
+    }
+    const extension = this.registeredExtensions.get(origin);
+    if (!extension) {
+      return false;
+    }
+    return extension.hostsPolicy.isAllowedOnCurrentTarget();
+  }
+
+>>>>>>> CHANGE (8b8ce3 Check hosts policy when loading extensions)
   private async onmessage(event: MessageEvent): Promise<void> {
     const message = event.data;
     let result;
