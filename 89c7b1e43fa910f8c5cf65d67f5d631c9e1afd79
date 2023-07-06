@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ed2eaf_800abee7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-06T11:56:21Z",
+      "side": 1,
+      "message": "Nice, thank you!",
+      "revId": "89c7b1e43fa910f8c5cf65d67f5d631c9e1afd79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35299dc_153e65d6",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-06T11:56:21Z",
+      "side": 1,
+      "message": "Nit: Update the comment.",
+      "range": {
+        "startLine": 87,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 52
+      },
+      "revId": "89c7b1e43fa910f8c5cf65d67f5d631c9e1afd79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
