@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e38450bd_2c455cda",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-06T04:06:00Z",
+      "side": 1,
+      "message": "Note that you want explicitly `++treeItemCount` here instead of `treeItemCount++`. The former increments the value first and then returns it, i.e. for the first node it\u0027ll pass `1`.\nThe latter returns the value first and increments it after, i.e. for the first node it\u0027ll pass `0`.\n\nYou can also leave `treeItemCount++` but then you\u0027d have to initialize `let treeItemCount \u003d 1;` :)",
+      "range": {
+        "startLine": 345,
+        "startChar": 43,
+        "endLine": 345,
+        "endChar": 59
+      },
+      "revId": "463ad914e7fcd4d20db5891e5b69c839a0d5ba6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
