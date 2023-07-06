@@ -322,6 +322,9 @@ export class SessionRouter {
   }
 
   sendMessage(sessionId: string, domain: string, method: QualifiedName, params: Object|null, callback: Callback): void {
+    if (method === 'Runtime.evaluate') {
+      console.error((new Error()).stack);
+    }
     const messageId = this.nextMessageId();
     const messageObject: Message = {
       id: messageId,
