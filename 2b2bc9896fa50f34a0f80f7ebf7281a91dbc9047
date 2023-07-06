@@ -16,6 +16,23 @@
       "message": "Could you take a look, please?",
       "revId": "2b2bc9896fa50f34a0f80f7ebf7281a91dbc9047",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ef1b90_94a6cdb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-06T08:44:27Z",
+      "side": 1,
+      "message": "lgtm from a pure refactoring perspective, but was there a plan to have multiple `CoordinatorFrame`s at some point? Or was that the result of some previous refactoring and this CL is the natural conclusion?",
+      "revId": "2b2bc9896fa50f34a0f80f7ebf7281a91dbc9047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
