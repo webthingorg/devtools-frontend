@@ -3,8 +3,13 @@
 // found in the LICENSE file.
 
 import * as Extensions from '../../../../../front_end/models/extensions/extensions.js';
+<<<<<<< HEAD   (a27d70 Add url pattern parsing for extensions)
 import {type Chrome} from '../../../../../extension-api/ExtensionAPI.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
+=======
+import {describeWithEnvironment, setupActionRegistry} from '../../helpers/EnvironmentHelpers.js';
+import {describeWithMockConnection} from '../../helpers/MockConnection.js';
+>>>>>>> CHANGE (aa7ddd Defer initialization of extensions when the main target isn')
 
 interface ExtensionContext {
   chrome: Partial<Chrome.DevTools.Chrome>;
@@ -37,7 +42,7 @@ export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite
     }
   }
 
-  return describe(`with-extension-${title}`, function() {
+  return describeWithMockConnection(`with-extension-${title}`, function() {
     beforeEach(cleanup);
     beforeEach(setup);
     afterEach(cleanup);
