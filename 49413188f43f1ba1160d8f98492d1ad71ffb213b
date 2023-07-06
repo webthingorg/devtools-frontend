@@ -16,6 +16,24 @@
       "message": "This dep is not shipped with Chrome but with an extension. Should this be NOT_SHIPPED?",
       "revId": "49413188f43f1ba1160d8f98492d1ad71ffb213b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a818a59_53061f1d",
+        "filename": "extensions/cxx_debugging/third_party/lldb-eval/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-06T07:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afb65896_2b6e7a2e",
+      "revId": "49413188f43f1ba1160d8f98492d1ad71ffb213b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

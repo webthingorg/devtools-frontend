@@ -88,6 +88,24 @@
       "parentUuid": "80b29245_019c7258",
       "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0db980_a438e821",
+        "filename": "extensions/cxx_debugging/third_party/llvm/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-06T07:55:10Z",
+      "side": 1,
+      "message": "It\u0027s shipped with in a Chrome extension. In the extension\u0027s options page we have a Credits section akin to chrome://credits.",
+      "parentUuid": "ac95d3ab_c2493b25",
+      "revId": "5bc9dcfd9a93f5194322680a3fd7624a63820928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
