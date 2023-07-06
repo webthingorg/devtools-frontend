@@ -1777,7 +1777,7 @@ const emulatedDevices = [
   },
   {
     'order': 200,
-    'show-by-default': true,
+    'show-by-default': false,
     'title': 'Facebook for Android v407 on Pixel 6',
     'screen': {
       'horizontal': {
