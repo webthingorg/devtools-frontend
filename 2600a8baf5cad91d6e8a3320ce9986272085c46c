@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d31c53_cbce1d5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-06T11:44:12Z",
+      "side": 1,
+      "message": "I pulled the hosts policy change out of this CL in order to unblock landing this. Will send it as a followup!",
+      "revId": "2600a8baf5cad91d6e8a3320ce9986272085c46c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
