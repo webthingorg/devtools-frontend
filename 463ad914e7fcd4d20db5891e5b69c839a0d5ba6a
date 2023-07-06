@@ -46,6 +46,30 @@
       },
       "revId": "463ad914e7fcd4d20db5891e5b69c839a0d5ba6a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af39f86_8daa1f9c",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-07-06T19:43:42Z",
+      "side": 1,
+      "message": "Fixing this in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4669407",
+      "parentUuid": "9ce4d679_37780089",
+      "range": {
+        "startLine": 345,
+        "startChar": 43,
+        "endLine": 345,
+        "endChar": 59
+      },
+      "revId": "463ad914e7fcd4d20db5891e5b69c839a0d5ba6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
