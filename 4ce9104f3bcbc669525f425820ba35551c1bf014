@@ -45,6 +45,30 @@
       },
       "revId": "4ce9104f3bcbc669525f425820ba35551c1bf014",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "635bf656_f8e34c06",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-06T09:11:55Z",
+      "side": 1,
+      "message": "@media would not work in DevTools AFAIK because the window size is virtual. Container queries might work but I think it would be too big of a change (if we need container query then we should refactor to user Recorder\u0027s split view)",
+      "parentUuid": "4265a396_f3f46e8a",
+      "range": {
+        "startLine": 630,
+        "startChar": 6,
+        "endLine": 631,
+        "endChar": 60
+      },
+      "revId": "4ce9104f3bcbc669525f425820ba35551c1bf014",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
