@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a35a6a95_9f79265f",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-06T08:29:28Z",
+      "side": 1,
+      "message": "Please mention this 400 is a `random` choose one, so the other people are less worry to change it.",
+      "parentUuid": "d7d22899_292e1ae7",
+      "range": {
+        "startLine": 610,
+        "startChar": 18,
+        "endLine": 610,
+        "endChar": 21
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67378c64_c4c01662",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 4
@@ -222,6 +246,30 @@
       "side": 1,
       "message": "Hum nothing this if statement just makes it impossible to resize the editor below 400px",
       "parentUuid": "141c1120_17f7a272",
+      "range": {
+        "startLine": 628,
+        "startChar": 4,
+        "endLine": 628,
+        "endChar": 6
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbcb6831_26a20236",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-06T08:29:28Z",
+      "side": 1,
+      "message": "Then I recommend add a comment to explain what will happen, currently this function sounds like will handle everything",
+      "parentUuid": "f46bdf0f_2c27cd84",
       "range": {
         "startLine": 628,
         "startChar": 4,

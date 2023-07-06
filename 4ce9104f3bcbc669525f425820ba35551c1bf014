@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d71dfd8_f135b663",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-06T08:29:28Z",
+      "side": 1,
+      "message": "how about `sideBarMinWidth`",
+      "range": {
+        "startLine": 611,
+        "startChar": 3,
+        "endLine": 611,
+        "endChar": 15
+      },
+      "revId": "4ce9104f3bcbc669525f425820ba35551c1bf014",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4265a396_f3f46e8a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-06T08:29:28Z",
+      "side": 1,
+      "message": "since you are changing css now, i am thinking if you can try something with `@media`: https://developer.mozilla.org/en-US/docs/Web/CSS/@media",
+      "range": {
+        "startLine": 630,
+        "startChar": 6,
+        "endLine": 631,
+        "endChar": 60
+      },
+      "revId": "4ce9104f3bcbc669525f425820ba35551c1bf014",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
