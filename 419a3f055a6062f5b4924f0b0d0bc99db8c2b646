@@ -96,6 +96,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28643533_74dfeeab",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-06T13:21:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69d6508e_291b5607",
+      "range": {
+        "startLine": 272,
+        "startChar": 3,
+        "endLine": 272,
+        "endChar": 29
+      },
+      "revId": "419a3f055a6062f5b4924f0b0d0bc99db8c2b646",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12bcdc03_4c5017b3",
