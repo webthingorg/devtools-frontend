@@ -16,6 +16,40 @@
       "message": "What the difference between this and crrev.com/c/4665652?",
       "revId": "c5e73c1d163eb74be733a46e5fc85e617d7358d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e222b24b_e36f4dba",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-06T14:52:55Z",
+      "side": 1,
+      "message": "invert the if",
+      "revId": "c5e73c1d163eb74be733a46e5fc85e617d7358d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb59a7a7_39375484",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-06T14:52:55Z",
+      "side": 1,
+      "message": "why is it if needed?",
+      "revId": "c5e73c1d163eb74be733a46e5fc85e617d7358d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
