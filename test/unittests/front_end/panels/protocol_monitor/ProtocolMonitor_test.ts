@@ -167,16 +167,12 @@ describe('ProtocolMonitor', () => {
     };
 
     it('outputs correctly the CDP command and parameters inside the Sidebar Panel', async () => {
-      const command = 'CSS.addRule';
+      const command = 'Network.deleteCookies';
       const parameters = {
-        'styleSheetId': '2',
-        'ruleText': 'test',
-        'domain': {
-          'starLine': '2',
-          'startColumn': '2',
-          'endLine': '2',
-          'endColumn': '3',
-        },
+        'name': 'test',
+        'url': 'https://test.com',
+        'domain': '/',
+        'path': '/',
       };
 
       const editorWidget = renderEditorWidget();
@@ -188,20 +184,7 @@ describe('ProtocolMonitor', () => {
       const shadowRoot = editorWidget.jsonEditor.renderRoot;
       const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
 
-      const countValues = (obj: Record<string, unknown>): number => {
-        let count = 0;
-
-        for (const key of Object.keys(obj)) {
-          if (typeof obj[key] === 'object' && obj[key] !== null) {
-            count += countValues(obj[key] as Record<string, unknown>);
-          } else {
-            count++;
-          }
-        }
-        return count;
-      };
-
-      assert.deepStrictEqual(elements.length, countValues(parameters) + numberOfCommandPromptEditor);
+      assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
     });
 
     it('does not output parameters if the input is invalid json', async () => {
@@ -237,6 +220,7 @@ describe('ProtocolMonitor', () => {
       const editorWidget = renderEditorWidget();
 
       const inputParameters = [
+
         {
           'optional': true,
           'type': 'string',
@@ -257,41 +241,9 @@ describe('ProtocolMonitor', () => {
         },
         {
           'optional': true,
-          'type': 'array',
-          'value': [
-            {
-              'optional': true,
-              'type': 'string',
-              'value': 'param1Value',
-              'name': 'param1',
-            },
-            {
-              'optional': true,
-              'type': 'string',
-              'value': 'param2Value',
-              'name': 'param2',
-            },
-          ],
+          'type': 'string',
+          'value': 'test3',
           'name': 'test3',
-        },
-        {
-          'optional': true,
-          'type': 'object',
-          'value': [
-            {
-              'optional': true,
-              'type': 'string',
-              'value': 'param1Value',
-              'name': 'param1',
-            },
-            {
-              'optional': true,
-              'type': 'string',
-              'value': 'param2Value',
-              'name': 'param2',
-            },
-          ],
-          'name': 'test4',
         },
       ];
 
@@ -299,11 +251,7 @@ describe('ProtocolMonitor', () => {
         'test0': 'test0',
         'test1': 'test1',
         'test2': 'test2',
-        'test3': ['param1Value', 'param2Value'],
-        'test4': {
-          'param1': 'param1Value',
-          'param2': 'param2Value',
-        },
+        'test3': 'test3',
       };
 
       editorWidget.jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
@@ -354,5 +302,41 @@ describe('ProtocolMonitor', () => {
       const commandReceived = editorWidget.jsonEditor.command;
       assert.deepStrictEqual(commandReceived, '');
     });
+
+    it('should delete the specified array parameter by clicking the "Delete" button', async () => {
+      const inputParameters = [
+        {
+          type: 'array',
+          optional: false,
+          value: [
+            {name: '0', value: 'value0', optional: true, type: 'string'},
+            {name: '1', value: 'value1', optional: true, type: 'string'},
+            {name: '2', value: 'value2', optional: true, type: 'string'},
+          ],
+          name: 'arrayParam',
+          typeRef: 'string',
+        },
+      ];
+
+      const expectedParams = {
+        arrayParam: ['value1', 'value2'],
+      };
+
+      const editorWidget = renderEditorWidget();
+      editorWidget.jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      await editorWidget.jsonEditor.updateComplete;
+
+      const shadowRoot = editorWidget.jsonEditor.renderRoot;
+
+      const parameterIndex = 0;
+      const deleteButtons = shadowRoot.querySelectorAll('devtools-button[title="Delete"]');
+      if (deleteButtons.length > parameterIndex) {
+        deleteButtons[parameterIndex].dispatchEvent(new Event('click'));
+      }
+
+      const resultedParams = editorWidget.jsonEditor.getParameters();
+      assert.deepStrictEqual(expectedParams, resultedParams);
+    });
+
   });
 });
