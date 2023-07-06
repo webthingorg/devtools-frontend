@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43ebbd37_787f94cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-06T09:01:11Z",
+      "side": 1,
+      "message": "One more suggestion to simplify this a lot!",
+      "revId": "96fad5f165b83b7d49860bf63f604f72ae2e2961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f954348a_99e19b39",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-06T09:01:11Z",
+      "side": 1,
+      "message": "Let\u0027s actually spell them out, that\u0027ll make this a lot easier to read:\n\n```\nit(\u0027inner listeners are not displayed correctly\u0027, async () \u003d\u003e {\n  await checkCommandResult(\u0027innerListeners();\u0027,\u0027{keydown: Array(2), wheel: Array(1)}\u0027);\n});\n```\n\nthe setup (goToResource + navigateToConsoleTab) can go in a beforeEach()",
+      "revId": "96fad5f165b83b7d49860bf63f604f72ae2e2961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
