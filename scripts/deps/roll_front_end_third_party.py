@@ -181,8 +181,9 @@ for package_info in THIRD_PARTY_NPM_PACKAGE_NAMES:
 
     tar.close()
 
+    subprocess.check_call(['git', 'cl', 'format'], cwd=DEVTOOLS_PATH)
+
     if args.upload_cl:
-        subprocess.check_call(['git', 'cl', 'format'], cwd=DEVTOOLS_PATH)
         subprocess.check_call(['git', 'add', '-A'], cwd=DEVTOOLS_PATH)
         subprocess.check_call(
             ['git', 'commit', '-m', f'Update {package_name} to {version}'],
