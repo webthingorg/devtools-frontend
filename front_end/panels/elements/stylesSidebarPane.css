@@ -119,14 +119,6 @@
   color: var(--color-text-primary);
 }
 
-.nesting-symbol.implicit {
-  color: var(--color-text-disabled);
-}
-
-.nesting-symbol:hover {
-  color: var(--color-text-primary);
-}
-
 @keyframes styles-element-state-pane-slidein {
   from {
     margin-top: -60px;
