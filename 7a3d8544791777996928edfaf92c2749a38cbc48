@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bdb2e35_8b3d4fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-06T13:51:56Z",
+      "side": 1,
+      "message": "PTAL - adding you both for visibility but only one needs to review 😊",
+      "revId": "7a3d8544791777996928edfaf92c2749a38cbc48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
