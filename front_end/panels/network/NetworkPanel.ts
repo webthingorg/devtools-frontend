@@ -253,6 +253,7 @@ export class NetworkPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     splitWidget.hideSidebar();
     splitWidget.enableShowModeSaving();
     splitWidget.show(this.element);
+    this.element.setAttribute('jslog', 'NetworkPanel');
     this.sidebarLocation = UI.ViewManager.ViewManager.instance().createTabbedLocation(async () => {
       void UI.ViewManager.ViewManager.instance().showView('network');
       splitWidget.showBoth();
