@@ -51,6 +51,41 @@
       "parentUuid": "d3ef1b90_94a6cdb2",
       "revId": "2b2bc9896fa50f34a0f80f7ebf7281a91dbc9047",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b38599_47e35da0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-06T09:02:35Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "2b2bc9896fa50f34a0f80f7ebf7281a91dbc9047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca79e531_f598c0e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-06T09:02:35Z",
+      "side": 1,
+      "message": "IIRC I think the thought was that during the work handler, we may get a bunch more work scheduled and end up with an array of pending work. But I do not remember the details and if this code is functioning just the same, then happy to land this.",
+      "parentUuid": "cb492917_463a6db7",
+      "revId": "2b2bc9896fa50f34a0f80f7ebf7281a91dbc9047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
