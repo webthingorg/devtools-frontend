@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ac2b4a6_0cfffc32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-06T14:51:42Z",
+      "side": 1,
+      "message": "What the difference between this and crrev.com/c/4665652?",
+      "revId": "c5e73c1d163eb74be733a46e5fc85e617d7358d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
