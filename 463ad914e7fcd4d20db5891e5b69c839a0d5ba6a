@@ -22,6 +22,30 @@
       },
       "revId": "463ad914e7fcd4d20db5891e5b69c839a0d5ba6a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ce4d679_37780089",
+        "filename": "front_end/panels/issues/IssuesPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-07-06T15:54:21Z",
+      "side": 1,
+      "message": "Ah, my mistake! Thanks for catching this. I\u0027ll put up a CL to fix this.",
+      "parentUuid": "e38450bd_2c455cda",
+      "range": {
+        "startLine": 345,
+        "startChar": 43,
+        "endLine": 345,
+        "endChar": 59
+      },
+      "revId": "463ad914e7fcd4d20db5891e5b69c839a0d5ba6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
