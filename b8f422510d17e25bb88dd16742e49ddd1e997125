@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de16c97d_9c2aa78d",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-06T12:08:30Z",
+      "side": 1,
+      "message": "nits: sideBarMinWidth, but let\u0027s fix it later",
+      "range": {
+        "startLine": 631,
+        "startChar": 38,
+        "endLine": 631,
+        "endChar": 43
+      },
+      "revId": "b8f422510d17e25bb88dd16742e49ddd1e997125",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
