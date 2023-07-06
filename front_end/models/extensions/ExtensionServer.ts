@@ -92,6 +92,19 @@ export class HostsPolicy {
   }
   private constructor(readonly runtimeAllowedHosts: HostUrlPattern[], readonly runtimeBlockedHosts: HostUrlPattern[]) {
   }
+
+  isAllowedOnCurrentTarget(): boolean {
+    const inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL();
+    if (!inspectedURL) {
+      // If there aren't any blocked hosts retain the old behavior and don't worry about the inspectedURL
+      return this.runtimeBlockedHosts.length === 0;
+    }
+    if (this.runtimeBlockedHosts.some(pattern => pattern.matchesUrl(inspectedURL)) &&
+        !this.runtimeAllowedHosts.some(pattern => pattern.matchesUrl(inspectedURL))) {
+      return false;
+    }
+    return true;
+  }
 }
 
 export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
@@ -115,6 +128,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   private inspectedTabId?: string;
   private readonly extensionAPITestHook?: (server: unknown, api: unknown) => unknown;
   private themeChangeHandlers: Map<string, MessagePort> = new Map();
+  readonly #pendingExtensions: Host.InspectorFrontendHostAPI.ExtensionDescriptor[] = [];
 
   private constructor() {
     super();
@@ -374,6 +388,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.requests = new Map();
     const url = event.data.inspectedURL();
     this.postNotification(PrivateAPI.Events.InspectedURLChanged, url);
+    this.#pendingExtensions.forEach(e => this.addExtension(e));
+    this.#pendingExtensions.splice(0);
   }
 
   hasSubscribers(type: string): boolean {
@@ -991,14 +1007,18 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     const startPage = extensionInfo.startPage;
 
     const inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL() ?? '';
-    if (inspectedURL !== '' && !this.canInspectURL(inspectedURL)) {
+    if (inspectedURL === '') {
+      this.#pendingExtensions.push(extensionInfo);
+      return;
+    }
+    if (!this.canInspectURL(inspectedURL)) {
       this.disableExtensions();
     }
     if (!this.extensionsEnabled) {
       return;
     }
     const hostsPolicy = HostsPolicy.create(extensionInfo.hostsPolicy);
-    if (!hostsPolicy) {
+    if (!hostsPolicy || !hostsPolicy.isAllowedOnCurrentTarget()) {
       return;
     }
     try {
@@ -1053,18 +1073,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (!extension) {
       return false;
     }
-
-    const inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL();
-    if (!inspectedURL) {
-      // If there aren't any blocked hosts retain the old behavior and don't worry about the inspectedURL
-      return extension.hostsPolicy.runtimeBlockedHosts.length === 0;
-    }
-    if (extension.hostsPolicy.runtimeBlockedHosts.some(pattern => pattern.matchesUrl(inspectedURL)) &&
-        !extension.hostsPolicy.runtimeAllowedHosts.some(pattern => pattern.matchesUrl(inspectedURL))) {
-      return false;
-    }
-
-    return true;
+    return extension.hostsPolicy.isAllowedOnCurrentTarget();
   }
 
   private async onmessage(event: MessageEvent): Promise<void> {
