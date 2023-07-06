@@ -11,8 +11,46 @@ const {assert} = chai;
 
 import {describeWithDummyExtension} from './helpers.js';
 import {type Chrome} from '../../../../../extension-api/ExtensionAPI.js';
+<<<<<<< HEAD   (2e590a [M115] fix: slow devtools network tab)
+=======
+import {createTarget, expectConsoleLogs} from '../../helpers/EnvironmentHelpers.js';
 
+describeWithDevtoolsExtension('Extensions', {}, context => {
+  it('are initialized after the target is initialized and navigated to a non-privileged URL', async () => {
+    // This check is a proxy for verifying that the extension has been initialized. Outside of the test the extension
+    // API is available as soon as the extension page is loaded, which we don't do in the test.
+    assert.isUndefined(context.chrome.devtools);
+
+    const addExtensionStub = sinon.stub(Extensions.ExtensionServer.ExtensionServer.instance(), 'addExtension');
+    createTarget().setInspectedURL('http://example.com' as Platform.DevToolsPath.UrlString);
+    assert.isTrue(addExtensionStub.calledOnceWithExactly(context.extensionDescriptor));
+  });
+
+  it('are not initialized before the target is initialized and navigated to a non-privileged URL', async () => {
+    // This check is a proxy for verifying that the extension has been initialized. Outside of the test the extension
+    // API is available as soon as the extension page is loaded, which we don't do in the test.
+    assert.isUndefined(context.chrome.devtools);
+
+    const addExtensionStub = sinon.stub(Extensions.ExtensionServer.ExtensionServer.instance(), 'addExtension');
+    createTarget().setInspectedURL('chrome://version' as Platform.DevToolsPath.UrlString);
+    assert.isTrue(addExtensionStub.notCalled);
+  });
+});
+>>>>>>> CHANGE (aa7ddd Defer initialization of extensions when the main target isn')
+
+<<<<<<< HEAD   (2e590a [M115] fix: slow devtools network tab)
 describeWithDummyExtension('Extensions', context => {
+=======
+describeWithDevtoolsExtension('Extensions', {}, context => {
+  expectConsoleLogs({
+    warn: ['evaluate: the main frame is not yet available'],
+    error: ['Extension server error: Object not found: <top>'],
+  });
+  beforeEach(() => {
+    createTarget().setInspectedURL('http://example.com' as Platform.DevToolsPath.UrlString);
+  });
+
+>>>>>>> CHANGE (aa7ddd Defer initialization of extensions when the main target isn')
   it('can register a recorder extension for export', async () => {
     class RecorderPlugin {
       async stringify(recording: object) {
@@ -197,6 +235,48 @@ describeWithDummyExtension('Extensions', context => {
   });
 });
 
+<<<<<<< HEAD   (2e590a [M115] fix: slow devtools network tab)
+=======
+const hostsPolicy = {
+  runtimeAllowedHosts: ['http://example.com'],
+  runtimeBlockedHosts: ['http://example.com', 'http://web.dev'],
+};
+
+describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => {
+  expectConsoleLogs({error: ['Extension server error: Operation failed: Permission denied']});
+
+  it('blocks API calls on blocked hosts', async () => {
+    assert.isUndefined(context.chrome.devtools);
+    const target = createTarget({type: SDK.Target.Type.Frame});
+    const addExtensionStub = sinon.stub(Extensions.ExtensionServer.ExtensionServer.instance(), 'addExtension');
+
+    target.setInspectedURL('http://web.dev' as Platform.DevToolsPath.UrlString);
+    assert.isTrue(addExtensionStub.alwaysReturned(undefined));
+    assert.isUndefined(context.chrome.devtools);
+  });
+
+  it('allows API calls on allowlisted hosts', async () => {
+    const target = createTarget({type: SDK.Target.Type.Frame});
+    target.setInspectedURL('http://example.com' as Platform.DevToolsPath.UrlString);
+    {
+      const result = await new Promise<object>(cb => context.chrome.devtools?.network.getHAR(cb));
+      // eslint-disable-next-line rulesdir/compare_arrays_with_assert_deepequal
+      assert.hasAnyKeys(result, ['entries']);
+    }
+  });
+
+  it('allows API calls on non-blocked hosts', async () => {
+    const target = createTarget({type: SDK.Target.Type.Frame});
+    target.setInspectedURL('http://example.com2' as Platform.DevToolsPath.UrlString);
+    {
+      const result = await new Promise<object>(cb => context.chrome.devtools?.network.getHAR(cb));
+      // eslint-disable-next-line rulesdir/compare_arrays_with_assert_deepequal
+      assert.hasAnyKeys(result, ['entries']);
+    }
+  });
+});
+
+>>>>>>> CHANGE (aa7ddd Defer initialization of extensions when the main target isn')
 describe('ExtensionServer', () => {
   it('can correctly expand resource paths', async () => {
     // Ideally this would be a chrome-extension://, but that doesn't work with URL in chrome headless.
