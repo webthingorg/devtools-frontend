@@ -75,9 +75,9 @@ function makeProfileSample(ts: number, id: number = 0, pid: number = 0, tid: num
   };
 }
 
-async function handleEventsFromTraceFile(name: string):
+async function handleEventsFromTraceFile(context: Mocha.Context|Mocha.Suite|null, name: string):
     Promise<TraceModel.Handlers.ModelHandlers.Samples.SamplesHandlerData> {
-  const traceEvents = await loadEventsFromTraceFile(name);
+  const traceEvents = await loadEventsFromTraceFile(context, name);
   TraceModel.Handlers.ModelHandlers.Meta.reset();
   TraceModel.Handlers.ModelHandlers.Samples.reset();
 
@@ -103,7 +103,7 @@ describe('SamplesHandler', function() {
   const withDisallowedUrl = {url: 'extensions::foo'};
 
   it('finds all the profiles in a real world recording', async () => {
-    const data = await handleEventsFromTraceFile('multiple-navigations-with-iframes.json.gz');
+    const data = await handleEventsFromTraceFile(this, 'multiple-navigations-with-iframes.json.gz');
 
     const expectedId = TraceModel.Types.TraceEvents.ProfileID('0x1');
     const expectedPid = TraceModel.Types.TraceEvents.ProcessID(2236123);
@@ -135,7 +135,7 @@ describe('SamplesHandler', function() {
   });
 
   it('finds the only profile with samples in a real world recording (1)', async () => {
-    const data = await handleEventsFromTraceFile('recursive-blocking-js.json.gz');
+    const data = await handleEventsFromTraceFile(this, 'recursive-blocking-js.json.gz');
     assert.strictEqual(data.processes.size, 1);
 
     const process = [...data.processes.values()][0];
@@ -146,7 +146,7 @@ describe('SamplesHandler', function() {
   });
 
   it('finds the only profile with samples in a real world recording (2)', async () => {
-    const data = await handleEventsFromTraceFile('recursive-counting-js.json.gz');
+    const data = await handleEventsFromTraceFile(this, 'recursive-counting-js.json.gz');
     assert.strictEqual(data.processes.size, 1);
 
     const process = [...data.processes.values()][0];
@@ -157,7 +157,7 @@ describe('SamplesHandler', function() {
   });
 
   it('calculates the total time in a real world recording (1)', async () => {
-    const data = await handleEventsFromTraceFile('recursive-blocking-js.json.gz');
+    const data = await handleEventsFromTraceFile(this, 'recursive-blocking-js.json.gz');
     assert.strictEqual(data.processes.size, 1);
 
     const process = [...data.processes.values()][0];
@@ -168,7 +168,7 @@ describe('SamplesHandler', function() {
   });
 
   it('calculates the total time in a real world recording (2)', async () => {
-    const data = await handleEventsFromTraceFile('recursive-counting-js.json.gz');
+    const data = await handleEventsFromTraceFile(this, 'recursive-counting-js.json.gz');
     assert.strictEqual(data.processes.size, 1);
 
     const process = [...data.processes.values()][0];
@@ -1740,7 +1740,7 @@ describe('SamplesHandler', function() {
 
   describe('CPU Profile building', () => {
     it('generates a CPU profile from a trace file', async () => {
-      const data = await handleEventsFromTraceFile('recursive-blocking-js.json.gz');
+      const data = await handleEventsFromTraceFile(this, 'recursive-blocking-js.json.gz');
       assert.strictEqual(data.profilesInProcess.size, 1);
       const profileById = data.profilesInProcess.values().next().value;
       assert.strictEqual(profileById.size, 1);
