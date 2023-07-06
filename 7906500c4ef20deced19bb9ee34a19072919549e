@@ -50,6 +50,24 @@
       "message": "You can remove the messages on these, they\u0027re duplicates with the test title now.",
       "revId": "7906500c4ef20deced19bb9ee34a19072919549e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6df6bc_0d4c30f3",
+        "filename": "test/e2e/console/command-line-api-getEventListeners_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-06T13:13:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c8751ab_6ce4bab2",
+      "revId": "7906500c4ef20deced19bb9ee34a19072919549e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
