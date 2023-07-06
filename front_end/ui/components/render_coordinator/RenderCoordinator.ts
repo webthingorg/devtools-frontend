@@ -48,11 +48,6 @@ interface CoordinatorLogEntry {
   value: string;
 }
 
-const enum ACTION {
-  READ = 'read',
-  WRITE = 'write',
-}
-
 export class RenderCoordinatorQueueEmptyEvent extends Event {
   static readonly eventName = 'renderqueueempty';
   constructor() {
@@ -108,7 +103,7 @@ export class RenderCoordinator extends EventTarget {
   readonly #logInternal: CoordinatorLogEntry[] = [];
 
   #pendingReaders: WorkItem<unknown>[] = [];
-  #pendingWriters: WorkItem<unknown>[] = [];
+  #pendingWriters: WorkItem<void>[] = [];
   #scheduledWorkId = 0;
 
   hasPendingWork(): boolean {
@@ -124,10 +119,8 @@ export class RenderCoordinator extends EventTarget {
   }
 
   // Schedules a 'read' job which is being executed within an animation frame
-  // before all 'write' jobs. If multiple jobs are scheduled with the same
-  // non-empty label, only the latest callback would be executed. Such
-  // invocations would return the same promise that will resolve to the value of
-  // the latest callback.
+  // before all 'write' jobs. The coordinator always invokes the callback, even
+  // if there are multiple jobs with the same non-empty label (unlike 'write' jobs).
   async read<T>(callback: CoordinatorCallback<T>): Promise<T>;
   async read<T>(label: string, callback: CoordinatorCallback<T>): Promise<T>;
   async read<T>(labelOrCallback: CoordinatorCallback<T>|string, callback?: CoordinatorCallback<T>): Promise<T> {
@@ -135,27 +128,28 @@ export class RenderCoordinator extends EventTarget {
       if (!callback) {
         throw new Error('Read called with label but no callback');
       }
-      return this.#enqueueHandler(callback, ACTION.READ, labelOrCallback);
+      return this.#enqueueReader(callback, labelOrCallback);
     }
 
-    return this.#enqueueHandler(labelOrCallback, ACTION.READ, UNNAMED_READ);
+    return this.#enqueueReader(labelOrCallback, UNNAMED_READ);
   }
 
   // Schedules a 'write' job which is being executed within an animation frame
   // after all 'read' and 'scroll' jobs. If multiple jobs are scheduled with
   // the same non-empty label, only the latest callback would be executed. Such
-  // invocations would return the same promise that will resolve when the latest callback is run.
-  async write<T>(callback: CoordinatorCallback<T>): Promise<T>;
-  async write<T>(label: string, callback: CoordinatorCallback<T>): Promise<T>;
-  async write<T>(labelOrCallback: CoordinatorCallback<T>|string, callback?: CoordinatorCallback<T>): Promise<T> {
+  // invocations would return the same promise that will resolve when the latest
+  // callback is run.
+  async write(callback: CoordinatorCallback<void>): Promise<void>;
+  async write(label: string, callback: CoordinatorCallback<void>): Promise<void>;
+  async write(labelOrCallback: CoordinatorCallback<void>|string, callback?: CoordinatorCallback<void>): Promise<void> {
     if (typeof labelOrCallback === 'string') {
       if (!callback) {
         throw new Error('Write called with label but no callback');
       }
-      return this.#enqueueHandler(callback, ACTION.WRITE, labelOrCallback);
+      return this.#enqueueWriter(callback, labelOrCallback);
     }
 
-    return this.#enqueueHandler(labelOrCallback, ACTION.WRITE, UNNAMED_WRITE);
+    return this.#enqueueWriter(labelOrCallback, UNNAMED_WRITE);
   }
 
   takeRecords(): CoordinatorLogEntry[] {
@@ -164,49 +158,31 @@ export class RenderCoordinator extends EventTarget {
     return logs;
   }
 
-  /**
-   * We offer a convenience function for scroll-based activity, but often triggering a scroll
-   * requires a layout pass, thus it is better handled as a read activity, i.e. we wait until
-   * the layout-triggering work has been completed then it should be possible to scroll without
-   * first forcing layout.  If multiple jobs are scheduled with the same non-empty label, only
-   * the latest callback would be executed. Such invocations would return the same promise that
-   * will resolve when the latest callback is run.
-   */
-  async scroll<T>(callback: CoordinatorCallback<T>): Promise<T>;
-  async scroll<T>(label: string, callback: CoordinatorCallback<T>): Promise<T>;
-  async scroll<T>(labelOrCallback: CoordinatorCallback<T>|string, callback?: CoordinatorCallback<T>): Promise<T> {
+  // We offer a convenience function for scroll-based activity, but often triggering a scroll
+  // requires a layout pass, thus it is better handled as a read activity, i.e. we wait until
+  // the layout-triggering work has been completed then it should be possible to scroll without
+  // first forcing layout.  The coordinator always invokes the callback, even if there are
+  // multiple jobs with the same non-empty label (unlike 'write' jobs).
+  async scroll(callback: CoordinatorCallback<void>): Promise<void>;
+  async scroll(label: string, callback: CoordinatorCallback<void>): Promise<void>;
+  async scroll(labelOrCallback: CoordinatorCallback<void>|string, callback?: CoordinatorCallback<void>): Promise<void> {
     if (typeof labelOrCallback === 'string') {
       if (!callback) {
         throw new Error('Scroll called with label but no callback');
       }
-      return this.#enqueueHandler(callback, ACTION.READ, labelOrCallback);
+      return this.#enqueueReader(callback, labelOrCallback);
     }
 
-    return this.#enqueueHandler(labelOrCallback, ACTION.READ, UNNAMED_SCROLL);
+    return this.#enqueueReader(labelOrCallback, UNNAMED_SCROLL);
   }
 
-  #enqueueHandler<T>(callback: CoordinatorCallback<T>, action: ACTION, label: string): Promise<T> {
-    const hasName = ![UNNAMED_READ, UNNAMED_WRITE, UNNAMED_SCROLL].includes(label);
-    label = `${action === ACTION.READ ? '[Read]' : '[Write]'}: ${label}`;
-
-    let workItems = null;
-    switch (action) {
-      case ACTION.READ:
-        workItems = this.#pendingReaders;
-        break;
-
-      case ACTION.WRITE:
-        workItems = this.#pendingWriters;
-        break;
-
-      default:
-        throw new Error(`Unknown action: ${action}`);
-    }
-
-    let workItem = hasName ? workItems.find(w => w.label === label) as WorkItem<T>| undefined : undefined;
+  #enqueueWriter(callback: CoordinatorCallback<void>, label: string): Promise<void> {
+    const hasName = label === UNNAMED_WRITE;
+    label = `[Write]: ${label}`;
+    let workItem = hasName ? this.#pendingWriters.find(w => w.label === label) : undefined;
     if (!workItem) {
-      workItem = new WorkItem<T>(label, callback);
-      workItems.push(workItem);
+      workItem = new WorkItem<void>(label, callback);
+      this.#pendingWriters.push(workItem);
     } else {
       // We are always using the latest handler, so that we don't end up with a
       // stale results. We are reusing the promise to avoid blocking the first invocation, when
@@ -214,6 +190,14 @@ export class RenderCoordinator extends EventTarget {
       workItem.handler = callback;
     }
 
+    this.#scheduleWork();
+    return workItem.promise;
+  }
+
+  #enqueueReader<T>(callback: CoordinatorCallback<T>, label: string): Promise<T> {
+    label = `[Read]: ${label}`;
+    const workItem = new WorkItem<T>(label, callback);
+    this.#pendingReaders.push(workItem);
     this.#scheduleWork();
     return workItem.promise;
   }
