@@ -272,13 +272,22 @@ export class JSONEditor extends LitElement {
   #handleDeleteArrayParameter(parameterId: string): void {
     const realParamId = parameterId.split('.');
     const {parameter, parentParameter} = this.#getChildByPath(realParamId);
-    if (!parameter) {
-      return;
-    }
-    if (parentParameter.value !== undefined && Array.isArray(parentParameter.value)) {
+
+    if (parameter) {
+      if (!Array.isArray(parentParameter.value)) {
+        return;
+      }
+
       parentParameter.value.splice(parentParameter.value.findIndex(p => p === parameter), 1);
+
+      if (parentParameter.value) {
+        for (let i = 0; i < parentParameter.value.length; i++) {
+          parentParameter.value[i].name = String(i);
+        }
+      }
+
+      this.requestUpdate();
     }
-    this.requestUpdate();
   }
 
   #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
