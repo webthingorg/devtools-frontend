@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0a26770_350718f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-06T03:58:55Z",
+      "side": 1,
+      "message": "I assume the protocol itself got rolled in the meantime while this CL was in-flight. Please update the CL description to better reflect what the CL is doing and remove the \"DISABLE_THIRD_PARTY_CHECK line (it should no longer be needed).\n\nEg.: \"[issues] Add private network access CORS issue descriptions\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "f1a6b926306fa5dcebddf2edeb467e2628c167f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "33b7b6b8_b69bb7a2",
@@ -14,6 +37,23 @@
       "writtenOn": "2023-07-05T16:38:13Z",
       "side": 1,
       "message": "+titouan would you mind having a second look?\n+szuend Would you mind taking the owner\u0027s review?",
+      "revId": "f1a6b926306fa5dcebddf2edeb467e2628c167f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fe4d60d_0857d8bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-06T03:58:55Z",
+      "side": 1,
+      "message": "lgtm % updating the CL description. Thanks!",
       "revId": "f1a6b926306fa5dcebddf2edeb467e2628c167f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
