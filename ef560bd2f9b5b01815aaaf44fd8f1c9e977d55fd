@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d22899_292e1ae7",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-06T08:09:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16d93f7f_00807d7c",
+      "range": {
+        "startLine": 610,
+        "startChar": 18,
+        "endLine": 610,
+        "endChar": 21
+      },
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67378c64_c4c01662",
@@ -139,6 +163,24 @@
       "side": 1,
       "message": "I have make the editor horizontally resizable",
       "parentUuid": "5751058b_6c66d81a",
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18c5d6dd_19c8b408",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-06T08:09:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49747553_542f817c",
       "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -221,6 +263,24 @@
       "side": 1,
       "message": "I have changed it",
       "parentUuid": "d6900292_d6e140f5",
+      "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1bb3114_845db137",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-06T08:09:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09585088_1300ea09",
       "revId": "ef560bd2f9b5b01815aaaf44fd8f1c9e977d55fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
