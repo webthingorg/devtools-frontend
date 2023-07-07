@@ -99,7 +99,7 @@ const makeProfileCall = (nodeId: Types.TraceEvents.CallFrameID, sample: ProfileS
   pid: sample.pid,
   ts: sample.ts,
   dur: Types.Timing.MicroSeconds(0),
-  selfDur: Types.Timing.MicroSeconds(0),
+  selfTime: Types.Timing.MicroSeconds(0),
   children: [],
 });
 
@@ -622,7 +622,7 @@ export function mergeCalls(calls: ProfileCall[], boundaries: Types.Timing.MicroS
   for (const call of out.calls) {
     const merge = mergeCalls(call.children, boundaries);
     call.children = merge.calls;
-    call.selfDur = Types.Timing.MicroSeconds(call.dur - merge.dur);
+    call.selfTime = Types.Timing.MicroSeconds(call.dur - merge.dur);
     out.dur = Types.Timing.MicroSeconds(out.dur + call.dur);
   }
 
@@ -773,7 +773,7 @@ export interface ProfileCall {
   tid: Types.TraceEvents.ThreadID;
   ts: Types.Timing.MicroSeconds;
   dur: Types.Timing.MicroSeconds;      // "time"
-  selfDur: Types.Timing.MicroSeconds;  // "self time"
+  selfTime: Types.Timing.MicroSeconds;  // "self time"
   children: ProfileCall[];
 }
 
@@ -783,5 +783,5 @@ export interface ProfileFunction {
   };
   calls: ProfileCall[];
   durPercent: number;      // 0 - 100
-  selfDurPercent: number;  // 0 - 100
+  selfTimePercent: number;  // 0 - 100
 }
