@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b986f1b0_c403ebab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-07-07T12:15:42Z",
+      "side": 1,
+      "message": "This is awesome! LGTM with two comments :)\n\n(nit): I think it might be good to disable clicking on the nested selectors. Currently, with this patch, when you click on an ancestor rule it starts editing the rule. WDYT?",
+      "revId": "19403fc13c1053f38dfffe6e11de10d55e2ee4f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92265498_ffd8f2d9",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-07-07T12:15:42Z",
+      "side": 1,
+      "message": "(nit): Can we update the class names as well to the match query-\u003eancestor renaming? :)",
+      "revId": "19403fc13c1053f38dfffe6e11de10d55e2ee4f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
