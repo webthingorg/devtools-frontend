@@ -347,6 +347,30 @@
       },
       "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90cb3348_037e1318",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373617
+      },
+      "writtenOn": "2023-07-07T08:54:57Z",
+      "side": 1,
+      "message": "Thanks! Done.",
+      "parentUuid": "ffa34814_9999077d",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 213
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
