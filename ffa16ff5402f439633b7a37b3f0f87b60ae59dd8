@@ -50,6 +50,24 @@
       "message": "This is obsolete now!",
       "revId": "ffa16ff5402f439633b7a37b3f0f87b60ae59dd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4accc0_9da4f061",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-07T09:00:11Z",
+      "side": 1,
+      "message": "whoops, forgot about this, done",
+      "parentUuid": "4b0540e8_c7da0142",
+      "revId": "ffa16ff5402f439633b7a37b3f0f87b60ae59dd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
