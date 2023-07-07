@@ -6,8 +6,9 @@ import * as Platform from '../../../core/platform/platform.js';
 import * as Helpers from '../helpers/helpers.js';
 
 import {data as metaHandlerData} from './MetaHandler.js';
+import {data as samplesHandlerData} from './SamplesHandler.js';
 
-import {KnownEventName, KNOWN_EVENTS, type TraceEventHandlerName, HandlerState} from './types.js';
+import {KNOWN_EVENTS, type TraceEventHandlerName, HandlerState} from './types.js';
 import * as Types from '../types/types.js';
 
 const processes = new Map<Types.TraceEvents.ProcessID, RendererProcess>();
@@ -36,7 +37,7 @@ const makeEmptyRendererEventTree = (): RendererEventTree => ({
 });
 
 const makeEmptyRendererEventNode = (event: RendererTraceEvent, id: RendererEventNodeId): RendererEventNode => ({
-  event,
+  entry: event,
   id,
   parentId: null,
   childrenIds: new Set(),
@@ -260,13 +261,24 @@ export function sanitizeThreads(processes: Map<Types.TraceEvents.ProcessID, Rend
  */
 export function buildHierarchy(
     processes: Map<Types.TraceEvents.ProcessID, RendererProcess>,
-    options: {filter: {has: (name: KnownEventName) => boolean}}): void {
-  for (const [, process] of processes) {
-    for (const [, thread] of process.threads) {
-      // Step 1. Massage the data.
-      Helpers.Trace.sortTraceEventsInPlace(thread.events);
+    options: {filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean}}): void {
+  for (const [pid, process] of processes) {
+    for (const [tid, thread] of process.threads) {
+      if (!thread.events.length) {
+        thread.tree = makeEmptyRendererEventTree();
+        continue;
+      }
+      // Step 1. Inject samples
+      let profileCalls: Types.TraceEvents.ProfileCall[] = [];
+      const cpuProfile = samplesHandlerData().profilesInProcess.get(pid)?.get(tid)?.parsedProfile;
+      if (cpuProfile) {
+        profileCalls = Helpers.CPUSampling.SamplesIntegrator.callsFromProfileSamples(cpuProfile, pid, tid);
+      }
+      const events = [...profileCalls, ...thread.events];
+      // Step 2. Massage the data.
+      Helpers.Trace.sortTraceEventsInPlace(events);
       // Step 2. Build the tree.
-      thread.tree = treify(thread.events, options);
+      thread.tree = treify(events, options);
     }
   }
 }
@@ -286,17 +298,20 @@ export function buildHierarchy(
  * Complexity: O(n), where n = number of events
  */
 export function treify(
-    events: RendererTraceEvent[], options: {filter: {has: (name: KnownEventName) => boolean}}): RendererEventTree {
+    events: (RendererEntry)[],
+    options: {filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean}}): RendererEventTree {
   const stack = [];
   // Reset the node id counter for every new renderer.
   nodeIdCount = -1;
   const tree = makeEmptyRendererEventTree();
   for (let i = 0; i < events.length; i++) {
     const event = events[i];
-
+    if (Types.TraceEvents.isProfileCall(event)) {
+      continue;
+    }
     // If the current event should not be part of the tree, then simply proceed
     // with the next event.
-    if (!options.filter.has(event.name as KnownEventName)) {
+    if (!options.filter.has(event.name as Types.TraceEvents.KnownEventName)) {
       continue;
     }
 
@@ -321,7 +336,7 @@ export function treify(
       throw new Error('Impossible: no parent node found in the stack');
     }
 
-    const parentEvent = parentNode.event;
+    const parentEvent = parentNode.entry;
 
     const begin = event.ts;
     const parentBegin = parentEvent.ts;
@@ -380,15 +395,6 @@ export function treify(
   return tree;
 }
 
-export const FORCED_LAYOUT_EVENT_NAMES = new Set([
-  KnownEventName.Layout,
-]);
-
-export const FORCED_RECALC_STYLE_EVENTS = new Set([
-  KnownEventName.RecalculateStyles,
-  KnownEventName.UpdateLayoutTree,
-]);
-
 export function deps(): TraceEventHandlerName[] {
   return ['Meta', 'Samples'];
 }
@@ -415,12 +421,12 @@ export interface RendererThread {
 
 interface RendererEventData {
   selfTime: Types.Timing.MicroSeconds;
-  initiator: RendererTraceEvent;
   parent?: RendererTraceEvent;
-  hotFunctionsStackTraces: Types.TraceEvents.TraceEventCallFrame[][];
 }
 
 export type RendererTraceEvent = Types.TraceEvents.TraceEventRendererData&Partial<RendererEventData>;
+
+export type RendererEntry = RendererTraceEvent|Types.TraceEvents.ProfileCall;
 
 export interface RendererEventTree {
   nodes: Map<RendererEventNodeId, RendererEventNode>;
@@ -429,7 +435,7 @@ export interface RendererEventTree {
 }
 
 export interface RendererEventNode {
-  event: RendererTraceEvent;
+  entry: RendererEntry;
   depth: number;
   id: RendererEventNodeId;
   parentId?: RendererEventNodeId|null;

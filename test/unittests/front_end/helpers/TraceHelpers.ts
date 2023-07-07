@@ -432,7 +432,7 @@ export function getEventsIn(
         Map<TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNodeId,
             TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNode>):
     TraceModel.Types.TraceEvents.TraceEventData[] {
-  return [...ids].map(id => nodes.get(id)).flatMap(node => node ? node.event : []);
+  return [...ids].map(id => nodes.get(id)).flatMap(node => node ? node.entry : []);
 }
 /**
  * Pretty-prints the tree in a thread.
@@ -448,7 +448,7 @@ export function prettyPrint(
   let skipped = false;
   for (const nodeId of nodes) {
     const node = getNodeFor(thread, nodeId);
-    const event = node.event;
+    const event = node.entry;
     if (!predicate(node, event)) {
       out += `${!skipped ? newline : ''}.`;
       skipped = true;
