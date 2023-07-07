@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f3f53cc_e62cec95",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-07T11:31:24Z",
+      "side": 1,
+      "message": "renamed to avoid confusion, but in a follow-up I want to remove the two types which are nearly identical and introduce one method for loading traces.",
+      "range": {
+        "startLine": 302,
+        "startChar": 5,
+        "endLine": 302,
+        "endChar": 20
+      },
+      "revId": "5ef93fba37ec973b3ba0f15d1fbce7da0f279f10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
