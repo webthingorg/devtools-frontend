@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "247e419d_3dfba372",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T09:31:08Z",
+      "side": 1,
+      "message": "Let\u0027s mention the prompt, since the new issue description is for prompt-specific header errors?",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "345a269309371677dd32a9962e33cc4d4ff1937d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fcdaa2d_dd065433",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T09:31:08Z",
+      "side": 1,
+      "message": "LGTM! One last comment about the issue description.",
+      "revId": "345a269309371677dd32a9962e33cc4d4ff1937d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
