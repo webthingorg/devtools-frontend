@@ -107,6 +107,7 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
       stubNoopSettings();
       target = targetFactory();
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
       sinon.stub(UI.ViewManager.ViewManager.instance(), 'showView').resolves();  // Silence console error
       setMockConnectionResponseHandler('Storage.getSharedStorageEntries', () => ({}));
       setMockConnectionResponseHandler('Storage.setSharedStorageTracking', () => ({}));
@@ -293,10 +294,36 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
                               }));
 });
 
+describeWithMockConnection('IndexedDBTreeElement', () => {
+  beforeEach(() => {
+    stubNoopSettings();
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
+  });
+
+  const addsElement = (inScope: boolean) => () => {
+    const target = createTarget();
+    const model = target.model(Application.IndexedDBModel.IndexedDBModel);
+    assertNotNullOrUndefined(model);
+    SDK.TargetManager.TargetManager.instance().setScopeTarget(inScope ? target : null);
+    const panel = Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
+    const treeElement = new Application.ApplicationPanelSidebar.IndexedDBTreeElement(panel);
+
+    assert.strictEqual(treeElement.childCount(), 0);
+    model.dispatchEventToListeners(
+        Application.IndexedDBModel.Events.DatabaseAdded,
+        {databaseId: new Application.IndexedDBModel.DatabaseId({storageKey: ''}, ''), model});
+    assert.strictEqual(treeElement.childCount(), inScope ? 1 : 0);
+  };
+  it('adds element on in scope event', addsElement(true));
+  it('does not add element on out of scope event', addsElement(false));
+});
+
 describeWithMockConnection('IDBDatabaseTreeElement', () => {
   beforeEach(() => {
     stubNoopSettings();
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
   });
 
   it('only becomes selectable after database is updated', () => {
@@ -319,6 +346,7 @@ describeWithMockConnection('ResourcesSection', () => {
     beforeEach(() => {
       stubNoopSettings();
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
       SDK.FrameManager.FrameManager.instance({forceNew: true});
       target = createTarget();
     });
