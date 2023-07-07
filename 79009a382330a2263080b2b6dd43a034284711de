@@ -33,6 +33,24 @@
       "message": "for(const ... of ...)?",
       "revId": "79009a382330a2263080b2b6dd43a034284711de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c54c0b_1905383e",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-07T08:53:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b623d25f_c8316f98",
+      "revId": "79009a382330a2263080b2b6dd43a034284711de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
