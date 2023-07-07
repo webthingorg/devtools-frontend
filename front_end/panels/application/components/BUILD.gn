@@ -23,6 +23,7 @@ generate_css("css_files") {
     "sharedStorageMetadataViewResetBudgetButton.css",
     "stackTraceLinkButton.css",
     "stackTraceRow.css",
+    "storageBucketsView.css",
     "trustTokensView.css",
     "trustTokensViewDeleteButton.css",
   ]
@@ -44,6 +45,7 @@ devtools_module("components") {
     "SharedStorageAccessGrid.ts",
     "SharedStorageMetadataView.ts",
     "StackTrace.ts",
+    "StorageBucketsView.ts",
     "StorageMetadataView.ts",
     "TrustTokensView.ts",
   ]
