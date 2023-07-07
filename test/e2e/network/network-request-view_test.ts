@@ -8,18 +8,18 @@ import {expectError} from '../../conductor/events.js';
 import {
   $,
   $$,
+  assertNotNullOrUndefined,
   click,
   enableExperiment,
+  getBrowserAndPages,
+  getResourcesPath,
+  pasteText,
   step,
   typeText,
   waitFor,
   waitForAria,
   waitForElementWithTextContent,
   waitForFunction,
-  getBrowserAndPages,
-  getResourcesPath,
-  assertNotNullOrUndefined,
-  pasteText,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpers.js';

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
+
 import {type BrowserAndPages} from '../../conductor/puppeteer-state.js';
 
 import {
