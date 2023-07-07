@@ -43,6 +43,7 @@ describe('Snapshot', async function() {
     await unregisterAllServiceWorkers();
   });
 
+  // deflaking
   it('successfully returns a Lighthouse report for the page state', async () => {
     await navigateToLighthouseTab('lighthouse/hello.html');
     await registerServiceWorker();
