@@ -214,8 +214,12 @@ export async function getServiceWorkerCount() {
 }
 
 export async function registerServiceWorker() {
-  const {target} = await getBrowserAndPages();
+  const {target} = getBrowserAndPages();
   await target.evaluate(async () => {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    for (let i = 0; i < registrations.length; i++) {
+      await registrations[i].unregister();
+    }
     // @ts-expect-error Custom function added to global scope.
     await window.registerServiceWorker();
   });
