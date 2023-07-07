@@ -67,6 +67,7 @@ self['onerror'] = (message, source, lineno, colno, error) => {
 };
 (() => {
   self.addEventListener('unhandledrejection', event => {
+    addResult(`PROMISE FAILURE: ${JSON.stringify(event.reason)}`);
     addResult(`PROMISE FAILURE: ${event.reason.stack}`);
     completeTest();
   });
