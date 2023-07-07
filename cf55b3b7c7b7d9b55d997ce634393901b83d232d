@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7345e95_0339b79a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T08:38:23Z",
+      "side": 1,
+      "message": "+cc wolfi@ who wrote the initial devtools code for PNA.",
+      "revId": "cf55b3b7c7b7d9b55d997ce634393901b83d232d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c99e3f9e_0553080e",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T08:38:23Z",
+      "side": 1,
+      "message": "When we publish the permission blog post, it would be good to update this. Can we add a TODO?",
+      "range": {
+        "startLine": 242,
+        "startChar": 76,
+        "endLine": 242,
+        "endChar": 82
+      },
+      "revId": "cf55b3b7c7b7d9b55d997ce634393901b83d232d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28e552a_37752aa5",
+        "filename": "front_end/models/issues_manager/CorsIssue.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T08:38:23Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with devtools infra, but maybe since the new permission is not a breaking change but a new feature, these are all best represented as `IssueKind.PageError`?",
+      "range": {
+        "startLine": 271,
+        "startChar": 9,
+        "endLine": 274,
+        "endChar": 78
+      },
+      "revId": "cf55b3b7c7b7d9b55d997ce634393901b83d232d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1dcd4d1_14171d60",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T08:38:23Z",
+      "side": 1,
+      "message": "Trying to clarify why we talk about non-secure contexts above and why we mention mixed content.\n\n```suggestion\nSetting a `targetAddressSpace` fetch option to `private` or `local` allows secure contexts to fetch private network resources over HTTP, which is normally forbidden by mixed content checks. The target server must respond affirmatively to a preflight request, and the user must grant explicit permission.\n```",
+      "range": {
+        "startLine": 8,
+        "startChar": 67,
+        "endLine": 8,
+        "endChar": 68
+      },
+      "revId": "cf55b3b7c7b7d9b55d997ce634393901b83d232d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

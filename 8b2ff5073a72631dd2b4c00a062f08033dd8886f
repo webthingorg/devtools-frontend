@@ -230,6 +230,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae60ad83_9e12ae11",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T08:38:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bea356f0_ac4bcb32",
+      "range": {
+        "startLine": 8,
+        "startChar": 7,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9372af5e_648d60e1",
@@ -291,6 +315,30 @@
       "side": 1,
       "message": "Does that mean we should block the request by mixed-content check if the client security state\u0027s private network request policy is `kAllow`?",
       "parentUuid": "09526cc3_746d2320",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 213
+      },
+      "revId": "8b2ff5073a72631dd2b4c00a062f08033dd8886f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa34814_9999077d",
+        "filename": "front_end/models/issues_manager/descriptions/corsPrivateNetworkPermissionDenied.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1431447
+      },
+      "writtenOn": "2023-07-07T08:38:23Z",
+      "side": 1,
+      "message": "Good point! Let me see if I can clarify this to myself.\n\nThe enterprise policies currently allow both insecure and secure websites to make requests to the private network without preflights. This is intended to help administrators mitigate breakage: instead of updating a website, they can exempt it by policy.\n\nThe permission prompt for mixed content is new behavior that should not break any website. Instead, it should allow previously-forbidden fetches to go through. In that sense, I don\u0027t think it\u0027s useful for enterprise policies to disable it. If anything, I guess enterprise admins might prefer new enterprise policies to *forbid* these fetches in order to protect intranet resources.\n\nAll in all, I think we can remove the sentence mentioning enterprise policies from this issue, and you can ignore my previous comment :)",
+      "parentUuid": "cf8556cc_40a4360a",
       "range": {
         "startLine": 12,
         "startChar": 0,
