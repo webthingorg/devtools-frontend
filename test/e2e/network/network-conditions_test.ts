@@ -7,6 +7,7 @@ import {type ElementHandle, type Page} from 'puppeteer-core';
 import {getBrowserAndPages, pressKey, typeText, waitFor, waitForAria, tabForward} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToNetworkTab} from '../helpers/network-helpers.js';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 
 interface Navigator {
   userAgentData?: {
@@ -26,6 +27,10 @@ interface Navigator {
 describe('The Network Tab', async function() {
   beforeEach(async () => {
     await navigateToNetworkTab('empty.html');
+  });
+
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
   });
 
   async function openNetworkConditions(sectionClassName: string) {

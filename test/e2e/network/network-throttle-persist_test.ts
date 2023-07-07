@@ -8,6 +8,7 @@ import {type ElementHandle} from 'puppeteer-core';
 import {reloadDevTools, waitFor, waitForAria} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToNetworkTab} from '../helpers/network-helpers.js';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 
 describe('The Network Tab', async function() {
   // These tests reload panels repeatedly, which can take a longer time.
@@ -15,6 +16,10 @@ describe('The Network Tab', async function() {
 
   beforeEach(async () => {
     await navigateToNetworkTab('empty.html');
+  });
+
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
   });
 
   async function assertOption(select: ElementHandle<HTMLSelectElement>, expected: string) {

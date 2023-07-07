@@ -19,6 +19,7 @@ import {
 
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToNetworkTab, setPersistLog} from '../helpers/network-helpers.js';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 
 const SIMPLE_PAGE_REQUEST_NUMBER = 10;
 const SIMPLE_PAGE_URL = `requests.html?num=${SIMPLE_PAGE_REQUEST_NUMBER}`;
@@ -50,6 +51,10 @@ describe('The Network Tab', async function() {
 
   beforeEach(async () => {
     await navigateToNetworkTab(SIMPLE_PAGE_URL);
+  });
+
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
   });
 
   it('can filter by text in the log view', async () => {

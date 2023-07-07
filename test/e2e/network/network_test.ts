@@ -4,6 +4,7 @@
 
 import {assert} from 'chai';
 
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 import {$textContent, goTo, reloadDevTools, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
@@ -49,6 +50,10 @@ describe('The Network Tab', async function() {
     await navigateToNetworkTab('empty.html');
     await setCacheDisabled(true);
     await setPersistLog(false);
+  });
+
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
   });
 
   it('displays requests', async () => {

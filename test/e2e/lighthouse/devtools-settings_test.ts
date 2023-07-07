@@ -6,6 +6,7 @@ import {assert} from 'chai';
 import * as path from 'path';
 
 import {expectError} from '../../conductor/events.js';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 import {
   getBrowserAndPages,
   waitFor,
@@ -67,6 +68,7 @@ describe('DevTools', function() {
 
     // Reset request blocking state
     afterEach(async () => {
+      await unregisterAllServiceWorkers();
       const {frontend} = getBrowserAndPages();
       await frontend.evaluate(() => {
         // @ts-ignore layout test global

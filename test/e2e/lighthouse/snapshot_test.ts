@@ -5,6 +5,7 @@
 import {assert} from 'chai';
 
 import {expectError} from '../../conductor/events.js';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 import {$textContent, getBrowserAndPages} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
@@ -14,7 +15,6 @@ import {
   navigateToLighthouseTab,
   registerServiceWorker,
   selectMode,
-  unregisterAllServiceWorkers,
   waitForResult,
 } from '../helpers/lighthouse-helpers.js';
 
@@ -39,7 +39,7 @@ describe('Snapshot', async function() {
     expectError(/Protocol Error: the message with wrong session id/);
   });
 
-  afterEach(async () => {
+  afterEach(async function() {
     await unregisterAllServiceWorkers();
   });
 

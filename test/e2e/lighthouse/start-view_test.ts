@@ -4,6 +4,7 @@
 
 import {assert} from 'chai';
 
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 import {goTo, goToResource, waitFor} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
@@ -16,6 +17,10 @@ import {
 } from '../helpers/lighthouse-helpers.js';
 
 describe('The Lighthouse start view', async () => {
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
+  });
+
   it('shows a button to generate a new report', async () => {
     await navigateToLighthouseTab('empty.html');
 

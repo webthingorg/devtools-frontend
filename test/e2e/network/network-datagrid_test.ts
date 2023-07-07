@@ -3,6 +3,9 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
+
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
+
 import {type BrowserAndPages} from '../../conductor/puppeteer-state.js';
 
 import {
@@ -59,6 +62,10 @@ describe('The Network Tab', async function() {
     await navigateToNetworkTab('empty.html');
     await setCacheDisabled(true);
     await setPersistLog(false);
+  });
+
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
   });
 
   it('can click on checkbox label to toggle checkbox', async () => {

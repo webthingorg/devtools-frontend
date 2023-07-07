@@ -7,6 +7,7 @@ import {assert, expect} from 'chai';
 import {type ElementHandle} from 'puppeteer-core';
 
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 import {
   getBrowserAndPages,
   waitFor,
@@ -41,6 +42,10 @@ async function disableNetworkRequestBlocking() {
 }
 
 describe('Network request blocking panel', async () => {
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
+  });
+
   async function setup() {
     await navigateToNetworkRequestBlockingTab();
     for (let i = 0; i < 20; i++) {

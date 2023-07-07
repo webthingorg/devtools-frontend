@@ -5,21 +5,22 @@
 import {assert} from 'chai';
 
 import {expectError} from '../../conductor/events.js';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 import {
   $,
   $$,
+  assertNotNullOrUndefined,
   click,
   enableExperiment,
+  getBrowserAndPages,
+  getResourcesPath,
+  pasteText,
   step,
   typeText,
   waitFor,
   waitForAria,
   waitForElementWithTextContent,
   waitForFunction,
-  getBrowserAndPages,
-  getResourcesPath,
-  assertNotNullOrUndefined,
-  pasteText,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpers.js';
@@ -77,6 +78,10 @@ const configureAndCheckHeaderOverrides = async () => {
 };
 
 describe('The Network Request view', async () => {
+  afterEach(async function() {
+    await unregisterAllServiceWorkers();
+  });
+
   it('re-opens the same tab after switching to another panel and navigating back to the "Network" tab (https://crbug.com/1184578)',
      async () => {
        await navigateToNetworkTab(SIMPLE_PAGE_URL);
