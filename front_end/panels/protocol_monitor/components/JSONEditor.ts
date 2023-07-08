@@ -78,6 +78,7 @@ export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
   @property() declare protocolMethodWithParametersMap: Map<string, Parameter[]>;
   @property() declare protocolTypesMap: Map<string, Type[]>;
+  @property() declare protocolMethodWithDescriptionMap: Map<string, string>;
   @property() declare targetManager;
   @state() declare parameters: Parameter[];
   @state() command: string = '';
@@ -275,8 +276,12 @@ export class JSONEditor extends LitElement {
     if (!parameter) {
       return;
     }
-    if (parentParameter.value !== undefined && Array.isArray(parentParameter.value)) {
-      parentParameter.value.splice(parentParameter.value.findIndex(p => p === parameter), 1);
+    if (!Array.isArray(parentParameter.value)) {
+      return;
+    }
+    parentParameter.value.splice(parentParameter.value.findIndex(p => p === parameter), 1);
+    for (let i = 0; i < parentParameter.value.length; i++) {
+      parentParameter.value[i].name = String(i);
     }
     this.requestUpdate();
   }
