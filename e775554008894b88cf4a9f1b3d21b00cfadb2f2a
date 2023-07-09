@@ -33,6 +33,24 @@
       "message": "@annikaz: Humble ping!\n@Rachael: Do you have addittional concerns about the readme/this change?",
       "revId": "e775554008894b88cf4a9f1b3d21b00cfadb2f2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9078b06e_e8c90281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1553262
+      },
+      "writtenOn": "2023-07-09T22:16:13Z",
+      "side": 1,
+      "message": "LGTM. Thanks Philip!",
+      "parentUuid": "10e6cc7b_c555fc84",
+      "revId": "e775554008894b88cf4a9f1b3d21b00cfadb2f2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
