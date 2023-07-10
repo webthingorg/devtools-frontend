@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33143ee9_2a96939a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-10T13:15:03Z",
+      "side": 1,
+      "message": "The autocomplete history checks for duplicates before pushing the latest entry to its stack. So 5 x enter wouldn\u0027t work. But 5 very short commands (even repeated ones, just not directly repeated, e.g. `1`, `2`, `1`, `2`, `1`) would work.\nWould it make sense to do a quick check of the total length of all entries in the history as an additional heuristic?",
+      "parentUuid": "786cb839_ec65b7e3",
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7d1c7ed_e91319dc",
         "filename": "front_end/panels/console/ConsolePrompt.ts",
         "patchSetId": 3
@@ -48,6 +66,30 @@
       "writtenOn": "2023-07-10T08:30:49Z",
       "side": 1,
       "message": "Isn\u0027t this a bit restrictive? IIUC then a typo in the \"allow pasting\" command means the user has to paste something again, see the warning again, before the \"allow pasting\" command works again.\n\nThey also can\u0027t evaluate anything in-between pasting and typing \"allow pasting\".\n\nWdyt about renaming `this.#waitingForSelfXssWarningResponse` to `this.#selfXssWarningShown` and change the if to something like:\n\n```\nif (this.#selfXssWarningShown \u0026\u0026 this.text() \u003d\u003d\u003d i18nString(...) \u0026\u0026 !xssSettingDisabled.get()) {\n```",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 51
+      },
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6eeb40_18c4d1ea",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-10T13:15:03Z",
+      "side": 1,
+      "message": "Yes, if they enter a typo, the user would have to paste again to get shown the warning again and to get a chance to correct their error.\nBut they can ignore the warning and continue interacting with the console as if nothing has happened. The console will evaluate code and behave normally for any other input except \u0027allow pasting\u0027. (screencast: https://i.imgur.com/OMFk81h.mp4)\nWhat would be the UX you would expect?\n\n- variable rename: done\n- if-statement: There is no need to check the setting here, since the warning is \n  only shown if the setting is `false`. Maybe explicitly checking the setting\n  here would add clarity, but since the setting isn\u0027t accessed in this file, this\n  would be counter-balanced by creating + getting the setting.",
+      "parentUuid": "c7d1c7ed_e91319dc",
       "range": {
         "startLine": 311,
         "startChar": 4,
