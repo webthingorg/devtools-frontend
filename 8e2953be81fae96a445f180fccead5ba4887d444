@@ -102,6 +102,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1747700c_2d568399",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T13:57:14Z",
+      "side": 1,
+      "message": "My expectation would be that I:\n\n  * Paste something and see the warning\n  * I can use the console normally with typing\n  * I can enter \"allow pasting\" at any point in time after I saw the warning to enable pasting.",
+      "parentUuid": "2c6eeb40_18c4d1ea",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 51
+      },
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c6fa4c0_32509ee1",
         "filename": "front_end/panels/console/ConsoleView.ts",
         "patchSetId": 3
