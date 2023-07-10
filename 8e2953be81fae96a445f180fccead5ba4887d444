@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecee9807_175ec8ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-10T07:47:16Z",
+      "side": 1,
+      "message": "Simon PTAL",
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6fa4c0_32509ee1",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-10T07:47:16Z",
+      "side": 1,
+      "message": "Is it ok to check the setting on every console evaluation or is this expensive? I could add a change listener instead or stop getting the setting once it\u0027s `true` since it can never change back from `true` to `false`.",
+      "range": {
+        "startLine": 1391,
+        "startChar": 9,
+        "endLine": 1391,
+        "endChar": 49
+      },
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
