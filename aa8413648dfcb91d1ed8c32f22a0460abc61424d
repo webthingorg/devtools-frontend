@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87519ffc_35c22f4e",
+        "filename": "front_end/panels/application/StorageBucketsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-10T23:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2d0a276_cd5a9747",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "241594f2_c662d7b4",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-10T08:43:37Z",
       "side": 1,
       "message": "ditto. We\u0027d like not to show serialized storage keys in the UI",
+      "range": {
+        "startLine": 134,
+        "startChar": 53,
+        "endLine": 134,
+        "endChar": 63
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267541ff_8bac2099",
+        "filename": "front_end/panels/application/StorageBucketsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-10T23:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "241594f2_c662d7b4",
       "range": {
         "startLine": 134,
         "startChar": 53,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d098ec3e_18fd003d",
+        "filename": "front_end/panels/application/components/StorageBucketsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-10T23:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ca88e7_7014ac1c",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 83
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b55b1cdf_fdafe076",
@@ -93,6 +165,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8730fb_ffcdb56c",
+        "filename": "front_end/panels/application/components/StorageBucketsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-10T23:22:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b55b1cdf_fdafe076",
+      "range": {
+        "startLine": 114,
+        "startChar": 38,
+        "endLine": 114,
+        "endChar": 48
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5681ba6_00eeb056",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-07-10T08:43:37Z",
       "side": 1,
       "message": "Please use `Platform.NumberUtilities.bytesToString` instead.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 29
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d5a320_63e88c4a",
+        "filename": "front_end/panels/application/components/StorageBucketsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-10T23:22:01Z",
+      "side": 1,
+      "message": "It\u0027s odd that it stops at megabytes.",
+      "parentUuid": "b5681ba6_00eeb056",
       "range": {
         "startLine": 147,
         "startChar": 0,
