@@ -230,6 +230,23 @@ const hostsPolicy = {
 };
 
 describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => {
+<<<<<<< HEAD   (bbb6c1 Defer initialization of extensions when the main target isn')
+=======
+  expectConsoleLogs({error: ['Extension server error: Operation failed: Permission denied']});
+
+  for (const protocol of ['devtools', 'chrome', 'chrome-untrusted']) {
+    it(`blocks API calls on blocked protocols: ${protocol}`, async () => {
+      assert.isUndefined(context.chrome.devtools);
+      const target = createTarget({type: SDK.Target.Type.Frame});
+      const addExtensionStub = sinon.stub(Extensions.ExtensionServer.ExtensionServer.instance(), 'addExtension');
+
+      target.setInspectedURL(`${protocol}://foo` as Platform.DevToolsPath.UrlString);
+      assert.isTrue(addExtensionStub.notCalled);
+      assert.isUndefined(context.chrome.devtools);
+    });
+  }
+
+>>>>>>> CHANGE (475e75 Block extensions on chrome-untrusted:// targets)
   it('blocks API calls on blocked hosts', async () => {
     assert.isUndefined(context.chrome.devtools);
     const target = createTarget({type: SDK.Target.Type.Frame});
