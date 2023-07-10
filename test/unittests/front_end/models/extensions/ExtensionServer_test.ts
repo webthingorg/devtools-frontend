@@ -209,10 +209,29 @@ describeWithMockConnection('Extensions', () => {
     it('blocks API calls on blocked hosts', async () => {
       const target = createTarget({type: SDK.Target.Type.Frame});
 
+<<<<<<< HEAD   (f2af58 Tidy up ExtensionServer helpers)
       {
         const result = await new Promise<object>(cb => context.chrome.devtools?.network.getHAR(cb));
         assert.strictEqual('isError' in result && result.isError, true);
       }
+=======
+  for (const protocol of ['devtools', 'chrome', 'chrome-untrusted']) {
+    it(`blocks API calls on blocked protocols: ${protocol}`, async () => {
+      assert.isUndefined(context.chrome.devtools);
+      const target = createTarget({type: SDK.Target.Type.Frame});
+      const addExtensionStub = sinon.stub(Extensions.ExtensionServer.ExtensionServer.instance(), 'addExtension');
+
+      target.setInspectedURL(`${protocol}://foo` as Platform.DevToolsPath.UrlString);
+      assert.isTrue(addExtensionStub.notCalled);
+      assert.isUndefined(context.chrome.devtools);
+    });
+  }
+
+  it('blocks API calls on blocked hosts', async () => {
+    assert.isUndefined(context.chrome.devtools);
+    const target = createTarget({type: SDK.Target.Type.Frame});
+    const addExtensionStub = sinon.stub(Extensions.ExtensionServer.ExtensionServer.instance(), 'addExtension');
+>>>>>>> CHANGE (475e75 Block extensions on chrome-untrusted:// targets)
 
       target.setInspectedURL('http://web.dev' as Platform.DevToolsPath.UrlString);
       {
