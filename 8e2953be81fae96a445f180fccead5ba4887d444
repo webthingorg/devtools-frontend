@@ -20,6 +20,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "786cb839_ec65b7e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T08:30:49Z",
+      "side": 1,
+      "message": "mostly lgtm, one comment about UX\n\nAlso a question about the length 5 history: Doesn\u0027t it mean a user that just presses enter 5 times won\u0027t get the paste warning?",
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d1c7ed_e91319dc",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T08:30:49Z",
+      "side": 1,
+      "message": "Isn\u0027t this a bit restrictive? IIUC then a typo in the \"allow pasting\" command means the user has to paste something again, see the warning again, before the \"allow pasting\" command works again.\n\nThey also can\u0027t evaluate anything in-between pasting and typing \"allow pasting\".\n\nWdyt about renaming `this.#waitingForSelfXssWarningResponse` to `this.#selfXssWarningShown` and change the if to something like:\n\n```\nif (this.#selfXssWarningShown \u0026\u0026 this.text() \u003d\u003d\u003d i18nString(...) \u0026\u0026 !xssSettingDisabled.get()) {\n```",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 51
+      },
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c6fa4c0_32509ee1",
         "filename": "front_end/panels/console/ConsoleView.ts",
         "patchSetId": 3
@@ -31,6 +71,30 @@
       "writtenOn": "2023-07-10T07:47:16Z",
       "side": 1,
       "message": "Is it ok to check the setting on every console evaluation or is this expensive? I could add a change listener instead or stop getting the setting once it\u0027s `true` since it can never change back from `true` to `false`.",
+      "range": {
+        "startLine": 1391,
+        "startChar": 9,
+        "endLine": 1391,
+        "endChar": 49
+      },
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b5c23f6_162f5de6",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T08:30:49Z",
+      "side": 1,
+      "message": "The value itself is cached in the settings object, so this is in essence a simple property access.",
+      "parentUuid": "2c6fa4c0_32509ee1",
       "range": {
         "startLine": 1391,
         "startChar": 9,
