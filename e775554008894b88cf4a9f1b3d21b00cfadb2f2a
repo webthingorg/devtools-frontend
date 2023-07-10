@@ -51,6 +51,24 @@
       "parentUuid": "10e6cc7b_c555fc84",
       "revId": "e775554008894b88cf4a9f1b3d21b00cfadb2f2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69fe1817_0206e80b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587277
+      },
+      "writtenOn": "2023-07-10T16:18:46Z",
+      "side": 1,
+      "message": "Sorry for the late response. Looks like I don\u0027t have the permission to vote for this CL.",
+      "parentUuid": "9078b06e_e8c90281",
+      "revId": "e775554008894b88cf4a9f1b3d21b00cfadb2f2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
