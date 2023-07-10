@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "972827a2_6d161ced",
+        "filename": "front_end/panels/elements/computedStyleSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-07-10T21:21:05Z",
+      "side": 1,
+      "message": "We now have an example in DevTools that will break DevTools-on-DevTools until we fix the backend bug :) fun.",
+      "revId": "ac52de73d872d8bdbb0a7500703c35cf75f349c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
