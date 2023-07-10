@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bdf9e3a9_42a2ea2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T13:58:17Z",
+      "side": 1,
+      "message": "I guess this is to prevent the warning from showing for people who have used the console in the past? IMO it\u0027s fine as it is.",
+      "parentUuid": "33143ee9_2a96939a",
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7d1c7ed_e91319dc",
         "filename": "front_end/panels/console/ConsolePrompt.ts",
         "patchSetId": 3
