@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7160330_c5e1f3de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-07-10T12:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b986f1b0_c403ebab",
+      "revId": "19403fc13c1053f38dfffe6e11de10d55e2ee4f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92265498_ffd8f2d9",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-07T12:15:42Z",
       "side": 1,
       "message": "(nit): Can we update the class names as well to the match query-\u003eancestor renaming? :)",
+      "revId": "19403fc13c1053f38dfffe6e11de10d55e2ee4f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d997cd18_cefdcb03",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-07-10T12:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92265498_ffd8f2d9",
       "revId": "19403fc13c1053f38dfffe6e11de10d55e2ee4f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
