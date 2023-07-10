@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddbcbb0e_4ae3c9da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T04:18:02Z",
+      "side": 1,
+      "message": "Please split the CL again if possible into:\n\n  1) Adding the new information\n  2) Using it in the protocol monitor.\n  \nLooking back, we should have prototyped this locally first, and then discussed all of these changes to `code_generator_frontend` in the design doc: Where are we starting from and whats the desired end state (and what info is missing exactly).\n\nDid we do a quick napkin calculation how much memory it\u0027ll cost to keep the descriptions around? Only a minimal subset of DevTools users is actually using the protocol monitor, but we load and keep this information now for everyone.",
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7383bc60_72911157",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T04:18:02Z",
+      "side": 1,
+      "message": "why pass an object with a single `description` property?",
+      "range": {
+        "startLine": 171,
+        "startChar": 42,
+        "endLine": 171,
+        "endChar": 48
+      },
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9201ddfe_239a446a",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T04:18:02Z",
+      "side": 1,
+      "message": "left-over?",
+      "range": {
+        "startLine": 290,
+        "startChar": 11,
+        "endLine": 290,
+        "endChar": 41
+      },
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4930feea_e3ac257a",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-10T04:18:02Z",
+      "side": 1,
+      "message": "This is far from ideal. It\u0027s ok to handle one optional parameter this way. But now we have to handle all permutations. Please find a different way to do this. As discussed in the past, possibilities include:\n\n  1) Explicitly pass `undefined` or `null` for non-present arguments.\n  2) Use a python dictionary and the JSON module to stringify",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 56
+      },
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
