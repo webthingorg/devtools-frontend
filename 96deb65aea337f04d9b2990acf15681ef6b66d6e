@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cc0fb7e_5765fa3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-10T07:22:37Z",
+      "side": 1,
+      "message": "nit: Commit message titles in chromium are usually written in present tense by convention.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "96deb65aea337f04d9b2990acf15681ef6b66d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "487efaf4_42a39ab0",
@@ -14,6 +37,23 @@
       "writtenOn": "2023-07-07T13:57:53Z",
       "side": 1,
       "message": "Looks good! Awesome that you noticed we can refactor here:)\nLeft some comments",
+      "revId": "96deb65aea337f04d9b2990acf15681ef6b66d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba19d71b_c03040d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-10T07:22:37Z",
+      "side": 1,
+      "message": "Very nice first change!\n2 more suggestions:\n- It would be great if the icon did not invert colors when its row is selected.\n- A unit test would be a great addition.",
       "revId": "96deb65aea337f04d9b2990acf15681ef6b66d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -36,6 +76,29 @@
         "startChar": 8,
         "endLine": 1057,
         "endChar": 57
+      },
+      "revId": "96deb65aea337f04d9b2990acf15681ef6b66d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0af2ecef_1b8a6f96",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-10T07:22:37Z",
+      "side": 1,
+      "message": "On the screenshot it seems like there is a slight vertical misalignment between icon and text. It feels most visible for the error icon to me, but I can also see it on the other icons.\nMaybe this could be easily fixed by adapting height/margin/vertical-align somewhere.",
+      "range": {
+        "startLine": 1060,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 25
       },
       "revId": "96deb65aea337f04d9b2990acf15681ef6b66d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
