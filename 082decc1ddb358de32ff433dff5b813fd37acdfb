@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ada69b9f_5f297f8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-10T16:20:34Z",
+      "side": 1,
+      "message": "great clean up, very needed indeed! Thanks for tackling this!",
+      "revId": "082decc1ddb358de32ff433dff5b813fd37acdfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b797c72_2418ed0d",
+        "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-10T16:20:34Z",
+      "side": 1,
+      "message": "nit: do you think it would be worth naming this  something like `fixtureContents` or `localFileContents` to imply that this is here for local files? Was thinking its name is kinda overlapping with `loadTraceFileFromURL`, but maybe `fileContents` is fine. Same with the function\u0027s doc",
+      "range": {
+        "startLine": 46,
+        "startChar": 15,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "082decc1ddb358de32ff433dff5b813fd37acdfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1ec13e_f162b3f2",
+        "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-10T16:20:34Z",
+      "side": 1,
+      "message": "is there any reason why some functions are static and others aren\u0027t?\n\nOh I think it\u0027s because they are only used locally. I wonder if we need to wrap the functions in a `TraceLoader` class then. I think I\u0027m bikeshedding now but wanted to leave the note, feel free to ignore this completely :)",
+      "range": {
+        "startLine": 186,
+        "startChar": 15,
+        "endLine": 186,
+        "endChar": 47
+      },
+      "revId": "082decc1ddb358de32ff433dff5b813fd37acdfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
