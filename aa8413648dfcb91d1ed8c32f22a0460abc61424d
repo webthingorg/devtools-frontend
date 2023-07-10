@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2d0a276_cd5a9747",
+        "filename": "front_end/panels/application/StorageBucketsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-10T08:43:37Z",
+      "side": 1,
+      "message": "Interest group?",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "241594f2_c662d7b4",
+        "filename": "front_end/panels/application/StorageBucketsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-10T08:43:37Z",
+      "side": 1,
+      "message": "ditto. We\u0027d like not to show serialized storage keys in the UI",
+      "range": {
+        "startLine": 134,
+        "startChar": 53,
+        "endLine": 134,
+        "endChar": 63
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ca88e7_7014ac1c",
+        "filename": "front_end/panels/application/components/StorageBucketsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-10T08:43:37Z",
+      "side": 1,
+      "message": "You can use LegacyWrapper from front_end/ui/components/legacy_wrapper/LegacyWrapper.ts instead.\n\nYou can also use it with a ThrottledWidget, but you probably don\u0027t need to as you are rendering within a named coordinator task, which is deduplicated against tasks with the same name in the same animation frame.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 83
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b55b1cdf_fdafe076",
+        "filename": "front_end/panels/application/components/StorageBucketsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-10T08:43:37Z",
+      "side": 1,
+      "message": "We don\u0027t want to show storage key as is, it is pretty technical and hard to interpret for the users. Instead we are showing it in a parsed form in the details view, and only the site in the tree. \n\nSee panels/application/components/StorageMetadataView.ts It seems to be showing the same thing as this one, except the button. Maybe we can use it instead and make buttons appear depending on a parameter?",
+      "range": {
+        "startLine": 114,
+        "startChar": 38,
+        "endLine": 114,
+        "endChar": 48
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5681ba6_00eeb056",
+        "filename": "front_end/panels/application/components/StorageBucketsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-10T08:43:37Z",
+      "side": 1,
+      "message": "Please use `Platform.NumberUtilities.bytesToString` instead.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 29
+      },
+      "revId": "aa8413648dfcb91d1ed8c32f22a0460abc61424d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
