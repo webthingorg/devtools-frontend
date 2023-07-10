@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f00c3c_c8e1f3e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-10T16:06:00Z",
+      "side": 1,
+      "message": "Proposal to move error message from console to infobar. I attached screenshots to the bug, though they are out of date.",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
