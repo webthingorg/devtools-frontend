@@ -124,7 +124,7 @@ const defaultValuesByAttribute = deepFreeze({
   latency: 25,
   name: 'customParam',
   parameters: '{}',
-  properties: '{}',
+  properties: [{name: 'property', value: 'value'}],
   attributes: [{name: 'attribute', value: 'value'}],
   visible: true,
 });
@@ -323,7 +323,7 @@ export interface EditorState {
   name?: string;
   parameters?: string;
   visible?: boolean;
-  properties?: string;
+  properties?: Array<{name: string, value: string}>;
   attributes?: Array<{name: string, value: string}>;
 }
 
@@ -395,9 +395,13 @@ export class EditorState {
 
   static fromStep(step: DeepImmutable<Models.Schema.Step>): DeepImmutable<EditorState> {
     const state = structuredClone(step) as EditorState;
-    for (const key of ['parameters', 'properties'] as Array<'properties'>) {
-      if (key in step && step[key] !== undefined) {
-        state[key] = JSON.stringify(step[key]);
+    if ('parameters' in step && step.parameters !== undefined) {
+      state.parameters = JSON.stringify(step.parameters);
+    }
+    if ('properties' in step && step.properties) {
+      state.properties = [];
+      for (const [name, value] of Object.entries(step.properties)) {
+        state.properties.push({name, value: JSON.stringify(value)});
       }
     }
     if ('attributes' in step && step.attributes) {
@@ -419,10 +423,18 @@ export class EditorState {
 
   static toStep(state: DeepImmutable<EditorState>): Models.Schema.Step {
     const step = structuredClone(state) as Models.Schema.Step;
-    for (const key of ['parameters', 'properties'] as Array<'properties'>) {
-      const value = state[key];
-      if (value) {
-        Object.assign(step, {[key]: JSON.parse(value)});
+    if (state.parameters) {
+      Object.assign(step, {parameters: JSON.parse(state.parameters)});
+    }
+    if (state.properties) {
+      if (state.properties.length !== 0) {
+        const properties = {};
+        for (const {name, value} of state.properties) {
+          Object.assign(properties, {[name]: JSON.parse(value)});
+        }
+        Object.assign(step, {properties});
+      } else if ('properties' in step) {
+        delete step.properties;
       }
     }
     if (state.attributes) {
@@ -730,8 +742,6 @@ export class StepEditor extends LitElement {
           switch (attribute) {
             case 'expression':
               return 'text/javascript';
-            case 'properties':
-              return 'application/json';
             default:
               return '';
           }
@@ -741,11 +751,6 @@ export class StepEditor extends LitElement {
       from(value) {
         if (this.state[attribute] === undefined) {
           return;
-        }
-        switch (attribute) {
-          case 'properties':
-            Host.userMetrics.recordingAssertion(Host.UserMetrics.RecordingAssertion.PropertyAssertionEdited);
-            break;
         }
         return {[attribute]: value};
       },
@@ -1017,6 +1022,113 @@ export class StepEditor extends LitElement {
     // clang-format on
   }
 
+  #renderPropertiesRow(): LitHtml.TemplateResult|undefined {
+    this.#renderedAttributes.add('properties');
+    if (this.state.properties === undefined) {
+      return;
+    }
+    // clang-format off
+    return html`<div class="attribute" data-attribute="properties">
+      <div class="row">
+        <div>properties<span class="separator">:</span></div>
+        ${this.#renderDeleteButton('properties')}
+      </div>
+      ${this.state.properties.map(({ name, value }, index, properties) => {
+        return html`<div class="padded row">
+          <devtools-recorder-input
+            .disabled=${this.disabled}
+            .placeholder=${defaultValuesByAttribute.properties[0].name}
+            .value=${live(name)}
+            data-path=${`properties.${index}.name`}
+            @blur=${this.#handleInputBlur({
+              attribute: 'properties',
+              from(name) {
+                if (this.state.properties?.[index]?.name === undefined) {
+                  return;
+                }
+                Host.userMetrics.recordingAssertion(
+                  Host.UserMetrics.RecordingAssertion.AttributeAssertionEdited,
+                );
+                return {
+                  properties: new ArrayAssignments({ [index]: { name } }),
+                };
+              },
+              metric: Host.UserMetrics.RecordingEdited.OtherEditing,
+            })}
+          ></devtools-recorder-input>
+          <span class="separator">:</span>
+          <devtools-recorder-input
+            .disabled=${this.disabled}
+            .placeholder=${defaultValuesByAttribute.properties[0].value}
+            .value=${live(value)}
+            .mimeType=${'application/json'}
+            data-path=${`properties.${index}.value`}
+            @blur=${this.#handleInputBlur({
+              attribute: 'properties',
+              from(value) {
+                if (this.state.properties?.[index]?.value === undefined) {
+                  return;
+                }
+                Host.userMetrics.recordingAssertion(Host.UserMetrics.RecordingAssertion.PropertyAssertionEdited);
+                return {
+                  properties: new ArrayAssignments({ [index]: { value } }),
+                };
+              },
+              metric: Host.UserMetrics.RecordingEdited.OtherEditing,
+            })}
+          ></devtools-recorder-input>
+          ${this.#renderInlineButton({
+            class: 'add-property-assertion',
+            title: i18nString(UIStrings.addSelectorPart),
+            iconName: 'plus',
+            onClick: this.#handleAddOrRemoveClick(
+              {
+                properties: new ArrayAssignments({
+                  [index + 1]: new InsertAssignment(
+                    ((): { name: string, value: string } => {
+                      {
+                        const names = new Set(
+                          properties.map(({ name }) => name),
+                        );
+                        const defaultProperty =
+                          defaultValuesByAttribute.properties[0];
+                        let name = defaultProperty.name;
+                        let i = 0;
+                        while (names.has(name)) {
+                          ++i;
+                          name = `${defaultProperty.name}-${i}`;
+                        }
+                        return { ...defaultProperty, name };
+                      }
+                    })(),
+                  ),
+                }),
+              },
+              `devtools-recorder-input[data-path="properties.${
+                index + 1
+              }.name"]`,
+              Host.UserMetrics.RecordingEdited.OtherEditing,
+            ),
+          })}
+          ${this.#renderInlineButton({
+            class: 'remove-property-assertion',
+            title: i18nString(UIStrings.removeSelectorPart),
+            iconName: 'minus',
+            onClick: this.#handleAddOrRemoveClick(
+              { properties: new ArrayAssignments({ [index]: undefined }) },
+              `devtools-recorder-input[data-path="properties.${Math.min(
+                index,
+                properties.length - 2,
+              )}.value"]`,
+              Host.UserMetrics.RecordingEdited.OtherEditing,
+            ),
+          })}
+        </div>`;
+      })}
+    </div>`;
+    // clang-format on
+  }
+
   #renderAttributesRow(): LitHtml.TemplateResult|undefined {
     this.#renderedAttributes.add('attributes');
     if (this.state.attributes === undefined) {
@@ -1171,7 +1283,7 @@ export class StepEditor extends LitElement {
         ${this.#renderRow('isLandscape')} ${this.#renderRow('download')}
         ${this.#renderRow('upload')} ${this.#renderRow('latency')}
         ${this.#renderRow('name')} ${this.#renderRow('parameters')}
-        ${this.#renderRow('visible')} ${this.#renderRow('properties')}
+        ${this.#renderRow('visible')} ${this.#renderPropertiesRow()}
         ${this.#renderAttributesRow()}
         ${this.error
           ? html`
