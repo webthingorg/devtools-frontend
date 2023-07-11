@@ -16,6 +16,23 @@
       "message": "PTAL.",
       "revId": "c29a2bc05e9f6cb78a62d078780b673d69285d01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a229a163_c257a618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-11T11:39:14Z",
+      "side": 1,
+      "message": "Spoke to Barry and we agreed that adding initial priority as a subtitle for large rows is a better approach rather than a separate column, so will update this CL then re-send for review.",
+      "revId": "c29a2bc05e9f6cb78a62d078780b673d69285d01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
