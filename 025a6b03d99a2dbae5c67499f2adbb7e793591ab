@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f8b0ea1_6d2c00b7",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-07-11T09:47:56Z",
+      "side": 0,
+      "message": "Can you link the performance of this builder? Is it reliable? Also, do we have enough resources? How often is it pending?",
+      "revId": "025a6b03d99a2dbae5c67499f2adbb7e793591ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
