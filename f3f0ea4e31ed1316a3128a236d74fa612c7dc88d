@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3e005a93_1afb548a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:01:04Z",
+      "side": 1,
+      "message": "Hi. Suggested edits.",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e77eb75a_82d3a172",
         "filename": "front_end/core/sdk/SourceMapManager.ts",
         "patchSetId": 1
@@ -71,6 +88,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a00c8121_b00250d0",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:01:04Z",
+      "side": 1,
+      "message": "```suggestion\n      \u0027DevTools can\u0027t show authored sources, but you can debug the deployed code.\u0027,\n```",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51e365ac_8e93619b",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:01:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "256844b9_a4a3c139",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2913c5b6_eef31886",
         "filename": "front_end/panels/sources/DebuggerPlugin.ts",
         "patchSetId": 1
@@ -82,6 +134,41 @@
       "writtenOn": "2023-07-11T09:01:06Z",
       "side": 1,
       "message": "```suggestion\n  reloadForSourceMap: \u0027To reenable, make sure the file is not on the ignore list and reload.\u0027,\n```",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04ce903b_15adcdb8",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:01:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2913c5b6_eef31886",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b8e3331_39b149f6",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:01:04Z",
+      "side": 1,
+      "message": "```suggestion\n  reloadForSourceMap: \u0027To enable again, make sure the file isn\u0027t on the ignore list and reload.\u0027,\n```",
       "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
