@@ -147,6 +147,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47000e34_98628600",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:46:14Z",
+      "side": 1,
+      "message": "More precise link: https://m3.material.io/foundations/content-design/style-guide/ux-writing-best-practices#d7f04666-89f8-4795-a563-16d060b5ccf2",
+      "parentUuid": "4531ad91_3d90faa2",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "958b713f_44f2d74f",
         "filename": "front_end/panels/application/components/StorageMetadataView.ts",
         "patchSetId": 4
