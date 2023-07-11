@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "074afb44_0200b423",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-11T13:11:03Z",
+      "side": 1,
+      "message": "Made upon request to change Mac try builder to block. After checking the builder here https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_mac_rel it seems that there are some unit and E2E tests failures, please make sure that we are okay with that before +1. Also note that we have 3 bots available to run this builder.",
+      "revId": "d84a12a29698ab2013ed01355520e525b729ac70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
