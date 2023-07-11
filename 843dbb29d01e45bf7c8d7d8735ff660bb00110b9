@@ -22,6 +22,30 @@
       },
       "revId": "843dbb29d01e45bf7c8d7d8735ff660bb00110b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b72dc26_dc44972e",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-11T08:38:22Z",
+      "side": 0,
+      "message": "TBH I was surprised a lint rule didn\u0027t catch this! Have assigned myself crbug.com/1463884 to take a look at",
+      "parentUuid": "ba91235e_5a1cf82d",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 74
+      },
+      "revId": "843dbb29d01e45bf7c8d7d8735ff660bb00110b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

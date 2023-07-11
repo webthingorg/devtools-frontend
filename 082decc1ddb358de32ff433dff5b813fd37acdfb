@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ee6418f0_eb74d92a",
+        "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-11T08:38:22Z",
+      "side": 1,
+      "message": "I like `fixtureContents` !",
+      "parentUuid": "0b797c72_2418ed0d",
+      "range": {
+        "startLine": 46,
+        "startChar": 15,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "082decc1ddb358de32ff433dff5b813fd37acdfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ba1ec13e_f162b3f2",
         "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-10T16:20:34Z",
       "side": 1,
       "message": "is there any reason why some functions are static and others aren\u0027t?\n\nOh I think it\u0027s because they are only used locally. I wonder if we need to wrap the functions in a `TraceLoader` class then. I think I\u0027m bikeshedding now but wanted to leave the note, feel free to ignore this completely :)",
+      "range": {
+        "startLine": 186,
+        "startChar": 15,
+        "endLine": 186,
+        "endChar": 47
+      },
+      "revId": "082decc1ddb358de32ff433dff5b813fd37acdfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3861b93_283d8424",
+        "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-11T08:38:22Z",
+      "side": 1,
+      "message": "So I had the same back and forth as you, but decided that I liked having to import a class to call, because it makes it clearer I think what is going on. E.g. seeing `TraceLoader.fileContents()` felt clearer than `fileContents()` directly.",
+      "parentUuid": "ba1ec13e_f162b3f2",
       "range": {
         "startLine": 186,
         "startChar": 15,
