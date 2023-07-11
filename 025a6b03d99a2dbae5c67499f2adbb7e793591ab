@@ -34,6 +34,24 @@
       "parentUuid": "8f8b0ea1_6d2c00b7",
       "revId": "025a6b03d99a2dbae5c67499f2adbb7e793591ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "577357ca_413d600e",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-11T10:14:16Z",
+      "side": 0,
+      "message": "Alright, I will then change it back to experimental and see how it behaves on CI first",
+      "parentUuid": "724da114_508e5721",
+      "revId": "025a6b03d99a2dbae5c67499f2adbb7e793591ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
