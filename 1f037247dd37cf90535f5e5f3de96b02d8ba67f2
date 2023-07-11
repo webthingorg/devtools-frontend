@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c766f4da_a3eedfef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T08:18:50Z",
+      "side": 1,
+      "message": "LGTM % comments",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16df91fd_06d426dd",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T08:18:50Z",
+      "side": 1,
+      "message": "Array and Object are not primitive types",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd37f7ef_7e1feccd",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T08:18:50Z",
+      "side": 1,
+      "message": "value?: number",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f4e655e_45f18fea",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T08:18:50Z",
+      "side": 1,
+      "message": "value?: string;",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af59c28e_f7d61426",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T08:18:50Z",
+      "side": 1,
+      "message": "value?: boolean;",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b519b7_41f4fad6",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T08:18:50Z",
+      "side": 1,
+      "message": "remove this line",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
