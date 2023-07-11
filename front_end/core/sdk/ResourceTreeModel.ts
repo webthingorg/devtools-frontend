@@ -933,7 +933,7 @@ export class ResourceTreeFrame {
 
   /**
    * Returns true is this is the primary frame of the browser tab. There can only be one primary frame for each
-   * browser tab. It is the outermost frame being actively displayed in the browser tab.
+   * browser tab. It is the outermost frame being actively displayed in the browser tab. FO
    * https://chromium.googlesource.com/chromium/src/+/HEAD/docs/frame_trees.md
    */
   isPrimaryFrame(): boolean {
