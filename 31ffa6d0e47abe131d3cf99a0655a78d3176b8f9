@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb7aa55_bcf9f9ce",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T10:39:00Z",
+      "side": 1,
+      "message": "let\u0027s create a helper to clean up the description and re-use it in both classes?",
+      "revId": "31ffa6d0e47abe131d3cf99a0655a78d3176b8f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
