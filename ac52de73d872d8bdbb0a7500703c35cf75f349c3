@@ -50,6 +50,24 @@
       "message": "(nit/question): What do you think of always using `\u0026` in the rule name to differentiate between this might being a media query or other at rule block?\n\nSometimes it is hard to see whether the rule text has nesting or not so if we use `\u0026` always we won\u0027t need to mentally try to understand whether this rule is written in a nesting block or not.",
       "revId": "ac52de73d872d8bdbb0a7500703c35cf75f349c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb90ccf_7ea4af94",
+        "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-07-11T11:35:15Z",
+      "side": 1,
+      "message": "As discussed offline, this would be a bigger style guide to enforce/advise, and therefore will require some discussion. For this particular CL, it\u0027s fine to land as is.",
+      "parentUuid": "594bc561_d693a0ef",
+      "revId": "ac52de73d872d8bdbb0a7500703c35cf75f349c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
