@@ -16,6 +16,24 @@
       "message": "Can you link the performance of this builder? Is it reliable? Also, do we have enough resources? How often is it pending?",
       "revId": "025a6b03d99a2dbae5c67499f2adbb7e793591ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "724da114_508e5721",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-07-11T09:48:52Z",
+      "side": 0,
+      "message": "Note that this is not strictly required. This makes slightly more than described, e.g. it also makes mac block on CQ.\n\nThe intermediate way would be to close tree, but not block on CQ. Unless we see breakages often.",
+      "parentUuid": "8f8b0ea1_6d2c00b7",
+      "revId": "025a6b03d99a2dbae5c67499f2adbb7e793591ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
