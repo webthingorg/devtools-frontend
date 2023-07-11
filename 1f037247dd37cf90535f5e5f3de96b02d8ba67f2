@@ -285,6 +285,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2e8a4e0_4bcbe5f7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-11T10:01:45Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s okay to do full support there! then please add an early return here to avoid bug",
+      "parentUuid": "d55a3b41_068deee3",
+      "range": {
+        "startLine": 134,
+        "startChar": 24,
+        "endLine": 134,
+        "endChar": 39
+      },
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34b519b7_41f4fad6",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 3

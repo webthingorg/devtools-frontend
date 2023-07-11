@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43756b44_2719e93f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-11T10:01:45Z",
+      "side": 1,
+      "message": "maybe add one more line before to make the code style sync",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "cf709c97d8beb0b14b3e7598010532e4c7e0d2f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
