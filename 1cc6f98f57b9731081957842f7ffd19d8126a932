@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc023acf_de77fd28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-11T14:20:45Z",
+      "side": 1,
+      "message": "Thanks Ioana, this looks great! Can you please add a bug to the CL description?",
+      "revId": "1cc6f98f57b9731081957842f7ffd19d8126a932",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de518f28_28934b39",
+        "filename": "test/unittests/front_end/panels/network/NetworkDataGridNode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-11T14:20:45Z",
+      "side": 1,
+      "message": "Could you please make it a bit more specific? e.g. adds error icon",
+      "revId": "1cc6f98f57b9731081957842f7ffd19d8126a932",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b826cedf_09356baf",
+        "filename": "test/unittests/front_end/panels/network/NetworkDataGridNode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-11T14:20:45Z",
+      "side": 1,
+      "message": "This is the index of the `Images/` folder bit, could you maybe directly add a +7 here? Then the indexOfIconImage would make sense :)",
+      "revId": "1cc6f98f57b9731081957842f7ffd19d8126a932",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf0eede1_870f96d7",
+        "filename": "test/unittests/front_end/panels/network/NetworkDataGridNode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-11T14:20:45Z",
+      "side": 1,
+      "message": "Since you have the icon name here, the variable name doesn\u0027t really fit, could you rename, or even not use a variable here at all, but rather directly compare to a string like you do with color?",
+      "revId": "1cc6f98f57b9731081957842f7ffd19d8126a932",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
