@@ -34,4 +34,28 @@ describeWithEnvironment('NetworkLogView', () => {
     marker = el.querySelector('.network-override-marker');
     assert.isNull(marker);
   });
+
+  it('adds specific icon to the failed requests', async () => {
+    const request = SDK.NetworkRequest.NetworkRequest.create(
+        'requestId' as Protocol.Network.RequestId, 'https://www.example.com' as Platform.DevToolsPath.UrlString,
+        '' as Platform.DevToolsPath.UrlString, null, null, null);
+    request.statusCode = 404;
+
+    const networkRequestNode = new Network.NetworkDataGridNode.NetworkRequestNode(
+        {} as Network.NetworkDataGridNode.NetworkLogViewInterface, request);
+    const el = document.createElement('div');
+
+    networkRequestNode.renderCell(el, 'name');
+    const marker = el.querySelector('.icon') as HTMLElement;
+
+    const styleIconOriginal = marker.style;
+    const indexOfIconImage = styleIconOriginal.webkitMaskImage.indexOf('Images/');
+    const iconImage = styleIconOriginal.webkitMaskImage.substring(indexOfIconImage + 7);
+    const styleIconFailed = 'cross-circle-filled.svg")';
+
+    assert.strictEqual(styleIconFailed, iconImage);
+
+    const backgroundColorOfIcon = styleIconOriginal.backgroundColor.toString();
+    assert.strictEqual(backgroundColorOfIcon, 'var(--icon-error)');
+  });
 });
