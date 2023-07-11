@@ -142,6 +142,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6653584b_a61f5200",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-11T11:34:42Z",
+      "side": 1,
+      "message": "Done. Typing \u0027allow pasting\u0027 now also works if it\u0027s typed not right after the warning message is shown (allowing for user typos)",
+      "parentUuid": "1747700c_2d568399",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 51
+      },
+      "revId": "8e2953be81fae96a445f180fccead5ba4887d444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c6fa4c0_32509ee1",
