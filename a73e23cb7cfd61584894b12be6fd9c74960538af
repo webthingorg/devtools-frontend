@@ -39,6 +39,30 @@
       },
       "revId": "a73e23cb7cfd61584894b12be6fd9c74960538af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "259a6251_4b3b7b5e",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T11:59:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "435cccc8_668a42f4",
+      "range": {
+        "startLine": 361,
+        "startChar": 15,
+        "endLine": 363,
+        "endChar": 0
+      },
+      "revId": "a73e23cb7cfd61584894b12be6fd9c74960538af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
