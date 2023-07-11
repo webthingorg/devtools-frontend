@@ -22,6 +22,46 @@
       },
       "revId": "d4b3e1916bd3b77e24186953b58b2d7d268c06b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fcf3653_b6f44f6f",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:44:25Z",
+      "side": 1,
+      "message": "Redundant or not, I suggested another small edit, just in case.",
+      "revId": "d4b3e1916bd3b77e24186953b58b2d7d268c06b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389e564b_985281a9",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:44:25Z",
+      "side": 1,
+      "message": "```suggestion\n  sourceMapFoundButIgnoredForFile: \u0027Source map found but ignored because the file is on the ignore list.\u0027,\n```",
+      "range": {
+        "startLine": 74,
+        "startChar": 36,
+        "endLine": 74,
+        "endChar": 90
+      },
+      "revId": "d4b3e1916bd3b77e24186953b58b2d7d268c06b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
