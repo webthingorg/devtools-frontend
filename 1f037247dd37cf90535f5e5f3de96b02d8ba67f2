@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d1320d3_c94f2798",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16df91fd_06d426dd",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd37f7ef_7e1feccd",
@@ -48,6 +66,42 @@
       "writtenOn": "2023-07-11T08:18:50Z",
       "side": 1,
       "message": "value?: number",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5737dc12_4b963d02",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd37f7ef_7e1feccd",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1221ed9c_8b58d8f4",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd37f7ef_7e1feccd",
       "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +123,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a9b73a_13ac57b6",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f4e655e_45f18fea",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b115a8d_8b76ded7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f4e655e_45f18fea",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af59c28e_f7d61426",
@@ -82,6 +172,42 @@
       "writtenOn": "2023-07-11T08:18:50Z",
       "side": 1,
       "message": "value?: boolean;",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5edd950e_8eca7b4a",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af59c28e_f7d61426",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14fae9fb_b6f79a77",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af59c28e_f7d61426",
       "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -111,6 +237,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d55a3b41_068deee3",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "I think I will address that in https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1463381 is that okay ?",
+      "parentUuid": "1a6fba68_813dcae2",
+      "range": {
+        "startLine": 134,
+        "startChar": 24,
+        "endLine": 134,
+        "endChar": 39
+      },
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179feb12_a601dcbf",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "I think I will address that",
+      "parentUuid": "1a6fba68_813dcae2",
+      "range": {
+        "startLine": 134,
+        "startChar": 24,
+        "endLine": 134,
+        "endChar": 39
+      },
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34b519b7_41f4fad6",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 3
@@ -122,6 +296,24 @@
       "writtenOn": "2023-07-11T08:18:50Z",
       "side": 1,
       "message": "remove this line",
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe40eea_3ac09f91",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-11T09:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34b519b7_41f4fad6",
       "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
