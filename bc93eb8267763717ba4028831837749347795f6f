@@ -110,6 +110,30 @@
       },
       "revId": "bc93eb8267763717ba4028831837749347795f6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da034571_6d15385e",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-11T13:15:50Z",
+      "side": 1,
+      "message": "SGTM! At some point we will need to revisit the assumptions the trace engine makes about frames, processes, etc, but let\u0027s defer that for now as you suggest. Thanks!",
+      "parentUuid": "909e0555_64063f5d",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 94
+      },
+      "revId": "bc93eb8267763717ba4028831837749347795f6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
