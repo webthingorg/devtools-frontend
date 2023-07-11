@@ -135,6 +135,10 @@ const UIStrings = {
    */
   priority: 'Priority',
   /**
+   *@description Text to show the priority of an item
+   */
+  initialPriority: 'Initial priority',
+  /**
    *@description Text in Network Log View Columns of the Network panel
    */
   connectionId: 'Connection ID',
@@ -1001,6 +1005,11 @@ const _temporaryDefaultColumns = [
     sortingFunction: NetworkRequestNode.RequestPropertyComparator.bind(null, 'duration'),
   },
   {id: 'priority', title: i18nLazyString(UIStrings.priority), sortingFunction: NetworkRequestNode.PriorityComparator},
+  {
+    id: 'initial-priority',
+    title: i18nLazyString(UIStrings.initialPriority),
+    sortingFunction: NetworkRequestNode.PriorityComparator,
+  },
   {
     id: 'connectionid',
     title: i18nLazyString(UIStrings.connectionId),
