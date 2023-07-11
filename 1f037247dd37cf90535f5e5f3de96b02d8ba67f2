@@ -88,6 +88,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a6fba68_813dcae2",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-11T09:24:48Z",
+      "side": 1,
+      "message": "If the value is undefined, how do you want to handle it?",
+      "range": {
+        "startLine": 134,
+        "startChar": 24,
+        "endLine": 134,
+        "endChar": 39
+      },
+      "revId": "1f037247dd37cf90535f5e5f3de96b02d8ba67f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34b519b7_41f4fad6",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 3
