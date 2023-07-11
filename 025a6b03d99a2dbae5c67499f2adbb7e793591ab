@@ -52,6 +52,24 @@
       "parentUuid": "724da114_508e5721",
       "revId": "025a6b03d99a2dbae5c67499f2adbb7e793591ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b20033b3_d22e3e25",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-07-11T10:18:11Z",
+      "side": 0,
+      "message": "Btw, you can already see how it\u0027s going to behave. It\u0027s flakily red - and now it will flakily close the tree. But maybe that increases the incentive to fix the flakes?",
+      "parentUuid": "577357ca_413d600e",
+      "revId": "025a6b03d99a2dbae5c67499f2adbb7e793591ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
