@@ -34,6 +34,24 @@
       "parentUuid": "b9b9dbc9_a51f648d",
       "revId": "e9d0a3f2415b2767e6e6548b02ec4e4372868e9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb47e66_2516e71c",
+        "filename": "front_end/ui/components/split_view/SplitView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-11T07:52:40Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "ded10ef7_852439f3",
+      "revId": "e9d0a3f2415b2767e6e6548b02ec4e4372868e9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
