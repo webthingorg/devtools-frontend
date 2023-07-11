@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d0399b_55e597fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-11T08:42:26Z",
+      "side": 1,
+      "message": "These are examples:\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Linux/12922/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Linux%20Compile%20Full%20Release/8635/overview\n- https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Linux%20Official/7276/overview",
+      "revId": "61e67d5b608c07ba316a2de5d3026fbf79bd22cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
