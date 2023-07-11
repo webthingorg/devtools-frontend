@@ -16,6 +16,24 @@
       "message": "Made upon request to change Mac try builder to block. After checking the builder here https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_mac_rel it seems that there are some unit and E2E tests failures, please make sure that we are okay with that before +1. Also note that we have 3 bots available to run this builder.",
       "revId": "d84a12a29698ab2013ed01355520e525b729ac70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee0c7af_a20098b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-07-11T13:17:30Z",
+      "side": 1,
+      "message": "One is a MacMini with 4 cores and Mac-10. The others have 12 cores and Mac-12. This calls for some trouble with inconsistent results from these bots...",
+      "parentUuid": "074afb44_0200b423",
+      "revId": "d84a12a29698ab2013ed01355520e525b729ac70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
