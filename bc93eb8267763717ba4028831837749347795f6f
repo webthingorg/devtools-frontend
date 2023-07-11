@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "be285d90_a94b8c1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-11T12:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c6fe10_97dc9634",
+      "range": {
+        "startLine": 13,
+        "startChar": 133,
+        "endLine": 13,
+        "endChar": 141
+      },
+      "revId": "bc93eb8267763717ba4028831837749347795f6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fad2ef89_3fa9330a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-11T10:45:57Z",
       "side": 1,
       "message": "is there any scenario where a process could span multiple frames? Thinking particularly about the Process-per-site experiment.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 94
+      },
+      "revId": "bc93eb8267763717ba4028831837749347795f6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "909e0555_64063f5d",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-11T12:46:36Z",
+      "side": 1,
+      "message": "good call! I didn\u0027t consider it first but I think we should. I changed the CL to cache multiple frames for a given process ID.\n\nNote we don\u0027t support this model anywhere else, in the future we need to add support for this scenario and be able to distinguish between events from the same process, but from different frames. I\u0027m unsure how to get there, but this seems like a nice first step, so thanks! :)",
+      "parentUuid": "d4466b0d_fbc9f2a1",
       "range": {
         "startLine": 20,
         "startChar": 0,
