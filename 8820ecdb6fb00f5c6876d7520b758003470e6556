@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a12793a_a07e00ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:18:53Z",
+      "side": 1,
+      "message": "Suggested edits. Kind reminder: sentence-case, not Title-Case.\nAlso, consider this guideline: https://m3.material.io/foundations/content-design/style-guide/ux-writing-best-practices.",
+      "parentUuid": "3340639d_0bebfbd9",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b546c4fb_f9177b91",
         "filename": "front_end/panels/application/StorageBucketsTreeElement.ts",
         "patchSetId": 4
@@ -54,6 +72,57 @@
         "endLine": 139,
         "endChar": 27
       },
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a59fc7d3_6302c034",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:18:53Z",
+      "side": 1,
+      "message": "```suggestion\n  defaultBucket: \u0027Default bucket\u0027,\n```",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4531ad91_3d90faa2",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:18:53Z",
+      "side": 1,
+      "message": "What happens when you delete it?\nSee the styleguide: https://m3.material.io/foundations/content-design/style-guide/ux-writing-best-practices",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ca0f53_582a358b",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-11T10:18:53Z",
+      "side": 1,
+      "message": "```suggestion\n  pleaseConfirmDeleteOfBucket: \u0027Delete the {PH1} bucket?\u0027,\n```",
       "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
