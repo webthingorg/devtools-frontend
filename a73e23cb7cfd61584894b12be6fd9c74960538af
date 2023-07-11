@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "713cac11_21d2a0ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-11T09:06:56Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "a73e23cb7cfd61584894b12be6fd9c74960538af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435cccc8_668a42f4",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-11T09:06:56Z",
+      "side": 1,
+      "message": "This comment does no longer apply.",
+      "range": {
+        "startLine": 361,
+        "startChar": 15,
+        "endLine": 363,
+        "endChar": 0
+      },
+      "revId": "a73e23cb7cfd61584894b12be6fd9c74960538af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
