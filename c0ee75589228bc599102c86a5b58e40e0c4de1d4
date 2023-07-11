@@ -22,6 +22,30 @@
       },
       "revId": "c0ee75589228bc599102c86a5b58e40e0c4de1d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "457bdf3e_9c5659ec",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-11T09:21:38Z",
+      "side": 1,
+      "message": "I think this might be excess indeed, `setIcon` doesn\u0027t make use of it",
+      "parentUuid": "c1f8b010_926f1065",
+      "range": {
+        "startLine": 1062,
+        "startChar": 0,
+        "endLine": 1063,
+        "endChar": 25
+      },
+      "revId": "c0ee75589228bc599102c86a5b58e40e0c4de1d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
