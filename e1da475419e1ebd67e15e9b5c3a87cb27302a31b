@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4126905a_1067c113",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-11T14:08:11Z",
+      "side": 1,
+      "message": "Seemed like a good idea to limit the length of the URL, as these are often large data urls. (Though errors should be uncommon with data urls.)",
+      "range": {
+        "startLine": 1569,
+        "startChar": 10,
+        "endLine": 1569,
+        "endChar": 103
+      },
+      "revId": "e1da475419e1ebd67e15e9b5c3a87cb27302a31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
