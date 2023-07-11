@@ -1133,7 +1133,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       return this.parseParameters(formData);
     }
 
-    // Handling multipart/form-data request bodies.
+    // Handling multipart/form-data request bodies..
     const multipartDetails = requestContentType.match(/^multipart\/form-data\s*;\s*boundary\s*=\s*(\S+)\s*$/);
 
     if (!multipartDetails) {
