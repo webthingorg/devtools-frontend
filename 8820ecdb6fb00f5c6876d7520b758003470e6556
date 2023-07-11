@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "616b47ea_f3ede36b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-11T07:28:29Z",
+      "side": 1,
+      "message": "Nathan, code overall LGTM, but please add tests for the new tree element and new functionality of the metadata view (buttons).",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b546c4fb_f9177b91",
         "filename": "front_end/panels/application/StorageBucketsTreeElement.ts",
         "patchSetId": 4
