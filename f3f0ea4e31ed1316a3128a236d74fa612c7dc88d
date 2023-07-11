@@ -16,6 +16,74 @@
       "message": "Proposal to move error message from console to infobar. I attached screenshots to the bug, though they are out of date.",
       "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a36a85_dc6a6ee1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-11T09:01:06Z",
+      "side": 1,
+      "message": "Nice! LGTM with a few nits.",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77eb75a_82d3a172",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-11T09:01:06Z",
+      "side": 1,
+      "message": "Could just be `()`",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "256844b9_a4a3c139",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-11T09:01:06Z",
+      "side": 1,
+      "message": "How about: \"DevTools can\u0027t show authored sources, but debugging the deployed code is possible\"",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2913c5b6_eef31886",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-11T09:01:06Z",
+      "side": 1,
+      "message": "```suggestion\n  reloadForSourceMap: \u0027To reenable, make sure the file is not on the ignore list and reload.\u0027,\n```",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
