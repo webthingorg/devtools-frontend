@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f988342_31ad4bff",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-11T10:39:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e77eb75a_82d3a172",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "256844b9_a4a3c139",
@@ -121,6 +139,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c18fc26e_7af52a45",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-11T10:39:02Z",
+      "side": 1,
+      "message": "I\u0027m wary of using \"authored\" and \"deployed\". I\u0027m not sure users generally know how we use those terms and we are talking about changing the meaning of authored vs deployed in the future.",
+      "parentUuid": "51e365ac_8e93619b",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "627b607c_74f14165",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-11T10:39:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a00c8121_b00250d0",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2913c5b6_eef31886",
@@ -169,6 +223,24 @@
       "writtenOn": "2023-07-11T10:01:04Z",
       "side": 1,
       "message": "```suggestion\n  reloadForSourceMap: \u0027To enable again, make sure the file isn\u0027t on the ignore list and reload.\u0027,\n```",
+      "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5036ab6c_13218832",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-11T10:39:02Z",
+      "side": 1,
+      "message": "Done. Is it worth specifying \"reload DevTools\"? Reloading either the site or DevTools would work.",
+      "parentUuid": "2b8e3331_39b149f6",
       "revId": "f3f0ea4e31ed1316a3128a236d74fa612c7dc88d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

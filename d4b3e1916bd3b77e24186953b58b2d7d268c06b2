@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "956007fe_d6318dfa",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-07-11T10:39:02Z",
+      "side": 1,
+      "message": "I think this message may be redundant at this point. It claims the source map was found, but the user might interpret that to mean we checked that the file exists, which we no longer do. The only thing I kept it for was to specify that this is because it is on the ignore list, but the fact that the script is on the ignore list is going to be mentioned in the other infobar above this one.",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 33
+      },
+      "revId": "d4b3e1916bd3b77e24186953b58b2d7d268c06b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
