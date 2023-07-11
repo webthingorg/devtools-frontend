@@ -16,6 +16,24 @@
       "message": "When I was working on this I didn\u0027t figure out a container query only solution (so I needed the resize handler). Perhaps, we could see if the resize handler can be removed instead?",
       "revId": "e9d0a3f2415b2767e6e6548b02ec4e4372868e9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded10ef7_852439f3",
+        "filename": "front_end/ui/components/split_view/SplitView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-11T07:49:49Z",
+      "side": 0,
+      "message": "I can\u0027t think of a way to do it either.",
+      "parentUuid": "b9b9dbc9_a51f648d",
+      "revId": "e9d0a3f2415b2767e6e6548b02ec4e4372868e9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -16,6 +16,24 @@
       "message": "mutating DOM rendered by lit-html had caused unpredictable problems in the past. I think classList modification would probably be okay but I would prefer not to intefer with the template rendering.",
       "revId": "20680d1c70a2f7e65349f9973039f9353cd7263c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91e57742_18245b8e",
+        "filename": "front_end/ui/components/split_view/SplitView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-11T07:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "259aedac_b62d0a9e",
+      "revId": "20680d1c70a2f7e65349f9973039f9353cd7263c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
