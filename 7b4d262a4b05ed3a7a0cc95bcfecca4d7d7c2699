@@ -16,6 +16,23 @@
       "message": "looks like the CL needs rebasing",
       "revId": "7b4d262a4b05ed3a7a0cc95bcfecca4d7d7c2699",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63654904_905accd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-12T09:41:08Z",
+      "side": 1,
+      "message": "Can you resolve the merge conflict? I feel some code is already reviewed in other CLs",
+      "revId": "7b4d262a4b05ed3a7a0cc95bcfecca4d7d7c2699",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
