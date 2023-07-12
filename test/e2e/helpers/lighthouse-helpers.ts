@@ -17,6 +17,7 @@ import {getQuotaUsage, waitForQuotaUsage} from './application-helpers.js';
 
 import {type ElementHandle} from 'puppeteer-core';
 import {assert} from 'chai';
+import {unregisterAllServiceWorkers} from '../../conductor/hooks.js';
 
 export async function navigateToLighthouseTab(path?: string): Promise<ElementHandle<Element>> {
   let lighthouseTabButton = await $('#tab-lighthouse');
@@ -214,6 +215,7 @@ export async function getServiceWorkerCount() {
 }
 
 export async function registerServiceWorker() {
+  await unregisterAllServiceWorkers();
   const {target} = getBrowserAndPages();
   await target.evaluate(async () => {
     // @ts-expect-error Custom function added to global scope.
