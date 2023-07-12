@@ -80,6 +80,9 @@ export class AttributionReportingIssueDetailsView extends AffectedResourcesView 
       case IssuesManager.AttributionReportingIssue.IssueCode.WebAndOsHeaders:
         this.appendColumnTitle(header, i18nString(UIStrings.request));
         break;
+      case IssuesManager.AttributionReportingIssue.IssueCode.NavigationRegistrationWithoutTransientUserActivation:
+        this.appendColumnTitle(header, i18nString(UIStrings.element));
+        break;
     }
 
     this.affectedResources.appendChild(header);
@@ -119,6 +122,9 @@ export class AttributionReportingIssueDetailsView extends AffectedResourcesView 
         break;
       case IssuesManager.AttributionReportingIssue.IssueCode.SourceAndTriggerHeaders:
         this.#appendRequestOrEmptyCell(element, details.request);
+        break;
+      case IssuesManager.AttributionReportingIssue.IssueCode.NavigationRegistrationWithoutTransientUserActivation:
+        await this.#appendElementOrEmptyCell(element, issue);
         break;
     }
 
