@@ -16,6 +16,24 @@
       "message": "We are deprecating this value. `Shipped: no` covers this, and the relative path can be specified if it exists, regardless of whether the dependency is shipped.",
       "revId": "7e57be2fe6356557d56d73e996699fc8ad8200b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2074cfd9_ead87858",
+        "filename": "third_party/i18n/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-12T06:33:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c20a2578_eacf8373",
+      "revId": "7e57be2fe6356557d56d73e996699fc8ad8200b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
