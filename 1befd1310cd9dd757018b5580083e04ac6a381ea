@@ -16,6 +16,24 @@
       "message": "Looks great. Thanks!\n\nI found a wired issue:\n\n1. Open DevTools, add speculation rules and prerendering.\n2. Resize panes by dragging the line above \"SpeculationRules rule set\" and \"Preloading Attempt\".\n\nSpeculation Rules panel works as expected (resizable), but Preloads panel doesn\u0027t (not resizable).",
       "revId": "1befd1310cd9dd757018b5580083e04ac6a381ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b0ed0b_346b519d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-12T09:31:32Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "25229995_55bf0beb",
+      "revId": "1befd1310cd9dd757018b5580083e04ac6a381ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
