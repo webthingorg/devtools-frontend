@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15b570b1_c6f5ae32",
+        "filename": "front_end/panels/elements/computedStyleSidebarPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-07-12T11:33:44Z",
+      "side": 1,
+      "message": "hahaha now I understood what you mean, here is another bug: crbug.com/1445720. Though it might make sense to revert this for now so that DevTools on DevTools is not broken altogether, WDYT? :)",
+      "parentUuid": "972827a2_6d161ced",
+      "revId": "ac52de73d872d8bdbb0a7500703c35cf75f349c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "594bc561_d693a0ef",
         "filename": "front_end/ui/legacy/inspectorSyntaxHighlight.css",
         "patchSetId": 1
