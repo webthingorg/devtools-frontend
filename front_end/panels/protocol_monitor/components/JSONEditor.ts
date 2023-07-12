@@ -93,6 +93,7 @@ export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
   @property() declare protocolMethodWithParametersMap: Map<string, Parameter[]>;
   @property() declare protocolTypesMap: Map<string, Type[]>;
+  @property() declare protocolMethodWithDescriptionMap: Map<string, string>;
   @property() declare targetManager;
   @state() declare parameters: Parameter[];
   @state() command: string = '';
