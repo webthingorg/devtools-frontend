@@ -52,6 +52,24 @@
       "parentUuid": "c20a2578_eacf8373",
       "revId": "7e57be2fe6356557d56d73e996699fc8ad8200b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c96a7b4_76c325a3",
+        "filename": "third_party/i18n/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1544922
+      },
+      "writtenOn": "2023-07-12T06:35:57Z",
+      "side": 1,
+      "message": "Done while I was making the comment.",
+      "parentUuid": "c2aeab2b_c4d58fcc",
+      "revId": "7e57be2fe6356557d56d73e996699fc8ad8200b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
