@@ -4,6 +4,7 @@ URL: github.com/GoogleChrome/lighthouse
 Version: f3d0e3459d8fd15b055148dec0ae4e430df6495b
 License: NOT_SHIPPED
 Security Critical: no
+Shipped: no
 
 Description:
 i18n infrastructure scripts that originated from Lighthouse localization pipeline.
