@@ -141,9 +141,10 @@ export class InspectorBackend {
     return prototype;
   }
 
-  registerCommand(method: QualifiedName, parameters: CommandParameter[], replyArgs: string[]): void {
+  registerCommand(method: QualifiedName, parameters: CommandParameter[], replyArgs: string[], description: string):
+      void {
     const [domain, command] = splitQualifiedName(method);
-    this.agentPrototype(domain as ProtocolDomainName).registerCommand(command, parameters, replyArgs);
+    this.agentPrototype(domain as ProtocolDomainName).registerCommand(command, parameters, replyArgs, description);
     this.#initialized = true;
   }
 
@@ -924,6 +925,7 @@ class _AgentPrototype {
   replyArgs: {
     [x: string]: string[],
   };
+  description: string;
   commandParameters: {
     [x: string]: CommandParameter[],
   };
@@ -933,16 +935,17 @@ class _AgentPrototype {
   constructor(domain: string) {
     this.replyArgs = {};
     this.domain = domain;
+    this.description = '';
     this.commandParameters = {};
   }
 
-  registerCommand(methodName: UnqualifiedName, parameters: CommandParameter[], replyArgs: string[]): void {
+  registerCommand(
+      methodName: UnqualifiedName, parameters: CommandParameter[], replyArgs: string[], description: string): void {
     const domainAndMethod = qualifyName(this.domain, methodName);
 
     function sendMessagePromise(this: _AgentPrototype, ...args: unknown[]): Promise<unknown> {
       return _AgentPrototype.prototype.sendMessageToBackendPromise.call(this, domainAndMethod, parameters, args);
     }
-
     // @ts-ignore Method code generation
     this[methodName] = sendMessagePromise;
     this.commandParameters[domainAndMethod] = parameters;
@@ -953,7 +956,7 @@ class _AgentPrototype {
 
     // @ts-ignore Method code generation
     this['invoke_' + methodName] = invoke;
-
+    this.description = description;
     this.replyArgs[domainAndMethod] = replyArgs;
   }
 
