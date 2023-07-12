@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "908b0cb952832b753533b7f4b52573d7b935586a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "681703b2_fb19188d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-07-12T16:03:51Z",
+      "side": 1,
+      "message": "This breaks the behavior for the Network panel\u0027s timeline overview sadly 🥺\n\nYou can reproduce that by:\n* Go to `https://google.com`\n* Run this script on console `setInterval(() \u003d\u003e {fetch(\u0027image.svg\u0027) }, 100);` which will send infinite requests and they will be visible in the network panel.\n* Decrease the bounds first by clicking on a place in the timeline overview\n* Then double click to reset the boundaries\n\nAfter a new request comes:\n* We expect the window in the timeline to include newly coming requests\n\nHowever\n* The window in the timeline looks stuck.\n\nThe test passes because filtering in the network panel works correctly and it continues to show new requests aaaand there isn\u0027t a test for verifying the window in the timeline overview 😅",
+      "revId": "908b0cb952832b753533b7f4b52573d7b935586a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
