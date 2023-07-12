@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50d98cab_6df4aaad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-12T11:45:51Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b03d94799febf7f7062b5b39619ee434234de405",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cb769cd_fc68e8a4",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-07-12T10:50:24Z",
       "side": 1,
       "message": "I got bored of the 404 errors so added this check - the second path check is for Windows systems where they use \\ for file path separators",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 68
+      },
+      "revId": "b03d94799febf7f7062b5b39619ee434234de405",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe35ca8_58c86847",
+        "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-12T11:45:51Z",
+      "side": 1,
+      "message": "nice fix!!",
+      "parentUuid": "3cb769cd_fc68e8a4",
       "range": {
         "startLine": 65,
         "startChar": 0,
