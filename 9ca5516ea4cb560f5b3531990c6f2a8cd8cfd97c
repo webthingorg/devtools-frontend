@@ -34,6 +34,24 @@
       "parentUuid": "1801613a_f4b41c7e",
       "revId": "9ca5516ea4cb560f5b3531990c6f2a8cd8cfd97c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "504e583f_1223ed70",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-12T07:04:11Z",
+      "side": 1,
+      "message": "Oh yeah the description is the same for each domain, I didn\u0027t really get that, thought it be simpler to just associate the description for each command but true, I can just associate it to the domain",
+      "parentUuid": "73ce1c0f_070bb8af",
+      "revId": "9ca5516ea4cb560f5b3531990c6f2a8cd8cfd97c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
