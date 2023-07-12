@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b0358f4_c74af13b",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-12T06:16:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b6f60af_7ac16b42",
+      "range": {
+        "startLine": 341,
+        "startChar": 32,
+        "endLine": 343,
+        "endChar": 11
+      },
+      "revId": "651ed8852f98f0e8bf15c68c48b8f01c18fd3203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bfa2f2b_68198e06",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "459ca42c_fc6a001e",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-12T06:16:49Z",
+      "side": 1,
+      "message": "Typescript refuses to compile without \u0027?\u0027 (note that it is in a closure).",
+      "parentUuid": "0bfa2f2b_68198e06",
+      "range": {
+        "startLine": 356,
+        "startChar": 21,
+        "endLine": 356,
+        "endChar": 22
+      },
+      "revId": "651ed8852f98f0e8bf15c68c48b8f01c18fd3203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae730127_caa726ee",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-07-12T05:34:03Z",
       "side": 1,
       "message": "```\nawait waitForFunction(() \u003d\u003e element?.evaluate(e \u003d\u003e e.querySelector(\u0027.devtools-link\u0027)?.textContent));\n```",
+      "range": {
+        "startLine": 398,
+        "startChar": 45,
+        "endLine": 400,
+        "endChar": 8
+      },
+      "revId": "651ed8852f98f0e8bf15c68c48b8f01c18fd3203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1294405_d018118a",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-07-12T06:16:49Z",
+      "side": 1,
+      "message": "Done (it still needs async () because element? can return undefined).",
+      "parentUuid": "ae730127_caa726ee",
       "range": {
         "startLine": 398,
         "startChar": 45,
