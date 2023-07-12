@@ -123,20 +123,23 @@ const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.Template
   return LitHtml.html`${i18nString(UIStrings.sMs, {PH1: String(value)})}`;
 };
 
-export const buildProtocolCommandsParametersMap =
-    (domains: Iterable<ProtocolDomain>): Map<string, Components.JSONEditor.Parameter[]> => {
+export const buildProtocolCommandsDescriptionAndParametersMap =
+    (domains: Iterable<ProtocolDomain>): [Map<string, Components.JSONEditor.Parameter[]>, Map<string, string>] => {
       const commandsMap: Map<string, Components.JSONEditor.Parameter[]> = new Map();
+      const commandsDescriptionMap: Map<string, string> = new Map();
       for (const domain of domains) {
+        commandsDescriptionMap.set(domain.domain, domain.description);
         for (const command of Object.keys(domain.commandParameters)) {
           commandsMap.set(command, domain.commandParameters[command]);
         }
       }
-      return commandsMap;
+      return [commandsMap, commandsDescriptionMap];
     };
 
-const protocolMethodWithParametersMap = buildProtocolCommandsParametersMap(
-    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
-
+const protocolMethodWithParametersMap = buildProtocolCommandsDescriptionAndParametersMap(
+    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>)[0];
+const protocolMethodWithDescriptionMap = buildProtocolCommandsDescriptionAndParametersMap(
+    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>)[1];
 const protocolTypesMap = ProtocolClient.InspectorBackend.inspectorBackend.typeMap;
 
 export interface Message {
@@ -157,6 +160,7 @@ export interface LogMessage {
 
 export interface ProtocolDomain {
   readonly domain: string;
+  readonly description: string;
   readonly commandParameters: {
     [x: string]: Components.JSONEditor.Parameter[],
   };
@@ -736,6 +740,7 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     this.jsonEditor = new Components.JSONEditor.JSONEditor();
     this.jsonEditor.protocolMethodWithParametersMap = protocolMethodWithParametersMap;
     this.jsonEditor.protocolTypesMap = protocolTypesMap;
+    this.jsonEditor.protocolMethodWithDescriptionMap = protocolMethodWithDescriptionMap;
     this.element.append(this.jsonEditor);
     this.jsonEditor.addEventListener(Components.JSONEditor.SubmitEditorEvent.eventName, (event: Event) => {
       this.dispatchEventToListeners(Events.CommandSent, (event as Components.JSONEditor.SubmitEditorEvent).data);
