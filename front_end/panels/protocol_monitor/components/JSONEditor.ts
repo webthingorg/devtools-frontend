@@ -8,7 +8,9 @@ import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
+import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as ElementsComponents from '../../elements/components/components.js';
 import * as RecorderComponents from '../../recorder/components/components.js';
 
 import editorWidgetStyles from './JSONEditor.css.js';
@@ -34,6 +36,7 @@ interface BaseParameter {
   optional: boolean;
   name: string;
   typeRef?: string;
+  description?: string;
 }
 
 interface ArrayParameter extends BaseParameter {
@@ -73,6 +76,7 @@ interface Type {
   name: string;
   type: string;
   optional: boolean;
+  description?: string;
 }
 /**
  * Parents should listen for this event and register the listeners provided by
@@ -95,12 +99,77 @@ export class JSONEditor extends LitElement {
   @property() declare protocolTypesMap: Map<string, Type[]>;
   @property() declare protocolMethodWithDescriptionMap: Map<string, string>;
   @property() declare targetManager;
+  @property() declare hintPopoverHelper: UI.PopoverHelper.PopoverHelper;
   @state() declare parameters: Parameter[];
   @state() command: string = '';
   @state() targetId?: string;
 
   constructor() {
     super();
+    let hint = {
+      'getMessage': (): string => '',
+      'getPossibleFixMessage': (): null => null,
+      'getLearnMoreLink': (): string => '',
+    };
+
+    this.hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this, event => {
+      const hintElement = event.composedPath()[0] as HTMLElement;
+
+      if (hintElement instanceof Element && hintElement.matches('.command')) {
+        const description = this.protocolMethodWithDescriptionMap.get(this.command.split('.')[0]);
+        if (!description) {
+          return null;
+        }
+        hint = {
+          'getMessage': (): string => description,
+          'getPossibleFixMessage': (): null => null,
+          'getLearnMoreLink': (): string => '',
+        };
+        if (hint) {
+          return {
+            box: hintElement.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
+      }
+
+      if (hintElement instanceof Element && hintElement.matches('.parameter')) {
+        const id = hintElement.dataset.paramid;
+        const realParamId = id?.split('.') ?? [];
+        const {parameter} = this.#getChildByPath(realParamId);
+        if (!parameter.description) {
+          return null;
+        }
+        const key = hintElement.textContent?.slice(0, -1);
+        if (parameter.name === key) {
+          hint = {
+            'getMessage': (): string => parameter.description ? parameter.description : '',
+            'getPossibleFixMessage': (): null => null,
+            'getLearnMoreLink': (): string => '',
+          };
+        }
+        if (hint) {
+          return {
+            box: hintElement.boxInWindow(),
+            show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+              const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
+              popover.contentElement.appendChild(popupElement);
+              return true;
+            },
+          };
+        }
+      }
+      return null;
+    });
+
+    this.hintPopoverHelper.setDisableOnClick(true);
+    this.hintPopoverHelper.setTimeout(300);
+    this.hintPopoverHelper.setHasPadding(true);
+
     this.parameters = [];
     this.targetManager = SDK.TargetManager.TargetManager.instance();
     this.targetId = this.targetManager.targets().length !== 0 ? this.targetManager.targets()[0].id() : undefined;
@@ -179,12 +248,14 @@ export class JSONEditor extends LitElement {
         return {
           optional: parameter.optional,
           type: parameter.type,
+          description: parameter.description,
           typeRef: parameter.typeRef,
           value: typeInfos.map(type => {
             const param: Parameter = {
               optional: type.optional,
               type: this.#isParameterSupported(parameter) ? type.type : 'string',
               name: type.name,
+              description: type.description,
               value: undefined,
             } as Parameter;
             return param;
@@ -196,6 +267,7 @@ export class JSONEditor extends LitElement {
         return {
           optional: parameter.optional,
           type: parameter.type,
+          description: parameter.description,
           typeRef: parameter.typeRef,
           value: [],
           name: parameter.name,
@@ -207,6 +279,7 @@ export class JSONEditor extends LitElement {
         typeRef: this.#isParameterSupported(parameter) ? parameter.typeRef : 'string',
         value: parameter.value || undefined,
         name: parameter.name,
+        description: parameter.description,
       } as Parameter;
     });
   }
@@ -385,11 +458,11 @@ export class JSONEditor extends LitElement {
           const handleInputOnBlur = (event: Event): void => {
             this.#handleParameterInputBlur(event);
           };
-          const classes = {colorBlue: parameter.optional};
+          const classes = {colorBlue: parameter.optional, parameter: true};
           return html`
-            <li class="row">
+            <li class="row parameter">
               <div class="row">
-                <div class=${classMap(classes)}>${parameter.name}<span class="separator">:</span></div>
+                <div class=${classMap(classes)} data-paramId=${parameterId}>${parameter.name}<span class="separator">:</span></div>
                 ${parameter.type === 'array' ? html`
                 ${this.#renderInlineButton({
                   title: 'Add parameter',
@@ -429,7 +502,8 @@ export class JSONEditor extends LitElement {
     <div class="wrapper">
       ${this.#renderTargetSelectorRow()}
       <div class="row attribute padded">
-        <div>command<span class="separator">:</span></div>
+        </devtools-css-hint-details-view>
+        <div class="command">command<span class="separator">:</span></div>
         <devtools-recorder-input
           .options=${[...this.protocolMethodWithParametersMap.keys()]}
           .value=${this.command}
