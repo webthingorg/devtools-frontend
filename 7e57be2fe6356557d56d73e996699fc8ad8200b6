@@ -34,6 +34,24 @@
       "parentUuid": "c20a2578_eacf8373",
       "revId": "7e57be2fe6356557d56d73e996699fc8ad8200b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2aeab2b_c4d58fcc",
+        "filename": "third_party/i18n/README.chromium",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1544922
+      },
+      "writtenOn": "2023-07-12T06:34:50Z",
+      "side": 1,
+      "message": "Based on https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/third_party/i18n/LICENSE, I suggest:\n```\nLicense: Apache 2.0\nLicense File: LICENSE\nSecurity Critical: no\nShipped: no\n```",
+      "parentUuid": "c20a2578_eacf8373",
+      "revId": "7e57be2fe6356557d56d73e996699fc8ad8200b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
