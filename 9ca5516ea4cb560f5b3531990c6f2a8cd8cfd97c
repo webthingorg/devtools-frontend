@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1801613a_f4b41c7e",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-12T06:19:39Z",
+      "side": 1,
+      "message": "why do we need to set a description from domain for each of the commands in the domain?",
+      "revId": "9ca5516ea4cb560f5b3531990c6f2a8cd8cfd97c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
