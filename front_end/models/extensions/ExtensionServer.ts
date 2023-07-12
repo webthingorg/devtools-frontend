@@ -1086,7 +1086,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (!handler) {
       result = this.status.E_NOTSUPPORTED(message.command);
     } else if (!this.extensionEnabled(port)) {
-      result = this.status.E_FAILED('Permission denied');
+      result = this.status.E_FAILED('Permission denied 1');
     } else {
       result = await handler(message, event.target as MessagePort);
     }
@@ -1195,7 +1195,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     // We shouldn't get here if the outermost frame can't be inspected by an extension, but
     // let's double check for subframes.
     if (!this.canInspectURL(frame.url)) {
-      return this.status.E_FAILED('Permission denied');
+      return this.status.E_FAILED('Permission denied 2');
     }
 
     let contextSecurityOrigin;
@@ -1231,7 +1231,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       }
     }
     if (!this.canInspectURL(context.origin)) {
-      return this.status.E_FAILED('Permission denied');
+      return this.status.E_FAILED('Permission denied 3 ' + (new Error()).stack);
     }
 
     void context
