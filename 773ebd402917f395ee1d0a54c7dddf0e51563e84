@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4965a01_64ca8d8a",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T07:21:45Z",
+      "side": 1,
+      "message": "buildProtocolMetadata?",
+      "revId": "773ebd402917f395ee1d0a54c7dddf0e51563e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
