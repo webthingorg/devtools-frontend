@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e475159_adabc6a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-13T13:37:12Z",
+      "side": 1,
+      "message": "The screenshot changes are expected, I was missing some CSS in my component server example previously, which we now have, so the margins have changed slightly. This is good as it is now more accurately reflecting what is actually rendered in DevTools.",
+      "revId": "c3a7c4a9ce26ecce7cbc2ce5558d858fee0f7ff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
