@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "360a0f2b_fcadde91",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T05:58:08Z",
+      "side": 1,
+      "message": "so why do we have two maps that are computed the same way?",
+      "revId": "94c4b683fb0f1b2b5d061869d778a9b3f5d05061",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
