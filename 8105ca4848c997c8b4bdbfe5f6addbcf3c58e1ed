@@ -70,6 +70,30 @@
       },
       "revId": "8105ca4848c997c8b4bdbfe5f6addbcf3c58e1ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f167e7a_98b91707",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-13T14:01:47Z",
+      "side": 1,
+      "message": "Couldn\u0027t that be identical too? What about looking at the matches instead (`k of n`)? Does that work, timining-wise?",
+      "parentUuid": "5ba52238_8a50a79c",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 33
+      },
+      "revId": "8105ca4848c997c8b4bdbfe5f6addbcf3c58e1ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
