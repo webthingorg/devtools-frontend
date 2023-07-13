@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dc056c5_3e0d8d26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T12:20:30Z",
+      "side": 1,
+      "message": "-1 to block the submission because I found a bug in InspectorBackend.ts",
+      "revId": "4c3cfd4a526a885c961f04f68914391ec32d8f74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

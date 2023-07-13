@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b192bff6_d3335aa8",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T12:20:30Z",
+      "side": 1,
+      "message": "We shouldn\u0027t set a method\u0027s description to the domain",
+      "range": {
+        "startLine": 958,
+        "startChar": 4,
+        "endLine": 958,
+        "endChar": 35
+      },
+      "revId": "18a21856f0f9067b3468f5f53b57ffa099a82093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49c93284_2eb24452",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 8
