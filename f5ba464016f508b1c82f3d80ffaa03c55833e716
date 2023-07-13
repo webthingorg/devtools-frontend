@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7782196a_01e27144",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T10:56:56Z",
+      "side": 1,
+      "message": "Can we add a break to this line? Now it looks pretty long",
+      "range": {
+        "startLine": 171,
+        "startChar": 1,
+        "endLine": 171,
+        "endChar": 176
+      },
+      "revId": "f5ba464016f508b1c82f3d80ffaa03c55833e716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
