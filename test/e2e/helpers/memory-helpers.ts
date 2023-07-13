@@ -142,16 +142,37 @@ export async function waitForSearchResultNumber(results: number) {
 
 export async function findSearchResult(searchResult: string, pollIntrerval: number = 500) {
   const match = await waitFor('#profile-views table.data');
-  await waitForFunction(async () => {
-    await click('[aria-label="Search next"]');
-    const result = Promise.race([
-      waitForElementWithTextContent(searchResult, match),
-      new Promise(resolve => {
-        setTimeout(resolve, pollIntrerval, false);
-      }),
-    ]);
-    return result;
+  const matches = await waitFor('label.search-results-matches');
+  const matchesText = await matches.evaluate(async element => {
+    return element.textContent;
   });
+  if (matchesText === '1 of 1') {
+    await waitForElementWithTextContent(searchResult, match);
+  } else {
+    await waitForFunction(async () => {
+      const selectedBefore = await waitFor(
+          '#profile-views table.data tr' +
+          '.data-grid-data-grid-node' +
+          '.revealed.parent.selected');
+      await click('[aria-label="Search next"]');
+      await waitForFunction(async () => {
+        const selectedAfter = await waitFor(
+            '#profile-views table.data tr' +
+            '.data-grid-data-grid-node' +
+            '.revealed.parent.selected');
+        const beforeText = await selectedBefore.evaluate(e => e.textContent);
+        const afterText = await selectedAfter.evaluate(e => e.textContent);
+        return beforeText !== afterText;
+      });
+      const result = Promise.race([
+        waitForElementWithTextContent(searchResult, match),
+        new Promise(resolve => {
+          setTimeout(resolve, pollIntrerval, false);
+        }),
+      ]);
+      return result;
+    });
+  }
 }
 
 const normalizRetainerName = (retainerName: string) => {
