@@ -113,8 +113,8 @@ describe('ProtocolMonitor', () => {
                              optional: true,
                            }]);
 
-      assert.deepStrictEqual(
-          ProtocolMonitor.ProtocolMonitor.buildProtocolCommandsParametersMap(domains), expectedCommands);
+      const {parametersByCommand} = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(domains);
+      assert.deepStrictEqual(parametersByCommand, expectedCommands);
     });
   });
 
