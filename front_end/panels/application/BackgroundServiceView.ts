@@ -21,15 +21,15 @@ const UIStrings = {
   /**
    *@description Text in Background Service View of the Application panel
    */
-  backgroundFetch: 'Background Fetch',
+  backgroundFetch: 'Background fetch',
   /**
    *@description Text in Background Service View of the Application panel
    */
-  backgroundSync: 'Background Sync',
+  backgroundSync: 'Background sync',
   /**
    *@description Text in Background Service View of the Application panel
    */
-  pushMessaging: 'Push Messaging',
+  pushMessaging: 'Push messaging',
   /**
    *@description Text in Background Service View of the Application panel
    */
@@ -37,11 +37,11 @@ const UIStrings = {
   /**
    *@description Text in Background Service View of the Application panel
    */
-  paymentHandler: 'Payment Handler',
+  paymentHandler: 'Payment handler',
   /**
    *@description Text in the Periodic Background Service View of the Application panel
    */
-  periodicBackgroundSync: 'Periodic Background Sync',
+  periodicBackgroundSync: 'Periodic background sync',
   /**
    *@description Text to clear content
    */
@@ -93,7 +93,7 @@ const UIStrings = {
   /**
    *@description Text in Application Panel Sidebar of the Application panel
    */
-  backgroundServices: 'Background Services',
+  backgroundServices: 'Background services',
   /**
    *@description Text that is usually a hyperlink to more documentation
    */
