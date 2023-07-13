@@ -67,31 +67,84 @@ describe('ProtocolMonitor', () => {
       });
     });
 
-    it('should correctly creates a map of CDP commands with their corresponding parameters', async () => {
+    it('should correctly creates a map of CDP commands with their corresponding description', async () => {
       const domains = [
         {
           domain: 'Test',
-          commandParameters: {
-            'Test.test': [{
-              name: 'test',
-              type: 'test',
-              optional: true,
-            }],
+          metadata: {
+            'Test.test': {
+              'parameters': [{
+                name: 'test',
+                type: 'test',
+                optional: true,
+              }],
+              'description': 'Description1',
+            },
           },
         },
         {
           domain: 'Test2',
-          commandParameters: {
-            'Test2.test2': [{
-              name: 'test2',
-              type: 'test2',
-              optional: true,
-            }],
-            'Test2.test3': [{
-              name: 'test3',
-              type: 'test3',
-              optional: true,
-            }],
+          metadata: {
+            'Test2.test2': {
+              'parameters': [{
+                name: 'test2',
+                type: 'test2',
+                optional: true,
+              }],
+              'description': 'Description2',
+            },
+            'Test2.test3': {
+              'parameters': [{
+                name: 'test3',
+                type: 'test3',
+                optional: true,
+              }],
+              'description': 'Description3',
+            },
+          },
+        },
+      ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
+
+      const expectedCommands = new Map();
+      expectedCommands.set('Test.test', 'Description1');
+      expectedCommands.set('Test2.test2', 'Description2');
+      expectedCommands.set('Test2.test3', 'Description3');
+
+      const {descriptionsByCommand} = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(domains);
+      assert.deepStrictEqual(descriptionsByCommand, expectedCommands);
+    });
+
+    it('should correctly creates a map of CDP commands with their corresponding parameters', async () => {
+      const domains = [
+        {
+          domain: 'Test',
+          metadata: {
+            'Test.test': {
+              'parameters': [{
+                name: 'test',
+                type: 'test',
+                optional: true,
+              }],
+            },
+          },
+        },
+        {
+          domain: 'Test2',
+          metadata: {
+            'Test2.test2': {
+              'parameters': [{
+                name: 'test2',
+                type: 'test2',
+                optional: true,
+              }],
+            },
+            'Test2.test3': {
+              'parameters': [{
+                name: 'test3',
+                type: 'test3',
+                optional: true,
+              }],
+            },
           },
         },
       ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
@@ -113,8 +166,8 @@ describe('ProtocolMonitor', () => {
                              optional: true,
                            }]);
 
-      assert.deepStrictEqual(
-          ProtocolMonitor.ProtocolMonitor.buildProtocolCommandsParametersMap(domains), expectedCommands);
+      const {parametersByCommand} = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(domains);
+      assert.deepStrictEqual(parametersByCommand, expectedCommands);
     });
   });
 
