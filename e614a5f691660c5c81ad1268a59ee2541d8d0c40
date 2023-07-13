@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dbe4fa2_782f9e9c",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T12:05:54Z",
+      "side": 1,
+      "message": "```suggestion\n.row:focus-within .deleteButton,\n```",
+      "revId": "e614a5f691660c5c81ad1268a59ee2541d8d0c40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
