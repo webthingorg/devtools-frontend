@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e738a0ce_a857a54c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-13T13:28:42Z",
+      "side": 1,
+      "message": "LGTM, so much cleaner!",
+      "revId": "06b15db1bf81cf2f293b8eed829c99a0fecac825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f8fea24_f7678d09",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-13T13:28:42Z",
+      "side": 1,
+      "message": "nit: I\u0027ve noticed this end of comment is not supported by DevTools IDE and makes it hard to debug a file with it, let\u0027s use `*/` instead",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 4
+      },
+      "revId": "06b15db1bf81cf2f293b8eed829c99a0fecac825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

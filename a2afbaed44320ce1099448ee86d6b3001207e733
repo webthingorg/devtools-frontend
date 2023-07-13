@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e2fd9b4_733f81c9",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-13T13:28:42Z",
+      "side": 0,
+      "message": "I think we can also delete this and references to it",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 323,
+        "endChar": 86
+      },
+      "revId": "a2afbaed44320ce1099448ee86d6b3001207e733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
