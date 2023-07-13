@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48f01e4f_a8eaed89",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T08:29:30Z",
+      "side": 1,
+      "message": "maybe use {} instead of [] ?",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 14
+      },
+      "revId": "be1b26421948847da8e9d05cdb94f38ce91afa66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
