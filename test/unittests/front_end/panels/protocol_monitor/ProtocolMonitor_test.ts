@@ -71,27 +71,33 @@ describe('ProtocolMonitor', () => {
       const domains = [
         {
           domain: 'Test',
-          commandParameters: {
-            'Test.test': [{
-              name: 'test',
-              type: 'test',
-              optional: true,
-            }],
+          metadata: {
+            'Test.test': {
+              'parameters': [{
+                name: 'test',
+                type: 'test',
+                optional: true,
+              }],
+            },
           },
         },
         {
           domain: 'Test2',
-          commandParameters: {
-            'Test2.test2': [{
-              name: 'test2',
-              type: 'test2',
-              optional: true,
-            }],
-            'Test2.test3': [{
-              name: 'test3',
-              type: 'test3',
-              optional: true,
-            }],
+          metadata: {
+            'Test2.test2': {
+              'parameters': [{
+                name: 'test2',
+                type: 'test2',
+                optional: true,
+              }],
+            },
+            'Test2.test3': {
+              'parameters': [{
+                name: 'test3',
+                type: 'test3',
+                optional: true,
+              }],
+            },
           },
         },
       ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
@@ -113,8 +119,8 @@ describe('ProtocolMonitor', () => {
                              optional: true,
                            }]);
 
-      assert.deepStrictEqual(
-          ProtocolMonitor.ProtocolMonitor.buildProtocolCommandsParametersMap(domains), expectedCommands);
+      const {parametersByCommand} = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(domains);
+      assert.deepStrictEqual(parametersByCommand, expectedCommands);
     });
   });
 
