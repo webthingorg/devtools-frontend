@@ -56,6 +56,30 @@
       },
       "revId": "b7ea60e286f95e75faac11abb17fea95451cc18d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad0c8c0_1098d3e4",
+        "filename": "test/unittests/front_end/models/breakpoints/BreakpointManager_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-13T05:28:02Z",
+      "side": 1,
+      "message": "Thanks for catching! I wrongly assumed the environment resets experiments.",
+      "parentUuid": "f52ea8da_f040e316",
+      "range": {
+        "startLine": 286,
+        "startChar": 5,
+        "endLine": 286,
+        "endChar": 44
+      },
+      "revId": "b7ea60e286f95e75faac11abb17fea95451cc18d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
