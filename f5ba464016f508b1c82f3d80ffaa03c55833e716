@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16837245_8ff952e0",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T11:27:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7782196a_01e27144",
+      "range": {
+        "startLine": 171,
+        "startChar": 1,
+        "endLine": 171,
+        "endChar": 176
+      },
+      "revId": "f5ba464016f508b1c82f3d80ffaa03c55833e716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "798e76ed_1003d0ce",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-13T10:57:37Z",
       "side": 1,
       "message": "also this line",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 148
+      },
+      "revId": "f5ba464016f508b1c82f3d80ffaa03c55833e716",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a5d2b0_d05abe58",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T11:27:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "798e76ed_1003d0ce",
       "range": {
         "startLine": 174,
         "startChar": 0,
