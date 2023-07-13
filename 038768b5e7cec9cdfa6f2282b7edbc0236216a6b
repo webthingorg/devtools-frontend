@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73bff8f2_07c18bf2",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-07-13T22:55:12Z",
+      "side": 0,
+      "message": "@kprokopenko@chromium.org Hi Kateryna, I suppose adding the border for the input boxes in the Styles pane and the Computed pane is intentional, right? Just want to check if I missed anything.",
+      "revId": "038768b5e7cec9cdfa6f2282b7edbc0236216a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
