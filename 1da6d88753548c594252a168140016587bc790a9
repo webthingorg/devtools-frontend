@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b72c972c_55fa33ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T11:18:08Z",
+      "side": 1,
+      "message": "You can try click the `rebase` button in top-right",
+      "parentUuid": "d621874c_09b661f9",
+      "revId": "1da6d88753548c594252a168140016587bc790a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb82b3d7_e80067ea",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
         "patchSetId": 3
