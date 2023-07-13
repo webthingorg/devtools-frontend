@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb3721e5_063ef79b",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:10:10Z",
+      "side": 0,
+      "message": "do we just drop the `depth`?",
+      "range": {
+        "startLine": 70,
+        "startChar": 83,
+        "endLine": 70,
+        "endChar": 88
+      },
+      "revId": "7261296fc3837b1a659e0af4a7d54eec102973c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
