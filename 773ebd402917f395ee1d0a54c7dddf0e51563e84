@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b6e0625_1db94bb2",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T07:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f33d7eb_863dc948",
+      "revId": "773ebd402917f395ee1d0a54c7dddf0e51563e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dc528b9_a4dd3621",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-13T07:23:34Z",
       "side": 1,
       "message": "remove this line (see the previous suggestion)",
+      "revId": "773ebd402917f395ee1d0a54c7dddf0e51563e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdc6be7f_60e61902",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T07:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dc528b9_a4dd3621",
       "revId": "773ebd402917f395ee1d0a54c7dddf0e51563e84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e2bf543_2d50ca0e",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T07:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d68cb90_1e14a623",
+      "revId": "773ebd402917f395ee1d0a54c7dddf0e51563e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4965a01_64ca8d8a",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-07-13T07:21:45Z",
       "side": 1,
       "message": "buildProtocolMetadata?",
+      "revId": "773ebd402917f395ee1d0a54c7dddf0e51563e84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e582140d_f21cb167",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T07:31:10Z",
+      "side": 1,
+      "message": "Sorry about this stupid mistake...",
+      "parentUuid": "f4965a01_64ca8d8a",
       "revId": "773ebd402917f395ee1d0a54c7dddf0e51563e84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
