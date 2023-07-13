@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7607db4_7dfded1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-07-13T23:10:23Z",
+      "side": 1,
+      "message": "Hey Danil, a very small CL fixing some typos that I came across in the heapsnapshot file. PTAL, thank you!",
+      "revId": "3ec907be7da531912f22ba1f13c451271c1d8a68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
