@@ -1008,6 +1008,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.controller.dispose();
       this.controller = null;
     }
+    // Ensure we resume all targets, otherwise DevTools remains unresponsive in the event of an error.
+    void SDK.TargetManager.TargetManager.instance().resumeAllTargets();
   }
 
   private onSuspendStateChanged(): void {
