@@ -270,7 +270,7 @@ async function execImageDiffCommand(cmd: string) {
   });
 }
 
-async function compare(golden: string, generated: string, maximumDiffThreshold: number) {
+async function compare(golden: string, generated: string, _maximumDiffThreshold: number) {
   const isOnBot = process.env.LUCI_CONTEXT !== undefined;
 
   if (!isOnBot && process.env.SKIP_SCREENSHOT_COMPARISONS_FOR_FAST_COVERAGE) {
@@ -310,7 +310,7 @@ async function compare(golden: string, generated: string, maximumDiffThreshold: 
 
   try {
     assert.isAtMost(
-        rawMisMatchPercentage, maximumDiffThreshold,
+        rawMisMatchPercentage, 0,
         `There is a ${rawMisMatchPercentage}% difference between the golden and generated image.
 
     ${debugInfo}`);
