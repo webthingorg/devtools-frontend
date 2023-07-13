@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8019baf5_ab6c80e6",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T11:40:13Z",
+      "side": 1,
+      "message": "it\u0027s not optional now, right?",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "933df4ab_f679da74",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T11:40:13Z",
+      "side": 1,
+      "message": "declare a regular #property for hintPopoverHelper It should not be a property or state as we are not dealing with lit here.",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f08c2714_59d018d2",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T11:40:13Z",
+      "side": 1,
+      "message": "also, let\u0027s improve the code here: 1) create a helper at the top level called splitDescription 2) it should return two strings [head, tail] 3) call it before you define the hint object, put the head into getMessage and tail into getPossibleFixMessage",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d59ec22c_72dca70e",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T11:40:13Z",
+      "side": 1,
+      "message": "I think we should put restOfDescription to getPossibleFixMessage message.",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e95c1c8_2cb88e8d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T11:40:13Z",
+      "side": 1,
+      "message": "instead of two `if`s and duplicating the return value let\u0027s create a helper that given an element returns a hint. If the hint is returned, we return the {box, show} thing.",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b569b3_a5d694fe",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T11:40:13Z",
+      "side": 1,
+      "message": "do we have the same class for different elements? the div below seems to have the parameter class too",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
