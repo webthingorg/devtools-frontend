@@ -22,6 +22,30 @@
       },
       "revId": "8105ca4848c997c8b4bdbfe5f6addbcf3c58e1ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efc0f77a_ec14bbac",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-13T13:42:45Z",
+      "side": 1,
+      "message": "this doesn\u0027t work if the datagrid nodes happen to have the same text, does it? Or can that not happen? Is it safer (and possible) to compare the elements instead of their contents?",
+      "parentUuid": "54ed0d0f_cc0b42a0",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 33
+      },
+      "revId": "8105ca4848c997c8b4bdbfe5f6addbcf3c58e1ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
