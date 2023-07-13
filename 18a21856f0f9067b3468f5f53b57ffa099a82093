@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49c93284_2eb24452",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T12:14:40Z",
+      "side": 1,
+      "message": "Why do we have this map based on Domain?\nShouldn\u0027t we use command?",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 24
+      },
+      "revId": "18a21856f0f9067b3468f5f53b57ffa099a82093",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
