@@ -71,6 +71,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "baa8dd6e_0d13fa79",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T12:16:18Z",
+      "side": 1,
+      "message": "why do we need \u003ccode\u003e",
+      "range": {
+        "startLine": 147,
+        "startChar": 41,
+        "endLine": 147,
+        "endChar": 47
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e95c1c8_2cb88e8d",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 4
@@ -82,6 +105,75 @@
       "writtenOn": "2023-07-13T11:40:13Z",
       "side": 1,
       "message": "instead of two `if`s and duplicating the return value let\u0027s create a helper that given an element returns a hint. If the hint is returned, we return the {box, show} thing.",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e279fbb7_1b47a84b",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T12:16:18Z",
+      "side": 1,
+      "message": "why do we use the description of a domain? is that as intended?",
+      "range": {
+        "startLine": 156,
+        "startChar": 12,
+        "endLine": 156,
+        "endChar": 23
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d359592_e8d77fce",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T12:16:18Z",
+      "side": 1,
+      "message": "Let\u0027s add comment here as well",
+      "range": {
+        "startLine": 174,
+        "startChar": 4,
+        "endLine": 174,
+        "endChar": 14
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a29947_42f8ed79",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T12:16:18Z",
+      "side": 1,
+      "message": "please add comment what is in textcontent, and why this works",
+      "range": {
+        "startLine": 184,
+        "startChar": 43,
+        "endLine": 184,
+        "endChar": 55
+      },
       "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
