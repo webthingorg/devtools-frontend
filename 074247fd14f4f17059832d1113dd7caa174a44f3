@@ -16,6 +16,24 @@
       "message": "I have a question: is the description always non-null?\n\n```\n        json_param_description \u003d json_parameter.get(\"description\")\n        if json_param_description:\n            json_param_description \u003d Generator.format_description(\n                json_param_description)\n```\n\nlooks like it could be None which I assume serializes to either null or undefined. Can we rewrite it as \n\n```\n\n        json_param_description \u003d json_param_description \u003d Generator.format_description(\n                json_parameter.get(\"description\", \"\"))\n\n```\n\nto make sure?",
       "revId": "074247fd14f4f17059832d1113dd7caa174a44f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a97ed8a3_e526dc5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-07-13T08:01:59Z",
+      "side": 1,
+      "message": "Nice catch, I forgot that we are probably not type-checking the JS file here so TS wouldn\u0027t have caught it.",
+      "parentUuid": "7f8d4ee7_9507047b",
+      "revId": "074247fd14f4f17059832d1113dd7caa174a44f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
