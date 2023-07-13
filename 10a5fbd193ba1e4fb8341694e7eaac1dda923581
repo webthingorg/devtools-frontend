@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e706bda1_b90bf88f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8019baf5_ab6c80e6",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "933df4ab_f679da74",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-13T11:40:13Z",
       "side": 1,
       "message": "declare a regular #property for hintPopoverHelper It should not be a property or state as we are not dealing with lit here.",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a4a9690_52a17e14",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "933df4ab_f679da74",
       "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "690f4a2c_768907d7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d59ec22c_72dca70e",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f08b5e0_607891a9",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08c2714_59d018d2",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baa8dd6e_0d13fa79",
@@ -82,6 +154,30 @@
       "writtenOn": "2023-07-13T12:16:18Z",
       "side": 1,
       "message": "why do we need \u003ccode\u003e",
+      "range": {
+        "startLine": 147,
+        "startChar": 41,
+        "endLine": 147,
+        "endChar": 47
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38710092_24d54c8a",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "It\u0027s because some global styling apply fontWeight bold to \u003ccode\u003e tag but I can remove it and give span a fontWeight bold directly if you want to",
+      "parentUuid": "baa8dd6e_0d13fa79",
       "range": {
         "startLine": 147,
         "startChar": 41,
@@ -109,6 +205,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1f1a054_fab70766",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e95c1c8_2cb88e8d",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e279fbb7_1b47a84b",
@@ -122,6 +236,30 @@
       "writtenOn": "2023-07-13T12:16:18Z",
       "side": 1,
       "message": "why do we use the description of a domain? is that as intended?",
+      "range": {
+        "startLine": 156,
+        "startChar": 12,
+        "endLine": 156,
+        "endChar": 23
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77fef3fc_36da86d1",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Not at all thank you very much for pointing that out !",
+      "parentUuid": "e279fbb7_1b47a84b",
       "range": {
         "startLine": 156,
         "startChar": 12,
@@ -155,6 +293,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5beaacc_05e1514b",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d359592_e8d77fce",
+      "range": {
+        "startLine": 174,
+        "startChar": 4,
+        "endLine": 174,
+        "endChar": 14
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6a29947_42f8ed79",
@@ -178,6 +340,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afb52ac5_88a38819",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6a29947_42f8ed79",
+      "range": {
+        "startLine": 184,
+        "startChar": 43,
+        "endLine": 184,
+        "endChar": 55
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7b569b3_a5d694fe",
@@ -191,6 +377,24 @@
       "writtenOn": "2023-07-13T11:40:13Z",
       "side": 1,
       "message": "do we have the same class for different elements? the div below seems to have the parameter class too",
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90107da9_61d7ba9d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-13T16:36:01Z",
+      "side": 1,
+      "message": "Good catch thanks !",
+      "parentUuid": "a7b569b3_a5d694fe",
       "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
