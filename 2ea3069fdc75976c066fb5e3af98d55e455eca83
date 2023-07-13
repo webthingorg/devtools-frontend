@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01b0e4b1_bdfc0a7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-13T09:20:27Z",
+      "side": 1,
+      "message": "nit: performance panel?",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "2ea3069fdc75976c066fb5e3af98d55e455eca83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc00ec32_61a5f9fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-13T09:20:27Z",
+      "side": 1,
+      "message": "I am not thrilled that the overview panel can not emit data outside of its bounds, even though it has a min bound/max bound that can be set. That seems like a confusing situation to be in where you can set the bounds but still get data emitted that does not respect those bounds.\n\nI think we should consider either removing the concept of bounds entirely, and letting the caller (e.g. TimelinePanel) bind it (like this CL does), or we should keep the bounds and fix the Network panel bug within the network panel. In the network panel could we not update the bounds when we get new requests? WDYT?",
+      "revId": "2ea3069fdc75976c066fb5e3af98d55e455eca83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
