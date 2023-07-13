@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ed0d0f_cc0b42a0",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-13T13:36:15Z",
+      "side": 1,
+      "message": "This test flaked (see https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Shuffled%20Parallel%20Linux/114/overview) because if the result existed but took more than 500 ms to appear, the test would click and check immediately afterwards for the element, which would succeed because it has not disappeared yet. Therefore we added a check to start this race only after the selected element has changed.",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 33
+      },
+      "revId": "8105ca4848c997c8b4bdbfe5f6addbcf3c58e1ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
