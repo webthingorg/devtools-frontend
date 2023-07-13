@@ -22,6 +22,30 @@
       },
       "revId": "a2afbaed44320ce1099448ee86d6b3001207e733",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5e03c70_2959d2fc",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-13T13:34:33Z",
+      "side": 0,
+      "message": "Ah no we actually use this, I have mistakenly deleted the line below even though it is required to set up the callback reference above. Will put it back (I am sure we could do this cleaner, but I will leave that for another CL. Good catch!)",
+      "parentUuid": "3e2fd9b4_733f81c9",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 323,
+        "endChar": 86
+      },
+      "revId": "a2afbaed44320ce1099448ee86d6b3001207e733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
