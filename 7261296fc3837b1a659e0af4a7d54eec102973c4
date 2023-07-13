@@ -22,6 +22,30 @@
       },
       "revId": "7261296fc3837b1a659e0af4a7d54eec102973c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b1d5a96_f9c617a3",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-13T14:57:39Z",
+      "side": 0,
+      "message": "good call! I ended up dropping it because we aren\u0027t using it (at least yet) and I thought it could be confusing if there\u0027s a `depth` property in some trace events that doesn\u0027t really reflect the depth of it in the whole tree (since it was added in the context of pure CPU profiling).",
+      "parentUuid": "eb3721e5_063ef79b",
+      "range": {
+        "startLine": 70,
+        "startChar": 83,
+        "endLine": 70,
+        "endChar": 88
+      },
+      "revId": "7261296fc3837b1a659e0af4a7d54eec102973c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
