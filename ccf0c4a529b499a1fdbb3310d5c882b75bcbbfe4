@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6893330e_03a7cc4d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "some retro question, can you tell me why this is optional. thanks",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bfef191_dfb14999",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "I suggest having a separate function for this `getRequest` function. to make the constructor more clear",
+      "range": {
+        "startLine": 115,
+        "startChar": 70,
+        "endLine": 115,
+        "endChar": 80
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78060dff_fcc471e6",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "nits: this one seems only work when you hover the \"command\" part, I would expect hover the whole row will show the hint.",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 118,
+        "endChar": 75
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b3a6754_ef9c9865",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "we should return , so won\u0027t go to the parameter logic branch",
+      "range": {
+        "startLine": 137,
+        "startChar": 9,
+        "endLine": 138,
+        "endChar": 7
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07dd9ba4_32bb628b",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "same as the comment in the command one",
+      "range": {
+        "startLine": 140,
+        "startChar": 56,
+        "endLine": 140,
+        "endChar": 77
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffc4c5bd_3588d52c",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "if realParamId is [], the `#getChildByPath` will throw error, can you handle this?",
+      "range": {
+        "startLine": 143,
+        "startChar": 34,
+        "endLine": 143,
+        "endChar": 48
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d22a89_a525a560",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "```suggestion\n            \u0027getMessage\u0027: (): string \u003d\u003e parameter.description ??\u0027\u0027,\n```",
+      "range": {
+        "startLine": 150,
+        "startChar": 40,
+        "endLine": 150,
+        "endChar": 90
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0423961a_3fd3e3b1",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "can we just change the `hint.getMessage`",
+      "range": {
+        "startLine": 149,
+        "startChar": 10,
+        "endLine": 153,
+        "endChar": 12
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0510e0ec_5bda1425",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-13T09:02:53Z",
+      "side": 1,
+      "message": "nits:\n```suggestion\n        \u003c/${ElementsComponents.CSSHintDetailsView.CSSHintDetailsView.litTagName}\u003e\n```",
+      "range": {
+        "startLine": 505,
+        "startChar": 8,
+        "endLine": 505,
+        "endChar": 41
+      },
+      "revId": "ccf0c4a529b499a1fdbb3310d5c882b75bcbbfe4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
