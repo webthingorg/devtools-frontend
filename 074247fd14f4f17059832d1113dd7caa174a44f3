@@ -34,6 +34,24 @@
       "parentUuid": "7f8d4ee7_9507047b",
       "revId": "074247fd14f4f17059832d1113dd7caa174a44f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab620ab7_3177a151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-13T08:02:00Z",
+      "side": 1,
+      "message": "Clarified offline that this is a different description so this comment is not blocking. Yet we probably want to handle descriptions in the same way everywhere.",
+      "parentUuid": "7f8d4ee7_9507047b",
+      "revId": "074247fd14f4f17059832d1113dd7caa174a44f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
