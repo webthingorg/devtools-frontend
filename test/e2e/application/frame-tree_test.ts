@@ -276,6 +276,7 @@ describe('The Application Tab', async () => {
   });
 
   // Update and reactivate when the whole FrameDetailsView is a custom component
+  // deflaking
   it('can handle when JS writes to frame', async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     const {target} = getBrowserAndPages();

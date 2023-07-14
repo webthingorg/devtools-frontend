@@ -101,7 +101,7 @@ describe('The Application Tab', async () => {
     });
 
     await step('verify that metadata is correct', async () => {
-      const fieldValues = await getTrimmedTextContent('devtools-report-value');
+      const fieldValues = await getTrimmedTextContent('devtools-report-value', 4);
       const timeString = fieldValues[1];
       assert.deepEqual(fieldValues, [DOMAIN, timeString, '2', '12']);
     });

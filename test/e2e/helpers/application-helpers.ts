@@ -48,8 +48,11 @@ export async function getDataGridData(selector: string, columns: string[]) {
   return dataGridRowValues;
 }
 
-export async function getTrimmedTextContent(selector: string) {
+export async function getTrimmedTextContent(selector: string, leastElements: number = 0) {
   const elements = await $$(selector);
+  await waitForFunction(async () => {
+    return elements.length >= leastElements;
+  });
   return Promise.all(elements.map(element => element.evaluate(e => {
     return (e.textContent || '').trim().replace(/[ \n]{2,}/gm, '');  // remove multiple consecutive whitespaces
   })));
