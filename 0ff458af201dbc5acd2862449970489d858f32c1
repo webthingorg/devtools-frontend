@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8090ae9_7c24189d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-14T13:30:38Z",
+      "side": 1,
+      "message": "LGTM with two nits!",
+      "revId": "0ff458af201dbc5acd2862449970489d858f32c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0de7444d_2d99ea04",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-14T13:30:38Z",
+      "side": 1,
+      "message": "How about pulling the selector into a constant?",
+      "revId": "0ff458af201dbc5acd2862449970489d858f32c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca38ec2_917a00a5",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-14T13:30:38Z",
+      "side": 1,
+      "message": "I love this trick, but can you leave a comment what it does and why?",
+      "revId": "0ff458af201dbc5acd2862449970489d858f32c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
