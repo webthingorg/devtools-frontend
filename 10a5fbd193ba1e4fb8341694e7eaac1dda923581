@@ -308,6 +308,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c5ee05_b8e3f8f1",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-14T14:31:43Z",
+      "side": 1,
+      "message": "I updated the screen cast in the bug. Offline we discussed with Peter and agreed upon this design",
+      "parentUuid": "a256e9c3_9807a00e",
+      "range": {
+        "startLine": 147,
+        "startChar": 41,
+        "endLine": 147,
+        "endChar": 47
+      },
+      "revId": "10a5fbd193ba1e4fb8341694e7eaac1dda923581",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e95c1c8_2cb88e8d",
