@@ -8,7 +8,9 @@ import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
+import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as ElementsComponents from '../../elements/components/components.js';
 import * as RecorderComponents from '../../recorder/components/components.js';
 
 import editorWidgetStyles from './JSONEditor.css.js';
@@ -34,6 +36,7 @@ interface BaseParameter {
   optional: boolean;
   name: string;
   typeRef?: string;
+  description: string;
 }
 
 interface ArrayParameter extends BaseParameter {
@@ -73,6 +76,7 @@ interface Type {
   name: string;
   type: string;
   optional: boolean;
+  description: string;
 }
 /**
  * Parents should listen for this event and register the listeners provided by
@@ -88,6 +92,12 @@ export class SubmitEditorEvent extends Event {
   }
 }
 
+const splitDescription = (description: string): [string, string] => {
+  const firstSentence = description.split('.')[0];
+  const restOfDescription = description.slice(firstSentence.length + 1);
+  return [firstSentence, restOfDescription];
+};
+
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
@@ -99,8 +109,16 @@ export class JSONEditor extends LitElement {
   @state() command: string = '';
   @state() targetId?: string;
 
+  #hintPopoverHelper: UI.PopoverHelper.PopoverHelper;
   constructor() {
     super();
+
+    this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this, event => this.#handlePopoverDescriptions(event));
+
+    this.#hintPopoverHelper.setDisableOnClick(true);
+    this.#hintPopoverHelper.setTimeout(300);
+    this.#hintPopoverHelper.setHasPadding(true);
+
     this.parameters = [];
     this.targetManager = SDK.TargetManager.TargetManager.instance();
     this.targetId = this.targetManager.targets().length !== 0 ? this.targetManager.targets()[0].id() : undefined;
@@ -114,6 +132,78 @@ export class JSONEditor extends LitElement {
         }));
       }
     });
+  }
+
+  #handlePopoverDescriptions(event: MouseEvent):
+      {box: AnchorBox, show: (popover: UI.GlassPane.GlassPane) => Promise<boolean>}|null {
+    const hintElement = event.composedPath()[0] as HTMLElement;
+    const description = this.descriptionsByCommand.get(this.command);
+
+    if (!description) {
+      return null;
+    }
+
+    const populateDescription = (description: string): void => {
+      // If the description is too long we make the UI a bit better by highlighting the first sentence
+      // which contains the most informations.
+      // The number 100 has been chosen arbitrarily
+      if (description.length > 150) {
+        const [firstSentence, restOfDescription] = splitDescription(description);
+        hint.getMessage = (): string => `<code><span>${firstSentence}</span></code>`;
+        hint.getPossibleFixMessage = (): string => restOfDescription;
+      } else {
+        hint.getMessage = (): string => description;
+      }
+    };
+
+    const getHintForElement = (element: HTMLElement, description: string): (() => string)|null => {
+      // The popover only takes into account the inner most element
+      // It is therefore require to match only the command class and not the whole row
+      if (element.matches('.command')) {
+        populateDescription(description);
+        return hint.getMessage;
+      }
+
+      // The popover only takes into account the inner most element
+      // It is therefore require to match only the parameter class and not the whole row
+      if (element.matches('.parameter')) {
+        const id = element.dataset.paramid;
+        if (!id) {
+          return null;
+        }
+
+        const realParamId = id.split('.');
+        const {parameter} = this.#getChildByPath(realParamId);
+        if (!parameter.description || parameter.name !== element.textContent?.slice(0, -1)) {
+          return null;
+        }
+
+        populateDescription(parameter.description);
+        return hint.getMessage;
+      }
+
+      return null;
+    };
+
+    const hint = {
+      'getMessage': (): string => '',
+      'getPossibleFixMessage': (): string => '',
+      'getLearnMoreLink': (): string => '',
+    };
+
+    const hintGetter = getHintForElement(hintElement, description);
+    if (hintGetter) {
+      return {
+        box: hintElement.boxInWindow(),
+        show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
+          const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView(hint);
+          popover.contentElement.appendChild(popupElement);
+          return true;
+        },
+      };
+    }
+
+    return null;
   }
 
   #copyToClipboard(): void {
@@ -179,12 +269,14 @@ export class JSONEditor extends LitElement {
         return {
           optional: parameter.optional,
           type: parameter.type,
+          description: parameter.description,
           typeRef: parameter.typeRef,
           value: typeInfos.map(type => {
             const param: Parameter = {
               optional: type.optional,
               type: this.#isParameterSupported(parameter) ? type.type : 'string',
               name: type.name,
+              description: type.description,
               value: undefined,
             } as Parameter;
             return param;
@@ -196,6 +288,7 @@ export class JSONEditor extends LitElement {
         return {
           optional: parameter.optional,
           type: parameter.type,
+          description: parameter.description,
           typeRef: parameter.typeRef,
           value: [],
           name: parameter.name,
@@ -207,6 +300,7 @@ export class JSONEditor extends LitElement {
         typeRef: this.#isParameterSupported(parameter) ? parameter.typeRef : 'string',
         value: parameter.value || undefined,
         name: parameter.name,
+        description: parameter.description,
       } as Parameter;
     });
   }
@@ -385,11 +479,11 @@ export class JSONEditor extends LitElement {
           const handleInputOnBlur = (event: Event): void => {
             this.#handleParameterInputBlur(event);
           };
-          const classes = {colorBlue: parameter.optional};
+          const classes = {colorBlue: parameter.optional, parameter: true};
           return html`
             <li class="row">
               <div class="row">
-                <div class=${classMap(classes)}>${parameter.name}<span class="separator">:</span></div>
+                <div class=${classMap(classes)} data-paramId=${parameterId}>${parameter.name}<span class="separator">:</span></div>
                 ${parameter.type === 'array' ? html`
                 ${this.#renderInlineButton({
                   title: 'Add parameter',
@@ -429,7 +523,7 @@ export class JSONEditor extends LitElement {
     <div class="wrapper">
       ${this.#renderTargetSelectorRow()}
       <div class="row attribute padded">
-        <div>command<span class="separator">:</span></div>
+        <div class="command">command<span class="separator">:</span></div>
         <devtools-recorder-input
           .options=${[...this.parametersByCommand.keys()]}
           .value=${this.command}
