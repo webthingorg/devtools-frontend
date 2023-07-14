@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c93a847_1fe0ff63",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-14T08:51:35Z",
+      "side": 1,
+      "message": "nits: how about change `x` to some more clear name",
+      "range": {
+        "startLine": 929,
+        "startChar": 14,
+        "endLine": 929,
+        "endChar": 15
+      },
+      "revId": "99efe2448c0b57a57546a8604ad1d00015635401",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4f6285c_d3e8b2c9",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 14
@@ -32,6 +55,29 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a4f6285c_d3e8b2c9",
+      "revId": "99efe2448c0b57a57546a8604ad1d00015635401",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33469ab0_20895100",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-14T08:51:35Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 161,
+        "startChar": 23,
+        "endLine": 161,
+        "endChar": 24
+      },
       "revId": "99efe2448c0b57a57546a8604ad1d00015635401",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
