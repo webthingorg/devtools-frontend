@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae37cf34_52216547",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:19:15Z",
+      "side": 1,
+      "message": "The order should be: description first, then actual UIString.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 5
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237e479d_942b7648",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:19:15Z",
+      "side": 1,
+      "message": "How about \u0027Hide requests by extensions\u0027? We should probably not explicitly mention Chrome here.",
+      "range": {
+        "startLine": 126,
+        "startChar": 21,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7458f0b1_865574a6",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:19:15Z",
+      "side": 1,
+      "message": "The hover text should provide a bit more details than the label itself. How about \u0027Hide requests created by browser extensions`?",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 58
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbfaeabc_b2a83136",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:19:15Z",
+      "side": 1,
+      "message": "Have you checked whether the checkbox state is persisted when closing and re-opening DevTools?",
+      "range": {
+        "startLine": 552,
+        "startChar": 3,
+        "endLine": 552,
+        "endChar": 42
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
