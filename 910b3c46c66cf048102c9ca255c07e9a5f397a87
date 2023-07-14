@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c2c0b7_bffa77f0",
+        "filename": "front_end/models/cpu_profile/CPUProfileDataModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Good catch! We don\u0027t really :)",
+      "parentUuid": "83d528b7_68bb7fb4",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 68
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43137998_94c501e5",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-07-13T13:55:43Z",
       "side": 1,
       "message": "typo?",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 22
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f56ed1_624a4046",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43137998_94c501e5",
       "range": {
         "startLine": 21,
         "startChar": 13,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b738c8d_38659b9b",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5322fe1e_53e107c7",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 28
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "149cd982_3c3a8500",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-07-13T13:55:43Z",
       "side": 1,
       "message": "nit: can we call this event please rather than e? (same through the file)",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 22
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30238d18_f7fa9aa1",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "149cd982_3c3a8500",
       "range": {
         "startLine": 62,
         "startChar": 21,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97bf4979_5348560c",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50e28999_a1e7fc45",
+      "range": {
+        "startLine": 63,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 5
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fe496ec_4f76f73a",
@@ -163,6 +283,30 @@
       "writtenOn": "2023-07-13T13:55:43Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 85,
+        "startChar": 15,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c64b014_5b0480c8",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fe496ec_4f76f73a",
       "range": {
         "startLine": 85,
         "startChar": 15,
@@ -196,6 +340,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "037274f5_9df21bfa",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "`depth` is 0 based, so to set the size of the array we need to add 1 to its value. I added a comment explaining this.",
+      "parentUuid": "db4a7fc3_ba3f86ea",
+      "range": {
+        "startLine": 168,
+        "startChar": 74,
+        "endLine": 168,
+        "endChar": 78
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c63883f3_705334f6",
@@ -209,6 +377,30 @@
       "writtenOn": "2023-07-13T13:55:43Z",
       "side": 1,
       "message": "to check my understanding, if we have a profile call event, we know we can use its stack trace. But in the other case, what is helperJSStack?",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 120
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a141baa_1fa631ff",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "`helperJSStack` tracks the state of the JS stack at each point in time to update the profile call durations as new events arrive. This doesn\u0027t only happen with new profile calls (in which case we would compare the stack in them) but also with trace events (in which case we would update the duration of the events we are tracking at the moment).",
+      "parentUuid": "c63883f3_705334f6",
       "range": {
         "startLine": 185,
         "startChar": 0,
@@ -242,6 +434,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7ff92ff_e153a474",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b87e285_6707e064",
+      "range": {
+        "startLine": 308,
+        "startChar": 42,
+        "endLine": 308,
+        "endChar": 48
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd871bb4_3c396f5b",
@@ -255,6 +471,30 @@
       "writtenOn": "2023-07-13T13:55:43Z",
       "side": 1,
       "message": "Any reason to mutate the stack vs return a new one? I guess performance? I don\u0027t mind (because this method returns void it is clearly mutating), just curious!",
+      "range": {
+        "startLine": 322,
+        "startChar": 9,
+        "endLine": 322,
+        "endChar": 26
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6d3e152_7a3b2397",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "I\u0027m unsure what the original reasoning was, I\u0027m guessing it\u0027s about being extra careful with perf and memory overhead because this is done for every single sample in the profile",
+      "parentUuid": "bd871bb4_3c396f5b",
       "range": {
         "startLine": 322,
         "startChar": 9,
@@ -288,6 +528,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "012eb2f7_81babbfb",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "875d9116_44068413",
+      "range": {
+        "startLine": 329,
+        "startChar": 33,
+        "endLine": 329,
+        "endChar": 51
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "536069df_a61cefae",
@@ -301,6 +565,30 @@
       "writtenOn": "2023-07-13T13:55:43Z",
       "side": 1,
       "message": "wondering if we should call this something with Synthetic in, to match the pattern of using that when the events are fakes that we have made? wdyt?",
+      "range": {
+        "startLine": 354,
+        "startChar": 58,
+        "endLine": 354,
+        "endChar": 69
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "131723ec_5cb854d2",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Agreed I was discussing the same thing with Nancy.",
+      "parentUuid": "536069df_a61cefae",
       "range": {
         "startLine": 354,
         "startChar": 58,
@@ -334,6 +622,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b66354_89efde7e",
+        "filename": "test/unittests/front_end/models/trace/helpers/SamplesIntegrator_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "that\u0027s right. I was thinking to plug it in the renderer handler where the trace event tree is built. To leverage the fact that we are traversing the whole trace event list and tracking the tree relationship (which the integrator needs)",
+      "parentUuid": "4dd20ac8_c3822f9f",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0848b732_17ad6e30",
@@ -347,6 +659,30 @@
       "writtenOn": "2023-07-13T13:55:43Z",
       "side": 1,
       "message": "lol in the mood for pizza? 😄",
+      "range": {
+        "startLine": 63,
+        "startChar": 20,
+        "endLine": 63,
+        "endChar": 28
+      },
+      "revId": "910b3c46c66cf048102c9ca255c07e9a5f397a87",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea0fc0ee_2004f4f1",
+        "filename": "test/unittests/front_end/models/trace/helpers/SamplesIntegrator_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-14T07:06:22Z",
+      "side": 1,
+      "message": "Pizza can make complicated code easier to digest :)",
+      "parentUuid": "0848b732_17ad6e30",
       "range": {
         "startLine": 63,
         "startChar": 20,
