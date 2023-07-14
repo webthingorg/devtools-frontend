@@ -16,6 +16,24 @@
       "message": "-1 to block the submission because I found a bug in InspectorBackend.ts",
       "revId": "4c3cfd4a526a885c961f04f68914391ec32d8f74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb8e49b_a209880f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-14T10:12:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dc056c5_3e0d8d26",
+      "revId": "4c3cfd4a526a885c961f04f68914391ec32d8f74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
