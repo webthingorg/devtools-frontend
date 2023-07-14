@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9184647_0ec384c7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-14T06:03:17Z",
+      "side": 1,
+      "message": "let\u0027s move the helpers to the top-level of this module",
+      "revId": "631096132a486eded8ba0f7e5e7e070deb541471",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c3d54c1_eaaf0726",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-14T06:03:17Z",
+      "side": 1,
+      "message": "this is not exactly what my comment on the previous patchset was about :) let\u0027s discuss it later",
+      "revId": "631096132a486eded8ba0f7e5e7e070deb541471",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
