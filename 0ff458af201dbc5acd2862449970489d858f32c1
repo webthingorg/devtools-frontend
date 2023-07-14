@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5f6abe2_0d43fe25",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-14T13:39:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0de7444d_2d99ea04",
+      "revId": "0ff458af201dbc5acd2862449970489d858f32c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ca38ec2_917a00a5",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-07-14T13:30:38Z",
       "side": 1,
       "message": "I love this trick, but can you leave a comment what it does and why?",
+      "revId": "0ff458af201dbc5acd2862449970489d858f32c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d706229_c52a8642",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-14T13:39:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca38ec2_917a00a5",
       "revId": "0ff458af201dbc5acd2862449970489d858f32c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
