@@ -36,13 +36,29 @@ vars = {
 
   # Chromium build number for unit tests. It should be regularly updated to
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/LAST_CHANGE
+<<<<<<< PATCH SET (dcb251 [Protocol Monitor] Display description when hover over comma)
+  'chromium_linux': '1169850',
+=======
   'chromium_linux': '1170313',
+>>>>>>> BASE      (10de79 [ProtocolMonitor] Minus button should be shown when the focu)
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
+<<<<<<< PATCH SET (dcb251 [Protocol Monitor] Display description when hover over comma)
+  'chromium_win': '1169834',
+=======
   'chromium_win': '1170275',
+>>>>>>> BASE      (10de79 [ProtocolMonitor] Minus button should be shown when the focu)
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE
+<<<<<<< PATCH SET (dcb251 [Protocol Monitor] Display description when hover over comma)
+  'chromium_mac': '1169835',
+=======
   'chromium_mac': '1170301',
+>>>>>>> BASE      (10de79 [ProtocolMonitor] Minus button should be shown when the focu)
   # the content of https://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac_Arm/LAST_CHANGE
+<<<<<<< PATCH SET (dcb251 [Protocol Monitor] Display description when hover over comma)
+  'chromium_mac_arm': '1169830',
+=======
   'chromium_mac_arm': '1170288',
+>>>>>>> BASE      (10de79 [ProtocolMonitor] Minus button should be shown when the focu)
 }
 
 # Only these hosts are allowed for dependencies in this DEPS file.
