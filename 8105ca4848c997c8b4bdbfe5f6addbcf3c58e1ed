@@ -118,6 +118,30 @@
       },
       "revId": "8105ca4848c997c8b4bdbfe5f6addbcf3c58e1ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a0397c_0ee4a7fc",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-14T08:51:19Z",
+      "side": 1,
+      "message": "I tried comparing the elements returned from `$` evaluated in the page.",
+      "parentUuid": "1aab178b_9fe2b423",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 33
+      },
+      "revId": "8105ca4848c997c8b4bdbfe5f6addbcf3c58e1ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
