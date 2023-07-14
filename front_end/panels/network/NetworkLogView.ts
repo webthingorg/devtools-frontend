@@ -852,6 +852,10 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     return this.summaryToolbarInternal;
   }
 
+  filterBarForTest(): UI.FilterBar.FilterBar {
+    return this.filterBar;
+  }
+
   modelAdded(networkManager: SDK.NetworkManager.NetworkManager): void {
     // TODO(allada) Remove dependency on networkManager and instead use NetworkLog and PageLoad for needed data.
     const target = networkManager.target();
