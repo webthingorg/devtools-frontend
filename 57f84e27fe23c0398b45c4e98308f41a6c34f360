@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9832b405_e949af00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-14T12:23:21Z",
+      "side": 1,
+      "message": "do we have some tests for this?",
+      "revId": "57f84e27fe23c0398b45c4e98308f41a6c34f360",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42a8b09e_1c7910d5",
@@ -20,6 +37,23 @@
         "endLine": 736,
         "endChar": 36
       },
+      "revId": "57f84e27fe23c0398b45c4e98308f41a6c34f360",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f607a6b4_6e19f147",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 25
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-14T12:23:21Z",
+      "side": 1,
+      "message": "smth is wrong with indentation",
       "revId": "57f84e27fe23c0398b45c4e98308f41a6c34f360",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
