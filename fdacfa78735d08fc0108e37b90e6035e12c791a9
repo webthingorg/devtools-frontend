@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f807e7fd_376d4995",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-14T09:06:28Z",
+      "side": 1,
+      "message": "PTAL\n\nNote that I expect this to fail until crrev.com/c/4684215 lands and is rebased, but I am running a dry run on purpose to ensure that it does fail.",
+      "revId": "fdacfa78735d08fc0108e37b90e6035e12c791a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
