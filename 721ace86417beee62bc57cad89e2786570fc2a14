@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e262cada_97486951",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:37:04Z",
+      "side": 1,
+      "message": "I think you can avoid having to create this function just for testing. See other comment.",
+      "range": {
+        "startLine": 855,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 3
+      },
+      "revId": "721ace86417beee62bc57cad89e2786570fc2a14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6f4ac7e_1ce09119",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:37:04Z",
+      "side": 1,
+      "message": "How about letting this function accept an optional argument of type FilterBar?\nYou could then call the NetworkLogView constructor with the FilterBar argument or if it is not provided with the mock as it was done before.",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 76
+      },
+      "revId": "721ace86417beee62bc57cad89e2786570fc2a14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7762896e_4e0cdb71",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:37:04Z",
+      "side": 1,
+      "message": "What additional info does the 3rd request provide or could it be removed?",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 263,
+        "endChar": 45
+      },
+      "revId": "721ace86417beee62bc57cad89e2786570fc2a14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49de25b8_322d6e7c",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:37:04Z",
+      "side": 1,
+      "message": "See earlier comments:\n```\nconst filterBar \u003d new UI.FilterBar.FilterBar(\u0027networkPanel\u0027, true);\nnetworkLogView \u003d createNetworkLogView(filterBar);\n```",
+      "range": {
+        "startLine": 264,
+        "startChar": 6,
+        "endLine": 264,
+        "endChar": 46
+      },
+      "revId": "721ace86417beee62bc57cad89e2786570fc2a14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35f57c7_c5b21df7",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T12:37:04Z",
+      "side": 1,
+      "message": "How about a name which makes it obvious that this is a checkbox?",
+      "range": {
+        "startLine": 271,
+        "startChar": 12,
+        "endLine": 271,
+        "endChar": 19
+      },
+      "revId": "721ace86417beee62bc57cad89e2786570fc2a14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
