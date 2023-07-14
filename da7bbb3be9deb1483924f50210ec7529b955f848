@@ -63,6 +63,30 @@
       },
       "revId": "da7bbb3be9deb1483924f50210ec7529b955f848",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63acf4f8_a36e0c5f",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-07-14T09:24:10Z",
+      "side": 1,
+      "message": "\"Blocked response cookies\" is ok with me.",
+      "parentUuid": "88a95aa8_efaa09ab",
+      "range": {
+        "startLine": 101,
+        "startChar": 22,
+        "endLine": 101,
+        "endChar": 49
+      },
+      "revId": "da7bbb3be9deb1483924f50210ec7529b955f848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
