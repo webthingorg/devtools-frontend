@@ -107,7 +107,8 @@ const splitDescription = (description: string): [string, string] => {
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
-  @property() declare metadataByCommand: Map<string, {parameters: Parameter[], description: string}>;
+  @property()
+  declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
   @property() declare parametersByType: Map<string, Type[]>;
   @property() declare targetManager;
   @state() declare parameters: Parameter[];
@@ -147,7 +148,7 @@ export class JSONEditor extends LitElement {
       return null;
     }
     const [head, tail] = splitDescription(elementData.description);
-    const type = elementData.type;
+    const type = elementData.type || elementData.replyArgs;
     return {
       box: hintElement.boxInWindow(),
       show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
@@ -165,11 +166,11 @@ export class JSONEditor extends LitElement {
   }
 
   #getDescriptionAndTypeForElement(hintElement: HTMLElement):
-      {description: string, type: ParameterType|string}|undefined {
+      {description: string, type?: ParameterType, replyArgs?: string[]}|undefined {
     if (hintElement.matches('.command')) {
       const metadata = this.metadataByCommand.get(this.command);
       if (metadata) {
-        return {description: metadata.description, type: ''};
+        return {description: metadata.description, replyArgs: metadata.replyArgs};
       }
     }
     if (hintElement.matches('.parameter')) {
