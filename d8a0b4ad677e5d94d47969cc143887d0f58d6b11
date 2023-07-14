@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32771f3c_427982a9",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-14T08:25:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fd7dcfc_e397fbeb",
+      "revId": "d8a0b4ad677e5d94d47969cc143887d0f58d6b11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "515e3703_248ed960",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-14T07:48:45Z",
       "side": 1,
       "message": "can we use one map with `domain.metadata[command]` as values? (given that we don\u0027t actually have domain descriptions)",
+      "revId": "d8a0b4ad677e5d94d47969cc143887d0f58d6b11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27e43359_2ae418e6",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-14T08:25:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "515e3703_248ed960",
       "revId": "d8a0b4ad677e5d94d47969cc143887d0f58d6b11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
