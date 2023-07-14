@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "973d7934_5d749112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T07:51:32Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "da7bbb3be9deb1483924f50210ec7529b955f848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb940077_539063db",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-14T07:51:32Z",
+      "side": 1,
+      "message": "Alternatively \u0027Blocked response cookies\u0027. Which one do you prefer? \n\nThe reason I phrased it like this, is that maybe the term \u0027response cookie\u0027 is not clear to everyone, but referencing the \u0027set-cookie\u0027 header might be.",
+      "range": {
+        "startLine": 101,
+        "startChar": 22,
+        "endLine": 101,
+        "endChar": 49
+      },
+      "revId": "da7bbb3be9deb1483924f50210ec7529b955f848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
