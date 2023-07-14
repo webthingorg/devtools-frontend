@@ -39,6 +39,30 @@
       },
       "revId": "da7bbb3be9deb1483924f50210ec7529b955f848",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88a95aa8_efaa09ab",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-14T09:21:38Z",
+      "side": 1,
+      "message": "I\u0027d prefer \"Blocked response cookies\". We are already using this term to distinguish headers.",
+      "parentUuid": "bb940077_539063db",
+      "range": {
+        "startLine": 101,
+        "startChar": 22,
+        "endLine": 101,
+        "endChar": 49
+      },
+      "revId": "da7bbb3be9deb1483924f50210ec7529b955f848",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
