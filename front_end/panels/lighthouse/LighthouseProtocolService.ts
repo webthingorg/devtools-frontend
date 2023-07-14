@@ -90,6 +90,10 @@ export class ProtocolService {
       if (typeof message === 'string') {
         message = JSON.parse(message);
       }
+      // @ts-ignore
+      if (message?.params?.targetInfo?.subtype === 'fenced') {
+        console.log('#########', JSON.stringify(message, null, 2));
+      }
       this.dispatchProtocolMessage(message);
     });
 
