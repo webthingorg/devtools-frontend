@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed504e0_c91d4dee",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-14T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae37cf34_52216547",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 5
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "237e479d_942b7648",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-14T12:19:15Z",
       "side": 1,
       "message": "How about \u0027Hide requests by extensions\u0027? We should probably not explicitly mention Chrome here.",
+      "range": {
+        "startLine": 126,
+        "startChar": 21,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a2fa12_10760728",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-14T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "237e479d_942b7648",
       "range": {
         "startLine": 126,
         "startChar": 21,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d738bdb_c27ae054",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-14T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7458f0b1_865574a6",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 58
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbfaeabc_b2a83136",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-14T12:19:15Z",
       "side": 1,
       "message": "Have you checked whether the checkbox state is persisted when closing and re-opening DevTools?",
+      "range": {
+        "startLine": 552,
+        "startChar": 3,
+        "endLine": 552,
+        "endChar": 42
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "508a0834_3a1f23cd",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-14T13:55:00Z",
+      "side": 1,
+      "message": "Actually, its state wasn\u0027t persistent when closing and re-opening DevTools, and would always be checked. But now this is fixed.",
+      "parentUuid": "bbfaeabc_b2a83136",
       "range": {
         "startLine": 552,
         "startChar": 3,
