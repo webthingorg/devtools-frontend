@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94dcbdf0_b45022cc",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-14T13:14:33Z",
+      "side": 1,
+      "message": "add period to finish the sentence",
+      "range": {
+        "startLine": 102,
+        "startChar": 12,
+        "endLine": 102,
+        "endChar": 25
+      },
+      "revId": "1bcb5cd724a79a33ef88dac46497e84e8130c9a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a065c28b_9490238e",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 27
@@ -14,6 +37,30 @@
       "writtenOn": "2023-07-14T13:12:35Z",
       "side": 1,
       "message": "```suggestion\n          \u0027getMessage\u0027: (): string \u003d\u003e `\u003ccode\u003e\u003cspan\u003e${head}.\u003c/span\u003e\u003c/code\u003e`,\n          // Will change this line once the returnType of command will have been added to the metadataByCommandMap\n          \u0027getPossibleFixMessage\u0027: (): string \u003d\u003e type ? tail + `\u003cbr\u003eType: ${type}\u003cbr\u003e` : tail,\n          \u0027getLearnMoreLink\u0027: (): string \u003d\u003e\n```",
+      "range": {
+        "startLine": 155,
+        "startChar": 10,
+        "endLine": 158,
+        "endChar": 43
+      },
+      "revId": "1bcb5cd724a79a33ef88dac46497e84e8130c9a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20245951_a15a737a",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-14T13:14:33Z",
+      "side": 1,
+      "message": "Ignore the previous one.\n```suggestion\n          \u0027getMessage\u0027: (): string \u003d\u003e `\u003ccode\u003e\u003cspan\u003e${head}\u003c/span\u003e\u003c/code\u003e`,\n          // Will change this line once the returnType of command will have been added to the metadataByCommandMap\n          \u0027getPossibleFixMessage\u0027: (): string \u003d\u003e type ? tail + `\u003cbr\u003eType: ${type}\u003cbr\u003e` : tail,\n          \u0027getLearnMoreLink\u0027: (): string \u003d\u003e\n```",
+      "parentUuid": "a065c28b_9490238e",
       "range": {
         "startLine": 155,
         "startChar": 10,
