@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4f6285c_d3e8b2c9",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-14T08:29:36Z",
+      "side": 1,
+      "message": "remove this line? I don\u0027t think it is used.",
+      "revId": "99efe2448c0b57a57546a8604ad1d00015635401",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "992138d7_498cea4f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-14T08:29:36Z",
+      "side": 1,
+      "message": "now we can also add types to the same map :) let\u0027s do it in a follow up",
+      "revId": "99efe2448c0b57a57546a8604ad1d00015635401",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
