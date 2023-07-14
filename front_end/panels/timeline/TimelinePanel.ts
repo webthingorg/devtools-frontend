@@ -834,10 +834,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   async #evaluateInspectedURL(): Promise<Platform.DevToolsPath.UrlString> {
-    if (!this.controller) {
+    const mainTarget = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
+    if (!mainTarget) {
       return Platform.DevToolsPath.EmptyUrlString;
     }
-    const mainTarget = this.controller.mainTarget();
+
     // target.inspectedURL is reliably populated, however it lacks any url #hash
     const inspectedURL = mainTarget.inspectedURL();
 
@@ -899,11 +900,14 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
       this.showRecordingStarted();
 
-      const mainTarget = (SDK.TargetManager.TargetManager.instance().rootTarget() as SDK.Target.Target);
+      const target = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
+      if (!target) {
+        throw new Error('Could not load primary page target.');
+      }
       if (UIDevtoolsUtils.isUiDevTools()) {
-        this.controller = new UIDevtoolsController(mainTarget, this);
+        this.controller = new UIDevtoolsController(target, this);
       } else {
-        this.controller = new TimelineController(mainTarget, this);
+        this.controller = new TimelineController(target, this);
       }
       this.setUIControlsEnabled(false);
       this.hideLandingPage();
@@ -1128,8 +1132,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       // 1. Navigated to about:blank
       // 2. Initiated tracing.
       // We therefore now should navigate back to the original URL that the user wants to profile.
-      const target = this.controller.mainTarget();
-      const resourceModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+      const target = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
+      const resourceModel = target?.model(SDK.ResourceTreeModel.ResourceTreeModel);
       if (!resourceModel) {
         this.recordingFailed('Could not navigate to original URL');
         return;
@@ -1401,8 +1405,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       event: Common.EventTarget
           .EventTargetEvent<{resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel, loadTime: number}>):
       Promise<void> {
+    const target = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
     if (this.state !== State.Recording || !this.recordingPageReload || !this.controller ||
-        this.controller.mainTarget() !== event.data.resourceTreeModel.target()) {
+        target !== event.data.resourceTreeModel.target()) {
       return;
     }
     const controller = this.controller;

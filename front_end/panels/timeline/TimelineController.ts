@@ -61,10 +61,6 @@ export class TimelineController implements SDK.TargetManager.SDKModelObserver<SD
     SDK.TargetManager.TargetManager.instance().unobserveModels(SDK.CPUProfilerModel.CPUProfilerModel, this);
   }
 
-  mainTarget(): SDK.Target.Target {
-    return this.target;
-  }
-
   async startRecording(options: RecordingOptions): Promise<Protocol.ProtocolResponseWithError> {
     function disabledByDefault(category: string): string {
       return 'disabled-by-default-' + category;
