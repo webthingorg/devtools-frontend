@@ -124,9 +124,10 @@ const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.Template
 };
 
 export const buildProtocolMetadata = (domains: Iterable<ProtocolDomain>):
-    Map<string, {parameters: Components.JSONEditor.Parameter[], description: string}> => {
-      const metadataByCommand: Map<string, {parameters: Components.JSONEditor.Parameter[], description: string}> =
-          new Map();
+    Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> => {
+      const metadataByCommand:
+          Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> =
+              new Map();
       for (const domain of domains) {
         for (const command of Object.keys(domain.metadata)) {
           metadataByCommand.set(command, domain.metadata[command]);
@@ -157,7 +158,19 @@ export interface LogMessage {
 
 export interface ProtocolDomain {
   readonly domain: string;
-  readonly metadata: {[commandName: string]: {parameters: Components.JSONEditor.Parameter[], description: string}};
+  readonly metadata: {
+    [commandName: string]: {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]},
+  };
+}
+
+export class OnCommandChangeEvent extends Event {
+  static readonly eventName = 'commandchange';
+  readonly data: {command: string, parameters: object};
+
+  constructor(data: {command: string, parameters: object}) {
+    super(OnCommandChangeEvent.eventName);
+    this.data = data;
+  }
 }
 
 export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
@@ -379,6 +392,10 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
     const input = new UI.Toolbar.ToolbarInput(
         placeholder, accessiblePlaceholder, growFactor, shrinkFactor, tooltip,
         this.#commandAutocompleteSuggestionProvider.buildTextPromptCompletions, false);
+    input.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, () => {
+      const {command, parameters} = parseCommandInput(input.value());
+      this.#onCommandChange(command, parameters);
+    });
     input.addEventListener(UI.Toolbar.ToolbarInput.Event.EnterPressed, () => {
       this.#commandAutocompleteSuggestionProvider.addEntry(input.value());
       const {command, parameters} = parseCommandInput(input.value());
@@ -413,6 +430,14 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
     // in TS test is defined as a namespace.
     // @ts-ignore
     test.sendRawMessage(command, parameters, () => {}, sessionId);
+  }
+
+  #onCommandChange(command: string, parameters: object): void {
+    const onCommandChangeEvent = new CustomEvent('commandchange', {
+      bubbles: true,
+      detail: {command, parameters},
+    });
+    document.dispatchEvent(onCommandChangeEvent);
   }
 
   static instance(opts: {forceNew: null|boolean} = {forceNew: null}): ProtocolMonitorImpl {
@@ -738,11 +763,6 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     this.jsonEditor.addEventListener(Components.JSONEditor.SubmitEditorEvent.eventName, (event: Event) => {
       this.dispatchEventToListeners(Events.CommandSent, (event as Components.JSONEditor.SubmitEditorEvent).data);
     });
-  }
-
-  setCommand(command: string, parameters: Components.JSONEditor.Parameter[]): void {
-    this.jsonEditor.parameters = parameters;
-    this.jsonEditor.command = command;
   }
 }
 
