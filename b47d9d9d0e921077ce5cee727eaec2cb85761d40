@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86942d2_37e7c08a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T08:48:41Z",
+      "side": 1,
+      "message": "LGTM, but I\u0027m not sure if the variable names are useful, given the popup shouldn\u0027t be too big. But I am not against it",
+      "revId": "b47d9d9d0e921077ce5cee727eaec2cb85761d40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2948364e_ca5c56cd",
