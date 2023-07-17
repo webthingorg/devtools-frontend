@@ -16,6 +16,24 @@
       "message": "@kprokopenko@chromium.org Hi Kateryna, I suppose adding the border for the input boxes in the Styles pane and the Computed pane is intentional, right? Just want to check if I missed anything.",
       "revId": "038768b5e7cec9cdfa6f2282b7edbc0236216a6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7ee08b_90d1c17c",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-17T07:48:52Z",
+      "side": 0,
+      "message": "Hey Changhao! Yes, it is! Peter should send out the mocks some time soon-ish, but here\u0027s a figma link to them if you want to take a look already now! This is already how the end version should look like (also with the component update), but for now we want to match just the colors as close as possible! https://www.figma.com/file/CE37ZeqHrROqEb7vLu4C47/CDT-Colors",
+      "parentUuid": "73bff8f2_07c18bf2",
+      "revId": "038768b5e7cec9cdfa6f2282b7edbc0236216a6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
