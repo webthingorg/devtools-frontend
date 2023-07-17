@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee4e5037_8ef144de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T14:57:31Z",
+      "side": 1,
+      "message": "this is not correct",
+      "range": {
+        "startLine": 9,
+        "startChar": 98,
+        "endLine": 9,
+        "endChar": 103
+      },
+      "revId": "586a2affc54d3673ab780c0f1787fcfc80837055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c715c154_e20058ab",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T14:57:31Z",
+      "side": 1,
+      "message": "why we need this?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 0
+      },
+      "revId": "586a2affc54d3673ab780c0f1787fcfc80837055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86de461a_5e12fb4f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T14:57:31Z",
+      "side": 1,
+      "message": "this is not a good variable name.\n\"possible fix\" is for CSS hint",
+      "range": {
+        "startLine": 164,
+        "startChar": 8,
+        "endLine": 164,
+        "endChar": 26
+      },
+      "revId": "586a2affc54d3673ab780c0f1787fcfc80837055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8966d1b8_25310fcf",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T14:57:31Z",
+      "side": 1,
+      "message": "are these two things conflict? can we have both?",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 21
+      },
+      "revId": "586a2affc54d3673ab780c0f1787fcfc80837055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4dbd65_2e8cd125",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T14:57:31Z",
+      "side": 1,
+      "message": "```suggestion\n      possibleFixMessage \u003d tail + `\u003cbr\u003eType: ${type}\u003cbr\u003e`;\n```",
+      "range": {
+        "startLine": 168,
+        "startChar": 35,
+        "endLine": 168,
+        "endChar": 52
+      },
+      "revId": "586a2affc54d3673ab780c0f1787fcfc80837055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
