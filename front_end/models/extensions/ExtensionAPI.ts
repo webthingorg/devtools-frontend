@@ -1266,7 +1266,7 @@ self.injectedExtensionAPI = function(
   };
 
   function ResourceImpl(this: APIImpl.Resource, resourceData: APIImpl.ResourceData): void {
-    if (!canAccessResource) {
+    if (!canAccessResource(resourceData)) {
       throw new Error('Resource access not allowed');
     }
     this._url = resourceData.url;
