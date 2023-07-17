@@ -152,9 +152,9 @@ export class JSONEditor extends LitElement {
       box: hintElement.boxInWindow(),
       show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
         const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView({
-          'getMessage': (): string => `<code><span>${head}</span></code>`,
+          'getMessage': (): string => `<code><span>${head}.</span></code>`,
           // Will change this line once the returnType of command will have been added to the metadataByCommandMap
-          'getPossibleFixMessage': (): string => type ? tail + `Type: ${type}<br>` : tail,
+          'getPossibleFixMessage': (): string => type ? tail + `<br>Type: ${type}<br>` : tail,
           'getLearnMoreLink': (): string =>
               `https://chromedevtools.github.io/devtools-protocol/tot/${this.command.split('.')[0]}/`,
         });
