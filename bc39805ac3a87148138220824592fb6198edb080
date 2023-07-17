@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d540412_b173e97b",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T10:45:57Z",
+      "side": 1,
+      "message": "I think there is no need to call render",
+      "revId": "bc39805ac3a87148138220824592fb6198edb080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb168886_eccf59c2",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T10:45:57Z",
+      "side": 1,
+      "message": "remove the if",
+      "revId": "bc39805ac3a87148138220824592fb6198edb080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b2c6eb8_7df3fb4f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T10:45:57Z",
+      "side": 1,
+      "message": "```suggestion\n      this.#hintPopoverHelper?.hidePopover();\n```",
+      "revId": "bc39805ac3a87148138220824592fb6198edb080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eed6c5d_6e316628",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T10:45:57Z",
+      "side": 1,
+      "message": "```suggestion\n      this.#hintPopoverHelper?.dispose();\n```",
+      "revId": "bc39805ac3a87148138220824592fb6198edb080",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
