@@ -16,6 +16,24 @@
       "message": "Danil, PTAL. This has the side effect of making the responses to Fetch and XHR show up in Sources-\u003ePage (because there now exist UISourceCode objects for them). I did some archaeology and my change would basically undo https://bugs.webkit.org/show_bug.cgi?id\u003d60321, which explicitly ensures that XHRs don\u0027t show up there. WDYT?",
       "revId": "ccff32cf6ec12eb70e7ea8d5e8c1e954b1759641",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a733bab0_8faa23ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-17T14:32:22Z",
+      "side": 1,
+      "message": "Yeah, I don\u0027t think we want all XHR/Fetch responses to show up in the sources tree. This would be very confusing.\n\nCan we create UISourceCode on demand? So that only those overridden would show up?",
+      "parentUuid": "9791c3d6_ec84b820",
+      "revId": "ccff32cf6ec12eb70e7ea8d5e8c1e954b1759641",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
