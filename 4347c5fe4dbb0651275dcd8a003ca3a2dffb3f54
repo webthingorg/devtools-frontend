@@ -16,6 +16,46 @@
       "message": "ptal",
       "revId": "4347c5fe4dbb0651275dcd8a003ca3a2dffb3f54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7126ebad_b7d6edd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-17T14:44:01Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "4347c5fe4dbb0651275dcd8a003ca3a2dffb3f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1564d28b_1ffa87eb",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-17T14:44:01Z",
+      "side": 1,
+      "message": "out of curiosity, why do we need this?",
+      "range": {
+        "startLine": 65,
+        "startChar": 7,
+        "endLine": 65,
+        "endChar": 15
+      },
+      "revId": "4347c5fe4dbb0651275dcd8a003ca3a2dffb3f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
