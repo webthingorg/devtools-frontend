@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "730d3df3_1bb05862",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T09:11:53Z",
+      "side": 1,
+      "message": "Also this CL seems depending on crrev.com/c/4687578 , please fix the relation chain",
+      "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0befe30f_8ca2a703",
         "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
         "patchSetId": 6
