@@ -104,10 +104,15 @@ const splitDescription = (description: string): [string, string] => {
   return [description, ''];
 };
 
+const containsDot = (description: string): boolean => {
+  return description.includes('.');
+};
+
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
-  @property() declare metadataByCommand: Map<string, {parameters: Parameter[], description: string}>;
+  @property()
+  declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
   @property() declare typesByName: Map<string, Type[]>;
   @property() declare targetManager;
   @state() declare parameters: Parameter[];
@@ -139,6 +144,7 @@ export class JSONEditor extends LitElement {
     this.#hintPopoverHelper.setTimeout(300);
     this.#hintPopoverHelper.setHasPadding(true);
   }
+
   override disconnectedCallback(): void {
     super.disconnectedCallback();
     this.#hintPopoverHelper?.hidePopover();
@@ -154,13 +160,22 @@ export class JSONEditor extends LitElement {
     }
     const [head, tail] = splitDescription(elementData.description);
     const type = elementData.type;
+    const replyArgs = elementData.replyArgs;
+    let possibleFixMessage = '';
+    if (replyArgs) {
+      possibleFixMessage = tail + `Returns: ${replyArgs}<br>`;
+    } else if (type) {
+      possibleFixMessage = tail + `Type: ${type}<br>`;
+    } else {
+      possibleFixMessage = tail;
+    }
+
     return {
       box: hintElement.boxInWindow(),
       show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
         const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView({
-          'getMessage': (): string => `<code><span>${head}.</span></code>`,
-          // Will change this line once the returnType of command will have been added to the metadataByCommandMap
-          'getPossibleFixMessage': (): string => type ? tail + `<br>Type: ${type}<br>` : tail,
+          'getMessage': (): string => `<code><span>${head}${!containsDot(head) ? '.' : ''}</span></code>`,
+          'getPossibleFixMessage': (): string => possibleFixMessage,
           'getLearnMoreLink': (): string =>
               `https://chromedevtools.github.io/devtools-protocol/tot/${this.command.split('.')[0]}/`,
         });
@@ -171,11 +186,11 @@ export class JSONEditor extends LitElement {
   }
 
   #getDescriptionAndTypeForElement(hintElement: HTMLElement):
-      {description: string, type: ParameterType|string}|undefined {
+      {description: string, type?: ParameterType, replyArgs?: string[]}|undefined {
     if (hintElement.matches('.command')) {
       const metadata = this.metadataByCommand.get(this.command);
       if (metadata) {
-        return {description: metadata.description, type: ''};
+        return {description: metadata.description, replyArgs: metadata.replyArgs};
       }
     }
     if (hintElement.matches('.parameter')) {
