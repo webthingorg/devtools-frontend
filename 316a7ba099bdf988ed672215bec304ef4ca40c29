@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "316a7ba099bdf988ed672215bec304ef4ca40c29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc83a68_8f392e8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-17T12:18:16Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "316a7ba099bdf988ed672215bec304ef4ca40c29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0440a35_e9427d05",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-17T12:18:16Z",
+      "side": 1,
+      "message": "This is fine, but we might just want to expose the CheckboxFilterUI instance instead.",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 36
+      },
+      "revId": "316a7ba099bdf988ed672215bec304ef4ca40c29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
