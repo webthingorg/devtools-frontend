@@ -16,6 +16,24 @@
       "message": "in this and the next tests let\u0027s verify that the content shown is actually correct",
       "revId": "938ba2a2b647843c6d5d54d365365c796fa8c326",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64dc2f8a_f7b3c2fe",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-17T13:51:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf9942a8_ccc27339",
+      "revId": "938ba2a2b647843c6d5d54d365365c796fa8c326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
