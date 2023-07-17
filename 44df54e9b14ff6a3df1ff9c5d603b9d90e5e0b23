@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b326f55_4484367e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T09:09:10Z",
+      "side": 1,
+      "message": "do you have a plan for two-way binding?\nAlso specify which way",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e92fa411_e72a705d",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-07-17T06:05:37Z",
       "side": 1,
       "message": "Dispatching the events via the global document is not the right approach though. Please change so that events are only exchanged between the input and the protocol monitor impl, and the protocol monitor impl passes the command down via the a function call.",
+      "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0befe30f_8ca2a703",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T09:09:10Z",
+      "side": 1,
+      "message": "```suggestion\nexport class CommandChangeEvent extends Event {\n```",
+      "range": {
+        "startLine": 166,
+        "startChar": 13,
+        "endLine": 166,
+        "endChar": 33
+      },
       "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
