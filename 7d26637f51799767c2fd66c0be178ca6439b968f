@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "462c5788_4663c3b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-17T11:10:30Z",
+      "side": 1,
+      "message": "PTAL! Contains a manual edit to clear up merge conflict.",
+      "revId": "7d26637f51799767c2fd66c0be178ca6439b968f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
