@@ -14,6 +14,7 @@ import {
 import * as ProtocolComponents from '../../../../../front_end/panels/protocol_monitor/components/components.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import * as Menus from '../../../../../front_end/ui/components/menus/menus.js';
+import * as ProtocolClient from '../../../../../front_end/core/protocol_client/protocol_client.js';
 
 describe('ProtocolMonitor', () => {
   describe('parseCommandInput', () => {
@@ -189,6 +190,41 @@ describe('ProtocolMonitor', () => {
       return jsonEditor;
     };
 
+    const populateMetadata = async(jsonEditor: ProtocolComponents.JSONEditor.JSONEditor): void => {
+      const metadataByCommand = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(
+          ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as
+          Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>);
+      jsonEditor.metadataByCommand = metadataByCommand;
+      await jsonEditor.updateComplete;
+    };
+
+    const renderPopup = async (element: Element|null) => {
+      if (element) {
+        const clock = sinon.useFakeTimers();
+        try {
+          dispatchMouseMoveEvent(element, {
+            bubbles: true,
+            composed: true,
+          });
+          clock.tick(300);
+          clock.restore();
+        } finally {
+          clock.restore();
+        }
+        await raf();
+      } else {
+        throw new Error('No parameter has been found');
+      }
+    };
+
+    const serializePopupDescriptionOrType = (isDescription: boolean): string|null|undefined => {
+      const container = document.body.querySelector<HTMLDivElement>('[data-devtools-glass-pane]');
+      const hintDetailView = container?.shadowRoot?.querySelector('devtools-css-hint-details-view');
+      const descriptionContainer = hintDetailView?.shadowRoot?.querySelector(
+          `${isDescription ? '.hint-popup-reason' : '.hint-popup-possible-fix'}`);
+      return descriptionContainer?.textContent;
+    };
+
     it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
       const jsonEditor = renderJSONEditor();
 
@@ -334,7 +370,7 @@ describe('ProtocolMonitor', () => {
           ],
           name: 'arrayParam',
           typeRef: 'string',
-          description: 'test',
+          description: 'test.',
         },
       ] as ProtocolComponents.JSONEditor.Parameter[];
       const jsonEditor = renderJSONEditor();
@@ -344,24 +380,74 @@ describe('ProtocolMonitor', () => {
 
       const param = jsonEditor.renderRoot.querySelector('[data-paramId]');
 
-      if (param) {
-        const clock = sinon.useFakeTimers();
-        try {
-          dispatchMouseMoveEvent(param, {
-            bubbles: true,
-            composed: true,
-          });
-          clock.tick(300);
-          clock.restore();
-        } finally {
-          clock.restore();
-        }
-        await raf();
-      } else {
-        throw new Error('No parameter has been found');
-      }
-      const container = document.body.querySelector<HTMLDivElement>('[data-devtools-glass-pane]');
-      assert.isNotNull(container);
+      await renderPopup(param);
+      const description = serializePopupDescriptionOrType(true)?.trim();
+      const expectedDescription = 'test.';
+      assert.deepStrictEqual(description, expectedDescription);
+    });
+
+    it('should display the return type of the parameter in the popup for the description of parameters', async () => {
+      const inputParameters = [
+        {
+          type: 'array',
+          optional: false,
+          value: [
+            {name: '0', value: 'value0', optional: true, type: 'string'},
+            {name: '1', value: 'value1', optional: true, type: 'string'},
+            {name: '2', value: 'value2', optional: true, type: 'string'},
+          ],
+          name: 'arrayParam',
+          typeRef: 'string',
+          description: 'test.',
+        },
+      ] as ProtocolComponents.JSONEditor.Parameter[];
+      const jsonEditor = renderJSONEditor();
+
+      jsonEditor.parameters = inputParameters;
+      await jsonEditor.updateComplete;
+
+      const param = jsonEditor.renderRoot.querySelector('[data-paramId]');
+
+      await renderPopup(param);
+      const returnType = serializePopupDescriptionOrType(false)?.replaceAll(/\s/g, '');
+      const expectedReturnType = 'Type:arrayLearnMore';
+      assert.deepStrictEqual(returnType, expectedReturnType);
+    });
+
+    it('should show the popup for the description of command', async () => {
+      const cdpCommand = 'CSS.addRule';
+      const jsonEditor = renderJSONEditor();
+
+      populateMetadata(jsonEditor);
+      jsonEditor.command = cdpCommand;
+      await jsonEditor.updateComplete;
+
+      const command = jsonEditor.renderRoot.querySelector('.command');
+      await renderPopup(command);
+
+      const description = serializePopupDescriptionOrType(true)?.trim();
+
+      const expectedDescription =
+          'Inserts a new rule with the given `ruleText` in a stylesheet with given `styleSheetId`, at the position specified by `location`.';
+      assert.deepStrictEqual(description, expectedDescription);
+    });
+
+    it('should display "Returns" inside the description popup when the command contains replyArgs', async () => {
+      const cdpCommand = 'CSS.addRule';
+      const jsonEditor = renderJSONEditor();
+
+      populateMetadata(jsonEditor);
+      jsonEditor.command = cdpCommand;
+      await jsonEditor.updateComplete;
+
+      const command = jsonEditor.renderRoot.querySelector('.command');
+      await renderPopup(command);
+
+      const returnType = serializePopupDescriptionOrType(false)?.replaceAll(/\s/g, '');
+
+      const expectedReturnType = 'Returns:ruleLearnMore';
+
+      assert.deepStrictEqual(returnType, expectedReturnType);
     });
   });
 });
