@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92fa411_e72a705d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T06:05:37Z",
+      "side": 1,
+      "message": "Dispatching the events via the global document is not the right approach though. Please change so that events are only exchanged between the input and the protocol monitor impl, and the protocol monitor impl passes the command down via the a function call.",
+      "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
