@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f464ab_f4273c85",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T08:38:48Z",
+      "side": 1,
+      "message": "nice catch\nnits: we can move this to a separate `JSONEditor_test` in the future",
+      "range": {
+        "startLine": 183,
+        "startChar": 27,
+        "endLine": 183,
+        "endChar": 37
+      },
+      "revId": "c60da98d37c724b8aeed22e7b1c9a04aa3cb9c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ccd1ff_97162898",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T08:38:48Z",
+      "side": 1,
+      "message": "Remove.\nLooks like this test is only for parameters",
+      "range": {
+        "startLine": 325,
+        "startChar": 53,
+        "endLine": 325,
+        "endChar": 64
+      },
+      "revId": "c60da98d37c724b8aeed22e7b1c9a04aa3cb9c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b227fc_ec6e3b8d",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-17T08:38:48Z",
+      "side": 1,
+      "message": "I would suggest to use `assert.isNotNull`, because the querySelector already returns `HTMLDivElement|null`",
+      "range": {
+        "startLine": 363,
+        "startChar": 6,
+        "endLine": 363,
+        "endChar": 43
+      },
+      "revId": "c60da98d37c724b8aeed22e7b1c9a04aa3cb9c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
