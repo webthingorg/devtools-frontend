@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5784e539_3c07fa1e",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T13:54:14Z",
+      "side": 1,
+      "message": "I would just serialize everything into one strings unconditionally. Having boolean parameters on the function is not really great for code health.",
+      "revId": "c96ebd44ed1fc1aa81f299f46eec3efe3e3fd2f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
