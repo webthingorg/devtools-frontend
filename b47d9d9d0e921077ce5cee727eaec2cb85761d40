@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "279f8432_95a2f4ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T08:52:30Z",
+      "side": 1,
+      "message": "let\u0027s add a test too",
+      "revId": "b47d9d9d0e921077ce5cee727eaec2cb85761d40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2948364e_ca5c56cd",
@@ -48,6 +65,30 @@
       "writtenOn": "2023-07-17T08:47:29Z",
       "side": 1,
       "message": "The `replyArgs` shouldn\u0027t be \"Type: XXX\", it should be something like \"Returns: XXX\"",
+      "range": {
+        "startLine": 151,
+        "startChar": 49,
+        "endLine": 151,
+        "endChar": 58
+      },
+      "revId": "b47d9d9d0e921077ce5cee727eaec2cb85761d40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db129282_beeb243c",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-17T08:52:30Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "2948364e_ca5c56cd",
       "range": {
         "startLine": 151,
         "startChar": 49,
