@@ -211,6 +211,30 @@
       },
       "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97abb356_b41f24bc",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-17T08:39:48Z",
+      "side": 1,
+      "message": "I checked, and the other\u0027s state is persistent. However, I\u0027m assuming that it works this way automatically. But because this checkbox\u0027s initial state is different from those, I have to make it keep its state manually, through adding some code. These last changes should do this!",
+      "parentUuid": "b650f5df_7fd5c95d",
+      "range": {
+        "startLine": 552,
+        "startChar": 3,
+        "endLine": 552,
+        "endChar": 42
+      },
+      "revId": "ed16012e19b0416894af0e1b184f1706ad278c52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
