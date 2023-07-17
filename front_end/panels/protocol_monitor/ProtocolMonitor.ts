@@ -124,9 +124,10 @@ const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.Template
 };
 
 export const buildProtocolMetadata = (domains: Iterable<ProtocolDomain>):
-    Map<string, {parameters: Components.JSONEditor.Parameter[], description: string}> => {
-      const metadataByCommand: Map<string, {parameters: Components.JSONEditor.Parameter[], description: string}> =
-          new Map();
+    Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> => {
+      const metadataByCommand:
+          Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> =
+              new Map();
       for (const domain of domains) {
         for (const command of Object.keys(domain.metadata)) {
           metadataByCommand.set(command, domain.metadata[command]);
@@ -157,7 +158,9 @@ export interface LogMessage {
 
 export interface ProtocolDomain {
   readonly domain: string;
-  readonly metadata: {[commandName: string]: {parameters: Components.JSONEditor.Parameter[], description: string}};
+  readonly metadata: {
+    [commandName: string]: {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]},
+  };
 }
 
 export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
@@ -738,11 +741,6 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     this.jsonEditor.addEventListener(Components.JSONEditor.SubmitEditorEvent.eventName, (event: Event) => {
       this.dispatchEventToListeners(Events.CommandSent, (event as Components.JSONEditor.SubmitEditorEvent).data);
     });
-  }
-
-  setCommand(command: string, parameters: Components.JSONEditor.Parameter[]): void {
-    this.jsonEditor.parameters = parameters;
-    this.jsonEditor.command = command;
   }
 }
 

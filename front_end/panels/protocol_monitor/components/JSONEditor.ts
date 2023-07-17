@@ -107,23 +107,17 @@ const splitDescription = (description: string): [string, string] => {
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
-  @property() declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
+  @property()
+  declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
   @property() declare typesByName: Map<string, Type[]>;
   @property() declare targetManager;
   @state() declare parameters: Parameter[];
   @state() command: string = '';
   @state() targetId?: string;
 
-  #hintPopoverHelper: UI.PopoverHelper.PopoverHelper;
+  #hintPopoverHelper?: UI.PopoverHelper.PopoverHelper;
   constructor() {
     super();
-
-    this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this, event => this.#handlePopoverDescriptions(event));
-
-    this.#hintPopoverHelper.setDisableOnClick(true);
-    this.#hintPopoverHelper.setTimeout(300);
-    this.#hintPopoverHelper.setHasPadding(true);
-
     this.parameters = [];
     this.targetManager = SDK.TargetManager.TargetManager.instance();
     this.targetId = this.targetManager.targets().length !== 0 ? this.targetManager.targets()[0].id() : undefined;
@@ -139,6 +133,20 @@ export class JSONEditor extends LitElement {
     });
   }
 
+  override connectedCallback(): void {
+    super.connectedCallback();
+    this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(this, event => this.#handlePopoverDescriptions(event));
+    this.#hintPopoverHelper.setDisableOnClick(true);
+    this.#hintPopoverHelper.setTimeout(300);
+    this.#hintPopoverHelper.setHasPadding(true);
+  }
+
+  override disconnectedCallback(): void {
+    super.disconnectedCallback();
+    this.#hintPopoverHelper?.hidePopover();
+    this.#hintPopoverHelper?.dispose();
+  }
+
   #handlePopoverDescriptions(event: MouseEvent):
       {box: AnchorBox, show: (popover: UI.GlassPane.GlassPane) => Promise<boolean>}|null {
     const hintElement = event.composedPath()[0] as HTMLElement;
@@ -147,14 +155,24 @@ export class JSONEditor extends LitElement {
       return null;
     }
     const [head, tail] = splitDescription(elementData.description);
-    const type = elementData.type || elementData.replyArgs;
+    const type = elementData.type;
+    const replyArgs = elementData.replyArgs;
+    let possibleFixMessage = '';
+    if (replyArgs) {
+      possibleFixMessage = tail + `Returns: ${replyArgs}<br>`;
+    } else if (type) {
+      possibleFixMessage = tail + `Type: ${type}<br>`;
+    } else {
+      possibleFixMessage = tail;
+    }
+
     return {
       box: hintElement.boxInWindow(),
       show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
         const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView({
-          'getMessage': (): string => `<code><span>${head}</span></code>`,
+          'getMessage': (): string => `<code><span>${head}.</span></code>`,
           // Will change this line once the returnType of command will have been added to the metadataByCommandMap
-          'getPossibleFixMessage': (): string => type ? tail + `Type: ${type}<br>` : tail,
+          'getPossibleFixMessage': (): string => possibleFixMessage,
           'getLearnMoreLink': (): string =>
               `https://chromedevtools.github.io/devtools-protocol/tot/${this.command.split('.')[0]}/`,
         });

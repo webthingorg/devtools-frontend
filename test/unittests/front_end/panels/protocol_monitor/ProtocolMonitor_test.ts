@@ -7,10 +7,14 @@ import * as ProtocolMonitor from '../../../../../front_end/panels/protocol_monit
 import {
   getEventPromise,
   dispatchKeyDownEvent,
-} from '../../../../../test/unittests/front_end/helpers/DOMHelpers.js';
+  dispatchMouseMoveEvent,
+  renderElementIntoDOM,
+  raf,
+} from '../../helpers/DOMHelpers.js';
 import * as ProtocolComponents from '../../../../../front_end/panels/protocol_monitor/components/components.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import * as Menus from '../../../../../front_end/ui/components/menus/menus.js';
+import * as ProtocolClient from '../../../../../front_end/core/protocol_client/protocol_client.js';
 
 describe('ProtocolMonitor', () => {
   describe('parseCommandInput', () => {
@@ -176,83 +180,45 @@ describe('ProtocolMonitor', () => {
     });
   });
 
-  describeWithEnvironment('EditorWidget', async () => {
-    const numberOfCommandPromptEditor = 1;
-    const renderEditorWidget = () => {
-      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget();
-      editorWidget.jsonEditor.connectedCallback();
-      return editorWidget;
+  describeWithEnvironment('JSONEditor', async () => {
+    const renderJSONEditor = () => {
+      const jsonEditor = new ProtocolComponents.JSONEditor.JSONEditor();
+      jsonEditor.metadataByCommand = new Map();
+      jsonEditor.typesByName = new Map();
+      jsonEditor.connectedCallback();
+      renderElementIntoDOM(jsonEditor);
+      return jsonEditor;
     };
 
-    it('outputs correctly the CDP command and parameters inside the Sidebar Panel', async () => {
-      const command = 'CSS.addRule';
-      const parameters = {
-        'styleSheetId': '2',
-        'ruleText': 'test',
-        'domain': {
-          'starLine': '2',
-          'startColumn': '2',
-          'endLine': '2',
-          'endColumn': '3',
-        },
-      };
+    const populateMetadata = async(jsonEditor: ProtocolComponents.JSONEditor.JSONEditor): void => {
+      const metadataByCommand = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(
+          ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as
+          Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>);
+      jsonEditor.metadataByCommand = metadataByCommand;
+      await jsonEditor.updateComplete;
+    };
 
-      const editorWidget = renderEditorWidget();
-      editorWidget.jsonEditor.command = command;
-      editorWidget.jsonEditor.populateParametersForCommand();
-      editorWidget.setCommand(command, editorWidget.jsonEditor.parameters);
-      await editorWidget.jsonEditor.updateComplete;
-
-      const shadowRoot = editorWidget.jsonEditor.renderRoot;
-      const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
-
-      const countValues = (obj: Record<string, unknown>): number => {
-        let count = 0;
-
-        for (const key of Object.keys(obj)) {
-          if (typeof obj[key] === 'object' && obj[key] !== null) {
-            count += countValues(obj[key] as Record<string, unknown>);
-          } else {
-            count++;
-          }
+    const renderPopup = async (element: Element|null) => {
+      if (element) {
+        const clock = sinon.useFakeTimers();
+        try {
+          dispatchMouseMoveEvent(element, {
+            bubbles: true,
+            composed: true,
+          });
+          clock.tick(300);
+          clock.restore();
+        } finally {
+          clock.restore();
         }
-        return count;
-      };
-
-      assert.deepStrictEqual(elements.length, countValues(parameters) + numberOfCommandPromptEditor);
-    });
-
-    it('does not output parameters if the input is invalid json', async () => {
-      const input = '"command": "test", "parameters":';
-
-      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
-      const editorWidget = renderEditorWidget();
-      editorWidget.jsonEditor.populateParametersForCommand();
-      editorWidget.setCommand(command, editorWidget.jsonEditor.parameters);
-      await editorWidget.jsonEditor.updateComplete;
-
-      const shadowRoot = editorWidget.jsonEditor.renderRoot;
-      const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
-
-      assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
-    });
-
-    it('does not output parameters if the parameters field is not an object', async () => {
-      const input = '"command": "test", "parameters": 1234';
-
-      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
-      const editorWidget = renderEditorWidget();
-      editorWidget.jsonEditor.populateParametersForCommand();
-      editorWidget.setCommand(command, editorWidget.jsonEditor.parameters);
-      await editorWidget.jsonEditor.updateComplete;
-      const shadowRoot = editorWidget.jsonEditor.renderRoot;
-      const elements = shadowRoot.querySelectorAll('devtools-recorder-input');
-
-      assert.deepStrictEqual(elements.length, Object.keys(parameters).length + numberOfCommandPromptEditor);
-    });
+        await raf();
+      } else {
+        throw new Error('No parameter has been found');
+      }
+    };
 
     it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
-      const editorWidget = renderEditorWidget();
+      const jsonEditor = renderJSONEditor();
 
       const inputParameters = [
         {
@@ -324,11 +290,10 @@ describe('ProtocolMonitor', () => {
         },
       };
 
-      editorWidget.jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
-      const responsePromise =
-          getEventPromise(editorWidget.jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
+      jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
 
-      dispatchKeyDownEvent(editorWidget.jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
+      dispatchKeyDownEvent(jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
 
       const response = await responsePromise as ProtocolComponents.JSONEditor.SubmitEditorEvent;
 
@@ -336,42 +301,19 @@ describe('ProtocolMonitor', () => {
     });
 
     it('checks that the selection of a target works', async () => {
-      const editorWidget = renderEditorWidget();
-      await editorWidget.jsonEditor.updateComplete;
+      const jsonEditor = renderJSONEditor();
+      await jsonEditor.updateComplete;
       const targetId = 'target1';
       const event = new Menus.SelectMenu.SelectMenuItemSelectedEvent('target1');
 
-      const shadowRoot = editorWidget.jsonEditor.renderRoot;
+      const shadowRoot = jsonEditor.renderRoot;
       const selectMenu = shadowRoot.querySelector('devtools-select-menu');
       selectMenu?.dispatchEvent(event);
-      const expectedId = editorWidget.jsonEditor.targetId;
+      const expectedId = jsonEditor.targetId;
 
       assert.deepStrictEqual(targetId, expectedId);
     });
 
-    it('checks that the command input field remains empty when there is no command parameter entered', async () => {
-      const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
-      const {command} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
-      const editorWidget = renderEditorWidget();
-      editorWidget.jsonEditor.populateParametersForCommand();
-      editorWidget.setCommand(command, editorWidget.jsonEditor.parameters);
-      await editorWidget.jsonEditor.updateComplete;
-
-      const commandReceived = editorWidget.jsonEditor.command;
-      assert.deepStrictEqual(commandReceived, '');
-    });
-
-    it('checks that the command input field remains empty when there is no command parameter entered', async () => {
-      const input = '{"parameters": {"urls" : ["chrome-extension://*"]}}';
-      const {command} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(input);
-      const editorWidget = renderEditorWidget();
-      editorWidget.jsonEditor.populateParametersForCommand();
-      editorWidget.setCommand(command, editorWidget.jsonEditor.parameters);
-      await editorWidget.jsonEditor.updateComplete;
-
-      const commandReceived = editorWidget.jsonEditor.command;
-      assert.deepStrictEqual(commandReceived, '');
-    });
     it('should delete the specified array parameter by clicking the "Delete" button', async () => {
       const inputParameters = [
         {
@@ -385,17 +327,18 @@ describe('ProtocolMonitor', () => {
           name: 'arrayParam',
           typeRef: 'string',
         },
+
       ];
 
       const expectedParams = {
         arrayParam: ['value1', 'value2'],
       };
 
-      const editorWidget = renderEditorWidget();
-      editorWidget.jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
-      await editorWidget.jsonEditor.updateComplete;
+      const jsonEditor = renderJSONEditor();
+      jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      await jsonEditor.updateComplete;
 
-      const shadowRoot = editorWidget.jsonEditor.renderRoot;
+      const shadowRoot = jsonEditor.renderRoot;
 
       const parameterIndex = 0;
       const deleteButtons = shadowRoot.querySelectorAll('devtools-button[title="Delete"]');
@@ -403,8 +346,68 @@ describe('ProtocolMonitor', () => {
         deleteButtons[parameterIndex].dispatchEvent(new Event('click'));
       }
 
-      const resultedParams = editorWidget.jsonEditor.getParameters();
+      const resultedParams = jsonEditor.getParameters();
       assert.deepStrictEqual(expectedParams, resultedParams);
+    });
+
+    it('should show the popup for the description of parameters', async () => {
+      const inputParameters = [
+        {
+          type: 'array',
+          optional: false,
+          value: [
+            {name: '0', value: 'value0', optional: true, type: 'string'},
+            {name: '1', value: 'value1', optional: true, type: 'string'},
+            {name: '2', value: 'value2', optional: true, type: 'string'},
+          ],
+          name: 'arrayParam',
+          typeRef: 'string',
+          description: 'test',
+        },
+      ] as ProtocolComponents.JSONEditor.Parameter[];
+      const jsonEditor = renderJSONEditor();
+
+      jsonEditor.parameters = inputParameters;
+      await jsonEditor.updateComplete;
+
+      const param = jsonEditor.renderRoot.querySelector('[data-paramId]');
+
+      await renderPopup(param);
+      const container = document.body.querySelector<HTMLDivElement>('[data-devtools-glass-pane]');
+      assert.isNotNull(container);
+    });
+
+    it('should show the popup for the description of command', async () => {
+      const cdpCommand = 'CSS.addRule';
+      const jsonEditor = renderJSONEditor();
+
+      populateMetadata(jsonEditor);
+      jsonEditor.command = cdpCommand;
+      await jsonEditor.updateComplete;
+
+      const command = jsonEditor.renderRoot.querySelector('.command');
+      await renderPopup(command);
+
+      const container = document.body.querySelector<HTMLDivElement>('[data-devtools-glass-pane]');
+      assert.isNotNull(container);
+    });
+
+    it('should display "Returns" inside the description popup when the command contains replyArgs', async () => {
+      const cdpCommand = 'CSS.addRule';
+      const jsonEditor = renderJSONEditor();
+
+      populateMetadata(jsonEditor);
+      jsonEditor.command = cdpCommand;
+      await jsonEditor.updateComplete;
+
+      const command = jsonEditor.renderRoot.querySelector('.command');
+      await renderPopup(command);
+
+      const container = document.body.querySelector<HTMLDivElement>('[data-devtools-glass-pane]');
+      const hintDetailView = container?.shadowRoot?.querySelector('devtools-css-hint-details-view');
+      const descriptionContainer = hintDetailView?.shadowRoot?.querySelector('.hint-popup-possible-fix');
+      const containsReturns = descriptionContainer?.innerHTML.includes('Returns');
+      assert.isTrue(containsReturns);
     });
   });
 });
