@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce230d2_860843ae",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T16:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b78c4380_8bb2f8d3",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "732a0b03_a65cd726",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "763d2df7_ddf00f91",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T16:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "732a0b03_a65cd726",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02bd14d0_e8ac5eec",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-07-18T16:18:48Z",
       "side": 1,
       "message": "why do we need it? it looks like this can be done without making the method async and without waiting for UI to render",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "105cf0b7_6cc05f0d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T16:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02bd14d0_e8ac5eec",
       "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
