@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b78c4380_8bb2f8d3",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-18T16:18:48Z",
+      "side": 1,
+      "message": "it does not look like we need to make ProtocolMonitorImpl an event emitter?",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "732a0b03_a65cd726",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-18T16:18:48Z",
+      "side": 1,
+      "message": "can we make a name that is not connected to the input bar?",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02bd14d0_e8ac5eec",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-18T16:18:48Z",
+      "side": 1,
+      "message": "why do we need it? it looks like this can be done without making the method async and without waiting for UI to render",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7266e5e7_cbe814f4",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-18T16:18:48Z",
+      "side": 1,
+      "message": "would it be more efficient to walk the type definitions for the command or the eventParameters object directly and fill out an result based on that (probably recursively)? the question is what do we do if the command has attributes that do not match the schema? can we still add them on the fly?",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
