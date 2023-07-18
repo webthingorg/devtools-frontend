@@ -121,6 +121,14 @@ const UIStrings = {
    */
   onlyShowThirdPartyRequests: 'Show only requests with origin different from page origin',
   /**
+   * @description Label for a filter in the Network panel=
+   */
+  chromeExtensions: 'Hide requests by extensions',
+  /**
+   * @description Tooltip for a filter in the Network panel
+   */
+  hideChromeExtension: 'Hide the requests created by browser extensions',
+  /**
    *@description Text that appears when user drag and drop something (for example, a file) in Network Log View of the Network panel
    */
   dropHarFilesHere: 'Drop HAR files here',
@@ -379,6 +387,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private readonly networkShowIssuesOnlySetting: Common.Settings.Setting<boolean>;
   private readonly networkOnlyBlockedRequestsSetting: Common.Settings.Setting<boolean>;
   private readonly networkOnlyThirdPartySetting: Common.Settings.Setting<boolean>;
+  private readonly networkHideChromeExtensions: Common.Settings.Setting<boolean>;
   private readonly networkResourceTypeFiltersSetting: Common.Settings.Setting<{[key: string]: boolean}>;
   private rawRowHeight: number;
   private readonly progressBarContainer: Element;
@@ -409,6 +418,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private readonly onlyIssuesFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyBlockedRequestsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyThirdPartyFilterUI: UI.FilterBar.CheckboxFilterUI;
+  private readonly hideChromeExtensionsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
   private dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<NetworkNode>;
@@ -433,6 +443,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
         Common.Settings.Settings.instance().createSetting('networkOnlyBlockedRequests', false);
     this.networkOnlyThirdPartySetting =
         Common.Settings.Settings.instance().createSetting('networkOnlyThirdPartySetting', false);
+    this.networkHideChromeExtensions =
+        Common.Settings.Settings.instance().createSetting('networkHideChromeExtensions', true);
     this.networkResourceTypeFiltersSetting =
         Common.Settings.Settings.instance().createSetting('networkResourceTypeFilters', {});
 
@@ -530,6 +542,13 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
         UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
     UI.Tooltip.Tooltip.install(this.onlyThirdPartyFilterUI.element(), i18nString(UIStrings.onlyShowThirdPartyRequests));
     filterBar.addFilter(this.onlyThirdPartyFilterUI);
+
+    this.hideChromeExtensionsUI = new UI.FilterBar.CheckboxFilterUI(
+        'chrome-extension', i18nString(UIStrings.chromeExtensions), true, this.networkHideChromeExtensions);
+    this.hideChromeExtensionsUI.addEventListener(
+        UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
+    UI.Tooltip.Tooltip.install(this.hideChromeExtensionsUI.element(), i18nString(UIStrings.hideChromeExtension));
+    filterBar.addFilter(this.hideChromeExtensionsUI);
 
     this.filterParser = new TextUtils.TextUtils.FilterParser(searchKeys);
     this.suggestionBuilder =
@@ -1432,6 +1451,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     this.dataURLFilterUI.setChecked(false);
     this.onlyIssuesFilterUI.setChecked(false);
     this.onlyBlockedRequestsUI.setChecked(false);
+    this.hideChromeExtensionsUI.setChecked(true);
     this.resourceCategoryFilterUI.reset();
   }
 
@@ -1784,6 +1804,9 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
       return false;
     }
     if (this.onlyThirdPartyFilterUI.checked() && request.isSameSite()) {
+      return false;
+    }
+    if (this.hideChromeExtensionsUI.checked() && request.scheme === 'chrome-extension') {
       return false;
     }
     for (let i = 0; i < this.filters.length; ++i) {
