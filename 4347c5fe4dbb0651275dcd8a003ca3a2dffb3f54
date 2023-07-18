@@ -56,6 +56,30 @@
       },
       "revId": "4347c5fe4dbb0651275dcd8a003ca3a2dffb3f54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40a4a7ac_f6e41c2a",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-18T07:47:42Z",
+      "side": 1,
+      "message": "No particular reason, but I noticed that this class is never instantiated directly and is only ever subclassed, so I thought I would add it so that you can never create one of these on its own.",
+      "parentUuid": "1564d28b_1ffa87eb",
+      "range": {
+        "startLine": 65,
+        "startChar": 7,
+        "endLine": 65,
+        "endChar": 15
+      },
+      "revId": "4347c5fe4dbb0651275dcd8a003ca3a2dffb3f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
