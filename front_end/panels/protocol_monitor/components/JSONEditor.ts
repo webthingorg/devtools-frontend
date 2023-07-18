@@ -105,6 +105,45 @@ const splitDescription = (description: string): [string, string] => {
   return [description, ''];
 };
 
+const getAllKeysFromParameters =
+    (parameters: {[paramName: string]: unknown}, prefix: string = ''): Array<[string, unknown]> => {
+      let keys: Array<[string, unknown]> = [];
+
+      for (const key in parameters) {
+        if (Object.prototype.hasOwnProperty.call(parameters, key)) {
+          const nestedKey = prefix ? `${prefix}.${key}` : key;
+
+          if (typeof parameters[key] === 'object' && parameters[key] !== null) {
+            const nestedKeys = getAllKeysFromParameters(parameters[key] as {[paramName: string]: unknown}, nestedKey);
+            keys = keys.concat(nestedKeys);
+          } else {
+            keys.push([nestedKey, parameters[key]]);
+          }
+        }
+      }
+      return keys;
+    };
+
+const removeUndefinedNestedObjects = (obj: {[key: string]: unknown}): void => {
+  for (const key in obj) {
+    if (typeof obj[key] === 'object' && obj[key] !== null) {
+      const nestedObj = obj[key] as {[key: string]: unknown};
+      let hasValue = false;
+      for (const nestedKey in nestedObj) {
+        if (Object.prototype.hasOwnProperty.call(nestedObj, nestedKey) && nestedObj[nestedKey] !== undefined) {
+          hasValue = true;
+          break;
+        }
+      }
+      if (!hasValue) {
+        delete obj[key];
+      } else {
+        removeUndefinedNestedObjects(nestedObj);
+      }
+    }
+  }
+};
+
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
@@ -146,6 +185,30 @@ export class JSONEditor extends LitElement {
     super.disconnectedCallback();
     this.#hintPopoverHelper?.hidePopover();
     this.#hintPopoverHelper?.dispose();
+  }
+
+  async outputCommandFromInputBar(command: string, parameters: {
+    [paramName: string]: unknown,
+  }): Promise<void> {
+    if (!command) {
+      return;
+    }
+    this.command = command;
+    this.populateParametersForCommand();
+    const eventParameters = parameters;
+    await this.updateComplete;
+    const keys = getAllKeysFromParameters(eventParameters);
+    for (const key of keys) {
+      const {parameter, parentParameter} = this.#getChildByPath(key[0].split('.'));
+      if (parentParameter && parentParameter.type === 'array') {
+        this.#handleAddArrayParameter(key[0].split('.')[0]);
+        const arrayParameter = this.#getChildByPath(key[0].split('.'))?.parameter;
+        arrayParameter.value = key[1] as Parameter['value'];
+      } else {
+        parameter.value = key[1] as Parameter['value'];
+      }
+    }
+    this.requestUpdate();
   }
 
   #handlePopoverDescriptions(event: MouseEvent):
@@ -255,6 +318,7 @@ export class JSONEditor extends LitElement {
     for (const parameter of this.parameters) {
       formattedParameters[parameter.name] = formatParameterValue(parameter);
     }
+    removeUndefinedNestedObjects(formattedParameters);
     return formattedParameters;
   }
 
@@ -478,7 +542,7 @@ export class JSONEditor extends LitElement {
           const handleInputOnBlur = (event: Event): void => {
             this.#handleParameterInputBlur(event);
           };
-          const classes = { colorBlue: parameter.optional, parameter: true };
+          const classes = {colorBlue: parameter.optional, parameter: true};
           return html`
                 <li class="row">
                   <div class="row">
