@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5de10a84_892b4834",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T08:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee4e5037_8ef144de",
+      "range": {
+        "startLine": 9,
+        "startChar": 98,
+        "endLine": 9,
+        "endChar": 103
+      },
+      "revId": "586a2affc54d3673ab780c0f1787fcfc80837055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c715c154_e20058ab",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "I added a comment to the code but basically that\u0027s because some  descriptions contain a dot at the end, other not",
       "parentUuid": "c715c154_e20058ab",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 0
+      },
+      "revId": "586a2affc54d3673ab780c0f1787fcfc80837055",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a622aa2_134dde12",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T08:27:36Z",
+      "side": 1,
+      "message": "I changed the splitDescription function to handle this",
+      "parentUuid": "dccd89e8_fb6927c6",
       "range": {
         "startLine": 107,
         "startChar": 0,
