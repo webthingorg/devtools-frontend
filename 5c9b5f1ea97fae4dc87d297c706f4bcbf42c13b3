@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af00a53a_3b61ee63",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-18T18:10:31Z",
+      "side": 1,
+      "message": "it\u0027s probably not possible to run node scrips here? \u0027cause @puppeteer/browsers is right there in node_modules",
+      "revId": "5c9b5f1ea97fae4dc87d297c706f4bcbf42c13b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
