@@ -124,9 +124,10 @@ const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.Template
 };
 
 export const buildProtocolMetadata = (domains: Iterable<ProtocolDomain>):
-    Map<string, {parameters: Components.JSONEditor.Parameter[], description: string}> => {
-      const metadataByCommand: Map<string, {parameters: Components.JSONEditor.Parameter[], description: string}> =
-          new Map();
+    Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> => {
+      const metadataByCommand:
+          Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> =
+              new Map();
       for (const domain of domains) {
         for (const command of Object.keys(domain.metadata)) {
           metadataByCommand.set(command, domain.metadata[command]);
@@ -157,10 +158,13 @@ export interface LogMessage {
 
 export interface ProtocolDomain {
   readonly domain: string;
-  readonly metadata: {[commandName: string]: {parameters: Components.JSONEditor.Parameter[], description: string}};
+  readonly metadata: {
+    [commandName: string]: {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]},
+  };
 }
 
-export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
+export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(
+    UI.Widget.VBox) {
   private started: boolean;
   private startTime: number;
   private readonly requestTimeForId: Map<number, number>;
@@ -379,6 +383,10 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
     const input = new UI.Toolbar.ToolbarInput(
         placeholder, accessiblePlaceholder, growFactor, shrinkFactor, tooltip,
         this.#commandAutocompleteSuggestionProvider.buildTextPromptCompletions, false);
+    input.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, () => {
+      const {command, parameters} = parseCommandInput(input.value());
+      this.dispatchEventToListeners(Events.CommandChange, {command, parameters});
+    });
     input.addEventListener(UI.Toolbar.ToolbarInput.Event.EnterPressed, () => {
       this.#commandAutocompleteSuggestionProvider.addEntry(input.value());
       const {command, parameters} = parseCommandInput(input.value());
@@ -601,7 +609,8 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
 }
 
 let protocolMonitorImplInstance: ProtocolMonitorImpl;
-export class ProtocolMonitorImpl extends UI.Widget.VBox {
+export class ProtocolMonitorImpl extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(
+    UI.Widget.VBox) {
   #split: UI.SplitWidget.SplitWidget;
   #editorWidget = new EditorWidget();
   #protocolMonitorDataGrid: ProtocolMonitorDataGrid;
@@ -614,6 +623,10 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
         new UI.SplitWidget.SplitWidget(true, false, 'protocol-monitor-split-container', this.#sideBarMinWidth);
     this.#split.show(this.contentElement);
     this.#protocolMonitorDataGrid = new ProtocolMonitorDataGrid(this.#split);
+    this.#protocolMonitorDataGrid.addEventListener(Events.CommandChange, async event => {
+      await this.#editorWidget.jsonEditor.outputCommandFromInputBar(event.data.command, event.data.parameters);
+    });
+
     this.#split.setMainWidget(this.#protocolMonitorDataGrid);
     this.#split.setSidebarWidget(this.#editorWidget);
     this.#split.hideSidebar(true);
@@ -721,10 +734,12 @@ export class InfoWidget extends UI.Widget.VBox {
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   CommandSent = 'CommandSent',
+  CommandChange = 'CommandChange',
 }
 
 export type EventTypes = {
   [Events.CommandSent]: Components.JSONEditor.Command,
+  [Events.CommandChange]: Components.JSONEditor.Command,
 };
 
 export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
@@ -741,7 +756,7 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
   }
 }
 
-export function parseCommandInput(input: string): {command: string, parameters: object} {
+export function parseCommandInput(input: string): {command: string, parameters: {[paramName: string]: unknown}} {
   // If input cannot be parsed as json, we assume it's the command name
   // for a command without parameters. Otherwise, we expect an object
   // with "command"/"method"/"cmd" and "parameters"/"params"/"args"/"arguments" attributes.

@@ -97,17 +97,58 @@ const splitDescription = (description: string): [string, string] => {
   // which contains the most informations.
   // The number 150 has been chosen arbitrarily
   if (description.length > 150) {
-    const firstSentence = description.split('.')[0];
-    const restOfDescription = description.slice(firstSentence.length + 1);
+    const [firstSentence, restOfDescription] = description.split('.');
+    // To make the UI nicer, we add a dot at the end of the first sentence.
+    firstSentence + '.';
     return [firstSentence, restOfDescription];
   }
   return [description, ''];
 };
 
+const getAllKeysFromParameters =
+    (parameters: {[paramName: string]: unknown}, prefix: string = ''): Array<[string, unknown]> => {
+      let keys: Array<[string, unknown]> = [];
+
+      for (const key in parameters) {
+        if (Object.prototype.hasOwnProperty.call(parameters, key)) {
+          const nestedKey = prefix ? `${prefix}.${key}` : key;
+
+          if (typeof parameters[key] === 'object' && parameters[key] !== null) {
+            const nestedKeys = getAllKeysFromParameters(parameters[key] as {[paramName: string]: unknown}, nestedKey);
+            keys = keys.concat(nestedKeys);
+          } else {
+            keys.push([nestedKey, parameters[key]]);
+          }
+        }
+      }
+      return keys;
+    };
+
+const removeUndefinedNestedObjects = (obj: {[key: string]: unknown}): void => {
+  for (const key in obj) {
+    if (typeof obj[key] === 'object' && obj[key] !== null) {
+      const nestedObj = obj[key] as {[key: string]: unknown};
+      let hasValue = false;
+      for (const nestedKey in nestedObj) {
+        if (Object.prototype.hasOwnProperty.call(nestedObj, nestedKey) && nestedObj[nestedKey] !== undefined) {
+          hasValue = true;
+          break;
+        }
+      }
+      if (!hasValue) {
+        delete obj[key];
+      } else {
+        removeUndefinedNestedObjects(nestedObj);
+      }
+    }
+  }
+};
+
 @customElement('devtools-json-editor')
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
-  @property() declare metadataByCommand: Map<string, {parameters: Parameter[], description: string}>;
+  @property()
+  declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
   @property() declare typesByName: Map<string, Type[]>;
   @property() declare targetManager;
   @state() declare parameters: Parameter[];
@@ -139,10 +180,35 @@ export class JSONEditor extends LitElement {
     this.#hintPopoverHelper.setTimeout(300);
     this.#hintPopoverHelper.setHasPadding(true);
   }
+
   override disconnectedCallback(): void {
     super.disconnectedCallback();
     this.#hintPopoverHelper?.hidePopover();
     this.#hintPopoverHelper?.dispose();
+  }
+
+  async outputCommandFromInputBar(command: string, parameters: {
+    [paramName: string]: unknown,
+  }): Promise<void> {
+    if (!command) {
+      return;
+    }
+    this.command = command;
+    this.populateParametersForCommand();
+    const eventParameters = parameters;
+    await this.updateComplete;
+    const keys = getAllKeysFromParameters(eventParameters);
+    for (const key of keys) {
+      const {parameter, parentParameter} = this.#getChildByPath(key[0].split('.'));
+      if (parentParameter && parentParameter.type === 'array') {
+        this.#handleAddArrayParameter(key[0].split('.')[0]);
+        const arrayParameter = this.#getChildByPath(key[0].split('.'))?.parameter;
+        arrayParameter.value = key[1] as Parameter['value'];
+      } else {
+        parameter.value = key[1] as Parameter['value'];
+      }
+    }
+    this.requestUpdate();
   }
 
   #handlePopoverDescriptions(event: MouseEvent):
@@ -154,13 +220,23 @@ export class JSONEditor extends LitElement {
     }
     const [head, tail] = splitDescription(elementData.description);
     const type = elementData.type;
+    const replyArgs = elementData.replyArgs;
+    let popupContent = '';
+    // replyArgs and type cannot get into conflict because replyArgs is attached to a command and type to a parameter
+    if (replyArgs) {
+      popupContent = tail + `Returns: ${replyArgs}<br>`;
+    } else if (type) {
+      popupContent = tail + `<br>Type: ${type}<br>`;
+    } else {
+      popupContent = tail;
+    }
+
     return {
       box: hintElement.boxInWindow(),
       show: async(popover: UI.GlassPane.GlassPane): Promise<boolean> => {
         const popupElement = new ElementsComponents.CSSHintDetailsView.CSSHintDetailsView({
-          'getMessage': (): string => `<code><span>${head}.</span></code>`,
-          // Will change this line once the returnType of command will have been added to the metadataByCommandMap
-          'getPossibleFixMessage': (): string => type ? tail + `<br>Type: ${type}<br>` : tail,
+          'getMessage': (): string => `<code><span>${head}</span></code>`,
+          'getPossibleFixMessage': (): string => popupContent,
           'getLearnMoreLink': (): string =>
               `https://chromedevtools.github.io/devtools-protocol/tot/${this.command.split('.')[0]}/`,
         });
@@ -171,11 +247,11 @@ export class JSONEditor extends LitElement {
   }
 
   #getDescriptionAndTypeForElement(hintElement: HTMLElement):
-      {description: string, type: ParameterType|string}|undefined {
+      {description: string, type?: ParameterType, replyArgs?: string[]}|undefined {
     if (hintElement.matches('.command')) {
       const metadata = this.metadataByCommand.get(this.command);
       if (metadata) {
-        return {description: metadata.description, type: ''};
+        return {description: metadata.description, replyArgs: metadata.replyArgs};
       }
     }
     if (hintElement.matches('.parameter')) {
@@ -223,7 +299,7 @@ export class JSONEditor extends LitElement {
           for (const subParameter of parameter.value) {
             nestedParameters[subParameter.name] = formatParameterValue(subParameter);
           }
-          return nestedParameters;
+          return Object.keys(nestedParameters).length !== 0 ? nestedParameters : undefined;
         }
         case 'array': {
           const nestedArrayParameters = [];
@@ -242,6 +318,7 @@ export class JSONEditor extends LitElement {
     for (const parameter of this.parameters) {
       formattedParameters[parameter.name] = formatParameterValue(parameter);
     }
+    removeUndefinedNestedObjects(formattedParameters);
     return formattedParameters;
   }
 
@@ -465,7 +542,7 @@ export class JSONEditor extends LitElement {
           const handleInputOnBlur = (event: Event): void => {
             this.#handleParameterInputBlur(event);
           };
-          const classes = { colorBlue: parameter.optional, parameter: true };
+          const classes = {colorBlue: parameter.optional, parameter: true};
           return html`
                 <li class="row">
                   <div class="row">
