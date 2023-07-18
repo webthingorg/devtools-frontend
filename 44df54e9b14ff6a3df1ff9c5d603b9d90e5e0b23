@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f8f523f_5146e68f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T16:02:06Z",
+      "side": 1,
+      "message": "Do you want me to add the other way binding in this CL or in another one ?",
+      "parentUuid": "3b326f55_4484367e",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e92fa411_e72a705d",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a621fc_d7463278",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T16:02:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "730d3df3_1bb05862",
+      "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0befe30f_8ca2a703",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-07-17T09:09:10Z",
       "side": 1,
       "message": "```suggestion\nexport class CommandChangeEvent extends Event {\n```",
+      "range": {
+        "startLine": 166,
+        "startChar": 13,
+        "endLine": 166,
+        "endChar": 33
+      },
+      "revId": "44df54e9b14ff6a3df1ff9c5d603b9d90e5e0b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d52b02_a7b5a628",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-18T16:02:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0befe30f_8ca2a703",
       "range": {
         "startLine": 166,
         "startChar": 13,
