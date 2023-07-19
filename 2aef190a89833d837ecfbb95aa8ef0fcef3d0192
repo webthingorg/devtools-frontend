@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c82817fe_48708414",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:22:44Z",
+      "side": 1,
+      "message": "LGTM with some nits",
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cc776e1_b0f21a2a",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:22:44Z",
+      "side": 1,
+      "message": "maybe use `begin` or `beginEvent`?",
+      "range": {
+        "startLine": 409,
+        "startChar": 10,
+        "endLine": 409,
+        "endChar": 13
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a44a174_7f03c774",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:22:44Z",
+      "side": 1,
+      "message": "i feel these two are both checking if there is a begin event?\nCan we combine the if statement",
+      "range": {
+        "startLine": 406,
+        "startChar": 4,
+        "endLine": 412,
+        "endChar": 5
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e62b45_e6fd022a",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:22:44Z",
+      "side": 1,
+      "message": "If they don\u0027t match, do we still keep them or drop?",
+      "range": {
+        "startLine": 414,
+        "startChar": 5,
+        "endLine": 414,
+        "endChar": 19
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4323e69_7c1514b4",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:22:44Z",
+      "side": 1,
+      "message": "Let\u0027s use full name\n```suggestion\n          \u0027Begin/End events mismatch at \u0027 + top.ts + \u0027 (\u0027 + top.name + \u0027) vs. \u0027 + event.ts + \u0027 (\u0027 + event.name + \u0027)\u0027);\n```",
+      "range": {
+        "startLine": 415,
+        "startChar": 11,
+        "endLine": 415,
+        "endChar": 14
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c472f93e_d54b8461",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:22:44Z",
+      "side": 1,
+      "message": "So we will directly modify the begin event, maybe add a comment to expalain.",
+      "range": {
+        "startLine": 417,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 59
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a53560d_346561d6",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:22:44Z",
+      "side": 1,
+      "message": "so we build this with a begin event, maybe add a comment to make it clear 😊",
+      "range": {
+        "startLine": 420,
+        "startChar": 8,
+        "endLine": 420,
+        "endChar": 25
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
