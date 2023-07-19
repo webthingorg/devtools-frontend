@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57a4cf33_be8f0ec9",
+        "filename": "AUTHORS",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1579945
+      },
+      "writtenOn": "2023-07-19T12:47:15Z",
+      "side": 1,
+      "message": "So this is matching the chromium file and it\u0027s this way because my commit email is a non gmail account but my gerrit permissions are linked to the gmail account (because it needs a google account). Happy to change this to just be 1 email but it will affect my dry run permissions (if in future I get them for dev tools aswell as chromium)",
+      "parentUuid": "0edf3412_97a94191",
+      "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce35bfed_ce9beb3f",
         "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2023-07-19T12:42:25Z",
       "side": 1,
       "message": "I understand that this is copy-pasted from above — we should update this last part of the comment since `module.json` no longer exists.",
+      "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3ff7768_6872a009",
+        "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1579945
+      },
+      "writtenOn": "2023-07-19T12:47:15Z",
+      "side": 1,
+      "message": "Ah okay. I\u0027ll remove that last part for now then",
+      "parentUuid": "ce35bfed_ce9beb3f",
       "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
