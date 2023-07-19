@@ -16,6 +16,24 @@
       "message": "it\u0027s probably not possible to run node scrips here? \u0027cause @puppeteer/browsers is right there in node_modules",
       "revId": "5c9b5f1ea97fae4dc87d297c706f4bcbf42c13b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335f6249_f4007898",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-07-19T07:29:55Z",
+      "side": 1,
+      "message": "Reusing @puppeteer/browsers would be nice. I’m not sure if it’s feasible given the amount of code here just to grab `node` + `npm` binaries: https://source.chromium.org/chromium/chromium/src/+/main:DEPS;l\u003d4922-5006;drc\u003d8fa5f6f88f591ecd3b7b381b6ca28d5992def368 Maybe Liviu knows more.",
+      "parentUuid": "af00a53a_3b61ee63",
+      "revId": "5c9b5f1ea97fae4dc87d297c706f4bcbf42c13b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
