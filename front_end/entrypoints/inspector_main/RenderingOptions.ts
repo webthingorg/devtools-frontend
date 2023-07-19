@@ -154,6 +154,10 @@ const UIStrings = {
    */
   forcesCssPrefersreduceddataMedia: 'Forces CSS `prefers-reduced-data` media feature',
   /**
+   * @description Explanation text for the 'Forces CSS prefers-reduced-transparency media' setting in the Rendering tool.
+   */
+  forcesCssPrefersreducedtransparencyMedia: 'Forces CSS `prefers-reduced-transparency` media feature',
+  /**
    * @description Explanation text for the 'Forces CSS color-gamut media' setting in the Rendering tool.
    */
   forcesCssColorgamutMediaFeature: 'Forces CSS `color-gamut` media feature',
@@ -191,6 +195,17 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 // Command Menu.
 const supportsPrefersReducedData = (): boolean => {
   const query = '(prefers-reduced-data)';
+  // Note: `media` serializes to `'not all'` for unsupported queries.
+  return window.matchMedia(query).media === query;
+};
+
+// TODO(1424879): remove this feature detection and expose the UI
+// unconditionally once prefers-reduced-transparency ships unflagged. At that
+// point, we can also add `category` and `tags` to the entry in
+// `front_end/sdk/module.json` to make this feature available in the
+// Command Menu.
+const supportsPrefersReducedTransparency = (): boolean => {
+  const query = '(prefers-reduced-transparency)';
   // Note: `media` serializes to `'not all'` for unsupported queries.
   return window.matchMedia(query).media === query;
 };
@@ -260,6 +275,11 @@ export class RenderingOptionsView extends UI.Widget.VBox {
       this.#appendSelect(
           i18nString(UIStrings.forcesCssPrefersreduceddataMedia),
           Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedData'));
+    }
+    if (supportsPrefersReducedTransparency()) {
+      this.#appendSelect(
+          i18nString(UIStrings.forcesCssPrefersreducedtransparencyMedia),
+          Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeaturePrefersReducedTransparency'));
     }
     this.#appendSelect(
         i18nString(UIStrings.forcesCssColorgamutMediaFeature),
