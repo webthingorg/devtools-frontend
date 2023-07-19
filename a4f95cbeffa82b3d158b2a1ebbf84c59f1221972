@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca02326d_ba3dcfe8",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-19T10:22:20Z",
+      "side": 0,
+      "message": "there is now no usage of this method left - which is great news as it means we can rip all the network stuff out of the old data layer. However I did not want to do this as part of this CL and will do it in a follow-up.",
+      "range": {
+        "startLine": 117,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 55
+      },
+      "revId": "a4f95cbeffa82b3d158b2a1ebbf84c59f1221972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
