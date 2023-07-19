@@ -103,6 +103,24 @@
       "parentUuid": "ce35bfed_ce9beb3f",
       "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08b01e2e_59830c06",
+        "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1579945
+      },
+      "writtenOn": "2023-07-19T12:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3ff7768_6872a009",
+      "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
