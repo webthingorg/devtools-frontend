@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11f182e7_10923285",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-19T09:44:03Z",
+      "side": 1,
+      "message": "I think it is unnecessary because the value of parameters is by default undefined and therefore when it is parsed back to json it is not sent anyway",
+      "parentUuid": "2e62726a_c229182f",
+      "range": {
+        "startLine": 127,
+        "startChar": 6,
+        "endLine": 127,
+        "endChar": 34
+      },
+      "revId": "0600534d0bbc21f2d91214ac083da85946b5656b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6af59c97_7ba434a6",
         "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
         "patchSetId": 10
