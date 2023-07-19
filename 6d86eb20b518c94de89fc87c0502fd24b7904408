@@ -16,6 +16,57 @@
       "message": "https://chromium-review.googlesource.com/c/chromium/src/+/4701184 the chromium patch that\u0027s required for this change",
       "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3593e665_3e4a0123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-07-19T12:42:25Z",
+      "side": 1,
+      "message": "Thanks! I left some minor comments. Also adding Changhao as reviewer.",
+      "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0edf3412_97a94191",
+        "filename": "AUTHORS",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-07-19T12:42:25Z",
+      "side": 1,
+      "message": "Please stick to a single entry. It should match the Git commit author email.",
+      "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce35bfed_ce9beb3f",
+        "filename": "front_end/entrypoints/inspector_main/RenderingOptions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-07-19T12:42:25Z",
+      "side": 1,
+      "message": "I understand that this is copy-pasted from above — we should update this last part of the comment since `module.json` no longer exists.",
+      "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
