@@ -178,14 +178,14 @@ describe('RendererHandler', function() {
       return;
     }
 
-    const isRoot = (node: TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNode) => node.depth === 0;
-    const isInstant = (event: TraceModel.Handlers.ModelHandlers.Renderer.RendererTraceEvent) =>
+    const isRoot = (node: TraceModel.Handlers.ModelHandlers.Renderer.RendererEntryNode) => node.depth === 0;
+    const isInstant = (event: TraceModel.Handlers.ModelHandlers.Renderer.RendererEntry) =>
         TraceModel.Types.TraceEvents.isTraceEventInstant(event);
-    const isLong = (event: TraceModel.Handlers.ModelHandlers.Renderer.RendererTraceEvent) =>
+    const isLong = (event: TraceModel.Handlers.ModelHandlers.Renderer.RendererEntry) =>
         TraceModel.Types.TraceEvents.isTraceEventComplete(event) && event.dur > 1000;
     const isIncluded =
-        (node: TraceModel.Handlers.ModelHandlers.Renderer.RendererEventNode,
-         event: TraceModel.Handlers.ModelHandlers.Renderer.RendererTraceEvent) =>
+        (node: TraceModel.Handlers.ModelHandlers.Renderer.RendererEntryNode,
+         event: TraceModel.Handlers.ModelHandlers.Renderer.RendererEntry) =>
             !isRoot(node) || (isInstant(event) || isLong(event));
 
     assert.strictEqual(prettyPrint(thread, tree.roots, isIncluded), `
@@ -721,7 +721,7 @@ describe('RendererHandler', function() {
       makeCompleteEvent('D', 3, 3),   // 3..6 (starts when B finishes)
       makeCompleteEvent('C', 2, 1),   // 2..3 (finishes when B finishes)
       makeCompleteEvent('E', 10, 3),  // 10..13 (starts when A finishes)
-    ] as TraceModel.Handlers.ModelHandlers.Renderer.RendererTraceEvent[];
+    ] as TraceModel.Handlers.ModelHandlers.Renderer.RendererEntry[];
 
     TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
     const tree = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter: {has: () => true}});
@@ -828,7 +828,7 @@ describe('RendererHandler', function() {
           isOnMainFrame: true,
           threads: new Map([[
             TraceModel.Types.TraceEvents.ThreadID(1),
-            {name: 'Foo', events: data1},
+            {name: 'Foo', entries: data1},
           ]]),
         } as TraceModel.Handlers.ModelHandlers.Renderer.RendererProcess,
       ],
@@ -839,7 +839,7 @@ describe('RendererHandler', function() {
           isOnMainFrame: false,
           threads: new Map([[
             TraceModel.Types.TraceEvents.ThreadID(3),
-            {name: 'Bar', events: data2},
+            {name: 'Bar', entries: data2},
           ]]),
         } as TraceModel.Handlers.ModelHandlers.Renderer.RendererProcess,
       ],
