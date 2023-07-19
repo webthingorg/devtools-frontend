@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96a2b8f_94d2997b",
+        "filename": "test/unittests/front_end/models/trace/helpers/SamplesIntegrator_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T13:02:40Z",
+      "side": 0,
+      "message": "this change is here because after this change this would return trace events and profile calls, but this meant to get only trace events.",
+      "range": {
+        "startLine": 70,
+        "startChar": 40,
+        "endLine": 70,
+        "endChar": 85
+      },
+      "revId": "a0da47d970cf5dd570933e784a19c2474c4a7ca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
