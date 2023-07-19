@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "752c8b88_ad2e1fce",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T09:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cc776e1_b0f21a2a",
+      "range": {
+        "startLine": 409,
+        "startChar": 10,
+        "endLine": 409,
+        "endChar": 13
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a44a174_7f03c774",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-19T09:22:44Z",
       "side": 1,
       "message": "i feel these two are both checking if there is a begin event?\nCan we combine the if statement",
+      "range": {
+        "startLine": 406,
+        "startChar": 4,
+        "endLine": 412,
+        "endChar": 5
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75ec40cc_03fe6007",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T09:59:33Z",
+      "side": 1,
+      "message": "yeah this is here for making TS happy since `completeEventStack.pop();` can return undefined from its perspective (even if the array is checked to not be empty). But we definetly can combine this into a single check, good catch!",
+      "parentUuid": "2a44a174_7f03c774",
       "range": {
         "startLine": 406,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6fa2749_cb0ff7bf",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T09:59:33Z",
+      "side": 1,
+      "message": "for the begin event we don\u0027t drop it but we also don\u0027t modify it with the incoming event, since it\u0027s info isn\u0027t relevant if it doesn\u0027t match the begin event.\n\nThe end event we drop, since we don\u0027t have the extra info we need about it.",
+      "parentUuid": "b7e62b45_e6fd022a",
+      "range": {
+        "startLine": 414,
+        "startChar": 5,
+        "endLine": 414,
+        "endChar": 19
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4323e69_7c1514b4",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-07-19T09:22:44Z",
       "side": 1,
       "message": "Let\u0027s use full name\n```suggestion\n          \u0027Begin/End events mismatch at \u0027 + top.ts + \u0027 (\u0027 + top.name + \u0027) vs. \u0027 + event.ts + \u0027 (\u0027 + event.name + \u0027)\u0027);\n```",
+      "range": {
+        "startLine": 415,
+        "startChar": 11,
+        "endLine": 415,
+        "endChar": 14
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3273ad20_23545b27",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T09:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4323e69_7c1514b4",
       "range": {
         "startLine": 415,
         "startChar": 11,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f6ea2f0_a6b76ba5",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T09:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c472f93e_d54b8461",
+      "range": {
+        "startLine": 417,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 59
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a53560d_346561d6",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-07-19T09:22:44Z",
       "side": 1,
       "message": "so we build this with a begin event, maybe add a comment to make it clear 😊",
+      "range": {
+        "startLine": 420,
+        "startChar": 8,
+        "endLine": 420,
+        "endChar": 25
+      },
+      "revId": "2aef190a89833d837ecfbb95aa8ef0fcef3d0192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54eec4ee_eebfcc5b",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T09:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a53560d_346561d6",
       "range": {
         "startLine": 420,
         "startChar": 8,
