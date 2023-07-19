@@ -16,6 +16,23 @@
       "message": "PTAL. WDYT?",
       "revId": "1060ab5eb7c5b8e5bd25a7a07c90670209501ea9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "394da946_ee520ae6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-19T11:48:17Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1060ab5eb7c5b8e5bd25a7a07c90670209501ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
