@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1eda992_dbca293d",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:57:34Z",
+      "side": 1,
+      "message": "why do we need to listen to text change?",
+      "range": {
+        "startLine": 386,
+        "startChar": 57,
+        "endLine": 386,
+        "endChar": 68
+      },
+      "revId": "0600534d0bbc21f2d91214ac083da85946b5656b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e62726a_c229182f",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 10
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "I think it is unnecessary because the value of parameters is by default undefined and therefore when it is parsed back to json it is not sent anyway",
       "parentUuid": "2e62726a_c229182f",
+      "range": {
+        "startLine": 127,
+        "startChar": 6,
+        "endLine": 127,
+        "endChar": 34
+      },
+      "revId": "0600534d0bbc21f2d91214ac083da85946b5656b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e39e89cb_0446d56a",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-19T09:57:34Z",
+      "side": 1,
+      "message": "More like remove the null one, otherwise it will cause some error in the `displayCommand`",
+      "parentUuid": "11f182e7_10923285",
       "range": {
         "startLine": 127,
         "startChar": 6,
