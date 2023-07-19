@@ -8,6 +8,7 @@ import * as Common from '../../../core/common/common.js';
 import type * as CPUProfile from '../../cpu_profile/cpu_profile.js';
 import * as Types from '../types/types.js';
 import {millisecondsToMicroseconds} from './Timing.js';
+import {mergeEventsInOrder} from './Trace.js';
 
 /**
  * This is a helpers that integrates CPU profiling data coming in the
@@ -97,6 +98,53 @@ export class SamplesIntegrator {
   }
 
   getConstructedProfileCalls(): Types.TraceEvents.TraceEventSyntheticProfileCall[] {
+    return this.#constructedProfileCalls;
+  }
+  buildProfileCalls(traceEvents: Types.TraceEvents.TraceEventData[]):
+      Types.TraceEvents.TraceEventSyntheticProfileCall[] {
+    const mergedEvents = mergeEventsInOrder(traceEvents, this.callsFromProfileSamples());
+    const stack = [];
+    for (let i = 0; i < mergedEvents.length; i++) {
+      const event = mergedEvents[i];
+      if (stack.length === 0) {
+        if (Types.TraceEvents.isProfileCall(event)) {
+          this.onProfileCall(event);
+          continue;
+        }
+        stack.push(event);
+        this.onTraceEventStart(event);
+        continue;
+      }
+
+      const parentEvent = stack.at(-1);
+      if (parentEvent === undefined) {
+        continue;
+      }
+      const begin = event.ts;
+      const parentBegin = parentEvent.ts;
+      const parentDuration = parentEvent.dur || 0;
+      const parentEnd = parentBegin + parentDuration;
+
+      const startsAfterParent = begin >= parentEnd;
+      if (startsAfterParent) {
+        this.onTraceEventEnd(parentEvent);
+        stack.pop();
+        i--;
+        continue;
+      }
+      if (Types.TraceEvents.isProfileCall(event)) {
+        this.onProfileCall(event, parentEvent);
+        continue;
+      }
+      this.onTraceEventStart(event);
+      stack.push(event);
+    }
+    while (stack.length) {
+      const last = stack.pop();
+      if (last) {
+        this.onTraceEventEnd(last);
+      }
+    }
     return this.#constructedProfileCalls;
   }
 
@@ -283,6 +331,7 @@ export class SamplesIntegrator {
     //                [E]
     //                  ^ t = x2
     this.#truncateJSStack(i, event.ts);
+
     for (; i < stackTrace.length; ++i) {
       const call = stackTrace[i];
       this.#currentJSStack.push(call);
