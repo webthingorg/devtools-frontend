@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62ac512_55f477eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-19T13:32:34Z",
+      "side": 1,
+      "message": "PTAL. I think some layout tests may fail, but those tests will now be obsolete because we do not use the old data layer for network, so I can remove them.",
+      "revId": "7a09572b27d482768a9392f84a9495c74ea6e72c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
