@@ -121,6 +121,24 @@
       "message": "would it be more efficient to walk the type definitions for the command or the eventParameters object directly and fill out an result based on that (probably recursively)? the question is what do we do if the command has attributes that do not match the schema? can we still add them on the fly?",
       "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac55d51a_e5894160",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T09:55:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7266e5e7_cbe814f4",
+      "revId": "a5925fc85dbb0ae70a6d68597dfcbe2ff3438bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
