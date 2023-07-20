@@ -32,6 +32,7 @@ import {NodeURL} from './NodeURL.js';
 import type * as Platform from '../platform/platform.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import type * as Protocol from '../../generated/protocol.js';
+import type * as ProtocolComponent from '../../panels/protocol_monitor/components/components.js';
 
 export const DevToolsStubErrorCode = -32015;
 // TODO(dgozman): we are not reporting generic errors in tests, but we should
@@ -84,13 +85,6 @@ export const qualifyName = (domain: string, name: UnqualifiedName): QualifiedNam
 type EventParameterNames = Map<QualifiedName, string[]>;
 type ReadonlyEventParameterNames = ReadonlyMap<QualifiedName, string[]>;
 
-interface CommandParameter {
-  name: string;
-  type: string;
-  optional: boolean;
-  description: string;
-}
-
 type Callback = (error: MessageError|null, arg1: Object|null) => void;
 
 interface CallbackWithDebugInfo {
@@ -102,7 +96,7 @@ export class InspectorBackend {
   readonly agentPrototypes: Map<ProtocolDomainName, _AgentPrototype> = new Map();
   #initialized: boolean = false;
   #eventParameterNamesForDomain = new Map<ProtocolDomainName, EventParameterNames>();
-  readonly typeMap = new Map<QualifiedName, CommandParameter[]>();
+  readonly typeMap = new Map<QualifiedName, ProtocolComponent.JSONEditor.Parameter[]>();
 
   private getOrCreateEventParameterNamesForDomain(domain: ProtocolDomainName): EventParameterNames {
     let map = this.#eventParameterNamesForDomain.get(domain);
@@ -142,8 +136,9 @@ export class InspectorBackend {
     return prototype;
   }
 
-  registerCommand(method: QualifiedName, parameters: CommandParameter[], replyArgs: string[], description: string):
-      void {
+  registerCommand(
+      method: QualifiedName, parameters: ProtocolComponent.JSONEditor.Parameter[], replyArgs: string[],
+      description: string): void {
     const [domain, command] = splitQualifiedName(method);
     this.agentPrototype(domain as ProtocolDomainName).registerCommand(command, parameters, replyArgs, description);
     this.#initialized = true;
@@ -162,7 +157,7 @@ export class InspectorBackend {
     this.#initialized = true;
   }
 
-  registerType(method: QualifiedName, parameters: CommandParameter[]): void {
+  registerType(method: QualifiedName, parameters: ProtocolComponent.JSONEditor.Parameter[]): void {
     this.typeMap.set(method, parameters);
     this.#initialized = true;
   }
@@ -927,7 +922,10 @@ class _AgentPrototype {
     [x: string]: string[],
   };
   description = '';
-  metadata: {[commandName: string]: {parameters: CommandParameter[], description: string, replyArgs: string[]}};
+  metadata: {
+    [commandName: string]:
+        {parameters: ProtocolComponent.JSONEditor.Parameter[], description: string, replyArgs: string[]},
+  };
   readonly domain: string;
   target!: TargetBase;
   constructor(domain: string) {
@@ -937,7 +935,8 @@ class _AgentPrototype {
   }
 
   registerCommand(
-      methodName: UnqualifiedName, parameters: CommandParameter[], replyArgs: string[], description: string): void {
+      methodName: UnqualifiedName, parameters: ProtocolComponent.JSONEditor.Parameter[], replyArgs: string[],
+      description: string): void {
     const domainAndMethod = qualifyName(this.domain, methodName);
     function sendMessagePromise(this: _AgentPrototype, ...args: unknown[]): Promise<unknown> {
       return _AgentPrototype.prototype.sendMessageToBackendPromise.call(this, domainAndMethod, parameters, args);
@@ -957,8 +956,8 @@ class _AgentPrototype {
   }
 
   private prepareParameters(
-      method: string, parameters: CommandParameter[], args: unknown[], errorCallback: (arg0: string) => void): Object
-      |null {
+      method: string, parameters: ProtocolComponent.JSONEditor.Parameter[], args: unknown[],
+      errorCallback: (arg0: string) => void): Object|null {
     const params: {[x: string]: unknown} = {};
     let hasParams = false;
 
@@ -998,8 +997,8 @@ class _AgentPrototype {
     return hasParams ? params : null;
   }
 
-  private sendMessageToBackendPromise(method: QualifiedName, parameters: CommandParameter[], args: unknown[]):
-      Promise<unknown> {
+  private sendMessageToBackendPromise(
+      method: QualifiedName, parameters: ProtocolComponent.JSONEditor.Parameter[], args: unknown[]): Promise<unknown> {
     let errorMessage;
     function onError(message: string): void {
       console.error(message);
