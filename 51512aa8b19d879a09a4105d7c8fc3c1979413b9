@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b9e3894_8e2efac1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-20T08:58:36Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "51512aa8b19d879a09a4105d7c8fc3c1979413b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "362a9bc1_1ded6f6e",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-20T08:58:36Z",
+      "side": 1,
+      "message": "By pulling this case up, does this change the value of `targetName` for such cases?",
+      "range": {
+        "startLine": 136,
+        "startChar": 8,
+        "endLine": 136,
+        "endChar": 23
+      },
+      "revId": "51512aa8b19d879a09a4105d7c8fc3c1979413b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
