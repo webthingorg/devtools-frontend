@@ -67,6 +67,48 @@ interface EventMessage extends Message {
   params?: MessageParams|null;
 }
 
+export const enum ParameterType {
+  String = 'string',
+  Number = 'number',
+  Boolean = 'boolean',
+  Array = 'array',
+  Object = 'object',
+}
+
+interface BaseParameter {
+  optional: boolean;
+  name: string;
+  typeRef?: string;
+  description: string;
+}
+
+interface ArrayParameter extends BaseParameter {
+  type: ParameterType.Array;
+  value: Parameter[];
+}
+
+interface NumberParameter extends BaseParameter {
+  type: ParameterType.Number;
+  value?: number;
+}
+
+interface StringParameter extends BaseParameter {
+  type: ParameterType.String;
+  value?: string;
+}
+
+interface BooleanParameter extends BaseParameter {
+  type: ParameterType.Boolean;
+  value?: boolean;
+}
+
+interface ObjectParameter extends BaseParameter {
+  type: ParameterType.Object;
+  value: Parameter[];
+}
+
+export type Parameter = ArrayParameter|NumberParameter|StringParameter|BooleanParameter|ObjectParameter;
+
 /** A qualified name, e.g. Domain.method */
 export type QualifiedName = string&{qualifiedEventNameTag: string | undefined};
 /** A qualified name, e.g. method */
@@ -84,13 +126,6 @@ export const qualifyName = (domain: string, name: UnqualifiedName): QualifiedNam
 type EventParameterNames = Map<QualifiedName, string[]>;
 type ReadonlyEventParameterNames = ReadonlyMap<QualifiedName, string[]>;
 
-interface CommandParameter {
-  name: string;
-  type: string;
-  optional: boolean;
-  description: string;
-}
-
 type Callback = (error: MessageError|null, arg1: Object|null) => void;
 
 interface CallbackWithDebugInfo {
@@ -102,7 +137,7 @@ export class InspectorBackend {
   readonly agentPrototypes: Map<ProtocolDomainName, _AgentPrototype> = new Map();
   #initialized: boolean = false;
   #eventParameterNamesForDomain = new Map<ProtocolDomainName, EventParameterNames>();
-  readonly typeMap = new Map<QualifiedName, CommandParameter[]>();
+  readonly typeMap = new Map<QualifiedName, Parameter[]>();
 
   private getOrCreateEventParameterNamesForDomain(domain: ProtocolDomainName): EventParameterNames {
     let map = this.#eventParameterNamesForDomain.get(domain);
@@ -142,8 +177,7 @@ export class InspectorBackend {
     return prototype;
   }
 
-  registerCommand(method: QualifiedName, parameters: CommandParameter[], replyArgs: string[], description: string):
-      void {
+  registerCommand(method: QualifiedName, parameters: Parameter[], replyArgs: string[], description: string): void {
     const [domain, command] = splitQualifiedName(method);
     this.agentPrototype(domain as ProtocolDomainName).registerCommand(command, parameters, replyArgs, description);
     this.#initialized = true;
@@ -162,7 +196,7 @@ export class InspectorBackend {
     this.#initialized = true;
   }
 
-  registerType(method: QualifiedName, parameters: CommandParameter[]): void {
+  registerType(method: QualifiedName, parameters: Parameter[]): void {
     this.typeMap.set(method, parameters);
     this.#initialized = true;
   }
@@ -927,7 +961,9 @@ class _AgentPrototype {
     [x: string]: string[],
   };
   description = '';
-  metadata: {[commandName: string]: {parameters: CommandParameter[], description: string, replyArgs: string[]}};
+  metadata: {
+    [commandName: string]: {parameters: Parameter[], description: string, replyArgs: string[]},
+  };
   readonly domain: string;
   target!: TargetBase;
   constructor(domain: string) {
@@ -936,8 +972,8 @@ class _AgentPrototype {
     this.metadata = {};
   }
 
-  registerCommand(
-      methodName: UnqualifiedName, parameters: CommandParameter[], replyArgs: string[], description: string): void {
+  registerCommand(methodName: UnqualifiedName, parameters: Parameter[], replyArgs: string[], description: string):
+      void {
     const domainAndMethod = qualifyName(this.domain, methodName);
     function sendMessagePromise(this: _AgentPrototype, ...args: unknown[]): Promise<unknown> {
       return _AgentPrototype.prototype.sendMessageToBackendPromise.call(this, domainAndMethod, parameters, args);
@@ -957,8 +993,7 @@ class _AgentPrototype {
   }
 
   private prepareParameters(
-      method: string, parameters: CommandParameter[], args: unknown[], errorCallback: (arg0: string) => void): Object
-      |null {
+      method: string, parameters: Parameter[], args: unknown[], errorCallback: (arg0: string) => void): Object|null {
     const params: {[x: string]: unknown} = {};
     let hasParams = false;
 
@@ -998,7 +1033,7 @@ class _AgentPrototype {
     return hasParams ? params : null;
   }
 
-  private sendMessageToBackendPromise(method: QualifiedName, parameters: CommandParameter[], args: unknown[]):
+  private sendMessageToBackendPromise(method: QualifiedName, parameters: Parameter[], args: unknown[]):
       Promise<unknown> {
     let errorMessage;
     function onError(message: string): void {

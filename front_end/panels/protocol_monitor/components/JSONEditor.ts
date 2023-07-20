@@ -4,6 +4,7 @@
 import '../../recorder/components/components.js';
 
 import * as Host from '../../../core/host/host.js';
+import * as ProtocolClient from '../../../core/protocol_client/protocol_client.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
@@ -24,60 +25,12 @@ declare global {
   }
 }
 
-const enum ParameterType {
-  String = 'string',
-  Number = 'number',
-  Boolean = 'boolean',
-  Array = 'array',
-  Object = 'object',
-}
-
-interface BaseParameter {
-  optional: boolean;
-  name: string;
-  typeRef?: string;
-  description: string;
-}
-
-interface ArrayParameter extends BaseParameter {
-  type: ParameterType.Array;
-  value: Parameter[];
-}
-
-interface NumberParameter extends BaseParameter {
-  type: ParameterType.Number;
-  value?: number;
-}
-
-interface StringParameter extends BaseParameter {
-  type: ParameterType.String;
-  value?: string;
-}
-
-interface BooleanParameter extends BaseParameter {
-  type: ParameterType.Boolean;
-  value?: boolean;
-}
-
-interface ObjectParameter extends BaseParameter {
-  type: ParameterType.Object;
-  value: Parameter[];
-}
-
-export type Parameter = ArrayParameter|NumberParameter|StringParameter|BooleanParameter|ObjectParameter;
-
 export interface Command {
   command: string;
   parameters: {[x: string]: unknown};
   targetId?: string;
 }
 
-interface Type {
-  name: string;
-  type: string;
-  optional: boolean;
-  description: string;
-}
 /**
  * Parents should listen for this event and register the listeners provided by
  * this event"
@@ -109,10 +62,11 @@ const splitDescription = (description: string): [string, string] => {
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
   @property()
-  declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
-  @property() declare typesByName: Map<string, Type[]>;
+  declare metadataByCommand:
+      Map<string, {parameters: ProtocolClient.InspectorBackend.Parameter[], description: string, replyArgs: string[]}>;
+  @property() declare typesByName: Map<string, ProtocolClient.InspectorBackend.Parameter[]>;
   @property() declare targetManager;
-  @state() declare parameters: Parameter[];
+  @state() declare parameters: ProtocolClient.InspectorBackend.Parameter[];
   @state() command: string = '';
   @state() targetId?: string;
 
@@ -146,6 +100,127 @@ export class JSONEditor extends LitElement {
     super.disconnectedCallback();
     this.#hintPopoverHelper?.hidePopover();
     this.#hintPopoverHelper?.dispose();
+  }
+
+  #convertObjectToParameterSchema(
+      key: string, value: unknown, schema?: ProtocolClient.InspectorBackend.Parameter,
+      initialSchema?: ProtocolClient.InspectorBackend.Parameter[]): ProtocolClient.InspectorBackend.Parameter {
+    const type = schema?.type || typeof value;
+    const description = schema?.description ?? '';
+    const optional = schema?.optional ?? true;
+
+    switch (type) {
+      case 'string':
+      case 'boolean':
+      case 'number':
+
+        return {
+          type,
+          name: key,
+          optional,
+          typeRef: schema?.typeRef,
+          value,
+          description,
+        } as ProtocolClient.InspectorBackend.Parameter;
+      case 'object': {
+        if (typeof value !== 'object' || value === null) {
+          throw Error('Wrong value');
+        }
+        const typeRef = schema?.typeRef;
+        if (!typeRef) {
+          break;
+        }
+
+        let nestedType;
+        if (typeRef === 'dummy') {
+          nestedType = initialSchema;
+        } else {
+          nestedType = this.typesByName.get(typeRef);
+        }
+
+        if (!nestedType) {
+          break;
+        }
+        const objectValues = [];
+        for (const objectKey of Object.keys(value as object)) {
+          const objectType = nestedType.find(param => param.name === objectKey);
+          objectValues.push(this.#convertObjectToParameterSchema(
+              objectKey, (value as Record<string, unknown>)[objectKey],
+              objectType as ProtocolClient.InspectorBackend.Parameter));
+        }
+        return {
+          type: ProtocolClient.InspectorBackend.ParameterType.Object,
+          name: key,
+          optional: schema.optional,
+          typeRef: schema.typeRef,
+          value: objectValues,
+          description,
+        };
+      }
+      case 'array': {
+        const typeRef = schema?.typeRef;
+        if (!typeRef) {
+          throw Error('No type ref');
+        }
+
+        if (!Array.isArray(value)) {
+          throw Error('Wrong value');
+        }
+        const nestedType = this.#isTypePrimitive(typeRef) ? undefined : {
+          optional: true,
+          type: ProtocolClient.InspectorBackend.ParameterType.Object,
+          value: [],
+          typeRef,
+          description: '',
+          name: '',
+        } as ProtocolClient.InspectorBackend.Parameter;
+
+        const objectValues = [];
+
+        for (let i = 0; i < value.length; i++) {
+          const temp = this.#convertObjectToParameterSchema(`${i}`, value[i], nestedType);
+          objectValues.push(temp);
+        }
+        return {
+          type: ProtocolClient.InspectorBackend.ParameterType.Array,
+          name: key,
+          optional: optional,
+          typeRef: schema?.typeRef,
+          value: objectValues,
+          description,
+        };
+      }
+    }
+    return {
+      type,
+      name: key,
+      optional,
+      typeRef: schema?.typeRef,
+      value,
+      description,
+    } as ProtocolClient.InspectorBackend.Parameter;
+  }
+
+  displayCommand(command: string, parameters: {
+    [paramName: string]: unknown,
+  }): void {
+    this.command = command;
+    const schema = this.metadataByCommand.get(this.command);
+    if (!schema?.parameters) {
+      return;
+    }
+    this.parameters = this.#convertObjectToParameterSchema(
+                              '', parameters, {
+                                'typeRef': 'dummy',
+                                'type': ProtocolClient.InspectorBackend.ParameterType.Object,
+                                'name': '',
+                                'description': '',
+                                'optional': true,
+                                'value': [],
+                              },
+                              schema.parameters)
+                          .value as ProtocolClient.InspectorBackend.Parameter[];
+    this.requestUpdate();
   }
 
   #handlePopoverDescriptions(event: MouseEvent):
@@ -184,7 +259,7 @@ export class JSONEditor extends LitElement {
   }
 
   #getDescriptionAndTypeForElement(hintElement: HTMLElement):
-      {description: string, type?: ParameterType, replyArgs?: string[]}|undefined {
+      {description: string, type?: ProtocolClient.InspectorBackend.ParameterType, replyArgs?: string[]}|undefined {
     if (hintElement.matches('.command')) {
       const metadata = this.metadataByCommand.get(this.command);
       if (metadata) {
@@ -220,7 +295,7 @@ export class JSONEditor extends LitElement {
   }
 
   getParameters(): {[key: string]: unknown} {
-    const formatParameterValue = (parameter: Parameter): unknown => {
+    const formatParameterValue = (parameter: ProtocolClient.InspectorBackend.Parameter): unknown => {
       if (!parameter.value) {
         return;
       }
@@ -233,8 +308,15 @@ export class JSONEditor extends LitElement {
         }
         case 'object': {
           const nestedParameters: {[key: string]: unknown} = {};
+
           for (const subParameter of parameter.value) {
-            nestedParameters[subParameter.name] = formatParameterValue(subParameter);
+            const formattedValue = formatParameterValue(subParameter);
+            if (formattedValue !== undefined) {
+              nestedParameters[subParameter.name] = formatParameterValue(subParameter);
+            }
+          }
+          if (Object.keys(nestedParameters).length === 0) {
+            return undefined;
           }
           return nestedParameters;
         }
@@ -255,7 +337,13 @@ export class JSONEditor extends LitElement {
     for (const parameter of this.parameters) {
       formattedParameters[parameter.name] = formatParameterValue(parameter);
     }
-    return formattedParameters;
+    return formatParameterValue({
+             type: ProtocolClient.InspectorBackend.ParameterType.Object,
+             name: 'dummyParam',
+             optional: true,
+             value: this.parameters,
+             description: '',
+           }) as {[key: string]: unknown};
   }
 
   populateParametersForCommand(): void {
@@ -263,7 +351,7 @@ export class JSONEditor extends LitElement {
     if (!commandParameters) {
       return;
     }
-    this.parameters = commandParameters.map((parameter: Parameter) => {
+    this.parameters = commandParameters.map((parameter: ProtocolClient.InspectorBackend.Parameter) => {
       if (parameter.type === 'object') {
         const typeInfos = this.typesByName.get(parameter.typeRef as string) ?? [];
         return {
@@ -272,13 +360,13 @@ export class JSONEditor extends LitElement {
           description: parameter.description,
           typeRef: parameter.typeRef,
           value: typeInfos.map(type => {
-            const param: Parameter = {
+            const param: ProtocolClient.InspectorBackend.Parameter = {
               optional: type.optional,
               type: this.#isParameterSupported(parameter) ? type.type : 'string',
               name: type.name,
               description: type.description,
               value: undefined,
-            } as Parameter;
+            } as ProtocolClient.InspectorBackend.Parameter;
             return param;
           }),
           name: parameter.name,
@@ -301,18 +389,24 @@ export class JSONEditor extends LitElement {
         value: parameter.value || undefined,
         name: parameter.name,
         description: parameter.description,
-      } as Parameter;
+      } as ProtocolClient.InspectorBackend.Parameter;
     });
   }
 
-  #getChildByPath(pathArray: string[]): {parameter: Parameter, parentParameter: Parameter} {
+  #getChildByPath(pathArray: string[]): {
+    parameter: ProtocolClient.InspectorBackend.Parameter,
+    parentParameter: ProtocolClient.InspectorBackend.Parameter,
+  } {
     let parameters = this.parameters;
     let parentParameter;
     for (let i = 0; i < pathArray.length; i++) {
       const name = pathArray[i];
       const parameter = parameters.find(param => param.name === name);
       if (i === pathArray.length - 1) {
-        return {parameter, parentParameter} as {parameter: Parameter, parentParameter: Parameter};
+        return {parameter, parentParameter} as {
+          parameter: ProtocolClient.InspectorBackend.Parameter,
+          parentParameter: ProtocolClient.InspectorBackend.Parameter,
+        };
       }
       if (parameter?.type === 'array' || parameter?.type === 'object') {
         if (parameter.value) {
@@ -349,7 +443,7 @@ export class JSONEditor extends LitElement {
     return `${target.name()} (${target.inspectedURL()})`;
   }
 
-  #isParameterSupported(parameter: Parameter): boolean {
+  #isParameterSupported(parameter: ProtocolClient.InspectorBackend.Parameter): boolean {
     if (parameter.type === 'array' || parameter.type === 'object' || parameter.type === 'string' ||
         parameter.type === 'boolean' || parameter.type === 'number') {
       return true;
@@ -374,6 +468,7 @@ export class JSONEditor extends LitElement {
       return;
     }
     const typeInfos = this.typesByName.get(parameter.typeRef as string) ?? [];
+
     parameter.value.push({
       optional: true,
       type: this.#isTypePrimitive(parameter.typeRef) ? parameter.typeRef : 'object',
@@ -386,7 +481,7 @@ export class JSONEditor extends LitElement {
                           value: undefined,
                         })) :
           undefined,
-    } as Parameter);
+    } as ProtocolClient.InspectorBackend.Parameter);
     this.requestUpdate();
   }
 
@@ -465,8 +560,10 @@ export class JSONEditor extends LitElement {
   /**
    * Renders the parameters list corresponding to a specific CDP command.
    */
-  #renderParameters(parameters: Parameter[], id?: string, parentParameter?: Parameter, parentParameterId?: string):
-      LitHtml.TemplateResult|undefined {
+  #renderParameters(
+      parameters: ProtocolClient.InspectorBackend.Parameter[], id?: string,
+      parentParameter?: ProtocolClient.InspectorBackend.Parameter, parentParameterId?: string): LitHtml.TemplateResult
+      |undefined {
     parameters.sort((a, b) => Number(a.optional) - Number(b.optional));
 
     // clang-format off
@@ -474,11 +571,11 @@ export class JSONEditor extends LitElement {
       <ul>
         ${repeat(parameters, parameter => {
           const parameterId = parentParameter ? `${parentParameterId}` + '.' + `${parameter.name}` : parameter.name;
-          const subparameters: Parameter[] = parameter.type === 'array' || parameter.type === 'object' ? (parameter.value ?? []) : [];
+          const subparameters: ProtocolClient.InspectorBackend.Parameter[] = parameter.type === 'array' || parameter.type === 'object' ? (parameter.value ?? []) : [];
           const handleInputOnBlur = (event: Event): void => {
             this.#handleParameterInputBlur(event);
           };
-          const classes = { colorBlue: parameter.optional, parameter: true };
+          const classes = {colorBlue: parameter.optional, parameter: true};
           return html`
                 <li class="row">
                   <div class="row">

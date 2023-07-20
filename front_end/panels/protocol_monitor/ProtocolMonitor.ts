@@ -123,18 +123,18 @@ const timeRenderer = (value: DataGrid.DataGridUtils.CellValue): LitHtml.Template
   return LitHtml.html`${i18nString(UIStrings.sMs, {PH1: String(value)})}`;
 };
 
-export const buildProtocolMetadata = (domains: Iterable<ProtocolDomain>):
-    Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> => {
-      const metadataByCommand:
-          Map<string, {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]}> =
-              new Map();
-      for (const domain of domains) {
-        for (const command of Object.keys(domain.metadata)) {
-          metadataByCommand.set(command, domain.metadata[command]);
-        }
-      }
-      return metadataByCommand;
-    };
+export const buildProtocolMetadata = (domains: Iterable<ProtocolDomain>): Map<
+    string, {parameters: ProtocolClient.InspectorBackend.Parameter[], description: string, replyArgs: string[]}> => {
+  const metadataByCommand:
+      Map<string, {parameters: ProtocolClient.InspectorBackend.Parameter[], description: string, replyArgs: string[]}> =
+          new Map();
+  for (const domain of domains) {
+    for (const command of Object.keys(domain.metadata)) {
+      metadataByCommand.set(command, domain.metadata[command]);
+    }
+  }
+  return metadataByCommand;
+};
 
 const metadataByCommand = buildProtocolMetadata(
     ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
@@ -159,11 +159,13 @@ export interface LogMessage {
 export interface ProtocolDomain {
   readonly domain: string;
   readonly metadata: {
-    [commandName: string]: {parameters: Components.JSONEditor.Parameter[], description: string, replyArgs: string[]},
+    [commandName: string]:
+        {parameters: ProtocolClient.InspectorBackend.Parameter[], description: string, replyArgs: string[]},
   };
 }
 
-export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
+export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(
+    UI.Widget.VBox) {
   private started: boolean;
   private startTime: number;
   private readonly requestTimeForId: Map<number, number>;
@@ -177,6 +179,7 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
   private isRecording: boolean = false;
   #commandAutocompleteSuggestionProvider = new CommandAutocompleteSuggestionProvider();
   #selectedTargetId?: string;
+  #commandInput: UI.Toolbar.ToolbarInput;
   constructor(splitWidget: UI.SplitWidget.SplitWidget) {
     super(true);
     this.started = false;
@@ -355,7 +358,8 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
     bottomToolbar.appendToolbarItem(splitWidget.createShowHideSidebarButton(
         i18nString(UIStrings.showCDPCommandEditor), i18nString(UIStrings.hideCDPCommandEditor),
         i18nString(UIStrings.CDPCommandEditorShown), i18nString(UIStrings.CDPCommandEditorHidden)));
-    bottomToolbar.appendToolbarItem(this.#createCommandInput());
+    this.#commandInput = this.#createCommandInput();
+    bottomToolbar.appendToolbarItem(this.#commandInput);
     bottomToolbar.appendToolbarItem(this.#createTargetSelector());
     const shadowRoot = bottomToolbar.element?.shadowRoot;
     const inputBar = shadowRoot?.querySelector('.toolbar-input');
@@ -366,6 +370,8 @@ export class ProtocolMonitorDataGrid extends UI.Widget.VBox {
                                      inputBar?.setAttribute('style', 'display:flex; flex-grow: 1');
                                      tabSelector?.setAttribute('style', 'display:flex');
                                    } else {
+                                     const {command, parameters} = parseCommandInput(this.#commandInput.value());
+                                     this.dispatchEventToListeners(Events.CommandChange, {command, parameters});
                                      inputBar?.setAttribute('style', 'display:none');
                                      tabSelector?.setAttribute('style', 'display:none');
                                    }
@@ -617,6 +623,10 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
         new UI.SplitWidget.SplitWidget(true, false, 'protocol-monitor-split-container', this.#sideBarMinWidth);
     this.#split.show(this.contentElement);
     this.#protocolMonitorDataGrid = new ProtocolMonitorDataGrid(this.#split);
+    this.#protocolMonitorDataGrid.addEventListener(Events.CommandChange, async event => {
+      await this.#editorWidget.jsonEditor.displayCommand(event.data.command, event.data.parameters);
+    });
+
     this.#split.setMainWidget(this.#protocolMonitorDataGrid);
     this.#split.setSidebarWidget(this.#editorWidget);
     this.#split.hideSidebar(true);
@@ -724,10 +734,12 @@ export class InfoWidget extends UI.Widget.VBox {
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   CommandSent = 'CommandSent',
+  CommandChange = 'CommandChange',
 }
 
 export type EventTypes = {
   [Events.CommandSent]: Components.JSONEditor.Command,
+  [Events.CommandChange]: Components.JSONEditor.Command,
 };
 
 export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
@@ -744,7 +756,7 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
   }
 }
 
-export function parseCommandInput(input: string): {command: string, parameters: object} {
+export function parseCommandInput(input: string): {command: string, parameters: {[paramName: string]: unknown}} {
   // If input cannot be parsed as json, we assume it's the command name
   // for a command without parameters. Otherwise, we expect an object
   // with "command"/"method"/"cmd" and "parameters"/"params"/"args"/"arguments" attributes.

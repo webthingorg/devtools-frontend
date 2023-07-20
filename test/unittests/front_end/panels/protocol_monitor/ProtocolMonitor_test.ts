@@ -12,6 +12,7 @@ import {
   raf,
 } from '../../helpers/DOMHelpers.js';
 import * as ProtocolComponents from '../../../../../front_end/panels/protocol_monitor/components/components.js';
+import type * as ProtocolClient from '../../../../../front_end/core/protocol_client/protocol_client.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import * as Menus from '../../../../../front_end/ui/components/menus/menus.js';
 
@@ -203,11 +204,39 @@ describe('ProtocolMonitor', () => {
             'Test.test': {
               parameters: [{
                 name: 'test',
-                type: 'test',
+                type: 'string',
                 optional: true,
               }],
               description: 'Description1.',
               replyArgs: ['Test1'],
+            },
+            'Test.test2': {
+              parameters: [{
+                'optional': true,
+                'type': 'array',
+                'name': 'test2',
+                'typeRef': 'string',
+              }],
+            },
+            'Test.test3': {
+              parameters: [{
+                'optional': true,
+                'type': 'object',
+                'value': [
+                  {
+                    'optional': true,
+                    'type': 'string',
+                    'name': 'param1',
+                  },
+                  {
+                    'optional': true,
+                    'type': 'string',
+                    'name': 'param2',
+                  },
+                ],
+                'name': 'test3',
+                'typeRef': 'string',
+              }],
             },
           },
         },
@@ -241,6 +270,50 @@ describe('ProtocolMonitor', () => {
       const container = document.body.querySelector<HTMLDivElement>('[data-devtools-glass-pane]');
       const hintDetailView = container?.shadowRoot?.querySelector('devtools-css-hint-details-view');
       return hintDetailView?.shadowRoot?.textContent?.replaceAll(/\s/g, '');
+    };
+
+    const bindingCommandHelper = async(cdpCommand: object): Promise<string|undefined> => {
+      const typesByName = new Map();
+      typesByName.set('string', [
+        {name: 'param1', type: 'string', optional: false, description: 'display a string', typeRef: null},
+        {name: 'param2', type: 'string', optional: false, description: 'displays another string', typeRef: null},
+      ]);
+
+      const jsonEditor = renderJSONEditor();
+
+      await populateMetadata(jsonEditor);
+      jsonEditor.typesByName = typesByName;
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify(cdpCommand));
+
+      jsonEditor.displayCommand(command, parameters);
+
+      await jsonEditor.updateComplete;
+      const shadowRoot = jsonEditor.renderRoot;
+      const recorderInputs = shadowRoot.querySelectorAll('devtools-recorder-input');
+      const parameterRecorderInput = recorderInputs[1];
+      const value = parameterRecorderInput.renderRoot.textContent?.replaceAll(/\s/g, '');
+      return value;
+    };
+
+    const verifyParametersHelper = async (command: string, parameters: {[paramName: string]: unknown}) => {
+      const jsonEditor = renderJSONEditor();
+      await populateMetadata(jsonEditor);
+      jsonEditor.displayCommand(command, parameters);
+
+      await jsonEditor.updateComplete;
+      const shadowRoot = jsonEditor.renderRoot;
+      const recorderInputs = shadowRoot.querySelectorAll('devtools-recorder-input');
+      return recorderInputs;
+    };
+
+    const verifyCommandHelper = async (command: string, parameters: {[paramName: string]: unknown}) => {
+      const jsonEditor = renderJSONEditor();
+      await populateMetadata(jsonEditor);
+      jsonEditor.displayCommand(command, parameters);
+
+      await jsonEditor.updateComplete;
+
+      return jsonEditor.command;
     };
 
     it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
@@ -316,7 +389,7 @@ describe('ProtocolMonitor', () => {
         },
       };
 
-      jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      jsonEditor.parameters = inputParameters as [];
       const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
 
       dispatchKeyDownEvent(jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
@@ -361,7 +434,7 @@ describe('ProtocolMonitor', () => {
       };
 
       const jsonEditor = renderJSONEditor();
-      jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      jsonEditor.parameters = inputParameters as ProtocolClient.InspectorBackend.Parameter[];
       await jsonEditor.updateComplete;
 
       const shadowRoot = jsonEditor.renderRoot;
@@ -390,12 +463,11 @@ describe('ProtocolMonitor', () => {
           typeRef: 'string',
           description: 'test.',
         },
-      ] as ProtocolComponents.JSONEditor.Parameter[];
+      ] as ProtocolClient.InspectorBackend.Parameter[];
       const jsonEditor = renderJSONEditor();
 
       jsonEditor.parameters = inputParameters;
       await jsonEditor.updateComplete;
-
       const param = jsonEditor.renderRoot.querySelector('[data-paramId]');
 
       await renderPopup(param);
@@ -419,6 +491,102 @@ describe('ProtocolMonitor', () => {
 
       const expectedPopupContent = 'Description1.Returns:Test1LearnMore';
       assert.deepStrictEqual(popupContent, expectedPopupContent);
+    });
+
+    it('should show the command written in the input bar inside the editor when parameters are strings with the correct value',
+       async () => {
+         const cdpCommand = {
+           'command': 'Test.test',
+           'parameters': {
+             'test': 'test',
+           },
+         };
+         const value = await bindingCommandHelper(cdpCommand);
+         const expectedValue = 'test';
+         assert.deepStrictEqual(value, expectedValue);
+       });
+
+    it('should show the command written in the input bar inside the editor when parameters are arrays with the correct value',
+       async () => {
+         const cdpCommand = {
+           'command': 'Test.test2',
+           'parameters': {
+             'test2': ['test'],
+           },
+         };
+
+         const value = await bindingCommandHelper(cdpCommand);
+         const expectedValue = 'test';
+         assert.deepStrictEqual(value, expectedValue);
+       });
+
+    it('should show the command written in the input bar inside the editor when parameters are object with the correct value',
+       async () => {
+         const cdpCommand = {
+           'command': 'Test.test3',
+           'parameters': {
+             'test3': {
+               'param1': 'test1',
+               'param2': 'test2',
+             },
+           },
+         };
+
+         const value = await bindingCommandHelper(cdpCommand);
+         const expectedValue = 'test1';
+         assert.deepStrictEqual(value, expectedValue);
+       });
+
+    it('does not output parameters if the input is invalid json', async () => {
+      const cdpCommand = '"command": "Test.test", "parameters":';
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(cdpCommand);
+
+      const recorderInputs = await verifyParametersHelper(command, parameters);
+
+      assert.deepStrictEqual(recorderInputs.length, Object.keys(parameters).length + 1);
+    });
+
+    it('does not output parameters if the parameters field is not an object', async () => {
+      const cdpCommand = '"command": "test", "parameters": 1234';
+
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(cdpCommand);
+
+      const recorderInputs = await verifyParametersHelper(command, parameters);
+
+      assert.deepStrictEqual(recorderInputs.length, Object.keys(parameters).length + 1);
+    });
+
+    it('does not output parameters if there is no parameter inserted in the input bar', async () => {
+      const cdpCommand = '"command": "test"';
+
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(cdpCommand);
+
+      const recorderInputs = await verifyParametersHelper(command, parameters);
+
+      assert.deepStrictEqual(recorderInputs.length, Object.keys(parameters).length + 1);
+    });
+
+    it('checks that the command input field remains empty when there is no command parameter entered', async () => {
+      const cdpCommand = {
+        'parameters': {
+          'test': 'test',
+        },
+      };
+
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify(cdpCommand));
+
+      const commandReceived = await verifyCommandHelper(command, parameters);
+
+      assert.deepStrictEqual(commandReceived, '');
+    });
+
+    it('checks that the command input field remains if the command is not supported', async () => {
+      const cdpCommand = 'dummyCommand';
+
+      const {command, parameters} = ProtocolMonitor.ProtocolMonitor.parseCommandInput(JSON.stringify(cdpCommand));
+      const commandReceived = await verifyCommandHelper(command, parameters);
+
+      assert.deepStrictEqual(commandReceived, '');
     });
   });
 });
