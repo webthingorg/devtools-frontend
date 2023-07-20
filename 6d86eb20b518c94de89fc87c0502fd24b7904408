@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc74f59c_6d359e90",
+        "filename": "AUTHORS",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1579945
+      },
+      "writtenOn": "2023-07-20T09:19:56Z",
+      "side": 1,
+      "message": "I\u0027ve removed the extra one now",
+      "parentUuid": "57a4cf33_be8f0ec9",
+      "revId": "6d86eb20b518c94de89fc87c0502fd24b7904408",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce35bfed_ce9beb3f",
