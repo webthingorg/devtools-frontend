@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb32b992_00cae71f",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T15:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d9ca34_fcaf649a",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6069f1c2_986a5206",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-20T13:59:45Z",
       "side": 1,
       "message": "nit: remove empty line",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a21bc764_101d7c08",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T15:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6069f1c2_986a5206",
       "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -58,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c636cc5_263909bb",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T15:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5a21cf0_7dd4eabc",
+      "range": {
+        "startLine": 174,
+        "startChar": 24,
+        "endLine": 174,
+        "endChar": 31
+      },
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c344b40_77710f58",
@@ -71,6 +131,24 @@
       "writtenOn": "2023-07-20T13:59:45Z",
       "side": 1,
       "message": "nit: we can use the same placeholder as for the dummy command",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b8ef54c_f8304077",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T15:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c344b40_77710f58",
       "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +170,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91454b37_0d2c797f",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T15:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7006b93e_489d5be0",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd371bec_87f29ad5",
@@ -105,6 +201,24 @@
       "writtenOn": "2023-07-20T13:59:45Z",
       "side": 1,
       "message": "let\u0027s not call it recorderInputs as it is an implementation detail, I suggest we call it inputs.",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03206ef6_3970149a",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T15:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd371bec_87f29ad5",
       "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
