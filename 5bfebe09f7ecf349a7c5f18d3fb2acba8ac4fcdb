@@ -33,6 +33,24 @@
       "message": "What is the desired outcome of this change? Changing the default value will only have and effect on new DevTools users/profiles. For existing users/profiles the setting already exists and won\u0027t be affected by this change.\n\nI\u0027m not sure what else could be done though. I don\u0027t think DevTools tracks whether a user has ever changed a setting away from its default state, and turning the setting on for everyone (even those who actively turned it off) feels like an unfriendly UX pattern.",
       "revId": "5bfebe09f7ecf349a7c5f18d3fb2acba8ac4fcdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b22ab273_397bd151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-07-20T17:37:31Z",
+      "side": 1,
+      "message": "The desired outcome is to turn this setting on for users by default unless they explicitly turn it off, which effectively means turning the setting on for everyone at the beginning, and then tracks whether a user has ever changed a setting away from its default state.\n\nI also wonder why only the cookie issues are gated behind a checkbox at the first place though. Is that something can be removed?",
+      "parentUuid": "2aa95ccb_75ca23f3",
+      "revId": "5bfebe09f7ecf349a7c5f18d3fb2acba8ac4fcdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
