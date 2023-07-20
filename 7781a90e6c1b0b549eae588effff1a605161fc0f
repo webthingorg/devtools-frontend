@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b3bcd4b_d555d6f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579945
+      },
+      "writtenOn": "2023-07-20T09:32:01Z",
+      "side": 1,
+      "message": "Just a heads up I don\u0027t have committer status (or dry run in dev tools) so I will need some to CQ2 this thanks!",
+      "revId": "7781a90e6c1b0b549eae588effff1a605161fc0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
