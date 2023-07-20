@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3d9ca34_fcaf649a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T14:22:39Z",
+      "side": 1,
+      "message": "displayCommand is not async anymore.",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6069f1c2_986a5206",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 15
