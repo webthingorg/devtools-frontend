@@ -101,22 +101,6 @@ SourcesTestRunner.runAsyncCallStacksTest = function(totalDebuggerStatements, max
   }
 };
 
-SourcesTestRunner.dumpSourceFrameMessages = function(sourceFrame, dumpFullURL) {
-  const messages = [];
-
-  for (const bucket of sourceFrame.rowMessageBuckets.values()) {
-    for (const rowMessage of bucket.messages) {
-      const message = rowMessage.getMessage();
-      messages.push(String.sprintf(
-          '  %d:%d [%s] %s', message.lineNumber(), message.columnNumber(), message.level(), message.text()));
-    }
-  }
-
-  const name = (dumpFullURL ? sourceFrame.uiSourceCode().url() : sourceFrame.uiSourceCode().displayName());
-  TestRunner.addResult('SourceFrame ' + name + ': ' + messages.length + ' message(s)');
-  TestRunner.addResult(messages.join('\n'));
-};
-
 SourcesTestRunner.waitUntilPausedNextTime = function(callback) {
   SourcesTestRunner.waitUntilPausedCallback = TestRunner.safeWrap(callback);
 };
@@ -133,10 +117,6 @@ SourcesTestRunner.waitUntilPaused = function(callback) {
 
 SourcesTestRunner.waitUntilPausedPromise = function() {
   return new Promise(resolve => SourcesTestRunner.waitUntilPaused(resolve));
-};
-
-SourcesTestRunner.waitUntilResumedNextTime = function(callback) {
-  SourcesTestRunner.waitUntilResumedCallback = TestRunner.safeWrap(callback);
 };
 
 SourcesTestRunner.waitUntilResumed = function(callback) {
@@ -365,38 +345,6 @@ SourcesTestRunner.dumpSourceFrameContents = function(sourceFrame) {
   TestRunner.addResult('==Source frame contents end==');
 };
 
-SourcesTestRunner.pausedScript = function(callFrames, reason, auxData, breakpointIds, asyncStackTrace) {
-  if (!SourcesTestRunner.quiet) {
-    TestRunner.addResult('Script execution paused.');
-  }
-
-  const debuggerModel = this.target().model(SDK.DebuggerModel);
-  SourcesTestRunner.pausedScriptArguments = [
-    SDK.DebuggerModel.CallFrame.fromPayloadArray(debuggerModel, callFrames), reason, breakpointIds, asyncStackTrace,
-    auxData
-  ];
-
-  if (SourcesTestRunner.waitUntilPausedCallback) {
-    const callback = SourcesTestRunner.waitUntilPausedCallback;
-    delete SourcesTestRunner.waitUntilPausedCallback;
-    setTimeout(() => callback.apply(callback, SourcesTestRunner.pausedScriptArguments));
-  }
-};
-
-SourcesTestRunner.resumedScript = function() {
-  if (!SourcesTestRunner.quiet) {
-    TestRunner.addResult('Script execution resumed.');
-  }
-
-  delete SourcesTestRunner.pausedScriptArguments;
-
-  if (SourcesTestRunner.waitUntilResumedCallback) {
-    const callback = SourcesTestRunner.waitUntilResumedCallback;
-    delete SourcesTestRunner.waitUntilResumedCallback;
-    callback();
-  }
-};
-
 SourcesTestRunner.showUISourceCode = function(uiSourceCode, callback) {
   const panel = UI.panels.sources;
   panel.showUISourceCode(uiSourceCode);
@@ -449,14 +397,6 @@ SourcesTestRunner.waitForScriptSource = function(scriptName, callback, contentTy
   TestRunner.addSniffer(
       Sources.SourcesView.prototype, 'addUISourceCode',
       SourcesTestRunner.waitForScriptSource.bind(SourcesTestRunner, scriptName, callback, contentType));
-};
-
-SourcesTestRunner.objectForPopover = function(sourceFrame, lineNumber, columnNumber) {
-  const debuggerPlugin = SourcesTestRunner.debuggerPlugin(sourceFrame);
-  const {x, y} = debuggerPlugin.textEditor.cursorPositionToCoordinates(lineNumber, columnNumber);
-  const promise = TestRunner.addSnifferPromise(ObjectUI.ObjectPopoverHelper, 'buildObjectPopover');
-  debuggerPlugin.getPopoverRequest({x, y}).show(new UI.GlassPane());
-  return promise;
 };
 
 SourcesTestRunner.setBreakpoint = async function(sourceFrame, lineNumber, condition, enabled) {
@@ -635,24 +575,6 @@ SourcesTestRunner.selectThread = function(target) {
 
 SourcesTestRunner.evaluateOnCurrentCallFrame = function(code) {
   return TestRunner.debuggerModel.evaluateOnSelectedCallFrame({expression: code, objectGroup: 'console'});
-};
-
-SourcesTestRunner.waitDebuggerPluginDecorations = function(sourceFrame) {
-  return TestRunner.addSnifferPromise(Sources.DebuggerPlugin.prototype, 'breakpointDecorationsUpdatedForTest');
-};
-
-SourcesTestRunner.waitDebuggerPluginBreakpoints = function(sourceFrame) {
-  return SourcesTestRunner.waitDebuggerPluginDecorations().then(checkIfReady);
-
-  function checkIfReady() {
-    for (const {breakpoint} of self.Bindings.breakpointManager.allBreakpointLocations()) {
-      if (!breakpoint.bound() && breakpoint.enabled()) {
-        return SourcesTestRunner.waitDebuggerPluginDecorations().then(checkIfReady);
-      }
-    }
-
-    return Promise.resolve();
-  }
 };
 
 SourcesTestRunner.debuggerPlugin = function(sourceFrame) {
