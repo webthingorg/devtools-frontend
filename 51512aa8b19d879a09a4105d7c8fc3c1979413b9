@@ -39,6 +39,30 @@
       },
       "revId": "51512aa8b19d879a09a4105d7c8fc3c1979413b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f69234_50a11612",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-20T09:10:19Z",
+      "side": 1,
+      "message": "It does, but it probably doesn\u0027t matter much for debugging devtools on devtools",
+      "parentUuid": "362a9bc1_1ded6f6e",
+      "range": {
+        "startLine": 136,
+        "startChar": 8,
+        "endLine": 136,
+        "endChar": 23
+      },
+      "revId": "51512aa8b19d879a09a4105d7c8fc3c1979413b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
