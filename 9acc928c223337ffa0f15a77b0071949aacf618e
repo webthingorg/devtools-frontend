@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "9acc928c223337ffa0f15a77b0071949aacf618e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d4308b_19451c00",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-20T16:17:47Z",
+      "side": 1,
+      "message": "do we have a rule like Array1 should be traces, and Array2 should be cpu profiles?",
+      "range": {
+        "startLine": 84,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 35
+      },
+      "revId": "9acc928c223337ffa0f15a77b0071949aacf618e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5722943b_cc8d0057",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-20T16:17:47Z",
+      "side": 1,
+      "message": "can we change the names of them to make it more clear\nThe duration i will expect a number or `1ms` this kind string, but not `[I]`",
+      "range": {
+        "startLine": 250,
+        "startChar": 10,
+        "endLine": 251,
+        "endChar": 19
+      },
+      "revId": "9acc928c223337ffa0f15a77b0071949aacf618e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
