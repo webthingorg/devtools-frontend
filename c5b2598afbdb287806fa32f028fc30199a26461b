@@ -16,6 +16,23 @@
       "message": "let\u0027s not import the type UI components from here. Instead convert it to the UI types once you access the protocol types (e.g., the typeMap)",
       "revId": "c5b2598afbdb287806fa32f028fc30199a26461b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54b8fb9a_18209243",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T10:28:06Z",
+      "side": 1,
+      "message": "do we still need this? I don\u0027t see why we would need that",
+      "revId": "c5b2598afbdb287806fa32f028fc30199a26461b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
