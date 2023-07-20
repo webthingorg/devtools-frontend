@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "360fda46_da5c6289",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T10:29:32Z",
+      "side": 1,
+      "message": "can we read the input state once the editor is opened instead of constantly updating on input change? I think it is not possible that both are visible at the same time.",
+      "revId": "c5b2598afbdb287806fa32f028fc30199a26461b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54b8fb9a_18209243",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 12
