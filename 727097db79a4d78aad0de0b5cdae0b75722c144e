@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6069f1c2_986a5206",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T13:59:45Z",
+      "side": 1,
+      "message": "nit: remove empty line",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5a21cf0_7dd4eabc",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T13:59:45Z",
+      "side": 1,
+      "message": "nit: let\u0027s move the \u0027dummy\u0027 into a top-level const variable and use it throughout the component.",
+      "range": {
+        "startLine": 174,
+        "startChar": 24,
+        "endLine": 174,
+        "endChar": 31
+      },
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c344b40_77710f58",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T13:59:45Z",
+      "side": 1,
+      "message": "nit: we can use the same placeholder as for the dummy command",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7006b93e_489d5be0",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T13:59:45Z",
+      "side": 1,
+      "message": "is it possible to merge helpers into one that returns an object with two properties: {command, inputs}? Perhaps a better name would be `renderEditorForCommand(command, parameters?)` Then we could use destructuring to extra the part that is relevant for a specific test.",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd371bec_87f29ad5",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-20T13:59:45Z",
+      "side": 1,
+      "message": "let\u0027s not call it recorderInputs as it is an implementation detail, I suggest we call it inputs.",
+      "revId": "727097db79a4d78aad0de0b5cdae0b75722c144e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
