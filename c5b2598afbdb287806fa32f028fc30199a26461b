@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04fd6bdb_0e8b73d8",
+        "filename": "front_end/core/protocol_client/InspectorBackend.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-20T13:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2fad3eb_5141d5ee",
+      "revId": "c5b2598afbdb287806fa32f028fc30199a26461b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "360fda46_da5c6289",
