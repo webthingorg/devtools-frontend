@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f32e1b1_3528803e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-07-20T02:26:45Z",
+      "side": 1,
+      "message": "PTAL. I am not sure if tests are needed for this change.",
+      "revId": "5bfebe09f7ecf349a7c5f18d3fb2acba8ac4fcdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
