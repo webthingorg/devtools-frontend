@@ -29,6 +29,7 @@ copy_to_gen("traces") {
     "missing-tracing-start.json.gz",
     "multiple-lcp-main-frame.json.gz",
     "multiple-navigations-with-iframes.json.gz",
+    "large-layout-small-recalc.json.gz",
     "multiple-navigations.json.gz",
     "multiple-top-level-renderers.json.gz",
     "nested-interactions.json.gz",

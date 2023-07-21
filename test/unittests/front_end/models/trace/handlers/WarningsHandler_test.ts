@@ -5,7 +5,7 @@ const {assert} = chai;
 import * as TraceEngine from '../../../../../../front_end/models/trace/trace.js';
 import {TraceLoader} from '../../../helpers/TraceLoader.js';
 
-describe('WarningsHandler', function() {
+describe.only('WarningsHandler', function() {
   beforeEach(() => {
     TraceEngine.Handlers.ModelHandlers.Warnings.reset();
   });
@@ -32,5 +32,17 @@ describe('WarningsHandler', function() {
     assert.lengthOf(longIdleCallbacks, 1);
     const event = longIdleCallbacks[0];
     assert.deepEqual(data.perEvent.get(event), ['IDLE_CALLBACK_OVER_TIME']);
+  });
+
+  it('identifies layout events that take over 10ms', async () => {
+    const events = await TraceLoader.rawEvents(this, 'large-layout-small-recalc.json.gz');
+    for (const event of events) {
+      TraceEngine.Handlers.ModelHandlers.Warnings.handleEvent(event);
+    }
+    const data = TraceEngine.Handlers.ModelHandlers.Warnings.data();
+    const forcedLayout = data.perWarning.get('FORCED_LAYOUT') || [];
+    assert.lengthOf(forcedLayout, 1);
+    const event = forcedLayout[0];
+    assert.deepEqual(data.perEvent.get(event), ['FORCED_LAYOUT']);
   });
 });
