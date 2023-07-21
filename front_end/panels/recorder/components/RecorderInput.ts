@@ -124,6 +124,7 @@ class SuggestionBox extends LitElement {
   static override styles = [contentEditableStyles];
 
   @property(jsonPropertyOptions) declare options: Readonly<string[]>;
+  @property() declare permanentOptions?: boolean;
   @property() declare expression: string;
 
   @state() private declare cursor: number;
@@ -189,9 +190,11 @@ class SuggestionBox extends LitElement {
     }
     if (changedProperties.has('expression')) {
       this.cursor = 0;
-      this.#suggestions = this.options.filter(
-          option => option.toLowerCase().startsWith(this.expression.toLowerCase()),
-      );
+      this.#suggestions = this.permanentOptions ?
+          Object.assign([], this.options) :
+          this.options.filter(
+              option => option.toLowerCase().startsWith(this.expression.toLowerCase()),
+          );
     }
   }
 
@@ -228,6 +231,7 @@ export class RecorderInput extends LitElement {
    * State passed to devtools-suggestion-box.
    */
   @property(jsonPropertyOptions) declare options: Readonly<string[]>;
+  @property() declare permanentOptions?: boolean;
   @state() declare expression: string;
 
   /**
@@ -331,6 +335,7 @@ export class RecorderInput extends LitElement {
         @suggest=${this.#handleSuggestEvent}
         .options=${this.options}
         .expression=${this.expression}
+        .permanentOptions=${this.permanentOptions}
       ></devtools-suggestion-box>`;
   }
 }

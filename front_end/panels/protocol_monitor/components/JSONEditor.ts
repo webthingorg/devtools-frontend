@@ -335,7 +335,7 @@ export class JSONEditor extends LitElement {
 
   getParameters(): {[key: string]: unknown} {
     const formatParameterValue = (parameter: Parameter): unknown => {
-      if (!parameter.value) {
+      if (parameter.value === undefined) {
         return;
       }
       switch (parameter.type) {
@@ -462,6 +462,7 @@ export class JSONEditor extends LitElement {
         const object = this.#getChildByPath(realParamId).parameter;
         object.value = value;
       }
+      this.requestUpdate();
     }
   };
 
@@ -524,7 +525,14 @@ export class JSONEditor extends LitElement {
     if (!parameter) {
       return;
     }
+    if (!parentParameter) {
+      parameter.value = undefined;
+      this.requestUpdate();
+      return;
+    }
     if (!Array.isArray(parentParameter.value)) {
+      parentParameter.value = undefined;
+      this.requestUpdate();
       return;
     }
     parentParameter.value.splice(parentParameter.value.findIndex(p => p === parameter), 1);
@@ -606,6 +614,9 @@ export class JSONEditor extends LitElement {
           const handleInputOnBlur = (event: Event): void => {
             this.#handleParameterInputBlur(event);
           };
+          if (parameter.value === '<empty string>') {
+            parameter.value = '';
+          }
           const classes = {colorBlue: parameter.optional, parameter: true};
           return html`
                 <li class="row">
@@ -621,9 +632,11 @@ export class JSONEditor extends LitElement {
                   `: nothing}
                     ${parameter.type !== 'array' && parameter.type !== 'object' ? html`
                     <devtools-recorder-input
-                      data-paramId=${parameterId}
+                        data-paramId=${parameterId}
+                      .options=${parameter.type === 'string' ? ['<empty string>']: []}
+                      .permanentOptions=${true}
                       .value=${live(parameter.value ?? '')}
-                      .placeholder=${'Enter your parameter...'}
+                      .placeholder=${parameter.optional ? parameter.value !== '' ? '<undefined>' : '<empty string>' : 'Enter your parameter...'}
                       @blur=${handleInputOnBlur}
                     ></devtools-recorder-input>` : nothing}
 
