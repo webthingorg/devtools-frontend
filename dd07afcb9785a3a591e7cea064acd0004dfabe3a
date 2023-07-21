@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbf4f9e_d9c57ecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-21T12:57:07Z",
+      "side": 1,
+      "message": "Can we add some tests?",
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f4ca22_bae359eb",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-21T12:57:07Z",
+      "side": 1,
+      "message": "We should only get one value, so remove the \"s\".\n\n```suggestion\n    const enumValue \u003d this.enumsByName.get(`${this.command.split(\u0027.\u0027)[0]}.${parameter.typeRef}`) ?? {\u0027\u0027: \u0027\u0027};\n```\n\nAnother is to make the value you put in the `get` function more clear, and check if they are valid.",
+      "range": {
+        "startLine": 572,
+        "startChar": 10,
+        "endLine": 572,
+        "endChar": 20
+      },
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f660287b_db66a445",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-21T12:57:07Z",
+      "side": 1,
+      "message": "This section is for all primitive types, we shouldn\u0027t directly add an enum-only function here",
+      "range": {
+        "startLine": 638,
+        "startChar": 22,
+        "endLine": 638,
+        "endChar": 68
+      },
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
