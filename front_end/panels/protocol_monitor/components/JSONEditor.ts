@@ -111,6 +111,7 @@ export class JSONEditor extends LitElement {
   @property()
   declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
   @property() declare typesByName: Map<string, Type[]>;
+  @property() declare enumsByName: Map<string, Record<string, string>>;
   @property() declare targetManager;
   @state() declare parameters: Parameter[];
   @state() command: string = '';
@@ -439,6 +440,18 @@ export class JSONEditor extends LitElement {
     // clang-format on
   }
 
+  #getEnumValuesForParameter(parameter: Parameter): string[] {
+    const enumValues = this.enumsByName.get(`${this.command.split('.')[0]}.${parameter.typeRef}`) ?? {'': ''};
+    return Object.values(enumValues);
+  }
+
+  #computeEnumValues(parameter: Parameter): string[] {
+    if (parameter.type !== 'string' || !parameter.typeRef) {
+      return [];
+    }
+    return this.#getEnumValuesForParameter(parameter);
+  }
+
   #onTargetSelected(event: Menus.SelectMenu.SelectMenuItemSelectedEvent): void {
     this.targetId = event.itemValue as string;
     this.requestUpdate();
@@ -494,6 +507,7 @@ export class JSONEditor extends LitElement {
                     ${parameter.type !== 'array' && parameter.type !== 'object' ? html`
                     <devtools-recorder-input
                       data-paramId=${parameterId}
+                      .options=${this.#computeEnumValues(parameter)}
                       .value=${live(parameter.value ?? '')}
                       .placeholder=${'Enter your parameter...'}
                       @blur=${handleInputOnBlur}
