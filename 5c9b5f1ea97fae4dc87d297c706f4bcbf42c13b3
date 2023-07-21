@@ -34,6 +34,23 @@
       "parentUuid": "af00a53a_3b61ee63",
       "revId": "5c9b5f1ea97fae4dc87d297c706f4bcbf42c13b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ed868bf_955db7fb",
+        "filename": "scripts/deps/download_chromium.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-07-21T13:38:53Z",
+      "side": 1,
+      "message": "Is this script planned to be removed after the transition?",
+      "revId": "5c9b5f1ea97fae4dc87d297c706f4bcbf42c13b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
