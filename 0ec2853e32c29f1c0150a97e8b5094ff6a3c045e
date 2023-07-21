@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8cc905_a0d80972",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-21T14:23:03Z",
+      "side": 1,
+      "message": "The new location of the checkbox is near the \u0027Hide data URLs\u0027 one. I also renamed it to \u0027Hide extension requests\u0027.",
+      "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
