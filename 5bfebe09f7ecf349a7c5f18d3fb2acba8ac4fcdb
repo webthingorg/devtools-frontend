@@ -51,6 +51,41 @@
       "parentUuid": "2aa95ccb_75ca23f3",
       "revId": "5bfebe09f7ecf349a7c5f18d3fb2acba8ac4fcdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03f8bef5_d351cc78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-21T11:06:03Z",
+      "side": 1,
+      "message": "LGTM (with the caveat that this won\u0027t have an immediate effect for most users)",
+      "revId": "5bfebe09f7ecf349a7c5f18d3fb2acba8ac4fcdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b33b6cc5_6ff4d273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-21T11:06:03Z",
+      "side": 1,
+      "message": "Originally we did not want to show (any kind of) issues caused by 3rd parties, because we wanted all shown issues to be actionable for the user (assuming they cannot change 3rd party content). See https://crbug.com/1080589.",
+      "parentUuid": "b22ab273_397bd151",
+      "revId": "5bfebe09f7ecf349a7c5f18d3fb2acba8ac4fcdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
