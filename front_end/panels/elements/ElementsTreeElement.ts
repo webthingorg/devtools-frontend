@@ -1109,7 +1109,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
               return true;
             },
           },
-        ]),
+        ]),  // IMPORTANT
         TextEditor.Config.baseConfiguration(initialValue),
         TextEditor.Config.closeBrackets,
         TextEditor.Config.autocompletion.instance(),
