@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87bde718_e6327dda",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-21T13:00:19Z",
+      "side": 1,
+      "message": "Yeah I guess then value is a bit confusing but I did not find a better suitable name",
+      "parentUuid": "b5f4ca22_bae359eb",
+      "range": {
+        "startLine": 572,
+        "startChar": 10,
+        "endLine": 572,
+        "endChar": 20
+      },
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f660287b_db66a445",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 6
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-21T12:57:07Z",
       "side": 1,
       "message": "This section is for all primitive types, we shouldn\u0027t directly add an enum-only function here",
+      "range": {
+        "startLine": 638,
+        "startChar": 22,
+        "endLine": 638,
+        "endChar": 68
+      },
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df7748f_8e036632",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-21T13:00:19Z",
+      "side": 1,
+      "message": "I thought about that but then I would need to make another if check just for string parameter... I don\u0027t know which option is best",
+      "parentUuid": "f660287b_db66a445",
       "range": {
         "startLine": 638,
         "startChar": 22,
