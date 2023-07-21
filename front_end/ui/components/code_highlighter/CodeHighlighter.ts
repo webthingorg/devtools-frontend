@@ -122,7 +122,6 @@ export async function languageFromMIME(mimeType: string): Promise<CodeMirror.Lan
       return new CodeMirror.LanguageSupport(await CodeMirror.kotlin());
 
     case 'application/json':
-    case 'application/manifest+json':
       return (await CodeMirror.json()).json();
 
     case 'application/x-httpd-php':

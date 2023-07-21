@@ -85,9 +85,12 @@ export class SearchableContainer extends UI.Widget.VBox {
   constructor(resource: TextUtils.ContentProvider.ContentProvider, contentType: string, autoPrettyPrint?: boolean) {
     super(true);
     this.registerRequiredCSS(resourceSourceFrameStyles);
-    const sourceFrame = new ResourceSourceFrame(resource, contentType);
+    const simpleContentType = SourceFrameImpl.simplifyContentType(contentType);
+
+    const sourceFrame = new ResourceSourceFrame(resource, simpleContentType);
     this.sourceFrame = sourceFrame;
-    const canPrettyPrint = FormatterActions.FORMATTABLE_MEDIA_TYPES.includes(contentType);
+
+    const canPrettyPrint = FormatterActions.FORMATTABLE_MEDIA_TYPES.includes(simpleContentType);
     sourceFrame.setCanPrettyPrint(canPrettyPrint, autoPrettyPrint);
     const searchableView = new UI.SearchableView.SearchableView(sourceFrame, sourceFrame);
     searchableView.element.classList.add('searchable-view');
