@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bbec967_0d703198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T13:05:44Z",
+      "side": 1,
+      "message": "Let\u0027s add tests",
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5f4ca22_bae359eb",
         "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
         "patchSetId": 6
@@ -55,6 +72,53 @@
       "side": 1,
       "message": "Yeah I guess then value is a bit confusing but I did not find a better suitable name",
       "parentUuid": "b5f4ca22_bae359eb",
+      "range": {
+        "startLine": 572,
+        "startChar": 10,
+        "endLine": 572,
+        "endChar": 20
+      },
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68213c7b_b48ad88b",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T13:05:44Z",
+      "side": 1,
+      "message": "`{}` should work here?",
+      "range": {
+        "startLine": 572,
+        "startChar": 101,
+        "endLine": 572,
+        "endChar": 109
+      },
+      "revId": "dd07afcb9785a3a591e7cea064acd0004dfabe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "763e43df_442d2750",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T13:05:44Z",
+      "side": 1,
+      "message": "it looks like this helper could be inlined inside the \u0027computeEnumValues\u0027.",
+      "parentUuid": "87bde718_e6327dda",
       "range": {
         "startLine": 572,
         "startChar": 10,
