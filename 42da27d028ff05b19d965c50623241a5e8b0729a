@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3c11572_97eaa597",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T11:59:49Z",
+      "side": 1,
+      "message": "Let\u0027s add tests",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f2ea88e_b191a340",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T11:59:49Z",
+      "side": 1,
+      "message": "let\u0027s declare a const at the top-level for the empty string token",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b90432f2_a82a3069",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T11:59:49Z",
+      "side": 1,
+      "message": "let\u0027s move the placeholder computation out of the template code: nested ternary operators are difficult to read.",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6196060_d6f16734",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T11:59:49Z",
+      "side": 1,
+      "message": "nit: `[...this.options]`",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04ad595f_c2dfd70c",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T11:59:49Z",
+      "side": 1,
+      "message": "let\u0027s call this option `autocomplete` with the default being true, meaning the options will be filtered.",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1033884_338f9511",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-21T11:59:49Z",
+      "side": 1,
+      "message": "instead of passing this option down, set expression to the empty string if the filtering is not needed.",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
