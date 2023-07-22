@@ -1417,10 +1417,17 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
 
 export class WrapperView extends UI.Widget.VBox {
   private readonly view: SourcesView;
+  private readonly toolbar: UI.Toolbar.Toolbar;
   constructor() {
     super();
     this.element.classList.add('sources-view-wrapper');
+
+    this.toolbar = new UI.Toolbar.Toolbar('navigator-toolbar');
+    const enableCheckbox = new UI.Toolbar.ToolbarSettingCheckbox(
+        Common.Settings.Settings.instance().moduleSetting('persistenceNetworkOverridesEnabled'));
+    this.toolbar.appendToolbarItem(enableCheckbox);
     this.view = SourcesPanel.instance().sourcesView();
+    this.contentElement.insertBefore(this.toolbar.element, this.contentElement.firstChild);
   }
 
   static instance(): WrapperView {
