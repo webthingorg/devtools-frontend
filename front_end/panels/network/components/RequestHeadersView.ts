@@ -18,7 +18,6 @@ import * as Input from '../../../ui/components/input/input.js';
 import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
-import * as Sources from '../../sources/sources.js';
 
 import {type RequestHeaderSectionData, RequestHeaderSection} from './RequestHeaderSection.js';
 import {
@@ -260,8 +259,8 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
       event.preventDefault();
       const uiSourceCode = this.#workspace.uiSourceCodeForURL(this.#getHeaderOverridesFileUrl());
       if (uiSourceCode) {
-        Sources.SourcesPanel.SourcesPanel.instance().showUISourceCode(uiSourceCode);
-        Sources.SourcesPanel.SourcesPanel.instance().revealInNavigator(uiSourceCode);
+        void UI.ViewManager.ViewManager.instance().showView('sources.quick');
+        void Common.Revealer.reveal(uiSourceCode);
       }
     };
 
