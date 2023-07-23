@@ -8,9 +8,10 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 
 import type * as TextUtils from '../text_utils/text_utils.js';
-import type * as UI from '../../ui/legacy/legacy.js';
+import * as UI from '../../ui/legacy/legacy.js';
 import * as Workspace from '../workspace/workspace.js';
 
+import {IsolatedFileSystemManager} from './IsolatedFileSystemManager.js';
 import {NetworkPersistenceManager} from './NetworkPersistenceManager.js';
 import {PersistenceImpl} from './PersistenceImpl.js';
 
@@ -26,7 +27,7 @@ const UIStrings = {
   /**
    *@description A context menu item in the Persistence Actions of the Workspace settings in Settings
    */
-  saveForOverrides: 'Save for overrides',
+  overrideContent: 'Override content',
   /**
    *@description A context menu item in the Persistence Actions of the Workspace settings in Settings
    */
@@ -79,14 +80,35 @@ export class ContextMenuProvider implements UI.ContextMenu.Provider {
       contextMenu.saveSection().appendItem(i18nString(UIStrings.saveImage), saveImage);
     }
 
+    async function saveAndShowOverrideContent(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
+      const networkPersistenceManager = NetworkPersistenceManager.instance();
+      Common.Settings.Settings.instance().moduleSetting('persistenceNetworkOverridesEnabled').set(true);
+      if (!networkPersistenceManager.isUISourceCodeAlreadyOverrided(uiSourceCode)) {
+        uiSourceCode.commitWorkingCopy();
+        await networkPersistenceManager.saveUISourceCodeForOverrides(
+            uiSourceCode as Workspace.UISourceCode.UISourceCode);
+      }
+      await Common.Revealer.reveal(uiSourceCode);
+    }
+
     // Retrieve uiSourceCode by URL to pick network resources everywhere.
     const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(contentProvider.contentURL());
-    if (uiSourceCode && NetworkPersistenceManager.instance().canSaveUISourceCodeForOverrides(uiSourceCode)) {
-      contextMenu.saveSection().appendItem(i18nString(UIStrings.saveForOverrides), () => {
-        uiSourceCode.commitWorkingCopy();
-        void NetworkPersistenceManager.instance().saveUISourceCodeForOverrides(
-            uiSourceCode as Workspace.UISourceCode.UISourceCode);
-        void Common.Revealer.reveal(uiSourceCode);
+    if (uiSourceCode && NetworkPersistenceManager.instance().isUISourceCodeOverridable(uiSourceCode)) {
+      contextMenu.overrideSection().appendItem(i18nString(UIStrings.overrideContent), async () => {
+        const networkPersistenceManager = NetworkPersistenceManager.instance();
+
+        // Already have an overrides folder setup
+        if (networkPersistenceManager.project()) {
+          await saveAndShowOverrideContent(uiSourceCode);
+        }
+
+        // No override folder setup yet
+        if (networkPersistenceManager.shouldPromptSaveForOverridesDialog(uiSourceCode)) {
+          UI.InspectorView.InspectorView.instance().displaySelectOverrideFolderInfobar(async(): Promise<void> => {
+            await IsolatedFileSystemManager.instance().addFileSystem('overrides');
+            await saveAndShowOverrideContent(uiSourceCode);
+          });
+        }
       });
     }
 
