@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf6f7754_43be8182",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-24T08:40:06Z",
+      "side": 1,
+      "message": "Thanks for moving the location. Still LGTM after rephrasing the UIString.",
+      "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e6bda64_77dc9e64",
@@ -48,6 +65,24 @@
       "writtenOn": "2023-07-24T08:07:22Z",
       "side": 1,
       "message": "I\u0027d be up for dropping the \u0027the\u0027 here. Also we should probably say Chrome and not browser, since we filter by chrome-extensions://\n\nWolfgang, wdyt?",
+      "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb7ae1a_eebd2f58",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-24T08:40:06Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "9e6bda64_77dc9e64",
       "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
