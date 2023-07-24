@@ -85,6 +85,24 @@
       "parentUuid": "9e6bda64_77dc9e64",
       "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4abcc90d_69e9aa09",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-24T10:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddb7ae1a_eebd2f58",
+      "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
