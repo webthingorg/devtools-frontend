@@ -51,6 +51,24 @@
       "message": "Is this script planned to be removed after the transition?",
       "revId": "5c9b5f1ea97fae4dc87d297c706f4bcbf42c13b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0cd0fb_7e9d3344",
+        "filename": "scripts/deps/download_chromium.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-07-24T07:50:55Z",
+      "side": 1,
+      "message": "If all consumers transition, then yes we can remove this.",
+      "parentUuid": "5ed868bf_955db7fb",
+      "revId": "5c9b5f1ea97fae4dc87d297c706f4bcbf42c13b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
