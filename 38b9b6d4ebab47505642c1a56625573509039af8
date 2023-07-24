@@ -16,6 +16,23 @@
       "message": "This is a follow up on top of Wolfgang CL\u0027s on enable overrides for XHR and Fetch[1]. I add logic to hide Fetch/XHR in the UI (page tree and Command menu). \n\nAfter overriding Fetch/XHR, then it will:\n- show in the Overrides pane and Command menu\n- still hide in Page tree.\n \n[1]: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4677788",
       "revId": "38b9b6d4ebab47505642c1a56625573509039af8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe96381_1877bf4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-24T08:19:17Z",
+      "side": 1,
+      "message": "I like this change, it fixes the problems with my earlier CL. Thanks!\n\nAny idea how to unit-test this? The change in NavigatorView is probably testable. And we have some unit tests looking at context menus, maybe one of them could be repurposed to check for the existence of the context menu entry - but this might need a lot of setting up.",
+      "revId": "38b9b6d4ebab47505642c1a56625573509039af8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
