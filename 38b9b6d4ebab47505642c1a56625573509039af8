@@ -33,6 +33,24 @@
       "message": "I like this change, it fixes the problems with my earlier CL. Thanks!\n\nAny idea how to unit-test this? The change in NavigatorView is probably testable. And we have some unit tests looking at context menus, maybe one of them could be repurposed to check for the existence of the context menu entry - but this might need a lot of setting up.",
       "revId": "38b9b6d4ebab47505642c1a56625573509039af8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e47f3f_6377d06d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-24T08:36:41Z",
+      "side": 1,
+      "message": "This is how I tested context menu: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/console/ConsoleView_test.ts;l\u003d64",
+      "parentUuid": "dbe96381_1877bf4d",
+      "revId": "38b9b6d4ebab47505642c1a56625573509039af8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
