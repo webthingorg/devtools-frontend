@@ -16,6 +16,40 @@
       "message": "The new location of the checkbox is near the \u0027Hide data URLs\u0027 one. I also renamed it to \u0027Hide extension requests\u0027.",
       "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e31d659_5fa07ccb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-24T08:07:22Z",
+      "side": 1,
+      "message": "Left a wording suggestion, let\u0027s see what Wolfgang thinks, otherwise LGTM!",
+      "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e6bda64_77dc9e64",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-24T08:07:22Z",
+      "side": 1,
+      "message": "I\u0027d be up for dropping the \u0027the\u0027 here. Also we should probably say Chrome and not browser, since we filter by chrome-extensions://\n\nWolfgang, wdyt?",
+      "revId": "0ec2853e32c29f1c0150a97e8b5094ff6a3c045e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
