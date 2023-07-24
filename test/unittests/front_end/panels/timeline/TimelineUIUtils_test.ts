@@ -391,6 +391,7 @@ describeWithMockConnection('TimelineUIUtils', function() {
             {title: 'Duration', value: '4.075ms (3.08ms network transfer + 995μs resource loading)'},
             {title: 'Request Method', value: 'GET'},
             {title: 'Priority', value: 'Highest'},
+            {title: 'Initial Priority', value: 'Highest'},
             {title: 'Mime Type', value: 'text/css'},
             {title: 'Encoded Data', value: '402 B'},
             {title: 'Decoded Body', value: '96 B'},
