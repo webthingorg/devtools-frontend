@@ -160,6 +160,10 @@ const UIStrings = {
    */
   updateLayerTree: 'Update Layer Tree',
   /**
+   *@description Text that refers to updated priority of network request
+   */
+  initialPriority: 'Initial Priority',
+  /**
    *@description Noun for a paint event in the Performance panel. A paint event is when the browser draws pixels to the screen.
    */
   paint: 'Paint',
@@ -2580,6 +2584,11 @@ export class TimelineUIUtils {
     const priority = PerfUI.NetworkPriorities.uiLabelForNetworkPriority(
         event.args.data.priority as Protocol.Network.ResourcePriority);
     contentHelper.appendTextRow(i18nString(UIStrings.priority), priority);
+
+    if (event.args.data.initialPriority) {
+      contentHelper.appendTextRow(i18nString(UIStrings.initialPriority), event.args.data.initialPriority);
+    }
+
     if (event.args.data.mimeType) {
       contentHelper.appendTextRow(i18nString(UIStrings.mimeType), event.args.data.mimeType);
     }
