@@ -185,7 +185,7 @@ const UIStrings = {
    *@description Text in Headers View of the Network panel
    */
   thisDocumentWasBlockedFrom:
-      'This document was blocked from loading in an `iframe` with a `sandbox` attribute because this document specified a cross-origin opener policy.',
+      'This document was blocked from loading in or opened by an `iframe` with a `sandbox` attribute because this document specified a cross-origin opener policy.',
   /**
    *@description Text in Headers View of the Network panel
    */

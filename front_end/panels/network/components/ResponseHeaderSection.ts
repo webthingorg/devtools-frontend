@@ -53,7 +53,7 @@ const UIStrings = {
    *@description Message in the Headers View of the Network panel when a cross-origin opener policy blocked loading a sandbox iframe.
    */
   thisDocumentWasBlockedFrom:
-      'This document was blocked from loading in an `iframe` with a `sandbox` attribute because this document specified a cross-origin opener policy.',
+      'This document was blocked from loading in or opened by an `iframe` with a `sandbox` attribute because this document specified a cross-origin opener policy.',
   /**
    *@description Message in the Headers View of the Network panel when a cross-origin embedder policy header needs to be set.
    */
