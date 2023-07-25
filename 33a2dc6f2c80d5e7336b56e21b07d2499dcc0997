@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bd6ca6a_f960fc45",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "nit: I think it\u0027s better to either say JSON or json\nalso let\u0027s put inline before the json",
+      "range": {
+        "startLine": 26,
+        "startChar": 25,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39af6f9e_02b835bd",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f875051_bdfda33e",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "Maybe you can use something more generic, also for the other test:)",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 63,
+        "endChar": 12
+      },
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa43ed10_02b2f054",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "same here, also let\u0027s drop successfully:)",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1343df8c_b25bac6b",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "Can you please check in the beginning of this test that the text is indeed un-pretty-printed?",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9b1daf7_4c05992e",
+        "filename": "test/e2e/resources/network/minified-code-ld.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "Let\u0027s change the demo name here and below and in the other file too:)",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 18
+      },
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da64d8f7_003da3a6",
+        "filename": "test/e2e/resources/network/minified-code-ld.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "Do we still need these? also in the other file",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7652b2e9_7193f006",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "Let\u0027s call it \u0027can pretty-print json subtype\u0027",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c19a207d_4be3665c",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-25T15:57:47Z",
+      "side": 1,
+      "message": "Let\u0027s add a check that makes sure the text is pretty-printed (e.g. assert a checkbox value), also for other highlight tests",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
