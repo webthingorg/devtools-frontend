@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CORS Demo</title>
+</head>
+<body>
+  <header>
+    <h1>CORS Demo</h1>
+  </header>
+  <main>
+    <h2>Request with content type application/ld+json</h2>
+    <p>This request will return a JSON-LD document.</p>
+    <div id="demo">
+      Cannot load test1.json.
+    </div>
+  </main>
+  <script>
+    fetch("json-subtype-ld.rawresponse")
+      .then(response => response.json())
+      .then(response => {
+        document.getElementById("demo").innerHTML = JSON.stringify(response);
+      console.log(response);
+    });
+  </script>
+</body>
+<!--   <script src="https://third-party-no-coep.glitch.me/script-corp-none.js"> -->
+<!--   </script> -->
+</html>

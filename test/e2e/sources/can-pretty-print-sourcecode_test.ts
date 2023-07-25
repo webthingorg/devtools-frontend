@@ -88,6 +88,69 @@ describe('The Sources Tab', function() {
     });
   });
 
+  it('can pretty print a Json subtype file inline', async () => {
+    await openSourceCodeEditorForFile('json-subtype-ld.rawresponse', 'json-subtype-ld.rawresponse');
+    const editor = await waitFor('[aria-label="Code editor"]');
+
+    await step('can pretty-print successfully a Json subtype file', async () => {
+      const expectedPrettyLines = [
+        '{',
+        '    "todos": [',
+        '        {',
+        '            "todo": "Buy groceries",',
+        '            "to4567do": "Buy groceries",',
+        '            "completed": false',
+        '        },',
+        '        {',
+        '            "todo": "Do laundry",',
+        '            "completed": true',
+        '        },',
+        '        {',
+        '            "todo": "Write a blog post",',
+        '            "completed": false',
+        '        }',
+        '    ]',
+        '}',
+      ];
+      const actualPrettyText = await retrieveCodeMirrorEditorContent();
+      assert.strictEqual(expectedPrettyLines.toString(), actualPrettyText.toString());
+    });
+
+    await step('can highlight the pretty-printed text', async () => {
+      const elementsWithTokenString = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-string')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenString.indexOf('"Buy groceries"') !== -1);
+
+      const elementsWithTokenAtom = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-atom')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenAtom.indexOf('true') !== -1);
+    });
+
+    await step('can un-pretty-print a Json subtype file', async () => {
+      await click(PRETTY_PRINT_BUTTON);
+      await waitFor(PRETTY_PRINTED_TOGGLE);
+      const expectedNotPrettyLines =
+          '{"todos": [{"todo": "Buy groceries","to4567do": "Buy groceries","completed": false},{"todo": "Do laundry","completed": true},{"todo": "Write a blog post","completed": false}]}';
+      const actualNotPrettyText = await retrieveCodeMirrorEditorContent();
+
+      assert.strictEqual(expectedNotPrettyLines, actualNotPrettyText.toString());
+    });
+
+    await step('can highlight the un-pretty-printed text', async () => {
+      const elementsWithTokenStringNotPretty = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-string')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenStringNotPretty.indexOf('"Buy groceries"') !== -1);
+
+      const elementsWithTokenAtomNotPretty = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-atom')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenAtomNotPretty.indexOf('true') !== -1);
+    });
+  });
+
   it('can show error icons for pretty-printed file', async () => {
     await openSourceCodeEditorForFile('minified-errors.js', 'minified-errors.html');
 
