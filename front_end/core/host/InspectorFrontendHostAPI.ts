@@ -321,6 +321,15 @@ export interface ExtensionDescriptor {
   startPage: string;
   name: string;
   exposeExperimentalAPIs: boolean;
+<<<<<<< HEAD   (4cacb9 [M108-LTS] Use built-in URL class instead of string comparis)
+=======
+  hostsPolicy?: ExtensionHostsPolicy;
+  allowFileAccess?: boolean;
+}
+export interface ExtensionHostsPolicy {
+  runtimeAllowedHosts: string[];
+  runtimeBlockedHosts: string[];
+>>>>>>> CHANGE (b4b502 [M116] Do not allow extensions without file access on file: )
 }
 export interface ShowSurveyResult {
   surveyShown: boolean;
