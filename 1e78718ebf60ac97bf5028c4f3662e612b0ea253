@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc53424_6387cdc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-25T09:14:14Z",
+      "side": 1,
+      "message": "LGTM, one nit/question!",
+      "revId": "1e78718ebf60ac97bf5028c4f3662e612b0ea253",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1685c629_a7ded52f",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-25T09:14:14Z",
+      "side": 1,
+      "message": "Is this test code?",
+      "revId": "1e78718ebf60ac97bf5028c4f3662e612b0ea253",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
