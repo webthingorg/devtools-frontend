@@ -33,6 +33,24 @@
       "message": "Is this test code?",
       "revId": "1e78718ebf60ac97bf5028c4f3662e612b0ea253",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd4bed81_375257af",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-25T09:16:15Z",
+      "side": 1,
+      "message": "Oops, thanks! Removed.",
+      "parentUuid": "1685c629_a7ded52f",
+      "revId": "1e78718ebf60ac97bf5028c4f3662e612b0ea253",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
