@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a06cb8c_4f154bac",
+        "filename": "scripts/tools/update_goldens.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-07-25T18:32:32Z",
+      "side": 1,
+      "message": "nit: Do we need an additional \\n? print makes one by itself... maybe then the formatting is better?",
+      "range": {
+        "startLine": 261,
+        "startChar": 75,
+        "endLine": 261,
+        "endChar": 77
+      },
+      "revId": "6ee160e467bc61b85545870f4ceecc7414387da5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
