@@ -253,7 +253,11 @@ def read_try_results(patchset):
         results_command.extend(['-p', patchset])
     stdout = subprocess.check_output(results_command)
     if stdout:
-        return json.loads(stdout)
+        try:
+            return json.loads(stdout)
+        except Exception as e:
+            print('Unable to parse try-results output:\n', e)
+            sys.exit(1)
     return {}
 
 
