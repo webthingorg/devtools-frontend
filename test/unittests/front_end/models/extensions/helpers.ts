@@ -10,7 +10,20 @@ interface ExtensionContext {
   chrome: Partial<Chrome.DevTools.Chrome>;
 }
 
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
 export function describeWithDummyExtension(title: string, fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
+=======
+export function describeWithDevtoolsExtension(
+    title: string, extension: Partial<Host.InspectorFrontendHostAPI.ExtensionDescriptor>,
+    fn: (this: Mocha.Suite, context: ExtensionContext) => void) {
+  const extensionDescriptor = {
+    startPage: `${window.location.origin}/blank.html`,
+    name: 'TestExtension',
+    exposeExperimentalAPIs: true,
+    allowFileAccess: false,
+    ...extension,
+  };
+>>>>>>> CHANGE (b4b502 [M116] Do not allow extensions without file access on file: )
   const context: ExtensionContext = {
     chrome: {},
   };

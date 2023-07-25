@@ -321,6 +321,15 @@ export interface ExtensionDescriptor {
   startPage: string;
   name: string;
   exposeExperimentalAPIs: boolean;
+<<<<<<< HEAD   (00c5f1 An option to wait for work in the RenderCoordinator.)
+=======
+  hostsPolicy?: ExtensionHostsPolicy;
+  allowFileAccess?: boolean;
+}
+export interface ExtensionHostsPolicy {
+  runtimeAllowedHosts: string[];
+  runtimeBlockedHosts: string[];
+>>>>>>> CHANGE (b4b502 [M116] Do not allow extensions without file access on file: )
 }
 export interface ShowSurveyResult {
   surveyShown: boolean;
