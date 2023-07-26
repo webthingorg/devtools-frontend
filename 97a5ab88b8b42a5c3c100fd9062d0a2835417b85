@@ -16,6 +16,29 @@
       "message": "jack. wanna take another look cuz i had to make a few tweaks?",
       "revId": "97a5ab88b8b42a5c3c100fd9062d0a2835417b85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71ccb58e_18e612c9",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-26T05:17:31Z",
+      "side": 1,
+      "message": "why do we not do anything in Node land? I guess the settings don\u0027t really apply?\n\nIf so, should we ensure when we load up the panel that if we are in Node mode, we immediately hide the settings? In fact, should the settings icon even be visible?",
+      "range": {
+        "startLine": 770,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 5
+      },
+      "revId": "97a5ab88b8b42a5c3c100fd9062d0a2835417b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
