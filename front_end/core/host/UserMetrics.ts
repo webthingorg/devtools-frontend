@@ -886,9 +886,10 @@ export enum DevtoolsExperiments {
   'highlightErrorsElementsPanel' = 73,
   'setAllBreakpointsEagerly' = 74,
   'selfXssWarning' = 75,
+  'storageBucketsTree' = 76,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 76,
+  'MaxValue' = 77,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
