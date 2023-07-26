@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af7b6508_3c5710fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-26T16:17:12Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "57bb2ecf84a65ad05e2aa4f4eb9f70192c8e52ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f116ba_fc3b2dc5",
+        "filename": "front_end/models/trace/handlers/types.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-26T16:17:12Z",
+      "side": 1,
+      "message": "drive-by change. This will help us make sure profile calls are rendered in the timeline in the future.",
+      "range": {
+        "startLine": 116,
+        "startChar": 36,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "57bb2ecf84a65ad05e2aa4f4eb9f70192c8e52ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd2725f0_98e347bc",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-26T16:17:12Z",
+      "side": 1,
+      "message": "this is a small simplification to the helper\u0027s api",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 8
+      },
+      "revId": "57bb2ecf84a65ad05e2aa4f4eb9f70192c8e52ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
