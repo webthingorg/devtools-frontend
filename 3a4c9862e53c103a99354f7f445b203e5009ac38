@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f1d0a44_fac76f97",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-26T13:26:01Z",
+      "side": 1,
+      "message": "UISourceCodeFrame extends SourceFrame, so you could try calling the helper here instead of in `initialiseUISourceCode` and in the 2 locations in `SourceFrameImpl`.",
+      "range": {
+        "startLine": 230,
+        "startChar": 2,
+        "endLine": 230,
+        "endChar": 47
+      },
+      "revId": "3a4c9862e53c103a99354f7f445b203e5009ac38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f85c294_4be0357e",
         "filename": "front_end/ui/legacy/components/source_frame/ResourceSourceFrame.ts",
         "patchSetId": 3
