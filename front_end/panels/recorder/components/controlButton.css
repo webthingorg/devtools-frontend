@@ -29,7 +29,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--color-red);
+  background: var(--sys-color-error);
   margin-bottom: 8px;
   position: relative;
   transition: background 200ms;
@@ -63,15 +63,15 @@
 }
 
 .icon:hover {
-  background: var(--color-accent-red);
+  background: var(--sys-color-error-bright);
 }
 
 .icon:active {
-  background: var(--color-red);
+  background: var(--sys-color-error);
 }
 
 .control[disabled] .icon:hover {
-  background: var(--color-red);
+  background: var(--sys-color-error);
 }
 
 .label {
@@ -79,5 +79,5 @@
   line-height: 16px;
   text-align: center;
   letter-spacing: 0.02em;
-  color: var(--color-text-primary);
+  color: var(--sys-color-on-surface);
 }
