@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de3ae186_5557adcc",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bd6ca6a_f960fc45",
+      "range": {
+        "startLine": 26,
+        "startChar": 25,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39af6f9e_02b835bd",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-07-25T15:57:47Z",
       "side": 1,
       "message": "same here",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b4993c3_53d8a9b2",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39af6f9e_02b835bd",
       "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -81,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6ad92e_59de9015",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa43ed10_02b2f054",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1343df8c_b25bac6b",
@@ -98,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9142dc8d_f69b712d",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1343df8c_b25bac6b",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9b1daf7_4c05992e",
@@ -111,6 +189,30 @@
       "writtenOn": "2023-07-25T15:57:47Z",
       "side": 1,
       "message": "Let\u0027s change the demo name here and below and in the other file too:)",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 18
+      },
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5e6b647_17f59454",
+        "filename": "test/e2e/resources/network/minified-code-ld.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9b1daf7_4c05992e",
       "range": {
         "startLine": 6,
         "startChar": 9,
@@ -144,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8d74eb_0bbb7766",
+        "filename": "test/e2e/resources/network/minified-code-ld.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da64d8f7_003da3a6",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7652b2e9_7193f006",
@@ -161,6 +287,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b9e30b_b6087c84",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7652b2e9_7193f006",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c19a207d_4be3665c",
@@ -174,6 +318,24 @@
       "writtenOn": "2023-07-25T15:57:47Z",
       "side": 1,
       "message": "Let\u0027s add a check that makes sure the text is pretty-printed (e.g. assert a checkbox value), also for other highlight tests",
+      "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb657b1_b7d2a4a3",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-26T15:19:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19a207d_4be3665c",
       "revId": "33a2dc6f2c80d5e7336b56e21b07d2499dcc0997",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
