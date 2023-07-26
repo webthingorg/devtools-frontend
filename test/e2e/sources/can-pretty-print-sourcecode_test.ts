@@ -88,6 +88,74 @@ describe('The Sources Tab', function() {
     });
   });
 
+  it('can pretty print an inline json subtype file', async () => {
+    await openSourceCodeEditorForFile('json-subtype-ld.rawresponse', 'json-subtype-ld.rawresponse');
+    const editor = await waitFor('[aria-label="Code editor"]');
+
+    await step('can pretty-print a json subtype', async () => {
+      const expectedPrettyLines = [
+        '{',
+        '    "People": [',
+        '        {',
+        '            "Name": "Name1",',
+        '            "Age": "20",',
+        '            "Adult": true',
+        '        },',
+        '        {',
+        '            "Name": "Name2",',
+        '            "Age": "13",',
+        '            "Adult": false',
+        '        }',
+        '    ]',
+        '}',
+      ];
+      const actualPrettyText = await retrieveCodeMirrorEditorContent();
+      assert.strictEqual(expectedPrettyLines.toString(), actualPrettyText.toString());
+    });
+
+    await step('can highlight the pretty-printed text', async () => {
+      // verifies if the text is pretty-printed
+      const prettyButton = await waitFor(PRETTY_PRINT_BUTTON);
+      const isPretty = await prettyButton.evaluate(e => e.ariaPressed);
+      assert.strictEqual('true', isPretty);
+
+      const elementsWithTokenString = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-string')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenString.indexOf('"Name1"') !== -1);
+
+      const elementsWithTokenAtom = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-atom')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenAtom.indexOf('true') !== -1);
+    });
+
+    await step('can un-pretty-print a json subtype file', async () => {
+      await click(PRETTY_PRINT_BUTTON);
+      const expectedNotPrettyLines =
+          '{"People": [{"Name": "Name1","Age": "20","Adult": true},{"Name": "Name2","Age": "13","Adult": false}]}';
+      const actualNotPrettyText = await retrieveCodeMirrorEditorContent();
+      assert.strictEqual(expectedNotPrettyLines, actualNotPrettyText.toString());
+    });
+
+    await step('can highlight the un-pretty-printed text', async () => {
+      // verifies if the text is not pretty-printed
+      const prettyButton = await waitFor(PRETTY_PRINT_BUTTON);
+      const isPretty = await prettyButton.evaluate(e => e.ariaPressed);
+      assert.strictEqual('false', isPretty);
+
+      const elementsWithTokenStringNotPretty = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-string')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenStringNotPretty.indexOf('"Name1"') !== -1);
+
+      const elementsWithTokenAtomNotPretty = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-atom')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenAtomNotPretty.indexOf('true') !== -1);
+    });
+  });
+
   it('can show error icons for pretty-printed file', async () => {
     await openSourceCodeEditorForFile('minified-errors.js', 'minified-errors.html');
 
