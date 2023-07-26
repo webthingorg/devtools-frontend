@@ -972,7 +972,7 @@ describe('RendererHandler', function() {
 
   it('populates the map of trace events to tree nodes', async () => {
     const {Renderer: renderers} = await handleEventsFromTraceFile(this, 'multiple-navigations-with-iframes.json.gz');
-    assert.strictEqual(renderers.traceEventToNode.size, 2578);
+    assert.strictEqual(renderers.entryToNode.size, 2578);
   });
   describe('Synthetic complete events', () => {
     async function handleEvents(traceEvents: TraceModel.Types.TraceEvents.TraceEventData[]):
