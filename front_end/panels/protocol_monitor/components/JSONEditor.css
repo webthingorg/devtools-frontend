@@ -54,6 +54,10 @@ ul {
   color: var(--color-syntax-3);
 }
 
+.colorGrey {
+  color: var(--color-text-disabled);
+}
+
 .wrapper {
   padding-left: 2em;
   overflow: auto;
