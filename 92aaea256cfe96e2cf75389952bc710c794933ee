@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12a3b5a_27ed2d3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1228344
+      },
+      "writtenOn": "2023-07-26T07:59:50Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "92aaea256cfe96e2cf75389952bc710c794933ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb8708c6_9a77b6e5",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1228344
+      },
+      "writtenOn": "2023-07-26T07:59:50Z",
+      "side": 1,
+      "message": "I don\u0027t really understand what the previous message with iframe meant? COOP only affect the top-level document.\n\nMaybe two code path can refer the same error message and I don\u0027t know what was the second one about iframe?\n\nI think we should remove the `iframe` part, and/or understand what is this misterious second code path (if any).\n\nI would have said:\n```\nThe popup can\u0027t load, because it specified a cross-origin-opener-policy, and it was opened by a sandboxed iframe.\n```",
+      "range": {
+        "startLine": 56,
+        "startChar": 7,
+        "endLine": 56,
+        "endChar": 162
+      },
+      "revId": "92aaea256cfe96e2cf75389952bc710c794933ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
