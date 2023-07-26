@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d47771d_77876cc7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-26T17:21:23Z",
+      "side": 1,
+      "message": "It would be great if you could describe what the effects of your changes are, especially since it\u0027s not directly obvious from the code.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "c07bd33b781d24b072bb11f59e759516c6d24b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e7a7d35_93a04de0",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-26T17:21:23Z",
+      "side": 1,
+      "message": "nit: remove",
+      "revId": "c07bd33b781d24b072bb11f59e759516c6d24b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08a824e7_58735cae",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-26T17:21:23Z",
+      "side": 1,
+      "message": "nit: remove",
+      "revId": "c07bd33b781d24b072bb11f59e759516c6d24b89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
