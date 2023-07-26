@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1cc2435_5d94d4cd",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-26T10:56:34Z",
+      "side": 1,
+      "message": "Please give the variable a name which describes its content, not (only) its type.",
+      "range": {
+        "startLine": 266,
+        "startChar": 29,
+        "endLine": 266,
+        "endChar": 35
+      },
+      "revId": "3a4c9862e53c103a99354f7f445b203e5009ac38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f85c294_4be0357e",
+        "filename": "front_end/ui/legacy/components/source_frame/ResourceSourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-26T10:56:34Z",
+      "side": 1,
+      "message": "nit: Does the empty line make sense here?",
+      "revId": "3a4c9862e53c103a99354f7f445b203e5009ac38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
