@@ -39,6 +39,30 @@
       },
       "revId": "92aaea256cfe96e2cf75389952bc710c794933ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a9e0f1d_c4f39957",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1546468
+      },
+      "writtenOn": "2023-07-26T11:12:10Z",
+      "side": 1,
+      "message": "I think you\u0027re right.  The only place I could find that generates this reason is [1] which is after we sanitize iframe COOP, so it should only apply to top-level document. I reworded it based on your suggestion.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/refs/heads/main:content/browser/renderer_host/cross_origin_opener_policy_status.cc;l\u003d240;drc\u003d8b1a378e6da751671f60bdbf486cf339dd79bbc3",
+      "parentUuid": "fb8708c6_9a77b6e5",
+      "range": {
+        "startLine": 56,
+        "startChar": 7,
+        "endLine": 56,
+        "endChar": 162
+      },
+      "revId": "92aaea256cfe96e2cf75389952bc710c794933ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
