@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "717deaa7_6a4e440c",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-26T15:06:03Z",
+      "side": 1,
+      "message": "This looks like it\u0027s equivalent to\n```\nreturn isUISourceCodeOverrideable(uiSourceCode) \u0026\u0026 !isUISourceCodeAlreadyOverridden(uiSourceCode) \u0026\u0026 this.activeInternal\n```",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 87
+      },
+      "revId": "e8d47aea6d4555e41e7775c70fd87ca8ab65ad59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
