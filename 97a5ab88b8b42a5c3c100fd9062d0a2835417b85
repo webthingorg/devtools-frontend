@@ -39,6 +39,30 @@
       },
       "revId": "97a5ab88b8b42a5c3c100fd9062d0a2835417b85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2172e5c_f3a267fa",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-07-26T15:43:26Z",
+      "side": 1,
+      "message": "all good questions! 😊\n\nin short, we avoid creating this settings toolbar and button for node already:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelinePanel.ts;l\u003d363-366;drc\u003dfe1175d1430c19be6fd0f4e0f987f352b8525204\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelinePanel.ts;l\u003d550-554;drc\u003dfe1175d1430c19be6fd0f4e0f987f352b8525204\n\nThose guards make decent sense to me.. But as a result this setting and panel is null sometimes.  I\u0027m sure all this could be done differently but.. nothing was obvious to me. I\u0027m cool to adjust if you have a thought  tho.",
+      "parentUuid": "71ccb58e_18e612c9",
+      "range": {
+        "startLine": 770,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 5
+      },
+      "revId": "97a5ab88b8b42a5c3c100fd9062d0a2835417b85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
