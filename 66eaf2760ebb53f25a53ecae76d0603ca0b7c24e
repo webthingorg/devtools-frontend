@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3db870c_db717609",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-26T05:11:55Z",
+      "side": 0,
+      "message": "I think this might be a class name - worth grepping the file as we might have CSS that can be deleted as part of this CL.",
+      "range": {
+        "startLine": 120,
+        "startChar": 58,
+        "endLine": 120,
+        "endChar": 88
+      },
+      "revId": "66eaf2760ebb53f25a53ecae76d0603ca0b7c24e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
