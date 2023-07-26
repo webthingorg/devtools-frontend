@@ -201,9 +201,11 @@ export class UISourceCodeFrame extends
         this.uiSourceCodeInternal, this.boundOnBindingChanged);
     this.installMessageAndDecorationListeners();
     this.updateStyle();
+
     const canPrettyPrint = FormatterActions.FORMATTABLE_MEDIA_TYPES.includes(this.contentType) &&
         !this.uiSourceCodeInternal.project().canSetFileContent() &&
         Persistence.Persistence.PersistenceImpl.instance().binding(this.uiSourceCodeInternal) === null;
+
     const autoPrettyPrint = Root.Runtime.experiments.isEnabled('sourcesPrettyPrint') &&
         !this.uiSourceCodeInternal.contentType().isFromSourceMap();
     this.setCanPrettyPrint(canPrettyPrint, autoPrettyPrint);
@@ -225,7 +227,8 @@ export class UISourceCodeFrame extends
 
   protected override getContentType(): string {
     const binding = Persistence.Persistence.PersistenceImpl.instance().binding(this.uiSourceCodeInternal);
-    return binding ? binding.network.mimeType() : this.uiSourceCodeInternal.mimeType();
+    const mimeType = binding ? binding.network.mimeType() : this.uiSourceCodeInternal.mimeType();
+    return Common.ResourceType.ResourceType.simplifyContentType(mimeType);
   }
 
   canEditSourceInternal(): boolean {
