@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3e0dc1c_0f0d4e5d",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-07-26T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1cc2435_5d94d4cd",
+      "range": {
+        "startLine": 266,
+        "startChar": 29,
+        "endLine": 266,
+        "endChar": 35
+      },
+      "revId": "3a4c9862e53c103a99354f7f445b203e5009ac38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f1d0a44_fac76f97",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bfaded3_2d45be62",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-07-26T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f1d0a44_fac76f97",
+      "range": {
+        "startLine": 230,
+        "startChar": 2,
+        "endLine": 230,
+        "endChar": 47
+      },
+      "revId": "3a4c9862e53c103a99354f7f445b203e5009ac38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f85c294_4be0357e",
@@ -60,6 +108,24 @@
       "writtenOn": "2023-07-26T10:56:34Z",
       "side": 1,
       "message": "nit: Does the empty line make sense here?",
+      "revId": "3a4c9862e53c103a99354f7f445b203e5009ac38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e6f37d_bf94be2a",
+        "filename": "front_end/ui/legacy/components/source_frame/ResourceSourceFrame.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-07-26T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f85c294_4be0357e",
       "revId": "3a4c9862e53c103a99354f7f445b203e5009ac38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
