@@ -71,6 +71,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7feb258_b257ecde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-26T23:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "616b47ea_f3ede36b",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03d3a8ac_fba8d2df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-26T23:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e53d3ef_bdf6da9c",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b546c4fb_f9177b91",
@@ -94,6 +130,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "993f7bd6_84380b03",
+        "filename": "front_end/panels/application/StorageBucketsTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-26T23:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b546c4fb_f9177b91",
+      "range": {
+        "startLine": 139,
+        "startChar": 10,
+        "endLine": 139,
+        "endChar": 27
+      },
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a59fc7d3_6302c034",
@@ -107,6 +167,24 @@
       "writtenOn": "2023-07-11T10:18:53Z",
       "side": 1,
       "message": "```suggestion\n  defaultBucket: \u0027Default bucket\u0027,\n```",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da48669b_136f247e",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-26T23:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a59fc7d3_6302c034",
       "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -159,6 +237,42 @@
       "side": 1,
       "message": "More precise link: https://m3.material.io/foundations/content-design/style-guide/ux-writing-best-practices#d7f04666-89f8-4795-a563-16d060b5ccf2",
       "parentUuid": "4531ad91_3d90faa2",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78320bab_c6d40585",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-26T23:56:51Z",
+      "side": 1,
+      "message": "Does the suggested edit cover this? Or should I add a explanation after \"Delete the {PH1} bucket?\"",
+      "parentUuid": "47000e34_98628600",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8701de1_d6caefd4",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1548739
+      },
+      "writtenOn": "2023-07-26T23:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44ca0f53_582a358b",
       "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
