@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8efb37de_4def9ca4",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:33:29Z",
+      "side": 1,
+      "message": "This would be great for a unit test.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 3
+      },
+      "revId": "11a71c304df4d1cdf3e4f3ea4f48cc47123ba6d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
