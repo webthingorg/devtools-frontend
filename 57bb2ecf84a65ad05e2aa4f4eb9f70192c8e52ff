@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5aac74b6_7d06741a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-27T05:43:04Z",
+      "side": 1,
+      "message": "lgtm with one question! This is super exciting.",
+      "revId": "57bb2ecf84a65ad05e2aa4f4eb9f70192c8e52ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "40f116ba_fc3b2dc5",
         "filename": "front_end/models/trace/handlers/types.ts",
         "patchSetId": 3
@@ -31,6 +48,30 @@
       "writtenOn": "2023-07-26T16:17:12Z",
       "side": 1,
       "message": "drive-by change. This will help us make sure profile calls are rendered in the timeline in the future.",
+      "range": {
+        "startLine": 116,
+        "startChar": 36,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "57bb2ecf84a65ad05e2aa4f4eb9f70192c8e52ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1c150fd_fc6fcab5",
+        "filename": "front_end/models/trace/handlers/types.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-27T05:43:04Z",
+      "side": 1,
+      "message": "silly question: what does a ProfileCall event represent?",
+      "parentUuid": "40f116ba_fc3b2dc5",
       "range": {
         "startLine": 116,
         "startChar": 36,
