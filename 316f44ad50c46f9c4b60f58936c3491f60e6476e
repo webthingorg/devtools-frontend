@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f065684f_fda8d30d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-27T12:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eeed26f_d00326a9",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a283dd8_ceeefac3",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-27T11:26:42Z",
       "side": 1,
       "message": "it does not look like true/false should be localized?",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca7dd36_576803be",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-27T12:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a283dd8_ceeefac3",
       "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb50a0c_f36b9fdd",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-27T12:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8469b696_91a38fcc",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f82e63d3_4cae5008",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-07-27T11:26:42Z",
       "side": 1,
       "message": "let\u0027s move it to a const outside of the class and mark as readonly. Also, let\u0027s initialize in the constructor.",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cde6149_6355fcb2",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-27T12:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f82e63d3_4cae5008",
       "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -133,6 +205,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b17ab1_2987b049",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-27T12:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50f3416d_6cf67e05",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6752b7d3_d3054468",
@@ -146,6 +236,24 @@
       "writtenOn": "2023-07-27T11:26:42Z",
       "side": 1,
       "message": "nit: consider inlining expectations in the assertion. I think it might make tests more readable.",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19cc3378_14ccbab3",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-27T12:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6752b7d3_d3054468",
       "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
