@@ -20,7 +20,8 @@
   max-width: 180px;
 }
 
-.row {
+.row,
+.row-icons {
   display: flex;
   flex-direction: row;
   color: var(--color-syntax-1);
@@ -41,6 +42,12 @@
   margin-top: 3px;
 }
 
+.column-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .separator {
   margin-right: 0.5em;
   color: var(--color-text-primary);
@@ -50,15 +57,20 @@ ul {
   padding-left: 2em;
 }
 
-.colorBlue {
+.optionalParameter {
   color: var(--color-syntax-3);
+}
+
+.undefinedParameter {
+  color: var(--color-text-disabled);
 }
 
 .wrapper {
   padding-left: 2em;
-  overflow: auto;
+  overflow: hidden;
   height: 100%;
   width: 100%;
+  min-width: 250px;
   padding-bottom: 50px;
 }
 

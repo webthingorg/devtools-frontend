@@ -139,7 +139,7 @@ export const buildProtocolMetadata = (domains: Iterable<ProtocolDomain>):
 const metadataByCommand = buildProtocolMetadata(
     ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
 const typesByName = ProtocolClient.InspectorBackend.inspectorBackend.typeMap;
-
+const enumsByName = ProtocolClient.InspectorBackend.inspectorBackend.enumMap;
 export interface Message {
   id?: number;
   method: string;
@@ -616,6 +616,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   // This width corresponds to the optimal width to use the editor properly
   // It is randomly chosen
   #sideBarMinWidth = 400;
+  #minWidthForRow = 250;
   constructor() {
     super(true);
     this.#split =
@@ -625,7 +626,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     this.#protocolMonitorDataGrid.addEventListener(Events.CommandChange, event => {
       this.#editorWidget.jsonEditor.displayCommand(event.data.command, event.data.parameters);
     });
-
+    this.#editorWidget.element.style.overflow = 'hidden';
     this.#split.setMainWidget(this.#protocolMonitorDataGrid);
     this.#split.setSidebarWidget(this.#editorWidget);
     this.#split.hideSidebar(true);
@@ -641,9 +642,17 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   // when the side bar width is under 400px
   private handleSidebarSizeChange(): void {
     const width = this.#editorWidget.element.offsetWidth;
-    if (width <= this.#sideBarMinWidth) {
-      this.#editorWidget.element.style.overflowX = 'auto';
-      this.#editorWidget.element.style.overflowY = 'hidden';
+    const rows = this.#editorWidget.jsonEditor.renderRoot.querySelectorAll('.row');
+
+    const shouldAddClass = width <= this.#minWidthForRow;
+
+    for (const row of rows) {
+      const isClassAlreadyPresent = row.classList.contains('column-input');
+      if (shouldAddClass && !isClassAlreadyPresent) {
+        row.classList.add('column-input');
+      } else if (!shouldAddClass && isClassAlreadyPresent) {
+        row.classList.remove('column-input');
+      }
     }
   }
 
@@ -748,6 +757,7 @@ export class EditorWidget extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     this.jsonEditor = new Components.JSONEditor.JSONEditor();
     this.jsonEditor.metadataByCommand = metadataByCommand;
     this.jsonEditor.typesByName = typesByName as Map<string, Components.JSONEditor.Parameter[]>;
+    this.jsonEditor.enumsByName = enumsByName;
     this.element.append(this.jsonEditor);
     this.jsonEditor.addEventListener(Components.JSONEditor.SubmitEditorEvent.eventName, (event: Event) => {
       this.dispatchEventToListeners(Events.CommandSent, (event as Components.JSONEditor.SubmitEditorEvent).data);
