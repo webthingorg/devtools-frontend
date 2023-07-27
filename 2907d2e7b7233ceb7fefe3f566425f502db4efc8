@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73879667_2f7d54fb",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f34cbbd6_953b08d5",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b8e555d_2527c474",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-27T08:49:52Z",
       "side": 1,
       "message": "Is this needed to address test flakiness?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b729e7_cec1e8db",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b8e555d_2527c474",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "617b63b6_e57e6c5c",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d6ada0a_a7e4a3dd",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 47
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0282aee_f51888d1",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-27T08:49:52Z",
       "side": 1,
       "message": "assert.isTrue(isPretty);",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "552abaf2_2f704ccc",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "The value of ariaPressed is actually a string, so the expected value there is actually a string \u0027true\u0027",
+      "parentUuid": "b0282aee_f51888d1",
       "range": {
         "startLine": 70,
         "startChar": 6,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff0b52bb_6e1bc8fc",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d6712af_ad446ba3",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97b94bca_83043aa8",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-07-27T08:49:52Z",
       "side": 1,
       "message": "Instead of adding the same files to 2 different folders, could you try adding them in just 1 location and loading from that location in all tests? You might have to look into the helper functions you\u0027re calling.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0989523_d59277b1",
+        "filename": "test/e2e/resources/sources/json-subtype-ld.rawresponse",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97b94bca_83043aa8",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e957059_3259bf3a",
+        "filename": "test/e2e/resources/sources/minified-sourcecode-ld.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45221c02_d6f51a7e",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 15
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbeb8518_47a2cf68",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-07-27T08:49:52Z",
       "side": 1,
       "message": "Is there a way to extract the parts shared with the other file into common helpers?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 66
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1633b5c_ccf5f5aa",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-07-27T13:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbeb8518_47a2cf68",
       "range": {
         "startLine": 90,
         "startChar": 0,
