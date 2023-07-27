@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd96790_297335db",
+        "filename": "test/unittests/front_end/models/trace/handlers/UserInteractionsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-27T07:29:07Z",
+      "side": 0,
+      "message": "this is done in test_setup.ts anyway",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "c5672b53fbda6482ee6d5b3715bf715a4b8a8b52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
