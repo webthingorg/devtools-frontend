@@ -88,6 +88,10 @@ export class CommandMenu {
     }
     const tags = setting.tags() || '';
     const reloadRequired = Boolean(setting.reloadRequired());
+    const settingsThatNeedMetrics: {[key: string]: Host.UserMetrics.Action} = {
+      'emulatePageFocus': Host.UserMetrics.Action.ToggleKeepPageFocusFromCommandMenu,
+    };
+
     return CommandMenu.createCommand({
       category: Common.Settings.getLocalizedSettingsCategory(category),
       keys: tags,
@@ -100,6 +104,11 @@ export class CommandMenu {
           return;
         }
         setting.set(value);
+
+        if (settingsThatNeedMetrics[setting.name]) {
+          Host.userMetrics.actionTaken(Host.UserMetrics.Action.ToggleKeepPageFocusFromCommandMenu);
+        }
+
         if (reloadRequired) {
           UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
               i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
