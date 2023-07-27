@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eeed26f_d00326a9",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-27T11:26:42Z",
+      "side": 1,
+      "message": "nit: in general, let\u0027s avoid naming the CSS classes after colors in the future. Instead, let\u0027s define colors for the meaningful classes that reflect the identity of the target element (s). This could be a nice follow up.",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a283dd8_ceeefac3",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-27T11:26:42Z",
+      "side": 1,
+      "message": "it does not look like true/false should be localized?",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8469b696_91a38fcc",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-27T11:26:42Z",
+      "side": 1,
+      "message": "we could perhaps use the resetDefaultValue for setting the undefined value arguing that the default value is undefined. The icon looks the same for both actions.",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f82e63d3_4cae5008",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-27T11:26:42Z",
+      "side": 1,
+      "message": "let\u0027s move it to a const outside of the class and mark as readonly. Also, let\u0027s initialize in the constructor.",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a81674_bd0439b5",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-27T11:26:42Z",
+      "side": 1,
+      "message": "```suggestion\n      const suggestionInput \u003d jsonEditor.renderRoot.querySelector(\u0027devtools-recorder-input\u0027);\n```",
+      "range": {
+        "startLine": 320,
+        "startChar": 43,
+        "endLine": 320,
+        "endChar": 59
+      },
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f3416d_6cf67e05",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-27T11:26:42Z",
+      "side": 1,
+      "message": "I think it might be more readable if you provide the data in the map constructor instead of calling .set method afterwards",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6752b7d3_d3054468",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/ProtocolMonitor_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-27T11:26:42Z",
+      "side": 1,
+      "message": "nit: consider inlining expectations in the assertion. I think it might make tests more readable.",
+      "revId": "316f44ad50c46f9c4b60f58936c3491f60e6476e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
