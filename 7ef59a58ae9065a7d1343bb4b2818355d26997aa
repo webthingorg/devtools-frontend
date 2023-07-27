@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7fca888_6dbdd6b0",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-27T08:23:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "267fa44d_00c6bf02",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 52
+      },
+      "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b050121e_98070cd4",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-07-27T05:40:29Z",
       "side": 1,
       "message": "can we register the experiment so this is safe to call without the try/catch?",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 66
+      },
+      "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97a728b7_5b5250ef",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-27T08:23:53Z",
+      "side": 1,
+      "message": "I added this because tests that run the engine started failing due to an error thrown when querying on this experiment. We could register the experiment on these tests or use `describeWithEnvironment`, but I thought that having to do so for every test that runs the engine could get annoying in the future so I opted for handling the error here. WDYT?",
+      "parentUuid": "b050121e_98070cd4",
       "range": {
         "startLine": 402,
         "startChar": 0,
