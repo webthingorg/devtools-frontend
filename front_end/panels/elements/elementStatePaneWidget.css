@@ -13,7 +13,9 @@
   padding-bottom: 2px;
 }
 
-.styles-element-state-pane > div {
+.styles-element-state-pane > .section-header {
+  display: flex;
+  gap: 4px;
   margin: 8px 4px 6px;
 }
 
