@@ -533,7 +533,10 @@ export enum Action {
   StyleSheetInitiatorLinkClicked = 80,
   BreakpointRemovedFromGutterContextMenu = 81,
   BreakpointRemovedFromGutterToggle = 82,
-  MaxValue = 83,
+  ToggleKeepPageFocusedFromStylesPane = 83,
+  ToggleKeepPageFocusedFromRenderingTab = 84,
+  ToggleKeepPageFocusedFromCommandMenu = 85,
+  MaxValue = 86,
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
