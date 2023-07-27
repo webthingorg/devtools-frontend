@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2fe0344_7880f51c",
+        "filename": "scripts/eslint_rules/lib/trace_engine_test_timeouts.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-27T11:04:09Z",
+      "side": 1,
+      "message": "did it this way rather than check any functions because we might have helpers nested within functions, and it seemed easier to have an explicit list of functions to check and look for",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 5
+      },
+      "revId": "4c1268f3934b15f4ea73cbadfb4ac31e5bb19ce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
