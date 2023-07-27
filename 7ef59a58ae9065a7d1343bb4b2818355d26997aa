@@ -151,6 +151,30 @@
       },
       "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3f1046_ca767d9f",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-27T09:48:26Z",
+      "side": 1,
+      "message": "ACK. Will do this in a follow up and revert this changes in the meantime (since these were necessary only for a posterior CL)",
+      "parentUuid": "3073f177_e249ddf9",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 66
+      },
+      "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
