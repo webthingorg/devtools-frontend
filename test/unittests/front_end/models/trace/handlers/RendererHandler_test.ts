@@ -5,6 +5,7 @@
 const {assert} = chai;
 
 import * as TraceModel from '../../../../../../front_end/models/trace/trace.js';
+import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import {
   getEventsIn,
   getRootAt,
@@ -27,7 +28,7 @@ async function handleEventsFromTraceFile(
   return traceData;
 }
 
-describe('RendererHandler', function() {
+describeWithEnvironment('RendererHandler', function() {
   it('finds all the renderers in a real world profile', async () => {
     const {Renderer: renderers} = await handleEventsFromTraceFile(this, 'multiple-navigations-with-iframes.json.gz');
     assert.strictEqual(renderers.processes.size, 4);
