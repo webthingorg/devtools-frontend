@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad734fa_c26d3007",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-27T05:40:29Z",
+      "side": 1,
+      "message": "lgtm with two nits",
+      "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267fa44d_00c6bf02",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-27T05:40:29Z",
+      "side": 1,
+      "message": "nit: maybe explain why in the comment?",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 52
+      },
+      "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b050121e_98070cd4",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-27T05:40:29Z",
+      "side": 1,
+      "message": "can we register the experiment so this is safe to call without the try/catch?",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 66
+      },
+      "revId": "7ef59a58ae9065a7d1343bb4b2818355d26997aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
