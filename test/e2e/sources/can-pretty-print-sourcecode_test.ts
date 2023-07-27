@@ -19,6 +19,7 @@ import {beforeEach, describe, it} from '../../shared/mocha-extensions.js';
 import {openGoToLineQuickOpen} from '../helpers/quick_open-helpers.js';
 import {
   addBreakpointForLine,
+  isPrettyPrinted,
   openSourceCodeEditorForFile,
   retrieveCodeMirrorEditorContent,
   retrieveTopCallFrameScriptLocation,
@@ -85,6 +86,68 @@ describe('The Sources Tab', function() {
 
       const updatedTextContent = await retrieveCodeMirrorEditorContent();
       assert.strictEqual(updatedTextContent.join('\n'), expectedLines.join('\n'));
+    });
+  });
+
+  it('can pretty print an inline json subtype file', async () => {
+    await openSourceCodeEditorForFile('json-subtype-ld.rawresponse', '../network/json-subtype-ld.rawresponse');
+    const editor = await waitFor('[aria-label="Code editor"]');
+
+    await step('can pretty-print a json subtype', async () => {
+      const expectedPrettyLines = [
+        '{',
+        '    "Keys": [',
+        '        {',
+        '            "Key1": "Value1",',
+        '            "Key2": "Value2",',
+        '            "Key3": true',
+        '        },',
+        '        {',
+        '            "Key1": "Value1",',
+        '            "Key2": "Value2",',
+        '            "Key3": false',
+        '        }',
+        '    ]',
+        '}',
+      ];
+      const actualPrettyText = await retrieveCodeMirrorEditorContent();
+      assert.strictEqual(expectedPrettyLines.toString(), actualPrettyText.toString());
+    });
+
+    await step('can highlight the pretty-printed text', async () => {
+      assert.isTrue(await isPrettyPrinted());
+
+      const elementsWithTokenString = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-string')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenString.indexOf('"Value1"') !== -1);
+
+      const elementsWithTokenAtom = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-atom')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenAtom.indexOf('true') !== -1);
+    });
+
+    await step('can un-pretty-print a json subtype file', async () => {
+      await click(PRETTY_PRINT_BUTTON);
+      const expectedNotPrettyLines =
+          '{"Keys": [{"Key1": "Value1","Key2": "Value2","Key3": true},{"Key1": "Value1","Key2": "Value2","Key3": false}]}';
+      const actualNotPrettyText = await retrieveCodeMirrorEditorContent();
+      assert.strictEqual(expectedNotPrettyLines, actualNotPrettyText.toString());
+    });
+
+    await step('can highlight the un-pretty-printed text', async () => {
+      assert.isFalse(await isPrettyPrinted());
+
+      const elementsWithTokenStringNotPretty = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-string')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenStringNotPretty.indexOf('"Value1"') !== -1);
+
+      const elementsWithTokenAtomNotPretty = await editor.evaluate(
+          node => [...node.querySelectorAll('.token-atom')].map(node => node.textContent || '') || [],
+      );
+      assert.isTrue(elementsWithTokenAtomNotPretty.indexOf('true') !== -1);
     });
   });
 
