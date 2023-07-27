@@ -616,6 +616,10 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   // This width corresponds to the optimal width to use the editor properly
   // It is randomly chosen
   #sideBarMinWidth = 400;
+  // This width corresponds to the width where the paramater and their input field
+  // get to be align in column
+  // It is randomly chosen
+  #minWidthForRow = 250;
   constructor() {
     super(true);
     this.#split =
@@ -625,7 +629,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     this.#protocolMonitorDataGrid.addEventListener(Events.CommandChange, event => {
       this.#editorWidget.jsonEditor.displayCommand(event.data.command, event.data.parameters);
     });
-
+    this.#editorWidget.element.style.overflow = 'hidden';
     this.#split.setMainWidget(this.#protocolMonitorDataGrid);
     this.#split.setSidebarWidget(this.#editorWidget);
     this.#split.hideSidebar(true);
@@ -641,9 +645,17 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
   // when the side bar width is under 400px
   private handleSidebarSizeChange(): void {
     const width = this.#editorWidget.element.offsetWidth;
-    if (width <= this.#sideBarMinWidth) {
-      this.#editorWidget.element.style.overflowX = 'auto';
-      this.#editorWidget.element.style.overflowY = 'hidden';
+    const rows = this.#editorWidget.jsonEditor.renderRoot.querySelectorAll('.row');
+
+    const shouldAddClass = width <= this.#minWidthForRow;
+
+    for (const row of rows) {
+      const isClassAlreadyPresent = row.classList.contains('column-input');
+      if (shouldAddClass && !isClassAlreadyPresent) {
+        row.classList.add('column-input');
+      } else if (!shouldAddClass && isClassAlreadyPresent) {
+        row.classList.remove('column-input');
+      }
     }
   }
 
