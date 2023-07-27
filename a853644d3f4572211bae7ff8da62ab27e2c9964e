@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04d8fa1e_854d9b66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-27T12:34:03Z",
+      "side": 1,
+      "message": "LGTM % one small request :)",
+      "revId": "a853644d3f4572211bae7ff8da62ab27e2c9964e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d303cfc0_b699a041",
+        "filename": "front_end/panels/recorder/components/controlButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-27T12:34:03Z",
+      "side": 1,
+      "message": "Could you please add application color tokens for the color-mixes? We\u0027ll be using them all over devtools",
+      "revId": "a853644d3f4572211bae7ff8da62ab27e2c9964e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
