@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f34cbbd6_953b08d5",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "nit: 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b8e555d_2527c474",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "Is this needed to address test flakiness?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d6ada0a_a7e4a3dd",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "remove or turn into a `step([description], ...`",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 47
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0282aee_f51888d1",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "assert.isTrue(isPretty);",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d6712af_ad446ba3",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97b94bca_83043aa8",
+        "filename": "test/e2e/resources/sources/json-subtype-ld.rawresponse",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "Instead of adding the same files to 2 different folders, could you try adding them in just 1 location and loading from that location in all tests? You might have to look into the helper functions you\u0027re calling.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45221c02_d6f51a7e",
+        "filename": "test/e2e/resources/sources/minified-sourcecode-ld.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "For the tests, we usually use only very minimal html files. A lot if this file\u0027s content can be dropped, the only thing we really care about is the fetch.\n\nAnd maybe look for a better file name, there is nothing minified in this file.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 15
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbeb8518_47a2cf68",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-27T08:49:52Z",
+      "side": 1,
+      "message": "Is there a way to extract the parts shared with the other file into common helpers?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 66
+      },
+      "revId": "2907d2e7b7233ceb7fefe3f566425f502db4efc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
