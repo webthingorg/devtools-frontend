@@ -16,6 +16,24 @@
       "message": "Al, please add yourself to the owners file.",
       "revId": "e4e0e93e9538be163723c3c3926f3e2287038060",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5df60017_6507d3de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-07-28T12:49:35Z",
+      "side": 1,
+      "message": "done https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4729644",
+      "parentUuid": "d3ade9e0_4e696d5d",
+      "revId": "e4e0e93e9538be163723c3c3926f3e2287038060",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
