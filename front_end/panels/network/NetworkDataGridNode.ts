@@ -54,6 +54,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {iconDataForResourceType} from '../utils/utils.js';
 
 import {type NetworkTimeCalculator} from './NetworkTimeCalculator.js';
+import {getStatusText} from './components/StatusTextStrings.js';
 
 const UIStrings = {
   /**
@@ -1134,6 +1135,7 @@ export class NetworkRequestNode extends NetworkNode {
     const corsErrorStatus = this.requestInternal.corsErrorStatus();
     const webBundleErrorMessage = this.requestInternal.webBundleInfo()?.errorMessage ||
         this.requestInternal.webBundleInnerRequestInfo()?.errorMessage;
+
     if (webBundleErrorMessage) {
       this.setTextAndTitle(cell, i18nString(UIStrings.webBundleError), webBundleErrorMessage);
     } else if (
@@ -1141,7 +1143,7 @@ export class NetworkRequestNode extends NetworkNode {
         !corsErrorStatus) {
       const failText = i18nString(UIStrings.failed);
       if (this.requestInternal.localizedFailDescription) {
-        UI.UIUtils.createTextChild(cell, failText);
+        UI.UIUtils.createTextChild(cell, 'buna');
         this.appendSubtitle(cell, this.requestInternal.localizedFailDescription, true);
         UI.Tooltip.Tooltip.install(cell, failText + ' ' + this.requestInternal.localizedFailDescription);
       } else {
@@ -1150,7 +1152,11 @@ export class NetworkRequestNode extends NetworkNode {
     } else if (this.requestInternal.statusCode && this.requestInternal.statusCode >= 400) {
       UI.UIUtils.createTextChild(cell, String(this.requestInternal.statusCode));
       this.appendSubtitle(cell, this.requestInternal.statusText);
-      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.statusText);
+      let statusText = this.requestInternal.statusText;
+      if (!this.requestInternal.statusText) {
+        statusText += String(getStatusText(this.requestInternal.statusCode));
+      }
+      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + statusText);
     } else if (!this.requestInternal.statusCode && this.requestInternal.parsedURL.isDataURL()) {
       this.setTextAndTitle(cell, i18nString(UIStrings.data));
     } else if (!this.requestInternal.statusCode && this.requestInternal.canceled) {
@@ -1219,6 +1225,7 @@ export class NetworkRequestNode extends NetworkNode {
       this.setTextAndTitle(
           cell, i18nString(UIStrings.corsError),
           i18nString(UIStrings.crossoriginResourceSharingErrorS, {PH1: corsErrorStatus.corsError}));
+
     } else if (this.requestInternal.statusCode) {
       if (this.requestInternal.hasOverriddenHeaders()) {
         const markerDiv = document.createElement('div');
@@ -1228,7 +1235,11 @@ export class NetworkRequestNode extends NetworkNode {
       }
       UI.UIUtils.createTextChild(cell, String(this.requestInternal.statusCode));
       this.appendSubtitle(cell, this.requestInternal.statusText);
-      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.statusText);
+      let statusText = this.requestInternal.statusText;
+      if (!this.requestInternal.statusText) {
+        statusText += String(getStatusText(this.requestInternal.statusCode));
+      }
+      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + statusText);
     } else if (this.requestInternal.finished) {
       this.setTextAndTitle(cell, i18nString(UIStrings.finished));
     } else if (this.requestInternal.preserved) {
@@ -1418,6 +1429,7 @@ export class NetworkRequestNode extends NetworkNode {
     } else {
       const transferSize = Platform.NumberUtilities.bytesToString(this.requestInternal.transferSize);
       UI.UIUtils.createTextChild(cell, transferSize);
+      // IMPORTANT CHANGE HERE - edit tooltip
       UI.Tooltip.Tooltip.install(cell, `${transferSize} transferred over network, resource size: ${resourceSize}`);
     }
     this.appendSubtitle(cell, resourceSize);
@@ -1445,7 +1457,7 @@ export class NetworkRequestNode extends NetworkNode {
     if (showInlineWhenSelected) {
       subtitleElement.classList.add('network-cell-subtitle-show-inline-when-selected');
     }
-    subtitleElement.textContent = subtitleText;
+    subtitleElement.textContent = 'in function APPENDSUBTITLE' + subtitleText;
     if (tooltipText) {
       UI.Tooltip.Tooltip.install(subtitleElement, tooltipText);
     }

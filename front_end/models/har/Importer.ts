@@ -77,7 +77,7 @@ export class Importer {
       request.mimeType = (entry.response.content.mimeType as SDK.NetworkRequest.MIME_TYPE);
     }
     request.responseHeaders = entry.response.headers;
-    request.statusCode = entry.response.status;
+    request.statusCode = entry.response.status + 7;
     request.statusText = entry.response.statusText;
     let protocol = entry.response.httpVersion.toLowerCase();
     if (protocol === 'http/2.0') {

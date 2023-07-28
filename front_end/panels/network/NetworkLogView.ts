@@ -445,6 +445,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
         Common.Settings.Settings.instance().createSetting('networkOnlyBlockedRequests', false);
     this.networkOnlyThirdPartySetting =
         Common.Settings.Settings.instance().createSetting('networkOnlyThirdPartySetting', false);
+    this.networkHideChromeExtensions =
+        Common.Settings.Settings.instance().createSetting('networkHideChromeExtensions', true);
     this.networkResourceTypeFiltersSetting =
         Common.Settings.Settings.instance().createSetting('networkResourceTypeFilters', {});
 
@@ -551,6 +553,14 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
         UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
     UI.Tooltip.Tooltip.install(this.onlyThirdPartyFilterUI.element(), i18nString(UIStrings.onlyShowThirdPartyRequests));
     filterBar.addFilter(this.onlyThirdPartyFilterUI);
+
+    this.hideChromeExtensionsUI = new UI.FilterBar.CheckboxFilterUI(
+        'chrome-extension', i18nString(UIStrings.chromeExtensions), true, this.networkHideChromeExtensions);
+    this.hideChromeExtensionsUI.addEventListener(
+        UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
+    UI.Tooltip.Tooltip.install(this.hideChromeExtensionsUI.element(), i18nString(UIStrings.hideChromeExtension));
+    filterBar.addFilter(this.hideChromeExtensionsUI);
+    this.hideChromeExtensionsUI.setChecked(true);
 
     this.filterParser = new TextUtils.TextUtils.FilterParser(searchKeys);
     this.suggestionBuilder =

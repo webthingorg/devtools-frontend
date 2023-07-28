@@ -782,9 +782,8 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     if (!networkRequest) {
       return;
     }
-
     networkRequest.statusCode = response.status;
-    networkRequest.statusText = response.statusText;
+    networkRequest.statusText = response.statusText + 'RESPONSE RECEIVED';
     networkRequest.responseHeaders = this.headersMapToHeadersArray(response.headers);
     networkRequest.responseHeadersText = response.headersText || '';
     if (response.requestHeaders) {

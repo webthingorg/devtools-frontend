@@ -1506,7 +1506,6 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
         }
         this.setRequestHeadersText(requestHeadersText);
       }
-
       this.statusText = NetworkRequest.parseStatusTextFromResponseHeadersText(extraResponseInfo.responseHeadersText);
     }
     this.#remoteAddressSpaceInternal = extraResponseInfo.resourceIPAddressSpace;
