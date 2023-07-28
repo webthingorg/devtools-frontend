@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -118,11 +119,11 @@ const UIStrings = {
    * emulates/pretends that the webpage is focused i.e. that the user interacted with it most
    * recently.
    */
-  emulateAFocusedPage: 'Emulate a focused page',
+  keepPageFocused: 'Keep page focused',
   /**
-   * @description Explanation text for the 'Emulate a focused page' setting in the Rendering tool.
+   * @description Explanation text for the 'Keep page focused' setting in the Rendering tool.
    */
-  emulatesAFocusedPage: 'Emulates a focused page.',
+  emulatesAFocusedPage: 'Emulates a focused page. Commonly used for debugging disappearing elements.',
   /**
    * @description The name of a checkbox setting in the Rendering tool. This setting enables auto dark mode emulation.
    */
@@ -243,8 +244,9 @@ export class RenderingOptionsView extends UI.Widget.VBox {
         i18nString(UIStrings.disableLocalFonts), i18nString(UIStrings.disablesLocalSourcesInFontface),
         Common.Settings.Settings.instance().moduleSetting('localFontsDisabled'));
     this.#appendCheckbox(
-        i18nString(UIStrings.emulateAFocusedPage), i18nString(UIStrings.emulatesAFocusedPage),
-        Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'));
+        i18nString(UIStrings.keepPageFocused), i18nString(UIStrings.emulatesAFocusedPage),
+        Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'),
+        Host.UserMetrics.Action.ToggleKeepPageFocusedFromRenderingTab);
     this.#appendCheckbox(
         i18nString(UIStrings.emulateAutoDarkMode), i18nString(UIStrings.emulatesAutoDarkMode),
         Common.Settings.Settings.instance().moduleSetting('emulateAutoDarkMode'));
@@ -311,16 +313,18 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     return renderingOptionsViewInstance;
   }
 
-  #createCheckbox(label: string, subtitle: string, setting: Common.Settings.Setting<boolean>):
-      UI.UIUtils.CheckboxLabel {
+  #createCheckbox(
+      label: string, subtitle: string, setting: Common.Settings.Setting<boolean>,
+      metric?: Host.UserMetrics.Action): UI.UIUtils.CheckboxLabel {
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(label, false, subtitle);
-    UI.SettingsUI.bindCheckbox(checkboxLabel.checkboxElement, setting);
+    UI.SettingsUI.bindCheckbox(checkboxLabel.checkboxElement, setting, metric);
     return checkboxLabel;
   }
 
-  #appendCheckbox(label: string, subtitle: string, setting: Common.Settings.Setting<boolean>):
-      UI.UIUtils.CheckboxLabel {
-    const checkbox = this.#createCheckbox(label, subtitle, setting);
+  #appendCheckbox(
+      label: string, subtitle: string, setting: Common.Settings.Setting<boolean>,
+      metric?: Host.UserMetrics.Action): UI.UIUtils.CheckboxLabel {
+    const checkbox = this.#createCheckbox(label, subtitle, setting, metric);
     this.contentElement.appendChild(checkbox);
     return checkbox;
   }
