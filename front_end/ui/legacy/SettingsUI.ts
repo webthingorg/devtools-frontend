@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Settings from '../components/settings/settings.js';
 
@@ -130,7 +131,8 @@ const createSettingSelect = function(
   }
 };
 
-export const bindCheckbox = function(inputElement: Element, setting: Common.Settings.Setting<boolean>): void {
+export const bindCheckbox = function(
+    inputElement: Element, setting: Common.Settings.Setting<boolean>, metric?: Host.UserMetrics.Action): void {
   const input = (inputElement as HTMLInputElement);
   function settingChanged(): void {
     if (input.checked !== setting.get()) {
@@ -143,8 +145,12 @@ export const bindCheckbox = function(inputElement: Element, setting: Common.Sett
   function inputChanged(): void {
     if (setting.get() !== input.checked) {
       setting.set(input.checked);
+      if (metric) {
+        Host.userMetrics.actionTaken(metric);
+      }
     }
   }
+
   input.addEventListener('change', inputChanged, false);
 };
 
