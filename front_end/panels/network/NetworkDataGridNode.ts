@@ -54,6 +54,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {iconDataForResourceType} from '../utils/utils.js';
 
 import {type NetworkTimeCalculator} from './NetworkTimeCalculator.js';
+import {getStatusText} from './components/StatusTextStrings.js';
 
 const UIStrings = {
   /**
@@ -1150,7 +1151,11 @@ export class NetworkRequestNode extends NetworkNode {
     } else if (this.requestInternal.statusCode && this.requestInternal.statusCode >= 400) {
       UI.UIUtils.createTextChild(cell, String(this.requestInternal.statusCode));
       this.appendSubtitle(cell, this.requestInternal.statusText);
-      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.statusText);
+      let statusText = this.requestInternal.statusText;
+      if (!this.requestInternal.statusText) {
+        statusText += String(getStatusText(this.requestInternal.statusCode));
+      }
+      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + statusText);
     } else if (!this.requestInternal.statusCode && this.requestInternal.parsedURL.isDataURL()) {
       this.setTextAndTitle(cell, i18nString(UIStrings.data));
     } else if (!this.requestInternal.statusCode && this.requestInternal.canceled) {
@@ -1219,6 +1224,7 @@ export class NetworkRequestNode extends NetworkNode {
       this.setTextAndTitle(
           cell, i18nString(UIStrings.corsError),
           i18nString(UIStrings.crossoriginResourceSharingErrorS, {PH1: corsErrorStatus.corsError}));
+
     } else if (this.requestInternal.statusCode) {
       if (this.requestInternal.hasOverriddenHeaders()) {
         const markerDiv = document.createElement('div');
@@ -1228,7 +1234,11 @@ export class NetworkRequestNode extends NetworkNode {
       }
       UI.UIUtils.createTextChild(cell, String(this.requestInternal.statusCode));
       this.appendSubtitle(cell, this.requestInternal.statusText);
-      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.statusText);
+      let statusText = this.requestInternal.statusText;
+      if (!this.requestInternal.statusText) {
+        statusText += String(getStatusText(this.requestInternal.statusCode));
+      }
+      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + statusText);
     } else if (this.requestInternal.finished) {
       this.setTextAndTitle(cell, i18nString(UIStrings.finished));
     } else if (this.requestInternal.preserved) {

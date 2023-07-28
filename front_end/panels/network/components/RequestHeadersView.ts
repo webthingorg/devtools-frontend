@@ -28,6 +28,7 @@ import {
 } from './ResponseHeaderSection.js';
 
 import requestHeadersViewStyles from './RequestHeadersView.css.js';
+import {getStatusText} from './StatusTextStrings.js';
 
 const RAW_HEADER_CUTOFF = 3000;
 const {render, html} = LitHtml;
@@ -390,21 +391,30 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     }
 
     let statusText = this.#request.statusCode + ' ' + this.#request.statusText;
+    if (!this.#request.statusText) {
+      statusText += String(getStatusText(this.#request.statusCode));
+    }
+
     if (this.#request.cachedInMemory()) {
       statusText += ' ' + i18nString(UIStrings.fromMemoryCache);
       statusClasses.push('status-with-comment');
+
     } else if (this.#request.fetchedViaServiceWorker) {
       statusText += ' ' + i18nString(UIStrings.fromServiceWorker);
       statusClasses.push('status-with-comment');
+
     } else if (this.#request.redirectSourceSignedExchangeInfoHasNoErrors()) {
       statusText += ' ' + i18nString(UIStrings.fromSignedexchange);
       statusClasses.push('status-with-comment');
+
     } else if (this.#request.webBundleInnerRequestInfo()) {
       statusText += ' ' + i18nString(UIStrings.fromWebBundle);
       statusClasses.push('status-with-comment');
+
     } else if (this.#request.fromPrefetchCache()) {
       statusText += ' ' + i18nString(UIStrings.fromPrefetchCache);
       statusClasses.push('status-with-comment');
+
     } else if (this.#request.cached()) {
       statusText += ' ' + i18nString(UIStrings.fromDiskCache);
       statusClasses.push('status-with-comment');
