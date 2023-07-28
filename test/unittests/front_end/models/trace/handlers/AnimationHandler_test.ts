@@ -14,7 +14,11 @@ describe('AnimationHandler', function() {
       TraceModel.Handlers.ModelHandlers.Animation.handleEvent(event);
     }
 
+    await TraceModel.Handlers.ModelHandlers.Animation.finalize();
+
     const animationEvents = TraceModel.Handlers.ModelHandlers.Animation.data().animations;
+
+    assert.strictEqual(TraceModel.Handlers.ModelHandlers.Animation.data().animationsSynteticEvents[0].dur, 2006450);
     assert.lengthOf(animationEvents, 5);
   });
 });
