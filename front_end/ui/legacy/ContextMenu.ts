@@ -367,6 +367,7 @@ export class ContextMenu extends SubMenu {
   override idInternal: number;
   private softMenu?: SoftContextMenu;
   private contextMenuLabel?: string;
+  private hostedMenuOpened: boolean;
 
   constructor(event: Event, options: ContextMenuOptions = {}) {
     super(null);
@@ -383,6 +384,7 @@ export class ContextMenu extends SubMenu {
     this.onSoftMenuClosed = options.onSoftMenuClosed;
     this.handlers = new Map();
     this.idInternal = 0;
+    this.hostedMenuOpened = false;
 
     const target = deepElementFromEvent(event);
     if (target) {
@@ -409,6 +411,10 @@ export class ContextMenu extends SubMenu {
 
   nextId(): number {
     return this.idInternal++;
+  }
+
+  isHostedMenuOpen(): boolean {
+    return this.hostedMenuOpened;
   }
 
   async show(): Promise<void> {
@@ -473,7 +479,7 @@ export class ContextMenu extends SubMenu {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
             Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, this.onItemSelected, this);
       }
-
+      this.hostedMenuOpened = true;
       // showContextMenuAtPoint call above synchronously issues a clear event for previous context menu (if any),
       // so we skip it before subscribing to the clear event.
       queueMicrotask(listenToEvents.bind(this));
@@ -520,6 +526,8 @@ export class ContextMenu extends SubMenu {
         Host.InspectorFrontendHostAPI.Events.ContextMenuCleared, this.menuCleared, this);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(
         Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, this.onItemSelected, this);
+    this.hostedMenuOpened = false;
+    this.onSoftMenuClosed?.();
   }
 
   containsTarget(target: Object): boolean {
