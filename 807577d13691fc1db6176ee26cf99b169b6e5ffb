@@ -16,6 +16,121 @@
       "message": "Could you have a look?",
       "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57c9ba28_a3b99a86",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-28T04:44:15Z",
+      "side": 1,
+      "message": "which spaces?",
+      "range": {
+        "startLine": 174,
+        "startChar": 32,
+        "endLine": 174,
+        "endChar": 50
+      },
+      "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38645c0f_ae7af10e",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-28T04:44:15Z",
+      "side": 1,
+      "message": "Please don\u0027t hard-code colors. Instead use color tokens CSS vars from front_end/ui/legacy/themeColors.css\n\n@kprokopenko@chromium.org, do you have a preference for specific colors here?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 25
+      },
+      "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cdb358c_3d4f9952",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-28T04:44:15Z",
+      "side": 1,
+      "message": "You don\u0027t have to concatenate here, LitHtml automatically joins arrays when references in the template. The following would work just the same:\n\n    const content \u003d diffs.map((diffOp) \u003d\u003e {\n      ...\n      return diff;\n    }  \n    return LitHtml.html`\u003cdiv\u003e${content}\u003c/div\u003e`;",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 53
+      },
+      "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8757c803_81835d27",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-28T04:44:15Z",
+      "side": 1,
+      "message": "Isn\u0027t this obvious?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 49
+      },
+      "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e8e66a2_65611e4a",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-28T04:44:15Z",
+      "side": 1,
+      "message": "Could you pease make this a sentence?",
+      "range": {
+        "startLine": 230,
+        "startChar": 7,
+        "endLine": 230,
+        "endChar": 11
+      },
+      "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
