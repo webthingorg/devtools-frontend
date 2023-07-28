@@ -33,6 +33,24 @@
       "message": "Could you please add application color tokens for the color-mixes? We\u0027ll be using them all over devtools",
       "revId": "a853644d3f4572211bae7ff8da62ab27e2c9964e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c4784ee_19f9c532",
+        "filename": "front_end/panels/recorder/components/controlButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-28T09:03:07Z",
+      "side": 1,
+      "message": "I am not sure if all of them are re-usable. I think it would be best if you and Peter go over it and see if there is a semantic meaning for these mixes that can be used in other UI elements.",
+      "parentUuid": "d303cfc0_b699a041",
+      "revId": "a853644d3f4572211bae7ff8da62ab27e2c9964e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
