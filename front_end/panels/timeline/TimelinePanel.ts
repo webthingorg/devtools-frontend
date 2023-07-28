@@ -660,7 +660,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
     const traceStart = Platform.DateUtilities.toISO8601Compact(new Date());
     let fileName: Platform.DevToolsPath.RawPathString;
-    if (isNode) {
+    if (metadata?.dataOrigin === TraceEngine.Types.File.DataOrigin.CPUProfile) {
       fileName = `CPU-${traceStart}.cpuprofile` as Platform.DevToolsPath.RawPathString;
     } else {
       fileName = `Trace-${traceStart}.json` as Platform.DevToolsPath.RawPathString;
@@ -674,7 +674,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
       // TODO(crbug.com/1456818): Extract this logic and add more tests.
       let traceAsString;
-      if (isNode) {
+      if (metadata?.dataOrigin === TraceEngine.Types.File.DataOrigin.CPUProfile) {
         const profileEvent = traceEvents.find(e => e.name === 'CpuProfile');
         if (!profileEvent || !profileEvent.args?.data) {
           return;
@@ -981,7 +981,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
           showProgress: undefined,
           showTimer: undefined,
         },
-        () => this.loadingComplete(null));
+        () => this.loadingComplete(/* tracingModel= */ null, /* exclusiveFilter= */ null, /* isCpuProfile= */ false));
     this.statusPane.showPane(this.statusPaneContainer);
     this.statusPane.updateStatus(i18nString(UIStrings.recordingFailed));
 
@@ -1250,7 +1250,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   async loadingComplete(
       tracingModel: TraceEngine.Legacy.TracingModel|null,
-      exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null): Promise<void> {
+      exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null,
+      isCpuProfile: boolean): Promise<void> {
     this.#traceEngineModel.resetProcessor();
     delete this.loader;
 
@@ -1275,7 +1276,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       // Run the new engine in parallel with the parsing done in the performanceModel
       await Promise.all([
         this.performanceModel.setTracingModel(tracingModel, recordingIsFresh),
-        this.#executeNewTraceEngine(tracingModel, recordingIsFresh, this.performanceModel.recordStartTime()),
+        this.#executeNewTraceEngine(
+            tracingModel, recordingIsFresh, isCpuProfile, this.performanceModel.recordStartTime()),
       ]);
       // This code path is only executed when a new trace is recorded/imported,
       // so we know that the active index will be the size of the model because
@@ -1325,11 +1327,12 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
    * parsing to complete.
    **/
   async #executeNewTraceEngine(
-      tracingModel: TraceEngine.Legacy.TracingModel, isFreshRecording: boolean,
+      tracingModel: TraceEngine.Legacy.TracingModel, isFreshRecording: boolean, isCpuProfile: boolean,
       recordStartTime?: number): Promise<void> {
-    const shouldGatherMetadata = isFreshRecording && !isNode;
-    const metadata =
-        shouldGatherMetadata ? await TraceEngine.Extras.Metadata.forNewRecording(recordStartTime) : undefined;
+    const shouldGatherMetadata = isFreshRecording && !isCpuProfile;
+    const metadata = shouldGatherMetadata ? await TraceEngine.Extras.Metadata.forNewRecording(recordStartTime) : {};
+    metadata.dataOrigin =
+        isCpuProfile ? TraceEngine.Types.File.DataOrigin.CPUProfile : TraceEngine.Types.File.DataOrigin.TraceEvents;
 
     return this.#traceEngineModel.parse(
         // OPP's data layer uses `EventPayload` as the type to represent raw JSON from the trace.
