@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -17,10 +19,15 @@ const UIStrings = {
    */
   forceElementState: 'Force element state',
   /**
-   * @description Tooltip text in Element State Pane Widget of the Elements panel. For a button that
-   * opens a tool that toggles the various states of the selected element on/off.
+   * @description Tooltip text in the Element & Page State Pane Widget of the Elements panel. For a button that
+   * opens a tool that toggles the various states of the selected element on/off, as well as toggle various page states on/off.
    */
-  toggleElementState: 'Toggle Element State',
+  toggleElementPageState: 'Toggle element & page state',
+  /**
+   * @description The name of a checkbox setting in the Element & Page State Pane Widget of the Elements panel.. This setting
+   * emulates/pretends that the webpage is focused.
+   */
+  keepPageFocused: 'Keep page focused',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ElementStatePaneWidget.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -31,16 +38,17 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
   constructor() {
     super(true);
 
-    this.contentElement.className = 'styles-element-state-pane';
-    UI.UIUtils.createTextChild(this.contentElement.createChild('div'), i18nString(UIStrings.forceElementState));
-    const table = document.createElement('table');
-    table.classList.add('source-code');
-    UI.ARIAUtils.markAsPresentation(table);
-
     const inputs: HTMLInputElement[] = [];
     this.inputs = inputs;
-
     this.inputStates = new WeakMap();
+
+    const createSectionHeader = (title: string): HTMLDivElement => {
+      const sectionHeaderContainer = document.createElement('div');
+      sectionHeaderContainer.classList.add('section-header');
+      UI.UIUtils.createTextChild(sectionHeaderContainer.createChild('span'), title);
+
+      return sectionHeaderContainer;
+    };
 
     const clickListener = (event: MouseEvent): void => {
       const node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
@@ -54,7 +62,7 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       node.domModel().cssModel().forcePseudoState(node, state, event.target.checked);
     };
 
-    const createCheckbox = (state: string): Element => {
+    const createElementStateCheckbox = (state: string): Element => {
       const td = document.createElement('td');
       const label = UI.UIUtils.CheckboxLabel.create(':' + state);
       const input = label.checkboxElement;
@@ -65,22 +73,50 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       return td;
     };
 
-    let tr = table.createChild('tr');
-    tr.appendChild(createCheckbox('active'));
-    tr.appendChild(createCheckbox('hover'));
+    const createkeepPageFocusedCheckboxCheckbox =
+        (state: string, setting: Common.Settings.Setting<boolean>, metric: Host.UserMetrics.Action): Element => {
+          const div = document.createElement('div');
+          div.classList.add('page-state-checkbox');
+          const label = UI.UIUtils.CheckboxLabel.create(state);
+          UI.SettingsUI.bindCheckbox(label.checkboxElement, setting, metric);
+          div.appendChild(label);
+          return div;
+        };
 
-    tr = table.createChild('tr');
-    tr.appendChild(createCheckbox('focus'));
-    tr.appendChild(createCheckbox('visited'));
+    this.contentElement.className = 'styles-element-state-pane';
 
-    tr = table.createChild('tr');
-    tr.appendChild(createCheckbox('focus-within'));
-    tr.appendChild(createCheckbox('focus-visible'));
+    // Populate page states
+    const keepPageFocusedCheckbox = createkeepPageFocusedCheckboxCheckbox(
+        i18nString(UIStrings.keepPageFocused), Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'),
+        Host.UserMetrics.Action.ToggleKeepPageFocusedFromStylesPane);
 
-    tr = table.createChild('tr');
-    tr.appendChild(createCheckbox('target'));
+    this.contentElement.appendChild(keepPageFocusedCheckbox);
 
-    this.contentElement.appendChild(table);
+    // Populate element states
+    this.contentElement.appendChild(createSectionHeader(i18nString(UIStrings.forceElementState)));
+
+    const tableElementState = document.createElement('table');
+    tableElementState.classList.add('source-code');
+    UI.ARIAUtils.markAsPresentation(tableElementState);
+
+    let tr = tableElementState.createChild('tr');
+    tr.appendChild(createElementStateCheckbox('active'));
+    tr.appendChild(createElementStateCheckbox('hover'));
+
+    tr = tableElementState.createChild('tr');
+    tr.appendChild(createElementStateCheckbox('focus'));
+    tr.appendChild(createElementStateCheckbox('visited'));
+
+    tr = tableElementState.createChild('tr');
+    tr.appendChild(createElementStateCheckbox('focus-within'));
+    tr.appendChild(createElementStateCheckbox('focus-visible'));
+
+    tr = tableElementState.createChild('tr');
+    tr.appendChild(createElementStateCheckbox('target'));
+
+    this.contentElement.appendChild(tableElementState);
+
+    // Continue
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
   }
 
@@ -133,7 +169,7 @@ export class ButtonProvider implements UI.Toolbar.Provider {
   private readonly button: UI.Toolbar.ToolbarToggle;
   private view: ElementStatePaneWidget;
   private constructor() {
-    this.button = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.toggleElementState), '');
+    this.button = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.toggleElementPageState), '');
     this.button.setText(i18n.i18n.lockedString(':hov'));
     this.button.setToggleWithDot(true);
     this.button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.clicked, this);
