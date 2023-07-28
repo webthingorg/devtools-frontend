@@ -254,7 +254,7 @@ describe('MetaHandler', function() {
     assert.deepStrictEqual([...rendererProcesses?.keys()], [3601132]);
     const windowMinTime = 1143381875846;
     assert.deepStrictEqual(
-        [...rendererProcesses?.values()], [{
+        [...rendererProcesses?.values()], [[{
           'frame': {
             'frame': '1D148CB660D1F96ED70D78DC6A53267B',
             'name': '',
@@ -262,7 +262,7 @@ describe('MetaHandler', function() {
             'url': 'https://threejs.org/examples/',
           },
           'window': {'min': windowMinTime, 'max': data.traceBounds.max, 'range': data.traceBounds.max - windowMinTime},
-        }]);
+        }]]);
   });
 
   it('handles multiple renderers from navigations', async function() {
@@ -293,7 +293,7 @@ describe('MetaHandler', function() {
     const windowMinTime = 3550807444741;
     assert.deepStrictEqual([...rendererProcesses?.keys()], [78450, 78473, 79194]);
     assert.deepStrictEqual([...rendererProcesses?.values()], [
-      {
+      [{
         'frame': {
           'frame': 'E70A9327100EBD78F1C03582BBBE8E5F',
           'name': '',
@@ -301,8 +301,8 @@ describe('MetaHandler', function() {
           'url': 'http://127.0.0.1:8081/',
         },
         'window': {'min': 3550803491779, 'max': 3550805534872, 'range': 2043093},
-      },
-      {
+      }],
+      [{
         'frame': {
           'frame': 'E70A9327100EBD78F1C03582BBBE8E5F',
           'name': '',
@@ -310,8 +310,8 @@ describe('MetaHandler', function() {
           'url': 'http://localhost:8080/',
         },
         'window': {'min': 3550805534873, 'max': 3550807444740, 'range': 1909867},
-      },
-      {
+      }],
+      [{
         'frame': {
           'frame': 'E70A9327100EBD78F1C03582BBBE8E5F',
           'name': '',
@@ -319,7 +319,64 @@ describe('MetaHandler', function() {
           'url': 'https://www.google.com/',
         },
         'window': {'min': windowMinTime, 'max': data.traceBounds.max, 'range': data.traceBounds.max - windowMinTime},
-      },
+      }],
+    ]);
+  });
+  it('handles multiple renderers from navigations where a process handled multiple URLs ', async function() {
+    let traceEvents: readonly TraceModel.Types.TraceEvents.TraceEventData[];
+    try {
+      traceEvents = await TraceLoader.rawEvents(this, 'simple-js-program.json.gz');
+    } catch (error) {
+      assert.fail(error);
+      return;
+    }
+
+    TraceModel.Handlers.ModelHandlers.Meta.reset();
+    TraceModel.Handlers.ModelHandlers.Meta.initialize();
+    for (const event of traceEvents) {
+      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+    }
+    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+
+    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    assert.deepStrictEqual([...data.topLevelRendererIds], [33340]);
+
+    const rendererProcesses = data.rendererProcessesByFrame.get(data.mainFrameId);
+    if (!rendererProcesses) {
+      assert.fail('No renderer processes found');
+      return;
+    }
+
+    assert.deepStrictEqual([...rendererProcesses?.keys()], [33340]);
+    assert.deepStrictEqual([...rendererProcesses?.values()], [
+      [
+        {
+          'frame': {
+            'frame': '72C4768AF5FC4AEF48D7A02A153099BC',
+            'name': '',
+            'processId': 33340,
+            'url': 'about:blank',
+          },
+          'window': {
+            'min': 211810106060,
+            'max': 211810112638,
+            'range': 6578,
+          },
+        },
+        {
+          'frame': {
+            'frame': '72C4768AF5FC4AEF48D7A02A153099BC',
+            'name': '',
+            'processId': 33340,
+            'url': 'https://www.google.com',
+          },
+          'window': {
+            'min': 211810112639,
+            'max': data.traceBounds.max,
+            'range': data.traceBounds.max - 211810112639,
+          },
+        },
+      ],
     ]);
   });
 
