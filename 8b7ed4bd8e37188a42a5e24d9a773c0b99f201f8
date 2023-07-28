@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "195774aa_37806031",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-28T07:13:58Z",
+      "side": 1,
+      "message": "LGTM, but I\u0027m wondering if we have any testcoverage for this feature?",
+      "revId": "8b7ed4bd8e37188a42a5e24d9a773c0b99f201f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
