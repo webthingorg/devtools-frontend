@@ -7,6 +7,7 @@ import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as Common from '../../core/common/common.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
+import {ThreadAppender} from './ThreadAppender.js';
 
 import {
   type TimelineFlameChartEntry,
@@ -76,7 +77,7 @@ export interface TrackAppender {
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
 }
 
-export const TrackNames = ['Timings', 'Interactions', 'GPU', 'LayoutShifts'] as const;
+export const TrackNames = ['Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread'] as const;
 // Network track will use TrackAppender interface, but it won't be shown in Main flamechart.
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
@@ -149,6 +150,15 @@ export class CompatibilityTracksAppender {
     // all it shows are layout shifts.
     this.#layoutShiftsTrackAppender = new LayoutShiftsTrackAppender(this, this.#flameChartData, this.#traceParsedData);
     this.#allTrackAppenders.push(this.#layoutShiftsTrackAppender);
+
+    for (const [pid, process] of this.#traceParsedData.Renderer.processes) {
+      for (const [tid, thread] of process.threads) {
+        if (thread.name !== 'CrRendererMain') {
+          continue;
+        }
+        this.#allTrackAppenders.push(new ThreadAppender(this, this.#traceParsedData, this.#colorGenerator, pid, tid));
+      }
+    }
 
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       for (const group of this.#flameChartData.groups) {
@@ -392,7 +402,7 @@ export class CompatibilityTracksAppender {
       const eventIsVisible = eventAsLegacy &&
           visibleNames.has(TimelineModel.TimelineModelFilter.TimelineVisibleEventsFilter.eventType(eventAsLegacy));
       if (!eventIsVisible) {
-        continue;
+        // continue;
       }
 
       const level = getEventLevel(event, lastUsedTimeByLevel);
