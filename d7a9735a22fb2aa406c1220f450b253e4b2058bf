@@ -22,6 +22,30 @@
       },
       "revId": "d7a9735a22fb2aa406c1220f450b253e4b2058bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48822e3c_b9240f93",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-07-28T23:34:54Z",
+      "side": 1,
+      "message": "thanks - Done",
+      "parentUuid": "969b8ef7_eb40e6a8",
+      "range": {
+        "startLine": 416,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 18
+      },
+      "revId": "d7a9735a22fb2aa406c1220f450b253e4b2058bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
