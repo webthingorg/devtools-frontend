@@ -7,6 +7,8 @@ import * as LayoutShifts from './LayoutShiftsHandler.js';
 import * as Memory from './MemoryHandler.js';
 import * as NetworkRequests from './NetworkRequestsHandler.js';
 import * as PageLoadMetrics from './PageLoadMetricsHandler.js';
+import * as Renderer from './RendererHandler.js';
+import * as Samples from './SamplesHandler.js';
 import * as Screenshots from './ScreenshotsHandler.js';
 import * as UserInteractions from './UserInteractionsHandler.js';
 import * as UserTimings from './UserTimingsHandler.js';
@@ -27,6 +29,8 @@ export const ENABLED_TRACE_HANDLERS = {
   Memory,
   NetworkRequests,
   Warnings,
+  Renderer,
+  Samples,
 };
 
 export type PartialTraceData = Readonly<Types.EnabledHandlerDataWithMeta<typeof ENABLED_TRACE_HANDLERS>>;
