@@ -542,8 +542,15 @@ export enum Action {
   StyleSheetInitiatorLinkClicked = 80,
   BreakpointRemovedFromGutterContextMenu = 81,
   BreakpointRemovedFromGutterToggle = 82,
+<<<<<<< PATCH SET (aef007 Add Keep Page Focus checkbox in the Styles pane)
+  ToggleKeepPageFocusedFromStylesPane = 83,
+  ToggleKeepPageFocusedFromRenderingTab = 84,
+  ToggleKeepPageFocusedFromCommandMenu = 85,
+  MaxValue = 86,
+=======
   StylePropertyInsideKeyframeEdited = 83,
   MaxValue = 84,
+>>>>>>> BASE      (0a2132 Turn on eager placement of breakpoints by default)
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
