@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd64d618_89e11d81",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-07-28T05:55:28Z",
+      "side": 1,
+      "message": "can we remove this inner div (.row-icons)? What purpose does it serve?",
+      "revId": "b5dc51ca00146fd806985c42ae99185e3576272f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
