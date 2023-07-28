@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "43d0a72c_2b4ffe32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-28T18:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d16fa9b_c10f68b8",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bd186dc6_c6e414a4",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f379fe1a_c3456bd9",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-28T18:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f275544_21852531",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d27fea0e_65d8e865",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-06-24T03:27:51Z",
       "side": 1,
       "message": "fwiw when i tried this out in my spike (crrev.com/c/4633482) .. I added this so that this loader instance is returned and thus assigned to `TimelinePanel`\u0027s `this.loader` _before_ the load finished and we hit `loadingComplete` in timelinepanel. So.. it was a race so I\u0027m juggling the promises. :)\n\nTBH previously I thought the setTimeouts in this file were for yielding to main thread for painting.. but.. now I think either you or me were fixing this same promise work.\n\nLet\u0027s add a comment so we don\u0027t forget again? 😊  maybe something like\n\n    // We\u0027ll resolve and return the loader instance before finalizing the trace.",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e0212f4_135f1466",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-28T18:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d27fea0e_65d8e865",
       "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1107bcff_d9aab77c",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-28T18:52:14Z",
+      "side": 1,
+      "message": "Acknowledged\nI did the workaround, just check the dataOrigin from metadata, so we don\u0027t need to reset",
+      "parentUuid": "7d2313c9_d113547c",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de1f3849_945ca096",
@@ -116,6 +188,24 @@
       "writtenOn": "2023-06-24T03:27:51Z",
       "side": 1,
       "message": "this and the L691 `isNode` is still a bug. \n\na user is technically allowed to view a web trace in the devtools UI and save it.\nso.. our conditional should be based on what the data is.\n\nat this point you have `metadata.dataOrigin \u003d\u003d\u003d TraceEngine.TraceModel.DataOrigin.CPUProfile` available, so.. why not? :)",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "222faf04_e6fd26e3",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-28T18:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de1f3849_945ca096",
       "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -143,6 +233,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d04579_8b8261db",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-28T18:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0925118d_d6edf807",
+      "range": {
+        "startLine": 691,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 9
+      },
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cafde33a_eb3fcd6e",
@@ -156,6 +270,24 @@
       "writtenOn": "2023-06-24T03:27:51Z",
       "side": 1,
       "message": "this feels like adding extra tech debt on top of a workflow we already don\u0027t understand well.\n\nI don\u0027t love \n1) timeline panel holding `isCpuProfile` state and making sure thats always correct even as the user toggles between multiple recordings\n2) passing this isCpuProfile flag _and_ using `loader.isCpuProfile()`. I\u0027d rather do just one of them.\n3) the `|| false` at the end should be unnecessary. if it\u0027s actually being useful, then we already have a problem.",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a77b0f2_a0c5e9ea",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-07-28T18:52:14Z",
+      "side": 1,
+      "message": "I removed this now, instead I just check the `dataOrigin` now",
+      "parentUuid": "cafde33a_eb3fcd6e",
       "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
