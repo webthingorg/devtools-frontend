@@ -344,8 +344,13 @@ export async function finalize(): Promise<void> {
     const {host, protocol, pathname, search} = new URL(url);
     const isHttps = protocol === 'https:';
     const renderProcesses = rendererProcessesByFrame.get(frame);
-    const processInfo = renderProcesses?.get(finalSendRequest.pid);
-    const requestingFrameUrl = processInfo ? processInfo.frame.url : '';
+    const processInfoWindows = renderProcesses?.get(finalSendRequest.pid);
+    const requestingFrame = processInfoWindows
+                                ?.find(
+                                    processInfo => processInfo.window.min <= finalSendRequest.ts &&
+                                        processInfo.window.max >= finalSendRequest.ts)
+                                ?.frame;
+    const requestingFrameUrl = requestingFrame ? requestingFrame.url : '';
 
     // Construct a synthetic trace event for this network request.
     const networkEvent: Types.TraceEvents.TraceEventSyntheticNetworkRequest = {
