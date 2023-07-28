@@ -157,11 +157,11 @@ const UIStrings = {
   /**
    *@description Title of a Rendering setting that can be invoked through the Command Menu
    */
-  emulateAFocusedPage: 'Emulate a focused page',
+  keepPageFocused: 'Keep page focused',
   /**
    *@description Title of a Rendering setting that can be invoked through the Command Menu
    */
-  doNotEmulateAFocusedPage: 'Do not emulate a focused page',
+  doNotKeepPageFocused: 'Do not keep page focused',
   /**
    *@description Title of a setting under the Rendering category that can be invoked through the Command Menu
    */
@@ -676,7 +676,7 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.RENDERING,
-  title: i18nLazyString(UIStrings.emulateAFocusedPage),
+  title: i18nLazyString(UIStrings.keepPageFocused),
   settingName: 'emulatePageFocus',
   settingType: Common.Settings.SettingType.BOOLEAN,
   storageType: Common.Settings.SettingStorageType.Session,
@@ -684,11 +684,11 @@ Common.Settings.registerSettingExtension({
   options: [
     {
       value: true,
-      title: i18nLazyString(UIStrings.emulateAFocusedPage),
+      title: i18nLazyString(UIStrings.keepPageFocused),
     },
     {
       value: false,
-      title: i18nLazyString(UIStrings.doNotEmulateAFocusedPage),
+      title: i18nLazyString(UIStrings.doNotKeepPageFocused),
     },
   ],
 });

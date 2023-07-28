@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
@@ -119,11 +120,11 @@ const UIStrings = {
    * emulates/pretends that the webpage is focused i.e. that the user interacted with it most
    * recently.
    */
-  emulateAFocusedPage: 'Emulate a focused page',
+  keepPageFocused: 'Keep page focused',
   /**
-   * @description Explanation text for the 'Emulate a focused page' setting in the Rendering tool.
+   * @description Explanation text for the 'Keep page focused' setting in the Rendering tool.
    */
-  emulatesAFocusedPage: 'Emulates a focused page.',
+  emulatesAFocusedPage: 'Emulates a focused page. Commonly used for debugging disappearing elements.',
   /**
    * @description The name of a checkbox setting in the Rendering tool. This setting enables auto dark mode emulation.
    */
@@ -242,8 +243,9 @@ export class RenderingOptionsView extends UI.Widget.VBox {
         i18nString(UIStrings.disableLocalFonts), i18nString(UIStrings.disablesLocalSourcesInFontface),
         Common.Settings.Settings.instance().moduleSetting('localFontsDisabled'));
     this.#appendCheckbox(
-        i18nString(UIStrings.emulateAFocusedPage), i18nString(UIStrings.emulatesAFocusedPage),
-        Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'));
+        i18nString(UIStrings.keepPageFocused), i18nString(UIStrings.emulatesAFocusedPage),
+        Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'),
+        Host.UserMetrics.Action.ToggleKeepPageFocusedFromRenderingTab);
     this.#appendCheckbox(
         i18nString(UIStrings.emulateAutoDarkMode), i18nString(UIStrings.emulatesAutoDarkMode),
         Common.Settings.Settings.instance().moduleSetting('emulateAutoDarkMode'));
@@ -299,10 +301,36 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this.contentElement.createChild('div').classList.add('panel-section-separator');
   }
 
+<<<<<<< PATCH SET (3e1068 Add Keep Page Focus checkbox in the Styles pane)
+  static instance(opts: {
+    forceNew: boolean|null,
+  } = {forceNew: null}): RenderingOptionsView {
+    const {forceNew} = opts;
+    if (!renderingOptionsViewInstance || forceNew) {
+      renderingOptionsViewInstance = new RenderingOptionsView();
+    }
+
+    return renderingOptionsViewInstance;
+  }
+
+  #createCheckbox(
+      label: string, subtitle: string, setting: Common.Settings.Setting<boolean>,
+      metric?: Host.UserMetrics.Action): UI.UIUtils.CheckboxLabel {
+    const checkboxLabel = UI.UIUtils.CheckboxLabel.create(label, false, subtitle);
+    UI.SettingsUI.bindCheckbox(checkboxLabel.checkboxElement, setting, metric);
+    return checkboxLabel;
+  }
+
+  #appendCheckbox(
+      label: string, subtitle: string, setting: Common.Settings.Setting<boolean>,
+      metric?: Host.UserMetrics.Action): UI.UIUtils.CheckboxLabel {
+    const checkbox = this.#createCheckbox(label, subtitle, setting, metric);
+=======
   #appendCheckbox(label: string, subtitle: string, setting: Common.Settings.Setting<boolean>):
       UI.UIUtils.CheckboxLabel {
     const checkbox = UI.UIUtils.CheckboxLabel.create(label, false, subtitle, setting.name);
     UI.SettingsUI.bindCheckbox(checkbox.checkboxElement, setting);
+>>>>>>> BASE      (8c6063 [application] Fix overflow behavior for various panes.)
     this.contentElement.appendChild(checkbox);
     return checkbox;
   }

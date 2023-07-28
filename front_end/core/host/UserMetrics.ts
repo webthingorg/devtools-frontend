@@ -596,6 +596,12 @@ export enum Action {
   BreakpointRemovedFromGutterContextMenu = 81,
   BreakpointRemovedFromGutterToggle = 82,
   StylePropertyInsideKeyframeEdited = 83,
+<<<<<<< PATCH SET (3e1068 Add Keep Page Focus checkbox in the Styles pane)
+  ToggleKeepPageFocusedFromStylesPane = 84,
+  ToggleKeepPageFocusedFromRenderingTab = 85,
+  ToggleKeepPageFocusedFromCommandMenu = 86,
+  MaxValue = 87,
+=======
   OverrideContentFromSourcesContextMenu = 84,
   OverrideContentFromNetworkContextMenu = 85,
   OverrideScript = 86,
@@ -638,6 +644,7 @@ export enum Action {
   SelfXssAllowPastingInConsole = 124,
   SelfXssAllowPastingInDialog = 125,
   MaxValue = 126,
+>>>>>>> BASE      (8c6063 [application] Fix overflow behavior for various panes.)
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
