@@ -1,0 +1,50 @@
+/*
+ * Copyright 2023 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+#container {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--sys-color-divider);
+}
+
+#contents * {
+  background: var(--color-background-elevation-dark-only);
+}
+
+#title {
+  padding: 6px 24px 12px;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid var(--sys-color-divider);
+  color: var(--color-text-primary);
+  grid-column-start: span 2;
+  font-weight: bold;
+}
+
+#contents devtools-report-section-header {
+  margin-bottom: -1.2em;
+}
+
+#footer {
+  padding: 12px 24px 0;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-text-primary);
+  grid-column-start: span 2;
+  font-weight: bold;
+}
+
+#footer .icon-link {
+  vertical-align: sub;
+  float: right;
+}
+
+devtools-icon-dialog {
+  vertical-align: sub;
+}
