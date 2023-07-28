@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e819a054_ede34481",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-28T20:30:48Z",
+      "side": 1,
+      "message": "Do you think if we object fit it, we should show border in the image wrapper? Since most devices show square image, it\u0027s good know how the image will be show like",
+      "revId": "e225981ad6db0a0e4618fae476bc6c3a39c22270",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
