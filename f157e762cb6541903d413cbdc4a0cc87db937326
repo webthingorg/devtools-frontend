@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2af34ae6_4e36b80f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-28T08:01:36Z",
+      "side": 1,
+      "message": "PTAL\n\nContrary to what we discussed in https://crbug.com/1290390#c42, I\u0027m going for solution 1: \"Don\u0027t show the problematic preflight request in DevTools at all\". In my testing, the removal happens before the request is even rendered in the first place, so there is no flickering.",
+      "revId": "f157e762cb6541903d413cbdc4a0cc87db937326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
