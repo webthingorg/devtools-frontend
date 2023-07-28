@@ -16,6 +16,24 @@
       "message": "let\u0027s make it 350px? currently, it cause the scrollbar in recorder",
       "revId": "5c17d5ff0a2e60e056ce2278bbc40410c08040d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8531fc11_e5d55b09",
+        "filename": "front_end/panels/recorder/components/recorderInput.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-07-28T10:54:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d25a5dc_2177808c",
+      "revId": "5c17d5ff0a2e60e056ce2278bbc40410c08040d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
