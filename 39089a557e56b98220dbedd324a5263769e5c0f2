@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f020043b_913985fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-28T12:25:50Z",
+      "side": 1,
+      "message": "Looks really good, Silvia, thanks! Left some comments",
+      "revId": "39089a557e56b98220dbedd324a5263769e5c0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc077961_de6db845",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-28T12:25:50Z",
+      "side": 1,
+      "message": "Is it possible to do determine the statusCode just once? Both checks/calls are one one function. Maybe add a helper if doing it twice is unavoidable",
+      "revId": "39089a557e56b98220dbedd324a5263769e5c0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5850255_3248099d",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-28T12:25:50Z",
+      "side": 1,
+      "message": "We don\u0027t really do it his way, let\u0027s change to `import * as StatusText from ...` here and in other files too",
+      "revId": "39089a557e56b98220dbedd324a5263769e5c0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc0184a3_ba6f5c8f",
+        "filename": "front_end/panels/network/components/StatusTextStrings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-07-28T12:25:50Z",
+      "side": 1,
+      "message": "you don\u0027t need this if you have a default :)",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 18
+      },
+      "revId": "39089a557e56b98220dbedd324a5263769e5c0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
