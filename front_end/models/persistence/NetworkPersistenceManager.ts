@@ -376,9 +376,22 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     this.updateInterceptionPatterns();
   }
 
+  isUISourceCodeOverridable(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
+    return uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network;
+  }
+
+  isUISourceCodeAlreadyOverridden(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
+    return this.bindings.has(uiSourceCode) || this.savingForOverrides.has(uiSourceCode);
+  }
+
+  shouldPromptSaveForOverridesDialog(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
+    return this.isUISourceCodeOverridable(uiSourceCode) && !this.isUISourceCodeAlreadyOverridden(uiSourceCode) &&
+        !this.activeInternal && !this.projectInternal;
+  }
+
   canSaveUISourceCodeForOverrides(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
-    return this.activeInternal && uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network &&
-        !this.bindings.has(uiSourceCode) && !this.savingForOverrides.has(uiSourceCode);
+    return this.activeInternal && this.isUISourceCodeOverridable(uiSourceCode) &&
+        !this.isUISourceCodeAlreadyOverridden(uiSourceCode);
   }
 
   async saveUISourceCodeForOverrides(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
