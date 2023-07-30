@@ -26,7 +26,8 @@ describeWithMockConnection('ResourceUtils', () => {
     const RESOURCE_URL = INSPECTED_URL + '?RESOURCE_URL' as Platform.DevToolsPath.UrlString;
     const RESOURCE = {displayName: 'RESOURCE_DISPLAY_NAME'} as SDK.Resource.Resource;
     const UI_SOURCE_CODE_URL = INSPECTED_URL + '?UI_SOURCE_CODE_URL' as Platform.DevToolsPath.UrlString;
-    const UI_SOURCE_CODE = {displayName: () => 'UI_SOURCE_CODE_DISPLAY_NAME'} as Workspace.UISourceCode.UISourceCode;
+    const UI_SOURCE_CODE = {displayName: () => 'UI_SOURCE_CODE_DISPLAY_NAME', isFetchXHR: () => false} as
+        Workspace.UISourceCode.UISourceCode;
     const QUERY_STRING = '?QUERY_STRING';
     const OTHER_PATH = '/OTHER/PATH';
     const INVALID_URL = ':~INVALID_URL~:' as Platform.DevToolsPath.UrlString;
