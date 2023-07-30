@@ -4,6 +4,7 @@
 
 const {assert} = chai;
 
+import * as Common from '../../../../../front_end/core/common/common.js';
 import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import type * as TextUtils from '../../../../../front_end/models/text_utils/text_utils.js';
@@ -405,6 +406,30 @@ describe('UISourceCode', () => {
     await sutObject.sut.checkContentUpdated();
 
     assert.deepEqual(result, deferredContentStub);
+  });
+
+  it('is a Fetch request', async () => {
+    const {sut} = setupMockedUISourceCode('http://www.example.com:8080/testing/XHR');
+
+    const contentType = sinon.stub(sut, 'contentType');
+    contentType.returns(Common.ResourceType.resourceTypes.XHR);
+
+    const result = sut.isFetchXHR();
+    contentType.restore();
+
+    assert.strictEqual(result, true);
+  });
+
+  it('is a XHR request', async () => {
+    const {sut} = setupMockedUISourceCode('http://www.example.com:8080/testing/Fetch');
+
+    const contentType = sinon.stub(sut, 'contentType');
+    contentType.returns(Common.ResourceType.resourceTypes.Fetch);
+
+    const result = sut.isFetchXHR();
+    contentType.restore();
+
+    assert.strictEqual(result, true);
   });
 });
 
