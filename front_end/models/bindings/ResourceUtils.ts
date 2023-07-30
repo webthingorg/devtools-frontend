@@ -60,7 +60,7 @@ export function displayNameForURL(url: Platform.DevToolsPath.UrlString): string 
   }
 
   const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(url);
-  if (uiSourceCode) {
+  if (uiSourceCode && !uiSourceCode.isFetchXHR()) {
     return uiSourceCode.displayName();
   }
 
