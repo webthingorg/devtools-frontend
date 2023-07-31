@@ -6,7 +6,7 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
 import type * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
-
+import * as Common from '../../../../core/common/common.js';
 import type * as Platform from '../../../../core/platform/platform.js';
 
 const UIStrings = {
@@ -617,4 +617,24 @@ export function prerenderFailureReason(attempt: SDK.PreloadingModel.PrerenderAtt
           attempt.prerenderStatus as
           'See https://docs.google.com/document/d/1PnrfowsZMt62PX1EvvTp2Nqs3ji1zrklrAEe1JYbkTk'}`);
   }
+}
+
+export function ruleSetLocationShort(ruleSet: Protocol.Preload.RuleSet): string {
+  if (ruleSet.url === undefined) {
+    return i18n.i18n.lockedString('Main_Page');
+  }
+
+  const url = Common.ParsedURL.ParsedURL.fromString(ruleSet.url);
+
+  if (url === null) {
+    return ruleSet.url;
+  }
+
+  const regex = /[^/]*$/;
+  const m = url.path.match(regex);
+  if (m === null || m[0] === '') {
+    return ruleSet.url;
+  }
+
+  return m[0];
 }
