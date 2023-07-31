@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ba48dc_c83a79d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T08:28:25Z",
+      "side": 1,
+      "message": "How about: \"Uncheck the hide extension URLs checkbox by default\". \"disable\" has a different meaning.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "5ad46daae65f8efccc0a01bcd2422aefa309966b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
