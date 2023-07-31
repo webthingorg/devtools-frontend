@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d57fe6c_f0c53158",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T10:24:45Z",
+      "side": 1,
+      "message": "I think it is fine to update the test. Since it is a layout test in chromium repo, you\u0027d have to disable the test first, land this change, wait for it to roll and then update and re-enable the test.",
+      "parentUuid": "6ab8f7c1_e9cbae43",
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f8af61d_89a6bef6",
