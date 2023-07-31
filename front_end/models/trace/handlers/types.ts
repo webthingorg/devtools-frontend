@@ -40,6 +40,13 @@ export type EnabledHandlerDataWithMeta<T extends {[key: string]: TraceEventHandl
   // with the index type to represent all the other handlers.
   // eslint-disable-next-line @typescript-eslint/naming-convention
   Meta: Readonly<ReturnType<typeof ModelHandlers['Meta']['data']>>,
+  // Renderer and Samples handler are only executed when the panel is run
+  // from the component examples server. Thus we mark them as optional
+  // properties during the migration.
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Renderer?: Readonly<ReturnType<typeof ModelHandlers['Renderer']['data']>>,
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Samples?: Readonly<ReturnType<typeof ModelHandlers['Samples']['data']>>,
 }&{
   // For every key in the object, look up the TraceEventHandler's data function
   // and use its return type as the value for the object.
