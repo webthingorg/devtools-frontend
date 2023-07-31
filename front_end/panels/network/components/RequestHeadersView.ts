@@ -10,6 +10,7 @@ import * as Root from '../../../core/root/root.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Persistence from '../../../models/persistence/persistence.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
+import * as StatusText from '../../../panels/network/components/StatusTextStrings.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
@@ -390,6 +391,10 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     }
 
     let statusText = this.#request.statusCode + ' ' + this.#request.statusText;
+    if (!this.#request.statusText) {
+      statusText += String(StatusText.getStatusText(this.#request.statusCode));
+    }
+
     if (this.#request.cachedInMemory()) {
       statusText += ' ' + i18nString(UIStrings.fromMemoryCache);
       statusClasses.push('status-with-comment');
