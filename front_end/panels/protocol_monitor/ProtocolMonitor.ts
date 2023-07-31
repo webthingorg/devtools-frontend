@@ -364,8 +364,22 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
     const inputBar = shadowRoot?.querySelector('.toolbar-input');
     const tabSelector = shadowRoot?.querySelector('.toolbar-select-container');
 
+    const populateToolbarInput = (): void => {
+      // Type casting is needing here because the property jsonEditor does not exists directly on type Widget.
+      const editorWidget = splitWidget.sidebarWidget() as EditorWidget;
+      const parameters = editorWidget.jsonEditor.getParameters();
+      const command = editorWidget?.jsonEditor.command ?? undefined;
+      let commandJson;
+      if (command || parameters) {
+        commandJson = JSON.stringify({command: command, parameters: parameters});
+      }
+      if (commandJson) {
+        this.#commandInput.setValue(commandJson);
+      }
+    };
     splitWidget.addEventListener(UI.SplitWidget.Events.ShowModeChanged, (event => {
                                    if (event.data === 'OnlyMain') {
+                                     populateToolbarInput();
                                      inputBar?.setAttribute('style', 'display:flex; flex-grow: 1');
                                      tabSelector?.setAttribute('style', 'display:flex');
                                    } else {
