@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fa0d2d9_fb85dd25",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T09:33:05Z",
+      "side": 1,
+      "message": "@petermueller@chromium.org which colors should we use?",
+      "parentUuid": "6c4d0cd8_4ca1208e",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 25
+      },
+      "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9cdb358c_3d4f9952",
         "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
         "patchSetId": 2
