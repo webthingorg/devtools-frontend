@@ -16,6 +16,29 @@
       "message": "Could you have a look?\n\nAnd how can we generate screenshots for mac/win?",
       "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a847e30_6ec8d623",
+        "filename": "front_end/ui/components/docs/icon_dialog/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T08:46:26Z",
+      "side": 1,
+      "message": "@petermueller@chromium.org Where do these numbers come from?\n\nFrom the screenshot, tt looks like the bottom margin could be larger.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
