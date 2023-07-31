@@ -152,6 +152,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
       Common.EventTarget.removeEventListeners(this.eventDescriptors);
       await this.updateActiveProject();
     }
+    this.dispatchEventToListeners(Events.LocalOverridesProjectUpdated, this.enabled);
   }
 
   private async uiSourceCodeRenamedListener(
@@ -376,9 +377,30 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     this.updateInterceptionPatterns();
   }
 
+  isUISourceCodeOverridable(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
+    return uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network;
+  }
+
+  isUISourceCodeAlreadyOverridden(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
+    return this.bindings.has(uiSourceCode) || this.savingForOverrides.has(uiSourceCode);
+  }
+
+  shouldPromptSaveForOverridesDialog(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
+    return this.isUISourceCodeOverridable(uiSourceCode) && !this.isUISourceCodeAlreadyOverridden(uiSourceCode) &&
+        !this.activeInternal && !this.projectInternal;
+  }
+
   canSaveUISourceCodeForOverrides(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
-    return this.activeInternal && uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network &&
-        !this.bindings.has(uiSourceCode) && !this.savingForOverrides.has(uiSourceCode);
+    return this.activeInternal && this.isUISourceCodeOverridable(uiSourceCode) &&
+        !this.isUISourceCodeAlreadyOverridden(uiSourceCode);
+  }
+
+  async enableLocalOverrides(): Promise<void> {
+    if (this.enabledSetting.get()) {
+      return;
+    }
+    this.enabledSetting.set(true);
+    await this.once(Events.LocalOverridesProjectUpdated);
   }
 
   async saveUISourceCodeForOverrides(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
@@ -929,11 +951,13 @@ export const HEADERS_FILENAME = '.headers';
 export enum Events {
   ProjectChanged = 'ProjectChanged',
   RequestsForHeaderOverridesFileChanged = 'RequestsForHeaderOverridesFileChanged',
+  LocalOverridesProjectUpdated = 'LocalOverridesProjectUpdated',
 }
 
 export type EventTypes = {
   [Events.ProjectChanged]: Workspace.Workspace.Project|null,
   [Events.RequestsForHeaderOverridesFileChanged]: Workspace.UISourceCode.UISourceCode,
+  [Events.LocalOverridesProjectUpdated]: boolean,
 };
 
 export interface HeaderOverride {
