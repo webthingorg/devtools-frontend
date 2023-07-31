@@ -12,6 +12,7 @@ import * as IconButton from '../../../../ui/components/icon_button/icon_button.j
 import * as LegacyWrapper from '../../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../ui/components/report_view/report_view.js';
+import * as SourceFrame from '../../../../ui/legacy/components/source_frame/source_frame.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import * as NetworkForward from '../../../network/forward/forward.js';
 
@@ -41,7 +42,7 @@ const UIStrings = {
   /**
    *@description Description term: source text of rule set
    */
-  detailsSource: 'Source',
+  detailsSource: 'Source modified',
   /**
    *@description Validity: Rule set is valid
    */
@@ -285,7 +286,8 @@ export class RuleSetDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappa
     }
 
     // TODO(https://crbug.com/1384419): Consider to add another pane and use SourceFrame.JSONView.JSONView.
-    const json = JSON.stringify(sourceJson);
+    const jsonView = new SourceFrame.JSONView.JSONView(sourceJson, true);
+    jsonView.wasShown();
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
@@ -294,7 +296,7 @@ export class RuleSetDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappa
             ReportView.ReportView.ReportKey.litTagName}>
           <${ReportView.ReportView.ReportValue.litTagName}>
             <div class="text-ellipsis" title="">
-              ${json}
+              ${jsonView.element.firstChild}
             </div>
           </${ReportView.ReportView.ReportValue.litTagName}>
       `;
