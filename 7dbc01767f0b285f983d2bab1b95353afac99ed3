@@ -16,6 +16,52 @@
       "message": "Could you have a look?",
       "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a42274_bef2f021",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T09:24:23Z",
+      "side": 1,
+      "message": "Would you still need these rules if you use `\u003ca class\u003d\"link\"\u003e` or `\u003ca class\u003d\"devtools-link\"\u003e`?",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 404,
+        "endChar": 41
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "436f545f_b029ed5b",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T09:24:23Z",
+      "side": 1,
+      "message": "Use `Bindings.ResourceUtils.displayNameForURL` instead?",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 81
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
