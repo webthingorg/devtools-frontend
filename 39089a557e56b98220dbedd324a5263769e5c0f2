@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "934fe428_23c1d7e2",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-07-31T11:48:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc077961_de6db845",
+      "revId": "39089a557e56b98220dbedd324a5263769e5c0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5850255_3248099d",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0756e059_7a270c30",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-07-31T11:48:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5850255_3248099d",
+      "revId": "39089a557e56b98220dbedd324a5263769e5c0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc0184a3_ba6f5c8f",
@@ -65,6 +101,30 @@
       "writtenOn": "2023-07-28T12:25:50Z",
       "side": 1,
       "message": "you don\u0027t need this if you have a default :)",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 18
+      },
+      "revId": "39089a557e56b98220dbedd324a5263769e5c0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a813c95_a68a0ab4",
+        "filename": "front_end/panels/network/components/StatusTextStrings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-07-31T11:48:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc0184a3_ba6f5c8f",
       "range": {
         "startLine": 259,
         "startChar": 0,
