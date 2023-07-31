@@ -134,6 +134,30 @@
       },
       "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c059d803_f5ef777f",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-07-31T12:11:30Z",
+      "side": 1,
+      "message": "https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/preloading/PreloadingView.ts;l\u003d443?q\u003dPreloadingView.ts\u0026ss\u003dchromium\n\nYou mean this logic? This function uses unmodified field of CDP event and this logic is used for old grid, which will be replaced in the following CL as in the wireframe. New shortening logic is used in multiple views and here is the first one.",
+      "parentUuid": "bdb6a284_52069275",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 81
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
