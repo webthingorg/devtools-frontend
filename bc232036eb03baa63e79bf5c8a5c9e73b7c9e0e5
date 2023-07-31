@@ -16,6 +16,24 @@
       "message": "Do we have a bug for this?",
       "revId": "bc232036eb03baa63e79bf5c8a5c9e73b7c9e0e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52668679_4fb4ae9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-07-31T09:46:08Z",
+      "side": 1,
+      "message": "Now we have :)",
+      "parentUuid": "83ac6f1a_dc0ce872",
+      "revId": "bc232036eb03baa63e79bf5c8a5c9e73b7c9e0e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
