@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13cb8921_d6f31b41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T07:35:38Z",
+      "side": 1,
+      "message": "Nice, thanks!",
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f8af61d_89a6bef6",
+        "filename": "test/e2e/resources/network/fetch-json.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T07:35:38Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd35f273_0e412c20",
+        "filename": "test/e2e/resources/network/xhr-json.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T07:35:38Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa94f80d_acee59d1",
+        "filename": "test/unittests/front_end/panels/sources/FilteredUISourceCodeListProvider_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T07:35:38Z",
+      "side": 1,
+      "message": "Use `describeWithEnvironment` and drop explicit `initializeGlobalVars/deinitializeGlobalVars()`",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 30
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
