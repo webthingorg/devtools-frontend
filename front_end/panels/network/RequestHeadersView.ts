@@ -523,9 +523,7 @@ export class RequestHeadersView extends UI.Widget.VBox {
         statusCodeImage
             .data = {iconName: 'cross-circle-filled', color: 'var(--icon-error)', width: '14px', height: '14px'};
       }
-
       requestMethodElement.title = this.formatHeader(i18nString(UIStrings.requestMethod), this.request.requestMethod);
-
       const statusTextElement = statusCodeFragment.createChild('div', 'header-value source-code');
       let statusText = this.request.statusCode + ' ' + this.request.statusText;
       if (this.request.cachedInMemory()) {

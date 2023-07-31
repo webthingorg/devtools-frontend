@@ -27,6 +27,7 @@ devtools_module("components") {
     "RequestHeadersView.ts",
     "RequestTrustTokensView.ts",
     "ResponseHeaderSection.ts",
+    "StatusTextStrings.ts",
     "WebBundleInfoView.ts",
   ]
 
