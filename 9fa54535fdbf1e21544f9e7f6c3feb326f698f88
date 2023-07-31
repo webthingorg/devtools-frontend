@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48456757_f30ab253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T14:04:33Z",
+      "side": 1,
+      "message": "Would it make sense to add the logic to the `NetworkRequest` class, such that it already gives us the status text we want, instead of us needing to manipulate it in the UI components?",
+      "revId": "9fa54535fdbf1e21544f9e7f6c3feb326f698f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13eb84a2_77dfa9e3",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T14:04:33Z",
+      "side": 1,
+      "message": "Is the cast to string really needed?",
+      "range": {
+        "startLine": 395,
+        "startChar": 20,
+        "endLine": 395,
+        "endChar": 27
+      },
+      "revId": "9fa54535fdbf1e21544f9e7f6c3feb326f698f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "441bb1e6_57da8b32",
+        "filename": "front_end/panels/network/components/StatusTextStrings.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T14:04:33Z",
+      "side": 1,
+      "message": "nit: remove leading empty line",
+      "revId": "9fa54535fdbf1e21544f9e7f6c3feb326f698f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37778ec5_15b36804",
+        "filename": "front_end/panels/network/components/StatusTextStrings.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T14:04:33Z",
+      "side": 1,
+      "message": "LocalizedString",
+      "range": {
+        "startLine": 8,
+        "startChar": 51,
+        "endLine": 8,
+        "endChar": 57
+      },
+      "revId": "9fa54535fdbf1e21544f9e7f6c3feb326f698f88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
