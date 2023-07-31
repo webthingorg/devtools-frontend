@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47724a9e_8c3ba138",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-31T08:31:59Z",
+      "side": 1,
+      "message": "This is looking great, I left a few comments which are mostly nitpicks and stylistic suggestions!",
+      "revId": "a35f18c9c02b175632d60894abebc221d23f49ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42de1872_143033c3",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-31T08:31:59Z",
+      "side": 1,
+      "message": "When importing from other modules (where here a \"module\" is considered a folder), we don\u0027t import like this, but instead import all the module using `import * as` (see the line below this one).\n\nSo rather than do this, you would refer to Phase via Types.TraceEvents.Phase. It is more verbose, but there are some build constraints that mean we have to do it this way.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 46
+      },
+      "revId": "a35f18c9c02b175632d60894abebc221d23f49ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3abfd98e_44f9904f",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-31T08:31:59Z",
+      "side": 1,
+      "message": "RE my previous comment - this import is fine because it is from a file in the same directory, so you do not need to change this one :)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "a35f18c9c02b175632d60894abebc221d23f49ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "630fa32f_34cb60c0",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-31T08:31:59Z",
+      "side": 1,
+      "message": "typo here: Synthetic",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "a35f18c9c02b175632d60894abebc221d23f49ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2295accf_f7d8218b",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-31T08:31:59Z",
+      "side": 1,
+      "message": "a list of animations that are not paired is not very useful, so let\u0027s actually just make this\n\n{\nanimations: readonly Types.TraceEvents.TraceEventSyntheticNestableAsyncEvent[]\n}",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 95
+      },
+      "revId": "a35f18c9c02b175632d60894abebc221d23f49ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e18312d_81d0e412",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-31T08:31:59Z",
+      "side": 1,
+      "message": "typo: beginning",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 35
+      },
+      "revId": "a35f18c9c02b175632d60894abebc221d23f49ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0448090e_bc6fc333",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-07-31T08:31:59Z",
+      "side": 1,
+      "message": "when we return data from the handlers, we clone it to ensure that the raw data from the handler cannot be mutated so this should be:\n\nanimations: Array.from(animationsSyntheticEvents)",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 29
+      },
+      "revId": "a35f18c9c02b175632d60894abebc221d23f49ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
