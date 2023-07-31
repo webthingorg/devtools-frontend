@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b966b54c_a9af42c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-31T09:19:37Z",
+      "side": 1,
+      "message": "good point. I have a couple of md docs I would like to write now (like one around CPU data parsing). I\u0027ll do these as a follow up :)",
+      "parentUuid": "8c394138_144322b1",
+      "revId": "28c1e9b11fd24c01f631e1638f99be3821f5ee90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfcb9edb_2c75e8e5",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-31T08:27:22Z",
       "side": 1,
       "message": "do you think we should land a helper that aids with this?\n\nSomething like activeFrameForProcessAtTime(pid, timestamp)",
+      "range": {
+        "startLine": 348,
+        "startChar": 17,
+        "endLine": 352,
+        "endChar": 40
+      },
+      "revId": "28c1e9b11fd24c01f631e1638f99be3821f5ee90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34fe03ba_b0600a9e",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-31T09:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfcb9edb_2c75e8e5",
       "range": {
         "startLine": 348,
         "startChar": 17,
