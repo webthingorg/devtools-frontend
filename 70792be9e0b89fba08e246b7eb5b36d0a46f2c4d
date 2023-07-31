@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ab8f7c1_e9cbae43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T10:22:10Z",
+      "side": 1,
+      "message": "Apply the code changes. PTAL. There\u0027s one more error in the devtools/tracing/timeline-xhr. \n\nThe error is about the display name of XHR resource in the trace - \nPreviously it shows URL with domain (localhost/result.php) in the log, now it shows just the file name (result.php).\n\nI need some guidance on whether:\n\n1. To fix the test expectation to accept result.php\n2. To fix the code logic to always show url with domain for fetch and xhr.",
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f8af61d_89a6bef6",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-07-31T07:35:38Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83806bd5_675490a3",
+        "filename": "test/e2e/resources/network/fetch-json.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T10:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f8af61d_89a6bef6",
       "range": {
         "startLine": 2,
         "startChar": 12,
@@ -64,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ea6035_d0271b5b",
+        "filename": "test/e2e/resources/network/xhr-json.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T10:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd35f273_0e412c20",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa94f80d_acee59d1",
@@ -77,6 +142,30 @@
       "writtenOn": "2023-07-31T07:35:38Z",
       "side": 1,
       "message": "Use `describeWithEnvironment` and drop explicit `initializeGlobalVars/deinitializeGlobalVars()`",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 30
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3bde5dc_beebb1cf",
+        "filename": "test/unittests/front_end/panels/sources/FilteredUISourceCodeListProvider_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T10:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa94f80d_acee59d1",
       "range": {
         "startLine": 36,
         "startChar": 10,
