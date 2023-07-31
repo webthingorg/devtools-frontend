@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c2b5831_459db84d",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-07-31T11:47:47Z",
+      "side": 1,
+      "message": "Style reduced, but color and text-decoration seems to be required.\n\nAnd `a` is banned:\n\n```\n/usr/local/google/home/kenoss/src/chromium.googlesource.com/devtools/devtools-frontend/front_end/panels/application/preloading/components/PreloadingDetailsReportView.ts\n  395:12  error  Adding links to a component should be done using `front_end/ui/legacy/XLink.ts`  rulesdir/ban_a_tags_in_lit_html\n  395:12  error  Adding links to a component should be done using `front_end/ui/legacy/XLink.ts`  rulesdir/ban_a_tags_in_lit_html\n```",
+      "parentUuid": "f9a42274_bef2f021",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 404,
+        "endChar": 41
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "436f545f_b029ed5b",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-31T09:24:23Z",
       "side": 1,
       "message": "Use `Bindings.ResourceUtils.displayNameForURL` instead?",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 81
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6b8da9c_19a23017",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-07-31T11:47:47Z",
+      "side": 1,
+      "message": "That converts `https://example.com/speculation-rules.json` to `example.com/speculation-rules.json` while we expect `speculation-rules.json`.\n\n(unchanged)",
+      "parentUuid": "436f545f_b029ed5b",
       "range": {
         "startLine": 622,
         "startChar": 0,
