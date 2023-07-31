@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f0b976_45c4173e",
+        "filename": "test/unittests/front_end/panels/sources/FilteredUISourceCodeListProvider_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T12:40:03Z",
+      "side": 1,
+      "message": "`assert.stricEqual(result, 0)` is probably enough.",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 50,
+        "endChar": 23
+      },
+      "revId": "40d52c90948f19acf0cda9912513efe74ec2b24f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

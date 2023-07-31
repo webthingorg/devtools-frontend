@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d3748ec_0b94e62b",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T12:40:03Z",
+      "side": 1,
+      "message": "So fetch requests, which are not overridden don\u0027t show up in QuickOpen or in Sources\u003ePageTree. Once they are overridden, they still don\u0027t show up in Sources\u003ePageTree, but they do show up in QuickOpen?\n\nIs this the behaviour we want? Or should the overridden ones show up in Sources\u003ePageTree as well?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 7
+      },
+      "revId": "f3f258b9244582b13945a3f5159831e0757a28fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -55,6 +55,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5edcae30_255aaced",
+        "filename": "test/e2e/resources/network/coffees.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T12:40:03Z",
+      "side": 1,
+      "message": "nit: new line",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 1
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f8af61d_89a6bef6",
         "filename": "test/e2e/resources/network/fetch-json.html",
         "patchSetId": 10
