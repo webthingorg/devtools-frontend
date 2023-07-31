@@ -46,6 +46,30 @@
       },
       "revId": "f3f258b9244582b13945a3f5159831e0757a28fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80c6216b_c36fff31",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T14:11:13Z",
+      "side": 1,
+      "message": "Thanks, this makes total sense and convinced me.",
+      "parentUuid": "224a8ab3_027f6913",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 7
+      },
+      "revId": "f3f258b9244582b13945a3f5159831e0757a28fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
