@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "063282e4_24fcbdd0",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T16:41:56Z",
+      "side": 1,
+      "message": "`const jsonView \u003d new SourceFrame.JSONView.JSONView(new SourceFrame.JSONView.ParsedJSON(sourceJson, \u0027\u0027, \u0027\u0027), true);`",
+      "revId": "e8a61def34e7a40b54b240ebf7e04bec82ee1389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2eb5148_9e76b25c",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T16:41:56Z",
+      "side": 1,
+      "message": "`${jsonView.treeOutline.element}`\nThis seems to work if you make JSONView\u0027s `treeOutline` public.\nInstead of making `jsonView.treeOutline` public, it\u0027s probably better to add a getter. And even then this is quite hacky, so please do some manual testing to make sure it works.",
+      "revId": "e8a61def34e7a40b54b240ebf7e04bec82ee1389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
