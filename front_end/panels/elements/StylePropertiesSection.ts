@@ -1006,6 +1006,7 @@ export class StylePropertiesSection {
         inherited,
         overloaded,
         newProperty: false,
+        onEditingCommitted: this.editingPropertyCommitted,
       });
       item.setComputedStyles(this.computedStyles);
       item.setParentsComputedStyles(this.parentsComputedStyles);
@@ -1411,6 +1412,12 @@ export class StylePropertiesSection {
     }
   }
 
+  editingPropertyCommitted(): void {
+    // Defined as a no-op. It might be overridden
+    // by the extenders of the `StylePropertiesSection`
+    // like `KeyframePropertiesSection`.
+  }
+
   editingSelectorCommitted(
       element: Element, newContent: string, oldContent: string, context: Context|undefined,
       moveDirection: string): void {
@@ -1668,6 +1675,11 @@ export class KeyframePropertiesSection extends StylePropertiesSection {
   }
 
   override highlight(): void {
+  }
+
+  override editingPropertyCommitted(): void {
+    super.editingPropertyCommitted();
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.StylePropertyInsideKeyframeEdited);
   }
 }
 

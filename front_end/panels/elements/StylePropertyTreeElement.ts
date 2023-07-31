@@ -110,6 +110,7 @@ interface StylePropertyTreeElementParams {
   inherited: boolean;
   overloaded: boolean;
   newProperty: boolean;
+  onEditingCommitted?: () => void;
 }
 
 export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
@@ -133,10 +134,11 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private computedStyles: Map<string, string>|null = null;
   private parentsComputedStyles: Map<string, string>|null = null;
   private contextForTest!: Context|undefined;
+  private onEditingCommitted?: () => void;
   #propertyTextFromSource: string;
 
   constructor(
-      {stylesPane, matchedStyles, property, isShorthand, inherited, overloaded, newProperty}:
+      {stylesPane, matchedStyles, property, isShorthand, inherited, overloaded, newProperty, onEditingCommitted}:
           StylePropertyTreeElementParams,
   ) {
     // Pass an empty title, the title gets made later in onattach.
@@ -151,6 +153,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.isShorthand = isShorthand;
     this.applyStyleThrottler = new Common.Throttler.Throttler(0);
     this.newProperty = newProperty;
+    this.onEditingCommitted = onEditingCommitted;
     if (this.newProperty) {
       this.listItemElement.textContent = '';
     }
@@ -1598,6 +1601,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private async editingCommitted(userInput: string, context: Context, moveDirection: string): Promise<void> {
     this.removePrompt();
     this.editingEnded(context);
+    this.onEditingCommitted?.();
     const isEditingName = context.isEditingName;
     // If the underlying property has been ripped out, always assume that the value having been entered was
     // a name-value pair and attempt to process it via the SDK.
