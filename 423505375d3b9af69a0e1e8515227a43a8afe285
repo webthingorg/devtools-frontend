@@ -22,6 +22,30 @@
       },
       "revId": "423505375d3b9af69a0e1e8515227a43a8afe285",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87379ad8_5778c4f0",
+        "filename": "test/unittests/front_end/models/trace/handlers/AnimationHandler_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-07-31T14:41:49Z",
+      "side": 0,
+      "message": "Fair enough. Brought it back, it\u0027s now checking the amount of complete events.",
+      "parentUuid": "982e74ee_c8eb6acd",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "423505375d3b9af69a0e1e8515227a43a8afe285",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
