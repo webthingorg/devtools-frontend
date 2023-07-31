@@ -609,88 +609,89 @@ describeWithEnvironment('JSONEditor', () => {
     });
   });
 
-  it('should return the parameters in a format understandable by the ProtocolMonitor', async () => {
-    const jsonEditor = renderJSONEditor();
+  it('should return the parameters in a format understandable by the ProtocolMonitor by pressing CTRL + Enter',
+     async () => {
+       const jsonEditor = renderJSONEditor();
 
-    const inputParameters = [
-      {
-        'optional': true,
-        'type': 'string',
-        'value': 'test0',
-        'name': 'test0',
-      },
-      {
-        'optional': true,
-        'type': 'string',
-        'value': 'test1',
-        'name': 'test1',
-      },
-      {
-        'optional': false,
-        'type': 'string',
-        'value': 'test2',
-        'name': 'test2',
-      },
-      {
-        'optional': true,
-        'type': 'array',
-        'value': [
-          {
-            'optional': true,
-            'type': 'string',
-            'value': 'param1Value',
-            'name': 'param1',
-          },
-          {
-            'optional': true,
-            'type': 'string',
-            'value': 'param2Value',
-            'name': 'param2',
-          },
-        ],
-        'name': 'test3',
-      },
-      {
-        'optional': true,
-        'type': 'object',
-        'value': [
-          {
-            'optional': true,
-            'type': 'string',
-            'value': 'param1Value',
-            'name': 'param1',
-          },
-          {
-            'optional': true,
-            'type': 'string',
-            'value': 'param2Value',
-            'name': 'param2',
-          },
-        ],
-        'name': 'test4',
-      },
-    ];
+       const inputParameters = [
+         {
+           'optional': true,
+           'type': 'string',
+           'value': 'test0',
+           'name': 'test0',
+         },
+         {
+           'optional': true,
+           'type': 'string',
+           'value': 'test1',
+           'name': 'test1',
+         },
+         {
+           'optional': false,
+           'type': 'string',
+           'value': 'test2',
+           'name': 'test2',
+         },
+         {
+           'optional': true,
+           'type': 'array',
+           'value': [
+             {
+               'optional': true,
+               'type': 'string',
+               'value': 'param1Value',
+               'name': 'param1',
+             },
+             {
+               'optional': true,
+               'type': 'string',
+               'value': 'param2Value',
+               'name': 'param2',
+             },
+           ],
+           'name': 'test3',
+         },
+         {
+           'optional': true,
+           'type': 'object',
+           'value': [
+             {
+               'optional': true,
+               'type': 'string',
+               'value': 'param1Value',
+               'name': 'param1',
+             },
+             {
+               'optional': true,
+               'type': 'string',
+               'value': 'param2Value',
+               'name': 'param2',
+             },
+           ],
+           'name': 'test4',
+         },
+       ];
 
-    const expectedParameters = {
-      'test0': 'test0',
-      'test1': 'test1',
-      'test2': 'test2',
-      'test3': ['param1Value', 'param2Value'],
-      'test4': {
-        'param1': 'param1Value',
-        'param2': 'param2Value',
-      },
-    };
+       const expectedParameters = {
+         'test0': 'test0',
+         'test1': 'test1',
+         'test2': 'test2',
+         'test3': ['param1Value', 'param2Value'],
+         'test4': {
+           'param1': 'param1Value',
+           'param2': 'param2Value',
+         },
+       };
 
-    jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
-    const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
+       jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+       const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
 
-    dispatchKeyDownEvent(jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
+       dispatchKeyDownEvent(jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
 
-    const response = await responsePromise as ProtocolComponents.JSONEditor.SubmitEditorEvent;
+       const response = await responsePromise as ProtocolComponents.JSONEditor.SubmitEditorEvent;
 
-    assert.deepStrictEqual(response.data.parameters, expectedParameters);
-  });
+       assert.deepStrictEqual(response.data.parameters, expectedParameters);
+     });
 
   it('should not display parameters if a command is unknown', async () => {
     const cdpCommand = 'Unknown';
