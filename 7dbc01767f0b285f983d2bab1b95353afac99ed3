@@ -110,6 +110,30 @@
       },
       "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdb6a284_52069275",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-07-31T11:51:52Z",
+      "side": 1,
+      "message": "But only if the inspected URL has a different origin, right?\n\nI\u0027d expect us to hit the line 82 most of the time: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/bindings/ResourceUtils.ts;l\u003d82\n\nDo you care about cross-origin prerender or am I misunderstanding something?",
+      "parentUuid": "b6b8da9c_19a23017",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 81
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
