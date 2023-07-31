@@ -93,8 +93,7 @@ export class HostsPolicy {
   private constructor(readonly runtimeAllowedHosts: HostUrlPattern[], readonly runtimeBlockedHosts: HostUrlPattern[]) {
   }
 
-  isAllowedOnCurrentTarget(): boolean {
-    const inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL();
+  isAllowedOnURL(inspectedURL: string): boolean {
     if (!inspectedURL) {
       // If there aren't any blocked hosts retain the old behavior and don't worry about the inspectedURL
       return this.runtimeBlockedHosts.length === 0;
@@ -1033,7 +1032,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return;
     }
     const hostsPolicy = HostsPolicy.create(extensionInfo.hostsPolicy);
-    if (!hostsPolicy || !hostsPolicy.isAllowedOnCurrentTarget() ||
+    if (!hostsPolicy || !hostsPolicy.isAllowedOnURL(inspectedURL) ||
         (!extensionInfo.allowFileAccess && currentTargetIsFile())) {
       return;
     }
@@ -1090,7 +1089,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (!extension) {
       return false;
     }
-    return extension.hostsPolicy.isAllowedOnCurrentTarget() && (extension.allowFileAccess || !currentTargetIsFile());
+    const inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL();
+    return extension.hostsPolicy.isAllowedOnURL(inspectedURL) && (extension.allowFileAccess || !currentTargetIsFile());
   }
 
   private async onmessage(event: MessageEvent): Promise<void> {
@@ -1209,9 +1209,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       }
       return this.status.E_NOTFOUND(options.frameURL || '<top>');
     }
-    // We shouldn't get here if the outermost frame can't be inspected by an extension, but
-    // let's double check for subframes.
-    if (!this.canInspectURL(frame.url)) {
+    if (!this.canInspectURL(frame.url) || !this.registeredExtensions.get(securityOrigin).hostsPolicy.isAllowedOnURL(frame.url)) {
       return this.status.E_FAILED('Permission denied');
     }
 
