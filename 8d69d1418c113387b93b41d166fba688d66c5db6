@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7696d6b_06d0c5ed",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T11:07:41Z",
+      "side": 1,
+      "message": "dsv@, I have a question on these 2 tests, are these tests adding value here? Should I remove them or keep them?\n\nIn other places, where we actually use the `uiSourceCode.isFetchXHR()` function, we already testing the logic of it. \n\nThe code here merely asserting the contentType.",
+      "revId": "8d69d1418c113387b93b41d166fba688d66c5db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
