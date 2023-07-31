@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab4c0274_d359d8e9",
+        "filename": "test/e2e/resources/network/coffees.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T14:00:11Z",
+      "side": 1,
+      "message": "Will send another CL to fix",
+      "parentUuid": "5edcae30_255aaced",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 1
+      },
+      "revId": "70792be9e0b89fba08e246b7eb5b36d0a46f2c4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f8af61d_89a6bef6",

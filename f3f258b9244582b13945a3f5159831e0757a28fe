@@ -22,6 +22,30 @@
       },
       "revId": "f3f258b9244582b13945a3f5159831e0757a28fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "224a8ab3_027f6913",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T14:00:11Z",
+      "side": 1,
+      "message": "Yes, I think this is the behaviour I would expect.\n\nThe overridden file will show in the Sources \u003e Overridden tree, and Quick Open will show it (same as all manually created overridden files).\n\nI think it still should not show in Sources \u003e Page tree  because it\u0027s not a script files.",
+      "parentUuid": "0d3748ec_0b94e62b",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 7
+      },
+      "revId": "f3f258b9244582b13945a3f5159831e0757a28fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
