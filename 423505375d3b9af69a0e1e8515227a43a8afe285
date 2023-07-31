@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fad1557_75269949",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-31T07:21:23Z",
+      "side": 1,
+      "message": "I forgot to send the reply to your question and had it as a draft since then, sorry!",
+      "revId": "423505375d3b9af69a0e1e8515227a43a8afe285",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

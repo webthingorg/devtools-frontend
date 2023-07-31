@@ -84,6 +84,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cf3955da_7125e762",
+        "filename": "front_end/models/trace/handlers/types.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-31T07:21:23Z",
+      "side": 1,
+      "message": "these will be the js frames in the flame chart, we create them in the frontend from samples in the CPU profile. They are equivalent to the legacy JSFrame events",
+      "parentUuid": "f1c150fd_fc6fcab5",
+      "range": {
+        "startLine": 116,
+        "startChar": 36,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "57bb2ecf84a65ad05e2aa4f4eb9f70192c8e52ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bd2725f0_98e347bc",
         "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
         "patchSetId": 3
