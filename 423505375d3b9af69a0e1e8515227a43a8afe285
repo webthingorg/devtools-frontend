@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "982e74ee_c8eb6acd",
+        "filename": "test/unittests/front_end/models/trace/handlers/AnimationHandler_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-31T12:40:58Z",
+      "side": 0,
+      "message": "should we add the other test in addition to this? I think we don\u0027t want to remove this test :P",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "423505375d3b9af69a0e1e8515227a43a8afe285",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

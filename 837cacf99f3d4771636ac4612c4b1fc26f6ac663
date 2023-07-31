@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe8d9fb_dc7ef799",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-31T12:40:58Z",
+      "side": 1,
+      "message": "dope!! LGTM with some small nits/suggestions",
+      "revId": "837cacf99f3d4771636ac4612c4b1fc26f6ac663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9636e1c2_463beb7c",
+        "filename": "test/unittests/front_end/models/trace/handlers/AnimationHandler_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-07-31T12:40:58Z",
+      "side": 1,
+      "message": "we usually name tests after what we are expecting the tested code to do (instead of what the test does). I\u0027d suggest we rename this to something like\n```\nit(\u0027calculates the duration of an animation event correctly\u0027, ...\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "837cacf99f3d4771636ac4612c4b1fc26f6ac663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
