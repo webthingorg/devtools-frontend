@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dec8f9fa_d76e940d",
+        "filename": "test/e2e/application/session-storage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-07-31T10:48:21Z",
+      "side": 1,
+      "message": "How about initializing `dataGridRowValues` with the waitForFunction instead of calling the helper twice?\n\nWe could also think about folding the length check into the getStorageItemsData helper directly.",
+      "revId": "f625d4bda4d100e7833e7d26a72dd7a55e670100",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
