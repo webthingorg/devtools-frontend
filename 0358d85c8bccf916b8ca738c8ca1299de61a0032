@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fbb0d84_b69e98c0",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T09:27:51Z",
+      "side": 1,
+      "message": "`assert.deepStrictEqual(textFromResponse, expectedTextFromResponse);` compares arrays value by value which I think is what you want here.",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 91
+      },
+      "revId": "0358d85c8bccf916b8ca738c8ca1299de61a0032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780d803d_9c27d7ea",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T09:27:51Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 28
+      },
+      "revId": "0358d85c8bccf916b8ca738c8ca1299de61a0032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c0e2de_83398ac8",
+        "filename": "test/e2e/resources/network/code-with-json-subtype-request.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T09:27:51Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 41
+      },
+      "revId": "0358d85c8bccf916b8ca738c8ca1299de61a0032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "627c0bbc_10818a5e",
+        "filename": "test/e2e/resources/network/json-subtype-ld.rawresponse",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T09:27:51Z",
+      "side": 1,
+      "message": "remove since it\u0027s unrelated to the test",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 94
+      },
+      "revId": "0358d85c8bccf916b8ca738c8ca1299de61a0032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ba44095_52eedfa6",
+        "filename": "test/e2e/resources/network/json-subtype-ld.rawresponse",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T09:27:51Z",
+      "side": 1,
+      "message": "These can probably be removed without affecting the test.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "0358d85c8bccf916b8ca738c8ca1299de61a0032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c81a87_72e25a62",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T09:27:51Z",
+      "side": 1,
+      "message": "same as above: `assert.deepStrictEqual`",
+      "range": {
+        "startLine": 114,
+        "startChar": 6,
+        "endLine": 114,
+        "endChar": 86
+      },
+      "revId": "0358d85c8bccf916b8ca738c8ca1299de61a0032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eced4e7d_3ad3363a",
+        "filename": "test/e2e/sources/can-pretty-print-sourcecode_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-07-31T09:27:51Z",
+      "side": 1,
+      "message": "How about a helper:\n```\nexport async function elementContainsTextWithSelector(el, textContent, selector): boolean {\n  const selectedElements \u003d await el.evaluate(node \u003d\u003e [...node.querySelectorAll(selector)].map(node \u003d\u003e node.textContent || \u0027\u0027) || []);\n  return selectedElements.includes(textContent);\n}\n```\nYou could then re-use the helper plenty of times over these tests.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 72
+      },
+      "revId": "0358d85c8bccf916b8ca738c8ca1299de61a0032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
