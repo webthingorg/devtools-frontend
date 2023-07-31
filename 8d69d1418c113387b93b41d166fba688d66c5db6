@@ -34,6 +34,24 @@
       "parentUuid": "e7696d6b_06d0c5ed",
       "revId": "8d69d1418c113387b93b41d166fba688d66c5db6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49c57f6a_b272293a",
+        "filename": "test/unittests/front_end/models/workspace/UISourceCode_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-07-31T11:48:43Z",
+      "side": 1,
+      "message": "Thanks! Removed it.",
+      "parentUuid": "26f6ec24_41bcadcd",
+      "revId": "8d69d1418c113387b93b41d166fba688d66c5db6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
