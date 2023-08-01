@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91a44c78_715e9595",
+        "filename": "test/unittests/front_end/panels/protocol_monitor/components/JSONEditor_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-01T11:08:39Z",
+      "side": 1,
+      "message": "nits:\n```suggestion\n      {\n        name: \u0027testName\u0027,\n        type: ProtocolComponents.JSONEditor.ParameterType.String,\n        description: \u0027test\u0027,\n        optional: false,\n        value: \u0027testValue\u0027,\n      },\n```\nso in the assert you know which value refers to which field",
+      "range": {
+        "startLine": 764,
+        "startChar": 6,
+        "endLine": 770,
+        "endChar": 8
+      },
+      "revId": "c87961b837a4470f8785868a225e8922f671a518",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
