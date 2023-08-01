@@ -36,6 +36,7 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import * as CPUProfile from '../../models/cpu_profile/cpu_profile.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
@@ -50,6 +51,7 @@ import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
 import {TimelineSelection} from './TimelineSelection.js';
 
 import {TimelineUIUtils, type TimelineCategory} from './TimelineUIUtils.js';
+import {CPUChartEntry, CPUTrackAppender} from './CPUTrackAppender.js';
 
 const UIStrings = {
   /**
@@ -131,7 +133,7 @@ const LONG_MAIN_THREAD_TASK_THRESHOLD = TraceEngine.Types.Timing.MilliSeconds(50
 // TraceEventData type.
 export type TimelineFlameChartEntry =
     (TraceEngine.Legacy.Event|TimelineModel.TimelineFrameModel.TimelineFrame|
-     TraceEngine.Types.TraceEvents.TraceEventData);
+     TraceEngine.Types.TraceEvents.TraceEventData|CPUChartEntry);
 export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
     PerfUI.FlameChart.FlameChartDataProvider {
   private droppedFramePatternCanvas: HTMLCanvasElement;
@@ -147,6 +149,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   private compatibilityTracksAppender: CompatibilityTracksAppender|null;
   private legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl|null;
   private traceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null;
+  #cpuDataModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel|null = null;
+  #cpuTrackAppender: CPUTrackAppender|null = null;
   /**
    * Raster threads are tracked and enumerated with this property. This is also
    * used to group all raster threads together in the same track, instead of
@@ -231,6 +235,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return Object.assign(defaultGroupStyle, extra);
   }
 
+  setCpuData(jsProfileModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel){
+    this.reset();
+    this.#cpuDataModel = jsProfileModel;
+    this.minimumBoundaryInternal = jsProfileModel.profileStartTime??0;
+    this.timeSpan = jsProfileModel.profileHead.total||0;
+  }
+
   setModel(
       performanceModel: PerformanceModel|null,
       newTraceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null): void {
@@ -295,8 +306,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   /**
    * Builds the flame chart data using the track appenders
+   * Is this only for test?
    */
-  buildFromTrackAppenders(expandedTracks?: Set<TrackAppenderName>): void {
+  buildFromTrackAppendersForTest(expandedTracks?: Set<TrackAppenderName>): void {
     if (!this.compatibilityTracksAppender) {
       return;
     }
@@ -312,6 +324,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   }
 
   groupTreeEvents(group: PerfUI.FlameChart.Group): TraceEngine.Legacy.CompatibleTraceEvent[]|null {
+    if(this.#cpuTrackAppender){
+      debugger
+      return this.#cpuTrackAppender.eventsForTreeView();
+    }
     const eventsFromAppenderSystem = this.compatibilityTracksAppender?.groupEventsForTreeView(group);
     return eventsFromAppenderSystem || group.track?.eventsForTreeView() || null;
   }
@@ -325,6 +341,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   }
 
   entryTitle(entryIndex: number): string|null {
+    if(this.#cpuTrackAppender){
+      const entry = this.entryData[entryIndex]
+      if(entry instanceof CPUChartEntry){
+        return this.#cpuTrackAppender?.titleForEvent(entry)
+      }
+      return null
+    }
     const entryTypes = EntryType;
     const entryType = this.entryType(entryIndex);
     if (entryType === entryTypes.Event) {
@@ -377,6 +400,14 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.compatibilityTracksAppender = null;
     this.#eventToDisallowRoot = new WeakMap<TraceEngine.Legacy.Event, boolean>();
     this.#indexForEvent = new WeakMap<TraceEngine.Legacy.Event, number>();
+    
+    this.#cpuDataModel = null;
+    this.#cpuTrackAppender = null;
+    this.legacyPerformanceModel = null;
+    this.legacyTimelineModel = null;
+    this.traceEngineData = null;
+    this.minimumBoundaryInternal = 0;
+    this.timeSpan = 0;
   }
 
   maxStackDepth(): number {
@@ -396,15 +427,22 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
 
     this.timelineDataInternal = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
-    if (!this.legacyTimelineModel) {
-      return this.timelineDataInternal;
-    }
 
     this.flowEventIndexById.clear();
     this.currentLevel = 0;
 
-    if (this.traceEngineData) {
+    if (this.#cpuDataModel) {
+      this.#cpuTrackAppender = new CPUTrackAppender(this.timelineDataInternal, this.#cpuDataModel, this.entryData)
+      this.currentLevel = this.#cpuTrackAppender.appendTrackAtLevel(this.currentLevel)
+      return this.timelineDataInternal;
+    }
+
+    if(this.traceEngineData) {
       this.compatibilityTracksAppender = this.compatibilityTracksAppenderInstance();
+    }
+
+    if (!this.legacyTimelineModel) {
+      return this.timelineDataInternal;
     }
     if (this.legacyTimelineModel.isGenericTrace()) {
       this.processGenericTrace();
@@ -463,6 +501,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
             return 3;
           case 'GPU':
             return 8;
+          // case 'CPU':
+          //   return 10;
           default:
             return -1;
         }
@@ -602,11 +642,26 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return 'name' in entry;
   }
 
-  search(startTime: number, endTime: number, filter: TimelineModel.TimelineModelFilter.TimelineModelFilter): number[] {
+  search(startTime: number, endTime: number, filter: TimelineModel.TimelineModelFilter.TimelineModelFilter, matcher?: RegExp): number[] {
     const result = [];
     this.timelineData();
     for (let i = 0; i < this.entryData.length; ++i) {
       const entry = this.entryData[i];
+      if(entry instanceof CPUChartEntry){
+        if (entry.startTime > endTime) {
+          continue;
+        }
+        if ((entry.startTime+entry.duration) < startTime) {
+          continue;
+        }
+        if(!matcher) {
+          continue;
+        }
+        if (this.entryTitle(i)?.match(matcher)) {
+          result.push(i);
+        }
+        continue;
+      }
       if (!this.isEntryRegularEvent(entry)) {
         continue;
       }
@@ -682,9 +737,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       const {duration: eventDuration} = TraceEngine.Legacy.timesForEventInMilliseconds(event);
       // TODO(crbug.com/1386091) this check should happen at the model level.
       // Skip Layout Shifts and TTI events when dealing with the main thread.
-      if (this.legacyPerformanceModel) {
-        const isInteractiveTime = this.legacyPerformanceModel.timelineModel().isInteractiveTimeEvent(event);
-        const isLayoutShift = this.legacyPerformanceModel.timelineModel().isLayoutShiftEvent(event);
+      const timelineModel = this.legacyPerformanceModel.timelineModel()
+      if (timelineModel) {
+        const isInteractiveTime = timelineModel.isInteractiveTimeEvent(event);
+        const isLayoutShift = timelineModel.isLayoutShiftEvent(event);
         const skippableEvent = isInteractiveTime || isLayoutShift;
 
         if (track && track.type === TimelineModel.TimelineModel.TrackType.MainThread && skippableEvent) {
@@ -759,7 +815,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (!TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
       return false;
     }
-    const url = event.args['data']['url'] as Platform.DevToolsPath.UrlString;
+    const url = event.args?.['data']['url'] as Platform.DevToolsPath.UrlString;
     return url && this.isIgnoreListedURL(url);
   }
 
@@ -946,6 +1002,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   }
 
   entryColor(entryIndex: number): string {
+    if(this.#cpuTrackAppender){
+      const entry = this.entryData[entryIndex]
+      if(entry instanceof CPUChartEntry){
+        return this.#cpuTrackAppender?.colorForEvent(entry)
+      }
+    }
     function patchColorAndCache<KEY>(cache: Map<KEY, string>, key: KEY, lookupColor: (arg0: KEY) => string): string {
       let color = cache.get(key);
       if (color) {
@@ -971,7 +1033,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (this.legacyTimelineModel.isGenericTrace()) {
         return this.genericTraceEventColor(event);
       }
-      if (this.legacyPerformanceModel.timelineModel().isMarkerEvent(event)) {
+      const timelineModel = this.legacyPerformanceModel.timelineModel()
+      if (timelineModel && timelineModel.isMarkerEvent(event)) {
         return TimelineUIUtils.markerStyleForEvent(event).color;
       }
       if (!TraceEngine.Types.TraceEvents.isAsyncPhase(event.phase) && this.colorForEvent) {
@@ -1200,7 +1263,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const entryType = this.entryType(entryIndex);
     let timelineSelection: TimelineSelection|null = null;
     const entry = this.entryData[entryIndex];
-    if (entry && this.isEntryRegularEvent(entry)) {
+    if(entry instanceof CPUChartEntry){
+      timelineSelection = TimelineSelection.fromCpuNode(entry)
+    }else if (entry && this.isEntryRegularEvent(entry)) {
       timelineSelection = TimelineSelection.fromTraceEvent(entry);
     } else if (entryType === EntryType.Frame) {
       timelineSelection =

@@ -50,7 +50,7 @@ export class Node {
     throw 'Not implemented';
   }
 
-  searchTree(matchFunction: (arg0: TraceEngine.Legacy.CompatibleTraceEvent) => boolean, results?: Node[]): Node[] {
+  searchTree(matchFunction: (arg0: TraceEngine.Legacy.CompatibleTraceEvent|CPUProfile.ProfileTreeModel.ProfileNode) => boolean, results?: Node[]): Node[] {
     results = results || [];
     if (this.event && matchFunction(this.event)) {
       results.push(this);

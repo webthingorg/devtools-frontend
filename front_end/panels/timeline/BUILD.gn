@@ -27,6 +27,7 @@ devtools_module("timeline") {
     "CompatibilityTracksAppender.ts",
     "CountersGraph.ts",
     "EventsTimelineTreeView.ts",
+    "CPUTrackAppender.ts",
     "GPUTrackAppender.ts",
     "InteractionsTrackAppender.ts",
     "LayoutShiftsTrackAppender.ts",

@@ -189,7 +189,7 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
 
   static eventNameForSorting(event: TraceEngine.Legacy.Event): string {
     if (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
-      const data = event.args['data'];
+      const data = event.args?.['data'];
       return data['functionName'] + '@' + (data['scriptId'] || data['url'] || '');
     }
     return event.name + ':@' + TimelineModel.TimelineProfileTree.eventURL(event);
@@ -612,7 +612,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
         iconContainer.insertBefore(info.icon, icon);
       }
     } else if (event) {
-      const data = event.args['data'];
+      const data = event.args?.['data'];
       const deoptReason = data && data['deoptReason'];
       if (deoptReason) {
         container.createChild('div', 'activity-warning').title =
@@ -620,10 +620,10 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       }
 
       name.textContent = TimelineUIUtils.eventTitle(event);
-      const target = this.treeView.modelInternal?.timelineModel().targetByEvent(event) || null;
+      // const target = this.treeView.modelInternal?.timelineModel().targetByEvent(event) || null;
       const linkifier = this.treeView.linkifier;
-      const isFreshRecording = Boolean(this.treeView.modelInternal?.timelineModel().isFreshRecording());
-      this.linkElement = TimelineUIUtils.linkifyTopCallFrame(event, target, linkifier, isFreshRecording);
+      const isFreshRecording = Boolean(this.treeView.modelInternal?.timelineModel()?.isFreshRecording() ?? false);
+      this.linkElement = TimelineUIUtils.linkifyTopCallFrame(event, null, linkifier, isFreshRecording);
       if (this.linkElement) {
         container.createChild('div', 'activity-link').appendChild(this.linkElement);
       }
@@ -653,7 +653,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
         }
         const timings = event && TraceEngine.Legacy.timesForEventInMilliseconds(event);
         const startTime = timings?.startTime ?? 0;
-        value = startTime - model.timelineModel().minimumRecordTime();
+        value = startTime - model.minimumRecordTime();
       } break;
       case 'self':
         value = this.profileNode.selfTime;
@@ -827,7 +827,7 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
         if (!this.modelInternal) {
           throw new Error('Unable to find model for group by frame operation');
         }
-        const frame = id ? this.modelInternal.timelineModel().pageFrameById(id as Protocol.Page.FrameId) : undefined;
+        const frame = id ? this.modelInternal.timelineModel()?.pageFrameById(id as Protocol.Page.FrameId) : undefined;
         const frameName = frame ? TimelineUIUtils.displayNameForFrame(frame, 80) : i18nString(UIStrings.page);
         return {name: frameName, color: color, icon: undefined};
       }
@@ -959,7 +959,8 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
     if (!this.modelInternal) {
       return;
     }
-    const frame = this.modelInternal.timelineModel().pageFrameById((node.id as Protocol.Page.FrameId));
+    const timelineModel = this.modelInternal.timelineModel()
+    const frame = timelineModel?.pageFrameById((node.id as Protocol.Page.FrameId)) ?? null;
     if (!frame || !frame.ownerNode) {
       return;
     }
