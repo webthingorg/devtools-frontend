@@ -216,8 +216,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       return;
     }
     const window = this.model.window();
-    this.updateSelectedRangeStats(window.left, window.right);
-    this.updateContents();
+    // Update the flamechart, then update stats
+    setTimeout(() => {
+      this.updateSelectedRangeStats(window.left, window.right);
+      this.updateContents();
+    });
   }
 
   #getFilmStripFrame(frame: TimelineModel.TimelineFrameModel.TimelineFrame): TraceEngine.Extras.FilmStrip.Frame|null {
