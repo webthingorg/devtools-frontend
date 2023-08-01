@@ -33,6 +33,24 @@
       "message": "friendly ping",
       "revId": "bc091740b6fa2f67d70b1e0f041ccc65c9d6ebb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3a296d_05b7f485",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-01T09:03:05Z",
+      "side": 1,
+      "message": "Sorry for the delay, and thank you so much for contributing this! Looks like we hit a race condition fixing the bug :) (took me a bit longer to upload because I was still crafting the test).\n\nMy solution also includes some refactoring which will make fixing the second bug you file a lot easier! Please let me know what you think of my solution!",
+      "parentUuid": "f055c33d_59aefb5b",
+      "revId": "bc091740b6fa2f67d70b1e0f041ccc65c9d6ebb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
