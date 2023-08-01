@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "c767a1893da4671ccdd0fa476b7e4f8c2a1f110a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc140574_3693d07b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-08-01T16:53:28Z",
+      "side": 1,
+      "message": "Very nice, thank you!",
+      "revId": "c767a1893da4671ccdd0fa476b7e4f8c2a1f110a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46941750_a8e4d22a",
+        "filename": "test/unittests/front_end/panels/sources/DebuggerPlugin_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-08-01T16:53:28Z",
+      "side": 1,
+      "message": "Could you also test method invocation?",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 0
+      },
+      "revId": "c767a1893da4671ccdd0fa476b7e4f8c2a1f110a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
