@@ -43,6 +43,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cca74ede_44908d6e",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-01T13:28:31Z",
+      "side": 1,
+      "message": "options",
+      "range": {
+        "startLine": 279,
+        "startChar": 34,
+        "endLine": 279,
+        "endChar": 41
+      },
+      "revId": "043de133ac2d3efe7b84c8577e640be5195a84ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d914234_f4fc1632",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-01T13:28:31Z",
+      "side": 1,
+      "message": "very optional nit: I find it cleaner to redefine the argument then have `Arg` in the name.",
+      "range": {
+        "startLine": 285,
+        "startChar": 8,
+        "endLine": 285,
+        "endChar": 15
+      },
+      "revId": "043de133ac2d3efe7b84c8577e640be5195a84ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b18df85_ad9e6122",
         "filename": "test/unittests/front_end/panels/search/SearchResultsPane_test.ts",
         "patchSetId": 1
