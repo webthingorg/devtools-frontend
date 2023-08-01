@@ -330,7 +330,8 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
     if (this.prettyInternal) {
       const content =
           this.rawContent instanceof CodeMirror.Text ? this.rawContent.sliceString(0) : this.rawContent || '';
-      const formatInfo = await Formatter.ScriptFormatter.formatScriptContent(this.contentType, content);
+      const simpleContentType = Common.ResourceType.ResourceType.simplifyContentType(this.contentType);
+      const formatInfo = await Formatter.ScriptFormatter.formatScriptContent(simpleContentType, content);
       this.formattedMap = formatInfo.formattedMapping;
       await this.setContent(formatInfo.formattedContent);
       this.prettyBaseDoc = textEditor.state.doc;
@@ -669,7 +670,7 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   protected async getLanguageSupport(content: string|CodeMirror.Text): Promise<CodeMirror.Extension> {
     // This is a pretty horrible work-around for webpack-based Vue2 setups. See
     // https://crbug.com/1416562 for the full story behind this.
-    let {contentType} = this;
+    let contentType = Common.ResourceType.ResourceType.simplifyContentType(this.contentType);
     if (contentType === 'text/x.vue') {
       content = typeof content === 'string' ? content : content.sliceString(0);
       if (!content.trimStart().startsWith('<')) {
