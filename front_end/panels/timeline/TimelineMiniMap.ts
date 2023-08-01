@@ -14,6 +14,7 @@ import {
   type TimelineEventOverview,
   TimelineFilmStripOverview,
   TimelineEventOverviewMemory,
+  CpuProfileOverview,
 } from './TimelineEventOverview.js';
 
 import {type PerformanceModel} from './PerformanceModel.js';
@@ -76,11 +77,13 @@ export class TimelineMiniMap extends
 
   updateControls(data: OverviewData): void {
     this.#controls = [];
+    if (data.performanceModel?.jsProfileModel()){ // add error handler
+      this.#controls.push(new CpuProfileOverview(data.performanceModel.jsProfileModel()))
+    }
+
     if (data.traceParsedData) {
       this.#controls.push(new TimelineEventOverviewResponsiveness(data.traceParsedData));
-    }
-    this.#controls.push(new TimelineEventOverviewCPUActivity());
-    if (data.traceParsedData) {
+      this.#controls.push(new TimelineEventOverviewCPUActivity());
       this.#controls.push(new TimelineEventOverviewNetwork(data.traceParsedData));
     }
     if (data.settings.showScreenshots && data.traceParsedData) {

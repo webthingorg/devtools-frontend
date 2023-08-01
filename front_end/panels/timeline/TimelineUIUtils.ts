@@ -53,6 +53,7 @@ import {CLSRect} from './CLSLinkifier.js';
 import {TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {titleForInteractionEvent} from './InteractionsTrackAppender.js';
+import { CPUChartEntry } from './CPUTrackAppender.js';
 
 const UIStrings = {
   /**
@@ -1385,7 +1386,7 @@ export class TimelineUIUtils {
   }
 
   static eventURL(event: TraceEngine.Legacy.Event): Platform.DevToolsPath.UrlString|null {
-    const data = event.args['data'] || event.args['beginData'];
+    const data = event.args?.['data'] || event.args?.['beginData'];
     const url = data && data.url;
     if (url) {
       return url;
@@ -1414,7 +1415,7 @@ export class TimelineUIUtils {
 
   static eventColor(event: TraceEngine.Legacy.Event): string {
     if (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
-      const frame = event.args['data'];
+      const frame = event.args?.['data'];
       if (TimelineUIUtils.isUserFrame(frame)) {
         return TimelineUIUtils.colorForId(frame.url);
       }
@@ -1436,7 +1437,7 @@ export class TimelineUIUtils {
 
   static eventTitle(event: TraceEngine.Legacy.CompatibleTraceEvent): string {
     const recordType = TimelineModel.TimelineModel.RecordType;
-    const eventData = event.args['data'];
+    const eventData = event.args?.['data'];
     if (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
       return TimelineUIUtils.frameDisplayName(eventData);
     }
@@ -1521,7 +1522,7 @@ export class TimelineUIUtils {
                                              TraceEngine.Types.TraceEvents.TraceEventData): Promise<string|null> {
     const recordType = TimelineModel.TimelineModel.RecordType;
     let detailsText;
-    const eventData = event.args['data'];
+    const eventData = event.args?.['data'];
     switch (event.name) {
       case recordType.GCEvent:
       case recordType.MajorGC:
@@ -1660,7 +1661,7 @@ export class TimelineUIUtils {
     const recordType = TimelineModel.TimelineModel.RecordType;
     let details: HTMLElement|HTMLSpanElement|(Element | null)|Text|null = null;
     let detailsText;
-    const eventData = event.args['data'];
+    const eventData = event.args?.['data'];
     switch (event.name) {
       case recordType.GCEvent:
       case recordType.MajorGC:
@@ -1944,7 +1945,7 @@ export class TimelineUIUtils {
                                                TimelineUIUtils.eventStyle(event).category.color;
     contentHelper.addSection(TimelineUIUtils.eventTitle(event), color);
 
-    const eventData = event.args['data'];
+    const eventData = event.args?.['data'];
     const timelineData = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event);
     const initiator = timelineData.initiator();
     let url: Platform.DevToolsPath.UrlString|null = null;
@@ -3034,6 +3035,17 @@ export class TimelineUIUtils {
     return element;
   }
 
+  static buildDetailsContentForCpuNode(
+      node: CPUChartEntry): DocumentFragment {
+    const contentHelper = new TimelineDetailsContentHelper(null, null);
+    contentHelper.addSection(i18nString(UIStrings.frame));
+
+    const duration = i18n.TimeUtilities.millisToString(node.duration);
+    contentHelper.appendElementRow(i18nString(UIStrings.duration), duration);
+
+    return contentHelper.fragment;
+  }
+
   static generateDetailsContentForFrame(
       frame: TimelineModel.TimelineFrameModel.TimelineFrame, filmStrip: TraceEngine.Extras.FilmStrip.Data|null,
       filmStripFrame: TraceEngine.Extras.FilmStrip.Frame|null): DocumentFragment {
@@ -3209,7 +3221,7 @@ export class TimelineUIUtils {
     }
     const warnings = TimelineModel.TimelineModel.TimelineModelImpl.WarningType;
     const span = document.createElement('span');
-    const eventData = event.args['data'];
+    const eventData = event.args?.['data'];
 
     switch (warning) {
       case warnings.ForcedStyle:

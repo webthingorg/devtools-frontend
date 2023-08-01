@@ -45,6 +45,8 @@ import * as PanelFeedback from '../../ui/components/panel_feedback/panel_feedbac
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
+import * as CPUProfile from '../../models/cpu_profile/cpu_profile.js';
+import * as Profiler from '../profiler/profiler.js';
 
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
 import timelinePanelStyles from './timelinePanel.css.js';
@@ -466,16 +468,68 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.loader = TimelineLoader.loadFromEvents(events, this);
   }
 
-  private loadFromCpuProfile(profile: Protocol.Profiler.Profile|null, title?: string): void {
-    if (this.state !== State.Idle) {
+  loadFromCpuProfile(profile: Protocol.Profiler.Profile|null, cpuProfilerModel: SDK.CPUProfilerModel.CPUProfilerModel|null,title?: string): void {
+    if (this.state !== State.StopPending && this.state !== State.Loading) {
       return;
     }
-    this.prepareToLoadTimeline();
-    this.loader = TimelineLoader.loadFromCpuProfile(profile, this, title);
+    this.setState(State.Idle);
+    if (!profile) {
+      this.clear();
+      return;
+    }
+      this.performanceModel = new PerformanceModel();
+    const jsProfileModel = new CPUProfile.CPUProfileDataModel.CPUProfileDataModel(profile);
+    this.performanceModel.setJsProfileModel(jsProfileModel)
+    this.searchableViewInternal.showWidget();
+    this.#traceEngineActiveTraceIndex = -1;
+    this.flameChart.setCpuData(jsProfileModel,this.performanceModel)
+
+    this.#minimapComponent.updateControls({
+      performanceModel: this.performanceModel,
+      traceParsedData:null,
+      settings: {
+        showScreenshots: this.showScreenshotsSetting.get(),
+        showMemory: this.showMemorySetting.get(),
+      },
+    });
+
+    
+
+    this.#minimapComponent.reset();
+
+      this.performanceModel.addEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
+    this.#minimapComponent.setNavStartTimes(new Map());
+    this.#minimapComponent.setBounds(jsProfileModel.profileStartTime, jsProfileModel.profileStartTime+jsProfileModel.profileHead.total);
+    PerfUI.LineLevelProfile.Performance.instance().reset();
+    this.flameChart.setSelection(null);
+    this.#minimapComponent.setWindowTimes(this.performanceModel.window().left, this.performanceModel.window().right);
+    this.updateOverviewControls();
+    if (this.flameChart) {
+      this.flameChart.resizeToPreferredHeights();
+    }
+    this.updateTimelineControls();
+
+
+
+
+
+    if (this.statusPane) {
+      this.statusPane.remove();
+    }
+    this.statusPane = null;
+
+    // this.#historyManager.addRecording({
+    //   data: {
+    //     legacyModel: this.performanceModel,
+    //     traceParseDataIndex: this.#traceEngineActiveTraceIndex,
+    //   },
+    //   jsProfileModel,
+    // });
   }
 
   private onOverviewWindowChanged(
       event: Common.EventTarget.EventTargetEvent<PerfUI.TimelineOverviewPane.WindowChangedEvent>): void {
+        debugger
     if (!this.performanceModel) {
       return;
     }
@@ -959,8 +1013,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
     if (this.cpuProfiler) {
       const profile = await this.cpuProfiler.stopRecording();
-      this.setState(State.Idle);
-      this.loadFromCpuProfile(profile);
+      this.loadFromCpuProfile(profile, this.cpuProfiler);
 
       this.setUIControlsEnabled(true);
       this.cpuProfiler = null;
@@ -1001,7 +1054,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   private consoleProfileFinished(data: SDK.CPUProfilerModel.ProfileFinishedData): void {
-    this.loadFromCpuProfile(data.cpuProfile, data.title);
+    this.loadFromCpuProfile(data.cpuProfile, this.cpuProfiler,data.title);
     void UI.InspectorView.InspectorView.instance().showPanel('timeline');
   }
 

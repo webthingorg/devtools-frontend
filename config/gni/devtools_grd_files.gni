@@ -1551,6 +1551,7 @@ grd_files_debug_sources = [
   "front_end/panels/timeline/CountersGraph.js",
   "front_end/panels/timeline/EventsTimelineTreeView.js",
   "front_end/panels/timeline/GPUTrackAppender.js",
+  "front_end/panels/timeline/CPUTrackAppender.js",
   "front_end/panels/timeline/InteractionsTrackAppender.js",
   "front_end/panels/timeline/LayoutShiftsTrackAppender.js",
   "front_end/panels/timeline/NetworkTrackAppender.js",

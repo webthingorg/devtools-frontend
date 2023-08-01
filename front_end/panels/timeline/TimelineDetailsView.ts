@@ -116,8 +116,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       if (this.model) {
         this.model.removeEventListener(Events.WindowChanged, this.onWindowChanged, this);
       }
-      this.model = (model as PerformanceModel);
-      if (this.model) {
+      if (model) {
+        this.model = model;
         this.model.addEventListener(Events.WindowChanged, this.onWindowChanged, this);
       }
     }
@@ -210,7 +210,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       return;
     }
     const selectionObject = this.selection.object;
-    if (TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selectionObject)) {
+    if (TimelineSelection.isCpuNode(selectionObject)){
+      const node = selectionObject;
+      const nodeDetails = await TimelineUIUtils.buildDetailsContentForCpuNode(node);
+      this.setContent(nodeDetails);
+    } else if(TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selectionObject)) {
       const event = selectionObject;
       const networkDetails = await TimelineUIUtils.buildSyntheticNetworkRequestDetails(
           event, this.model.timelineModel(), this.detailsLinkifier);
@@ -308,8 +312,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       return;
     }
     const aggregatedStats = TimelineUIUtils.statsForTimeRange(this.#selectedEvents, startTime, endTime);
-    const startOffset = startTime - this.model.timelineModel().minimumRecordTime();
-    const endOffset = endTime - this.model.timelineModel().minimumRecordTime();
+    const startOffset = startTime - this.model.minimumRecordTime();
+    const endOffset = endTime - this.model.minimumRecordTime();
 
     const contentHelper = new TimelineDetailsContentHelper(null, null);
     contentHelper.addSection(i18nString(
