@@ -112,7 +112,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   async setModel(
       model: PerformanceModel|null, traceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null,
       selectedEvents: TraceEngine.Legacy.CompatibleTraceEvent[]|null): Promise<void> {
-    if (this.model !== model) {
+    const isUpdatedModel = this.model !== model;
+    if (isUpdatedModel) {
       if (this.model) {
         this.model.removeEventListener(Events.WindowChanged, this.onWindowChanged, this);
       }
@@ -127,12 +128,17 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
     this.#selectedEvents = selectedEvents;
     this.tabbedPane.closeTabs([Tab.PaintProfiler, Tab.LayerViewer], false);
-    for (const view of this.rangeDetailViews.values()) {
-      view.setModelWithEvents(model, selectedEvents, traceEngineData);
-    }
+
     this.lazyPaintProfilerView = null;
     this.lazyLayersView = null;
-    await this.setSelection(null);
+
+    // Set model and initialize topdown/bottomup/eventlog
+    if (isUpdatedModel) {
+      for (const view of this.rangeDetailViews.values()) {
+        view.setModelWithEvents(model, selectedEvents, traceEngineData);
+      }
+      await this.setSelection(null);  // Focus details on overall trace.
+    }
   }
 
   private setContent(node: Node): void {
