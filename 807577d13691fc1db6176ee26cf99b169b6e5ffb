@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9071af8e_97109ef4",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-01T13:56:25Z",
+      "side": 1,
+      "message": "Oh, this is because you have whitespace around \u003cspans\u003e which introduces an extra text nodes between the spans. Just remove the whitespace in the beginning and the end of the string literal.",
+      "parentUuid": "2c31357f_a6cdd4b4",
+      "range": {
+        "startLine": 174,
+        "startChar": 32,
+        "endLine": 174,
+        "endChar": 50
+      },
+      "revId": "807577d13691fc1db6176ee26cf99b169b6e5ffb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "38645c0f_ae7af10e",
         "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
         "patchSetId": 2

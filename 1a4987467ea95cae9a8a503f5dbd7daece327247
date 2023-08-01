@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "263e082a_b2a39786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-01T13:56:25Z",
+      "side": 1,
+      "message": "LGTM but please wait for Peter for proper colors. We are using Google Material color pallet and cannot simply use random colors from elsewher.",
+      "revId": "1a4987467ea95cae9a8a503f5dbd7daece327247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
