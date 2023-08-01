@@ -2,8 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Platform from '../../../../../front_end/core/platform/platform.js';
+import * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import * as Extensions from '../../../../../front_end/models/extensions/extensions.js';
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 
@@ -276,6 +277,59 @@ describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => 
       // eslint-disable-next-line rulesdir/compare_arrays_with_assert_deepequal
       assert.hasAnyKeys(result, ['entries']);
     }
+  });
+
+  it('blocks evaluation on blocked subframes', async () => {
+    assert.isUndefined(context.chrome.devtools);
+    const mimeType = 'text/html';
+    const secureContextType = Protocol.Page.SecureContextType.Secure;
+    const crossOriginIsolatedContextType = Protocol.Page.CrossOriginIsolatedContextType.Isolated;
+    const loaderId = 'loader' as Protocol.Network.LoaderId;
+    const parentFrameId = 'parent-frame-id' as Protocol.Page.FrameId;
+    const childFrameId = 'child-frame-id' as Protocol.Page.FrameId;
+    const parentTarget = createTarget({id: 'parent-target-id' as Protocol.Target.TargetID});
+    const childTarget = createTarget({id: 'child-target-id' as Protocol.Target.TargetID, parentTarget});
+    const parentModel = parentTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+    Platform.assertNotNullOrUndefined(parentModel);
+    const childModel = childTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
+    Platform.assertNotNullOrUndefined(childModel);
+    const parentFrameUrl = 'http://example.com' as Platform.DevToolsPath.UrlString;
+    const childFrameUrl = 'http://web.dev' as Platform.DevToolsPath.UrlString;
+
+    parentModel.frameNavigated(
+        {
+          id: parentFrameId,
+          loaderId,
+          url: parentFrameUrl,
+          domainAndRegistry: new URL(parentFrameUrl).hostname,
+          securityOrigin: parentFrameUrl,
+          mimeType,
+          secureContextType,
+          crossOriginIsolatedContextType,
+          gatedAPIFeatures: [],
+        },
+        Protocol.Page.NavigationType.Navigation);
+
+    childModel.frameNavigated(
+        {
+          id: childFrameId,
+          parentId: parentFrameId,
+          loaderId,
+          url: childFrameUrl,
+          domainAndRegistry: new URL(childFrameUrl).hostname,
+          securityOrigin: childFrameUrl,
+          mimeType,
+          secureContextType,
+          crossOriginIsolatedContextType,
+          gatedAPIFeatures: [],
+        },
+        Protocol.Page.NavigationType.Navigation);
+
+    const result = await new Promise<{result: unknown, error?: {details: unknown[]}}>(
+        r => context.chrome.devtools?.inspectedWindow.eval(
+            '4', {frameURL: childFrameUrl}, (result, error) => r({result, error})));
+
+    assert.deepStrictEqual(result.error?.details, ['Permission denied']);
   });
 });
 
