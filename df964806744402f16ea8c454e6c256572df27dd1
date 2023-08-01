@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daba462c_8f189739",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-01T12:20:02Z",
+      "side": 1,
+      "message": "nits: you also added some top padding, so this description is not accurate",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "df964806744402f16ea8c454e6c256572df27dd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
