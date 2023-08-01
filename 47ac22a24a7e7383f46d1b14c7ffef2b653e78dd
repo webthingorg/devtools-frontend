@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0a30a0e_2ef3de79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-01T11:11:26Z",
+      "side": 1,
+      "message": "Could you have a look?",
+      "revId": "47ac22a24a7e7383f46d1b14c7ffef2b653e78dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2d9f2aa_500453cf",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-01T11:11:26Z",
+      "side": 1,
+      "message": "There are lots of CLs in review that depends on this file and moving this file is troublesome. I\u0027ll postpone this refactoring.",
+      "revId": "47ac22a24a7e7383f46d1b14c7ffef2b653e78dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
