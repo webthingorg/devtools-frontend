@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e717afa_74a830c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-01T13:06:27Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "043de133ac2d3efe7b84c8577e640be5195a84ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00166146_5d4a88b6",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-01T13:06:27Z",
+      "side": 1,
+      "message": "See line 229 and 231. I bumped the prefixLength from 15 to 25 though.\n\nThe code on 228 is weird though and would trim at most 15 characters. So if the first match of the line starts at 10.000 we would never see it.",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 18
+      },
+      "revId": "043de133ac2d3efe7b84c8577e640be5195a84ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b18df85_ad9e6122",
+        "filename": "test/unittests/front_end/panels/search/SearchResultsPane_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-01T13:06:27Z",
+      "side": 1,
+      "message": "I find this way of encoding the range very readable, but let me know if you prefer indices or some other approach.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 49
+      },
+      "revId": "043de133ac2d3efe7b84c8577e640be5195a84ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
