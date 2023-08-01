@@ -87,6 +87,30 @@
       },
       "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e0aa391_69028c09",
+        "filename": "front_end/ui/components/docs/icon_dialog/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-01T20:19:03Z",
+      "side": 1,
+      "message": "Thanks a lot! Fixed.",
+      "parentUuid": "0e3c61c2_6fa68b33",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
