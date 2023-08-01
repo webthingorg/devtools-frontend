@@ -93,8 +93,7 @@ export class HostsPolicy {
   private constructor(readonly runtimeAllowedHosts: HostUrlPattern[], readonly runtimeBlockedHosts: HostUrlPattern[]) {
   }
 
-  isAllowedOnCurrentTarget(): boolean {
-    const inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL();
+  isAllowedOnURL(inspectedURL?: Platform.DevToolsPath.UrlString): boolean {
     if (!inspectedURL) {
       // If there aren't any blocked hosts retain the old behavior and don't worry about the inspectedURL
       return this.runtimeBlockedHosts.length === 0;
@@ -107,6 +106,39 @@ export class HostsPolicy {
   }
 }
 
+<<<<<<< HEAD   (e1ee7c Block extensions on chrome-untrusted:// targets)
+=======
+class RegisteredExtension {
+  constructor(readonly name: string, readonly hostsPolicy: HostsPolicy, readonly allowFileAccess: boolean) {
+  }
+
+  isAllowedOnTarget(inspectedURL?: Platform.DevToolsPath.UrlString): boolean {
+    if (!inspectedURL) {
+      inspectedURL = SDK.TargetManager.TargetManager.instance().primaryPageTarget()?.inspectedURL();
+    }
+
+    if (!this.hostsPolicy.isAllowedOnURL(inspectedURL)) {
+      return false;
+    }
+
+    if (!this.allowFileAccess) {
+      if (!inspectedURL) {
+        return false;
+      }
+      let parsedURL;
+      try {
+        parsedURL = new URL(inspectedURL);
+      } catch (exception) {
+        return false;
+      }
+      return parsedURL.protocol !== 'file:';
+    }
+
+    return true;
+  }
+}
+
+>>>>>>> CHANGE (27078e Check subframes against extension permissions)
 export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private readonly clientObjects: Map<string, unknown>;
   private readonly handlers:
@@ -118,10 +150,14 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   private requests: Map<number, TextUtils.ContentProvider.ContentProvider>;
   private readonly requestIds: Map<TextUtils.ContentProvider.ContentProvider, number>;
   private lastRequestId: number;
+<<<<<<< HEAD   (e1ee7c Block extensions on chrome-untrusted:// targets)
   private registeredExtensions: Map<string, {
     name: string,
     hostsPolicy: HostsPolicy,
   }>;
+=======
+  private registeredExtensions: Map<string, RegisteredExtension>;
+>>>>>>> CHANGE (27078e Check subframes against extension permissions)
   private status: ExtensionStatus;
   private readonly sidebarPanesInternal: ExtensionSidebarPane[];
   private extensionsEnabled: boolean;
@@ -1018,12 +1054,21 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return;
     }
     const hostsPolicy = HostsPolicy.create(extensionInfo.hostsPolicy);
+<<<<<<< HEAD   (e1ee7c Block extensions on chrome-untrusted:// targets)
     if (!hostsPolicy || !hostsPolicy.isAllowedOnCurrentTarget()) {
+=======
+    if (!hostsPolicy) {
+>>>>>>> CHANGE (27078e Check subframes against extension permissions)
       return;
     }
     try {
       const startPageURL = new URL((startPage as string));
       const extensionOrigin = startPageURL.origin;
+      const name = extensionInfo.name || `Extension ${extensionOrigin}`;
+      const extensionRegistration = new RegisteredExtension(name, hostsPolicy, Boolean(extensionInfo.allowFileAccess));
+      if (!extensionRegistration.isAllowedOnTarget(inspectedURL)) {
+        return;
+      }
       if (!this.registeredExtensions.get(extensionOrigin)) {
         // See ExtensionAPI.js for details.
         const injectedAPI = self.buildExtensionAPIInjectedScript(
@@ -1032,8 +1077,12 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
             ExtensionServer.instance().extensionAPITestHook);
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.setInjectedScriptForOrigin(
             extensionOrigin, injectedAPI);
+<<<<<<< HEAD   (e1ee7c Block extensions on chrome-untrusted:// targets)
         const name = extensionInfo.name || `Extension ${extensionOrigin}`;
         this.registeredExtensions.set(extensionOrigin, {name, hostsPolicy});
+=======
+        this.registeredExtensions.set(extensionOrigin, extensionRegistration);
+>>>>>>> CHANGE (27078e Check subframes against extension permissions)
       }
       this.addExtensionFrame(extensionInfo);
     } catch (e) {
@@ -1073,7 +1122,11 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (!extension) {
       return false;
     }
+<<<<<<< HEAD   (e1ee7c Block extensions on chrome-untrusted:// targets)
     return extension.hostsPolicy.isAllowedOnCurrentTarget();
+=======
+    return extension.isAllowedOnTarget();
+>>>>>>> CHANGE (27078e Check subframes against extension permissions)
   }
 
   private async onmessage(event: MessageEvent): Promise<void> {
@@ -1194,7 +1247,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
     // We shouldn't get here if the outermost frame can't be inspected by an extension, but
     // let's double check for subframes.
-    if (!this.canInspectURL(frame.url)) {
+    const extension = this.registeredExtensions.get(securityOrigin);
+    if (!this.canInspectURL(frame.url) || !extension?.isAllowedOnTarget(frame.url)) {
       return this.status.E_FAILED('Permission denied');
     }
 
@@ -1230,7 +1284,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
         return this.status.E_FAILED(frame.url + ' has no execution context');
       }
     }
-    if (!this.canInspectURL(context.origin)) {
+    if (!this.canInspectURL(context.origin) || !extension?.isAllowedOnTarget(context.origin)) {
       return this.status.E_FAILED('Permission denied');
     }
 
