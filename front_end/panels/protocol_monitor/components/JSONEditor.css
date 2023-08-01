@@ -24,8 +24,8 @@
   flex-wrap: wrap;
 }
 
-.json-input {
-  min-width: 100px;
+.deleteIcon {
+  margin-left: 5px;
 }
 
 .row,
@@ -58,11 +58,12 @@ ul {
 }
 
 .wrapper {
-  padding-left: 2em;
-  overflow: hidden;
+  padding-left: 1em;
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
   padding-bottom: 50px;
+  padding-top: 0.5em;
 }
 
 .deleteButton {
