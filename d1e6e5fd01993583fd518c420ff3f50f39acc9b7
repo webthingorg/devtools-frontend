@@ -39,6 +39,30 @@
       },
       "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4feb9f_3cfa3092",
+        "filename": "front_end/ui/components/docs/icon_dialog/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-01T13:58:12Z",
+      "side": 1,
+      "message": "This is based on the `front_end/ui/components/dialogs/ShortcutDialog.ts` right? Can we use the same styles?",
+      "parentUuid": "0a847e30_6ec8d623",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
