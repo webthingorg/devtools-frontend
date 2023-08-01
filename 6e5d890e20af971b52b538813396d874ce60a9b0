@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f02d708_29dc5575",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:52:47Z",
+      "side": 1,
+      "message": "The cumulative length of description is 157942.",
+      "parentUuid": "ddbcbb0e_4ae3c9da",
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7383bc60_72911157",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-10T04:18:02Z",
       "side": 1,
       "message": "why pass an object with a single `description` property?",
+      "range": {
+        "startLine": 171,
+        "startChar": 42,
+        "endLine": 171,
+        "endChar": 48
+      },
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be5bf7db_18fd12bc",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:52:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7383bc60_72911157",
       "range": {
         "startLine": 171,
         "startChar": 42,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fca3f00_7d4ea7d5",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:52:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9201ddfe_239a446a",
+      "range": {
+        "startLine": 290,
+        "startChar": 11,
+        "endLine": 290,
+        "endChar": 41
+      },
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4930feea_e3ac257a",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-07-10T04:18:02Z",
       "side": 1,
       "message": "This is far from ideal. It\u0027s ok to handle one optional parameter this way. But now we have to handle all permutations. Please find a different way to do this. As discussed in the past, possibilities include:\n\n  1) Explicitly pass `undefined` or `null` for non-present arguments.\n  2) Use a python dictionary and the JSON module to stringify",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 56
+      },
+      "revId": "6e5d890e20af971b52b538813396d874ce60a9b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2c7a3e_b8640590",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:52:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4930feea_e3ac257a",
       "range": {
         "startLine": 312,
         "startChar": 0,
