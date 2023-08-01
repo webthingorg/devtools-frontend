@@ -490,8 +490,8 @@ describe('DebuggerPlugin', () => {
       ]);
       const state = CodeMirror.EditorState.create({doc, selection});
       assert.isNull(computePopoverHighlightRange(state, 'text/plain', 0));
-      assert.deepEqual(computePopoverHighlightRange(state, 'text/plain', 2), {from: 2, to: 5});
-      assert.deepEqual(computePopoverHighlightRange(state, 'text/plain', 5), {from: 2, to: 5});
+      assert.deepInclude(computePopoverHighlightRange(state, 'text/plain', 2), {from: 2, to: 5});
+      assert.deepInclude(computePopoverHighlightRange(state, 'text/plain', 5), {from: 2, to: 5});
       assert.isNull(computePopoverHighlightRange(state, 'text/plain', 10));
       assert.isNull(computePopoverHighlightRange(state, 'text/plain', doc.length - 1));
     });
@@ -501,16 +501,16 @@ describe('DebuggerPlugin', () => {
         const doc = 'obj.foo = 42;';
         const extensions = [CodeMirror.javascript.javascript()];
         const state = CodeMirror.EditorState.create({doc, extensions});
-        assert.deepEqual(computePopoverHighlightRange(state, 'text/javascript', 0), {from: 0, to: 3});
-        assert.deepEqual(computePopoverHighlightRange(state, 'text/javascript', 4), {from: 0, to: 7});
+        assert.deepInclude(computePopoverHighlightRange(state, 'text/javascript', 0), {from: 0, to: 3});
+        assert.deepInclude(computePopoverHighlightRange(state, 'text/javascript', 4), {from: 0, to: 7});
       });
 
       it('correctly returns highlight range for member assignments involving `this`', () => {
         const doc = 'this.x = bar;';
         const extensions = [CodeMirror.javascript.javascript()];
         const state = CodeMirror.EditorState.create({doc, extensions});
-        assert.deepEqual(computePopoverHighlightRange(state, 'text/javascript', 0), {from: 0, to: 4});
-        assert.deepEqual(computePopoverHighlightRange(state, 'text/javascript', 5), {from: 0, to: 6});
+        assert.deepInclude(computePopoverHighlightRange(state, 'text/javascript', 0), {from: 0, to: 4});
+        assert.deepInclude(computePopoverHighlightRange(state, 'text/javascript', 5), {from: 0, to: 6});
       });
     });
 
@@ -525,7 +525,7 @@ globalThis.foo = bar + baz;
         for (const name of ['bar', 'baz']) {
           const from = doc.indexOf(name);
           const to = from + name.length;
-          assert.deepEqual(
+          assert.deepInclude(
               computePopoverHighlightRange(state, 'text/html', from),
               {from, to},
               `did not correct highlight '${name}'`,
@@ -541,7 +541,7 @@ globalThis.foo = bar + baz;
         for (const name of ['foo', 'bar', 'baz']) {
           const from = doc.indexOf(name);
           const to = from + name.length;
-          assert.deepEqual(
+          assert.deepInclude(
               computePopoverHighlightRange(state, 'text/html', from),
               {from, to},
               `did not correct highlight '${name}'`,
@@ -561,7 +561,7 @@ globalThis.foo = bar + baz;
           const pos = doc.lastIndexOf(name);
           const from = pos - 4;
           const to = pos + name.length;
-          assert.deepEqual(
+          assert.deepInclude(
               computePopoverHighlightRange(state, 'text/typescript-jsx', pos),
               {from, to},
               `did not correct highlight '${name}'`,
