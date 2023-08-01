@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0137e1a5_c3749741",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:53:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f2ea88e_b191a340",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b90432f2_a82a3069",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-07-21T11:59:49Z",
       "side": 1,
       "message": "let\u0027s move the placeholder computation out of the template code: nested ternary operators are difficult to read.",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c14ce83e_4570d55f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:53:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b90432f2_a82a3069",
       "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca3a0f7f_0b238808",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:53:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6196060_d6f16734",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04ad595f_c2dfd70c",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d754e299_99d9faa4",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:53:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04ad595f_c2dfd70c",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1033884_338f9511",
@@ -99,6 +171,24 @@
       "writtenOn": "2023-07-21T11:59:49Z",
       "side": 1,
       "message": "instead of passing this option down, set expression to the empty string if the filtering is not needed.",
+      "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b643108d_d76a71b8",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-01T09:53:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1033884_338f9511",
       "revId": "42da27d028ff05b19d965c50623241a5e8b0729a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
