@@ -63,6 +63,30 @@
       },
       "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e3c61c2_6fa68b33",
+        "filename": "front_end/ui/components/docs/icon_dialog/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-08-01T15:11:39Z",
+      "side": 1,
+      "message": "Hi, let\u0027s best use the same tooltip component we already use in the styles panel. I screenshotted it here: https://www.figma.com/file/ZXCm794j3JcavNYlegmyJM/Prefetch---Design-file?type\u003ddesign\u0026node-id\u003d106-283\u0026mode\u003ddesign\u0026t\u003dMJl4KPntFsgVPSoK-0\n\nThat tooltip doesn\u0027t have a close icons and uses 12 px margin all around (should already be developed). Does this make sense?",
+      "parentUuid": "0a847e30_6ec8d623",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "d1e6e5fd01993583fd518c420ff3f50f39acc9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
