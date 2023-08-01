@@ -16,6 +16,23 @@
       "message": "pfaffe@ added you as reviewer since you fixed the host policy for main frame part",
       "revId": "bc091740b6fa2f67d70b1e0f041ccc65c9d6ebb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f055c33d_59aefb5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566503
+      },
+      "writtenOn": "2023-08-01T08:54:07Z",
+      "side": 1,
+      "message": "friendly ping",
+      "revId": "bc091740b6fa2f67d70b1e0f041ccc65c9d6ebb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
