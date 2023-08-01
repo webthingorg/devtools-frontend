@@ -45,6 +45,8 @@ import * as PanelFeedback from '../../ui/components/panel_feedback/panel_feedbac
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
+import * as CPUProfile from '../../models/cpu_profile/cpu_profile.js';
+import * as Profiler from '../profiler/profiler.js';
 
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
 import timelinePanelStyles from './timelinePanel.css.js';
@@ -466,16 +468,96 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.loader = TimelineLoader.loadFromEvents(events, this);
   }
 
-  private loadFromCpuProfile(profile: Protocol.Profiler.Profile|null, title?: string): void {
-    if (this.state !== State.Idle) {
+  loadFromCpuProfile(profile: Protocol.Profiler.Profile|null, cpuProfilerModel: SDK.CPUProfilerModel.CPUProfilerModel|null,title?: string): void {
+    if (this.state !== State.StopPending && this.state !== State.Loading) {
       return;
     }
-    this.prepareToLoadTimeline();
-    this.loader = TimelineLoader.loadFromCpuProfile(profile, this, title);
+    // this.prepareToLoadTimeline();
+    // this.setState(State.Loading);
+    // if (this.performanceModel) {
+      // this.performanceModel = null;
+    // }
+    // await this.loadingStarted()
+    this.setState(State.Idle);
+    if (!profile) {
+      this.clear();
+      return;
+    }
+    // if (!this.performanceModel) {
+      this.performanceModel = new PerformanceModel();
+    // }
+    const jsProfileModel = new CPUProfile.CPUProfileDataModel.CPUProfileDataModel(profile);
+    this.performanceModel.setJsProfileModel(jsProfileModel)
+    // this.setModel(this.performanceModel, exclusiveFilter, this.#traceEngineActiveTraceIndex);
+    this.searchableViewInternal.showWidget();
+    // this.applyFilters(this.performanceModel, exclusiveFilter);
+    this.#traceEngineActiveTraceIndex = -1;
+    this.flameChart.setCpuData(jsProfileModel,this.performanceModel)
+
+    // console.log('overview')
+    // // this.updateOverviewControls();
+    this.#minimapComponent.updateControls({
+      performanceModel: this.performanceModel,
+      traceParsedData:null,
+      // jsProfileModel: this.#jsProfileModel,
+      settings: {
+        showScreenshots: this.showScreenshotsSetting.get(),
+        showMemory: this.showMemorySetting.get(),
+      },
+    });
+
+    
+
+    this.#minimapComponent.reset();
+
+      this.performanceModel.addEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
+      // this.#jsProfileModel.addEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
+    // this.#minimapComponent.setNavStartTimes(this.performanceModel.timelineModel().navStartTimes());
+    this.#minimapComponent.setNavStartTimes(new Map());
+    // console.log(this.performanceModel.timelineModel().minimumRecordTime(), jsProfileModel.profileStartTime)
+    // console.log(this.performanceModel.timelineModel().maximumRecordTime(), jsProfileModel.profileHead.total)
+    this.#minimapComponent.setBounds(jsProfileModel.profileStartTime, jsProfileModel.profileStartTime+jsProfileModel.profileHead.total);
+    PerfUI.LineLevelProfile.Performance.instance().reset();
+    // for (const profile of this.performanceModel.timelineModel().cpuProfiles()) {
+    //   PerfUI.LineLevelProfile.Performance.instance().appendCPUProfile(profile.cpuProfileData, profile.target);
+    // }
+    // this.setMarkersForMinimap(this.performanceModel.timelineModel());
+    this.flameChart.setSelection(null);
+    this.#minimapComponent.setWindowTimes(this.performanceModel.window().left, this.performanceModel.window().right);
+    this.updateOverviewControls();
+    if (this.flameChart) {
+      this.flameChart.resizeToPreferredHeights();
+    }
+    this.updateTimelineControls();
+
+
+
+
+
+    if (this.statusPane) {
+      this.statusPane.remove();
+    }
+    this.statusPane = null;
+
+    // this.#historyManager.addRecording({
+    //   data: {
+    //     legacyModel: this.performanceModel,
+    //     traceParseDataIndex: this.#traceEngineActiveTraceIndex,
+    //   },
+    //   jsProfileModel,
+    // });
+
+
+
+    // if (this.flameChart) {
+    //   this.flameChart.resizeToPreferredHeights();
+    // }
+    // this.loadingComplete(/* tracingModel= */ null, /* exclusiveFilter= */ null, /* isCpuProfile= */ true)
   }
 
   private onOverviewWindowChanged(
       event: Common.EventTarget.EventTargetEvent<PerfUI.TimelineOverviewPane.WindowChangedEvent>): void {
+        debugger
     if (!this.performanceModel) {
       return;
     }
@@ -959,8 +1041,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
     if (this.cpuProfiler) {
       const profile = await this.cpuProfiler.stopRecording();
-      this.setState(State.Idle);
-      this.loadFromCpuProfile(profile);
+      this.loadFromCpuProfile(profile, this.cpuProfiler);
 
       this.setUIControlsEnabled(true);
       this.cpuProfiler = null;
@@ -1001,7 +1082,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   private consoleProfileFinished(data: SDK.CPUProfilerModel.ProfileFinishedData): void {
-    this.loadFromCpuProfile(data.cpuProfile, data.title);
+    this.loadFromCpuProfile(data.cpuProfile, this.cpuProfiler,data.title);
     void UI.InspectorView.InspectorView.instance().showPanel('timeline');
   }
 
@@ -1721,3 +1802,208 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
     return false;
   }
 }
+
+class CPUFlameChartDataProvider implements PerfUI.FlameChart.FlameChartDataProvider {
+  readonly colorGeneratorInternal: Common.Color.Generator;
+  maxStackDepthInternal: number;
+  timelineData_: PerfUI.FlameChart.FlameChartTimelineData|null;
+  entryNodes: CPUProfile.ProfileTreeModel.ProfileNode[];
+  #font: string;
+  boldFont?: string;
+  
+  
+  readonly cpuDataModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel|undefined;
+  readonly cpuProfilerModel: SDK.CPUProfilerModel.CPUProfilerModel|null|undefined;
+  entrySelfTimes?: Float32Array;
+
+  constructor(
+    cpuDataModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel,
+    cpuProfilerModel: SDK.CPUProfilerModel.CPUProfilerModel|null) {
+    this.colorGeneratorInternal = CPUFlameChartDataProvider.colorGenerator();
+    this.maxStackDepthInternal = 0;
+    this.timelineData_ = null;
+    this.entryNodes = [];
+    this.#font = `${PerfUI.Font.DEFAULT_FONT_SIZE} ${PerfUI.Font.getFontFamilyForCanvas()}`;
+    
+    console.log('CPUFlameChartDataProvider')
+    this.cpuDataModel = cpuDataModel;
+    this.cpuProfilerModel = cpuProfilerModel;
+  }
+
+    static colorGenerator(): Common.Color.Generator {
+      // if (!colorGeneratorInstance) {
+        const colorGeneratorInstance = new Common.Color.Generator(
+            {min: 30, max: 330, count: undefined}, {min: 50, max: 80, count: 5}, {min: 80, max: 90, count: 3});
+
+        colorGeneratorInstance.setColorForID('(idle)', 'hsl(0, 0%, 94%)');
+        colorGeneratorInstance.setColorForID('(program)', 'hsl(0, 0%, 80%)');
+        colorGeneratorInstance.setColorForID('(garbage collector)', 'hsl(0, 0%, 80%)');
+      // }
+      return colorGeneratorInstance;
+    }
+  minimumBoundary(): number {
+    return this.cpuDataModel?.profileStartTime ??0;
+  }
+  totalTime(): number {
+    return this.cpuDataModel?.profileHead.total||0;
+  }
+  formatValue(value: number, precision?: number | undefined): string {
+    return i18n.TimeUtilities.preciseMillisToString(value, precision);
+  }
+  maxStackDepth(): number {
+    return this.maxStackDepthInternal;
+  }
+  timelineData(): PerfUI.FlameChart.FlameChartTimelineData | null {
+    if(!this.cpuDataModel) return null;
+    const entries: (ChartEntry|null)[] = [];
+    const stack: number[] = [];
+    let maxDepth = 5;
+
+    function onOpenFrame(): void {
+      stack.push(entries.length);
+      // Reserve space for the entry, as they have to be ordered by startTime.
+      // The entry itself will be put there in onCloseFrame.
+      entries.push(null);
+    }
+    function onCloseFrame(
+        depth: number, node: CPUProfile.ProfileTreeModel.ProfileNode, startTime: number, totalTime: number,
+        selfTime: number): void {
+      const index = (stack.pop() as number);
+      entries[index] = new ChartEntry(depth, totalTime, startTime, selfTime, node);
+      maxDepth = Math.max(maxDepth, depth);
+    }
+    this.cpuDataModel.forEachFrame(onOpenFrame, onCloseFrame);
+
+    const entryNodes: CPUProfile.ProfileTreeModel.ProfileNode[] = new Array(entries.length);
+    const entryLevels = new Uint16Array(entries.length);
+    const entryTotalTimes = new Float32Array(entries.length);
+    const entrySelfTimes = new Float32Array(entries.length);
+    const entryStartTimes = new Float64Array(entries.length);
+
+    for (let i = 0; i < entries.length; ++i) {
+      const entry = entries[i];
+      if (!entry) {
+        continue;
+      }
+      entryNodes[i] = entry.node;
+      entryLevels[i] = entry.depth;
+      entryTotalTimes[i] = entry.duration;
+      entryStartTimes[i] = entry.startTime;
+      entrySelfTimes[i] = entry.selfTime;
+    }
+
+    this.maxStackDepthInternal = maxDepth + 1;
+    this.entryNodes = entryNodes;
+    this.timelineData_ =
+        PerfUI.FlameChart.FlameChartTimelineData.create({entryLevels, entryTotalTimes, entryStartTimes, groups: null});
+
+    this.entrySelfTimes = entrySelfTimes;
+
+    return this.timelineData_;
+  }
+  prepareHighlightedEntryInfo(entryIndex: number): Element | null {
+    console.log('cpu prepareHighlightedEntryInfo')
+    return null
+    // const timelineData = this.timelineData_;
+    // const node = this.entryNodes[entryIndex];
+    // if (!node) {
+    //   return null;
+    // }
+
+    // const entryInfo: {
+    //   title: string,
+    //   value: string,
+    // }[] = [];
+    // function pushEntryInfoRow(title: string, value: string): void {
+    //   entryInfo.push({title: title, value: value});
+    // }
+    // function millisecondsToString(ms: number): string {
+    //   if (ms === 0) {
+    //     return '0';
+    //   }
+    //   if (ms < 1000) {
+    //     return i18nString(UIStrings.fms, {PH1: ms.toFixed(1)});
+    //   }
+    //   return i18n.TimeUtilities.secondsToString(ms / 1000, true);
+    // }
+    // const name = UI.UIUtils.beautifyFunctionName(node.functionName);
+    // pushEntryInfoRow(i18nString(UIStrings.name), name);
+    // const selfTime = millisecondsToString((this.entrySelfTimes as Float32Array)[entryIndex]);
+    // const totalTime =
+    //     millisecondsToString((timelineData as PerfUI.FlameChart.FlameChartTimelineData).entryTotalTimes[entryIndex]);
+    // pushEntryInfoRow(i18nString(UIStrings.selfTime), selfTime);
+    // pushEntryInfoRow(i18nString(UIStrings.totalTime), totalTime);
+    // const linkifier = new Components.Linkifier.Linkifier();
+    // const link =
+    //     linkifier.maybeLinkifyConsoleCallFrame(this.cpuProfilerModel && this.cpuProfilerModel.target(), node.callFrame);
+    // if (link) {
+    //   pushEntryInfoRow(i18nString(UIStrings.url), link.textContent || '');
+    // }
+    // linkifier.dispose();
+    // pushEntryInfoRow(
+    //     i18nString(UIStrings.aggregatedSelfTime), i18n.TimeUtilities.secondsToString(node.self / 1000, true));
+    // pushEntryInfoRow(
+    //     i18nString(UIStrings.aggregatedTotalTime), i18n.TimeUtilities.secondsToString(node.total / 1000, true));
+    // const deoptReason = (node as CPUProfile.CPUProfileDataModel.CPUProfileNode).deoptReason;
+    // if (deoptReason) {
+    //   pushEntryInfoRow(i18nString(UIStrings.notOptimized), deoptReason);
+    // }
+
+    // return ProfileView.buildPopoverTable(entryInfo);
+  }
+  canJumpToEntry(entryIndex: number): boolean {
+    return this.entryNodes[entryIndex].scriptId !== '0';
+  }
+  entryTitle(entryIndex: number): string | null {
+    const node = this.entryNodes[entryIndex];
+    return UI.UIUtils.beautifyFunctionName(node.functionName);
+  }
+  entryFont(entryIndex: number): string | null {
+    const boldFont = 'bold ' + this.#font;
+    return this.entryHasDeoptReason(entryIndex) ? boldFont : this.#font;
+  }
+
+    entryHasDeoptReason(entryIndex: number): boolean {
+      const node = (this.entryNodes[entryIndex] as CPUProfile.CPUProfileDataModel.CPUProfileNode);
+      return Boolean(node.deoptReason);
+    }
+  entryColor(entryIndex: number): string {
+    const node = this.entryNodes[entryIndex];
+    // For idle and program, we want different 'shades of gray', so we fallback to functionName as scriptId = 0
+    // For rest of nodes e.g eval scripts, if url is empty then scriptId will be guaranteed to be non-zero
+    return this.colorGeneratorInternal.colorForID(
+        node.url || (node.scriptId !== '0' ? node.scriptId : node.functionName));
+  }
+  decorateEntry(entryIndex: number, context: CanvasRenderingContext2D, text: string | null, barX: number, barY: number, barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number): boolean {
+    return false;
+  }
+  forceDecoration(entryIndex: number): boolean {
+    return false;
+  }
+  textColor(entryIndex: number): string {
+    return '#333';
+  }
+  navStartTimes(): Map<string, TraceEngine.Legacy.CompatibleTraceEvent> {
+    return new Map();
+  }
+}
+
+class ChartEntry {
+  depth: number;
+  duration: number;
+  startTime: number;
+  selfTime: number;
+  node: CPUProfile.ProfileTreeModel.ProfileNode;
+
+  constructor(
+      depth: number, duration: number, startTime: number, selfTime: number,
+      node: CPUProfile.ProfileTreeModel.ProfileNode) {
+    this.depth = depth;
+    this.duration = duration;
+    this.startTime = startTime;
+    this.selfTime = selfTime;
+    this.node = node;
+  }
+}
+
+

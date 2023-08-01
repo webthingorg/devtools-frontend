@@ -5,8 +5,11 @@
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 
+import { CPUChartEntry } from './CPUTrackAppender.js';
+// type PermittedObjectTypes = TimelineFlameChartEntry|SelectionRange;
+
 type PermittedObjectTypes = TimelineModel.TimelineFrameModel.TimelineFrame|TraceEngine.Legacy.Event|
-                            TraceEngine.Types.TraceEvents.TraceEventData|SelectionRange;
+                            TraceEngine.Types.TraceEvents.TraceEventData|CPUChartEntry|SelectionRange;
 
 const SelectionRangeSymbol = Symbol('SelectionRange');
 export type SelectionRange = typeof SelectionRangeSymbol;
@@ -36,7 +39,7 @@ export class TimelineSelection {
 
   static isSyntheticNetworkRequestDetailsEventSelection(object: PermittedObjectTypes):
       object is TraceEngine.Types.TraceEvents.TraceEventSyntheticNetworkRequest {
-    if (object instanceof TraceEngine.Legacy.Event) {
+    if (object instanceof TraceEngine.Legacy.Event ||object instanceof CPUChartEntry) {
       return false;
     }
     // Sadly new trace events are just raw objects, so now we have to confirm it is a trace event by ruling everything else out.
@@ -51,6 +54,7 @@ export class TimelineSelection {
 
   static isTraceEventSelection(object: PermittedObjectTypes): object is TraceEngine.Legacy.Event
       |TraceEngine.Types.TraceEvents.TraceEventData {
+    if (object instanceof CPUChartEntry) return false
     if (object instanceof TraceEngine.Legacy.Event) {
       return true;
     }
@@ -68,6 +72,16 @@ export class TimelineSelection {
   static fromTraceEvent(event: TraceEngine.Legacy.CompatibleTraceEvent): TimelineSelection {
     const {startTime, endTime} = TraceEngine.Legacy.timesForEventInMilliseconds(event);
     return new TimelineSelection(startTime, TraceEngine.Types.Timing.MilliSeconds(endTime || (startTime + 1)), event);
+  }
+
+  static isCpuNode(object: PermittedObjectTypes): object is CPUChartEntry {
+    return object instanceof CPUChartEntry;
+  }
+
+  static fromCpuNode(node: CPUChartEntry): TimelineSelection {
+    const startTime = TraceEngine.Types.Timing.MilliSeconds(node.startTime)
+    const endTime = TraceEngine.Types.Timing.MilliSeconds(node.startTime+node.duration)
+    return new TimelineSelection(startTime, TraceEngine.Types.Timing.MilliSeconds(endTime || (startTime + 1)), node);
   }
 
   static isRangeSelection(object: PermittedObjectTypes): object is SelectionRange {

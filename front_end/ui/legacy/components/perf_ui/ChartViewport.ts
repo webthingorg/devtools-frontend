@@ -426,6 +426,7 @@ export class ChartViewport extends UI.Widget.VBox {
   }
 
   setWindowTimes(startTime: number, endTime: number, animate?: boolean): void {
+    console.error(startTime, endTime)
     if (startTime === this.targetLeftTime && endTime === this.targetRightTime) {
       return;
     }

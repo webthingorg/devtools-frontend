@@ -21,6 +21,10 @@
   right: 0;
 }
 
+.timeline-minimap #timeline-overview-CPUProfile {
+  flex-basis: 20px;
+}
+
 .timeline-minimap #timeline-overview-cpu-activity {
   flex-basis: 20px;
 }

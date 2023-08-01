@@ -210,7 +210,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       return;
     }
     const selectionObject = this.selection.object;
-    if (TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selectionObject)) {
+    if (TimelineSelection.isCpuNode(selectionObject)){
+      const node = selectionObject;
+      const nodeDetails = await TimelineUIUtils.buildDetailsContentForCpuNode(node);
+      this.setContent(nodeDetails);
+    } else if(TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selectionObject)) {
       const event = selectionObject;
       const networkDetails = await TimelineUIUtils.buildSyntheticNetworkRequestDetails(
           event, this.model.timelineModel(), this.detailsLinkifier);

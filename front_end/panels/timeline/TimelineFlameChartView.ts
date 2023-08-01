@@ -11,6 +11,7 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import * as CPUProfile from '../../models/cpu_profile/cpu_profile.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {CountersGraph} from './CountersGraph.js';
@@ -46,6 +47,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
                                                                       UI.SearchableView.Searchable {
   private readonly delegate: TimelineModeViewDelegate;
   private model: PerformanceModel|null;
+  // private jsProfileModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel|null = null;
   private searchResults!: number[]|undefined;
   private eventListeners: Common.EventTarget.EventDescriptor[];
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
@@ -179,6 +181,9 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     if (this.model) {
       this.model.setWindow({left: windowStartTime, right: windowEndTime}, animate);
     }
+    // if(this.model.jsProfileModel()) {
+    //   this.mainFlameChart.setWindowTimes(windowStartTime, windowEndTime, animate)
+    // }
   }
 
   updateRangeSelection(startTime: number, endTime: number): void {
@@ -198,6 +203,9 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     if (model === this.model) {
       return;
     }
+    // if(model?.jsProfileModel()){
+    //   this.setCpuData(model.jsProfileModel(), model)
+    // }
     this.#traceEngineData = newTraceEngineData;
     Common.EventTarget.removeEventListeners(this.eventListeners);
     this.model = model;
@@ -219,8 +227,40 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.refresh();
   }
 
+  setCpuData(jsProfileModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel,model: PerformanceModel|null){
+    if (model === this.model) {
+      return;
+    }
+    this.model = model;
+    if (!this.model) {
+      return
+    }
+    this.model.addEventListener(PerformanceModelEvents.WindowChanged, (event: Common.EventTarget.EventTargetEvent<WindowChangedEvent>)=>{
+      const {window, animate} = event.data;
+      this.mainFlameChart.setWindowTimes(window.left, window.right, animate);
+    }, this);
+    // this.jsProfileModel = jsProfileModel
+    this.mainDataProvider.setCpuData(jsProfileModel)
+    this.mainFlameChart.setWindowTimes(jsProfileModel.profileStartTime??0,  (jsProfileModel.profileStartTime??0) + (jsProfileModel.profileHead.total||0));
+   
+    this.updateSearchResults(false, false);
+    // this.updateColorMapper();
+    // this.updateTrack();
+    this.countersView.setModel(null, null);
+    void this.detailsView.setModel(this.model, this.#traceEngineData, this.#selectedEvents);
+
+    // this.refresh();
+    this.mainFlameChart.enableRuler(true);
+    this.networkSplitWidget.hideSidebar();
+    // this.mainFlameChart.reset();
+    // this.networkFlameChart.reset();
+    // this.updateSearchResults(false, false);
+  }
+
   private updateTrack(): void {
-    this.countersView.setModel(this.model, this.#selectedEvents);
+    if(!this.model?.jsProfileModel()) {
+      this.countersView.setModel(this.model, this.#selectedEvents);
+    }
     // TODO(crbug.com/1459265):  Change to await after migration work.
     void this.detailsView.setModel(this.model, this.#traceEngineData, this.#selectedEvents);
   }
@@ -395,7 +435,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     const regExpFilter = new TimelineRegExp(this.searchRegex);
     const window = this.model.window();
-    this.searchResults = this.mainDataProvider.search(window.left, window.right, regExpFilter);
+    this.searchResults = this.mainDataProvider.search(window.left, window.right, regExpFilter, this.searchRegex);
     this.searchableView.updateSearchMatchesCount(this.searchResults.length);
     if (!shouldJump || !this.searchResults.length) {
       return;

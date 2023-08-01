@@ -53,6 +53,7 @@ import {CLSRect} from './CLSLinkifier.js';
 import {TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {titleForInteractionEvent} from './InteractionsTrackAppender.js';
+import { CPUChartEntry } from './CPUTrackAppender.js';
 
 const UIStrings = {
   /**
@@ -3032,6 +3033,17 @@ export class TimelineUIUtils {
     pieChartContainer.appendChild(pieChart);
 
     return element;
+  }
+
+  static buildDetailsContentForCpuNode(
+      node: CPUChartEntry): DocumentFragment {
+    const contentHelper = new TimelineDetailsContentHelper(null, null);
+    contentHelper.addSection(i18nString(UIStrings.frame));
+
+    const duration = i18n.TimeUtilities.millisToString(node.duration);
+    contentHelper.appendElementRow(i18nString(UIStrings.duration), duration);
+
+    return contentHelper.fragment;
   }
 
   static generateDetailsContentForFrame(

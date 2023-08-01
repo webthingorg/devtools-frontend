@@ -185,6 +185,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.textPadding = 5;
     this.chartViewport.setWindowTimes(
         dataProvider.minimumBoundary(), dataProvider.minimumBoundary() + dataProvider.totalTime());
+    console.log(dataProvider.minimumBoundary(), dataProvider.minimumBoundary() + dataProvider.totalTime())
 
     this.headerLeftPadding = 6;
     this.arrowSide = 8;
@@ -1221,7 +1222,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // such. This way, when rendering events, we can render them based on
     // color, and ensure the minimum amount of changes to context.fillStyle.
     const colorBuckets = new Map<string, {indexes: number[]}>();
-    for (let level = minVisibleBarLevel; level < this.dataProvider.maxStackDepth(); ++level) {
+    const maxDepth = this.dataProvider.maxStackDepth();
+    for (let level = minVisibleBarLevel; level < maxDepth; ++level) {
       if (this.levelToOffset(level) > top + height) {
         break;
       }
@@ -1235,9 +1237,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // Entries are ordered by start time within a level, so find the last visible entry.
       const levelIndexes = this.timelineLevels[level];
       const rightIndexOnLevel = Platform.ArrayUtilities.lowerBound(
-                                    levelIndexes, this.chartViewport.windowRightTime(),
-                                    (time, entryIndex) => time - entryStartTimes[entryIndex]) -
-          1;
+        levelIndexes, this.chartViewport.windowRightTime(),
+        (time, entryIndex) => time - entryStartTimes[entryIndex]) -
+            1;
       let lastDrawOffset = Infinity;
       for (let entryIndexOnLevel = rightIndexOnLevel; entryIndexOnLevel >= 0; --entryIndexOnLevel) {
         const entryIndex = levelIndexes[entryIndexOnLevel];

@@ -33,6 +33,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import type * as CPUProfile from '../../models/cpu_profile/cpu_profile.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {type PerformanceModel} from './PerformanceModel.js';
@@ -91,6 +92,148 @@ const HIGH_NETWORK_PRIORITIES = new Set<TraceEngine.Types.TraceEvents.Priority>(
   'High',
   'Medium',
 ]);
+
+export class CpuProfileOverview extends TimelineEventOverview {
+  #jsProfileModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel;
+  maxStackDepthInternal: number = 0;
+  constructor(jsProfileModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel) {
+    super(/* id= */'CPUProfile', i18nString(UIStrings.cpu));
+    this.#jsProfileModel = jsProfileModel;
+  }
+
+  override update(): void {
+    super.update();
+    this.#renderWithJsProfileModel();
+  }
+
+  #renderWithJsProfileModel(): void {
+    if (!this.#jsProfileModel) {
+      return;
+    }
+    const canvasWidth = this.width();
+    const canvasHeight = this.height();
+    const drawData = this.calculateDrawData(canvasWidth);
+    const context = this.context();
+    context.save()
+    // if (!context) {
+    //   throw new Error('Failed to get canvas context');
+    // }
+    const ratio = window.devicePixelRatio;
+    const offsetFromBottom = ratio;
+    const lineWidth = 1;
+    const yScaleFactor = canvasHeight / (this.maxStackDepthInternal * 1.1);
+    context.lineWidth = lineWidth;
+    context.translate(0.5, 0.5);
+    context.strokeStyle = 'rgba(20,0,0,0.4)';
+    context.fillStyle = 'rgba(214,225,254,0.8)';
+    context.moveTo(-lineWidth, canvasHeight + lineWidth);
+    context.lineTo(-lineWidth, Math.round(canvasHeight - drawData[0] * yScaleFactor - offsetFromBottom));
+    let value = 0;
+    for (let x = 0; x < canvasWidth; ++x) {
+      value = Math.round(canvasHeight - drawData[x] * yScaleFactor - offsetFromBottom);
+      context.lineTo(x, value);
+    }
+    context.lineTo(canvasWidth + lineWidth, value);
+    context.lineTo(canvasWidth + lineWidth, canvasHeight + lineWidth);
+    context.fill();
+    context.stroke();
+    context.closePath();
+    context.restore()
+  }
+
+  timelineData(): {entryLevels:number[]|Uint16Array, entryTotalTimes: number[]|Float32Array, entryStartTimes: number[]|Float64Array} | null {
+    if(!this.#jsProfileModel) return null;
+
+    class ChartEntry {
+      depth: number;
+      duration: number;
+      startTime: number;
+      selfTime: number;
+      node: CPUProfile.ProfileTreeModel.ProfileNode;
+    
+      constructor(
+          depth: number, duration: number, startTime: number, selfTime: number,
+          node: CPUProfile.ProfileTreeModel.ProfileNode) {
+        this.depth = depth;
+        this.duration = duration;
+        this.startTime = startTime;
+        this.selfTime = selfTime;
+        this.node = node;
+      }
+    }
+
+    const entries: (ChartEntry|null)[] = [];
+    const stack: number[] = [];
+    let maxDepth = 5;
+
+    function onOpenFrame(): void {
+      stack.push(entries.length);
+      // Reserve space for the entry, as they have to be ordered by startTime.
+      // The entry itself will be put there in onCloseFrame.
+      entries.push(null);
+    }
+    function onCloseFrame(
+        depth: number, node: CPUProfile.ProfileTreeModel.ProfileNode, startTime: number, totalTime: number,
+        selfTime: number): void {
+      const index = (stack.pop() as number);
+      entries[index] = new ChartEntry(depth, totalTime, startTime, selfTime, node);
+      maxDepth = Math.max(maxDepth, depth);
+    }
+    this.#jsProfileModel.forEachFrame(onOpenFrame, onCloseFrame);
+
+    const entryNodes: CPUProfile.ProfileTreeModel.ProfileNode[] = new Array(entries.length);
+    const entryLevels = new Uint16Array(entries.length);
+    const entryTotalTimes = new Float32Array(entries.length);
+    const entrySelfTimes = new Float32Array(entries.length);
+    const entryStartTimes = new Float64Array(entries.length);
+
+    for (let i = 0; i < entries.length; ++i) {
+      const entry = entries[i];
+      if (!entry) {
+        continue;
+      }
+      entryNodes[i] = entry.node;
+      entryLevels[i] = entry.depth;
+      entryTotalTimes[i] = entry.duration;
+      entryStartTimes[i] = entry.startTime;
+      entrySelfTimes[i] = entry.selfTime;
+    }
+
+    this.maxStackDepthInternal = maxDepth + 1;
+    // this.entryNodes = entryNodes;
+    // this.timelineData_ =
+    //     PerfUI.FlameChart.FlameChartTimelineData.create({entryLevels, entryTotalTimes, entryStartTimes, groups: null});
+
+    // this.entrySelfTimes = entrySelfTimes;
+
+    return {entryLevels, entryTotalTimes, entryStartTimes};
+  }
+
+  calculateDrawData(width: number): Uint8Array {
+    const timelineData = this.timelineData()!;//(this.timelineData() as PerfUI.FlameChart.FlameChartTimelineData);
+    debugger
+    const entryStartTimes = timelineData.entryStartTimes;
+    const entryTotalTimes = timelineData.entryTotalTimes;
+    const entryLevels = timelineData.entryLevels;
+    const length = entryStartTimes.length;
+    const minimumBoundary = this.#jsProfileModel.profileStartTime;
+    console.log(minimumBoundary)
+
+    const drawData = new Uint8Array(width);
+    const scaleFactor = width / (this.#jsProfileModel.profileHead.total);
+    console.log((this.#jsProfileModel.profileEndTime - this.#jsProfileModel.profileStartTime))
+    for (let entryIndex = 0; entryIndex < length; ++entryIndex) {
+      const start = Math.floor((entryStartTimes[entryIndex] - minimumBoundary) * scaleFactor);
+      const finish =
+          Math.floor((entryStartTimes[entryIndex] - minimumBoundary + entryTotalTimes[entryIndex]) * scaleFactor);
+      for (let x = start; x <= finish; ++x) {
+        drawData[x] = Math.max(drawData[x], entryLevels[entryIndex] + 1);
+      }
+    }
+    console.log(drawData)
+    return drawData;
+  }
+}
 
 export class TimelineEventOverviewNetwork extends TimelineEventOverview {
   #traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData;

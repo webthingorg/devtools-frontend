@@ -16,8 +16,9 @@ const resolveNamesTimeout = 500;
 export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private mainTargetInternal: SDK.Target.Target|null;
   private tracingModelInternal: TraceEngine.Legacy.TracingModel|null;
+  #jsProfileModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel|null;
   private filtersInternal: TimelineModel.TimelineModelFilter.TimelineModelFilter[];
-  private readonly timelineModelInternal: TimelineModel.TimelineModel.TimelineModelImpl;
+  private timelineModelInternal: TimelineModel.TimelineModel.TimelineModelImpl|null;
   private readonly frameModelInternal: TimelineModel.TimelineFrameModel.TimelineFrameModel;
   private windowInternal: Window;
   private willResolveNames = false;
@@ -27,9 +28,10 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
     super();
     this.mainTargetInternal = null;
     this.tracingModelInternal = null;
+    this.#jsProfileModel = null;
     this.filtersInternal = [];
 
-    this.timelineModelInternal = new TimelineModel.TimelineModel.TimelineModelImpl();
+    this.timelineModelInternal = null;//new TimelineModel.TimelineModel.TimelineModelImpl();
     this.frameModelInternal = new TimelineModel.TimelineFrameModel.TimelineFrameModel(
         event => TimelineUIUtils.eventStyle(event).category.name);
 
@@ -66,7 +68,16 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
     return this.filtersInternal.every(f => f.accept(event));
   }
 
+  setJsProfileModel(jsProfileModel: CPUProfile.CPUProfileDataModel.CPUProfileDataModel){
+    this.#jsProfileModel = jsProfileModel;
+    // this.autoWindowTimes();
+    this.setWindow({left: jsProfileModel.profileStartTime, right: jsProfileModel.profileEndTime});
+    // this.setWindow({left: jsProfileModel.profileStartTime, right: jsProfileModel.profileHead.total});
+  }
+
   async setTracingModel(model: TraceEngine.Legacy.TracingModel, isFreshRecording = false): Promise<void> {
+    this.timelineModelInternal = new TimelineModel.TimelineModel.TimelineModelImpl();
+
     this.tracingModelInternal = model;
     this.timelineModelInternal.setEvents(model, isFreshRecording);
     await this.addSourceMapListeners();
@@ -153,6 +164,13 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
     this.dispatchEventToListeners(Events.NamesResolved);
   }
 
+  jsProfileModel():CPUProfile.CPUProfileDataModel.CPUProfileDataModel{
+    if (!this.#jsProfileModel) {
+      console.error( 'call jsProfileModel before accessing PerformanceModel');
+    }
+    return this.#jsProfileModel!;
+  }
+
   tracingModel(): TraceEngine.Legacy.TracingModel {
     if (!this.tracingModelInternal) {
       throw 'call setTracingModel before accessing PerformanceModel';
@@ -161,6 +179,10 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
   }
 
   timelineModel(): TimelineModel.TimelineModel.TimelineModelImpl {
+    if (!this.timelineModelInternal) {
+      console.error( 'call timelineModelInternal before accessing PerformanceModel');
+      throw 'call timelineModelInternal before creating in PerformanceModel'
+    }
     return this.timelineModelInternal;
   }
 
@@ -182,15 +204,21 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
   }
 
   minimumRecordTime(): number {
-    return this.timelineModelInternal.minimumRecordTime();
+    if(this.#jsProfileModel){
+      return this.#jsProfileModel.profileStartTime
+    }
+    return this.timelineModelInternal?.minimumRecordTime() || 0;
   }
 
   maximumRecordTime(): number {
-    return this.timelineModelInternal.maximumRecordTime();
+    if(this.#jsProfileModel){
+      return this.#jsProfileModel.profileStartTime+this.#jsProfileModel.profileHead.total
+    }
+    return this.timelineModelInternal?.maximumRecordTime() || 0;
   }
 
   private autoWindowTimes(): void {
-    const timelineModel = this.timelineModelInternal;
+    const timelineModel = this.timelineModel();
     let tasks: TraceEngine.Legacy.Event[] = [];
     for (const track of timelineModel.tracks()) {
       // Deliberately pick up last main frame's track.
