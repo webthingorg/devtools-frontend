@@ -16,6 +16,91 @@
       "message": "code lgtm, I\u0027ll let Sofia review the UI text changes",
       "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc2748ca_946982ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-02T10:04:53Z",
+      "side": 1,
+      "message": "Suggested several edits. Kind reminder about a cosmetic guideline: Skip periods if there\u0027s only one sentence.",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e58782a_74e2bb28",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-02T10:04:53Z",
+      "side": 1,
+      "message": "```suggestion\n  explainWorkspace: \u0027Set up a workspace to save your changes directly to your local sources\u0027,\n```",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "916620aa_f24d8f20",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-02T10:04:53Z",
+      "side": 1,
+      "message": "```suggestion\n  explainLocalOverrides: \u0027Override web content and network requests locally to keep changes across page reloads\u0027,\n```",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa1f7bc_b02094d0",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-02T10:04:53Z",
+      "side": 1,
+      "message": "```suggestion\n  explainContentScripts: \u0027View content scripts served by extensions\u0027,\n```",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67106470_c20b8822",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-02T10:04:53Z",
+      "side": 1,
+      "message": "```suggestion\n  explainSnippets: \u0027Save the JavaScript code you run often to run it again anytime\u0027,\n```",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
