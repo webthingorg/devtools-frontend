@@ -405,6 +405,7 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     } else if (this.#request.fromPrefetchCache()) {
       statusText += ' ' + i18nString(UIStrings.fromPrefetchCache);
       statusClasses.push('status-with-comment');
+
     } else if (this.#request.cached()) {
       statusText += ' ' + i18nString(UIStrings.fromDiskCache);
       statusClasses.push('status-with-comment');
