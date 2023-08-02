@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37c2c3d1_3838826d",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-02T12:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e58782a_74e2bb28",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "916620aa_f24d8f20",
@@ -140,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a7c1f6_bbe41393",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-02T12:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afa1f7bc_b02094d0",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67106470_c20b8822",
@@ -153,6 +189,24 @@
       "writtenOn": "2023-08-02T10:04:53Z",
       "side": 1,
       "message": "```suggestion\n  explainSnippets: \u0027Save the JavaScript code you run often to run it again anytime\u0027,\n```",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddea332f_44b999ff",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-02T12:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67106470_c20b8822",
       "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

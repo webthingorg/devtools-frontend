@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a57095_709b0799",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-02T12:10:46Z",
+      "side": 1,
+      "message": "Closing the loop, Sofia and I had discussion on what mean to be \"Be actionable first, educational second\", especially on Workspace and Overrides description.\n\nWhile my original changes need improvements, but Sofia original suggestions was too brief to differentiate the feature between Workspace and Overrides, plus given their UI locations are close to each other, and both features are about saving (keeping) changes.\n\nBeing actionable also means help user decide what and which to use. Together we discussed and update the writing to differentiate them while keeping it short.",
+      "revId": "85c1f20a469219826d8e7caf5e53c61fbb0f81b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
