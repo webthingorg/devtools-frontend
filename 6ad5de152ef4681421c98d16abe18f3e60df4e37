@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e28ec780_838bc6b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-02T11:07:54Z",
+      "side": 1,
+      "message": "sounds good! Done.",
+      "parentUuid": "6718c7d5_37652815",
+      "revId": "6ad5de152ef4681421c98d16abe18f3e60df4e37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d7a3ef3_51181d95",
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1207756_e034b2df",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-02T11:07:54Z",
+      "side": 1,
+      "message": "Good call! Other threads are rendered with different names so I wanted to write the logic for that separately. I added a comment for that.",
+      "parentUuid": "7d7a3ef3_51181d95",
+      "range": {
+        "startLine": 158,
+        "startChar": 9,
+        "endLine": 160,
+        "endChar": 11
+      },
+      "revId": "6ad5de152ef4681421c98d16abe18f3e60df4e37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fd2f107_841061f0",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-08-02T07:44:55Z",
       "side": 1,
       "message": "has this number changed because we are rendering the main thread twice, once with each engine?",
+      "range": {
+        "startLine": 41,
+        "startChar": 61,
+        "endLine": 41,
+        "endChar": 70
+      },
+      "revId": "6ad5de152ef4681421c98d16abe18f3e60df4e37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daa790d5_a8e28699",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineFlameChartView_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-02T11:07:54Z",
+      "side": 1,
+      "message": "that\u0027s correct. In the tests each thread track will be appended twice (since we are executing the whole engine). I expect a lot of test refactoring as we work on this appender (for example, changing which events we append/filter out, until we have the same stuff as the old engine).",
+      "parentUuid": "4fd2f107_841061f0",
       "range": {
         "startLine": 41,
         "startChar": 61,
