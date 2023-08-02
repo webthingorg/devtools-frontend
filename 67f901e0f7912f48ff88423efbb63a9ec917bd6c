@@ -16,6 +16,24 @@
       "message": "wolfi@, here is how the failed log message look like. I think these texts here work well. https://imgur.com/QSLZ7Ta",
       "revId": "67f901e0f7912f48ff88423efbb63a9ec917bd6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77d48e50_d9b27d00",
+        "filename": "test/unittests/front_end/models/persistence/NetworkPersistenceManager_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-02T15:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17a39605_225d1898",
+      "revId": "67f901e0f7912f48ff88423efbb63a9ec917bd6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
