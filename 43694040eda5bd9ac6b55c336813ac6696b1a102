@@ -89,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b1a9727_d1437a36",
+        "filename": "front_end/panels/sources/SourcesNavigator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-02T10:49:43Z",
+      "side": 1,
+      "message": "I think that the phrases \"save directly to sources\" and \"keep changes across page reloads\" do distinguish them enough. UI texts should also be as short as possible. There are Learn more links that explain this is more detail.",
+      "parentUuid": "19574785_02b4d28a",
+      "revId": "43694040eda5bd9ac6b55c336813ac6696b1a102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "afa1f7bc_b02094d0",
         "filename": "front_end/panels/sources/SourcesNavigator.ts",
         "patchSetId": 3
