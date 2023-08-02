@@ -64,6 +64,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "784488be_7ff14835",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-02T03:48:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cca74ede_44908d6e",
+      "range": {
+        "startLine": 279,
+        "startChar": 34,
+        "endLine": 279,
+        "endChar": 41
+      },
+      "revId": "043de133ac2d3efe7b84c8577e640be5195a84ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d914234_f4fc1632",
@@ -77,6 +101,30 @@
       "writtenOn": "2023-08-01T13:28:31Z",
       "side": 1,
       "message": "very optional nit: I find it cleaner to redefine the argument then have `Arg` in the name.",
+      "range": {
+        "startLine": 285,
+        "startChar": 8,
+        "endLine": 285,
+        "endChar": 15
+      },
+      "revId": "043de133ac2d3efe7b84c8577e640be5195a84ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0346829_2afd4c20",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-02T03:48:08Z",
+      "side": 1,
+      "message": "Normally I do as well, but `optionsArg` is typed as `Partial` here. To re-define it we\u0027d have to add an `as` cast. IMO thats harder to read as the user has to \"manually type-check\". Between the two I prefer the current solution.",
+      "parentUuid": "6d914234_f4fc1632",
       "range": {
         "startLine": 285,
         "startChar": 8,
