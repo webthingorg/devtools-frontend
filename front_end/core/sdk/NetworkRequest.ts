@@ -38,6 +38,7 @@ import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 
+import * as StatusTextStrings from './StatusTextStrings.js';
 import {Attributes, type Cookie} from './Cookie.js';
 import {CookieParser} from './CookieParser.js';
 import {NetworkManager, Events as NetworkManagerEvents} from './NetworkManager.js';
@@ -846,6 +847,13 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   get scheme(): string {
     return this.#parsedURLInternal.scheme;
+  }
+
+  getStatusText(): string {
+    if (!this.statusText) {
+      this.statusText += StatusTextStrings.getStatusText(this.statusCode);
+    }
+    return this.statusText;
   }
 
   redirectSource(): NetworkRequest|null {
