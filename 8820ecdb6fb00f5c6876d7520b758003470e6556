@@ -279,6 +279,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1eb25555_ebbc3a1b",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-02T14:45:09Z",
+      "side": 1,
+      "message": "It depends on what happens. Do we delete the bucket at source or just in DevTools?",
+      "parentUuid": "78320bab_c6d40585",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "958b713f_44f2d74f",
         "filename": "front_end/panels/application/components/StorageMetadataView.ts",
         "patchSetId": 4
