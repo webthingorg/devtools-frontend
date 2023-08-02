@@ -16,6 +16,24 @@
       "message": "How about initializing `dataGridRowValues` with the waitForFunction instead of calling the helper twice?\n\nWe could also think about folding the length check into the getStorageItemsData helper directly.",
       "revId": "f625d4bda4d100e7833e7d26a72dd7a55e670100",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa23d05d_531c9b04",
+        "filename": "test/e2e/application/session-storage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-02T08:08:19Z",
+      "side": 1,
+      "message": "I think the second suggestion is good, done here https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4735432",
+      "parentUuid": "dec8f9fa_d76e940d",
+      "revId": "f625d4bda4d100e7833e7d26a72dd7a55e670100",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
