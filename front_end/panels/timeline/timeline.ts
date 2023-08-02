@@ -7,12 +7,14 @@ import * as CLSLinkifier from './CLSLinkifier.js';
 import * as CompatibilityTracksAppender from './CompatibilityTracksAppender.js';
 import * as CountersGraph from './CountersGraph.js';
 import * as EventsTimelineTreeView from './EventsTimelineTreeView.js';
+import * as EventUICategory from './EventUICategory.js';
 import * as GPUTrackAppender from './GPUTrackAppender.js';
 import * as InteractionsTrackAppender from './InteractionsTrackAppender.js';
 import * as LayoutShiftsTrackAppender from './LayoutShiftsTrackAppender.js';
 import * as NetworkTrackAppender from './NetworkTrackAppender.js';
 import * as PerformanceModel from './PerformanceModel.js';
 import * as SaveFileFormatter from './SaveFileFormatter.js';
+import * as ThreadAppender from './ThreadAppender.js';
 import * as TimelineController from './TimelineController.js';
 import * as TimelineDetailsView from './TimelineDetailsView.js';
 import * as TimelineEventOverview from './TimelineEventOverview.js';
@@ -39,12 +41,14 @@ export {
   CompatibilityTracksAppender,
   CountersGraph,
   EventsTimelineTreeView,
+  EventUICategory,
   GPUTrackAppender,
   InteractionsTrackAppender,
   LayoutShiftsTrackAppender,
   NetworkTrackAppender,
   PerformanceModel,
   SaveFileFormatter,
+  ThreadAppender,
   TimelineController,
   TimelineDetailsView,
   TimelineEventOverview,
