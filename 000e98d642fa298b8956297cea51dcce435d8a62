@@ -153,6 +153,30 @@
       },
       "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "888dc97b_a9959750",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-08-02T13:32:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1552960_bd9f40f7",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

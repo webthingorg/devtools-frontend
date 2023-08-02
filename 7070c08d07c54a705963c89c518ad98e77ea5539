@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f6cd7db_58cf1e93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-08-02T13:32:50Z",
+      "side": 1,
+      "message": "Yes, I should have mentioned this. I wanted to have you guys take a look before moving on to the next step of adding a link.",
+      "parentUuid": "cca1f399_55e2b804",
+      "revId": "7070c08d07c54a705963c89c518ad98e77ea5539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4452c441_ffcbae63",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "Sounds good, I will be changing this on my next patchset!",
       "parentUuid": "4452c441_ffcbae63",
+      "revId": "7070c08d07c54a705963c89c518ad98e77ea5539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13599918_e117bde5",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-08-02T13:32:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4b35fe5_bcd35ebc",
       "revId": "7070c08d07c54a705963c89c518ad98e77ea5539",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
