@@ -182,6 +182,30 @@
       },
       "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea691d8f_89724f9e",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-02T11:11:17Z",
+      "side": 1,
+      "message": "Sorted out:\n\nThere are some callsites.\n\nNote that two types of URLs: URL of preloading attempt and URL of out-of-document Speculation Rules. Logics should be differ.\n\nCurrently,\n\nSpeculaiton Rules panel \u003e grid \u003e \"Location\": \"\u003cscript\u003e\" for inner-document Speculation Rules, full URL for out-of-document Speculation Rules.\nSpeculation Rules panel \u003e details \u003e \"Location\": \"\u003cscript\u003e\" for inner-document Speculation Rules, full URL for out-of-document Speculation Rules.\nPreloads panel \u003e rule set selector: \"Rule set:\u003cnumber\u003e\"\nPreloads panel \u003e grid \u003e \"URL\": Path for same-origin preloads, full URL for cross-origin preloads. (Call it logic A.)\nPreloads panel \u003e details \u003e \"URL\": Full URL.\nThis page panel \u003e grid for mismatch \u003e \"URL\": Diff of full URLs (preloads vs current page).\n\nI\u0027m changing (almost as in wirefarme)\n\nSpeculaiton Rules panel \u003e grid \u003e \"Rule set\": \"Main_Page\" for inner-document Speculation Rules, filename of URL for out-of-document Speculation Rules. (Call it logic B.)\nSpeculation Rules panel \u003e details \u003e URL: Full URL.\nPreloads panel \u003e rule set selector: Logic B. [3]\nPreloads panel \u003e grid \u003e \"URL\": Logic A. [2]\nPreloads panel \u003e details \u003e \"URL\": Full URL.\nPreloads panel \u003e details \u003e \"Rule set\": Logic B.\nThis page panel \u003e grid for mismatch \u003e \"URL\": Diff of full URLs (preloads vs current page).\n\n[1] and `#urlShort` in [2] is for Logic A.\n`ruleSetLocationShort` is for Logic B. (New)\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/preloading/PreloadingView.ts;l\u003d443?q\u003dPreloadingView.ts\u0026ss\u003dchromium\n[2] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4736862\n[3] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4737452",
+      "parentUuid": "a6a6efad_e83f2be4",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 81
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
