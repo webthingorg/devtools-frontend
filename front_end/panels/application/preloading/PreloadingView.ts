@@ -287,6 +287,15 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
   private updateRuleSetDetails(): void {
     const id = this.focusedRuleSetId;
     const ruleSet = id === null ? null : this.model.getRuleSetById(id);
+    const preloadingAttempt = id === null ? null : this.model.getPreloadingAttemptById(id);
+    if (preloadingAttempt) {
+      const url = SDK.TargetManager.TargetManager.instance().inspectedURL();
+      const orig = preloadingAttempt.key.url;
+      const securityOrigin = url ? (new Common.ParsedURL.ParsedURL(url)).securityOrigin() : null;
+      const prerenderedUrl =
+          securityOrigin && orig.startsWith(securityOrigin) ? orig.slice(securityOrigin.length) : orig;
+      this.ruleSetDetails.prerenderedUrl = prerenderedUrl;
+    }
     this.ruleSetDetails.data = ruleSet;
 
     if (ruleSet === null) {
