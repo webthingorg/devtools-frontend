@@ -1150,7 +1150,7 @@ export class NetworkRequestNode extends NetworkNode {
     } else if (this.requestInternal.statusCode && this.requestInternal.statusCode >= 400) {
       UI.UIUtils.createTextChild(cell, String(this.requestInternal.statusCode));
       this.appendSubtitle(cell, this.requestInternal.statusText);
-      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.statusText);
+      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.getStatusText());
     } else if (!this.requestInternal.statusCode && this.requestInternal.parsedURL.isDataURL()) {
       this.setTextAndTitle(cell, i18nString(UIStrings.data));
     } else if (!this.requestInternal.statusCode && this.requestInternal.canceled) {
@@ -1228,7 +1228,7 @@ export class NetworkRequestNode extends NetworkNode {
       }
       UI.UIUtils.createTextChild(cell, String(this.requestInternal.statusCode));
       this.appendSubtitle(cell, this.requestInternal.statusText);
-      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.statusText);
+      UI.Tooltip.Tooltip.install(cell, this.requestInternal.statusCode + ' ' + this.requestInternal.getStatusText());
     } else if (this.requestInternal.finished) {
       this.setTextAndTitle(cell, i18nString(UIStrings.finished));
     } else if (this.requestInternal.preserved) {
