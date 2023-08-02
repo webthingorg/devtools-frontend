@@ -129,6 +129,30 @@
       },
       "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1552960_bd9f40f7",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-08-02T13:28:54Z",
+      "side": 1,
+      "message": "That is a great idea. I will change it to media on the next patchset.",
+      "parentUuid": "900f11ba_00b70d9a",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
