@@ -455,6 +455,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const weight = (track: {type?: string, forMainFrame?: boolean, appenderName?: TrackAppenderName}): number => {
       if (track.appenderName !== undefined) {
         switch (track.appenderName) {
+          case 'Animations':
+            return 0;
           case 'Timings':
             return 1;
           case 'Interactions':
@@ -469,8 +471,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       }
 
       switch (track.type) {
-        case TimelineModel.TimelineModel.TrackType.Animation:
-          return 0;
+        // case TimelineModel.TimelineModel.TrackType.Animation:
+        //   return 0;
         case TimelineModel.TimelineModel.TrackType.MainThread:
           return track.forMainFrame ? 4 : 5;
         case TimelineModel.TimelineModel.TrackType.Worker:
@@ -782,6 +784,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         continue;
       }
       if (!group && title) {
+        // here
         group = this.appendHeader(title, (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
         if (selectable) {
           group.track = track;
@@ -791,6 +794,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       let level;
       for (level = 0; level < lastUsedTimeByLevel.length && lastUsedTimeByLevel[level] > startTime; ++level) {
       }
+      // here
       this.appendAsyncEvent(asyncEvent, this.currentLevel + level);
       lastUsedTimeByLevel[level] = (asyncEvent.endTime as number);
     }

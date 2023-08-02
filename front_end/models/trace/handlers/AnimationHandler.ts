@@ -11,7 +11,7 @@ const animations: Types.TraceEvents.TraceEventAnimation[] = [];
 const animationsSyntheticEvents: Types.TraceEvents.TraceEventSyntheticNestableAsyncEvent[] = [];
 
 export interface AnimationData {
-  animationsSyntheticEvents: readonly Types.TraceEvents.TraceEventSyntheticNestableAsyncEvent[];
+  animations: readonly Types.TraceEvents.TraceEventSyntheticNestableAsyncEvent[];
 }
 let handlerState = HandlerState.UNINITIALIZED;
 
@@ -131,6 +131,6 @@ export function data(): AnimationData {
   }
 
   return {
-    animationsSyntheticEvents: Array.from(animationsSyntheticEvents),
+    animations: Array.from(animationsSyntheticEvents),
   };
 }
