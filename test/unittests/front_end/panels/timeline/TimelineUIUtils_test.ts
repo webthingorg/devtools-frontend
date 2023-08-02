@@ -393,6 +393,7 @@ describeWithMockConnection('TimelineUIUtils', function() {
             {title: 'Request Method', value: 'GET'},
             {title: 'Initial Priority', value: 'Highest'},
             {title: 'Priority', value: 'Highest'},
+            {title: 'Initial Priority', value: 'VeryHigh'},
             {title: 'Mime Type', value: 'text/css'},
             {title: 'Encoded Data', value: '402 B'},
             {title: 'Decoded Body', value: '96 B'},

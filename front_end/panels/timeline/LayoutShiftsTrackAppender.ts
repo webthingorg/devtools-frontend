@@ -47,6 +47,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    * @returns the first available level to append more data after having
    * appended the track's events.
    */
+  // decide level
   appendTrackAtLevel(trackStartLevel: number, expanded?: boolean): number {
     if (this.#traceParsedData.LayoutShifts.clusters.length === 0) {
       return trackStartLevel;
