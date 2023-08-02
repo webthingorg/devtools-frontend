@@ -16,6 +16,23 @@
       "message": "Could you take a look please?",
       "revId": "7e444c890777cda0b7764ec0a901bdd6db892aa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd9bc1f4_6bcef92c",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/HTMLFormatter_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-02T18:33:56Z",
+      "side": 1,
+      "message": "It seems to me that this test is already passing in the previous version, is it intended?\n\nIn addition to that, in updated version, when we remove the quotes from the attribute values, it adds additional spaces too.\n\n(Not sure if using `\u0026` and not using quotes is valid HTML though, it seemed reasonable to me for it to be valid as I checked the syntax[1] -- \u003clink href\u003dhttp://www.example.com/index.html?a\u003d1\u0026b\u003d2/\u003e)\n\n1: https://www.w3.org/TR/2012/WD-html-markup-20120329/syntax.html#attr-value-unquoted",
+      "revId": "7e444c890777cda0b7764ec0a901bdd6db892aa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
