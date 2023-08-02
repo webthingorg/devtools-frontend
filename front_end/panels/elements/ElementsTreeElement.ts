@@ -2060,6 +2060,29 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     return adorner;
   }
 
+  adornMedia({name}: {name: string}): Adorners.Adorner.Adorner {
+    const adornerContent = document.createElement('span');
+
+    adornerContent.textContent = name;
+    adornerContent.classList.add('adorner-with-icon');
+
+    const linkIcon = new IconButton.Icon.Icon();
+    linkIcon.data = {iconName: 'select-element', color: 'var(--icon-default)', width: '14px', height: '14px'};
+    adornerContent.append(linkIcon);
+
+    const adorner = new Adorners.Adorner.Adorner();
+    adorner.data = {
+      name,
+      content: adornerContent,
+    };
+    if (isOpeningTag(this.tagTypeContext)) {
+      this.tagTypeContext.adorners.push(adorner);
+      ElementsPanel.instance().registerAdorner(adorner);
+      this.updateAdorners(this.tagTypeContext);
+    }
+    return adorner;
+  }
+
   removeAdorner(adornerToRemove: Adorners.Adorner.Adorner, context: OpeningTagContext): void {
     const adorners = context.adorners;
     ElementsPanel.instance().deregisterAdorner(adornerToRemove);
@@ -2155,6 +2178,9 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
     if (isContainer) {
       this.pushContainerAdorner(this.tagTypeContext);
+    }
+    if (node.nodeNameInCorrectCase() === 'audio' || node.nodeNameInCorrectCase() === 'video') {
+      this.pushMediaAdorner(this.tagTypeContext);
     }
   }
 
@@ -2315,6 +2341,20 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           }
           adorner.toggle(enabled);
         });
+
+    context.styleAdorners.push(adorner);
+  }
+
+  pushMediaAdorner(context: OpeningTagContext): void {
+    const node = this.node();
+    const nodeId = node.id;
+    if (!nodeId) {
+      return;
+    }
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.MEDIA);
+    const adorner = this.adornMedia(config);
+    adorner.classList.add('media');
 
     context.styleAdorners.push(adorner);
   }
