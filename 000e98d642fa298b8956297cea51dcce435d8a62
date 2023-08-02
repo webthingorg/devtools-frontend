@@ -81,6 +81,30 @@
       },
       "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "874ffc71_d7f3d626",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-02T12:29:43Z",
+      "side": 1,
+      "message": "Hmm… How about just `media`?",
+      "parentUuid": "028a1170_083b7082",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
