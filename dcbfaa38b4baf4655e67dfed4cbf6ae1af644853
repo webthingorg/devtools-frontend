@@ -16,6 +16,98 @@
       "message": "PTAL! Do you think we also need to prevent extensions from enumerating protected resources?",
       "revId": "dcbfaa38b4baf4655e67dfed4cbf6ae1af644853",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdfcdd81_334eac63",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-02T14:50:43Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 812,
+        "startChar": 29,
+        "endLine": 812,
+        "endChar": 79
+      },
+      "revId": "dcbfaa38b4baf4655e67dfed4cbf6ae1af644853",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78f8a776_201b4c21",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-02T14:50:43Z",
+      "side": 1,
+      "message": "Move this above the `hostsPolicy` definition and reference them in there?",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 79
+      },
+      "revId": "dcbfaa38b4baf4655e67dfed4cbf6ae1af644853",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a28ecd9b_812b4538",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-02T14:50:43Z",
+      "side": 1,
+      "message": "Extract into a helper function/labmda?",
+      "range": {
+        "startLine": 451,
+        "startChar": 4,
+        "endLine": 456,
+        "endChar": 67
+      },
+      "revId": "dcbfaa38b4baf4655e67dfed4cbf6ae1af644853",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c0ecfb_78aa5803",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-02T14:50:43Z",
+      "side": 1,
+      "message": "Also extract?",
+      "range": {
+        "startLine": 495,
+        "startChar": 1,
+        "endLine": 499,
+        "endChar": 106
+      },
+      "revId": "dcbfaa38b4baf4655e67dfed4cbf6ae1af644853",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
