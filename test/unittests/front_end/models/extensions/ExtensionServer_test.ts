@@ -2,10 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../../../front_end/core/common/common.js';
 import * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
 import * as Extensions from '../../../../../front_end/models/extensions/extensions.js';
+import * as TextUtils from '../../../../../front_end/models/text_utils/text_utils.js';
+import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 
 const {assert} = chai;
@@ -234,6 +238,20 @@ const hostsPolicy = {
   runtimeBlockedHosts: ['http://example.com', 'http://web.dev'],
 };
 
+function waitForFunction<T>(fn: () => T): Promise<T> {
+  return new Promise<T>(r => {
+    const check = () => {
+      const result = fn();
+      if (result) {
+        r(result);
+      } else {
+        setTimeout(check);
+      }
+    };
+    check();
+  });
+}
+
 describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => {
   expectConsoleLogs({error: ['Extension server error: Operation failed: Permission denied']});
 
@@ -417,6 +435,121 @@ describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => 
             '4', {frameURL: childFrameUrl}, (result, error) => r({result, error})));
 
     assert.deepStrictEqual(result.error?.details, ['Permission denied']);
+  });
+
+  it('blocks getting resource contents on blocked urls', async () => {
+    const mimeType = 'text/html';
+    const target = createTarget({id: 'target' as Protocol.Target.TargetID});
+    const allowedUrl = 'http://example.com' as Platform.DevToolsPath.UrlString;
+    const blockedUrl = 'http://web.dev' as Platform.DevToolsPath.UrlString;
+    target.setInspectedURL(allowedUrl);
+
+    const dataProvider = () => Promise.resolve({content: 'content', isEncoded: false});
+    const project = new Bindings.ContentProviderBasedProject.ContentProviderBasedProject(
+        Workspace.Workspace.WorkspaceImpl.instance(), target.id(), Workspace.Workspace.projectTypes.Network, '',
+        false /* isServiceProject */);
+    project.addUISourceCodeWithProvider(
+        new Workspace.UISourceCode.UISourceCode(project, blockedUrl, Common.ResourceType.resourceTypes.Document),
+        new TextUtils.StaticContentProvider.StaticContentProvider(
+            blockedUrl, Common.ResourceType.resourceTypes.Document, dataProvider),
+        null, mimeType);
+    await project.uiSourceCodeForURL(blockedUrl)?.requestContent();
+    project.addUISourceCodeWithProvider(
+        new Workspace.UISourceCode.UISourceCode(project, allowedUrl, Common.ResourceType.resourceTypes.Document),
+        new TextUtils.StaticContentProvider.StaticContentProvider(
+            allowedUrl, Common.ResourceType.resourceTypes.Document, dataProvider),
+        null, mimeType);
+    await project.uiSourceCodeForURL(allowedUrl)?.requestContent();
+
+    Platform.assertNotNullOrUndefined(context.chrome.devtools);
+    const resources =
+        await new Promise<Chrome.DevTools.Resource[]>(r => context.chrome.devtools?.inspectedWindow.getResources(r));
+    assert.deepStrictEqual(resources.map(r => r.url), [blockedUrl, allowedUrl]);
+
+    const resourceContents = await Promise.all(resources.map(
+        resource => new Promise<{url: string, content: string, encoding: string}>(
+            r => resource.getContent((content, encoding) => r({url: resource.url, content, encoding})))));
+
+    assert.deepStrictEqual(resourceContents, [
+      {url: 'http://web.dev', content: undefined, encoding: undefined},
+      {url: 'http://example.com', content: 'content', encoding: ''},
+    ]);
+  });
+
+  it('blocks getting request contents on blocked urls', async () => {
+    const frameId = 'frame-id' as Protocol.Page.FrameId;
+    const target = createTarget({id: 'target' as Protocol.Target.TargetID});
+    const allowedUrl = 'http://example.com' as Platform.DevToolsPath.UrlString;
+    const blockedUrl = 'http://web.dev' as Platform.DevToolsPath.UrlString;
+    target.setInspectedURL(allowedUrl);
+
+    const requests: Chrome.DevTools.Request[] = [];
+    context.chrome.devtools?.network.onRequestFinished.addListener(r => requests.push(r));
+    await waitForFunction(
+        () => Extensions.ExtensionServer.ExtensionServer.instance().hasSubscribers(
+            Extensions.ExtensionAPI.PrivateAPI.Events.NetworkRequestFinished));
+
+    const dataProvider = () => Promise.resolve({content: 'content', encoded: false, error: null});
+    const networkManager = target.model(SDK.NetworkManager.NetworkManager);
+    Platform.assertNotNullOrUndefined(networkManager);
+    const blockedUrlRequest = SDK.NetworkRequest.NetworkRequest.create(
+        'blocked-url-request-id' as Protocol.Network.RequestId, blockedUrl, blockedUrl, frameId, null, null, undefined);
+    blockedUrlRequest.setContentDataProvider(dataProvider);
+    blockedUrlRequest.finished = true;
+    networkManager.dispatchEventToListeners(SDK.NetworkManager.Events.RequestFinished, blockedUrlRequest);
+    const allowedUrlRequest = SDK.NetworkRequest.NetworkRequest.create(
+        'allowed-url-request-id' as Protocol.Network.RequestId, allowedUrl, blockedUrl, frameId, null, null, undefined);
+    allowedUrlRequest.setContentDataProvider(dataProvider);
+    allowedUrlRequest.finished = true;
+    networkManager.dispatchEventToListeners(SDK.NetworkManager.Events.RequestFinished, allowedUrlRequest);
+
+    await waitForFunction(() => requests.length >= 2);
+    const requestContents = await Promise.all(
+        requests.map(request => new Promise(r => request.getContent((content, encoding) => r({content, encoding})))));
+    assert.deepStrictEqual(
+        requestContents, [{content: undefined, encoding: undefined}, {content: 'content', encoding: ''}]);
+  });
+
+  it('blocks setting resource contents on blocked urls', async () => {
+    const mimeType = 'text/html';
+    const target = createTarget({id: 'target' as Protocol.Target.TargetID});
+    const allowedUrl = 'http://example.com' as Platform.DevToolsPath.UrlString;
+    const blockedUrl = 'http://web.dev' as Platform.DevToolsPath.UrlString;
+    target.setInspectedURL(allowedUrl);
+
+    const dataProvider = () => Promise.resolve({content: 'content', isEncoded: false});
+    const project = new Bindings.ContentProviderBasedProject.ContentProviderBasedProject(
+        Workspace.Workspace.WorkspaceImpl.instance(), target.id(), Workspace.Workspace.projectTypes.Network, '',
+        false /* isServiceProject */);
+    project.addUISourceCodeWithProvider(
+        new Workspace.UISourceCode.UISourceCode(project, blockedUrl, Common.ResourceType.resourceTypes.Document),
+        new TextUtils.StaticContentProvider.StaticContentProvider(
+            blockedUrl, Common.ResourceType.resourceTypes.Document, dataProvider),
+        null, mimeType);
+    await project.uiSourceCodeForURL(blockedUrl)?.requestContent();
+    project.addUISourceCodeWithProvider(
+        new Workspace.UISourceCode.UISourceCode(project, allowedUrl, Common.ResourceType.resourceTypes.Document),
+        new TextUtils.StaticContentProvider.StaticContentProvider(
+            allowedUrl, Common.ResourceType.resourceTypes.Document, dataProvider),
+        null, mimeType);
+    await project.uiSourceCodeForURL(allowedUrl)?.requestContent();
+
+    Platform.assertNotNullOrUndefined(context.chrome.devtools);
+    const resources =
+        await new Promise<Chrome.DevTools.Resource[]>(r => context.chrome.devtools?.inspectedWindow.getResources(r));
+    assert.deepStrictEqual(resources.map(r => r.url), [blockedUrl, allowedUrl]);
+
+    assert.deepStrictEqual(project.uiSourceCodeForURL(allowedUrl)?.content(), 'content');
+    assert.deepStrictEqual(project.uiSourceCodeForURL(blockedUrl)?.content(), 'content');
+    const responses = await Promise.all(resources.map(
+                          resource => new Promise<Object|undefined>(r => resource.setContent('modified', true, r)))) as
+        Array<undefined|{code: string, details: string[]}>;
+
+    assert.deepStrictEqual(responses.map(response => response?.code), ['E_FAILED', 'OK']);
+    assert.deepStrictEqual(responses.map(response => response?.details), [['Permission denied'], []]);
+
+    assert.deepStrictEqual(project.uiSourceCodeForURL(allowedUrl)?.content(), 'modified');
+    assert.deepStrictEqual(project.uiSourceCodeForURL(blockedUrl)?.content(), 'content');
   });
 });
 
