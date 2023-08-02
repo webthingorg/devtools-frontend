@@ -69,6 +69,24 @@
       "parentUuid": "b6a47fc2_0c06a0de",
       "revId": "1a4987467ea95cae9a8a503f5dbd7daece327247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b16a80b2_718f0dd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-02T10:20:48Z",
+      "side": 1,
+      "message": "I don\u0027t see text-decoration being added though",
+      "parentUuid": "9dd9f145_48325e40",
+      "revId": "1a4987467ea95cae9a8a503f5dbd7daece327247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
