@@ -218,4 +218,21 @@ describe('HTMLFormatter', () => {
 `;
     assert.strictEqual(formatHTML(code), code);
   });
+
+  it('formats ampersands in text correctly', () => {
+    assert.strictEqual(formatHTML('This&'), `This&
+`);
+    assert.strictEqual(formatHTML('Me&You'), `Me&You
+`);
+
+    const url = 'http://www.example.com/index.html?a=1&b=2&c=3&d=1234567890abcdef1234567890abcdef1';
+    assert.strictEqual(formatHTML(url).trimEnd(), url);
+  });
+
+  it('formats ampersands in attribute values correctly', () => {
+    assert.strictEqual(
+        formatHTML('<link href="http://www.example.com/index.html?a=1&b=2"/>'),
+        `<link href="http://www.example.com/index.html?a=1&b=2"/>
+`);
+  });
 });
