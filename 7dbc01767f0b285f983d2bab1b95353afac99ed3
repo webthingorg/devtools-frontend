@@ -230,6 +230,30 @@
       },
       "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9ed0a04_a4ad041e",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-02T13:52:51Z",
+      "side": 1,
+      "message": "Ok, but is it even helpful to show the truncated URL for cross-origin URLs? What information does it give to the user? Elsewhere in DevTools we truncated only same-origin URLs, wouldn\u0027t it be confusing if we do it differently for prerendering?",
+      "parentUuid": "8c229e2f_4c6abfc3",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 81
+      },
+      "revId": "7dbc01767f0b285f983d2bab1b95353afac99ed3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
