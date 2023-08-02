@@ -7,11 +7,14 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
+import * as CodeMirror from '../../../../third_party/codemirror.next/codemirror.next.js';
+import * as CodeHighlighter from '../../../../ui/components/code_highlighter/code_highlighter.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LegacyWrapper from '../../../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 import * as ReportView from '../../../../ui/components/report_view/report_view.js';
+import * as TextEditor from '../../../../ui/components/text_editor/text_editor.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import * as NetworkForward from '../../../network/forward/forward.js';
 
@@ -41,7 +44,7 @@ const UIStrings = {
   /**
    *@description Description term: source text of rule set
    */
-  detailsSource: 'Source',
+  detailsSource: 'Source modified',
   /**
    *@description Validity: Rule set is valid
    */
@@ -82,6 +85,7 @@ class PreloadingUIUtils {
 }
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
+const codeMirrorJsonType = await CodeHighlighter.CodeHighlighter.languageFromMIME('application/json');
 
 export type RuleSetDetailsReportViewData = RuleSet|null;
 
@@ -284,8 +288,21 @@ export class RuleSetDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappa
       // clang-format on
     }
 
-    // TODO(https://crbug.com/1384419): Consider to add another pane and use SourceFrame.JSONView.JSONView.
-    const json = JSON.stringify(sourceJson);
+    const json = JSON.stringify(sourceJson, null, 4);
+    const textEditorInternal = new TextEditor.TextEditor.TextEditor(CodeMirror.EditorState.create({
+      doc: json,
+      extensions: [
+        CodeMirror.EditorState.readOnly.of(true),
+        CodeMirror.lineNumbers(),
+        codeMirrorJsonType as CodeMirror.Extension,
+        CodeMirror.highlightSpecialChars(),
+        CodeMirror.highlightSelectionMatches(),
+        CodeMirror.indentOnInput(),
+        CodeMirror.syntaxHighlighting(CodeHighlighter.CodeHighlighter.highlightStyle),
+        TextEditor.Config.theme(),
+      ],
+    }));
+    textEditorInternal.style.flexGrow = '1';
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
@@ -293,9 +310,7 @@ export class RuleSetDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappa
           <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsSource)}</${
             ReportView.ReportView.ReportKey.litTagName}>
           <${ReportView.ReportView.ReportValue.litTagName}>
-            <div class="text-ellipsis" title="">
-              ${json}
-            </div>
+          ${textEditorInternal}
           </${ReportView.ReportView.ReportValue.litTagName}>
       `;
     // clang-format on
