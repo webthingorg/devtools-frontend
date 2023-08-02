@@ -56,6 +56,30 @@
       },
       "revId": "c767a1893da4671ccdd0fa476b7e4f8c2a1f110a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10039bac_bdd40af9",
+        "filename": "test/unittests/front_end/panels/sources/DebuggerPlugin_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-02T03:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46941750_a8e4d22a",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 0
+      },
+      "revId": "c767a1893da4671ccdd0fa476b7e4f8c2a1f110a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
