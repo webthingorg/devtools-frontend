@@ -53,6 +53,8 @@ import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import {iconDataForResourceType} from '../utils/utils.js';
 
+import * as NetworkComponents from './components/components.js';
+
 import {type NetworkTimeCalculator} from './NetworkTimeCalculator.js';
 
 const UIStrings = {
@@ -1219,6 +1221,7 @@ export class NetworkRequestNode extends NetworkNode {
       this.setTextAndTitle(
           cell, i18nString(UIStrings.corsError),
           i18nString(UIStrings.crossoriginResourceSharingErrorS, {PH1: corsErrorStatus.corsError}));
+
     } else if (this.requestInternal.statusCode) {
       if (this.requestInternal.hasOverriddenHeaders()) {
         const markerDiv = document.createElement('div');
@@ -1235,6 +1238,13 @@ export class NetworkRequestNode extends NetworkNode {
       this.setTextAndTitle(cell, i18nString(UIStrings.unknown), i18nString(UIStrings.unknownExplanation));
     } else {
       this.setTextAndTitle(cell, i18nString(UIStrings.pendingq));
+    }
+
+    function statusText(statusText: string, statusCode: number): string {
+      if (!statusText) {
+        statusText += String(NetworkComponents.StatusTextStrings.getStatusText(statusCode));
+      }
+      return statusText;
     }
   }
 

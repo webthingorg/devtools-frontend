@@ -1493,6 +1493,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#responseCookiesPartitionKey = extraResponseInfo.cookiePartitionKey || null;
     this.#responseCookiesPartitionKeyOpaque = extraResponseInfo.cookiePartitionKeyOpaque || null;
     this.responseHeaders = extraResponseInfo.responseHeaders;
+    this.#fromMemoryCache = extraResponseInfo.fromMemoryCache;
     // We store a copy of the headers we initially received, so that after
     // potential header overrides, we can compare actual with original headers.
     this.originalResponseHeaders = extraResponseInfo.responseHeaders.map(headerEntry => ({...headerEntry}));
@@ -1842,6 +1843,7 @@ export interface ExtraResponseInfo {
   statusCode: number|undefined;
   cookiePartitionKey: string|undefined;
   cookiePartitionKeyOpaque: boolean|undefined;
+  fromMemoryCache: boolean|undefined;
 }
 
 export interface WebBundleInfo {
