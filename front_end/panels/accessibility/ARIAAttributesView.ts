@@ -30,6 +30,7 @@ export class ARIAAttributesPane extends AccessibilitySubPane {
 
     this.noPropertiesInfo = this.createInfo(i18nString(UIStrings.noAriaAttributes));
     this.treeOutline = this.createTreeOutline();
+    this.element.setAttribute('jslog', 'ARIAAttributes');
   }
 
   override setNode(node: SDK.DOMModel.DOMNode|null): void {

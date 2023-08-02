@@ -42,6 +42,7 @@ export class AccessibilitySidebarView extends UI.ThrottledWidget.ThrottledWidget
       void this.sidebarPaneStack.showView(this.sourceOrderSubPane);
     }
     this.sidebarPaneStack.widget().show(this.element);
+    this.element.setAttribute('jslog', 'AccessibilityPane');
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.pullNode, this);
     this.pullNode();
   }

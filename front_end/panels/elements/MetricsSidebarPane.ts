@@ -58,6 +58,7 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
     this.inlineStyle = null;
     this.highlightMode = '';
     this.boxElements = [];
+    this.contentElement.setAttribute('jslog', 'StylesMetricsPane');
   }
 
   override doUpdate(): Promise<void> {

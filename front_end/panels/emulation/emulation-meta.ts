@@ -191,6 +191,7 @@ UI.Toolbar.registerToolbarItem({
   showLabel: undefined,
   loadItem: undefined,
   separator: undefined,
+  jslog: 'ToggleDeviceMode; track: click',
 });
 
 Common.AppProvider.registerAppProvider({

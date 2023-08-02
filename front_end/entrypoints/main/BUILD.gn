@@ -30,6 +30,7 @@ devtools_module("main") {
     "../../panels/snippets:bundle",
     "../../panels/timeline:bundle",
     "../../ui/components/icon_button:bundle",
+    "../../ui/components/visual_logging:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/utils:bundle",
     "../../ui/legacy/theme_support:bundle",

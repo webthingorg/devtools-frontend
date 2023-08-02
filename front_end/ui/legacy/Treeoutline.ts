@@ -35,6 +35,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as VisualLogging from '../components/visual_logging/visual_logging.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
 import * as ThemeSupport from './theme_support/theme_support.js';
@@ -473,6 +474,8 @@ export class TreeElement {
     this.listItemNode.addEventListener('mousedown', (this.handleMouseDown.bind(this) as EventListener), false);
     this.listItemNode.addEventListener('click', (this.treeElementToggled.bind(this) as EventListener), false);
     this.listItemNode.addEventListener('dblclick', this.handleDoubleClick.bind(this), false);
+    this.listItemNode.setAttribute(
+        'jslog', 'TreeItem; track: click; parent: parentTreeItem; context:disclosureTriangle');
     ARIAUtils.markAsTreeitem(this.listItemNode);
 
     this.childrenInternal = null;
@@ -1391,3 +1394,24 @@ export class TreeElement {
     this.disableSelectFocus = toggle;
   }
 }
+
+function disclosureTriangleLoggingContextProvider(e: Element|Event): number|undefined {
+  if (e instanceof Element) {
+    return e.classList.contains('parent') ? 1 : 0;
+  }
+  if (e instanceof MouseEvent && e.currentTarget instanceof Node) {
+    const treeElement = TreeElement.getTreeElementBylistItemNode(e.currentTarget);
+    if (treeElement) {
+      return treeElement.isEventWithinDisclosureTriangle(e) ? 1 : 0;
+    }
+  }
+  return undefined;
+}
+
+function loggingParentProvider(e: Element): Element|undefined {
+  const treeElement = TreeElement.getTreeElementBylistItemNode(e);
+  return treeElement?.parent?.listItemElement;
+}
+
+VisualLogging.VisualLogging.registerContextProvider('disclosureTriangle', disclosureTriangleLoggingContextProvider);
+VisualLogging.VisualLogging.registerParentProvider('parentTreeItem', loggingParentProvider);

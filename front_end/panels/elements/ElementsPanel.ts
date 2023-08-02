@@ -220,6 +220,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
   constructor() {
     super('elements');
 
+    this.element.setAttribute('jslog', 'ElementsPanel');
     this.splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'elementsPanelSplitViewState', 325, 325);
     this.splitWidget.addEventListener(
         UI.SplitWidget.Events.SidebarSizeChanged, this.updateTreeOutlineVisibleWidth.bind(this));
@@ -986,9 +987,11 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       showMetricsWidgetInStylesPane();
     });
     this.stylesWidget.addEventListener(StylesSidebarPaneEvents.InitialUpdateCompleted, () => {
-      this.stylesWidget.appendToolbarItem(stylesSplitWidget.createShowHideSidebarButton(
+      const sidebarButton = stylesSplitWidget.createShowHideSidebarButton(
           i18nString(UIStrings.showComputedStylesSidebar), i18nString(UIStrings.hideComputedStylesSidebar),
-          i18nString(UIStrings.computedStylesShown), i18nString(UIStrings.computedStylesHidden)));
+          i18nString(UIStrings.computedStylesShown), i18nString(UIStrings.computedStylesHidden));
+      sidebarButton.element.setAttribute('jslog', 'ToggleComputedStylesSidebar');
+      this.stylesWidget.appendToolbarItem(sidebarButton);
     });
 
     const showMetricsWidgetInComputedPane = (): void => {

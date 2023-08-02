@@ -138,6 +138,7 @@ export class ElementsTreeOutline extends
 
     this.elementInternal = this.element;
     this.elementInternal.classList.add('elements-tree-outline', 'source-code');
+    this.elementInternal.setAttribute('jslog', 'ElementsTreeOutline');
     if (hideGutter) {
       this.elementInternal.classList.add('elements-hide-gutter');
     }

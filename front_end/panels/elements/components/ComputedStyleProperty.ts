@@ -57,7 +57,7 @@ export class ComputedStyleProperty extends HTMLElement {
         </div>
         <span class="hidden" aria-hidden="false">: </span>
         ${this.#traceable ?
-            html`<span class="goto" @click=${this.#onNavigateToSourceClick}></span>` :
+            html`<span class="goto" @click=${this.#onNavigateToSourceClick} jslog="JumpToSource; track: click"></span>` :
             null}
         <div class="property-value">
           <slot name="value"></slot>

@@ -105,15 +105,18 @@ export class EventListenersWidget extends UI.ThrottledWidget.ThrottledWidget imp
     this.showFrameworkListenersSetting.addChangeListener(this.showFrameworkListenersChanged.bind(this));
     this.eventListenersView = new EventListeners.EventListenersView.EventListenersView(this.update.bind(this));
     this.eventListenersView.show(this.element);
+    this.element.setAttribute('jslog', 'EventListenersPane');
 
     const refreshButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'refresh');
     refreshButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.update.bind(this));
+    refreshButton.element.setAttribute('jslog', 'Refresh; track:click');
     this.toolbarItemsInternal.push(refreshButton);
     this.toolbarItemsInternal.push(new UI.Toolbar.ToolbarSettingCheckbox(
         this.showForAncestorsSetting, i18nString(UIStrings.showListenersOnTheAncestors),
         i18nString(UIStrings.ancestors)));
     const dispatchFilter = new UI.Toolbar.ToolbarComboBox(
         this.onDispatchFilterTypeChanged.bind(this), i18nString(UIStrings.eventListenersCategory));
+    dispatchFilter.element.setAttribute('jslog', 'FilterDropdown;track: change');
 
     function addDispatchFilterOption(this: EventListenersWidget, name: string, value: string): void {
       const option = dispatchFilter.createOption(name, value);

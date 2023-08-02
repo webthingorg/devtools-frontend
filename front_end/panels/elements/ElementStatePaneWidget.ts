@@ -60,6 +60,7 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       const input = label.checkboxElement;
       this.inputStates.set(input, state);
       input.addEventListener('click', (clickListener as EventListener), false);
+      input.setAttribute('jslog', `Toggle;track:click;context:${state}`);
       inputs.push(input);
       td.appendChild(label);
       return td;
@@ -138,6 +139,7 @@ export class ButtonProvider implements UI.Toolbar.Provider {
     this.button.setToggleWithDot(true);
     this.button.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.clicked, this);
     this.button.element.classList.add('monospace');
+    this.button.element.setAttribute('jslog', 'ToggleElementStates;track:click');
     this.view = new ElementStatePaneWidget();
   }
 

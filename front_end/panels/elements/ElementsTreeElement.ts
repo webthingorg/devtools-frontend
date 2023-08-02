@@ -255,6 +255,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     super();
     this.nodeInternal = node;
     this.treeOutline = null;
+    // this.listItemElement.setAttribute('jslog', 'DomNode;track:click;context:disclosureTriangle');
     this.contentElement = this.listItemElement.createChild('div');
     this.gutterContainer = this.contentElement.createChild('div', 'gutter-container');
     this.gutterContainer.addEventListener('click', this.showContextMenu.bind(this));

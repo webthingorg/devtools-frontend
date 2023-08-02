@@ -126,6 +126,7 @@ export class ColorSwatch extends HTMLElement {
     LitHtml.render(
       LitHtml.html`<span class="color-swatch" title=${this.tooltip}><span class="color-swatch-inner"
         style="background-color: ${this.text};"
+        jslog="ColorSwatch; track: click"
         @click=${this.onClick}
         @mousedown=${this.consume}
         @dblclick=${this.consume}></span></span><slot><span>${this.text}</span></slot>`,

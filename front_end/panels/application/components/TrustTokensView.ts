@@ -78,6 +78,7 @@ class TrustTokensDeleteButton extends HTMLElement {
       <!-- Wrap the button in a container, otherwise we can't center it inside the column. -->
       <span class="button-container">
         <button class="delete-button"
+          jslog="TrustTokensDeleteButton; track: click"
           title=${i18nString(UIStrings.deleteTrustTokens, {PH1: this.#issuer as string})}
           @click=${(): void => this.#deleteClickHandler(this.#issuer as string)}>
           <${IconButton.Icon.Icon.litTagName} .data=${
@@ -125,7 +126,7 @@ export class TrustTokensView extends LegacyWrapper.LegacyWrapper.WrappableCompon
     await coordinator.write('Render TrustTokensView', () => {
       // clang-format off
       LitHtml.render(LitHtml.html`
-        <div>
+        <div jslog="TrustTokensView" >
           <span class="heading">${i18nString(UIStrings.trustTokens)}</span>
           <${IconButton.Icon.Icon.litTagName} class="info-icon" title=${
               i18nString(UIStrings.allStoredTrustTokensAvailableIn)}

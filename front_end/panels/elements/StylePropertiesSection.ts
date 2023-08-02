@@ -176,6 +176,7 @@ export class StylePropertiesSection {
     this.element.classList.add('styles-section');
     this.element.classList.add('matched-styles');
     this.element.classList.add('monospace');
+    this.element.setAttribute('jslog', 'StylePropertiesSection');
     UI.ARIAUtils.setLabel(this.element, `${this.headerText()}, css selector`);
     this.element.tabIndex = -1;
     UI.ARIAUtils.markAsListitem(this.element);
@@ -194,6 +195,7 @@ export class StylePropertiesSection {
     this.innerElement.appendChild(this.propertiesTreeOutline.element);
 
     this.showAllButton = UI.UIUtils.createTextButton('', this.showAllItems.bind(this), 'styles-show-all');
+    this.showAllButton.setAttribute('jslog', 'ShowAllStyleProperties;track:click');
     this.innerElement.appendChild(this.showAllButton);
 
     const selectorContainer = document.createElement('div');
@@ -216,6 +218,7 @@ export class StylePropertiesSection {
       const newRuleButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.insertStyleRuleBelow), 'plus');
       newRuleButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.onNewRuleClick, this);
       newRuleButton.element.tabIndex = -1;
+      newRuleButton.element.setAttribute('jslog', 'AddStylesRule; track: click');
       if (!this.newStyleRuleToolbar) {
         this.newStyleRuleToolbar =
             new UI.Toolbar.Toolbar('sidebar-pane-section-toolbar new-rule-toolbar', this.innerElement);
@@ -249,6 +252,7 @@ export class StylePropertiesSection {
     }
 
     this.selectorElement.addEventListener('click', this.handleSelectorClick.bind(this), false);
+    this.selectorElement.setAttribute('jslog', 'StylesSelector; track: click');
     this.element.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), false);
     this.element.addEventListener('mousedown', this.handleEmptySpaceMouseDown.bind(this), false);
     this.element.addEventListener('click', this.handleEmptySpaceClick.bind(this), false);

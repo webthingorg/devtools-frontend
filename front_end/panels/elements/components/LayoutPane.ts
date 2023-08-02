@@ -334,7 +334,7 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       render(html`
-        <details open>
+        <details open jslog="LayoutPanelGrid">
           <summary class="header" @keydown=${this.#onSummaryKeyDown}>
             ${i18nString(UIStrings.grid)}
           </summary>
@@ -348,7 +348,7 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
             </div>
           </div>
           ${gridElements ?
-            html`<div class="content-section">
+            html`<div class="content-section" jslog="GridElements">
               <h3 class="content-section-title">
                 ${gridElements.length ? i18nString(UIStrings.gridOverlays) : i18nString(UIStrings.noGridLayoutsFoundOnThisPage)}
               </h3>
@@ -360,12 +360,12 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
         </details>
         ${flexContainerElements !== undefined ?
           html`
-          <details open>
+          <details open jslog="LayoutPanelFlex">
             <summary class="header" @keydown=${this.#onSummaryKeyDown}>
               ${i18nString(UIStrings.flexbox)}
             </summary>
             ${flexContainerElements ?
-              html`<div class="content-section">
+              html`<div class="content-section" jslog="FlexElements">
                 <h3 class="content-section-title">
                   ${flexContainerElements.length ? i18nString(UIStrings.flexboxOverlays) : i18nString(UIStrings.noFlexboxLayoutsFoundOnThisPage)}
                 </h3>
@@ -453,9 +453,9 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
     };
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
-    return html`<div class="element">
+    return html`<div class="element" jslog="LayoutElement">
       <label data-element="true" class="checkbox-label">
-        <input data-input="true" type="checkbox" .checked=${element.enabled} @change=${onElementToggle} />
+        <input data-input="true" type="checkbox" .checked=${element.enabled} @change=${onElementToggle} jslog="Toggle;track:click" />
         <span class="node-text-container" data-label="true" @mouseenter=${onMouseEnter} @mouseleave=${onMouseLeave}>
           <${NodeText.NodeText.NodeText.litTagName} .data=${{
             nodeId: element.domId,
@@ -464,14 +464,14 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
           } as NodeText.NodeText.NodeTextData}></${NodeText.NodeText.NodeText.litTagName}>
         </span>
       </label>
-      <label @keyup=${onColorLabelKeyUp} @keydown=${onColorLabelKeyDown} class="color-picker-label" style="background: ${element.color};">
+      <label @keyup=${onColorLabelKeyUp} @keydown=${onColorLabelKeyDown} class="color-picker-label" style="background: ${element.color};" jslog="ColorSwatch; track:click">
         <input @change=${onColorChange} @input=${onColorChange} title=${i18nString(UIStrings.chooseElementOverlayColor)} tabindex="0" class="color-picker" type="color" value=${element.color} />
       </label>
       <${IconButton.Icon.Icon.litTagName} .data=${{
         iconName: 'select-element',
         color: 'var(--icon-show-element)',
         width: '16px',
-      } as IconButton.Icon.IconData} tabindex="0", @click=${onElementClick} title=${i18nString(UIStrings.showElementInTheElementsPanel)} class="show-element">
+      } as IconButton.Icon.IconData} tabindex="0", @click=${onElementClick} title=${i18nString(UIStrings.showElementInTheElementsPanel)} class="show-element" jslog="JumpToElement; track: click">
       </${IconButton.Icon.Icon.litTagName}>
     </div>`;
     // clang-format on
@@ -479,7 +479,8 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
 
   #renderBooleanSetting(setting: BooleanSetting): LitHtml.TemplateResult {
     const onBooleanSettingChange = this.#onBooleanSettingChange.bind(this, setting);
-    return html`<label data-boolean-setting="true" class="checkbox-label" title=${setting.title}>
+    return html`<label data-boolean-setting="true" class="checkbox-label" title=${
+        setting.title} jslog="SettingToggle; context: ${setting.name}">
       <input data-input="true" type="checkbox" .checked=${setting.value} @change=${onBooleanSettingChange} />
       <span data-label="true">${setting.title}</span>
     </label>`;
@@ -487,7 +488,8 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
 
   #renderEnumSetting(setting: EnumSetting): LitHtml.TemplateResult {
     const onEnumSettingChange = this.#onEnumSettingChange.bind(this, setting);
-    return html`<label data-enum-setting="true" class="select-label" title=${setting.title}>
+    return html`<label data-enum-setting="true" class="select-label" title=${
+        setting.title} jslog="SettingDropdown; context: ${setting.name}; track: change">
       <select class="chrome-select" data-input="true" @change=${onEnumSettingChange}>
         ${
         setting.options.map(

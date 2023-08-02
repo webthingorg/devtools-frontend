@@ -29,6 +29,7 @@ export class AccessibilityTreeView extends UI.Widget.VBox implements
     const container = this.contentElement.createChild('div');
 
     container.classList.add('accessibility-tree-view-container');
+    container.setAttribute('jslog', 'FullAccessibilityTree');
     container.appendChild(this.toggleButton);
     container.appendChild(this.accessibilityTreeComponent);
 

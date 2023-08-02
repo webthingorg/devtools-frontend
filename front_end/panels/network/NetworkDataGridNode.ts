@@ -886,6 +886,7 @@ export class NetworkRequestNode extends NetworkNode {
   }
 
   override renderCell(c: Element, columnId: string): void {
+    this.element().setAttribute('jslog', 'NetworkRequest;track:click');
     const cell = (c as HTMLElement);
     switch (columnId) {
       case 'name': {

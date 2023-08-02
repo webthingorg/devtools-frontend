@@ -710,7 +710,8 @@ class TabbedLocation extends Location implements TabbedViewLocation {
   private appendTab(view: View, index?: number): void {
     this.tabbedPaneInternal.appendTab(
         view.viewId(), view.title(), new ContainerWidget(view), undefined, false,
-        view.isCloseable() || view.isTransient(), view.isPreviewFeature(), index);
+        view.isCloseable() || view.isTransient(), view.isPreviewFeature(), index,
+        `PanelTabHeader; track: click; context: ${view.viewId()}`);
   }
 
   appendView(view: View, insertBefore?: View|null): void {

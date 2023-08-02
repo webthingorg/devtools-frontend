@@ -1190,6 +1190,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     this.elementInternal = document.createElement('div');
     this.elementInternal.tabIndex = -1;
     this.elementInternal.addEventListener('keydown', (this.onKeyDown.bind(this) as EventListener));
+    this.elementInternal.setAttribute('jslog', 'ConsoleMessage;track:click');
     this.updateMessageElement();
     this.elementInternal.classList.toggle('console-adjacent-user-command-result', this.#adjacentUserCommandResult);
     return this.elementInternal;

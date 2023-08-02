@@ -1188,6 +1188,7 @@ export class CheckboxLabel extends HTMLSpanElement {
     this.checkboxElement = (this.shadowRootInternal.createChild('input') as HTMLInputElement);
     this.checkboxElement.type = 'checkbox';
     this.checkboxElement.setAttribute('id', id);
+    this.checkboxElement.setAttribute('jslog', 'Toggle; track: click');
     this.textElement = this.shadowRootInternal.createChild('label', 'dt-checkbox-text') as HTMLElement;
     this.textElement.setAttribute('for', id);
     this.shadowRootInternal.createChild('slot');

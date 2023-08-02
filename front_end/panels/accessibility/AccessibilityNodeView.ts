@@ -124,6 +124,7 @@ export class AXNodeSubPane extends AccessibilitySubPane {
     this.axNode = null;
 
     this.contentElement.classList.add('ax-subpane');
+    this.contentElement.setAttribute('jslog', 'AccessibilityComputedProperties');
 
     this.noNodeInfo = this.createInfo(i18nString(UIStrings.noAccessibilityNode));
     this.ignoredInfo = this.createInfo(i18nString(UIStrings.accessibilityNodeNotExposed), 'ax-ignored-info hidden');

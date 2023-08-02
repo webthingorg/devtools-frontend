@@ -49,6 +49,7 @@ import * as Workspace from '../../models/workspace/workspace.js';
 import * as Snippets from '../../panels/snippets/snippets.js';
 import * as Timeline from '../../panels/timeline/timeline.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as VisualLogging from '../../ui/components/visual_logging/visual_logging.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -154,6 +155,7 @@ export class MainImpl {
     await this.requestAndRegisterLocaleData();
 
     Host.userMetrics.syncSetting(Common.Settings.Settings.instance().moduleSetting<boolean>('sync_preferences').get());
+    VisualLogging.VisualLogging.startLogging();
 
     void this.#createAppUI();
   }

@@ -86,6 +86,7 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
         experiment,
         onChangeCallback,
       };
+      previewToggle.setAttribute('jslog', 'FullAccessibilityTreeToggle; track: click');
       this.element.appendChild(previewToggle);
       return;
     }
@@ -446,6 +447,7 @@ export class AXBreadcrumb {
 
     this.elementInternal = document.createElement('div');
     this.elementInternal.classList.add('ax-breadcrumb');
+    this.elementInternal.setAttribute('jslog', 'TreeItem; track: click');
     elementsToAXBreadcrumb.set(this.elementInternal, this);
 
     this.nodeElementInternal = document.createElement('div');

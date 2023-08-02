@@ -175,9 +175,11 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (elementsModul
   return getClassCallBack(loadedElementsModule);
 }
 
+const viewId = 'elements';
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'elements',
+  id: viewId,
   commandPrompt: i18nLazyString(UIStrings.showElements),
   title: i18nLazyString(UIStrings.elements),
   order: 10,
@@ -642,6 +644,7 @@ UI.Toolbar.registerToolbarItem({
   condition: undefined,
   separator: undefined,
   loadItem: undefined,
+  jslog: 'ToggleElementSearch; track: click',
 });
 
 UI.UIUtils.registerRenderer({

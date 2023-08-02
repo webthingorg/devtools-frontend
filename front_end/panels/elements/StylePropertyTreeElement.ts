@@ -885,8 +885,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.updateState();
     if (this.isExpandable()) {
       this.expandElement = UI.Icon.Icon.create('triangle-right', 'expand-icon');
-    } else {
-      this.expandElement = null;
+      this.expandElement.setAttribute('jslog', 'TreeItemExpand;track:click');
     }
 
     const propertyRenderer =
@@ -992,6 +991,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       enabledCheckboxElement.className = 'enabled-button';
       enabledCheckboxElement.type = 'checkbox';
       enabledCheckboxElement.checked = !this.property.disabled;
+      enabledCheckboxElement.setAttribute('jslog', 'Toggle; track: click');
       enabledCheckboxElement.addEventListener('mousedown', event => event.consume(), false);
       enabledCheckboxElement.addEventListener('click', event => {
         void this.toggleDisabled(!this.property.disabled);

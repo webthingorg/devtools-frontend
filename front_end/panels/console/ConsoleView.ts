@@ -342,6 +342,7 @@ export class ConsoleView extends UI.Widget.VBox implements
     this.isSidebarOpen = false;
     this.filter = new ConsoleViewFilter(this.onFilterChanged.bind(this));
 
+    this.element.setAttribute('jslog', 'ConsolePanel');
     this.consoleToolbarContainer = this.element.createChild('div', 'console-toolbar-container');
     this.splitWidget = new UI.SplitWidget.SplitWidget(
         true /* isVertical */, false /* secondIsSidebar */, 'console.sidebar.width', 100);
