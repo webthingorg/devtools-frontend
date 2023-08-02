@@ -4,10 +4,11 @@
 
 import * as TraceEngine from '../../models/trace/trace.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
-import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as Common from '../../core/common/common.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import {ThreadAppender} from './ThreadAppender.js';
+import {EventStyles} from './EventUICategory.js';
 
 import {
   type TimelineFlameChartEntry,
@@ -19,7 +20,6 @@ import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
 import {getEventLevel} from './AppenderUtils.js';
-import {TimelineUIUtils} from './TimelineUIUtils.js';
 
 export type HighlightedEntryInfo = {
   title: string,
@@ -162,7 +162,7 @@ export class CompatibilityTracksAppender {
             // of crbug.com/1428024
             continue;
           }
-          const threadAppender = new ThreadAppender(this, this.#traceParsedData, this.#colorGenerator, pid, tid);
+          const threadAppender = new ThreadAppender(this, this.#traceParsedData, pid, tid);
           this.#threadAppenders.push(threadAppender);
           this.#allTrackAppenders.push(threadAppender);
         }
@@ -408,12 +408,10 @@ export class CompatibilityTracksAppender {
     const lastUsedTimeByLevel: number[] = [];
     for (let i = 0; i < events.length; ++i) {
       const event = events[i];
-      const eventAsLegacy = this.getLegacyEvent(event);
       // Default styles are globally defined for each event name. Some
       // events are hidden by default.
-      const visibleNames = new Set(TimelineUIUtils.visibleTypes());
-      const eventIsVisible = eventAsLegacy &&
-          visibleNames.has(TimelineModel.TimelineModelFilter.TimelineVisibleEventsFilter.eventType(eventAsLegacy));
+      const eventStyle = EventStyles.get(event.name as TraceEngine.Types.TraceEvents.KnownEventName);
+      const eventIsVisible = eventStyle && !eventStyle.hidden;
       if (!eventIsVisible) {
         continue;
       }
