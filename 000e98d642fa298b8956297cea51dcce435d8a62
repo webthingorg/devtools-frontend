@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df17a2e7_56c3105a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-02T06:19:09Z",
+      "side": 1,
+      "message": "nit: please use a short one-line subject, per https://chromium.googlesource.com/chromium/src/+/HEAD/docs/contributing.md#uploading-a-change-for-review\n\nHow about:\n\n    Add \u003caudio\u003e/\u003cvideo\u003e adorner",
+      "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03be83c2_54c21022",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-02T06:19:09Z",
+      "side": 1,
+      "message": "Should this be \u0027media-panel\u0027 (with the hyphen) to match the other registered adorners?",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "000e98d642fa298b8956297cea51dcce435d8a62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
