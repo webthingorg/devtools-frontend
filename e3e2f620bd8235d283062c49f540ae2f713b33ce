@@ -33,6 +33,24 @@
       "message": "Is this really needed? We deduplicate render jobs with the same name within a single animation frame.",
       "revId": "e3e2f620bd8235d283062c49f540ae2f713b33ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32072f13_723d3ed5",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDisabledInfobar.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-03T19:05:52Z",
+      "side": 1,
+      "message": "Actually, no obstruction observed; it\u0027s only safety.\nLet\u0027s remove this and watch how it works.",
+      "parentUuid": "b6ccc797_e80bc3a3",
+      "revId": "e3e2f620bd8235d283062c49f540ae2f713b33ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
