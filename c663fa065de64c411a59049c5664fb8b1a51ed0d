@@ -16,6 +16,24 @@
       "message": "Looks good overall! \n\nOn the screenshots it looks like when a row is selected (blue background), the bottom of the purple circle is cut off.",
       "revId": "c663fa065de64c411a59049c5664fb8b1a51ed0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab5f5d1c_e5a4fc19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-03T18:32:19Z",
+      "side": 1,
+      "message": "eagle eyes, good catch! fixed.",
+      "parentUuid": "80e2b081_07253b89",
+      "revId": "c663fa065de64c411a59049c5664fb8b1a51ed0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
