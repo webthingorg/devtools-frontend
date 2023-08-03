@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d3f8c10_0d80acfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-03T18:55:43Z",
+      "side": 1,
+      "message": "Let me merge it now and know more better way if possible. I\u0027ll make a follow-up CL.",
+      "revId": "fc877644a67773a083286e6bf690240e7bf6b173",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
