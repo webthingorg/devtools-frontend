@@ -51,6 +51,24 @@
       "parentUuid": "a0a9aa18_3933e862",
       "revId": "9c31ed155ad84701f172208300bc77458f439247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14d76e98_15046560",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-03T14:52:56Z",
+      "side": 1,
+      "message": "You need to adopt common styles like here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/components/ProtocolHandlersView.ts;l\u003d14?q\u003dinspectorCommonStyles\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2Ffront_end%2F",
+      "parentUuid": "5e4a9027_8a7ac7a6",
+      "revId": "9c31ed155ad84701f172208300bc77458f439247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
