@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06f520f6_5b3f1554",
+        "filename": "front_end/core/sdk/BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-03T16:28:57Z",
+      "side": 1,
+      "message": "This name is not very specific. How about something like \u0027HttpStatusTextStrings\u0027 or even \u0027HttpReasonPhraseStrings\u0027 since that\u0027s what they are called in the spec?",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 22
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a82ccd_3b658546",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-03T16:28:57Z",
+      "side": 1,
+      "message": "nit: only \u0027\u003d\u0027 should be enough here since we know that the left hand side is empty.",
+      "range": {
+        "startLine": 854,
+        "startChar": 23,
+        "endLine": 854,
+        "endChar": 25
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba9d66c3_66507f52",
+        "filename": "front_end/core/sdk/StatusTextStrings.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-03T16:28:57Z",
+      "side": 1,
+      "message": "nit: Could this be inlined into L11?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "63b306df_8457fef1",
         "filename": "front_end/core/sdk/StatusTextStrings.ts",
         "patchSetId": 13
