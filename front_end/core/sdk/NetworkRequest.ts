@@ -303,6 +303,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #isSameSiteInternal: boolean|null;
   #wasIntercepted: boolean;
   #associatedData = new Map<string, object>();
+  #hasOverriddenContent: boolean;
 
   private constructor(
       requestId: string, backendRequestId: Protocol.Network.RequestId|undefined, url: Platform.DevToolsPath.UrlString,
@@ -385,6 +386,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#isSameSiteInternal = null;
 
     this.#wasIntercepted = false;
+    this.#hasOverriddenContent = false;
   }
 
   static create(
@@ -1010,6 +1012,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       return Platform.StringUtilities.compare(a.name.toLowerCase(), b.name.toLowerCase()) ||
           Platform.StringUtilities.compare(a.value, b.value);
     });
+  }
+
+  get hasOverriddenContent(): boolean {
+    return this.#hasOverriddenContent;
+  }
+
+  set hasOverriddenContent(value: boolean) {
+    this.#hasOverriddenContent = value;
   }
 
   hasOverriddenHeaders(): boolean {
