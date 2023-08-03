@@ -51,6 +51,24 @@
       "parentUuid": "bd9bc1f4_6bcef92c",
       "revId": "7e444c890777cda0b7764ec0a901bdd6db892aa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55d423e6_bd2c9a6c",
+        "filename": "test/unittests/front_end/entrypoints/formatter_worker/HTMLFormatter_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-08-03T08:08:17Z",
+      "side": 1,
+      "message": "Good catch. I also added tests for ampersands in unquoted attribute values now.",
+      "parentUuid": "58bc1a31_50858361",
+      "revId": "7e444c890777cda0b7764ec0a901bdd6db892aa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
