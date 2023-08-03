@@ -56,6 +56,8 @@ export type SourceMapV3Object = {
   'x_google_linecount'?: number,
   // eslint-disable-next-line @typescript-eslint/naming-convention
   'x_google_ignoreList'?: number[],
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  'x_com_bloomberg_sourcesFunctionMappings'?: string[],
   // clang-format on
 };
 
@@ -128,6 +130,30 @@ export class SourceMapEntry {
   }
 }
 
+interface Position {
+  lineNumber: number;
+  columnNumber: number;
+}
+
+function comparePositions(a: Position, b: Position): number {
+  return a.lineNumber - b.lineNumber || a.columnNumber - b.columnNumber;
+}
+
+export class ScopeEntry {
+  constructor(
+      readonly startLineNumber: number, readonly startColumnNumber: number, readonly endLineNumber: number,
+      readonly endColumnNumber: number, readonly name: string) {
+  }
+
+  start(): Position {
+    return {lineNumber: this.startLineNumber, columnNumber: this.startColumnNumber};
+  }
+
+  end(): Position {
+    return {lineNumber: this.endLineNumber, columnNumber: this.endColumnNumber};
+  }
+}
+
 const base64Digits = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const base64Map = new Map<string, number>();
 
@@ -141,6 +167,8 @@ interface SourceInfo {
   content: string|null;
   ignoreListHint: boolean;
   reverseMappings: number[]|null;
+  scopeEntries: ScopeEntry[]|null;
+  scopeLookupIndex: number[]|null;
 }
 
 export class SourceMap {
@@ -425,7 +453,8 @@ export class SourceMap {
       if (!this.#sourceInfos.has(url)) {
         const content = source ?? null;
         const ignoreListHint = ignoreList.has(i);
-        this.#sourceInfos.set(url, {content, ignoreListHint, reverseMappings: null});
+        this.#sourceInfos.set(
+            url, {content, ignoreListHint, reverseMappings: null, scopeEntries: null, scopeLookupIndex: null});
       }
     }
     sourceMapToSourceList.set(sourceMap, sourcesList);
@@ -486,6 +515,148 @@ export class SourceMap {
       nameIndex += this.decodeVLQ(stringCharIterator);
       this.mappings().push(new SourceMapEntry(
           lineNumber, columnNumber, sourceURL, sourceLineNumber, sourceColumnNumber, names[nameIndex]));
+    }
+
+    this.parseScopes(map);
+  }
+
+  private parseScopes(map: SourceMapV3Object): void {
+    if (!map.x_com_bloomberg_sourcesFunctionMappings) {
+      return;
+    }
+    const sources = sourceMapToSourceList.get(map);
+    if (!sources) {
+      return;
+    }
+    const names = map.names ?? [];
+    const scopeList = map.x_com_bloomberg_sourcesFunctionMappings;
+
+    for (let i = 0; i < sources?.length; i++) {
+      if (!scopeList[i] || !sources[i]) {
+        continue;
+      }
+      const sourceInfo = this.#sourceInfos.get(sources[i]);
+      if (!sourceInfo) {
+        continue;
+      }
+      const scopes = scopeList[i];
+
+      let nameIndex = 0;
+      let startLineNumber = 0;
+      let startColumnNumber = 0;
+      let endLineNumber = 0;
+      let endColumnNumber = 0;
+
+      const stringCharIterator = new SourceMap.StringCharIterator(scopes);
+      const entries: ScopeEntry[] = [];
+      let atStart = true;
+      while (stringCharIterator.hasNext()) {
+        if (atStart) {
+          atStart = false;
+        } else if (stringCharIterator.peek() === ',') {
+          stringCharIterator.next();
+        } else {
+          // Unexpected character.
+          return;
+        }
+        nameIndex += this.decodeVLQ(stringCharIterator);
+        startLineNumber += this.decodeVLQ(stringCharIterator);
+        startColumnNumber += this.decodeVLQ(stringCharIterator);
+        endLineNumber += this.decodeVLQ(stringCharIterator);
+        endColumnNumber += this.decodeVLQ(stringCharIterator);
+        entries.push(new ScopeEntry(
+            startLineNumber, startColumnNumber, endLineNumber, endColumnNumber, names[nameIndex] ?? '<invalid>'));
+      }
+      entries.sort((l, r) => comparePositions(l.start(), r.start()));
+      sourceInfo.scopeEntries = entries;
+      this.buildScopeLookupIndex(sourceInfo);
+    }
+  }
+
+  private buildScopeLookupIndex(sourceInfo: SourceInfo): void {
+    const entries = sourceInfo.scopeEntries;
+    const bounds: number[] = [];
+    if (!entries?.length) {
+      return;
+    }
+    collectBounds(0, entries.length - 1);
+
+    function collectBounds(l: number, r: number): number {
+      if (!entries) {
+        return 0;
+      }
+      console.assert(l <= r);
+      const m = (l + r) >> 1;
+      let upperBound = m;
+      if (l < m) {
+        const leftBound = collectBounds(l, m - 1);
+        if (comparePositions(entries[leftBound].end(), entries[upperBound].end()) > 0) {
+          upperBound = leftBound;
+        }
+      }
+      if (m < r) {
+        const rightBound = collectBounds(m + 1, r);
+        if (comparePositions(entries[rightBound].end(), entries[upperBound].end()) > 0) {
+          upperBound = rightBound;
+        }
+      }
+      bounds[m] = upperBound;
+      return upperBound;
+    }
+    sourceInfo.scopeLookupIndex = bounds;
+  }
+
+  findScopeEntry(sourceURL: Platform.DevToolsPath.UrlString, sourceLineNumber: number, sourceColumnNumber: number):
+      ScopeEntry|undefined {
+    const sourceInfo = this.#sourceInfos.get(sourceURL);
+    if (!sourceInfo || !sourceInfo.scopeEntries || !sourceInfo.scopeLookupIndex) {
+      return undefined;
+    }
+
+    const candidates = augmentedBinarySearch(
+        sourceInfo.scopeEntries, {lineNumber: sourceLineNumber, columnNumber: sourceColumnNumber},
+        sourceInfo.scopeLookupIndex);
+
+    // Prefer the innermost scope candidate, i.e., the one with the highest position.
+    let best: ScopeEntry|undefined = undefined;
+    for (const candidateIndex of candidates) {
+      const candidate = sourceInfo.scopeEntries[candidateIndex];
+      if (!best || comparePositions(candidate.start(), best.start()) > 0) {
+        best = candidate;
+      }
+    }
+    return best;
+
+    function augmentedBinarySearch(entries: ScopeEntry[], needle: Position, upperBoundIndex: number[]): number[] {
+      const l = 0;
+      const r = entries.length - 1;
+      const results: number[] = [];
+      const worklist: {l: number, r: number}[] = [{l, r}];
+      while (worklist.length > 0) {
+        const {l, r} = worklist.pop() as {l: number, r: number};
+
+        console.assert(l <= r);
+        // Compute pivot and check the upper bound.
+        const m = (l + r) >> 1;
+        // If the needle is above the upper bound for the subtree, we can skip the subtree.
+        const subtreeUpperBound = entries[upperBoundIndex[m]].end();
+        if (comparePositions(needle, subtreeUpperBound) >= 0) {
+          continue;
+        }
+        // Add the element to the result list if the needle is inside.
+        if (comparePositions(needle, entries[m].start()) >= 0 && comparePositions(needle, entries[m].end()) < 0) {
+          results.push(m);
+        }
+
+        // Let's check if we need to traverse the subtrees.
+        if (l < m) {
+          worklist.push({l, r: m - 1});
+        }
+        if (m < r && comparePositions(needle, entries[m].start()) >= 0) {
+          worklist.push({l: m + 1, r});
+        }
+      }
+      return results;
     }
   }
 

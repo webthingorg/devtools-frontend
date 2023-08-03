@@ -424,6 +424,41 @@ describeWithMockConnection('NameResolver', () => {
     });
   });
 
+  describe('Function name resolving from scopes', () => {
+    let callFrame: SDK.DebuggerModel.CallFrame;
+
+    beforeEach(async () => {
+      const sourceMapUrl = 'file:///tmp/example.js.min.map';
+      const sourceMapContent = JSON.stringify({
+        'version': 3,
+        'names': [
+          '<toplevel>',
+          '<anonymous>',
+          'log',
+          'main',
+        ],
+        'sources': ['main.js'],
+        'sourcesContent': [
+          '(function () {\n  function log(m) {\n    console.log(m);\n  }\n\n  function main() {\n\t  log("hello");\n\t  log("world");\n  }\n  \n  main();\n})();',
+        ],
+        'mappings': 'CAAA,WACE,SAAS,EAAI,GACX,QAAQ,IAAI,EACd,CAEA,SAAS,IACR,EAAI,SACJ,EAAI,QACL,CAEA,GACD,EAXD',
+        'x_com_bloomberg_sourcesFunctionMappings': ['AAAWK,CACAJ,CCCRE,CIAKA'],
+      });
+
+      const source = '(function(){function o(o){console.log(o)}function n(){o("hello");o("world")}n()})();\n';
+      const scopes = '                                                   {                       }';
+
+      callFrame = await backend.createCallFrame(
+          target, {url: URL, content: source + `//# sourceMappingURL=${sourceMapUrl}`}, scopes,
+          {url: sourceMapUrl, content: sourceMapContent});
+    });
+
+    it('resolves function scope name at scope start for a debugger frame', async () => {
+      const functionName = await SourceMapScopes.NamesResolver.resolveDebuggerFrameFunctionName(callFrame);
+      assert.strictEqual(functionName, 'main');
+    });
+  });
+
   it('ignores the argument name during arrow function name resolution', async () => {
     const sourceMapUrl = 'file:///tmp/example.js.min.map';
     // This was minified with 'terser -m -o example.min.js --source-map "includeSources;url=example.min.js.map"' v5.7.0.
