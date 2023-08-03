@@ -56,6 +56,30 @@
       },
       "revId": "c6c6979a6db9c002b9cd8a4b354015a548bf355f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e9326cd_e5bae593",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-03T09:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c6f4cc2_ae1ca92c",
+      "range": {
+        "startLine": 278,
+        "startChar": 69,
+        "endLine": 278,
+        "endChar": 73
+      },
+      "revId": "c6c6979a6db9c002b9cd8a4b354015a548bf355f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
