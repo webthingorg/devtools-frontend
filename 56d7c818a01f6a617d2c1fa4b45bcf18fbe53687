@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c211bcc9_9669e12c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-03T09:23:26Z",
+      "side": 1,
+      "message": "Adding the same owners as for //front_end, PTAL!",
+      "revId": "56d7c818a01f6a617d2c1fa4b45bcf18fbe53687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
