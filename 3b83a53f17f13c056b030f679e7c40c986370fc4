@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63b306df_8457fef1",
+        "filename": "front_end/core/sdk/StatusTextStrings.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-08-03T15:46:21Z",
+      "side": 1,
+      "message": "Thanks!\n \n this can be shorted to `statusTextLookup[statusCode] || \u0027\u0027`",
+      "range": {
+        "startLine": 76,
+        "startChar": 32,
+        "endLine": 76,
+        "endChar": 96
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
