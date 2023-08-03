@@ -69,6 +69,24 @@
       "parentUuid": "5e4a9027_8a7ac7a6",
       "revId": "9c31ed155ad84701f172208300bc77458f439247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50d15191_91c70e41",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-03T15:05:36Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4749079\nhttps://docs.google.com/document/d/13ttSjpkGn0HgnlsN-_3tnpUhOiPsTCHxHNzptrdkXgk/edit#heading\u003dh.c8hn6aqqp2jh\n\nHmm...? Looks not working.",
+      "parentUuid": "14d76e98_15046560",
+      "revId": "9c31ed155ad84701f172208300bc77458f439247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
