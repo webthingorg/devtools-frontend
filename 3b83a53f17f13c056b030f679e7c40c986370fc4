@@ -91,6 +91,30 @@
       },
       "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74bef596_4c18310c",
+        "filename": "front_end/core/sdk/StatusTextStrings.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-08-03T18:13:59Z",
+      "side": 1,
+      "message": "`statusTextLookup[statusCode] ?? \u0027\u0027` is probably even better. 😊",
+      "parentUuid": "63b306df_8457fef1",
+      "range": {
+        "startLine": 76,
+        "startChar": 32,
+        "endLine": 76,
+        "endChar": 96
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
