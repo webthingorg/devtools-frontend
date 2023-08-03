@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b13dfccf_3f886255",
+        "filename": "test/conductor/events.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-03T14:05:56Z",
+      "side": 1,
+      "message": "Let\u0027s make this exception local to the workspace_test test that\u0027s failing. From my understanding of the bug the fact that the gl setup fails is not an issue in that particular test, but it might be in other (future) tests.",
+      "revId": "d1d530608c4c1426d34af603d30af079c6d288ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
