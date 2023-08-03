@@ -171,15 +171,11 @@ class PreloadingUIUtils {
       SDK.PreloadingModel.PreloadingStatus.Failure,
     ];
 
-    if (ruleSet.errorType !== undefined) {
-      return '';
-    }
-
     const counts = countsByRuleSetId.get(ruleSet.id);
 
     return LIST.filter(status => (counts?.get(status) || 0) > 0)
         .map(status => (counts?.get(status) || 0) + ' ' + this.status(status))
-        .join(' / ');
+        .join(', ');
   }
 
   // Summary of error of rule set shown in grid.
@@ -305,13 +301,9 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
     // Update rule sets grid
     const countsByRuleSetId = this.model.getPreloadCountsByRuleSetId();
     const ruleSetRows = this.model.getAllRuleSets().map(
-        ({id, value}) => ({
-          id,
-          processLocalId: PreloadingUIUtils.processLocalId(value.id),
+        ({value}) => ({
+          ruleSet: value,
           preloadsStatusSummary: PreloadingUIUtils.preloadsStatusSummary(value, countsByRuleSetId),
-          ruleSetId: value.id,
-          validity: PreloadingUIUtils.validity(value),
-          location: PreloadingUIUtils.location(value),
         }));
     this.ruleSetGrid.update(ruleSetRows);
 
