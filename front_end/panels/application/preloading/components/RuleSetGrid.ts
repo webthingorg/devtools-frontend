@@ -11,6 +11,7 @@ import * as DataGrid from '../../../../ui/components/data_grid/data_grid.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LegacyWrapper from '../../../../ui/components/legacy_wrapper/legacy_wrapper.js';
+import inspectorCommonStyles from '../../../../ui/legacy/inspectorCommon.css.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import * as NetworkForward from '../../../network/forward/forward.js';
 
@@ -63,7 +64,7 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
   #rows: RuleSetGridRow[] = [];
 
   connectedCallback(): void {
-    this.#shadow.adoptedStyleSheets = [ruleSetGridStyles];
+    this.#shadow.adoptedStyleSheets = [ruleSetGridStyles, inspectorCommonStyles];
     this.#render();
   }
 
@@ -156,10 +157,6 @@ function ruleSetRenderer(ruleSet: Protocol.Preload.RuleSet): LitHtml.TemplateRes
         @click=${revealSpeculationRulesInElements}
         title=${i18nString(UIStrings.buttonClickToRevealInElementsPanel)}
         style=${LitHtml.Directives.styleMap({
-          border: 'none',
-          background: 'none',
-          'padding-inline-start': '0',
-          'padding-inline-end': '0',
         })}
       >
         <${IconButton.Icon.Icon.litTagName}
