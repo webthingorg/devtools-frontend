@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58821587_90f34f2e",
+        "filename": "front_end/core/sdk/StatusTextStrings.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-08-03T14:11:18Z",
+      "side": 1,
+      "message": "Would it make sense to refactor out the call to i18n.i18n.lockedString for brevity?\n\nAlso, it would probably be easier to read if we use an object lookup instead of a switch-case?\n\nE.g. \n\ni18n.i18n.lockedString({ \"100\" : \"Continue\", \"101\" : \"Switching Protocols\" ...}[statusCode])",
+      "range": {
+        "startLine": 11,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "a66c661ad862f08dc38005e5387f21475dfc27c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
