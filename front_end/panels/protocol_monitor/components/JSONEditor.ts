@@ -8,6 +8,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
+import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -56,6 +57,7 @@ interface BaseParameter {
   name: string;
   typeRef?: string;
   description: string;
+  isCorrectType?: boolean;
 }
 
 interface ArrayParameter extends BaseParameter {
@@ -202,7 +204,7 @@ export class JSONEditor extends LitElement {
           for (const subParameter of parameter.value) {
             nestedArrayParameters.push(formatParameterValue(subParameter));
           }
-          return nestedArrayParameters;
+          return nestedArrayParameters.length === 0 ? undefined : nestedArrayParameters;
         }
         default: {
           return parameter.value;
@@ -424,48 +426,58 @@ export class JSONEditor extends LitElement {
 
   populateParametersForCommandWithDefaultValues(): void {
     const commandParameters = this.metadataByCommand.get(this.command)?.parameters;
+
     if (!commandParameters) {
       return;
     }
+
     this.parameters = commandParameters.map((parameter: Parameter) => {
-      if (parameter.type === ParameterType.Object) {
-        const typeInfos = this.typesByName.get(parameter.typeRef as string) ?? [];
-        return {
-          optional: parameter.optional,
-          type: parameter.type,
-          description: parameter.description,
-          typeRef: parameter.typeRef,
-          value: typeInfos.map(type => {
-            return {
-              optional: type.optional,
-              type: this.#isParameterSupported(parameter) ? type.type : ParameterType.String,
-              name: type.name,
-              description: type.description,
-              value: type.optional ? undefined : defaultValueByType.get(type.type),
-            } as Parameter;
-          }),
-          name: parameter.name,
-        };
-      }
-      if (parameter.type === ParameterType.Array) {
-        return {
-          optional: parameter.optional,
-          type: parameter.type,
-          description: parameter.description,
-          typeRef: parameter.typeRef,
-          value: [],
-          name: parameter.name,
-        };
-      }
-      return {
-        optional: parameter.optional,
-        type: parameter.type,
-        typeRef: this.#isParameterSupported(parameter) ? parameter.typeRef : ParameterType.String,
-        value: parameter.optional ? undefined : defaultValueByType.get(parameter.type),
-        name: parameter.name,
-        description: parameter.description,
-      } as Parameter;
+      return this.#populateParameterDefaults(parameter);
     });
+  }
+
+  #populateParameterDefaults(parameter: Parameter): Parameter {
+    if (parameter.type === ParameterType.Object) {
+      const typeRef = parameter.typeRef;
+      if (!typeRef) {
+        throw Error('Every object parameters should have a type ref');
+      }
+
+      const nestedType = this.typesByName.get(typeRef);
+      // This is extremely rare.
+      // It happens when the keys for an object are not registered like for Tracing.MemoryDumpConfig or headers for instance.
+      // The user has to type the object wanted by hand and the parameter is treated as a string parameter
+      if (!nestedType) {
+        return {
+          ...parameter,
+          type: ParameterType.String,
+          value: parameter.optional ? undefined : defaultValueByType.get(parameter.type),
+          isCorrectType: true,
+        } as StringParameter;
+      }
+
+      const nestedParameters = nestedType.map(nestedType => {
+        return this.#populateParameterDefaults(nestedType);
+      });
+
+      return {
+        ...parameter,
+        value: nestedParameters,
+        isCorrectType: true,
+      };
+    }
+    if (parameter.type === ParameterType.Array) {
+      return {
+        ...parameter,
+        value: parameter.value?.map(param => this.#populateParameterDefaults(param)) || [],
+        isCorrectType: true,
+      };
+    }
+    return {
+      ...parameter,
+      value: parameter.optional ? undefined : defaultValueByType.get(parameter.type),
+      isCorrectType: true,
+    } as Parameter;
   }
 
   #getChildByPath(pathArray: string[]): {parameter: Parameter, parentParameter: Parameter} {
@@ -489,13 +501,30 @@ export class JSONEditor extends LitElement {
     throw new Error('Not found');
   }
 
+  #isValueOfCorrectType(parameter: Parameter, value: string): boolean {
+    if (parameter.type === 'number' && isNaN(Number(value))) {
+      return false;
+    }
+
+    const acceptedValues = this.#computeDropdownValues(parameter);
+    if (acceptedValues.length !== 0 && !acceptedValues.includes(value)) {
+      return false;
+    }
+
+    return true;
+  }
+
   #saveParameterValue = (event: Event): void => {
     if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
       return;
     }
-    let value: string|undefined;
+    let value: string;
     if (event instanceof KeyboardEvent) {
-      value = event.target.renderRoot.querySelector('devtools-editable-content')?.innerText;
+      const editableContent = event.target.renderRoot.querySelector('devtools-editable-content');
+      if (!editableContent) {
+        return;
+      }
+      value = editableContent.innerText;
     } else {
       value = event.target.value;
     }
@@ -509,6 +538,7 @@ export class JSONEditor extends LitElement {
       object.value = defaultValueByType.get(object.type);
     } else {
       object.value = value;
+      object.isCorrectType = this.#isValueOfCorrectType(object, value);
     }
     // Needed to render the delete button for object parameters
     this.requestUpdate();
@@ -523,6 +553,21 @@ export class JSONEditor extends LitElement {
     }
   };
 
+  #handleFocusParameter(event: Event): void {
+    if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
+      return;
+    }
+    const paramId = event.target.getAttribute('data-paramid');
+    if (!paramId) {
+      return;
+    }
+    const realParamId = paramId.split('.');
+    const object = this.#getChildByPath(realParamId).parameter;
+    object.isCorrectType = true;
+
+    this.requestUpdate();
+  }
+
   #handleCommandInputBlur = async(event: Event): Promise<void> => {
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
       this.command = event.target.value;
@@ -532,15 +577,6 @@ export class JSONEditor extends LitElement {
 
   #computeTargetLabel(target: SDK.Target.Target): string {
     return `${target.name()} (${target.inspectedURL()})`;
-  }
-
-  #isParameterSupported(parameter: Parameter): boolean {
-    if (parameter.type === ParameterType.Array || parameter.type === ParameterType.Object ||
-        parameter.type === ParameterType.String || parameter.type === ParameterType.Boolean ||
-        parameter.type === ParameterType.Number) {
-      return true;
-    }
-    throw new Error('Parameter is not of correct type');
   }
 
   #isTypePrimitive(type: string): boolean {
@@ -568,6 +604,7 @@ export class JSONEditor extends LitElement {
           optional: type.optional,
           typeRef: typeRef,
           value: nestedValue,
+          isCorrectType: true,
           description: type.description,
         };
       }
@@ -575,6 +612,7 @@ export class JSONEditor extends LitElement {
         type: type.type,
         name: name,
         optional: type.optional,
+        isCorrectType: true,
         typeRef: type.typeRef,
         value: defaultValueByType.get(type.type),
         description: type.description,
@@ -605,6 +643,7 @@ export class JSONEditor extends LitElement {
           typeRef: typeRef,
           value: nestedValue.length !== 0 ? nestedValue : '',
           description: '',
+          isCorrectType: true,
         } as Parameter);
         break;
       }
@@ -623,6 +662,7 @@ export class JSONEditor extends LitElement {
           optional: true,
           typeRef: typeRef,
           value: nestedValue,
+          isCorrectType: true,
           description: '',
         });
         break;
@@ -737,6 +777,22 @@ export class JSONEditor extends LitElement {
           ></devtools-button>
         `;
   }
+
+  #renderWarningIcon(): LitHtml.TemplateResult|undefined {
+    return LitHtml.html`<${IconButton.Icon.Icon.litTagName}
+    .data=${{
+      iconName: 'warning-filled',
+      color: 'var(--icon-warning)',
+      width: '14px',
+      height: '14px',
+    } as IconButton.Icon.IconData}
+    class=${classMap({
+      'warning-icon': true,
+    })}
+  >
+  </${IconButton.Icon.Icon.litTagName}>`;
+  }
+
   /**
    * Renders the parameters list corresponding to a specific CDP command.
    */
@@ -756,20 +812,27 @@ export class JSONEditor extends LitElement {
           const handleKeydown = (event: KeyboardEvent): void => {
             this.#handleParameterInputKeydown(event);
           };
+          const handleFocus = (event: Event): void => {
+            this.#handleFocusParameter(event);
+          };
           const isPrimitive = this.#isTypePrimitive(parameter.type);
           const isArray = parameter.type === ParameterType.Array;
           const isParentArray = parentParameter && parentParameter.type === ParameterType.Array;
           const isObject = parameter.type === ParameterType.Object;
           const hasOptions = parameter.type === ParameterType.String || parameter.type === ParameterType.Boolean;
-          const classes = {
+          const parametersClasses = {
             optionalParameter: parameter.optional,
             parameter: true,
             undefinedParameter: parameter.value === undefined && parameter.optional,
           };
+          const inputClasses = {
+            'json-input': true,
+          };
           return html`
                 <li class="row">
                   <div class="row-icons">
-                    <div class=${classMap(classes)} data-paramId=${parameterId}>
+                  ${parameter.isCorrectType === false ? html`${this.#renderWarningIcon()}` : nothing}
+                    <div class=${classMap(parametersClasses)} data-paramId=${parameterId}>
                         ${parameter.name}<span class="separator">:</span>
                     </div>
 
@@ -808,11 +871,13 @@ export class JSONEditor extends LitElement {
                       html`
                         <devtools-recorder-input
                           data-paramId=${parameterId}
+                          .isCorrectInput=${live(parameter.isCorrectType)}
                           .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
                           .autocomplete=${false}
                           .value=${live(parameter.value ?? '')}
                           .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
                           @blur=${handleInputOnBlur}
+                          @focus=${handleFocus}
                           @keydown=${handleKeydown}
                         ></devtools-recorder-input>` : nothing}
 
@@ -838,7 +903,7 @@ export class JSONEditor extends LitElement {
                       .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
                       @blur=${handleInputOnBlur}
                       @keydown=${handleKeydown}
-                      class=${classMap({'json-input': true})}
+                      class=${classMap(inputClasses)}
                     ></devtools-recorder-input>` : nothing}
 
                     ${this.#renderInlineButton({

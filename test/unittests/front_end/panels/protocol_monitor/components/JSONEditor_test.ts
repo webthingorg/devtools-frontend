@@ -13,6 +13,8 @@ import {
   raf,
 } from '../../../helpers/DOMHelpers.js';
 import * as ProtocolComponents from '../../../../../../front_end/panels/protocol_monitor/components/components.js';
+import type * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
+
 import type * as RecorderComponents from '../../../../../../front_end/panels/recorder/components/components.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import * as Menus from '../../../../../../front_end/ui/components/menus/menus.js';
@@ -116,6 +118,19 @@ describeWithEnvironment('JSONEditor', () => {
             }],
             description: 'Description8.',
             replyArgs: ['Test8'],
+          },
+          'Test.test9': {
+            parameters: [
+              {
+                'name': 'traceConfig',
+                'type': 'object',
+                'optional': true,
+                'description': '',
+                'typeRef': 'Tracing.TraceConfig',
+              },
+            ],
+            description: 'Description9.',
+            replyArgs: ['Test9'],
           },
         },
       },
@@ -240,6 +255,34 @@ describeWithEnvironment('JSONEditor', () => {
       throw new Error('No input shown');
     }
     return paramInput;
+  };
+
+  const renderWarningIcon =
+      async(command: string, enumsByName?: Map<string, Record<string, string>>): Promise<IconButton.Icon.Icon> => {
+    const jsonEditor = renderJSONEditor();
+    await populateMetadata(jsonEditor);
+    jsonEditor.command = command;
+    if (enumsByName) {
+      jsonEditor.enumsByName = enumsByName;
+    }
+    jsonEditor.populateParametersForCommandWithDefaultValues();
+    await jsonEditor.updateComplete;
+
+    // inputs[0] corresponds to the devtools-recorder-input of the command
+    const input = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input')[1];
+    if (!input) {
+      throw Error('No editable content displayed');
+    }
+    input.value = 'Not an accepted value';
+    await jsonEditor.updateComplete;
+    input.focus();
+    input.blur();
+    await jsonEditor.updateComplete;
+    const warningIcon = jsonEditor.renderRoot.querySelector('devtools-icon');
+    if (!warningIcon) {
+      throw Error('No icon displayed');
+    }
+    return warningIcon;
   };
 
   describe('Binding input bar', () => {
@@ -728,6 +771,30 @@ describeWithEnvironment('JSONEditor', () => {
        });
   });
 
+  describe('Verify the type of the entered value', async () => {
+    it('should show a warning icon if the type of the parameter is number but the entered value is not', async () => {
+      const command = 'Test.test8';
+
+      const warningIcon = await renderWarningIcon(command);
+      assert.isNotNull(warningIcon);
+    });
+    it('should show a warning icon if the type of the parameter is boolean but the entered value is not true or false',
+       async () => {
+         const command = 'Test.test4';
+         const warningIcon = await renderWarningIcon(command);
+         assert.isNotNull(warningIcon);
+       });
+    it('should show a warning icon if the type of the parameter is enum but the entered value is not among the accepted values',
+       async () => {
+         const enumsByName = new Map([
+           ['Test.testRef', {'Test': 'test', 'Test1': 'test1', 'Test2': 'test2'}],
+         ]);
+         const command = 'Test.test';
+         const warningIcon = await renderWarningIcon(command, enumsByName);
+         assert.isNotNull(warningIcon);
+       });
+  });
+
   it('should not display parameters if a command is unknown', async () => {
     const cdpCommand = 'Unknown';
     const jsonEditor = renderJSONEditor();
@@ -788,6 +855,64 @@ describeWithEnvironment('JSONEditor', () => {
     await isCalled;
 
     assert.isTrue(copyText.calledWith(JSON.stringify({command: 'Test.test', parameters: {'test': 'test'}})));
+  });
+
+  it('should display the correct parameters with a command with array nested inside object', async () => {
+    const command = 'Test.test9';
+    const typesByName = new Map();
+    // This nested object contains every subtype including array
+    typesByName.set('Tracing.TraceConfig', [
+      {
+        'name': 'recordMode',
+        'type': 'string',
+        'optional': true,
+        'description': 'Controls how the trace buffer stores data.',
+        'typeRef': null,
+      },
+      {
+        'name': 'traceBufferSizeInKb',
+        'type': 'number',
+        'optional': true,
+        'description':
+            'Size of the trace buffer in kilobytes. If not specified or zero is passed, a default value of 200 MB would be used.',
+        'typeRef': null,
+      },
+      {
+        'name': 'enableSystrace',
+        'type': 'boolean',
+        'optional': true,
+        'description': 'Turns on system tracing.',
+        'typeRef': null,
+      },
+      {
+        'name': 'includedCategories',
+        'type': 'array',
+        'optional': true,
+        'description': 'Included category filters.',
+        'typeRef': 'string',
+      },
+      {
+        'name': 'memoryDumpConfig',
+        'type': 'object',
+        'optional': true,
+        'description': 'Configuration for memory dump triggers. Used only when \\"memory-infra\\" category is enabled.',
+        'typeRef':
+            'Tracing.MemoryDumpConfig',  // This typeref is on purpose not added to show that this param will be treated as a string parameter
+      },
+    ]);
+
+    const jsonEditor = renderJSONEditor();
+
+    await populateMetadata(jsonEditor);
+    jsonEditor.typesByName = typesByName;
+    jsonEditor.command = command;
+    jsonEditor.populateParametersForCommandWithDefaultValues();
+    await jsonEditor.updateComplete;
+    const shadowRoot = jsonEditor.renderRoot;
+    const parameters = shadowRoot.querySelectorAll('.parameter');
+    // This expected value is equal to 6 because there are 5 different parameters inside typesByName + 1
+    // for the name of the parameter (traceConfig)
+    assert.deepStrictEqual(parameters.length, 6);
   });
 
 });
