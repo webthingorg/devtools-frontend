@@ -333,6 +333,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac60919b_e17e73d3",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1552582
+      },
+      "writtenOn": "2023-08-03T17:39:41Z",
+      "side": 1,
+      "message": "I wonder what the need is to specify that it\u0027s from the source. The data doesn\u0027t live in DevTools, is there any implication elsewhere that users might think that the data is only deleted from DevTools?\n\nFrom my perspective, it\u0027s pretty clear in all the other areas of Storage that when you delete it, you delete it for good.",
+      "parentUuid": "cc1bceae_28ccc8f0",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "958b713f_44f2d74f",
         "filename": "front_end/panels/application/components/StorageMetadataView.ts",
         "patchSetId": 4
