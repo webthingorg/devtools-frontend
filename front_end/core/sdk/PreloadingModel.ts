@@ -275,6 +275,13 @@ export class PreloadingModel extends SDKModel<EventTypes> {
 
   onPreloadEnabledStateUpdated(event: Protocol.Preload.PreloadEnabledStateUpdatedEvent): void {
     this.dispatchEventToListeners(Events.WarningsUpdated, event);
+    this.dispatchEventToListeners(Events.WarningsUpdated, {
+      disabledByPreference: true,
+      disabledByDataSaver: true,
+      disabledByBatterySaver: true,
+      disabledByHoldbackPrefetchSpeculationRules: true,
+      disabledByHoldbackPrerenderSpeculationRules: true,
+    });
   }
 }
 
