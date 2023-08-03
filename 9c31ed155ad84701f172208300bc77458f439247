@@ -87,6 +87,24 @@
       "parentUuid": "14d76e98_15046560",
       "revId": "9c31ed155ad84701f172208300bc77458f439247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b4fe19_4068ce9e",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-03T15:58:55Z",
+      "side": 1,
+      "message": "Weird. Ok let\u0027s define `button.link` rule in the `ruleSetGridStyles.css` to move on.",
+      "parentUuid": "50d15191_91c70e41",
+      "revId": "9c31ed155ad84701f172208300bc77458f439247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
