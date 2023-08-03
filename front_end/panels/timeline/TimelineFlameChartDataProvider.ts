@@ -57,10 +57,6 @@ const UIStrings = {
    */
   onIgnoreList: 'On ignore list',
   /**
-   *@description Text that refers to the animation of the web page
-   */
-  animation: 'Animation',
-  /**
    * @description Text in Timeline Flame Chart Data Provider of the Performance panel *
    * @example{example.com} PH1
    */
@@ -455,6 +451,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const weight = (track: {type?: string, forMainFrame?: boolean, appenderName?: TrackAppenderName}): number => {
       if (track.appenderName !== undefined) {
         switch (track.appenderName) {
+          case 'Animations':
+            return 0;
           case 'Timings':
             return 1;
           case 'Interactions':
@@ -471,8 +469,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       }
 
       switch (track.type) {
-        case TimelineModel.TimelineModel.TrackType.Animation:
-          return 0;
         case TimelineModel.TimelineModel.TrackType.MainThread:
           return track.forMainFrame ? 5 : 6;
         case TimelineModel.TimelineModel.TrackType.Worker:
@@ -535,13 +531,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.#instantiateTimelineData();
     const eventEntryType = EntryType.Event;
     switch (track.type) {
-      case TimelineModel.TimelineModel.TrackType.Animation: {
-        this.appendAsyncEventsGroup(
-            track, i18nString(UIStrings.animation), track.asyncEvents, this.animationsHeader, eventEntryType,
-            false /* selectable */, expanded);
-        break;
-      }
-
       case TimelineModel.TimelineModel.TrackType.MainThread: {
         if (track.forMainFrame) {
           const group = this.appendSyncEvents(

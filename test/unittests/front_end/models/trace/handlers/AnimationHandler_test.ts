@@ -16,7 +16,7 @@ describe('AnimationHandler', function() {
 
     await TraceModel.Handlers.ModelHandlers.Animation.finalize();
 
-    const eventsAmount = TraceModel.Handlers.ModelHandlers.Animation.data().animationsSyntheticEvents.length;
+    const eventsAmount = TraceModel.Handlers.ModelHandlers.Animation.data().animations.length;
     assert.strictEqual(eventsAmount, 1);
   });
 
@@ -29,7 +29,7 @@ describe('AnimationHandler', function() {
 
     await TraceModel.Handlers.ModelHandlers.Animation.finalize();
 
-    const eventDuration = TraceModel.Handlers.ModelHandlers.Animation.data().animationsSyntheticEvents[0].dur;
+    const eventDuration = TraceModel.Handlers.ModelHandlers.Animation.data().animations[0].dur;
     assert.strictEqual(eventDuration, 2006450);
   });
 });
