@@ -8,6 +8,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
+import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -56,6 +57,7 @@ interface BaseParameter {
   name: string;
   typeRef?: string;
   description: string;
+  isCorrectType?: boolean;
 }
 
 interface ArrayParameter extends BaseParameter {
@@ -148,6 +150,7 @@ export class JSONEditor extends LitElement {
     this.targetId = this.targetManager.targets().length !== 0 ? this.targetManager.targets()[0].id() : undefined;
     this.addEventListener('keydown', event => {
       if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+        this.#handleParameterInputKeydown(event);
         this.dispatchEvent(new SubmitEditorEvent({
           command: this.command,
           parameters: this.getParameters(),
@@ -441,6 +444,7 @@ export class JSONEditor extends LitElement {
               name: type.name,
               description: type.description,
               value: type.optional ? undefined : defaultValueByType.get(type.type),
+              isCorrectType: true,
             } as Parameter;
           }),
           name: parameter.name,
@@ -454,6 +458,7 @@ export class JSONEditor extends LitElement {
           typeRef: parameter.typeRef,
           value: [],
           name: parameter.name,
+          isCorrectType: true,
         };
       }
       return {
@@ -463,6 +468,7 @@ export class JSONEditor extends LitElement {
         value: parameter.optional ? undefined : defaultValueByType.get(parameter.type),
         name: parameter.name,
         description: parameter.description,
+        isCorrectType: true,
       } as Parameter;
     });
   }
@@ -488,11 +494,33 @@ export class JSONEditor extends LitElement {
     throw new Error('Not found');
   }
 
-  #handleParameterInputBlur = (event: Event): void => {
+  #isValueOfCorrectType(parameter: Parameter, value: string): boolean {
+    if (parameter.type === 'number' && isNaN(Number(value))) {
+      return false;
+    }
+
+    const acceptedValues = this.#computeDropdownValues(parameter);
+    if (acceptedValues.length !== 0 && !acceptedValues.includes(value)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  #saveParameterValue = (event: Event): void => {
     if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
       return;
     }
-    const value = event.target.value;
+    let value: string;
+    if (event instanceof KeyboardEvent) {
+      const editableContent = event.target.renderRoot.querySelector('devtools-editable-content');
+      if (!editableContent) {
+        return;
+      }
+      value = editableContent.innerText;
+    } else {
+      value = event.target.value;
+    }
     const paramId = event.target.getAttribute('data-paramid');
     if (!paramId) {
       return;
@@ -503,11 +531,35 @@ export class JSONEditor extends LitElement {
       object.value = defaultValueByType.get(object.type);
     } else {
       object.value = value;
+      object.isCorrectType = this.#isValueOfCorrectType(object, value);
     }
-
     // Needed to render the delete button for object parameters
     this.requestUpdate();
   };
+
+  #handleParameterInputKeydown = (event: KeyboardEvent): void => {
+    if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
+      return;
+    }
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+      this.#saveParameterValue(event);
+    }
+  };
+
+  #handleFocusParameter(event: Event): void {
+    if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
+      return;
+    }
+    const paramId = event.target.getAttribute('data-paramid');
+    if (!paramId) {
+      return;
+    }
+    const realParamId = paramId.split('.');
+    const object = this.#getChildByPath(realParamId).parameter;
+    object.isCorrectType = true;
+
+    this.requestUpdate();
+  }
 
   #handleCommandInputBlur = async(event: Event): Promise<void> => {
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
@@ -554,6 +606,7 @@ export class JSONEditor extends LitElement {
           optional: type.optional,
           typeRef: typeRef,
           value: nestedValue,
+          isCorrectType: true,
           description: type.description,
         };
       }
@@ -561,6 +614,7 @@ export class JSONEditor extends LitElement {
         type: type.type,
         name: name,
         optional: type.optional,
+        isCorrectType: true,
         typeRef: type.typeRef,
         value: defaultValueByType.get(type.type),
         description: type.description,
@@ -591,6 +645,7 @@ export class JSONEditor extends LitElement {
           typeRef: typeRef,
           value: nestedValue.length !== 0 ? nestedValue : '',
           description: '',
+          isCorrectType: true,
         } as Parameter);
         break;
       }
@@ -609,6 +664,7 @@ export class JSONEditor extends LitElement {
           optional: true,
           typeRef: typeRef,
           value: nestedValue,
+          isCorrectType: true,
           description: '',
         });
         break;
@@ -723,6 +779,22 @@ export class JSONEditor extends LitElement {
           ></devtools-button>
         `;
   }
+
+  #renderWarningIcon(): LitHtml.TemplateResult|undefined {
+    return LitHtml.html`<${IconButton.Icon.Icon.litTagName}
+    .data=${{
+      iconName: 'warning-filled',
+      color: 'var(--icon-warning)',
+      width: '14px',
+      height: '14px',
+    } as IconButton.Icon.IconData}
+    class=${classMap({
+      'warning-icon': true,
+    })}
+  >
+  </${IconButton.Icon.Icon.litTagName}>`;
+  }
+
   /**
    * Renders the parameters list corresponding to a specific CDP command.
    */
@@ -737,22 +809,32 @@ export class JSONEditor extends LitElement {
           const parameterId = parentParameter ? `${parentParameterId}` + '.' + `${parameter.name}` : parameter.name;
           const subparameters: Parameter[] = parameter.type === ParameterType.Array || parameter.type === ParameterType.Object ? (parameter.value ?? []) : [];
           const handleInputOnBlur = (event: Event): void => {
-            this.#handleParameterInputBlur(event);
+            this.#saveParameterValue(event);
+          };
+          const handleKeydown = (event: KeyboardEvent): void => {
+            this.#handleParameterInputKeydown(event);
+          };
+          const handleFocus = (event: Event): void => {
+            this.#handleFocusParameter(event);
           };
           const isPrimitive = this.#isTypePrimitive(parameter.type);
           const isArray = parameter.type === ParameterType.Array;
           const isParentArray = parentParameter && parentParameter.type === ParameterType.Array;
           const isObject = parameter.type === ParameterType.Object;
           const hasOptions = parameter.type === ParameterType.String || parameter.type === ParameterType.Boolean;
-          const classes = {
+          const parametersClasses = {
             optionalParameter: parameter.optional,
             parameter: true,
             undefinedParameter: parameter.value === undefined && parameter.optional,
           };
+          const inputClasses = {
+            'json-input': true,
+          };
           return html`
                 <li class="row">
                   <div class="row-icons">
-                    <div class=${classMap(classes)} data-paramId=${parameterId}>
+                  ${parameter.isCorrectType === false ? html`${this.#renderWarningIcon()}` : nothing}
+                    <div class=${classMap(parametersClasses)} data-paramId=${parameterId}>
                         ${parameter.name}<span class="separator">:</span>
                     </div>
 
@@ -791,12 +873,15 @@ export class JSONEditor extends LitElement {
                       html`
                         <devtools-recorder-input
                           data-paramId=${parameterId}
+                          .isCorrectInput=${live(parameter.isCorrectType)}
                           .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
                           .autocomplete=${false}
                           .value=${live(parameter.value ?? '')}
                           .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
-                          class=${classMap({'json-input': true})}
+                          class=${classMap(inputClasses)}
                           @blur=${handleInputOnBlur}
+                          @focus=${handleFocus}
+                          @keydown=${handleKeydown}
                         ></devtools-recorder-input>` : nothing}
 
                     <!-- Render the buttons to change the value from empty string to undefined for optional primitive parameters -->
@@ -820,7 +905,8 @@ export class JSONEditor extends LitElement {
                       .value=${live(parameter.value ?? '')}
                       .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
                       @blur=${handleInputOnBlur}
-                      class=${classMap({'json-input': true})}
+                      @keydown=${handleKeydown}
+                      class=${classMap(inputClasses)}
                     ></devtools-recorder-input>` : nothing}
 
                     ${this.#renderInlineButton({
