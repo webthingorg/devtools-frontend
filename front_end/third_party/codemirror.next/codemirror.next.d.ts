@@ -2903,6 +2903,7 @@ declare class EditorView {
     content. When one returns true, no further input handlers are
     called and the default behavior is prevented.
     */
+    // HERE
     static inputHandler: Facet<(view: EditorView, from: number, to: number, text: string) => boolean, readonly ((view: EditorView, from: number, to: number, text: string) => boolean)[]>;
     /**
     This facet can be used to provide functions that create effects

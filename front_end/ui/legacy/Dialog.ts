@@ -54,9 +54,13 @@ export class Dialog extends Common.ObjectWrapper.eventMixin<EventTypes, typeof G
     super();
     this.registerRequiredCSS(dialogStyles);
     this.contentElement.tabIndex = 0;
-    this.contentElement.addEventListener('focus', () => this.widget().focus(), false);
+    this.contentElement.addEventListener('focus', () => {
+      console.log('Dialog.focus');
+      this.widget().focus();
+    }, false);
     this.widget().setDefaultFocusedElement(this.contentElement);
     this.setPointerEventsBehavior(PointerEventsBehavior.BlockedByGlassPane);
+    // this.setPointerEventsBehavior(PointerEventsBehavior.PierceGlassPane);
     this.setOutsideClickCallback(event => {
       this.hide();
       event.consume(true);
@@ -85,7 +89,7 @@ export class Dialog extends Common.ObjectWrapper.eventMixin<EventTypes, typeof G
     Dialog.instance = this;
     this.disableTabIndexOnElements(document);
     super.show(document);
-    this.focusRestorer = new WidgetFocusRestorer(this.widget());
+    // this.focusRestorer = new WidgetFocusRestorer(this.widget());
   }
 
   override hide(): void {

@@ -697,6 +697,7 @@ export class NetworkLogViewColumns {
     }
   }
 
+  // HERE
   private manageCustomHeaderDialog(): void {
     const customHeaders = [];
     for (const columnConfig of this.columns) {

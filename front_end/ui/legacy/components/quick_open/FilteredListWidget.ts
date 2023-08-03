@@ -156,6 +156,7 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
     UI.ARIAUtils.setLabel(this.inputBoxElement, title);
   }
 
+  // HERE
   showAsDialog(dialogTitle?: string): void {
     if (!dialogTitle) {
       dialogTitle = i18nString(UIStrings.quickOpen);

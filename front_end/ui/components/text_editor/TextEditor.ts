@@ -43,6 +43,7 @@ export class TextEditor extends HTMLElement {
 
   constructor(pendingState?: CodeMirror.EditorState) {
     super();
+    console.log('TextEditor constructor');
     this.#pendingState = pendingState;
     this.#shadow.adoptedStyleSheets = [CodeHighlighter.Style.default];
   }

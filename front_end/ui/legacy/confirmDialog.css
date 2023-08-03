@@ -8,15 +8,20 @@
   padding: 20px;
 }
 
-.message,
+.title,
 .button {
   font-size: larger;
-  white-space: pre;
+  margin: 5px;
+}
+
+.message {
+  /* font-size: larger; */
+  /* white-space: pre; */
   margin: 5px;
 }
 
 .button {
-  text-align: center;
+  text-align: right;
   margin-top: 10px;
 }
 
@@ -26,4 +31,23 @@
 
 .reason {
   color: var(--color-accent-red);
+}
+
+/* .widget {
+  box-shadow: var(--drop-shadow);
+  background: var(--color-background);
+  justify-content: flex-start;
+  align-items: stretch;
+  display: flex;
+} */
+
+.dialog-close-button {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  z-index: 1;
+}
+
+.text-input {
+  margin: 5px;
 }

@@ -57,6 +57,7 @@ import inlineButtonStyles from './inlineButton.css.legacy.js';
 import radioButtonStyles from './radioButton.css.legacy.js';
 import sliderStyles from './slider.css.legacy.js';
 import smallBubbleStyles from './smallBubble.css.legacy.js';
+import {VBox} from './Widget.js';
 
 const UIStrings = {
   /**
@@ -108,6 +109,10 @@ const UIStrings = {
    *@description Text to cancel something
    */
   cancel: 'Cancel',
+  /**
+   *@description Text on a button for allowing an action
+   */
+  allow: 'Allow',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/UIUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -1528,7 +1533,7 @@ export function createFileSelectorElement(callback: (arg0: File) => void): HTMLI
 export const MaxLengthForDisplayedURLs = 150;
 
 export class MessageDialog {
-  static async show(message: string, where?: Element|Document): Promise<void> {
+  static async show(message: Platform.UIString.LocalizedString, where?: Element|Document): Promise<void> {
     const dialog = new Dialog();
     dialog.setSizeBehavior(SizeBehavior.MeasureContent);
     dialog.setDimmed(true);
@@ -1551,13 +1556,13 @@ export class MessageDialog {
 }
 
 export class ConfirmDialog {
-  static async show(message: string, where?: Element|Document): Promise<boolean> {
+  static async show(message: Platform.UIString.LocalizedString, where?: Element|Document): Promise<boolean> {
     const dialog = new Dialog();
     dialog.setSizeBehavior(SizeBehavior.MeasureContent);
     dialog.setDimmed(true);
     ARIAUtils.setLabel(dialog.contentElement, message);
     const shadowRoot = Utils.createShadowRootWithCoreStyles(
-        dialog.contentElement, {cssFile: confirmDialogStyles, delegatesFocus: undefined});
+        dialog.contentElement, {cssFile: confirmDialogStyles, delegatesFocus: true});
     const content = shadowRoot.createChild('div', 'widget');
     content.createChild('div', 'message').createChild('span').textContent = message;
     const buttonsBar = content.createChild('div', 'button');
@@ -1565,19 +1570,120 @@ export class ConfirmDialog {
       const okButton = createTextButton(
           /* text= */ i18nString(UIStrings.ok), /* clickHandler= */ () => resolve(true), /* className= */ '',
           /* primary= */ true);
+      okButton.title = 'okButton';
       buttonsBar.appendChild(okButton);
-      buttonsBar.appendChild(createTextButton(i18nString(UIStrings.cancel), () => resolve(false)));
+      buttonsBar.createChild('div').textContent = 'bla bla';
+      buttonsBar.createChild('div').textContent = 'bla bla';
+      buttonsBar.createChild('div').textContent = 'bla bla';
+      buttonsBar.createChild('div').textContent = 'bla bla';
+
+      const cancelButton = createTextButton(i18nString(UIStrings.cancel), () => resolve(false));
+      cancelButton.title = 'cancelButton';
+      buttonsBar.appendChild(cancelButton);
       dialog.setOutsideClickCallback(event => {
         event.consume();
         resolve(false);
       });
       dialog.show(where);
-      okButton.focus();
+      console.log('ConfirmDialog focus on button');
+      // okButton.focus();
+      dialog.setDefaultFocusedElement(okButton);
+      // dialog.contentElement.focus();
+      dialog.widget().focus();
     });
     dialog.hide();
     return result;
   }
 }
+
+export class TextBoxDialog {
+  static async show(title: Platform.UIString.LocalizedString, message: Platform.UIString.LocalizedString, where?: Element|Document): Promise<boolean> {
+    const dialog = new Dialog();
+    // dialog.setSizeBehavior(SizeBehavior.MeasureContent);
+    dialog.setMaxContentSize(new Size(504, 340));
+    dialog.setSizeBehavior(SizeBehavior.SetExactWidthMaxHeight);
+    // dialog.setSizeBehavior(SizeBehavior.SetExactSize);
+    // dialog.addCloseButton();
+    dialog.setDimmed(true);
+    // ARIAUtils.setLabel(dialog.contentElement, title);
+    const shadowRoot = Utils.createShadowRootWithCoreStyles(
+        dialog.contentElement, {cssFile: confirmDialogStyles, delegatesFocus: undefined});
+    const content = shadowRoot.createChild('div', 'widget');
+
+    const result = await new Promise<boolean>(resolve => {
+
+    const closeButton =
+    (content.createChild('div', 'dialog-close-button', 'dt-close-button') as DevToolsCloseButton);
+    closeButton.addEventListener('click', () => {
+      dialog.hide();
+      resolve(false);
+    }, false);
+
+    content.createChild('div', 'title').textContent = title;
+    content.createChild('div', 'message').textContent = message;
+
+    const input = createInput('text-input', 'text');
+    input.placeholder = 'Type \'allow pasting\'';
+    // input.addEventListener('keydown', this.onKeyDown.bind(this), false);
+    content.appendChild(input);
+    // input.focus();
+    // dialog.setDefaultFocusedElement(input);
+
+    const buttonsBar = content.createChild('div', 'button');
+      const cancelButton = createTextButton(i18nString(UIStrings.cancel), () => resolve(false));
+      cancelButton.title = 'cancelButton';
+      buttonsBar.appendChild(cancelButton);
+      const allowButton = createTextButton(
+          /* text= */ i18nString(UIStrings.allow), /* clickHandler= */ () => {
+            // console.log('input', input.value);
+            resolve(input.value === 'a');
+          }, /* className= */ '',
+          /* primary= */ true);
+      allowButton.title = 'allowButton';
+      buttonsBar.appendChild(allowButton);
+     
+      dialog.setOutsideClickCallback(event => {
+        event.consume();
+        resolve(false);
+      });
+      dialog.show(where);
+      console.log('focusing input element');
+      // input.focus();
+      dialog.setDefaultFocusedElement(input);
+      // allowButton.focus();
+      dialog.widget().focus();
+    });
+    dialog.hide();
+    console.log('result', result);
+    return result;
+    // dialog.show(where);
+    // return false;
+  }
+}
+
+// export class TextBoxDialog2 extends VBox {
+//   constructor(reason: string) {
+//     super(true);
+//     // this.registerRequiredCSS(remoteDebuggingTerminatedScreenStyles);
+//     const message = this.contentElement.createChild('div', 'message');
+//     const span = message.createChild('span');
+//     span.append(i18nString(UIStrings.debuggingConnectionWasClosed));
+//     const reasonElement = span.createChild('span', 'reason');
+//     reasonElement.textContent = reason;
+//     this.contentElement.createChild('div', 'message').textContent = i18nString(UIStrings.reconnectWhenReadyByReopening);
+//     const button = createTextButton(i18nString(UIStrings.reconnectDevtools), () => window.location.reload());
+//     this.contentElement.createChild('div', 'button').appendChild(button);
+//   }
+
+//   static show(reason: string): void {
+//     const dialog = new Dialog();
+//     dialog.setSizeBehavior(SizeBehavior.MeasureContent);
+//     dialog.addCloseButton();
+//     dialog.setDimmed(true);
+//     new TextBoxDialog2(reason).show(dialog.contentElement);
+//     dialog.show();
+//   }
+// }
 
 export function createInlineButton(toolbarButton: ToolbarButton): Element {
   const element = document.createElement('span');

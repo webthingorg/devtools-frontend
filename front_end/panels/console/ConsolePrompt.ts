@@ -296,6 +296,12 @@ export class ConsolePrompt extends Common.ObjectWrapper.eventMixin<EventTypes, t
   }
 
   private async handleEnter(forceEvaluate?: boolean): Promise<void> {
+    if (this.text() === 'reset') {
+      console.log('DEBUG: set setting to false');
+      Common.Settings.Settings.instance().createSetting('disableSelfXssWarning', false, Common.Settings.SettingStorageType.Synced).set(false);
+      return;
+    }
+    
     if (this.#selfXssWarningShown && this.text() === i18nString(UIStrings.allowPasting)) {
       Common.Console.Console.instance().log(this.text());
       this.editor.dispatch({

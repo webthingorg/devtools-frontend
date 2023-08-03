@@ -80,6 +80,19 @@ const UIStrings = {
    *@example {2} PH2
    */
   dLinesDCharactersSelected: '{PH1} lines, {PH2} characters selected',
+  /**
+   *@description FOO
+   */
+  doYouTrustThisCode: 'Do you trust this code?',
+  /**
+   *@description FOO
+   *@example {allow pasting} PH1
+   */
+  doNotPaste: 'Do not paste code you do not understand or have not checked yourself into DevTools. This could allow attackers to steal your identity or take control of your computer. Please type \'\'{PH1}\'\' below to allow pasting.',
+  /**
+   *@description Text a user needs to type in order to confirm that they are aware of the danger of pasting code into the DevTools console.
+   */
+   allowPasting: 'allow pasting',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/source_frame/SourceFrame.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -140,6 +153,7 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
       lazyContent: () => Promise<TextUtils.ContentProvider.DeferredContent>,
       private readonly options: SourceFrameOptions = {}) {
     super(i18nString(UIStrings.source));
+    console.log('SourceFrame constructor');
 
     this.lazyContent = lazyContent;
 
@@ -237,6 +251,7 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
         blur: () => this.onBlur(),
         scroll: () => this.dispatchEventToListeners(Events.EditorScroll),
         contextmenu: event => this.onContextMenu(event),
+        paste: (event, view) => this.onPaste(event, view),
       }),
       CodeMirror.lineNumbers({
         domEventHandlers:
@@ -262,10 +277,21 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   }
 
   protected onBlur(): void {
+    // console.log('onBlur');
   }
 
   protected onFocus(): void {
+    // console.log('on Focus');
     this.resetCurrentSearchResultIndex();
+  }
+
+  async onPaste(event: ClipboardEvent, view: CodeMirror.EditorView): Promise<boolean> {
+    console.log('on Paste', event, view);
+    // const response = await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.prettyPrint));
+    const response = await UI.UIUtils.TextBoxDialog.show(i18nString(UIStrings.doYouTrustThisCode), i18nString(UIStrings.doNotPaste, {PH1: i18nString(UIStrings.allowPasting)}));
+    // console.log('response', response);
+    // UI.RemoteDebuggingTerminatedScreen.RemoteDebuggingTerminatedScreen.show(i18nString(UIStrings.doYouTrustThisCode));
+    return true;
   }
 
   get wasmDisassembly(): Common.WasmDisassembly.WasmDisassembly|null {

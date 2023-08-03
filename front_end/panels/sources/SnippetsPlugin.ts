@@ -25,6 +25,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/sources/SnippetsPlugin.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+// HERE
 export class SnippetsPlugin extends Plugin {
   static override accepts(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
     return Snippets.ScriptSnippetFileSystem.isSnippetsUISourceCode(uiSourceCode);

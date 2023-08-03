@@ -511,6 +511,7 @@ export class Widget {
   }
 
   focus(): void {
+    console.log('Widget.focus');
     if (!this.isShowing()) {
       return;
     }
@@ -681,12 +682,14 @@ export class WidgetFocusRestorer {
   private widget: Widget|null;
   private previous: HTMLElement|null;
   constructor(widget: Widget) {
+    console.log('WidgetFocusRestorer constructor');
     this.widget = widget;
     this.previous = (Platform.DOMUtilities.deepActiveElement(widget.element.ownerDocument) as HTMLElement | null);
-    widget.focus();
+    // widget.focus();
   }
 
   restore(): void {
+    console.log('restore');
     if (!this.widget) {
       return;
     }
