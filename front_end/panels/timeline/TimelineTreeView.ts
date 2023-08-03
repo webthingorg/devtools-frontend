@@ -12,6 +12,8 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import { BottomUpProfileDataGridTree } from '../profiler/BottomUpProfileDataGrid.js';
+import { Formatter, ProfileDataGridNode } from '../profiler/ProfileDataGrid.js';
 
 import {type PerformanceModel} from './PerformanceModel.js';
 import {TimelineRegExp} from './TimelineFilters.js';
@@ -160,12 +162,14 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
   private searchResults: TimelineModel.TimelineProfileTree.Node[];
   linkifier!: Components.Linkifier.Linkifier;
   dataGrid!: DataGrid.SortableDataGrid.SortableDataGrid<GridNode>;
+  dataGridForCPU!:  DataGrid.DataGrid.DataGridImpl<unknown>;
   private lastHoveredProfileNode!: TimelineModel.TimelineProfileTree.Node|null;
   private textFilterInternal!: TimelineRegExp;
   private taskFilter!: TimelineModel.TimelineModelFilter.ExclusiveNameFilter;
   protected startTime!: number;
   protected endTime!: number;
   splitWidget!: UI.SplitWidget.SplitWidget;
+  mainView !: UI.Widget.VBox
   detailsView!: UI.Widget.Widget;
   private searchableView!: UI.SearchableView.SearchableView;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
@@ -189,7 +193,7 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
 
   static eventNameForSorting(event: TraceEngine.Legacy.Event): string {
     if (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
-      const data = event.args['data'];
+      const data = event.args?.['data'];
       return data['functionName'] + '@' + (data['scriptId'] || data['url'] || '');
     }
     return event.name + ':@' + TimelineModel.TimelineProfileTree.eventURL(event);
@@ -248,28 +252,70 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
     this.populateColumns(columns);
 
     this.splitWidget = new UI.SplitWidget.SplitWidget(true, true, 'timelineTreeViewDetailsSplitWidget');
-    const mainView = new UI.Widget.VBox();
-    const toolbar = new UI.Toolbar.Toolbar('', mainView.element);
+    this.mainView = new UI.Widget.VBox();
+    const toolbar = new UI.Toolbar.Toolbar('', this.mainView.element);
     toolbar.makeWrappable(true);
     this.populateToolbar(toolbar);
 
-    this.dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
-      displayName: i18nString(UIStrings.performance),
-      columns,
-      refreshCallback: undefined,
-      editCallback: undefined,
-      deleteCallback: undefined,
-    });
-    this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SortingChanged, this.sortingChanged, this);
-    this.dataGrid.element.addEventListener('mousemove', this.onMouseMove.bind(this), true);
-    this.dataGrid.setResizeMethod(DataGrid.DataGrid.ResizeMethod.Last);
-    this.dataGrid.setRowContextMenuCallback(this.onContextMenu.bind(this));
-    this.dataGrid.asWidget().show(mainView.element);
-    this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SelectedNode, this.updateDetailsForSelection, this);
+
+    // if(this.model()?.jsProfileModel()){
+      const columnsCPU:DataGrid.DataGrid.ColumnDescriptor[] = [];
+      columnsCPU.push({
+        id: 'self',
+        title: i18nString(UIStrings.selfTime),
+        width: '120px',
+        fixedWidth: true,
+        sortable: true,
+        sort: DataGrid.DataGrid.Order.Descending,
+      });
+      columnsCPU.push({
+        id: 'total',
+        title: i18nString(UIStrings.totalTime),
+        width: '120px',
+        fixedWidth: true,
+        sortable: true,
+      });
+      columnsCPU.push({
+        id: 'function',
+        title: i18nString(UIStrings.activity),
+        disclosure: true,
+        sortable: true,
+      });
+      this.dataGridForCPU = new DataGrid.DataGrid.DataGridImpl({
+        displayName: i18nString(UIStrings.javascript),
+        columns: columnsCPU,
+        editCallback: undefined,
+        deleteCallback: undefined,
+        refreshCallback: undefined,
+      });
+      // this.dataGridForCPU.addEventListener(DataGrid.DataGrid.Events.SortingChanged, this.sortingChanged, this);
+      // this.dataGridForCPU.addEventListener(DataGrid.DataGrid.Events.SelectedNode, this.nodeSelected.bind(this, true));
+      // this.dataGridForCPU.addEventListener(DataGrid.DataGrid.Events.DeselectedNode, this.nodeSelected.bind(this, false));
+      this.dataGridForCPU.setRowContextMenuCallback(this.onContextMenu.bind(this));
+
+    // } else {
+
+      this.dataGrid = new DataGrid.SortableDataGrid.SortableDataGrid({
+        displayName: i18nString(UIStrings.performance),
+        columns,
+        refreshCallback: undefined,
+        editCallback: undefined,
+        deleteCallback: undefined,
+      });
+      this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SortingChanged, this.sortingChanged, this);
+      this.dataGrid.element.addEventListener('mousemove', this.onMouseMove.bind(this), true);
+      this.dataGrid.setResizeMethod(DataGrid.DataGrid.ResizeMethod.Last);
+      this.dataGrid.setRowContextMenuCallback(this.onContextMenu.bind(this));
+      this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SelectedNode, this.updateDetailsForSelection, this);
+    // }
+
+
+
+
 
     this.detailsView = new UI.Widget.VBox();
     this.detailsView.element.classList.add('timeline-details-view', 'timeline-details-view-body');
-    this.splitWidget.setMainWidget(mainView);
+    this.splitWidget.setMainWidget(this.mainView);
     this.splitWidget.setSidebarWidget(this.detailsView);
     this.splitWidget.hideSidebar();
     this.splitWidget.show(this.element);
@@ -351,8 +397,62 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
     }
   }
 
+  refreshTreeCpu() {
+    class NodeFormatter implements Formatter {
+    
+      formatValue(value: number): string {
+        return i18nString(UIStrings.fms, {PH1: value.toFixed(1)});
+      }
+    
+      formatValueAccessibleText(value: number): string {
+        return this.formatValue(value);
+      }
+    
+      formatPercent(value: number, node: ProfileDataGridNode): string {
+        // if (this.profileView) {
+        //   const profile = this.profileView.profile();
+        //   if (profile && node.profileNode !== (profile as CPUProfile.CPUProfileDataModel.CPUProfileDataModel).idleNode) {
+        //     return i18nString(UIStrings.formatPercent, {PH1: value.toFixed(2)});
+        //   }
+        // }
+        return '';
+      }
+    
+      linkifyNode(node: ProfileDataGridNode): Element|null {
+        // const cpuProfilerModel = this.profileView.profileHeader.cpuProfilerModel;
+        // const target = cpuProfilerModel ? cpuProfilerModel.target() : null;
+        // const options = {className: 'profile-node-file', inlineFrameIndex: 0};
+        // return this.profileView.linkifier().maybeLinkifyConsoleCallFrame(target, node.profileNode.callFrame, options);
+        return null;
+      }
+    }
+
+    const profileDataGridTree = new BottomUpProfileDataGridTree(
+      new NodeFormatter(), this.searchableView, this.model()?.jsProfileModel()?.root!, 0);
+    
+    if (!profileDataGridTree) {
+      return;
+    }
+    // const selectedProfileNode = null;
+    this.dataGridForCPU.rootNode()?.removeChildren();
+    const children = profileDataGridTree.children;
+    const count = children.length;
+    for (let index = 0; index < count; ++index) {
+      this.dataGridForCPU.rootNode().appendChild(children[index]);
+    }
+    // if (selectedProfileNode) {
+    //   selectedProfileNode.selected = true;
+    // }
+  }
+
   refreshTree(): void {
+    if(this.model()?.jsProfileModel()){
+      this.refreshTreeCpu();
+      this.dataGridForCPU.asWidget().show(this.mainView.element);
+      return
+    }
     this.linkifier.reset();
+    this.dataGrid.asWidget().show(this.mainView.element);
     this.dataGrid.rootNode().removeChildren();
     if (!this.modelInternal) {
       this.updateDetailsForSelection();
@@ -510,6 +610,15 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
 
   private onContextMenu(
       contextMenu: UI.ContextMenu.ContextMenu, eventGridNode: DataGrid.DataGrid.DataGridNode<GridNode>): void {
+
+    if(eventGridNode instanceof ProfileDataGridNode){
+      const node = (eventGridNode as ProfileDataGridNode);
+      if (node.linkElement && !contextMenu.containsTarget(node.linkElement)) {
+        contextMenu.appendApplicableItems(node.linkElement);
+      }
+      return
+    }
+
     const gridNode = (eventGridNode as GridNode);
     if (gridNode.linkElement && !contextMenu.containsTarget(gridNode.linkElement)) {
       contextMenu.appendApplicableItems(gridNode.linkElement);
@@ -612,7 +721,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
         iconContainer.insertBefore(info.icon, icon);
       }
     } else if (event) {
-      const data = event.args['data'];
+      const data = event.args?.['data'];
       const deoptReason = data && data['deoptReason'];
       if (deoptReason) {
         container.createChild('div', 'activity-warning').title =
@@ -620,10 +729,10 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       }
 
       name.textContent = TimelineUIUtils.eventTitle(event);
-      const target = this.treeView.modelInternal?.timelineModel().targetByEvent(event) || null;
+      // const target = this.treeView.modelInternal?.timelineModel().targetByEvent(event) || null;
       const linkifier = this.treeView.linkifier;
-      const isFreshRecording = Boolean(this.treeView.modelInternal?.timelineModel().isFreshRecording());
-      this.linkElement = TimelineUIUtils.linkifyTopCallFrame(event, target, linkifier, isFreshRecording);
+      const isFreshRecording = Boolean(this.treeView.modelInternal?.timelineModel()?.isFreshRecording() ?? false);
+      this.linkElement = TimelineUIUtils.linkifyTopCallFrame(event, null, linkifier, isFreshRecording);
       if (this.linkElement) {
         container.createChild('div', 'activity-link').appendChild(this.linkElement);
       }
@@ -653,7 +762,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
         }
         const timings = event && TraceEngine.Legacy.timesForEventInMilliseconds(event);
         const startTime = timings?.startTime ?? 0;
-        value = startTime - model.timelineModel().minimumRecordTime();
+        value = startTime - model.minimumRecordTime();
       } break;
       case 'self':
         value = this.profileNode.selfTime;
@@ -827,7 +936,7 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
         if (!this.modelInternal) {
           throw new Error('Unable to find model for group by frame operation');
         }
-        const frame = id ? this.modelInternal.timelineModel().pageFrameById(id as Protocol.Page.FrameId) : undefined;
+        const frame = id ? this.modelInternal.timelineModel()?.pageFrameById(id as Protocol.Page.FrameId) : undefined;
         const frameName = frame ? TimelineUIUtils.displayNameForFrame(frame, 80) : i18nString(UIStrings.page);
         return {name: frameName, color: color, icon: undefined};
       }
@@ -959,7 +1068,8 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
     if (!this.modelInternal) {
       return;
     }
-    const frame = this.modelInternal.timelineModel().pageFrameById((node.id as Protocol.Page.FrameId));
+    const timelineModel = this.modelInternal.timelineModel()
+    const frame = timelineModel?.pageFrameById((node.id as Protocol.Page.FrameId)) ?? null;
     if (!frame || !frame.ownerNode) {
       return;
     }

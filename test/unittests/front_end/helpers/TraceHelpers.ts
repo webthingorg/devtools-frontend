@@ -50,7 +50,7 @@ export async function getMainFlameChartWithTracks(
   dataProvider.setModel(performanceModel, traceParsedData);
   const tracksAppender = dataProvider.compatibilityTracksAppenderInstance();
   tracksAppender.setVisibleTracks(trackAppenderNames);
-  dataProvider.buildFromTrackAppenders(/* expandedTracks?= */ expanded ? trackAppenderNames : undefined);
+  dataProvider.buildFromTrackAppendersForTest(/* expandedTracks?= */ expanded ? trackAppenderNames : undefined);
   const delegate = new MockFlameChartDelegate();
   const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
   const minTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);

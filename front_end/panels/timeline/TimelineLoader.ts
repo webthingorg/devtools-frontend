@@ -13,6 +13,7 @@ import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 
 import {type Client} from './TimelineController.js';
+import { TimelinePanel } from './TimelinePanel.js';
 
 const UIStrings = {
   /**
@@ -111,25 +112,6 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     visibleTypes.push(TimelineModel.TimelineModel.RecordType.JSIdleFrame);
     visibleTypes.push(TimelineModel.TimelineModel.RecordType.JSSystemFrame);
     return new TimelineModel.TimelineModelFilter.TimelineVisibleEventsFilter(visibleTypes);
-  }
-
-  static loadFromCpuProfile(profile: Protocol.Profiler.Profile|null, client: Client, title?: string): TimelineLoader {
-    const loader = new TimelineLoader(client, title);
-    loader.state = State.LoadingCPUProfileFromRecording;
-
-    try {
-      const events = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.createFakeTraceFromCpuProfile(
-          profile, /* tid */ 1, /* injectPageEvent */ true);
-
-      loader.filter = TimelineLoader.getCpuProfileFilter();
-
-      window.setTimeout(async () => {
-        void loader.addEvents(events);
-      });
-    } catch (e) {
-      console.error(e.stack);
-    }
-    return loader;
   }
 
   static async loadFromURL(url: Platform.DevToolsPath.UrlString, client: Client): Promise<TimelineLoader> {
@@ -317,6 +299,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     if (this.state === State.LoadingCPUProfileFromFile) {
       this.parseCPUProfileFormat(this.buffer);
       this.buffer = '';
+      return;
     }
     (this.tracingModel as TraceEngine.Legacy.TracingModel).tracingComplete();
     await (this.client as Client).loadingComplete(this.tracingModel, this.filter, this.isCpuProfile());
@@ -331,14 +314,15 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     let traceEvents;
     try {
       const profile = JSON.parse(text);
-      traceEvents = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.createFakeTraceFromCpuProfile(
-          profile, /* tid */ 1, /* injectPageEvent */ true);
+      // traceEvents = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.createFakeTraceFromCpuProfile(
+      //     profile, /* tid */ 1, /* injectPageEvent */ true);
+      (this.client as TimelinePanel).loadFromCpuProfile(profile, null)
     } catch (e) {
       this.reportErrorAndCancelLoading(i18nString(UIStrings.malformedCpuProfileFormat));
       return;
     }
-    this.filter = TimelineLoader.getCpuProfileFilter();
-    (this.tracingModel as TraceEngine.Legacy.TracingModel).addEvents(traceEvents);
+    // this.filter = TimelineLoader.getCpuProfileFilter();
+    // (this.tracingModel as TraceEngine.Legacy.TracingModel).addEvents(traceEvents);
   }
 }
 

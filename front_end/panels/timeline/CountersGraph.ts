@@ -152,7 +152,7 @@ export class CountersGraph extends UI.Widget.VBox {
         this.model.addEventListener(Events.WindowChanged, this.onWindowChanged, this);
       }
     }
-    this.calculator.setZeroTime(model ? model.timelineModel().minimumRecordTime() : 0);
+    this.calculator.setZeroTime(model ? model.minimumRecordTime() : 0);
     for (let i = 0; i < this.counters.length; ++i) {
       this.counters[i].reset();
       this.counterUI[i].reset();
