@@ -16,6 +16,23 @@
       "message": "Could you have a look?",
       "revId": "9c31ed155ad84701f172208300bc77458f439247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a9aa18_3933e862",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-03T14:04:37Z",
+      "side": 1,
+      "message": "`class\u003d\"link\"` instead?",
+      "revId": "9c31ed155ad84701f172208300bc77458f439247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
