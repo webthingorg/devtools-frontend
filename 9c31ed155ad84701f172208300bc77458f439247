@@ -33,6 +33,24 @@
       "message": "`class\u003d\"link\"` instead?",
       "revId": "9c31ed155ad84701f172208300bc77458f439247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e4a9027_8a7ac7a6",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-03T14:24:29Z",
+      "side": 1,
+      "message": "Already added L155. This doesn\u0027t seem to be redundant.\nIf we remove it, we have a result like below.\n\nhttps://docs.google.com/document/d/13ttSjpkGn0HgnlsN-_3tnpUhOiPsTCHxHNzptrdkXgk/edit#heading\u003dh.c8hn6aqqp2jh",
+      "parentUuid": "a0a9aa18_3933e862",
+      "revId": "9c31ed155ad84701f172208300bc77458f439247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
