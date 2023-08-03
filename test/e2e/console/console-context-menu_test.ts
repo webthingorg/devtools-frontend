@@ -11,7 +11,11 @@ import {clickOnContextMenu, CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../h
 describe('The Console Tab', async function() {
   beforeEach(async () => {
     const {frontend} = getBrowserAndPages();
-    await frontend.evaluate('{ navigator.clipboard.writeText = (data) => { globalThis._clipboardData = data; }};');
+    await frontend.evaluate(`
+      navigator.clipboard.writeText = (data) => {
+        globalThis._clipboardData = data;
+      };
+    `);
   });
 
   const RESULT_SELECTOR = '.console-message-text';
@@ -84,5 +88,27 @@ describe('The Console Tab', async function() {
     await clickOnContextMenu(RESULT_SELECTOR, 'Copy undefined');
     const copiedContent = await frontend.evaluate('globalThis._clipboardData');
     assert.deepEqual(copiedContent, 'undefined');
+  });
+
+  it('can copy maps', async () => {
+    const {frontend} = getBrowserAndPages();
+    await click(CONSOLE_TAB_SELECTOR);
+    await focusConsolePrompt();
+    await typeText('new Map([["key1","value1"],["key2","value2"]])\n');
+    await clickOnContextMenu(RESULT_SELECTOR, 'Copy object');
+    const copiedContent = await frontend.evaluate('globalThis._clipboardData');
+    assert.deepEqual(
+        copiedContent,
+        'new Map([\n    [\n        "key1",\n        "value1"\n    ],\n    [\n        "key2",\n        "value2"\n    ]\n])');
+  });
+
+  it('can copy sets', async () => {
+    const {frontend} = getBrowserAndPages();
+    await click(CONSOLE_TAB_SELECTOR);
+    await focusConsolePrompt();
+    await typeText('new Set(["a","b","c"])\n');
+    await clickOnContextMenu(RESULT_SELECTOR, 'Copy object');
+    const copiedContent = await frontend.evaluate('globalThis._clipboardData');
+    assert.deepEqual(copiedContent, 'new Set([\n    "a",\n    "b",\n    "c"\n])');
   });
 });
