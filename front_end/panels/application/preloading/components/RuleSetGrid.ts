@@ -97,6 +97,7 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
         },
       ],
       rows: this.#buildReportRows(),
+      showScrollbar: true,
       striped: true,
     };
 

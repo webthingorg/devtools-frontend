@@ -93,6 +93,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
         },
       ],
       rows: this.#buildReportRows(),
+      showScrollbar: true,
       striped: true,
     };
 

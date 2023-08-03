@@ -156,6 +156,8 @@ export class MismatchedPreloadingGrid extends LegacyWrapper.LegacyWrapper.Wrappa
         },
       ],
       rows: this.#buildReportRows(),
+      showScrollbar: true,
+      striped: true,
     };
 
     // Disabled until https://crbug.com/1079231 is fixed.
