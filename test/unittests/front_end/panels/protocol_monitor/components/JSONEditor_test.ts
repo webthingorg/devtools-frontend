@@ -13,6 +13,8 @@ import {
   raf,
 } from '../../../helpers/DOMHelpers.js';
 import * as ProtocolComponents from '../../../../../../front_end/panels/protocol_monitor/components/components.js';
+import type * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
+
 import type * as RecorderComponents from '../../../../../../front_end/panels/recorder/components/components.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import * as Menus from '../../../../../../front_end/ui/components/menus/menus.js';
@@ -126,6 +128,19 @@ describeWithEnvironment('JSONEditor', () => {
                 'optional': true,
                 'description': '',
                 'typeRef': 'Tracing.TraceConfig',
+              },
+            ],
+            description: 'Description9.',
+            replyArgs: ['Test9'],
+          },
+          'Test.test10': {
+            parameters: [
+              {
+                'name': 'NoTypeRef',
+                'type': 'object',
+                'optional': true,
+                'description': '',
+                'typeRef': 'NoTypeRef',
               },
             ],
             description: 'Description9.',
@@ -254,6 +269,34 @@ describeWithEnvironment('JSONEditor', () => {
       throw new Error('No input shown');
     }
     return paramInput;
+  };
+
+  const renderWarningIcon =
+      async(command: string, enumsByName?: Map<string, Record<string, string>>): Promise<IconButton.Icon.Icon> => {
+    const jsonEditor = renderJSONEditor();
+    await populateMetadata(jsonEditor);
+    jsonEditor.command = command;
+    if (enumsByName) {
+      jsonEditor.enumsByName = enumsByName;
+    }
+    jsonEditor.populateParametersForCommandWithDefaultValues();
+    await jsonEditor.updateComplete;
+
+    // inputs[0] corresponds to the devtools-recorder-input of the command
+    const input = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input')[1];
+    if (!input) {
+      throw Error('No editable content displayed');
+    }
+    input.value = 'Not an accepted value';
+    await jsonEditor.updateComplete;
+    input.focus();
+    input.blur();
+    await jsonEditor.updateComplete;
+    const warningIcon = jsonEditor.renderRoot.querySelector('devtools-icon');
+    if (!warningIcon) {
+      throw Error('No icon displayed');
+    }
+    return warningIcon;
   };
 
   describe('Binding input bar', () => {
@@ -792,6 +835,30 @@ describeWithEnvironment('JSONEditor', () => {
        });
   });
 
+  describe('Verify the type of the entered value', async () => {
+    it('should show a warning icon if the type of the parameter is number but the entered value is not', async () => {
+      const command = 'Test.test8';
+
+      const warningIcon = await renderWarningIcon(command);
+      assert.isNotNull(warningIcon);
+    });
+    it('should show a warning icon if the type of the parameter is boolean but the entered value is not true or false',
+       async () => {
+         const command = 'Test.test4';
+         const warningIcon = await renderWarningIcon(command);
+         assert.isNotNull(warningIcon);
+       });
+    it('should show a warning icon if the type of the parameter is enum but the entered value is not among the accepted values',
+       async () => {
+         const enumsByName = new Map([
+           ['Test.testRef', {'Test': 'test', 'Test1': 'test1', 'Test2': 'test2'}],
+         ]);
+         const command = 'Test.test';
+         const warningIcon = await renderWarningIcon(command, enumsByName);
+         assert.isNotNull(warningIcon);
+       });
+  });
+
   it('should not display parameters if a command is unknown', async () => {
     const cdpCommand = 'Unknown';
     const jsonEditor = renderJSONEditor();
@@ -911,5 +978,94 @@ describeWithEnvironment('JSONEditor', () => {
     // for the name of the parameter (traceConfig)
     assert.deepStrictEqual(parameters.length, 6);
   });
+
+  it('should return the parameters in a format understandable by the ProtocolMonitor when sending a command with oject parameter that has no typeRef',
+     async () => {
+       const command = 'Test.test10';
+       const typesByName = new Map();
+       // We set the map typesBynames without the key NoTypeRef
+       typesByName.set('Tracing.TraceConfig', [
+         {
+           'name': 'memoryDumpConfig',
+           'type': 'object',
+           'optional': true,
+           'description':
+               'Configuration for memory dump triggers. Used only when \\"memory-infra\\" category is enabled.',
+           'typeRef':
+               'Tracing.MemoryDumpConfig',  // This typeref is on purpose not added to show that this param will be treated as a string parameter
+         },
+       ]);
+
+       const jsonEditor = renderJSONEditor();
+
+       await populateMetadata(jsonEditor);
+       jsonEditor.typesByName = typesByName;
+       jsonEditor.command = command;
+       jsonEditor.populateParametersForCommandWithDefaultValues();
+       await jsonEditor.updateComplete;
+       const shadowRoot = jsonEditor.renderRoot;
+       const parameters = shadowRoot.querySelector('.parameter');
+
+       await renderHoveredElement(parameters);
+
+       const addParamButton = jsonEditor.renderRoot.querySelector('devtools-button[title="Add custom property"]');
+       if (!addParamButton) {
+         throw new Error('No button');
+       }
+       // We click two times to display two parameters with key/value pairs
+       dispatchClickEvent(addParamButton, {
+         bubbles: true,
+         composed: true,
+       });
+       dispatchClickEvent(addParamButton, {
+         bubbles: true,
+         composed: true,
+       });
+
+       await jsonEditor.updateComplete;
+       const editors = shadowRoot.querySelectorAll('devtools-recorder-input');
+
+       // Editors[0] refers to the command editor, so we start at index 1
+       // We populate the key/value pairs
+       editors[1].value = 'testName1';
+       await jsonEditor.updateComplete;
+       editors[1].focus();
+       editors[1].blur();
+       await jsonEditor.updateComplete;
+
+       editors[2].value = 'testValue1';
+       await jsonEditor.updateComplete;
+       editors[2].focus();
+       editors[2].blur();
+       await jsonEditor.updateComplete;
+
+       editors[3].value = 'testName2';
+       await jsonEditor.updateComplete;
+       editors[3].focus();
+       editors[3].blur();
+       await jsonEditor.updateComplete;
+
+       editors[4].value = 'testValue2';
+       await jsonEditor.updateComplete;
+       editors[4].focus();
+       editors[4].blur();
+       await jsonEditor.updateComplete;
+
+       const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
+
+       // We send the command
+       dispatchKeyDownEvent(jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
+
+       const response = await responsePromise as ProtocolComponents.JSONEditor.SubmitEditorEvent;
+
+       const expectedParameters = {
+         'NoTypeRef': {
+           'testName1': 'testValue1',
+           'testName2': 'testValue2',
+         },
+       };
+
+       assert.deepStrictEqual(response.data.parameters, expectedParameters);
+     });
 
 });
