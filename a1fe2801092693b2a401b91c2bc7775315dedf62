@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a080f782_b14df515",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-04T11:03:48Z",
+      "side": 1,
+      "message": "How about instead of adding it to the default section, you can add to the edit section. See the \"groupWeights\" in Context menu.",
+      "revId": "a1fe2801092693b2a401b91c2bc7775315dedf62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

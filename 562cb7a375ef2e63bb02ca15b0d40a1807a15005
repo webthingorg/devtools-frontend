@@ -69,6 +69,24 @@
       "parentUuid": "6dd9c317_d8266347",
       "revId": "562cb7a375ef2e63bb02ca15b0d40a1807a15005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "408760d2_aa20111a",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-04T11:03:48Z",
+      "side": 1,
+      "message": "Left a comment above. Perhaps can give it a try. Have a divider between them would be ideal. The xxxxxxxx in my comments refer to divider",
+      "parentUuid": "b4697677_272ca714",
+      "revId": "562cb7a375ef2e63bb02ca15b0d40a1807a15005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
