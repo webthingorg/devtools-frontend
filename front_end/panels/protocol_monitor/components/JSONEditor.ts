@@ -8,6 +8,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
+import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -33,6 +34,10 @@ const UIStrings = {
    *@description The title of a button that reset the value of a paremeters to its default value.
    */
   resetDefaultValue: 'Reset to default value',
+  /**
+   *@description The title of a button to add custom key/value pairs to object parameters with no keys defined
+   */
+  addCustomProperty: 'Add custom property',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/components/JSONEditor.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -56,6 +61,7 @@ interface BaseParameter {
   name: string;
   typeRef?: string;
   description: string;
+  isCorrectType?: boolean;
 }
 
 interface ArrayParameter extends BaseParameter {
@@ -428,6 +434,7 @@ export class JSONEditor extends LitElement {
 
   populateParametersForCommandWithDefaultValues(): void {
     const commandParameters = this.metadataByCommand.get(this.command)?.parameters;
+
     if (!commandParameters) {
       return;
     }
@@ -444,17 +451,7 @@ export class JSONEditor extends LitElement {
         throw Error('Every object parameters should have a type ref');
       }
 
-      const nestedType = this.typesByName.get(typeRef);
-      // This is extremely rare.
-      // It happens when the keys for an object are not registered like for Tracing.MemoryDumpConfig or headers for instance.
-      // The user has to type the object wanted by hand and the parameter is treated as a string parameter
-      if (!nestedType) {
-        return {
-          ...parameter,
-          type: ParameterType.String,
-          value: parameter.optional ? undefined : defaultValueByType.get(parameter.type),
-        } as StringParameter;
-      }
+      const nestedType = this.typesByName.get(typeRef) ?? [];
 
       const nestedParameters = nestedType.map(nestedType => {
         return this.#populateParameterDefaults(nestedType);
@@ -463,17 +460,20 @@ export class JSONEditor extends LitElement {
       return {
         ...parameter,
         value: nestedParameters,
+        isCorrectType: true,
       };
     }
     if (parameter.type === ParameterType.Array) {
       return {
         ...parameter,
         value: parameter.value?.map(param => this.#populateParameterDefaults(param)) || [],
+        isCorrectType: true,
       };
     }
     return {
       ...parameter,
       value: parameter.optional ? undefined : defaultValueByType.get(parameter.type),
+      isCorrectType: true,
     } as Parameter;
   }
 
@@ -498,13 +498,30 @@ export class JSONEditor extends LitElement {
     throw new Error('Not found');
   }
 
+  #isValueOfCorrectType(parameter: Parameter, value: string): boolean {
+    if (parameter.type === 'number' && isNaN(Number(value))) {
+      return false;
+    }
+
+    const acceptedValues = this.#computeDropdownValues(parameter);
+    if (acceptedValues.length !== 0 && !acceptedValues.includes(value)) {
+      return false;
+    }
+
+    return true;
+  }
+
   #saveParameterValue = (event: Event): void => {
     if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
       return;
     }
-    let value: string|undefined;
+    let value: string;
     if (event instanceof KeyboardEvent) {
-      value = event.target.renderRoot.querySelector('devtools-editable-content')?.innerText;
+      const editableContent = event.target.renderRoot.querySelector('devtools-editable-content');
+      if (!editableContent) {
+        return;
+      }
+      value = editableContent.innerText;
     } else {
       value = event.target.value;
     }
@@ -518,7 +535,24 @@ export class JSONEditor extends LitElement {
       object.value = defaultValueByType.get(object.type);
     } else {
       object.value = value;
+      object.isCorrectType = this.#isValueOfCorrectType(object, value);
     }
+    // Needed to render the delete button for object parameters
+    this.requestUpdate();
+  };
+
+  #saveNestedObjectParameterKey = (event: Event): void => {
+    if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
+      return;
+    }
+    const value = event.target.value;
+    const paramId = event.target.getAttribute('data-paramid');
+    if (!paramId) {
+      return;
+    }
+    const realParamId = paramId.split('.');
+    const {parameter} = this.#getChildByPath(realParamId);
+    parameter.name = value;
     // Needed to render the delete button for object parameters
     this.requestUpdate();
   };
@@ -531,6 +565,21 @@ export class JSONEditor extends LitElement {
       this.#saveParameterValue(event);
     }
   };
+
+  #handleFocusParameter(event: Event): void {
+    if (!(event.target instanceof RecorderComponents.RecorderInput.RecorderInput)) {
+      return;
+    }
+    const paramId = event.target.getAttribute('data-paramid');
+    if (!paramId) {
+      return;
+    }
+    const realParamId = paramId.split('.');
+    const object = this.#getChildByPath(realParamId).parameter;
+    object.isCorrectType = true;
+
+    this.requestUpdate();
+  }
 
   #handleCommandInputBlur = async(event: Event): Promise<void> => {
     if (event.target instanceof RecorderComponents.RecorderInput.RecorderInput) {
@@ -550,7 +599,7 @@ export class JSONEditor extends LitElement {
     return false;
   }
 
-  #handleAddParameter(parameterId: string): void {
+  #handleAddParameter(parameterId: string, isNestedObject?: boolean): void {
     const createNestedParameter = (type: Parameter, name: string): Parameter => {
       if (type.type === ParameterType.Object) {
         const typeRef = type.typeRef;
@@ -568,6 +617,7 @@ export class JSONEditor extends LitElement {
           optional: type.optional,
           typeRef: typeRef,
           value: nestedValue,
+          isCorrectType: true,
           description: type.description,
         };
       }
@@ -575,6 +625,7 @@ export class JSONEditor extends LitElement {
         type: type.type,
         name: name,
         optional: type.optional,
+        isCorrectType: true,
         typeRef: type.typeRef,
         value: defaultValueByType.get(type.type),
         description: type.description,
@@ -605,6 +656,7 @@ export class JSONEditor extends LitElement {
           typeRef: typeRef,
           value: nestedValue.length !== 0 ? nestedValue : '',
           description: '',
+          isCorrectType: true,
         } as Parameter);
         break;
       }
@@ -612,6 +664,18 @@ export class JSONEditor extends LitElement {
         const typeRef = parameter.typeRef;
         if (!typeRef) {
           return;
+        }
+        if (isNestedObject) {
+          parameter.value.push({
+            type: ParameterType.String,
+            name: '',
+            optional: true,
+            value: '',
+            isCorrectType: true,
+            description: '',
+            typeRef: 'No keys',
+          });
+          break;
         }
         const nestedType = this.typesByName.get(typeRef) ?? [];
         const nestedValue: Parameter[] =
@@ -623,6 +687,7 @@ export class JSONEditor extends LitElement {
           optional: true,
           typeRef: typeRef,
           value: nestedValue,
+          isCorrectType: true,
           description: '',
         });
         break;
@@ -642,12 +707,22 @@ export class JSONEditor extends LitElement {
       return;
     }
 
-    if (parameter.type === ParameterType.Object) {
-      parameter.value.forEach(param => this.#handleClearParameter(`${parameterId}.${param.name}`));
-    } else if (parameter.type === ParameterType.Array) {
-      parameter.value = [];
-    } else {
-      parameter.value = parameter.optional ? undefined : defaultValueByType.get(parameter.type);
+    switch (parameter.type) {
+      case ParameterType.Object:
+        if (!parameter.typeRef || !this.typesByName.get(parameter.typeRef)) {
+          parameter.value = [];
+        } else {
+          parameter.value.forEach(param => this.#handleClearParameter(`${parameterId}.${param.name}`));
+        }
+        break;
+
+      case ParameterType.Array:
+        parameter.value = [];
+        break;
+
+      default:
+        parameter.value = parameter.optional ? undefined : defaultValueByType.get(parameter.type);
+        break;
     }
 
     this.requestUpdate();
@@ -663,6 +738,10 @@ export class JSONEditor extends LitElement {
       return;
     }
     parentParameter.value.splice(parentParameter.value.findIndex(p => p === parameter), 1);
+    if (parameter.typeRef === 'No keys') {
+      this.requestUpdate();
+      return;
+    }
     for (let i = 0; i < parentParameter.value.length; i++) {
       parentParameter.value[i].name = String(i);
     }
@@ -737,6 +816,22 @@ export class JSONEditor extends LitElement {
           ></devtools-button>
         `;
   }
+
+  #renderWarningIcon(): LitHtml.TemplateResult|undefined {
+    return LitHtml.html`<${IconButton.Icon.Icon.litTagName}
+    .data=${{
+      iconName: 'warning-filled',
+      color: 'var(--icon-warning)',
+      width: '14px',
+      height: '14px',
+    } as IconButton.Icon.IconData}
+    class=${classMap({
+      'warning-icon': true,
+    })}
+  >
+  </${IconButton.Icon.Icon.litTagName}>`;
+  }
+
   /**
    * Renders the parameters list corresponding to a specific CDP command.
    */
@@ -756,68 +851,122 @@ export class JSONEditor extends LitElement {
           const handleKeydown = (event: KeyboardEvent): void => {
             this.#handleParameterInputKeydown(event);
           };
+          const handleFocus = (event: Event): void => {
+            this.#handleFocusParameter(event);
+          };
+          const handleParamKeyOnBlur = (event: Event): void => {
+            this.#saveNestedObjectParameterKey(event);
+          };
           const isPrimitive = this.#isTypePrimitive(parameter.type);
           const isArray = parameter.type === ParameterType.Array;
           const isParentArray = parentParameter && parentParameter.type === ParameterType.Array;
+
           const isObject = parameter.type === ParameterType.Object;
+          const hasTypeRef = isObject && this.typesByName.get(parameter.type) !== undefined;
+          // This variable indicates that this parameter is a parameter nested inside an object parameter
+          // that no keys defined inside the CDP documentation.
+          const hasNoKeys = parameter.typeRef === 'No keys';
+          const isCustomEditorDisplayed = isObject && !hasTypeRef;
           const hasOptions = parameter.type === ParameterType.String || parameter.type === ParameterType.Boolean;
-          const classes = {
+          const parametersClasses = {
             optionalParameter: parameter.optional,
             parameter: true,
             undefinedParameter: parameter.value === undefined && parameter.optional,
           };
+          const inputClasses = {
+            'json-input': true,
+          };
           return html`
                 <li class="row">
                   <div class="row-icons">
-                    <div class=${classMap(classes)} data-paramId=${parameterId}>
-                        ${parameter.name}<span class="separator">:</span>
-                    </div>
+                      ${parameter.isCorrectType === false ? html`${this.#renderWarningIcon()}` : nothing}
 
-                    <!-- Render button to add values inside an array parameter -->
-                    ${isArray ? html`
-                      ${this.#renderInlineButton({
-                          title: i18nString(UIStrings.addParameter),
-                          iconName: 'plus',
-                          onClick: () => this.#handleAddParameter(parameterId),
-                          classMap: { deleteButton: true },
-                        })}
-                    `: nothing}
+                      <!-- If an object parameter has no predefined keys, show an input to enter the key, otherwise show the name of the parameter -->
+                      <div class=${classMap(parametersClasses)} data-paramId=${parameterId}>
+                          ${hasNoKeys ?
+                            html`<devtools-recorder-input
+                              data-paramId=${parameterId}
+                              isKey=${true}
+                              .isCorrectInput=${live(parameter.isCorrectType)}
+                              .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
+                              .autocomplete=${false}
+                              .value=${live(parameter.name ?? '')}
+                              .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
+                              @blur=${handleParamKeyOnBlur}
+                              @focus=${handleFocus}
+                              @keydown=${handleKeydown}
+                            ></devtools-recorder-input>`:
+                            html`${parameter.name}`} <span class="separator">:</span>
+                      </div>
 
-                    <!-- Render button to complete reset an array parameter or an object parameter-->
-                    ${(isArray && parameter.value.length !== 0) || isObject ?
-                    this.#renderInlineButton({
-                      title: i18nString(UIStrings.resetDefaultValue),
-                      iconName: 'clear',
-                      onClick: () => this.#handleClearParameter(parameterId),
-                      classMap: {deleteButton: true},
-                    }) : nothing}
+                      <!-- Render button to add values inside an array parameter -->
+                      ${isArray ? html`
+                        ${this.#renderInlineButton({
+                            title: i18nString(UIStrings.addParameter),
+                            iconName: 'plus',
+                            onClick: () => this.#handleAddParameter(parameterId),
+                            classMap: { deleteButton: true },
+                          })}
+                      `: nothing}
 
-                    <!-- Render the buttons to change the value from undefined to empty string for optional primitive parameters -->
-                    ${isPrimitive && !isParentArray && parameter.optional && parameter.value === undefined ?
-                        html`  ${this.#renderInlineButton({
-                          title: i18nString(UIStrings.addParameter),
-                          iconName: 'plus',
-                          onClick: () => this.#handleAddParameter(parameterId),
-                          classMap: { deleteButton: true },
-                        })}` : nothing}
+                      <!-- Render button to complete reset an array parameter or an object parameter-->
+                      ${(isArray && parameter.value.length !== 0) || isObject ?
+                      this.#renderInlineButton({
+                        title: i18nString(UIStrings.resetDefaultValue),
+                        iconName: 'clear',
+                        onClick: () => this.#handleClearParameter(parameterId),
+                        classMap: {deleteButton: true},
+                      }) : nothing}
+
+                      <!-- Render the buttons to change the value from undefined to empty string for optional primitive parameters -->
+                      ${isPrimitive && !isParentArray && parameter.optional && parameter.value === undefined ?
+                          html`  ${this.#renderInlineButton({
+                            title: i18nString(UIStrings.addParameter),
+                            iconName: 'plus',
+                            onClick: () => this.#handleAddParameter(parameterId),
+                            classMap: { deleteButton: true },
+                          })}` : nothing}
                   </div>
 
                   <div class="row-icons">
-                    <!-- In case  the parameter is not optional or its value is not undefined render the input -->
-                    ${isPrimitive && (parameter.value !== undefined || !parameter.optional) && (!isParentArray) ?
-                      html`
-                        <devtools-recorder-input
+                      <!-- If an object has no predefined keys, show an input to enter the value, and a delete icon to delete the whole key/value pair -->
+                      ${hasNoKeys ?  html`
+                      <devtools-recorder-input
                           data-paramId=${parameterId}
+                          .isCorrectInput=${live(parameter.isCorrectType)}
                           .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
                           .autocomplete=${false}
                           .value=${live(parameter.value ?? '')}
                           .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
                           @blur=${handleInputOnBlur}
+                          @focus=${handleFocus}
+                          @keydown=${handleKeydown}
+                        ></devtools-recorder-input>
+
+                        ${this.#renderInlineButton({
+                        title: i18nString(UIStrings.deleteParameter),
+                        iconName: 'bin',
+                        onClick: () => this.#handleDeleteParameter(parameterId),
+                        classMap: { deleteButton: true, deleteIcon: true },
+                      })}`: nothing}
+
+                    <!-- In case  the parameter is not optional or its value is not undefined render the input -->
+                    ${isPrimitive && !hasNoKeys && (parameter.value !== undefined || !parameter.optional) && (!isParentArray) ?
+                      html`
+                        <devtools-recorder-input
+                          data-paramId=${parameterId}
+                          .isCorrectInput=${live(parameter.isCorrectType)}
+                          .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
+                          .autocomplete=${false}
+                          .value=${live(parameter.value ?? '')}
+                          .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
+                          @blur=${handleInputOnBlur}
+                          @focus=${handleFocus}
                           @keydown=${handleKeydown}
                         ></devtools-recorder-input>` : nothing}
 
                     <!-- Render the buttons to change the value from empty string to undefined for optional primitive parameters -->
-                    ${isPrimitive && !isParentArray && parameter.optional && parameter.value !== undefined ?
+                    ${isPrimitive &&!hasNoKeys && !isParentArray && parameter.optional && parameter.value !== undefined ?
                         html`  ${this.#renderInlineButton({
                           title: i18nString(UIStrings.resetDefaultValue),
                           iconName: 'clear',
@@ -825,6 +974,15 @@ export class JSONEditor extends LitElement {
                           classMap: { deleteButton: true, deleteIcon: true },
                         })}` : nothing}
 
+                    <!-- If the parameter is an object with no predefined keys, renders a button to add key/value pairs to it's value -->
+                    ${isCustomEditorDisplayed ? html`
+                      ${this.#renderInlineButton({
+                        title: i18nString(UIStrings.addCustomProperty),
+                        iconName: 'plus',
+                        onClick: () => this.#handleAddParameter(parameterId, true),
+                        classMap: { deleteButton: true },
+                      })}
+                    ` : nothing}
 
                     <!-- In case the parameter is nested inside an array we render the input field as well as a delete button -->
                     ${isParentArray ? html`
@@ -838,7 +996,7 @@ export class JSONEditor extends LitElement {
                       .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
                       @blur=${handleInputOnBlur}
                       @keydown=${handleKeydown}
-                      class=${classMap({'json-input': true})}
+                      class=${classMap(inputClasses)}
                     ></devtools-recorder-input>` : nothing}
 
                     ${this.#renderInlineButton({
