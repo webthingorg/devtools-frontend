@@ -26,7 +26,6 @@ import {
   timeout,
   typeText,
   waitFor,
-  clickElement,
   waitForFunction,
   waitForFunctionWithTries,
   waitForAria,
@@ -244,7 +243,7 @@ export async function addBreakpointForLine(frontend: puppeteer.Page, index: numb
   assertNotNullOrUndefined(breakpointLine);
 
   await waitForFunction(async () => !(await isBreakpointSet(index)));
-  await clickElement(breakpointLine);
+  await breakpointLine.click();
 
   await waitForFunction(async () => await isBreakpointSet(index));
 }
@@ -254,7 +253,7 @@ export async function removeBreakpointForLine(frontend: puppeteer.Page, index: n
   assertNotNullOrUndefined(breakpointLine);
 
   await waitForFunction(async () => await isBreakpointSet(index));
-  await clickElement(breakpointLine);
+  await breakpointLine.click();
   await waitForFunction(async () => !(await isBreakpointSet(index)));
 }
 
@@ -264,7 +263,7 @@ export async function addLogpointForLine(index: number, condition: string) {
   assertNotNullOrUndefined(breakpointLine);
 
   await waitForFunction(async () => !(await isBreakpointSet(index)));
-  await clickElement(breakpointLine, {clickOptions: {button: 'right'}});
+  await breakpointLine.click({button: 'right'});
 
   await click('aria/Add logpoint…');
 
