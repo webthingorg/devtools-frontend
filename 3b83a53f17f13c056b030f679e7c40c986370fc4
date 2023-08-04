@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4784907_e7045df7",
+        "filename": "front_end/core/sdk/BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-08-04T08:27:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06f520f6_5b3f1554",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 22
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57a82ccd_3b658546",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca4cebd9_d134af02",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-08-04T08:27:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57a82ccd_3b658546",
+      "range": {
+        "startLine": 854,
+        "startChar": 23,
+        "endLine": 854,
+        "endChar": 25
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba9d66c3_66507f52",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-08-03T16:28:57Z",
       "side": 1,
       "message": "nit: Could this be inlined into L11?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "835f8c22_93552dc6",
+        "filename": "front_end/core/sdk/StatusTextStrings.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-08-04T08:27:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba9d66c3_66507f52",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -107,6 +179,30 @@
       "side": 1,
       "message": "`statusTextLookup[statusCode] ?? \u0027\u0027` is probably even better. 😊",
       "parentUuid": "63b306df_8457fef1",
+      "range": {
+        "startLine": 76,
+        "startChar": 32,
+        "endLine": 76,
+        "endChar": 96
+      },
+      "revId": "3b83a53f17f13c056b030f679e7c40c986370fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dc6e59b_99b504c2",
+        "filename": "front_end/core/sdk/StatusTextStrings.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-08-04T08:27:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74bef596_4c18310c",
       "range": {
         "startLine": 76,
         "startChar": 32,
