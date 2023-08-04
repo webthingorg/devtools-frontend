@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc0d3d8e_747fb3de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-04T10:05:14Z",
+      "side": 1,
+      "message": "This is looking great! I think we should add a screenshot test for this, and you will need to update existing screenshots.\n\nTo do this, have a look at go/devtools-rpp#option-2-the-components-server and the existing tests (such as gpu_track_test.ts in test/interactions). There is also some info on screenshot tests at https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/interactions/README.md;l\u003d1?q\u003dinteractions%2FREADME.md\u0026sq\u003d\u0026ss\u003dchromium",
+      "revId": "c867f7f3bdd27c6df2b59417ee5da4894988973f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267ffb75_e5b85ea7",
+        "filename": "test/unittests/front_end/panels/timeline/track_appenders/AnimationsTrackAppender_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-04T10:05:14Z",
+      "side": 1,
+      "message": "think we can lose this comment - we know that colors will change in the future",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 61
+      },
+      "revId": "c867f7f3bdd27c6df2b59417ee5da4894988973f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
