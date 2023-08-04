@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b4a2b62_b07d6be7",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-04T09:55:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a7c0a49_e22a8d3e",
+      "revId": "562cb7a375ef2e63bb02ca15b0d40a1807a15005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dd9c317_d8266347",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-04T09:37:05Z",
       "side": 1,
       "message": "Are you able to shuffle the command menu arrangement? The sequence should group and optimize to prioritise for primary user action. \n\nCurrently: https://imgur.com/wDetrTw\n\nHow about the following sequence?\n\nEdit and Resend\nFilter\nxxxxxxxxx\nSort By\nHeader Options\nxxxxxxxxx\nDocumentation",
+      "revId": "562cb7a375ef2e63bb02ca15b0d40a1807a15005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4697677_272ca714",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-04T09:55:35Z",
+      "side": 1,
+      "message": "This sequence cannot be really achieved but I can like order the items like this : \nSort By\nHeader Options\nEdit and Resend\nFilter\nDocumentation\n\nWill it be fine ?",
+      "parentUuid": "6dd9c317_d8266347",
       "revId": "562cb7a375ef2e63bb02ca15b0d40a1807a15005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
