@@ -349,6 +349,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "134173f0_dd80c873",
+        "filename": "front_end/panels/application/components/StorageMetadataView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-04T08:55:55Z",
+      "side": 1,
+      "message": "Then ignore my suggestion",
+      "parentUuid": "ac60919b_e17e73d3",
+      "revId": "8820ecdb6fb00f5c6876d7520b758003470e6556",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "958b713f_44f2d74f",
