@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803905db_5b5a7721",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-04T14:40:36Z",
+      "side": 1,
+      "message": "Example failure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1497/overview\nIf we look at the frontend screenshot of the failure we can see that puppeteer tried to click the element but ended up hovering over it instead, which made the wait after it timeout.",
+      "revId": "925a59013f8ea97922d1a0038b194ded4144fb11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47cc383d_0c86e987",
+        "filename": "test/e2e/helpers/sources-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-04T14:40:36Z",
+      "side": 1,
+      "message": "I would have prefered to use the `click` function here but retrieving the selector turned out to be more difficult that expected because the source code lines selectors are identical aside from the content. If this is not adequate we can look more into how we can get the selector.",
+      "range": {
+        "startLine": 246,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 31
+      },
+      "revId": "925a59013f8ea97922d1a0038b194ded4144fb11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
