@@ -4,6 +4,7 @@
 
 import {assert} from 'chai';
 
+import {expectError} from '../../conductor/events.js';
 import {
   getBrowserAndPages,
   getResourcesPath,
@@ -14,6 +15,8 @@ import {
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {getCurrentUrl} from '../helpers/layers-helpers.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
+
+const errorException = expectError('Unable to create texture');
 
 describe('The Layers Panel', async () => {
   it('should keep the currently inspected url as an attribute', async () => {
@@ -50,3 +53,5 @@ describe('The Layers Panel', async () => {
     assert.strictEqual(await getCurrentUrl(), 'chrome-error://chromewebdata/');
   });
 });
+
+errorException.drop();
