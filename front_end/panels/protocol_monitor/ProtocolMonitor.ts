@@ -67,6 +67,10 @@ const UIStrings = {
    */
   documentation: 'Documentation',
   /**
+   *@description Text to open the CDP editor with the selected command
+   */
+  editCommand: 'Edit command',
+  /**
    *@description Cell text content in Protocol Monitor of the Protocol Monitor tab
    *@example {30} PH1
    */
@@ -299,6 +303,19 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
               menu.defaultSection().appendItem(i18nString(UIStrings.filter), () => {
                 const methodColumn = DataGrid.DataGridUtils.getRowEntryForColumnId(row, 'method');
                 this.textFilterUI.setValue(`method:${methodColumn.value}`, true);
+              });
+
+              menu.defaultSection().appendItem(i18nString(UIStrings.editCommand), () => {
+                if (!methodColumn.value) {
+                  return;
+                }
+                const parameters = this.infoWidget.request;
+                const [domain, method] = String(methodColumn.value).split('.');
+                const command = `${domain}.${method}`;
+                if (splitWidget.showMode() === 'OnlyMain') {
+                  splitWidget.toggleSidebar();
+                }
+                this.dispatchEventToListeners(Events.CommandChange, {command, parameters});
               });
 
               /**
@@ -690,6 +707,7 @@ export class CommandAutocompleteSuggestionProvider {
 
 export class InfoWidget extends UI.Widget.VBox {
   private readonly tabbedPane: UI.TabbedPane.TabbedPane;
+  request: {[x: string]: unknown};
   constructor() {
     super();
     this.tabbedPane = new UI.TabbedPane.TabbedPane();
@@ -697,6 +715,7 @@ export class InfoWidget extends UI.Widget.VBox {
     this.tabbedPane.appendTab('response', i18nString(UIStrings.response), new UI.Widget.Widget());
     this.tabbedPane.show(this.contentElement);
     this.tabbedPane.selectTab('response');
+    this.request = {};
     this.render(null);
   }
 
@@ -719,6 +738,7 @@ export class InfoWidget extends UI.Widget.VBox {
     }
 
     const requestParsed = JSON.parse(String(data.request.value) || 'null');
+    this.request = requestParsed;
     this.tabbedPane.changeTabView('request', SourceFrame.JSONView.JSONView.createViewSync(requestParsed));
     const responseParsed =
         data.response.value === '(pending)' ? null : JSON.parse(String(data.response.value) || 'null');
