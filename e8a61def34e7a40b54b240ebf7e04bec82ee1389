@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba6c49f_02df1810",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-04T09:14:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "063282e4_24fcbdd0",
+      "revId": "e8a61def34e7a40b54b240ebf7e04bec82ee1389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2eb5148_9e76b25c",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-31T16:41:56Z",
       "side": 1,
       "message": "`${jsonView.treeOutline.element}`\nThis seems to work if you make JSONView\u0027s `treeOutline` public.\nInstead of making `jsonView.treeOutline` public, it\u0027s probably better to add a getter. And even then this is quite hacky, so please do some manual testing to make sure it works.",
+      "revId": "e8a61def34e7a40b54b240ebf7e04bec82ee1389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0d1473c_3ab5f059",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-04T09:14:26Z",
+      "side": 1,
+      "message": "Thanks for the comments.\nI ended up using another type of component to display the result.\nPlease have a look.",
+      "parentUuid": "e2eb5148_9e76b25c",
       "revId": "e8a61def34e7a40b54b240ebf7e04bec82ee1389",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
