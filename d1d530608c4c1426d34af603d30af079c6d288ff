@@ -34,6 +34,24 @@
       "parentUuid": "b13dfccf_3f886255",
       "revId": "d1d530608c4c1426d34af603d30af079c6d288ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15f3d52_b22d93ea",
+        "filename": "test/conductor/events.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-04T08:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa56365b_f9898449",
+      "revId": "d1d530608c4c1426d34af603d30af079c6d288ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
