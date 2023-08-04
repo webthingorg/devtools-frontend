@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {expectError} from '../../conductor/events.js';
 import {
   assertNotNullOrUndefined,
   click,
@@ -37,6 +38,10 @@ import {
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 describe('A user can navigate across', async function() {
+  afterEach(async () => {
+    expectError('Unable to create texture');
+  });
+
   // These tests move between panels, which takes time.
   if (this.timeout() !== 0) {
     this.timeout(10000);
@@ -97,6 +102,10 @@ describe('A user can navigate across', async function() {
 describe('A user can move tabs', async function() {
   this.timeout(10000);
 
+  afterEach(async () => {
+    expectError('Unable to create texture');
+  });
+
   it('Move Memory to drawer', async () => {
     await navigateToMemoryTab();
     await tabExistsInMainPanel(MEMORY_TAB_ID);
@@ -114,6 +123,10 @@ describe('A user can move tabs', async function() {
 });
 
 describe('A user can open panels via the "panel" query param', async function() {
+  afterEach(async () => {
+    expectError('Unable to create texture');
+  });
+
   it('Layers is shown', async () => {
     await reloadDevTools({queryParams: {panel: 'layers'}});
     await tabExistsInMainPanel(LAYERS_TAB_SELECTOR);

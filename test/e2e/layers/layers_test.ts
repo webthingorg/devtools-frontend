@@ -4,6 +4,7 @@
 
 import {assert} from 'chai';
 
+import {expectError} from '../../conductor/events.js';
 import {
   getBrowserAndPages,
   getResourcesPath,
@@ -16,6 +17,10 @@ import {getCurrentUrl} from '../helpers/layers-helpers.js';
 import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 describe('The Layers Panel', async () => {
+  afterEach(async () => {
+    expectError('Unable to create texture');
+  });
+
   it('should keep the currently inspected url as an attribute', async () => {
     const targetUrl = 'layers/default.html';
     await goToResource(targetUrl);
