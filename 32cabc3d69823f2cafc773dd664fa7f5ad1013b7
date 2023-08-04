@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a4e0288_b8887f94",
+        "filename": "front_end/core/sdk/HttpReasonPhraseStrings.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-08-04T11:01:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cec9351_ed468d55",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "32cabc3d69823f2cafc773dd664fa7f5ad1013b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cb67e47_8b651a3b",
@@ -78,6 +102,30 @@
       "side": 1,
       "message": "+1, let\u0027s check that texts match with MDN",
       "parentUuid": "2cb67e47_8b651a3b",
+      "range": {
+        "startLine": 52,
+        "startChar": 9,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "32cabc3d69823f2cafc773dd664fa7f5ad1013b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e589e4c_d50b6f57",
+        "filename": "front_end/core/sdk/HttpReasonPhraseStrings.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-08-04T11:01:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b533866d_e5e0adc1",
       "range": {
         "startLine": 52,
         "startChar": 9,
