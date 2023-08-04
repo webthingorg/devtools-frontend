@@ -473,6 +473,12 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     return 'http?://' + path;
   }
 
+  private isForbiddenUrl(uiSourceCode: Workspace.UISourceCode.UISourceCode): boolean {
+    const relativePathParts = FileSystemWorkspaceBinding.relativePath(uiSourceCode);
+    const forbiddenUrls = ['chrome:', 'chromewebstore.google.com', 'chrome.google.com'];
+    return Boolean(relativePathParts.length) && forbiddenUrls.includes(relativePathParts[0]);
+  }
+
   private async onUISourceCodeAdded(uiSourceCode: Workspace.UISourceCode.UISourceCode): Promise<void> {
     await this.networkUISourceCodeAdded(uiSourceCode);
     await this.filesystemUISourceCodeAdded(uiSourceCode);
@@ -672,6 +678,9 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     }
     let patterns = new Set<string>();
     for (const uiSourceCode of this.projectInternal.uiSourceCodes()) {
+      if (this.isForbiddenUrl(uiSourceCode)) {
+        continue;
+      }
       const pattern = this.patternForFileSystemUISourceCode(uiSourceCode);
       if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES) &&
           uiSourceCode.name() === HEADERS_FILENAME) {
