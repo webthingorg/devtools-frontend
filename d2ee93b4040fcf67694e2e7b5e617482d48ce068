@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b03b6b8_6429ac46",
+        "filename": "build",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "I don\u0027t know it is safe or not, but this can be removable.\n\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1400573",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6afa97_82128ec8",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77432b35_58515284",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "1. We should show a URL for rule set and rule set can be used for prefetch/prerender. Simply, `url` would be better.\n2. We already have more appropriate data. Please use `this.#data.url` via `PreloadingString.ruleSetLocationShort` instead.",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ef1c68d_195ac265",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bdfd793_e62e9f17",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "16px is standard for icon? I\u0027m not sure.\n\nAnd you can write in in the lit template directly.",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c25023_8b6561de",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "Looks div is more suitable. (I don\u0027t understand why this works correctly yet.)",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99aaced8_ea5bfea3",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "P2: Here and the above, please remove prettifying. `sourceText` can be not a JSON, and should be show as in the Elements and Sources panel. Prettifying would be user\u0027s option.",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23604c08_2c0f23ea",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "Let\u0027s quit using ReportView and rename s/RuleSetDetailsReportView.ts/RuleSetDetailsView.ts/",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6137e65_c830bc0f",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/RuleSetDetailsReportView_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-04T10:44:46Z",
+      "side": 1,
+      "message": "`.trim()` isn\u0027t enough?",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
