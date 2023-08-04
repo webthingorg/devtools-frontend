@@ -21,6 +21,7 @@ import {
   dispatchEvent,
 } from '../../../helpers/MockConnection.js';
 import {getHeaderCells, getValuesOfAllBodyRows} from '../../../ui/components/DataGridHelpers.js';
+import type * as TextEditor from '../../../../../../front_end/ui/components/text_editor/text_editor.js';
 
 const {assert} = chai;
 
@@ -31,6 +32,10 @@ const zip2 = <T, S>(xs: T[], ys: S[]): [T, S][] => {
 
   return Array.from(xs.map((_, i) => [xs[i], ys[i]]));
 };
+
+function noWhiteSpaceAndNoNewLine(str: String) {
+  return str.replace(/\s/g, '').replace(/ /g, '');
+}
 
 function assertGridContents(gridComponent: HTMLElement, headerExpected: string[], rowsExpected: string[][]) {
   const controller = getElementWithinComponent(
@@ -379,16 +384,14 @@ describeWithMockConnection('PreloadingRuleSetView', async () => {
 
     await coordinator.done();
 
-    const report = getElementWithinComponent(ruleSetDetailsComponent, 'devtools-report', ReportView.ReportView.Report);
-
-    const keys = getCleanTextContentFromElements(report, 'devtools-report-key');
-    const values = getCleanTextContentFromElements(report, 'devtools-report-value');
-    assert.deepEqual(zip2(keys, values), [
-      ['Validity', 'Invalid; source is not a JSON object'],
-      ['Error', 'fake error message'],
-      ['Location', '<script>'],
-      ['Source', '{"prerender":[{"source": "list",'],
-    ]);
+    assert.deepEqual(ruleSetDetailsComponent.shadowRoot?.getElementById('prerendered-url')?.textContent, '');
+    assert.deepEqual(
+        ruleSetDetailsComponent.shadowRoot?.getElementById('error-message-text')?.textContent, 'fake error message');
+    const textEditor =
+        ruleSetDetailsComponent.shadowRoot?.querySelector('devtools-text-editor') as TextEditor.TextEditor.TextEditor;
+    assert.strictEqual(
+        noWhiteSpaceAndNoNewLine(textEditor.state.doc.toString()),
+        noWhiteSpaceAndNoNewLine('{"prerender":[{"source": "list",'));
   });
 
   // TODO(https://crbug.com/1384419): Check that preloading attempts for
