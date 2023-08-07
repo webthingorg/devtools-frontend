@@ -157,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56dcdc7a_51dada8c",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T02:21:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6c25023_8b6561de",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99aaced8_ea5bfea3",
@@ -170,6 +188,24 @@
       "writtenOn": "2023-08-04T10:44:46Z",
       "side": 1,
       "message": "P2: Here and the above, please remove prettifying. `sourceText` can be not a JSON, and should be show as in the Elements and Sources panel. Prettifying would be user\u0027s option.",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69db443c_2fa01847",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T02:21:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99aaced8_ea5bfea3",
       "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
