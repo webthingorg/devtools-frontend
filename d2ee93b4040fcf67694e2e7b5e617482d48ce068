@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "281951bd_1eafe27f",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T05:01:55Z",
+      "side": 1,
+      "message": "Discussed in https://docs.google.com/document/d/13ttSjpkGn0HgnlsN-_3tnpUhOiPsTCHxHNzptrdkXgk/edit#heading\u003dh.5kofuy20y3zg\n\nNote that we need to revise PreloadingString.ruleSetLocationShort. We should use the page\u0027s URL if url is undefined.\n\nSo, we can use this after we revise the behavior.\n\nPlease use the current PreloadingString.ruleSetLocationShort if this CL lands first.",
+      "parentUuid": "2d39398d_8bf2e3db",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ef1c68d_195ac265",
         "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
         "patchSetId": 19
