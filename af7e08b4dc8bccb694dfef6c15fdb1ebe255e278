@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2958234_4748bff8",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T07:01:35Z",
+      "side": 1,
+      "message": "Please move this logic to RuleSetDetailsView.",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b77d77d_9f6c5b88",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T07:01:35Z",
+      "side": 1,
+      "message": "Please remove this: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4729190/comment/77432b35_58515284/\n\nYou might want to have current page\u0027s URL. In that case, put `pageURL` field to RuleSetDetailsViewData.",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb9fe35b_de6459d8",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T07:01:35Z",
+      "side": 1,
+      "message": "What is this slot for? Is it necessary?",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8d1cdd9_b2961a23",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T07:01:35Z",
+      "side": 1,
+      "message": "Please remove title.",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "416ab599_4728e25b",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T07:01:35Z",
+      "side": 1,
+      "message": "[nits]\n(We should leave it formatters, but) Let\u0027s use consistent indent policy. Mixing 6-indents (4 + 2) and 2-indents is wired.",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ce39ed_366aaeb2",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T07:01:35Z",
+      "side": 1,
+      "message": "Let\u0027s add TODO comment for \"Raw\" button: https://www.figma.com/proto/ZXCm794j3JcavNYlegmyJM/Prefetch---Design-file?type\u003ddesign\u0026t\u003dgbbxjcbjw2xUAagV-0\u0026scaling\u003dmin-zoom\u0026page-id\u003d106%3A283\u0026node-id\u003d134-2702",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
