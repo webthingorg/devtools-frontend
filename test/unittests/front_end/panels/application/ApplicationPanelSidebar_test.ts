@@ -106,7 +106,6 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
     beforeEach(() => {
       stubNoopSettings();
       target = targetFactory();
-      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
       sinon.stub(UI.ViewManager.ViewManager.instance(), 'showView').resolves();  // Silence console error
       setMockConnectionResponseHandler('Storage.getSharedStorageEntries', () => ({}));
@@ -297,7 +296,6 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
 describeWithMockConnection('IDBDatabaseTreeElement', () => {
   beforeEach(() => {
     stubNoopSettings();
-    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
   });
 
@@ -320,7 +318,6 @@ describeWithMockConnection('ResourcesSection', () => {
     let target: SDK.Target.Target;
     beforeEach(() => {
       stubNoopSettings();
-      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
       SDK.FrameManager.FrameManager.instance({forceNew: true});
       target = createTarget();

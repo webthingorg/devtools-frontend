@@ -96,7 +96,6 @@ describeWithMockConnection('StorageBucketsTreeElement', function() {
     beforeEach(async () => {
       stubNoopSettings();
       target = targetFactory();
-      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, '', false);
 
       storageKeyManager =
