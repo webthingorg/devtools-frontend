@@ -402,10 +402,6 @@ export class MainImpl {
         'Highlight important DOM properties in the Object Properties viewer');
 
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, 'Enable Preloading Status Panel in Application panel',
-        true);
-
-    Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.DISABLE_COLOR_FORMAT_SETTING,
         // Adding the reload hint here because users getting here are likely coming from inside the settings UI, but the regular reminder bar is only shown after the UI is closed which they're not going to see.
         'Disable the deprecated `Color format` setting (requires reloading DevTools)', false);

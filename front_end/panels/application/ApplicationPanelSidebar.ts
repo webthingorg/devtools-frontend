@@ -412,17 +412,14 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.reportingApiTreeElement = new ReportingApiTreeElement(panel);
     backgroundServiceTreeElement.appendChild(this.reportingApiTreeElement);
 
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)) {
-      const preloadingSectionTitle = i18nString(UIStrings.preloading);
-      const preloadingSectionTreeElement = this.addSidebarSection(preloadingSectionTitle);
-
-      this.preloadingRuleSetTreeElement = PreloadingTreeElement.newForPreloadingRuleSetView(panel);
-      this.preloadingAttemptTreeElement = PreloadingTreeElement.newForPreloadingAttemptView(panel);
-      this.preloadingResultTreeElement = PreloadingTreeElement.newForPreloadingResultView(panel);
-      preloadingSectionTreeElement.appendChild(this.preloadingRuleSetTreeElement);
-      preloadingSectionTreeElement.appendChild(this.preloadingAttemptTreeElement);
-      preloadingSectionTreeElement.appendChild(this.preloadingResultTreeElement);
-    }
+    const preloadingSectionTitle = i18nString(UIStrings.preloading);
+    const preloadingSectionTreeElement = this.addSidebarSection(preloadingSectionTitle);
+    this.preloadingRuleSetTreeElement = PreloadingTreeElement.newForPreloadingRuleSetView(panel);
+    this.preloadingAttemptTreeElement = PreloadingTreeElement.newForPreloadingAttemptView(panel);
+    this.preloadingResultTreeElement = PreloadingTreeElement.newForPreloadingResultView(panel);
+    preloadingSectionTreeElement.appendChild(this.preloadingRuleSetTreeElement);
+    preloadingSectionTreeElement.appendChild(this.preloadingAttemptTreeElement);
+    preloadingSectionTreeElement.appendChild(this.preloadingResultTreeElement);
 
     const resourcesSectionTitle = i18nString(UIStrings.frames);
     const resourcesTreeElement = this.addSidebarSection(resourcesSectionTitle);
@@ -587,13 +584,11 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.pushMessagingTreeElement.initialize(backgroundServiceModel);
     this.storageBucketsTreeElement?.initialize();
 
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)) {
-      const preloadingModel = this.target?.model(SDK.PreloadingModel.PreloadingModel);
-      if (preloadingModel) {
-        this.preloadingRuleSetTreeElement?.initialize(preloadingModel);
-        this.preloadingAttemptTreeElement?.initialize(preloadingModel);
-        this.preloadingResultTreeElement?.initialize(preloadingModel);
-      }
+    const preloadingModel = this.target?.model(SDK.PreloadingModel.PreloadingModel);
+    if (preloadingModel) {
+      this.preloadingRuleSetTreeElement?.initialize(preloadingModel);
+      this.preloadingAttemptTreeElement?.initialize(preloadingModel);
+      this.preloadingResultTreeElement?.initialize(preloadingModel);
     }
   }
 
