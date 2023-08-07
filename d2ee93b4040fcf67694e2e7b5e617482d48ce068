@@ -160,6 +160,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "317be9b3_d5b49eea",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T07:03:46Z",
+      "side": 1,
+      "message": "Sorry, use of `PreloadingString.ruleSetLocationShort` is misleading. We should show full URL here.\n\nMark resolved and continue to discuss in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4729190/comment/1b77d77d_9f6c5b88/",
+      "parentUuid": "06d5673d_830d5795",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ef1c68d_195ac265",
