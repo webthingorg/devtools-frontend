@@ -322,6 +322,7 @@ export class RecorderInput extends LitElement {
         class=${classMap({
           'incorrect-type': !this.isCorrectInput,
         })}
+
         .enterKeyHint=${'done'}
         .value=${this.value}
         .mimeType=${this.mimeType}
