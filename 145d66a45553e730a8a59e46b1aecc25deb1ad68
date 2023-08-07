@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "814eae45_1c25a5f1",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-07T10:29:57Z",
+      "side": 1,
+      "message": "It seems that these tests keep timing out (ex. https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1508/overview) so increasing this in case the time given is not enough",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "145d66a45553e730a8a59e46b1aecc25deb1ad68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
