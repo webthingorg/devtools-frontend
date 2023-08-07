@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5216a5f_da826bfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-08-07T14:36:22Z",
+      "side": 1,
+      "message": "nit: The description should ideally explain the motivation for doing this change.",
+      "revId": "d76e6658717c87424459f694611c8da3ddb10311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3bab7aa0_1005d63d",
