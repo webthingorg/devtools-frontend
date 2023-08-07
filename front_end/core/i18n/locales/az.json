@@ -4334,34 +4334,34 @@
   "panels/application/preloading/components/PreloadingString.ts | PrefetchProxyNotAvailable": {
     "message": "Öncədən ötürülən proksi ilə bağlantı ayarladıqda şəbəkə xətası baş verdi."
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInElementsPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInElementsPanel": {
     "message": "Elementlər panelində göstərmək üçün klikləyin"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInNetworkPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInNetworkPanel": {
     "message": "Şəbəkə panelində göstərmək üçün klikləyin"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsDetailedInformation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsDetailedInformation": {
     "message": "Ətraflı məlumat"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsError": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsError": {
     "message": "Xəta"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsLocation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsLocation": {
     "message": "Məkan"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsSource": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsSource": {
     "message": "Mənbə"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsValidity": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsValidity": {
     "message": "Etibarlılıq"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityInvalid": {
     "message": "Yanlış; mənbə JSON obyekti deyil"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validitySomeRulesInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validitySomeRulesInvalid": {
     "message": "Bəzi qaydalar yanlışdır və nəzərə alınmır"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityValid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityValid": {
     "message": "Etibarlıdır"
   },
   "panels/application/preloading/components/RuleSetGrid.ts | location": {
