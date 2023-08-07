@@ -82,3 +82,7 @@ devtools-editable-content:focus ~ devtools-suggestion-box {
 .incorrect-type {
   text-decoration: line-through;
 }
+
+.key {
+  color: var(--color-syntax-1);
+}

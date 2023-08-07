@@ -238,6 +238,7 @@ export class RecorderInput extends LitElement {
   @property() declare value: string;
   @property({type: Boolean}) declare disabled: boolean;
   @property() declare isCorrectInput: boolean;
+  @property() declare isKey: boolean;
   @property() declare mimeType: string;
 
   constructor() {
@@ -252,6 +253,7 @@ export class RecorderInput extends LitElement {
     this.isCorrectInput = true;
     this.mimeType = '';
     this.autocomplete = true;
+    this.isKey = false;
     this.addEventListener('blur', this.#handleBlurEvent);
   }
 
@@ -321,7 +323,9 @@ export class RecorderInput extends LitElement {
         ?disabled=${this.disabled}
         class=${classMap({
           'incorrect-type': !this.isCorrectInput,
+          'key': this.isKey,
         })}
+
         .enterKeyHint=${'done'}
         .value=${this.value}
         .mimeType=${this.mimeType}
