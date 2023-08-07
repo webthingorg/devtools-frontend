@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9966d73_1b8c0617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-07T07:19:21Z",
+      "side": 1,
+      "message": "PTAL! Rubberstamper wasn\u0027t good enough.",
+      "revId": "8e04f4b4b4f19a6fa593b931db89cadf396e78e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
