@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae4f7a6a_24a246c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-07T10:26:14Z",
+      "side": 1,
+      "message": "Example: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Shuffled%20Parallel%20Linux/343/overview",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "9d29857c14951c842cd80e6b55ac0cd77ae99977",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
