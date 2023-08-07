@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d39398d_8bf2e3db",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T04:15:40Z",
+      "side": 1,
+      "message": "\u003e How about using PreloadingString.ruleSetLocationShort to convert current this.#prerenderedUrl?\n\nHow to convert? It\u0027s different thing.\n\n\u003e After tested, this.#data.url is undefined at the moment of being rendered.\n\nWe need `Preload.RuleSet.url` to test out-of-document Speculation Rules. Please test both inner-document/out-of-document cases.",
+      "parentUuid": "522c0ed1_8c19b9ed",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ef1c68d_195ac265",
         "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
         "patchSetId": 19
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "Could you elaborate more on how to inline in lit template?\nSince the icon needs `data` to be set, I\u0027m not quite familiar with the syntax.",
       "parentUuid": "0bdfd793_e62e9f17",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d10ebf3f_6e7eeb38",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T04:15:40Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4736862 front_end/panels/application/preloading/components/PreloadingGrid.ts L125\n\nLike this?",
+      "parentUuid": "2870c59e_a502e6ce",
       "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

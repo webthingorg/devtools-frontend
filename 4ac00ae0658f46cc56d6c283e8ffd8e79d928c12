@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2b54f7d_c29d9dd2",
+        "filename": "test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T04:15:40Z",
+      "side": 1,
+      "message": "I think it is good to compare row string contents and expected contents.",
+      "revId": "4ac00ae0658f46cc56d6c283e8ffd8e79d928c12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
