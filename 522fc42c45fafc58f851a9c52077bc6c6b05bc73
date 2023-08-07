@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df5e152_c9146d21",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T14:26:56Z",
+      "side": 1,
+      "message": "How about moving the logic to `front_end/panels/application/preloading/components/RuleSetDetailsView.ts` as kenoss@ suggested? I\u0027ve just updated it.",
+      "parentUuid": "1d632582_79f0447c",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 3
+      },
+      "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1928db8b_c598ab50",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-08-07T13:33:13Z",
       "side": 1,
       "message": "Why is this called gray-panel? I don\u0027t see any gray.\nHow about something along the lines of `ruleset-header` or `subpanel-header`?",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea0afa4d_872ee73d",
+        "filename": "front_end/panels/application/preloading/components/preloadingDetailsReportView.css",
+        "patchSetId": 30
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T14:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a32500c_e6eb56dc",
       "range": {
         "startLine": 22,
         "startChar": 1,

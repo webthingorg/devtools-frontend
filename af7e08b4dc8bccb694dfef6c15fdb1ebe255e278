@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddf83e8_8bf9667a",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T14:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2958234_4748bff8",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b77d77d_9f6c5b88",
@@ -87,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b7a4d1b_f1cd1393",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T14:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8d1cdd9_b2961a23",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "416ab599_4728e25b",
@@ -100,6 +136,24 @@
       "writtenOn": "2023-08-07T07:01:35Z",
       "side": 1,
       "message": "[nits]\n(We should leave it formatters, but) Let\u0027s use consistent indent policy. Mixing 6-indents (4 + 2) and 2-indents is wired.",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "385fac3d_7b3475bf",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T14:26:56Z",
+      "side": 1,
+      "message": "How about this? I\u0027ve made all 2-idents",
+      "parentUuid": "416ab599_4728e25b",
       "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
