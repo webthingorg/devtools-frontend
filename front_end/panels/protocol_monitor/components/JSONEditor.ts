@@ -430,7 +430,6 @@ export class JSONEditor extends LitElement {
 
   populateParametersForCommandWithDefaultValues(): void {
     const commandParameters = this.metadataByCommand.get(this.command)?.parameters;
-
     if (!commandParameters) {
       return;
     }
