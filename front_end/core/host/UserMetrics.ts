@@ -399,6 +399,16 @@ export class UserMetrics {
         BreakpointsRestoredFromStorageCount.MaxValue);
   }
 
+  animationPlaybackRateChanged(playbackRate: AnimationsPlaybackRate): void {
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.AnimationPlaybackRateChanged, playbackRate, AnimationsPlaybackRate.MaxValue);
+  }
+
+  animationPointDragged(dragType: AnimationPointDragType): void {
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.AnimationPointDragged, dragType, AnimationPointDragType.MaxValue);
+  }
+
   #breakpointCountToBucket(count: number): BreakpointsRestoredFromStorageCount {
     if (count < 100) {
       return BreakpointsRestoredFromStorageCount.LessThan100;
@@ -556,7 +566,13 @@ export enum Action {
   OverrideContentContextMenuActivateDisabled = 94,
   OverrideContentContextMenuOpenExistingFile = 95,
   OverrideContentContextMenuSaveNewFile = 96,
-  MaxValue = 97,
+  AnimationGroupsCleared = 97,
+  AnimationsPaused = 98,
+  AnimationsResumed = 99,
+  AnimatedNodeDescriptionClicked = 100,
+  AnimationGroupScrubbed = 101,
+  AnimationGroupReplayed = 102,
+  MaxValue = 103,
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -1421,4 +1437,27 @@ export const enum BadgeType {
   TOP_LAYER = 7,
   REVEAL = 8,
   MaxValue = 9,
+}
+
+/* eslint-enable @typescript-eslint/naming-convention */
+export const enum AnimationsPlaybackRate {
+  Percent100 = 0,
+  Percent25 = 1,
+  Percent10 = 2,
+  Other = 3,
+  MaxValue = 4,
+}
+
+/* eslint-enable @typescript-eslint/naming-convention */
+export const enum AnimationPointDragType {
+  // Animation is dragged as a whole in the Animations panel.
+  AnimationDrag = 0,
+  // A keyframe point inside animation timeline is dragged.
+  KeyframeMove = 1,
+  // Start point of the animation inside animation timeline is dragged.
+  StartEndpointMove = 2,
+  // Finish point of the animation inside animation timeline is dragged.
+  FinishEndpointMove = 3,
+  Other = 4,
+  MaxValue = 5,
 }
