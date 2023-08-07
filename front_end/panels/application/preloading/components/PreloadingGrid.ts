@@ -69,6 +69,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
           widthWeighting: 40,
           hideable: false,
           visible: true,
+          sortable: true,
         },
         {
           id: 'action',
@@ -76,6 +77,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
           widthWeighting: 15,
           hideable: false,
           visible: true,
+          sortable: true,
         },
         {
           id: 'ruleSet',
@@ -83,6 +85,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
           widthWeighting: 20,
           hideable: false,
           visible: true,
+          sortable: true,
         },
         {
           id: 'status',
@@ -90,6 +93,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
           widthWeighting: 40,
           hideable: false,
           visible: true,
+          sortable: true,
         },
       ],
       rows: this.#buildReportRows(),
