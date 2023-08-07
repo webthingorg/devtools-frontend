@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de5de758_5289dfc0",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-07T09:06:03Z",
+      "side": 1,
+      "message": "FYI, I\u0027m rewriting the other components: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4756131",
+      "parentUuid": "1b77d77d_9f6c5b88",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb9fe35b_de6459d8",
         "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
         "patchSetId": 29
