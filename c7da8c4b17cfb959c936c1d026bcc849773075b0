@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c98b3409_76fbde2c",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-07T13:38:23Z",
+      "side": 1,
+      "message": "I don\u0027t think we should change the content type to `Fetch` when it\u0027s not actually a fetch request. This probably has side effects.\n\nLet\u0027s look into how to make code highlighting/formatting not only take the content type into account, but maybe also rely on mime type",
+      "revId": "c7da8c4b17cfb959c936c1d026bcc849773075b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
