@@ -21,6 +21,7 @@ import {
   dispatchEvent,
 } from '../../../helpers/MockConnection.js';
 import {getHeaderCells, getValuesOfAllBodyRows} from '../../../ui/components/DataGridHelpers.js';
+import type * as TextEditor from '../../../../../../front_end/ui/components/text_editor/text_editor.js';
 
 const {assert} = chai;
 
@@ -379,16 +380,12 @@ describeWithMockConnection('PreloadingRuleSetView', async () => {
 
     await coordinator.done();
 
-    const report = getElementWithinComponent(ruleSetDetailsComponent, 'devtools-report', ReportView.ReportView.Report);
-
-    const keys = getCleanTextContentFromElements(report, 'devtools-report-key');
-    const values = getCleanTextContentFromElements(report, 'devtools-report-value');
-    assert.deepEqual(zip2(keys, values), [
-      ['Validity', 'Invalid; source is not a JSON object'],
-      ['Error', 'fake error message'],
-      ['Location', '<script>'],
-      ['Source', '{"prerender":[{"source": "list",'],
-    ]);
+    assert.deepEqual(ruleSetDetailsComponent.shadowRoot?.getElementById('prerendered-url')?.textContent, '');
+    assert.deepEqual(
+        ruleSetDetailsComponent.shadowRoot?.getElementById('error-message-text')?.textContent, 'fake error message');
+    const textEditor =
+        ruleSetDetailsComponent.shadowRoot?.querySelector('devtools-text-editor') as TextEditor.TextEditor.TextEditor;
+    assert.strictEqual(textEditor.state.doc.toString(), '{"prerender":[{"source": "list",');
   });
 
   // TODO(https://crbug.com/1384419): Check that preloading attempts for
