@@ -4334,34 +4334,34 @@
   "panels/application/preloading/components/PreloadingString.ts | PrefetchProxyNotAvailable": {
     "message": "ພົບເຄືອຂ່າຍຜິດພາດ ເມື່ອພະຍາຍາມຕັ້ງຄ່າການເຊື່ອມຕໍ່ກັບພຣັອກຊີທີ່ດຶງຂໍ້ມູນລ່ວງໜ້າ."
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInElementsPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInElementsPanel": {
     "message": "ຄລິກເພື່ອສະແດງໃນແຜງອົງປະກອບ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInNetworkPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInNetworkPanel": {
     "message": "ຄລິກເພື່ອສະແດງແຜງເຄືອຂ່າຍ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsDetailedInformation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsDetailedInformation": {
     "message": "ຂໍ້ມູນລະອຽດ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsError": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsError": {
     "message": "ຜິດພາດ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsLocation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsLocation": {
     "message": "ສະຖານທີ່"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsSource": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsSource": {
     "message": "ແຫຼ່ງທີ່ມາ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsValidity": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsValidity": {
     "message": "ໄລຍະເວລາທີ່ໃຊ້ໄດ້"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityInvalid": {
     "message": "ບໍ່ຖືກຕ້ອງ; ແຫຼ່ງທີ່ມາບໍ່ແມ່ນວັດຖຸ JSON"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validitySomeRulesInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validitySomeRulesInvalid": {
     "message": "ກົດລະບຽບບາງຢ່າງບໍ່ຖືກຕ້ອງ ແລະ ຖືກລະເລີຍ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityValid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityValid": {
     "message": "ໃຊ້ໄດ້"
   },
   "panels/application/preloading/components/RuleSetGrid.ts | location": {
