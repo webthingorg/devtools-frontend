@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9971b65b_800c5e7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-07T11:34:38Z",
+      "side": 1,
+      "message": "Because of the file renaming this is difficult to review. I think that the changes to the locale files shouldn\u0027t show up to be reviewed either.\nI\u0027m creating a separate CL for the renaming at https://crrev.com/c/4753198",
+      "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
