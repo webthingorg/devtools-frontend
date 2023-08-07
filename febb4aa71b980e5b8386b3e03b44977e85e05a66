@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d618d6b2_9c7b1a5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-07T14:54:07Z",
+      "side": 1,
+      "message": "I\u0027m gonna add enum definitions CL in the backend after this is submitted :)",
+      "revId": "febb4aa71b980e5b8386b3e03b44977e85e05a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
