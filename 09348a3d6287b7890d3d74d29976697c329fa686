@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "451d4716_cda924c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-07T12:42:41Z",
+      "side": 1,
+      "message": "Let\u0027s add [RPP]\nso it will be easier to search",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "09348a3d6287b7890d3d74d29976697c329fa686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7cb9a4_2f7dd886",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-07T12:42:41Z",
+      "side": 1,
+      "message": "This CL LGTM 👍, but Let\u0027s add some screenshots tests before landing this :)",
+      "revId": "09348a3d6287b7890d3d74d29976697c329fa686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c53d146_3c6df2cf",
+        "filename": "front_end/models/trace/handlers/Migration.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-07T12:42:41Z",
+      "side": 1,
+      "message": "nits: I would suggest to add a \u0027s\u0027 to match others",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "09348a3d6287b7890d3d74d29976697c329fa686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c05948_6621c4f3",
+        "filename": "front_end/panels/timeline/AnimationsTrackAppender.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-07T12:42:41Z",
+      "side": 1,
+      "message": "```suggestion\n        buildGroupStyle({useFirstLineForOverview: false});\n```\n\nLet\u0027s just copy the `this.animationsHeader` in TimelineFlameChartDataProvider.ts",
+      "range": {
+        "startLine": 51,
+        "startChar": 24,
+        "endLine": 51,
+        "endChar": 111
+      },
+      "revId": "09348a3d6287b7890d3d74d29976697c329fa686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e25de6c_937bb3a5",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-07T12:42:41Z",
+      "side": 1,
+      "message": "nits: now we can remove this 😊",
+      "range": {
+        "startLine": 197,
+        "startChar": 3,
+        "endLine": 197,
+        "endChar": 25
+      },
+      "revId": "09348a3d6287b7890d3d74d29976697c329fa686",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
