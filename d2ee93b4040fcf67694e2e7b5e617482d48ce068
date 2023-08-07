@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2aa464_9b6cd6c6",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T06:23:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de6afa97_82128ec8",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77432b35_58515284",
@@ -126,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06d5673d_830d5795",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T06:23:13Z",
+      "side": 1,
+      "message": "I\u0027ve updated the url logic, please have a look.\nThe current `PreloadingString.ruleSetLocationShort` doesn\u0027t take null type. It doesn\u0027t handle the case when ruleSet is null.",
+      "parentUuid": "281951bd_1eafe27f",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ef1c68d_195ac265",
         "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
         "patchSetId": 19
@@ -137,6 +173,24 @@
       "writtenOn": "2023-08-04T10:44:46Z",
       "side": 1,
       "message": "Ditto",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32fc56aa_1bf1f8a7",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T06:23:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ef1c68d_195ac265",
       "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -190,6 +244,24 @@
       "side": 1,
       "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4736862 front_end/panels/application/preloading/components/PreloadingGrid.ts L125\n\nLike this?",
       "parentUuid": "2870c59e_a502e6ce",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef189586_b51a5bc3",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T06:23:13Z",
+      "side": 1,
+      "message": "I see, updated. Thanks.",
+      "parentUuid": "d10ebf3f_6e7eeb38",
       "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
