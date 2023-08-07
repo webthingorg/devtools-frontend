@@ -125,7 +125,7 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
             {columnId: 'id', value: row.ruleSet.id},
             {
               columnId: 'ruleSet',
-              value: null,
+              value: '',
               renderer: () => ruleSetRenderer(row.ruleSet, pageURL),
             },
             {
