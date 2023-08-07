@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b3b49e12_a2edf249",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-07T07:58:39Z",
+      "side": 1,
+      "message": "We shouldn\u0027t move ahead with this change as is. element.click() is not an improvement over clickElement, effectively they\u0027re the same. clickElement is deprecated because it doesn\u0027t include the retry loop like the click helper.",
+      "revId": "925a59013f8ea97922d1a0038b194ded4144fb11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "47cc383d_0c86e987",
         "filename": "test/e2e/helpers/sources-helpers.ts",
         "patchSetId": 1
