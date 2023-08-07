@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fe4fcc7_c472f04f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544273
+      },
+      "writtenOn": "2023-08-07T23:36:34Z",
+      "side": 1,
+      "message": "PTAL, this is my first time doing a roll to devtools-frontend.\n\nOn a side note, I expected the roll to update for `devtools-frontend/front_end/models/javascript_metadata/DOMPinnedProperties.ts` as that feature from May 2023 might not have been rolled to devtools-frontend yet.\nhttps://chromium-review.googlesource.com/c/chromium/src/+/4547729",
+      "revId": "60c2c06f414c34c6efdb76bc63646837bafd83a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
