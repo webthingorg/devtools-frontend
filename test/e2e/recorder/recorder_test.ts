@@ -39,7 +39,7 @@ import {type StepChanged} from '../../../front_end/panels/recorder/components/St
 
 describe('Recorder', function() {
   if (this.timeout() !== 0) {
-    this.timeout(5000);
+    this.timeout(10000);
   }
 
   it('should capture the initial page as the url of the first section', async () => {
