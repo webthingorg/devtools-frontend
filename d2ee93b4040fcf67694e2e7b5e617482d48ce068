@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "522c0ed1_8c19b9ed",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T01:34:20Z",
+      "side": 1,
+      "message": "How about using `PreloadingString.ruleSetLocationShort` to convert current `this.#prerenderedUrl`?\nAfter tested, `this.#data.url` is undefined at the moment of being rendered.",
+      "parentUuid": "77432b35_58515284",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ef1c68d_195ac265",
         "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
         "patchSetId": 19
@@ -82,6 +100,24 @@
       "writtenOn": "2023-08-04T10:44:46Z",
       "side": 1,
       "message": "16px is standard for icon? I\u0027m not sure.\n\nAnd you can write in in the lit template directly.",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2870c59e_a502e6ce",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsReportView.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T01:34:20Z",
+      "side": 1,
+      "message": "Could you elaborate more on how to inline in lit template?\nSince the icon needs `data` to be set, I\u0027m not quite familiar with the syntax.",
+      "parentUuid": "0bdfd793_e62e9f17",
       "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -150,6 +186,24 @@
       "writtenOn": "2023-08-04T10:44:46Z",
       "side": 1,
       "message": "`.trim()` isn\u0027t enough?",
+      "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "490f22db_5b1999ca",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/RuleSetDetailsReportView_test.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-07T01:34:20Z",
+      "side": 1,
+      "message": "It is for ignoring the space and format between text. But I\u0027ll remove the formatting as the comment, maybe this won\u0027t be needed.",
+      "parentUuid": "c6137e65_c830bc0f",
       "revId": "d2ee93b4040fcf67694e2e7b5e617482d48ce068",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
