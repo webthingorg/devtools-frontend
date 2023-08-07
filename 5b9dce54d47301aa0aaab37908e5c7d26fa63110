@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a82021d_6e32c0fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-07T08:49:07Z",
+      "side": 1,
+      "message": "Could you please describe how this patch is related to this bug in the commit message? It’s not immediately clear, and given that your last comment on the bug was “wontfix” I think you’ll agree this warrants some more detail.",
+      "revId": "5b9dce54d47301aa0aaab37908e5c7d26fa63110",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
