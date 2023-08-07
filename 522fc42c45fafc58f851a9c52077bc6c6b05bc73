@@ -16,6 +16,69 @@
       "message": "Because of the file renaming this is difficult to review. I think that the changes to the locale files shouldn\u0027t show up to be reviewed either.\nI\u0027m creating a separate CL for the renaming at https://crrev.com/c/4753198",
       "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d632582_79f0447c",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-07T13:33:13Z",
+      "side": 1,
+      "message": "We usually try to have a single data setter with `RuleSetDetailsViewData` containing all relevant data. Something like\n```\nexport type RuleSetDetailsViewData \u003d {\n  ruleSet: RuleSet,\n  url: string,\n}\n```",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 3
+      },
+      "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1928db8b_c598ab50",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-07T13:33:13Z",
+      "side": 1,
+      "message": "Would something like this also work?\n```\n\u003c${TextEditor.TextEditor.TextEditor.litTagName} .state\u003d${\n          editorState\n        }\u003e\u003c/${TextEditor.TextEditor.TextEditor.litTagName}\u003e\n```",
+      "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a32500c_e6eb56dc",
+        "filename": "front_end/panels/application/preloading/components/preloadingDetailsReportView.css",
+        "patchSetId": 30
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-07T13:33:13Z",
+      "side": 1,
+      "message": "Why is this called gray-panel? I don\u0027t see any gray.\nHow about something along the lines of `ruleset-header` or `subpanel-header`?",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
