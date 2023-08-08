@@ -4334,34 +4334,34 @@
   "panels/application/preloading/components/PreloadingString.ts | PrefetchProxyNotAvailable": {
     "message": "ਪ੍ਰੀਫ਼ੈੱਚ ਕਰਨ ਵਾਲੀ ਪ੍ਰੌਕਸੀ ਨਾਲ ਕਨੈਕਸ਼ਨ ਦਾ ਸੈੱਟ ਅੱਪ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਸਮੇਂ ਨੈੱਟਵਰਕ ਗੜਬੜ ਦਾ ਸਾਹਮਣਾ ਕਰਨਾ ਪਿਆ।"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInElementsPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInElementsPanel": {
     "message": "ਤੱਤ ਪੈਨਲ ਵਿੱਚ ਦਿਖਾਉਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInNetworkPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInNetworkPanel": {
     "message": "ਨੈੱਟਵਰਕ ਪੈਨਲ ਵਿੱਚ ਦਿਖਾਉਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsDetailedInformation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsDetailedInformation": {
     "message": "ਵੇਰਵੇ ਸਹਿਤ ਜਾਣਕਾਰੀ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsError": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsError": {
     "message": "ਗੜਬੜ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsLocation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsLocation": {
     "message": "ਟਿਕਾਣਾ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsSource": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsSource": {
     "message": "ਸਰੋਤ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsValidity": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsValidity": {
     "message": "ਵੈਧਤਾ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityInvalid": {
     "message": "ਅਵੈਧ; ਸਰੋਤ ਇੱਕ JSON ਔਬਜੈਕਟ ਨਹੀਂ ਹੈ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validitySomeRulesInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validitySomeRulesInvalid": {
     "message": "ਕੁਝ ਨਿਯਮ ਅਵੈਧ ਹਨ ਅਤੇ ਅਣਡਿੱਠ ਕੀਤੇ ਗਏ ਹਨ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityValid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityValid": {
     "message": "ਵੈਧ"
   },
   "panels/application/preloading/components/RuleSetGrid.ts | location": {

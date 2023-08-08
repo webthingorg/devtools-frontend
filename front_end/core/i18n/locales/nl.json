@@ -4334,34 +4334,34 @@
   "panels/application/preloading/components/PreloadingString.ts | PrefetchProxyNotAvailable": {
     "message": "Er is een netwerkfout opgetreden bij het instellen van een verbinding met de prefetching-proxy."
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInElementsPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInElementsPanel": {
     "message": "Klik om te tonen in het deelvenster Elementen"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInNetworkPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInNetworkPanel": {
     "message": "Klik om te tonen in het deelvenster Netwerk"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsDetailedInformation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsDetailedInformation": {
     "message": "Gedetailleerde informatie"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsError": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsError": {
     "message": "Fout"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsLocation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsLocation": {
     "message": "Locatie"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsSource": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsSource": {
     "message": "Bron"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsValidity": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsValidity": {
     "message": "Geldigheid"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityInvalid": {
     "message": "Ongeldig: bron is geen JSON-object"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validitySomeRulesInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validitySomeRulesInvalid": {
     "message": "Sommige regels zijn ongeldig en worden genegeerd"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityValid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityValid": {
     "message": "Geldig"
   },
   "panels/application/preloading/components/RuleSetGrid.ts | location": {

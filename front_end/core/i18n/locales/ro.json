@@ -4334,34 +4334,34 @@
   "panels/application/preloading/components/PreloadingString.ts | PrefetchProxyNotAvailable": {
     "message": "A apărut o eroare de rețea la încercarea de a configura o conexiune cu serverul proxy pentru preluare anticipată."
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInElementsPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInElementsPanel": {
     "message": "Dă clic pentru a afișa în panoul Elemente"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInNetworkPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInNetworkPanel": {
     "message": "Dă clic pentru a afișa în panoul de rețea"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsDetailedInformation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsDetailedInformation": {
     "message": "Informații detaliate"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsError": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsError": {
     "message": "Eroare"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsLocation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsLocation": {
     "message": "Locație"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsSource": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsSource": {
     "message": "Sursă"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsValidity": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsValidity": {
     "message": "Validitate"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityInvalid": {
     "message": "Nevalid. Sursa nu este un obiect JSON"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validitySomeRulesInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validitySomeRulesInvalid": {
     "message": "Unele reguli sunt nevalide și ignorate"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityValid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityValid": {
     "message": "Valid"
   },
   "panels/application/preloading/components/RuleSetGrid.ts | location": {
