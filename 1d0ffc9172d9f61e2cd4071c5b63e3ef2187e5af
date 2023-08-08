@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39f7912b_ce465499",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-08T13:42:42Z",
+      "side": 1,
+      "message": "lgtm thanks!",
+      "revId": "1d0ffc9172d9f61e2cd4071c5b63e3ef2187e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f48bca_7e0cb200",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-08T13:42:42Z",
+      "side": 1,
+      "message": "for a follow-up: here you should provide param to handleClearParameter to avoid redundant lookups using getChildByPath. Use getChildByPath only in those cases when a Parameter instance is not available.",
+      "revId": "1d0ffc9172d9f61e2cd4071c5b63e3ef2187e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
