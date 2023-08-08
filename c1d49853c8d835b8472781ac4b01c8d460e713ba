@@ -33,6 +33,24 @@
       "message": "Let\u0027s remove this and just use `this.#ruleSetUrl \u003d ` instead.",
       "revId": "c1d49853c8d835b8472781ac4b01c8d460e713ba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d89c7589_60e41846",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 34
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T06:58:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be9368f_00db4dd2",
+      "revId": "c1d49853c8d835b8472781ac4b01c8d460e713ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
