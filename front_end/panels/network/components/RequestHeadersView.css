@@ -106,6 +106,12 @@ div.raw-headers-row {
   background-color: var(--issue-color-yellow);
 }
 
+.status {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
 .status-with-comment {
   color: var(--color-text-secondary);
 }
