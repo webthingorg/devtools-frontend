@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e635243e_078eed1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-08T07:12:39Z",
+      "side": 1,
+      "message": "LGTM % nits",
+      "revId": "b5a3158e3764301e087215f977cf4ecfe8c1b134",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62859615_b9e03fd3",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-08T07:12:39Z",
+      "side": 1,
+      "message": "```suggestion\n  learnMore: \u0027Learn more\u0027,\n```\n\n\nOther panels, e.g. Back/forward cache, uses \"Learn *m*ore\".",
+      "revId": "b5a3158e3764301e087215f977cf4ecfe8c1b134",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
