@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c427c9_a8474b1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T12:01:04Z",
+      "side": 1,
+      "message": "please update/remove",
+      "range": {
+        "startLine": 11,
+        "startChar": 40,
+        "endLine": 12,
+        "endChar": 46
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df3bef5_484f108d",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.css",
+        "patchSetId": 40
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T12:01:04Z",
+      "side": 1,
+      "message": "missing padding, incorrect line wrapping, potentially incorrect overflow/ellipsis behavior.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a4d132_4228e59a",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T12:01:04Z",
+      "side": 1,
+      "message": "ruleSetDetailsViewStyles",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 40
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec41cdd0_356218d0",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T12:01:04Z",
+      "side": 1,
+      "message": "nit: indentation",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 31
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb6a3b30_d2c70563",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T12:01:04Z",
+      "side": 1,
+      "message": "nit: indentation",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 69
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dd5d777_4d52e95d",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T12:01:04Z",
+      "side": 1,
+      "message": "nit: vertical alignment between icon and text feels slightly off. Maybe move icon up by 1-2 pixels.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 69
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

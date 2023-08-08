@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a70908e_ff9687d7",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T12:01:04Z",
+      "side": 1,
+      "message": "I still prefer removing the member `this.#ruleSetUrl` and just using a plain variable in `#render()` for this.",
+      "parentUuid": "fa2fc906_9e98c137",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "972b59f2244372d9143b3690ce4418a5b746d971",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1b34f41_6f824513",
         "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
         "patchSetId": 35
