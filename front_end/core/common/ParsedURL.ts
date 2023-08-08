@@ -136,7 +136,7 @@ export class ParsedURL {
       this.path = this.url;
     }
 
-    const lastSlashIndex = this.path.lastIndexOf('/');
+    const lastSlashIndex = this.path.lastIndexOf('/', this.path.length - 2);
     if (lastSlashIndex !== -1) {
       this.folderPathComponents = this.path.substring(0, lastSlashIndex);
       this.lastPathComponent = this.path.substring(lastSlashIndex + 1);
