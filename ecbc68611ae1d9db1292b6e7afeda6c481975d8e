@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f96c924c_f9c9ba44",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-08T11:40:14Z",
+      "side": 1,
+      "message": "nit: we should use either the camel case or the kebab case consistently for class names",
+      "revId": "ecbc68611ae1d9db1292b6e7afeda6c481975d8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a78dc8_f26f597d",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-08T11:40:14Z",
+      "side": 1,
+      "message": "why is deleteButton true for button that are not delete buttons?",
+      "revId": "ecbc68611ae1d9db1292b6e7afeda6c481975d8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "723fdef9_45ef3370",
+        "filename": "front_end/panels/protocol_monitor/components/Toolbar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-08T11:40:14Z",
+      "side": 1,
+      "message": "How are shortcuts visualizsed in other places in DevTools? I think there is some cross-platform mechanism for that? is it also `Ctrl + Enter` on Mac? Usually, it would be `Cmd + Enter` on Mac.",
+      "revId": "ecbc68611ae1d9db1292b6e7afeda6c481975d8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
