@@ -33,6 +33,24 @@
       "message": "for a follow-up: here you should provide param to handleClearParameter to avoid redundant lookups using getChildByPath. Use getChildByPath only in those cases when a Parameter instance is not available.",
       "revId": "1d0ffc9172d9f61e2cd4071c5b63e3ef2187e5af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "973d1e3f_7bf2e984",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-08T14:14:38Z",
+      "side": 1,
+      "message": "It was a minor change, I fixed it in the new patchset",
+      "parentUuid": "72f48bca_7e0cb200",
+      "revId": "1d0ffc9172d9f61e2cd4071c5b63e3ef2187e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
