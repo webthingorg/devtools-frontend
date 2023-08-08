@@ -305,6 +305,30 @@
       },
       "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e444bf3_3d52de0b",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-08T13:07:32Z",
+      "side": 1,
+      "message": "s/grid-template-columns: min-content 1fr;// too, I guess.",
+      "parentUuid": "93f3c0a7_d0d47ab8",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 69
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
