@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97fc6bd4_5626457d",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-08T12:49:40Z",
+      "side": 1,
+      "message": "example flake: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1534/overview",
+      "range": {
+        "startLine": 132,
+        "startChar": 85,
+        "endLine": 132,
+        "endChar": 104
+      },
+      "revId": "07fd24d9439d9b0f91b0057072066652e00361b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
