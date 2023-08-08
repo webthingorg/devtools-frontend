@@ -329,6 +329,30 @@
       },
       "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "738577a2_a335b934",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T13:39:44Z",
+      "side": 1,
+      "message": "Thanks for the comments.\nBut removing `grid-template-columns: min-content 1fr;` will cause the icon to be in a separate line for me.\nI found that the only way to make it work for me locally is to put `vertical-align: sub;` with `\u003c${IconButton.Icon.Icon.litTagName}\u003e`.\nWith the urgent deadline, I\u0027m not sure if it is worth it to spend more time on this.",
+      "parentUuid": "4e444bf3_3d52de0b",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 69
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
