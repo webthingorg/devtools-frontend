@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8df4e541_da1db971",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-08T12:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6c45e6c_b5634603",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "8f0c660892e19d78a5669a931090a27e0cb57149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "84a73a29_0a7c7ff6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -54,6 +78,30 @@
       "writtenOn": "2023-08-08T12:12:16Z",
       "side": 1,
       "message": "nits: let\u0027s add a constant string for easier maintenance",
+      "range": {
+        "startLine": 677,
+        "startChar": 21,
+        "endLine": 677,
+        "endChar": 30
+      },
+      "revId": "8f0c660892e19d78a5669a931090a27e0cb57149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dd35ff2_2b75e2ba",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-08T12:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "688e12ef_b68abb74",
       "range": {
         "startLine": 677,
         "startChar": 21,
