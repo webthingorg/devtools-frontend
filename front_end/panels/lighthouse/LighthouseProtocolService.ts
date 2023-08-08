@@ -60,6 +60,7 @@ export interface LighthouseRun {
 export class ProtocolService {
   private mainSessionId?: string;
   private mainFrameId?: string;
+  private mainTargetId?: string;
   private targetInfos?: Protocol.Target.TargetInfo[];
   private parallelConnection?: ProtocolClient.InspectorBackend.Connection;
   private lighthouseWorkerPromise?: Promise<Worker>;
@@ -112,6 +113,7 @@ export class ProtocolService {
 
     this.parallelConnection = connection;
     this.targetInfos = childTargetManager.targetInfos();
+    this.mainTargetId = await childTargetManager.getParentTargetId();
     this.mainFrameId = mainFrame.id;
     this.mainSessionId = sessionId;
   }
@@ -135,6 +137,7 @@ export class ProtocolService {
       locales: this.getLocales(),
       mainSessionId: this.mainSessionId,
       mainFrameId: this.mainFrameId,
+      mainTargetId: this.mainTargetId,
       targetInfos: this.targetInfos,
     });
   }
@@ -159,6 +162,7 @@ export class ProtocolService {
       locales: this.getLocales(),
       mainSessionId: this.mainSessionId,
       mainFrameId: this.mainFrameId,
+      mainTargetId: this.mainTargetId,
       targetInfos: this.targetInfos,
     });
   }
