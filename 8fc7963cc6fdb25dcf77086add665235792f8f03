@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4e04248_e6d6a0e0",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-08T07:52:25Z",
+      "side": 1,
+      "message": "It should be enough to say\n\n    if (contentProvider instanceof Workspace.UISourceCode.UISourceCode) {\n      if (contentProvider.project().type() \u003d\u003d\u003d Workspace.Workspace.projectTypes.FileSystem) {\n      ...\n      }\n    }",
+      "revId": "8fc7963cc6fdb25dcf77086add665235792f8f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d30d0ac_d642aa3d",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-08T07:52:25Z",
+      "side": 1,
+      "message": "Do an early return to reduce the nesting depth:\n\n    if (isLocalFile) {\n      return;\n    }",
+      "revId": "8fc7963cc6fdb25dcf77086add665235792f8f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
