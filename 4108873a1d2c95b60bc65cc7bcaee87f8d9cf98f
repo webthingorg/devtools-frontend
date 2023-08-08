@@ -46,6 +46,30 @@
       },
       "revId": "4108873a1d2c95b60bc65cc7bcaee87f8d9cf98f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ff29f29_32a0777d",
+        "filename": "front_end/panels/timeline/AnimationsTrackAppender.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-08T13:40:27Z",
+      "side": 1,
+      "message": "Yeah this is fine for now assuming it matches the colour we use currently. We know we are working on the colours in the not too distant future.",
+      "parentUuid": "fc402c99_31b517b7",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "4108873a1d2c95b60bc65cc7bcaee87f8d9cf98f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
