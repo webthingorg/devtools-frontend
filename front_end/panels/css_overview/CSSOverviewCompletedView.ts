@@ -315,7 +315,7 @@ export class CSSOverviewCompletedView extends UI.Panel.PanelWithSidebar {
 
     section.scrollIntoView();
     // Set focus for keyboard invoked event
-    if (!data.isMouseEvent) {
+    if (!data.isMouseEvent && data.key === 'Enter') {
       const focusableElement: HTMLElement|null = section.querySelector('button, [tabindex="0"]');
       focusableElement?.focus();
     }
