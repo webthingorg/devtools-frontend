@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd96b8ff_97197523",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-08T13:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "896eef70_d8fa3bb1",
+      "revId": "33c741c32fcceb7531ef0cb4e2277e78fb78f5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "880df74f_6cb9000d",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-08T13:01:17Z",
       "side": 1,
       "message": "why is NO_KEYS a typeRef? I think instead you want to have an attribute here like `isEditableKey`.",
+      "revId": "33c741c32fcceb7531ef0cb4e2277e78fb78f5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d415ced1_d64518a2",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-08T13:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "880df74f_6cb9000d",
       "revId": "33c741c32fcceb7531ef0cb4e2277e78fb78f5f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a23b7a0_afb04150",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-08T13:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bed177ad_bf5b31f2",
+      "revId": "33c741c32fcceb7531ef0cb4e2277e78fb78f5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "209cce92_ff089af3",
@@ -65,6 +119,30 @@
       "writtenOn": "2023-08-08T13:01:17Z",
       "side": 1,
       "message": "```suggestion\n                      ${!parameter.isCorrectType ? html`${this.#renderWarningIcon()}` : nothing}\n```",
+      "range": {
+        "startLine": 886,
+        "startChar": 24,
+        "endLine": 886,
+        "endChar": 57
+      },
+      "revId": "33c741c32fcceb7531ef0cb4e2277e78fb78f5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09cf81d9_9d555cb7",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-08T13:38:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "209cce92_ff089af3",
       "range": {
         "startLine": 886,
         "startChar": 24,
