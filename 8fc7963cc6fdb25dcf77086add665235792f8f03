@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8090d3ed_b64dac89",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-08T08:15:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4e04248_e6d6a0e0",
+      "revId": "8fc7963cc6fdb25dcf77086add665235792f8f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d30d0ac_d642aa3d",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-08T07:52:25Z",
       "side": 1,
       "message": "Do an early return to reduce the nesting depth:\n\n    if (isLocalFile) {\n      return;\n    }",
+      "revId": "8fc7963cc6fdb25dcf77086add665235792f8f03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9de33f2_793be608",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-08T08:15:59Z",
+      "side": 1,
+      "message": "Did not return earlier in previous patch because there are other non-overrides menu item action in the end of the function, I shuffle them up and remove the need of extra variable.",
+      "parentUuid": "4d30d0ac_d642aa3d",
       "revId": "8fc7963cc6fdb25dcf77086add665235792f8f03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
