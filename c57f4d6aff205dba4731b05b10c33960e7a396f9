@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b7d0003_7bf8fc9e",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-08T04:50:10Z",
+      "side": 1,
+      "message": "It\u0027s not web.dev.\n\nI used simple \"Learn more\": https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4729605",
+      "revId": "c57f4d6aff205dba4731b05b10c33960e7a396f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "332a7759_fe050ec7",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-08T04:50:10Z",
+      "side": 1,
+      "message": "Can you put a mergin as the above elements and colorize the link?",
+      "revId": "c57f4d6aff205dba4731b05b10c33960e7a396f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
