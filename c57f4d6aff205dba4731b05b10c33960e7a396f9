@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "731c4f79_76549222",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T06:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b7d0003_7bf8fc9e",
+      "revId": "c57f4d6aff205dba4731b05b10c33960e7a396f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "332a7759_fe050ec7",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-08T04:50:10Z",
       "side": 1,
       "message": "Can you put a mergin as the above elements and colorize the link?",
+      "revId": "c57f4d6aff205dba4731b05b10c33960e7a396f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809ba644_8a58dfc9",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T06:02:24Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure about what does the `mergin` mean. Do you mean by adding a blank line like this?",
+      "parentUuid": "332a7759_fe050ec7",
       "revId": "c57f4d6aff205dba4731b05b10c33960e7a396f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
