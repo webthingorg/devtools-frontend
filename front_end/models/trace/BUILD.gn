@@ -11,6 +11,7 @@ devtools_module("trace") {
     "LegacyTracingModel.ts",
     "ModelImpl.ts",
     "Processor.ts",
+    "StackManipulator.ts",
     "TracingManager.ts",
   ]
 
