@@ -353,6 +353,30 @@
       },
       "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ef0d4c_de872561",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T14:10:32Z",
+      "side": 1,
+      "message": "Uploading the patch somehow makes the problem gone.\nIt\u0027s working now with kenoss@\u0027s css template. Thanks.",
+      "parentUuid": "738577a2_a335b934",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 69
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
