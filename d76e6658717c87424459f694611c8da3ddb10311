@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7b6bd45b_bd5b130c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-08T14:14:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c5216a5f_da826bfa",
+      "revId": "d76e6658717c87424459f694611c8da3ddb10311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3bab7aa0_1005d63d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -31,6 +49,23 @@
       "writtenOn": "2023-08-07T14:34:27Z",
       "side": 1,
       "message": "Does this file have no tests? I\u0027d sleep better if it had some. When reviewing such code, I need to create a test case in my mind anyways.\n\nWould be nice if we always test all code that\u0027s easily testable - also python scripts, which includes the selection mechanism here. I\u0027m aware that the full script is hard to test without mocking out the essentials.",
+      "revId": "d76e6658717c87424459f694611c8da3ddb10311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d5c570_43eed4d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-08T14:14:53Z",
+      "side": 1,
+      "message": "Addressed nits in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4759305",
       "revId": "d76e6658717c87424459f694611c8da3ddb10311",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +83,30 @@
       "writtenOn": "2023-08-07T14:34:27Z",
       "side": 1,
       "message": "nit: If numpy is present or could be included via vpython, I suggest numpy.array_split.",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "d76e6658717c87424459f694611c8da3ddb10311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a7f083_8811b128",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-08T14:14:53Z",
+      "side": 1,
+      "message": "I was not able to import numpy using vpython3 (it worked for python3 though)",
+      "parentUuid": "3733d2d4_a2db0cd5",
       "range": {
         "startLine": 94,
         "startChar": 4,
@@ -81,6 +140,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89d99660_ea9fdb01",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-08T14:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "266d90a2_323b20da",
+      "range": {
+        "startLine": 95,
+        "startChar": 27,
+        "endLine": 95,
+        "endChar": 33
+      },
+      "revId": "d76e6658717c87424459f694611c8da3ddb10311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1099e43_2382ffc6",
@@ -94,6 +177,30 @@
       "writtenOn": "2023-08-07T14:34:27Z",
       "side": 1,
       "message": "nit: I\u0027d like to avoid such conditions by filtering the empty lists in advance.",
+      "range": {
+        "startLine": 98,
+        "startChar": 8,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "d76e6658717c87424459f694611c8da3ddb10311",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "499618e1_983cd2d0",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-08T14:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1099e43_2382ffc6",
       "range": {
         "startLine": 98,
         "startChar": 8,
