@@ -22,6 +22,40 @@
       },
       "revId": "1aa6104d4c6e76a3185fecf08ec83b83da9580e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6cd82c7_9746629f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-08T14:24:54Z",
+      "side": 1,
+      "message": "LGTM with",
+      "revId": "1aa6104d4c6e76a3185fecf08ec83b83da9580e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8f25ad8_1814675e",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-08T14:24:54Z",
+      "side": 1,
+      "message": "Technically this could merged with the part below into a single loop, the variable is unused otherwise, but I like it either way!",
+      "revId": "1aa6104d4c6e76a3185fecf08ec83b83da9580e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
