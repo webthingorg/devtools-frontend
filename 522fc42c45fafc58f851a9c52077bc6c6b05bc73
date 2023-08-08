@@ -82,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f14db254_cf7819f3",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T03:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1928db8b_c598ab50",
+      "revId": "522fc42c45fafc58f851a9c52077bc6c6b05bc73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a32500c_e6eb56dc",

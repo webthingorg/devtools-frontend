@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "824b1625_b9718d00",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T03:46:34Z",
+      "side": 1,
+      "message": "Thanks, I also use `inspectedURL()`, and the variable is renamed to be `ruleSetUrl`.",
+      "parentUuid": "de5de758_5289dfc0",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb9fe35b_de6459d8",
         "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
         "patchSetId": 29
@@ -84,6 +102,24 @@
       "writtenOn": "2023-08-07T07:01:35Z",
       "side": 1,
       "message": "What is this slot for? Is it necessary?",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbd5768c_344ff620",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T03:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb9fe35b_de6459d8",
       "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +207,24 @@
       "writtenOn": "2023-08-07T07:01:35Z",
       "side": 1,
       "message": "Let\u0027s add TODO comment for \"Raw\" button: https://www.figma.com/proto/ZXCm794j3JcavNYlegmyJM/Prefetch---Design-file?type\u003ddesign\u0026t\u003dgbbxjcbjw2xUAagV-0\u0026scaling\u003dmin-zoom\u0026page-id\u003d106%3A283\u0026node-id\u003d134-2702",
+      "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af83d19d_9beb8859",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-08T03:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ce39ed_366aaeb2",
       "revId": "af7e08b4dc8bccb694dfef6c15fdb1ebe255e278",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
