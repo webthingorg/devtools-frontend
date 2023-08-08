@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4cf3edc8_17deaa85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-08T08:24:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d65c38e_51c6d165",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "ebc6663962f6b002f4d4ee5a63875a2feafe45e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8b8073cb_36b980ae",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2023-08-08T07:05:17Z",
       "side": 1,
       "message": "typo: recording",
+      "range": {
+        "startLine": 997,
+        "startChar": 16,
+        "endLine": 997,
+        "endChar": 24
+      },
+      "revId": "ebc6663962f6b002f4d4ee5a63875a2feafe45e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f214367_10c50a29",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-08T08:24:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a73d11a_a951333e",
       "range": {
         "startLine": 997,
         "startChar": 16,
