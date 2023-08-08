@@ -33,6 +33,24 @@
       "message": "Can we make it enabled by default instead?",
       "revId": "e89516ec15b558704059bc0fc2055cd2870ce5a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5182dc35_a651b024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-08T11:21:35Z",
+      "side": 1,
+      "message": "sg",
+      "parentUuid": "d63e9036_b02a5311",
+      "revId": "e89516ec15b558704059bc0fc2055cd2870ce5a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
