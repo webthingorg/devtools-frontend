@@ -33,6 +33,24 @@
       "message": "```suggestion\n  learnMore: \u0027Learn more\u0027,\n```\n\n\nOther panels, e.g. Back/forward cache, uses \"Learn *m*ore\".",
       "revId": "b5a3158e3764301e087215f977cf4ecfe8c1b134",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8657ec6e_db8d7f13",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-08T07:27:49Z",
+      "side": 1,
+      "message": "+1, see go/chrome-devtools/ux-writing#cosmetics",
+      "parentUuid": "62859615_b9e03fd3",
+      "revId": "b5a3158e3764301e087215f977cf4ecfe8c1b134",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
