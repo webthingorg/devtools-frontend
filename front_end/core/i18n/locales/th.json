@@ -4334,34 +4334,34 @@
   "panels/application/preloading/components/PreloadingString.ts | PrefetchProxyNotAvailable": {
     "message": "พบข้อผิดพลาดของเครือข่ายขณะพยายามตั้งค่าการเชื่อมต่อกับพร็อกซีที่ดึงข้อมูลล่วงหน้า"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInElementsPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInElementsPanel": {
     "message": "คลิกเพื่อแสดงในแผงองค์ประกอบ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | buttonClickToRevealInNetworkPanel": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | buttonClickToRevealInNetworkPanel": {
     "message": "คลิกเพื่อแสดงแผงเครือข่าย"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsDetailedInformation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsDetailedInformation": {
     "message": "ข้อมูลโดยละเอียด"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsError": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsError": {
     "message": "ข้อผิดพลาด"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsLocation": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsLocation": {
     "message": "ตำแหน่ง"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsSource": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsSource": {
     "message": "แหล่งที่มา"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | detailsValidity": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | detailsValidity": {
     "message": "ระยะเวลาที่ใช้ได้"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityInvalid": {
     "message": "ไม่ถูกต้อง แหล่งที่มาไม่ใช่ออบเจ็กต์ JSON"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validitySomeRulesInvalid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validitySomeRulesInvalid": {
     "message": "กฎบางอย่างไม่ถูกต้องและระบบจะไม่สนใจ"
   },
-  "panels/application/preloading/components/RuleSetDetailsReportView.ts | validityValid": {
+  "panels/application/preloading/components/RuleSetDetailsView.ts | validityValid": {
     "message": "ใช้งานได้"
   },
   "panels/application/preloading/components/RuleSetGrid.ts | location": {
