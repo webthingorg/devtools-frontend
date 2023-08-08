@@ -281,6 +281,30 @@
       },
       "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93f3c0a7_d0d47ab8",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 40
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-08-08T13:03:26Z",
+      "side": 1,
+      "message": "```\ndiff --git a/front_end/panels/application/preloading/components/RuleSetDetailsView.css b/front_end/panels/application/preloading/components/RuleSetDetailsView.css\nindex 49500c8d10..471f919d30 100644\n--- a/front_end/panels/application/preloading/components/RuleSetDetailsView.css\n+++ b/front_end/panels/application/preloading/components/RuleSetDetailsView.css\n@@ -10,6 +10,9 @@\n   overflow: hidden;\n   text-overflow: ellipsis;\n   border-bottom: 1px solid var(--sys-color-divider);\n-  display: grid;\n   grid-template-columns: min-content 1fr;\n }\n+\n+.ruleset-header devtools-icon {\n+  vertical-align: sub;\n+}\n```",
+      "parentUuid": "c1c9da5d_b308849d",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 69
+      },
+      "revId": "0ed5ab698f516d2c5e9ffdc21d16e4a3fe990c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
