@@ -938,6 +938,7 @@ grd_files_debug_sources = [
   "front_end/models/trace/LegacyTracingModel.js",
   "front_end/models/trace/ModelImpl.js",
   "front_end/models/trace/Processor.js",
+  "front_end/models/trace/StackManipulator.js",
   "front_end/models/trace/TracingManager.js",
   "front_end/models/trace/extras/FetchNodes.js",
   "front_end/models/trace/extras/FilmStrip.js",
