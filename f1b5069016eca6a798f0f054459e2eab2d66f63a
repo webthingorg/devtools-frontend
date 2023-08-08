@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5619380e_062291c5",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-08T12:12:16Z",
+      "side": 0,
+      "message": "nits: i think it is nice to keep this  extremely rare case in the comment, so people can know why we have a fallback empty array",
+      "range": {
+        "startLine": 451,
+        "startChar": 9,
+        "endLine": 452,
+        "endChar": 125
+      },
+      "revId": "f1b5069016eca6a798f0f054459e2eab2d66f63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
