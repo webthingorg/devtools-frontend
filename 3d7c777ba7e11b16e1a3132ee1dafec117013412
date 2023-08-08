@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c04c326e_498a44f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-08T09:29:24Z",
+      "side": 1,
+      "message": "Recreating this flake requires to run `application/cookies_test.ts,application/session-storage_test.ts,application/frame-tree_test.ts` multiple times. It might be that this sequence of tests affects performance which makes the values take longer to appear.\nExample: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1525/overview",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "3d7c777ba7e11b16e1a3132ee1dafec117013412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
