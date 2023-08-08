@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c1aedc4_9faeb5e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-08T08:00:37Z",
+      "side": 1,
+      "message": "nice! LGTM with a suggestion.",
+      "revId": "dc0f9bb96d3ab97255d5d53147869456b2c78ab0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b866f2c3_f2d961d9",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-08T08:00:37Z",
+      "side": 1,
+      "message": "Is this the same button as below? Then the waitFors are\u0027t necessary, they\u0027re included in the click.",
+      "revId": "dc0f9bb96d3ab97255d5d53147869456b2c78ab0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
