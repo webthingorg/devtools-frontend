@@ -70,6 +70,30 @@
       },
       "revId": "4108873a1d2c95b60bc65cc7bcaee87f8d9cf98f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fdd8f92_db895903",
+        "filename": "front_end/panels/timeline/AnimationsTrackAppender.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-08T13:48:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ff29f29_32a0777d",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "4108873a1d2c95b60bc65cc7bcaee87f8d9cf98f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
