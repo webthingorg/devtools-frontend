@@ -83,49 +83,59 @@ export class ContextMenuProvider implements UI.ContextMenu.Provider {
       contextMenu.saveSection().appendItem(i18nString(UIStrings.saveImage), saveImage);
     }
 
+    let isLocalFile = false;
+    if (contentProvider instanceof Workspace.UISourceCode.UISourceCode) {
+      // Do not append in Sources > Filesystem & Overrides tab
+      const proj = (contentProvider as Workspace.UISourceCode.UISourceCode).project();
+      if (proj.type() === Workspace.Workspace.projectTypes.FileSystem) {
+        isLocalFile = true;
+      }
+    }
+
     // Retrieve uiSourceCode by URL to pick network resources everywhere.
     const uiSourceCode = Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(contentProvider.contentURL());
     const networkPersistenceManager = NetworkPersistenceManager.instance();
-    if (uiSourceCode && networkPersistenceManager.isUISourceCodeOverridable(uiSourceCode)) {
-      contextMenu.overrideSection().appendItem(i18nString(UIStrings.overrideContent), async () => {
-        const isSuccess = await networkPersistenceManager.setupAndStartLocalOverrides(uiSourceCode);
-        if (isSuccess) {
-          await Common.Revealer.reveal(uiSourceCode);
-        }
 
-        // Collect metrics: Context menu access point
-        if (contentProvider instanceof SDK.NetworkRequest.NetworkRequest) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideContentFromNetworkContextMenu);
-        } else if (contentProvider instanceof Workspace.UISourceCode.UISourceCode) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideContentFromSourcesContextMenu);
-        }
-        // Collect metrics: Content type
-        if (uiSourceCode.isFetchXHR()) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideFetchXHR);
-        } else if (contentProvider.contentType().isScript()) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideScript);
-        } else if (contentProvider.contentType().isDocument()) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideDocument);
-        } else if (contentProvider.contentType().isStyleSheet()) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideStyleSheet);
-        } else if (contentProvider.contentType().isImage()) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideImage);
-        } else if (contentProvider.contentType().isFont()) {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideFont);
-        }
-      });
-    } else {
-      contextMenu.overrideSection().appendItem(i18nString(UIStrings.overrideContent), () => {}, true);
-    }
+    if (!isLocalFile) {
+      if (uiSourceCode && networkPersistenceManager.isUISourceCodeOverridable(uiSourceCode)) {
+        contextMenu.overrideSection().appendItem(i18nString(UIStrings.overrideContent), async () => {
+          const isSuccess = await networkPersistenceManager.setupAndStartLocalOverrides(uiSourceCode);
+          if (isSuccess) {
+            await Common.Revealer.reveal(uiSourceCode);
+          }
 
-    contextMenu.overrideSection().appendItem(i18nString(UIStrings.showOverrides), async () => {
-      await UI.ViewManager.ViewManager.instance().showView('navigator-overrides');
-      if (contentProvider instanceof SDK.NetworkRequest.NetworkRequest) {
-        Host.userMetrics.actionTaken(Host.UserMetrics.Action.ShowAllOverridesFromNetworkContextMenu);
+          // Collect metrics: Context menu access point
+          if (contentProvider instanceof SDK.NetworkRequest.NetworkRequest) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideContentFromNetworkContextMenu);
+          } else if (contentProvider instanceof Workspace.UISourceCode.UISourceCode) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideContentFromSourcesContextMenu);
+          }
+          // Collect metrics: Content type
+          if (uiSourceCode.isFetchXHR()) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideFetchXHR);
+          } else if (contentProvider.contentType().isScript()) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideScript);
+          } else if (contentProvider.contentType().isDocument()) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideDocument);
+          } else if (contentProvider.contentType().isStyleSheet()) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideStyleSheet);
+          } else if (contentProvider.contentType().isImage()) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideImage);
+          } else if (contentProvider.contentType().isFont()) {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.OverrideFont);
+          }
+        });
       } else {
-        Host.userMetrics.actionTaken(Host.UserMetrics.Action.ShowAllOverridesFromSourcesContextMenu);
+        contextMenu.overrideSection().appendItem(i18nString(UIStrings.overrideContent), () => {}, true);
       }
-    });
+
+      if (contentProvider instanceof SDK.NetworkRequest.NetworkRequest) {
+        contextMenu.overrideSection().appendItem(i18nString(UIStrings.showOverrides), async () => {
+          await UI.ViewManager.ViewManager.instance().showView('navigator-overrides');
+          Host.userMetrics.actionTaken(Host.UserMetrics.Action.ShowAllOverridesFromNetworkContextMenu);
+        });
+      }
+    }
 
     const binding = uiSourceCode && PersistenceImpl.instance().binding(uiSourceCode);
     const fileURL = binding ? binding.fileSystem.contentURL() : contentProvider.contentURL();
