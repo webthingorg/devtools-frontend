@@ -39,6 +39,30 @@
       },
       "revId": "0e44c9999517f032e5c6572516918970873ca452",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4f412a3_305bd81d",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-09T10:47:05Z",
+      "side": 1,
+      "message": "nits: we can just add this as comment",
+      "parentUuid": "0906a437_fbf5da20",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 28
+      },
+      "revId": "0e44c9999517f032e5c6572516918970873ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
