@@ -16,6 +16,24 @@
       "message": "Is this related to the circular dependency issue we discussed earlier offline?",
       "revId": "9a2c4c4d19e87e91caa0a48fc7a8c5fe1168065e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "192c2051_e0600d39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-09T08:19:10Z",
+      "side": 1,
+      "message": "yep, turns out if some stuff inside thrid_party looks like an entry point, DevTools would mark it as external. I am not sure if we should fix it for all third party modules so fixing for Puppeteer for now. Note that it explicitly checks for the package content since the `third_party/puppeteer/puppeteer.js` should still be treated as an entry point.",
+      "parentUuid": "a79ab31a_b172851d",
+      "revId": "9a2c4c4d19e87e91caa0a48fc7a8c5fe1168065e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
