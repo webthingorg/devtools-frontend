@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9d72868_6965f45c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T09:39:39Z",
+      "side": 1,
+      "message": "Nancy, please could you take a look whilst we sort out Alina\u0027s permissions please? Thank you!",
+      "revId": "f6e47915762c78ec88673d435b341021cedf854a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
