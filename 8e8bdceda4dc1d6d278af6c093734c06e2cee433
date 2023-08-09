@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ce007ec_dccda4d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-09T09:00:25Z",
+      "side": 1,
+      "message": "LGTM (will need an update to a unit test https://crsrc.org/c/third_party/devtools-frontend/src/test/unittests/front_end/panels/network/NetworkLogView_test.ts;l\u003d279)",
+      "revId": "8e8bdceda4dc1d6d278af6c093734c06e2cee433",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
