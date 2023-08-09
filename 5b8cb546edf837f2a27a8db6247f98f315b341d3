@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7838dba0_e24da4ee",
+        "filename": "front_end/panels/network/components/RequestHeadersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-09T09:29:31Z",
+      "side": 1,
+      "message": "Instead of adding a separate class with its own CSS-rules, you could increase margin-right here and add margin-top. WDYT?",
+      "revId": "5b8cb546edf837f2a27a8db6247f98f315b341d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
