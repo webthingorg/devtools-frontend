@@ -39,6 +39,30 @@
       },
       "revId": "4942b9ffad94f1734992caabb079295c9636a676",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1fbb374_0bebedc9",
+        "filename": "front_end/models/workspace/SearchConfig.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-09T14:44:30Z",
+      "side": 1,
+      "message": "I think `every` is fine, most head-scratching probably comes from ` !\u003d\u003d isNegative` bit. It might be a little easier to follow if we flip the semantics of `isNegative` into `isPositive` or `shouldMatch`, i.e. `Boolean(filePath.match(regex)) \u003d\u003d\u003d shouldMatch`",
+      "parentUuid": "faad56a3_f831272f",
+      "range": {
+        "startLine": 37,
+        "startChar": 34,
+        "endLine": 37,
+        "endChar": 39
+      },
+      "revId": "4942b9ffad94f1734992caabb079295c9636a676",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
