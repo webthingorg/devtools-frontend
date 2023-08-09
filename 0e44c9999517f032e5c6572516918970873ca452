@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "0e44c9999517f032e5c6572516918970873ca452",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0906a437_fbf5da20",
+        "filename": "test/unittests/front_end/helpers/TraceHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T10:39:33Z",
+      "side": 1,
+      "message": "there are lots of rasterizer tracks, hence this change. For most tracks where there is only ever one this is not going to change things.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 28
+      },
+      "revId": "0e44c9999517f032e5c6572516918970873ca452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
