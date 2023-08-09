@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f6ae0f9_448874f9",
+        "filename": "front_end/panels/timeline/Breadcrumbs.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T15:48:58Z",
+      "side": 1,
+      "message": "nit: we are not consistent here, but we usually import this and call it TraceEngine, which I would like to make consistent, so could you update please? I know Trace is shorter, so this is kind of annoying, sorry! 😄",
+      "range": {
+        "startLine": 5,
+        "startChar": 17,
+        "endLine": 5,
+        "endChar": 22
+      },
+      "revId": "c3f4fafef260870a922b64a2e18b32f267f4c452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb4d406_7727eae4",
+        "filename": "front_end/panels/timeline/Breadcrumbs.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T15:48:58Z",
+      "side": 1,
+      "message": "because this is the Breadcrumbs class, let\u0027s just call this method add() so we don\u0027t duplicate the word breadcrumb too much",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "c3f4fafef260870a922b64a2e18b32f267f4c452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2acffee_86761259",
+        "filename": "front_end/panels/timeline/Breadcrumbs.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T15:48:58Z",
+      "side": 1,
+      "message": "if this is false, let\u0027s throw an error as well because it should never happen",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 100
+      },
+      "revId": "c3f4fafef260870a922b64a2e18b32f267f4c452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7c2666_297e301d",
+        "filename": "front_end/panels/timeline/Breadcrumbs.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T15:48:58Z",
+      "side": 1,
+      "message": "I think we should allow one to be equal here - because otherwise this doesn\u0027t work:\n\n```\nrange: 0 - 10\nrange: 2 - 10\n```\n\nThey can\u0027t both be equal, but one could be at either end. And then let\u0027s add a unit test for this too.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 60
+      },
+      "revId": "c3f4fafef260870a922b64a2e18b32f267f4c452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b790745b_45723ace",
+        "filename": "front_end/panels/timeline/Breadcrumbs.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T15:48:58Z",
+      "side": 1,
+      "message": "how about we name this as `makeBreadcrumbActive` or something? I am wondering if this naming is slightly unclear and confusing but I am not sure.",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "c3f4fafef260870a922b64a2e18b32f267f4c452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4605d675_219d981b",
+        "filename": "front_end/panels/timeline/Breadcrumbs.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T15:48:58Z",
+      "side": 1,
+      "message": "I think we can rely on the fact that the user will pass in the same object as we have stored, so this could be something like:\n\n```\nwhile(breadcrumbsIter !\u003d\u003d newLastBreadcrumb) {\n  breadcrumbsIter \u003d breadcrumbsIter.child\n }\n ```\n breadcrumbsIter.child \u003d null\n ```",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "c3f4fafef260870a922b64a2e18b32f267f4c452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42080367_90adbde7",
+        "filename": "front_end/panels/timeline/Breadcrumbs.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-09T15:48:58Z",
+      "side": 1,
+      "message": "I would name this `allCrumbs` and return `Breadcrumb[]`, rather than just the window. In the future we might want to do more with breadcrumbs, such as give them names, or extra data, so if we return the entire breadcrumb and not just the window that means it is easier to extend in the future.",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "c3f4fafef260870a922b64a2e18b32f267f4c452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
