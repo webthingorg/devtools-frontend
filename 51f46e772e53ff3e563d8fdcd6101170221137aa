@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66e84b99_d2919d65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-09T12:27:30Z",
+      "side": 1,
+      "message": "Example flake: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1551/overview",
+      "revId": "51f46e772e53ff3e563d8fdcd6101170221137aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
