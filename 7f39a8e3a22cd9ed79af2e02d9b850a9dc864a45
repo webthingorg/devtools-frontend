@@ -39,6 +39,30 @@
       },
       "revId": "7f39a8e3a22cd9ed79af2e02d9b850a9dc864a45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25c3f365_0a02b3bc",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-09T08:17:20Z",
+      "side": 1,
+      "message": "The windows parallel builder uses the divider as seen here https://ci.chromium.org/ui/p/devtools-frontend/builders/luci.devtools-frontend.ci/Stand-alone%20Parallel%20Win, and on one of the shards the command length was less than 2000 characters (https://chromium-swarm.appspot.com/task?id\u003d63f21e5110ac0510). Do we need to safeguard against 8000 characters at the moment?",
+      "parentUuid": "5132e90e_06fccb2e",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 52
+      },
+      "revId": "7f39a8e3a22cd9ed79af2e02d9b850a9dc864a45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
