@@ -63,6 +63,30 @@
       },
       "revId": "7f39a8e3a22cd9ed79af2e02d9b850a9dc864a45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67996feb_d847ba4e",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-09T08:22:32Z",
+      "side": 1,
+      "message": "I\u0027d say so. It\u0027ll cost you 5 minutes to add an assert now that fails with a good description vs an hour or two of investigation in 4 years why only some windows shards don\u0027t run all the tests or fail mysteriously.",
+      "parentUuid": "25c3f365_0a02b3bc",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 52
+      },
+      "revId": "7f39a8e3a22cd9ed79af2e02d9b850a9dc864a45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
