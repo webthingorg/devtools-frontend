@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "657f088e_ccfa35f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-09T08:14:32Z",
+      "side": 1,
+      "message": "There 2 web tests in http/tests/devtools/search that exercise parts of these code paths.\n\nI\u0027ll look into adding some unit tests for \"SourcesSearchScope\" as a follow-up.",
+      "parentUuid": "7dc4c272_2d5ed38d",
+      "revId": "629c0d164e8fa118a138d3ae9946da49da3aa9ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15c8eb29_aec1f27b",
