@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76584821_00702019",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2023-08-09T04:33:57Z",
+      "side": 1,
+      "message": "Hi Alex, please take a look this A11y bug fix to allow arrow key navigation in the CSS Overview sidebar.\n\nThanks,\nGavin",
+      "revId": "91b92c3352f3e929cd819c1a63100eb10606def7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
