@@ -87,6 +87,30 @@
       },
       "revId": "7f39a8e3a22cd9ed79af2e02d9b850a9dc864a45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9250f0ae_fd5a7c22",
+        "filename": "scripts/test/e2e_divider.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-09T08:37:20Z",
+      "side": 1,
+      "message": "Done here https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4765266",
+      "parentUuid": "67996feb_d847ba4e",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 52
+      },
+      "revId": "7f39a8e3a22cd9ed79af2e02d9b850a9dc864a45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
