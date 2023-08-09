@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1681608d_a2dde201",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-09T13:52:10Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "4942b9ffad94f1734992caabb079295c9636a676",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faad56a3_f831272f",
+        "filename": "front_end/models/workspace/SearchConfig.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-09T13:52:10Z",
+      "side": 1,
+      "message": "Not sure about this one. I can re-instate the loop but it\u0027s a head-scratcher regardless.",
+      "range": {
+        "startLine": 37,
+        "startChar": 34,
+        "endLine": 37,
+        "endChar": 39
+      },
+      "revId": "4942b9ffad94f1734992caabb079295c9636a676",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
