@@ -34,6 +34,24 @@
       "parentUuid": "7838dba0_e24da4ee",
       "revId": "5b8cb546edf837f2a27a8db6247f98f315b341d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03a61d05_b194a863",
+        "filename": "front_end/panels/network/components/RequestHeadersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-09T11:05:56Z",
+      "side": 1,
+      "message": "Good point, I\u0027ll leave the decision up to you.",
+      "parentUuid": "0e9bf1ec_f8199772",
+      "revId": "5b8cb546edf837f2a27a8db6247f98f315b341d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
