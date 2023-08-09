@@ -231,7 +231,8 @@ export class JSONEditor extends LitElement {
   }
 
   // Displays a command entered in the input bar inside the editor
-  displayCommand(command: string, parameters: Record<string, unknown>): void {
+  displayCommand(command: string, parameters: Record<string, unknown>, targetId?: string): void {
+    this.targetId = targetId;
     this.command = command;
     const schema = this.metadataByCommand.get(this.command);
     if (!schema?.parameters) {
@@ -783,6 +784,11 @@ export class JSONEditor extends LitElement {
     // clang-format on
   }
 
+  #onTargetSelected(event: Menus.SelectMenu.SelectMenuItemSelectedEvent): void {
+    this.targetId = event.itemValue as string;
+    this.requestUpdate();
+  }
+
   #computeDropdownValues(parameter: Parameter): string[] {
     // The suggestion box should only be shown for parameters of type string and boolean
     if (parameter.type === ParameterType.String) {
@@ -794,11 +800,6 @@ export class JSONEditor extends LitElement {
       return ['true', 'false'];
     }
     return [];
-  }
-
-  #onTargetSelected(event: Menus.SelectMenu.SelectMenuItemSelectedEvent): void {
-    this.targetId = event.itemValue as string;
-    this.requestUpdate();
   }
 
   #renderInlineButton(opts: {
@@ -872,9 +873,9 @@ export class JSONEditor extends LitElement {
           const isCustomEditorDisplayed = isObject && !hasTypeRef;
           const hasOptions = parameter.type === ParameterType.String || parameter.type === ParameterType.Boolean;
           const parametersClasses = {
-            optionalParameter: parameter.optional,
-            parameter: true,
-            undefinedParameter: parameter.value === undefined && parameter.optional,
+            'optional-parameter': parameter.optional,
+            'parameter': true,
+            'undefined-parameter': parameter.value === undefined && parameter.optional,
           };
           const inputClasses = {
             'json-input': true,
@@ -908,7 +909,7 @@ export class JSONEditor extends LitElement {
                             title: i18nString(UIStrings.addParameter),
                             iconName: 'plus',
                             onClick: () => this.#handleAddParameter(parameterId),
-                            classMap: { deleteButton: true },
+                            classMap: { 'add-button': true },
                           })}
                       `: nothing}
 
@@ -918,7 +919,7 @@ export class JSONEditor extends LitElement {
                         title: i18nString(UIStrings.resetDefaultValue),
                         iconName: 'clear',
                         onClick: () => this.#handleClearParameter(parameter),
-                        classMap: {deleteButton: true},
+                        classMap: {'clear-button': true},
                       }) : nothing}
 
                       <!-- Render the buttons to change the value from undefined to empty string for optional primitive parameters -->
@@ -927,7 +928,7 @@ export class JSONEditor extends LitElement {
                             title: i18nString(UIStrings.addParameter),
                             iconName: 'plus',
                             onClick: () => this.#handleAddParameter(parameterId),
-                            classMap: { deleteButton: true },
+                            classMap: { 'delete-button': true },
                           })}` : nothing}
                   </div>
 
@@ -958,7 +959,7 @@ export class JSONEditor extends LitElement {
                       html`
                         <devtools-recorder-input
                           data-paramId=${parameterId}
-                          .isCorrectInput=${live(parameter.isCorrectType)}
+                          .strikethrough=${live(parameter.isCorrectType)}
                           .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
                           .autocomplete=${false}
                           .value=${live(parameter.value ?? '')}
@@ -974,7 +975,7 @@ export class JSONEditor extends LitElement {
                           title: i18nString(UIStrings.resetDefaultValue),
                           iconName: 'clear',
                           onClick: () => this.#handleClearParameter(parameter),
-                          classMap: { deleteButton: true, deleteIcon: true },
+                          classMap: { 'clear-button': true },
                         })}` : nothing}
 
                     <!-- If the parameter is an object with no predefined keys, renders a button to add key/value pairs to it's value -->
@@ -1006,7 +1007,7 @@ export class JSONEditor extends LitElement {
                         title: i18nString(UIStrings.deleteParameter),
                         iconName: 'bin',
                         onClick: () => this.#handleDeleteParameter(parameter, parentParameter),
-                        classMap: { deleteButton: true, deleteIcon: true },
+                        classMap: { 'delete-button': true },
                       })}` : nothing}
                   </div>
                 </li>

@@ -69,7 +69,7 @@ const UIStrings = {
   /**
    *@description Text to open the CDP editor with the selected command
    */
-  editAndResend: 'Edit and Resend',
+  editAndResend: 'Edit and resend',
   /**
    *@description Cell text content in Protocol Monitor of the Protocol Monitor tab
    *@example {30} PH1
@@ -303,11 +303,12 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
                   return;
                 }
                 const parameters = this.infoWidget.request;
+                const targetId = this.infoWidget.targetId;
                 const command = String(methodColumn.value);
                 if (splitWidget.showMode() === UI.SplitWidget.ShowMode.OnlyMain) {
                   splitWidget.toggleSidebar();
                 }
-                this.dispatchEventToListeners(Events.CommandChange, {command, parameters});
+                this.dispatchEventToListeners(Events.CommandChange, {command, parameters, targetId});
               });
 
               /**
@@ -346,6 +347,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
       const infoWidgetData = {
         request: DataGrid.DataGridUtils.getRowEntryForColumnId(focusedRow, 'request'),
         response: DataGrid.DataGridUtils.getRowEntryForColumnId(focusedRow, 'response'),
+        target: DataGrid.DataGridUtils.getRowEntryForColumnId(focusedRow, 'target'),
         type:
             DataGrid.DataGridUtils.getRowEntryForColumnId(focusedRow, 'type').title as 'sent' | 'received' | undefined,
       };
@@ -384,13 +386,15 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
 
     const populateToolbarInput = (): void => {
       const editorWidget = splitWidget.sidebarWidget();
-      if (editorWidget instanceof EditorWidget) {
-        const commandJson = editorWidget.jsonEditor.getCommandJson();
-        if (commandJson) {
-          this.#commandInput.setValue(commandJson);
-        }
+      if (!(editorWidget instanceof EditorWidget)) {
+        return;
+      }
+      const commandJson = editorWidget.jsonEditor.getCommandJson();
+      if (commandJson) {
+        this.#commandInput.setValue(commandJson);
       }
     };
+
     splitWidget.addEventListener(UI.SplitWidget.Events.ShowModeChanged, (event => {
                                    if (event.data === 'OnlyMain') {
                                      populateToolbarInput();
@@ -398,7 +402,8 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
                                      tabSelector?.setAttribute('style', 'display:flex');
                                    } else {
                                      const {command, parameters} = parseCommandInput(this.#commandInput.value());
-                                     this.dispatchEventToListeners(Events.CommandChange, {command, parameters});
+                                     this.dispatchEventToListeners(
+                                         Events.CommandChange, {command, parameters, targetId: this.#selectedTargetId});
                                      inputBar?.setAttribute('style', 'display:none');
                                      tabSelector?.setAttribute('style', 'display:none');
                                    }
@@ -607,7 +612,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
         },
         {columnId: 'elapsedTime', value: '(pending)'},
         {columnId: 'type', value: requestResponseIcon, title: 'sent'},
-        {columnId: 'target', value: this.targetToString(sdkTarget)},
+        {columnId: 'target', value: String(sdkTarget?.id())},
         {columnId: 'session', value: message.sessionId || ''},
       ],
       hidden: false,
@@ -651,7 +656,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     this.#split.show(this.contentElement);
     this.#protocolMonitorDataGrid = new ProtocolMonitorDataGrid(this.#split);
     this.#protocolMonitorDataGrid.addEventListener(Events.CommandChange, event => {
-      this.#editorWidget.jsonEditor.displayCommand(event.data.command, event.data.parameters);
+      this.#editorWidget.jsonEditor.displayCommand(event.data.command, event.data.parameters, event.data.targetId);
     });
     this.#editorWidget.element.style.overflow = 'hidden';
     this.#split.setMainWidget(this.#protocolMonitorDataGrid);
@@ -709,6 +714,7 @@ export class CommandAutocompleteSuggestionProvider {
 export class InfoWidget extends UI.Widget.VBox {
   private readonly tabbedPane: UI.TabbedPane.TabbedPane;
   request: {[x: string]: unknown};
+  targetId: string;
   constructor() {
     super();
     this.tabbedPane = new UI.TabbedPane.TabbedPane();
@@ -717,15 +723,17 @@ export class InfoWidget extends UI.Widget.VBox {
     this.tabbedPane.show(this.contentElement);
     this.tabbedPane.selectTab('response');
     this.request = {};
+    this.targetId = '';
     this.render(null);
   }
 
   render(data: {
     request: DataGrid.DataGridUtils.Cell|undefined,
     response: DataGrid.DataGridUtils.Cell|undefined,
+    target: DataGrid.DataGridUtils.Cell|undefined,
     type: 'sent'|'received'|undefined,
   }|null): void {
-    if (!data || !data.request || !data.response) {
+    if (!data || !data.request || !data.response || !data.target) {
       this.tabbedPane.changeTabView('request', new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noMessageSelected)));
       this.tabbedPane.changeTabView(
           'response', new UI.EmptyWidget.EmptyWidget(i18nString(UIStrings.noMessageSelected)));
@@ -740,6 +748,7 @@ export class InfoWidget extends UI.Widget.VBox {
 
     const requestParsed = JSON.parse(String(data.request.value) || 'null');
     this.request = requestParsed;
+    this.targetId = String(data.target.value);
     this.tabbedPane.changeTabView('request', SourceFrame.JSONView.JSONView.createViewSync(requestParsed));
     const responseParsed =
         data.response.value === '(pending)' ? null : JSON.parse(String(data.response.value) || 'null');
