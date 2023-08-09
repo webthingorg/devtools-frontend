@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15c8eb29_aec1f27b",
+        "filename": "front_end/models/bindings/ContentProviderBasedProject.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-09T06:12:27Z",
+      "side": 1,
+      "message": "This is the bit we wanna cache. The way it works now is as follows (I\u0027ll put this into a markdown at some point):\n\n1) A search query is split into parts e.g. when using multiple quoted terms\n2) We trigger a search in the backend for each query part.\n3) Only if all query parts have matches in a given file, do we consider this file\n\"search-worthy\".\n4) We throw away the result from the backend.\n5) Later on, we load the content for the UISourceCode from the backend and re-execute the search in the frontend.\n\nThe problem is that a) we throw away search results, and b) for source-mapped scripts we don\u0027t even search in the backend but already in the frontend on the full content.",
+      "range": {
+        "startLine": 200,
+        "startChar": 14,
+        "endLine": 200,
+        "endChar": 27
+      },
+      "revId": "629c0d164e8fa118a138d3ae9946da49da3aa9ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
