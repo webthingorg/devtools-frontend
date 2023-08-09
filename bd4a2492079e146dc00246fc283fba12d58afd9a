@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "614e8f11_edbe5173",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-08-09T10:58:33Z",
+      "side": 1,
+      "message": "Edited the text. Please fact-check to make sure I didn\u0027t accidentally alter the meaning.",
+      "revId": "bd4a2492079e146dc00246fc283fba12d58afd9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
