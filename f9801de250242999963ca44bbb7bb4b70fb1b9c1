@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f5122f_78a218cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-09T13:16:33Z",
+      "side": 1,
+      "message": "LGTM % comment",
+      "revId": "f9801de250242999963ca44bbb7bb4b70fb1b9c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea0e5af_00a86906",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-09T13:16:33Z",
+      "side": 1,
+      "message": "nit: init on line 716: `targetId \u003d \u0027\u0027`",
+      "revId": "f9801de250242999963ca44bbb7bb4b70fb1b9c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
