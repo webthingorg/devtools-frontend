@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a79ab31a_b172851d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-09T08:16:45Z",
+      "side": 1,
+      "message": "Is this related to the circular dependency issue we discussed earlier offline?",
+      "revId": "9a2c4c4d19e87e91caa0a48fc7a8c5fe1168065e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
