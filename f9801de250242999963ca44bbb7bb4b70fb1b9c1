@@ -33,6 +33,24 @@
       "message": "nit: init on line 716: `targetId \u003d \u0027\u0027`",
       "revId": "f9801de250242999963ca44bbb7bb4b70fb1b9c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "387d035f_7374b5d0",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-09T17:28:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ea0e5af_00a86906",
+      "revId": "f9801de250242999963ca44bbb7bb4b70fb1b9c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
