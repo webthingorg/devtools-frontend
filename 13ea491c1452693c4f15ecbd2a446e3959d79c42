@@ -290,6 +290,24 @@
       "parentUuid": "cafde33a_eb3fcd6e",
       "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f8e0d29_46ce7a87",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-08-10T23:38:15Z",
+      "side": 1,
+      "message": "Oh man this is so much better now.  Thanks for digging in and sorting this out. :)",
+      "parentUuid": "4a77b0f2_a0c5e9ea",
+      "revId": "13ea491c1452693c4f15ecbd2a446e3959d79c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
