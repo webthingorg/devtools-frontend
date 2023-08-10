@@ -16,6 +16,24 @@
       "message": "I am not sure this changes anything because the elements are loaded during the navigation and the goto call waits for the load event. Did you confirm that this is the source of flakiness?",
       "revId": "2fae7691017594ceeda2ecc7db11bc38683d8d07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ce68e7c_b56890bd",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-10T08:24:16Z",
+      "side": 1,
+      "message": "No I have not confirmed that it is, I suspected that is the case because the test failure snapshot showed that the clicking was never recorded (https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1551/overview) which made me suspect that the clicking function never succeeded. After looking more into it it seems that it is timing out earlier in the test. I will keep investigating this.",
+      "parentUuid": "e2cb91ba_3fedb0b7",
+      "revId": "2fae7691017594ceeda2ecc7db11bc38683d8d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
