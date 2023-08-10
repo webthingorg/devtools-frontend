@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "687de69f_6754529f",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T11:02:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c63324e_5de00a08",
+      "range": {
+        "startLine": 609,
+        "startChar": 2,
+        "endLine": 609,
+        "endChar": 74
+      },
+      "revId": "98a87e156097e6483be19b5414106af3636a3989",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc07d24d_86e8900e",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bf0b588_b7bb38ef",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T11:02:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc07d24d_86e8900e",
+      "range": {
+        "startLine": 615,
+        "startChar": 12,
+        "endLine": 615,
+        "endChar": 22
+      },
+      "revId": "98a87e156097e6483be19b5414106af3636a3989",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28adbe95_a2a8b0c2",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-08-10T09:55:39Z",
       "side": 1,
       "message": "nits: Can we throw an error if parameter.typeRef.split(\u0027.\u0027)[1] is invalid",
+      "range": {
+        "startLine": 672,
+        "startChar": 19,
+        "endLine": 672,
+        "endChar": 51
+      },
+      "revId": "98a87e156097e6483be19b5414106af3636a3989",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85399907_bb7bfcf5",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T11:02:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28adbe95_a2a8b0c2",
       "range": {
         "startLine": 672,
         "startChar": 19,
