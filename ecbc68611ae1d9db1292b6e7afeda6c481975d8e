@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b89c586_f31b7901",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T08:18:12Z",
+      "side": 1,
+      "message": "Done\nFix here : https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4759306",
+      "parentUuid": "f96c924c_f9c9ba44",
+      "revId": "ecbc68611ae1d9db1292b6e7afeda6c481975d8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86a78dc8_f26f597d",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a90a089e_73888119",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T08:18:12Z",
+      "side": 1,
+      "message": "Done\nFix here : https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4759306",
+      "parentUuid": "86a78dc8_f26f597d",
+      "revId": "ecbc68611ae1d9db1292b6e7afeda6c481975d8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "723fdef9_45ef3370",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-08T11:40:14Z",
       "side": 1,
       "message": "How are shortcuts visualizsed in other places in DevTools? I think there is some cross-platform mechanism for that? is it also `Ctrl + Enter` on Mac? Usually, it would be `Cmd + Enter` on Mac.",
+      "revId": "ecbc68611ae1d9db1292b6e7afeda6c481975d8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0244fe0b_74b6971a",
+        "filename": "front_end/panels/protocol_monitor/components/Toolbar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T08:18:12Z",
+      "side": 1,
+      "message": "https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/panels/sources/SnippetsPlugin.ts\n\nI found a reference to it here, so I\u0027ve done the same :)\n\nFix here : https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4759306",
+      "parentUuid": "723fdef9_45ef3370",
       "revId": "ecbc68611ae1d9db1292b6e7afeda6c481975d8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
