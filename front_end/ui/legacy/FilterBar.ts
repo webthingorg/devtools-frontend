@@ -40,9 +40,10 @@ import {bindCheckbox} from './SettingsUI.js';
 
 import {type Suggestions} from './SuggestBox.js';
 import {Events, TextPrompt} from './TextPrompt.js';
+import * as ContextMenu from './ContextMenu.js';
 
 import filterStyles from './filter.css.legacy.js';
-import {ToolbarSettingToggle, type ToolbarButton} from './Toolbar.js';
+import {ToolbarSettingToggle, ToolbarButton} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
 import {CheckboxLabel, createTextChild} from './UIUtils.js';
 import {HBox} from './Widget.js';
@@ -501,6 +502,80 @@ export class CheckboxFilterUI extends Common.ObjectWrapper.ObjectWrapper<FilterU
 
   private fireUpdated(): void {
     this.dispatchEventToListeners(FilterUIEvents.FilterChanged);
+  }
+}
+export class DropDownFilterCheckboxUI extends Common.ObjectWrapper.ObjectWrapper<FilterUIEventTypes> implements
+    FilterUI {
+  private readonly filterElement: HTMLDivElement;
+  private readonly dropDownButton: ToolbarButton;
+  private readonly filterChanged: () => void;
+
+  constructor(filterChangedCallback: () => void) {
+    super();
+    this.filterChanged = filterChangedCallback;
+
+    this.filterElement = document.createElement('div');
+    this.dropDownButton = new ToolbarButton('dropdown');
+    this.dropDownButton.setText('More Filters');
+    this.filterElement.appendChild(this.dropDownButton.element);
+    this.dropDownButton.turnIntoSelect();
+    this.dropDownButton.element.classList.add('dropdown-filterbar');
+    this.dropDownButton.addEventListener(ToolbarButton.Events.Click, this.showLevelContextMenuCheckbox.bind(this));
+    ARIAUtils.markAsMenuButton(this.dropDownButton.element);
+  }
+
+  private showLevelContextMenuCheckbox(event: Common.EventTarget.EventTargetEvent<Event>): void {
+    const mouseEvent = event.data;
+
+    const networkHideDataURLSetting = Common.Settings.Settings.instance().createSetting('networkHideDataURL', false);
+    const networkHideChromeExtensionsSetting =
+        Common.Settings.Settings.instance().createSetting('networkHideChromeExtensions', true);
+    const networkShowBlockedCookiesOnlySetting =
+        Common.Settings.Settings.instance().createSetting('networkShowBlockedCookiesOnlySetting', false);
+    const networkOnlyBlockedRequestsSetting =
+        Common.Settings.Settings.instance().createSetting('networkOnlyBlockedRequests', false);
+    const networkOnlyThirdPartySetting =
+        Common.Settings.Settings.instance().createSetting('networkOnlyThirdPartySetting', false);
+
+    networkHideChromeExtensionsSetting.addChangeListener(this.filterChanged.bind(this));
+    networkHideDataURLSetting.addChangeListener(this.filterChanged.bind(this));
+    networkShowBlockedCookiesOnlySetting.addChangeListener(this.filterChanged.bind(this));
+    networkOnlyBlockedRequestsSetting.addChangeListener(this.filterChanged.bind(this));
+    networkOnlyThirdPartySetting.addChangeListener(this.filterChanged.bind(this));
+
+    const contextMenu = new ContextMenu.ContextMenu(mouseEvent, {
+      useSoftMenu: true,
+      x: this.dropDownButton.element.getBoundingClientRect().left,
+      y: this.dropDownButton.element.getBoundingClientRect().top +
+          (this.dropDownButton.element as HTMLElement).offsetHeight,
+    });
+
+    contextMenu.defaultSection().appendCheckboxItem(
+        'Hide data URLs', () => networkHideDataURLSetting.set(!networkHideDataURLSetting.get()),
+        networkHideDataURLSetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        'Hide extension URLs', () => networkHideChromeExtensionsSetting.set(!networkHideChromeExtensionsSetting.get()),
+        networkHideChromeExtensionsSetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        'Blocked response cookies',
+        () => networkShowBlockedCookiesOnlySetting.set(!networkShowBlockedCookiesOnlySetting.get()),
+        networkShowBlockedCookiesOnlySetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        'Blocked Requests', () => networkOnlyBlockedRequestsSetting.set(!networkOnlyBlockedRequestsSetting.get()),
+        networkOnlyBlockedRequestsSetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        '3rd-party requests', () => networkOnlyThirdPartySetting.set(!networkOnlyThirdPartySetting.get()),
+        networkOnlyThirdPartySetting.get());
+
+    void contextMenu.show();
+  }
+
+  isActive(): boolean {
+    return true;
+  }
+
+  element(): HTMLDivElement {
+    return this.filterElement;
   }
 }
 
