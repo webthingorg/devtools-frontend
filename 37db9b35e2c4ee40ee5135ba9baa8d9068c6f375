@@ -16,6 +16,24 @@
       "message": "let\u0027s rename this to `strikethrough`?",
       "revId": "37db9b35e2c4ee40ee5135ba9baa8d9068c6f375",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5488eeca_dd6aa921",
+        "filename": "front_end/panels/recorder/components/RecorderInput.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T08:19:02Z",
+      "side": 1,
+      "message": "Done\n\nFix here : https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4759306",
+      "parentUuid": "0dbbe640_1925fc02",
+      "revId": "37db9b35e2c4ee40ee5135ba9baa8d9068c6f375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
