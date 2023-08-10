@@ -34,6 +34,24 @@
       "parentUuid": "767ec9b7_8788eaa3",
       "revId": "cdb7708ccbdd30342e15265d89f173ce6487846f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1084db5e_b8ae3ff9",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-10T12:35:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "99e99f8f_b248485f",
+      "revId": "cdb7708ccbdd30342e15265d89f173ce6487846f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
