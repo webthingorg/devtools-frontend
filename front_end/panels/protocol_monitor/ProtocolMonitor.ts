@@ -722,6 +722,7 @@ export class InfoWidget extends UI.Widget.VBox {
     this.tabbedPane.show(this.contentElement);
     this.tabbedPane.selectTab('response');
     this.request = {};
+    this.targetId = '';
     this.render(null);
   }
 
