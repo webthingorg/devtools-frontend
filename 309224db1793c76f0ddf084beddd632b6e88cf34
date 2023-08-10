@@ -16,6 +16,24 @@
       "message": "nit: inverting the conditions and making use of `this.#commandInput?.setValue` would make the it slightly better looking",
       "revId": "309224db1793c76f0ddf084beddd632b6e88cf34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47638594_081f2786",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-10T08:18:38Z",
+      "side": 1,
+      "message": "Fix here : https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4759306",
+      "parentUuid": "c029a056_a3a195d4",
+      "revId": "309224db1793c76f0ddf084beddd632b6e88cf34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
