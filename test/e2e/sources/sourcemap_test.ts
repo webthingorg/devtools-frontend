@@ -28,6 +28,7 @@ import {
   waitForCSSPropertyValue,
   waitForElementsStyleSection,
 } from '../helpers/elements-helpers.js';
+import {setIgnoreListPattern} from '../helpers/settings-helpers.js';
 import {
   addBreakpointForLine,
   clickOnContextMenu,
@@ -447,6 +448,75 @@ describe('The Sources Tab', async function() {
       const link = await waitFor('.toolbar-item .devtools-link');
       const linkText = await link.evaluate(({textContent}) => textContent);
       assert.strictEqual(linkText, 'sourcemap-origin.clash.js');
+    });
+  });
+
+  it('shows Source map loaded infobar', async () => {
+    await goToResource('sources/sourcemap-origin.html');
+    await openSourcesPanel();
+
+    await step('Get infobar text', async () => {
+      await openFileInEditor('sourcemap-origin.min.js');
+      const infobar = await waitFor('.infobar-info-text');
+      const infobarText = await infobar.evaluate(({textContent}) => textContent);
+      assert.strictEqual(infobarText, 'Source map loaded.');
+    });
+  });
+
+  it('shows Source map loaded infobar after attaching', async () => {
+    const {frontend} = getBrowserAndPages();
+    await openSourceCodeEditorForFile('sourcemap-minified.js', 'sourcemap-minified.html');
+
+    await step('Attach source map', async () => {
+      await clickOnContextMenu('.cm-line', 'Add source map…');
+
+      // Enter the source map URL into the appropriate input box.
+      await waitFor('.add-source-map');
+      await click('.add-source-map');
+      await typeText('sourcemap-minified.map');
+      await frontend.keyboard.press('Enter');
+    });
+
+    await step('Get infobar text', async () => {
+      const infobar = await waitFor('.infobar-info-text');
+      const infobarText = await infobar.evaluate(({textContent}) => textContent);
+      assert.strictEqual(infobarText, 'Source map loaded.');
+    });
+  });
+
+  it('shows Source map skipped infobar', async () => {
+    await setIgnoreListPattern('.min.js');
+    await openSourceCodeEditorForFile('sourcemap-origin.min.js', 'sourcemap-origin.html');
+
+    await step('Get infobar texts', async () => {
+      await openFileInEditor('sourcemap-origin.min.js');
+      await waitFor('.infobar-warning');
+      await waitFor('.infobar-info');
+      const infobars = await $$('.infobar-info-text');
+      const infobarTexts = await Promise.all(infobars.map(infobar => infobar.evaluate(({textContent}) => textContent)));
+      assert.deepEqual(
+          infobarTexts, ['This script is on the debugger\'s ignore list', 'Source map skipped for this file.']);
+    });
+  });
+
+  it('shows Source map error infobar after failing to attach', async () => {
+    const {frontend} = getBrowserAndPages();
+    await openSourceCodeEditorForFile('sourcemap-minified.js', 'sourcemap-minified.html');
+
+    await step('Attach source map', async () => {
+      await clickOnContextMenu('.cm-line', 'Add source map…');
+
+      // Enter the source map URL into the appropriate input box.
+      await waitFor('.add-source-map');
+      await click('.add-source-map');
+      await typeText('sourcemap-invalid.map');
+      await frontend.keyboard.press('Enter');
+    });
+
+    await step('Get infobar text', async () => {
+      const infobar = await waitFor('.infobar-info-text');
+      const infobarText = await infobar.evaluate(({textContent}) => textContent);
+      assert.strictEqual(infobarText, 'Source map failed to load.');
     });
   });
 
