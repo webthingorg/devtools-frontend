@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76cbf1aa_52b5da5d",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-10T08:00:25Z",
+      "side": 1,
+      "message": "is there a reason to call this method vs just passing `true` in here? Is this in case the menu has then been immediately closed, or something?",
+      "range": {
+        "startLine": 642,
+        "startChar": 75,
+        "endLine": 642,
+        "endChar": 98
+      },
+      "revId": "3a23d1ce8da378908f038ca2c820f3755454b03f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
