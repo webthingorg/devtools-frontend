@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2cb91ba_3fedb0b7",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-10T07:08:20Z",
+      "side": 1,
+      "message": "I am not sure this changes anything because the elements are loaded during the navigation and the goto call waits for the load event. Did you confirm that this is the source of flakiness?",
+      "revId": "2fae7691017594ceeda2ecc7db11bc38683d8d07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
