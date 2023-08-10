@@ -16,6 +16,24 @@
       "message": "what is the issue here? do some hovers not trigger the menu? there is waiting on line 27 by the click helper",
       "revId": "cdb7708ccbdd30342e15265d89f173ce6487846f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e99f8f_b248485f",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-10T11:01:15Z",
+      "side": 1,
+      "message": "I think so yes because when I saw the snapshot it seems that it was not triggered (see here https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Parallel%20Linux/1574/overview)",
+      "parentUuid": "767ec9b7_8788eaa3",
+      "revId": "cdb7708ccbdd30342e15265d89f173ce6487846f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
