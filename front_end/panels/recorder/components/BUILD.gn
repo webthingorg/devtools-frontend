@@ -11,7 +11,6 @@ generate_css("css_files") {
     "controlButton.css",
     "createRecordingView.css",
     "extensionView.css",
-    "recorderInput.css",
     "recordingListView.css",
     "recordingView.css",
     "selectButton.css",
@@ -27,7 +26,6 @@ devtools_module("components") {
     "ControlButton.ts",
     "CreateRecordingView.ts",
     "ExtensionView.ts",
-    "RecorderInput.ts",
     "RecordingListView.ts",
     "RecordingView.ts",
     "ReplayButton.ts",
@@ -80,9 +78,6 @@ devtools_entrypoint("bundle") {
     ":*",
     "../:*",
     "../../../../test/unittests/front_end/panels/recorder/*",
-
-    # TODO(crbug.com/1454420): Move the RecorderInput component to the ui folder
-    "../../../panels/protocol_monitor/components/*",
     "../../../ui/components/docs/*",
   ]
 }
