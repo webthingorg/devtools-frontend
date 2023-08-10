@@ -22,6 +22,30 @@
       },
       "revId": "3a23d1ce8da378908f038ca2c820f3755454b03f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0121e772_e437297b",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-08-10T16:31:46Z",
+      "side": 1,
+      "message": "Yep - the reason is to account for the cases where calling `menu.show`, does not expand the context menu.  These cases occur on `Lines 426` (After loading all providers, the contextmenu might be hidden again, so bail out.) and `Lines 455` (When no event target).",
+      "parentUuid": "76cbf1aa_52b5da5d",
+      "range": {
+        "startLine": 642,
+        "startChar": 75,
+        "endLine": 642,
+        "endChar": 98
+      },
+      "revId": "3a23d1ce8da378908f038ca2c820f3755454b03f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
