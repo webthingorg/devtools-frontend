@@ -68,6 +68,13 @@
   line-height: 1.2;
 }
 
+.toolbar-dropdown-arrow {
+  background-color: var(--color-text-secondary);
+  pointer-events: none;
+  flex: none;
+  margin-left: -4px;
+}
+
 .filter-bitset-filter span:focus-visible {
   outline: -webkit-focus-ring-color auto 5px;
 }
@@ -104,6 +111,29 @@
 .filter-checkbox-filter > [is="dt-checkbox"] {
   display: flex;
   margin: auto 0;
+}
+
+.toolbar-has-dropdown {
+  justify-content: space-between;
+  padding: 0 3px 0 5px;
+  border: 1px solid transparent;
+}
+
+.toolbar-has-dropdown-shrinkable {
+  flex-shrink: 1;
+}
+
+.toolbar-has-dropdown .toolbar-text {
+  margin: 0 4px 0 0;
+  text-overflow: ellipsis;
+  flex: auto;
+  overflow: hidden;
+  text-align: right;
+}
+
+.warning {
+  display: block;
+  margin-top: 12px;
 }
 
 .filter-input-field {

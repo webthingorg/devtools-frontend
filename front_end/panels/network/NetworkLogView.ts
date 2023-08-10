@@ -418,6 +418,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private readonly onlyBlockedResponseCookiesFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyBlockedRequestsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyThirdPartyFilterUI: UI.FilterBar.CheckboxFilterUI;
+  private readonly dropDownFilterCheckboxUI: UI.FilterBar.DropDownFilterCheckboxUI;
   private readonly hideChromeExtensionsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
@@ -516,11 +517,15 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     UI.Tooltip.Tooltip.install(this.hideChromeExtensionsUI.element(), i18nString(UIStrings.hideChromeExtension));
     filterBar.addFilter(this.hideChromeExtensionsUI);
 
+    this.dropDownFilterCheckboxUI = new UI.FilterBar.DropDownFilterCheckboxUI(this.filterChanged.bind(this));
+    filterBar.addFilter(this.dropDownFilterCheckboxUI);
+
     const filterItems =
         Object.values(Common.ResourceType.resourceCategories)
             .map(
                 category =>
-                    ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}));
+                    ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}),
+            );
     this.resourceCategoryFilterUI =
         new UI.FilterBar.NamedBitSetFilterUI(filterItems, this.networkResourceTypeFiltersSetting);
     UI.ARIAUtils.setLabel(this.resourceCategoryFilterUI.element(), i18nString(UIStrings.resourceTypesToInclude));
