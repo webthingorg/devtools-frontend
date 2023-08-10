@@ -52,6 +52,24 @@
       "parentUuid": "0e9bf1ec_f8199772",
       "revId": "5b8cb546edf837f2a27a8db6247f98f315b341d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3e55f0b_c31617c3",
+        "filename": "front_end/panels/network/components/RequestHeadersView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-10T16:21:26Z",
+      "side": 1,
+      "message": "I look into the code, actually, I think it\u0027s safe to add the flex css in the header value column itself. PTAL.",
+      "parentUuid": "03a61d05_b194a863",
+      "revId": "5b8cb546edf837f2a27a8db6247f98f315b341d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
