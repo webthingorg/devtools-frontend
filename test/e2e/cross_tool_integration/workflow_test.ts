@@ -117,5 +117,8 @@ describe('A user can open panels via the "panel" query param', async function() 
   it('Layers is shown', async () => {
     await reloadDevTools({queryParams: {panel: 'layers'}});
     await tabExistsInMainPanel(LAYERS_TAB_SELECTOR);
+
+    // to make sure we don't close while rendering
+    await waitFor('canvas[aria-label="3D Layers View"]');
   });
 });

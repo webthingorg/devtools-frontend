@@ -27,6 +27,9 @@ describe('The Layers Panel', async () => {
     await waitForFunction(async () => {
       return await getCurrentUrl() === `${getResourcesPath()}/${targetUrl}`;
     });
+
+    // to make sure we don't close while rendering
+    await waitFor('canvas[aria-label="3D Layers View"]');
   });
 
   it('should update the layers view when going offline', async () => {
@@ -48,5 +51,8 @@ describe('The Layers Panel', async () => {
     await target.reload({waitUntil: 'networkidle0'});
     await waitFor(`[aria-label="layers"]:not([test-current-url="${targetUrl}"])`);
     assert.strictEqual(await getCurrentUrl(), 'chrome-error://chromewebdata/');
+
+    // to make sure we don't close while rendering
+    await waitFor('canvas[aria-label="3D Layers View"]');
   });
 });
