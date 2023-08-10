@@ -341,7 +341,6 @@ export class ConsoleView extends UI.Widget.VBox implements
     this.sidebar.addEventListener(Events.FilterSelected, this.onFilterChanged.bind(this));
     this.isSidebarOpen = false;
     this.filter = new ConsoleViewFilter(this.onFilterChanged.bind(this));
-
     this.consoleToolbarContainer = this.element.createChild('div', 'console-toolbar-container');
     this.splitWidget = new UI.SplitWidget.SplitWidget(
         true /* isVertical */, false /* secondIsSidebar */, 'console.sidebar.width', 100);
@@ -590,6 +589,7 @@ export class ConsoleView extends UI.Widget.VBox implements
     issuesManager.addEventListener(
         IssuesManager.IssuesManager.Events.IssuesCountUpdated, this.#onIssuesCountUpdateBound);
   }
+
   static appendSettingsCheckboxToToolbar(
       toolbar: UI.Toolbar.Toolbar, settingOrSetingName: Common.Settings.Setting<boolean>|string, title: string,
       alternateTitle?: string): UI.Toolbar.ToolbarSettingCheckbox {
@@ -1621,6 +1621,8 @@ export class ConsoleViewFilter {
 
     const filterKeys = Object.values(FilterType);
     this.suggestionBuilder = new UI.FilterSuggestionBuilder.FilterSuggestionBuilder(filterKeys);
+
+    // just the text bar
     this.textFilterUI = new UI.Toolbar.ToolbarInput(
         i18nString(UIStrings.filter), '', 1, 1, i18nString(UIStrings.egEventdCdnUrlacom),
         this.suggestionBuilder.completions.bind(this.suggestionBuilder), true);
@@ -1632,6 +1634,8 @@ export class ConsoleViewFilter {
       this.textFilterSetting.set(this.textFilterUI.value());
       this.onFilterChanged();
     });
+    // just the text bar
+
     this.filterParser = new TextUtils.TextUtils.FilterParser(filterKeys);
     this.currentFilter = new ConsoleFilter('', [], null, this.messageLevelFiltersSetting.get());
     this.updateCurrentFilter();
