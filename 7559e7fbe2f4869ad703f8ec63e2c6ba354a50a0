@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5400decf_132c1d15",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-10T09:24:36Z",
+      "side": 1,
+      "message": "we didn\u0027t put it in an `afterEach` hook because we want this to run only if the test succeeds.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 50
+      },
+      "revId": "7559e7fbe2f4869ad703f8ec63e2c6ba354a50a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "633d96d3_d4240d0a",
+        "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-10T09:24:36Z",
+      "side": 1,
+      "message": "Is there any other place where `createTextureForImage` is used?",
+      "range": {
+        "startLine": 122,
+        "startChar": 18,
+        "endLine": 122,
+        "endChar": 55
+      },
+      "revId": "7559e7fbe2f4869ad703f8ec63e2c6ba354a50a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
