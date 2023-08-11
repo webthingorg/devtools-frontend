@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa40428d_1ab1a3ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-11T10:55:31Z",
+      "side": 1,
+      "message": "LGTM with some nits in the CL description (will talk offline)",
+      "revId": "9d1e63177fe6301d31a0588ca9541fdb2fd48aac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
