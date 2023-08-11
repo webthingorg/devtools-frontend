@@ -16,6 +16,24 @@
       "message": "wdyt?",
       "revId": "abec33f3572b515a404d722461fdb7d68fcae72e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8056393e_647be886",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-11T05:46:58Z",
+      "side": 1,
+      "message": "lgtm, but should we check with infra which bot uploads coverage data to ChromePerf? We might break recipes if we suddenly stop producing coverage data and the recipes expect it.",
+      "parentUuid": "9b571e7e_58a19380",
+      "revId": "abec33f3572b515a404d722461fdb7d68fcae72e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
