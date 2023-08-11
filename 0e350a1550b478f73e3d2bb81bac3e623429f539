@@ -16,6 +16,24 @@
       "message": "LGTM\n\n(fyi, you\u0027ll have to manually submit this CL. https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#merges-and-cherry_picks)",
       "revId": "0e350a1550b478f73e3d2bb81bac3e623429f539",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "355d318e_f7777c88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-08-11T22:21:40Z",
+      "side": 1,
+      "message": "Thanks for flagging!",
+      "parentUuid": "73693086_bb4dcc80",
+      "revId": "0e350a1550b478f73e3d2bb81bac3e623429f539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
