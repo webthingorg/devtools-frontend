@@ -990,8 +990,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     for (const [color, {indexes}] of colorBuckets) {
       this.#drawGenericEvents(context, timelineData, color, indexes);
-      this.#drawDecorations(context, timelineData, indexes);
     }
+    const allIndexes = Array.from(colorBuckets.values()).map(x => x.indexes).flat();
+    this.#drawDecorations(context, timelineData, allIndexes);
 
     this.drawMarkers(context, timelineData, markerIndices);
 
@@ -1149,11 +1150,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return;
     }
     const entryStartTime = entryStartTimes[entryIndex];
-    const barX = overrides?.startX || this.timeToPositionClipped(entryStartTime);
+    const barX = overrides?.startX ?? this.timeToPositionClipped(entryStartTime);
     const barLevel = entryLevels[entryIndex];
     const barHeight = this.#eventBarHeight(timelineData, entryIndex);
     const barY = this.levelToOffset(barLevel);
-    const barWidth = overrides?.width || this.#eventBarWidth(timelineData, entryIndex);
+    const barWidth = overrides?.width ?? this.#eventBarWidth(timelineData, entryIndex);
+    if (barWidth === 0) {
+      return;
+    }
     // We purposefully leave a 1px gap off the height so there is a small gap
     // visually between events vertically in the panel.
     // Similarly, we leave 0.5 pixels off the width so that there is a small
