@@ -415,12 +415,12 @@ export class CompatibilityTracksAppender {
       events: readonly TraceEngine.Types.TraceEvents.TraceEventData[], trackStartLevel: number,
       appender: TrackAppender): number {
     const lastUsedTimeByLevel: number[] = [];
+    const visibleNames = new Set(TimelineUIUtils.visibleTypes());
     for (let i = 0; i < events.length; ++i) {
       const event = events[i];
       const eventAsLegacy = this.getLegacyEvent(event);
       // Default styles are globally defined for each event name. Some
       // events are hidden by default.
-      const visibleNames = new Set(TimelineUIUtils.visibleTypes());
       const eventIsVisible = eventAsLegacy &&
           visibleNames.has(TimelineModel.TimelineModelFilter.TimelineVisibleEventsFilter.eventType(eventAsLegacy));
       if (!eventIsVisible) {
