@@ -34,6 +34,46 @@
       "parentUuid": "aa40428d_1ab1a3ba",
       "revId": "9d1e63177fe6301d31a0588ca9541fdb2fd48aac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "296d1a6c_883acf7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-11T12:22:25Z",
+      "side": 1,
+      "message": "Looks good to me, just one small thing that probably needs to be fixed!",
+      "revId": "9d1e63177fe6301d31a0588ca9541fdb2fd48aac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce8249dc_b1855000",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-11T12:22:25Z",
+      "side": 1,
+      "message": "I think --legacy-divider-border was not just a color, but also smth like: 1px solid --some-color. You need to add the width and style here as well, otherwise the border doesn\u0027t show up!:)",
+      "range": {
+        "startLine": 306,
+        "startChar": 17,
+        "endLine": 306,
+        "endChar": 42
+      },
+      "revId": "9d1e63177fe6301d31a0588ca9541fdb2fd48aac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
