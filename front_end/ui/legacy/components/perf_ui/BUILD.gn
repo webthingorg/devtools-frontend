@@ -28,6 +28,7 @@ generate_css("legacy_css_files") {
 
 devtools_module("perf_ui") {
   sources = [
+    "BreadcrumbsUI.ts",
     "ChartViewport.ts",
     "FilmStripView.ts",
     "FlameChart.ts",
@@ -60,6 +61,7 @@ devtools_module("perf_ui") {
 
   visibility = [
     "../../../../../test/unittests/front_end/perf_ui",
+    "../../../../component_docs/breadcrumbs-perf",
     "../../../../component_docs/perf_piechart",
   ]
 }
@@ -81,6 +83,7 @@ devtools_entrypoint("bundle") {
     "../../../../panels/network/*",
     "../../../../panels/profiler/*",
     "../../../../panels/timeline/*",
+    "../../../components/docs/breadcrumbs-perf/*",
     "../../../components/docs/performance_panel/*",
 
     # TODO(crbug.com/1202788): Remove invalid dependents
