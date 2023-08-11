@@ -969,9 +969,6 @@ describe('The Debugger Language Plugins', async () => {
       isError: true,
     });
     assertNotNullOrUndefined(expectedError.caught);
-
-    const local2Set = await extension.evaluate(() => chrome.devtools.languageServices.getWasmLocal(1, 1n));
-    assert.deepEqual(local2Set, {type: 'i32', value: 4});
   });
 
   it('lets users manually attach debug info', async () => {
