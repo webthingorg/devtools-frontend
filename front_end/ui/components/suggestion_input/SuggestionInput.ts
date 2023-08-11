@@ -4,11 +4,10 @@
 
 import * as CodeHighlighter from '../../../ui/components/code_highlighter/code_highlighter.js';
 // eslint-disable-next-line rulesdir/es_modules_import
-import codeHighlighterStyles from
-    '../../../ui/components/code_highlighter/codeHighlighter.css.js';
+import codeHighlighterStyles from '../../../ui/components/code_highlighter/codeHighlighter.css.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import contentEditableStyles from './recorderInput.css.js';
+import contentEditableStyles from './suggestionInput.css.js';
 import {assert, mod} from './util.js';
 
 const {html, Decorators, Directives, LitElement} = LitHtml;
@@ -17,7 +16,7 @@ const {classMap} = Directives;
 
 declare global {
   interface HTMLElementTagNameMap {
-    'devtools-recorder-input': RecorderInput;
+    'devtools-suggestion-input': SuggestionInput;
     'devtools-editable-content': EditableContent;
     'devtools-suggestion-box': SuggestionBox;
   }
@@ -215,8 +214,8 @@ class SuggestionBox extends LitElement {
   }
 }
 
-@customElement('devtools-recorder-input')
-export class RecorderInput extends LitElement {
+@customElement('devtools-suggestion-input')
+export class SuggestionInput extends LitElement {
   static override shadowRootOptions = {
     ...LitElement.shadowRootOptions,
     delegatesFocus: true,
