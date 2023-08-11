@@ -51,6 +51,24 @@
       "message": "Liviu, PTAL. Would this change cause any issues with coverage data collection in ChromePerf?",
       "revId": "abec33f3572b515a404d722461fdb7d68fcae72e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "339bfafb_ab62303c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-08-11T09:12:13Z",
+      "side": 1,
+      "message": "We just bail out if we do not find coverage data: https://source.chromium.org/chromium/chromium/tools/build/+/main:recipes/recipes/devtools/devtools-frontend.py?q\u003dfile:recipes%2Fdevtools%2Fdevtools-frontend.py%20%22if%20not%20api.path.exists(report_file):%22 .",
+      "parentUuid": "8056393e_647be886",
+      "revId": "abec33f3572b515a404d722461fdb7d68fcae72e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
