@@ -1395,8 +1395,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
 
     // Add markers for navigation start times.
-    for (const navStartTimeEvent of timelineModel.navStartTimes().values()) {
-      markers.set(navStartTimeEvent.startTime, TimelineUIUtils.createEventDivider(navStartTimeEvent, zeroTime));
+    const traceData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
+    const navStartEvents = traceData ? traceData.Meta.mainFrameNavigations : [];
+    for (const event of navStartEvents) {
+      const {startTime} = TraceEngine.Legacy.timesForEventInMilliseconds(event);
+      markers.set(startTime, TimelineUIUtils.createEventDivider(event, zeroTime));
     }
     this.#minimapComponent.setMarkers(markers);
   }
