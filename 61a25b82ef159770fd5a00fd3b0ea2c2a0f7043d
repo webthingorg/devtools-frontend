@@ -56,6 +56,30 @@
       },
       "revId": "61a25b82ef159770fd5a00fd3b0ea2c2a0f7043d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5c3bc5_aa4dd3e7",
+        "filename": "front_end/panels/sources/SourcesSearchScope.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-11T15:16:59Z",
+      "side": 1,
+      "message": "Yes, it does currently.\n\nThe search is a bit weird. It only forwards lines to the UI and the UI will then re-execute the search to find all the matches on a single line and where exactly they are. That\u0027s why we currently de-duplicate.\n\nI\u0027m in the process to change this but it requires shuffling around the code a bit so the CLs stay manageable.",
+      "parentUuid": "86e5e5c0_24ef96f6",
+      "range": {
+        "startLine": 258,
+        "startChar": 62,
+        "endLine": 258,
+        "endChar": 84
+      },
+      "revId": "61a25b82ef159770fd5a00fd3b0ea2c2a0f7043d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
