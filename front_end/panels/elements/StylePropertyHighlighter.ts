@@ -47,25 +47,44 @@ export class StylePropertyHighlighter {
     highlightElement(block.titleElement() as HTMLElement);
   }
 
+  findAndHighlightSection(sectionName: string, blockName: string): void {
+    const block = this.styleSidebarPane.getSectionBlockByName(blockName);
+    const section = block?.sections.find(section => section.headerText() === sectionName);
+    if (!section || !block) {
+      return;
+    }
+    block.expand(true);
+    section.showAllItems();
+    highlightElement(section.element);
+  }
+
   /**
    * Find the first non-overridden property that matches the provided name, scroll to it and highlight it.
    */
-  findAndHighlightPropertyName(propertyName: string): void {
-    for (const section of this.styleSidebarPane.allSections()) {
+  findAndHighlightPropertyName(propertyName: string, sectionName?: string, blockName?: string): boolean {
+    const block = blockName ? this.styleSidebarPane.getSectionBlockByName(blockName) : undefined;
+    const sections = block?.sections ?? this.styleSidebarPane.allSections();
+    if (!sections) {
+      return false;
+    }
+    for (const section of sections) {
+      if (sectionName && section.headerText() !== sectionName) {
+        continue;
+      }
       if (!section.style().hasActiveProperty(propertyName)) {
         continue;
       }
+      block?.expand(true);
       section.showAllItems();
       const treeElement = this.findTreeElementFromSection(
           treeElement => treeElement.property.name === propertyName && !treeElement.overloaded(), section);
       if (treeElement) {
         this.scrollAndHighlightTreeElement(treeElement);
-        if (section) {
-          section.element.focus();
-        }
-        return;
+        section.element.focus();
+        return true;
       }
     }
+    return false;
   }
 
   /**
