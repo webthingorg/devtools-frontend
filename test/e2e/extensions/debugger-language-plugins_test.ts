@@ -970,7 +970,24 @@ describe('The Debugger Language Plugins', async () => {
     });
     assertNotNullOrUndefined(expectedError.caught);
 
-    const local2Set = await extension.evaluate(() => chrome.devtools.languageServices.getWasmLocal(1, 1n));
+    // this is done so we can make sure to have a stopid
+    await extension.evaluate(() => {
+      class ExamplePlugin {
+        evaluate(expression: string, _context: Chrome.DevTools.RawLocation, _stopId: unknown):
+            Promise<Chrome.DevTools.RemoteObject|null> {
+          if (expression === 'unreachable') {
+            return Promise.resolve({type: 'number', value: 23, description: '23', hasChildren: false});
+          }
+          return Promise.resolve(null);
+        }
+      }
+      RegisterExtension(new ExamplePlugin(), 'Example', {language: 'WebAssembly', symbol_types: ['None']});
+    });
+    target.evaluate(() => 1 + 1);
+
+    const local2Set = await extension.evaluate(() => {
+      return chrome.devtools.languageServices.getWasmLocal(1, 1n);
+    });
     assert.deepEqual(local2Set, {type: 'i32', value: 4});
   });
 
