@@ -42,6 +42,7 @@ import {type Suggestions} from './SuggestBox.js';
 import {Events, TextPrompt} from './TextPrompt.js';
 
 import filterStyles from './filter.css.legacy.js';
+
 import {ToolbarSettingToggle, type ToolbarButton} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
 import {CheckboxLabel, createTextChild} from './UIUtils.js';
@@ -503,7 +504,6 @@ export class CheckboxFilterUI extends Common.ObjectWrapper.ObjectWrapper<FilterU
     this.dispatchEventToListeners(FilterUIEvents.FilterChanged);
   }
 }
-
 export interface Item {
   name: string;
   label: () => string;
