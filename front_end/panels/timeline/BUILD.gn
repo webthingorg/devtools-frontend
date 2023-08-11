@@ -93,6 +93,7 @@ devtools_entrypoint("bundle") {
     "../../../test/unittests/front_end/helpers",
     "../../../test/unittests/front_end/panels/timeline/*",
     "../../entrypoints/*",
+    "../../ui/components/docs/breadcrumbs-perf/*",
     "../../ui/components/docs/performance_panel/*",
     "../js_profiler/*",
     "../recorder/*",
