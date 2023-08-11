@@ -122,6 +122,7 @@ export class Item {
           checked: Boolean(this.checked),
           enabled: !this.disabled,
           subItems: undefined,
+          tooltip: this.#tooltip,
         };
         if (this.customElement) {
           result.element = this.customElement;
@@ -198,8 +199,9 @@ export class Section {
   }
 
   appendCheckboxItem(
-      label: string, handler: () => void, checked?: boolean, disabled?: boolean, additionalElement?: Element): Item {
-    const item = new Item(this.contextMenu, 'checkbox', label, disabled, checked);
+      label: string, handler: () => void, checked?: boolean, disabled?: boolean, additionalElement?: Element,
+      tooltip?: Platform.UIString.LocalizedString): Item {
+    const item = new Item(this.contextMenu, 'checkbox', label, disabled, checked, tooltip);
     this.items.push(item);
     if (this.contextMenu) {
       this.contextMenu.setHandler(item.id(), handler);
