@@ -80,6 +80,30 @@
       },
       "revId": "61a25b82ef159770fd5a00fd3b0ea2c2a0f7043d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0172265_9d29c313",
+        "filename": "front_end/panels/sources/SourcesSearchScope.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-11T15:18:59Z",
+      "side": 1,
+      "message": "I see! Thanks for the explanation!",
+      "parentUuid": "9e5c3bc5_aa4dd3e7",
+      "range": {
+        "startLine": 258,
+        "startChar": 62,
+        "endLine": 258,
+        "endChar": 84
+      },
+      "revId": "61a25b82ef159770fd5a00fd3b0ea2c2a0f7043d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
