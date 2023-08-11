@@ -105,6 +105,10 @@ export class GlassPane {
     this.positionContent();
   }
 
+  getAnchorBox(): AnchorBox|null {
+    return this.anchorBox;
+  }
+
   setAnchorBehavior(behavior: AnchorBehavior): void {
     this.anchorBehavior = behavior;
   }

@@ -351,6 +351,7 @@ export class SoftContextMenu {
   }
 
   private menuItemMouseUp(event: Event): void {
+    console.log('menuItemMouseUp', event);
     this.triggerAction((event.target as HTMLElement), event);
     event.consume();
   }
@@ -365,13 +366,26 @@ export class SoftContextMenu {
 
   private triggerAction(menuItemElement: HTMLElement, event: Event): void {
     const detailsForElement = this.detailsForElementMap.get(menuItemElement);
+    console.log('triggerAction', menuItemElement, event, detailsForElement);
     if (detailsForElement) {
       if (!detailsForElement.subItems) {
-        this.root().discard();
+        // this.root().discard();
         event.consume(true);
         if (typeof detailsForElement.actionId !== 'undefined') {
           this.itemSelectedCallback(detailsForElement.actionId);
-          delete detailsForElement.actionId;
+          // console.log('detailsForElement', detailsForElement);
+          // const menuItem = this.createMenuItem(this.items[detailsForElement.actionId]);
+          // this.contextMenuElement?.appendChild(menuItem);
+          // delete detailsForElement.actionId;
+          const item = this.items.find((i) => i.id === detailsForElement.actionId);
+          // console.log('item', this.items[detailsForElement.actionId]);
+          console.log('item', item, item?.checked);
+          const foo = menuItemElement.querySelector<HTMLElement>('.checkmark');
+          console.log('foo', foo);
+          if (item && foo) {
+            item.checked = !item?.checked;
+            foo.style.opacity = item.checked ? '100' : '0';
+          }
         }
         return;
       }
