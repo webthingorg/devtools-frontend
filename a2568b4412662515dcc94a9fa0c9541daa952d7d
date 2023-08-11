@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcd35b12_bd0a9682",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-11T14:08:01Z",
+      "side": 1,
+      "message": "This only works if we decide against localizing the title in the other change.",
+      "revId": "a2568b4412662515dcc94a9fa0c9541daa952d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
