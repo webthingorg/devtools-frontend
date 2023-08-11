@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f073e42_3ef7f5f1",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-11T11:10:16Z",
+      "side": 1,
+      "message": "Should the section header be localized?",
+      "revId": "8e5c8bfbd9ac40af64e00c9b5a9d49e31b181178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
