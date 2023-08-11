@@ -86,17 +86,9 @@ const UIStrings = {
    */
   hideDataUrls: 'Hide data URLs',
   /**
-   *@description Data urlfilter ui element title in Network Log View of the Network panel
-   */
-  hidesDataAndBlobUrls: 'Hide \'data:\' and \'blob:\' URLs',
-  /**
    * @description Label for a filter in the Network panel
    */
   chromeExtensions: 'Hide extension URLs',
-  /**
-   * @description Tooltip for a filter in the Network panel
-   */
-  hideChromeExtension: 'Hide \'chrome-extension://\' URLs',
   /**
    *@description Aria accessible name in Network Log View of the Network panel
    */
@@ -107,27 +99,13 @@ const UIStrings = {
    */
   hasBlockedCookies: 'Blocked response cookies',
   /**
-   *@description Tooltip for a checkbox in the Network panel. The response to a network request may include a
-   *             cookie (https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). Such response cookies can
-   *             be malformed or otherwise invalid and the browser may choose to ignore or not accept invalid cookies.
-   */
-  onlyShowRequestsWithBlockedCookies: 'Show only the requests with blocked response cookies',
-  /**
    *@description Label for a filter in the Network panel
    */
   blockedRequests: 'Blocked requests',
   /**
-   *@description Tooltip for a filter in the Network panel
-   */
-  onlyShowBlockedRequests: 'Show only blocked requests',
-  /**
    *@description Label for a filter in the Network panel
    */
   thirdParty: '3rd-party requests',
-  /**
-   *@description Tooltip for a filter in the Network panel
-   */
-  onlyShowThirdPartyRequests: 'Show only requests with origin different from page origin',
   /**
    *@description Text that appears when user drag and drop something (for example, a file) in Network Log View of the Network panel
    */
@@ -418,6 +396,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private readonly onlyBlockedResponseCookiesFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyBlockedRequestsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyThirdPartyFilterUI: UI.FilterBar.CheckboxFilterUI;
+  private readonly dropDownFilterCheckboxUI: DropDownFilterCheckboxUI;
   private readonly hideChromeExtensionsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
@@ -504,23 +483,18 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
     this.dataURLFilterUI = new UI.FilterBar.CheckboxFilterUI(
         'hide-data-url', i18nString(UIStrings.hideDataUrls), true, this.networkHideDataURLSetting);
-    this.dataURLFilterUI.addEventListener(
-        UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
-    UI.Tooltip.Tooltip.install(this.dataURLFilterUI.element(), i18nString(UIStrings.hidesDataAndBlobUrls));
-    filterBar.addFilter(this.dataURLFilterUI);
-
     this.hideChromeExtensionsUI = new UI.FilterBar.CheckboxFilterUI(
         'chrome-extension', i18nString(UIStrings.chromeExtensions), true, this.networkHideChromeExtensions);
-    this.hideChromeExtensionsUI.addEventListener(
-        UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
-    UI.Tooltip.Tooltip.install(this.hideChromeExtensionsUI.element(), i18nString(UIStrings.hideChromeExtension));
-    filterBar.addFilter(this.hideChromeExtensionsUI);
+
+    this.dropDownFilterCheckboxUI = new DropDownFilterCheckboxUI(this.filterChanged.bind(this));
+    filterBar.addFilter(this.dropDownFilterCheckboxUI);
 
     const filterItems =
         Object.values(Common.ResourceType.resourceCategories)
             .map(
                 category =>
-                    ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}));
+                    ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}),
+            );
     this.resourceCategoryFilterUI =
         new UI.FilterBar.NamedBitSetFilterUI(filterItems, this.networkResourceTypeFiltersSetting);
     UI.ARIAUtils.setLabel(this.resourceCategoryFilterUI.element(), i18nString(UIStrings.resourceTypesToInclude));
@@ -531,26 +505,11 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     this.onlyBlockedResponseCookiesFilterUI = new UI.FilterBar.CheckboxFilterUI(
         'only-show-blocked-cookies', i18nString(UIStrings.hasBlockedCookies), true,
         this.networkShowBlockedCookiesOnlySetting);
-    this.onlyBlockedResponseCookiesFilterUI.addEventListener(
-        UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
-    UI.Tooltip.Tooltip.install(
-        this.onlyBlockedResponseCookiesFilterUI.element(), i18nString(UIStrings.onlyShowRequestsWithBlockedCookies));
-    filterBar.addFilter(this.onlyBlockedResponseCookiesFilterUI);
-
     this.onlyBlockedRequestsUI = new UI.FilterBar.CheckboxFilterUI(
         'only-show-blocked-requests', i18nString(UIStrings.blockedRequests), true,
         this.networkOnlyBlockedRequestsSetting);
-    this.onlyBlockedRequestsUI.addEventListener(
-        UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
-    UI.Tooltip.Tooltip.install(this.onlyBlockedRequestsUI.element(), i18nString(UIStrings.onlyShowBlockedRequests));
-    filterBar.addFilter(this.onlyBlockedRequestsUI);
-
     this.onlyThirdPartyFilterUI = new UI.FilterBar.CheckboxFilterUI(
         'only-show-third-party', i18nString(UIStrings.thirdParty), true, this.networkOnlyThirdPartySetting);
-    this.onlyThirdPartyFilterUI.addEventListener(
-        UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
-    UI.Tooltip.Tooltip.install(this.onlyThirdPartyFilterUI.element(), i18nString(UIStrings.onlyShowThirdPartyRequests));
-    filterBar.addFilter(this.onlyThirdPartyFilterUI);
 
     this.filterParser = new TextUtils.TextUtils.FilterParser(searchKeys);
     this.suggestionBuilder =
@@ -1456,10 +1415,10 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
   setTextFilterValue(filterString: string): void {
     this.textFilterUI.setValue(filterString);
-    this.dataURLFilterUI.setChecked(false);
-    this.onlyBlockedResponseCookiesFilterUI.setChecked(false);
-    this.onlyBlockedRequestsUI.setChecked(false);
-    this.hideChromeExtensionsUI.setChecked(false);
+    // this.dataURLFilterUI.setChecked(false);
+    // this.onlyBlockedResponseCookiesFilterUI.setChecked(false);
+    // this.onlyBlockedRequestsUI.setChecked(false);
+    // this.hideChromeExtensionsUI.setChecked(false);
     this.resourceCategoryFilterUI.reset();
   }
 
@@ -2415,3 +2374,81 @@ export interface GroupLookupInterface {
 }
 
 export type Filter = (request: SDK.NetworkRequest.NetworkRequest) => boolean;
+
+export class DropDownFilterCheckboxUI extends
+    Common.ObjectWrapper.ObjectWrapper<UI.FilterBar.FilterUIEventTypes> implements UI.FilterBar.FilterUI {
+  private readonly filterElement: HTMLDivElement;
+  private readonly dropDownButton: UI.Toolbar.ToolbarButton;
+  private readonly filterChanged: () => void;
+
+  constructor(filterChangedCallback: () => void) {
+    super();
+    this.filterChanged = filterChangedCallback;
+
+    this.filterElement = document.createElement('div');
+    this.dropDownButton = new UI.Toolbar.ToolbarButton('dropdown');
+    this.dropDownButton.setText('More Filters');
+    this.filterElement.appendChild(this.dropDownButton.element);
+    this.dropDownButton.turnIntoSelect();
+    this.dropDownButton.element.classList.add('dropdown-filterbar');
+    this.dropDownButton.addEventListener(
+        UI.Toolbar.ToolbarButton.Events.Click, this.showLevelContextMenuCheckbox.bind(this));
+    UI.ARIAUtils.markAsMenuButton(this.dropDownButton.element);
+  }
+
+  private showLevelContextMenuCheckbox(event: Common.EventTarget.EventTargetEvent<Event>): void {
+    const mouseEvent = event.data;
+
+    const networkHideDataURLSetting = Common.Settings.Settings.instance().createSetting('networkHideDataURL', false);
+    const networkHideChromeExtensionsSetting =
+        Common.Settings.Settings.instance().createSetting('networkHideChromeExtensions', true);
+    const networkShowBlockedCookiesOnlySetting =
+        Common.Settings.Settings.instance().createSetting('networkShowBlockedCookiesOnlySetting', false);
+    const networkOnlyBlockedRequestsSetting =
+        Common.Settings.Settings.instance().createSetting('networkOnlyBlockedRequests', false);
+    const networkOnlyThirdPartySetting =
+        Common.Settings.Settings.instance().createSetting('networkOnlyThirdPartySetting', false);
+
+    networkHideChromeExtensionsSetting.addChangeListener(this.filterChanged.bind(this));
+    networkHideDataURLSetting.addChangeListener(this.filterChanged.bind(this));
+    networkShowBlockedCookiesOnlySetting.addChangeListener(this.filterChanged.bind(this));
+    networkOnlyBlockedRequestsSetting.addChangeListener(this.filterChanged.bind(this));
+    networkOnlyThirdPartySetting.addChangeListener(this.filterChanged.bind(this));
+
+    const contextMenu = new UI.ContextMenu.ContextMenu(mouseEvent, {
+      useSoftMenu: true,
+      x: this.dropDownButton.element.getBoundingClientRect().left,
+      y: this.dropDownButton.element.getBoundingClientRect().top +
+          (this.dropDownButton.element as HTMLElement).offsetHeight,
+    });
+
+    contextMenu.defaultSection().appendCheckboxItem(
+        i18nString(UIStrings.hideDataUrls), () => networkHideDataURLSetting.set(!networkHideDataURLSetting.get()),
+        networkHideDataURLSetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        i18nString(UIStrings.chromeExtensions),
+        () => networkHideChromeExtensionsSetting.set(!networkHideChromeExtensionsSetting.get()),
+        networkHideChromeExtensionsSetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        i18nString(UIStrings.hasBlockedCookies),
+        () => networkShowBlockedCookiesOnlySetting.set(!networkShowBlockedCookiesOnlySetting.get()),
+        networkShowBlockedCookiesOnlySetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        i18nString(UIStrings.blockedRequests),
+        () => networkOnlyBlockedRequestsSetting.set(!networkOnlyBlockedRequestsSetting.get()),
+        networkOnlyBlockedRequestsSetting.get());
+    contextMenu.defaultSection().appendCheckboxItem(
+        i18nString(UIStrings.thirdParty), () => networkOnlyThirdPartySetting.set(!networkOnlyThirdPartySetting.get()),
+        networkOnlyThirdPartySetting.get());
+
+    void contextMenu.show();
+  }
+
+  isActive(): boolean {
+    return true;
+  }
+
+  element(): HTMLDivElement {
+    return this.filterElement;
+  }
+}
