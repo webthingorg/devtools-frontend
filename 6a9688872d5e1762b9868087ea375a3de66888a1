@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e862129d_a2633511",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-11T06:29:06Z",
+      "side": 1,
+      "message": "How about putting this in a helper? This happens in all tests.",
+      "revId": "6a9688872d5e1762b9868087ea375a3de66888a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6f67537_b8d49ef5",
+        "filename": "test/e2e/sources/sourcemap_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-11T06:29:06Z",
+      "side": 1,
+      "message": "Click already implies waitFor",
+      "revId": "6a9688872d5e1762b9868087ea375a3de66888a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
