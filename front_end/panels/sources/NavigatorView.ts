@@ -97,7 +97,11 @@ const UIStrings = {
   /**
    *@description Text in Navigator View of the Sources panel
    */
-  areYouSureYouWantToDeleteAll: 'Are you sure you want to delete all overrides in this folder?',
+  areYouSureYouWantToDeleteAllOverrides: 'Are you sure you want to delete all overrides in this folder?',
+  /**
+   *@description Text in Navigator View of the Sources panel
+   */
+  areYouSureYouWantToDeleteAllFiles: 'Are you sure you want to delete all files in this folder?',
   /**
    *@description A context menu item in the Navigator View of the Sources panel
    */
@@ -121,7 +125,7 @@ const UIStrings = {
   /**
    *@description A context menu item in the Navigator View of the Sources panel
    */
-  deleteAllOverrides: 'Delete all overrides',
+  deleteOnlyOverrides: 'Delete only overrides',
   /**
    *@description Name of an item from source map
    *@example {compile.html} PH1
@@ -987,7 +991,8 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   }
 
   private async handleDeleteOverrides(node: NavigatorTreeNode): Promise<void> {
-    const shouldRemove = await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.areYouSureYouWantToDeleteAll));
+    const shouldRemove =
+        await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.areYouSureYouWantToDeleteAllOverrides));
     if (shouldRemove) {
       this.handleDeleteOverridesHelper(node);
     }
@@ -997,12 +1002,38 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     node.children().forEach(child => {
       this.handleDeleteOverridesHelper(child);
     });
+
+    if (!(node instanceof NavigatorUISourceCodeTreeNode)) {
+      return;
+    }
+
+    // Only delete confirmed overrides and not just any file that happens to be in the folder.
+    const binding = Persistence.Persistence.PersistenceImpl.instance().binding(node.uiSourceCode());
+    const headerBinding =
+        Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().isActiveHeaderOverrides(
+            node.uiSourceCode());
+
+    if (!binding && !headerBinding) {
+      return;
+    }
+
+    node.uiSourceCode().project().deleteFile(node.uiSourceCode());
+  }
+
+  private async handleDeleteAll(node: NavigatorTreeNode): Promise<void> {
+    const shouldRemove = await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.areYouSureYouWantToDeleteAllFiles));
+    if (shouldRemove) {
+      this.handleDeleteAllHelper(node);
+    }
+  }
+
+  private handleDeleteAllHelper(node: NavigatorTreeNode): void {
+    node.children().forEach(child => {
+      this.handleDeleteAllHelper(child);
+    });
+
     if (node instanceof NavigatorUISourceCodeTreeNode) {
-      // Only delete confirmed overrides and not just any file that happens to be in the folder.
-      const binding = Persistence.Persistence.PersistenceImpl.instance().binding(node.uiSourceCode());
-      if (binding) {
-        node.uiSourceCode().project().deleteFile(node.uiSourceCode());
-      }
+      node.uiSourceCode().project().deleteFile(node.uiSourceCode());
     }
   }
 
@@ -1063,7 +1094,11 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
         }
       } else {
         contextMenu.defaultSection().appendItem(
-            i18nString(UIStrings.deleteAllOverrides), this.handleDeleteOverrides.bind(this, node));
+            i18nString(UIStrings.deleteOnlyOverrides), this.handleDeleteOverrides.bind(this, node));
+
+        if (!(node instanceof NavigatorGroupTreeNode)) {
+          contextMenu.defaultSection().appendItem(i18nString(UIStrings.delete), this.handleDeleteAll.bind(this, node));
+        }
       }
     }
 
@@ -1321,19 +1356,16 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
 
   updateIcon(): void {
     const binding = Persistence.Persistence.PersistenceImpl.instance().binding(this.uiSourceCodeInternal);
+    const networkPersistenceManager = Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance();
     let iconType = 'document';
     let iconStyles: string[] = [];
     if (binding) {
       if (Snippets.ScriptSnippetFileSystem.isSnippetsUISourceCode(binding.fileSystem)) {
         iconType = 'snippet';
       }
-      const badgeIsPurple = Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().project() ===
-          binding.fileSystem.project();
+      const badgeIsPurple = networkPersistenceManager.project() === binding.fileSystem.project();
       iconStyles = badgeIsPurple ? ['dot', 'purple'] : ['dot', 'green'];
-    } else if (
-        this.uiSourceCodeInternal.url().endsWith(Persistence.NetworkPersistenceManager.HEADERS_FILENAME) &&
-        Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance()
-            .hasMatchingNetworkUISourceCodeForHeaderOverridesFile(this.uiSourceCodeInternal)) {
+    } else if (networkPersistenceManager.isActiveHeaderOverrides(this.uiSourceCode)) {
       iconStyles = ['dot', 'purple'];
     } else {
       if (Snippets.ScriptSnippetFileSystem.isSnippetsUISourceCode(this.uiSourceCodeInternal)) {
