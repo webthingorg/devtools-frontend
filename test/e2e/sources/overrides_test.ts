@@ -7,11 +7,13 @@ import {assert} from 'chai';
 import {
   $$,
   click,
+  enableExperiment,
   goToResource,
   step,
   typeText,
   waitFor,
   waitForAria,
+  waitForNone,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
@@ -304,10 +306,12 @@ describe('Overrides panel', async function() {
 
     const assertAddFolderElements = await $$('Add folder to workspace', undefined, 'aria');
     const assertRemoveFolderElements = await $$('Remove folder from workspace', undefined, 'aria');
-    const assertDeleteAllElements = await $$('Delete all overrides', undefined, 'aria');
+    const assertDeleteElements = await $$('Delete', undefined, 'aria');
+    const assertDeleteAllElements = await $$('Delete only overrides', undefined, 'aria');
 
     assert.strictEqual(assertAddFolderElements.length, 0);
     assert.strictEqual(assertRemoveFolderElements.length, 0);
+    assert.strictEqual(assertDeleteElements.length, 0);
     assert.strictEqual(assertDeleteAllElements.length, 1);
   });
 
@@ -328,11 +332,13 @@ describe('Overrides panel', async function() {
 
     const assertAddFolderElements = await $$('Add folder to workspace', undefined, 'aria');
     const assertRemoveFolderElements = await $$('Remove folder from workspace', undefined, 'aria');
-    const assertDeleteAllElements = await $$('Delete all overrides', undefined, 'aria');
+    const assertDeleteAllElements = await $$('Delete only overrides', undefined, 'aria');
+    const assertDeleteElements = await $$('Delete', undefined, 'aria');
 
     assert.strictEqual(assertAddFolderElements.length, 0);
     assert.strictEqual(assertRemoveFolderElements.length, 0);
     assert.strictEqual(assertDeleteAllElements.length, 1);
+    assert.strictEqual(assertDeleteElements.length, 1);
   });
 });
 
@@ -352,5 +358,92 @@ describe('Overrides panel', () => {
 
     assert.strictEqual(assertShowAllElements.length, 0);
     assert.strictEqual(assertOverridesContentElements.length, 1);
+  });
+});
+
+describe('Overrides panel > Delete context menus', () => {
+  beforeEach(async () => {
+    // set up 3 overriden files - .header, json, custom js
+    await enableExperiment('headerOverrides');
+    await goToResource('network/fetch-json.html');
+    await openSourcesPanel();
+    await enableLocalOverrides();
+
+    await step('add a content override file', async () => {
+      await openNetworkTab();
+      await selectRequestByName('coffees.json', {button: 'right'});
+      await click('aria/Override content');
+    });
+
+    await step('add a custom override file', async () => {
+      const subfolderTab = await waitFor('[role="group"] > .navigator-folder-tree-item');
+      await subfolderTab.click({button: 'right'});
+      await click('aria/New file');
+      await waitFor('[aria-label="NewFile, file"]');
+      await typeText('foo.js\n');
+    });
+
+    await step('add a header override file', async () => {
+      await openNetworkTab();
+      await selectRequestByName('coffees.json', {button: 'right'});
+      await click('aria/Override headers');
+      await waitFor('[title="Reveal header override definitions"]');
+    });
+  });
+
+  afterEach(async () => {
+    await click('[aria-label="Clear configuration"]');
+    await waitFor(ENABLE_OVERRIDES_SELECTOR);
+  });
+
+  it('delete only overridden files from sub folder', async () => {
+    await step('files exist in Sources panel', async () => {
+      await selectRequestByName('coffees.json', {button: 'right'});
+      await click('aria/Show all overrides');
+
+      await waitFor('[aria-label=".headers, file"]');
+      await waitFor('[aria-label="coffees.json, file"]');
+      await waitFor('[aria-label="foo.js, file"]');
+    });
+
+    await step('delete all overrides only', async () => {
+      const subfolderTab = await waitFor('[role="group"] > .navigator-folder-tree-item');
+      await subfolderTab.click({button: 'right'});
+
+      await click('aria/Delete only overrides');
+      await waitFor('[role="dialog"]');
+      await click('aria/OK');
+      await waitForNone('[role="dialog"]');
+
+      const treeItems = await $$('.navigator-file-tree-item');
+      assert.strictEqual(treeItems.length, 1);
+
+      const fileName = await treeItems[0].evaluate(x => x.textContent);
+      assert.strictEqual(fileName, 'foo.js');
+    });
+  });
+
+  it('delete all files from sub folder', async () => {
+    await step('files exist in Sources panel', async () => {
+      await selectRequestByName('coffees.json', {button: 'right'});
+      await click('aria/Show all overrides');
+
+      await waitFor('[aria-label=".headers, file"]');
+      await waitFor('[aria-label="coffees.json, file"]');
+      await waitFor('[aria-label="foo.js, file"]');
+    });
+
+    await step('delete all files', async () => {
+      const subfolderTab = await waitFor('[role="group"] > .navigator-folder-tree-item');
+      await subfolderTab.click({button: 'right'});
+
+      await click('aria/Delete');
+      await waitFor('[role="dialog"]');
+      await click('aria/OK');
+      await waitForNone('[role="dialog"]');
+
+      const treeItems = await $$('.navigator-file-tree-item');
+      assert.strictEqual(treeItems.length, 0);
+    });
   });
 });
