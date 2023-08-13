@@ -162,6 +162,10 @@ const UIStrings = {
    */
   forcesCssColorgamutMediaFeature: 'Forces CSS `color-gamut` media feature',
   /**
+   * @description Explanation text for the 'Forces CSS display-mode media' setting in the Rendering tool.
+   */
+  forcesCssDisplayModeMediaFeature: 'Forces CSS `display-mode` media feature',
+  /**
    * @description Explanation text for the 'Emulate vision deficiencies' setting in the Rendering tool.
    */
   forcesVisionDeficiencyEmulation: 'Forces vision deficiency emulation',
@@ -281,6 +285,10 @@ export class RenderingOptionsView extends UI.Widget.VBox {
     this.#appendSelect(
         i18nString(UIStrings.forcesCssColorgamutMediaFeature),
         Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureColorGamut'));
+    this.#appendSelect(
+        i18nString(UIStrings.forcesCssDisplayModeMediaFeature),
+        Common.Settings.Settings.instance().moduleSetting('emulatedCSSMediaFeatureDisplayMode'));
+
     this.contentElement.createChild('div').classList.add('panel-section-separator');
 
     this.#appendSelect(

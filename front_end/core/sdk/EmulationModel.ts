@@ -73,6 +73,8 @@ export class EmulationModel extends SDKModel<void> {
     const mediaTypeSetting = Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMedia');
     const mediaFeatureColorGamutSetting =
         Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeatureColorGamut');
+    const mediaFeatureDisplayModeSetting =
+        Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeatureDisplayMode');
     const mediaFeaturePrefersColorSchemeSetting =
         Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeaturePrefersColorScheme');
     const mediaFeatureForcedColorsSetting =
@@ -92,6 +94,7 @@ export class EmulationModel extends SDKModel<void> {
     this.#mediaConfiguration = new Map([
       ['type', mediaTypeSetting.get()],
       ['color-gamut', mediaFeatureColorGamutSetting.get()],
+      ['display-mode', mediaFeatureDisplayModeSetting.get()],
       ['prefers-color-scheme', mediaFeaturePrefersColorSchemeSetting.get()],
       ['forced-colors', mediaFeatureForcedColorsSetting.get()],
       ['prefers-contrast', mediaFeaturePrefersContrastSetting.get()],
@@ -105,6 +108,10 @@ export class EmulationModel extends SDKModel<void> {
     });
     mediaFeatureColorGamutSetting.addChangeListener(() => {
       this.#mediaConfiguration.set('color-gamut', mediaFeatureColorGamutSetting.get());
+      void this.updateCssMedia();
+    });
+    mediaFeatureDisplayModeSetting.addChangeListener(() => {
+      this.#mediaConfiguration.set('display-mode', mediaFeatureDisplayModeSetting.get());
       void this.updateCssMedia();
     });
     mediaFeaturePrefersColorSchemeSetting.addChangeListener(() => {
@@ -381,6 +388,10 @@ export class EmulationModel extends SDKModel<void> {
       {
         name: 'color-gamut',
         value: this.#mediaConfiguration.get('color-gamut') ?? '',
+      },
+      {
+        name: 'display-mode',
+        value: this.#mediaConfiguration.get('display-mode') ?? '',
       },
       {
         name: 'prefers-color-scheme',

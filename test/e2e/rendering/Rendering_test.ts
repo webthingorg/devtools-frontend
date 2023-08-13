@@ -46,6 +46,25 @@ describe('Rendering pane', () => {
     assert.deepEqual(actual, expected);
   });
 
+  it('includes UI for emulating display-mode media feature', async () => {
+    await openPanelViaMoreTools('Rendering');
+
+    const option = await waitFor('option[value="window-controls-overlay"]');
+    const actual = await option.evaluate(node => {
+      const select = node.closest('select');
+      return select ? select.textContent : '';
+    });
+    const expected = [
+      'No emulation',
+      'display-mode: browser',
+      'display-mode: minimal-ui',
+      'display-mode: standalone',
+      'display-mode: fullscreen',
+      'display-mode: window-controls-overlay',
+    ].join('');
+    assert.deepEqual(actual, expected);
+  });
+
   it('includes UI for emulating prefers-contrast media feature', async function() {
     await openPanelViaMoreTools('Rendering');
 

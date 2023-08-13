@@ -908,6 +908,46 @@ Common.Settings.registerSettingExtension({
 });
 
 Common.Settings.registerSettingExtension({
+  settingName: 'emulatedCSSMediaFeatureDisplayMode',
+  settingType: Common.Settings.SettingType.ENUM,
+  storageType: Common.Settings.SettingStorageType.Session,
+  defaultValue: '',
+  options: [
+    {
+      title: i18nLazyString(UIStrings.doNotEmulateCss, {PH1: 'display-mode'}),
+      text: i18nLazyString(UIStrings.noEmulation),
+      value: '',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCss, {PH1: 'display-mode: browser'}),
+      text: i18n.i18n.lockedLazyString('display-mode: browser'),
+      value: 'browser',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCss, {PH1: 'display-mode: minimal-ui'}),
+      text: i18n.i18n.lockedLazyString('display-mode: minimal-ui'),
+      value: 'minimal-ui',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCss, {PH1: 'display-mode: standalone'}),
+      text: i18n.i18n.lockedLazyString('display-mode: standalone'),
+      value: 'standalone',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCss, {PH1: 'display-mode: fullscreen'}),
+      text: i18n.i18n.lockedLazyString('display-mode: fullscreen'),
+      value: 'fullscreen',
+    },
+    {
+      title: i18nLazyString(UIStrings.emulateCss, {PH1: 'display-mode: window-controls-overlay'}),
+      text: i18n.i18n.lockedLazyString('display-mode: window-controls-overlay'),
+      value: 'window-controls-overlay',
+    },
+  ],
+  title: i18nLazyString(UIStrings.emulateCssMediaFeature, {PH1: 'display-mode'}),
+});
+
+Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.RENDERING,
   settingName: 'emulatedVisionDeficiency',
   settingType: Common.Settings.SettingType.ENUM,
