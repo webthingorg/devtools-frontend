@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as BreadcrumbsUI from '../../ui/legacy/components/perf_ui/BreadcrumbsUI.js';
+
 import * as AnimationsTrackAppender from './AnimationsTrackAppender.js';
 import * as AppenderUtils from './AppenderUtils.js';
 import * as Breadcrumbs from './Breadcrumbs.js';
@@ -40,6 +42,7 @@ export {
   AnimationsTrackAppender,
   AppenderUtils,
   Breadcrumbs,
+  BreadcrumbsUI,
   CLSLinkifier,
   CompatibilityTracksAppender,
   CountersGraph,
