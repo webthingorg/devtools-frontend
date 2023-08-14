@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "398eea65_a27b2aa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002500
+      },
+      "writtenOn": "2023-08-14T10:31:31Z",
+      "side": 1,
+      "message": "Alexey is already a contributor and I\u0027ve verified that the limit is still in effect, so LGTM. However, I\u0027m not an owner for this file, so we\u0027ll need additional approval. Adding Mathias.",
+      "revId": "77616c772eae1d00fc3166b6db26cd5f2d4c71fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
