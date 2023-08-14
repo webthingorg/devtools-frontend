@@ -16,6 +16,23 @@
       "message": "PTAL, intended to distribute the work for the *-legacy.ts removal.\n\nI also wrote a one-off script to find most of the globals and put them into a tracking sheet (https://docs.google.com/spreadsheets/d/1JctfaGe_e2k9XSfrVHmtyMg0WR0saQ_viOW5y0Xd9kc/edit?usp\u003dsharing)\n\nOnce this script has landed I\u0027ll send out an email with instructions and ask for help :)",
       "revId": "0e5f73806188095448bd942e483d9f7b25290e5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e810f0e_365875b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:09:16Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "0e5f73806188095448bd942e483d9f7b25290e5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
