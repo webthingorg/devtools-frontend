@@ -1010,9 +1010,15 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       // Avoid having longhands under an invalid shorthand.
       this.listItemElement.classList.add('not-parsed-ok');
 
+      const registration = this.matchedStyles().getRegisteredProperty(this.property.name);
+      const goToDefinition = (): void =>
+          this.parentPaneInternal.jumpToSection(this.property.name, 'Registered Properties');
+      const tooltip = registration ?
+          new ElementsComponents.CSSVariableValueView.CSSVariableParserError({registration, goToDefinition}) :
+          null;
       // Add a separate exclamation mark IMG element with a tooltip.
       this.listItemElement.insertBefore(
-          StylesSidebarPane.createExclamationMark(this.property, null), this.listItemElement.firstChild);
+          this.parentPaneInternal.createExclamationMark(this.property, tooltip), this.listItemElement.firstChild);
 
       // When the property is valid but the property value is invalid,
       // add line-through only to the property value.
