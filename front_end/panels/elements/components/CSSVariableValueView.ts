@@ -14,15 +14,55 @@ const UIStrings = {
    *@description Title text for the section describing the registration for a custom property
    */
   registeredPropertyTitle: 'Registered property',
+
+  /**
+   * @description Error message for a property value that failed to parse because it had an incorrect type
+   * @example {<color>} type
+   */
+  invalidPropertyValue: 'Invalid property value, expected type {type}',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/components/CSSVariableValueView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const {render, html} = LitHtml;
 
-interface RegisteredPropertyDetails {
+export interface RegisteredPropertyDetails {
   registration: SDK.CSSMatchedStyles.CSSRegisteredProperty;
   goToDefinition: () => void;
+}
+
+function getLinkSection(details: RegisteredPropertyDetails): LitHtml.TemplateResult {
+  return html`<div class="registered-property-links">
+            <span role="button" @click=${details.goToDefinition} class="clickable underlined unbreakable-text"}>
+              ${details.registration.isAtProperty() ? '@property' : 'CSS.registerProperty'}
+            </span>
+          </div>`;
+}
+
+export class CSSVariableParserError extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-css-variable-parser-error`;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+
+  constructor(details: RegisteredPropertyDetails) {
+    super();
+    this.#shadow.adoptedStyleSheets = [cssVariableValueViewStyles];
+    this.#render(details);
+  }
+
+  #render(details: RegisteredPropertyDetails): void {
+    render(
+        html`
+      <div class="variable-value-popup-wrapper">
+        ${i18nString(UIStrings.invalidPropertyValue, {
+          type: '',
+        })}
+        <span class="monospace css-property">${details.registration.syntax()}</span>
+        ${getLinkSection(details)}
+      </div>`,
+        this.#shadow, {
+          host: this,
+        });
+  }
 }
 
 export class CSSVariableValueView extends HTMLElement {
@@ -36,22 +76,17 @@ export class CSSVariableValueView extends HTMLElement {
   }
 
   #render(value: string|undefined, details?: RegisteredPropertyDetails): void {
-    const atProperty = details?.registration.isAtProperty();
     const initialValue = details?.registration.initialValue();
-    const registrationView = details?.registration ? html`<div class="registered-property-popup-wrapper">
+    const registrationView = details ? html`<div class="registered-property-popup-wrapper">
          <span class="title">${i18nString(UIStrings.registeredPropertyTitle)}</span>
           <div class="monospace">
-            <div><span class="css-property">syntax:</span> ${details?.registration.syntax()}</div>
-            <div><span class="css-property">inherits:</span> ${details?.registration.inherits()}</div>
+            <div><span class="css-property">syntax:</span> ${details.registration.syntax()}</div>
+            <div><span class="css-property">inherits:</span> ${details.registration.inherits()}</div>
             ${initialValue ? html`<div><span class="css-property">initial-value:</span> ${initialValue}</div>` : ''}
           </div>
-          <div class="registered-property-links">
-            <span role="button" @click=${details?.goToDefinition} class="clickable underlined unbreakable-text"}>
-              ${atProperty ? '@property' : 'CSS.registerProperty'}
-            </span>
-          </div>
+          ${getLinkSection(details)}
         </div>` :
-                                                     '';
+                                       '';
 
     render(html`<div class="variable-value-popup-wrapper">${value}${registrationView}</div>`, this.#shadow, {
       host: this,
@@ -60,10 +95,12 @@ export class CSSVariableValueView extends HTMLElement {
 }
 
 ComponentHelpers.CustomElements.defineComponent('devtools-css-variable-value-view', CSSVariableValueView);
+ComponentHelpers.CustomElements.defineComponent('devtools-css-variable-parser-error', CSSVariableParserError);
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLElementTagNameMap {
     'devtools-css-variable-value-view': CSSVariableValueView;
+    'devtools-css-variable-parser-error': CSSVariableParserError;
   }
 }
