@@ -293,6 +293,11 @@ export class RemoteObjectPreviewFormatter {
       return span;
     }
 
+    if (type === 'number') {
+      UI.UIUtils.createTextChildren(span, Platform.NumberUtilities.withUnderscoreThousandsSeparator(description));
+      return span;
+    }
+
     if (type === 'object' && !subtype) {
       let preview = this.abbreviateFullQualifiedClassName(description);
       if (preview === 'Object') {

@@ -697,6 +697,9 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       const propertyValue = new ObjectUI.ObjectPropertiesSection.ExpandableTextPropertyValue(
           document.createElement('span'), description, getLongStringVisibleLength());
       result.appendChild(propertyValue.element);
+    } else if (obj.type === 'number') {
+      const text = Platform.NumberUtilities.withUnderscoreThousandsSeparator(description);
+      UI.UIUtils.createTextChild(result, text);
     } else {
       UI.UIUtils.createTextChild(result, description);
     }
