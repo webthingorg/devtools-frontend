@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2243dd5_7769a8c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-08-14T14:03:59Z",
+      "side": 1,
+      "message": "Feature detection doesn\u0027t work.\n\n```\nconst query \u003d \u0027(random stuff)\u0027;\nwindow.matchMedia(query).media \u003d\u003d\u003d query // returns true\n```\n\nConsequently the emulation option in DevTools is always displayed.\n\nLooks like you will have to use \n\n```\nconst isSupported \u003d window.matchMedia(\n  `not all and (prefers-reduced-transparency), (prefers-reduced-transparency)`\n  ).matches;\n```",
+      "revId": "8f2118f91bab0707949706421727ca423d53e111",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
