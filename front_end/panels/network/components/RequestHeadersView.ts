@@ -385,26 +385,27 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
       statusClasses.push('red-circle');
     }
 
-    let comment = '';
+    let statusText = this.#request.statusCode + ' ' + this.#request.statusText;
     if (this.#request.cachedInMemory()) {
-      comment = i18nString(UIStrings.fromMemoryCache);
+      statusText += ' ' + i18nString(UIStrings.fromMemoryCache);
+      statusClasses.push('status-with-comment');
     } else if (this.#request.fetchedViaServiceWorker) {
-      comment = i18nString(UIStrings.fromServiceWorker);
+      statusText += ' ' + i18nString(UIStrings.fromServiceWorker);
+      statusClasses.push('status-with-comment');
     } else if (this.#request.redirectSourceSignedExchangeInfoHasNoErrors()) {
-      comment = i18nString(UIStrings.fromSignedexchange);
+      statusText += ' ' + i18nString(UIStrings.fromSignedexchange);
+      statusClasses.push('status-with-comment');
     } else if (this.#request.webBundleInnerRequestInfo()) {
-      comment = i18nString(UIStrings.fromWebBundle);
+      statusText += ' ' + i18nString(UIStrings.fromWebBundle);
+      statusClasses.push('status-with-comment');
     } else if (this.#request.fromPrefetchCache()) {
-      comment = i18nString(UIStrings.fromPrefetchCache);
-    } else if (this.#request.cached()) {
-      comment = i18nString(UIStrings.fromDiskCache);
-    }
+      statusText += ' ' + i18nString(UIStrings.fromPrefetchCache);
+      statusClasses.push('status-with-comment');
 
-    if (comment) {
+    } else if (this.#request.cached()) {
+      statusText += ' ' + i18nString(UIStrings.fromDiskCache);
       statusClasses.push('status-with-comment');
     }
-
-    const statusText = [this.#request.statusCode, this.#request.statusText, comment].join(' ');
 
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
