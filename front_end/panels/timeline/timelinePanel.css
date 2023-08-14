@@ -311,6 +311,10 @@
   flex: auto;
 }
 
+.timeline-tree-view .data-grid .odd {
+  background-color: var(--sys-color-surface1);
+}
+
 .timeline-tree-view .data-grid .data-container {
   overflow-y: scroll;
 }
@@ -323,8 +327,8 @@
   background: var(--color-background);
 }
 
-.timeline-tree-view .data-grid tr:hover td:not(.bottom-filler-td) {
-  background-color: var(--color-background-hover-overlay);
+.timeline-tree-view .data-grid tr:hover {
+  background-color: var(--sys-color-state-hover-on-subtle);
 }
 
 .timeline-tree-view .data-grid td.numeric-column {
