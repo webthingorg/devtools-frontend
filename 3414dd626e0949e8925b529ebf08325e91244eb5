@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b7d0b72_36eff364",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:19:30Z",
+      "side": 1,
+      "message": "change lgtm with nit, and also can we add a test for this case please?",
+      "revId": "3414dd626e0949e8925b529ebf08325e91244eb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d1265f3_33059a70",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:19:30Z",
+      "side": 1,
+      "message": "I would just lose this tbh and leave a comment. Given we can\u0027t act on the console calls I am not sure they offer value.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 83
+      },
+      "revId": "3414dd626e0949e8925b529ebf08325e91244eb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
