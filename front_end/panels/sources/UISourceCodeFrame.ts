@@ -201,9 +201,11 @@ export class UISourceCodeFrame extends
         this.uiSourceCodeInternal, this.boundOnBindingChanged);
     this.installMessageAndDecorationListeners();
     this.updateStyle();
+
     const canPrettyPrint = FormatterActions.FORMATTABLE_MEDIA_TYPES.includes(this.contentType) &&
         !this.uiSourceCodeInternal.project().canSetFileContent() &&
         Persistence.Persistence.PersistenceImpl.instance().binding(this.uiSourceCodeInternal) === null;
+
     const autoPrettyPrint = Root.Runtime.experiments.isEnabled('sourcesPrettyPrint') &&
         !this.uiSourceCodeInternal.contentType().isFromSourceMap();
     this.setCanPrettyPrint(canPrettyPrint, autoPrettyPrint);
