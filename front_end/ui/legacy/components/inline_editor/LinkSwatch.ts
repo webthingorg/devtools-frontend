@@ -26,6 +26,7 @@ interface BaseLinkSwatchRenderData {
   showTitle: boolean;
   isDefined: boolean;
   onLinkActivate: (linkText: string) => void;
+  registerPopoverCallback?: (element: Node) => void;
 }
 
 class BaseLinkSwatch extends HTMLElement {
@@ -65,11 +66,14 @@ class BaseLinkSwatch extends HTMLElement {
 
     // We added var popover, so don't need the title attribute when no need for showing title and
     // only provide the data-title for the popover to get the data.
-    render(
+    const {startNode} = render(
         html`<span class=${classes} title=${LitHtml.Directives.ifDefined(data.showTitle ? title : null)} data-title=${
             LitHtml.Directives.ifDefined(!data.showTitle ? title : null)} @mousedown=${onActivate} @keydown=${
             onActivate} role="link" tabindex="-1">${text}</span>`,
         this.shadow, {host: this});
+    if (startNode?.nextSibling && data.registerPopoverCallback) {
+      data.registerPopoverCallback(startNode?.nextSibling);
+    }
   }
 }
 
@@ -80,6 +84,7 @@ interface CSSVarSwatchRenderData {
   computedValue: string|null;
   fromFallback: boolean;
   onLinkActivate: (linkText: string) => void;
+  registerPopoverCallback: (element: Node) => void;
 }
 
 interface ParsedVariableFunction {
@@ -145,7 +150,7 @@ export class CSSVarSwatch extends HTMLElement {
   }
 
   protected render(data: CSSVarSwatchRenderData): void {
-    const {text, fromFallback, computedValue, onLinkActivate} = data;
+    const {text, fromFallback, computedValue, registerPopoverCallback, onLinkActivate} = data;
     const functionParts = this.parseVariableFunctionParts(text);
     if (!functionParts) {
       render('', this.shadow, {host: this});
@@ -157,9 +162,14 @@ export class CSSVarSwatch extends HTMLElement {
     const fallbackIncludeComma = functionParts.fallbackIncludeComma ? functionParts.fallbackIncludeComma : '';
 
     render(
-        html`<span data-title=${data.computedValue || ''}>${functionParts.pre}<${BaseLinkSwatch.litTagName} .data=${
-            {title, showTitle: false, text: functionParts.variableName, isDefined, onLinkActivate} as
-            LinkSwatchRenderData} class="css-var-link"></${BaseLinkSwatch.litTagName}>${fallbackIncludeComma}${
+        html`<span data-title=${data.computedValue || ''}>${functionParts.pre}<${BaseLinkSwatch.litTagName} .data=${{
+          title,
+          showTitle: false,
+          text: functionParts.variableName,
+          isDefined,
+          registerPopoverCallback,
+          onLinkActivate,
+        } as LinkSwatchRenderData} class="css-var-link"></${BaseLinkSwatch.litTagName}>${fallbackIncludeComma}${
             functionParts.post}</span>`,
         this.shadow, {host: this});
   }
@@ -169,6 +179,7 @@ interface LinkSwatchRenderData {
   isDefined: boolean;
   text: string;
   onLinkActivate: (linkText: string) => void;
+  registerPopoverCallback?: (element: Node) => void;
 }
 
 export class LinkSwatch extends HTMLElement {
@@ -180,7 +191,7 @@ export class LinkSwatch extends HTMLElement {
   }
 
   protected render(data: LinkSwatchRenderData): void {
-    const {text, isDefined, onLinkActivate} = data;
+    const {text, isDefined, registerPopoverCallback, onLinkActivate} = data;
     const title = isDefined ? text : i18nString(UIStrings.sIsNotDefined, {PH1: text});
     render(
         html`<span title=${data.text}><${BaseLinkSwatch.litTagName} .data=${{
@@ -188,7 +199,8 @@ export class LinkSwatch extends HTMLElement {
           isDefined,
           title,
           onLinkActivate,
-        } as LinkSwatchRenderData}></${BaseLinkSwatch.litTagName}></span>`,
+          registerPopoverCallback,
+        } as BaseLinkSwatchRenderData}></${BaseLinkSwatch.litTagName}></span>`,
         this.shadow, {host: this});
   }
 }

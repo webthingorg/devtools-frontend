@@ -51,6 +51,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: '2px',
       fromFallback: false,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -69,6 +70,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: '2px',
       fromFallback: false,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -87,6 +89,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: null,
       fromFallback: false,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -105,6 +108,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: '3px',
       fromFallback: true,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -123,6 +127,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: 'green',
       fromFallback: true,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -141,6 +146,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: 'green',
       fromFallback: true,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -159,6 +165,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: 'red',
       fromFallback: false,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -177,6 +184,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: 'red',
       fromFallback: false,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
@@ -195,6 +203,7 @@ describeWithLocale('CSSVarSwatch', () => {
       computedValue: 'red',
       fromFallback: false,
       onLinkActivate: () => {},
+      registerPopoverCallback: () => {},
     };
 
     assertVarSwatch(component, {
