@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb79e2c_f925420d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-14T14:46:48Z",
+      "side": 1,
+      "message": "LGTM, the tests are nice",
+      "revId": "6bd068c8e6c86bd0df433ea845da14799d88f7b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63653e7a_effc48da",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-14T14:46:48Z",
+      "side": 1,
+      "message": "Nice job!",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "6bd068c8e6c86bd0df433ea845da14799d88f7b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c7fcf38_8e5a518e",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-14T14:46:48Z",
+      "side": 1,
+      "message": "maybe also test the split widget of `Call tree` and `Event Log`?",
+      "range": {
+        "startLine": 47,
+        "startChar": 54,
+        "endLine": 47,
+        "endChar": 79
+      },
+      "revId": "6bd068c8e6c86bd0df433ea845da14799d88f7b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9545e88a_c1de2749",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-14T14:46:48Z",
+      "side": 1,
+      "message": "nits: let\u0027s add a comment that for `one-second-interaction.json`, it should has X rows in the bottom up tree, so it\u0027s safe to click the second one for testing the view in split widget",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 25
+      },
+      "revId": "6bd068c8e6c86bd0df433ea845da14799d88f7b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
