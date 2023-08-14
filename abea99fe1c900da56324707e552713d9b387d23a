@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba61363_a58ff71a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:18:01Z",
+      "side": 1,
+      "message": "I think we need to think more broadly about how we deal with the show all events flag and come up with a structured approach to it that we can easily apply across all handlers.\n\nThe show all events experiment is on my list in go/removing-opp-engine-blockers.\n\nI would like an approach that is self documenting, where each handler can declare what the \"Show all events\" setting looks like for it, rather than weave the logic into the handlers like this CL does. I appreciate this is all very hand-wavy, but I would like us to think through this a bit more.",
+      "revId": "abea99fe1c900da56324707e552713d9b387d23a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99eb9337_24254e52",
+        "filename": "front_end/models/trace/handlers/GPUHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:18:01Z",
+      "side": 1,
+      "message": "any reason not to set this directly as Root.Runtime.experiments... ? If the user changes the experiments DevTools has to be reloaded anyway.\n\nEdit - ah, does it make it easier to test if we set it in the initialize?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 35
+      },
+      "revId": "abea99fe1c900da56324707e552713d9b387d23a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02ce7a53_00acd187",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:18:01Z",
+      "side": 1,
+      "message": "why this change? do we have instances where we might get these events multiple times? If so, is it right to take the first event? Are there instances when we might want to override these values?",
+      "range": {
+        "startLine": 141,
+        "startChar": 6,
+        "endLine": 141,
+        "endChar": 29
+      },
+      "revId": "abea99fe1c900da56324707e552713d9b387d23a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223106f8_c0b1da2e",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:18:01Z",
+      "side": 1,
+      "message": "I don\u0027t feel super comfortable with this change - the API we have currently means that all the data exposed from handlers is exposed via their data() method and I think we should keep that.\n\nThe right way to do this would be to expose this ID in the data() method (which we already do) and then have any handlers that need this information to declare the Meta handler as a dependency of it, which means that it will run after the Meta handler and hence be able to access the ID.",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 1
+      },
+      "revId": "abea99fe1c900da56324707e552713d9b387d23a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
