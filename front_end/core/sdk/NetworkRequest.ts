@@ -840,6 +840,9 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   }
 
   resourceType(): Common.ResourceType.ResourceType {
+    if (Common.ResourceType.ResourceType.simplifyContentType(this.mimeType) === 'application/json') {
+      this.setResourceType(Common.ResourceType.resourceTypes.Fetch);
+    }
     return this.#resourceTypeInternal;
   }
 
