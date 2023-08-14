@@ -13,9 +13,9 @@ import {
   raf,
 } from '../../../helpers/DOMHelpers.js';
 import * as ProtocolComponents from '../../../../../../front_end/panels/protocol_monitor/components/components.js';
+import type * as SuggestionInput from '../../../../../../front_end/ui/components/suggestion_input/suggestion_input.js';
 import type * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
 
-import type * as RecorderComponents from '../../../../../../front_end/panels/recorder/components/components.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import * as Menus from '../../../../../../front_end/ui/components/menus/menus.js';
 import * as Host from '../../../../../../front_end/core/host/host.js';
@@ -186,9 +186,10 @@ describeWithEnvironment('JSONEditor', () => {
     jsonEditor.populateParametersForCommandWithDefaultValues();
     await jsonEditor.updateComplete;
 
-    const inputs = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input');
-    // inputs[0] corresponds to the devtools-recorder-input of the command
-    const suggestionInput = inputs[1];
+    const inputs = jsonEditor.renderRoot.querySelectorAll('devtools-suggestion-input') as
+        NodeListOf<SuggestionInput.SuggestionInput.SuggestionInput>;
+    // inputs[0] corresponds to the devtools-suggestion-input of the command
+    const suggestionInput = inputs[1] as SuggestionInput.SuggestionInput.SuggestionInput;
     // Reset the value to empty string because for boolean it will be set to false by default and the correct suggestions will not show
     suggestionInput.value = '';
     suggestionInput.focus();
@@ -215,7 +216,7 @@ describeWithEnvironment('JSONEditor', () => {
   };
 
   const renderEditorForCommand = async(command: string, parameters: {[paramName: string]: unknown}): Promise<{
-    inputs: NodeListOf<RecorderComponents.RecorderInput.RecorderInput>,
+    inputs: NodeListOf<SuggestionInput.SuggestionInput.SuggestionInput>,
     displayedCommand: string,
     jsonEditor: ProtocolComponents.JSONEditor.JSONEditor,
   }> => {
@@ -234,13 +235,13 @@ describeWithEnvironment('JSONEditor', () => {
 
     await jsonEditor.updateComplete;
     const shadowRoot = jsonEditor.renderRoot;
-    const inputs = shadowRoot.querySelectorAll('devtools-recorder-input');
+    const inputs = shadowRoot.querySelectorAll('devtools-suggestion-input');
     const displayedCommand = jsonEditor.command;
     return {inputs, displayedCommand, jsonEditor};
   };
 
   const renderParamsWithDefaultValues =
-      async(command: string): Promise<RecorderComponents.RecorderInput.RecorderInput> => {
+      async(command: string): Promise<SuggestionInput.SuggestionInput.SuggestionInput> => {
     const jsonEditor = renderJSONEditor();
 
     await populateMetadata(jsonEditor);
@@ -262,7 +263,7 @@ describeWithEnvironment('JSONEditor', () => {
 
     await jsonEditor.updateComplete;
 
-    const input = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input');
+    const input = jsonEditor.renderRoot.querySelectorAll('devtools-suggestion-input');
     const paramInput = input[1];
 
     if (!paramInput) {
@@ -282,8 +283,8 @@ describeWithEnvironment('JSONEditor', () => {
     jsonEditor.populateParametersForCommandWithDefaultValues();
     await jsonEditor.updateComplete;
 
-    // inputs[0] corresponds to the devtools-recorder-input of the command
-    const input = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input')[1];
+    // inputs[0] corresponds to the devtools-suggestion-input of the command
+    const input = jsonEditor.renderRoot.querySelectorAll('devtools-suggestion-input')[1];
     if (!input) {
       throw Error('No editable content displayed');
     }
@@ -595,7 +596,7 @@ describeWithEnvironment('JSONEditor', () => {
 
          await jsonEditor.updateComplete;
 
-         const input = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input');
+         const input = jsonEditor.renderRoot.querySelectorAll('devtools-suggestion-input');
          const values = [input[1].value, input[2].value];
 
          const expectedValues = ['', ''];
@@ -711,7 +712,7 @@ describeWithEnvironment('JSONEditor', () => {
       await jsonEditor.updateComplete;
 
       // The -1 is need to not take into account the input for the command
-      const numberOfInputs = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input').length - 1;
+      const numberOfInputs = jsonEditor.renderRoot.querySelectorAll('devtools-suggestion-input').length - 1;
 
       assert.deepStrictEqual(numberOfInputs, 2);
     });
@@ -867,7 +868,7 @@ describeWithEnvironment('JSONEditor', () => {
     jsonEditor.command = cdpCommand;
     await jsonEditor.updateComplete;
 
-    const inputs = jsonEditor.renderRoot.querySelectorAll('devtools-recorder-input');
+    const inputs = jsonEditor.renderRoot.querySelectorAll('devtools-suggestion-input');
     const addButtons = jsonEditor.renderRoot.querySelectorAll('devtools-button[title="Add a parameter"]');
 
     assert.deepStrictEqual(inputs.length, 1);
@@ -1023,7 +1024,7 @@ describeWithEnvironment('JSONEditor', () => {
        });
 
        await jsonEditor.updateComplete;
-       const editors = shadowRoot.querySelectorAll('devtools-recorder-input');
+       const editors = shadowRoot.querySelectorAll('devtools-suggestion-input');
 
        // Editors[0] refers to the command editor, so we start at index 1
        // We populate the key/value pairs
