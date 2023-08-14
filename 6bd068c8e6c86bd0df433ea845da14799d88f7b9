@@ -20,6 +20,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5b497ae0_35ce5e73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-14T15:35:12Z",
+      "side": 1,
+      "message": "Thanks Hadrien! Left one comment. Also if there\u0027s a select color, we need to update that too. background to `--sys-color-tonal-container` and text color to `--sys-color-on-tonal-container` (when line focused selected)",
+      "revId": "6bd068c8e6c86bd0df433ea845da14799d88f7b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a477505_aab2e71e",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-14T15:35:12Z",
+      "side": 1,
+      "message": "Even though the effective color is correct \u003d white, we still need to update all variables, this should be `--sys-color-cdt-base-container`",
+      "range": {
+        "startLine": 323,
+        "startChar": 18,
+        "endLine": 323,
+        "endChar": 37
+      },
+      "revId": "6bd068c8e6c86bd0df433ea845da14799d88f7b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "63653e7a_effc48da",
         "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
         "patchSetId": 3
