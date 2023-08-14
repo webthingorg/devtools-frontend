@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d84d7b5_80e89b9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T15:39:18Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "8cb0c7b85ffcf7784b45b73d4e3c6b9f619e225a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "367c76d0_6e5fd314",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T15:39:18Z",
+      "side": 1,
+      "message": "I am not sure what is up with these changes - my guess is that clang-format got updated, and I happened to be the first person to run it on this file since that.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 71
+      },
+      "revId": "8cb0c7b85ffcf7784b45b73d4e3c6b9f619e225a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
