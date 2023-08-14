@@ -44,6 +44,10 @@ export class CSSRegisteredProperty {
     this.#registration = registration;
   }
 
+  isAtProperty(): boolean {
+    return this.#registration instanceof CSSPropertyRule;
+  }
+
   propertyName(): string {
     return this.#registration instanceof CSSPropertyRule ? this.#registration.propertyName().text :
                                                            this.#registration.propertyName;
@@ -52,6 +56,15 @@ export class CSSRegisteredProperty {
   initialValue(): string|null {
     return this.#registration instanceof CSSPropertyRule ? this.#registration.initialValue() :
                                                            this.#registration.initialValue?.text ?? null;
+  }
+
+  inherits(): boolean {
+    return this.#registration instanceof CSSPropertyRule ? this.#registration.inherits() : this.#registration.inherits;
+  }
+
+  syntax(): string {
+    return this.#registration instanceof CSSPropertyRule ? this.#registration.syntax() :
+                                                           `"${this.#registration.syntax}"`;
   }
 
   #asCSSProperties(): Protocol.CSS.CSSProperty[] {
@@ -84,6 +97,7 @@ export class CSSMatchedStyles {
   readonly #matchingSelectors: Map<number, Map<string, boolean>>;
   readonly #keyframesInternal: CSSKeyframesRule[];
   readonly #registeredProperties: CSSRegisteredProperty[];
+  readonly #registeredPropertyMap = new Map<string, CSSRegisteredProperty>();
   readonly #nodeForStyleInternal: Map<CSSStyleDeclaration, DOMNode|null>;
   readonly #inheritedStyles: Set<CSSStyleDeclaration>;
   readonly #mainDOMCascade: DOMInheritanceCascade;
@@ -142,6 +156,10 @@ export class CSSMatchedStyles {
       for (const style of domCascade.styles()) {
         this.#styleToDOMCascade.set(style, domCascade);
       }
+    }
+
+    for (const prop of this.#registeredProperties) {
+      this.#registeredPropertyMap.set(prop.propertyName(), prop);
     }
 
     function cleanUserAgentPayload(payload: Protocol.CSS.RuleMatch[]): Protocol.CSS.RuleMatch[] {
@@ -593,6 +611,10 @@ export class CSSMatchedStyles {
 
   registeredProperties(): CSSRegisteredProperty[] {
     return this.#registeredProperties;
+  }
+
+  getRegisteredProperty(name: string): CSSRegisteredProperty|undefined {
+    return this.#registeredPropertyMap.get(name);
   }
 
   keyframes(): CSSKeyframesRule[] {
