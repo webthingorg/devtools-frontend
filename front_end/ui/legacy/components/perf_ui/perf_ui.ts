@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as BreadcrumbsUI from './BreadcrumbsUI.js';
 import * as ChartViewport from './ChartViewport.js';
 import * as FilmStripView from './FilmStripView.js';
 import * as FlameChart from './FlameChart.js';
@@ -16,6 +17,7 @@ import * as TimelineGrid from './TimelineGrid.js';
 import * as TimelineOverviewPane from './TimelineOverviewPane.js';
 
 export {
+  BreadcrumbsUI,
   ChartViewport,
   FilmStripView,
   FlameChart,
