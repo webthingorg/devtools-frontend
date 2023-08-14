@@ -7,12 +7,12 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as Platform from '../../../core/platform/platform.js';
 import type * as Puppeteer from '../../../third_party/puppeteer/puppeteer.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
+import * as SuggestionInput from '../../../ui/components/suggestion_input/suggestion_input.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Controllers from '../controllers/controllers.js';
 import * as Models from '../models/models.js';
 import * as Util from '../util/util.js';
 
-import {RecorderInput} from './RecorderInput.js';
 import stepEditorStyles from './stepEditor.css.js';
 
 import {
@@ -581,10 +581,10 @@ export class StepEditor extends LitElement {
 
   #handleKeyDownEvent = (event: Event): void => {
     assert(event instanceof KeyboardEvent);
-    if (event.target instanceof RecorderInput && event.key === 'Enter') {
+    if (event.target instanceof SuggestionInput.SuggestionInput.SuggestionInput && event.key === 'Enter') {
       event.preventDefault();
       event.stopPropagation();
-      const elements = this.renderRoot.querySelectorAll('devtools-recorder-input');
+      const elements = this.renderRoot.querySelectorAll('devtools-suggestion-input');
       const element = [...elements].findIndex(value => value === event.target);
       if (element >= 0 && element + 1 < elements.length) {
         elements[element + 1].focus();
@@ -600,7 +600,7 @@ export class StepEditor extends LitElement {
     from(this: StepEditor, value: DataType<A>): DeepImmutable<DeepPartial<Assignments<EditorState>>>|undefined,
     metric: Host.UserMetrics.RecordingEdited,
   }): ((event: Event) => void) => event => {
-    assert(event.target instanceof RecorderInput);
+    assert(event.target instanceof SuggestionInput.SuggestionInput.SuggestionInput);
     if (event.target.disabled) {
       return;
     }
@@ -619,7 +619,7 @@ export class StepEditor extends LitElement {
   };
 
   #handleTypeInputBlur = async(event: Event): Promise<void> => {
-    assert(event.target instanceof RecorderInput);
+    assert(event.target instanceof SuggestionInput.SuggestionInput.SuggestionInput);
     if (event.target.disabled) {
       return;
     }
@@ -646,7 +646,7 @@ export class StepEditor extends LitElement {
       [attribute]: await EditorState.defaultByAttribute(this.state, attribute),
     }));
 
-    this.#ensureFocus(`[data-attribute=${attribute}].attribute devtools-recorder-input`);
+    this.#ensureFocus(`[data-attribute=${attribute}].attribute devtools-suggestion-input`);
   };
 
   #renderInlineButton(opts: {class: string, title: string, iconName: string, onClick: (event: MouseEvent) => void}):
@@ -702,13 +702,13 @@ export class StepEditor extends LitElement {
     // clang-format off
     return html`<div class="row attribute" data-attribute="type">
       <div>type<span class="separator">:</span></div>
-      <devtools-recorder-input
+      <devtools-suggestion-input
         .disabled=${!editable || this.disabled}
         .options=${Object.values(Models.Schema.StepType)}
         .placeholder=${defaultValuesByAttribute.type}
         .value=${live(this.state.type)}
         @blur=${this.#handleTypeInputBlur}
-      ></devtools-recorder-input>
+      ></devtools-suggestion-input>
     </div>`;
     // clang-format on
   }
@@ -722,7 +722,7 @@ export class StepEditor extends LitElement {
     // clang-format off
     return html`<div class="row attribute" data-attribute=${attribute}>
       <div>${attribute}<span class="separator">:</span></div>
-      <devtools-recorder-input
+      <devtools-suggestion-input
         .disabled=${this.disabled}
         .placeholder=${defaultValuesByAttribute[attribute].toString()}
         .value=${live(attributeValue)}
@@ -751,7 +751,7 @@ export class StepEditor extends LitElement {
       },
       metric: Host.UserMetrics.RecordingEdited.OtherEditing,
     })}
-      ></devtools-recorder-input>
+      ></devtools-suggestion-input>
       ${this.#renderDeleteButton(attribute)}
     </div>`;
     // clang-format on
@@ -772,7 +772,7 @@ export class StepEditor extends LitElement {
         ${this.state.frame.map((frame, index, frames) => {
           return html`
             <div class="padded row">
-              <devtools-recorder-input
+              <devtools-suggestion-input
                 .disabled=${this.disabled}
                 .placeholder=${defaultValuesByAttribute.frame[0].toString()}
                 .value=${live(frame.toString())}
@@ -789,7 +789,7 @@ export class StepEditor extends LitElement {
                   },
                   metric: Host.UserMetrics.RecordingEdited.OtherEditing,
                 })}
-              ></devtools-recorder-input>
+              ></devtools-suggestion-input>
               ${this.#renderInlineButton({
                 class: 'add-frame',
                 title: i18nString(UIStrings.addFrameIndex),
@@ -802,7 +802,7 @@ export class StepEditor extends LitElement {
                       ),
                     }),
                   },
-                  `devtools-recorder-input[data-path="frame.${index + 1}"]`,
+                  `devtools-suggestion-input[data-path="frame.${index + 1}"]`,
                   Host.UserMetrics.RecordingEdited.OtherEditing,
                 ),
               })}
@@ -814,7 +814,7 @@ export class StepEditor extends LitElement {
                   {
                     frame: new ArrayAssignments({ [index]: undefined }),
                   },
-                  `devtools-recorder-input[data-path="frame.${Math.min(
+                  `devtools-suggestion-input[data-path="frame.${Math.min(
                     index,
                     frames.length - 2,
                   )}"]`,
@@ -859,7 +859,7 @@ export class StepEditor extends LitElement {
                     ),
                   }),
                 },
-                `devtools-recorder-input[data-path="selectors.${index + 1}.0"]`,
+                `devtools-suggestion-input[data-path="selectors.${index + 1}.0"]`,
                 Host.UserMetrics.RecordingEdited.SelectorAdded,
               ),
             })}
@@ -869,7 +869,7 @@ export class StepEditor extends LitElement {
               iconName: 'minus',
               onClick: this.#handleAddOrRemoveClick(
                 { selectors: new ArrayAssignments({ [index]: undefined }) },
-                `devtools-recorder-input[data-path="selectors.${Math.min(
+                `devtools-suggestion-input[data-path="selectors.${Math.min(
                   index,
                   selectors.length - 2,
                 )}.0"]`,
@@ -882,7 +882,7 @@ export class StepEditor extends LitElement {
               class="double padded row"
               data-selector-path="${index}.${partIndex}"
             >
-              <devtools-recorder-input
+              <devtools-suggestion-input
                 .disabled=${this.disabled}
                 .placeholder=${defaultValuesByAttribute.selectors[0][0]}
                 .value=${live(part)}
@@ -905,7 +905,7 @@ export class StepEditor extends LitElement {
                   },
                   metric: Host.UserMetrics.RecordingEdited.SelectorPartEdited,
                 })}
-              ></devtools-recorder-input>
+              ></devtools-suggestion-input>
               ${this.#renderInlineButton({
                 class: 'add-selector-part',
                 title: i18nString(UIStrings.addSelectorPart),
@@ -920,7 +920,7 @@ export class StepEditor extends LitElement {
                       }),
                     }),
                   },
-                  `devtools-recorder-input[data-path="selectors.${index}.${
+                  `devtools-suggestion-input[data-path="selectors.${index}.${
                     partIndex + 1
                   }"]`,
                   Host.UserMetrics.RecordingEdited.SelectorPartAdded,
@@ -938,7 +938,7 @@ export class StepEditor extends LitElement {
                       }),
                     }),
                   },
-                  `devtools-recorder-input[data-path="selectors.${index}.${Math.min(
+                  `devtools-suggestion-input[data-path="selectors.${index}.${Math.min(
                     partIndex,
                     parts.length - 2,
                   )}"]`,
@@ -970,7 +970,7 @@ export class StepEditor extends LitElement {
           </div>
           <div class="padded row">
             <div>title<span class="separator">:</span></div>
-            <devtools-recorder-input
+            <devtools-suggestion-input
               .disabled=${this.disabled}
               .placeholder=${defaultValuesByAttribute.assertedEvents[0].title}
               .value=${live(event.title ?? '')}
@@ -988,11 +988,11 @@ export class StepEditor extends LitElement {
                 },
                 metric: Host.UserMetrics.RecordingEdited.OtherEditing,
               })}
-            ></devtools-recorder-input>
+            ></devtools-suggestion-input>
           </div>
           <div class="padded row">
             <div>url<span class="separator">:</span></div>
-            <devtools-recorder-input
+            <devtools-suggestion-input
               .disabled=${this.disabled}
               .placeholder=${defaultValuesByAttribute.assertedEvents[0].url}
               .value=${live(event.url ?? '')}
@@ -1010,7 +1010,7 @@ export class StepEditor extends LitElement {
                 },
                 metric: Host.UserMetrics.RecordingEdited.OtherEditing,
               })}
-            ></devtools-recorder-input>
+            ></devtools-suggestion-input>
           </div>`;
       })}
     </div> `;
@@ -1030,7 +1030,7 @@ export class StepEditor extends LitElement {
       </div>
       ${this.state.attributes.map(({ name, value }, index, attributes) => {
         return html`<div class="padded row">
-          <devtools-recorder-input
+          <devtools-suggestion-input
             .disabled=${this.disabled}
             .placeholder=${defaultValuesByAttribute.attributes[0].name}
             .value=${live(name)}
@@ -1050,9 +1050,9 @@ export class StepEditor extends LitElement {
               },
               metric: Host.UserMetrics.RecordingEdited.OtherEditing,
             })}
-          ></devtools-recorder-input>
+          ></devtools-suggestion-input>
           <span class="separator">:</span>
-          <devtools-recorder-input
+          <devtools-suggestion-input
             .disabled=${this.disabled}
             .placeholder=${defaultValuesByAttribute.attributes[0].value}
             .value=${live(value)}
@@ -1072,7 +1072,7 @@ export class StepEditor extends LitElement {
               },
               metric: Host.UserMetrics.RecordingEdited.OtherEditing,
             })}
-          ></devtools-recorder-input>
+          ></devtools-suggestion-input>
           ${this.#renderInlineButton({
             class: 'add-attribute-assertion',
             title: i18nString(UIStrings.addSelectorPart),
@@ -1100,7 +1100,7 @@ export class StepEditor extends LitElement {
                   ),
                 }),
               },
-              `devtools-recorder-input[data-path="attributes.${
+              `devtools-suggestion-input[data-path="attributes.${
                 index + 1
               }.name"]`,
               Host.UserMetrics.RecordingEdited.OtherEditing,
@@ -1112,7 +1112,7 @@ export class StepEditor extends LitElement {
             iconName: 'minus',
             onClick: this.#handleAddOrRemoveClick(
               { attributes: new ArrayAssignments({ [index]: undefined }) },
-              `devtools-recorder-input[data-path="attributes.${Math.min(
+              `devtools-suggestion-input[data-path="attributes.${Math.min(
                 index,
                 attributes.length - 2,
               )}.value"]`,
