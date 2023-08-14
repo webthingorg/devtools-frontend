@@ -16,6 +16,23 @@
       "message": "I don\u0027t know why but I can\u0027t upload new goldens. I ran the script and it pulled down them.. but when i try to `cl upload` the new patchset... it just hangs foreverrrrrrr (at least 18min)\n\n\u003e Title for patchset [update goldens]:\n\u003e Enumerating objects: 73, done.\n\u003e Counting objects: 100% (73/73), done.\n\u003e Delta compression using up to 36 threads\n\u003e Compressing objects: 100% (42/42), done.\n\u003e Writing objects: 100% (42/42), 228.66 KiB | 13.45 MiB/s, done.\n\u003e Total 42 (delta 27), reused 0 (delta 0), pack-reused 0^CFailed while running \"git push https://chromium.googlesource.com/devtools/devtools-frontend.git bcb994af5ff2bcc16c01867fe70b9a29f9591ab0:refs/for/refs/heads/main%notify\u003dNONE,m\u003dupdate_goldens\"\n\u003e Interrupted\n\nany ideas?",
       "revId": "c3fa6aea4ddd412925aa90681a2eeb03157723ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72cf7b00_b24bada7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-14T08:33:47Z",
+      "side": 1,
+      "message": "All these changes LGTM but I am a bit wary of all of them in one CL should we have any unexpected regressions. WDYT to splitting them up a bit?\n\nRE screenshots: I have started seeing this with large binary files every now and then and I am not entirely sure why 😞 It does sound a lot like b/291722180 though.",
+      "revId": "c3fa6aea4ddd412925aa90681a2eeb03157723ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
