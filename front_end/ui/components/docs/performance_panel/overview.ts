@@ -28,7 +28,6 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
 
   const models = await TraceLoader.TraceLoader.allModels(null, fileName);
 
-  minimap.setBounds(models.timelineModel.minimumRecordTime(), models.timelineModel.maximumRecordTime());
   minimap.setWindowTimes(models.performanceModel.window().left, models.performanceModel.window().right);
   minimap.setData({
     traceParsedData: models.traceParsedData,

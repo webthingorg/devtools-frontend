@@ -345,7 +345,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.showScreenshotsSetting =
         Common.Settings.Settings.instance().createSetting('timelineShowScreenshots', isNode ? false : true);
     this.showScreenshotsSetting.setTitle(i18nString(UIStrings.screenshots));
-    this.showScreenshotsSetting.addChangeListener(this.updateOverviewControls, this);
+    this.showScreenshotsSetting.addChangeListener(this.updateTimelineMinimap, this);
 
     this.showMemorySetting = Common.Settings.Settings.instance().createSetting('timelineShowMemory', false);
     this.showMemorySetting.setTitle(i18nString(UIStrings.memory));
@@ -741,7 +741,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.loader = await TimelineLoader.loadFromURL(url, this);
   }
 
-  private updateOverviewControls(): void {
+  private updateTimelineMinimap(): void {
     const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
 
     this.#minimapComponent.setData({
@@ -755,7 +755,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   private onModeChanged(): void {
-    this.updateOverviewControls();
+    this.updateTimelineMinimap();
     this.doResize();
     this.select(null);
   }
@@ -1092,13 +1092,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
     this.flameChart.setModel(model, traceParsedData);
 
-    this.updateOverviewControls();
+    this.updateTimelineMinimap();
     this.#minimapComponent.reset();
 
     if (model && this.performanceModel) {
       this.performanceModel.addEventListener(Events.WindowChanged, this.onModelWindowChanged, this);
-      this.#minimapComponent.setBounds(
-          model.timelineModel().minimumRecordTime(), model.timelineModel().maximumRecordTime());
       PerfUI.LineLevelProfile.Performance.instance().reset();
       for (const profile of model.timelineModel().cpuProfiles()) {
         PerfUI.LineLevelProfile.Performance.instance().appendCPUProfile(profile.cpuProfileData, profile.target);
@@ -1107,7 +1105,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.#minimapComponent.setWindowTimes(model.window().left, model.window().right);
     }
 
-    this.updateOverviewControls();
+    this.updateTimelineMinimap();
     if (this.flameChart) {
       this.flameChart.resizeToPreferredHeights();
     }

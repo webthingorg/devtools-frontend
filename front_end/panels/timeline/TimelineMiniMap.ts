@@ -58,10 +58,6 @@ export class TimelineMiniMap extends
     this.#overviewComponent.reset();
   }
 
-  setBounds(min: number, max: number): void {
-    this.#overviewComponent.setBounds(min, max);
-  }
-
   setWindowTimes(left: number, right: number): void {
     this.#overviewComponent.setWindowTimes(left, right);
   }
@@ -93,11 +89,19 @@ export class TimelineMiniMap extends
     this.#overviewComponent.setNavStartTimes(traceParsedData.Meta.mainFrameNavigations);
   }
 
+  #setOverviewBounds(traceWindow: TraceEngine.Types.Timing.TraceWindow): void {
+    const {min, max} = traceWindow;
+    const minMilliseconds = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(min);
+    const maxMilliseconds = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(max);
+    this.#overviewComponent.setBounds(minMilliseconds, maxMilliseconds);
+  }
+
   setData(data: OverviewData): void {
     this.#controls = [];
     if (data.traceParsedData) {
       this.#setMarkers(data.traceParsedData);
       this.#setNavigationStartEvents(data.traceParsedData);
+      this.#setOverviewBounds(data.traceParsedData.Meta.traceBounds);
       this.#controls.push(new TimelineEventOverviewResponsiveness(data.traceParsedData));
     }
     this.#controls.push(new TimelineEventOverviewCPUActivity());
