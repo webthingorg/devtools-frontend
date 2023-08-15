@@ -16,6 +16,23 @@
       "message": "Hi, this is a simple accessibility fix. Can you please take a look? Thank you!",
       "revId": "0aded5cf6812a2aae927b1080dea7502d793f016",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1963c945_055b32f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-15T10:48:05Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "0aded5cf6812a2aae927b1080dea7502d793f016",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
