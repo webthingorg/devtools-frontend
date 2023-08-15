@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b46bbb_dd458d46",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-08-15T03:54:10Z",
+      "side": 1,
+      "message": "oh no sorry for my wording. I used \"was used\" to indicate the optional value, but it is not accurate. revised. I hope it looks better.",
+      "parentUuid": "b884639b_355513f2",
+      "revId": "535ce9bb64a7bffe02ad2c3f96c81108fe891773",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "132529bf_4e9e1b91",
