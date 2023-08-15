@@ -5415,7 +5415,7 @@
     "message": "複製 outerHTML"
   },
   "panels/elements/ElementsTreeElement.ts | copySelector": {
-    "message": "複製selector"
+    "message": "複製 selector"
   },
   "panels/elements/ElementsTreeElement.ts | copyStyles": {
     "message": "複製樣式"
@@ -5586,7 +5586,7 @@
     "message": "複製規則"
   },
   "panels/elements/StylePropertiesSection.ts | copySelector": {
-    "message": "複製selector"
+    "message": "複製 selector"
   },
   "panels/elements/StylePropertiesSection.ts | cssSelector": {
     "message": "CSS 選取器"
