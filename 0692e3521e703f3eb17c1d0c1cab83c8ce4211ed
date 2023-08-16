@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4235d70_861366a6",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:37:26Z",
+      "side": 1,
+      "message": "Thanks! :)\n\nThere won\u0027t be any conflicts due to the hook mechanis itself, at least they\u0027re not more likely than before (the popover helpers were looking at the elements independently before). As for the specific popovers for variables, they don\u0027t conflict with the CSS hints because there are not hints for custom properties.",
+      "parentUuid": "eca10450_df55738c",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "429b39c7_208e5842",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "how about `registerPopover` or `addPopover`?",
       "parentUuid": "429b39c7_208e5842",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b33b12_4a83ae7c",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:37:26Z",
+      "side": 1,
+      "message": "Regarding the conflicts:",
+      "parentUuid": "5c254c2d_7bb582d1",
       "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
