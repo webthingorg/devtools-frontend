@@ -13,29 +13,6 @@ Network = Network || {};
 /**
  * @constructor
  */
-Network.BinaryResourceView = NetworkModule.BinaryResourceView.BinaryResourceView;
-
-/**
- * @constructor
- */
-Network.BlockedURLsPane = NetworkModule.BlockedURLsPane.BlockedURLsPane;
-
-/**
- * @constructor
- */
-Network.EventSourceMessageNode = NetworkModule.EventSourceMessagesView.EventSourceMessageNode;
-
-/**
- * @constructor
- */
-Network.NetworkConfigView = NetworkModule.NetworkConfigView.NetworkConfigView;
-
-/** @type {!Array.<{title: string, values: !Array.<{title: string, value: string}>}>} */
-Network.NetworkConfigView._userAgentGroups = NetworkModule.NetworkConfigView.userAgentGroups;
-
-/**
- * @constructor
- */
 Network.NetworkNode = NetworkModule.NetworkDataGridNode.NetworkNode;
 
 /**
