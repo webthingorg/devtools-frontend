@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e7366b_4c6e25cd",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-16T11:03:58Z",
+      "side": 1,
+      "message": "A follow-up CL will add an `if` here distinguishing whether we want to highlight multiple matches or only a single match (preferred) per `TreeOutline.TreeElement` line.",
+      "range": {
+        "startLine": 186,
+        "startChar": 49,
+        "endLine": 186,
+        "endChar": 78
+      },
+      "revId": "9be22ca2b3c981249d916325284a503073579f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
