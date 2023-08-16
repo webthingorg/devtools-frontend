@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ff47b5_4d1f6992",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-16T11:23:09Z",
+      "side": 1,
+      "message": "We could share these bits between the two functions, but we\u0027d either have to serialize out each line into a {lineNumber, lineContent} object, or only share 4 lines, so I\u0027m not sure if it\u0027s worth it.",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 3
+      },
+      "revId": "f6d659085a11e049bd24331a9a7b18f6147bd616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
