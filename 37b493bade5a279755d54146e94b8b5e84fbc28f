@@ -16,6 +16,29 @@
       "message": "Added tooltips and separator",
       "revId": "37b493bade5a279755d54146e94b8b5e84fbc28f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6be46c5_5d282754",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-16T14:31:52Z",
+      "side": 1,
+      "message": "I think this will cause a behaviour change:\n- check a checkbox -\u003e setting in changed accordingly\n- go to different panel with a link to a request\n- clicking on link will open Network panel, this method will run and all checkboxes are unchecked\n- reload devtools\n\nCurrent behaviour: previously checked checkboxes are checked, because clicking on link does no update settings\n\nWith your changes: no checkboxes are checked, because clicking on link updates all settings.\n\nI\u0027m open to discuss what the expected behaviour should be.",
+      "range": {
+        "startLine": 1421,
+        "startChar": 0,
+        "endLine": 1425,
+        "endChar": 48
+      },
+      "revId": "37b493bade5a279755d54146e94b8b5e84fbc28f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
