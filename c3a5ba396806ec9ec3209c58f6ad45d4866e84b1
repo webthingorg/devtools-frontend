@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "549dbd03_b5a9a752",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T08:25:44Z",
+      "side": 1,
+      "message": "I think there might be a double bottom border for the sections collapsed case: https://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d609170\u0026signed_aid\u003diSvwYj1Bis187gF0z6Ipjg\u003d\u003d\u0026inline\u003d1",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba1e30f_903c9f1b",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T08:25:44Z",
+      "side": 1,
+      "message": "Instead of creating a CSSStyleDeclaration in each `style()` access, can we assign this to an internal property `#style` and reuse it?",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41ea37c2_6354e353",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T08:25:44Z",
+      "side": 1,
+      "message": "I\u0027ve checked the usages of that `Type` field and didn\u0027t see any issue with the current usage though I wonder saying that this is a `Type.Regular` CSSStyleDeclaration can cause issues in the future.\n\nWDYT of separating pseudo or generated CSS style declarations with the ones that are coming from actual styles?",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "833dfdfe_abc7d0c0",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T08:25:44Z",
+      "side": 1,
+      "message": "Instead of creating a `#customHeaderText` maybe we can override `headerText()` method in the RegisteredPropertiesSection, WDYT?\n\nThat way we won\u0027t need to manage this internally and I think that\u0027s how we\u0027re doing for KeyframePropertiesSection too.",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6417228c_4e385273",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T08:25:44Z",
+      "side": 1,
+      "message": "I wonder if it makes sense to make it expanded for the cases where there are less than, say 10 property registrations. WDYT?\n\nOtherwise it feels like this feature is not easily discoverable unless you follow a link.",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

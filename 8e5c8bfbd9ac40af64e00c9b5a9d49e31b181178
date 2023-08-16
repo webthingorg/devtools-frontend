@@ -16,6 +16,24 @@
       "message": "Should the section header be localized?",
       "revId": "8e5c8bfbd9ac40af64e00c9b5a9d49e31b181178",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1d661a9_186151da",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T08:25:44Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer to have a title that doesn\u0027t need localization. `Registered properties` feels like we might want to localize, maybe we can use `@properties` directly, wdyt?\n\nI know that CSS.registerProperty is different than written `@properties` so I\u0027m not exactly sure. I wonder how wrong we would be if we were to write `@properties` block and inside the sections we show that whether a property is registered with `CSS.registerProperty` or through a style.",
+      "parentUuid": "3f073e42_3ef7f5f1",
+      "revId": "8e5c8bfbd9ac40af64e00c9b5a9d49e31b181178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
