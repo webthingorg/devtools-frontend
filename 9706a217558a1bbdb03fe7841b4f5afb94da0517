@@ -70,6 +70,30 @@
       },
       "revId": "9706a217558a1bbdb03fe7841b4f5afb94da0517",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3c54dd8_069caa93",
+        "filename": "front_end/panels/sources/UISourceCodeFrame.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-16T12:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ace0f9c_2b014890",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "9706a217558a1bbdb03fe7841b4f5afb94da0517",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
