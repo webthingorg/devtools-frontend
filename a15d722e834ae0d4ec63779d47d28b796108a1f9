@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ae5d0b_7010c101",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-16T10:43:18Z",
+      "side": 1,
+      "message": "How does \"delete (only) overrides\" work currently? IIUC it only deletes the \"currently active\" overrides. So if you have overrides for both `example.com/foo.html` and `example.com/bar.html`, it would delete only the foo-override if you are on \u0027foo.html\u0027 and only the bar-override if you are on \u0027bar.html\u0027. Does this approach even make sense?",
+      "revId": "a15d722e834ae0d4ec63779d47d28b796108a1f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
