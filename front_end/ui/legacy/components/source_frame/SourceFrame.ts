@@ -669,7 +669,7 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   protected async getLanguageSupport(content: string|CodeMirror.Text): Promise<CodeMirror.Extension> {
     // This is a pretty horrible work-around for webpack-based Vue2 setups. See
     // https://crbug.com/1416562 for the full story behind this.
-    let {contentType} = this;
+    let contentType = Common.ResourceType.ResourceType.simplifyContentType(this.contentType);
     if (contentType === 'text/x.vue') {
       content = typeof content === 'string' ? content : content.sliceString(0);
       if (!content.trimStart().startsWith('<')) {
