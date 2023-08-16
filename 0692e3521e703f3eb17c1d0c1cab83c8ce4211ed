@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e6868c7_06c2d68e",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "I added this in the parent CL, does that work?",
+      "parentUuid": "46f15983_8b5a4348",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "33721666_8fa4cec4",
         "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-16T09:34:28Z",
       "side": 1,
       "message": "(nit): This felt super confusing to read at first, felt like it is an infinite loop :D\n\nI didn\u0027t exactly understand why we needed a wrapper function inside StylePropertyHighlighter for `highlightElement` utility, is this needed?",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "377d4392_7cb136ee",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33721666_8fa4cec4",
       "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c254c2d_7bb582d1",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "how about `registerPopover` or `addPopover`?",
+      "parentUuid": "429b39c7_208e5842",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9e4b068_8ca764d6",
         "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
         "patchSetId": 4
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae2b15ca_d89b260a",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "I added them for use in the unittest. Admittedly value isn\u0027t used, but it felt more consistent having both. How about I remove the value?",
+      "parentUuid": "c9e4b068_8ca764d6",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79fbd856_0e80a8b1",
         "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
         "patchSetId": 4
@@ -99,6 +171,24 @@
       "writtenOn": "2023-08-16T09:34:28Z",
       "side": 1,
       "message": "Not directly related to this CL but wanted to note, when I want to test a `@property` rule without an initial value, I don\u0027t see it rendered in the Styles pane. It seems like somehow backend is not returning that.\n\n(Feel free to directly resolve for this CL 😊)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54a79fe1_5be94d30",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "As discussed offline, unless the syntax of the property is \"*\", initial-value is mandatory and leaving it out will silently drop the rule as invalid. Filed https://crbug.com/1473283 to consider logging an issue in this case.",
+      "parentUuid": "79fbd856_0e80a8b1",
       "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +227,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad7ea817_9c611014",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f086a4b_2b711f86",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c17a1780_cbbc6b4b",
@@ -154,6 +262,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c520671_6f22e4b5",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c17a1780_cbbc6b4b",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13c0ef01_c6facd1c",
@@ -167,6 +293,24 @@
       "writtenOn": "2023-08-16T09:34:28Z",
       "side": 1,
       "message": "Oh now I understand the need for the `highlightElement` inside the class. IMO this is not needed that much, I\u0027d prefer the previous way of doing assertions on the element -- at the end of the highlight, we expect `scrollIntoViewIfNeeded` and `animate` to be called on the element.\n\nWDYT?",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e7ce777_00293100",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyHighlighter_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T12:23:46Z",
+      "side": 1,
+      "message": "As discussed offline, spying on the element doesn\u0027t work because the element is created during highlighting. For installing the spy I\u0027d have to reach deep into the implementation of the styles pane to get the element out.",
+      "parentUuid": "13c0ef01_c6facd1c",
       "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
