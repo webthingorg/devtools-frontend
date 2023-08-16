@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a570f339_9cb65758",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-16T13:47:10Z",
+      "side": 1,
+      "message": "This does not look great on non MacOS in my opinion because it adds too much whitespace: https://i.imgur.com/AFpik2q.png\nMacOS\u0027s \"show scrollbar only on hover\"-feature is tricky to handle.",
+      "revId": "8ec0a4f8be0dfa75aa61e7e93b276104fc3eb818",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
