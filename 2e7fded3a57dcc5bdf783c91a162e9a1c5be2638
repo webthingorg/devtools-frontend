@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d2b5b9_3a78cf40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-16T05:04:46Z",
+      "side": 1,
+      "message": "Thanks for the contribution! Unfortunately the JSON files are not the source of truth for translations and the next time we export them from our internal system, these changes would be overwritten again.\n\nI\u0027ll forward your feedback to our translators and they\u0027ll hopefully approve the changes.",
+      "revId": "2e7fded3a57dcc5bdf783c91a162e9a1c5be2638",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
