@@ -33,6 +33,24 @@
       "message": "Nit: the waitfor is redundant, click() includes waiting",
       "revId": "1929c3cd0234b20209d598f826645334606134c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5f97a4_5697b137",
+        "filename": "test/e2e/network/can-pretty-print-network_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-16T08:33:29Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "fe5ed27f_1b54e2be",
+      "revId": "1929c3cd0234b20209d598f826645334606134c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
