@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "127a5a0d_89d9cd41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-16T11:22:42Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9be22ca2b3c981249d916325284a503073579f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32e7366b_4c6e25cd",
@@ -19,6 +36,29 @@
         "startChar": 49,
         "endLine": 186,
         "endChar": 78
+      },
+      "revId": "9be22ca2b3c981249d916325284a503073579f4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32288f75_02f1461f",
+        "filename": "front_end/panels/search/SearchResultsPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-16T11:22:42Z",
+      "side": 1,
+      "message": "nit: remove?",
+      "range": {
+        "startLine": 303,
+        "startChar": 8,
+        "endLine": 303,
+        "endChar": 9
       },
       "revId": "9be22ca2b3c981249d916325284a503073579f4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
