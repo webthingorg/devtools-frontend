@@ -70,6 +70,30 @@
       },
       "revId": "2b50846c0c5465e15eede4e88c2a58ebc87baa4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b6bbc9_b3736047",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-16T16:14:58Z",
+      "side": 1,
+      "message": "Good idea. Changed and added one more test to cover it",
+      "parentUuid": "0967510c_239aead1",
+      "range": {
+        "startLine": 765,
+        "startChar": 2,
+        "endLine": 765,
+        "endChar": 61
+      },
+      "revId": "2b50846c0c5465e15eede4e88c2a58ebc87baa4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
