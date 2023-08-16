@@ -60,6 +60,7 @@ devtools_module("perf_ui") {
 
   visibility = [
     "../../../../../test/unittests/front_end/perf_ui",
+    "../../../../component_docs/breadcrumbs_perf",
     "../../../../component_docs/perf_piechart",
   ]
 }
