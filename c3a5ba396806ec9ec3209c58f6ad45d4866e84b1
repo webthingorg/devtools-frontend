@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e46b1ff6_7014ecec",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T10:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ba1e30f_903c9f1b",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41ea37c2_6354e353",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-08-16T08:25:44Z",
       "side": 1,
       "message": "I\u0027ve checked the usages of that `Type` field and didn\u0027t see any issue with the current usage though I wonder saying that this is a `Type.Regular` CSSStyleDeclaration can cause issues in the future.\n\nWDYT of separating pseudo or generated CSS style declarations with the ones that are coming from actual styles?",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd79f68_da5c5753",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T10:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41ea37c2_6354e353",
       "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b58abf1a_4eba578b",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T10:37:45Z",
+      "side": 1,
+      "message": "The problem here is that headerText() is called in the constructor of this class, and thus overriding versions of the function may only access properties of the base class that have been set up to this point. I figured passing the header text as an argument like this is a cleaner solution than trying to reorder all the initializtions.",
+      "parentUuid": "833dfdfe_abc7d0c0",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6417228c_4e385273",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-08-16T08:25:44Z",
       "side": 1,
       "message": "I wonder if it makes sense to make it expanded for the cases where there are less than, say 10 property registrations. WDYT?\n\nOtherwise it feels like this feature is not easily discoverable unless you follow a link.",
+      "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23232082_a5f76672",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T10:37:45Z",
+      "side": 1,
+      "message": "nice idea, let\u0027s meet in the middle and make it 5!",
+      "parentUuid": "6417228c_4e385273",
       "revId": "c3a5ba396806ec9ec3209c58f6ad45d4866e84b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

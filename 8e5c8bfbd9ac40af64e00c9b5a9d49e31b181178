@@ -34,6 +34,24 @@
       "parentUuid": "3f073e42_3ef7f5f1",
       "revId": "8e5c8bfbd9ac40af64e00c9b5a9d49e31b181178",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17ff65ed_2bb7007d",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-16T10:37:45Z",
+      "side": 1,
+      "message": "Done. The latter part already happens via https://crrev.com/c/4770845/2/front_end/panels/elements/StylePropertiesSection.ts#1645",
+      "parentUuid": "e1d661a9_186151da",
+      "revId": "8e5c8bfbd9ac40af64e00c9b5a9d49e31b181178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
