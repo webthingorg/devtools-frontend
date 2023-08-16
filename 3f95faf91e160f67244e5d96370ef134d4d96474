@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c299a42f_e138ec91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-16T09:30:56Z",
+      "side": 1,
+      "message": "I fixed the BUILD system - sorry, I forgot to explain some rules to you (this is a useful kick to me to write some more docs!)\n\n- Any time you use the Trace Engine, you have to import it from `models/trace/trace.ts`. You are not able to import bits of it, e.g. `import Types from models/trace/types/types.ts`. It will work, but we have tooling that might break when we deploy due to how we bundle in production (this is not really documented anywhere and I missed it in a previous CL, so sorry about that, that is all on me)\n\n- components/BreadcrumbsUI could not import the Breadcrumbs file that was in the timeline folder as it resulted in a circular dependency; to avoid that I have moved the Breadcrumbs.ts file into the components folder too. Although it is strictly not a component, it is representing the data that the component will use, so I don\u0027t feel too bad about moving it into components and avoiding the BUILD issue.\n\n- I tidied up the deps \u003d [...] list in the BUILD.gn files. They should only contain DEPS that are actually imported in the TypeScript files (long term we want to automate this check but we have not yet). There were some DEPS that were not needed, and some that were missing.\n\nWith these changes, the code builds and all the tests run, so you should now be able to continue working on the component. I will work on some documentation for some of these rules!",
+      "revId": "3f95faf91e160f67244e5d96370ef134d4d96474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
