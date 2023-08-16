@@ -94,9 +94,10 @@ export class RequestResponseView extends UI.Widget.VBox {
       return null;
     }
 
-    const mimeType = request.resourceType().canonicalMimeType() || request.mimeType;
+    const mimeType = request.mimeType || request.resourceType().canonicalMimeType();
     const mediaType = Common.ResourceType.ResourceType.mediaTypeForMetrics(
         mimeType, request.resourceType().isFromSourceMap(), TextUtils.TextUtils.isMinified(contentData.content ?? ''));
+
     Host.userMetrics.networkPanelResponsePreviewOpened(mediaType);
     const autoPrettyPrint = Root.Runtime.experiments.isEnabled('sourcesPrettyPrint');
     sourceView =
