@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f15983_8b5a4348",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "I wonder if we should only call `expand` when the block is expandable or handle the `expand` call in `SectionBlock` to early return if it is not expandable.\n\nAs far as I understand, `expand` method there still executes some stuff even though the SectionBlock is not expandable. WDYT?",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33721666_8fa4cec4",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "(nit): This felt super confusing to read at first, felt like it is an infinite loop :D\n\nI didn\u0027t exactly understand why we needed a wrapper function inside StylePropertyHighlighter for `highlightElement` utility, is this needed?",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eca10450_df55738c",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "This is such a good idea, awesome!\n\nI wonder if there can be any downside to this like trying to show multiple popovers etc with the \"hint\" popover helper. Maybe, in the future, we can move the logic for registering popovers to only use `addElementPopoverHook` :)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "429b39c7_208e5842",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "(very very much nit): I\u0027ve not felt good about \"hook\" keyword here. It feels like something is already going on and we\u0027re hooking into the process. For example, there is rendering going on and we hook into that process in specific points:\n\"BeforeCompositionHook\" etc.\n\nI\u0027ve felt like `addElementPopoverHandler` might be a better candidate. It is handling showing popover responsibility for the element.\n\n(If you don\u0027t agree and if you prefer \"hook\", just resolve this comment and pass; not a big thing at all 😂)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9e4b068_8ca764d6",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "As far as I understand these internal properties are never used. Can we just get rid of them?\n\nOtherwise we can also try to follow the pattern of setting the properties in the constructor and then using them in the `render` method. IMO this was the case for other components I think. WDYT?",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fbd856_0e80a8b1",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "Not directly related to this CL but wanted to note, when I want to test a `@property` rule without an initial value, I don\u0027t see it rendered in the Styles pane. It seems like somehow backend is not returning that.\n\n(Feel free to directly resolve for this CL 😊)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08d54c8c_cc6a7301",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "(very much nit): I\u0027m feeling like the title\u0027s spacing to the values might be a bit bigger than the spacing between the values. Did you check it with Peter? :)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f086a4b_2b711f86",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "I wonder if we need to separate between this property getting registered with `@property` or `CSS.registerProperty`. I think `Go to definition` might be a better text, WDYT? (it was like that in the designs AFAIR, WDYT?)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c17a1780_cbbc6b4b",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "I feel like registering for showing popover is a stretch responsibility for the LinkSwatch.\n\nI wonder if we can:\n* Get `link` node (I assume startNode?.nextSibling) from the LinkSwatch\n* if it exists, `addElementPopoverHook` in the place of the calling site.\n\nThat way we won\u0027t complicate the interface of the LinkSwatch much.\n\nIt also seems a bit more complicated to understand now: there is `registerPopoverCallback` which is executed when there is a sibling node from the rendered root[1] which in turn calls `addElementPopoverHook` in the parent pane which essentially saves the element\u003c-\u003e(popover hook) map.\n\nUnderstanding the why in [1] seems a bit hidden, as I don\u0027t understand what that sibling node supposed to be :)\n\nWDYT?",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13c0ef01_c6facd1c",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyHighlighter_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "Oh now I understand the need for the `highlightElement` inside the class. IMO this is not needed that much, I\u0027d prefer the previous way of doing assertions on the element -- at the end of the highlight, we expect `scrollIntoViewIfNeeded` and `animate` to be called on the element.\n\nWDYT?",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9a0cb81_b02ca719",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "Nice! Thanks for mocking these in a more sane way than the previous version :)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

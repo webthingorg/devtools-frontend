@@ -16,6 +16,24 @@
       "message": "This only works if we decide against localizing the title in the other change.",
       "revId": "a2568b4412662515dcc94a9fa0c9541daa952d7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b05ec54_2ea6471e",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-16T09:34:28Z",
+      "side": 1,
+      "message": "Ack, I think I\u0027d prefer a \"global\" keyword there like \"@property\" (which might be questionable... let\u0027s discuss in the previous CL 😊)",
+      "parentUuid": "fcd35b12_bd0a9682",
+      "revId": "a2568b4412662515dcc94a9fa0c9541daa952d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
