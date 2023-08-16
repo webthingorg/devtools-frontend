@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "075b081f_2a2d9da2",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-16T12:18:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ac20cb6_91b09df4",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 62
+      },
+      "revId": "80e8bdd82f84d0802eb7ad0a4da0d8c59c935f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3408f023_d19c19b2",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84a9caf8_fe6f1d7e",
+        "filename": "test/unittests/front_end/core/sdk/NetworkRequest_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-16T12:18:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3408f023_d19c19b2",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "80e8bdd82f84d0802eb7ad0a4da0d8c59c935f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db178fd8_44a5755a",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-08-16T09:11:53Z",
       "side": 1,
       "message": "What does this line achieve?",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 152,
+        "endChar": 23
+      },
+      "revId": "80e8bdd82f84d0802eb7ad0a4da0d8c59c935f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a07d8a18_a32a7781",
+        "filename": "test/unittests/front_end/panels/network/components/RequestHeadersView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-16T12:18:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db178fd8_44a5755a",
       "range": {
         "startLine": 152,
         "startChar": 3,
