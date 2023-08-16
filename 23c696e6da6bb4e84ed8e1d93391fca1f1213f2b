@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa24b940_8a2de4cf",
+        "filename": "front_end/panels/layer_viewer/Layers3DView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-08-16T21:50:17Z",
+      "side": 1,
+      "message": "since the red slow rects appears on TOP of paints, the paints checkbox should go first.\n\nalso i changed \u0027show paints\u0027 to default to false, to help keep the experience lightweight for users.",
+      "revId": "23c696e6da6bb4e84ed8e1d93391fca1f1213f2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
