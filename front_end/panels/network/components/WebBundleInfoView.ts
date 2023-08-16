@@ -10,7 +10,7 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as DataGrid from '../../../ui/components/data_grid/data_grid.js';
-import {iconDataForResourceType} from '../../../panels/utils/utils.js';
+import {PanelUtils} from '../../../panels/utils/utils.js';
 import webBundleInfoViewStyles from './WebBundleInfoView.css.js';
 
 const {render, html} = LitHtml;
@@ -49,7 +49,7 @@ export class WebBundleInfoView extends LegacyWrapper.LegacyWrapper.WrappableComp
       const mimeType = Common.ResourceType.ResourceType.mimeFromURL(url) || null;
       const resourceType = Common.ResourceType.ResourceType.fromMimeTypeOverride(mimeType) ||
           Common.ResourceType.ResourceType.fromMimeType(mimeType);
-      const iconData = iconDataForResourceType(resourceType);
+      const iconData = PanelUtils.iconDataForResourceType(resourceType);
       return {
         cells: [
           {
