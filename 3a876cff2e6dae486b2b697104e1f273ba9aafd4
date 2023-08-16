@@ -16,6 +16,23 @@
       "message": "PUT /projects/MyProject/access:review HTTP/1.0\n  Content-Type: application/json; charset\u003dUTF-8\n\n  {\n    \"add\": {\n      \"refs/heads/*\": {\n        \"permissions\": {\n          \"read\": {\n            \"rules\": {\n              \"global:Anonymous-Users\": {\n                \"action\": \"DENY\",\n                \"force\": false\n              }\n            }\n          }\n        }\n      }\n    }\n  }",
       "revId": "3a876cff2e6dae486b2b697104e1f273ba9aafd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9010005_101cc490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1592918
+      },
+      "writtenOn": "2023-08-16T08:20:57Z",
+      "side": 1,
+      "message": "Opps. . . \n\nHarmone you know !",
+      "revId": "3a876cff2e6dae486b2b697104e1f273ba9aafd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
