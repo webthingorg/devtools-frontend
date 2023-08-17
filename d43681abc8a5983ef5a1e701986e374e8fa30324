@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "706014b0_6a091379",
+        "filename": "front_end/ui/legacy/components/data_grid/ViewportDataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:42:56Z",
+      "side": 1,
+      "message": "if `end` is an index, should we check for end \u003d\u003d\u003d nodes.length - 1?",
+      "range": {
+        "startLine": 135,
+        "startChar": 25,
+        "endLine": 135,
+        "endChar": 28
+      },
+      "revId": "d43681abc8a5983ef5a1e701986e374e8fa30324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
