@@ -16,6 +16,46 @@
       "message": "Could you take a look, please?",
       "revId": "d10709b8ef94f5e4c564c0e987da4642eb71fd81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c0bd74c_45efd667",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-17T04:56:41Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "d10709b8ef94f5e4c564c0e987da4642eb71fd81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe34281_1ddbdafe",
+        "filename": "test/unittests/front_end/core/sdk/DebuggerModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-17T04:56:41Z",
+      "side": 1,
+      "message": "Instead of the loop we could move the `resolve` call inside `getError()`. But that would encode the assumption that we update the DebuggerModel state the first time `getError` is accessed. Your call :)",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 7
+      },
+      "revId": "d10709b8ef94f5e4c564c0e987da4642eb71fd81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
