@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "062fd535_433ac280",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-17T12:03:16Z",
+      "side": 1,
+      "message": "Hope this is okay in this case",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "3f8b8a29e72298d5a740c1446e1b6506adb165f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
