@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd22671_6d187629",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-17T08:29:34Z",
+      "side": 1,
+      "message": "Good point, we\u0027ll definitely need it in the future",
+      "parentUuid": "a9d627a5_b8549cce",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "cd32b78b62e8b5a72ea1b2e88ef3ab6ede5118f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "209b88d5_57271d3f",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "341d7aa5_814af053",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-17T08:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "209b88d5_57271d3f",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "cd32b78b62e8b5a72ea1b2e88ef3ab6ede5118f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01beed97_a422686f",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-08-16T13:37:52Z",
       "side": 1,
       "message": "let\u0027s not put this styling inline. Instead create a CSS file and import it (see https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/docs/building-ui-documentation/StylingComponents.md)",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 57
+      },
+      "revId": "cd32b78b62e8b5a72ea1b2e88ef3ab6ede5118f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d1ff243_517e6bc5",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-17T08:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01beed97_a422686f",
       "range": {
         "startLine": 30,
         "startChar": 8,
