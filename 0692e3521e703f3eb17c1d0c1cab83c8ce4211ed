@@ -109,6 +109,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c451310_d79ec90a",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-17T10:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb7d65b_bf3a9bc9",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eca10450_df55738c",
         "filename": "front_end/panels/elements/StylesSidebarPane.ts",
         "patchSetId": 4
@@ -266,6 +284,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91108975_ab36e093",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-17T10:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e53425b_baa99e8a",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79fbd856_0e80a8b1",
@@ -314,6 +350,24 @@
       "writtenOn": "2023-08-16T09:34:28Z",
       "side": 1,
       "message": "(very much nit): I\u0027m feeling like the title\u0027s spacing to the values might be a bit bigger than the spacing between the values. Did you check it with Peter? :)",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb4025b3_38a20b37",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-17T10:25:35Z",
+      "side": 1,
+      "message": "I\u0027m gonna land as is and will check with Peter after the fact. We have plenty of time to tweak this still.",
+      "parentUuid": "08d54c8c_cc6a7301",
       "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
