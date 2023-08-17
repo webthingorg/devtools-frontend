@@ -16,6 +16,29 @@
       "message": "LGTM! I think we should add some tests for it, but let\u0027s do that in the next CL when you work on supporting a set of breadcrumbs and rendering those 😊",
       "revId": "bcd10842bb66e7902ac06239c5cfe74b077e3582",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89899b26_4079efd8",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T11:11:01Z",
+      "side": 1,
+      "message": "clang doesn\u0027t format this properly, so we disable clang-format around these and manually indent them, can you do that before landing this please?\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/docs/building-ui-documentation/CreatingComponents.md;l\u003d86?q\u003dcreatingcomponent\u0026ss\u003dchromium, see \"Rendering a component\"",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 16
+      },
+      "revId": "bcd10842bb66e7902ac06239c5cfe74b077e3582",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
