@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc15049_f3d835f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-08-17T22:46:41Z",
+      "side": 1,
+      "message": "CQ doesn\u0027t launch tryjobs, performing submit directly",
+      "revId": "ef4ef2ae2d3fcd1c7b8588cf5d78a77eb5daac88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
