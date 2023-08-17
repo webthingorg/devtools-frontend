@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dafe0292_afb5e9d2",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-17T08:51:50Z",
+      "side": 1,
+      "message": "Yep, SGTM\n\n(one nit to the solution there: checking for !this.icon feels quite implicitly checking for it being expandable or not; I think having an \"#expandable\" property and checking for that might have been better though it\u0027s not soooo important so we can leave it as it is 😊)",
+      "parentUuid": "4e6868c7_06c2d68e",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33721666_8fa4cec4",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "33721666_8fa4cec4",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb7d65b_bf3a9bc9",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-17T08:51:50Z",
+      "side": 1,
+      "message": "Thanks for doing this. I remember this being a question sometime:\n* Why an exported function turned into a static function inside a class.\n\nCan you add a comment to PanelUtils to describe why we\u0027re using a class here and not just export the function from the module?",
+      "parentUuid": "377d4392_7cb136ee",
       "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -159,6 +195,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43727053_cd883776",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-17T08:51:50Z",
+      "side": 1,
+      "message": "Yep, I love that; thanks! :)",
+      "parentUuid": "32b33b12_4a83ae7c",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9e4b068_8ca764d6",
@@ -190,6 +244,24 @@
       "side": 1,
       "message": "I added them for use in the unittest. Admittedly value isn\u0027t used, but it felt more consistent having both. How about I remove the value?",
       "parentUuid": "c9e4b068_8ca764d6",
+      "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e53425b_baa99e8a",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-17T08:51:50Z",
+      "side": 1,
+      "message": "Ah I see, for that case, I think I\u0027d prefer to keep `#render` method not take any parameters and use the class properties for the `value` and `details`.\n\nThough I see both usages in our codebase, so I\u0027m fine with leaving as it is too. Sorry for the additional noise and feel free to just resolve this comment :)",
+      "parentUuid": "ae2b15ca_d89b260a",
       "revId": "0692e3521e703f3eb17c1d0c1cab83c8ce4211ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
