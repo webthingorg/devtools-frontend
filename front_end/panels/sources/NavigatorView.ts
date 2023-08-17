@@ -97,7 +97,12 @@ const UIStrings = {
   /**
    *@description Text in Navigator View of the Sources panel
    */
-  areYouSureYouWantToDeleteAll: 'Are you sure you want to delete all overrides in this folder?',
+  areYouSureYouWantToDeleteAllOverrides: 'Are you sure you want to delete all overrides in this folder?',
+  /**
+   *@description Text in Navigator View of the Sources panel
+   */
+  areYouSureYouWantToDeleteFolder:
+      'Are you sure you want to delete this folder and its contents?\nThis action cannot be undone.',
   /**
    *@description A context menu item in the Navigator View of the Sources panel
    */
@@ -987,7 +992,8 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   }
 
   private async handleDeleteOverrides(node: NavigatorTreeNode): Promise<void> {
-    const shouldRemove = await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.areYouSureYouWantToDeleteAll));
+    const shouldRemove =
+        await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.areYouSureYouWantToDeleteAllOverrides));
     if (shouldRemove) {
       this.handleDeleteOverridesHelper(node);
     }
@@ -997,13 +1003,61 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
     node.children().forEach(child => {
       this.handleDeleteOverridesHelper(child);
     });
+
     if (node instanceof NavigatorUISourceCodeTreeNode) {
       // Only delete confirmed overrides and not just any file that happens to be in the folder.
       const binding = Persistence.Persistence.PersistenceImpl.instance().binding(node.uiSourceCode());
-      if (binding) {
+      const headerBinding =
+          Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().isActiveHeaderOverrides(
+              node.uiSourceCode());
+      if (binding || headerBinding) {
         node.uiSourceCode().project().deleteFile(node.uiSourceCode());
       }
     }
+  }
+
+  private async handleDeleteFolder(node: NavigatorTreeNode): Promise<void> {
+    const shouldRemove = await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.areYouSureYouWantToDeleteFolder));
+    if (shouldRemove) {
+      const topNode = this.findTopNonMergedNode(node);
+      await this.handleDeleteAllFilesHelper(topNode);
+      await this.deleteFolder(topNode);
+    }
+  }
+
+  private async handleDeleteAllFilesHelper(node: NavigatorTreeNode): Promise<void> {
+    node.children().forEach(async child => {
+      await this.handleDeleteAllFilesHelper(child);
+    });
+
+    if (node instanceof NavigatorUISourceCodeTreeNode) {
+      node.uiSourceCode().project().deleteFile(node.uiSourceCode());
+    }
+  }
+
+  private async deleteFolder(node: NavigatorTreeNode): Promise<void> {
+    if (!(node instanceof NavigatorFolderTreeNode)) {
+      return;
+    }
+
+    await Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().project()?.deleteFolder(
+        node.folderPath);
+  }
+
+  private findTopNonMergedNode(node: NavigatorTreeNode): NavigatorTreeNode {
+    // multiple folder nodes can be merged into one if it only contains one file
+    // e.g. the folder of "abc.com/assets/css/button.css" can be "abc.com/assets/css"
+    // find the top non-merged node (abc.com) recursively
+
+    if (!node.isMerged) {
+      return node;
+    }
+
+    if (!(node.parent instanceof NavigatorFolderTreeNode)) {
+      return node;
+    }
+
+    return this.findTopNonMergedNode(node.parent);
   }
 
   handleFolderContextMenu(event: Event, node: NavigatorFolderTreeNode): void {
@@ -1062,8 +1116,15 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
           });
         }
       } else {
-        contextMenu.defaultSection().appendItem(
-            i18nString(UIStrings.deleteAllOverrides), this.handleDeleteOverrides.bind(this, node));
+        if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.DELETE_OVERRIDES_TEMP_ENABLE)) {
+          contextMenu.defaultSection().appendItem(
+              i18nString(UIStrings.deleteAllOverrides), this.handleDeleteOverrides.bind(this, node));
+        }
+
+        if (!(node instanceof NavigatorGroupTreeNode)) {
+          contextMenu.defaultSection().appendItem(
+              i18nString(UIStrings.delete), this.handleDeleteFolder.bind(this, node));
+        }
       }
     }
 
@@ -1321,19 +1382,16 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
 
   updateIcon(): void {
     const binding = Persistence.Persistence.PersistenceImpl.instance().binding(this.uiSourceCodeInternal);
+    const networkPersistenceManager = Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance();
     let iconType = 'document';
     let iconStyles: string[] = [];
     if (binding) {
       if (Snippets.ScriptSnippetFileSystem.isSnippetsUISourceCode(binding.fileSystem)) {
         iconType = 'snippet';
       }
-      const badgeIsPurple = Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance().project() ===
-          binding.fileSystem.project();
+      const badgeIsPurple = networkPersistenceManager.project() === binding.fileSystem.project();
       iconStyles = badgeIsPurple ? ['dot', 'purple'] : ['dot', 'green'];
-    } else if (
-        this.uiSourceCodeInternal.url().endsWith(Persistence.NetworkPersistenceManager.HEADERS_FILENAME) &&
-        Persistence.NetworkPersistenceManager.NetworkPersistenceManager.instance()
-            .hasMatchingNetworkUISourceCodeForHeaderOverridesFile(this.uiSourceCodeInternal)) {
+    } else if (networkPersistenceManager.isActiveHeaderOverrides(this.uiSourceCode)) {
       iconStyles = ['dot', 'purple'];
     } else {
       if (Snippets.ScriptSnippetFileSystem.isSnippetsUISourceCode(this.uiSourceCodeInternal)) {
