@@ -920,9 +920,10 @@ export enum DevtoolsExperiments {
   'selfXssWarning' = 75,
   'useSourceMapScopes' = 76,
   'storageBucketsTree' = 77,
+  'deleteOverridesTemporarilyEnable' = 78,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 78,
+  'MaxValue' = 79,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
