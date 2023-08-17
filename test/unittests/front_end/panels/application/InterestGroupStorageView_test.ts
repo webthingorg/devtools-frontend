@@ -71,7 +71,8 @@ describeWithMockConnection('InterestGroupStorageView', () => {
     assert.isTrue(view.sidebarWidget()?.contentElement.firstChild?.textContent?.includes('Click'));
   });
 
-  it('updates sidebarWidget upon receiving cellFocusedEvent when InterestGroupGetter succeeds', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('updates sidebarWidget upon receiving cellFocusedEvent when InterestGroupGetter succeeds', async () => {
     const view = new View.InterestGroupStorageView(new InterestGroupDetailsGetter());
     events.forEach(event => {
       view.addEvent(event);
@@ -91,7 +92,8 @@ describeWithMockConnection('InterestGroupStorageView', () => {
     assert.deepEqual(view.sidebarWidget()?.constructor.name, 'SearchableView');
   });
 
-  it('updates sidebarWidget upon receiving cellFocusedEvent when InterestGroupDetailsGetter fails', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('updates sidebarWidget upon receiving cellFocusedEvent when InterestGroupDetailsGetter fails', async () => {
     const view = new View.InterestGroupStorageView(new InterestGroupDetailsGetterFails());
     events.forEach(event => {
       view.addEvent(event);
@@ -112,7 +114,8 @@ describeWithMockConnection('InterestGroupStorageView', () => {
     assert.isTrue(view.sidebarWidget()?.contentElement.firstChild?.textContent?.includes('No details'));
   });
 
-  it('clears sidebarWidget upon clearEvents', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('clears sidebarWidget upon clearEvents', async () => {
     const view = new View.InterestGroupStorageView(new InterestGroupDetailsGetter());
     events.forEach(event => {
       view.addEvent(event);

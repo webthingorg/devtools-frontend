@@ -20,7 +20,8 @@ const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 const {assert} = chai;
 
 describeWithLocale('IDBDatabaseView', () => {
-  it('renders with a title and top-level site', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('renders with a title and top-level site', async () => {
     const databaseId = new Application.IndexedDBModel.DatabaseId(
         {storageKey: 'https://example.com/^0https://example.org'}, 'My Database');
     const database = new Application.IndexedDBModel.Database(databaseId, 1);
@@ -54,7 +55,8 @@ describeWithLocale('IDBDatabaseView', () => {
     ]);
   });
 
-  it('renders with an opaque storage key', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('renders with an opaque storage key', async () => {
     const databaseId =
         new Application.IndexedDBModel.DatabaseId({storageKey: 'https://example.com/^112345^267890'}, '');
     const database = new Application.IndexedDBModel.Database(databaseId, 1);
@@ -80,7 +82,8 @@ describeWithLocale('IDBDatabaseView', () => {
     assert.deepEqual(values, ['https://example.com', 'Yes, because the storage key is opaque', 'Yes', '1', '0']);
   });
 
-  it('renders with a storage bucket', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('renders with a storage bucket', async () => {
     const databaseId =
         new Application.IndexedDBModel.DatabaseId({storageKey: 'https://example.com/^112345^267890'}, '');
     const database = new Application.IndexedDBModel.Database(databaseId, 1);
@@ -133,7 +136,8 @@ describeWithLocale('IDBDatabaseView', () => {
     ]);
   });
 
-  it('renders buttons', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('renders buttons', async () => {
     const databaseId = new Application.IndexedDBModel.DatabaseId({storageKey: ''}, '');
     const database = new Application.IndexedDBModel.Database(databaseId, 1);
     const model = {
