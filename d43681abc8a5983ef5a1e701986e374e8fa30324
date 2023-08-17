@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "140db1da_0ed8f50b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:48:39Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "d43681abc8a5983ef5a1e701986e374e8fa30324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "706014b0_6a091379",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "`end` is exclusive though. See below, where it is used in `splice`. Also, above where `end` is assigned to `i`, `i` could be `size`.",
       "parentUuid": "706014b0_6a091379",
+      "range": {
+        "startLine": 135,
+        "startChar": 25,
+        "endLine": 135,
+        "endChar": 28
+      },
+      "revId": "d43681abc8a5983ef5a1e701986e374e8fa30324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ac4a155_a4d57179",
+        "filename": "front_end/ui/legacy/components/data_grid/ViewportDataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:48:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f248f944_a1c19cfe",
       "range": {
         "startLine": 135,
         "startChar": 25,
