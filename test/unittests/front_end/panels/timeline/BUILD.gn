@@ -35,5 +35,6 @@ ts_library("timeline") {
     "../../../../../front_end/panels/timeline:bundle",
     "../../helpers",
     "./track_appenders",
+    "./components",
   ]
 }
