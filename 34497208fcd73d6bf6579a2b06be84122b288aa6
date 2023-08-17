@@ -33,6 +33,23 @@
       "message": "Wolfgang, please take a look.",
       "revId": "34497208fcd73d6bf6579a2b06be84122b288aa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3c75362_4f06ca03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-17T10:49:26Z",
+      "side": 1,
+      "message": "LGTM with one caveat: for very narrow widths of the DevTools window, this causes the buttons to the right of the text input to be not visible anymore because the textbox is not shrinking.",
+      "revId": "34497208fcd73d6bf6579a2b06be84122b288aa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
