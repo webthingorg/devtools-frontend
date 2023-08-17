@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "45f3e7eb9f6d6d589fc66b99e201b715fe842992",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb8deb07_fde8acd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-17T15:45:48Z",
+      "side": 1,
+      "message": "Just FYI, the CPU overview",
+      "revId": "45f3e7eb9f6d6d589fc66b99e201b715fe842992",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
