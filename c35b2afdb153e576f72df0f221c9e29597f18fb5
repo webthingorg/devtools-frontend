@@ -22,6 +22,30 @@
       },
       "revId": "c35b2afdb153e576f72df0f221c9e29597f18fb5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b490e747_13526c6e",
+        "filename": "test/e2e/recorder/recorder_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-17T10:47:44Z",
+      "side": 1,
+      "message": "Example of a failed recording:\n```\n{\n  \"title\": \"New Recording\",\n  \"steps\": [\n    {\n      \"type\": \"setViewport\",\n      \"width\": 1280,\n      \"height\": 720,\n      \"deviceScaleFactor\": 1,\n      \"isMobile\": false,\n      \"hasTouch\": false,\n      \"isLandscape\": false\n    },\n    {\n      \"type\": \"navigate\",\n      \"url\": \"https://localhost:43671/test/e2e/resources/recorder/programmatic-navigation-on-keydown.html\",\n      \"assertedEvents\": [\n        {\n          \"type\": \"navigation\",\n          \"url\": \"https://localhost:43671/test/e2e/resources/recorder/programmatic-navigation-on-keydown.html\",\n          \"title\": \"\"\n        }\n      ]\n    },\n    {\n      \"type\": \"change\",\n      \"value\": \"1\",\n      \"selectors\": [\n        [\n          \"input\"\n        ],\n        [\n          \"xpath//html/body/input\"\n        ],\n        [\n          \"pierce/input\"\n        ]\n      ],\n      \"target\": \"main\"\n    },\n    {\n      \"type\": \"keyDown\",\n      \"target\": \"main\",\n      \"key\": \"Enter\",\n      \"assertedEvents\": [\n        {\n          \"type\": \"navigation\",\n          \"url\": \"https://localhost:43671/test/e2e/resources/recorder/input.html\",\n          \"title\": \"\"\n        }\n      ]\n    },\n    {\n      \"type\": \"keyDown\",\n      \"target\": \"main\",\n      \"key\": \"\u0026\"\n    },\n    {\n      \"type\": \"keyUp\",\n      \"key\": \"\u0026\",\n      \"target\": \"main\"\n    }\n  ]\n}\n```",
+      "parentUuid": "fd0d5599_a53b3b7d",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 339,
+        "endChar": 96
+      },
+      "revId": "c35b2afdb153e576f72df0f221c9e29597f18fb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
