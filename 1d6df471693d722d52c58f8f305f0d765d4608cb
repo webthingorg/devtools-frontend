@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a921ae_ec6bcb25",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a3185d_27929601",
+      "range": {
+        "startLine": 9,
+        "startChar": 104,
+        "endLine": 9,
+        "endChar": 110
+      },
+      "revId": "1d6df471693d722d52c58f8f305f0d765d4608cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e87a3b_bb376a2b",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-08-17T04:25:22Z",
       "side": 1,
       "message": "I\u0027d consider even stronger wording i.e. `must`.",
+      "range": {
+        "startLine": 17,
+        "startChar": 97,
+        "endLine": 17,
+        "endChar": 103
+      },
+      "revId": "1d6df471693d722d52c58f8f305f0d765d4608cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40360a02_3db78894",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0e87a3b_bb376a2b",
       "range": {
         "startLine": 17,
         "startChar": 97,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c62dd5c_b8bffe47",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:56:04Z",
+      "side": 1,
+      "message": "Dependend is a good typo! Thanks. Reworded",
+      "parentUuid": "a880a89b_f3ee238c",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "1d6df471693d722d52c58f8f305f0d765d4608cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3411131_a1ea4b75",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-08-17T04:25:22Z",
       "side": 1,
       "message": "superfluous `in`?",
+      "range": {
+        "startLine": 55,
+        "startChar": 212,
+        "endLine": 55,
+        "endChar": 214
+      },
+      "revId": "1d6df471693d722d52c58f8f305f0d765d4608cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e60a30_d6b03651",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3411131_a1ea4b75",
       "range": {
         "startLine": 55,
         "startChar": 212,
@@ -144,6 +240,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd825edb_4e34bb58",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6078aa6_25a8590b",
+      "revId": "1d6df471693d722d52c58f8f305f0d765d4608cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a63db775_bc5bd072",
@@ -157,6 +271,30 @@
       "writtenOn": "2023-08-17T04:25:22Z",
       "side": 1,
       "message": "As a follow-up we could motivate this section a bit and expand on the \"why\" we do this. E.g. the following is one \"chain of reasoning\" how we could explain this:\n\nWe ship DevTools in the Chromium binary basically as a compressed archive of DevTools\u0027 build output (concretely a brotli-compressed GRIT file). We need to tell Chromium which files to include in the archive.\n\nNow, we could do this automatically by looking at the build rules (`devtools_entrypoint`/`devtools_module`), but that runs the risk of unintentionally including files in the final archive and shipping too much. At the same time we might add new files to build rules wrong and not ship them at all by mistake.\n\nFor the above reasons (aka shipping exactly what we intend), we maintain a manual list of all the files that are cross-checked against the list of files GN thinks we should pack into the final archive.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 53
+      },
+      "revId": "1d6df471693d722d52c58f8f305f0d765d4608cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4f43eeb_4344abe4",
+        "filename": "scripts/build/ninja/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-17T08:56:04Z",
+      "side": 1,
+      "message": "Took this bit and tweaked the wording and put it into the doc, thanks!",
+      "parentUuid": "a63db775_bc5bd072",
       "range": {
         "startLine": 142,
         "startChar": 0,
