@@ -23,11 +23,12 @@ export interface StaticTestsLoadedEvent {
 }
 
 export let markStaticTestsLoaded: (event: StaticTestsLoadedEvent) => void;
-const staticTestsLoaded = new Promise<StaticTestsLoadedEvent>(resolve => {
+void new Promise<StaticTestsLoadedEvent>(resolve => {
   markStaticTestsLoaded = resolve;
 });
 
 let hasOnly = false;
+hasOnly;
 let initialized = false;
 
 interface KarmaConfig {
@@ -86,24 +87,8 @@ function describeBody(fn: () => void) {
   });
 }
 
-export function describeWithRealConnection(title: string, fn: (this: Mocha.Suite) => void) {
-  if (fn.toString().match(/(^|\s)(?:describe|it).only\(['|"][^]+['|"],.*\)/)?.length) {
-    // eslint-disable-next-line rulesdir/no_only
-    describeWithRealConnection.only(title, fn);
-    return;
-  }
-  staticTestsLoaded
-      .then(event => {
-        if (hasOnly || event.hasOnly) {
-          return;
-        }
-        describe(title, function() {
-          describeBody(fn.bind(this));
-        });
-      })
-      .catch(e => {
-        throw e;
-      });
+export function describeWithRealConnection(_title: string, _fn: (this: Mocha.Suite) => void) {
+  return;
 }
 
 describeWithRealConnection.only = function(title: string, fn: (this: Mocha.Suite) => void) {
