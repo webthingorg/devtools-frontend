@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54478cff_ae1d7a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-18T09:34:35Z",
+      "side": 1,
+      "message": "Few suggestions but this is great, and tests are perfect! LGTM",
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1802bf2_83a269d4",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-18T09:34:35Z",
+      "side": 1,
+      "message": "(Unsure on what we want to do UX wise) but do we want to still show a chevron after the last breadcrumb?\n\nE.g. should it be:\n\nA \u003e B \u003e C\n\nor \n\nA \u003e B \u003e C \u003e",
+      "range": {
+        "startLine": 43,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d440685_ceeb729f",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-18T09:34:35Z",
+      "side": 1,
+      "message": "let\u0027s disable clang format and manually format this",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "046f30b4_feca8eb4",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-18T09:34:35Z",
+      "side": 1,
+      "message": "we have this logic in the Breadcrumbs.ts class too, I think? Do you think it is worth building a helper that can be used so we don\u0027t have to re-implement this?\n\n```\n// Breadcrumbs.ts\nexport function flattenBreadcrumbs(initialCrumb: Breadcrumb): Breadcrumb[]\n```",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f8eea60_d2a23875",
+        "filename": "test/unittests/front_end/panels/timeline/components/BreadcrumbsUI_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-18T09:34:35Z",
+      "side": 1,
+      "message": "nit: I would probably do:\n\n```\nconst {BreadcrumbsUI} \u003d TimelineComponents.BreadcrumbsUI\n```\n\nJust so we always refer to it by the same name.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 80
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0e8839_86bd3677",
+        "filename": "test/unittests/front_end/panels/timeline/components/BreadcrumbsUI_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-18T09:34:35Z",
+      "side": 1,
+      "message": "nit: please can you add the return type?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
