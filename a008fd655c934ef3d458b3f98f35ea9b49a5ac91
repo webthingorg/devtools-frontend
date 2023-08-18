@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75113477_9b42dad8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-18T11:45:52Z",
+      "side": 1,
+      "message": "Thanks! lgtm % one concern",
+      "revId": "a008fd655c934ef3d458b3f98f35ea9b49a5ac91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13d821bd_54cfce34",
+        "filename": "front_end/core/platform/Timing.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-18T11:45:52Z",
+      "side": 1,
+      "message": "I\u0027d advise against these helpers. The reason is mainly centered around that `x` is passed as a number. This means the following is valid in TS:\n\n```\nconst milli: MilliSeconds \u003d asMilliSeconds(42);\nconst micro: MicroSeconds \u003d asMicroSeconds(milli);\n```\n\nWhereas casting with `as` throws a TS error:\n\n```\nconst milli: MilliSeconds \u003d 42 as MilliSeconds;\nconst micro: MicroSeconds \u003d milli as MicroSeconds;  // Must be cast to `unknown` first\n```",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "a008fd655c934ef3d458b3f98f35ea9b49a5ac91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
