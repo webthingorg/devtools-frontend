@@ -3,12 +3,10 @@
 // found in the LICENSE file.
 
 import type * as Platform from '../../../../../../../front_end/core/platform/platform.js';
-
-import * as Protocol from '../../../../../../../front_end/generated/protocol.js';
 import {assertNotNullOrUndefined} from '../../../../../../../front_end/core/platform/platform.js';
-import * as PreloadingComponents from '../../../../../../../front_end/panels/application/preloading/components/components.js';
 import * as SDK from '../../../../../../../front_end/core/sdk/sdk.js';
-import * as Coordinator from '../../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
+import * as Protocol from '../../../../../../../front_end/generated/protocol.js';
+import * as PreloadingComponents from '../../../../../../../front_end/panels/application/preloading/components/components.js';
 import * as DataGrid from '../../../../../../../front_end/ui/components/data_grid/data_grid.js';
 import {
   assertShadowRoot,
@@ -17,14 +15,12 @@ import {
 } from '../../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../../helpers/EnvironmentHelpers.js';
 import {
+  getCellByIndexes,
   getHeaderCells,
   getValuesOfAllBodyRows,
-  getCellByIndexes,
 } from '../../../../ui/components/DataGridHelpers.js';
 
 const {assert} = chai;
-
-const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 const zip2 = <T, S>(xs: T[], ys: S[]): [T, S][] => {
   assert.strictEqual(xs.length, ys.length);
@@ -38,7 +34,6 @@ async function renderMismatchedPreloadingGrid(
   component.data = data;
   renderElementIntoDOM(component);
   assertShadowRoot(component.shadowRoot);
-  await coordinator.done();
 
   return component;
 }
@@ -78,8 +73,7 @@ const FG_GREEN = 'color: var(--sys-color-green); text-decoration: line-through';
 const FG_RED = 'color: var(--sys-color-error);';
 
 describeWithEnvironment('MismatchedPreloadingGrid', async () => {
-  // Disabled due to flakiness
-  it.skip('[crbug.com/1473557]: renderes no diff in URL', async function() {
+  it('renderes no diff in URL', async function() {
     if (this.timeout() > 0) {
       this.timeout(10000);
     }
