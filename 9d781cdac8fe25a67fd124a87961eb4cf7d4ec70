@@ -39,6 +39,30 @@
       },
       "revId": "9d781cdac8fe25a67fd124a87961eb4cf7d4ec70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77bb090a_11c3904b",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-18T10:00:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34b4284d_88df731c",
+      "range": {
+        "startLine": 18,
+        "startChar": 92,
+        "endLine": 18,
+        "endChar": 106
+      },
+      "revId": "9d781cdac8fe25a67fd124a87961eb4cf7d4ec70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
