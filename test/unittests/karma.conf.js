@@ -18,7 +18,7 @@ const USER_DEFINED_COVERAGE_FOLDERS = process.env['COVERAGE_FOLDERS'];
 const DEBUG_ENABLED = Boolean(process.env['DEBUG_TEST']);
 const REPEAT_ENABLED = Boolean(process.env['REPEAT']);
 const COVERAGE_ENABLED_BY_USER = Boolean(process.env['COVERAGE']) || Boolean(USER_DEFINED_COVERAGE_FOLDERS);
-const EXPANDED_REPORTING = Boolean(process.env['EXPANDED_REPORTING']);
+const EXPANDED_REPORTING = true;
 const KARMA_TIMEOUT = process.env['KARMA_TIMEOUT'] ? Number(process.env['KARMA_TIMEOUT']) : undefined;
 
 const MOCHA_FGREP = process.env['MOCHA_FGREP'] || undefined;
@@ -225,7 +225,7 @@ module.exports = function(config) {
           '--use-mock-keychain',
           '--disable-features=DialMediaRouteProvider',
           '--password-store=basic',
-          ...(DEBUG_ENABLED ? [] : ['--headless=new']),
+          ...(DEBUG_ENABLED ? [] : ['--headless']),
         ],
       }
     },
