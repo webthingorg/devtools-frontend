@@ -581,7 +581,7 @@ class PreloadingRuleSetSelector implements UI.Toolbar.Provider,
     const title = shadowRoot.createChild('div', 'title');
     UI.UIUtils.createTextChild(title, Platform.StringUtilities.trimEndWithMaxLength(this.titleFor(id), 100));
     const subTitle = shadowRoot.createChild('div', 'subtitle');
-    UI.UIUtils.createTextChild(subTitle, this.subtitleFor(id));
+    UI.UIUtils.createTextChild(subTitle, this.subtitleFor(id).toLocaleLowerCase());
     return element;
   }
 
