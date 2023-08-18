@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e2d8620_27e1bbca",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-18T12:41:20Z",
+      "side": 1,
+      "message": "Good point, I added a check to not add it to the last breadcrumb",
+      "parentUuid": "a1802bf2_83a269d4",
+      "range": {
+        "startLine": 43,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d440685_ceeb729f",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-08-18T09:34:35Z",
       "side": 1,
       "message": "let\u0027s disable clang format and manually format this",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84317497_183f8f3e",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-18T12:41:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d440685_ceeb729f",
       "range": {
         "startLine": 40,
         "startChar": 1,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec1983e2_b64eb4f6",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-18T12:41:20Z",
+      "side": 1,
+      "message": "You\u0027re right. Moved it out to Breadcrumbs.ts",
+      "parentUuid": "046f30b4_feca8eb4",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f8eea60_d2a23875",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9fda509_f7314ed6",
+        "filename": "test/unittests/front_end/panels/timeline/components/BreadcrumbsUI_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-18T12:41:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f8eea60_d2a23875",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 80
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af0e8839_86bd3677",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-08-18T09:34:35Z",
       "side": 1,
       "message": "nit: please can you add the return type?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "6ec0f95ffc34131f2acefef7f43f2db3a34b4ed7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "036680d5_1159eb9d",
+        "filename": "test/unittests/front_end/panels/timeline/components/BreadcrumbsUI_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-18T12:41:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af0e8839_86bd3677",
       "range": {
         "startLine": 13,
         "startChar": 0,
