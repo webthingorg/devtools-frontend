@@ -36,7 +36,7 @@ const UIStrings = {
   /**
    *@description Text in Sources View of the Sources panel
    */
-  dropInAFolderToAddToWorkspace: 'Drop in a folder to add to workspace',
+  dropInAFolderToAddToWorkspace: 'Drop in a folder to add to Workspace',
   /**
    *@description Accessible label for Sources placeholder view actions list
    */
@@ -156,8 +156,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
     UI.ARIAUtils.markAsList(list);
     UI.ARIAUtils.setLabel(list, i18nString(UIStrings.sourceViewActions));
 
-    for (let i = 0; i < shortcuts.length; i++) {
-      const shortcut = shortcuts[i];
+    for (const shortcut of shortcuts) {
       const shortcutKeyText = UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction(shortcut.actionId);
       const listItemElement = list.createChild('div');
       UI.ARIAUtils.markAsListitem(listItemElement);
@@ -181,8 +180,7 @@ export class SourcesView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
       }
     }
 
-    element.appendChild(
-        UI.XLink.XLink.create('https://developer.chrome.com/docs/devtools/workspaces/', 'Learn more about Workspaces'));
+    element.appendChild(UI.XLink.XLink.create('https://developer.chrome.com/docs/devtools/workspaces/', 'Learn more'));
 
     return element;
   }

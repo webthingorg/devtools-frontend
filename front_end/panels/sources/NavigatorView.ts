@@ -113,11 +113,12 @@ const UIStrings = {
   /**
    *@description A context menu item in the Navigator View of the Sources panel
    */
-  removeFolderFromWorkspace: 'Remove folder from workspace',
+  removeFolderFromWorkspace: 'Remove folder',
   /**
    *@description Text in Navigator View of the Sources panel
+   * @example {a-folder-name} PH1
    */
-  areYouSureYouWantToRemoveThis: 'Are you sure you want to remove this folder?',
+  areYouSureYouWantToRemoveThis: 'Removing ‘{PH1}’ from Workspace will stop syncing changes with DevTools.',
   /**
    *@description A context menu item in the Navigator View of the Sources panel
    */
@@ -1051,11 +1052,10 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
           (project as Persistence.FileSystemWorkspaceBinding.FileSystem).fileSystem().type() === 'overrides';
 
       if (!isFileOverrides) {
-        contextMenu.defaultSection().appendAction('sources.add-folder-to-workspace', undefined, true);
         if (node instanceof NavigatorGroupTreeNode) {
           contextMenu.defaultSection().appendItem(i18nString(UIStrings.removeFolderFromWorkspace), async () => {
-            const shouldRemove =
-                await UI.UIUtils.ConfirmDialog.show(i18nString(UIStrings.areYouSureYouWantToRemoveThis));
+            const shouldRemove = await UI.UIUtils.ConfirmDialog.show(
+                i18nString(UIStrings.areYouSureYouWantToRemoveThis, {PH1: (node as NavigatorGroupTreeNode).title}));
             if (shouldRemove) {
               project.remove();
             }
