@@ -248,6 +248,8 @@ export async function raf() {
   return new Promise(resolve => requestAnimationFrame(resolve));
 }
 
+beforeEach(raf);
+
 /**
  * It's useful to use innerHTML in the tests to have full confidence in the
  * renderer output, but LitHtml uses comment nodes to split dynamic from
