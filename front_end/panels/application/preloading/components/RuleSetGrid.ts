@@ -280,7 +280,7 @@ function statusRenderer(preloadsStatusSummary: string, ruleSet: Protocol.Preload
           'padding-inline-end': '0',
         })}
       >
-        ${preloadsStatusSummary}
+        ${preloadsStatusSummary.toLowerCase()}
       </button>
     `;
     // clang-format on
