@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "3c12750a12f41d06b5b614394b18a554952e17b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2397616_2e60716d",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-18T13:23:31Z",
+      "side": 1,
+      "message": "How about using left and right single quote (U+2018 and U+2019)? Example: Don’t?\nFollowing our UXW guideline, we should use short form don\u0027t",
+      "revId": "3c12750a12f41d06b5b614394b18a554952e17b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
