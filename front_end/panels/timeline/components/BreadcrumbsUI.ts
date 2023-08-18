@@ -34,17 +34,39 @@ export class BreadcrumbsUI extends HTMLElement {
   set data(data: BreadcrumbsUIData) {
     this.#breadcrumb = data.breadcrumb;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  #renderElement(breadcrumb: Breadcrumb): LitHtml.TemplateResult {
+    return html`
+          <div class="breadcrumb">
+              <span class="range">${breadcrumb.window.range} ms</span>
+              <${IconButton.Icon.Icon.litTagName} .data=${
+        {iconName: 'chevron-right', color: 'var(--icon-default)', width: '20px', height: '20px'} as
+        IconButton.Icon.IconWithName}>
+          </div>
+      `;
+  }
+
+  #allBreadcrumbs(initialBreadcrumb: Breadcrumb): Breadcrumb[] {
+    const allBreadcrumbs: Breadcrumb[] = [];
+
+    let breadcrumbsIter: Breadcrumb|null = initialBreadcrumb;
+
+    while (breadcrumbsIter !== null) {
+      allBreadcrumbs.push(breadcrumbsIter);
+      breadcrumbsIter = breadcrumbsIter.child;
+    }
+
+    return allBreadcrumbs;
   }
 
   #render(): void {
     const output = html`
-      <div class="breadcrumb">
-        <span>${this.#breadcrumb.window.range} ms</span>
-        <${IconButton.Icon.Icon.litTagName} .data=${
-        {iconName: 'chevron-right', color: 'var(--icon-default)', width: '14px', height: '14px'} as
-        IconButton.Icon.IconWithName}>
+      <div class="breadcrumbs">
+        ${this.#allBreadcrumbs(this.#breadcrumb).map(breadcrumb => this.#renderElement(breadcrumb))}
       </div>
-      `;
+        `;
     render(output, this.#shadow, {host: this});
   }
 }
