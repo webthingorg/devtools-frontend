@@ -122,6 +122,7 @@ export class Item {
           checked: Boolean(this.checked),
           enabled: !this.disabled,
           subItems: undefined,
+          tooltip: this.#tooltip,
         };
         if (this.customElement) {
           result.element = this.customElement;

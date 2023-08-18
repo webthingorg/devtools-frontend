@@ -35,14 +35,13 @@ import * as Platform from '../../core/platform/platform.js';
 import * as IconButton from '../components/icon_button/icon_button.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
+import * as ContextMenu from './ContextMenu.js';
+import filterStyles from './filter.css.legacy.js';
 import {KeyboardShortcut, Modifiers} from './KeyboardShortcut.js';
 import {bindCheckbox} from './SettingsUI.js';
-
 import {type Suggestions} from './SuggestBox.js';
 import {Events, TextPrompt} from './TextPrompt.js';
-
-import filterStyles from './filter.css.legacy.js';
-import {ToolbarSettingToggle, type ToolbarButton} from './Toolbar.js';
+import {ToolbarButton, ToolbarSettingToggle} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
 import {CheckboxLabel, createTextChild} from './UIUtils.js';
 import {HBox} from './Widget.js';
@@ -504,6 +503,194 @@ export class CheckboxFilterUI extends Common.ObjectWrapper.ObjectWrapper<FilterU
   }
 }
 
+export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<FilterUIEventTypes> implements FilterUI {
+  private readonly filterElement: HTMLDivElement;
+  private readonly dropDownButton: ToolbarButton;
+  private readonly filterChanged: () => void;
+  private allowedTypes: Set<string>;
+  private readonly typeFilterElements: HTMLElement[];
+  private readonly typeFilterElementTypeNames: WeakMap<HTMLElement, string>;
+  private readonly setting: Common.Settings.Setting<{[key: string]: boolean}>|undefined;
+  private readonly items: Item[];
+
+  constructor(
+      items: Item[], filterChangedCallback: () => void, setting?: Common.Settings.Setting<{[key: string]: boolean}>) {
+    super();
+    this.items = items;
+    this.filterChanged = filterChangedCallback;
+
+    this.filterElement = document.createElement('div');
+    this.dropDownButton = new ToolbarButton('dropdown');
+    this.dropDownButton.setText('All types');
+    this.filterElement.appendChild(this.dropDownButton.element);
+    this.dropDownButton.turnIntoSelect();
+    this.dropDownButton.element.classList.add('warning');
+    this.dropDownButton.addEventListener(ToolbarButton.Events.Click, this.showLevelContextMenuCheckbox.bind(this));
+    ARIAUtils.markAsMenuButton(this.dropDownButton.element);
+    ARIAUtils.markAsMultiSelectable(this.filterElement);
+
+    this.typeFilterElementTypeNames = new WeakMap();
+    this.typeFilterElements = [];
+    this.allowedTypes = new Set();
+
+    if (setting) {
+      this.setting = setting;
+      setting.addChangeListener(this.settingChanged.bind(this));
+      this.settingChanged();
+    } else {
+      this.toggleTypeFilter(NamedBitSetFilterUI.ALL_TYPES, false /* allowMultiSelect */);
+    }
+  }
+
+  private showLevelContextMenuCheckbox(event: Common.EventTarget.EventTargetEvent<Event>): void {
+    const mouseEvent = event.data;
+
+    this.setting?.addChangeListener(this.filterChanged.bind(this));
+
+    const contextMenu = new ContextMenu.ContextMenu(mouseEvent, {
+      useSoftMenu: true,
+      x: this.dropDownButton.element.getBoundingClientRect().left,
+      y: this.dropDownButton.element.getBoundingClientRect().top +
+          (this.dropDownButton.element as HTMLElement).offsetHeight,
+    });
+
+    contextMenu.defaultSection().appendCheckboxItem('All', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['all'] = (!this.setting?.get()['all']);
+      this.toggleTypeFilter('all', true);
+    }, this.setting?.get()['all']);
+    contextMenu.defaultSection().appendCheckboxItem('Fetch/XHR', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Fetch and XHR'] =
+          (!this.setting?.get()['Fetch and XHR']);
+      this.toggleTypeFilter('Fetch and XHR', true);
+    }, this.setting?.get()['Fetch and XHR']);
+    contextMenu.defaultSection().appendCheckboxItem('JS', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Scripts'] =
+          (!this.setting?.get()['Scripts']);
+      this.toggleTypeFilter('Scripts', true);
+    }, this.setting?.get()['Scripts']);
+    contextMenu.defaultSection().appendCheckboxItem('CSS', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Stylesheets'] =
+          (!this.setting?.get()['Stylesheets']);
+      this.toggleTypeFilter('Stylesheets', true);
+    }, this.setting?.get()['Stylesheets']);
+    contextMenu.defaultSection().appendCheckboxItem('Img', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Images'] =
+          (!this.setting?.get()['Images']);
+      this.toggleTypeFilter('Images', true);
+    }, this.setting?.get()['Images']);
+    contextMenu.defaultSection().appendCheckboxItem('Media', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Media'] =
+          (!this.setting?.get()['Media']);
+      this.toggleTypeFilter('Media', true);
+    }, this.setting?.get()['Media']);
+    contextMenu.defaultSection().appendCheckboxItem('Font', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Fonts'] =
+          (!this.setting?.get()['Fonts']);
+      this.toggleTypeFilter('Fonts', true);
+    }, this.setting?.get()['Fonts']);
+    contextMenu.defaultSection().appendCheckboxItem('Doc', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Documents'] =
+          (!this.setting?.get()['Documents']);
+      this.toggleTypeFilter('Documents', true);
+    }, this.setting?.get()['Documents']);
+    contextMenu.defaultSection().appendCheckboxItem('WS', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['WebSockets'] =
+          (!this.setting?.get()['WebSockets']);
+      this.toggleTypeFilter('WebSockets', true);
+    }, this.setting?.get()['WebSockets']);
+    contextMenu.defaultSection().appendCheckboxItem('Wasm', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['WebAssembly'] =
+          (!this.setting?.get()['WebAssembly']);
+      this.toggleTypeFilter('WebAssembly', true);
+    }, this.setting?.get()['WebAssembly']);
+    contextMenu.defaultSection().appendCheckboxItem('Manifest', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Manifest'] =
+          (!this.setting?.get()['Manifest']);
+      this.toggleTypeFilter('Manifest', true);
+    }, this.setting?.get()['Manifest']);
+    contextMenu.defaultSection().appendCheckboxItem('Other', () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()['Other'] =
+          (!this.setting?.get()['Other']);
+      this.toggleTypeFilter('Other', true);
+    }, this.setting?.get()['Other']);
+
+    void contextMenu.show();
+  }
+
+  static requestType = [
+    'all',
+    'Fetch and XHR',
+    'Scripts',
+    'Stylesheets',
+    'Images',
+    'Media',
+    'Fonts',
+    'Documents',
+    'WebSockets',
+    'WebAssembly',
+    'Manifest',
+    'Other',
+  ];
+
+  private toggleTypeFilter(typeName: string, allowMultiSelect: boolean): void {
+    if (allowMultiSelect && typeName !== NamedBitSetFilterUI.ALL_TYPES) {
+      this.allowedTypes.delete(NamedBitSetFilterUI.ALL_TYPES);
+    } else {
+      this.allowedTypes = new Set();
+    }
+
+    if (this.allowedTypes.has(typeName)) {
+      this.allowedTypes.delete(typeName);
+    } else {
+      this.allowedTypes.add(typeName);
+    }
+
+    if (this.setting) {
+      // Settings do not support `Sets` so convert it back to the Map-like object.
+      const updatedSetting = ({} as {[key: string]: boolean});
+      for (const type of this.allowedTypes) {
+        updatedSetting[type] = true;
+      }
+      this.setting.set(updatedSetting);
+    } else {
+      this.update();
+    }
+  }
+
+  private settingChanged(): void {
+    this.update();
+  }
+
+  private update(): void {
+    if (this.allowedTypes.size === 0 || this.allowedTypes.has(NamedBitSetFilterUI.ALL_TYPES)) {
+      this.allowedTypes = new Set();
+      this.allowedTypes.add(NamedBitSetFilterUI.ALL_TYPES);
+    }
+    for (const element of this.typeFilterElements) {
+      const typeName = this.typeFilterElementTypeNames.get(element);
+      const active = this.allowedTypes.has(typeName || '');
+      element.classList.toggle('selected', active);
+      ARIAUtils.setSelected(element, active);
+    }
+    this.dispatchEventToListeners(FilterUIEvents.FilterChanged);
+  }
+
+  isActive(): boolean {
+    return true;
+  }
+
+  element(): HTMLDivElement {
+    return this.filterElement;
+  }
+
+  reset(): void {
+    this.toggleTypeFilter(NamedBitSetFilterUI.ALL_TYPES, false /* allowMultiSelect */);
+  }
+
+  accept(typeName: string): boolean {
+    return this.allowedTypes.has(NamedBitSetFilterUI.ALL_TYPES) || this.allowedTypes.has(typeName);
+  }
+}
 export interface Item {
   name: string;
   label: () => string;
