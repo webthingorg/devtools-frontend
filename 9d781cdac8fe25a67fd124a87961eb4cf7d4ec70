@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b4284d_88df731c",
+        "filename": "front_end/panels/elements/components/CSSVariableValueView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-18T09:44:38Z",
+      "side": 1,
+      "message": "Since type will be rendered as a DOM element maybe include a sentence about what form the type placeholder takes. Translators can\u0027t really tell just from looking at this info.\n\nBonus points if we also include where this message is shown in the UI and what user action triggers it.",
+      "range": {
+        "startLine": 18,
+        "startChar": 92,
+        "endLine": 18,
+        "endChar": 106
+      },
+      "revId": "9d781cdac8fe25a67fd124a87961eb4cf7d4ec70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
