@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f50ec90c_e37ff3ef",
+        "filename": "front_end/ui/lit-html/static.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-18T06:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "829c6303_067755c7",
+      "range": {
+        "startLine": 97,
+        "startChar": 33,
+        "endLine": 97,
+        "endChar": 51
+      },
+      "revId": "3bbf139c7f19739ca66bae9ec90f0df3fe91247c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ad1f0a0_0c37919c",
@@ -71,6 +95,24 @@
       "writtenOn": "2023-08-18T04:30:46Z",
       "side": 1,
       "message": "I think one more test would make sense where we register a second locale and \"translate\" it with switching STRING and TEPMLATE around. Wdyt?",
+      "revId": "3bbf139c7f19739ca66bae9ec90f0df3fe91247c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "242d7505_e1146065",
+        "filename": "test/unittests/front_end/ui/lit-html/static_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-18T06:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ad1f0a0_0c37919c",
       "revId": "3bbf139c7f19739ca66bae9ec90f0df3fe91247c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
