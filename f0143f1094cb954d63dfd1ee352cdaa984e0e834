@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d08b617f_41bfbffb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431552
+      },
+      "writtenOn": "2023-08-18T09:12:01Z",
+      "side": 1,
+      "message": "Changhao or Philip, please take a look",
+      "revId": "f0143f1094cb954d63dfd1ee352cdaa984e0e834",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
