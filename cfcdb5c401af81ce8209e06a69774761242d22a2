@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33273c9c_0f746ac9",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-18T10:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bb44188_8dbce745",
+      "range": {
+        "startLine": 410,
+        "startChar": 24,
+        "endLine": 410,
+        "endChar": 29
+      },
+      "revId": "cfcdb5c401af81ce8209e06a69774761242d22a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb15bdf5_4e2f95bc",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-08-18T09:22:38Z",
       "side": 1,
       "message": "Should this be called \u0027deleteFolder\u0027 to be consistent?",
+      "range": {
+        "startLine": 411,
+        "startChar": 35,
+        "endLine": 411,
+        "endChar": 50
+      },
+      "revId": "cfcdb5c401af81ce8209e06a69774761242d22a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5627fc3_02b8dcad",
+        "filename": "front_end/models/persistence/FileSystemWorkspaceBinding.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-18T10:22:21Z",
+      "side": 1,
+      "message": "I guess you mean rename it to \"deleteDirectory\". I have renamed all to \"deleteDirectoryRecursively\"",
+      "parentUuid": "fb15bdf5_4e2f95bc",
       "range": {
         "startLine": 411,
         "startChar": 35,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc903247_b284ee77",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-18T10:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8db77dca_0e6eed9a",
+      "range": {
+        "startLine": 383,
+        "startChar": 42,
+        "endLine": 383,
+        "endChar": 49
+      },
+      "revId": "cfcdb5c401af81ce8209e06a69774761242d22a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7af472e_f1361d96",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21578559_106be502",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-18T10:22:21Z",
+      "side": 1,
+      "message": "Added workaround - split it to two string and combine together when using them. I added extra notes in the ui string so translator has context.",
+      "parentUuid": "d7af472e_f1361d96",
+      "range": {
+        "startLine": 105,
+        "startChar": 68,
+        "endLine": 105,
+        "endChar": 70
+      },
+      "revId": "cfcdb5c401af81ce8209e06a69774761242d22a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8e6c0b8_b958926b",
@@ -123,6 +219,24 @@
       "writtenOn": "2023-08-18T09:22:38Z",
       "side": 1,
       "message": "My feeling is that we should not need to iterate over all files in the view code. Would it be possible to take care of this kind of logic elsewhere and here we just call something like `deleteFolderRecursively()`?\nDoes \u0027IsolatedFileSystem.deleteDirectory\u0027 already delete everything recursively? If so, is there a way to just update the tree in the view, since the underlying files are already deleted anyway?",
+      "revId": "cfcdb5c401af81ce8209e06a69774761242d22a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6da2f842_29c17b39",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-18T10:22:21Z",
+      "side": 1,
+      "message": "Yes, there is. I exposed the removeUISourceCode method in the interface. Now we remove all the uiSourceCode recursively, then delete the folder recursively.",
+      "parentUuid": "e8e6c0b8_b958926b",
       "revId": "cfcdb5c401af81ce8209e06a69774761242d22a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
