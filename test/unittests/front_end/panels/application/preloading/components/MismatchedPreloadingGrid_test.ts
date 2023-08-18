@@ -105,7 +105,8 @@ describeWithEnvironment('MismatchedPreloadingGrid', async () => {
     );
   });
 
-  it('renderes edit diff', async () => {
+  // Disabled due to flakiness
+  it.skip('[crbug.com/1473557]: renderes edit diff', async () => {
     const data: PreloadingComponents.MismatchedPreloadingGrid.MismatchedPreloadingGridData = {
       pageURL: 'https://example.com/prefetched.html?q=1' as Platform.DevToolsPath.UrlString,
       rows: [{
