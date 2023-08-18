@@ -46,7 +46,7 @@ const UIStrings = {
   /**
    *@description Text to explain the Workspace feature in the Sources panel. https://goo.gle/devtools-workspace
    */
-  explainWorkspace: 'Set up workspace to sync edits directly to the sources you develop',
+  explainWorkspace: 'Set up Workspace to sync edits directly to the sources you develop',
   /**
    *@description Text to explain the Local Overrides feature. https://goo.gle/devtools-overrides
    */
