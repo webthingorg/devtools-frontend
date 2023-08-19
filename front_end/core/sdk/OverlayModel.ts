@@ -231,6 +231,7 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
 
   override async resumeModel(): Promise<void> {
     await Promise.all([this.overlayAgent.invoke_enable(), this.wireAgentToSettings()]);
+    this.#persistentHighlighter?.resetOverlay();
   }
 
   setShowViewportSizeOnResize(show: boolean): void {
