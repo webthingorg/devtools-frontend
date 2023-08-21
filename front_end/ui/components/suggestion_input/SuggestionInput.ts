@@ -4,12 +4,23 @@
 
 import * as CodeHighlighter from '../../../ui/components/code_highlighter/code_highlighter.js';
 // eslint-disable-next-line rulesdir/es_modules_import
-import codeHighlighterStyles from
-    '../../../ui/components/code_highlighter/codeHighlighter.css.js';
+import codeHighlighterStyles from '../../../ui/components/code_highlighter/codeHighlighter.css.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import contentEditableStyles from './recorderInput.css.js';
-import {assert, mod} from './util.js';
+import contentEditableStyles from './suggestionInput.css.js';
+
+const mod = (a: number, n: number): number => {
+  return ((a % n) + n) % n;
+};
+
+function assert<T>(
+    predicate: T,
+    message = 'Assertion failed!',
+    ): asserts predicate {
+  if (!predicate) {
+    throw new Error(message);
+  }
+}
 
 const {html, Decorators, Directives, LitElement} = LitHtml;
 const {customElement, property, state} = Decorators;
@@ -17,7 +28,7 @@ const {classMap} = Directives;
 
 declare global {
   interface HTMLElementTagNameMap {
-    'devtools-recorder-input': RecorderInput;
+    'devtools-suggestion-input': SuggestionInput;
     'devtools-editable-content': EditableContent;
     'devtools-suggestion-box': SuggestionBox;
   }
@@ -141,7 +152,6 @@ class SuggestionBox extends LitElement {
 
   #handleKeyDownEvent = (event: Event): void => {
     assert(event instanceof KeyboardEvent, 'Bound to the wrong event.');
-
     if (this.#suggestions.length > 0) {
       switch (event.key) {
         case 'ArrowDown':
@@ -187,7 +197,7 @@ class SuggestionBox extends LitElement {
     if (changedProperties.has('options')) {
       this.options = Object.freeze([...this.options].sort());
     }
-    if (changedProperties.has('expression')) {
+    if (changedProperties.has('expression') || changedProperties.has('options')) {
       this.cursor = 0;
       this.#suggestions = this.options.filter(
           option => option.toLowerCase().startsWith(this.expression.toLowerCase()),
@@ -215,8 +225,8 @@ class SuggestionBox extends LitElement {
   }
 }
 
-@customElement('devtools-recorder-input')
-export class RecorderInput extends LitElement {
+@customElement('devtools-suggestion-input')
+export class SuggestionInput extends LitElement {
   static override shadowRootOptions = {
     ...LitElement.shadowRootOptions,
     delegatesFocus: true,
