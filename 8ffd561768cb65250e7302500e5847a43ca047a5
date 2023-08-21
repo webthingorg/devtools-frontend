@@ -16,6 +16,46 @@
       "message": "PTAL (trying to figure out what the Windows cmd is so I can add that too and will do that before landing)",
       "revId": "8ffd561768cb65250e7302500e5847a43ca047a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1166b89e_a0b4e0de",
+        "filename": "docs/workflows.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-21T08:01:28Z",
+      "side": 1,
+      "message": "If we’re now adding a Mac-specific command, we might as well add the Mac-specific CLI flags to it. WDYT about adding\n\n    --use-mock-keychain\n    \n?",
+      "revId": "8ffd561768cb65250e7302500e5847a43ca047a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6ca24c7_de671496",
+        "filename": "docs/workflows.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-21T08:01:28Z",
+      "side": 1,
+      "message": "Accidental space?\n\n```suggestion\n\u003cpath-to-devtools-frontend\u003e./third_party/chrome/chrome-linux/chrome --custom-devtools-frontend\u003dfile://$(realpath out/Default/gen/front_end)\n```",
+      "range": {
+        "startLine": 86,
+        "startChar": 104,
+        "endLine": 86,
+        "endChar": 106
+      },
+      "revId": "8ffd561768cb65250e7302500e5847a43ca047a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
