@@ -16,6 +16,24 @@
       "message": "should not the typeRef be `DOM.EnableRequestIncludeWhitespace`?",
       "revId": "9774921bd0e655d1d3e9e5d5ee3c70f3539555e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcde8086_8293daa4",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-21T13:52:55Z",
+      "side": 1,
+      "message": "I change the script to make the typeRef everywhere with the following format : \n${domainName}.${IdOfTypeOrEnum}",
+      "parentUuid": "a9fa4348_4ed7933a",
+      "revId": "9774921bd0e655d1d3e9e5d5ee3c70f3539555e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
