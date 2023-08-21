@@ -51,9 +51,13 @@ const UIStrings = {
    */
   name: 'Name',
   /**
-   *@description Text in App Manifest View of the Application panel
+   *@description Text for the short name of something
    */
   shortName: 'Short name',
+  /**
+   *@description Label for the URL of something
+   */
+  url: 'URL',
   /**
    *@description Label in the App Manifest View for the Computed App Id
    */
@@ -134,6 +138,11 @@ const UIStrings = {
    *@description Text in App Manifest View of the Application panel
    */
   descriptionMayBeTruncated: 'Description may be truncated.',
+  /**
+   *@description Warning text about too many shortcuts
+   */
+  shortcutsMayBeNotAvailable:
+      'The maximum number of shortcuts on various platforms vary. Some shortcuts may be not available.',
   /**
    *@description Text in App Manifest View of the Application panel
    */
@@ -278,6 +287,18 @@ const UIStrings = {
    */
   screenshot: 'Screenshot',
   /**
+   *@description Text for screenshot form factor
+   */
+  formFactor: 'Form factor',
+  /**
+   *@description Text for screenshot label
+   */
+  label: 'Label',
+  /**
+   *@description Text for screenshot platform
+   */
+  platform: 'Platform',
+  /**
    *@description Text in App Manifest View of the Application panel
    */
   icon: 'Icon',
@@ -375,6 +396,24 @@ const UIStrings = {
   screenshotPixelSize:
       'Screenshot {url} should specify a pixel size `[width]x[height]` instead of `"any"` as first size.',
   /**
+   *@description Warning text about screenshots for Richer PWA Install UI on desktop
+   */
+  noScreenshotsForRicherPWAInstallOnDesktop:
+      'Richer PWA Install UI will not be available on desktop. Please add at least one screenshot with the "form_factor" set to "wide".',
+  /**
+   *@description Warning text about screenshots for Richer PWA Install UI on mobile
+   */
+  noScreenshotsForRicherPWAInstallOnMobile:
+      'Richer PWA Install UI will not be available on mobile. Please add at least one screenshot with the "form_factor" is not set or set to a value other than "wide".',
+  /**
+   *@description Warning text about too many screenshots for desktop
+   */
+  tooManyScreenshotsForDesktop: 'No more than 8 screenshots will be displayed on desktop. The rest will be ignored.',
+  /**
+   *@description Warning text about too many screenshots for mobile
+   */
+  tooManyScreenshotsForMobile: 'No more than 5 screenshots will be displayed on mobile. The rest will be ignored.',
+  /**
    *@description Link text for more information on the display override property in the Application panel
    */
   displayOverride: 'display-override',
@@ -411,6 +450,15 @@ type ParsedSize = {
   width: number,
   height: number,
   formatted: string,
+};
+
+type Screenshot = {
+  src: string,
+  type?: string,
+  sizes?: string,
+  label?: string,
+  form_factor?: string,  // eslint-disable-line @typescript-eslint/naming-convention
+  platform?: string,
 };
 
 export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager.Observer {
@@ -787,19 +835,23 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
       imageErrors.push(i18nString(UIStrings.sSShouldHaveSquareIcon));
     }
 
+    if (shortcuts.length > 4) {
+      warnings.push(i18nString(UIStrings.shortcutsMayBeNotAvailable));
+    }
+
     let shortcutIndex = 1;
     for (const shortcut of shortcuts) {
       const shortcutSection = this.reportView.appendSection(i18nString(UIStrings.shortcutS, {PH1: shortcutIndex}));
       this.shortcutSections.push(shortcutSection);
 
-      shortcutSection.appendFlexedField('Name', shortcut.name);
+      shortcutSection.appendFlexedField(i18nString(UIStrings.name), shortcut.name);
       if (shortcut.short_name) {
-        shortcutSection.appendFlexedField('Short name', shortcut.short_name);
+        shortcutSection.appendFlexedField(i18nString(UIStrings.shortName), shortcut.short_name);
       }
       if (shortcut.description) {
-        shortcutSection.appendFlexedField('Description', shortcut.description);
+        shortcutSection.appendFlexedField(i18nString(UIStrings.description), shortcut.description);
       }
-      const urlField = shortcutSection.appendFlexedField('URL');
+      const urlField = shortcutSection.appendFlexedField(i18nString(UIStrings.url));
       const shortcutUrl = Common.ParsedURL.ParsedURL.completeURL(url, shortcut.url) as Platform.DevToolsPath.UrlString;
       const link = Components.Linkifier.Linkifier.linkifyURL(
           shortcutUrl, ({text: shortcut.url} as Components.Linkifier.LinkifyURLOptions));
@@ -830,10 +882,37 @@ export class AppManifestView extends UI.Widget.VBox implements SDK.TargetManager
       const screenshotSection =
           this.reportView.appendSection(i18nString(UIStrings.screenshotS, {PH1: screenshotIndex}));
       this.screenshotsSections.push(screenshotSection);
+
+      if (screenshot.form_factor) {
+        screenshotSection.appendFlexedField(i18nString(UIStrings.formFactor), screenshot.form_factor);
+      }
+      if (screenshot.label) {
+        screenshotSection.appendFlexedField(i18nString(UIStrings.label), screenshot.label);
+      }
+      if (screenshot.platform) {
+        screenshotSection.appendFlexedField(i18nString(UIStrings.platform), screenshot.platform);
+      }
+
       const {imageResourceErrors: screenshotErrors} =
           await this.appendImageResourceToSection(url, screenshot, screenshotSection, /** isScreenshot= */ true);
       imageErrors.push(...screenshotErrors);
       screenshotIndex++;
+    }
+
+    const screenshotsForDesktop = screenshots.filter((screenshot: Screenshot) => screenshot.form_factor === 'wide');
+    const screenshotsForMobile = screenshots.filter((screenshot: Screenshot) => screenshot.form_factor !== 'wide');
+
+    if (screenshotsForDesktop.length < 1) {
+      warnings.push(i18nString(UIStrings.noScreenshotsForRicherPWAInstallOnDesktop));
+    }
+    if (screenshotsForMobile.length < 1) {
+      warnings.push(i18nString(UIStrings.noScreenshotsForRicherPWAInstallOnMobile));
+    }
+    if (screenshotsForDesktop.length > 8) {
+      warnings.push(i18nString(UIStrings.tooManyScreenshotsForDesktop));
+    }
+    if (screenshotsForMobile.length > 5) {
+      warnings.push(i18nString(UIStrings.tooManyScreenshotsForMobile));
     }
 
     this.installabilitySection.clearContent();
