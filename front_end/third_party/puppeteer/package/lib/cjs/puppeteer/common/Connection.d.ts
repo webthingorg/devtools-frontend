@@ -19,6 +19,7 @@ import { Deferred } from '../util/Deferred.js';
 import { ConnectionTransport } from './ConnectionTransport.js';
 import { ProtocolError } from './Errors.js';
 import { EventEmitter } from './EventEmitter.js';
+import { CDPTarget } from './Target.js';
 /**
  * @public
  */
@@ -189,6 +190,18 @@ export declare class CDPSessionImpl extends CDPSession {
      * @internal
      */
     constructor(connection: Connection, targetType: string, sessionId: string, parentSessionId: string | undefined);
+    /**
+     * Sets the CDPTarget associated with the session instance.
+     *
+     * @internal
+     */
+    _setTarget(target: CDPTarget): void;
+    /**
+     * Gets the CDPTarget associated with the session instance.
+     *
+     * @internal
+     */
+    _target(): CDPTarget;
     connection(): Connection | undefined;
     parentSession(): CDPSession | undefined;
     send<T extends keyof ProtocolMapping.Commands>(method: T, ...paramArgs: ProtocolMapping.Commands[T]['paramsType']): Promise<ProtocolMapping.Commands[T]['returnType']>;

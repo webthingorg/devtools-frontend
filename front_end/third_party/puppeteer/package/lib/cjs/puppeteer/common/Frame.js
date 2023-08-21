@@ -36,6 +36,7 @@ exports.FrameEmittedEvents = {
     LifecycleEvent: Symbol('Frame.LifecycleEvent'),
     FrameNavigatedWithinDocument: Symbol('Frame.FrameNavigatedWithinDocument'),
     FrameDetached: Symbol('Frame.FrameDetached'),
+    FrameSwappedByActivation: Symbol('Frame.FrameSwappedByActivation'),
 };
 /**
  * @internal
@@ -59,6 +60,18 @@ class Frame extends Frame_js_1.Frame {
         this.#detached = false;
         this._loaderId = '';
         this.updateClient(client);
+        this.on(exports.FrameEmittedEvents.FrameSwappedByActivation, () => {
+            // Emulate loading process for swapped frames.
+            this._onLoadingStarted();
+            this._onLoadingStopped();
+        });
+    }
+    /**
+     * Updates the frame ID with the new ID. This happens when the main frame is
+     * replaced by a different frame.
+     */
+    updateId(id) {
+        this._id = id;
     }
     updateClient(client) {
         this.#client = client;
