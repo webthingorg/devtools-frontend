@@ -19,7 +19,7 @@ import { Deferred } from '../util/Deferred.js';
 import { isErrorLike } from '../util/ErrorLike.js';
 import { Accessibility } from './Accessibility.js';
 import { Binding } from './Binding.js';
-import { CDPSessionEmittedEvents, isTargetClosedError, } from './Connection.js';
+import { CDPSessionEmittedEvents, CDPSessionImpl, isTargetClosedError, } from './Connection.js';
 import { ConsoleMessage } from './ConsoleMessage.js';
 import { Coverage } from './Coverage.js';
 import { CDPDialog } from './Dialog.js';
@@ -61,6 +61,7 @@ export class CDPPage extends Page {
     }
     #closed = false;
     #client;
+    #tabSession;
     #target;
     #keyboard;
     #mouse;
@@ -212,6 +213,7 @@ export class CDPPage extends Page {
     constructor(client, target, ignoreHTTPSErrors, screenshotTaskQueue) {
         super();
         this.#client = client;
+        this.#tabSession = client.parentSession();
         this.#target = target;
         this.#keyboard = new CDPKeyboard(client);
         this.#mouse = new CDPMouse(client, this.#keyboard);
@@ -224,6 +226,21 @@ export class CDPPage extends Page {
         this.#screenshotTaskQueue = screenshotTaskQueue;
         this.#viewport = null;
         this.#setupEventListeners();
+        this.#tabSession?.on('sessionswapped', async (newSession) => {
+            this.#client = newSession;
+            assert(this.#client instanceof CDPSessionImpl, 'CDPSession is not instance of CDPSessionImpl');
+            this.#target = this.#client._target();
+            assert(this.#target, 'Missing target on swap');
+            this.#keyboard.updateClient(newSession);
+            this.#mouse.updateClient(newSession);
+            this.#touchscreen.updateClient(newSession);
+            this.#accessibility.updateClient(newSession);
+            this.#emulationManager.updateClient(newSession);
+            this.#tracing.updateClient(newSession);
+            this.#coverage.updateClient(newSession);
+            await this.#frameManager.swapFrameTree(newSession);
+            this.#setupEventListeners();
+        });
     }
     #setupEventListeners() {
         this.#target

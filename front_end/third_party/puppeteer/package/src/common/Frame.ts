@@ -49,6 +49,7 @@ export const FrameEmittedEvents = {
   LifecycleEvent: Symbol('Frame.LifecycleEvent'),
   FrameNavigatedWithinDocument: Symbol('Frame.FrameNavigatedWithinDocument'),
   FrameDetached: Symbol('Frame.FrameDetached'),
+  FrameSwappedByActivation: Symbol('Frame.FrameSwappedByActivation'),
 };
 
 /**
@@ -82,6 +83,20 @@ export class Frame extends BaseFrame {
     this._loaderId = '';
 
     this.updateClient(client);
+
+    this.on(FrameEmittedEvents.FrameSwappedByActivation, () => {
+      // Emulate loading process for swapped frames.
+      this._onLoadingStarted();
+      this._onLoadingStopped();
+    });
+  }
+
+  /**
+   * Updates the frame ID with the new ID. This happens when the main frame is
+   * replaced by a different frame.
+   */
+  updateId(id: string): void {
+    this._id = id;
   }
 
   updateClient(client: CDPSession): void {

@@ -404,6 +404,7 @@ class CDPSessionImpl extends CDPSession {
     #callbacks = new CallbackRegistry();
     #connection;
     #parentSessionId;
+    #target;
     /**
      * @internal
      */
@@ -413,6 +414,23 @@ class CDPSessionImpl extends CDPSession {
         this.#targetType = targetType;
         this.#sessionId = sessionId;
         this.#parentSessionId = parentSessionId;
+    }
+    /**
+     * Sets the CDPTarget associated with the session instance.
+     *
+     * @internal
+     */
+    _setTarget(target) {
+        this.#target = target;
+    }
+    /**
+     * Gets the CDPTarget associated with the session instance.
+     *
+     * @internal
+     */
+    _target() {
+        (0, assert_js_1.assert)(this.#target, 'Target must exist');
+        return this.#target;
     }
     connection() {
         return this.#connection;

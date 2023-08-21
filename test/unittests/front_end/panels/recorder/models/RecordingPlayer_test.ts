@@ -312,6 +312,7 @@ describe('RecordingPlayer', () => {
       assert.isTrue(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('main1', 'page', 'https://example.com'),
               ),
       );
@@ -320,6 +321,7 @@ describe('RecordingPlayer', () => {
     it('should not attach to non-main target of type "page"', () => {
       assert.isFalse(
           shouldAttachToTarget(
+              'main1',
               'main1',
               makeTargetInfo('non-main', 'page', 'https://example.com'),
               ),
@@ -330,6 +332,7 @@ describe('RecordingPlayer', () => {
       assert.isFalse(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('main1', 'page', 'chrome-extension://smth'),
               ),
       );
@@ -338,6 +341,7 @@ describe('RecordingPlayer', () => {
     it('should attach to the main target if it is DevTools', () => {
       assert.isTrue(
           shouldAttachToTarget(
+              'main1',
               'main1',
               makeTargetInfo('main1', 'page', 'devtools://smth'),
               ),
@@ -348,6 +352,7 @@ describe('RecordingPlayer', () => {
       assert.isFalse(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('non-main', 'page', 'devtools://smth'),
               ),
       );
@@ -357,6 +362,7 @@ describe('RecordingPlayer', () => {
       assert.isTrue(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('iframe1', 'iframe', 'https://example.com'),
               ),
       );
@@ -365,6 +371,7 @@ describe('RecordingPlayer', () => {
     it('should not attach to other targts', () => {
       assert.isFalse(
           shouldAttachToTarget(
+              'main1',
               'main1',
               makeTargetInfo(
                   'service_worker1',
