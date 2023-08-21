@@ -50,6 +50,24 @@
       "message": "it looks like CI is failing because the new function calls in `blink/web_tests/http/tests/devtools/profiler/agents-disabled-check-expected.txt`\n\n`Overlay.setShow*Overlays` should be called in both `suspendAllTargets()` and `resumeAllTargets()` right?",
       "revId": "ef70cbbfcc0564c8a1c8d5e69f42c1be6e42d483",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb85e0b_90c072cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-08-21T11:56:41Z",
+      "side": 1,
+      "message": "Oh I think the failure there is expected and we need to update the failing test in `chromium/src` repository. Though there is a funny dependency here:\n* The change here is updating the `resume()` behavior for overlay agent with a better behavior.\n* The test in the `chromium/src` repository tests the previous behavior.\n* We\u0027ll need to update the test in `chromium/src` to the correct behavior. Though correct behavior is implemented in this CL and it won\u0027t get into `chromium/src` repository until that test is fixed. So, even if we update the test there, this time that test won\u0027t pass by itself in that repository 😂\n\nSo, what we\u0027ll need to do is:\n1 - Land a CL in `chromium/src` codebase that skips the failing test\n2 - Land this CL in `devtools/devtools-frontend` codebase.\n3 - Update test expectations for the test in `chromium/src` repository and remove skipping that test.\n\nLet me know if you need help in this regard :)",
+      "parentUuid": "3629a1b5_3f2b9502",
+      "revId": "ef70cbbfcc0564c8a1c8d5e69f42c1be6e42d483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
