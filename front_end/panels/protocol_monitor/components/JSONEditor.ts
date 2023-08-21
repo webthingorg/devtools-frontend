@@ -87,7 +87,7 @@ interface BooleanParameter extends BaseParameter {
 
 interface ObjectParameter extends BaseParameter {
   type: ParameterType.Object;
-  value: Parameter[];
+  value?: Parameter[];
 }
 
 export type Parameter = ArrayParameter|NumberParameter|StringParameter|BooleanParameter|ObjectParameter;
@@ -465,9 +465,9 @@ export class JSONEditor extends LitElement {
 
       return {
         ...parameter,
-        value: nestedParameters,
+        value: parameter.optional ? undefined : nestedParameters,
         isCorrectType: true,
-      };
+      } as Parameter;
     }
     if (parameter.type === ParameterType.Array) {
       return {
@@ -641,7 +641,6 @@ export class JSONEditor extends LitElement {
   #handleAddParameter(parameterId: string): void {
     const pathArray = parameterId.split('.');
     const {parameter} = this.#getChildByPath(pathArray);
-
     if (!parameter) {
       return;
     }
@@ -694,6 +693,9 @@ export class JSONEditor extends LitElement {
         if (!typeRef) {
           throw Error('Every object parameter must have a typeRef');
         }
+        if (!parameter.value) {
+          parameter.value = [];
+        }
         if (!this.typesByName.get(typeRef)) {
           parameter.value.push({
             type: ParameterType.String,
@@ -729,17 +731,46 @@ export class JSONEditor extends LitElement {
     this.requestUpdate();
   }
 
-  #handleClearParameter(parameter: Parameter): void {
-    if (!parameter) {
+  #handleAddObject(parameterId: string): void {
+    const pathArray = parameterId.split('.');
+    const {parameter} = this.#getChildByPath(pathArray);
+    if (!parameter || parameter.type !== ParameterType.Object) {
+      return;
+    }
+
+    const typeRef = parameter.typeRef;
+    if (!typeRef) {
+      throw Error('Every object parameters should have a type ref');
+    }
+
+    // Fallback to empty array is extremely rare.
+    // It happens when the keys for an object are not registered like for Tracing.MemoryDumpConfig or headers for instance.
+    const nestedTypes = this.typesByName.get(typeRef) ?? [];
+
+    const nestedParameters = nestedTypes.map(nestedType => {
+      return this.#populateParameterDefaults(nestedType);
+    });
+
+    parameter.value = nestedParameters;
+
+    this.requestUpdate();
+  }
+
+  #handleClearParameter(parameter: Parameter, isParentArray?: boolean): void {
+    if (!parameter || parameter.value === undefined) {
       return;
     }
 
     switch (parameter.type) {
       case ParameterType.Object:
+        if (parameter.optional && !isParentArray) {
+          parameter.value = undefined;
+          break;
+        }
         if (!parameter.typeRef || !this.typesByName.get(parameter.typeRef)) {
           parameter.value = [];
         } else {
-          parameter.value.forEach(param => this.#handleClearParameter(param));
+          parameter.value.forEach(param => this.#handleClearParameter(param, isParentArray));
         }
         break;
 
@@ -936,11 +967,11 @@ export class JSONEditor extends LitElement {
                       `: nothing}
 
                       <!-- Render button to complete reset an array parameter or an object parameter-->
-                      ${(isArray && parameter.value.length !== 0) || isObject ?
+                      ${(isArray && parameter.value !== undefined && parameter.value.length !== 0) || isObject && parameter.value !== undefined ?
                       this.#renderInlineButton({
                         title: i18nString(UIStrings.resetDefaultValue),
                         iconName: 'clear',
-                        onClick: () => this.#handleClearParameter(parameter),
+                        onClick: () => this.#handleClearParameter(parameter, isParentArray),
                         classMap: {'clear-button': true},
                       }) : nothing}
 
@@ -950,7 +981,16 @@ export class JSONEditor extends LitElement {
                             title: i18nString(UIStrings.addParameter),
                             iconName: 'plus',
                             onClick: () => this.#handleAddParameter(parameterId),
-                            classMap: { 'delete-button': true },
+                            classMap: { 'add-button': true },
+                          })}` : nothing}
+
+                      <!-- Render the buttons to change the value from undefined to populate the values inside object with their default values -->
+                      ${isObject && parameter.optional && parameter.value === undefined ?
+                          html`  ${this.#renderInlineButton({
+                            title: i18nString(UIStrings.addParameter),
+                            iconName: 'plus',
+                            onClick: () => this.#handleAddObject(parameterId),
+                            classMap: { 'add-button': true },
                           })}` : nothing}
                   </div>
 
