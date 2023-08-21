@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8785baa5_20e98c27",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-21T10:37:34Z",
+      "side": 1,
+      "message": "should this code be here? It looks like it belong to inside the process_command",
+      "revId": "c1e8d39c672f7a2f06160886cd76ecfffd0102e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "137a2f51_aabae94b",
+        "filename": "scripts/build/code_generator_frontend.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-21T10:37:34Z",
+      "side": 1,
+      "message": "there could be multiple unnamed enums in one command right?",
+      "revId": "c1e8d39c672f7a2f06160886cd76ecfffd0102e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
