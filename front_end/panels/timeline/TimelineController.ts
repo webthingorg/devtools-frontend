@@ -7,9 +7,9 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
-import type * as Protocol from '../../generated/protocol.js';
 
 import {PerformanceModel} from './PerformanceModel.js';
 
@@ -34,6 +34,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class TimelineController implements SDK.TargetManager.SDKModelObserver<SDK.CPUProfilerModel.CPUProfilerModel>,
                                            TraceEngine.TracingManager.TracingManagerClient {
   readonly primaryPageTarget: SDK.Target.Target;
+  readonly rootTarget: SDK.Target.Target;
   private tracingManager: TraceEngine.TracingManager.TracingManager|null;
   private performanceModel: PerformanceModel;
   private readonly client: Client;
@@ -46,11 +47,38 @@ export class TimelineController implements SDK.TargetManager.SDKModelObserver<SD
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private cpuProfiles?: Map<any, any>|null;
 
-  constructor(target: SDK.Target.Target, client: Client) {
-    this.primaryPageTarget = target;
-    this.tracingManager = target.model(TraceEngine.TracingManager.TracingManager);
+  /**
+   * We always need to profile against the DevTools root target, which is
+   * the target that DevTools is attached to.
+   *
+   * In most cases, this will be the tab that DevTools is inspecting.
+   * Now pre-rendering is active, tabs can have multiple pages - only one
+   * of which the user is being shown. This is the "primary page" and hence
+   * why in code we have "primaryPageTarget". When there's a prerendered
+   * page in a background, tab target would have multiple subtargets, one
+   * of them being primaryPageTarget.
+   *
+   * The problems with with using primary page target for tracing are:
+   * 1. Performance trace doesn't include information from the other pages on
+   *    the tab which is probably not what the user wants as it does not
+   *    reflect reality.
+   * 2. Capturing trace never finishes after prerendering activation as
+   *    we've started on one target and ending on another one, and
+   *    tracingComplete event never gets processed.
+   *
+   * However, when we want to look at the URL of the current page, we need
+   * to use the primaryPageTarget to ensure we get the URL of teh tab and
+   * the tab's page that is being shown to the user. That is why here we
+   * have to look at both.
+   **/
+  constructor(rootTarget: SDK.Target.Target, primaryPageTarget: SDK.Target.Target, client: Client) {
+    this.primaryPageTarget = primaryPageTarget;
+    this.rootTarget = rootTarget;
+    // Ensure the tracing manager is the one for the Root Target, NOT the
+    // primaryPageTarget, as that is the one we have to invoke tracing against.
+    this.tracingManager = rootTarget.model(TraceEngine.TracingManager.TracingManager);
     this.performanceModel = new PerformanceModel();
-    this.performanceModel.setMainTarget(target);
+    this.performanceModel.setMainTarget(primaryPageTarget);
     this.client = client;
     this.tracingModel = new TraceEngine.Legacy.TracingModel();
 
