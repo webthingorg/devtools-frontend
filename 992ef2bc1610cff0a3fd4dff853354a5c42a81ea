@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeacb784_3ce90570",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-21T15:55:56Z",
+      "side": 1,
+      "message": "FYI - not asking for review, but Danil asked me to look into updating the perf panel to use the root target for tracing. However doing this currently leads to no screenshots from the backend which Danil is investigating.",
+      "revId": "992ef2bc1610cff0a3fd4dff853354a5c42a81ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ce33e41_c05531e1",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-21T15:55:56Z",
+      "side": 1,
+      "message": "TBC if this needs to be primaryPageTarget or rootTarget - need to dive into what this is used for and therefore the implications of it.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 59
+      },
+      "revId": "992ef2bc1610cff0a3fd4dff853354a5c42a81ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
