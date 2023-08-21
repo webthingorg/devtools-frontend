@@ -37,6 +37,7 @@ export declare const FrameEmittedEvents: {
     LifecycleEvent: symbol;
     FrameNavigatedWithinDocument: symbol;
     FrameDetached: symbol;
+    FrameSwappedByActivation: symbol;
 };
 /**
  * @internal
@@ -50,6 +51,11 @@ export declare class Frame extends BaseFrame {
     _lifecycleEvents: Set<string>;
     _parentId?: string;
     constructor(frameManager: FrameManager, frameId: string, parentFrameId: string | undefined, client: CDPSession);
+    /**
+     * Updates the frame ID with the new ID. This happens when the main frame is
+     * replaced by a different frame.
+     */
+    updateId(id: string): void;
     updateClient(client: CDPSession): void;
     page(): Page;
     isOOPFrame(): boolean;
