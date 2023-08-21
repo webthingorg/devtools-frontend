@@ -272,7 +272,9 @@ class CDPBrowser extends Browser_js_1.Browser {
             url: 'about:blank',
             browserContextId: contextId || undefined,
         });
-        const target = this.#targetManager.getAvailableTargets().get(targetId);
+        const target = (await this.waitForTarget(t => {
+            return t._targetId === targetId;
+        }));
         if (!target) {
             throw new Error(`Missing target for page (id = ${targetId})`);
         }

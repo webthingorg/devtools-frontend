@@ -30,6 +30,7 @@ import type { Readable } from 'stream';
 export declare class Accessibility {
     #private;
     /* Excluded from this release type: __constructor */
+    /* Excluded from this release type: updateClient */
     /**
      * Captures the current state of the accessibility tree.
      * The returned object represents the root accessible node of the page.
@@ -1043,6 +1044,7 @@ export declare interface ContinueRequestOverrides {
 export declare class Coverage {
     #private;
     constructor(client: CDPSession);
+    /* Excluded from this release type: updateClient */
     /**
      * @param options - Set of configurable options for coverage defaults to
      * `resetOnNavigation : true, reportAnonymousScripts : false,`
@@ -1127,6 +1129,7 @@ export declare interface Credentials {
 export declare class CSSCoverage {
     #private;
     constructor(client: CDPSession);
+    /* Excluded from this release type: updateClient */
     start(options?: {
         resetOnNavigation?: boolean;
     }): Promise<void>;
@@ -3180,6 +3183,7 @@ export declare interface InternalNetworkConditions extends NetworkConditions {
 export declare class JSCoverage {
     #private;
     constructor(client: CDPSession);
+    /* Excluded from this release type: updateClient */
     start(options?: {
         resetOnNavigation?: boolean;
         reportAnonymousScripts?: boolean;
@@ -6995,7 +6999,8 @@ export declare enum TargetType {
     SHARED_WORKER = "shared_worker",
     BROWSER = "browser",
     WEBVIEW = "webview",
-    OTHER = "other"
+    OTHER = "other",
+    /* Excluded from this release type: TAB */
 }
 
 /* Excluded from this release type: TaskManager */
@@ -7068,6 +7073,7 @@ export declare class Touchscreen {
 export declare class Tracing {
     #private;
     /* Excluded from this release type: __constructor */
+    /* Excluded from this release type: updateClient */
     /**
      * Starts a trace for the current page.
      * @remarks

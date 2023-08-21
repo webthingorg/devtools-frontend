@@ -22,6 +22,12 @@ const Connection_js_1 = require("./Connection.js");
 const EventEmitter_js_1 = require("./EventEmitter.js");
 const Target_js_1 = require("./Target.js");
 const util_js_1 = require("./util.js");
+function isTargetExposed(target) {
+    return target.type() !== 'tab' && !target._subtype();
+}
+function isPageTargetBecomingPrimary(target, newTargetInfo) {
+    return Boolean(target._subtype()) && !newTargetInfo.subtype;
+}
 /**
  * ChromeTargetManager uses the CDP's auto-attach mechanism to intercept
  * new targets and allow the rest of Puppeteer to configure listeners while
@@ -64,6 +70,9 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
     #initializeDeferred = Deferred_js_1.Deferred.create();
     #targetsIdsForInit = new Set();
     #waitForInitiallyDiscoveredTargets = true;
+    // TODO: remove the flag once the testing/rollout is done.
+    #tabMode = true;
+    #discoveryFilter = this.#tabMode ? [{}] : [{ type: 'tab', exclude: true }, {}];
     constructor(connection, targetFactory, targetFilterCallback, waitForInitiallyDiscoveredTargets = true) {
         super();
         this.#connection = connection;
@@ -78,7 +87,7 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
         this.#connection
             .send('Target.setDiscoverTargets', {
             discover: true,
-            filter: [{ type: 'tab', exclude: true }, {}],
+            filter: this.#discoveryFilter,
         })
             .then(this.#storeExistingTargetsForInit)
             .catch(util_js_1.debugError);
@@ -101,6 +110,15 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
             waitForDebuggerOnStart: true,
             flatten: true,
             autoAttach: true,
+            filter: this.#tabMode
+                ? [
+                    {
+                        type: 'page',
+                        exclude: true,
+                    },
+                    ...this.#discoveryFilter,
+                ]
+                : this.#discoveryFilter,
         });
         this.#finishInitializationIfReady();
         await this.#initializeDeferred.valueOrThrow();
@@ -113,7 +131,13 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
         this.#removeAttachmentListeners(this.#connection);
     }
     getAvailableTargets() {
-        return this.#attachedTargetsByTargetId;
+        const result = new Map();
+        for (const [id, target] of this.#attachedTargetsByTargetId.entries()) {
+            if (isTargetExposed(target)) {
+                result.set(id, target);
+            }
+        }
+        return result;
     }
     addTargetInterceptor(session, interceptor) {
         const interceptors = this.#targetInterceptors.get(session) || [];
@@ -195,6 +219,12 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
         }
         const previousURL = target.url();
         const wasInitialized = target._initializedDeferred.value() === Target_js_1.InitializationStatus.SUCCESS;
+        if (isPageTargetBecomingPrimary(target, event.targetInfo)) {
+            const target = this.#attachedTargetsByTargetId.get(event.targetInfo.targetId);
+            const session = target?._session();
+            (0, assert_js_1.assert)(session, 'Target that is being activated is missing a CDPSession.');
+            session.parentSession()?.emit('sessionswapped', session);
+        }
         target._targetInfoChanged(event.targetInfo);
         if (wasInitialized && previousURL !== target.url()) {
             this.emit("targetChanged" /* TargetManagerEmittedEvents.TargetChanged */, {
@@ -246,7 +276,7 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
         const existingTarget = this.#attachedTargetsByTargetId.has(targetInfo.targetId);
         const target = existingTarget
             ? this.#attachedTargetsByTargetId.get(targetInfo.targetId)
-            : this.#targetFactory(targetInfo, session);
+            : this.#targetFactory(targetInfo, session, parentSession instanceof Connection_js_1.CDPSession ? parentSession : undefined);
         if (this.#targetFilterCallback && !this.#targetFilterCallback(target)) {
             this.#ignoredTargets.add(targetInfo.targetId);
             this.#finishInitializationIfReady(targetInfo.targetId);
@@ -276,7 +306,7 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
                 : this.#attachedTargetsBySessionId.get(parentSession.id()));
         }
         this.#targetsIdsForInit.delete(target._targetId);
-        if (!existingTarget) {
+        if (!existingTarget && isTargetExposed(target)) {
             this.emit("targetAvailable" /* TargetManagerEmittedEvents.TargetAvailable */, target);
         }
         this.#finishInitializationIfReady();
@@ -287,6 +317,7 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
                 waitForDebuggerOnStart: true,
                 flatten: true,
                 autoAttach: true,
+                filter: this.#discoveryFilter,
             }),
             session.send('Runtime.runIfWaitingForDebugger'),
         ]).catch(util_js_1.debugError);
@@ -304,7 +335,9 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
             return;
         }
         this.#attachedTargetsByTargetId.delete(target._targetId);
-        this.emit("targetGone" /* TargetManagerEmittedEvents.TargetGone */, target);
+        if (isTargetExposed(target)) {
+            this.emit("targetGone" /* TargetManagerEmittedEvents.TargetGone */, target);
+        }
     };
 }
 exports.ChromeTargetManager = ChromeTargetManager;
