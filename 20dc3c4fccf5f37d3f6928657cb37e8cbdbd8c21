@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f931cab_c67810dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-21T11:28:46Z",
+      "side": 1,
+      "message": "PTAL. The logic is covered by 2 web tests we have to re-baseline.",
+      "revId": "20dc3c4fccf5f37d3f6928657cb37e8cbdbd8c21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
