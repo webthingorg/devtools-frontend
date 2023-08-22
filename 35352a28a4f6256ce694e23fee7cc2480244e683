@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b916bdfc_c4ee044a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1543417
+      },
+      "writtenOn": "2023-08-22T16:56:10Z",
+      "side": 1,
+      "message": "Hi, this is a dummy change on a staging branch, and it will be used to test git submodule migration. \nNothing will be in PROD or release.\nThanks!",
+      "revId": "35352a28a4f6256ce694e23fee7cc2480244e683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
