@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f182dce6_3fc42dee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-22T04:47:01Z",
+      "side": 1,
+      "message": "This is the wrong CL to revert for this particular error. The correct one is https://crrev.com/c/4798129. We can either revert that CL or wait a half an hour for the forward fix to make its way through the CQ.",
+      "revId": "5ca28d2c21ee9a6c86890159d8c439b7a9928f3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
