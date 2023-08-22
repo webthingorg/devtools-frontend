@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e809d29a_3f5bd738",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-22T09:09:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8896c811_f94cabec",
+      "revId": "1cbce7874a96b67f283dbb71d38941820d4a25e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8b1d673_96e8868d",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-22T08:08:19Z",
       "side": 1,
       "message": "let\u0027s extract the whole thing into a var called `canClearParameter`",
+      "range": {
+        "startLine": 972,
+        "startChar": 25,
+        "endLine": 972,
+        "endChar": 130
+      },
+      "revId": "1cbce7874a96b67f283dbb71d38941820d4a25e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db7419c4_c7b12707",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-22T09:09:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8b1d673_96e8868d",
       "range": {
         "startLine": 972,
         "startChar": 25,
