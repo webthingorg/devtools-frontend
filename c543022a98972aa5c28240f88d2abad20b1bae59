@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6728e711_193d899f",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-22T14:31:54Z",
+      "side": 1,
+      "message": "I am not sure what it exactly does, but emitting `FilterUIEvents.FilterChanged` doesn\u0027t work",
+      "parentUuid": "51bf57f8_03e92475",
+      "range": {
+        "startLine": 517,
+        "startChar": 21,
+        "endLine": 517,
+        "endChar": 54
+      },
+      "revId": "c543022a98972aa5c28240f88d2abad20b1bae59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a65dcc5f_3326641b",
         "filename": "front_end/ui/legacy/FilterBar.ts",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-21T13:22:30Z",
       "side": 1,
       "message": "Instead of reapeating this, this should be a loop or a separate helper method. Can we use `this.items` to provide the actual data?",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 560,
+        "endChar": 35
+      },
+      "revId": "c543022a98972aa5c28240f88d2abad20b1bae59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8842d3e_83622816",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-22T14:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a65dcc5f_3326641b",
       "range": {
         "startLine": 557,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61c7a6a9_4938c44f",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-22T14:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca5839c3_67850ae6",
+      "range": {
+        "startLine": 620,
+        "startChar": 2,
+        "endLine": 620,
+        "endChar": 24
+      },
+      "revId": "c543022a98972aa5c28240f88d2abad20b1bae59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "850609b1_e1404946",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-08-21T13:22:30Z",
       "side": 1,
       "message": "When you uncheck the only checked item, is this being executed? This adds \u0027ALL_TYPES\u0027 and should therefore lead to a checkmark being set for the \u0027all\u0027 context menu entry.",
+      "range": {
+        "startLine": 665,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 5
+      },
+      "revId": "c543022a98972aa5c28240f88d2abad20b1bae59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff376ed_4b3b1a9d",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-22T14:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850609b1_e1404946",
       "range": {
         "startLine": 665,
         "startChar": 0,
