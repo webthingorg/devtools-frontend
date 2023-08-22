@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a793b85_72eeca87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-22T05:01:23Z",
+      "side": 1,
+      "message": "Thanks, lgtm but one concern about L10N",
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea9f724_f8fd2efc",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-22T05:01:23Z",
+      "side": 1,
+      "message": "Just to confirm, did you add these in Chromium as well?",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 584,
+        "endChar": 30
+      },
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd4ccbff_9e1f526c",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-22T05:01:23Z",
+      "side": 1,
+      "message": "This is a L10N bad practice. The sentence structure makes sense in english, but in other languages it might not make sense grammar wise to concatenate two strings that are translated separately.\n\nPlease re-structure the UI texts/elements so we don\u0027t have to do `i18nString() + i18nString()`",
+      "range": {
+        "startLine": 40,
+        "startChar": 96,
+        "endLine": 40,
+        "endChar": 118
+      },
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa15e7b_bd30875f",
+        "filename": "front_end/ui/legacy/tabbedPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-22T05:01:23Z",
+      "side": 1,
+      "message": "Out of curiosity (to improve my CSS knowledge), whats the difference here between `\u0026:has(.workspace)` and `\u0026 .workspace`?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
