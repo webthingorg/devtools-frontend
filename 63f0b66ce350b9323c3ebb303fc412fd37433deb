@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5b0e590_b2e1577a",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-22T04:46:13Z",
+      "side": 1,
+      "message": "I can continue to use the `else` statement instead of adding `isWorkspace`. However, I felt like the logic is getting very specific already, perhaps it is good to add a prop to identify that.",
+      "revId": "63f0b66ce350b9323c3ebb303fc412fd37433deb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
