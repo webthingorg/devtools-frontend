@@ -371,6 +371,7 @@ export class ResourceCategory {
   }
 }
 
+// HERE XHR
 export const resourceCategories = {
   XHR: new ResourceCategory(i18nLazyString(UIStrings.xhrAndFetch), i18n.i18n.lockedLazyString('Fetch/XHR')),
   Script: new ResourceCategory(i18nLazyString(UIStrings.scripts), i18nLazyString(UIStrings.js)),
