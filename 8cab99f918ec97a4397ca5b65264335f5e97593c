@@ -16,6 +16,24 @@
       "message": "Why not just remove these builders now?",
       "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec2e7b45_ebf4a18e",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-22T08:58:20Z",
+      "side": 1,
+      "message": "I prefer to have them at least for a while to compare sequential to parallel. Do you prefer if we remove it?",
+      "parentUuid": "63121a34_4a0da23d",
+      "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
