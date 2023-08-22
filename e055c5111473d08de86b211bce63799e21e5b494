@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6945ea9_2b33f1d8",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-22T06:20:47Z",
+      "side": 1,
+      "message": "Yes. CL: https://chromium-review.googlesource.com/c/chromium/src/+/4801528",
+      "parentUuid": "5ea9f724_f8fd2efc",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 584,
+        "endChar": 30
+      },
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd4ccbff_9e1f526c",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d83b48_9bd73dbc",
+        "filename": "front_end/panels/sources/SourcesView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-22T06:20:47Z",
+      "side": 1,
+      "message": "Fixed by adding \":\" to split the action as standalone for translation. \n\nAlso, briefly tried another UX approach, but feel too bulky for the section: https://imgur.com/a/zQpwj1I",
+      "parentUuid": "fd4ccbff_9e1f526c",
+      "range": {
+        "startLine": 40,
+        "startChar": 96,
+        "endLine": 40,
+        "endChar": 118
+      },
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0aa15e7b_bd30875f",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-08-22T05:01:23Z",
       "side": 1,
       "message": "Out of curiosity (to improve my CSS knowledge), whats the difference here between `\u0026:has(.workspace)` and `\u0026 .workspace`?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f89b061c_e6f77c25",
+        "filename": "front_end/ui/legacy/tabbedPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-22T06:20:47Z",
+      "side": 1,
+      "message": "`\u0026 .workspace` will style the child `.tabbed-pane-placeholder-row \u003e span.workspace`.\n\n`\u0026:has(.workspace)` style the parent `.tabbed-pane-placeholder-row` if it has a child element `span.workspace`",
+      "parentUuid": "0aa15e7b_bd30875f",
       "range": {
         "startLine": 64,
         "startChar": 2,
