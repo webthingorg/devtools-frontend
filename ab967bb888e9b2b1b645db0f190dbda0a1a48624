@@ -39,6 +39,48 @@
       "message": "let\u0027s extract those undefined checked into named variables (similar to isArray)? currently, it\u0027s difficult to understand what this means.",
       "revId": "ab967bb888e9b2b1b645db0f190dbda0a1a48624",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "585170ed_900dec80",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-22T07:46:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f02958a_7b48cb21",
+      "range": {
+        "startLine": 970,
+        "startChar": 102,
+        "endLine": 970,
+        "endChar": 143
+      },
+      "revId": "ab967bb888e9b2b1b645db0f190dbda0a1a48624",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef46c40_fe0322b8",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-22T07:46:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea19f9f_e8371d9f",
+      "revId": "ab967bb888e9b2b1b645db0f190dbda0a1a48624",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
