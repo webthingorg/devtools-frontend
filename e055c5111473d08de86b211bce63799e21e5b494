@@ -157,6 +157,30 @@
       },
       "revId": "e055c5111473d08de86b211bce63799e21e5b494",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6124cbc_fa63ee5c",
+        "filename": "front_end/ui/legacy/tabbedPane.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-22T07:03:18Z",
+      "side": 1,
+      "message": "Thanks for the explanation!",
+      "parentUuid": "f89b061c_e6f77c25",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "e055c5111473d08de86b211bce63799e21e5b494",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
