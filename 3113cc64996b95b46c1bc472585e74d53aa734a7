@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33fe175c_36480a57",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-22T20:54:19Z",
+      "side": 1,
+      "message": "Fixed the JSDoc description.",
+      "parentUuid": "2bb21ed8_fb3c2eec",
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01fddd95_eaefc17c",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 2
@@ -113,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64bd0c4b_ab8d301c",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-22T20:54:19Z",
+      "side": 1,
+      "message": "No, it\u0027s URL of shortcut item (https://www.w3.org/TR/appmanifest/#dfn-shortcut-item).",
+      "parentUuid": "01fddd95_eaefc17c",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 47
+      },
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "467cb268_c62d2093",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 2
@@ -124,6 +166,30 @@
       "writtenOn": "2023-08-22T19:55:36Z",
       "side": 1,
       "message": "nit: `Text for platform the screenshot belongs to` might be better here, wdyt?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 45
+      },
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adfae2b9_168d4745",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-22T20:54:19Z",
+      "side": 1,
+      "message": "Fixed the JSDoc description.",
+      "parentUuid": "467cb268_c62d2093",
       "range": {
         "startLine": 298,
         "startChar": 0,
