@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "37f18e4b7c77865e253a068618503335fb7b0173",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e96371a1_85e62804",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-08-22T13:39:01Z",
+      "side": 1,
+      "message": "LGTM! it\u0027s definitely more readable now 😊",
+      "revId": "37f18e4b7c77865e253a068618503335fb7b0173",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
