@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5679ee31_ece54bbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-22T15:03:39Z",
+      "side": 1,
+      "message": "DevTools mostly LGTM.\n\nVincent PTAL, do these warnings make sense from the PWA/installation side?",
+      "revId": "b1ef424c7c716ff2da9ce0da1437a797aa178544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17287976_a593903d",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-22T15:03:39Z",
+      "side": 1,
+      "message": "nit: how about \u0027The maximum number of shortcuts is platform dependent. Some...\u0027?",
+      "range": {
+        "startLine": 145,
+        "startChar": 39,
+        "endLine": 145,
+        "endChar": 64
+      },
+      "revId": "b1ef424c7c716ff2da9ce0da1437a797aa178544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e113f43_aee72cc7",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-22T15:03:39Z",
+      "side": 1,
+      "message": "nit: \u0027won’t\u0027 as per https://developers.google.com/style/contractions",
+      "range": {
+        "startLine": 402,
+        "startChar": 29,
+        "endLine": 402,
+        "endChar": 37
+      },
+      "revId": "b1ef424c7c716ff2da9ce0da1437a797aa178544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf8ded7_6ea73db4",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-22T15:03:39Z",
+      "side": 1,
+      "message": "nit: same",
+      "range": {
+        "startLine": 407,
+        "startChar": 29,
+        "endLine": 407,
+        "endChar": 37
+      },
+      "revId": "b1ef424c7c716ff2da9ce0da1437a797aa178544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc1f5678_ae72617b",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-22T15:03:39Z",
+      "side": 1,
+      "message": "nit: how about \u0027Please add at least one screenshot for which \"form_factor\" is not set or set to a value other than \"wide\".\u0027?",
+      "range": {
+        "startLine": 407,
+        "startChar": 62,
+        "endLine": 407,
+        "endChar": 167
+      },
+      "revId": "b1ef424c7c716ff2da9ce0da1437a797aa178544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac461d7_03cbb93c",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-22T15:03:39Z",
+      "side": 1,
+      "message": "Could we use the Screenshot type here already?",
+      "range": {
+        "startLine": 810,
+        "startChar": 4,
+        "endLine": 810,
+        "endChar": 60
+      },
+      "revId": "b1ef424c7c716ff2da9ce0da1437a797aa178544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
