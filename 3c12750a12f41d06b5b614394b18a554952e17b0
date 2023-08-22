@@ -33,6 +33,24 @@
       "message": "How about using left and right single quote (U+2018 and U+2019)? Example: Don’t?\nFollowing our UXW guideline, we should use short form don\u0027t",
       "revId": "3c12750a12f41d06b5b614394b18a554952e17b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8261f87_1c3f48b0",
+        "filename": "front_end/panels/console/ConsolePrompt.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-22T10:46:56Z",
+      "side": 1,
+      "message": "You are right, according to https://carbon.googleplex.com/google-material/pages/grammar-punctuation we should not use the straight apostrophe and use left/right quotation marks instead.\n\nI\u0027ll take a look at how to apply this to the rest of DevTools UI strings as well.",
+      "parentUuid": "d2397616_2e60716d",
+      "revId": "3c12750a12f41d06b5b614394b18a554952e17b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
