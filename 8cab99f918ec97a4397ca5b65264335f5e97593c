@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63121a34_4a0da23d",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-22T08:56:06Z",
+      "side": 1,
+      "message": "Why not just remove these builders now?",
+      "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
