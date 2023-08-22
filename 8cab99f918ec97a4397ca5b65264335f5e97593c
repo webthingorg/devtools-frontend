@@ -51,6 +51,41 @@
       "parentUuid": "63121a34_4a0da23d",
       "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c0bcb04_b5e7e559",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-22T09:51:40Z",
+      "side": 1,
+      "message": "No it makes sense to keep them for a bit. Should we also rename them? (now that they\u0027re not parallel anymore)",
+      "parentUuid": "ec2e7b45_ebf4a18e",
+      "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a07f37e6_8ae0c96e",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-08-22T09:51:40Z",
+      "side": 1,
+      "message": "Should this one go on the main consoles as well now?",
+      "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
