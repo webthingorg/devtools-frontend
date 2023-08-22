@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dd55be2_ebb98d17",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-22T10:33:09Z",
+      "side": 1,
+      "message": "I renamed it to sequential",
+      "parentUuid": "6c0bcb04_b5e7e559",
+      "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a07f37e6_8ae0c96e",
@@ -84,6 +102,24 @@
       "writtenOn": "2023-08-22T09:51:40Z",
       "side": 1,
       "message": "Should this one go on the main consoles as well now?",
+      "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf50d9a_d13549ad",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-22T10:33:09Z",
+      "side": 1,
+      "message": "the shuffled one is for experimentation and it is expected to be red in an unpredictable way so I would keep it in the parallel console for now.",
+      "parentUuid": "a07f37e6_8ae0c96e",
       "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
