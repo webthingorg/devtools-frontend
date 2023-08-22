@@ -1210,7 +1210,11 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     const entry = items[0].webkitGetAsEntry();
     if (entry && entry.isDirectory) {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.upgradeDraggedFileSystemPermissions(entry.filesystem);
+<<<<<<< PATCH SET (aa99ba [workspace] Should show workspace tab after drop new folder)
+      void UI.ViewManager.ViewManager.instance().showView('navigator-files');
+=======
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.WorkspaceDropFolder);
+>>>>>>> BASE      (99d4ca DevTools: Fix warning about web app manifest maximum descrip)
     }
   }
 }
