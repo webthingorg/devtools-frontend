@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8490086b_882383ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-22T11:12:14Z",
+      "side": 1,
+      "message": "PTAL, I disabled the two web tests. They rely on the old method signature of `showUISourceCode`, but pass normally with the updated signature.",
+      "revId": "e5c470dba8e2ed89a33aff8845536105f011946a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
