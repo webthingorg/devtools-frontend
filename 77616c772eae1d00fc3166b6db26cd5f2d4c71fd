@@ -50,6 +50,40 @@
       "message": "Mathias, could you please take a look? ;)",
       "revId": "77616c772eae1d00fc3166b6db26cd5f2d4c71fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0c2d273_dd8c686f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-22T06:23:56Z",
+      "side": 1,
+      "message": "LGTM % comment",
+      "revId": "77616c772eae1d00fc3166b6db26cd5f2d4c71fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4307ce29_6e4f565e",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-08-22T06:23:56Z",
+      "side": 1,
+      "message": "Let’s add a comment here explaining the magic number by pointing to crbug.com/1354304.",
+      "revId": "77616c772eae1d00fc3166b6db26cd5f2d4c71fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
