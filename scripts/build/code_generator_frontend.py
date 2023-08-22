@@ -260,7 +260,8 @@ class Generator:
                                     to_title_case(json_command["name"]),
                                     to_title_case(param["name"]))
                                 Generator.process_enum(param, enum_name)
-                    Generator.process_command(json_command, domain_name)
+                    Generator.process_command(json_command, domain_name,
+                                              enum_name)
 
             if "types" in json_domain:
                 for json_type in json_domain["types"]:
@@ -365,7 +366,7 @@ class Generator:
             ))
 
     @staticmethod
-    def process_command(json_command, domain_name):
+    def process_command(json_command, domain_name, enum_name):
         json_command_name = json_command["name"]
         json_command_description = json_command.get("description", "")
         js_parameters_text = ""

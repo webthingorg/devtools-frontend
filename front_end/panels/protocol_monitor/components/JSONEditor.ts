@@ -898,7 +898,7 @@ export class JSONEditor extends LitElement {
                               data-paramId=${parameterId}
                               isKey=${true}
                               .isCorrectInput=${live(parameter.isCorrectType)}
-                              .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
+                              .options=${hasOptions ? live(this.#computeDropdownValues(parameter)) : []}
                               .autocomplete=${false}
                               .value=${live(parameter.name ?? '')}
                               .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
@@ -944,7 +944,7 @@ export class JSONEditor extends LitElement {
                       <devtools-suggestion-input
                           data-paramId=${parameterId}
                           .isCorrectInput=${live(parameter.isCorrectType)}
-                          .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
+                          .options=${hasOptions ? live(this.#computeDropdownValues(parameter)) : []}
                           .autocomplete=${false}
                           .value=${live(parameter.value ?? '')}
                           .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
@@ -966,7 +966,7 @@ export class JSONEditor extends LitElement {
                         <devtools-suggestion-input
                           data-paramId=${parameterId}
                           .strikethrough=${live(parameter.isCorrectType)}
-                          .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
+                          .options=${hasOptions ? live(this.#computeDropdownValues(parameter)) : []}
                           .autocomplete=${false}
                           .value=${live(parameter.value ?? '')}
                           .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
@@ -1000,7 +1000,7 @@ export class JSONEditor extends LitElement {
                     ${!isObject ? html`
                     <devtools-suggestion-input
                       data-paramId=${parameterId}
-                      .options=${hasOptions ? this.#computeDropdownValues(parameter) : []}
+                      .options=${hasOptions ? live(this.#computeDropdownValues(parameter)) : []}
                       .autocomplete=${false}
                       .value=${live(parameter.value ?? '')}
                       .placeholder=${parameter.value === '' ? EMPTY_STRING : `<${defaultValueByType.get(parameter.type)}>`}
