@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d99d4959_a5776114",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1530082
+      },
+      "writtenOn": "2023-08-22T19:55:36Z",
+      "side": 1,
+      "message": "LGTM about PWA information, just had some small questions and clarifications.\n\nCan you add some screenshots as to how the warnings look inside the bug? That would also help understand how this looks. Will defer to Wolfgang for LGTM.",
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2b0f970_8c16d504",
@@ -49,6 +66,70 @@
       "side": 1,
       "message": "The `short_name` is also a member of shortcut items (https://www.w3.org/TR/appmanifest/#short_name-member-0), not only the app (https://www.w3.org/TR/appmanifest/#short_name-member). That\u0027s the second reason why I used the \"of something\".",
       "parentUuid": "c2b0f970_8c16d504",
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb21ed8_fb3c2eec",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1530082
+      },
+      "writtenOn": "2023-08-22T19:55:36Z",
+      "side": 1,
+      "message": "+1 to Vince\u0027s comment, `of something` does not really clarify what it should correspond to.\n\nCan we instead say something like `Text for the computed short name from the App Manifest` or `Text for the short name from the App Manifest` for the Name, Short name and the URL field?",
+      "parentUuid": "a755f079_e9ff4f32",
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01fddd95_eaefc17c",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1530082
+      },
+      "writtenOn": "2023-08-22T19:55:36Z",
+      "side": 1,
+      "message": "Can you share which URL this is? Is this [1]?\n\n[1] https://www.w3.org/TR/appmanifest/#url-member-0",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 47
+      },
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "467cb268_c62d2093",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1530082
+      },
+      "writtenOn": "2023-08-22T19:55:36Z",
+      "side": 1,
+      "message": "nit: `Text for platform the screenshot belongs to` might be better here, wdyt?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 45
+      },
       "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
