@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a4bc603_4c921635",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-08-22T08:58:53Z",
+      "side": 1,
+      "message": "LGTM if @pfaffe@chromium.org is sure devtools can live without resutdb for a while. The bug is on my short list.",
+      "revId": "8cab99f918ec97a4397ca5b65264335f5e97593c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63121a34_4a0da23d",
