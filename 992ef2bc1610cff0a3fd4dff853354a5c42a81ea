@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85879f16_a47e3603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-08-22T04:38:25Z",
+      "side": 1,
+      "message": "I came across `TracingHandler::SetRenderer` a few months back and it looks like our culprit: https://source.chromium.org/chromium/chromium/src/+/main:content/browser/devtools/protocol/tracing_handler.cc;l\u003d537-544;drc\u003db3bdc5a24a0d87b4de66320c6d187aafd55840ca (the video frame sinks are the screenshot pipeline)",
+      "parentUuid": "aeacb784_3ce90570",
+      "revId": "992ef2bc1610cff0a3fd4dff853354a5c42a81ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ce33e41_c05531e1",
