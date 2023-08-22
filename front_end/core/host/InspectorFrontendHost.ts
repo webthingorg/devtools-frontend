@@ -449,6 +449,8 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   async initialTargetId(): Promise<string|null> {
     return null;
   }
+
+  explainCode: undefined;
 }
 
 // @ts-ignore Global injected by devtools-compatibility.js

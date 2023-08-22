@@ -901,6 +901,7 @@ export class SourcesPanel extends UI.Panel.Panel implements UI.ContextMenu.Provi
     if (!(target instanceof UISourceCodeFrame)) {
       return;
     }
+    contextMenu.debugSection().appendAction('explain.code');
     if (target.uiSourceCode().contentType().isFromSourceMap() || target.textEditor.state.selection.main.empty) {
       return;
     }
