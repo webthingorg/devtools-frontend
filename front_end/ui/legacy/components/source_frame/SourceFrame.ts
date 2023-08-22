@@ -126,9 +126,8 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   private searchableView: UI.SearchableView.SearchableView|null;
   private editable: boolean;
   private positionToReveal: {
-    line: number,
-    column: (number|undefined),
-    shouldHighlight: (boolean|undefined),
+    from?: {lineNumber: number, columnNumber: number}, to: {lineNumber: number, columnNumber: number},
+    shouldHighlight?: boolean,
   }|null;
   private lineToScrollTo: number|null;
   private selectionToSet: TextUtils.TextRange.TextRange|null;
@@ -554,11 +553,11 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
     }
   }
 
-  revealPosition(position: {lineNumber: number, columnNumber?: number}|number, shouldHighlight?: boolean): void {
+  revealPosition(position: RevealPosition, shouldHighlight?: boolean): void {
     this.lineToScrollTo = null;
     this.selectionToSet = null;
-    let line = 0, column = 0;
     if (typeof position === 'number') {
+      let line = 0, column = 0;
       const {doc} = this.textEditor.state;
       if (position > doc.length) {
         line = doc.lines - 1;
@@ -567,11 +566,13 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
         line = lineObj.number - 1;
         column = position - lineObj.from;
       }
+      this.positionToReveal = {to: {lineNumber: line, columnNumber: column}, shouldHighlight};
+    } else if ('lineNumber' in position) {
+      const {lineNumber, columnNumber} = position;
+      this.positionToReveal = {to: {lineNumber, columnNumber: columnNumber ?? 0}, shouldHighlight};
     } else {
-      line = position.lineNumber;
-      column = position.columnNumber ?? 0;
+      this.positionToReveal = {...position, shouldHighlight};
     }
-    this.positionToReveal = {line, column, shouldHighlight: shouldHighlight};
     this.innerRevealPositionIfNeeded();
   }
 
@@ -584,10 +585,17 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
       return;
     }
 
-    const location = this.uiLocationToEditorLocation(this.positionToReveal.line, this.positionToReveal.column);
+    const toLocation =
+        this.uiLocationToEditorLocation(this.positionToReveal.to.lineNumber, this.positionToReveal.to.columnNumber);
+    let fromLocation = undefined;
+    if (this.positionToReveal.from) {
+      fromLocation = this.uiLocationToEditorLocation(
+          this.positionToReveal.from.lineNumber, this.positionToReveal.from.columnNumber);
+    }
 
     const {textEditor} = this;
-    textEditor.revealPosition(textEditor.createSelection(location), this.positionToReveal.shouldHighlight);
+    textEditor.revealPosition(
+        textEditor.createSelection(toLocation, fromLocation), this.positionToReveal.shouldHighlight);
     this.positionToReveal = null;
   }
 
@@ -1183,3 +1191,12 @@ const sourceFrameTheme = CodeMirror.EditorView.theme({
     color: 'var(--color-primary-old)',
   },
 });
+
+/**
+ * Reveal position can either be a single point or a range.
+ *
+ * A single point can either be specified as a line/column combo or as an absolute
+ * editor offset.
+ */
+export type RevealPosition = number|{lineNumber: number, columnNumber?: number}|
+    {from: {lineNumber: number, columnNumber: number}, to: {lineNumber: number, columnNumber: number}};
