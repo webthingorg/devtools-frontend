@@ -84,6 +84,24 @@
       "message": "Let’s add a comment here explaining the magic number by pointing to crbug.com/1354304.",
       "revId": "77616c772eae1d00fc3166b6db26cd5f2d4c71fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5fedaf_c86229ee",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-22T06:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4307ce29_6e4f565e",
+      "revId": "77616c772eae1d00fc3166b6db26cd5f2d4c71fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
