@@ -34,6 +34,24 @@
       "parentUuid": "a9fa4348_4ed7933a",
       "revId": "9774921bd0e655d1d3e9e5d5ee3c70f3539555e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c7561ee_22d8ed81",
+        "filename": "front_end/generated/InspectorBackendCommands.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-22T07:22:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9fa4348_4ed7933a",
+      "revId": "9774921bd0e655d1d3e9e5d5ee3c70f3539555e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
