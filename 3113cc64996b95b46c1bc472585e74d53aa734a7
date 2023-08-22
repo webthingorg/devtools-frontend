@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3eed65_4ace4df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1107759
+      },
+      "writtenOn": "2023-08-22T18:17:40Z",
+      "side": 1,
+      "message": "Thank you for improving the dev tools experience, small improvement nit in comments.  +dibyapal for desktop, +hartmanng for mobile.",
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b0f970_8c16d504",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1107759
+      },
+      "writtenOn": "2023-08-22T18:17:40Z",
+      "side": 1,
+      "message": "I don\u0027t see how these comment changes help.  Specifically, \" of something\" is poor.  Seems OK to leave it as it was before, or if clarifying, perhaps \"Short name of application. See https://www.w3.org/TR/appmanifest/\".",
+      "revId": "3113cc64996b95b46c1bc472585e74d53aa734a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
