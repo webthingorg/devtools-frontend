@@ -43,14 +43,6 @@
   color: var(--legacy-accent-fg-color-hover);
 }
 
-.text-button.primary-button {
-  --override-text-button-color: #fff;
-
-  background-color: var(--legacy-accent-color);
-  border: none;
-  color: var(--override-text-button-color);
-}
-
 .text-button.link-style {
   background: none;
   border: none;
@@ -60,13 +52,13 @@
   height: 18px;
 }
 
+.text-button.primary-button,
 .text-button.primary-button:not(:disabled):focus,
 .text-button.primary-button:not(:disabled):hover,
 .text-button.primary-button:not(:disabled):active {
-  --override-text-button-color: #fff;
-
-  background-color: var(--legacy-accent-color-hover);
-  color: var(--override-text-button-color);
+  background-color: var(--sys-color-primary);
+  border: none;
+  color: var(--sys-color-on-primary);
 }
 
 .-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):focus,
