@@ -87,6 +87,30 @@
       },
       "revId": "d33f6edbeb4cf0bd20120d7525985f6ba446b50e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7122221a_f757cccb",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-23T08:55:06Z",
+      "side": 1,
+      "message": "The `loadLegacyModule` is also just an `import` alias, but since it\u0027s defined in Runtime.ts we can use the relativ path.",
+      "parentUuid": "7c4a5ef7_ba0fb7ec",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 76
+      },
+      "revId": "d33f6edbeb4cf0bd20120d7525985f6ba446b50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
