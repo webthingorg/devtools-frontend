@@ -83,10 +83,11 @@ export class SoftContextMenu {
   private subMenu?: SoftContextMenu;
   private onMenuClosed?: () => void;
   private focusOnTheFirstItem = true;
+  private keepOpen?: boolean;
 
   constructor(
       items: SoftContextMenuDescriptor[], itemSelectedCallback: (arg0: number) => void, parentMenu?: SoftContextMenu,
-      onMenuClosed?: () => void) {
+      onMenuClosed?: () => void, keepOpen?: boolean) {
     this.items = items;
     this.itemSelectedCallback = itemSelectedCallback;
     this.parentMenu = parentMenu;
@@ -94,6 +95,7 @@ export class SoftContextMenu {
 
     this.detailsForElementMap = new WeakMap();
     this.onMenuClosed = onMenuClosed;
+    this.keepOpen = keepOpen;
   }
 
   show(document: Document, anchorBox: AnchorBox): void {
@@ -367,6 +369,24 @@ export class SoftContextMenu {
     const detailsForElement = this.detailsForElementMap.get(menuItemElement);
     if (detailsForElement) {
       if (!detailsForElement.subItems) {
+        if (this.keepOpen) {
+          event.consume(true);
+          if (typeof detailsForElement.actionId !== 'undefined') {
+            const item = this.items.find(item => item.id === detailsForElement.actionId);
+            if (item) {
+              item.checked = !item.checked;
+            }
+            this.itemSelectedCallback(detailsForElement.actionId);
+            const checkMarkElement = menuItemElement.querySelector('.checkmark');
+            if (item?.checked) {
+              (checkMarkElement as IconButton.Icon.Icon).style.opacity = '1';
+            } else {
+              (checkMarkElement as IconButton.Icon.Icon).style.opacity = '0';
+            }
+          }
+          return;
+        }
+
         this.root().discard();
         event.consume(true);
         if (typeof detailsForElement.actionId !== 'undefined') {
@@ -376,7 +396,6 @@ export class SoftContextMenu {
         return;
       }
     }
-
     this.showSubMenu(menuItemElement);
     event.consume();
   }
