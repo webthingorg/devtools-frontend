@@ -22,6 +22,30 @@
       },
       "revId": "5ee0127b999a1567b2d7d2499facee1a42753aca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8438dea6_6d28a358",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-23T13:47:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "980af384_17eff4ef",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "5ee0127b999a1567b2d7d2499facee1a42753aca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
