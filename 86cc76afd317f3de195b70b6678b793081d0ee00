@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cac13216_ae95942f",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-23T11:22:48Z",
+      "side": 1,
+      "message": "At the moment, \"Delete all overrides\" only apply if override setting is enabled. \n\nIf the setting is disabled, delete overrides has no impact (no deletes happen because all files are inactive - no purple dot).\n\n\"Delete all overrides\" still work as intended with this check.",
+      "parentUuid": "0d0cccc6_30a8f80a",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 5
+      },
+      "revId": "86cc76afd317f3de195b70b6678b793081d0ee00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8fad0d19_883e1f20",
         "filename": "front_end/models/persistence/PersistenceUtils.ts",
         "patchSetId": 2
