@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "30eb51ca_aa12b224",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-23T11:39:00Z",
+      "side": 1,
+      "message": "Ah, you\u0027re right. It feels strange that \u0027delete all overrides\u0027 has no effect at all when overrides are disabled, but the intention was to only delete currently active overrides IIRC.\nAnd this option is experiment-gated anyway and will soon be removed.",
+      "parentUuid": "cac13216_ae95942f",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 5
+      },
+      "revId": "86cc76afd317f3de195b70b6678b793081d0ee00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8fad0d19_883e1f20",
         "filename": "front_end/models/persistence/PersistenceUtils.ts",
         "patchSetId": 2
