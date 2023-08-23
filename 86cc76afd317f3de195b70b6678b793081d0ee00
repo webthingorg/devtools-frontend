@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fad0d19_883e1f20",
+        "filename": "front_end/models/persistence/PersistenceUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-23T06:08:48Z",
+      "side": 1,
+      "message": "Drive by improvement: use the shared function we created recently. It do the same thing.",
+      "revId": "86cc76afd317f3de195b70b6678b793081d0ee00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
