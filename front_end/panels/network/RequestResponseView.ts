@@ -94,9 +94,17 @@ export class RequestResponseView extends UI.Widget.VBox {
       return null;
     }
 
-    const mimeType = request.resourceType().canonicalMimeType() || request.mimeType;
+    let mimeType;
+    // in case there is only one file of json or any json subtype, this if for the mimeType solves the bug: https://bugs.chromium.org/p/chromium/issues/detail?id=406900
+    if (Common.ResourceType.ResourceType.simplifyContentType(request.mimeType) === 'application/json') {
+      mimeType = request.mimeType;
+    } else {
+      mimeType = request.resourceType().canonicalMimeType() || request.mimeType;
+    }
+
     const mediaType = Common.ResourceType.ResourceType.mediaTypeForMetrics(
         mimeType, request.resourceType().isFromSourceMap(), TextUtils.TextUtils.isMinified(contentData.content ?? ''));
+
     Host.userMetrics.networkPanelResponsePreviewOpened(mediaType);
     const autoPrettyPrint = Root.Runtime.experiments.isEnabled('sourcesPrettyPrint');
     sourceView =
