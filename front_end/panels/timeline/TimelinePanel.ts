@@ -1135,7 +1135,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.setState(State.Recording);
     this.showRecordingStarted();
     if (this.statusPane) {
-      this.statusPane.enableAndFocusButton();
+      this.statusPane.enableButton();
       this.statusPane.updateStatus(i18nString(UIStrings.profiling));
       this.statusPane.updateProgressBar(i18nString(UIStrings.bufferUsage), 0);
       this.statusPane.startTimer();
@@ -1613,9 +1613,8 @@ export class StatusPane extends UI.Widget.VBox {
     parent.classList.add('tinted');
   }
 
-  enableAndFocusButton(): void {
+  enableButton(): void {
     this.button.disabled = false;
-    this.button.focus();
   }
 
   updateStatus(text: string): void {
