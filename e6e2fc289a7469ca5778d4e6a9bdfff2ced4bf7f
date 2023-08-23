@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05ee8e2f_dd39dc9b",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-23T15:42:32Z",
+      "side": 1,
+      "message": "This will be executed even if item is null",
+      "range": {
+        "startLine": 383,
+        "startChar": 3,
+        "endLine": 385,
+        "endChar": 13
+      },
+      "revId": "e6e2fc289a7469ca5778d4e6a9bdfff2ced4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9473e21e_fdb05368",
         "filename": "front_end/ui/legacy/SoftContextMenu.ts",
         "patchSetId": 1
