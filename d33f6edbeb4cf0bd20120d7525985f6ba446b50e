@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c58f665_de89c6a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-23T08:48:02Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "d33f6edbeb4cf0bd20120d7525985f6ba446b50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06099240_5a01f547",
+        "filename": "front_end/Tests.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-23T08:48:02Z",
+      "side": 1,
+      "message": "The alternative is `await import(\u0027devtools://devtools/bundled/core/common/common.js\u0027);`. To be honest, I\u0027m not sure which one to prefer here.",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 76
+      },
+      "revId": "d33f6edbeb4cf0bd20120d7525985f6ba446b50e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
