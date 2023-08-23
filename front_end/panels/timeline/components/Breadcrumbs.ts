@@ -25,15 +25,15 @@ export function flattenBreadcrumbs(initialBreadcrumb: Breadcrumb): Breadcrumb[] 
 }
 
 export class Breadcrumbs {
-  readonly #initialBreadcrumb: Breadcrumb;
+  readonly initialBreadcrumb: Breadcrumb;
   #lastBreadcrumb: Breadcrumb;
 
   constructor(initialTraceWindow: TraceEngine.Types.Timing.TraceWindow) {
-    this.#initialBreadcrumb = {
+    this.initialBreadcrumb = {
       window: initialTraceWindow,
       child: null,
     };
-    this.#lastBreadcrumb = this.#initialBreadcrumb;
+    this.#lastBreadcrumb = this.initialBreadcrumb;
   }
 
   add(newBreadcrumbTraceWindow: TraceEngine.Types.Timing.TraceWindow): void {
@@ -45,7 +45,7 @@ export class Breadcrumbs {
       this.#lastBreadcrumb.child = newBreadcrumb;
       this.#lastBreadcrumb = newBreadcrumb;
     } else {
-      throw new Error('Can not add a breadcrumb that is equal to or is outside of the parent breadcrumb TimeWindow');
+      // throw new Error('Can not add a breadcrumb that is equal to or is outside of the parent breadcrumb TimeWindow');
     }
   }
 
@@ -58,7 +58,7 @@ export class Breadcrumbs {
 
   // Make breadcrumb active by removing all of its children and making it the last breadcrumb
   makeBreadcrumbActive(newLastBreadcrumb: TraceEngine.Types.Timing.TraceWindow): void {
-    let breadcrumbsIter: Breadcrumb = this.#initialBreadcrumb;
+    let breadcrumbsIter: Breadcrumb = this.initialBreadcrumb;
 
     while (breadcrumbsIter.window !== newLastBreadcrumb && breadcrumbsIter.child !== null) {
       breadcrumbsIter = breadcrumbsIter.child;
