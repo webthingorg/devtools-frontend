@@ -22,6 +22,30 @@
       },
       "revId": "0166397fda6f797db022cc6e428969c69bbe0ccf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcd65b5e_736ed213",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-23T12:13:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19c14956_280b2302",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 47
+      },
+      "revId": "0166397fda6f797db022cc6e428969c69bbe0ccf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
