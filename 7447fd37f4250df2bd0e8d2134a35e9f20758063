@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55320b58_7c4f8a51",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T14:37:00Z",
+      "side": 1,
+      "message": "Why do we need these changes here?",
+      "range": {
+        "startLine": 1138,
+        "startChar": 36,
+        "endLine": 1138,
+        "endChar": 37
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f08953d_d54bd1e0",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T14:37:00Z",
+      "side": 1,
+      "message": "Before the styles were applied to all \u0027not disabled\u0027 text buttons not just to \u0027not primary\u0027 ones, with this change they will be. Also the colors you use here are the old ones.\n\nI don\u0027t think we need a drop shadow for these at all according to the Material spec",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 55
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed19e849_fc5caaaa",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T14:37:00Z",
+      "side": 1,
+      "message": "Same as above, is there a reason you are changing selectors and applying the style to only \u0027not primary buttons\u0027 now?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 69
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49140b46_90c7887e",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T14:37:00Z",
+      "side": 1,
+      "message": "Let\u0027s use a different background color for the active state: `color-mix(in srgb, var(--sys-color-primary), var(--sys-color-state-ripple-primary) 32%)`",
+      "range": {
+        "startLine": 61,
+        "startChar": 43,
+        "endLine": 62,
+        "endChar": 49
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4048457e_0e35fc41",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T14:37:00Z",
+      "side": 1,
+      "message": "we don\u0027t need to update the color if it doesn\u0027t change wrt default state",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 37
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4353a03b_88308be5",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T14:37:00Z",
+      "side": 1,
+      "message": "According to https://www.figma.com/file/5xWeeSmVQTd4yW3s6aFJ1f/CDDS-UX%2FEng-Spec?node-id\u003d65%3A4726\u0026mode\u003ddev, the button should have `--sys-color-primary` background and `--sys-color-state-focus-ring` outline in focus state.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 108
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
