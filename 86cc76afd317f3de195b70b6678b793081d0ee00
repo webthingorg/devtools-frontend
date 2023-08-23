@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d0cccc6_30a8f80a",
+        "filename": "front_end/models/persistence/NetworkPersistenceManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-23T10:55:46Z",
+      "side": 1,
+      "message": "This is called by \u0027handleDeleteOverridesHelper\u0027 -\u003e with your change when overrides are disabled, \"delete all overrides\" won\u0027t work.",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 5
+      },
+      "revId": "86cc76afd317f3de195b70b6678b793081d0ee00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8fad0d19_883e1f20",
