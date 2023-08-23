@@ -22,33 +22,25 @@
   opacity: 38%;
 }
 
-.text-button:not(:disabled):focus,
-.text-button:not(:disabled):hover,
-.text-button:not(:disabled):active {
-  background-color: var(--color-background-elevation-1);
-  box-shadow: 0 1px 2px var(--divider-line);
-}
-
 .text-button:not(:disabled):active {
   background-color: var(--color-background-elevation-2);
 }
 
-.text-button:not(:disabled):focus {
+.text-button:not(:disabled):not(.primary-button):focus,
+.text-button:not(:disabled):not(.primary-button):hover,
+.text-button:not(:disabled):not(.primary-button):active {
+  background-color: var(--color-background-elevation-1);
+  box-shadow: 0 1px 2px var(--divider-line);
+}
+
+.text-button:not(:disabled):not(.primary-button):focus {
   box-shadow: 0 1px 2px var(--divider-line), 0 0 0 2px var(--color-primary-variant);
 }
 
-.text-button:not(:disabled):not(.running):focus,
-.text-button:not(:disabled):not(.running):hover,
-.text-button:not(:disabled):not(.running):active {
+.text-button:not(:disabled):not(.running):not(.primary-button):focus,
+.text-button:not(:disabled):not(.running):not(.primary-button):hover,
+.text-button:not(:disabled):not(.running):not(.primary-button):active {
   color: var(--legacy-accent-fg-color-hover);
-}
-
-.text-button.primary-button {
-  --override-text-button-color: #fff;
-
-  background-color: var(--legacy-accent-color);
-  border: none;
-  color: var(--override-text-button-color);
 }
 
 .text-button.link-style {
@@ -60,13 +52,23 @@
   height: 18px;
 }
 
-.text-button.primary-button:not(:disabled):focus,
+.text-button.primary-button {
+  background-color: var(--sys-color-primary);
+  border: none;
+  color: var(--sys-color-on-primary);
+}
+
 .text-button.primary-button:not(:disabled):hover,
 .text-button.primary-button:not(:disabled):active {
-  --override-text-button-color: #fff;
+  background-color: color-mix(in sRGB, var(--sys-color-primary), var(--sys-color-state-hover-on-prominent) 6%);
+  border: none;
+  color: var(--sys-color-on-primary);
+}
 
-  background-color: var(--legacy-accent-color-hover);
-  color: var(--override-text-button-color);
+.text-button.primary-button:not(:disabled):focus {
+  background-color: color-mix(in sRGB, var(--sys-color-primary), var(--sys-color-state-ripple-primary) 6%);
+  outline-offset: 2px;
+  outline: 2px solid color-mix(in sRGB, var(--sys-color-primary), var(--sys-color-state-ripple-primary) 6%);
 }
 
 .-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):focus,
