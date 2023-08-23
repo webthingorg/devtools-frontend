@@ -5,5 +5,5 @@
 import * as Host from '../../core/host/host.js';
 
 export function isAvailable(): boolean {
-  return Boolean(Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode);
+  return Boolean(Host.InspectorFrontendHost.InspectorFrontendHostInstance.doAidaConversation);
 }

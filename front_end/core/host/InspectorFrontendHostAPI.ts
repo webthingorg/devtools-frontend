@@ -301,8 +301,7 @@ export interface InspectorFrontendHostAPI {
 
   initialTargetId(): Promise<string|null>;
 
-  // TODO: update the binding name.
-  explainCode?: unknown;
+  doAidaConversation?: (request: string, cb: (result: unknown) => void) => void;
 }
 
 export interface ContextMenuDescriptor {

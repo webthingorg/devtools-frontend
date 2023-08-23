@@ -9,14 +9,14 @@ const {assert} = chai;
 
 describe('Explain', () => {
   it('should be available if bindings are defined', async () => {
-    const original = Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode;
+    const original = Host.InspectorFrontendHost.InspectorFrontendHostInstance.doAidaConversation;
     try {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode = undefined;
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.doAidaConversation = undefined;
       assert(!Explain.isAvailable());
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode = () => {};
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.doAidaConversation = () => {};
       assert(Explain.isAvailable());
     } finally {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode = original;
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.doAidaConversation = original;
     }
   });
 });
