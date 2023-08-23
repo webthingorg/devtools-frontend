@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c91bbd0_80ac01f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T15:05:03Z",
+      "side": 1,
+      "message": "Looks good, left a question:)",
+      "revId": "e6e2fc289a7469ca5778d4e6a9bdfff2ced4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9473e21e_fdb05368",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T15:05:03Z",
+      "side": 1,
+      "message": "Have you looked into why this is needed and if we also need it for our case?",
+      "range": {
+        "startLine": 394,
+        "startChar": 10,
+        "endLine": 394,
+        "endChar": 44
+      },
+      "revId": "e6e2fc289a7469ca5778d4e6a9bdfff2ced4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
