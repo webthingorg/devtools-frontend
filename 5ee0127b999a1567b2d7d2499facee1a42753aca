@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "980af384_17eff4ef",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-23T11:48:35Z",
+      "side": 0,
+      "message": "We do need this bit, that\u0027s where we should change the button colors.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "5ee0127b999a1567b2d7d2499facee1a42753aca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
