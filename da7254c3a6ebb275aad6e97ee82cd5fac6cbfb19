@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd2e91ca_5e9f45c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-23T15:21:56Z",
+      "side": 1,
+      "message": "How about adding an e2e-test? It\u0027s probably not much effort, starting with one of the e2e-tests you wrote previously.",
+      "revId": "da7254c3a6ebb275aad6e97ee82cd5fac6cbfb19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a375a1d6_264eeedd",
+        "filename": "front_end/panels/network/RequestResponseView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-23T15:21:56Z",
+      "side": 1,
+      "message": "How about?\nIf the main document is of type JSON (or any JSON subtype), do not use the more generic canonical MIME type, which would prevent the JSON from being pretty-printed. See https://crbug.com/406900\n\nAnd spread the comment over multiple lines if needed.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 168
+      },
+      "revId": "da7254c3a6ebb275aad6e97ee82cd5fac6cbfb19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
