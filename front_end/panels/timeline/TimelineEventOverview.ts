@@ -339,6 +339,9 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
   private emptyImage?: HTMLImageElement;
   #filmStrip: TraceEngine.Extras.FilmStrip.Data|null = null;
 
+  #minTS: number = 0;
+  #maxTS: number = 0;
+  
   constructor(filmStrip: TraceEngine.Extras.FilmStrip.Data) {
     super('filmstrip', null);
     this.frameToImagePromise = new Map();
@@ -348,9 +351,29 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
     this.reset();
   }
 
+  setMinAndMax(min: number, max: number): void {
+    console.log("seeting min and max to ", min, max);
+
+    this.#minTS = min;
+    this.#maxTS = max;
+  }
+
   override update(): void {
     super.update();
-    const frames = this.#filmStrip ? this.#filmStrip.frames : [];
+    
+    let frames = this.#filmStrip ? this.#filmStrip.frames : [];
+
+    if(this.#minTS !== 0 && this.#maxTS !== 0) {
+      console.log("here filtering");
+
+      frames = this.#filmStrip && this.#filmStrip.frames.length > 1 ? 
+      this.#filmStrip.frames.filter(frame => (frame.screenshotEvent.ts / 1000 > this.#minTS && frame.screenshotEvent.ts / 1000 < this.#maxTS))
+      : [];
+    }
+
+      
+    console.log("frames no ", frames);
+    
     if (!frames.length) {
       return;
     }
@@ -490,6 +513,7 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
     }
 
     const mainRendererIds = Array.from(this.#traceParsedData.Meta.topLevelRendererIds);
+    // filter within the bounds instead of length
     const counterEventsPerTrack =
         mainRendererIds.map(pid => this.#traceParsedData.Memory.updateCountersByProcess.get(pid) || [])
             .filter(eventsPerRenderer => eventsPerRenderer.length > 0);

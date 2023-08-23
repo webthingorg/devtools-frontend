@@ -164,6 +164,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     }
     this.overviewCalculator.setDisplayWidth(this.overviewGrid.clientWidth());
     for (let i = 0; i < this.overviewControls.length; ++i) {
+      // here
       this.overviewControls[i].update();
     }
     this.overviewGrid.updateDividers(this.overviewCalculator);
