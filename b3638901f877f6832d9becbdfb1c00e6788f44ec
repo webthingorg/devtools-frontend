@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a9def9_496927cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-08-23T14:32:11Z",
+      "side": 1,
+      "message": "Can you run this on the mac stressor bot to see if it is fixed? Something like:\n\n```\ngit cl try -B devtools-frontend/try -b e2e_stressor_mac -p e2e_env\u003d\"{\\\"TEST_PATTERNS\\\": \\\"sources/overrides_test.ts\\\", \\\"ITERATIONS\\\": 30 }\"\n```",
+      "revId": "b3638901f877f6832d9becbdfb1c00e6788f44ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
