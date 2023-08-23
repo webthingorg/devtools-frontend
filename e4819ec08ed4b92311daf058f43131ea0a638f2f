@@ -22,6 +22,30 @@
       },
       "revId": "e4819ec08ed4b92311daf058f43131ea0a638f2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f19ee74_01e173ff",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-23T10:57:51Z",
+      "side": 1,
+      "message": "It affected every text buttons that are primary buttons such as in the CSS Overview panel or the LightHouse Panel... I don\u0027t really know if that poses a problem since it just changes the background color and the text color ?",
+      "parentUuid": "31dc87ec_ae09107a",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 28
+      },
+      "revId": "e4819ec08ed4b92311daf058f43131ea0a638f2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
