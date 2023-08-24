@@ -92,7 +92,7 @@ export class TimelineEventOverviewNetwork extends TimelineEventOverview {
     this.#traceParsedData = traceParsedData;
   }
 
-  override update(): void {
+  override update(min?: number, max?: number): void {
     super.update();
     this.#renderWithTraceParsedData();
   }
@@ -145,6 +145,8 @@ const categoryToIndex = new WeakMap<TimelineCategory, number>();
 export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
   private backgroundCanvas: HTMLCanvasElement;
   #performanceModel: PerformanceModel|null = null;
+  #minTS: number | undefined;
+  #maxTS: number | undefined;
 
   constructor(model: PerformanceModel) {
     super('cpu-activity', i18nString(UIStrings.cpu));
@@ -158,8 +160,10 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     this.backgroundCanvas.height = this.element.clientHeight * window.devicePixelRatio;
   }
 
-  override update(): void {
+  override update(min?: number, max?: number): void {
     super.update();
+    this.#minTS = min;
+    this.#maxTS = max;
     if (!this.#performanceModel) {
       return;
     }
@@ -187,14 +191,24 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     }
     for (const track of timelineModel.tracks()) {
       if (track.type === TimelineModel.TimelineModel.TrackType.MainThread && track.forMainFrame) {
+        if(this.#maxTS && this.#minTS) {
+          track.events = filterEventsByTimespan(track.events, this.#minTS, this.#maxTS);
+        }
         drawThreadEvents(this.context(), track.events);
       } else {
+        if(this.#maxTS && this.#minTS) {
+          track.events = filterEventsByTimespan(track.events, this.#minTS, this.#maxTS);
+        }
         drawThreadEvents(backgroundContext, track.events);
       }
     }
     applyPattern(backgroundContext);
 
-    function drawThreadEvents(ctx: CanvasRenderingContext2D, events: TraceEngine.Legacy.Event[]): void {
+    function filterEventsByTimespan(events: TraceEngine.Legacy.Event[], minTS: number, maxTS: number): TraceEngine.Legacy.Event[]{
+        return events.filter(event => event.startTime > minTS && event.endTime && event.endTime < maxTS);
+    }
+
+    function drawThreadEvents(this: any, ctx: CanvasRenderingContext2D, events: TraceEngine.Legacy.Event[]): void {
       const quantizer = new Quantizer(timeOffset, quantTime, drawSample);
       let x = 0;
       const categoryIndexStack: number[] = [];
@@ -235,8 +249,9 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
         if (endTime !== undefined && lastCategoryIndex) {
           quantizer.appendInterval(endTime, lastCategoryIndex);
         }
-      }
 
+      }      
+      
       TimelineModel.TimelineModel.TimelineModelImpl.forEachEvent(events, onEventStart, onEventEnd);
       quantizer.appendInterval(timeOffset + timeSpan + quantTime, idleIndex);  // Kick drawing the last bucket.
       for (let i = categoryOrder.length - 1; i > 0; --i) {
@@ -263,6 +278,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
 
 export class TimelineEventOverviewResponsiveness extends TimelineEventOverview {
   #traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData;
+
   constructor(traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData) {
     super('responsiveness', null);
     this.#traceParsedData = traceParsedData;
@@ -290,15 +306,13 @@ export class TimelineEventOverviewResponsiveness extends TimelineEventOverview {
         // Only keep events whose PID is a top level renderer, which means it
         // was on the main thread. This avoids showing issues from iframes or
         // other sub-frames in the minimap overview.
-        if (topLevelRendererIds.has(event.pid)) {
-          allWarningEvents.add(event);
-        }
+        allWarningEvents.add(event);
       }
     }
     return allWarningEvents;
   }
 
-  override update(): void {
+  override update(min?: number, max?: number): void {
     super.update();
 
     const height = this.height();
@@ -350,7 +364,9 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
 
   override update(): void {
     super.update();
-    const frames = this.#filmStrip ? this.#filmStrip.frames : [];
+    
+    let frames = this.#filmStrip ? this.#filmStrip.frames : [];
+    
     if (!frames.length) {
       return;
     }
@@ -490,6 +506,7 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
     }
 
     const mainRendererIds = Array.from(this.#traceParsedData.Meta.topLevelRendererIds);
+    // filter within the bounds instead of length
     const counterEventsPerTrack =
         mainRendererIds.map(pid => this.#traceParsedData.Memory.updateCountersByProcess.get(pid) || [])
             .filter(eventsPerRenderer => eventsPerRenderer.length > 0);
