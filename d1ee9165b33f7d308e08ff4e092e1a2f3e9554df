@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63e1c535_f585660e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-24T08:23:13Z",
+      "side": 1,
+      "message": "LGTM but can we have a test please?\n\nI\u0027d imagine we could:\n\n1) extend SearchView in test to implement createScope that would return a fake\n2) pass throttler as a parameter. I think this makes sense regardless of the test as this is supposed to be a configurable base class.\n3) make searchResultsPane protected and initialize it in a subclass with a mock. Alternatively we can expose searchResultsPane or any other member that will let us verify when the search results are updated",
+      "revId": "d1ee9165b33f7d308e08ff4e092e1a2f3e9554df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
