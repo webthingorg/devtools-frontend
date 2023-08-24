@@ -27,4 +27,19 @@ describe('Toolbar', () => {
       assert.strictEqual(input.value(), '');
     });
   });
+
+  describe('ToolbarComboBox', () => {
+    it('should return correct index', () => {
+      const comboBox = new UI.Toolbar.ToolbarComboBox(null, 'Test ComboBox');
+      const option1 = comboBox.createOption('Option 1', 'value1');
+      const option2 = comboBox.createOption('Option 2', 'value2');
+      comboBox.addOption(option1);
+      comboBox.addOption(option2);
+
+      const index1 = comboBox.getIndexFromOption('value1');
+      const index2 = comboBox.getIndexFromOption('value2');
+      assert.strictEqual(index1, 0);
+      assert.strictEqual(index2, 1);
+    });
+  });
 });

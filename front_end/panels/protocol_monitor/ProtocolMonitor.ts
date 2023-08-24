@@ -180,6 +180,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
   private readonly textFilterUI: UI.Toolbar.ToolbarInput;
   private messages: LogMessage[] = [];
   private isRecording: boolean = false;
+  readonly selector: UI.Toolbar.ToolbarComboBox;
   #commandAutocompleteSuggestionProvider = new CommandAutocompleteSuggestionProvider();
   #selectedTargetId?: string;
   #commandInput: UI.Toolbar.ToolbarInput;
@@ -213,7 +214,9 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
       void this.saveAsFile();
     });
     topToolbar.appendToolbarItem(saveButton);
-
+    this.selector = new UI.Toolbar.ToolbarComboBox(() => {
+      this.#selectedTargetId = this.selector.selectedOption()?.value;
+    }, i18nString(UIStrings.selectTarget));
     this.infoWidget = new InfoWidget();
     const dataGridInitialData: DataGrid.DataGridController.DataGridControllerData = {
       paddingRowsCount: 100,
@@ -390,6 +393,14 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
         return;
       }
       const commandJson = editorWidget.jsonEditor.getCommandJson();
+      const targetId = editorWidget.jsonEditor.targetId;
+      if (targetId) {
+        const selectedIndex = this.selector.getIndexFromOption(targetId);
+        if (selectedIndex !== -1) {
+          this.selector.setSelectedIndex(selectedIndex);
+          this.#selectedTargetId = targetId;
+        }
+      }
       if (commandJson) {
         this.#commandInput.setValue(commandJson);
       }
@@ -398,6 +409,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
     splitWidget.addEventListener(UI.SplitWidget.Events.ShowModeChanged, (event => {
                                    if (event.data === 'OnlyMain') {
                                      populateToolbarInput();
+
                                      inputBar?.setAttribute('style', 'display:flex; flex-grow: 1');
                                      tabSelector?.setAttribute('style', 'display:flex');
                                    } else {
@@ -429,20 +441,17 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
   }
 
   #createTargetSelector(): UI.Toolbar.ToolbarComboBox {
-    const selector = new UI.Toolbar.ToolbarComboBox(() => {
-      this.#selectedTargetId = selector.selectedOption()?.value;
-    }, i18nString(UIStrings.selectTarget));
-    selector.setMaxWidth(120);
+    this.selector.setMaxWidth(120);
     const targetManager = SDK.TargetManager.TargetManager.instance();
     const syncTargets = (): void => {
-      selector.removeOptions();
+      this.selector.removeOptions();
       for (const target of targetManager.targets()) {
-        selector.createOption(`${target.name()} (${target.inspectedURL()})`, target.id());
+        this.selector.createOption(`${target.name()} (${target.inspectedURL()})`, target.id());
       }
     };
     targetManager.addEventListener(SDK.TargetManager.Events.AvailableTargetsChanged, syncTargets);
     syncTargets();
-    return selector;
+    return this.selector;
   }
 
   onCommandSend(command: string, parameters: object, target?: string): void {
@@ -658,6 +667,7 @@ export class ProtocolMonitorImpl extends UI.Widget.VBox {
     this.#protocolMonitorDataGrid.addEventListener(Events.CommandChange, event => {
       this.#editorWidget.jsonEditor.displayCommand(event.data.command, event.data.parameters, event.data.targetId);
     });
+
     this.#editorWidget.element.style.overflow = 'hidden';
     this.#split.setMainWidget(this.#protocolMonitorDataGrid);
     this.#split.setSidebarWidget(this.#editorWidget);
