@@ -109,6 +109,12 @@ export class SearchView extends UI.Widget.VBox {
     isRegex: boolean,
   }>;
   private searchScope: SearchScope|null;
+
+  // We throttle adding search results, otherwise we trigger DOM layout for each
+  // result added.
+  #throttler = new Common.Throttler.Throttler(/* timeoutMs */ 200);
+  #pendingSearchResults: SearchResult[] = [];
+
   constructor(settingKey: string) {
     super(true);
     this.setMinimumSize(0, 40);
@@ -276,15 +282,22 @@ export class SearchView extends UI.Widget.VBox {
       this.onIndexingFinished();
       return;
     }
-    this.addSearchResult(searchResult);
-    if (!searchResult.matchesCount()) {
-      return;
-    }
     if (!this.searchResultsPane) {
       this.searchResultsPane = new SearchResultsPane((this.searchConfig as Workspace.SearchConfig.SearchConfig));
       this.showPane(this.searchResultsPane);
     }
-    this.searchResultsPane.addSearchResult(searchResult);
+    this.#pendingSearchResults.push(searchResult);
+    void this.#throttler.schedule(async () => this.#addPendingSearchResults());
+  }
+
+  #addPendingSearchResults(): void {
+    for (const searchResult of this.#pendingSearchResults) {
+      this.addSearchResult(searchResult);
+      if (searchResult.matchesCount()) {
+        this.searchResultsPane?.addSearchResult(searchResult);
+      }
+    }
+    this.#pendingSearchResults = [];
   }
 
   private onSearchFinished(searchId: number, finished: boolean): void {
