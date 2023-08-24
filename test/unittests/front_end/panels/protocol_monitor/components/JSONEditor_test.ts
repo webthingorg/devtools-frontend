@@ -483,6 +483,30 @@ describeWithEnvironment('JSONEditor', () => {
       assert.deepStrictEqual(toolbarInput?.innerHTML, '{"command":"Test.test","parameters":{"test":"test"}}');
     });
 
+    it('should update the selected target inside the input bar', async () => {
+      const split = new UI.SplitWidget.SplitWidget(true, false, 'protocol-monitor-split-container', 400);
+      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget();
+      const jsonEditor = editorWidget.jsonEditor;
+      jsonEditor.targetId = 'value2';
+      const dataGrid = new ProtocolMonitor.ProtocolMonitor.ProtocolMonitorDataGrid(split);
+      const selector = dataGrid.selector;
+
+      selector.createOption('Option 1', 'value1');
+      selector.createOption('Option 2', 'value2');
+      selector.createOption('Option 3', 'value3');
+
+      split.setMainWidget(dataGrid);
+      split.setSidebarWidget(editorWidget);
+      // Needed to resolve pending promises in the after each hook
+      await new Promise(resolve => {
+        split.toggleSidebar();
+        setTimeout(resolve, 500);
+      });
+
+      // Should be index 1 because the targetId equals "value2" which corresponds to the index number 1
+      assert.deepStrictEqual(selector.selectedIndex(), 1);
+    });
+
     it('should not display the command into the input bar if the command is empty string', async () => {
       const split = new UI.SplitWidget.SplitWidget(true, false, 'protocol-monitor-split-container', 400);
       const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget();

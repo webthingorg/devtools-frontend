@@ -981,6 +981,15 @@ export class ToolbarComboBox extends ToolbarItem<void> {
     return null;
   }
 
+  getIndexFromOption(value: string): number {
+    for (let i = 0; i < this.selectElementInternal.options.length; i++) {
+      if (this.selectElementInternal.options[i].value === value) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
   select(option: Element): void {
     this.selectElementInternal.selectedIndex =
         // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
