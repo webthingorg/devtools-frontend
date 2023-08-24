@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Host from '../../core/host/host.js';
-
-export function isAvailable(): boolean {
-  return Boolean(Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode);
+export function isAvailable(url = window.location.href): boolean {
+  return url.includes('enableAida=true');
 }

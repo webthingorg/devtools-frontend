@@ -3,20 +3,13 @@
 // found in the LICENSE file.
 
 import * as Explain from '../../../../../front_end/panels/explain/explain.js';
-import * as Host from '../../../../../front_end/core/host/host.js';
 
 const {assert} = chai;
 
 describe('Explain', () => {
   it('should be available if bindings are defined', async () => {
-    const original = Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode;
-    try {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode = undefined;
-      assert(!Explain.isAvailable());
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode = () => {};
-      assert(Explain.isAvailable());
-    } finally {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.explainCode = original;
-    }
+    assert(!Explain.isAvailable('devtools://app.html?'));
+    assert(!Explain.isAvailable('devtools://app.html?enableAida=false'));
+    assert(Explain.isAvailable('devtools://app.html?enableAida=true'));
   });
 });
