@@ -111,6 +111,7 @@ describe('Injected', () => {
       );
     });
     assertMatchesJSONSnapshot(selectors);
+    assert.isTrue(false);
   });
 
   it('should get an ARIA selector for shadow root elements', async () => {

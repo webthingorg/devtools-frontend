@@ -31,6 +31,7 @@ describe('The Console Tab', async function() {
         'removeInnerListeners(); getEventListeners(innerElement());',
         '{keydown: Array(1)}',
     );
+    assert.isTrue(false);
   });
 
   it('Event listeners are gotten correctly for an element', async () => {
