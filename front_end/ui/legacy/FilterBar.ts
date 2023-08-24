@@ -35,14 +35,13 @@ import * as Platform from '../../core/platform/platform.js';
 import * as IconButton from '../components/icon_button/icon_button.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
+import * as ContextMenu from './ContextMenu.js';
+import filterStyles from './filter.css.legacy.js';
 import {KeyboardShortcut, Modifiers} from './KeyboardShortcut.js';
 import {bindCheckbox} from './SettingsUI.js';
-
 import {type Suggestions} from './SuggestBox.js';
 import {Events, TextPrompt} from './TextPrompt.js';
-
-import filterStyles from './filter.css.legacy.js';
-import {ToolbarSettingToggle, type ToolbarButton} from './Toolbar.js';
+import {ToolbarButton, ToolbarSettingToggle} from './Toolbar.js';
 import {Tooltip} from './Tooltip.js';
 import {CheckboxLabel, createTextChild} from './UIUtils.js';
 import {HBox} from './Widget.js';
@@ -501,6 +500,137 @@ export class CheckboxFilterUI extends Common.ObjectWrapper.ObjectWrapper<FilterU
 
   private fireUpdated(): void {
     this.dispatchEventToListeners(FilterUIEvents.FilterChanged);
+  }
+}
+
+export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<FilterUIEventTypes> implements FilterUI {
+  private readonly filterElement: HTMLDivElement;
+  private readonly dropDownButton: ToolbarButton;
+  private readonly filterChanged: () => void;
+  private allowedTypes: Set<string>;
+  private readonly setting: Common.Settings.Setting<{[key: string]: boolean}>|undefined;
+  private readonly items: Item[];
+
+  constructor(
+      items: Item[], filterChangedCallback: () => void, setting?: Common.Settings.Setting<{[key: string]: boolean}>) {
+    super();
+    this.items = items;
+    this.filterChanged = filterChangedCallback;
+
+    this.filterElement = document.createElement('div');
+    this.dropDownButton = new ToolbarButton('dropdown');
+    this.dropDownButton.setText('All types');
+    this.filterElement.appendChild(this.dropDownButton.element);
+    this.dropDownButton.turnIntoSelect();
+    this.dropDownButton.element.classList.add('warning');
+
+    this.dropDownButton.addEventListener(ToolbarButton.Events.Click, this.showLevelContextMenuCheckbox.bind(this));
+    ARIAUtils.markAsMenuButton(this.dropDownButton.element);
+    ARIAUtils.markAsMultiSelectable(this.filterElement);
+
+    this.allowedTypes = new Set();
+
+    if (setting) {
+      this.setting = setting;
+      setting.addChangeListener(this.settingChanged.bind(this));
+      this.settingChanged();
+    } else {
+      this.toggleTypeFilter(NamedBitSetFilterUI.ALL_TYPES, false /* allowMultiSelect */);
+    }
+  }
+
+  showLevelContextMenuCheckbox(event: Common.EventTarget.EventTargetEvent<Event>): void {
+    const mouseEvent = event.data;
+
+    this.setting?.addChangeListener(this.filterChanged.bind(this));
+
+    const contextMenu = new ContextMenu.ContextMenu(mouseEvent, {
+      useSoftMenu: true,
+      keepOpen: true,
+      x: this.dropDownButton.element.getBoundingClientRect().left,
+      y: this.dropDownButton.element.getBoundingClientRect().top +
+          (this.dropDownButton.element as HTMLElement).offsetHeight,
+    });
+
+    this.addType(contextMenu, NamedBitSetFilterUI.ALL_TYPES, i18nString(UIStrings.allStrings));
+    contextMenu.defaultSection().appendSeparator();
+
+    for (let i = 0; i < this.items.length; ++i) {
+      this.addType(contextMenu, this.items[i].name, this.items[i].label());
+    }
+
+    this.update();
+    void contextMenu.show();
+  }
+
+  private addType(contextMenu: ContextMenu.ContextMenu, name: string, label: string): void {
+    (contextMenu.defaultSection().appendCheckboxItem(label, () => {
+      (this.setting as Common.Settings.Setting<{[key: string]: boolean}>).get()[name] = (!this.setting?.get()[name]);
+      this.toggleTypeFilter(name, true);
+    }, this.setting?.get()[name]));
+  }
+
+  private toggleTypeFilter(typeName: string, allowMultiSelect: boolean): void {
+    if (allowMultiSelect && typeName !== NamedBitSetFilterUI.ALL_TYPES) {
+      this.allowedTypes.delete(NamedBitSetFilterUI.ALL_TYPES);
+    } else {
+      this.allowedTypes = new Set();
+    }
+
+    if (this.allowedTypes.has(typeName)) {
+      this.allowedTypes.delete(typeName);
+    } else {
+      this.allowedTypes.add(typeName);
+    }
+
+    if (this.allowedTypes.size === 0) {
+      this.allowedTypes.add(NamedBitSetFilterUI.ALL_TYPES);
+    }
+
+    if (this.setting) {
+      // Settings do not support `Sets` so convert it back to the Map-like object.
+      const updatedSetting = ({} as {[key: string]: boolean});
+      for (const type of this.allowedTypes) {
+        updatedSetting[type] = true;
+      }
+      this.setting.set(updatedSetting);
+    } else {
+      this.update();
+    }
+  }
+
+  private settingChanged(): void {
+    this.allowedTypes = new Set();
+
+    for (const s in this.setting?.get()) {
+      this.allowedTypes.add(s);
+    }
+    this.update();
+  }
+
+  private update(): void {
+    if (this.allowedTypes.size === 0 || this.allowedTypes.has(NamedBitSetFilterUI.ALL_TYPES)) {
+      this.allowedTypes = new Set();
+      this.allowedTypes.add(NamedBitSetFilterUI.ALL_TYPES);
+    }
+
+    this.dispatchEventToListeners(FilterUIEvents.FilterChanged);
+  }
+
+  isActive(): boolean {
+    return true;
+  }
+
+  element(): HTMLDivElement {
+    return this.filterElement;
+  }
+
+  reset(): void {
+    this.toggleTypeFilter(NamedBitSetFilterUI.ALL_TYPES, false /* allowMultiSelect */);
+  }
+
+  accept(typeName: string): boolean {
+    return this.allowedTypes.has(NamedBitSetFilterUI.ALL_TYPES) || this.allowedTypes.has(typeName);
   }
 }
 
