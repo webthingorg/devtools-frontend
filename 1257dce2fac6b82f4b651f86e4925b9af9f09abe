@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0da20a3_ca112efe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-24T08:19:39Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1257dce2fac6b82f4b651f86e4925b9af9f09abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f9c594_acb5929a",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-24T08:19:39Z",
+      "side": 1,
+      "message": "nit: Since the method name is `..ByRequestType`, its argument could be the request type, instead of the whole request.",
+      "range": {
+        "startLine": 1121,
+        "startChar": 10,
+        "endLine": 1121,
+        "endChar": 30
+      },
+      "revId": "1257dce2fac6b82f4b651f86e4925b9af9f09abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
