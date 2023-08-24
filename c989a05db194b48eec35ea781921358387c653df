@@ -16,6 +16,24 @@
       "message": "LGTM on patchset 1, but something went wrong on the upload of patchset 2, it removes the actual change",
       "revId": "c989a05db194b48eec35ea781921358387c653df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c691d88_0e5a98fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-24T10:35:18Z",
+      "side": 1,
+      "message": "Thanks, fixed.",
+      "parentUuid": "df4126cc_bfd4ef3a",
+      "revId": "c989a05db194b48eec35ea781921358387c653df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
