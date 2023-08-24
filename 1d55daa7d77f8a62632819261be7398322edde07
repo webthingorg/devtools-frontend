@@ -16,6 +16,24 @@
       "message": "Test LED runs:\n- https://chromium-swarm.appspot.com/task?id\u003d643fbb8a540bce10\n- https://chromium-swarm.appspot.com/task?id\u003d643fbba450d15b10\n- https://chromium-swarm.appspot.com/task?id\u003d643fbbbe55eabb10\n- https://chromium-swarm.appspot.com/task?id\u003d643fbbd9b607ba10\n- https://chromium-swarm.appspot.com/task?id\u003d643fbbf442f7ef10\n- https://chromium-swarm.appspot.com/task?id\u003d643fbc0e9c703210",
       "revId": "1d55daa7d77f8a62632819261be7398322edde07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93fb6bc1_e9c6d205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-24T09:41:41Z",
+      "side": 1,
+      "message": "for patch #1",
+      "parentUuid": "3e36c165_98ad3570",
+      "revId": "1d55daa7d77f8a62632819261be7398322edde07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
