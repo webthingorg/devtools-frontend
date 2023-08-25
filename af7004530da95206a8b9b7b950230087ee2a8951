@@ -33,6 +33,24 @@
       "message": "```suggestion\n  readonly #selector: UI.Toolbar.ToolbarComboBox;\n```",
       "revId": "af7004530da95206a8b9b7b950230087ee2a8951",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8db1a882_0239f7a2",
+        "filename": "front_end/panels/protocol_monitor/ProtocolMonitor.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-08-25T09:13:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33086f9b_26447e9f",
+      "revId": "af7004530da95206a8b9b7b950230087ee2a8951",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
