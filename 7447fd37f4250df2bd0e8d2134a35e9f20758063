@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22663d7d_761d3a8d",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-25T12:53:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e23b631_e1d7fc9d",
+      "range": {
+        "startLine": 1138,
+        "startChar": 36,
+        "endLine": 1138,
+        "endChar": 37
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f08953d_d54bd1e0",
@@ -143,6 +167,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62fb4693_622906c2",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-25T12:53:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1492349d_ac148748",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 55
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed19e849_fc5caaaa",
@@ -204,6 +252,30 @@
       "side": 1,
       "message": "I think the styles you added below for .primary-button should overrule these (as they are more specific), have you tried it out without `:not(.primary-button)` here?",
       "parentUuid": "5cd0078e_f885ac40",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 69
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "450e550a_43ec1081",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-25T12:53:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce671fe_72be1db9",
       "range": {
         "startLine": 40,
         "startChar": 0,
