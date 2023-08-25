@@ -16,6 +16,24 @@
       "message": "Hi Ken-san, I\u0027m attempting to update tests. during this period, could you please help double check if the approach makes sense to you?",
       "revId": "0a3cb9ffff9ea501d4e005773dae0de6d130ea6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cbf45e2_ad8c0b1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-08-25T07:56:07Z",
+      "side": 1,
+      "message": "Talked offline and we\u0027d skip the test part.",
+      "parentUuid": "3efad449_2f0a4883",
+      "revId": "0a3cb9ffff9ea501d4e005773dae0de6d130ea6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
