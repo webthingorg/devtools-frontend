@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "18c2d34c5bdd56142860c1e5c44e736e25a1ef01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f34d81a_95af9cbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-08-25T12:44:16Z",
+      "side": 1,
+      "message": "Great documentation 😊 lgtm",
+      "revId": "18c2d34c5bdd56142860c1e5c44e736e25a1ef01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
