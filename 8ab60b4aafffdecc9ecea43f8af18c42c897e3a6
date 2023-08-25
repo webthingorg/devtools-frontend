@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc170617_a55b613a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Address all feedback except one need more input.",
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a12cf2a_0d53cd57",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-08-25T07:29:36Z",
       "side": 1,
       "message": "Is this related?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 71
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89a715c5_7532b493",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Related to? This condition is still relevant to add \"Show all overrides\" if it\u0027s in the Network panel.",
+      "parentUuid": "6a12cf2a_0d53cd57",
       "range": {
         "startLine": 136,
         "startChar": 0,
@@ -47,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "514ecf3d_5b28004f",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a4f4f46_85a98fca",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 79
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bf3f76a_6f532ec3",
@@ -60,6 +125,30 @@
       "writtenOn": "2023-08-25T07:29:36Z",
       "side": 1,
       "message": "Do not use abbreviations that are ambiguous or unfamiliar to readers outside your project, and do not abbreviate by deleting letters within a word.\n\nSee https://google.github.io/styleguide/tsguide.html#descriptive-names",
+      "range": {
+        "startLine": 182,
+        "startChar": 10,
+        "endLine": 182,
+        "endChar": 16
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad1e20d_381fe34c",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bf3f76a_6f532ec3",
       "range": {
         "startLine": 182,
         "startChar": 10,
@@ -93,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ea9a74_ff0c1aaf",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ebcd336_1eab88eb",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 100
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dad4a81_97a8fd29",
@@ -106,6 +219,30 @@
       "writtenOn": "2023-08-25T07:29:36Z",
       "side": 1,
       "message": "What does \u0027MinFile\u0027 mean? \u0027OriginalResource\u0027?",
+      "range": {
+        "startLine": 188,
+        "startChar": 10,
+        "endLine": 188,
+        "endChar": 29
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1ba8e31_4a9212ef",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Renamed to `shouldJumpToDeployedFile` for clarity. \n\"MinFile\" means for \"minified file\"(deployed) but it was unclear.",
+      "parentUuid": "7dad4a81_97a8fd29",
       "range": {
         "startLine": 188,
         "startChar": 10,
@@ -139,6 +276,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d594a7ca_8951d8b5",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58fc08a1_2b357ccb",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 34
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1816c395_307c1416",
@@ -152,6 +313,30 @@
       "writtenOn": "2023-08-25T07:29:36Z",
       "side": 1,
       "message": "I am not sure these comments add much value here: it seems to be pretty clear that we are first looking at scripts and then at styles from the code.",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 66
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd95527d_c0c1bba1",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1816c395_307c1416",
       "range": {
         "startLine": 210,
         "startChar": 0,
@@ -185,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a43b0c8_3620d81d",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "change it to `deployedStylesUrl`.",
+      "parentUuid": "6b2e7ac0_5b436e68",
+      "range": {
+        "startLine": 211,
+        "startChar": 15,
+        "endLine": 211,
+        "endChar": 24
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27f27686_fdf27231",
@@ -198,6 +407,30 @@
       "writtenOn": "2023-08-25T07:29:36Z",
       "side": 1,
       "message": "So we always return based on the first value returned by `SASSSourceMapping.uiSourceOrigin()`?\n\nIn that case it would be more clear to express it as\n\n    const [originalUrl] \u003d Bindings.SASSSourceMapping.SASSSourceMapping\n        .uiSourceOrigin(uiSourceCode);\n    if (!originalUrl) {\n      return null;\n    }\n    ...",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 34
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ff646ae_306cb724",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T07:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27f27686_fdf27231",
       "range": {
         "startLine": 215,
         "startChar": 0,
