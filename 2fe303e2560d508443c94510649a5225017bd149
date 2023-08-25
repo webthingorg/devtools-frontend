@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3483ba_7a0ac2bb",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-25T13:31:34Z",
+      "side": 1,
+      "message": "yes, the e2e divider",
+      "parentUuid": "dd10a7e4_c1ba7ed6",
+      "range": {
+        "startLine": 91,
+        "startChar": 30,
+        "endLine": 91,
+        "endChar": 58
+      },
+      "revId": "2fe303e2560d508443c94510649a5225017bd149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ada88a3e_c1705c65",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-25T13:23:06Z",
       "side": 1,
       "message": "nit: Not needed anymore?",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 61
+      },
+      "revId": "2fe303e2560d508443c94510649a5225017bd149",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3dc6fc0_6a0cc1c9",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-25T13:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ada88a3e_c1705c65",
       "range": {
         "startLine": 93,
         "startChar": 12,
