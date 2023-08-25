@@ -16,6 +16,23 @@
       "message": "Hey Danil, could you please help review this CL.. It might be clear for someone but i got stuck here for a while, thinking about what to do next..\nSo I\u0027m wondering if adding some instruction could be helpful..?",
       "revId": "289a1bac8ea00360002d8aabec19278ee22c7ce9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0120cce_5f7b1002",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-08-25T08:10:18Z",
+      "side": 1,
+      "message": "thank you!",
+      "revId": "289a1bac8ea00360002d8aabec19278ee22c7ce9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
