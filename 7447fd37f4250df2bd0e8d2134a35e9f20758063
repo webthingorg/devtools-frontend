@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e23b631_e1d7fc9d",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-25T10:05:17Z",
+      "side": 1,
+      "message": "we should keep the focus. For example, when the button is focus, the user can use `enter` key to \"click\" it",
+      "parentUuid": "6097127f_7d9614a8",
+      "range": {
+        "startLine": 1138,
+        "startChar": 36,
+        "endLine": 1138,
+        "endChar": 37
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f08953d_d54bd1e0",
         "filename": "front_end/ui/legacy/textButton.css",
         "patchSetId": 4
