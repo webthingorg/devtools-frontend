@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1492349d_ac148748",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-25T11:52:41Z",
+      "side": 1,
+      "message": "Same as below :)",
+      "parentUuid": "c5b2384d_2e78a5ba",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 55
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed19e849_fc5caaaa",
         "filename": "front_end/ui/legacy/textButton.css",
         "patchSetId": 4
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "So originally I meant this CL to only change the color of the button inside the dialog (which is a primary button). I wanted to keep the old behavior for buttons that are not primary to not impact in too many places in Devtools. However, I can change all the colors, including the ones for not primary, you tell me !",
       "parentUuid": "ed19e849_fc5caaaa",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 69
+      },
+      "revId": "7447fd37f4250df2bd0e8d2134a35e9f20758063",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce671fe_72be1db9",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-25T11:52:41Z",
+      "side": 1,
+      "message": "I think the styles you added below for .primary-button should overrule these (as they are more specific), have you tried it out without `:not(.primary-button)` here?",
+      "parentUuid": "5cd0078e_f885ac40",
       "range": {
         "startLine": 40,
         "startChar": 0,
