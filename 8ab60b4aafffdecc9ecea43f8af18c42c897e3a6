@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2bac272_ddda9b45",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T08:16:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adc59214_e017a0d5",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 37
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27261d46_5a957bec",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-08-25T08:10:23Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 45,
+        "startChar": 17,
+        "endLine": 45,
+        "endChar": 35
+      },
+      "revId": "8ab60b4aafffdecc9ecea43f8af18c42c897e3a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9639f829_cfdc5151",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T08:16:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27261d46_5a957bec",
       "range": {
         "startLine": 45,
         "startChar": 17,

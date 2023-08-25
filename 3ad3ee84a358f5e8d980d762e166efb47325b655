@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b888de3e_95fcc809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T08:16:24Z",
+      "side": 1,
+      "message": "Good catch. Also simplified the test assertion.",
+      "revId": "3ad3ee84a358f5e8d980d762e166efb47325b655",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
