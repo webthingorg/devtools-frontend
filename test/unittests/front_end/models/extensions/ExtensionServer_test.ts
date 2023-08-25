@@ -5,6 +5,13 @@
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Extensions from '../../../../../front_end/models/extensions/extensions.js';
+<<<<<<< HEAD   (689deb [M114-LTS][Recorder] Fix test that relay on ActionRegistry)
+=======
+import type * as HAR from '../../../../../front_end/models/har/har.js';
+import * as Logs from '../../../../../front_end/models/logs/logs.js';
+import * as TextUtils from '../../../../../front_end/models/text_utils/text_utils.js';
+import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
+>>>>>>> CHANGE (90ebdf Filter out HAR results that are not avaiable to the extensio)
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 
 const {assert} = chai;
@@ -259,6 +266,264 @@ describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => 
       assert.hasAnyKeys(result, ['entries']);
     }
   });
+<<<<<<< HEAD   (689deb [M114-LTS][Recorder] Fix test that relay on ActionRegistry)
+=======
+
+  it('does not include blocked hosts in the HAR entries', async () => {
+    Logs.NetworkLog.NetworkLog.instance();
+    const target = createTarget({type: SDK.Target.Type.Frame});
+    target.setInspectedURL('http://example.com2' as Platform.DevToolsPath.UrlString);
+    const networkManager = target.model(SDK.NetworkManager.NetworkManager);
+    Platform.assertNotNullOrUndefined(networkManager);
+    const frameId = 'frame-id' as Protocol.Page.FrameId;
+    createRequest(networkManager, frameId, 'blocked-url-request-id' as Protocol.Network.RequestId, blockedUrl);
+    createRequest(networkManager, frameId, 'allowed-url-request-id' as Protocol.Network.RequestId, allowedUrl);
+    {
+      const result = await new Promise<object>(cb => context.chrome.devtools?.network.getHAR(cb)) as HAR.Log.LogDTO;
+      assert.exists(result.entries.find(e => e.request.url === allowedUrl));
+      assert.notExists(result.entries.find(e => e.request.url === blockedUrl));
+    }
+  });
+
+  function setUpFrame(
+      name: string, url: Platform.DevToolsPath.UrlString, parentFrame?: SDK.ResourceTreeModel.ResourceTreeFrame,
+      executionContextOrigin?: Platform.DevToolsPath.UrlString) {
+    const mimeType = 'text/html';
+    const secureContextType = Protocol.Page.SecureContextType.Secure;
+    const crossOriginIsolatedContextType = Protocol.Page.CrossOriginIsolatedContextType.Isolated;
+    const loaderId = 'loader' as Protocol.Network.LoaderId;
+
+    const parentTarget = parentFrame?.resourceTreeModel()?.target();
+    const target = createTarget({id: `${name}-target-id` as Protocol.Target.TargetID, parentTarget});
+    const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+    Platform.assertNotNullOrUndefined(resourceTreeModel);
+
+    const id = `${name}-frame-id` as Protocol.Page.FrameId;
+    resourceTreeModel.frameNavigated(
+        {
+          id,
+          parentId: parentFrame?.id,
+          loaderId,
+          url,
+          domainAndRegistry: new URL(url).hostname,
+          securityOrigin: new URL(url).origin,
+          mimeType,
+          secureContextType,
+          crossOriginIsolatedContextType,
+          gatedAPIFeatures: [],
+        },
+        Protocol.Page.NavigationType.Navigation);
+
+    if (executionContextOrigin) {
+      executionContextOrigin = new URL(executionContextOrigin).origin as Platform.DevToolsPath.UrlString;
+      const parentRuntimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
+      Platform.assertNotNullOrUndefined(parentRuntimeModel);
+      parentRuntimeModel.executionContextCreated({
+        id: 0 as Protocol.Runtime.ExecutionContextId,
+        origin: executionContextOrigin,
+        name: executionContextOrigin,
+        uniqueId: executionContextOrigin,
+        auxData: {frameId: id, isDefault: true},
+      });
+    }
+
+    const frame = resourceTreeModel.frameForId(id);
+    Platform.assertNotNullOrUndefined(frame);
+    return frame;
+  }
+
+  it('blocks evaluation on blocked subframes', async () => {
+    assert.isUndefined(context.chrome.devtools);
+    const parentFrameUrl = allowedUrl;
+    const childFrameUrl = blockedUrl;
+    const parentFrame = setUpFrame('parent', parentFrameUrl);
+    setUpFrame('child', childFrameUrl, parentFrame);
+
+    const result = await new Promise<{result: unknown, error?: {details: unknown[]}}>(
+        r => context.chrome.devtools?.inspectedWindow.eval(
+            '4', {frameURL: childFrameUrl}, (result, error) => r({result, error})));
+
+    assert.deepStrictEqual(result.error?.details, ['Permission denied']);
+  });
+
+  it('doesn\'t block evaluation on blocked sub-executioncontexts with useContentScriptContext', async () => {
+    assert.isUndefined(context.chrome.devtools);
+
+    const parentFrameUrl = allowedUrl;
+    const childFrameUrl = `${allowedUrl}/2` as Platform.DevToolsPath.UrlString;
+    const childExeContextOrigin = blockedUrl;
+    const parentFrame = setUpFrame('parent', parentFrameUrl, undefined, parentFrameUrl);
+    const childFrame = setUpFrame('child', childFrameUrl, parentFrame, childExeContextOrigin);
+
+    // Create a fake content script execution context, i.e., a non-default context with the extension's (== window's)
+    // origin.
+    const runtimeModel = childFrame.resourceTreeModel()?.target().model(SDK.RuntimeModel.RuntimeModel);
+    Platform.assertNotNullOrUndefined(runtimeModel);
+    runtimeModel.executionContextCreated({
+      id: 1 as Protocol.Runtime.ExecutionContextId,
+      origin: window.location.origin,
+      name: window.location.origin,
+      uniqueId: window.location.origin,
+      auxData: {frameId: childFrame.id, isDefault: false},
+    });
+    const contentScriptExecutionContext = runtimeModel.executionContext(1);
+    Platform.assertNotNullOrUndefined(contentScriptExecutionContext);
+    sinon.stub(contentScriptExecutionContext, 'evaluate').returns(Promise.resolve({
+      object: SDK.RemoteObject.RemoteObject.fromLocalObject(4),
+    }));
+
+    const result = await new Promise<{result: unknown, error?: {details: unknown[]}}>(
+        r => context.chrome.devtools?.inspectedWindow.eval(
+            '4', {frameURL: childFrameUrl, useContentScriptContext: true}, (result, error) => r({result, error})));
+
+    assert.deepStrictEqual(result.result, 4);
+  });
+
+  it('blocks evaluation on blocked sub-executioncontexts with explicit scriptExecutionContextOrigin', async () => {
+    assert.isUndefined(context.chrome.devtools);
+
+    const parentFrameUrl = allowedUrl;
+    const childFrameUrl = `${allowedUrl}/2` as Platform.DevToolsPath.UrlString;
+    const parentFrame = setUpFrame('parent', parentFrameUrl, undefined, parentFrameUrl);
+    const childFrame = setUpFrame('child', childFrameUrl, parentFrame, parentFrameUrl);
+
+    // Create a non-default context with a blocked origin.
+    const childExeContextOrigin = blockedUrl;
+    const runtimeModel = childFrame.resourceTreeModel()?.target().model(SDK.RuntimeModel.RuntimeModel);
+    Platform.assertNotNullOrUndefined(runtimeModel);
+    runtimeModel.executionContextCreated({
+      id: 1 as Protocol.Runtime.ExecutionContextId,
+      origin: childExeContextOrigin,
+      name: childExeContextOrigin,
+      uniqueId: childExeContextOrigin,
+      auxData: {frameId: childFrame.id, isDefault: false},
+    });
+
+    const result = await new Promise<{result: unknown, error?: {details: unknown[]}}>(
+        r => context.chrome.devtools?.inspectedWindow.eval(
+            // The typings don't match the implementation, so we need to cast to any here to make ts happy.
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            '4', {frameURL: childFrameUrl, scriptExecutionContext: childExeContextOrigin} as any,
+            (result, error) => r({result, error})));
+
+    assert.deepStrictEqual(result.error?.details, ['Permission denied']);
+  });
+
+  it('blocks evaluation on blocked sub-executioncontexts', async () => {
+    assert.isUndefined(context.chrome.devtools);
+
+    const parentFrameUrl = allowedUrl;
+    const childFrameUrl = `${allowedUrl}/2` as Platform.DevToolsPath.UrlString;
+    const childExeContextOrigin = blockedUrl;
+    const parentFrame = setUpFrame('parent', parentFrameUrl, undefined, parentFrameUrl);
+    setUpFrame('child', childFrameUrl, parentFrame, childExeContextOrigin);
+
+    const result = await new Promise<{result: unknown, error?: {details: unknown[]}}>(
+        r => context.chrome.devtools?.inspectedWindow.eval(
+            '4', {frameURL: childFrameUrl}, (result, error) => r({result, error})));
+
+    assert.deepStrictEqual(result.error?.details, ['Permission denied']);
+  });
+
+  async function createUISourceCode(
+      project: Bindings.ContentProviderBasedProject.ContentProviderBasedProject, url: Platform.DevToolsPath.UrlString) {
+    const mimeType = 'text/html';
+    const dataProvider = () => Promise.resolve({content: 'content', isEncoded: false});
+    project.addUISourceCodeWithProvider(
+        new Workspace.UISourceCode.UISourceCode(project, url, Common.ResourceType.resourceTypes.Document),
+        new TextUtils.StaticContentProvider.StaticContentProvider(
+            url, Common.ResourceType.resourceTypes.Document, dataProvider),
+        null, mimeType);
+    await project.uiSourceCodeForURL(url)?.requestContent();
+  }
+
+  it('blocks getting resource contents on blocked urls', async () => {
+    const target = createTarget({id: 'target' as Protocol.Target.TargetID});
+    target.setInspectedURL(allowedUrl);
+
+    const project = new Bindings.ContentProviderBasedProject.ContentProviderBasedProject(
+        Workspace.Workspace.WorkspaceImpl.instance(), target.id(), Workspace.Workspace.projectTypes.Network, '',
+        false /* isServiceProject */);
+    await createUISourceCode(project, blockedUrl);
+    await createUISourceCode(project, allowedUrl);
+
+    Platform.assertNotNullOrUndefined(context.chrome.devtools);
+    const resources =
+        await new Promise<Chrome.DevTools.Resource[]>(r => context.chrome.devtools?.inspectedWindow.getResources(r));
+    assert.deepStrictEqual(resources.map(r => r.url), [blockedUrl, allowedUrl]);
+
+    const resourceContents = await Promise.all(resources.map(
+        resource => new Promise<{url: string, content?: string, encoding?: string}>(
+            r => resource.getContent((content, encoding) => r({url: resource.url, content, encoding})))));
+
+    assert.deepStrictEqual(resourceContents, [
+      {url: blockedUrl, content: undefined, encoding: undefined},
+      {url: allowedUrl, content: 'content', encoding: ''},
+    ]);
+  });
+
+  function createRequest(
+      networkManager: SDK.NetworkManager.NetworkManager, frameId: Protocol.Page.FrameId,
+      requestId: Protocol.Network.RequestId, url: Platform.DevToolsPath.UrlString): void {
+    const dataProvider = () => Promise.resolve({content: 'content', encoded: false, error: null});
+    const request = SDK.NetworkRequest.NetworkRequest.create(requestId, url, url, frameId, null, null, undefined);
+    request.setContentDataProvider(dataProvider);
+    networkManager.dispatchEventToListeners(SDK.NetworkManager.Events.RequestStarted, {request, originalRequest: null});
+    request.finished = true;
+    networkManager.dispatchEventToListeners(SDK.NetworkManager.Events.RequestFinished, request);
+  }
+
+  it('blocks getting request contents on blocked urls', async () => {
+    const frameId = 'frame-id' as Protocol.Page.FrameId;
+    const target = createTarget({id: 'target' as Protocol.Target.TargetID});
+    target.setInspectedURL(allowedUrl);
+
+    const requests: Chrome.DevTools.Request[] = [];
+    context.chrome.devtools?.network.onRequestFinished.addListener(r => requests.push(r));
+    await waitForFunction(
+        () => Extensions.ExtensionServer.ExtensionServer.instance().hasSubscribers(
+            Extensions.ExtensionAPI.PrivateAPI.Events.NetworkRequestFinished));
+
+    const networkManager = target.model(SDK.NetworkManager.NetworkManager);
+    Platform.assertNotNullOrUndefined(networkManager);
+    createRequest(networkManager, frameId, 'blocked-url-request-id' as Protocol.Network.RequestId, blockedUrl);
+    createRequest(networkManager, frameId, 'allowed-url-request-id' as Protocol.Network.RequestId, allowedUrl);
+
+    await waitForFunction(() => requests.length >= 2);
+    const requestContents = await Promise.all(
+        requests.map(request => new Promise(r => request.getContent((content, encoding) => r({content, encoding})))));
+    assert.deepStrictEqual(
+        requestContents, [{content: undefined, encoding: undefined}, {content: 'content', encoding: ''}]);
+  });
+
+  it('blocks setting resource contents on blocked urls', async () => {
+    const target = createTarget({id: 'target' as Protocol.Target.TargetID});
+    target.setInspectedURL(allowedUrl);
+
+    const project = new Bindings.ContentProviderBasedProject.ContentProviderBasedProject(
+        Workspace.Workspace.WorkspaceImpl.instance(), target.id(), Workspace.Workspace.projectTypes.Network, '',
+        false /* isServiceProject */);
+    await createUISourceCode(project, blockedUrl);
+    await createUISourceCode(project, allowedUrl);
+
+    Platform.assertNotNullOrUndefined(context.chrome.devtools);
+    const resources =
+        await new Promise<Chrome.DevTools.Resource[]>(r => context.chrome.devtools?.inspectedWindow.getResources(r));
+    assert.deepStrictEqual(resources.map(r => r.url), [blockedUrl, allowedUrl]);
+
+    assert.deepStrictEqual(project.uiSourceCodeForURL(allowedUrl)?.content(), 'content');
+    assert.deepStrictEqual(project.uiSourceCodeForURL(blockedUrl)?.content(), 'content');
+    const responses = await Promise.all(resources.map(
+                          resource => new Promise<Object|undefined>(r => resource.setContent('modified', true, r)))) as
+        Array<undefined|{code: string, details: string[]}>;
+
+    assert.deepStrictEqual(responses.map(response => response?.code), ['E_FAILED', 'OK']);
+    assert.deepStrictEqual(responses.map(response => response?.details), [['Permission denied'], []]);
+
+    assert.deepStrictEqual(project.uiSourceCodeForURL(allowedUrl)?.content(), 'modified');
+    assert.deepStrictEqual(project.uiSourceCodeForURL(blockedUrl)?.content(), 'content');
+  });
+>>>>>>> CHANGE (90ebdf Filter out HAR results that are not avaiable to the extensio)
 });
 
 describe('ExtensionServer', () => {
