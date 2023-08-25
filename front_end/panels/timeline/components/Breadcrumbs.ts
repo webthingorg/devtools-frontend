@@ -8,7 +8,7 @@ export interface Breadcrumb {
   window: TraceEngine.Types.Timing.TraceWindow;
   child: Breadcrumb|null;
 }
-// ulala
+// ulala 2
 export function flattenBreadcrumbs(initialBreadcrumb: Breadcrumb): Breadcrumb[] {
   const allBreadcrumbs: Breadcrumb[] = [initialBreadcrumb];
   let breadcrumbsIter: Breadcrumb = initialBreadcrumb;
