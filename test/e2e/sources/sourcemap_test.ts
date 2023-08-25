@@ -8,10 +8,12 @@ import {
   $$,
   click,
   clickElement,
+  enableCDPTracking,
   enableExperiment,
   getBrowserAndPages,
   getVisibleTextContents,
   goToResource,
+  logOutstandingCDP,
   pasteText,
   step,
   typeText,
@@ -168,7 +170,8 @@ describe('The Sources Tab', async function() {
     });
   });
 
-  it('stepping works at the end of a sourcemapped script (crbug/1305956)', async () => {
+  // Testing a different test. DO NOT CHECK IN
+  it.skip('[crbug.com/12345] stepping works at the end of a sourcemapped script (crbug/1305956)', async () => {
     const {target} = getBrowserAndPages();
     await openSourceCodeEditorForFile('sourcemap-stepping-at-end.js', 'sourcemap-stepping-at-end.html');
 
@@ -204,7 +207,8 @@ describe('The Sources Tab', async function() {
     }
   });
 
-  it('shows unminified identifiers in scopes and console', async () => {
+  // Testing a different test. DO NOT CHECK IN
+  it.skip('[crbug.com/12345] shows unminified identifiers in scopes and console', async () => {
     const {target, frontend} = getBrowserAndPages();
     await openSourceCodeEditorForFile('sourcemap-minified.js', 'sourcemap-minified.html');
 
@@ -263,64 +267,68 @@ describe('The Sources Tab', async function() {
     });
   });
 
-  it('shows unminified identifiers in scopes with minified names clash and nested scopes', async () => {
-    const {target, frontend} = getBrowserAndPages();
-    await openSourceCodeEditorForFile('sourcemap-scopes-minified.js', 'sourcemap-scopes-minified.html');
+  // Testing a different test. DO NOT CHECK IN
+  it.skip(
+      '[crbug.com/12345] shows unminified identifiers in scopes with minified names clash and nested scopes',
+      async () => {
+        const {target, frontend} = getBrowserAndPages();
+        await openSourceCodeEditorForFile('sourcemap-scopes-minified.js', 'sourcemap-scopes-minified.html');
 
-    let scriptEvaluation: Promise<unknown>;
-    const breakLocationOuterRegExp = /sourcemap-scopes-minified\.js:2$/;
-    const breakLocationInnerRegExp = /sourcemap-scopes-minified\.js:5$/;
+        let scriptEvaluation: Promise<unknown>;
+        const breakLocationOuterRegExp = /sourcemap-scopes-minified\.js:2$/;
+        const breakLocationInnerRegExp = /sourcemap-scopes-minified\.js:5$/;
 
-    const outerUnminifiedVariable = 'arg0: 10';
-    const innerUnminifiedVariable = 'loop_var: 0';
+        const outerUnminifiedVariable = 'arg0: 10';
+        const innerUnminifiedVariable = 'loop_var: 0';
 
-    await step('Run to outer scope breakpoint', async () => {
-      await addBreakpointForLine(frontend, 2);
+        await step('Run to outer scope breakpoint', async () => {
+          await addBreakpointForLine(frontend, 2);
 
-      scriptEvaluation = target.evaluate('foo(10);');
+          scriptEvaluation = target.evaluate('foo(10);');
 
-      const scriptLocation = await waitForStackTopMatch(breakLocationOuterRegExp);
-      assert.match(scriptLocation, breakLocationOuterRegExp);
-    });
+          const scriptLocation = await waitForStackTopMatch(breakLocationOuterRegExp);
+          assert.match(scriptLocation, breakLocationOuterRegExp);
+        });
 
-    await step('Check local scope variable is eventually un-minified', async () => {
-      const scopeValues = await waitForFunction(async () => {
-        const values = await getValuesForScope('Local', 0, 0);
-        return (values && values.includes(outerUnminifiedVariable)) ? values : undefined;
+        await step('Check local scope variable is eventually un-minified', async () => {
+          const scopeValues = await waitForFunction(async () => {
+            const values = await getValuesForScope('Local', 0, 0);
+            return (values && values.includes(outerUnminifiedVariable)) ? values : undefined;
+          });
+          assert.include(scopeValues, outerUnminifiedVariable);
+        });
+
+        await step('Resume from outer breakpoint', async () => {
+          await addBreakpointForLine(frontend, 5);
+          await click(RESUME_BUTTON);
+          const scriptLocation = await waitForStackTopMatch(breakLocationInnerRegExp);
+          assert.match(scriptLocation, breakLocationInnerRegExp);
+        });
+
+        await step('Check local and block scope variables are eventually un-minified', async () => {
+          const blockScopeValues = await waitForFunction(async () => {
+            const values = await getValuesForScope('Block', 0, 0);
+            return (values && values.includes(innerUnminifiedVariable)) ? values : undefined;
+          });
+          assert.include(blockScopeValues, innerUnminifiedVariable);
+
+          const scopeValues = await waitForFunction(async () => {
+            const values = await getValuesForScope('Local', 0, 0);
+            return (values && values.includes(outerUnminifiedVariable)) ? values : undefined;
+          });
+          assert.include(scopeValues, outerUnminifiedVariable);
+        });
+
+        await step('Resume from inner breakpoint', async () => {
+          await removeBreakpointForLine(frontend, 2);
+          await removeBreakpointForLine(frontend, 5);
+          await click(RESUME_BUTTON);
+          await scriptEvaluation;
+        });
       });
-      assert.include(scopeValues, outerUnminifiedVariable);
-    });
 
-    await step('Resume from outer breakpoint', async () => {
-      await addBreakpointForLine(frontend, 5);
-      await click(RESUME_BUTTON);
-      const scriptLocation = await waitForStackTopMatch(breakLocationInnerRegExp);
-      assert.match(scriptLocation, breakLocationInnerRegExp);
-    });
-
-    await step('Check local and block scope variables are eventually un-minified', async () => {
-      const blockScopeValues = await waitForFunction(async () => {
-        const values = await getValuesForScope('Block', 0, 0);
-        return (values && values.includes(innerUnminifiedVariable)) ? values : undefined;
-      });
-      assert.include(blockScopeValues, innerUnminifiedVariable);
-
-      const scopeValues = await waitForFunction(async () => {
-        const values = await getValuesForScope('Local', 0, 0);
-        return (values && values.includes(outerUnminifiedVariable)) ? values : undefined;
-      });
-      assert.include(scopeValues, outerUnminifiedVariable);
-    });
-
-    await step('Resume from inner breakpoint', async () => {
-      await removeBreakpointForLine(frontend, 2);
-      await removeBreakpointForLine(frontend, 5);
-      await click(RESUME_BUTTON);
-      await scriptEvaluation;
-    });
-  });
-
-  it('shows unminified function name in stack trace', async () => {
+  // Testing a different test. DO NOT CHECK IN
+  it.skip('[crbug.com/12345] shows unminified function name in stack trace', async () => {
     const {target, frontend} = getBrowserAndPages();
     await openSourceCodeEditorForFile(
         'sourcemap-minified-function-name-compiled.js', 'sourcemap-minified-function-name.html');
@@ -358,9 +366,9 @@ describe('The Sources Tab', async function() {
     });
   });
 
-  // TODO(crbug.com/1346228) Flaky - timeouts.
-  it.skip('[crbug.com/1346228] automatically ignore-lists third party code from source maps', async function() {
+  it('automatically ignore-lists third party code from source maps', async function() {
     const {target} = getBrowserAndPages();
+    await enableCDPTracking();
     await openSourceCodeEditorForFile('webpack-main.js', 'webpack-index.html');
 
     let scriptEvaluation: Promise<unknown>;
@@ -375,13 +383,16 @@ describe('The Sources Tab', async function() {
     });
 
     await step('Toggle to show ignore-listed frames', async () => {
-      await click('.ignore-listed-message-label');
+      await waitFor('.ignore-listed-message:not(.hidden)');
+      await logOutstandingCDP();
+      // await takeScreenshots('Debug screenshot, before clicking to expand');
+      await click('.ignore-listed-checkbox');
       await waitFor('.ignore-listed-call-frame:not(.hidden)');
       assert.deepEqual(await getCallFrameNames(), ['baz', 'vendor', 'bar', 'foo', '(anonymous)']);
     });
 
     await step('Toggle back off', async () => {
-      await click('.ignore-listed-message-label');
+      await click('.ignore-listed-checkbox');
       await waitFor('.ignore-listed-call-frame.hidden');
       assert.deepEqual(await getCallFrameNames(), ['baz', 'bar', 'foo', '(anonymous)']);
     });

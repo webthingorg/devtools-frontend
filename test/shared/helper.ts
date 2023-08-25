@@ -99,7 +99,7 @@ async function performActionOnSelector(
     }
   }
   return waitForFunction(async () => {
-    const element = await waitFor(selector, options?.root, undefined, queryHandler);
+    const element = await waitForVisible(selector, options?.root, undefined, queryHandler);
     try {
       await action(element);
       return element;

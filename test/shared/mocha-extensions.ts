@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Crypto from 'crypto';
 import * as FS from 'fs';
 import * as Mocha from 'mocha';
 import * as Path from 'path';
@@ -12,9 +13,10 @@ import {AsyncScope} from './async-scope.js';
 import {getEnvVar} from './config.js';
 import {platform, type Platform, stepDescription} from './helper.js';
 
-export {beforeEach} from 'mocha';
+export {after, beforeEach} from 'mocha';
 
 let didInitializeHtmlOutputFile = false;
+let didSaveScreenshots = false;
 
 function htmlEscape(raw: string) {
   return raw.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
@@ -38,6 +40,7 @@ export async function takeScreenshots(testName: string) {
                 prefix + targetScreenshot}"/></p><p>Frontend screenshot</p><p><img src="${
                 prefix + frontendScreenshot}"/></p></div>\n`);
         console.error(`Screenshots saved to "${screenshotFile}"`);
+        didSaveScreenshots = true;
       } catch (err) {
         console.error(`Error saving to file "${screenshotFile}": `, err);
       }
@@ -265,3 +268,16 @@ function wrapMochaCall(
     }
   });
 }
+
+function logFileUrl() {
+  if (didSaveScreenshots) {
+    const screenshotFile = getEnvVar('HTML_OUTPUT_FILE');
+    const hash = Crypto.createHash('sha256');
+    const contents = FS.readFileSync(screenshotFile);
+    hash.update(contents);
+    console.error(
+        `If running on bots, screenshots can be downloaded from: https://cas-viewer.appspot.com/projects/chromium-swarm/instances/default_instance/blobs/${
+            hash.digest('hex')}/${contents.byteLength}?filename=screenshots.html`);
+  }
+}
+after(logFileUrl);
