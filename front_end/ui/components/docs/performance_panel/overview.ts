@@ -33,7 +33,6 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
       TraceEngine.Types.Timing.MilliSeconds(models.timelineModel.minimumRecordTime()),
       TraceEngine.Types.Timing.MilliSeconds(models.timelineModel.maximumRecordTime()),
   );
-  minimap.setWindowTimes(models.performanceModel.window().left, models.performanceModel.window().right);
   minimap.setData({
     traceParsedData: models.traceParsedData,
     performanceModel: models.performanceModel,
@@ -42,6 +41,7 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
       showScreenshots: true,
     },
   });
+  minimap.setWindowTimes(models.performanceModel.window().left, models.performanceModel.window().right);
 }
 
 await renderMiniMap('.container', {showMemory: false});
