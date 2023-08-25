@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "282e8dc1_4ae90d7a",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T05:24:13Z",
+      "side": 1,
+      "message": "No logic change, just move it to a separate function as we need to call it again.",
+      "revId": "612d680ba1d9b3e34226a0ea1b62288f219837b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de3c34f_d484550d",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-25T05:24:13Z",
+      "side": 1,
+      "message": "Learned this logic from existing func: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/sources/ResourceOriginPlugin.ts;l\u003d34?q\u003d.rightToolbarItems()\u0026sq\u003d\n\nApart from scripts and css, That func handle also anonymous scripts with an originStackTrace, we don\u0027t need to handle anonymous scripts.",
+      "revId": "612d680ba1d9b3e34226a0ea1b62288f219837b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
