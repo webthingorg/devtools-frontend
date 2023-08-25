@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e4c7e5_d2e91c73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-25T06:12:37Z",
+      "side": 1,
+      "message": "PTAL, this is in preparation to add tests for the throttling.",
+      "revId": "ee15875ad2e6a8494a0f087b3a52dd2bef896b4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8aaf12e_60947801",
+        "filename": "test/unittests/front_end/panels/search/SearchView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-08-25T06:12:37Z",
+      "side": 1,
+      "message": "Not sure which way is better for these two methods: Make the elements `protected` in the base class and access them here directly. Or retrieve them via `querySelector`. IMO both are fine, but selectors might be a bit more \"test via public interface\".",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 3
+      },
+      "revId": "ee15875ad2e6a8494a0f087b3a52dd2bef896b4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
