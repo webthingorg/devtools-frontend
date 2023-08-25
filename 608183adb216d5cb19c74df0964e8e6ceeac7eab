@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960eb9ec_16d99d80",
+        "filename": "main.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-08-25T12:24:44Z",
+      "side": 0,
+      "message": "The test base names where change here. Maybe that was unintentional?\nE2E tests -\u003e E2E Tests\nInteractions -\u003e Interactions Tests\n\nIf you want the parallel vs. sequential builders have slightly different names, you need to list them all here for the transition period. Or unify the names.",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 23
+      },
+      "revId": "608183adb216d5cb19c74df0964e8e6ceeac7eab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
