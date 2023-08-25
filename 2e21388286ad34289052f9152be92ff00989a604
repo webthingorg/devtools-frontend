@@ -16,6 +16,29 @@
       "message": "Danil, PTAL",
       "revId": "2e21388286ad34289052f9152be92ff00989a604",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eea2860_17300a79",
+        "filename": "test/unittests/front_end/panels/application/AppManifestView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-25T07:40:07Z",
+      "side": 1,
+      "message": "Ouch! It won\u0027t be sustainable to mess with private members in tests. I can think of a few alternatives, depending on why do you need this stub.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 61
+      },
+      "revId": "2e21388286ad34289052f9152be92ff00989a604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
