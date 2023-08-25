@@ -1,16 +1,14 @@
 // Copyright 2017 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
  */
 self.BindingsTestRunner = self.BindingsTestRunner || {};
-
-Host.InspectorFrontendHost.isolatedFileSystem = function(name) {
-  return BindingsTestRunner.TestFileSystem.instances[name];
-};
 
 BindingsTestRunner.TestFileSystem = function(fileSystemPath) {
   this.root = new BindingsTestRunner.TestFileSystem.Entry(this, '', true, null);
@@ -44,7 +42,7 @@ BindingsTestRunner.TestFileSystem.prototype = {
     const fileSystemPath = this.fileSystemPath;
     BindingsTestRunner.TestFileSystem.instances[this.fileSystemPath] = this;
 
-    Host.InspectorFrontendHost.events.dispatchEventToListeners(
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
         Host.InspectorFrontendHostAPI.Events.FileSystemAdded,
         {fileSystem: {fileSystemPath: this.fileSystemPath, fileSystemName: this.fileSystemPath, type}});
 
@@ -65,7 +63,7 @@ BindingsTestRunner.TestFileSystem.prototype = {
 
   reportRemoved: function() {
     delete BindingsTestRunner.TestFileSystem.instances[this.fileSystemPath];
-    Host.InspectorFrontendHost.events.dispatchEventToListeners(
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
         Host.InspectorFrontendHostAPI.Events.FileSystemRemoved, this.fileSystemPath);
   },
 
@@ -123,7 +121,7 @@ BindingsTestRunner.TestFileSystem.Entry.prototype = {
     this.children.delete(child.name);
     child.parent = null;
 
-    Host.InspectorFrontendHost.events.dispatchEventToListeners(
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
         Host.InspectorFrontendHostAPI.Events.FileSystemFilesChangedAddedRemoved,
         {changed: [], added: [], removed: [fullPath]});
 
@@ -144,7 +142,7 @@ BindingsTestRunner.TestFileSystem.Entry.prototype = {
 
     const fullPath = this.fileSystem.fileSystemPath + child.fullPath;
 
-    Host.InspectorFrontendHost.events.dispatchEventToListeners(
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
         Host.InspectorFrontendHostAPI.Events.FileSystemFilesChangedAddedRemoved,
         {changed: [], added: [fullPath], removed: []});
 
@@ -157,7 +155,7 @@ BindingsTestRunner.TestFileSystem.Entry.prototype = {
     this.timestamp += 1000;
     const fullPath = this.fileSystem.fileSystemPath + this.fullPath;
 
-    Host.InspectorFrontendHost.events.dispatchEventToListeners(
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
         Host.InspectorFrontendHostAPI.Events.FileSystemFilesChangedAddedRemoved,
         {changed: [fullPath], added: [], removed: []});
   },
