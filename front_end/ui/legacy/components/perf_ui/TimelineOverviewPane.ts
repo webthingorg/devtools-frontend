@@ -152,19 +152,19 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     this.overviewCalculator.setNavStartTimes(navStartTimes);
   }
 
-  scheduleUpdate(): void {
+  scheduleUpdate(min?: number, max?: number): void {
     void this.updateThrottler.schedule(async () => {
-      this.update();
+      this.update(min, max);
     });
   }
 
-  private update(): void {
+  private update(min?: number, max?: number): void {
     if (!this.isShowing()) {
       return;
     }
     this.overviewCalculator.setDisplayWidth(this.overviewGrid.clientWidth());
     for (let i = 0; i < this.overviewControls.length; ++i) {
-      this.overviewControls[i].update();
+      this.overviewControls[i].update(min, max);
     }
     this.overviewGrid.updateDividers(this.overviewCalculator);
     this.updateMarkers();
@@ -272,7 +272,8 @@ export type EventTypes = {
 
 export interface TimelineOverview {
   show(parentElement: Element, insertBefore?: Element|null): void;
-  update(): void;
+  // if min and max are specified, data will be filtered and only data within those bound will be displayed
+  update(min?: number, max?: number): void;
   dispose(): void;
   reset(): void;
   overviewInfoPromise(x: number): Promise<Element|null>;
