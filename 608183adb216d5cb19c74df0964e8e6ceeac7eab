@@ -22,6 +22,30 @@
       },
       "revId": "608183adb216d5cb19c74df0964e8e6ceeac7eab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "726b57ba_9151e90a",
+        "filename": "main.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-25T13:17:26Z",
+      "side": 0,
+      "message": "Sorry for missing that, added them back here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4813639",
+      "parentUuid": "960eb9ec_16d99d80",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 23
+      },
+      "revId": "608183adb216d5cb19c74df0964e8e6ceeac7eab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
