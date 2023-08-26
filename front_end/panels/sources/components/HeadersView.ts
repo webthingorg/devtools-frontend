@@ -264,6 +264,13 @@ export class HeadersViewComponent extends HTMLElement {
     }
   }
 
+  #canDelete(blockIndex: number, headerIndex: number): boolean {
+    const condition = headerIndex === 0 && this.#headerOverrides[blockIndex].headers.length === 1 &&
+        this.#headerOverrides[blockIndex].headers[headerIndex].name === 'header-name-1' &&
+        this.#headerOverrides[blockIndex].headers[headerIndex].value === 'header value';
+    return !condition;
+  }
+
   #removeHeader(blockIndex: number, headerIndex: number): void {
     this.#headerOverrides[blockIndex].headers.splice(headerIndex, 1);
     if (this.#headerOverrides[blockIndex].headers.length === 0) {
@@ -425,6 +432,7 @@ export class HeadersViewComponent extends HTMLElement {
           .iconWidth=${'14px'}
           .iconHeight=${'14px'}
           .variant=${Buttons.Button.Variant.ROUND}
+          ?hidden=${!this.#canDelete(blockIndex, headerIndex)}
           class="remove-header inline-button"
         ></${Buttons.Button.Button.litTagName}>
       </div>
