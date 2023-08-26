@@ -264,8 +264,10 @@ export class ResourceType {
   }
 
   static simplifyContentType(contentType: string): string {
-    const regex = new RegExp('^application.*json$');
-    return regex.test(contentType) ? 'application/json' : contentType;
+    const regexEndWithJson = new RegExp('^application.*json$');
+    const regexStartWithJson = new RegExp('^application\/json+.*');
+    return regexEndWithJson.test(contentType) || regexStartWithJson.test(contentType) ? 'application/json' :
+                                                                                        contentType;
   }
 
   /**
