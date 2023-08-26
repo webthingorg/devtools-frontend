@@ -1119,7 +1119,7 @@ export class NetworkRequestNode extends NetworkNode {
   }
 
   private getIcon(request: SDK.NetworkRequest.NetworkRequest): HTMLElement {
-    const type = request.resourceType();
+    let type = request.resourceType();
     let iconElement: HTMLElement;
 
     if (this.isFailed()) {
@@ -1161,7 +1161,19 @@ export class NetworkRequestNode extends NetworkNode {
       return iconElement;
     }
 
-    if (request.resourceType() === Common.ResourceType.resourceTypes.Image) {
+    // Sometimes, we need to pick icon based on mimetype
+    const typeFromMime = Common.ResourceType.ResourceType.fromMimeType(request.mimeType);
+
+    if (typeFromMime !== type &&
+        (typeFromMime === Common.ResourceType.resourceTypes.Image ||
+         (type === Common.ResourceType.resourceTypes.Fetch &&
+          typeFromMime !== Common.ResourceType.resourceTypes.Other) ||
+         (type === Common.ResourceType.resourceTypes.Other &&
+          typeFromMime === Common.ResourceType.resourceTypes.Script))) {
+      type = typeFromMime;
+    }
+
+    if (type === Common.ResourceType.resourceTypes.Image) {
       const previewImage = document.createElement('img');
       previewImage.classList.add('image-network-icon-preview');
       previewImage.alt = request.resourceType().title();
@@ -1174,9 +1186,22 @@ export class NetworkRequestNode extends NetworkNode {
       return iconElement;
     }
 
+    // manifest is technically a json file, but it has its own icon
+    if (type !== Common.ResourceType.resourceTypes.Manifest &&
+        Common.ResourceType.ResourceType.simplifyContentType(request.mimeType) === 'application/json') {
+      const iconData = {
+        iconName: 'file-json',
+        color: 'var(--icon-file-script)',
+      };
+      iconElement = this.createIconElement(iconData, request.resourceType().title());
+      iconElement.classList.add('icon');
+
+      return iconElement;
+    }
+
     // Others
     const iconData = PanelUtils.iconDataForResourceType(type);
-    iconElement = this.createIconElement(iconData, type.title());
+    iconElement = this.createIconElement(iconData, request.resourceType().title());
     iconElement.classList.add('icon');
     return iconElement;
   }
