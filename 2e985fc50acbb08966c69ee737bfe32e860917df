@@ -16,6 +16,41 @@
       "message": "Friendly ping :)",
       "revId": "2e985fc50acbb08966c69ee737bfe32e860917df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be3c8079_8e96b64e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T08:41:17Z",
+      "side": 1,
+      "message": "Ah yes, sorry!",
+      "parentUuid": "328541f8_3de6bd9d",
+      "revId": "2e985fc50acbb08966c69ee737bfe32e860917df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1dd083_6075c5d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T08:41:17Z",
+      "side": 1,
+      "message": "+1",
+      "revId": "2e985fc50acbb08966c69ee737bfe32e860917df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
