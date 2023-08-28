@@ -16,6 +16,24 @@
       "message": "The \"Event log\" view also have a split widget, please add test to it",
       "revId": "a3ab3487c28c4080d799b8fe8e406b275cb5affd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95126f33_c023e0ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T08:51:18Z",
+      "side": 1,
+      "message": "For event log the split widget is already opened as we can see in eventLog.png so I\u0027m not sure what to test more ?",
+      "parentUuid": "ae6a2b35_9d060c12",
+      "revId": "a3ab3487c28c4080d799b8fe8e406b275cb5affd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
