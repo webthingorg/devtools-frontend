@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12045f7b_10ef114a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-28T07:35:50Z",
+      "side": 1,
+      "message": "Exciting!! LGTM with some small observations.\n\nNote: do you think it\u0027s worth adding e2e/interaction tests to make sure breadcrumbs appear correctly in the panel? (we could do this in the future once the feature is ready)",
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f46798bf_aa4c41ad",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-28T07:35:50Z",
+      "side": 1,
+      "message": "it seems we can remove this since it isn\u0027t really used.",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b816968_16e00915",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-28T07:35:50Z",
+      "side": 1,
+      "message": "this event will also be dispatched when zooming in/out and I think we don\u0027t want to add breadcrumbs in this case. We\u0027ll need to make sure the window changed due to the user dragging on the mini map before adding breadcrumbs. We can do this in a follow up!",
+      "range": {
+        "startLine": 62,
+        "startChar": 80,
+        "endLine": 62,
+        "endChar": 93
+      },
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1ae5fd_b4a76743",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-28T07:35:50Z",
+      "side": 1,
+      "message": "nit: let\u0027s declare this outside the if block to avoid declaring it twice",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
