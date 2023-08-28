@@ -16,18 +16,35 @@ import {DEFAULT_CATEGORY_STYLES_PALETTE, EventStyles} from './EventUICategory.js
 
 const UIStrings = {
   /**
-   *@description Text in Timeline Flame Chart Data Provider of the Performance panel
+   * @description Refers to the "Main frame", meaning the top level frame. See https://www.w3.org/TR/html401/present/frames.html
+   * @example{example.com} PH1
    */
-  thread: 'Main Thread by new engine',
-
+  mainS: 'Main — {PH1}',
+  /**
+   * @description Refers to any frame in the page. See https://www.w3.org/TR/html401/present/frames.html
+   * @example {https://example.com} PH1
+   */
+  frameS: 'Frame — {PH1}',
   /**
    *@description Text for the name of anonymous functions
    */
   anonymous: '(anonymous)',
+  /**
+   *@description A generic name given for a thread running in the browser (sequence of programmed instructions).
+   * The placeholder is an enumeration given to the thread.
+   *@example {1} PH1
+   */
+  threadS: 'Thread {PH1}',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/ThreadAppender.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+export const enum ThreadType {
+  MAIN_THREAD = 'MAIN_THREAD',
+  WORKER = 'WORKER',
+  RASTERIZER = 'RASTERIZER',
+  OTHER = 'OTHER',
+}
 
 // This appender is only triggered when the Renderer handler is run. At
 // the moment this only happens in the basic component server example.
@@ -43,10 +60,14 @@ export class ThreadAppender implements TrackAppender {
 
   #entries: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
   #processId: TraceEngine.Types.TraceEvents.ProcessID;
+  #threadDefaultName: string;
+  #threadType: ThreadType = ThreadType.MAIN_THREAD;
+  #isOnMainFrame = false;
   constructor(
       compatibilityBuilder: CompatibilityTracksAppender,
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData,
-      processId: TraceEngine.Types.TraceEvents.ProcessID, threadId: TraceEngine.Types.TraceEvents.ThreadID) {
+      processId: TraceEngine.Types.TraceEvents.ProcessID, threadId: TraceEngine.Types.TraceEvents.ThreadID,
+      threadName: string|null, type: ThreadType) {
     this.#compatibilityBuilder = compatibilityBuilder;
     this.#colorGenerator =
         new Common.Color.Generator({min: 30, max: 330, count: undefined}, {min: 50, max: 80, count: 3}, 85);
@@ -59,6 +80,9 @@ export class ThreadAppender implements TrackAppender {
       throw new Error(`Could not find data for thread with id ${threadId} in process with id ${processId}`);
     }
     this.#entries = entries;
+    this.#threadDefaultName = threadName || i18nString(UIStrings.threadS, {PH1: threadId});
+    this.#isOnMainFrame = Boolean(this.#traceParsedData.Renderer?.processes.get(processId)?.isOnMainFrame);
+    this.#threadType = type;
   }
 
   /**
@@ -78,6 +102,13 @@ export class ThreadAppender implements TrackAppender {
     return this.#appendThreadEntriesAtLevel(trackStartLevel);
   }
 
+  isForMainFrame(): boolean {
+    return this.#isOnMainFrame;
+  }
+  get threadType(): ThreadType {
+    return this.#threadType;
+  }
+
   /**
    * Adds into the flame chart data the header corresponding to this
    * thread. A header is added in the shape of a group in the flame
@@ -91,10 +122,21 @@ export class ThreadAppender implements TrackAppender {
     const trackIsCollapsible = this.#entries.length > 0;
     const style = buildGroupStyle({shareHeaderLine: false, collapsible: trackIsCollapsible});
 
-    const name = this.#traceParsedData.Renderer?.processes.get(this.#processId)?.url || '';
+    const url = this.#traceParsedData.Renderer?.processes.get(this.#processId)?.url || '';
+    // This UI string doesn't yet use the i18n API because it is not
+    // shown in production, only in the component server, reason being
+    // it is not ready to be shipped.
+    // TODO(crbug.com/1428024) Once the UI has been, use the i18n API.
+    const newEnginePrefix = '[RPP] ';
+    let name = newEnginePrefix;
+    let trackNameName: string|null = null;
 
-    const group = buildTrackHeader(
-        currentLevel, i18nString(UIStrings.thread) + ' ' + name, style, /* selectable= */ true, expanded);
+    if (this.#threadType === ThreadType.MAIN_THREAD) {
+      trackNameName =
+          this.#isOnMainFrame ? i18nString(UIStrings.mainS, {PH1: url}) : i18nString(UIStrings.frameS, {PH1: url});
+    }
+    name += trackNameName || this.#threadDefaultName;
+    const group = buildTrackHeader(currentLevel, name, style, /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
   }
 
