@@ -92,19 +92,25 @@ export class TimelineEventOverviewNetwork extends TimelineEventOverview {
     this.#traceParsedData = traceParsedData;
   }
 
-  override update(): void {
+  override update(start?: number, end?: number): void {
     super.update();
-    this.#renderWithTraceParsedData();
+    this.#renderWithTraceParsedData(start, end);
   }
 
-  #renderWithTraceParsedData(): void {
+  #renderWithTraceParsedData(start?: number, end?: number): void {
     if (!this.#traceParsedData) {
       return;
     }
 
     // Because the UI is in milliseconds, we work with milliseconds through
     // this function to get the right scale and sizing
-    const traceBoundsMilli = TraceEngine.Helpers.Timing.traceBoundsMilliseconds(this.#traceParsedData.Meta.traceBounds);
+    const traceBoundsMilli = (start && end) ?
+        {
+          min: TraceEngine.Types.Timing.MilliSeconds(start),
+          max: TraceEngine.Types.Timing.MilliSeconds(end),
+          range: TraceEngine.Types.Timing.MilliSeconds(end - start),
+        } :
+        TraceEngine.Helpers.Timing.traceBoundsMilliseconds(this.#traceParsedData.Meta.traceBounds);
 
     // We draw two paths, so each can take up half the height
     const pathHeight = this.height() / 2;
