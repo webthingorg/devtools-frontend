@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc384e2_aabefdeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-28T14:19:23Z",
+      "side": 1,
+      "message": "yes! we should definitely add the tests. I was thinking to do it when all tracks are migrated.\n\nThanks for the review!",
+      "parentUuid": "12045f7b_10ef114a",
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f46798bf_aa4c41ad",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-28T07:35:50Z",
       "side": 1,
       "message": "it seems we can remove this since it isn\u0027t really used.",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c5bc19d_49036abe",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-28T14:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f46798bf_aa4c41ad",
       "range": {
         "startLine": 43,
         "startChar": 2,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "698b8983_79a843b7",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-28T14:19:23Z",
+      "side": 1,
+      "message": "True! Also will have to implement the interface with a + button for creating buttons",
+      "parentUuid": "6b816968_16e00915",
+      "range": {
+        "startLine": 62,
+        "startChar": 80,
+        "endLine": 62,
+        "endChar": 93
+      },
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c1ae5fd_b4a76743",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-08-28T07:35:50Z",
       "side": 1,
       "message": "nit: let\u0027s declare this outside the if block to avoid declaring it twice",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "79ee5719bb98c3bfcfa2a099151f5d68827a478f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "864c398f_59272083",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-28T14:19:23Z",
+      "side": 1,
+      "message": "good point, didn\u0027t realise",
+      "parentUuid": "5c1ae5fd_b4a76743",
       "range": {
         "startLine": 72,
         "startChar": 12,
