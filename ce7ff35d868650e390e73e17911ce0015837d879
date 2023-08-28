@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9288e26_45b61044",
+        "filename": "buckets/try.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-08-28T08:55:59Z",
+      "side": 1,
+      "message": "The sequential one will need the longer timeout.",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 59
+      },
+      "revId": "ce7ff35d868650e390e73e17911ce0015837d879",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "890d6fe2_98bae96e",
+        "filename": "buckets/try.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-08-28T08:55:59Z",
+      "side": 1,
+      "message": "If you want those to show up on CQ, you also need to add them above I think?",
+      "range": {
+        "startLine": 236,
+        "startChar": 9,
+        "endLine": 236,
+        "endChar": 47
+      },
+      "revId": "ce7ff35d868650e390e73e17911ce0015837d879",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
