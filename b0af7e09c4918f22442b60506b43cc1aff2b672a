@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "322ddf25_838d0b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T11:56:08Z",
+      "side": 1,
+      "message": "PTAL again",
+      "revId": "b0af7e09c4918f22442b60506b43cc1aff2b672a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2aae01f_f3ebddd4",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T11:56:08Z",
+      "side": 1,
+      "message": "This is only used in the tests. It allows the tests to wait for the rendering (and image loading) to finish. Thinking about an alternative, I looked into whether I could use the throttler to do that, but didn\u0027t see an obvious approach there.",
+      "range": {
+        "startLine": 986,
+        "startChar": 4,
+        "endLine": 986,
+        "endChar": 59
+      },
+      "revId": "b0af7e09c4918f22442b60506b43cc1aff2b672a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

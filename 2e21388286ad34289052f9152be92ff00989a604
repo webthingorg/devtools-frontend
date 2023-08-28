@@ -39,6 +39,30 @@
       },
       "revId": "2e21388286ad34289052f9152be92ff00989a604",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6034cd5d_ade6ce86",
+        "filename": "test/unittests/front_end/panels/application/AppManifestView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T11:56:08Z",
+      "side": 1,
+      "message": "I changed it so that the method does not need to be stubbed out and is able to load images from unit test fixtures.",
+      "parentUuid": "8eea2860_17300a79",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 61
+      },
+      "revId": "2e21388286ad34289052f9152be92ff00989a604",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
