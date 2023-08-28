@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b5c5706_c71424d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T15:39:53Z",
+      "side": 1,
+      "message": "Looks good, thanks Hadrien! Just one question and one nit",
+      "revId": "179b020e88b41abfe65e32f4adfaf67bf49d876d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62fadacb_668932d4",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T15:39:53Z",
+      "side": 1,
+      "message": "secondary should become `--sys-color-token-subtle` and primary -\u003e `--sys-color-on-surface`",
+      "range": {
+        "startLine": 155,
+        "startChar": 13,
+        "endLine": 155,
+        "endChar": 35
+      },
+      "revId": "179b020e88b41abfe65e32f4adfaf67bf49d876d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
