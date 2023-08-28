@@ -34,6 +34,52 @@
       "parentUuid": "90872162_14c61ccc",
       "revId": "69da22747a64bf21088d9b677d8dd17653ba54f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ed634b_6d4d4f93",
+        "filename": "front_end/panels/timeline/timelineStatusDialog.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-28T10:54:16Z",
+      "side": 1,
+      "message": "Add to the document how the 10px comes from",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 22
+      },
+      "revId": "69da22747a64bf21088d9b677d8dd17653ba54f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15daa73e_7dc9932f",
+        "filename": "front_end/panels/timeline/timelineStatusDialog.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-28T10:54:16Z",
+      "side": 1,
+      "message": "how did you get this numbers? i know in css the comment might be hard. pls try add comment here, if not possible, add to the document",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "69da22747a64bf21088d9b677d8dd17653ba54f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
