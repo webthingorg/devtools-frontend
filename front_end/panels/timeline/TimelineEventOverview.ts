@@ -298,11 +298,16 @@ export class TimelineEventOverviewResponsiveness extends TimelineEventOverview {
     return allWarningEvents;
   }
 
-  override update(): void {
+  override update(start?: number, end?: number): void {
     super.update();
 
     const height = this.height();
-    const {traceBounds} = this.#traceParsedData.Meta;
+    const traceBounds = (start && end) ? {
+      min: TraceEngine.Helpers.Timing.millisecondsToMicroseconds(TraceEngine.Types.Timing.MilliSeconds(start)),
+      max: TraceEngine.Helpers.Timing.millisecondsToMicroseconds(TraceEngine.Types.Timing.MilliSeconds(end)),
+      range: TraceEngine.Helpers.Timing.millisecondsToMicroseconds(TraceEngine.Types.Timing.MilliSeconds(end - start)),
+    } :
+                                         this.#traceParsedData.Meta.traceBounds;
     const timeSpan = traceBounds.range;
     const scale = this.width() / timeSpan;
     const ctx = this.context();
