@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a86eb7b_b6b8da1d",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T15:20:30Z",
+      "side": 1,
+      "message": "Currently you have both: `filterChangedCallback` and `this.dispatchEventToListeners(FilterUIEvents.FilterChanged)` which serve the same purpose. If you want to keep the callback, try replacing the dispatch with calling the callback so that you can get rid of the event instead.",
+      "parentUuid": "6728e711_193d899f",
+      "range": {
+        "startLine": 517,
+        "startChar": 21,
+        "endLine": 517,
+        "endChar": 54
+      },
+      "revId": "c543022a98972aa5c28240f88d2abad20b1bae59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a65dcc5f_3326641b",
         "filename": "front_end/ui/legacy/FilterBar.ts",
         "patchSetId": 2

@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b710016_83b4b11b",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T15:20:30Z",
+      "side": 1,
+      "message": "This performs a `find` for each softMenu-item and therefore has a runtime which scales with #items^2. `appendCheckboxItem` returns a soft context menu item. Can you find a way to store those items in this class (maybe together with a name, label, or id for easy lookup), so that you just need to perform a single loop and can call `setChecked` directly. \nMaybe even pass the soft context menu item to `setChecked` to save another `find` in `setChecked`.",
+      "range": {
+        "startLine": 616,
+        "startChar": 8,
+        "endLine": 617,
+        "endChar": 47
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57b6b2c1_c80090bc",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T15:20:30Z",
+      "side": 1,
+      "message": "Why is this optional?",
+      "range": {
+        "startLine": 373,
+        "startChar": 38,
+        "endLine": 373,
+        "endChar": 39
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d236a823_387a1625",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T15:20:30Z",
+      "side": 1,
+      "message": "Is `menuItemElement` already the element which contains the checkmark we want to change? QuerySelectors are somewhat slow, so we don\u0027t want to call them unnecessarily.\nHow about creating a helper function which takes HTMLElement, Item and Boolean as params? This function would do the actual updating and can be called from `triggerAction` and `setChecked`. This way no unnecessary work is performed and the common work is still in a separate function.",
+      "range": {
+        "startLine": 399,
+        "startChar": 17,
+        "endLine": 399,
+        "endChar": 27
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
