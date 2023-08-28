@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0f1e2be_f42f388f",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-28T11:39:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fbb7991_60de4dcb",
+      "range": {
+        "startLine": 267,
+        "startChar": 3,
+        "endLine": 267,
+        "endChar": 12
+      },
+      "revId": "b8c5d653e8ef0b3932cdf8c01060e6d5e067acc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b70369f_f3f9ba60",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-28T07:55:17Z",
       "side": 1,
       "message": "This is getting a little out of hand. Let\u0027s have a constant for a `DEFAULT_HEADER_VALUE\u003d\u0027header value\u0027` and a function for \n\n    getDefaultHeaderName \u003d i \u003d\u003e `header-name-${i}`\n\nand use these consistently throughout the file",
+      "range": {
+        "startLine": 270,
+        "startChar": 74,
+        "endLine": 270,
+        "endChar": 86
+      },
+      "revId": "b8c5d653e8ef0b3932cdf8c01060e6d5e067acc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd688a6_ed125fd3",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-28T11:39:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b70369f_f3f9ba60",
       "range": {
         "startLine": 270,
         "startChar": 74,
