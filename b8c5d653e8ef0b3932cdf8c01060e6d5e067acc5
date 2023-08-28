@@ -92,6 +92,30 @@
       },
       "revId": "b8c5d653e8ef0b3932cdf8c01060e6d5e067acc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2efa90_80a09575",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T08:17:55Z",
+      "side": 1,
+      "message": "Fair enough",
+      "parentUuid": "6c6c1a3d_3c9b1f12",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 62
+      },
+      "revId": "b8c5d653e8ef0b3932cdf8c01060e6d5e067acc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
