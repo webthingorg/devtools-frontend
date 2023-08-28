@@ -53,6 +53,8 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const plusIconUrl = new URL('../../../Images/plus.svg', import.meta.url).toString();
 const trashIconUrl = new URL('../../../Images/bin.svg', import.meta.url).toString();
 
+const DEFAULT_HEADER_VALUE = 'header value';
+
 export class HeadersView extends UI.View.SimpleView {
   readonly #headersViewComponent = new HeadersViewComponent();
   #uiSourceCode: Workspace.UISourceCode.UISourceCode;
@@ -249,13 +251,13 @@ export class HeadersViewComponent extends HTMLElement {
     if (target.matches('.add-header')) {
       this.#headerOverrides[blockIndex].headers.splice(
           headerIndex + 1, 0,
-          {name: this.#generateNextHeaderName(this.#headerOverrides[blockIndex].headers), value: 'header value'});
+          {name: this.#generateNextHeaderName(this.#headerOverrides[blockIndex].headers), value: DEFAULT_HEADER_VALUE});
       this.#focusElement = {blockIndex, headerIndex: headerIndex + 1};
       this.#onHeadersChanged();
     } else if (target.matches('.remove-header')) {
       this.#removeHeader(blockIndex, headerIndex);
     } else if (target.matches('.add-block')) {
-      this.#headerOverrides.push({applyTo: '*', headers: [{name: 'header-name-1', value: 'header value'}]});
+      this.#headerOverrides.push({applyTo: '*', headers: [{name: 'header-name-1', value: DEFAULT_HEADER_VALUE}]});
       this.#focusElement = {blockIndex: this.#headerOverrides.length - 1};
       this.#onHeadersChanged();
     } else if (target.matches('.remove-block')) {
@@ -264,11 +266,18 @@ export class HeadersViewComponent extends HTMLElement {
     }
   }
 
+  #isDeletable(blockIndex: number, headerIndex: number): boolean {
+    const isOnlyDefaultHeader = headerIndex === 0 && this.#headerOverrides[blockIndex].headers.length === 1 &&
+        this.#headerOverrides[blockIndex].headers[headerIndex].name === 'header-name-1' &&
+        this.#headerOverrides[blockIndex].headers[headerIndex].value === DEFAULT_HEADER_VALUE;
+    return !isOnlyDefaultHeader;
+  }
+
   #removeHeader(blockIndex: number, headerIndex: number): void {
     this.#headerOverrides[blockIndex].headers.splice(headerIndex, 1);
     if (this.#headerOverrides[blockIndex].headers.length === 0) {
       this.#headerOverrides[blockIndex].headers.push(
-          {name: this.#generateNextHeaderName(this.#headerOverrides[blockIndex].headers), value: 'header value'});
+          {name: this.#generateNextHeaderName(this.#headerOverrides[blockIndex].headers), value: DEFAULT_HEADER_VALUE});
     }
     this.#onHeadersChanged();
   }
@@ -425,6 +434,7 @@ export class HeadersViewComponent extends HTMLElement {
           .iconWidth=${'14px'}
           .iconHeight=${'14px'}
           .variant=${Buttons.Button.Variant.ROUND}
+          ?hidden=${!this.#isDeletable(blockIndex, headerIndex)}
           class="remove-header inline-button"
         ></${Buttons.Button.Button.litTagName}>
       </div>
