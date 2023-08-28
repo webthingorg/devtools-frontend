@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae269f6_7a2926d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-28T10:59:06Z",
+      "side": 1,
+      "message": "Just check the screenshot, since we made the \"cancel\" button bigger, should we also increase the size of whole dialog and the size of font (now the font size is different from the figma)?\nPlease check with Vaatika or Peter for this",
+      "revId": "3796d34635e18bc07f403ca0745fc03853e9715c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
