@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d8d4e2b_fce28d0f",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T09:59:29Z",
+      "side": 1,
+      "message": "```\n    await waitForFunction(async () \u003d\u003e {\n      const scrollablePosition \u003d await scrollableDatagrid.evaluate(el \u003d\u003e {\n        console.log(el.scrollTop);\n      });\n    });\n```\n\nThis console.log gives me this : ```I\u003e pptr:evaluate;CDPElementHandle.evaluate%20(%2Fusr%2Flocal%2Fgoogle%2Fhome%2Fhadrienjaubert%2Fdevtools%2Fdevtools-frontend%2Fnode_modules%2Fpuppeteer-core%2Flib%2Fcjs%2Fpuppeteer%2Fapi%2FElementHandle.js%3A95%3A28):1:16: 2938```\n\nAnd that\u0027s where the 2938 comes from",
+      "parentUuid": "12c8f03b_b3c36850",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "9ea4d32c2f1a0925b1c5244230003bf4d46702dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6340ebf_319fb423",
         "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
         "patchSetId": 5
