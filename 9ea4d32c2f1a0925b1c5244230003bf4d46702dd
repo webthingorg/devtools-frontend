@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6f48638_c66f91e9",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T09:42:30Z",
+      "side": 1,
+      "message": "So basically I added a promise to wait for the scroll to end and just logged inside the console. And then I jut took this value",
+      "parentUuid": "e5e303d3_3ee1ef31",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "9ea4d32c2f1a0925b1c5244230003bf4d46702dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6340ebf_319fb423",
         "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-28T08:53:12Z",
       "side": 1,
       "message": "why did you change this from 3 to 4?\nplease add a comment to explain this",
+      "range": {
+        "startLine": 55,
+        "startChar": 81,
+        "endLine": 55,
+        "endChar": 82
+      },
+      "revId": "9ea4d32c2f1a0925b1c5244230003bf4d46702dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "184b549a_14dfda15",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T09:42:30Z",
+      "side": 1,
+      "message": "It was to prevent false positive from font diffs",
+      "parentUuid": "c6340ebf_319fb423",
       "range": {
         "startLine": 55,
         "startChar": 81,
