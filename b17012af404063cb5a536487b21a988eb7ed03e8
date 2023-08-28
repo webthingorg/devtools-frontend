@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c27c5f_a993ed07",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:36:06Z",
+      "side": 1,
+      "message": "This is a regex, it is meant to represent complex patterns. Using two with disjunction defeats the purpose of using a regex in a first place. Also there\u0027s some performance overhead of compiling regexp. Instead we could do\n\n    const regex \u003d new RegExp(\u0027^application(.*json$|\\/json\\+.*)\u0027);",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 63
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6faf2754_8c600d81",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:36:06Z",
+      "side": 1,
+      "message": "This would match one or more \u0027n\u0027 characters, which is probably not what you want.",
+      "range": {
+        "startLine": 268,
+        "startChar": 61,
+        "endLine": 268,
+        "endChar": 62
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "088a86be_4b8f9a13",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:36:06Z",
+      "side": 1,
+      "message": "What times? You actually have a nice explanation in the CL description. Please include the relevant bits here.",
+      "range": {
+        "startLine": 1164,
+        "startChar": 7,
+        "endLine": 1164,
+        "endChar": 16
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "708d823c_e5973749",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:36:06Z",
+      "side": 1,
+      "message": "Can this be simplified as \n\n    if (typeFromMime !\u003d\u003d type \u0026\u0026\n        typeFromMime !\u003d\u003d Common.ResourceType.resourceTypes.Other) {\n      if (type \u003d\u003d\u003d Common.ResourceType.resourceTypes.Other) {\n        type \u003d typeFromMime;\n      } else if (typeFromMime \u003d\u003d\u003d Common.ResourceType.resourceTypes.Image \n          || typeFromMime \u003d\u003d\u003d Common.ResourceType.resourceTypes.Script) {\n        type \u003d typeFromMime;\n      }\n    }",
+      "range": {
+        "startLine": 1167,
+        "startChar": 6,
+        "endLine": 1167,
+        "endChar": 7
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87514314_76cf0ec8",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:36:06Z",
+      "side": 1,
+      "message": "Please make this a sentence.",
+      "range": {
+        "startLine": 1189,
+        "startChar": 0,
+        "endLine": 1189,
+        "endChar": 67
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
