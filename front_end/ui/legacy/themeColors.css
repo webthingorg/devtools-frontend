@@ -332,7 +332,7 @@
 
   /* Universal surfaces */
 
-  --sys-color-cdt-base: var(--sys-color-base-container);
+  --sys-color-cdt-base: var(--sys-color-base);
   --sys-color-cdt-base-container: var(--sys-color-base);
 
   /* Tinted surfaces */
