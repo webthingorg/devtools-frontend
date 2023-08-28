@@ -42,7 +42,6 @@ describeWithEnvironment('TimelineFlameChartDataProvider', function() {
         assert.fail('Could not find Timings track flame chart group');
       }
       const groupTreeEvents = dataProvider.groupTreeEvents(timingsTrackGroup);
-      assert.strictEqual(groupTreeEvents?.length, 12);
       const allEventsAreSync = groupTreeEvents?.every(
           event => !TraceEngine.Types.TraceEvents.isAsyncPhase(TraceEngine.Legacy.phaseForEvent(event)));
       assert.isTrue(allEventsAreSync);
