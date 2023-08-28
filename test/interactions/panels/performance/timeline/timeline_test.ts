@@ -51,7 +51,7 @@ describe('Performance panel', () => {
       });
       return scrollablePosition === TOP_OFFSET;
     });
-
+    // Have a larger threshold here: the font rendering is slightly different on CQ.
     await assertElementScreenshotUnchanged(datagrid, 'performance/eventLog.png', 4);
   });
 
