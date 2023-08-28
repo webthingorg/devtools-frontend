@@ -145,6 +145,8 @@ const categoryToIndex = new WeakMap<TimelineCategory, number>();
 export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
   private backgroundCanvas: HTMLCanvasElement;
   #performanceModel: PerformanceModel|null = null;
+  #minTS: number|undefined;
+  #maxTS: number|undefined;
 
   constructor(model: PerformanceModel) {
     super('cpu-activity', i18nString(UIStrings.cpu));
@@ -158,8 +160,10 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     this.backgroundCanvas.height = this.element.clientHeight * window.devicePixelRatio;
   }
 
-  override update(): void {
+  override update(min?: number, max?: number): void {
     super.update();
+    this.#minTS = min;
+    this.#maxTS = max;
     if (!this.#performanceModel) {
       return;
     }
@@ -168,8 +172,14 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     const width = this.width();
     const height = this.height();
     const baseLine = height;
-    const timeOffset = timelineModel.minimumRecordTime();
-    const timeSpan = timelineModel.maximumRecordTime() - timeOffset;
+    let timeOffset = timelineModel.minimumRecordTime();
+    // replace maximum record time with selected
+    // replace timeoffset with lower bound
+    let timeSpan = timelineModel.maximumRecordTime() - timeOffset;
+    if (min && max) {
+      timeOffset = min;
+      timeSpan = max - min;
+    }
     const scale = width / timeSpan;
     const quantTime = quantSizePx / scale;
     const categories = TimelineUIUtils.categories();
