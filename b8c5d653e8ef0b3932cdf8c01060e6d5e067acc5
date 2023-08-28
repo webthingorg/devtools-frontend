@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbb7991_60de4dcb",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:55:17Z",
+      "side": 1,
+      "message": "#isDeletable(...) {\n      const isOnlyDefaultHeader \u003d ...;\n      return !isOnlyDefaultHeader;\n    }",
+      "range": {
+        "startLine": 267,
+        "startChar": 3,
+        "endLine": 267,
+        "endChar": 12
+      },
+      "revId": "b8c5d653e8ef0b3932cdf8c01060e6d5e067acc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b70369f_f3f9ba60",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:55:17Z",
+      "side": 1,
+      "message": "This is getting a little out of hand. Let\u0027s have a constant for a `DEFAULT_HEADER_VALUE\u003d\u0027header value\u0027` and a function for \n\n    getDefaultHeaderName \u003d i \u003d\u003e `header-name-${i}`\n\nand use these consistently throughout the file",
+      "range": {
+        "startLine": 270,
+        "startChar": 74,
+        "endLine": 270,
+        "endChar": 86
+      },
+      "revId": "b8c5d653e8ef0b3932cdf8c01060e6d5e067acc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f05dc502_5bd2a74c",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-28T07:55:17Z",
+      "side": 1,
+      "message": "Why hide it when it could be omitted?\n\n    ${this.#canDelete(...) ? LitHtml.html`\u003c...\u003e` : LitHtml.nothing}",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 62
+      },
+      "revId": "b8c5d653e8ef0b3932cdf8c01060e6d5e067acc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
