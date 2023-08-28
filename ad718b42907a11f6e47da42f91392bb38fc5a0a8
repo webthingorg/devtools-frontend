@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "698ffad8_2f065797",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T08:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60864499_05ce1597",
+      "revId": "ad718b42907a11f6e47da42f91392bb38fc5a0a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb12eb33_998bb6d3",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-24T12:57:36Z",
       "side": 1,
       "message": "```suggestion\n        SDK.TargetManager.Events.AvailableTargetsChanged, this.#handleAvailableTargetsChanged, this);\n```",
+      "revId": "ad718b42907a11f6e47da42f91392bb38fc5a0a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ab32e7d_5ddd5f9a",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T08:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb12eb33_998bb6d3",
       "revId": "ad718b42907a11f6e47da42f91392bb38fc5a0a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

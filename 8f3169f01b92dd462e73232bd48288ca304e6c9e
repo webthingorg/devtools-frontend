@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c93f0ace_6f41b6c8",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T08:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69f48c97_237e6eff",
+      "revId": "8f3169f01b92dd462e73232bd48288ca304e6c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a32f4667_44b9546e",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-24T11:32:11Z",
       "side": 1,
       "message": "the event handler needs to be the same instance as in addEventListener so that removeEventListener works. For example, you can define the handler as a private property referencing a function.",
+      "revId": "8f3169f01b92dd462e73232bd48288ca304e6c9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f9707f1_eaa965a2",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-08-28T08:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a32f4667_44b9546e",
       "revId": "8f3169f01b92dd462e73232bd48288ca304e6c9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
