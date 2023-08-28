@@ -83,7 +83,41 @@ it('can highlight JavaScript compatible with CodeMirror 5', testHighlight(`
   ...
 </[tag html]>`, 'text/html'));
 
-  it('can highlight HTML with <script type="text/jsx"> blocks', testHighlight(`
+  it('can highlight HTML with <script type="importmap"> blocks', testHighlight(`
+[meta <!DOCTYPE html>]
+<[tag script] [attribute type]=[attribute-value "importmap"]>
+{
+  [property "imports"]: {
+    [property "moment"]: [string "/node_modules/moment/src/moment.js"],
+    [property "lodash"]: [string "/node_modules/lodash-es/lodash.js"]
+  }
+}
+</[tag script]>`, 'text/html'));
+
+it('can highlight HTML with <script type="speculationrules"> blocks', testHighlight(`
+[meta <!DOCTYPE html>]
+<[tag script] [attribute type]=[attribute-value "speculationrules"]>
+{
+  [property "prefetch"]: [
+    {
+      [property "source"]: [string "list"],
+      [property "urls"]: [
+        [string "prefetch.html?2"]
+      ]
+    }
+  ],
+  [property "prerender"]: [
+    {
+      [property "source"]: [string "list"],
+      [property "urls"]: [
+        [string "prerender.html?2"]
+      ]
+    }
+  ]
+}
+</[tag script]>`, 'text/html'));
+
+it('can highlight HTML with <script type="text/jsx"> blocks', testHighlight(`
 [meta <!DOCTYPE html>]
 <[tag script] [attribute type]=[attribute-value "text/jsx"]>
   [keyword const] [definition app] = [variable document].[property getElementById]([string 'app']);
