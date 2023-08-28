@@ -158,7 +158,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     this.backgroundCanvas.height = this.element.clientHeight * window.devicePixelRatio;
   }
 
-  override update(): void {
+  override update(start?: number, end?: number): void {
     super.update();
     if (!this.#performanceModel) {
       return;
@@ -168,8 +168,8 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     const width = this.width();
     const height = this.height();
     const baseLine = height;
-    const timeOffset = timelineModel.minimumRecordTime();
-    const timeSpan = timelineModel.maximumRecordTime() - timeOffset;
+    const timeOffset = (start) ? start : timelineModel.minimumRecordTime();
+    const timeSpan = (start && end) ? end - start : timelineModel.maximumRecordTime() - timeOffset;
     const scale = width / timeSpan;
     const quantTime = quantSizePx / scale;
     const categories = TimelineUIUtils.categories();
