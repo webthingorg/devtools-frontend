@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e2d5d9_e8443ed7",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-28T11:24:51Z",
+      "side": 1,
+      "message": "I am not sure how many are there, but I see some endpoint like `application/json+trustpilot`. Im nt sure if the spec support both `json+` and `+json`",
+      "parentUuid": "a7303cde_0b385044",
+      "range": {
+        "startLine": 266,
+        "startChar": 9,
+        "endLine": 266,
+        "endChar": 28
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35c27c5f_a993ed07",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21fdfe6f_5c8b6eaf",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-28T11:24:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35c27c5f_a993ed07",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 63
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6faf2754_8c600d81",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-08-28T07:36:06Z",
       "side": 1,
       "message": "This would match one or more \u0027n\u0027 characters, which is probably not what you want.",
+      "range": {
+        "startLine": 268,
+        "startChar": 61,
+        "endLine": 268,
+        "endChar": 62
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9940213b_456d342f",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-28T11:24:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6faf2754_8c600d81",
       "range": {
         "startLine": 268,
         "startChar": 61,
@@ -116,6 +188,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dccfddf8_39ee5c6c",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-28T11:24:51Z",
+      "side": 1,
+      "message": "Not exactly but i formatted based on similar format.",
+      "parentUuid": "708d823c_e5973749",
+      "range": {
+        "startLine": 1167,
+        "startChar": 6,
+        "endLine": 1167,
+        "endChar": 7
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87514314_76cf0ec8",
@@ -129,6 +225,30 @@
       "writtenOn": "2023-08-28T07:36:06Z",
       "side": 1,
       "message": "Please make this a sentence.",
+      "range": {
+        "startLine": 1189,
+        "startChar": 0,
+        "endLine": 1189,
+        "endChar": 67
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d587af23_0ec851e1",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-28T11:24:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87514314_76cf0ec8",
       "range": {
         "startLine": 1189,
         "startChar": 0,
