@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12c8f03b_b3c36850",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-28T09:51:50Z",
+      "side": 1,
+      "message": "The screenshot test has a specific file, so each element in a test should have a fixed width/height value, explain more how did you get this specific \"2938\" number",
+      "parentUuid": "f6f48638_c66f91e9",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "9ea4d32c2f1a0925b1c5244230003bf4d46702dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6340ebf_319fb423",
         "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
         "patchSetId": 5
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "It was to prevent false positive from font diffs",
       "parentUuid": "c6340ebf_319fb423",
+      "range": {
+        "startLine": 55,
+        "startChar": 81,
+        "endLine": 55,
+        "endChar": 82
+      },
+      "revId": "9ea4d32c2f1a0925b1c5244230003bf4d46702dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "019cb5bb_c0f708a0",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-28T09:51:50Z",
+      "side": 1,
+      "message": "Add a comment to explain why this number can prevent false positive and false negative",
+      "parentUuid": "184b549a_14dfda15",
       "range": {
         "startLine": 55,
         "startChar": 81,
