@@ -85,7 +85,7 @@ export class TimelineMiniMap extends
       this.#breadcrumbs.add(traceWindow);
       this.setBounds(TraceEngine.Types.Timing.MilliSeconds(start), TraceEngine.Types.Timing.MilliSeconds(end));
 
-      this.#overviewComponent.scheduleUpdate();
+      this.#overviewComponent.scheduleUpdate(start, end);
     }
 
     this.#breadcrumbsUI.data = {

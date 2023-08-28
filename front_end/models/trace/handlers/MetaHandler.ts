@@ -28,6 +28,7 @@ let gpuThreadId: Types.TraceEvents.ThreadID = Types.TraceEvents.ThreadID(-1);
 let viewportRect: DOMRect|null = null;
 
 const topLevelRendererIds = new Set<Types.TraceEvents.ProcessID>();
+// replace with this value
 const traceBounds: Types.Timing.TraceWindow = {
   min: Types.Timing.MicroSeconds(Number.POSITIVE_INFINITY),
   max: Types.Timing.MicroSeconds(Number.NEGATIVE_INFINITY),

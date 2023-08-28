@@ -75,7 +75,7 @@ export abstract class TimelineEventOverview extends PerfUI.TimelineOverviewPane.
     const width = end - begin;
     const ctx = this.context();
     ctx.fillStyle = color;
-    ctx.fillRect(x, position, width, height);
+    // ctx.fillRect(x, position, width, height);
   }
 }
 
@@ -145,6 +145,8 @@ const categoryToIndex = new WeakMap<TimelineCategory, number>();
 export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
   private backgroundCanvas: HTMLCanvasElement;
   #performanceModel: PerformanceModel|null = null;
+  #minTS: number|undefined;
+  #maxTS: number|undefined;
 
   constructor(model: PerformanceModel) {
     super('cpu-activity', i18nString(UIStrings.cpu));
@@ -158,8 +160,10 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     this.backgroundCanvas.height = this.element.clientHeight * window.devicePixelRatio;
   }
 
-  override update(): void {
+  override update(min?: number, max?: number): void {
     super.update();
+    this.#minTS = min;
+    this.#maxTS = max;
     if (!this.#performanceModel) {
       return;
     }
@@ -169,7 +173,12 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     const height = this.height();
     const baseLine = height;
     const timeOffset = timelineModel.minimumRecordTime();
-    const timeSpan = timelineModel.maximumRecordTime() - timeOffset;
+    // replace maximum record time with selected
+    // replace timeoffset with lower bound
+    let timeSpan = timelineModel.maximumRecordTime() - timeOffset;
+    if (min && max) {
+      timeSpan = max - min;
+    }
     const scale = width / timeSpan;
     const quantTime = quantSizePx / scale;
     const categories = TimelineUIUtils.categories();
@@ -187,14 +196,41 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     }
     for (const track of timelineModel.tracks()) {
       if (track.type === TimelineModel.TimelineModel.TrackType.MainThread && track.forMainFrame) {
+        if (this.#maxTS && this.#minTS) {
+          track.events = trimEventsByTimespan(track.events, this.#minTS, this.#maxTS);
+        }
         drawThreadEvents(this.context(), track.events);
       } else {
+        if (this.#maxTS && this.#minTS) {
+          console.log(track.events);
+          track.events = trimEventsByTimespan(track.events, this.#minTS, this.#maxTS);
+        }
         drawThreadEvents(backgroundContext, track.events);
       }
     }
     applyPattern(backgroundContext);
 
+    function filterEventsByTimespan(
+        events: TraceEngine.Legacy.Event[], minTS: number, maxTS: number): TraceEngine.Legacy.Event[] {
+      return events.filter(event => event.startTime >= minTS && event.endTime && event.endTime <= maxTS);
+    }
+
+    function trimEventsByTimespan(
+        events: TraceEngine.Legacy.Event[], minTS: number, maxTS: number): TraceEngine.Legacy.Event[] {
+      const eventsFiltered: TraceEngine.Legacy.Event[] = [];
+
+      events.forEach(event => {
+        if (event.endTime) {
+          // event.endTime = Math.min(event.endTime, maxTS);
+          eventsFiltered.push(event);
+        }
+      });
+
+      return eventsFiltered;
+    }
+
     function drawThreadEvents(ctx: CanvasRenderingContext2D, events: TraceEngine.Legacy.Event[]): void {
+      console.log('drawing');
       const quantizer = new Quantizer(timeOffset, quantTime, drawSample);
       let x = 0;
       const categoryIndexStack: number[] = [];
