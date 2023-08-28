@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7303cde_0b385044",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-28T08:42:38Z",
+      "side": 1,
+      "message": "This method was recently added by our STEP interns and I\u0027m curious what we missed there. In the tests you add a \u0027application/json+protobuf\u0027 example, any URL where I can see this in the wild? Are there any other \u0027json+something\u0027 types you are aware of?",
+      "range": {
+        "startLine": 266,
+        "startChar": 9,
+        "endLine": 266,
+        "endChar": 28
+      },
+      "revId": "b17012af404063cb5a536487b21a988eb7ed03e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35c27c5f_a993ed07",
         "filename": "front_end/core/common/ResourceType.ts",
         "patchSetId": 5
