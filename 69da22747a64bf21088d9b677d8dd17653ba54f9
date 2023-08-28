@@ -104,6 +104,30 @@
       },
       "revId": "69da22747a64bf21088d9b677d8dd17653ba54f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6902324d_ab083e7a",
+        "filename": "front_end/panels/timeline/timelineStatusDialog.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-08-28T11:27:11Z",
+      "side": 1,
+      "message": "I know it\u0027s from figma. so my comment is to add comment or documentation, because figma is hard to follow",
+      "parentUuid": "ee1b13b9_159bfdb8",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "69da22747a64bf21088d9b677d8dd17653ba54f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
