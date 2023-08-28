@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14977da6_34ff8eb0",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T07:55:41Z",
+      "side": 1,
+      "message": "We don\u0027t want to have box-shadow anymore",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "2f6db08f6b76a83d5c1dd875de1191cf7f2ff57a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927e299f_5c4fa6a6",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T07:55:41Z",
+      "side": 1,
+      "message": "Does this outline have some offset with regard to the button visually? if not, could you please add 2px offset?",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "2f6db08f6b76a83d5c1dd875de1191cf7f2ff57a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98a005f_93cebb5b",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T07:55:41Z",
+      "side": 1,
+      "message": "just to double-check, these are necessary here and below?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 37
+      },
+      "revId": "2f6db08f6b76a83d5c1dd875de1191cf7f2ff57a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4641f685_4b5fb4d2",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-28T07:55:41Z",
+      "side": 1,
+      "message": "same question here, is this needed?",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "2f6db08f6b76a83d5c1dd875de1191cf7f2ff57a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
