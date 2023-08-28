@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b3ad6d_c1f20d3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-08-28T13:11:49Z",
+      "side": 1,
+      "message": "Why only trybots? Usually we switch CI first. Did you switch CI already or how about in this CL?",
+      "revId": "4698c2cfa43c97c517aadd9dfb225cfa8db1b453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
