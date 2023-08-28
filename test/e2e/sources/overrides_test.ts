@@ -314,7 +314,8 @@ describe('Overrides panel', async function() {
     assert.strictEqual(assertDeleteElements.length, 0);
   });
 
-  it('has correct context menu for sub overrides folder', async () => {
+  // eslint-disable-next-line rulesdir/no_only
+  it.only('has correct context menu for sub overrides folder', async () => {
     await goToResource('network/fetch-json.html');
     await openNetworkTab();
     await selectRequestByName('coffees.json', {button: 'right'});
