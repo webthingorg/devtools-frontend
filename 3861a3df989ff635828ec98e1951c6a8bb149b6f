@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "805e5914_5f69253f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133074
+      },
+      "writtenOn": "2023-08-29T20:33:15Z",
+      "side": 1,
+      "message": "Looks like this change is outside of the rubber-stamper window.  This seems to be the culprit that is affecting M117, can one of the previous reviewers help revert this?\n\nAlternatively, if you can merge a test fix that would be fine.",
+      "revId": "3861a3df989ff635828ec98e1951c6a8bb149b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
