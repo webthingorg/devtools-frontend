@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d12acad_ae6c8885",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:10:43Z",
+      "side": 1,
+      "message": "few minor thoughts but LGTM!",
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56171e48_0fc00929",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:10:43Z",
+      "side": 1,
+      "message": "reading this code it seems like threads can either be main thread or \"other\", at what point do/will we detect worker/rasterizer? From your CL description maybe you are going to do this in a follow up?",
+      "range": {
+        "startLine": 188,
+        "startChar": 16,
+        "endLine": 188,
+        "endChar": 26
+      },
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "034951ec_f76557c9",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:10:43Z",
+      "side": 1,
+      "message": "how about instead we just expose `isOnMainFrame` and make it `readonly` rather than private?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffac788d_0dc4ad2f",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:10:43Z",
+      "side": 1,
+      "message": "same here RE exposing threadType as `readonly`",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 0
+      },
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
