@@ -16,6 +16,23 @@
       "message": "The screenshots seems not as intended, please check why the line change is there, but your new change is not",
       "revId": "8f7e0fcc6b82b2e63087b425c8a3741dd956368f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b55383_cd4660db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-29T06:43:34Z",
+      "side": 1,
+      "message": "LGTM color-wise, please also address Nancy\u0027s comment before submitting",
+      "revId": "8f7e0fcc6b82b2e63087b425c8a3741dd956368f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

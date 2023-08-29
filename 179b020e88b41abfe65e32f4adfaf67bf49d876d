@@ -63,6 +63,30 @@
       },
       "revId": "179b020e88b41abfe65e32f4adfaf67bf49d876d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63fd6c20_3ceb07ac",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-08-29T06:43:34Z",
+      "side": 1,
+      "message": "Alright, got it! Thanks for checking!",
+      "parentUuid": "fede64c6_2388ff75",
+      "range": {
+        "startLine": 155,
+        "startChar": 13,
+        "endLine": 155,
+        "endChar": 35
+      },
+      "revId": "179b020e88b41abfe65e32f4adfaf67bf49d876d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
