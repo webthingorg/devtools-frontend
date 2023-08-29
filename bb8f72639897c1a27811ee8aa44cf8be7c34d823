@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c3c989d_113671b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-29T09:31:42Z",
+      "side": 1,
+      "message": "Thanks a lot for adding another useful change!\nWith the unit tests I added after your previous changes, this should be easy to test as well. Could you please look into adding a test (or updating an existing one to cover the new functionality)?",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf43fee_97dee8fb",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-29T09:31:42Z",
+      "side": 1,
+      "message": "We tend to not use objects as maps, but JS Map data structures instead:\nconst screenshotAspectRation \u003d new Map\u003cstring, number\u003e();",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3ca08b4_296ec1c4",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-29T09:31:42Z",
+      "side": 1,
+      "message": "When comparing these numbers, could we run into cases where ratios which should be equal, are considered unequal due to numerical imprecision?",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
