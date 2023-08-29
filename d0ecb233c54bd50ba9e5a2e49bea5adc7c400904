@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e99d00e_2881c174",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-29T13:21:01Z",
+      "side": 1,
+      "message": "3",
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56171e48_0fc00929",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-08-29T09:10:43Z",
       "side": 1,
       "message": "reading this code it seems like threads can either be main thread or \"other\", at what point do/will we detect worker/rasterizer? From your CL description maybe you are going to do this in a follow up?",
+      "range": {
+        "startLine": 188,
+        "startChar": 16,
+        "endLine": 188,
+        "endChar": 26
+      },
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b8f7db6_ba1fa5b7",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-29T13:21:01Z",
+      "side": 1,
+      "message": "that\u0027s right! We still require some bits of work on the brand new `worker` handler and on the thread appender to allow allow it to support these threads and this will be done in follow ups. :)",
+      "parentUuid": "56171e48_0fc00929",
       "range": {
         "startLine": 188,
         "startChar": 16,
