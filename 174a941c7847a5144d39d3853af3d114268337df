@@ -33,6 +33,23 @@
       "message": "LGTM",
       "revId": "174a941c7847a5144d39d3853af3d114268337df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e5049e2_2fe3056f",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-08-29T06:09:56Z",
+      "side": 1,
+      "message": "Ah one more thing! Add a period at the end.",
+      "revId": "174a941c7847a5144d39d3853af3d114268337df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
