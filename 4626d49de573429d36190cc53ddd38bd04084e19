@@ -33,6 +33,24 @@
       "message": "My suggestion:\n\n\u003e The prerender was not used because during activation time, there were other windows with an active opener reference to the initiating page, which is currently not supported.",
       "revId": "4626d49de573429d36190cc53ddd38bd04084e19",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0cb0bb4_25b5f16d",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-08-29T05:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d2f5fc5_45987da2",
+      "revId": "4626d49de573429d36190cc53ddd38bd04084e19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
