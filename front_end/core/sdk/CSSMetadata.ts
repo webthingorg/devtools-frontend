@@ -1336,7 +1336,6 @@ const Weight = new Map([
   ['-webkit-filter', 159],
   ['-webkit-font-feature-settings', 59],
   ['-webkit-font-smoothing', 177],
-  ['-webkit-highlight', 1],
   ['-webkit-line-break', 45],
   ['-webkit-line-clamp', 126],
   ['-webkit-margin-after', 67],
