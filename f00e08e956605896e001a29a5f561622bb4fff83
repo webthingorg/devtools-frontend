@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "f00e08e956605896e001a29a5f561622bb4fff83",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97466b5d_0097b5f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T14:20:29Z",
+      "side": 1,
+      "message": "lgtm, thanks",
+      "revId": "f00e08e956605896e001a29a5f561622bb4fff83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efb14d84_56799858",
+        "filename": "front_end/models/trace/handlers/WorkersHandler.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T14:20:29Z",
+      "side": 1,
+      "message": "nit: lose the ? as we checked it above",
+      "range": {
+        "startLine": 49,
+        "startChar": 48,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "f00e08e956605896e001a29a5f561622bb4fff83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
