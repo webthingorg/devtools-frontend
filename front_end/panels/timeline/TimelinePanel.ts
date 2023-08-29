@@ -311,10 +311,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   // Tracks the index of the trace that the user is currently viewing.
   #traceEngineActiveTraceIndex = -1;
 
-  constructor(fullTraceEngine: boolean = false) {
+  constructor(fullTraceEngine: boolean = true) {
     super('timeline');
     this.#traceEngineModel = fullTraceEngine ? TraceEngine.TraceModel.Model.createWithAllHandlers() :
-                                               TraceEngine.TraceModel.Model.createWithRequiredHandlersForMigration();
+                                               TraceEngine.TraceModel.Model.createWithAllHandlers();
     this.element.addEventListener('contextmenu', this.contextMenu.bind(this), false);
     this.dropTarget = new UI.DropTarget.DropTarget(
         this.element, [UI.DropTarget.Type.File, UI.DropTarget.Type.URI],
