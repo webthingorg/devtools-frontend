@@ -80,6 +80,30 @@
       },
       "revId": "22b34994af6e8dc9e99bf025e9811b2a71745a96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "529b36c5_d908b6dd",
+        "filename": "test/unittests/front_end/models/trace/handlers/RendererHandler_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T13:17:03Z",
+      "side": 1,
+      "message": "Understood, thanks! So we ensure that the LCP::Candidate events do not have an entry in the map, and hence won\u0027t get shown by the appender?",
+      "parentUuid": "8335bc95_ff202819",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 42
+      },
+      "revId": "22b34994af6e8dc9e99bf025e9811b2a71745a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
