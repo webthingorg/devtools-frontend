@@ -32,6 +32,7 @@ import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
+import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as UI from '../../legacy.js';
 import * as ThemeSupport from '../../theme_support/theme_support.js';
 
@@ -134,6 +135,9 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private rightResizeElement: HTMLElement;
   private leftCurtainElement: HTMLElement;
   private rightCurtainElement: HTMLElement;
+  private createBreadcrumbButtonElement: HTMLElement;
+  private plusButton: IconButton.Icon.Icon;
+
   private overviewWindowSelector!: WindowSelector|undefined;
   private offsetLeft!: number;
   private dragStartPoint!: number;
@@ -187,6 +191,18 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.rightResizeElement.addEventListener('focus', this.onRightResizeElementFocused.bind(this));
     this.leftCurtainElement = (parentElement.createChild('div', 'window-curtain-left') as HTMLElement);
     this.rightCurtainElement = (parentElement.createChild('div', 'window-curtain-right') as HTMLElement);
+    this.createBreadcrumbButtonElement = (parentElement.createChild('div', 'create-breadcrumbs-button') as HTMLElement);
+
+    this.plusButton = new IconButton.Icon.Icon();
+    this.plusButton.data = {
+      iconName: 'plus',
+      color: 'var(--icon-default)',
+      width: '20px',
+      height: '20px',
+    };
+
+    this.createBreadcrumbButtonElement.appendChild(this.plusButton);
+
     this.reset();
   }
 
@@ -457,6 +473,10 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
 
     this.leftCurtainElement.style.width = leftResizerPercLeftOffsetString;
     this.rightCurtainElement.style.width = rightResizerPercRightOffset + '%';
+
+    this.createBreadcrumbButtonElement.style.width = '100%';
+    this.createBreadcrumbButtonElement.style.paddingLeft = leftResizerPercLeftOffsetString;
+    this.createBreadcrumbButtonElement.style.paddingRight = (100 - rightResizerPercLeftOffset) + '%';
 
     this.updateResizeElementPositionValue(leftResizerPercLeftOffset, rightResizerPercLeftOffset);
     if (this.calculator) {

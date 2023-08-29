@@ -71,6 +71,11 @@
   border-left-style: solid;
 }
 
+.create-breadcrumbs-button {
+  display: flex;
+  justify-content: center;
+}
+
 @media (forced-colors: active) {
   .overview-grid-cursor-position {
     forced-color-adjust: none;
