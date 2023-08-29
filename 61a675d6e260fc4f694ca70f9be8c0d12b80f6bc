@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c59b14e_3ecf3387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-08-29T23:07:21Z",
+      "side": 1,
+      "message": "Maybe it\u0027s better to update the entire list with new data from https://chromestatus.com/metrics/css/popularity? Also I saw that there are more obsolete properties, we should maybe make sure all of those are removed.",
+      "revId": "61a675d6e260fc4f694ca70f9be8c0d12b80f6bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
