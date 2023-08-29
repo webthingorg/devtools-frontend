@@ -56,6 +56,30 @@
       },
       "revId": "22b34994af6e8dc9e99bf025e9811b2a71745a96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8335bc95_ff202819",
+        "filename": "test/unittests/front_end/models/trace/handlers/RendererHandler_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-29T13:12:39Z",
+      "side": 1,
+      "message": "great note! This will be intentionally reflective in real life so that the new engine shows the same events as the old engine. At the moment, the old engine determines which events to show by checking if there\u0027s an entry for a given event in the style map [1]. This CL aims to augment the homologous map of the new engine to include the same events as the old engine\u0027s. The follow up CL, uses this map in the appender system to filter events to only those for which a style has been defined [2]. This CL could also be considered part of https://crbug.com/1475202\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelineUIUtils.ts;l\u003d1181\n\n[2] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4743160/8/front_end/panels/timeline/CompatibilityTracksAppender.ts",
+      "parentUuid": "4b159f8a_34b2db40",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 42
+      },
+      "revId": "22b34994af6e8dc9e99bf025e9811b2a71745a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
