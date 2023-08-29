@@ -330,12 +330,16 @@ const UIStrings = {
    *  Description text for PrerenderFinalStatus::kResourceLoadBlockedByClient.
    */
   prerenderFinalStatusResourceLoadBlockedByClient: 'Some resource load was blocked.',
-
-  // TODO(kprokopenko): Please provide meaningful description.
   /**
    * Description text for PrerenderFinalStatus::kSpeculationRuleRemoved.
    */
-  prerenderFinalStatusSpeculationRuleRemoved: 'Unknown',
+  prerenderFinalStatusSpeculationRuleRemoved:
+      'The initiating page removed the corresponding prerender rule from <script type="speculationrules">',
+  /**
+   * Description text for PrerenderFinalStatus::kActivatedWithAuxiliaryBrowsingContexts.
+   */
+  prerenderFinalStatusActivatedWithAuxiliaryBrowsingContexts:
+      'The initiating page that has auxiliary browsing contexts like pop-up windows with openers cannot activate the prerendered page.',
   /**
    *@description Text in grid and details: Preloading attempt is not yet triggered.
    */
@@ -631,7 +635,7 @@ export function prerenderFailureReason(attempt: SDK.PreloadingModel.PrerenderAtt
     case Protocol.Preload.PrerenderFinalStatus.SpeculationRuleRemoved:
       return i18nString(UIStrings.prerenderFinalStatusSpeculationRuleRemoved);
     case Protocol.Preload.PrerenderFinalStatus.ActivatedWithAuxiliaryBrowsingContexts:
-      return i18n.i18n.lockedString('Unknown');
+      return i18nString(UIStrings.prerenderFinalStatusActivatedWithAuxiliaryBrowsingContexts);
     default:
       // Note that we use switch and exhaustiveness check to prevent to
       // forget updating these strings, but allow to handle unknown
