@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3618cf53_432d6bc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-29T16:04:42Z",
+      "side": 1,
+      "message": "I\u0027ll try. ;)",
+      "parentUuid": "9c3c989d_113671b1",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdf43fee_97dee8fb",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49e7da1d_a10b5688",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-29T16:04:42Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "fdf43fee_97dee8fb",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3ca08b4_296ec1c4",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-29T09:31:42Z",
       "side": 1,
       "message": "When comparing these numbers, could we run into cases where ratios which should be equal, are considered unequal due to numerical imprecision?",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ce89dfe_32dc3caa",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-29T16:04:42Z",
+      "side": 1,
+      "message": "That\u0027s the first thing I thought of, by the way. :) But I was thinking more about the opposite case. Could two unequal fractions turn out to be equal due to loss of precision when converting to numbers? I checked a few examples and they all works.\n\n```js\nconst a \u003d 1000/1001 // returns 0.999000999000999\nconst b \u003d 3000/3003 // returns 0.999000999000999\na \u003d\u003d\u003d b // returns 3\n```\n\nMy assumption is that actually equal fractions will lose accuracy when converted to numbers equally.\n\nDo you have an example where this doesn\u0027t work?\n\nIt looks like the problem you\u0027re talking about is different:\n\n```js\n1 / 98 * 98 // returns 0.9999999999999999\n```\n\nAlso please keep in mind that there are other constraints on the dimensions:\n\n* Width and height are integers in pixels.\n* Width and height must be at least 320px and at most 3840px.\n* The maximum dimension can\u0027t be more than 2.3 times as long as the minimum dimension.\n\nDo you have any ideas how to solve this problem in a different way without importing third-party libraries like `math.js` or `fraction.js` to the DevTools codebase?",
+      "parentUuid": "c3ca08b4_296ec1c4",
       "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
