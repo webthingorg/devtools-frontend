@@ -104,6 +104,30 @@
       },
       "revId": "22b34994af6e8dc9e99bf025e9811b2a71745a96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38e38c8d_245f7d4b",
+        "filename": "test/unittests/front_end/models/trace/handlers/RendererHandler_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-29T13:51:14Z",
+      "side": 1,
+      "message": "that particular event is part of the map but it is marked as \"hidden\" something which is also checked by the quoted CL, so it won\u0027t be shown in the flamechart. Note that the styles map isn\u0027t only for determining if we need to render or not on the main flamechart but also to know how to display them in places where it\u0027s visible (f.e. its label in the details view). Sorry for not making this clear from the beginning. I\u0027ll add a comment with this to the code.",
+      "parentUuid": "529b36c5_d908b6dd",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 42
+      },
+      "revId": "22b34994af6e8dc9e99bf025e9811b2a71745a96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
