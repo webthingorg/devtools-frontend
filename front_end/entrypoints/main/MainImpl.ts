@@ -404,7 +404,6 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, 'Enable Preloading Status Panel in Application panel',
         true);
-    Root.Runtime.experiments.setEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, true);
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.DISABLE_COLOR_FORMAT_SETTING,
