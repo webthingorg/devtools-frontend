@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f46b0d41_689797f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-29T09:09:47Z",
+      "side": 1,
+      "message": "Jack, PTAL at (Soft)ContextMenu whether you\u0027re ok with the general direction of the changes there. These changes will be extracted to a separate CL later.\n\nThe goal is to allow the context menu to stay open after clicking on one of its entries, to allow users to multi-select more easily. This requires updating the state of the checkboxes after detecting a click. Previously, we\u0027d just close the context menu and a new state would only be needed when re-opening the context menu.\n\n1) In `triggerAction`, the checkbox for the menu item which has been clicked, is updated. This is the \"dumb\" part, which would apply to all context menus which should stay open after click.\n\n2) `setChecked` allows changing the checked state from elsewhere. Context menus can have more complicated logic, where clicking on one item also has an effect on other items (e.g. \u0027Select All\u0027 functionality). In such cases the logic for which checkboxes need checking/unchecking would live outside of `SoftContextMenu` and call into `setChecked`.\n\nWDYT, does this make sense?",
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b710016_83b4b11b",
