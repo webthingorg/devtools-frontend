@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4370697_6c36165e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-08-29T05:24:15Z",
+      "side": 1,
+      "message": "Hi, can you review this CL?\n\n+kenoss@ for general devtools review.\n+domenic@ for confirming if these messages are developer friendly. I\u0027m not really confident in the message for auxiliary browsing contexts.\n\nThanks!",
+      "revId": "4626d49de573429d36190cc53ddd38bd04084e19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
