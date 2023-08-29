@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32130ec3_3881950d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-29T10:46:21Z",
+      "side": 1,
+      "message": "LGTM but could we please add unit tests?",
+      "revId": "6c93531525e619620c08cd6f08bb0d0de593bce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9da66582_69c851d2",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-29T10:46:21Z",
+      "side": 1,
+      "message": "I think we could start adding screenshot tests for this filtering, wdyt?",
+      "range": {
+        "startLine": 171,
+        "startChar": 10,
+        "endLine": 171,
+        "endChar": 20
+      },
+      "revId": "6c93531525e619620c08cd6f08bb0d0de593bce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1c665e8_b3832de7",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-29T10:46:21Z",
+      "side": 1,
+      "message": "we should make sure we don\u0027t draw anything for events outside of the curent window. For this you can use the `startTime` and `endTime` params of this function.",
+      "range": {
+        "startLine": 240,
+        "startChar": 52,
+        "endLine": 240,
+        "endChar": 64
+      },
+      "revId": "6c93531525e619620c08cd6f08bb0d0de593bce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
