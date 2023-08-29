@@ -49,6 +49,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "316e5fed_6efd1724",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-29T09:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "630d2ff5_b741abab",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "aa3e7233c096e0432a65a0c32e322695a3c579bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dbba2c7_06c8d901",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-29T09:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e4296eb_8ef9d574",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 116
+      },
+      "revId": "aa3e7233c096e0432a65a0c32e322695a3c579bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e47e6d8e_bc178c29",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02dfb749_765f62e6",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-29T09:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7864006_94364802",
+      "range": {
+        "startLine": 1164,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 113
+      },
+      "revId": "aa3e7233c096e0432a65a0c32e322695a3c579bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8988fa90_b0f71b5b",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-08-29T08:07:43Z",
       "side": 1,
       "message": "Your comment suggests that in this case `type` is `Fetch`. If this is indeed the case, then we don\u0027t need this case since it\u0027s already caught in the previous if-statement.",
+      "range": {
+        "startLine": 1174,
+        "startChar": 7,
+        "endLine": 1175,
+        "endChar": 28
+      },
+      "revId": "aa3e7233c096e0432a65a0c32e322695a3c579bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60196f6_2245ca9a",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-08-29T09:21:20Z",
+      "side": 1,
+      "message": "image has more resource:type. For example, the `favicon.ico` and `\u003clink prefetch\u003e` image is from another resource type. I\u0027ve rephrased the sentence with mention that could be other types.",
+      "parentUuid": "8988fa90_b0f71b5b",
       "range": {
         "startLine": 1174,
         "startChar": 7,
