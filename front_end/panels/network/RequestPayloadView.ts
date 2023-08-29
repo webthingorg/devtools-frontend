@@ -171,7 +171,7 @@ export class RequestPayloadView extends UI.Widget.VBox {
     });
   }
 
-  private formatParameter(value: string, className: string, decodeParameters: boolean): Element {
+  static formatParameter(value: string, className: string, decodeParameters: boolean): Element {
     let errorDecoding = false;
 
     if (decodeParameters) {
