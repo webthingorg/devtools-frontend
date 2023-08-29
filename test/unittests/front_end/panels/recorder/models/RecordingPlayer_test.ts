@@ -14,49 +14,14 @@ import type * as Protocol from '../../../../../../front_end/generated/protocol.j
 
 describe('RecordingPlayer', () => {
   let recordingPlayer: Models.RecordingPlayer.RecordingPlayer;
-  let setPrerenderingAllowedStub: ReturnType<typeof sinon.stub>;
 
   beforeEach(() => {
-    const stubs = RecorderHelpers.installMocksForTargetManager();
-    setPrerenderingAllowedStub = stubs.setPrerenderingAllowedStub;
+    RecorderHelpers.installMocksForTargetManager();
     RecorderHelpers.installMocksForRecordingPlayer();
   });
 
   afterEach(() => {
     recordingPlayer.disposeForTesting();
-  });
-
-  it('should call setPrerenderingAllowed before and after replay', async () => {
-    recordingPlayer = new Models.RecordingPlayer.RecordingPlayer(
-        {
-          title: 'test',
-          steps: [
-            RecorderHelpers.createCustomStep(),
-          ],
-        },
-        {
-          speed: Models.RecordingPlayer.PlayRecordingSpeed.Normal,
-          breakpointIndexes: new Set(),
-        },
-    );
-
-    // Auto-continue steps.
-    const stepEventHandlerStub = sinon.stub().callsFake(async ({data: {resolve}}) => {
-      resolve();
-    });
-    recordingPlayer.addEventListener(
-        Models.RecordingPlayer.Events.Step,
-        stepEventHandlerStub,
-    );
-
-    await recordingPlayer.play();
-
-    assert.deepStrictEqual(setPrerenderingAllowedStub.getCalls().map(call => call.args[0]), [
-      {
-        isAllowed: false,
-      },
-      {isAllowed: true},
-    ] as unknown[]);
   });
 
   it('should emit `Step` event before executing in every step', async () => {
@@ -312,6 +277,7 @@ describe('RecordingPlayer', () => {
       assert.isTrue(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('main1', 'page', 'https://example.com'),
               ),
       );
@@ -320,6 +286,7 @@ describe('RecordingPlayer', () => {
     it('should not attach to non-main target of type "page"', () => {
       assert.isFalse(
           shouldAttachToTarget(
+              'main1',
               'main1',
               makeTargetInfo('non-main', 'page', 'https://example.com'),
               ),
@@ -330,6 +297,7 @@ describe('RecordingPlayer', () => {
       assert.isFalse(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('main1', 'page', 'chrome-extension://smth'),
               ),
       );
@@ -338,6 +306,7 @@ describe('RecordingPlayer', () => {
     it('should attach to the main target if it is DevTools', () => {
       assert.isTrue(
           shouldAttachToTarget(
+              'main1',
               'main1',
               makeTargetInfo('main1', 'page', 'devtools://smth'),
               ),
@@ -348,6 +317,7 @@ describe('RecordingPlayer', () => {
       assert.isFalse(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('non-main', 'page', 'devtools://smth'),
               ),
       );
@@ -357,6 +327,7 @@ describe('RecordingPlayer', () => {
       assert.isTrue(
           shouldAttachToTarget(
               'main1',
+              'main1',
               makeTargetInfo('iframe1', 'iframe', 'https://example.com'),
               ),
       );
@@ -365,6 +336,7 @@ describe('RecordingPlayer', () => {
     it('should not attach to other targts', () => {
       assert.isFalse(
           shouldAttachToTarget(
+              'main1',
               'main1',
               makeTargetInfo(
                   'service_worker1',
