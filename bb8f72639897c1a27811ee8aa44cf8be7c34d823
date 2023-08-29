@@ -104,6 +104,24 @@
       "parentUuid": "c3ca08b4_296ec1c4",
       "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc5d638e_c52addd9",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-29T16:09:14Z",
+      "side": 1,
+      "message": "Typo:\n\n```js\na \u003d\u003d\u003d b // returns true\n```",
+      "parentUuid": "8ce89dfe_32dc3caa",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
