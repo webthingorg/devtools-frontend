@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c06877b_684cf514",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "could we make this a more descriptive title? e.g. which panel(s) does this impact?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f46b0d41_689797f7",
@@ -14,6 +37,231 @@
       "writtenOn": "2023-08-29T09:09:47Z",
       "side": 1,
       "message": "Jack, PTAL at (Soft)ContextMenu whether you\u0027re ok with the general direction of the changes there. These changes will be extracted to a separate CL later.\n\nThe goal is to allow the context menu to stay open after clicking on one of its entries, to allow users to multi-select more easily. This requires updating the state of the checkboxes after detecting a click. Previously, we\u0027d just close the context menu and a new state would only be needed when re-opening the context menu.\n\n1) In `triggerAction`, the checkbox for the menu item which has been clicked, is updated. This is the \"dumb\" part, which would apply to all context menus which should stay open after click.\n\n2) `setChecked` allows changing the checked state from elsewhere. Context menus can have more complicated logic, where clicking on one item also has an effect on other items (e.g. \u0027Select All\u0027 functionality). In such cases the logic for which checkboxes need checking/unchecking would live outside of `SoftContextMenu` and call into `setChecked`.\n\nWDYT, does this make sense?",
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfe1c595_38159f2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "I think this makes sense although I found some of the logic hard to follow - I have left a bunch of comments to hopefully help clarify some things. I would also strongly suggest some tests for this behaviour in the soft context menu - either unit or interaction tests I think should work.\n\nI would like to ensure UX are happy with this behaviour change - I\u0027m not sure if users would find it surprising to see the menu stay open. Ignore me if you have already chatted with Peter 😊",
+      "parentUuid": "f46b0d41_689797f7",
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "647fef1d_f05137b7",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "remove before landing",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 72
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c0a0817_fc8d9387",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "remove before landing",
+      "range": {
+        "startLine": 1491,
+        "startChar": 0,
+        "endLine": 1491,
+        "endChar": 45
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77849c78_523ff47c",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "is there a reason we are always forcing a soft menu rather than letting Chrome decide? Is this required for the multiple actions behaviour?",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 24
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb6ee5bd_e309ac12",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "do you need to pass these in? Normally the menu should figure out where to render based on the event.",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 68
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c28b5d5_84e1a56b",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "why do we need to create and then immediately discard it?",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 36
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191793c2_7b047b4e",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "can we be more descriptive here than `type`? Also because in TypeScript we might have `type Foo \u003d {...}` it is often clearer to avoid using `type` as a variable name.",
+      "range": {
+        "startLine": 572,
+        "startChar": 10,
+        "endLine": 572,
+        "endChar": 14
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40f25edf_41c1f294",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "could this be tidied up if we start with a:\n\n```\nif(!this.setting) return;\n```",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 35
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57cb060b_d8232679",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "will this `includes` ever return `true` ? `appendCheckboxItem` returns a `new Item()` so the `includes` check will only return false as I understand it.",
+      "range": {
+        "startLine": 577,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 5
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a38afc3_00cd701d",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "would a cleaner API be `this.contextMenu?.items()` ? It seems odd to specifically leak the info on if the context menu is soft or not. The idea behind the context menu is that the caller doesn\u0027t need to care if it is soft or not, and can just use it regardless.",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 42
+      },
       "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -66,6 +314,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1e48771_7e7d771b",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "I would prefer `this.items` here",
+      "range": {
+        "startLine": 375,
+        "startChar": 17,
+        "endLine": 375,
+        "endChar": 32
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8439fc7_7ed48b09",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "we should leave some code comments explaining why this code is as it is : this is very confusing to have 3 nested conditionals like this.",
+      "range": {
+        "startLine": 393,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 28
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d236a823_387a1625",
         "filename": "front_end/ui/legacy/SoftContextMenu.ts",
         "patchSetId": 9
@@ -82,6 +376,29 @@
         "startChar": 17,
         "endLine": 399,
         "endChar": 27
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580e48a1_056fe55f",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-29T09:24:22Z",
+      "side": 1,
+      "message": "`!item?.checked` is quite confusing to read, I would be much more explicit:\n\n```ts\nconst itemIsChecked \u003d item ? item.checked : false;\nthis.setChecked(detailsForElement.actionId, !itemIsChecked)\n```\n\nIMO that is much clearer.",
+      "range": {
+        "startLine": 399,
+        "startChar": 56,
+        "endLine": 399,
+        "endChar": 70
       },
       "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
