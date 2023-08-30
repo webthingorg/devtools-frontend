@@ -80,11 +80,11 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
-    assert.strictEqual(sections.length, 2);
+    assert.strictEqual(headers.length, 2);
+    assert.strictEqual(sections.length, 3);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
-    assert.include(sections[0]?.textContent, 'This page was successfully prefetched.');
+    assert.include(sections[0]?.textContent, 'Successful.');
   });
 
   it('renderes prerender used', async () => {
@@ -127,11 +127,11 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
-    assert.strictEqual(sections.length, 2);
+    assert.strictEqual(headers.length, 2);
+    assert.strictEqual(sections.length, 3);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
-    assert.include(sections[0]?.textContent, 'This page was successfully prerendered.');
+    assert.include(sections[0]?.textContent, 'Successful.');
   });
 
   it('renderes prefetch failed', async () => {
@@ -174,13 +174,11 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
-    assert.strictEqual(sections.length, 3);
+    assert.strictEqual(headers.length, 2);
+    assert.strictEqual(sections.length, 4);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
-    assert.include(
-        sections[0]?.textContent,
-        'The initiating page attempted to prefetch this page\'s URL, but the prefetch failed, so a full navigation was performed instead.');
+    assert.include(sections[0]?.textContent, 'Failed.');
 
     const keys = getCleanTextContentFromElements(sections[1], 'devtools-report-key');
     const values = getCleanTextContentFromElements(sections[1], 'devtools-report-value');
@@ -232,13 +230,11 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
-    assert.strictEqual(sections.length, 3);
+    assert.strictEqual(headers.length, 2);
+    assert.strictEqual(sections.length, 4);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
-    assert.include(
-        sections[0]?.textContent,
-        'The initiating page attempted to prerender this page\'s URL, but the prerender failed, so a full navigation was performed instead.');
+    assert.include(sections[0]?.textContent, 'Failed.');
 
     const keys = getCleanTextContentFromElements(sections[1], 'devtools-report-key');
     const values = getCleanTextContentFromElements(sections[1], 'devtools-report-value');
@@ -290,8 +286,8 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
-    assert.strictEqual(sections.length, 3);
+    assert.strictEqual(headers.length, 2);
+    assert.strictEqual(sections.length, 4);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
     assert.include(
@@ -321,11 +317,11 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
-    assert.strictEqual(sections.length, 2);
+    assert.strictEqual(headers.length, 2);
+    assert.strictEqual(sections.length, 3);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
-    assert.include(sections[0]?.textContent, 'The initiating page did not attempt to preload this page\'s URL.');
+    assert.include(sections[0]?.textContent, 'Not attempted.');
   });
 
   it('renders no preloading attempts used with mismatch', async () => {
@@ -372,7 +368,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(sections.length, 4);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
-    assert.include(sections[0]?.textContent, 'The initiating page did not attempt to preload this page\'s URL.');
+    assert.include(sections[0]?.textContent, 'Not attempted.');
     assert.include(headers[1]?.textContent, 'Current URL');
     assert.include(sections[1]?.textContent, 'https://example.com/no-preloads.html');
     assert.include(headers[2]?.textContent, 'URLs being preloaded by the initiating page');
