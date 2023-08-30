@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0121a59b_2c7105b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-08-30T12:29:30Z",
+      "side": 1,
+      "message": "Here is an example with the current changes:\n\nhttps://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket/8771340084584431169/+/u/E2E_Tests/E2E_Tests_shards_results/E2E_Tests__Shard__2__on_Ubuntu-22.04/stdout?format\u003draw",
+      "parentUuid": "d3dcd198_c91f0961",
+      "revId": "337f8a51f56b26244f2e628a7342149740eef6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4d21a9f_22a58b8e",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-08-28T08:20:48Z",
       "side": 1,
       "message": "Shouldn\u0027t this be in `afterAll` in the `test/conductor/mocha_hooks.ts` file?",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 18
+      },
+      "revId": "337f8a51f56b26244f2e628a7342149740eef6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243980cf_95990b90",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-08-30T12:29:30Z",
+      "side": 1,
+      "message": "Moved to there. Now the code will always print this filename whether there are screenshots in it or not.",
+      "parentUuid": "e4d21a9f_22a58b8e",
       "range": {
         "startLine": 283,
         "startChar": 0,
