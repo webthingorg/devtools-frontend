@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed9306f6_04071331",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T10:31:34Z",
+      "side": 1,
+      "message": "Nice, thanks!",
+      "parentUuid": "baee20c0_98011d6b",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdf43fee_97dee8fb",
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "Typo:\n\n```js\na \u003d\u003d\u003d b // returns true\n```",
       "parentUuid": "8ce89dfe_32dc3caa",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a3fe0a6_4f9ed89f",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T10:31:34Z",
+      "side": 1,
+      "message": "Adding a library seems overkill, since this is just an edge case we\u0027re not even sure whether we\u0027d actually encounter.\n\nI think this could be handled in the following way: instead of exact comparison `const isEqual \u003d a \u003d\u003d\u003d b`, you could do something like `const isAtLeastAlmostEqual \u003d Math.abs(a - b) \u003c 0.000000000001`. This would still be true in cases of numerical imprecision.\n\nBut it would not turn unequal fractions into equal ones: say a/b and c/d differ only very slightly. a/b\u003dad/bd and c/d\u003dcb/bd. b and d are \u003c\u003d 3840, therefore bd \u003c\u003d 3840^2\u003d14,745,600. So the difference between a/b and c/d must be at least 1/14,745,600 which is a lot bigger than the 0.000000000001.\n\nWDYT?",
+      "parentUuid": "bc5d638e_c52addd9",
       "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
