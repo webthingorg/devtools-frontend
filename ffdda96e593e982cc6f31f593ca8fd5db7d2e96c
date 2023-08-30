@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a658cae_33eef748",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-08-30T12:51:32Z",
+      "side": 1,
+      "message": "Yes, the bounds are passed only in addBreadcrumb() method that is be called when breadcrumbs are created. A listener that adds breadcrumbs is activated only from ``overview.ts`` so nothing outside ``overview.ts`` component server component should be changing.",
+      "parentUuid": "288000b1_686210ad",
+      "revId": "ffdda96e593e982cc6f31f593ca8fd5db7d2e96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60a2e2a4_48f89bfb",
