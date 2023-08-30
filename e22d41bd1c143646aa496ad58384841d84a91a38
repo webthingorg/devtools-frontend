@@ -34,6 +34,24 @@
       "parentUuid": "988fd413_cf4cce3a",
       "revId": "e22d41bd1c143646aa496ad58384841d84a91a38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0847c57_045be602",
+        "filename": "front_end/core/sdk/CSSMetadata.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2023-08-30T08:47:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "bcc63463_87a218a0",
+      "revId": "e22d41bd1c143646aa496ad58384841d84a91a38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
