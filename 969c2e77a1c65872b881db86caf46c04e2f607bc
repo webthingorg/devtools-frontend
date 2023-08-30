@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e13b729f_3c8d3191",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-30T10:57:00Z",
+      "side": 1,
+      "message": "nit: using this name might lead to confusion because its value isn\u0027t always the trace bounds. I\u0027d suggest we rename it to something like `visibleTimeWindow` or similar",
+      "range": {
+        "startLine": 305,
+        "startChar": 10,
+        "endLine": 305,
+        "endChar": 21
+      },
+      "revId": "969c2e77a1c65872b881db86caf46c04e2f607bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
