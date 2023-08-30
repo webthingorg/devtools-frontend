@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc6cf520_719176b3",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "How about naming this `resourceCategoryDropDownUI` to be consistent?",
+      "range": {
+        "startLine": 419,
+        "startChar": 19,
+        "endLine": 419,
+        "endChar": 34
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "325d012e_4692819f",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Let\u0027s create a DevTools experiment for the new UI. This would allow users (and us) to switch between old and new UI and to revert to the old UI easily in case of problems. And let\u0027s enable the experiment by default.\n\nThis can be done in a separate CL. And example of how to do this is in https://crrev.com/c/4777899. Enable by default is done here: https://crsrc.org/c/third_party/devtools-frontend/src/front_end/entrypoints/main/MainImpl.ts;l\u003d434",
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50894bed_0c16eaf1",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "items(): SoftContextMenuDescriptor[] {\n    return this.softMenu?.getItems() || [];\n  }",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 3
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dceb0d8_d237df73",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Do we always pass a setting? If so, this does not need to be optional.",
+      "range": {
+        "startLine": 516,
+        "startChar": 56,
+        "endLine": 516,
+        "endChar": 64
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b84706_16577dd9",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Why do we add a `warning` class? Could we avoid this?",
+      "range": {
+        "startLine": 526,
+        "startChar": 4,
+        "endLine": 526,
+        "endChar": 57
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0a9d74a_a5dd2714",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "We probably don\u0027t need the no-setting case.",
+      "range": {
+        "startLine": 538,
+        "startChar": 0,
+        "endLine": 540,
+        "endChar": 5
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa7aa35_6a22824c",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "remove `(` and `)`",
+      "range": {
+        "startLine": 574,
+        "startChar": 6,
+        "endLine": 574,
+        "endChar": 15
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ddfc1bd_dee5f832",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "probably not needed after other changes",
+      "range": {
+        "startLine": 611,
+        "startChar": 48,
+        "endLine": 611,
+        "endChar": 53
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63cc21bf_4a47b7f4",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Nice",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 97
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4e00121_15bc2434",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Can this be 0?",
+      "range": {
+        "startLine": 618,
+        "startChar": 32,
+        "endLine": 618,
+        "endChar": 37
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f4985f7_b521db02",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Why do we not allow multiselect here?",
+      "range": {
+        "startLine": 652,
+        "startChar": 57,
+        "endLine": 652,
+        "endChar": 85
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09673fb_4cd52548",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Since `keepOpen` is non-optional in ContextMenu, can you make in non-optional here as well?",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 19
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e9893a_6efb03b6",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "Please merge the 2 querySelectors into 1",
+      "range": {
+        "startLine": 377,
+        "startChar": 38,
+        "endLine": 377,
+        "endChar": 51
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "086422ba_424eb261",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "```\nconst checkMarkElement \u003d element?.querySelector\u003cIconButton.Icon.Icon\u003e(\u0027.checkmark\u0027);\nif (checkMarkElement) {\n  checkMarkElement.style.opacity \u003d item.checked ? \u00271\u0027 : \u00270\u0027;\n}\n```",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 5
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c817edba_22ae7f87",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-08-30T14:49:26Z",
+      "side": 1,
+      "message": "```\nif (item?.id) {\n  this.setChecked(item, !item.checked);\n  this.itemSelectedCallback(item.id);\n}\n```",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 11
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
