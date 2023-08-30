@@ -79,7 +79,7 @@ export class TimelineMiniMap extends
       this.#breadcrumbs.add(traceWindow);
       this.setBounds(TraceEngine.Types.Timing.MilliSeconds(start), TraceEngine.Types.Timing.MilliSeconds(end));
 
-      this.#overviewComponent.scheduleUpdate();
+      this.#overviewComponent.scheduleUpdate(start, end);
     }
 
     this.#breadcrumbsUI.data = {
@@ -146,6 +146,7 @@ export class TimelineMiniMap extends
     // CPU Activity is the only component that relies on the old model and will
     // do so until we have finished migrating the Main Thread track to the new
     // trace engine
+    // TODO(crbug.com/1428024) Migrate CPU track to the new model once the Main thread is migrated to the trace engine
     if (data.performanceModel) {
       this.#controls.push(new TimelineEventOverviewCPUActivity(data.performanceModel));
     }
