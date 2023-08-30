@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b5869a0e_2a62a6bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c06877b_684cf514",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f46b0d41_689797f7",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -82,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d4988d1_4c8d9773",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "647fef1d_f05137b7",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 72
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c0a0817_fc8d9387",
@@ -95,6 +143,30 @@
       "writtenOn": "2023-08-29T09:24:22Z",
       "side": 1,
       "message": "remove before landing",
+      "range": {
+        "startLine": 1491,
+        "startChar": 0,
+        "endLine": 1491,
+        "endChar": 45
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e06aaa_0cee3b67",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0a0817_fc8d9387",
       "range": {
         "startLine": 1491,
         "startChar": 0,
@@ -222,6 +294,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0c13cdf_bae07ca6",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c28b5d5_84e1a56b",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 36
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "191793c2_7b047b4e",
@@ -235,6 +331,30 @@
       "writtenOn": "2023-08-29T09:24:22Z",
       "side": 1,
       "message": "can we be more descriptive here than `type`? Also because in TypeScript we might have `type Foo \u003d {...}` it is often clearer to avoid using `type` as a variable name.",
+      "range": {
+        "startLine": 572,
+        "startChar": 10,
+        "endLine": 572,
+        "endChar": 14
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75d9976f_d807bb00",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "191793c2_7b047b4e",
       "range": {
         "startLine": 572,
         "startChar": 10,
@@ -268,6 +388,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cd78fa3_69912f34",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40f25edf_41c1f294",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 35
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57cb060b_d8232679",
@@ -281,6 +425,30 @@
       "writtenOn": "2023-08-29T09:24:22Z",
       "side": 1,
       "message": "will this `includes` ever return `true` ? `appendCheckboxItem` returns a `new Item()` so the `includes` check will only return false as I understand it.",
+      "range": {
+        "startLine": 577,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 5
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "625b63fb_fec474b1",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57cb060b_d8232679",
       "range": {
         "startLine": 577,
         "startChar": 0,
@@ -314,6 +482,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1edf3d97_8bdb8578",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a38afc3_00cd701d",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 42
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b710016_83b4b11b",
@@ -327,6 +519,30 @@
       "writtenOn": "2023-08-28T15:20:30Z",
       "side": 1,
       "message": "This performs a `find` for each softMenu-item and therefore has a runtime which scales with #items^2. `appendCheckboxItem` returns a soft context menu item. Can you find a way to store those items in this class (maybe together with a name, label, or id for easy lookup), so that you just need to perform a single loop and can call `setChecked` directly. \nMaybe even pass the soft context menu item to `setChecked` to save another `find` in `setChecked`.",
+      "range": {
+        "startLine": 616,
+        "startChar": 8,
+        "endLine": 617,
+        "endChar": 47
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e58933_f857f42b",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b710016_83b4b11b",
       "range": {
         "startLine": 616,
         "startChar": 8,
@@ -360,6 +576,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f45c314_bef53c41",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57b6b2c1_c80090bc",
+      "range": {
+        "startLine": 373,
+        "startChar": 38,
+        "endLine": 373,
+        "endChar": 39
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1e48771_7e7d771b",
@@ -373,6 +613,30 @@
       "writtenOn": "2023-08-29T09:24:22Z",
       "side": 1,
       "message": "I would prefer `this.items` here",
+      "range": {
+        "startLine": 375,
+        "startChar": 17,
+        "endLine": 375,
+        "endChar": 32
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "196a2f86_3af7581d",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1e48771_7e7d771b",
       "range": {
         "startLine": 375,
         "startChar": 17,
@@ -471,6 +735,54 @@
         "startChar": 56,
         "endLine": 399,
         "endChar": 70
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8e430e2_c6cc8865",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "580e48a1_056fe55f",
+      "range": {
+        "startLine": 399,
+        "startChar": 56,
+        "endLine": 399,
+        "endChar": 70
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e01800c_f7cf3df8",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-08-30T11:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d236a823_387a1625",
+      "range": {
+        "startLine": 399,
+        "startChar": 17,
+        "endLine": 399,
+        "endChar": 27
       },
       "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
