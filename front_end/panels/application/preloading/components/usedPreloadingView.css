@@ -18,6 +18,24 @@ devtools-report-section-header:nth-of-type(1) {
   padding-top: 1em;
 }
 
+.success-label {
+  border-radius: 6px;
+  padding: 6px 2px;
+  background: var(--sys-color-tertiary-container);
+}
+
+.failure-label {
+  border-radius: 6px;
+  padding: 6px 2px;
+  background: var(--sys-color-error-container);
+}
+
+.neutral-label {
+  border-radius: 6px;
+  padding: 6px 2px;
+  background: var(--sys-color-neutral-container);
+}
+
 .link {
   color: var(--color-link);
   text-decoration: underline;
