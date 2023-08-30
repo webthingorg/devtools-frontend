@@ -414,17 +414,23 @@ export const logFailure = () => {
 
 async function setExperimentEnabled(experiment: string, enabled: boolean, options?: DevToolsFrontendReloadOptions) {
   const {frontend} = getBrowserAndPages();
-  await frontend.evaluate((experiment, enabled) => {
-    globalThis.Root.Runtime.experiments.setEnabled(experiment, enabled);
-  }, experiment, enabled);
+  await frontend.evaluate(
+      `async (experiment, enabled) => {
+    const Root = await import('./core/root/root.js');
+    Root.Runtime.experiments.setEnabled(experiment, enabled);
+  }`,
+      experiment, enabled);
   await reloadDevTools(options);
 }
 
 export const isEnabledExperiment = async (experiment: string) => {
   const {frontend} = getBrowserAndPages();
-  return await frontend.evaluate((experiment): Promise<boolean> => {
-    return globalThis.Root.Runtime.experiments.isEnabled(experiment);
-  }, experiment);
+  return await frontend.evaluate(
+      `async (experiment): Promise<boolean> => {
+    const Root = await import('./core/root/root.js');
+    return Root.Runtime.experiments.isEnabled(experiment);
+  }`,
+      experiment);
 };
 
 export const enableExperiment = (experiment: string, options?: DevToolsFrontendReloadOptions) =>
