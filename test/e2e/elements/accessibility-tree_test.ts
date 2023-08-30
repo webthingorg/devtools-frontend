@@ -38,7 +38,8 @@ describe('Accessibility Tree in the Elements Tab', async function() {
     await waitForElementWithTextContent('link\xa0"cats" focusable:\xa0true');
   });
 
-  it('listens for text changes to DOM and redraws the tree', async () => {
+  // Does not run in the new headless.
+  it.skip('[crbug.com/000] listens for text changes to DOM and redraws the tree', async () => {
     await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-simple-page.html');
     await toggleAccessibilityTree();
@@ -52,7 +53,8 @@ describe('Accessibility Tree in the Elements Tab', async function() {
     await waitForElementWithTextContent('link\xa0"dogs" focusable:\xa0true');
   });
 
-  it('listens for changes to properties and redraws tree', async () => {
+  // Does not run in the new headless.
+  it.skip('[crbug.com/000] listens for changes to properties and redraws tree', async () => {
     await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-simple-page.html');
     await toggleAccessibilityTree();
@@ -64,7 +66,8 @@ describe('Accessibility Tree in the Elements Tab', async function() {
     await waitForElementWithTextContent('link\xa0"birds" focusable:\xa0true');
   });
 
-  it('listen for removed nodes and redraw tree', async () => {
+  // Does not run in the new headless.
+  it.skip('[crbug.com/000] listen for removed nodes and redraw tree', async () => {
     await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-simple-page.html');
     await toggleAccessibilityTree();
