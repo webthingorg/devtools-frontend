@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a14cb93b_6feb97bb",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-08-30T11:39:54Z",
+      "side": 1,
+      "message": "I\u0027ll add them when all strips are filtered. At this point screenshots be changing with each of them",
+      "parentUuid": "9da66582_69c851d2",
+      "range": {
+        "startLine": 171,
+        "startChar": 10,
+        "endLine": 171,
+        "endChar": 20
+      },
+      "revId": "6c93531525e619620c08cd6f08bb0d0de593bce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1c665e8_b3832de7",
@@ -72,6 +96,30 @@
       "writtenOn": "2023-08-29T10:46:21Z",
       "side": 1,
       "message": "we should make sure we don\u0027t draw anything for events outside of the curent window. For this you can use the `startTime` and `endTime` params of this function.",
+      "range": {
+        "startLine": 240,
+        "startChar": 52,
+        "endLine": 240,
+        "endChar": 64
+      },
+      "revId": "6c93531525e619620c08cd6f08bb0d0de593bce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73265062_255f4e11",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-08-30T11:39:54Z",
+      "side": 1,
+      "message": "true! added a function to filter events",
+      "parentUuid": "d1c665e8_b3832de7",
       "range": {
         "startLine": 240,
         "startChar": 52,

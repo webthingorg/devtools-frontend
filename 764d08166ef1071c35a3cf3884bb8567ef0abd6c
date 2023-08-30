@@ -22,6 +22,30 @@
       },
       "revId": "764d08166ef1071c35a3cf3884bb8567ef0abd6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "779e2d2a_74397a8d",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-08-30T11:39:54Z",
+      "side": 1,
+      "message": "good point! changed it for TraceEngine.Types.Timing.MilliSeconds",
+      "parentUuid": "3e226935_79a78878",
+      "range": {
+        "startLine": 161,
+        "startChar": 26,
+        "endLine": 161,
+        "endChar": 32
+      },
+      "revId": "764d08166ef1071c35a3cf3884bb8567ef0abd6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
