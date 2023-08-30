@@ -145,23 +145,24 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     traceBounds.max = Types.Timing.MicroSeconds(Math.max(event.ts + eventDuration, traceBounds.max));
   }
 
-  if (Types.TraceEvents.isProcessName(event) &&
+  if (browserProcessId === -1 && Types.TraceEvents.isProcessName(event) &&
       (event.args.name === 'Browser' || event.args.name === 'HeadlessBrowser')) {
     browserProcessId = event.pid;
     return;
   }
 
-  if (Types.TraceEvents.isProcessName(event) && (event.args.name === 'Gpu' || event.args.name === 'GPU Process')) {
+  if (gpuProcessId === -1 && Types.TraceEvents.isProcessName(event) &&
+      (event.args.name === 'Gpu' || event.args.name === 'GPU Process')) {
     gpuProcessId = event.pid;
     return;
   }
 
-  if (Types.TraceEvents.isThreadName(event) && event.args.name === 'CrGpuMain') {
+  if (gpuThreadId === -1 && Types.TraceEvents.isThreadName(event) && event.args.name === 'CrGpuMain') {
     gpuThreadId = event.tid;
     return;
   }
 
-  if (Types.TraceEvents.isThreadName(event) && event.args.name === 'CrBrowserMain') {
+  if (browserThreadId === -1 && Types.TraceEvents.isThreadName(event) && event.args.name === 'CrBrowserMain') {
     browserThreadId = event.tid;
   }
 
@@ -349,6 +350,15 @@ type MetaHandlerData = {
 export type FrameProcessData =
     Map<string,
         Map<Types.TraceEvents.ProcessID, {frame: Types.TraceEvents.TraceFrame, window: Types.Timing.TraceWindow}[]>>;
+
+/**
+ * The GPU and Browser process pid/tids are reliably at the start of the JSON trace.
+ * The remainder of MetaHandler however, is likely not reliable until we're finalized.
+ * @url https://source.chromium.org/chromium/chromium/src/+/main:third_party/perfetto/src/trace_processor/export_json.cc;l=111;drc=4e2303cb84f29df580d050a410932f406806cdf2
+ */
+export function initialGpuProcessId(): Types.TraceEvents.ProcessID {
+  return gpuProcessId;
+}
 
 export function data(): MetaHandlerData {
   if (handlerState !== HandlerState.FINALIZED) {

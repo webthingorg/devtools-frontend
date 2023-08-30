@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {data as metaHandlerData} from './MetaHandler.js';
-
-import {type TraceEventHandlerName, HandlerState} from './types.js';
-
-import * as Types from '../types/types.js';
+import * as Root from '../../../core/root/root.js';
 import * as Helpers from '../helpers/helpers.js';
+import * as Types from '../types/types.js';
+
+import {data as metaHandlerData, initialGpuProcessId} from './MetaHandler.js';
+import {HandlerState, type TraceEventHandlerName} from './types.js';
 
 let handlerState = HandlerState.UNINITIALIZED;
 
@@ -18,9 +18,12 @@ const eventsInProcessThread =
 
 let mainGPUThreadTasks: Types.TraceEvents.TraceEventGPUTask[] = [];
 
+let showAllEvents: boolean = false;
+
 export function reset(): void {
   eventsInProcessThread.clear();
   mainGPUThreadTasks = [];
+  showAllEvents = false;
 
   handlerState = HandlerState.UNINITIALIZED;
 }
@@ -29,6 +32,7 @@ export function initialize(): void {
   if (handlerState !== HandlerState.UNINITIALIZED) {
     throw new Error('GPU Handler was not reset before being initialized');
   }
+  showAllEvents = Root.Runtime.experiments.isEnabled('timelineShowAllEvents');
 
   handlerState = HandlerState.INITIALIZED;
 }
@@ -38,11 +42,16 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     throw new Error('GPU Handler is not initialized');
   }
 
-  if (!Types.TraceEvents.isTraceEventGPUTask(event)) {
+  if (event.pid !== initialGpuProcessId()) {
     return;
   }
 
-  Helpers.Trace.addEventToProcessThread(event, eventsInProcessThread);
+  // TODO(paulirish): In the standard, non-show-all-events case, we should only
+  // show GPU events where event.args.data.renderer_pid is an inspected renderer
+  // It's very common to have GPU events for other tabs/windows (the processFilter doesn't apply)
+  if (showAllEvents || Types.TraceEvents.isTraceEventGPUTask(event)) {
+    Helpers.Trace.addEventToProcessThread(event, eventsInProcessThread);
+  }
 }
 
 export async function finalize(): Promise<void> {
@@ -54,6 +63,7 @@ export async function finalize(): Promise<void> {
   const gpuThreadsForProcess = eventsInProcessThread.get(gpuProcessId);
   if (gpuThreadsForProcess && gpuThreadId) {
     mainGPUThreadTasks = gpuThreadsForProcess.get(gpuThreadId) || [];
+    mainGPUThreadTasks.sort((event1, event2) => event1.ts - event2.ts);
   }
   handlerState = HandlerState.FINALIZED;
 }
