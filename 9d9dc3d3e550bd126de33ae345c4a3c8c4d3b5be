@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43431b72_fb6c3e75",
+        "filename": "front_end/panels/application/preloading/components/usedPreloadingView.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-08-30T07:26:54Z",
+      "side": 1,
+      "message": "This looks too small or ignored in the demo screenshots. Please compare against mocks.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "9d9dc3d3e550bd126de33ae345c4a3c8c4d3b5be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
