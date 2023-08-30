@@ -120,7 +120,8 @@ describe('The Application Tab', async () => {
     });
   });
 
-  describe('the Storage pane', async function() {
+  // Does not work in new-headless.
+  describe.skip('[crbug.com/000]: the Storage pane', async function() {
     // The tests in this suite are particularly slow, as they perform a lot of actions
     this.timeout(20000);
     beforeEach(async () => {
