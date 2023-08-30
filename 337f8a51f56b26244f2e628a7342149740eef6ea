@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6caa188e_db42ee44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-30T13:00:32Z",
+      "side": 1,
+      "message": "I agree that it is not that worth while now since copying the link seems just as easy as clicking the CAS link but having it here deos give us the possiblity or repurposing in the future so I have nothing against merging this.",
+      "parentUuid": "2b8e45a2_0fbce1c9",
+      "revId": "337f8a51f56b26244f2e628a7342149740eef6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4d21a9f_22a58b8e",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Moved to there. Now the code will always print this filename whether there are screenshots in it or not.",
       "parentUuid": "e4d21a9f_22a58b8e",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 18
+      },
+      "revId": "337f8a51f56b26244f2e628a7342149740eef6ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2221756c_4a4cf0d7",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-08-30T13:00:32Z",
+      "side": 1,
+      "message": "I think that should be find since most of the time we don\u0027t look at tests if they succeed, we can also indicate in the message that the link is for screenshots if they exist.",
+      "parentUuid": "243980cf_95990b90",
       "range": {
         "startLine": 283,
         "startChar": 0,
