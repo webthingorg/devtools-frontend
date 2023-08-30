@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
@@ -14,12 +15,9 @@ import * as ReportView from '../../../../ui/components/report_view/report_view.j
 import * as UI from '../../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
-import type * as Platform from '../../../../core/platform/platform.js';
-
-import usedPreloadingStyles from './usedPreloadingView.css.js';
-
-import {prefetchFailureReason, prerenderFailureReason} from './PreloadingString.js';
 import * as MismatchedPreloadingGrid from './MismatchedPreloadingGrid.js';
+import {prefetchFailureReason, prerenderFailureReason} from './PreloadingString.js';
+import usedPreloadingStyles from './usedPreloadingView.css.js';
 
 const UIStrings = {
   /**
@@ -36,27 +34,17 @@ const UIStrings = {
   downgradedPrefetchUsed:
       'The initiating page attempted to prerender this page\'s URL. The prerender failed, but the resulting response body was still used as a prefetch.',
   /**
-   *@description Message that tells this page was prefetched.
+   *@description Message that tells this page was preloaded.
    */
-  prefetchUsed: 'This page was successfully prefetched.',
-  /**
-   *@description Message that tells this page was prerendered.
-   */
-  prerenderUsed: 'This page was successfully prerendered.',
+  preloadUsed: 'Successful',
   /**
    *@description Message that tells this page was prefetched.
    */
-  prefetchFailed:
-      'The initiating page attempted to prefetch this page\'s URL, but the prefetch failed, so a full navigation was performed instead.',
-  /**
-   *@description Message that tells this page was prerendered.
-   */
-  prerenderFailed:
-      'The initiating page attempted to prerender this page\'s URL, but the prerender failed, so a full navigation was performed instead.',
+  preloadFailed: 'Failed',
   /**
    *@description Message that tells this page was not preloaded.
    */
-  noPreloads: 'The initiating page did not attempt to preload this page\'s URL.',
+  noPreloads: 'Not attempted',
   /**
    *@description Header for current URL.
    */
@@ -148,21 +136,32 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
         basicMessage = LitHtml.html`${i18nString(UIStrings.downgradedPrefetchUsed)}`;
         break;
       case UsedKind.PrefetchUsed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prefetchUsed)}`;
-        break;
       case UsedKind.PrerenderUsed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prerenderUsed)}`;
+        basicMessage = LitHtml.html`<span class="success-label">
+        <${IconButton.Icon.Icon.litTagName}
+            .data=${{
+          iconName: 'check-circle',
+          color: 'var(--icon-checkmark-green)',
+          width: '16px',
+        } as IconButton.Icon.IconWithName}
+          >
+          </${IconButton.Icon.Icon.litTagName}>${i18nString(UIStrings.preloadUsed)}</span>`;
         break;
       case UsedKind.PrefetchFailed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prefetchFailed)}`;
-        break;
       case UsedKind.PrerenderFailed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prerenderFailed)}`;
+        basicMessage = LitHtml.html`<span class="failure-label"><${IconButton.Icon.Icon.litTagName}
+        .data=${{
+          iconName: 'cross-circle',
+          color: 'var(--icon-error)',
+          width: '16px',
+        } as IconButton.Icon.IconWithName}
+      >
+      ${i18nString(UIStrings.preloadFailed)}</span>`;
         break;
       case UsedKind.NoPreloads:
         // Disabled until https://crbug.com/1079231 is fixed.
         // clang-format off
-        basicMessage = LitHtml.html`
+        basicMessage = LitHtml.html`<span class="neutral-label">
           <${IconButton.Icon.Icon.litTagName}
             .data=${
               {
@@ -173,7 +172,7 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
             }
           >
           </${IconButton.Icon.Icon.litTagName}>
-          ${i18nString(UIStrings.noPreloads)}
+          ${i18nString(UIStrings.noPreloads)}</span>
         `;
         // clang-format on
         break;
@@ -193,6 +192,7 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       maybeFailureReason = LitHtml.html`
+        <br style="margin-bottom:50px;"/>
         <${ReportView.ReportView.ReportSection.litTagName}>
           <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.detailsFailureReason)}</${
             ReportView.ReportView.ReportKey.litTagName}>
@@ -216,8 +216,15 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
 
         ${maybeFailureReason}
 
-        ${this.#maybeMismatchedSections(kind)}
+        <br style="margin-bottom:50px;"/>
+        <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.currentURL)}</${
+          ReportView.ReportView.ReportSectionHeader.litTagName}>
+        <${ReportView.ReportView.ReportSection.litTagName}>
+          ${UI.XLink.XLink.create(this.#data.pageURL, this.#data.pageURL, 'link')}
+        </${ReportView.ReportView.ReportSection.litTagName}>
 
+        <br style="margin-bottom:50px;"/>
+        ${this.#maybeMismatchedSections(kind)}
         <${ReportView.ReportView.ReportSection.litTagName}>
           ${UI.XLink.XLink.create('https://developer.chrome.com/blog/prerender-pages/', i18nString(UIStrings.learnMore), 'link')}
         </${ReportView.ReportView.ReportSection.litTagName}>
@@ -246,12 +253,6 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     return LitHtml.html`
-      <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.currentURL)}</${
-        ReportView.ReportView.ReportSectionHeader.litTagName}>
-      <${ReportView.ReportView.ReportSection.litTagName}>
-        ${UI.XLink.XLink.create(this.#data.pageURL)}
-      </${ReportView.ReportView.ReportSection.litTagName}>
-
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.preloadedURLs)}</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
       <${ReportView.ReportView.ReportSection.litTagName}>
