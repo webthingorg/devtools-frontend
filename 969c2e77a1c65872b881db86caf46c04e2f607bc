@@ -22,6 +22,30 @@
       },
       "revId": "969c2e77a1c65872b881db86caf46c04e2f607bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1ccdc3c_eba3f12d",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-08-30T11:59:33Z",
+      "side": 1,
+      "message": "Agree, it\u0027s a a more descriptive name",
+      "parentUuid": "e13b729f_3c8d3191",
+      "range": {
+        "startLine": 305,
+        "startChar": 10,
+        "endLine": 305,
+        "endChar": 21
+      },
+      "revId": "969c2e77a1c65872b881db86caf46c04e2f607bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
