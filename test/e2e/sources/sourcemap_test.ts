@@ -289,6 +289,8 @@ describe('The Sources Tab', async function() {
         return (values && values.includes(outerUnminifiedVariable)) ? values : undefined;
       });
       assert.include(scopeValues, outerUnminifiedVariable);
+
+      await waitFor('.never');  // Testing, DO NOT CHECK IN
     });
 
     await step('Resume from outer breakpoint', async () => {
