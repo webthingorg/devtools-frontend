@@ -16,6 +16,24 @@
       "message": "Moving this will show \"Current URL\" unconditionally. Is this intended? (Maybe I\u0027m missing some discussion.)",
       "revId": "29238516b134aac1ee46d94c6db7a016edf1b7c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f795c76_83acf31f",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-08-30T08:39:56Z",
+      "side": 0,
+      "message": "I see the wireframe with \"Not attempted\" also shows Current URL. Does it mean it should show it unconditionally? (I was assuming this)\nIf not, I can revert this part.",
+      "parentUuid": "fbde1c2d_7f6b2393",
+      "revId": "29238516b134aac1ee46d94c6db7a016edf1b7c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
