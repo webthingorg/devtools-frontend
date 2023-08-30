@@ -9,6 +9,10 @@
   height: 100%;
 }
 
+devtools-report-section {
+  margin-bottom: 50px;
+}
+
 devtools-report-section-header {
   padding-bottom: 0;
   margin-bottom: -1.5em;
@@ -16,6 +20,39 @@ devtools-report-section-header {
 
 devtools-report-section-header:nth-of-type(1) {
   padding-top: 1em;
+}
+
+.success-label {
+  border-radius: 6px;
+  padding: 6px 2px;
+  font-size: 13px;
+  background: var(--sys-color-tertiary-container);
+}
+
+.failure-label {
+  border-radius: 6px;
+  padding: 6px 2px;
+  font-size: 13px;
+  background: var(--sys-color-error-container);
+}
+
+.neutral-label {
+  border-radius: 6px;
+  padding: 6px 2px;
+  font-size: 13px;
+  background: var(--sys-color-neutral-container);
+}
+
+.success-label devtools-icon {
+  vertical-align: sub;
+}
+
+.failure-label devtools-icon {
+  vertical-align: sub;
+}
+
+.neutral-label devtools-icon {
+  vertical-align: sub;
 }
 
 .link {
