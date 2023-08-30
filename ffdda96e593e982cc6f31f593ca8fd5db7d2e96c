@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "288000b1_686210ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-30T12:19:45Z",
+      "side": 1,
+      "message": "this LGTM with one thought - happy to do screenshot tests at the end once all parts land. The main thing is we have tests right now that confirm for now this CL does not change the user facing behaviour (because right now we should never be passing the bounds in, right?)",
+      "revId": "ffdda96e593e982cc6f31f593ca8fd5db7d2e96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a2e2a4_48f89bfb",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-30T12:19:45Z",
+      "side": 1,
+      "message": "can we define this function once in this file and then use it across all of the parts of the minimap?",
+      "range": {
+        "startLine": 240,
+        "startChar": 2,
+        "endLine": 247,
+        "endChar": 7
+      },
+      "revId": "ffdda96e593e982cc6f31f593ca8fd5db7d2e96c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
