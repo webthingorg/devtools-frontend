@@ -459,7 +459,7 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     if (!content) {
       return this.projectInternal.searchInFileContent(this, query, caseSensitive, isRegex);
     }
-    return Promise.resolve(TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex));
+    return Promise.resolve(TextUtils.TextUtils.performExtendedSearchInContent(content, query, caseSensitive, isRegex));
   }
 
   contentLoaded(): boolean {

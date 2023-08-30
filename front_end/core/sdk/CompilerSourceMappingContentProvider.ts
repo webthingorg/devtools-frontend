@@ -85,6 +85,6 @@ export class CompilerSourceMappingContentProvider implements TextUtils.ContentPr
     if (typeof content !== 'string') {
       return [];
     }
-    return TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex);
+    return TextUtils.TextUtils.performExtendedSearchInContent(content, query, caseSensitive, isRegex);
   }
 }
