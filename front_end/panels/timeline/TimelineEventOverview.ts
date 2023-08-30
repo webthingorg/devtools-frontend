@@ -158,7 +158,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     this.backgroundCanvas.height = this.element.clientHeight * window.devicePixelRatio;
   }
 
-  override update(): void {
+  override update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
     super.update();
     if (!this.#performanceModel) {
       return;
@@ -168,8 +168,8 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     const width = this.width();
     const height = this.height();
     const baseLine = height;
-    const timeOffset = timelineModel.minimumRecordTime();
-    const timeSpan = timelineModel.maximumRecordTime() - timeOffset;
+    const timeOffset = (start) ? start : timelineModel.minimumRecordTime();
+    const timeSpan = (start && end) ? end - start : timelineModel.maximumRecordTime() - timeOffset;
     const scale = width / timeSpan;
     const quantTime = quantSizePx / scale;
     const categories = TimelineUIUtils.categories();
@@ -237,7 +237,17 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
         }
       }
 
-      TimelineModel.TimelineModel.TimelineModelImpl.forEachEvent(events, onEventStart, onEventEnd);
+      function filterEventsWithinVisibleWindow(events: TraceEngine.Legacy.Event[]): TraceEngine.Legacy.Event[] {
+        if (!start && !end) {
+          return events;
+        }
+
+        return events.filter(
+            event => (!start || event.startTime >= start) && (!end || !event.endTime || event.endTime <= end));
+      }
+
+      TimelineModel.TimelineModel.TimelineModelImpl.forEachEvent(
+          filterEventsWithinVisibleWindow(events), onEventStart, onEventEnd);
       quantizer.appendInterval(timeOffset + timeSpan + quantTime, idleIndex);  // Kick drawing the last bucket.
       for (let i = categoryOrder.length - 1; i > 0; --i) {
         paths[i].lineTo(width, height);
