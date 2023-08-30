@@ -73,6 +73,7 @@ describe('Recorder', function() {
         await target.bringToFront();
         await frontend.bringToFront();
         await frontend.waitForSelector('pierce/.settings');
+        await target.bringToFront();
         await target.click('#test');
         await frontend.bringToFront();
 
@@ -89,6 +90,7 @@ describe('Recorder', function() {
         await target.bringToFront();
         await frontend.bringToFront();
         await frontend.waitForSelector('pierce/.settings');
+        await target.bringToFront();
         const element = await target.waitForSelector(
             'a[href="recorder2.html"]',
         );
@@ -134,6 +136,7 @@ describe('Recorder', function() {
         await target.bringToFront();
         await frontend.bringToFront();
         await frontend.waitForSelector('pierce/.settings');
+        await target.bringToFront();
         await target.click('#test');
         await frontend.bringToFront();
         await stopRecording();

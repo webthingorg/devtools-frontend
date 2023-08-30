@@ -32,11 +32,16 @@ describe('Media Tab', () => {
   it('ensures that errors are rendered nicely', async () => {
     await openPanelViaMoreTools('Media');
     await goToResource('media/corrupt.webm');
-    const {target} = getBrowserAndPages();
+    const {target, frontend} = getBrowserAndPages();
+    await target.bringToFront();
     await target.evaluate(() => {
       const videoElement = document.getElementsByName('media')[0] as HTMLVideoElement;
       void videoElement.play();
     });
+    await target.waitForFunction(() => {
+      return new Promise(resolve => window.requestAnimationFrame(() => resolve(true)));
+    });
+    await frontend.bringToFront();
     const errors = await getPlayerErrors(2);
     const errorContent = await errors[1].evaluate(el => el.textContent);
     assert.include(errorContent, 'PipelineStatus');

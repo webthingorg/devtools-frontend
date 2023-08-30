@@ -19,7 +19,8 @@ import {getDataGrid, getDataGridRows, getInnerTextOfDataGridCells} from '../help
 
 const REPORTING_API_SELECTOR = '[aria-label="Reporting API"]';
 
-describe('The Reporting API Page', async () => {
+// Does not work in new-headless.
+describe.skip('[crbug.com/000]: The Reporting API Page', async () => {
   it('shows reports', async () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'reporting-api');
