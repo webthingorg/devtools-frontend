@@ -187,7 +187,7 @@ export class CSSStyleSheetHeader implements TextUtils.ContentProvider.ContentPro
     if (requestedContent.content === null) {
       return [];
     }
-    return TextUtils.TextUtils.performSearchInContent(requestedContent.content, query, caseSensitive, isRegex);
+    return TextUtils.TextUtils.performExtendedSearchInContent(requestedContent.content, query, caseSensitive, isRegex);
   }
 
   isViaInspector(): boolean {
