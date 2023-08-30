@@ -105,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8479940c_eea090b0",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-30T10:38:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "034951ec_f76557c9",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffac788d_0dc4ad2f",
@@ -118,6 +142,30 @@
       "writtenOn": "2023-08-29T09:10:43Z",
       "side": 1,
       "message": "same here RE exposing threadType as `readonly`",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 0
+      },
+      "revId": "d0ecb233c54bd50ba9e5a2e49bea5adc7c400904",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80af59a4_62c653c8",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-30T10:38:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffac788d_0dc4ad2f",
       "range": {
         "startLine": 108,
         "startChar": 0,
