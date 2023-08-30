@@ -34,7 +34,7 @@ vars = {
   'cmake_version': 'version:3.16.1',
 
   'llvm_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/',
-  'llvm_revision': 'c08d3b08f6d71e974537de226c68d4c94c396a46',
+  'llvm_revision': '9a4b3fdb82327e808213070fd157be3c557b8b9d',
 
   'lldb_eval_url': 'https://chromium.googlesource.com/external/github.com/google/lldb-eval.git',
   'lldb_eval_revision': 'e87123a7e639bf1d86f24c37079570fb7fa00b72',
