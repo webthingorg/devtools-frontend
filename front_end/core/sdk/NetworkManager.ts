@@ -172,7 +172,7 @@ export class NetworkManager extends SDKModel<EventTypes> {
   }
 
   static async searchInRequest(request: NetworkRequest, query: string, caseSensitive: boolean, isRegex: boolean):
-      Promise<TextUtils.ContentProvider.SearchMatchExact[]> {
+      Promise<TextUtils.ContentProvider.SearchMatch[]> {
     const manager = NetworkManager.forRequest(request);
     const requestId = request.backendRequestId();
     if (!manager || !requestId || request.isRedirect()) {

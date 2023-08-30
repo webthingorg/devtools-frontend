@@ -296,7 +296,7 @@ export class FileSystem extends Workspace.Workspace.ProjectStore {
     const filePath = this.filePathForUISourceCode(uiSourceCode);
     const {content} = await this.fileSystemInternal.requestFileContent(filePath);
     if (content) {
-      return TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex);
+      return TextUtils.TextUtils.performExtendedSearchInContent(content, query, caseSensitive, isRegex);
     }
     return [];
   }
