@@ -34,6 +34,41 @@
       "parentUuid": "805e5914_5f69253f",
       "revId": "3861a3df989ff635828ec98e1951c6a8bb149b6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88fc99b1_396a56c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133074
+      },
+      "writtenOn": "2023-08-30T13:28:26Z",
+      "side": 1,
+      "message": "NP, It\u0027s affecting a lot of bots in M117 so landing a fix (either test fix or revert) ASAP is appreciated!\n\nI\u0027m CC\u0027ing today\u0027s gardener so they are aware of this issue.",
+      "parentUuid": "3b3f243d_a594379a",
+      "revId": "3861a3df989ff635828ec98e1951c6a8bb149b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ee0d698_916b9102",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133074
+      },
+      "writtenOn": "2023-08-30T13:28:26Z",
+      "side": 1,
+      "message": "Ken is planning to merge a fix so we can hold off on the revert for now, CC\u0027ing today\u0027s branch garderer for visibility.",
+      "revId": "3861a3df989ff635828ec98e1951c6a8bb149b6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
