@@ -22,3 +22,9 @@ devtools-data-grid-controller {
 .inline-icon {
   vertical-align: text-bottom;
 }
+
+.link {
+  color: var(--color-link);
+  text-decoration: underline;
+  cursor: pointer;
+}
