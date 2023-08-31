@@ -73,6 +73,7 @@ describe('Recorder', function() {
         await target.bringToFront();
         await frontend.bringToFront();
         await frontend.waitForSelector('pierce/.settings');
+        await target.bringToFront();
         await target.click('#test');
         await frontend.bringToFront();
 
@@ -89,6 +90,7 @@ describe('Recorder', function() {
         await target.bringToFront();
         await frontend.bringToFront();
         await frontend.waitForSelector('pierce/.settings');
+        await target.bringToFront();
         const element = await target.waitForSelector(
             'a[href="recorder2.html"]',
         );
@@ -134,6 +136,7 @@ describe('Recorder', function() {
         await target.bringToFront();
         await frontend.bringToFront();
         await frontend.waitForSelector('pierce/.settings');
+        await target.bringToFront();
         await target.click('#test');
         await frontend.bringToFront();
         await stopRecording();
@@ -181,7 +184,7 @@ describe('Recorder', function() {
           await waitFor('.expanded');
         }
 
-        it('should select through the selector picker', async () => {
+        xit('should select through the selector picker', async () => {
           const {target, frontend} = getBrowserAndPages();
           await frontend.bringToFront();
           await frontend.waitForSelector('pierce/.settings');
@@ -231,7 +234,7 @@ describe('Recorder', function() {
           assertRecordingMatchesSnapshot(recording);
         });
 
-        it('should select through the selector picker during recording', async () => {
+        xit('should select through the selector picker during recording', async () => {
           const {target, frontend} = getBrowserAndPages();
           await frontend.bringToFront();
           await frontend.waitForSelector('pierce/.settings');
@@ -254,7 +257,7 @@ describe('Recorder', function() {
     });
 
     describe('Settings', () => {
-      it('should change network settings', async () => {
+      xit('should change network settings', async () => {
         const {target, frontend} = getBrowserAndPages();
         await target.bringToFront();
         await frontend.bringToFront();

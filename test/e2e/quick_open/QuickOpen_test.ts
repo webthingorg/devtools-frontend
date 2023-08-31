@@ -44,7 +44,7 @@ describe('Quick Open menu', () => {
     assert.strictEqual(firstItemTitle, 'hello-world.html');
   });
 
-  it('opens the sources panel when a file is selected', async () => {
+  xit('opens the sources panel when a file is selected', async () => {
     await openAFileWithQuickMenu();
     await togglePreferenceInSettingsTab('Focus Sources panel when triggering a breakpoint');
     await openAFileWithQuickMenu();

@@ -292,6 +292,7 @@ export class RecordingPlayer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
         if (page?.url().startsWith('devtools://') && (step.type === 'setViewport' || step.type === 'navigate')) {
           return;
         }
+        await this.page.bringToFront();
         return await super.runStep(step, flow);
       }
     }

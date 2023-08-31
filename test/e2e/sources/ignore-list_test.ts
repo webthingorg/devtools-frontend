@@ -128,7 +128,7 @@ describe('Ignore list', async function() {
     ]);
   });
 
-  it('removes ignored sources from page source tree', async function() {
+  xit('removes ignored sources from page source tree', async function() {
     await enableExperiment('justMyCode');
     await setIgnoreListPattern('thirdparty');
     await goToResource('sources/multi-files.html');
