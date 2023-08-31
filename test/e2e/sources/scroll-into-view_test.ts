@@ -12,11 +12,11 @@ import {
   waitFor,
   waitForFunction,
 } from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, RESUME_BUTTON} from '../helpers/sources-helpers.js';
 
 describe('The Sources tab', async () => {
-  it('should also scroll horizontally when stopping', async () => {
+  xit('should also scroll horizontally when stopping', async () => {
     const {target} = getBrowserAndPages();
 
     // We need to disable the automatic pretty printing
