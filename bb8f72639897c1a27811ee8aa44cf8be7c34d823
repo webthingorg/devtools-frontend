@@ -176,6 +176,24 @@
       "parentUuid": "bc5d638e_c52addd9",
       "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac5b09e_538e950c",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1387248
+      },
+      "writtenOn": "2023-08-31T20:16:39Z",
+      "side": 1,
+      "message": "One of the crazy ideas is to test it out:\n\n```html\n\u003chtml\u003e\n  \u003chead\u003e\n    \u003cscript src\u003d\"https://unpkg.com/mathjs/lib/browser/math.js\"\u003e\u003c/script\u003e\n  \u003c/head\u003e\n  \u003cbody\u003e\n    \u003cscript\u003e\n      console.log(\u0027Start\u0027);\n      const min \u003d 320;\n      const max \u003d 3840;\n      let rounds \u003d 0;\n      let count \u003d 0;\n      for (let width1 \u003d min; width1 \u003c\u003d max; width1++) {\n        for (let height1 \u003d min; height1 \u003c\u003d max; height1++) {\n          for (let width2 \u003d min; width2 \u003c\u003d max; width2++) {\n            for (let height2 \u003d min; height2 \u003c\u003d max; height2++) {\n              const a \u003d width1/height1 \u003d\u003d\u003d width2/height2;\n              const b \u003d math.equal(math.fraction(width1, height1), math.fraction(width2, height2));\n              if (a !\u003d\u003d b) {\n                console.log(width1, height1, width2, height2);\n                count++;\n              }\n              rounds++;\n            }\n          }\n        }\n      }\n      console.log(\u0027Done!\u0027, rounds, count);\n    \u003c/script\u003e\n  \u003c/body\u003e\n\u003c/html\u003e\n```\n\nI\u0027ve tested it on small subset for `min \u003d 320` and `max \u003d 480`, and `rounds` is `671 898 241`, count is `0`. It took `288.38 sec`. That\u0027s `4 min 48.38 sec`. The `math.equal(math.fraction(width1, height1), math.fraction(width2, height2))` is slow. Processing all `15 366 432 161 616 641` combinations will take `1 036 945 070.77 sec`. That\u0027s `~32.9 years`. 😄",
+      "parentUuid": "0a3fe0a6_4f9ed89f",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
