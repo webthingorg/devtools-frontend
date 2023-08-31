@@ -86,8 +86,8 @@ export type TrackAppenderName = typeof TrackNames[number]|'Network';
 export class CompatibilityTracksAppender {
   #trackForLevel = new Map<number, TrackAppender>();
   #trackForGroup = new Map<PerfUI.FlameChart.Group, TrackAppender>();
-  #eventsForTrack = new Map<TrackAppenderName, TraceEngine.Types.TraceEvents.TraceEventData[]>();
-  #trackEventsForTreeview = new Map<TrackAppenderName, TraceEngine.Types.TraceEvents.TraceEventData[]>();
+  #eventsForTrack = new Map<TrackAppender, TraceEngine.Types.TraceEvents.TraceEventData[]>();
+  #trackEventsForTreeview = new Map<TrackAppender, TraceEngine.Types.TraceEvents.TraceEventData[]>();
   #flameChartData: PerfUI.FlameChart.FlameChartTimelineData;
   #traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData;
   #entryData: TimelineFlameChartEntry[];
@@ -246,8 +246,8 @@ export class CompatibilityTracksAppender {
     return this.#indexForEvent.get(event);
   }
 
-  eventsInTrack(trackAppenderName: TrackAppenderName): TraceEngine.Types.TraceEvents.TraceEventData[] {
-    const cachedData = this.#eventsForTrack.get(trackAppenderName);
+  eventsInTrack(trackAppender: TrackAppender): TraceEngine.Types.TraceEvents.TraceEventData[] {
+    const cachedData = this.#eventsForTrack.get(trackAppender);
     if (cachedData) {
       return cachedData;
     }
@@ -256,7 +256,7 @@ export class CompatibilityTracksAppender {
     let trackStartLevel = null;
     let trackEndLevel = null;
     for (const [level, track] of this.#trackForLevel) {
-      if (track.appenderName !== trackAppenderName) {
+      if (track !== trackAppender) {
         continue;
       }
       if (trackStartLevel === null) {
@@ -266,7 +266,7 @@ export class CompatibilityTracksAppender {
     }
 
     if (trackStartLevel === null || trackEndLevel === null) {
-      throw new Error(`Could not find events for track: ${trackAppenderName}`);
+      throw new Error(`Could not find events for track: ${trackAppender}`);
     }
     const entryLevels = this.#flameChartData.entryLevels;
     const events = [];
@@ -276,7 +276,7 @@ export class CompatibilityTracksAppender {
       }
     }
     events.sort((a, b) => a.ts - b.ts);
-    this.#eventsForTrack.set(trackAppenderName, events);
+    this.#eventsForTrack.set(trackAppender, events);
     return events;
   }
 
@@ -335,13 +335,13 @@ export class CompatibilityTracksAppender {
    * (Bottom-up, Call tree, etc.). These are the events from the track
    * that can be arranged in a tree shape.
    */
-  eventsForTreeView(trackAppenderName: TrackAppenderName): TraceEngine.Types.TraceEvents.TraceEventData[] {
-    const cachedData = this.#trackEventsForTreeview.get(trackAppenderName);
+  eventsForTreeView(trackAppender: TrackAppender): TraceEngine.Types.TraceEvents.TraceEventData[] {
+    const cachedData = this.#trackEventsForTreeview.get(trackAppender);
     if (cachedData) {
       return cachedData;
     }
 
-    let trackEvents = this.eventsInTrack(trackAppenderName);
+    let trackEvents = this.eventsInTrack(trackAppender);
     if (!this.canBuildTreesFromEvents(trackEvents)) {
       // Some tracks can include both async and sync events. When this
       // happens, we use all events for the tree views if a trees can be
@@ -351,7 +351,7 @@ export class CompatibilityTracksAppender {
       // events).
       trackEvents = trackEvents.filter(e => !TraceEngine.Types.TraceEvents.isAsyncPhase(e.ph));
     }
-    this.#trackEventsForTreeview.set(trackAppenderName, trackEvents);
+    this.#trackEventsForTreeview.set(trackAppender, trackEvents);
     return trackEvents;
   }
 
@@ -375,7 +375,7 @@ export class CompatibilityTracksAppender {
     if (!track) {
       return null;
     }
-    return this.eventsForTreeView(track.appenderName);
+    return this.eventsForTreeView(track);
   }
 
   /**
