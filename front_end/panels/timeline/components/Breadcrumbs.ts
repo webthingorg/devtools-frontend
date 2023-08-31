@@ -52,6 +52,8 @@ export class Breadcrumbs {
   // Breadcumb should be within the bounds of the parent and can not have both start and end be equal to the parent
   isTraceWindowWithinTraceWindow(
       child: TraceEngine.Types.Timing.TraceWindow, parent: TraceEngine.Types.Timing.TraceWindow): boolean {
+        console.log("parent ",parent);
+        console.log("child ", child);
     return (child.min >= parent.min && child.max <= parent.max) &&
         !(child.min === parent.min && child.max === parent.max);
   }
