@@ -67,6 +67,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
 
     this.overviewGrid.setResizeEnabled(false);
     this.overviewGrid.addEventListener(OverviewGridEvents.WindowChangedWithPosition, this.onWindowChanged, this);
+    this.overviewGrid.addEventListener(OverviewGridEvents.BreadcrumbAdded, this.onBreadcrumbAdded, this);
     this.overviewGrid.setClickHandler(this.onClick.bind(this));
     this.overviewControls = [];
     this.markers = new Map();
@@ -211,6 +212,11 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     return this.overviewControls.some(control => control.onClick(event));
   }
 
+  private onBreadcrumbAdded(): void {
+    console.log("heree");
+    this.dispatchEventToListeners(Events.BreadcrumbAdded, {startTime: this.windowStartTime, endTime: this.windowEndTime});
+  }
+
   private onWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedWithPositionEvent>): void {
     if (this.muteOnWindowChanged) {
       return;
@@ -259,6 +265,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   WindowChanged = 'WindowChanged',
+  BreadcrumbAdded = 'BreadcrumbAdded',
 }
 
 export interface WindowChangedEvent {
@@ -266,8 +273,14 @@ export interface WindowChangedEvent {
   endTime: number;
 }
 
+export interface BreadcrumbAddedEvent {
+  startTime: number;
+  endTime: number;
+}
+
 export type EventTypes = {
   [Events.WindowChanged]: WindowChangedEvent,
+  [Events.BreadcrumbAdded]: BreadcrumbAddedEvent,
 };
 
 export interface TimelineOverview {

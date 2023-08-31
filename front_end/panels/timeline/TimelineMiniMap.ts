@@ -54,15 +54,24 @@ export class TimelineMiniMap extends
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
       this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
     });
+
+    this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {
     this.element.prepend(this.#breadcrumbsUI);
-    this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
+    // this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
+    //   this.addBreadcrumb(
+    //       TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
+    //       TraceEngine.Types.Timing.MilliSeconds(event.data.endTime));
+    // });
+    this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.BreadcrumbAdded, event => {
       this.addBreadcrumb(
           TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
           TraceEngine.Types.Timing.MilliSeconds(event.data.endTime));
+        console.log("RECEIVED EVENT");
     });
+
   }
 
   addBreadcrumb(start: TraceEngine.Types.Timing.MilliSeconds, end: TraceEngine.Types.Timing.MilliSeconds): void {
