@@ -7019,6 +7019,16 @@ experimental domain Overlay
       # The content box highlight outline color (default: transparent).
       optional DOM.RGBA outlineColor
 
+  # Configuration for Windows Control Overlay
+  type WCOConfig extends object
+    properties
+      # Whether to show the title bar CSS
+      boolean showCSS
+      # Seleted platforms to show the overlay
+      string selectedPlatform
+      # The theme color defined in app manifest
+      string themeColor
+
   type ContainerQueryHighlightConfig extends object
     properties
       # A descriptor for the highlight appearance of container query containers.
@@ -7268,6 +7278,12 @@ experimental domain Overlay
     parameters
       # An array of node identifiers and descriptors for the highlight appearance.
       array of IsolatedElementHighlightConfig isolatedElementHighlightConfigs
+
+  # Show Window Controls Overlay for PWA
+  command setShowWco
+    parameters
+      # Window Controls Overlay data, null means hide WCO
+      optional WCOConfig WCOConfig
 
   # Fired when the node should be inspected. This happens after call to `setInspectMode` or when
   # user manually inspects an element.

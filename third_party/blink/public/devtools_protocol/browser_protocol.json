@@ -15105,6 +15105,28 @@
                     ]
                 },
                 {
+                    "id": "WCOConfig",
+                    "description": "Configuration for Windows Control Overlay",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "showCSS",
+                            "description": "Whether to show the title bar CSS",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "selectedPlatform",
+                            "description": "Seleted platforms to show the overlay",
+                            "type": "string"
+                        },
+                        {
+                            "name": "themeColor",
+                            "description": "The theme color defined in app manifest",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
                     "id": "ContainerQueryHighlightConfig",
                     "type": "object",
                     "properties": [
@@ -15636,6 +15658,18 @@
                             "items": {
                                 "$ref": "IsolatedElementHighlightConfig"
                             }
+                        }
+                    ]
+                },
+                {
+                    "name": "setShowWco",
+                    "description": "Show Window Controls Overlay for PWA",
+                    "parameters": [
+                        {
+                            "name": "WCOConfig",
+                            "description": "Window Controls Overlay data, null means hide WCO",
+                            "optional": true,
+                            "$ref": "WCOConfig"
                         }
                     ]
                 }
