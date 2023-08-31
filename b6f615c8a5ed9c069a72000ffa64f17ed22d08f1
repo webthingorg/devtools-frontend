@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a5e1db_d4332a6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-31T12:22:03Z",
+      "side": 1,
+      "message": "lgtm with notes, thanks!",
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cc2d4d6_2c08248f",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-31T12:22:03Z",
+      "side": 1,
+      "message": "the renderer handler returns a map of these threads as part of its data() return - could we check that rather than do the name check here? That would be a little bit cleaner. Otherwise, perhaps we do not need the rasterizer map that is in the renderer handler and can remove it?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 71
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d181dc55_83e8fe5a",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-31T12:22:03Z",
+      "side": 1,
+      "message": "this is a nit that you can feel free to ignore, but it does not feel like the cleanest API to have to pass this into all appenders even if they are not for a rasterizer thread. But I do not have an immediate suggestion as an alternative. Perhaps it is not worth thinking about too much as we could revisit some of this architecture once the old engine is gone and we are thinking about cleaning up the data providers and the appenders",
+      "range": {
+        "startLine": 199,
+        "startChar": 100,
+        "endLine": 199,
+        "endChar": 111
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3601b81_5cd2c67a",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-08-31T12:22:03Z",
+      "side": 1,
+      "message": "do you think rasterIndex might be a better name here? Count implies it is the total amount, but actually IIUC it changes by one for each rasterizer thread",
+      "range": {
+        "startLine": 172,
+        "startChar": 14,
+        "endLine": 172,
+        "endChar": 25
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
