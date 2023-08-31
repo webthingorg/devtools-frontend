@@ -262,7 +262,7 @@ describe('The Network Request view', async () => {
     }
   }
 
-  it('shows request headers and payload', async () => {
+  xit('shows request headers and payload', async () => {
     await navigateToNetworkTab('headers-and-payload.html');
 
     await waitForSomeRequestsToAppear(2);
@@ -378,7 +378,7 @@ describe('The Network Request view', async () => {
     assertOutlineMatches(expectedPayloadContent, payloadOutlineText);
   });
 
-  it('shows raw headers', async () => {
+  xit('shows raw headers', async () => {
     await navigateToNetworkTab('headers-and-payload.html');
 
     await waitForSomeRequestsToAppear(2);

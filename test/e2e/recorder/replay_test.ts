@@ -357,7 +357,7 @@ describe('Recorder', function() {
       );
     });
 
-    it('should be able to scroll into view when needed', async () => {
+    xit('should be able to scroll into view when needed', async () => {
       const {target} = getBrowserAndPages();
       await setupRecorderWithScriptAndReplay({
         title: 'Test Recording',

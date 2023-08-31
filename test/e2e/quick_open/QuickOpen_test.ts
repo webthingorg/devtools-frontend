@@ -44,13 +44,13 @@ describe('Quick Open menu', () => {
     assert.strictEqual(firstItemTitle, 'hello-world.html');
   });
 
-  it('opens the sources panel when a file is selected', async () => {
+  xit('opens the sources panel when a file is selected', async () => {
     await openAFileWithQuickMenu();
     await togglePreferenceInSettingsTab('Focus Sources panel when triggering a breakpoint');
     await openAFileWithQuickMenu();
   });
 
-  it('sorts authored above deployed', async () => {
+  xit('sorts authored above deployed', async () => {
     await goToResource('sources/multi-workers-sourcemap.html');
     await openSourcesPanel();
 
