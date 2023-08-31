@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c09a4b8_89067786",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-31T12:12:59Z",
+      "side": 0,
+      "message": "Cache events by track and not by track name: events belonging to a track were cached using its track appender\u0027s name, meaning there would be collision among\ntracks renderered by the \u0027ThreadAppender\u0027. Instead, cache using the appender\nobject.",
+      "range": {
+        "startLine": 249,
+        "startChar": 35,
+        "endLine": 249,
+        "endChar": 52
+      },
+      "revId": "e05c7d315b73e3e76e954ada17d4df79c589c3ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
