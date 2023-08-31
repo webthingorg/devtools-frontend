@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6da1943e_e2e0d097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-08-31T06:21:06Z",
+      "side": 1,
+      "message": "Thank you!",
+      "revId": "ac09d7466a33e629beb27c759c59a09d6834b2e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c8acf05_71dcf067",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1118629
+      },
+      "writtenOn": "2023-08-31T06:21:06Z",
+      "side": 1,
+      "message": "Nit: Could we leave out `Extended` from the name now? As far as I understand, there is no un-extended version anymore...",
+      "range": {
+        "startLine": 291,
+        "startChar": 20,
+        "endLine": 291,
+        "endChar": 28
+      },
+      "revId": "ac09d7466a33e629beb27c759c59a09d6834b2e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
