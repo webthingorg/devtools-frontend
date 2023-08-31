@@ -95,6 +95,7 @@ export class DOMNode {
   internalSubset?: string;
   name?: string;
   value?: string;
+  playerID: string|undefined;
 
   constructor(domModel: DOMModel) {
     this.#domModelInternal = domModel;
@@ -114,6 +115,7 @@ export class DOMNode {
     this.firstChild = null;
     this.lastChild = null;
     this.parentNode = null;
+    this.playerID = undefined;
   }
 
   static create(domModel: DOMModel, doc: DOMDocument|null, isInShadowTree: boolean, payload: Protocol.DOM.Node):
@@ -141,6 +143,10 @@ export class DOMNode {
     this.#frameOwnerFrameIdInternal = payload.frameId || null;
     this.#xmlVersion = payload.xmlVersion;
     this.#isSVGNodeInternal = Boolean(payload.isSVG);
+
+    if (this.#nodeNameInternal === 'AUDIO' || this.#nodeNameInternal === 'VIDEO') {
+      this.playerID = '$AudioID <to-be-generated>';
+    }
 
     if (payload.attributes) {
       this.setAttributesPayload(payload.attributes);

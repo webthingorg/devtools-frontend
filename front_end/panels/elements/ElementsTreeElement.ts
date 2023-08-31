@@ -198,6 +198,11 @@ const UIStrings = {
    * the overlay showing CSS scroll snapping for the current element.
    */
   disableScrollSnap: 'Disable scroll-snap overlay',
+  /**
+   *@description Label of an adorner in the Elements panel. When clicked, it disables
+   * the overlay showing CSS scroll snapping for the current element.
+   */
+  openMediaPanel: 'View element in Media panel',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ElementsTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -2060,6 +2065,29 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     return adorner;
   }
 
+  adornMedia({name}: {name: string}): Adorners.Adorner.Adorner {
+    const adornerContent = document.createElement('span');
+
+    adornerContent.textContent = name;
+    adornerContent.classList.add('adorner-with-icon');
+
+    const linkIcon = new IconButton.Icon.Icon();
+    linkIcon.data = {iconName: 'select-element', color: 'var(--icon-default)', width: '14px', height: '14px'};
+    adornerContent.append(linkIcon);
+
+    const adorner = new Adorners.Adorner.Adorner();
+    adorner.data = {
+      name,
+      content: adornerContent,
+    };
+    if (isOpeningTag(this.tagTypeContext)) {
+      this.tagTypeContext.adorners.push(adorner);
+      ElementsPanel.instance().registerAdorner(adorner);
+      this.updateAdorners(this.tagTypeContext);
+    }
+    return adorner;
+  }
+
   removeAdorner(adornerToRemove: Adorners.Adorner.Adorner, context: OpeningTagContext): void {
     const adorners = context.adorners;
     ElementsPanel.instance().deregisterAdorner(adornerToRemove);
@@ -2156,6 +2184,10 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     if (isContainer) {
       this.pushContainerAdorner(this.tagTypeContext);
     }
+
+    if (node.playerID !== undefined) {
+      this.pushMediaAdorner(this.tagTypeContext);
+    }
   }
 
   pushGridAdorner(context: OpeningTagContext, isSubgrid: boolean): void {
@@ -2221,7 +2253,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
                      }) as EventListener);
 
     adorner.addInteraction(onClick, {
-      isToggle: true,
+      isToggle: false,
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableScrollSnap),
       ariaLabelActive: i18nString(UIStrings.disableScrollSnap),
@@ -2315,6 +2347,31 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           }
           adorner.toggle(enabled);
         });
+
+    context.styleAdorners.push(adorner);
+  }
+
+  pushMediaAdorner(context: OpeningTagContext): void {
+    const node = this.node();
+    const nodeId = node.id;
+    if (!nodeId) {
+      return;
+    }
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.MEDIA);
+    const adorner = this.adornMedia(config);
+    adorner.classList.add('media');
+
+    const onClick = (((): void => {
+                       void UI.ViewManager.ViewManager.instance().showView('medias');
+                     }) as EventListener);
+
+    adorner.addInteraction(onClick, {
+      isToggle: false,
+      shouldPropagateOnKeydown: false,
+      ariaLabelDefault: i18nString(UIStrings.openMediaPanel),
+      ariaLabelActive: i18nString(UIStrings.openMediaPanel),
+    });
 
     context.styleAdorners.push(adorner);
   }
