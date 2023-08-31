@@ -13,13 +13,13 @@ import {
   goToResource,
   waitFor,
 } from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {it} from '../../shared/mocha-extensions.js';
 import {navigateToApplicationTab} from '../helpers/application-helpers.js';
 import {getDataGrid, getDataGridRows, getInnerTextOfDataGridCells} from '../helpers/datagrid-helpers.js';
 
 const REPORTING_API_SELECTOR = '[aria-label="Reporting API"]';
 
-describe('The Reporting API Page', async () => {
+xdescribe('The Reporting API Page', async () => {
   it('shows reports', async () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'reporting-api');

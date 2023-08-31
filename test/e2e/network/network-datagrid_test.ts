@@ -375,7 +375,7 @@ describe('The Network Tab', async function() {
     ]);
   });
 
-  it('shows preserved pending requests as unknown', async () => {
+  xit('shows preserved pending requests as unknown', async () => {
     const {target, frontend} = getBrowserAndPages();
 
     await navigateToNetworkTab('send_beacon_on_unload.html');

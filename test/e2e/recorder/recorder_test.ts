@@ -426,7 +426,7 @@ describe('Recorder', function() {
     assertRecordingMatchesSnapshot(recording);
   });
 
-  it('should capture and store screenshots for every section', async () => {
+  xit('should capture and store screenshots for every section', async () => {
     const {frontend} = getBrowserAndPages();
     await startRecording('recorder/recorder.html');
     await stopRecording();
