@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2e5edea_7c01c275",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-31T13:03:10Z",
+      "side": 1,
+      "message": "I\u0027m neutral in that regard since the data is available in the same shape on both cases. Checking for event names is definitely something more in tune with the model domain, but raster threads can be treated generically in the model as we have with other threads, so we might not need to have a separate map for these.\n\nMaybe it would make sense to further group threads in the renderer handler (by process \u0026 thread type)?",
+      "parentUuid": "4cc2d4d6_2c08248f",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 71
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d181dc55_83e8fe5a",
         "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
         "patchSetId": 4
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da66520b_59d64ba8",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-31T13:03:10Z",
+      "side": 1,
+      "message": "yeah the underlying issue is something that got me thinking about alternatives for a while. The problem is raster tracks are grouped and are the only grouped tracks. In order to handle their groups, each track needs to know if a group for all raster tracks has been added before, but this info is only available at this point. \n\nI was also thinking about adding a dedicated appender for that, but I thought that would introduce to much duplicate code.\n\nAnother alternative is modifying the flamechartData so that the appender can query it and determine if the group has been added (like adding a non ui facing name). I like this option a bit more. WDYT?",
+      "parentUuid": "d181dc55_83e8fe5a",
+      "range": {
+        "startLine": 199,
+        "startChar": 100,
+        "endLine": 199,
+        "endChar": 111
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3601b81_5cd2c67a",
         "filename": "front_end/panels/timeline/ThreadAppender.ts",
         "patchSetId": 4
@@ -94,6 +142,30 @@
       "writtenOn": "2023-08-31T12:22:03Z",
       "side": 1,
       "message": "do you think rasterIndex might be a better name here? Count implies it is the total amount, but actually IIUC it changes by one for each rasterizer thread",
+      "range": {
+        "startLine": 172,
+        "startChar": 14,
+        "endLine": 172,
+        "endChar": 25
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39235d6d_6d577278",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-08-31T13:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3601b81_5cd2c67a",
       "range": {
         "startLine": 172,
         "startChar": 14,
