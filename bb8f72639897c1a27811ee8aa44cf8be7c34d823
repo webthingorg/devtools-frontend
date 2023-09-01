@@ -212,6 +212,24 @@
       "parentUuid": "5ac5b09e_538e950c",
       "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0c13af5_a6ec2c7d",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-01T10:07:00Z",
+      "side": 1,
+      "message": "Oh, of course! So how would that look like here? Return both (natural) width and height, and in `renderManifest` compare them by something like `w1 * h2 \u003d\u003d\u003d w2 * h1`?",
+      "parentUuid": "53af8a8a_eec5e85e",
+      "revId": "bb8f72639897c1a27811ee8aa44cf8be7c34d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
