@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3fa3152b_dca97e31",
+        "filename": "front_end/panels/timeline/timelineHistoryManager.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:16:09Z",
+      "side": 1,
+      "message": "This is not in the mock but the color did not change from what is was before : \nhttps://screenshot.googleplex.com/A7HS3JC56RJwkTT.png",
+      "parentUuid": "e43a425d_282a1bc3",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea58f7a1_62e76839",
         "filename": "front_end/panels/timeline/timelineMiniMap.css",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-30T14:51:01Z",
       "side": 1,
       "message": "do you know which element you are updating this color for? Also on line 91",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0360c84f_f0de12cc",
+        "filename": "front_end/panels/timeline/timelineMiniMap.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:16:09Z",
+      "side": 1,
+      "message": "Yes those are those : \nhttps://screenshot.googleplex.com/9MT7VADnv5DHNdQ.png (CPU and NET etc)\n\nAnd the one on line 91 in this:\nhttps://screenshot.googleplex.com/4YiRzoZRFELc4wV.png",
+      "parentUuid": "ea58f7a1_62e76839",
       "range": {
         "startLine": 17,
         "startChar": 2,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67e8221a_0b1a7ec6",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:16:09Z",
+      "side": 1,
+      "message": "Yes it is here https://screenshot.googleplex.com/6EoVVNTeQPn95Cw.png. (I have added the before/after inside the bug).",
+      "parentUuid": "fe2c0cb8_b5ccb9f6",
+      "range": {
+        "startLine": 423,
+        "startChar": 2,
+        "endLine": 423,
+        "endChar": 46
+      },
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b30901e6_598e2630",
         "filename": "test/interactions/goldens/linux/performance/animations_track_collapsed_dark_mode.png",
         "patchSetId": 3
@@ -83,6 +155,24 @@
       "writtenOn": "2023-08-30T14:51:01Z",
       "side": 1,
       "message": "on this screenshot the vertical lines changed from being white to being black, I am not sure that\u0027s what we want to have",
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b919ab55_42c84f96",
+        "filename": "test/interactions/goldens/linux/performance/animations_track_collapsed_dark_mode.png",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:16:09Z",
+      "side": 1,
+      "message": "Good catch thanks !",
+      "parentUuid": "b30901e6_598e2630",
       "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
