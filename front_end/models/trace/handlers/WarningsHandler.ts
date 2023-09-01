@@ -19,7 +19,8 @@ export type Warning = 'LONG_TASK'|'IDLE_CALLBACK_OVER_TIME'|'FORCED_LAYOUT'|'FOR
 const warningsPerEvent: WarningsData['perEvent'] = new Map();
 const eventsPerWarning: WarningsData['perWarning'] = new Map();
 
-const FORCED_LAYOUT_AND_STYLES_THRESHOLD = Helpers.Timing.millisecondsToMicroseconds(Types.Timing.MilliSeconds(10));
+export const FORCED_LAYOUT_AND_STYLES_THRESHOLD =
+    Helpers.Timing.millisecondsToMicroseconds(Types.Timing.MilliSeconds(10));
 
 export function reset(): void {
   warningsPerEvent.clear();
