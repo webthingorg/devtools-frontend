@@ -246,7 +246,6 @@ describeWithRealConnection('FrameDetailsView', () => {
       'SameOrigin',
       'available, transferable',
       'available\xA0Learn more',
-      'Prerendering ongoing https://example.test/',
     ]);
   });
 });
