@@ -505,7 +505,7 @@ describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => 
     networkManager.dispatchEventToListeners(SDK.NetworkManager.Events.RequestFinished, request);
   }
 
-  it('blocks getting request contents on blocked urls', async () => {
+  it('does not include blocked hosts in onRequestFinished event listener', async () => {
     const frameId = 'frame-id' as Protocol.Page.FrameId;
     const target = createTarget({id: 'target' as Protocol.Target.TargetID});
     target.setInspectedURL(allowedUrl);
@@ -521,11 +521,11 @@ describeWithDevtoolsExtension('Runtime hosts policy', {hostsPolicy}, context => 
     createRequest(networkManager, frameId, 'blocked-url-request-id' as Protocol.Network.RequestId, blockedUrl);
     createRequest(networkManager, frameId, 'allowed-url-request-id' as Protocol.Network.RequestId, allowedUrl);
 
-    await waitForFunction(() => requests.length >= 2);
-    const requestContents = await Promise.all(
-        requests.map(request => new Promise(r => request.getContent((content, encoding) => r({content, encoding})))));
-    assert.deepStrictEqual(
-        requestContents, [{content: undefined, encoding: undefined}, {content: 'content', encoding: ''}]);
+    await waitForFunction(() => requests.length >= 1);
+    
+    assert.equal(requests.length, 1);
+    assert.exists(requests.find(e => e.request.url === allowedUrl));
+    assert.notExists(requests.find(e => e.request.url === blockedUrl));
   });
 
   it('blocks setting resource contents on blocked urls', async () => {
