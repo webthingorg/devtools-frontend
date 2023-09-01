@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "290258a5_53595bb7",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-01T02:28:25Z",
+      "side": 1,
+      "message": "It looks like recorder panel uses ` await childTargetManager.getParentTargetId()` for this.\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/recorder/models/RecordingPlayer.ts;l\u003d135-142;drc\u003df662413f97c5080c38ff56af70ed3f436c0a7006\n\nis that equivalent and solves this?",
+      "revId": "e7cae42c3637a6c9529b5e12d5e2dbaaf9ee89be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
