@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74bd482f_325bb355",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-01T11:24:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05ee8e2f_dd39dc9b",
+      "range": {
+        "startLine": 383,
+        "startChar": 3,
+        "endLine": 385,
+        "endChar": 13
+      },
+      "revId": "e6e2fc289a7469ca5778d4e6a9bdfff2ced4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9473e21e_fdb05368",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-08-23T15:05:03Z",
       "side": 1,
       "message": "Have you looked into why this is needed and if we also need it for our case?",
+      "range": {
+        "startLine": 394,
+        "startChar": 10,
+        "endLine": 394,
+        "endChar": 44
+      },
+      "revId": "e6e2fc289a7469ca5778d4e6a9bdfff2ced4bf7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "748473f5_740a6a19",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-01T11:24:17Z",
+      "side": 1,
+      "message": "Not 100% sure why it is needed there but for the keepOpen condition surely is not needed(with it just the first click on menu items has effect)",
+      "parentUuid": "9473e21e_fdb05368",
       "range": {
         "startLine": 394,
         "startChar": 10,
