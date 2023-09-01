@@ -67,6 +67,16 @@ class PreloadingUIUtils {
     }
   }
 
+  static capitalziedAction(action: Protocol.Preload.SpeculationAction): string {
+    // Use "Prefetch"/"Prerender" at the start of a standalone sentence.
+    switch (action) {
+      case Protocol.Preload.SpeculationAction.Prefetch:
+        return i18n.i18n.lockedString('Prefetch');
+      case Protocol.Preload.SpeculationAction.Prerender:
+        return i18n.i18n.lockedString('Prerender');
+    }
+  }
+
   static status(status: SDK.PreloadingModel.PreloadingStatus): string {
     // See content/public/browser/preloading.h PreloadingAttemptOutcome.
     switch (status) {
@@ -216,7 +226,7 @@ export class MismatchedPreloadingGrid extends LegacyWrapper.LegacyWrapper.Wrappa
                    value: row.url,
                    renderer: () => urlRenderer(row.url, pageURL),
                  },
-                 {columnId: 'action', value: PreloadingUIUtils.action(row.action)},
+                 {columnId: 'action', value: PreloadingUIUtils.capitalziedAction(row.action)},
                  {columnId: 'status', value: PreloadingUIUtils.status(row.status)},
                ],
              }));
