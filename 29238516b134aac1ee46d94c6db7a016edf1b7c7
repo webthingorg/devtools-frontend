@@ -34,6 +34,24 @@
       "parentUuid": "fbde1c2d_7f6b2393",
       "revId": "29238516b134aac1ee46d94c6db7a016edf1b7c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92a86e99_419a4ca2",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-09-01T05:37:08Z",
+      "side": 0,
+      "message": "The wireframes are incomplete here.\n\nThere are basically two kinds of \"Not attempted\":\n\n- If the previous page did not attempt to preload any URLs, then we should not show anything.\n\n- If the previous page attempted to preload some URLs (but not the current URL), then we should show current URL + URLs being preloaded by the initiating page.",
+      "parentUuid": "3f795c76_83acf31f",
+      "revId": "29238516b134aac1ee46d94c6db7a016edf1b7c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

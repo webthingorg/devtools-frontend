@@ -33,6 +33,23 @@
       "message": "include wolfi@ as dsv@ is OOO right now.",
       "revId": "41aabb2bd2db9c82a678bc4af839fce07b7ddde2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87d8d121_35bcb991",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-09-01T05:37:08Z",
+      "side": 1,
+      "message": "In the wireframes we had a discussion about keeping the separate values for prerender and preload. They should be \"Prerender successful\", \"Prefetch successful\", \"Prerender failed\", \"Prefetch failed\".\n\nIn addition, we should keep the old text as a tooltip. This is especially important for prefetchFailed/prerenderFailed/noPreloads.",
+      "revId": "41aabb2bd2db9c82a678bc4af839fce07b7ddde2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
