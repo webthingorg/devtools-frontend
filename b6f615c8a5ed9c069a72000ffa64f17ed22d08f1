@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "720bfe58_50862a60",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-01T09:33:12Z",
+      "side": 1,
+      "message": "SGTM! Thank you!",
+      "parentUuid": "2b8ad17a_a111b2f9",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 71
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d181dc55_83e8fe5a",
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "I like the idea of the appender being able to query it; I wonder if we need to do that now or if we can push that back - I think there is probably a project to reflect on our architecture once the old engine is gone and see if we can make incremental improvements. Appenders being able to query existing data might slot into that, or also I think we might want to rearchitecture how we handle grouped tracks - or if we even want them at all.\n\nI will leave it up to you if you think any more is worth doing now, or in a follow-up CL, or if we defer this until later.",
       "parentUuid": "da66520b_59d64ba8",
+      "range": {
+        "startLine": 199,
+        "startChar": 100,
+        "endLine": 199,
+        "endChar": 111
+      },
+      "revId": "b6f615c8a5ed9c069a72000ffa64f17ed22d08f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8adec559_177168ad",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-01T09:33:12Z",
+      "side": 1,
+      "message": "I support reflecting back on our architechture once everything is more stable and clear. I suspect we could leverage the grouping architechture by thread type we mentioned before to improve the API here. So I\u0027d say we move on with this and come back.\n\nSince it\u0027s clear we need to improve this particular api, I\u0027ve added a TODO to make sure we fix it.\n\nThanks for sharing your thoughts!!",
+      "parentUuid": "e330a59a_580fed8c",
       "range": {
         "startLine": 199,
         "startChar": 100,
