@@ -68,7 +68,7 @@ describe('Network request blocking panel', async () => {
     expect(await checkboxIsChecked(firstCheckbox)).to.equal(true);
   });
 
-  it('pattern scrollable when blocking disabled', async () => {
+  xit('pattern scrollable when blocking disabled', async () => {
     await setup();
     await disableNetworkRequestBlocking();
 

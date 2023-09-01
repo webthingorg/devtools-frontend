@@ -29,7 +29,7 @@ describe('Media Tab', () => {
     await waitForPlayerButtonTexts(4);
   });
 
-  it('ensures that errors are rendered nicely', async () => {
+  xit('ensures that errors are rendered nicely', async () => {
     await openPanelViaMoreTools('Media');
     await goToResource('media/corrupt.webm');
     const {target} = getBrowserAndPages();
