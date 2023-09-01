@@ -111,10 +111,16 @@ export class ProtocolService {
     this.removeDialogHandler = (): void =>
         resourceTreeModel.removeEventListener(SDK.ResourceTreeModel.Events.JavaScriptDialogOpening, dialogHandler);
 
+    // `mainTarget.id()` can output "main" if DevTools tab target is disabled.
+    // We need the raw CDP target id from the target info JSON.
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=1477084
+    const targetId = mainTarget.targetInfo()?.targetId ||
+        (await mainTarget.targetAgent().invoke_getTargetInfo({})).targetInfo.targetId;
+
     this.parallelConnection = connection;
     this.targetInfos = childTargetManager.targetInfos();
     this.mainFrameId = mainFrame.id;
-    this.mainTargetId = mainTarget.id();
+    this.mainTargetId = targetId;
     this.mainSessionId = sessionId;
   }
 
