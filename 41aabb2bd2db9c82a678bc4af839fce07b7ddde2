@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "948ad074_e4147b24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-01T13:26:42Z",
+      "side": 1,
+      "message": "Looking at the screenshots this feels like there is too much vertical whitespace, and that there is some alignment issue around \u0027failure reason\u0027",
+      "revId": "41aabb2bd2db9c82a678bc4af839fce07b7ddde2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87d8d121_35bcb991",
