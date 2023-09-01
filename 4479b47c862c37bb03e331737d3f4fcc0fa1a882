@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "905abaff_5ac6031e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T11:53:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e0f6294_25864087",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "113ef4ef_0321a762",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-31T13:24:22Z",
       "side": 1,
       "message": "the",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41a9f5e9_f446afca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T11:53:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "113ef4ef_0321a762",
       "range": {
         "startLine": 10,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9d70bb_6a6071ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T11:53:32Z",
+      "side": 1,
+      "message": "They are in the bug description :)",
+      "parentUuid": "fbe82a53_505975ff",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 66
+      },
+      "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69a10b2f_fca5306c",
@@ -83,6 +155,24 @@
       "writtenOn": "2023-08-31T13:24:22Z",
       "side": 1,
       "message": "is this change as expected?\nI see in the split widget the first line the text changed from gray to black, is this expected?",
+      "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b54b8a8_2f3ab504",
+        "filename": "test/interactions/goldens/linux/performance/splitWidgetCallTree.png",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T11:53:32Z",
+      "side": 1,
+      "message": "This is fixed here : https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4822452/9 But very good catch thanks !",
+      "parentUuid": "69a10b2f_fca5306c",
       "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
