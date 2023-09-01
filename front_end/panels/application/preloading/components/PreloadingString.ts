@@ -652,13 +652,13 @@ export function ruleSetLocationShort(
   return Bindings.ResourceUtils.displayNameForURL(url);
 }
 
-export function action({key}: SDK.PreloadingModel.PreloadingAttempt): string {
+export function capitalizedAction({key}: SDK.PreloadingModel.PreloadingAttempt): string {
   // Use "prefetch"/"prerender" as is in SpeculationRules.
   switch (key.action) {
     case Protocol.Preload.SpeculationAction.Prefetch:
-      return i18n.i18n.lockedString('prefetch');
+      return i18n.i18n.lockedString('Prefetch');
     case Protocol.Preload.SpeculationAction.Prerender:
-      return i18n.i18n.lockedString('prerender');
+      return i18n.i18n.lockedString('Prerender');
   }
 }
 

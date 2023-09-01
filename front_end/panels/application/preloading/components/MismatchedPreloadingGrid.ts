@@ -57,13 +57,13 @@ const str_ =
 export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 class PreloadingUIUtils {
-  static action(action: Protocol.Preload.SpeculationAction): string {
-    // Use "prefetch"/"prerender" as is in SpeculationRules.
+  static capitalziedAction(action: Protocol.Preload.SpeculationAction): string {
+    // Use "Prefetch"/"Prerender" at the start of a standalone sentence.
     switch (action) {
       case Protocol.Preload.SpeculationAction.Prefetch:
-        return i18n.i18n.lockedString('prefetch');
+        return i18n.i18n.lockedString('Prefetch');
       case Protocol.Preload.SpeculationAction.Prerender:
-        return i18n.i18n.lockedString('prerender');
+        return i18n.i18n.lockedString('Prerender');
     }
   }
 
@@ -216,7 +216,7 @@ export class MismatchedPreloadingGrid extends LegacyWrapper.LegacyWrapper.Wrappa
                    value: row.url,
                    renderer: () => urlRenderer(row.url, pageURL),
                  },
-                 {columnId: 'action', value: PreloadingUIUtils.action(row.action)},
+                 {columnId: 'action', value: PreloadingUIUtils.capitalziedAction(row.action)},
                  {columnId: 'status', value: PreloadingUIUtils.status(row.status)},
                ],
              }));
