@@ -1420,7 +1420,6 @@ export class TimelineUIUtils {
       }
     }
     const color = TimelineUIUtils.eventStyle(event).category.color;
-
     // This event is considered idle time but still rendered as a scripting event here
     // to connect the StreamingCompileScriptParsing events it belongs to.
     if (event.name === TimelineModel.TimelineModel.RecordType.StreamingCompileScriptWaiting) {
@@ -2939,21 +2938,16 @@ export class TimelineUIUtils {
       return categories;
     }
     categories = {
-      loading: new TimelineCategory(
-          'loading', i18nString(UIStrings.loading), true, 'hsl(214, 67%, 74%)', 'hsl(214, 67%, 66%)'),
-      experience: new TimelineCategory(
-          'experience', i18nString(UIStrings.experience), false, 'hsl(5, 80%, 74%)', 'hsl(5, 80%, 66%)'),
-      scripting: new TimelineCategory(
-          'scripting', i18nString(UIStrings.scripting), true, 'hsl(43, 83%, 72%)', 'hsl(43, 83%, 64%) '),
-      rendering: new TimelineCategory(
-          'rendering', i18nString(UIStrings.rendering), true, 'hsl(256, 67%, 76%)', 'hsl(256, 67%, 70%)'),
-      painting: new TimelineCategory(
-          'painting', i18nString(UIStrings.painting), true, 'hsl(109, 33%, 64%)', 'hsl(109, 33%, 55%)'),
-      gpu: new TimelineCategory('gpu', i18nString(UIStrings.gpu), false, 'hsl(109, 33%, 64%)', 'hsl(109, 33%, 55%)'),
-      async:
-          new TimelineCategory('async', i18nString(UIStrings.async), false, 'hsl(0, 100%, 50%)', 'hsl(0, 100%, 40%)'),
-      other: new TimelineCategory('other', i18nString(UIStrings.system), false, 'hsl(0, 0%, 87%)', 'hsl(0, 0%, 79%)'),
-      idle: new TimelineCategory('idle', i18nString(UIStrings.idle), false, 'hsl(0, 0%, 98%)', 'hsl(0, 0%, 98%)'),
+      loading: new TimelineCategory('loading', i18nString(UIStrings.loading), true, 'var(--app-color-loading)'),
+      experience:
+          new TimelineCategory('experience', i18nString(UIStrings.experience), false, 'var(--app-color-rendering)'),
+      scripting: new TimelineCategory('scripting', i18nString(UIStrings.scripting), true, 'var(--app-color-scripting)'),
+      rendering: new TimelineCategory('rendering', i18nString(UIStrings.rendering), true, 'var(--app-color-rendering)'),
+      painting: new TimelineCategory('painting', i18nString(UIStrings.painting), true, 'var(--app-color-painting)'),
+      gpu: new TimelineCategory('gpu', i18nString(UIStrings.gpu), false, 'var(--app-color-painting)'),
+      async: new TimelineCategory('async', i18nString(UIStrings.async), false, 'hsl(0, 100%, 50%)'),
+      other: new TimelineCategory('other', i18nString(UIStrings.system), false, 'var(--app-color-system)'),
+      idle: new TimelineCategory('idle', i18nString(UIStrings.idle), false, 'var(--app-color-idle)'),
     };
     return categories;
   }
@@ -3015,8 +3009,7 @@ export class TimelineUIUtils {
       const value = categoryTime - (selfTime || 0);
       if (value > 0) {
         appendLegendRow(
-            selfCategory.name, i18nString(UIStrings.sChildren, {PH1: selfCategory.title}), value,
-            selfCategory.childColor);
+            selfCategory.name, i18nString(UIStrings.sChildren, {PH1: selfCategory.title}), value, selfCategory.color);
       }
     }
 
@@ -3026,7 +3019,7 @@ export class TimelineUIUtils {
       if (category === selfCategory) {
         continue;
       }
-      appendLegendRow(category.name, category.title, aggregatedStats[category.name], category.childColor);
+      appendLegendRow(category.name, category.title, aggregatedStats[category.name], category.color);
     }
 
     pieChart.data = {
@@ -3508,15 +3501,13 @@ export class TimelineCategory {
   name: string;
   title: string;
   visible: boolean;
-  childColor: string;
   color: string;
   private hiddenInternal?: boolean;
 
-  constructor(name: string, title: string, visible: boolean, childColor: string, color: string) {
+  constructor(name: string, title: string, visible: boolean, color: string) {
     this.name = name;
     this.title = title;
     this.visible = visible;
-    this.childColor = childColor;
     this.color = color;
     this.hidden = false;
   }
