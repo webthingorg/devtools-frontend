@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b1dd9c2_ee0ae548",
+        "filename": "front_end/panels/timeline/timelineHistoryManager.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fa3152b_dca97e31",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea58f7a1_62e76839",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Yes those are those : \nhttps://screenshot.googleplex.com/9MT7VADnv5DHNdQ.png (CPU and NET etc)\n\nAnd the one on line 91 in this:\nhttps://screenshot.googleplex.com/4YiRzoZRFELc4wV.png",
       "parentUuid": "ea58f7a1_62e76839",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85748036_d57e4cea",
+        "filename": "front_end/panels/timeline/timelineMiniMap.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0360c84f_f0de12cc",
       "range": {
         "startLine": 17,
         "startChar": 2,
@@ -142,6 +190,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e29871_b7e5bd00",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67e8221a_0b1a7ec6",
+      "range": {
+        "startLine": 423,
+        "startChar": 2,
+        "endLine": 423,
+        "endChar": 46
+      },
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b30901e6_598e2630",
@@ -173,6 +245,24 @@
       "side": 1,
       "message": "Good catch thanks !",
       "parentUuid": "b30901e6_598e2630",
+      "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d7951ea_acdd6f49",
+        "filename": "test/interactions/goldens/linux/performance/animations_track_collapsed_dark_mode.png",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T12:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b919ab55_42c84f96",
       "revId": "1adac44b0821f550f13054a68eaf4d8d7a4044b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
