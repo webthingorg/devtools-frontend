@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "759bfcaf_c38bf536",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-01T12:51:08Z",
+      "side": 1,
+      "message": "PT(another)L\n\nthere still seems to be some flakiness around the ApplicationPanelSideBar tests. The first run on linux failed.",
+      "revId": "b1b862f678fb09843e505532be2ee66cb2789d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e26b34_10833aa0",
+        "filename": "test/unittests/front_end/helpers/EnvironmentHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-01T12:51:08Z",
+      "side": 1,
+      "message": "Btw, that this wasn\u0027t a problem until now indicates that some models in the test used a real Settings.instance() while parts of the test used the stubbed out one.\n\nDid I already mention that our global singletons frustrate me?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 7
+      },
+      "revId": "b1b862f678fb09843e505532be2ee66cb2789d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
