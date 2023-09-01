@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcf5f01d_2218602d",
+        "filename": "front_end/ui/components/docs/recorder_injected/basic.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-01T13:21:07Z",
+      "side": 1,
+      "message": "the attribute has been renamed to shadowrootmode and the old version triggers a warning",
+      "revId": "9171780c33acefba6b6b9d5b6615b6e02edf0c24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
