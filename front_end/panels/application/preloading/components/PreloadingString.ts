@@ -662,6 +662,16 @@ export function action({key}: SDK.PreloadingModel.PreloadingAttempt): string {
   }
 }
 
+export function capitalizedAction({key}: SDK.PreloadingModel.PreloadingAttempt): string {
+  // Use "prefetch"/"prerender" as is in SpeculationRules.
+  switch (key.action) {
+    case Protocol.Preload.SpeculationAction.Prefetch:
+      return i18n.i18n.lockedString('Prefetch');
+    case Protocol.Preload.SpeculationAction.Prerender:
+      return i18n.i18n.lockedString('Prerender');
+  }
+}
+
 export function status(status: SDK.PreloadingModel.PreloadingStatus): string {
   // See content/public/browser/preloading.h PreloadingAttemptOutcome.
   switch (status) {
