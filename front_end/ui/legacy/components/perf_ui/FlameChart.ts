@@ -1089,7 +1089,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const entryIndex = indexes[i];
       this.#drawEventRect(context, timelineData, entryIndex);
     }
-    context.fillStyle = color;
+    // The color is either a css variable --app-color-scripting for instance or a hls color
+    // So if the first character of the color is -, it is a CSS variable.
+    const isColorCSSVariable = color[0] === '-';
+    if (isColorCSSVariable) {
+      context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue(color);
+    } else {
+      context.fillStyle = color;
+    }
     context.fill();
     context.restore();
   }
@@ -1667,7 +1674,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         context.fill();
         context.beginPath();
         lastColor = segments[i].data;
-        context.fillStyle = lastColor;
+        // The color is either a css variable --app-color-scripting for instance or a hls color
+        // So if the first character of the color is -, it is a CSS variable.
+        const isColorCSSVariable = lastColor[0] === '-';
+        if (isColorCSSVariable) {
+          context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue(lastColor);
+        } else {
+          context.fillStyle = lastColor;
+        }
       }
       context.rect(segment.begin, y, segment.end - segment.begin, groupBarHeight);
     }
@@ -1821,7 +1835,17 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.entryColorsCache = new Array(this.rawTimelineDataLength);
     for (let i = 0; i < this.rawTimelineDataLength; ++i) {
       this.forceDecorationCache[i] = this.dataProvider.forceDecoration(i) ? 1 : 0;
-      this.entryColorsCache[i] = this.dataProvider.entryColor(i);
+      let color = this.dataProvider.entryColor(i);
+      // The color is either a css variable var(--app-color-scripting) or a hls color
+      // So if the first character of the color is v, it is a CSS variable.
+      const isColorCSSVariable = color[0] === 'v';
+      if (isColorCSSVariable) {
+        // The color is of this format var(--app-color-scripting) for instance
+        // However the getComputedValue method only accepts --app-color-scripting.
+        // To extract it, we split by "(", get the second value and pop the last ")" from it.
+        color = color.split('(')[1].slice(0, -1);
+      }
+      this.entryColorsCache[i] = color;
     }
 
     const entryCounters = new Uint32Array(this.dataProvider.maxStackDepth() + 1);
