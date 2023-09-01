@@ -50,6 +50,24 @@
       "message": "Occurrence:\n\n```\n$ rg \"lockedString\\(\u0027prefetch\u0027\\)\"\nfront_end/panels/application/preloading/components/PreloadingString.ts\n655:      return i18n.i18n.lockedString(\u0027prefetch\u0027);\n\nfront_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts\n64:        return i18n.i18n.lockedString(\u0027prefetch\u0027);\n\nfront_end/panels/application/preloading/components/PreloadingDetailsReportView.ts\n96:        return i18n.i18n.lockedString(\u0027prefetch\u0027);\n$ rg \"lockedString\\(\u0027prerender\u0027\\)\"\nfront_end/panels/application/preloading/components/PreloadingString.ts\n657:      return i18n.i18n.lockedString(\u0027prerender\u0027);\n\nfront_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts\n66:        return i18n.i18n.lockedString(\u0027prerender\u0027);\n\nfront_end/panels/application/preloading/components/PreloadingDetailsReportView.ts\n98:        return i18n.i18n.lockedString(\u0027prerender\u0027);\n```\n\nCould you remove `action()` in MismatchedPreloadingGrid.ts and use `PreloadingString.capitaliedAction()`?",
       "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854ffa39_3236e036",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-09-01T06:30:53Z",
+      "side": 1,
+      "message": "s/MismatchedPreloadingGrid.ts/PreloadingDetailsReportView.ts/ (Actually, we need to rewrite both.)",
+      "parentUuid": "7ced8d39_6fe073ab",
+      "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
