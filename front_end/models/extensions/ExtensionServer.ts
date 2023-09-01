@@ -437,9 +437,19 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
     const message = {command: 'notify-' + type, arguments: Array.prototype.slice.call(arguments, 1)};
     for (const subscriber of subscribers) {
-      if (this.extensionEnabled(subscriber)) {
-        subscriber.postMessage(message);
+      if (!this.extensionEnabled(subscriber)) {
+        return;
       }
+
+      if (type === PrivateAPI.Events.NetworkRequestFinished) {
+        const origin = extensionOrigins.get(subscriber);
+        const extension = origin && this.registeredExtensions.get(origin);
+        if (!extension?.isAllowedOnTarget(arguments[2].request.url)) {
+          return;
+        }
+      }
+      
+      subscriber.postMessage(message);
     }
   }
 
