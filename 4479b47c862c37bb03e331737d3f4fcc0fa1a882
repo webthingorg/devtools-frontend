@@ -166,6 +166,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "350ec4b2_42c72360",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T11:59:36Z",
+      "side": 1,
+      "message": "Before: https://screenshot.googleplex.com/ASyR6E3MxpnQvpa.png\nAfter: https://screenshot.googleplex.com/C5tBm3T6Re7VH2D",
+      "parentUuid": "b50c3807_6b95164e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 66
+      },
+      "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69a10b2f_fca5306c",
@@ -215,6 +239,24 @@
       "side": 1,
       "message": "It\u0027s fine to fix in a later CL, but is this change as expected? any of the code will result in this?",
       "parentUuid": "4b54b8a8_2f3ab504",
+      "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b07ee61_ac891664",
+        "filename": "test/interactions/goldens/linux/performance/splitWidgetCallTree.png",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-01T11:59:36Z",
+      "side": 1,
+      "message": "Yes we discussed this with Kateryna. This is the final result: https://screenshot.googleplex.com/3u4ZcBoYqks7avr",
+      "parentUuid": "95de21ab_792632e6",
       "revId": "4479b47c862c37bb03e331737d3f4fcc0fa1a882",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
