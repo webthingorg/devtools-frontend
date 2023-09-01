@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c1162e_4fae7223",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-01T13:11:06Z",
+      "side": 1,
+      "message": "On the speculation rules panel, \u0027rule set\u0027 column, the text is a link. You\u0027re changing the cursor to `pointer` for it, but shouldn\u0027t it also be blue?\n\nSame for \u0027This page\u0027 -\u003e \u0027current URL\u0027",
+      "revId": "0bb3941249eb68f0d158462e63eecdd8b0be590d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "482e1147_479f010a",
+        "filename": "front_end/panels/application/preloading/components/ruleSetGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-01T13:11:06Z",
+      "side": 1,
+      "message": "Is this even needed? It looks like there is a shadow root which prevents this from being reachable from child elements. That\u0027s why you\u0027re adding `cursor: pointer` to `RuleSetGrid.ts`, isn\u0027t it?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "0bb3941249eb68f0d158462e63eecdd8b0be590d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
