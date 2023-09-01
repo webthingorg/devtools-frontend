@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c3f2097_675f0d43",
+        "filename": "front_end/models/trace/TreeManipulator.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-01T14:28:52Z",
+      "side": 1,
+      "message": "I think that all tracks that we want this functionality will be ThreadAppender tracks, which will have a thread. The reason is that other tracks are all \"unique\" tracks that we create (e.g. timings, or layout shifts) where there probably isn\u0027t the same concept of collapsing or manipulating the tree.\n\nThe only one that might is actually timings - I can see how users might want to edit user timings and collapse them - but for now I think it is a safe bet to assume the majority of the time this will only be used on the Main Thread track, and because the RendererThreads are the ones that contain the tree structure, let\u0027s start there. We can extend this functionality to other tracks in the future if we want to.",
+      "parentUuid": "279a3b6d_ca98c8dc",
+      "range": {
+        "startLine": 26,
+        "startChar": 52,
+        "endLine": 26,
+        "endChar": 66
+      },
+      "revId": "ad5fc46735c14b4a2870be36c34d722b867ab402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d489fd7_9817e945",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-01T13:33:30Z",
       "side": 1,
       "message": "nits: eventually we will have more functions, so switch is better here",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 8
+      },
+      "revId": "ad5fc46735c14b4a2870be36c34d722b867ab402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd055adf_54916464",
+        "filename": "front_end/models/trace/TreeManipulator.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-01T14:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d489fd7_9817e945",
       "range": {
         "startLine": 133,
         "startChar": 6,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7d5f85_7ca023c5",
+        "filename": "test/unittests/front_end/models/trace/TreeManipulator_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-01T14:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "841bbbd2_6d39400c",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "ad5fc46735c14b4a2870be36c34d722b867ab402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1aab21df_4b4a9d20",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-09-01T13:33:30Z",
       "side": 1,
       "message": "```suggestion\n    // Only one entry - basicTwo - should have been hidden.\n```",
+      "range": {
+        "startLine": 74,
+        "startChar": 24,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "ad5fc46735c14b4a2870be36c34d722b867ab402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcb36d3e_4e15d7b6",
+        "filename": "test/unittests/front_end/models/trace/TreeManipulator_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-01T14:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aab21df_4b4a9d20",
       "range": {
         "startLine": 74,
         "startChar": 24,
