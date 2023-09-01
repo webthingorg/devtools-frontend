@@ -2313,6 +2313,11 @@ declare namespace ProtocolProxyApi {
      */
     invoke_setShowIsolatedElements(params: Protocol.Overlay.SetShowIsolatedElementsRequest): Promise<Protocol.ProtocolResponseWithError>;
 
+    /**
+     * Show Window Controls Overlay for PWA
+     */
+    invoke_setShowWco(params: Protocol.Overlay.SetShowWcoRequest): Promise<Protocol.ProtocolResponseWithError>;
+
   }
   export interface OverlayDispatcher {
     /**
