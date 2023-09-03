@@ -39,6 +39,30 @@
       },
       "revId": "0bb3941249eb68f0d158462e63eecdd8b0be590d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba4e70a_abff7cc5",
+        "filename": "front_end/panels/application/preloading/components/ruleSetGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-03T01:59:24Z",
+      "side": 1,
+      "message": "I see, thanks.\nI\u0027m not familiar with this, and I was wondering why it wasn\u0027t working with the same css pattern.",
+      "parentUuid": "482e1147_479f010a",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "0bb3941249eb68f0d158462e63eecdd8b0be590d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
