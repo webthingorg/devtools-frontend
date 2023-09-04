@@ -22,7 +22,7 @@ const eventsPerWarning: WarningsData['perWarning'] = new Map();
 export const FORCED_LAYOUT_AND_STYLES_THRESHOLD =
     Helpers.Timing.millisecondsToMicroseconds(Types.Timing.MilliSeconds(10));
 
-export const LONG_MAIN_THREAD_TASK_THRESHOLD = Types.Timing.MilliSeconds(50);
+export const LONG_MAIN_THREAD_TASK_THRESHOLD = Helpers.Timing.millisecondsToMicroseconds(Types.Timing.MilliSeconds(50));
 
 export function reset(): void {
   warningsPerEvent.clear();
