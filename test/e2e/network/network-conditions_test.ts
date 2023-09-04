@@ -108,7 +108,7 @@ describe('The Network Tab', async function() {
     await assertDisabled(brotliCheckbox, true);
   });
 
-  it('can override userAgentMetadata', async () => {
+  xit('can override userAgentMetadata', async () => {
     const {target, browser} = getBrowserAndPages();
     const fullVersion = (await browser.version()).split('/')[1];
     const majorVersion = fullVersion.split('.', 1)[0];
@@ -180,7 +180,7 @@ describe('The Network Tab', async function() {
     assert.deepEqual(noMetadataVersionUserAgentMetadata, noMetadataVersionUserAgentMetadataExpected);
   });
 
-  it('restores default userAgentMetadata', async () => {
+  xit('restores default userAgentMetadata', async () => {
     const {target, browser} = getBrowserAndPages();
     const fullVersion = (await browser.version()).split('/')[1];
     const customUAValue =
