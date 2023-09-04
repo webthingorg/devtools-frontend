@@ -33,6 +33,115 @@
       "message": "forgot to say - looking for general feedback on the approach and API primarily 😊",
       "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac58cc15_bf6115cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-04T09:15:17Z",
+      "side": 1,
+      "message": "This LGTM!! I like the fact that we are able to run settings change handling on the model straightforwardly!\n\nAdded some small comments that are not related to the broad API idea.",
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d9262c_d08e5d27",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-04T09:15:17Z",
+      "side": 1,
+      "message": "tera-nit: these double asterisks are not supported by code mirror and break the ide in devtools-on-devtools \n```suggestion\n   */\n```",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d03e11e6_6125e0b0",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-04T09:15:17Z",
+      "side": 1,
+      "message": "maybe these could also be part of configuration? Or do we want to keep the config it strictly about parsing logic?",
+      "range": {
+        "startLine": 47,
+        "startChar": 43,
+        "endLine": 47,
+        "endChar": 86
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddaf64b7_de9dd348",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-04T09:15:17Z",
+      "side": 1,
+      "message": "nit: I think this would be redundant.",
+      "range": {
+        "startLine": 71,
+        "startChar": 40,
+        "endLine": 71,
+        "endChar": 67
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a064ede2_0101aae8",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-04T09:15:17Z",
+      "side": 1,
+      "message": "do you think we should make this optional? I feel like if we want it to run with default settings, we shouldn\u0027t pass any settings and let the helper use default mode in that case",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 47
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
