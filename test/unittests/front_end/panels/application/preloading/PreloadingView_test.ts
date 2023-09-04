@@ -531,7 +531,7 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/prerendered.html',
-            'prerender',
+            'Prerender',
             '',
             'Running',
           ],
@@ -593,7 +593,7 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/prerendered.html',
-            'prerender',
+            'Prerender',
             '',
             'Running',
           ],
@@ -670,13 +670,13 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/subresource2.js',
-            'prefetch',
+            'Prefetch',
             'example.com/',
             'Running',
           ],
           [
             '/prerendered3.html',
-            'prerender',
+            'Prerender',
             'example.com/',
             'Running',
           ],
@@ -696,7 +696,7 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/subresource2.js',
-            'prefetch',
+            'Prefetch',
             'example.com/',
             'Running',
           ],
@@ -716,13 +716,13 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/subresource2.js',
-            'prefetch',
+            'Prefetch',
             'example.com/',
             'Running',
           ],
           [
             '/prerendered3.html',
-            'prerender',
+            'Prerender',
             'example.com/',
             'Running',
           ],
@@ -760,7 +760,7 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/prerendered.html',
-            'prerender',
+            'Prerender',
             '',
             'Running',
           ],
@@ -831,7 +831,7 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/prerendered.html',
-            'prerender',
+            'Prerender',
             '',
             'Ready',
           ],
@@ -910,7 +910,7 @@ describeWithMockConnection('PreloadingAttemptView', async () => {
         [
           [
             '/prerendered.html',
-            'prerender',
+            'Prerender',
             '',
             'Failure - The prerendered page used a forbidden JavaScript API that is currently not supported. (Internal Mojo interface: device.mojom.GamepadMonitor)',
           ],
