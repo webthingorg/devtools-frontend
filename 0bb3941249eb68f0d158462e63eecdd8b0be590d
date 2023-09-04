@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "241fc100_c39313ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-04T17:01:03Z",
+      "side": 1,
+      "message": "In the \u0027rule set\u0027 column, there is still black text which is a link. I think either make only the icon a link, or style the text like a link.\n\nScreenshot: https://i.imgur.com/awZmgWK.png",
+      "parentUuid": "99c1162e_4fae7223",
+      "revId": "0bb3941249eb68f0d158462e63eecdd8b0be590d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "482e1147_479f010a",
         "filename": "front_end/panels/application/preloading/components/ruleSetGrid.css",
         "patchSetId": 2
