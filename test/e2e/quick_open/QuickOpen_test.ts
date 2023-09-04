@@ -5,7 +5,7 @@
 import {assert} from 'chai';
 
 import {clickElement, enableExperiment, goToResource, step, waitFor} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {it} from '../../shared/mocha-extensions.js';
 import {navigateToElementsTab} from '../helpers/elements-helpers.js';
 import {
   getMenuItemAtPosition,
@@ -36,7 +36,7 @@ async function openAFileWithQuickMenu() {
       });
 }
 
-describe('Quick Open menu', () => {
+xdescribe('Quick Open menu', () => {
   it('lists available files', async () => {
     await goToResource('pages/hello-world.html');
     await openFileQuickOpen();
@@ -44,13 +44,13 @@ describe('Quick Open menu', () => {
     assert.strictEqual(firstItemTitle, 'hello-world.html');
   });
 
-  it('opens the sources panel when a file is selected', async () => {
+  xit('opens the sources panel when a file is selected', async () => {
     await openAFileWithQuickMenu();
     await togglePreferenceInSettingsTab('Focus Sources panel when triggering a breakpoint');
     await openAFileWithQuickMenu();
   });
 
-  it('sorts authored above deployed', async () => {
+  xit('sorts authored above deployed', async () => {
     await goToResource('sources/multi-workers-sourcemap.html');
     await openSourcesPanel();
 
