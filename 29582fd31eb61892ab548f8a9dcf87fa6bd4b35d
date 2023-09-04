@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e12df5_04f6a794",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-04T07:09:57Z",
+      "side": 1,
+      "message": "I removed it!",
+      "parentUuid": "5daba5bd_734794bb",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 26
+      },
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cc32b30_8577a8c7",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "724f8e62_16321921",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-04T07:09:57Z",
+      "side": 1,
+      "message": "I removed it as well!",
+      "parentUuid": "2cc32b30_8577a8c7",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 0
+      },
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82cc2c02_1deeb7f3",
@@ -94,6 +142,24 @@
       "writtenOn": "2023-09-04T05:47:55Z",
       "side": 1,
       "message": "We can remove this because this method do something only for prerendering. Note that we can also remove `addModelListener` for this.",
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e137f4_6709b3cd",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-04T07:09:57Z",
+      "side": 1,
+      "message": "done!",
+      "parentUuid": "82cc2c02_1deeb7f3",
       "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -146,6 +212,24 @@
       "writtenOn": "2023-09-04T07:09:21Z",
       "side": 1,
       "message": "Acknowledged. we no longer need en-US.json",
+      "parentUuid": "207407b4_2aeb3c6e",
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "042953be_06ccfafe",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-04T07:09:57Z",
+      "side": 1,
+      "message": "I removed this part.",
       "parentUuid": "207407b4_2aeb3c6e",
       "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"

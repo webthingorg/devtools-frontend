@@ -33,6 +33,24 @@
       "message": "Historically, we built the section (we are removing) on top of newly added properties/capabilities of `ResourceTreeModel` and `ResourceTreeFrame`. I think we can remove all of them because preloading panels is built on top of `PreloadingModel`. (I guess you can find them with a query `prerender`.)",
       "revId": "c7a1a107beca8ce2a2cb081e67e544f780594ef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dafdc6fe_edfbbba9",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-04T07:09:57Z",
+      "side": 1,
+      "message": "done!",
+      "parentUuid": "7e344960_06af982e",
+      "revId": "c7a1a107beca8ce2a2cb081e67e544f780594ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
