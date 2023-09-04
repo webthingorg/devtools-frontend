@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26489363_554d3e07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-04T21:43:01Z",
+      "side": 1,
+      "message": "and overview",
+      "range": {
+        "startLine": 7,
+        "startChar": 54,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "5262d2978f8575868bec219d9e9309cfd34525ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc280720_cee1c490",
         "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
         "patchSetId": 5
@@ -60,6 +83,30 @@
       "writtenOn": "2023-09-04T13:15:14Z",
       "side": 1,
       "message": "let\u0027s not add any more colors here, can we use neutral90 instead? It seems pretty close to what you want to add",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 51
+      },
+      "revId": "5262d2978f8575868bec219d9e9309cfd34525ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4897992f_6eb41a9e",
+        "filename": "front_end/ui/legacy/tokens.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-04T21:43:01Z",
+      "side": 1,
+      "message": "I think this is Peter wrote in http://go/chrome-devtools:gm3-perf-panel-colors-proposal \u003e Data tracks: Main \u003e Key colors\nso should be fine here?",
+      "parentUuid": "3c50d613_b3924109",
       "range": {
         "startLine": 73,
         "startChar": 2,
