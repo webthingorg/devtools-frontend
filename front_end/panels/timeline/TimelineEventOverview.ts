@@ -178,6 +178,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
 
   override update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
     super.update();
+
     if (!this.#performanceModel) {
       return;
     }

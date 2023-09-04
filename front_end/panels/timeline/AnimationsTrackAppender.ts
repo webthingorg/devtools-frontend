@@ -53,7 +53,7 @@ export class AnimationsTrackAppender implements TrackAppender {
   }
 
   colorForEvent(): string {
-    return '#b9aced';
+    return '#0330fc';
   }
 
   titleForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
