@@ -39,6 +39,30 @@
       },
       "revId": "b1dde850799989014e06491afbbc0abe71a6224f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff42562_16ae00ba",
+        "filename": "front_end/panels/timeline/timelineHistoryManager.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-04T14:23:24Z",
+      "side": 1,
+      "message": "I think we agreed that it did not look good haha",
+      "parentUuid": "5772b60e_f171c969",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "b1dde850799989014e06491afbbc0abe71a6224f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
