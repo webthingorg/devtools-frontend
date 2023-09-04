@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8f7b18f_a7d87a53",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-04T13:59:53Z",
+      "side": 1,
+      "message": "Do we have a good understanding when this is necessary and when it isn\u0027t? I\u0027m wondering if we should automate this in some of the more standard helpers.",
+      "revId": "12bd454a055cb07aa110d25a604b7875d6b873e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce68cf0d_2248f0ce",
         "filename": "test/e2e/resources/lighthouse/hello.html",
         "patchSetId": 1
@@ -14,6 +31,24 @@
       "writtenOn": "2023-09-04T13:53:22Z",
       "side": 1,
       "message": "disables favicon.ico requests that are not present in the old headless.",
+      "revId": "12bd454a055cb07aa110d25a604b7875d6b873e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e37da8d3_2210497d",
+        "filename": "test/e2e/resources/lighthouse/hello.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-04T13:59:53Z",
+      "side": 1,
+      "message": "nice!",
+      "parentUuid": "ce68cf0d_2248f0ce",
       "revId": "12bd454a055cb07aa110d25a604b7875d6b873e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
