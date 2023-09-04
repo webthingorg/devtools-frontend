@@ -131,6 +131,24 @@
       "parentUuid": "fb7e2000_ebefab16",
       "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4ef839_dd795a1c",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-09-04T07:09:21Z",
+      "side": 1,
+      "message": "Acknowledged. we no longer need en-US.json",
+      "parentUuid": "207407b4_2aeb3c6e",
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
