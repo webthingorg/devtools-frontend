@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea0588d2_b822af67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T14:58:30Z",
+      "side": 1,
+      "message": "The CL looks really good, great job both of you! Let\u0027s wait for Wolfgang to also look over it.",
+      "revId": "02e316a2bc73cfbc26afb528d74b17eeabea3e6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
