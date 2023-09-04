@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12725301_74f65edd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T12:53:48Z",
+      "side": 1,
+      "message": "lgtm with tiny nit!",
+      "revId": "473dcf1514e482a65487913c553ace6290981e24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f479cf7_f5480110",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T12:53:48Z",
+      "side": 1,
+      "message": "are these always spans? If so, could use `HTMLSpanElement` here. Should probably at least use `HTMLElement`.",
+      "range": {
+        "startLine": 28,
+        "startChar": 20,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "473dcf1514e482a65487913c553ace6290981e24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
