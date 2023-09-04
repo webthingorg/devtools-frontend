@@ -1516,6 +1516,7 @@ export enum RecordType {
   // JSSystemFrame and JSSystemSample are used for other system nodes.
   // JSFrame and JSSample are used for other nodes, and will be categorized as |scripting|.
   JSFrame = 'JSFrame',
+  ProfileCall = 'ProfileCall',
   JSSample = 'JSSample',
   JSIdleFrame = 'JSIdleFrame',
   JSIdleSample = 'JSIdleSample',

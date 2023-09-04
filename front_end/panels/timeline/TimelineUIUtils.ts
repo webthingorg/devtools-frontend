@@ -48,6 +48,7 @@ import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {CLSRect} from './CLSLinkifier.js';
+import {EventStyles} from './EventUICategory.js';
 import {titleForInteractionEvent} from './InteractionsTrackAppender.js';
 import invalidationsTreeStyles from './invalidationsTree.css.js';
 import {ThreadAppender} from './ThreadAppender.js';
@@ -1435,6 +1436,9 @@ export class TimelineUIUtils {
   }
 
   static eventTitle(event: TraceEngine.Legacy.CompatibleTraceEvent): string {
+    if (TraceEngine.Legacy.eventIsFromNewEngine(event) && TraceEngine.Types.TraceEvents.isProfileCall(event)) {
+      return TimelineUIUtils.frameDisplayName(event.callFrame);
+    }
     const recordType = TimelineModel.TimelineModel.RecordType;
     const eventData = event.args['data'];
     if (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
@@ -1770,6 +1774,28 @@ export class TimelineUIUtils {
         }
         break;
       }
+      case TraceEngine.Types.TraceEvents.KnownEventName.ProfileCall: {
+        details = document.createElement('span');
+        // This check is only added for convenience with the type checker.
+        if (!TraceEngine.Legacy.eventIsFromNewEngine(event) || !TraceEngine.Types.TraceEvents.isProfileCall(event)) {
+          break;
+        }
+        UI.UIUtils.createTextChild(details, TimelineUIUtils.frameDisplayName(event.callFrame));
+        const location = this.linkifyLocation({
+          scriptId: event.callFrame['scriptId'],
+          url: event.callFrame['url'],
+          lineNumber: event.callFrame['lineNumber'],
+          columnNumber: event.callFrame['columnNumber'],
+          target,
+          isFreshRecording,
+          linkifier,
+        });
+        if (location) {
+          UI.UIUtils.createTextChild(details, ' @ ');
+          details.appendChild(location);
+        }
+        break;
+      }
 
       default: {
         if (TraceEngine.Legacy.eventHasCategory(
@@ -1940,8 +1966,10 @@ export class TimelineUIUtils {
     let relatedNodeLabel;
 
     const contentHelper = new TimelineDetailsContentHelper(model.targetByEvent(event), linkifier);
-    const color = model.isMarkerEvent(event) ? TimelineUIUtils.markerStyleForEvent(event).color :
-                                               TimelineUIUtils.eventStyle(event).category.color;
+    const defaultColorForEvent = TraceEngine.Legacy.eventIsFromNewEngine(event) ?
+        EventStyles.get(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.categoryStyle.color :
+        TimelineUIUtils.eventStyle(event).category.color;
+    const color = model.isMarkerEvent(event) ? TimelineUIUtils.markerStyleForEvent(event).color : defaultColorForEvent;
     contentHelper.addSection(TimelineUIUtils.eventTitle(event), color);
 
     const eventData = event.args['data'];
@@ -1995,6 +2023,7 @@ export class TimelineUIUtils {
 
       case recordTypes.JSRoot:
       case recordTypes.JSFrame:
+      case recordTypes.ProfileCall:
       case recordTypes.JSIdleFrame:
       case recordTypes.JSSystemFrame:
       case recordTypes.FunctionCall: {
