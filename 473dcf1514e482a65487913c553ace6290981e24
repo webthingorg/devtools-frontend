@@ -39,6 +39,30 @@
       },
       "revId": "473dcf1514e482a65487913c553ace6290981e24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "358ba403_3afae2c3",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-04T14:24:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f479cf7_f5480110",
+      "range": {
+        "startLine": 28,
+        "startChar": 20,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "473dcf1514e482a65487913c553ace6290981e24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
