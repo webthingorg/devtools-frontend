@@ -3,10 +3,14 @@
 // found in the LICENSE file.
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as Bindings from '../../models/bindings/bindings.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
-import {buildGroupStyle, buildTrackHeader, getFormattedTime} from './AppenderUtils.js';
+import {addDecorationToEvent, buildGroupStyle, buildTrackHeader, getFormattedTime} from './AppenderUtils.js';
 import {
   type CompatibilityTracksAppender,
   type HighlightedEntryInfo,
@@ -51,10 +55,47 @@ const UIStrings = {
    *@example {1} PH1
    */
   threadS: 'Thread {PH1}',
+  /**
+   *@description Rasterization in computer graphics.
+   */
+  raster: 'Raster',
+  /**
+   *@description Name for a thread that rasterizes graphics in a website.
+   *@example {2} PH1
+   */
+  rasterizerThreadS: 'Rasterizer Thread {PH1}',
+  /**
+   *@description Text in the Performance panel for a forced style and layout calculation of elements
+   * in a page. See https://developer.mozilla.org/en-US/docs/Glossary/Reflow
+   */
+  forcedReflow: 'Forced reflow',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel
+   *@example {Forced reflow} PH1
+   */
+  sIsALikelyPerformanceBottleneck: '{PH1} is a likely performance bottleneck.',
+  /**
+   *@description Text in the Performance panel for a function called during a time the browser was
+   * idle (inactive), which to longer to execute than a predefined deadline.
+   *@example {10ms} PH1
+   */
+  idleCallbackExecutionExtended: 'Idle callback execution extended beyond deadline by {PH1}',
+  /**
+   *@description Text in the Performance panel which describes how long a task took.
+   *@example {task} PH1
+   *@example {10ms} PH2
+   */
+  sTookS: '{PH1} took {PH2}.',
+  /**
+   *@description Text in the Performance panel for a task that took long. See
+   * https://developer.mozilla.org/en-US/docs/Glossary/Long_task
+   */
+  longTask: 'Long task',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/ThreadAppender.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
 export const enum ThreadType {
   MAIN_THREAD = 'MAIN_THREAD',
   WORKER = 'WORKER',
@@ -78,13 +119,23 @@ export class ThreadAppender implements TrackAppender {
   #processId: TraceEngine.Types.TraceEvents.ProcessID;
   #threadId: TraceEngine.Types.TraceEvents.ThreadID;
   #threadDefaultName: string;
+  #flameChartData: PerfUI.FlameChart.FlameChartTimelineData;
+  // Raster threads are rendered together under a singler header, so
+  // the header is added for the first raster thread and skipped
+  // thereafter.
+  #rasterIndex: number;
   readonly threadType: ThreadType = ThreadType.MAIN_THREAD;
   readonly isOnMainFrame: boolean;
+
+  // TODO(crbug.com/1428024) Clean up API so that we don't have to pass
+  // a raster index to the appender (for instance, by querying the flame
+  // chart data in the appender or by passing data about the flamechart
+  // groups).
   constructor(
-      compatibilityBuilder: CompatibilityTracksAppender,
+      compatibilityBuilder: CompatibilityTracksAppender, flameChartData: PerfUI.FlameChart.FlameChartTimelineData,
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData,
       processId: TraceEngine.Types.TraceEvents.ProcessID, threadId: TraceEngine.Types.TraceEvents.ThreadID,
-      threadName: string|null, type: ThreadType) {
+      threadName: string|null, type: ThreadType, rasterCount: number) {
     this.#compatibilityBuilder = compatibilityBuilder;
     // TODO(crbug.com/1456706):
     // The values for this color generator have been taken from the old
@@ -99,6 +150,8 @@ export class ThreadAppender implements TrackAppender {
     this.#traceParsedData = traceParsedData;
     this.#processId = processId;
     this.#threadId = threadId;
+    this.#rasterIndex = rasterCount;
+    this.#flameChartData = flameChartData;
     const entries = this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
     if (!entries) {
       throw new Error(`Could not find data for thread with id ${threadId} in process with id ${processId}`);
@@ -122,7 +175,11 @@ export class ThreadAppender implements TrackAppender {
     if (this.#entries.length === 0) {
       return trackStartLevel;
     }
-    this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
+    if (this.threadType === ThreadType.RASTERIZER) {
+      this.#appendRasterHeaderAndTitle(trackStartLevel, expanded);
+    } else {
+      this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
+    }
     return this.#appendThreadEntriesAtLevel(trackStartLevel);
   }
 
@@ -138,26 +195,58 @@ export class ThreadAppender implements TrackAppender {
   #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
     const trackIsCollapsible = this.#entries.length > 0;
     const style = buildGroupStyle({shareHeaderLine: false, collapsible: trackIsCollapsible});
-    const group = buildTrackHeader(currentLevel, this.#buildNameFromTrack(), style, /* selectable= */ true, expanded);
+    const group = buildTrackHeader(currentLevel, this.#buildNameForTrack(), style, /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
   }
+  /**
+   * Raster threads are rendered under a single header in the
+   * flamechart. However, each thread has a unique title which needs to
+   * be added to the flamechart data.
+   */
+  #appendRasterHeaderAndTitle(trackStartLevel: number, expanded?: boolean): void {
+    if (this.#rasterIndex === 1) {
+      const trackIsCollapsible = this.#entries.length > 0;
+      const headerStyle = buildGroupStyle({shareHeaderLine: false, collapsible: trackIsCollapsible});
+      const headerGroup =
+          buildTrackHeader(trackStartLevel, this.#buildNameForTrack(), headerStyle, /* selectable= */ false, expanded);
+      this.#flameChartData.groups.push(headerGroup);
+    }
+    // Nesting is set to 1 because the track is appended inside the
+    // header for all raster threads.
+    const titleStyle = buildGroupStyle({padding: 2, nestingLevel: 1, collapsible: false});
+    // TODO(crbug.com/1428024) Once the thread appenders are ready to
+    // be shipped, use the i18n API.
+    const rasterizerTitle = `[RPP] ${i18nString(UIStrings.rasterizerThreadS, {PH1: this.#rasterIndex})}`;
+    const titleGroup = buildTrackHeader(trackStartLevel, rasterizerTitle, titleStyle, /* selectable= */ true, expanded);
+    this.#compatibilityBuilder.registerTrackForGroup(titleGroup, this);
+  }
 
-  #buildNameFromTrack(): string {
+  #buildNameForTrack(): string {
     // This UI string doesn't yet use the i18n API because it is not
     // shown in production, only in the component server, reason being
     // it is not ready to be shipped.
-    // TODO(crbug.com/1428024) Once the UI has been, use the i18n API.
+    // TODO(crbug.com/1428024) Once the thread appenders are ready to
+    // be shipped, use the i18n API.
     const newEnginePrefix = '[RPP] ';
     let name = newEnginePrefix;
     const url = this.#traceParsedData.Renderer?.processes.get(this.#processId)?.url || '';
 
     let threadTypeLabel: string|null = null;
-
-    if (this.threadType === ThreadType.MAIN_THREAD) {
-      threadTypeLabel =
-          this.isOnMainFrame ? i18nString(UIStrings.mainS, {PH1: url}) : i18nString(UIStrings.frameS, {PH1: url});
-    } else if (this.threadType === ThreadType.WORKER) {
-      threadTypeLabel = this.#buildNameForWorker();
+    switch (this.threadType) {
+      case ThreadType.MAIN_THREAD:
+        threadTypeLabel =
+            this.isOnMainFrame ? i18nString(UIStrings.mainS, {PH1: url}) : i18nString(UIStrings.frameS, {PH1: url});
+        break;
+      case ThreadType.WORKER:
+        threadTypeLabel = this.#buildNameForWorker();
+        break;
+      case ThreadType.RASTERIZER:
+        threadTypeLabel = i18nString(UIStrings.raster);
+        break;
+      case ThreadType.OTHER:
+        break;
+      default:
+        return Platform.assertNever(this.threadType, `Unknown thread type: ${this.threadType}`);
     }
     name += threadTypeLabel || this.#threadDefaultName;
     return name;
@@ -188,7 +277,71 @@ export class ThreadAppender implements TrackAppender {
    * entries (the first available level to append more data).
    */
   #appendThreadEntriesAtLevel(trackStartLevel: number): number {
-    return this.#compatibilityBuilder.appendEventsAtLevel(this.#entries, trackStartLevel, this);
+    const newLevel = this.#compatibilityBuilder.appendEventsAtLevel(this.#entries, trackStartLevel, this);
+    this.#addDecorations();
+    return newLevel;
+  }
+  #addDecorations(): void {
+    for (const entry of this.#entries) {
+      const index = this.#compatibilityBuilder.indexForEvent(entry);
+      if (!index) {
+        continue;
+      }
+      const warnings = this.#traceParsedData.Warnings.perEvent.get(entry);
+      if (!warnings) {
+        continue;
+      }
+      addDecorationToEvent(this.#flameChartData, index, {type: 'WARNING_TRIANGLE'});
+      if (!warnings.includes('LONG_TASK')) {
+        continue;
+      }
+      addDecorationToEvent(this.#flameChartData, index, {
+        type: 'CANDY',
+        startAtTime: TraceEngine.Handlers.ModelHandlers.Warnings.LONG_MAIN_THREAD_TASK_THRESHOLD,
+      });
+    }
+  }
+
+  #buildWarningElement(
+      event: TraceEngine.Types.TraceEvents.TraceEventData,
+      warning: TraceEngine.Handlers.ModelHandlers.Warnings.Warning): HTMLSpanElement|null {
+    const duration =
+        TraceEngine.Helpers.Timing.microSecondsToMilliseconds(TraceEngine.Types.Timing.MicroSeconds(event.dur || 0));
+    const span = document.createElement('span');
+    switch (warning) {
+      case 'FORCED_STYLE':
+      case 'FORCED_LAYOUT': {
+        const forcedReflowLink = UI.XLink.XLink.create(
+            'https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-forced-synchronous-layouts',
+            i18nString(UIStrings.forcedReflow));
+        span.appendChild(i18n.i18n.getFormatLocalizedString(
+            str_, UIStrings.sIsALikelyPerformanceBottleneck, {PH1: forcedReflowLink}));
+        break;
+      }
+
+      case 'IDLE_CALLBACK_OVER_TIME': {
+        if (!TraceEngine.Types.TraceEvents.isTraceEventFireIdleCallback(event)) {
+          break;
+        }
+        const exceededMs =
+            i18n.TimeUtilities.millisToString((duration || 0) - event.args.data['allottedMilliseconds'], true);
+        span.textContent = i18nString(UIStrings.idleCallbackExecutionExtended, {PH1: exceededMs});
+        break;
+      }
+
+      case 'LONG_TASK': {
+        const longTaskLink =
+            UI.XLink.XLink.create('https://web.dev/optimize-long-tasks/', i18nString(UIStrings.longTask));
+        span.appendChild(i18n.i18n.getFormatLocalizedString(
+            str_, UIStrings.sTookS,
+            {PH1: longTaskLink, PH2: i18n.TimeUtilities.millisToString((duration || 0), true)}));
+        break;
+      }
+      default: {
+        return null;
+      }
+    }
+    return span;
   }
 
   /*
@@ -232,8 +385,28 @@ export class ThreadAppender implements TrackAppender {
    * Returns the info shown when an event added by this appender
    * is hovered in the timeline.
    */
-  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo {
-    const title = this.titleForEvent(event);
-    return {title, formattedTime: getFormattedTime(event.dur)};
+  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.SyntheticEventWithSelfTime): HighlightedEntryInfo {
+    let title = this.titleForEvent(event);
+    const warnings = this.#traceParsedData.Warnings.perEvent.get(event);
+
+    if (TraceEngine.Types.TraceEvents.isTraceEventParseHTML(event)) {
+      const startLine = event.args['beginData']['startLine'];
+      const endLine = event.args['endData'] && event.args['endData']['endLine'];
+      const eventURL = event.args['beginData']['url'] as Platform.DevToolsPath.UrlString;
+      const url = Bindings.ResourceUtils.displayNameForURL(eventURL);
+      const range = (endLine !== -1 || endLine === startLine) ? `${startLine}...${endLine}` : startLine;
+      title += ` - ${url} [${range}]`;
+    }
+    const warningElements: HTMLSpanElement[] = [];
+    if (warnings) {
+      for (const warning of warnings) {
+        const warningElement = this.#buildWarningElement(event, warning);
+        if (!warningElement) {
+          continue;
+        }
+        warningElements.push(warningElement);
+      }
+    }
+    return {title, formattedTime: getFormattedTime(event.dur, event.selfTime), warningElements};
   }
 }
