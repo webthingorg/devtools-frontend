@@ -16,6 +16,24 @@
       "message": "could you please check if it shows up properly in recorder?",
       "revId": "c9dc2fead0cf0083004cc76bca750c09827b5c33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d73da1b3_77113ef8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-04T12:45:53Z",
+      "side": 1,
+      "message": "Looks fine to me ! https://screencast.googleplex.com/cast/NjcyNDU4NDQ2MzEzODgxNnw4YjE1NGJhYS01ZQ",
+      "parentUuid": "f91701aa_5d6a079a",
+      "revId": "c9dc2fead0cf0083004cc76bca750c09827b5c33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
