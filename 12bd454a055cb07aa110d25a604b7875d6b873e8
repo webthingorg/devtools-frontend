@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5112ff3_931ac2d3",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-04T14:03:10Z",
+      "side": 1,
+      "message": "So far it\u0027s usually needed if the rendering in the target depends on animation frames (hello RenderCoordinator) or other features that are throttled in inactive tabs. I imagine timers and network requests could be throttled too. Also, any sort of tests that rely on page visibility API.",
+      "parentUuid": "a8f7b18f_a7d87a53",
+      "revId": "12bd454a055cb07aa110d25a604b7875d6b873e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce68cf0d_2248f0ce",
         "filename": "test/e2e/resources/lighthouse/hello.html",
         "patchSetId": 1
