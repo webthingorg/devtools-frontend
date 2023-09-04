@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b322ba81_ea4c70e9",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-04T12:51:11Z",
+      "side": 1,
+      "message": "QQ: why do we need z-index here",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 14
+      },
+      "revId": "8acc8440f37257a63c91f875dfdb53cac59106d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d34059_d1574374",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-04T12:51:11Z",
+      "side": 1,
+      "message": "data grid",
+      "range": {
+        "startLine": 700,
+        "startChar": 16,
+        "endLine": 700,
+        "endChar": 24
+      },
+      "revId": "8acc8440f37257a63c91f875dfdb53cac59106d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
