@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a808c5ae_81b9eaa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-04T03:42:05Z",
+      "side": 1,
+      "message": "Hi Lingqi-san and Ken-san,\nI removed the old prerendering section since the new one has been implemented.\nI would appreciate it if you review the code.\nThank you!\nMiina",
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
