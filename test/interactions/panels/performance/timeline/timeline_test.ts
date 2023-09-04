@@ -17,8 +17,7 @@ describe('Performance panel', () => {
     await assertElementScreenshotUnchanged(panel, 'performance/timeline.png', 3);
   });
 
-  // Flaky test
-  itScreenshot.skip('[crbug.com/1478133] renders correctly the Bottom Up datagrid', async () => {
+  itScreenshot('should render correctly the Bottom Up datagrid', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
     await waitFor('.timeline-flamechart');
     await waitFor('div.tabbed-pane');
@@ -27,8 +26,7 @@ describe('Performance panel', () => {
     await assertElementScreenshotUnchanged(datagrid, 'performance/bottomUp.png', 3);
   });
 
-  // Flaky test
-  itScreenshot.skip('[crbug.com/1478133] renders correctly the Call Tree datagrid', async () => {
+  itScreenshot('should render correctly the Call Tree datagrid', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
     await waitFor('.timeline-flamechart');
     await waitFor('div.tabbed-pane');
@@ -37,8 +35,7 @@ describe('Performance panel', () => {
     await assertElementScreenshotUnchanged(datagrid, 'performance/callTree.png', 3);
   });
 
-  // Flaky test
-  itScreenshot.skip('[crbug.com/1478133] renders correctly the Event Log datagrid', async () => {
+  itScreenshot('should render correctly the Event Log datagrid', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
     await waitFor('.timeline-flamechart');
     await waitFor('div.tabbed-pane');
@@ -58,44 +55,33 @@ describe('Performance panel', () => {
     await assertElementScreenshotUnchanged(datagrid, 'performance/eventLog.png', 4);
   });
 
-  // Flaky test
-  itScreenshot.skip('[crbug.com/1478133] renders correctly the datagrid in the split widget of Bottom Up', async () => {
-    await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
-    await waitFor('.timeline-flamechart');
-    await waitFor('div.tabbed-pane');
-    await click('#tab-BottomUp');
-    const datagrid = await waitFor('.timeline-tree-view');
-    await click('[aria-label="Show Heaviest stack"]');
-    const rows = await datagrid.$$('.data-grid-data-grid-node');
+  for (let i = 0; i < 100; i++) {
+    // eslint-disable-next-line rulesdir/no_only
+    itScreenshot.only('it renders correctly the datagrid in the split widget of Bottom Up', async () => {
+      await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
+      await waitFor('.timeline-flamechart');
+      await waitFor('div.tabbed-pane');
+      await click('#tab-BottomUp');
+      const datagrid = await waitFor('.timeline-tree-view');
+      const clickPromise = click('[aria-label="Show Heaviest stack"]');
+      /* eslint-disable no-console */
+      console.log('clickPromis', await clickPromise);
+      const timeoutPromise = new Promise(res => {
+        setTimeout(res, 2000);
+      });
+      await Promise.race([clickPromise, timeoutPromise]);
 
-    // The trace one-second-interaction contains more than 3 rows in the bottom up tree
-    // so it is safe to click the third one
-    if (rows.length >= 3) {
-      await rows[2].click();
-    } else {
-      throw new Error('There are less than three rows with the class \'data-grid-data-grid-node\'');
-    }
+      await assertElementScreenshotUnchanged(datagrid, 'performance/splitWidgetBottomUp.png', 3);
+    });
+  }
 
-    await assertElementScreenshotUnchanged(datagrid, 'performance/splitWidgetBottomUp.png', 3);
-  });
-
-  // Flaky test
-  itScreenshot.skip('[crbug.com/1478133] renders correctly the datagrid in the split widget of Call Tree', async () => {
+  itScreenshot('renders correctly the datagrid in the split widget of Call Tree', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
     await waitFor('.timeline-flamechart');
     await waitFor('div.tabbed-pane');
     await click('#tab-CallTree');
     const datagrid = await waitFor('.timeline-tree-view');
     await click('[aria-label="Show Heaviest stack"]');
-    const rows = await datagrid.$$('.data-grid-data-grid-node');
-
-    // The trace one-second-interaction contains more than 3 rows in the call tree
-    // so it is safe to click the third one
-    if (rows.length >= 3) {
-      await rows[2].click();
-    } else {
-      throw new Error('There are less than three rows with the class \'data-grid-data-grid-node\'');
-    }
 
     await assertElementScreenshotUnchanged(datagrid, 'performance/splitWidgetCallTree.png', 3);
   });
