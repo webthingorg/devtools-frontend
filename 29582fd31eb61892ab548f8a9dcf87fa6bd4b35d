@@ -16,6 +16,69 @@
       "message": "Hi Lingqi-san and Ken-san,\nI removed the old prerendering section since the new one has been implemented.\nI would appreciate it if you review the code.\nThank you!\nMiina",
       "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4080582c_daa340c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-09-04T03:55:28Z",
+      "side": 1,
+      "message": "Thanks Miina!! 👍",
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5daba5bd_734794bb",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-09-04T03:55:28Z",
+      "side": 1,
+      "message": "I guess we can remove this one as well.",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 26
+      },
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc32b30_8577a8c7",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-09-04T03:55:28Z",
+      "side": 1,
+      "message": "This one seems no longer needed.",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 0
+      },
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
