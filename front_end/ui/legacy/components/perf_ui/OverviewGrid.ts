@@ -32,6 +32,7 @@ import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
+import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as UI from '../../legacy.js';
 import * as ThemeSupport from '../../theme_support/theme_support.js';
 
@@ -69,6 +70,10 @@ export class OverviewGrid {
     this.element.appendChild(this.grid.element);
 
     this.window = new Window(this.element, this.grid.dividersLabelBarElement, calculator);
+  }
+
+  enablePlusButton(): void{
+    this.window.enablePlusButton();
   }
 
   clientWidth(): number {
@@ -134,6 +139,8 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private rightResizeElement: HTMLElement;
   private leftCurtainElement: HTMLElement;
   private rightCurtainElement: HTMLElement;
+  private plusButton: IconButton.Icon.Icon;
+
   private overviewWindowSelector!: WindowSelector|undefined;
   private offsetLeft!: number;
   private dragStartPoint!: number;
@@ -187,7 +194,24 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.rightResizeElement.addEventListener('focus', this.onRightResizeElementFocused.bind(this));
     this.leftCurtainElement = (parentElement.createChild('div', 'window-curtain-left') as HTMLElement);
     this.rightCurtainElement = (parentElement.createChild('div', 'window-curtain-right') as HTMLElement);
+
+    this.plusButton = new IconButton.Icon.Icon();
+    this.plusButton.className = 'create-breadcrumbs-button';
+    this.plusButton.data = {
+      iconName: 'plus',
+      color: 'var(--icon-default)',
+      width: '20px',
+      height: '20px',
+    };
+   
     this.reset();
+  }
+
+  enablePlusButton(): void {
+    this.parentElement.appendChild(this.plusButton); 
+    this.plusButton.addEventListener('click', () => {
+      this.createBreadcrumb();
+    });
   }
 
   private onRightResizeElementFocused(): void {
@@ -297,6 +321,12 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     }
     const mouseEvent = (event as MouseEvent);
     const window = this.overviewWindowSelector.close(mouseEvent.x - this.offsetLeft);
+
+    // prevent selecting a window on clicking the minimap
+    if (window.start === window.end) {
+      return;
+    }
+
     delete this.overviewWindowSelector;
     const clickThreshold = 3;
     if (window.end - window.start < clickThreshold) {
@@ -425,6 +455,15 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
       this.dispatchEventToListeners(Events.WindowChangedWithPosition, this.calculateWindowPosition());
     }
     this.dispatchEventToListeners(Events.WindowChanged);
+    this.changePlusButtonVisibility(windowLeft, windowRight)
+  }
+
+  private changePlusButtonVisibility(windowLeft: number, windowRight: number): void {
+    this.plusButton.style.visibility = (windowRight >= 0.999 && windowLeft <= 0.01) ? 'hidden' : 'visible';
+  }
+
+  createBreadcrumb(): void {
+    this.dispatchEventToListeners(Events.BreadcrumbAdded, this.calculateWindowPosition());
   }
 
   private updateCurtains(): void {
@@ -457,6 +496,9 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
 
     this.leftCurtainElement.style.width = leftResizerPercLeftOffsetString;
     this.rightCurtainElement.style.width = rightResizerPercRightOffset + '%';
+
+    this.plusButton.style.paddingLeft = leftResizerPercLeftOffsetString;
+    this.plusButton.style.paddingRight = (100 - rightResizerPercLeftOffset) + '%';
 
     this.updateResizeElementPositionValue(leftResizerPercLeftOffset, rightResizerPercLeftOffset);
     if (this.calculator) {
@@ -527,6 +569,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
 export enum Events {
   WindowChanged = 'WindowChanged',
   WindowChangedWithPosition = 'WindowChangedWithPosition',
+  BreadcrumbAdded = 'BreadcrumbAdded',
 }
 
 export interface WindowChangedWithPositionEvent {
@@ -536,6 +579,7 @@ export interface WindowChangedWithPositionEvent {
 
 export type EventTypes = {
   [Events.WindowChanged]: void,
+  [Events.BreadcrumbAdded]: WindowChangedWithPositionEvent,
   [Events.WindowChangedWithPosition]: WindowChangedWithPositionEvent,
 };
 
