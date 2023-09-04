@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c8430c_cee39116",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-04T17:10:06Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "993e92c3b787ac454a93fbc974a298d4077b8094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d56bbc17_60627dbb",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-04T17:10:06Z",
+      "side": 1,
+      "message": "nit: Could be `Common.UIString.LocalizedString`",
+      "range": {
+        "startLine": 655,
+        "startChar": 79,
+        "endLine": 655,
+        "endChar": 85
+      },
+      "revId": "993e92c3b787ac454a93fbc974a298d4077b8094",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
