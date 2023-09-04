@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c75e855_77593fb6",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-04T14:06:18Z",
+      "side": 1,
+      "message": "Does chromium have a way of disabling throttling? Getting this right in a new test seems fairly hard.",
+      "parentUuid": "c5112ff3_931ac2d3",
+      "revId": "12bd454a055cb07aa110d25a604b7875d6b873e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce68cf0d_2248f0ce",
