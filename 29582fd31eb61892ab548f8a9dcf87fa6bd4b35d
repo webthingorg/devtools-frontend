@@ -113,6 +113,24 @@
       "message": "https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/3992727/comments/f316ce3b_f7844503\n\nThis test was originally introduced in this CL. We can remove this.",
       "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "207407b4_2aeb3c6e",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-09-04T05:53:13Z",
+      "side": 1,
+      "message": "memo)\n so we can also clean up the i18n part such as front_end/core/i18n/locales/en-US.json (maybe in another CL?)",
+      "parentUuid": "fb7e2000_ebefab16",
+      "revId": "29582fd31eb61892ab548f8a9dcf87fa6bd4b35d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
