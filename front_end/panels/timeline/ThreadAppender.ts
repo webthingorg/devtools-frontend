@@ -302,46 +302,53 @@ export class ThreadAppender implements TrackAppender {
     }
   }
 
-  #buildWarningElement(
+  static buildWarningElementsForEvent(
       event: TraceEngine.Types.TraceEvents.TraceEventData,
-      warning: TraceEngine.Handlers.ModelHandlers.Warnings.Warning): HTMLSpanElement|null {
-    const duration =
-        TraceEngine.Helpers.Timing.microSecondsToMilliseconds(TraceEngine.Types.Timing.MicroSeconds(event.dur || 0));
-    const span = document.createElement('span');
-    switch (warning) {
-      case 'FORCED_STYLE':
-      case 'FORCED_LAYOUT': {
-        const forcedReflowLink = UI.XLink.XLink.create(
-            'https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-forced-synchronous-layouts',
-            i18nString(UIStrings.forcedReflow));
-        span.appendChild(i18n.i18n.getFormatLocalizedString(
-            str_, UIStrings.sIsALikelyPerformanceBottleneck, {PH1: forcedReflowLink}));
-        break;
-      }
-
-      case 'IDLE_CALLBACK_OVER_TIME': {
-        if (!TraceEngine.Types.TraceEvents.isTraceEventFireIdleCallback(event)) {
+      traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData): HTMLSpanElement[] {
+    const warnings = traceParsedData.Warnings.perEvent.get(event);
+    const warningElements: HTMLSpanElement[] = [];
+    if (!warnings) {
+      return warningElements;
+    }
+    for (const warning of warnings) {
+      const duration =
+          TraceEngine.Helpers.Timing.microSecondsToMilliseconds(TraceEngine.Types.Timing.MicroSeconds(event.dur || 0));
+      const span = document.createElement('span');
+      switch (warning) {
+        case 'FORCED_STYLE':
+        case 'FORCED_LAYOUT': {
+          const forcedReflowLink = UI.XLink.XLink.create(
+              'https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-forced-synchronous-layouts',
+              i18nString(UIStrings.forcedReflow));
+          span.appendChild(i18n.i18n.getFormatLocalizedString(
+              str_, UIStrings.sIsALikelyPerformanceBottleneck, {PH1: forcedReflowLink}));
           break;
         }
-        const exceededMs =
-            i18n.TimeUtilities.millisToString((duration || 0) - event.args.data['allottedMilliseconds'], true);
-        span.textContent = i18nString(UIStrings.idleCallbackExecutionExtended, {PH1: exceededMs});
-        break;
-      }
+        case 'IDLE_CALLBACK_OVER_TIME': {
+          if (!TraceEngine.Types.TraceEvents.isTraceEventFireIdleCallback(event)) {
+            break;
+          }
+          const exceededMs =
+              i18n.TimeUtilities.millisToString((duration || 0) - event.args.data['allottedMilliseconds'], true);
+          span.textContent = i18nString(UIStrings.idleCallbackExecutionExtended, {PH1: exceededMs});
+          break;
+        }
 
-      case 'LONG_TASK': {
-        const longTaskLink =
-            UI.XLink.XLink.create('https://web.dev/optimize-long-tasks/', i18nString(UIStrings.longTask));
-        span.appendChild(i18n.i18n.getFormatLocalizedString(
-            str_, UIStrings.sTookS,
-            {PH1: longTaskLink, PH2: i18n.TimeUtilities.millisToString((duration || 0), true)}));
-        break;
+        case 'LONG_TASK': {
+          const longTaskLink =
+              UI.XLink.XLink.create('https://web.dev/optimize-long-tasks/', i18nString(UIStrings.longTask));
+          span.appendChild(i18n.i18n.getFormatLocalizedString(
+              str_, UIStrings.sTookS,
+              {PH1: longTaskLink, PH2: i18n.TimeUtilities.millisToString((duration || 0), true)}));
+          break;
+        }
+        default: {
+          continue;
+        }
       }
-      default: {
-        return null;
-      }
+      warningElements.push(span);
     }
-    return span;
+    return warningElements;
   }
 
   /*
@@ -387,8 +394,6 @@ export class ThreadAppender implements TrackAppender {
    */
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.SyntheticEventWithSelfTime): HighlightedEntryInfo {
     let title = this.titleForEvent(event);
-    const warnings = this.#traceParsedData.Warnings.perEvent.get(event);
-
     if (TraceEngine.Types.TraceEvents.isTraceEventParseHTML(event)) {
       const startLine = event.args['beginData']['startLine'];
       const endLine = event.args['endData'] && event.args['endData']['endLine'];
@@ -397,16 +402,8 @@ export class ThreadAppender implements TrackAppender {
       const range = (endLine !== -1 || endLine === startLine) ? `${startLine}...${endLine}` : startLine;
       title += ` - ${url} [${range}]`;
     }
-    const warningElements: HTMLSpanElement[] = [];
-    if (warnings) {
-      for (const warning of warnings) {
-        const warningElement = this.#buildWarningElement(event, warning);
-        if (!warningElement) {
-          continue;
-        }
-        warningElements.push(warningElement);
-      }
-    }
+    const warningElements: HTMLSpanElement[] =
+        ThreadAppender.buildWarningElementsForEvent(event, this.#traceParsedData);
     return {title, formattedTime: getFormattedTime(event.dur, event.selfTime), warningElements};
   }
 }
