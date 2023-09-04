@@ -142,6 +142,30 @@
       },
       "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65f57189_6e34a004",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T10:24:21Z",
+      "side": 1,
+      "message": "Yeah I wasn\u0027t sure...I don\u0027t feel super strongly but in the end I went for this because I like that it forces the caller to be explicit when creating this and having to declare what they want the setting to be. WDYT?",
+      "parentUuid": "a064ede2_0101aae8",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 47
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
