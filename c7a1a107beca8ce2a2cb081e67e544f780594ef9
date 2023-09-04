@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ee07444_1c524394",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-09-04T06:09:14Z",
+      "side": 1,
+      "message": "Basically, the CL description should look like:\n1. Summary: \n\n2. Details and explanation\n\n3. [optional] reference, such as design doc or snapshot.\n\nCould you revise the description? 😊",
+      "revId": "c7a1a107beca8ce2a2cb081e67e544f780594ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e344960_06af982e",
         "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
         "patchSetId": 4
