@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b8ab1d_0895dbb5",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-04T13:35:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a45aa143_06d35f41",
+      "range": {
+        "startLine": 427,
+        "startChar": 13,
+        "endLine": 427,
+        "endChar": 35
+      },
+      "revId": "75694720039f95c7a27424420ed3e4027202fc5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cf06b95_54afe923",
@@ -112,6 +136,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "feed80c1_ae864ec1",
+        "filename": "front_end/panels/timeline/timelineStatusDialog.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-04T13:35:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89f34b4c_799b946c",
+      "range": {
+        "startLine": 37,
+        "startChar": 24,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "75694720039f95c7a27424420ed3e4027202fc5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27a3429a_638b0fa3",
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "Yes, Peter told me to use those specific colors for the panel :)",
       "parentUuid": "27a3429a_638b0fa3",
+      "range": {
+        "startLine": 374,
+        "startChar": 14,
+        "endLine": 374,
+        "endChar": 22
+      },
+      "revId": "75694720039f95c7a27424420ed3e4027202fc5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07098372_87947815",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-04T13:35:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ea4f085_84e2e9b0",
       "range": {
         "startLine": 374,
         "startChar": 14,
