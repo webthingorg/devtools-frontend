@@ -253,17 +253,28 @@ export class JSONEditor extends LitElement {
     if (!schema?.parameters) {
       return;
     }
-    this.parameters = this.#convertObjectToParameterSchema(
-                              '', parameters, {
-                                'typeRef': DUMMY_DATA,
-                                'type': ParameterType.Object,
-                                'name': '',
-                                'description': '',
-                                'optional': true,
-                                'value': [],
-                              },
-                              schema.parameters)
-                          .value as Parameter[];
+    this.populateParametersForCommandWithDefaultValues();
+
+    const newPrams = this.#convertObjectToParameterSchema(
+                             '', parameters, {
+                               'typeRef': DUMMY_DATA,
+                               'type': ParameterType.Object,
+                               'name': '',
+                               'description': '',
+                               'optional': true,
+                               'value': [],
+                             },
+                             schema.parameters)
+                         .value as Parameter[];
+
+    const parameterMap = new Map(this.parameters.map(param => [param.name, param]));
+    for (const param of newPrams) {
+      const existingParam = parameterMap.get(param.name);
+      if (existingParam) {
+        existingParam.value = param.value;
+      }
+    }
+
     this.requestUpdate();
   }
 
