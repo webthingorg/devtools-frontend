@@ -41,6 +41,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2f6d74_a1c866b0",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-04T01:59:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ff42dea_10d09d49",
+      "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cab3bd5_00fd98af",
+        "filename": "front_end/panels/application/preloading/components/MismatchedPreloadingGrid.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-04T01:59:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e3df80a_2b074885",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bb324a5_924d12c5",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-09-01T06:29:11Z",
       "side": 1,
       "message": "We might need to change signature like `capitalziedAction(action: Protocol.Preload.SpeculationAction): string`.",
+      "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35d5291_9c84de1f",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-04T01:59:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bb324a5_924d12c5",
       "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -89,6 +149,24 @@
       "side": 1,
       "message": "s/MismatchedPreloadingGrid.ts/PreloadingDetailsReportView.ts/ (Actually, we need to rewrite both.)",
       "parentUuid": "7ced8d39_6fe073ab",
+      "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2368b1c_fc58f488",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-04T01:59:51Z",
+      "side": 1,
+      "message": "Updated, thanks.",
+      "parentUuid": "854ffa39_3236e036",
       "revId": "93bdcdd9b132a16b4d938ccbc9486d99e1d1d03b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
