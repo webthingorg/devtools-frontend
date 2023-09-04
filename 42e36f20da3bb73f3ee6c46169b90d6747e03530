@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81aa1368_eb211f4b",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T10:32:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42d9262c_d08e5d27",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d03e11e6_6125e0b0",
@@ -98,6 +122,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c1e6ac_06b3fa44",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T10:32:15Z",
+      "side": 1,
+      "message": "Yeah I agree - I decided that I would leave them for now, but if this CL landed I will follow up with one that moves these into the settings.",
+      "parentUuid": "d03e11e6_6125e0b0",
+      "range": {
+        "startLine": 47,
+        "startChar": 43,
+        "endLine": 47,
+        "endChar": 86
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddaf64b7_de9dd348",
@@ -111,6 +159,30 @@
       "writtenOn": "2023-09-04T09:15:17Z",
       "side": 1,
       "message": "nit: I think this would be redundant.",
+      "range": {
+        "startLine": 71,
+        "startChar": 40,
+        "endLine": 71,
+        "endChar": 67
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6001f5c5_56bdee58",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T10:32:15Z",
+      "side": 1,
+      "message": "I thought so too, but TS moans without both of these. TBH not really sure why, might be a bug in TS, but I decided it wasn\u0027t worth fighting. I have added a comment to the code to note this.",
+      "parentUuid": "ddaf64b7_de9dd348",
       "range": {
         "startLine": 71,
         "startChar": 40,
