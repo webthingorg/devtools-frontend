@@ -69,6 +69,24 @@
       "parentUuid": "7e344960_06af982e",
       "revId": "c7a1a107beca8ce2a2cb081e67e544f780594ef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74e8c42_b5b97d50",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-09-04T07:54:01Z",
+      "side": 1,
+      "message": "Could you remove properties/capabilities of `ResourceTreeModel` and `ResourceTreeFrame`? For example, we can remove `ResourceTreeFrame.setPrerenderDisallowedApiMethod` and `PreloadDispatcher` for `ResourceTreeModel`.\nNote that the next step is removing a CDP event `Preload.prerenderAttemptCompleted` https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1445220.",
+      "parentUuid": "dafdc6fe_edfbbba9",
+      "revId": "c7a1a107beca8ce2a2cb081e67e544f780594ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
