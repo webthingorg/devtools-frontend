@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc280720_cee1c490",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2948,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:15:14Z",
+      "side": 1,
+      "message": "what about this one?",
+      "range": {
+        "startLine": 2948,
+        "startChar": 80,
+        "endLine": 2948,
+        "endChar": 98
+      },
+      "revId": "5262d2978f8575868bec219d9e9309cfd34525ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b338a52b_518a6c70",
+        "filename": "front_end/panels/timeline/UIDevtoolsUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:15:14Z",
+      "side": 1,
+      "message": "are you planning to update these in this CL too? Then you might not need to differentiate when drawing",
+      "range": {
+        "startLine": 146,
+        "startChar": 82,
+        "endLine": 151,
+        "endChar": 94
+      },
+      "revId": "5262d2978f8575868bec219d9e9309cfd34525ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c50d613_b3924109",
+        "filename": "front_end/ui/legacy/tokens.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:15:14Z",
+      "side": 1,
+      "message": "let\u0027s not add any more colors here, can we use neutral90 instead? It seems pretty close to what you want to add",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 51
+      },
+      "revId": "5262d2978f8575868bec219d9e9309cfd34525ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
