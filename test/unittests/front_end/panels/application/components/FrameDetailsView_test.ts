@@ -148,8 +148,6 @@ describeWithRealConnection('FrameDetailsView', () => {
       'Cross-Origin Opener Policy (COOP)',
       'SharedArrayBuffers',
       'Measure Memory',
-      'Prerendering Status',
-      'Disallowed API method',
     ]);
 
     const values = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-value');
@@ -166,8 +164,6 @@ describeWithRealConnection('FrameDetailsView', () => {
       'SameOrigin',
       'available, transferable',
       'available\xA0Learn more',
-      'A disallowed API was used by the prerendered page',
-      'device.mojom.GamepadMonitor',
     ]);
 
     const stackTrace = getElementWithinComponent(
@@ -231,7 +227,6 @@ describeWithRealConnection('FrameDetailsView', () => {
       'Cross-Origin Opener Policy (COOP)',
       'SharedArrayBuffers',
       'Measure Memory',
-      'Prerendering Status',
     ]);
 
     const values = getCleanTextContentFromElements(component.shadowRoot, 'devtools-report-value');
@@ -246,7 +241,6 @@ describeWithRealConnection('FrameDetailsView', () => {
       'SameOrigin',
       'available, transferable',
       'available\xA0Learn more',
-      'Prerendering ongoing https://example.test/',
     ]);
   });
 });
