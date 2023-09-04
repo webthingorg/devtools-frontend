@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b9a1b22_ed00209f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:06:51Z",
+      "side": 1,
+      "message": "Thanks, Hadrien! Left some comments",
+      "revId": "75694720039f95c7a27424420ed3e4027202fc5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc6e1eab_0d78c56e",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:06:51Z",
+      "side": 1,
+      "message": "generally secondary should become token-subtle, have you tried using it and it looked bad?",
+      "range": {
+        "startLine": 427,
+        "startChar": 13,
+        "endLine": 427,
+        "endChar": 35
+      },
+      "revId": "75694720039f95c7a27424420ed3e4027202fc5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cf06b95_54afe923",
+        "filename": "front_end/panels/timeline/timelineStatusDialog.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:06:51Z",
+      "side": 1,
+      "message": "do we specifically need a darker grey color here? Generally for a more \"elevated\" look we can use e.g. surface-2",
+      "range": {
+        "startLine": 37,
+        "startChar": 24,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "75694720039f95c7a27424420ed3e4027202fc5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27a3429a_638b0fa3",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:06:51Z",
+      "side": 1,
+      "message": "Material 3 uses tonal-container for selected states, would it work here too?",
+      "range": {
+        "startLine": 374,
+        "startChar": 14,
+        "endLine": 374,
+        "endChar": 22
+      },
+      "revId": "75694720039f95c7a27424420ed3e4027202fc5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
