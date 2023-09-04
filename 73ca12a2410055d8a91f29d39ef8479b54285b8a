@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "73ca12a2410055d8a91f29d39ef8479b54285b8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1ee539_b90c4ff5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T10:11:43Z",
+      "side": 1,
+      "message": "LGTM with one suggestion about moving the constant.\n\nWhen the time comes it is going to be very satisfying removing all the old warnings code from the old engine!",
+      "revId": "73ca12a2410055d8a91f29d39ef8479b54285b8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08eff4ba_8612da9a",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-04T10:11:43Z",
+      "side": 1,
+      "message": "I think we should define and export this from the WarningsHandler, just like we do with the FORCED_LAYOUT constant.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 82
+      },
+      "revId": "73ca12a2410055d8a91f29d39ef8479b54285b8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
