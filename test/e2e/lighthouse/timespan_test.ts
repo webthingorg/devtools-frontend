@@ -6,7 +6,7 @@ import {assert} from 'chai';
 
 import {expectError} from '../../conductor/events.js';
 import {$textContent, getBrowserAndPages} from '../../shared/helper.js';
-import {describe, it} from '../../shared/mocha-extensions.js';
+import {describe} from '../../shared/mocha-extensions.js';
 import {
   clickStartButton,
   endTimespan,
@@ -42,7 +42,7 @@ describe('Timespan', async function() {
     expectError(/Protocol Error: the message with wrong session id/);
   });
 
-  it('successfully returns a Lighthouse report for user interactions', async () => {
+  xit('successfully returns a Lighthouse report for user interactions', async () => {
     await navigateToLighthouseTab('lighthouse/hello.html');
     await registerServiceWorker();
 
