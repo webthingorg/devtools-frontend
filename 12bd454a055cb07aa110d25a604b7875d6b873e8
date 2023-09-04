@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "993ee411_e7b19fb9",
+        "filename": "test/e2e/helpers/lighthouse-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-04T14:04:20Z",
+      "side": 1,
+      "message": "Also, hopefully, we can remove those calls once we can run DevTools in the docked mode.",
+      "parentUuid": "c5112ff3_931ac2d3",
+      "revId": "12bd454a055cb07aa110d25a604b7875d6b873e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce68cf0d_2248f0ce",
         "filename": "test/e2e/resources/lighthouse/hello.html",
         "patchSetId": 1
