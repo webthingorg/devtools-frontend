@@ -52,24 +52,22 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import networkLogViewStyles from './networkLogView.css.js';
-
 import {
   Events,
+  type EventTypes,
   NetworkGroupNode,
-  NetworkRequestNode,
   type NetworkLogViewInterface,
   type NetworkNode,
-  type EventTypes,
+  NetworkRequestNode,
 } from './NetworkDataGridNode.js';
 import {NetworkFrameGrouper} from './NetworkFrameGrouper.js';
+import networkLogViewStyles from './networkLogView.css.js';
 import {NetworkLogViewColumns} from './NetworkLogViewColumns.js';
-
 import {
   NetworkTimeBoundary,
+  type NetworkTimeCalculator,
   NetworkTransferDurationCalculator,
   NetworkTransferTimeCalculator,
-  type NetworkTimeCalculator,
 } from './NetworkTimeCalculator.js';
 
 const UIStrings = {
@@ -414,11 +412,11 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private readonly textFilterUI: UI.FilterBar.TextFilterUI;
   private readonly invertFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly dataURLFilterUI: UI.FilterBar.CheckboxFilterUI;
-  private resourceCategoryFilterUI: UI.FilterBar.NamedBitSetFilterUI;
   private readonly onlyBlockedResponseCookiesFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyBlockedRequestsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyThirdPartyFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly hideChromeExtensionsUI: UI.FilterBar.CheckboxFilterUI;
+  private readonly resourceCategoryDropDownUI: UI.FilterBar.DropDownTypesUI;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
   private dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<NetworkNode>;
@@ -521,12 +519,13 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             .map(
                 category =>
                     ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}));
-    this.resourceCategoryFilterUI =
-        new UI.FilterBar.NamedBitSetFilterUI(filterItems, this.networkResourceTypeFiltersSetting);
-    UI.ARIAUtils.setLabel(this.resourceCategoryFilterUI.element(), i18nString(UIStrings.resourceTypesToInclude));
-    this.resourceCategoryFilterUI.addEventListener(
+
+    this.resourceCategoryDropDownUI = new UI.FilterBar.DropDownTypesUI(
+        filterItems, this.filterChanged.bind(this), this.networkResourceTypeFiltersSetting);
+    UI.ARIAUtils.setLabel(this.resourceCategoryDropDownUI.element(), i18nString(UIStrings.resourceTypesToInclude));
+    this.resourceCategoryDropDownUI.addEventListener(
         UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
-    filterBar.addFilter(this.resourceCategoryFilterUI);
+    filterBar.addFilter(this.resourceCategoryDropDownUI);
 
     this.onlyBlockedResponseCookiesFilterUI = new UI.FilterBar.CheckboxFilterUI(
         'only-show-blocked-cookies', i18nString(UIStrings.hasBlockedCookies), true,
@@ -1488,7 +1487,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     this.onlyBlockedResponseCookiesFilterUI.setChecked(false);
     this.onlyBlockedRequestsUI.setChecked(false);
     this.hideChromeExtensionsUI.setChecked(false);
-    this.resourceCategoryFilterUI.reset();
+    this.resourceCategoryDropDownUI.reset();
   }
 
   private createNodeForRequest(request: SDK.NetworkRequest.NetworkRequest): NetworkRequestNode {
@@ -1835,7 +1834,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
       return false;
     }
     const categoryName = request.resourceType().category().title();
-    if (!this.resourceCategoryFilterUI.accept(categoryName)) {
+    if (!this.resourceCategoryDropDownUI.accept(categoryName)) {
       return false;
     }
     if (this.dataURLFilterUI.checked() && (request.parsedURL.isDataURL() || request.parsedURL.isBlobURL())) {
