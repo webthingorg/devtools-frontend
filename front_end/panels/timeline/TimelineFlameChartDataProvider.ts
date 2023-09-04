@@ -944,11 +944,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (color) {
         return color;
       }
-      const parsedColor = Common.Color.parse(lookupColor(key));
+      const parsedColor = lookupColor(key);
       if (!parsedColor) {
         throw new Error('Could not parse color from entry');
       }
-      color = parsedColor.setAlpha(0.7).asString(Common.Color.Format.RGBA) || '';
+      color = parsedColor;
       cache.set(key, color);
       return color;
     }

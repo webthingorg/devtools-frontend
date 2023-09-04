@@ -368,6 +368,17 @@
   --sys-color-token-inserted: var(--ref-palette-tertiary60);
   --sys-color-token-pseudo-element: var(--ref-palette-primary40);
   --sys-color-token-subtle: var(--ref-palette-neutral60);
+
+  /* Colors for timeline in Performance Panel */
+
+  --app-color-loading: var(--ref-palette-blue70);
+  --app-color-scripting: var(--ref-palette-yellow70);
+  --app-color-rendering: var(--ref-palette-purple70);
+  --app-color-painting: var(--ref-palette-green70);
+  --app-color-task: var(--ref-palette-neutral80);
+  --app-color-system: var(--ref-palette-neutral80);
+  --app-color-idle: var(--ref-palette-neutral90);
+  --app-color-other: var(--ref-palette-neutral87);
 }
 
 .-theme-with-dark-background {
@@ -691,4 +702,15 @@
   --sys-color-token-inserted: var(--ref-palette-tertiary60);
   --sys-color-token-pseudo-element: var(--ref-palette-pink70);
   --sys-color-token-subtle: var(--ref-palette-neutral60);
+
+  /* Colors for timeline in Performance Panel */
+
+  --app-color-loading: var(--ref-palette-blue60);
+  --app-color-scripting: var(--ref-palette-yellow70);
+  --app-color-rendering: var(--ref-palette-purple60);
+  --app-color-painting: var(--ref-palette-green70);
+  --app-color-task: var(--ref-palette-neutral80);
+  --app-color-system: var(--ref-palette-neutral50);
+  --app-color-idle: var(--ref-palette-neutral30);
+  --app-color-other: var(--ref-palette-neutral60);
 }
