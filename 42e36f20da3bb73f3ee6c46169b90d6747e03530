@@ -238,6 +238,30 @@
       },
       "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85dc18ba_0becbc5d",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-04T14:46:51Z",
+      "side": 1,
+      "message": "having a optional settings with a default value feels more consistent with other similar cases in this codebase, but if you feel it\u0027s convenient to have the caller explicitly declare they want to use default settings then I would not oppose doing so",
+      "parentUuid": "65f57189_6e34a004",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 47
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
