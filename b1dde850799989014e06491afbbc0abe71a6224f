@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3037129d_e9f191e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:23:24Z",
+      "side": 1,
+      "message": "This lo0oks great already, just one more thing to try out",
+      "revId": "b1dde850799989014e06491afbbc0abe71a6224f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5772b60e_f171c969",
+        "filename": "front_end/panels/timeline/timelineHistoryManager.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-04T13:23:24Z",
+      "side": 1,
+      "message": "Can you try the 2px primary outline here with 2px offset? just send me a screenshot of how it looks like",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "b1dde850799989014e06491afbbc0abe71a6224f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
