@@ -53,16 +53,23 @@ export class TimelineMiniMap extends
     // Push the event up into the parent component so the panel knows when the window is changed.
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
       this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
+      // Create first breadcrumb from the initial full window
+      if (this.#breadcrumbs === null) {
+        this.addBreadcrumb(
+            TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
+            TraceEngine.Types.Timing.MilliSeconds(event.data.endTime));
+      }
     });
   }
 
   activateBreadcrumbs(): void {
     this.element.prepend(this.#breadcrumbsUI);
-    this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
+    this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.BreadcrumbAdded, event => {
       this.addBreadcrumb(
           TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
           TraceEngine.Types.Timing.MilliSeconds(event.data.endTime));
     });
+    this.#overviewComponent.enableCreateBreadcrumbsButton();
   }
 
   addBreadcrumb(start: TraceEngine.Types.Timing.MilliSeconds, end: TraceEngine.Types.Timing.MilliSeconds): void {

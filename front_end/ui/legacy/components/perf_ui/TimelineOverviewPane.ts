@@ -67,6 +67,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
 
     this.overviewGrid.setResizeEnabled(false);
     this.overviewGrid.addEventListener(OverviewGridEvents.WindowChangedWithPosition, this.onWindowChanged, this);
+    this.overviewGrid.addEventListener(OverviewGridEvents.BreadcrumbAdded, this.onBreadcrumbAdded, this);
     this.overviewGrid.setClickHandler(this.onClick.bind(this));
     this.overviewControls = [];
     this.markers = new Map();
@@ -81,6 +82,10 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     this.windowStartTime = 0;
     this.windowEndTime = Infinity;
     this.muteOnWindowChanged = false;
+  }
+
+  enableCreateBreadcrumbsButton(): void {
+    this.overviewGrid.enableCreateBreadcrumbsButton();
   }
 
   private onMouseMove(event: Event): void {
@@ -211,6 +216,11 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     return this.overviewControls.some(control => control.onClick(event));
   }
 
+  private onBreadcrumbAdded(): void {
+    this.dispatchEventToListeners(
+        Events.BreadcrumbAdded, {startTime: this.windowStartTime, endTime: this.windowEndTime});
+  }
+
   private onWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedWithPositionEvent>): void {
     if (this.muteOnWindowChanged) {
       return;
@@ -220,10 +230,8 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
       return;
     }
 
-    this.windowStartTime =
-        event.data.rawStartValue === this.overviewCalculator.minimumBoundary() ? 0 : event.data.rawStartValue;
-    this.windowEndTime =
-        event.data.rawEndValue === this.overviewCalculator.maximumBoundary() ? Infinity : event.data.rawEndValue;
+    this.windowStartTime = event.data.rawStartValue;
+    this.windowEndTime = event.data.rawEndValue;
 
     const windowTimes = {startTime: this.windowStartTime, endTime: this.windowEndTime};
 
@@ -259,6 +267,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
 // eslint-disable-next-line rulesdir/const_enum
 export enum Events {
   WindowChanged = 'WindowChanged',
+  BreadcrumbAdded = 'BreadcrumbAdded',
 }
 
 export interface WindowChangedEvent {
@@ -266,8 +275,14 @@ export interface WindowChangedEvent {
   endTime: number;
 }
 
+export interface BreadcrumbAddedEvent {
+  startTime: number;
+  endTime: number;
+}
+
 export type EventTypes = {
   [Events.WindowChanged]: WindowChangedEvent,
+  [Events.BreadcrumbAdded]: BreadcrumbAddedEvent,
 };
 
 export interface TimelineOverview {
