@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a193427_8fe7f7ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T16:17:08Z",
+      "side": 1,
+      "message": "lgtm with question 😊",
+      "revId": "a34779deb163c8e56627b8ea27abe95a6f24d1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb1b380_fb0c796c",
+        "filename": "front_end/panels/timeline/components/DetailsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T16:17:08Z",
+      "side": 1,
+      "message": "do you think this should have unit tests itself? or are we happy that it does via TimelineUIUtils? Or shall we leave tests until this is a component? wdyt?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 45
+      },
+      "revId": "a34779deb163c8e56627b8ea27abe95a6f24d1b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
