@@ -16,6 +16,69 @@
       "message": "The CL looks really good, great job both of you! Let\u0027s wait for Wolfgang to also look over it.",
       "revId": "02e316a2bc73cfbc26afb528d74b17eeabea3e6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd250766_dedf4f5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T06:33:16Z",
+      "side": 1,
+      "message": "Could you add tests please? If possible, add a unit tests which create a keep-open context menu, and then assert you can multi-select and that the menu stays open upon selection.",
+      "revId": "02e316a2bc73cfbc26afb528d74b17eeabea3e6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78fd961f_2488555e",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T06:33:16Z",
+      "side": 1,
+      "message": "Could `undefined` be avoided here?",
+      "range": {
+        "startLine": 86,
+        "startChar": 28,
+        "endLine": 86,
+        "endChar": 37
+      },
+      "revId": "02e316a2bc73cfbc26afb528d74b17eeabea3e6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5689188_0f281db0",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T06:33:16Z",
+      "side": 1,
+      "message": "I believe that there is at least 1 Aria-label which should be updated. Could you please inspect the DOM and check which attributes and classes need updating?",
+      "range": {
+        "startLine": 373,
+        "startChar": 2,
+        "endLine": 373,
+        "endChar": 12
+      },
+      "revId": "02e316a2bc73cfbc26afb528d74b17eeabea3e6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
