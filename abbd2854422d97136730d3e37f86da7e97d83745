@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63642e4d_9d963359",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-09-05T18:25:21Z",
+      "side": 1,
+      "message": "Thanks for doing this, I think most of it makes sense.",
+      "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39461362_205b5a64",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-09-05T18:25:21Z",
+      "side": 1,
+      "message": "Seems kind confusing to have this here. Wouldn\u0027t it make more sense to call `frontend.bringToFront()` after `waitForResult` on L97? We already assert `numNavigations` is 6 at that point anyway.",
+      "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
