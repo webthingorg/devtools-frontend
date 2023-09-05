@@ -16,6 +16,23 @@
       "message": "Thank you!",
       "revId": "7bdd8731299e28b2de34e6067323c056acf3f76b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0874e6ca_e4917af3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-05T08:39:13Z",
+      "side": 1,
+      "message": "Hi Danil,\nCould you take a look at it?\nThank you!\nMiina",
+      "revId": "7bdd8731299e28b2de34e6067323c056acf3f76b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
