@@ -16,6 +16,23 @@
       "message": "Jack, Philip: Does this make sense? The problem I\u0027m facing is that with the new reverse symlink `isInChromiumDirectory()` returns true when trying to run e2etests. I don\u0027t think there\u0027s a direct workaround for this, we\u0027ll always get the chromium folder and not the separate devtools-frontend folder. That\u0027s why my approach is to pick the chromium binary from within devtools in chromium/third_party.",
       "revId": "798c7d0ec3cab61918fb7f290f8547779aefc367",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b658415d_5e916827",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T08:32:59Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "798c7d0ec3cab61918fb7f290f8547779aefc367",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
