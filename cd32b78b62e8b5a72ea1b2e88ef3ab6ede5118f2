@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b861199_51e3eeae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1592918
+      },
+      "writtenOn": "2023-09-05T11:48:47Z",
+      "side": 1,
+      "message": "https://ygoprodeck.com/card/ulevo-10231 images.ygoprodeck.com",
+      "revId": "cd32b78b62e8b5a72ea1b2e88ef3ab6ede5118f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9d627a5_b8549cce",
