@@ -33,6 +33,29 @@
       "message": "Changhao, can you help Jeremy?",
       "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd81493_c7e6c140",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-05T20:34:50Z",
+      "side": 1,
+      "message": "Any reason behind this change? Was it only for debugging? If yes, please revert it.",
+      "range": {
+        "startLine": 2256,
+        "startChar": 16,
+        "endLine": 2256,
+        "endChar": 21
+      },
+      "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
