@@ -53,16 +53,35 @@ export class TimelineMiniMap extends
     // Push the event up into the parent component so the panel knows when the window is changed.
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
       this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
+      // Create first breadcrumb from the initial full window
+      if (this.#breadcrumbs === null) {
+        const breadcrumbWindow = event.data;
+        breadcrumbWindow.endTime =
+            Math.min(this.#overviewComponent.overviewCalculator.maximumBoundary(), breadcrumbWindow.endTime);
+        breadcrumbWindow.startTime =
+            Math.max(this.#overviewComponent.overviewCalculator.minimumBoundary(), breadcrumbWindow.startTime);
+
+        this.addBreadcrumb(
+            TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.startTime),
+            TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.endTime));
+      }
     });
   }
 
   activateBreadcrumbs(): void {
     this.element.prepend(this.#breadcrumbsUI);
-    this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
+    this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.BreadcrumbAdded, event => {
+      const breadcrumbWindow = event.data;
+      breadcrumbWindow.endTime =
+          Math.min(this.#overviewComponent.overviewCalculator.maximumBoundary(), breadcrumbWindow.endTime);
+      breadcrumbWindow.startTime =
+          Math.max(this.#overviewComponent.overviewCalculator.minimumBoundary(), breadcrumbWindow.startTime);
+
       this.addBreadcrumb(
-          TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
-          TraceEngine.Types.Timing.MilliSeconds(event.data.endTime));
+          TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.startTime),
+          TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.endTime));
     });
+    this.#overviewComponent.enableCreateBreadcrumbsButton();
   }
 
   addBreadcrumb(start: TraceEngine.Types.Timing.MilliSeconds, end: TraceEngine.Types.Timing.MilliSeconds): void {
