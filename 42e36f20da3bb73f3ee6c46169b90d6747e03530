@@ -262,6 +262,30 @@
       },
       "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf690691_432f7784",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T08:08:28Z",
+      "side": 1,
+      "message": "Mmm...I was reluctant to have more places where we set a default, but I guess we can use Configuration.DEFAULT.settings.showNative... so let\u0027s do that. Thanks!\n\nLong term I think I might lean more towards explicit APIs with less defaults, but I agree that that is largely what we do elsewhere, so I think let\u0027s go for consistency here.",
+      "parentUuid": "85dc18ba_0becbc5d",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 47
+      },
+      "revId": "42e36f20da3bb73f3ee6c46169b90d6747e03530",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
