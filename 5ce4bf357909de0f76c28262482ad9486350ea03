@@ -22,6 +22,30 @@
       },
       "revId": "5ce4bf357909de0f76c28262482ad9486350ea03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "101239a2_87d01103",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-09-05T11:37:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06800ffa_e94b3373",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 48
+      },
+      "revId": "5ce4bf357909de0f76c28262482ad9486350ea03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
