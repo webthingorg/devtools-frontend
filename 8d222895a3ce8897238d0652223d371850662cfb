@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "8d222895a3ce8897238d0652223d371850662cfb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f90df165_3461e8a8",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T08:27:09Z",
+      "side": 1,
+      "message": "I don\u0027t know if I feel super comfortable with the thread appender hosting this method - feels more like it should live as a function.\n\nHowever, putting it into TimelineUIUtils doesn\u0027t feel great as this file is huge and needs breaking up. Maybe panels/timeline/DetailsView.ts or something? Don\u0027t feel super strongly though. WDYT?",
+      "range": {
+        "startLine": 1956,
+        "startChar": 0,
+        "endLine": 1956,
+        "endChar": 90
+      },
+      "revId": "8d222895a3ce8897238d0652223d371850662cfb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
