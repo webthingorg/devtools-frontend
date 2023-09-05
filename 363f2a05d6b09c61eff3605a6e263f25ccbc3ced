@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8021d596_ab282bc2",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T15:06:03Z",
+      "side": 1,
+      "message": "Is this function only called in tests? If so, it would be great to avoid the need for it.\nThere is probably a shadow root, which makes getting at the element you want a bit tricky. It goes something like \n```\nconst container \u003d something.querySelector(\u0027foo\u0027);\nassertShadowRoot(container);\nconst element \u003d container.shadowRoot.querySelector(\u0027bar\u0027);\n```",
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9b3e484_d8bdc380",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T15:06:03Z",
+      "side": 1,
+      "message": "```\nif (!element) {\n  return;\n}\n```",
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18089023_ba006a0b",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T15:06:03Z",
+      "side": 1,
+      "message": "```\nconst checkedState \u003d item.checked ? i18nString(UIStrings.checked) : i18nString(UIStrings.unchecked);\nconst accessibleName \u003d item.shortcut ? \n    i18nString(UIStrings.sSS, {PH1: String(item.label), PH2: item.shortcut, PH3: checkedState}) :\n    i18nString(UIStrings.sS, {PH1: String(item.label), PH2: checkedState});\nARIAUtils.setLabel(element, accessibleName);\n```",
+      "range": {
+        "startLine": 388,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 5
+      },
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f943edd2_e4190756",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T15:06:03Z",
+      "side": 1,
+      "message": "nit: How about `item0` and `item1` instead?",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f03875_57cac574",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-05T15:06:03Z",
+      "side": 1,
+      "message": "if you `assertElement` for `ItemClicked` and `itemClicked1`, you can avoid the `if`.",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
