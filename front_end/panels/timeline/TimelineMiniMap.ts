@@ -66,6 +66,19 @@ export class TimelineMiniMap extends
             TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.endTime));
       }
     });
+
+    this.#breadcrumbsUI.addEventListener(TimelineComponents.BreadcrumbsUI.BreadcrumbRemovedEvent.eventName, event => {
+      const breadcrumb = (event as TimelineComponents.BreadcrumbsUI.BreadcrumbRemovedEvent).data;
+      console.log("data ", breadcrumb);
+
+      if(this.#breadcrumbs) {
+        this.#breadcrumbs.makeBreadcrumbActive(breadcrumb.window);
+  
+        this.#breadcrumbsUI.data = {
+          breadcrumb: this.#breadcrumbs.initialBreadcrumb,
+        };
+      }
+    });
   }
 
   activateBreadcrumbs(): void {

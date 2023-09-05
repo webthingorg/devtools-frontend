@@ -16,6 +16,16 @@ export interface BreadcrumbsUIData {
   breadcrumb: Breadcrumb;
 }
 
+export class BreadcrumbRemovedEvent extends Event {
+  static readonly eventName = 'BreadcrumbRemoved';
+  data: Breadcrumb;
+
+  constructor(public breadcrumb: Breadcrumb) {
+    super(BreadcrumbRemovedEvent.eventName, {});
+    this.data = breadcrumb;
+  }
+}
+
 export class BreadcrumbsUI extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-breadcrumbs-ui`;
   readonly #shadow = this.attachShadow({mode: 'open'});
@@ -36,10 +46,15 @@ export class BreadcrumbsUI extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
+  removeBreadcrumb(breadcrumb: Breadcrumb): void {
+    this.dispatchEvent(new BreadcrumbRemovedEvent(breadcrumb))
+    console.log('removing ', breadcrumb);
+  }
+
   #renderElement(breadcrumb: Breadcrumb): LitHtml.TemplateResult {
     // clang-format off
     return html`
-          <div class="breadcrumb">
+          <div class="breadcrumb" @click=${() => this.removeBreadcrumb(breadcrumb)}>
               <span class="range">${(breadcrumb.window.range).toFixed(2)} ms</span>
               ${breadcrumb.child !== null ?
                 html`
@@ -49,7 +64,7 @@ export class BreadcrumbsUI extends HTMLElement {
                   width: '20px',
                    height: '20px',
                 } as IconButton.Icon.IconData}>`
-                : ''}  
+                : ''}
           </div>
       `;
   }
