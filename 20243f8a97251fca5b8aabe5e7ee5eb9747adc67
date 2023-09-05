@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0043300e_44f7830b",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-05T07:21:21Z",
+      "side": 1,
+      "message": "We could add this as a comment to the the code :)",
+      "parentUuid": "c878d5cb_b995e6d4",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1ed776f_a124b047",
         "filename": "test/e2e/application/storage_test.ts",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2023-09-05T06:04:53Z",
       "side": 1,
       "message": "I am really not sure why this is required. I suspect a11y information is lazily recomputed over the length of multiple animation frames.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae807359_2a72d6f8",
+        "filename": "test/e2e/elements/accessibility-tree_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-05T07:21:21Z",
+      "side": 1,
+      "message": "Can we detect this in some form in `target` so we could have a waitFor* function instead?",
+      "parentUuid": "752cfe15_c8781d4d",
       "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
