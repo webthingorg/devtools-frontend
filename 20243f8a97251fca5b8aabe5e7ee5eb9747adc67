@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d85677_39d9369f",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "it\u0027s better to make sure that the front-end tab is focused at the beginning of the test.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c878d5cb_b995e6d4",
+        "filename": "test/e2e/application/frame-tree_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "window.open above would put DevTools in the background stopping updates to the application panel",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ed776f_a124b047",
+        "filename": "test/e2e/application/storage_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "in headful/new-headless the test data takes less space",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752cfe15_c8781d4d",
+        "filename": "test/e2e/elements/accessibility-tree_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "I am really not sure why this is required. I suspect a11y information is lazily recomputed over the length of multiple animation frames.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e311ad1e_db4e8f28",
+        "filename": "test/e2e/layers/layers_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "Layers are only produced on frames so we need to wait for rafs.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4fd9e1b_c39e7cbc",
+        "filename": "test/e2e/media/media-tab_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "mysteries dependency: looks like media errors survive between tests. Swapping tests prevents the test failure.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53062f3a_8bba988c",
+        "filename": "test/e2e/network/network-datagrid_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "There will be timing in the new headless/headful if the request happens in a focused tab.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a38055a_1e285a87",
+        "filename": "test/e2e/network/network-request-blocking-panel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "this test only fails in conjunction with previous tests. So this is a speculative change as we have to send mouse events to an active tab otherwise they will hang.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a76aaf4_65508065",
+        "filename": "test/e2e/network/network-request-view_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "the values for these headers are different depending on the mode",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aa957f1_7d9d5ad7",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T06:04:53Z",
+      "side": 1,
+      "message": "if you take a screenshot of inactive tab, it hangs.",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
