@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91ab593_63b0fc93",
+        "filename": "front_end/models/trace/handlers/AuctionWorkletsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T09:00:07Z",
+      "side": 1,
+      "message": "Done and filed a crbug as this should have been caught by ESLint",
+      "parentUuid": "2100458e_1242eab4",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 74
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0a0b55c_5e8b9bc3",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-09-05T08:17:31Z",
       "side": 1,
       "message": "would it make sense to group worklets by process here, given that that\u0027s how we\u0027ll display them in the timeline?",
+      "range": {
+        "startLine": 185,
+        "startChar": 17,
+        "endLine": 185,
+        "endChar": 53
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd68d3e_78f229f4",
+        "filename": "front_end/models/trace/handlers/AuctionWorkletsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T09:00:07Z",
+      "side": 1,
+      "message": "Yeah, good idea!",
+      "parentUuid": "b0a0b55c_5e8b9bc3",
       "range": {
         "startLine": 185,
         "startChar": 17,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f493867e_66fd0987",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T09:00:07Z",
+      "side": 1,
+      "message": "That is a typo! Good spot, thank you.",
+      "parentUuid": "d44091cc_2afadeaf",
+      "range": {
+        "startLine": 386,
+        "startChar": 16,
+        "endLine": 386,
+        "endChar": 60
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "797e7670_909a7413",
@@ -127,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "781fdf61_ed9b670f",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T09:00:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797e7670_909a7413",
+      "range": {
+        "startLine": 390,
+        "startChar": 16,
+        "endLine": 390,
+        "endChar": 59
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "916bb059_f791fb22",
@@ -140,6 +236,30 @@
       "writtenOn": "2023-09-05T08:17:31Z",
       "side": 1,
       "message": "nit: 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed2b71d_c471231a",
+        "filename": "test/unittests/front_end/models/trace/handlers/AuctionWorkletsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T09:00:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "916bb059_f791fb22",
       "range": {
         "startLine": 1,
         "startChar": 13,
