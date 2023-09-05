@@ -16,6 +16,24 @@
       "message": "lgtm",
       "revId": "b9efd52465c6709729d42d22839a5eac745813c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a99fb04_fd5b5f77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-05T13:40:20Z",
+      "side": 1,
+      "message": "Thanks Jack, but I\u0027m updating screenshots, which i guess will reset the review 😂",
+      "parentUuid": "180ff894_3c118275",
+      "revId": "b9efd52465c6709729d42d22839a5eac745813c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
