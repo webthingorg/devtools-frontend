@@ -22,6 +22,30 @@
       },
       "revId": "e63b75e5ba09bd3c77ee3b4b31457ec87ef5573d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c23f680_07c88a95",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-05T11:45:48Z",
+      "side": 0,
+      "message": "It is indeed used in the PieChart if you click inside some rectangles inside the main flamechart ! Thank for pointing that out !",
+      "parentUuid": "0ddbd54e_a70c5e2f",
+      "range": {
+        "startLine": 3019,
+        "startChar": 25,
+        "endLine": 3019,
+        "endChar": 35
+      },
+      "revId": "e63b75e5ba09bd3c77ee3b4b31457ec87ef5573d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

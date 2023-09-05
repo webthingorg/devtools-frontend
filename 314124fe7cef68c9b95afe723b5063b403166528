@@ -22,6 +22,30 @@
       },
       "revId": "314124fe7cef68c9b95afe723b5063b403166528",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "239285fe_e9e17c85",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-05T11:45:48Z",
+      "side": 1,
+      "message": "I created a helper called #fillCanvas and extracted the logic of parsing colors to the TimelineFlameChartDataProvider.ts file. Thanks !",
+      "parentUuid": "204dafe9_01fd738d",
+      "range": {
+        "startLine": 1092,
+        "startChar": 4,
+        "endLine": 1094,
+        "endChar": 48
+      },
+      "revId": "314124fe7cef68c9b95afe723b5063b403166528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
