@@ -16,6 +16,138 @@
       "message": "PTAL. Particularly keen to make sure the comments I have left make sense!",
       "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5cc339b_795a7ff9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T08:17:31Z",
+      "side": 1,
+      "message": "Great we have this so quickly!! LGTM with a few suggestions.",
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2100458e_1242eab4",
+        "filename": "front_end/models/trace/handlers/AuctionWorkletsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T08:17:31Z",
+      "side": 1,
+      "message": "nit: let\u0027s remove this import and use the one below instead",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 74
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0a0b55c_5e8b9bc3",
+        "filename": "front_end/models/trace/handlers/AuctionWorkletsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T08:17:31Z",
+      "side": 1,
+      "message": "would it make sense to group worklets by process here, given that that\u0027s how we\u0027ll display them in the timeline?",
+      "range": {
+        "startLine": 185,
+        "startChar": 17,
+        "endLine": 185,
+        "endChar": 53
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d44091cc_2afadeaf",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T08:17:31Z",
+      "side": 1,
+      "message": "nit: the double `is` feels redundant\n\n```suggestion\nexport function isTraceEventAuctionWorkletRunningInProcess(event: TraceEventData):\n```",
+      "range": {
+        "startLine": 386,
+        "startChar": 16,
+        "endLine": 386,
+        "endChar": 60
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "797e7670_909a7413",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T08:17:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 390,
+        "startChar": 16,
+        "endLine": 390,
+        "endChar": 59
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "916bb059_f791fb22",
+        "filename": "test/unittests/front_end/models/trace/handlers/AuctionWorkletsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T08:17:31Z",
+      "side": 1,
+      "message": "nit: 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "b9d32f6fad9fe5818c43faef475a5bffaec29cdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
