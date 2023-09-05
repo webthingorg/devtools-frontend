@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e545fa2_47cb39d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T09:49:10Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "5d24b96fcc27ab33c3247e4a52b5240ec6dca213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f7e015_d97a0393",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-05T09:49:10Z",
+      "side": 1,
+      "message": "had to add this because the helpers in TimelineUIHelpers assume this property is always present on all events. W/o this, those references would cause errors. In the future,when we get rid of the legacy TracingModel.Event, we can properly type events in this file to prevent this kind of issues.",
+      "range": {
+        "startLine": 77,
+        "startChar": 10,
+        "endLine": 77,
+        "endChar": 14
+      },
+      "revId": "5d24b96fcc27ab33c3247e4a52b5240ec6dca213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
