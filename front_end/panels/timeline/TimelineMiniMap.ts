@@ -81,6 +81,11 @@ export class TimelineMiniMap extends
           TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.startTime),
           TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.endTime));
     });
+
+    this.#breadcrumbsUI.addEventListener(TimelineComponents.BreadcrumbsUI.BreadcrumbRemovedEvent.eventName, event => {
+      const breadcrumb = (event as TimelineComponents.BreadcrumbsUI.BreadcrumbRemovedEvent).data;
+      this.removeBreadcrumb(breadcrumb.window);
+    });
     this.#overviewComponent.enableCreateBreadcrumbsButton();
   }
 
@@ -106,6 +111,22 @@ export class TimelineMiniMap extends
     this.#breadcrumbsUI.data = {
       breadcrumb: this.#breadcrumbs.initialBreadcrumb,
     };
+  }
+
+  removeBreadcrumb(breadcrumbWindow: TraceEngine.Types.Timing.TraceWindow): void {
+    const startMSWithMin = TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.min + this.#minTime);
+    const endMSWithMin = TraceEngine.Types.Timing.MilliSeconds(breadcrumbWindow.max + this.#minTime);
+
+    if (this.#breadcrumbs) {
+      this.#breadcrumbs.makeBreadcrumbActive(breadcrumbWindow);
+      this.#breadcrumbsUI.data = {
+        breadcrumb: this.#breadcrumbs.initialBreadcrumb,
+      };
+    }
+
+    this.setBounds(startMSWithMin, endMSWithMin);
+    this.#overviewComponent.scheduleUpdate(startMSWithMin, endMSWithMin);
+    this.#overviewComponent.setWindowTimes(startMSWithMin, endMSWithMin);
   }
 
   override wasShown(): void {
