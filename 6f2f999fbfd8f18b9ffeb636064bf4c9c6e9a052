@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc97fc65_328b31af",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T12:42:06Z",
+      "side": 1,
+      "message": "worth creating a function for this given that it is duplicated above?\n\nalso perhaps worth a comment explaining that we can get 0/Infinity as the values which is why we have to check and cap the value",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 78,
+        "endChar": 109
+      },
+      "revId": "6f2f999fbfd8f18b9ffeb636064bf4c9c6e9a052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fbcfebb_13aef409",
+        "filename": "front_end/ui/legacy/components/perf_ui/OverviewGrid.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T12:42:06Z",
+      "side": 1,
+      "message": "to check my understanding: this is true when the entire trace is active? e.g we have one breadcrumb for the full range?\n\nIs this also what makes the icon hide until the user has clicked on a range?",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 100
+      },
+      "revId": "6f2f999fbfd8f18b9ffeb636064bf4c9c6e9a052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e10f517_6399a641",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 27
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-05T12:42:06Z",
+      "side": 1,
+      "message": "can we use Types.Timing.Milliseconds?",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 18
+      },
+      "revId": "6f2f999fbfd8f18b9ffeb636064bf4c9c6e9a052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
