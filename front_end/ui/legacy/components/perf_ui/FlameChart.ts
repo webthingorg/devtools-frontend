@@ -1089,9 +1089,23 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const entryIndex = indexes[i];
       this.#drawEventRect(context, timelineData, entryIndex);
     }
-    context.fillStyle = color;
+    this.#fillCanvas(context, color);
     context.fill();
     context.restore();
+  }
+
+  /**
+   * Fill canvas depending on color value
+   */
+  #fillCanvas(context: CanvasRenderingContext2D, color: string): void {
+    // The color is either a css variable --app-color-scripting for instance or a hls color
+    // So if the first character of the color is -, it is a CSS variable.
+    const isColorCSSVariable = color[0] === '-';
+    if (isColorCSSVariable) {
+      context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue(color);
+    } else {
+      context.fillStyle = color;
+    }
   }
 
   /**
@@ -1667,7 +1681,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         context.fill();
         context.beginPath();
         lastColor = segments[i].data;
-        context.fillStyle = lastColor;
+        this.#fillCanvas(context, lastColor);
       }
       context.rect(segment.begin, y, segment.end - segment.begin, groupBarHeight);
     }
@@ -1821,7 +1835,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.entryColorsCache = new Array(this.rawTimelineDataLength);
     for (let i = 0; i < this.rawTimelineDataLength; ++i) {
       this.forceDecorationCache[i] = this.dataProvider.forceDecoration(i) ? 1 : 0;
-      this.entryColorsCache[i] = this.dataProvider.entryColor(i);
+      const color = this.dataProvider.entryColor(i);
+      this.entryColorsCache[i] = color;
     }
 
     const entryCounters = new Uint32Array(this.dataProvider.maxStackDepth() + 1);
