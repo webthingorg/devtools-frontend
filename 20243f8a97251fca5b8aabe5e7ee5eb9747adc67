@@ -154,6 +154,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "273fc8f1_649581ee",
+        "filename": "test/e2e/network/network-request-view_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-05T07:02:25Z",
+      "side": 1,
+      "message": "Gonna exclude this as it does not pass in the old headless.",
+      "parentUuid": "7a76aaf4_65508065",
+      "revId": "20243f8a97251fca5b8aabe5e7ee5eb9747adc67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1aa957f1_7d9d5ad7",
