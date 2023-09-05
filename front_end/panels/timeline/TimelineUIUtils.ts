@@ -37,22 +37,22 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import imagePreviewStyles from '../../ui/legacy/components/utils/imagePreview.css.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import type * as Protocol from '../../generated/protocol.js';
-import invalidationsTreeStyles from './invalidationsTree.css.js';
-// eslint-disable-next-line rulesdir/es_modules_import
-import imagePreviewStyles from '../../ui/legacy/components/utils/imagePreview.css.js';
-
 import {CLSRect} from './CLSLinkifier.js';
+import {titleForInteractionEvent} from './InteractionsTrackAppender.js';
+import invalidationsTreeStyles from './invalidationsTree.css.js';
+import {ThreadAppender} from './ThreadAppender.js';
 import {TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
-import {titleForInteractionEvent} from './InteractionsTrackAppender.js';
 
 const UIStrings = {
   /**
@@ -1949,8 +1949,14 @@ export class TimelineUIUtils {
     const initiator = timelineData.initiator();
     let url: Platform.DevToolsPath.UrlString|null = null;
 
-    if (timelineData.warning) {
+    if (event instanceof TraceEngine.Legacy.Event && timelineData.warning) {
       contentHelper.appendWarningRow(event);
+    }
+    if (TraceEngine.Legacy.eventIsFromNewEngine(event) && traceParseData) {
+      const warnings = ThreadAppender.buildWarningElementsForEvent(event, traceParseData);
+      for (const warning of warnings) {
+        contentHelper.appendElementRow(i18nString(UIStrings.warning), warning, true);
+      }
     }
     if (event.name === recordTypes.JSFrame && eventData['deoptReason']) {
       contentHelper.appendWarningRow(event, TimelineModel.TimelineModel.TimelineModelImpl.WarningType.V8Deopt);
@@ -3209,9 +3215,7 @@ export class TimelineUIUtils {
 
   static legacyBuildEventWarningElement(event: TraceEngine.Legacy.CompatibleTraceEvent, warningType?: string): Element
       |null {
-    const timelineData = event instanceof TraceEngine.Legacy.Event ?
-        TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event) :
-        null;
+    const timelineData = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event);
     const {duration} = TraceEngine.Legacy.timesForEventInMilliseconds(event);
     const warning = warningType || timelineData?.warning;
     if (!warning) {
