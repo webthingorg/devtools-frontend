@@ -87,6 +87,24 @@
       "parentUuid": "dafdc6fe_edfbbba9",
       "revId": "c7a1a107beca8ce2a2cb081e67e544f780594ef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe4ee94a_06e4bbb7",
+        "filename": "test/unittests/front_end/panels/application/components/FrameDetailsView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-09-05T07:10:18Z",
+      "side": 1,
+      "message": "This is a different kind of topic and I think it is better to have separated CL. \nI will fix this part in the following CL:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4840769",
+      "parentUuid": "e74e8c42_b5b97d50",
+      "revId": "c7a1a107beca8ce2a2cb081e67e544f780594ef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
