@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6feedc78_cc923ff6",
+        "filename": "front_end/ui/components/docs/performance_panel/flamechart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-05T13:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d9bf445_73923481",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 44
+      },
+      "revId": "272e4c0bf806701d642a0485c65b0d2ed89d501e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "032671c0_024f5c7e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-05T12:49:42Z",
       "side": 1,
       "message": "typo: boolean",
+      "range": {
+        "startLine": 1909,
+        "startChar": 33,
+        "endLine": 1909,
+        "endChar": 40
+      },
+      "revId": "272e4c0bf806701d642a0485c65b0d2ed89d501e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f455012e_66c5e53e",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1909,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-05T13:37:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "032671c0_024f5c7e",
       "range": {
         "startLine": 1909,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f6e545f_47febc4f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1932,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-05T13:37:45Z",
+      "side": 1,
+      "message": "Ah thanks,\nAlso this should be in next CL, i will update there",
+      "parentUuid": "4486ed3b_b354edba",
+      "range": {
+        "startLine": 1932,
+        "startChar": 54,
+        "endLine": 1932,
+        "endChar": 59
+      },
+      "revId": "272e4c0bf806701d642a0485c65b0d2ed89d501e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "623649ff_4d9edc5c",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-09-05T12:49:42Z",
       "side": 1,
       "message": "what is this the height of? I am a bit confused now that it was renamed. What part of the UI is the \"ruler\" ?",
+      "range": {
+        "startLine": 2135,
+        "startChar": 13,
+        "endLine": 2135,
+        "endChar": 24
+      },
+      "revId": "272e4c0bf806701d642a0485c65b0d2ed89d501e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11d3a753_32a4d7ca",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2135,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-05T13:37:45Z",
+      "side": 1,
+      "message": "It is the time on the top of the flame chart. (https://screenshot.googleplex.com/ArDkqNVQvgsmCQj)\n\nThere is a `enableRuler()`, which we used when Network track is not empty, we will disable the ruler on main flame chart with `enableRuler(false)`",
+      "parentUuid": "623649ff_4d9edc5c",
       "range": {
         "startLine": 2135,
         "startChar": 13,
