@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "967c6182_52cf9e20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-09-05T09:05:58Z",
+      "side": 1,
+      "message": "[nits]\n\nhttps://chromium.googlesource.com/chromium/src/+/main/docs/contributing.md#uploading-a-change-for-review\n\nIt\u0027s good to wrap lines with 72 chars.",
+      "revId": "7bdd8731299e28b2de34e6067323c056acf3f76b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "15178d4b_7da94696",
