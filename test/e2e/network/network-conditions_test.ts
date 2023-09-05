@@ -4,7 +4,15 @@
 
 import {assert} from 'chai';
 import {type ElementHandle, type Page} from 'puppeteer-core';
-import {getBrowserAndPages, pressKey, typeText, waitFor, waitForAria, tabForward} from '../../shared/helper.js';
+
+import {
+  getBrowserAndPages,
+  pressKey,
+  tabForward,
+  typeText,
+  waitFor,
+  waitForAria,
+} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToNetworkTab} from '../helpers/network-helpers.js';
 
@@ -109,14 +117,14 @@ describe('The Network Tab', async function() {
   });
 
   it('can override userAgentMetadata', async () => {
-    const {target, browser} = getBrowserAndPages();
+    const {target, frontend, browser} = getBrowserAndPages();
     const fullVersion = (await browser.version()).split('/')[1];
     const majorVersion = fullVersion.split('.', 1)[0];
     const fixedVersionUAValue =
         'Mozilla/5.0 (Linux; U; Android 4.0.2; en-us; Galaxy Nexus Build/ICL53F) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30';
     const dynamicVersionUAValue =
         'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/%s Safari/537.36'.replace(
-            '%s', fullVersion);
+            '%s', `${majorVersion}.0.0.0`);
     const noMetadataVersionUAValue = 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko';
 
     const fixedVersionUserAgentMetadataExpected = {
@@ -125,7 +133,7 @@ describe('The Network Tab', async function() {
         {'brand': 'Chromium', 'version': majorVersion},
         {'brand': 'Google Chrome', 'version': majorVersion},
       ],
-      'uaFullVersion': fullVersion,
+      'uaFullVersion': `${majorVersion}.0.0.0`,
       'platform': 'Android',
       'platformVersion': '4.0.2',
       'architecture': '',
@@ -138,7 +146,7 @@ describe('The Network Tab', async function() {
         {'brand': 'Chromium', 'version': majorVersion},
         {'brand': 'Google Chrome', 'version': majorVersion},
       ],
-      'uaFullVersion': fullVersion,
+      'uaFullVersion': `${majorVersion}.0.0.0`,
       'platform': 'Windows',
       'platformVersion': '10.0',
       'architecture': 'x86',
@@ -164,28 +172,40 @@ describe('The Network Tab', async function() {
     await uaDropdown.click();
     await uaDropdown.select(fixedVersionUAValue);
     await uaDropdown.click();
+    await target.bringToFront();
+
     const fixedVersionUserAgentMetadata = await getUserAgentMetadataFromTarget(target);
     assert.deepEqual(fixedVersionUserAgentMetadata, fixedVersionUserAgentMetadataExpected);
+
+    await frontend.bringToFront();
 
     await uaDropdown.click();
     await uaDropdown.select(dynamicVersionUAValue);
     await uaDropdown.click();
+    await target.bringToFront();
+
     const dynamicVersionUserAgentMetadata = await getUserAgentMetadataFromTarget(target);
     assert.deepEqual(dynamicVersionUserAgentMetadata, dynamicVersionUserAgentMetadataExpected);
+
+    await frontend.bringToFront();
 
     await uaDropdown.click();
     await uaDropdown.select(noMetadataVersionUAValue);
     await uaDropdown.click();
+    await target.bringToFront();
+
     const noMetadataVersionUserAgentMetadata = await getUserAgentMetadataFromTarget(target);
     assert.deepEqual(noMetadataVersionUserAgentMetadata, noMetadataVersionUserAgentMetadataExpected);
+    await frontend.bringToFront();
   });
 
   it('restores default userAgentMetadata', async () => {
     const {target, browser} = getBrowserAndPages();
     const fullVersion = (await browser.version()).split('/')[1];
+    const majorVersion = fullVersion.split('.', 1)[0];
     const customUAValue =
         `Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${
-            fullVersion} Mobile Safari/537.36`;
+            majorVersion}.0.0.0 Mobile Safari/537.36`;
     const section = await openNetworkConditions('.network-config-ua');
     const autoCheckbox = await (await waitForAria('Use browser default', section)).toElement('input');
     const uaDropdown = await waitForAria('User agent', section);
