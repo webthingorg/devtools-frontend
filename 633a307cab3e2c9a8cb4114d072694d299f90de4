@@ -80,6 +80,30 @@
       },
       "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f2ecb89_210dcaf2",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-06T00:17:25Z",
+      "side": 1,
+      "message": "sorry for my unclear comment, I meant this `isToggle` flag is not only for the mediaPanel? I was wondering if this could affect the existing adorners and behaviors?",
+      "parentUuid": "6374c46a_eb33e373",
+      "range": {
+        "startLine": 2256,
+        "startChar": 16,
+        "endLine": 2256,
+        "endChar": 21
+      },
+      "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
