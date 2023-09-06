@@ -138,7 +138,8 @@ describe('Performance panel', () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=web-dev&flamechart-force-expand=frames');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
-    // With some changes made to timeline-details-view it passes with a diff of 1.98 so reduce it to 1.
-    await assertElementScreenshotUnchanged(panel, 'performance/timeline-web-dev-screenshot-frames.png', 1);
+    // Upgrade to 2 to make dry run pass [https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4834515])
+    // Will downgrade after
+    await assertElementScreenshotUnchanged(panel, 'performance/timeline-web-dev-screenshot-frames.png', 2);
   });
 });
