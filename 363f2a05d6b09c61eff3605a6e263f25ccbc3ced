@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f840b3a3_bcb194f4",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-06T12:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8021d596_ab282bc2",
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9b3e484_d8bdc380",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a25a17a_7d8d6842",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-06T12:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9b3e484_d8bdc380",
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18089023_ba006a0b",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-09-05T15:06:03Z",
       "side": 1,
       "message": "```\nconst checkedState \u003d item.checked ? i18nString(UIStrings.checked) : i18nString(UIStrings.unchecked);\nconst accessibleName \u003d item.shortcut ? \n    i18nString(UIStrings.sSS, {PH1: String(item.label), PH2: item.shortcut, PH3: checkedState}) :\n    i18nString(UIStrings.sS, {PH1: String(item.label), PH2: checkedState});\nARIAUtils.setLabel(element, accessibleName);\n```",
+      "range": {
+        "startLine": 388,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 5
+      },
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f9f7b5e_9df17514",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-06T12:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18089023_ba006a0b",
       "range": {
         "startLine": 388,
         "startChar": 0,
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8922cf5_8d85a047",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-06T12:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f943edd2_e4190756",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66f03875_57cac574",
@@ -94,6 +178,30 @@
       "writtenOn": "2023-09-05T15:06:03Z",
       "side": 1,
       "message": "if you `assertElement` for `ItemClicked` and `itemClicked1`, you can avoid the `if`.",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "363f2a05d6b09c61eff3605a6e263f25ccbc3ced",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "210744a0_4e02dd4b",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-06T12:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66f03875_57cac574",
       "range": {
         "startLine": 42,
         "startChar": 3,
