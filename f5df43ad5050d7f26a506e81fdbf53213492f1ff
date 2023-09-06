@@ -22,6 +22,30 @@
       },
       "revId": "f5df43ad5050d7f26a506e81fdbf53213492f1ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0cb1326_19553ba3",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-06T19:17:28Z",
+      "side": 1,
+      "message": "that\u0027s a good note! Unfortunately we don\u0027t know if events are visible from the data that comes from the model. At the moment, we check if there are entries in the track and if not we early return, but that doesn\u0027t guarantee that there is any visible event.\n\nEvents visibility is determined from their predefined styles, which is something we currently do at the CompatilbilityTracksAppender. I though about checking if there are visible events and returning early if not, but that is potentially expensive since, in theory, we would be adding another traversal to the entries array (which could grow large). To avoid the extra cost I decided to add the check in the traversal we already had.\n\nI guess this would be a question of balancing performance, readability and practicality. If you feel strong about it, I\u0027m happy to implement your suggestion and find out with time if that\u0027s ok performance wise in the wild. \nwdyt?",
+      "parentUuid": "992980b0_75e50178",
+      "range": {
+        "startLine": 194,
+        "startChar": 3,
+        "endLine": 194,
+        "endChar": 28
+      },
+      "revId": "f5df43ad5050d7f26a506e81fdbf53213492f1ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
