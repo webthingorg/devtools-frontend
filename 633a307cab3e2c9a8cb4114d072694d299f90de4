@@ -104,6 +104,30 @@
       },
       "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80f1c2ea_06174a32",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-06T03:17:45Z",
+      "side": 1,
+      "message": "Yes, this attribute is an existing flag that is used by other adorners, so it could affect the existing adorners and behaviors.",
+      "parentUuid": "5f2ecb89_210dcaf2",
+      "range": {
+        "startLine": 2256,
+        "startChar": 16,
+        "endLine": 2256,
+        "endChar": 21
+      },
+      "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
