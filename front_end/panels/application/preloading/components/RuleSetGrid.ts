@@ -173,6 +173,8 @@ function ruleSetRenderer(
         style=${LitHtml.Directives.styleMap({
           border: 'none',
           background: 'none',
+          color: 'var(--icon-link)',
+          'cursor': 'pointer',
           'padding-inline-start': '0',
           'padding-inline-end': '0',
         })}
@@ -224,6 +226,7 @@ function ruleSetRenderer(
         style=${LitHtml.Directives.styleMap({
           border: 'none',
           background: 'none',
+          'cursor': 'pointer',
           'padding-inline-start': '0',
           'padding-inline-end': '0',
         })}
@@ -274,6 +277,7 @@ function statusRenderer(preloadsStatusSummary: string, ruleSet: Protocol.Preload
         style=${LitHtml.Directives.styleMap({
           color: 'var(--color-link)',
           'text-decoration': 'underline',
+          'cursor': 'pointer',
           border: 'none',
           background: 'none',
           'padding-inline-start': '0',

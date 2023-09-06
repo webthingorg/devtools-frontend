@@ -357,11 +357,7 @@ export class PreloadingDetailsReportView extends LegacyWrapper.LegacyWrapper.Wra
         <div class="text-ellipsis" title="">
           <button class="link" role="link"
             @click=${revealRuleSetView}
-            title=${i18nString(UIStrings.buttonClickToRevealRuleSet)}
-            style=${LitHtml.Directives.styleMap({
-              color: 'var(--color-link)',
-              'text-decoration': 'underline',
-            })}
+            title=${i18nString(UIStrings.buttonClickToRevealRuleSet)}}
           >
             ${location}
           </button>
