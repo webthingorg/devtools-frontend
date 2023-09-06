@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c22a36_9be2a3a1",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1684,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-06T11:14:34Z",
+      "side": 1,
+      "message": "how about we keep `context.fillStyle \u003d` and let the helper function return the color",
+      "range": {
+        "startLine": 1684,
+        "startChar": 14,
+        "endLine": 1684,
+        "endChar": 24
+      },
+      "revId": "ab0d11fa59b78e6165f46d8601392e68d9a81c16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
