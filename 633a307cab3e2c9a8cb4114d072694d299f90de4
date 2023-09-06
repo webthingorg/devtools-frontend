@@ -56,6 +56,30 @@
       },
       "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6374c46a_eb33e373",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-06T00:11:27Z",
+      "side": 1,
+      "message": "the reason this change is that \u0027isToggle\u0027 is a mandatory attribute that I need to specify the value of. If it is true, the the adorner could be turned \u0027on\u0027 and \u0027off\u0027. However for our purpose, we just need it so that it redirects you to another page. So there isn\u0027t a need to have the functionality of being \u0027on\u0027 or \u0027off\u0027.",
+      "parentUuid": "5cd81493_c7e6c140",
+      "range": {
+        "startLine": 2256,
+        "startChar": 16,
+        "endLine": 2256,
+        "endChar": 21
+      },
+      "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
