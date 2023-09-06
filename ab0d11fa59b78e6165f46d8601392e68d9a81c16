@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b4b3ec9_7fc7b833",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-06T12:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3867d665_79508b20",
+      "range": {
+        "startLine": 969,
+        "startChar": 8,
+        "endLine": 969,
+        "endChar": 49
+      },
+      "revId": "ab0d11fa59b78e6165f46d8601392e68d9a81c16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9c22a36_9be2a3a1",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-06T11:14:34Z",
       "side": 1,
       "message": "how about we keep `context.fillStyle \u003d` and let the helper function return the color",
+      "range": {
+        "startLine": 1684,
+        "startChar": 14,
+        "endLine": 1684,
+        "endChar": 24
+      },
+      "revId": "ab0d11fa59b78e6165f46d8601392e68d9a81c16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccdb1814_2ca6b511",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1684,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-06T12:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9c22a36_9be2a3a1",
       "range": {
         "startLine": 1684,
         "startChar": 14,
