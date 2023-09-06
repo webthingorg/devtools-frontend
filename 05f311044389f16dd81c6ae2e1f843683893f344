@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5b386f3_a84dbc59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-06T13:33:40Z",
+      "side": 1,
+      "message": "Porting the browser test to an inspector protocol test and a DevTools unit test might be worth trying, but I don\u0027t have the capacity for that right now.",
+      "parentUuid": "1920842c_4a528f7a",
+      "revId": "05f311044389f16dd81c6ae2e1f843683893f344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa37c383_06996eed",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-09-06T13:18:47Z",
       "side": 1,
       "message": "`getInferredStatusText` returns a string, do we need this check? just so we don\u0027t create an element for an empty string then?",
+      "range": {
+        "startLine": 428,
+        "startChar": 5,
+        "endLine": 428,
+        "endChar": 22
+      },
+      "revId": "05f311044389f16dd81c6ae2e1f843683893f344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fedac60_0df9bd11",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-06T13:33:40Z",
+      "side": 1,
+      "message": "Exactly, we don\u0027t want to create any such DOM elements in the empty string case.",
+      "parentUuid": "fa37c383_06996eed",
       "range": {
         "startLine": 428,
         "startChar": 5,
