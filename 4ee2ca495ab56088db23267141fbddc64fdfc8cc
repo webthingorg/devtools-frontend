@@ -16,6 +16,24 @@
       "message": "LGTM, but do you think this is testable?",
       "revId": "4ee2ca495ab56088db23267141fbddc64fdfc8cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1f9fe5a_67ed5e95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-06T10:23:52Z",
+      "side": 1,
+      "message": "Yep, added tests; can you take a look again? :)",
+      "parentUuid": "93d51412_4186aa9b",
+      "revId": "4ee2ca495ab56088db23267141fbddc64fdfc8cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
