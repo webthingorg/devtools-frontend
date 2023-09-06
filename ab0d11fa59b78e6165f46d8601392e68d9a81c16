@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3867d665_79508b20",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-06T11:24:03Z",
+      "side": 1,
+      "message": "related to https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4834515/comment/204dafe9_01fd738d/\nwe can get the color directly here",
+      "range": {
+        "startLine": 969,
+        "startChar": 8,
+        "endLine": 969,
+        "endChar": 49
+      },
+      "revId": "ab0d11fa59b78e6165f46d8601392e68d9a81c16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9c22a36_9be2a3a1",
         "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
         "patchSetId": 7
