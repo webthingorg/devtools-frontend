@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a59eb1d_ca268bc2",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-06T14:05:40Z",
+      "side": 1,
+      "message": "would this be cleaner if it took the entire breadcrumb? And then we could search for that breadcrumb in the breadcrumbs linked list",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 82
+      },
+      "revId": "7bc8e2c58ae014145f2ce5591688c911ad89a042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a39104_0beeaeae",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-06T14:05:40Z",
+      "side": 1,
+      "message": "I am a bit confused by this - wouldn\u0027t this just override all the breadcrumbs apart from the first one? Shouldn\u0027t we keep all up until the one that has been removed?",
+      "range": {
+        "startLine": 120,
+        "startChar": 5,
+        "endLine": 122,
+        "endChar": 8
+      },
+      "revId": "7bc8e2c58ae014145f2ce5591688c911ad89a042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a77774fc_7946a7f1",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-06T14:05:40Z",
+      "side": 1,
+      "message": "you can remove this - by doing `constructor(public breadcrumb: Breadcrumb)` you have already made it so you can do `event.breadcrumb` to read the breadcrumb value.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "7bc8e2c58ae014145f2ce5591688c911ad89a042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc7b10b_51549376",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-06T14:05:40Z",
+      "side": 1,
+      "message": "nit: this should be private (`#removeBreadcrumb`)",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "7bc8e2c58ae014145f2ce5591688c911ad89a042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
