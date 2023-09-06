@@ -16,6 +16,46 @@
       "message": "Kateryna PTAL",
       "revId": "05f311044389f16dd81c6ae2e1f843683893f344",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1920842c_4a528f7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-06T13:18:47Z",
+      "side": 1,
+      "message": "Thanks Wolfgang! Looks good! One comment and a q: is it possible to add a unittest similar to the browsertest that started failing? so that we catch the problem right away in case it happens again",
+      "revId": "05f311044389f16dd81c6ae2e1f843683893f344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa37c383_06996eed",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-06T13:18:47Z",
+      "side": 1,
+      "message": "`getInferredStatusText` returns a string, do we need this check? just so we don\u0027t create an element for an empty string then?",
+      "range": {
+        "startLine": 428,
+        "startChar": 5,
+        "endLine": 428,
+        "endChar": 22
+      },
+      "revId": "05f311044389f16dd81c6ae2e1f843683893f344",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
