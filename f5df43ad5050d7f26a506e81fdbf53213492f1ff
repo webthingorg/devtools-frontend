@@ -46,6 +46,30 @@
       },
       "revId": "f5df43ad5050d7f26a506e81fdbf53213492f1ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0134779_fcb404c9",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-06T19:21:56Z",
+      "side": 1,
+      "message": "I think add ^ this to comment is fine, so maybe one day we find a way to figure out if events are visible from TraceEngine, we can change the code 😊",
+      "parentUuid": "e0cb1326_19553ba3",
+      "range": {
+        "startLine": 194,
+        "startChar": 3,
+        "endLine": 194,
+        "endChar": 28
+      },
+      "revId": "f5df43ad5050d7f26a506e81fdbf53213492f1ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
