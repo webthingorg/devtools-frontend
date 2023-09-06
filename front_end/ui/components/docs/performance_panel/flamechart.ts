@@ -80,6 +80,15 @@ function renderExample1() {
   flameChart.setWindowTimes(0, 100);
   flameChart.show(container);
   flameChart.update();
+
+  const buttonHide = document.querySelector('#hide');
+  buttonHide?.addEventListener('click', () => {
+    flameChart.setGroupHidden(1, /* hidden= */ true);
+  });
+  const buttonUnhide = document.querySelector('#unhide');
+  buttonUnhide?.addEventListener('click', () => {
+    flameChart.setGroupHidden(1, /* hidden= */ false);
+  });
 }
 
 /**
