@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0744a4d6_da0bbc2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-06T11:53:49Z",
+      "side": 1,
+      "message": "I added `color: \u0027var(--icon-link)\u0027` to it, pleas have a look.",
+      "parentUuid": "241fc100_c39313ca",
+      "revId": "0bb3941249eb68f0d158462e63eecdd8b0be590d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "482e1147_479f010a",
         "filename": "front_end/panels/application/preloading/components/ruleSetGrid.css",
         "patchSetId": 2
