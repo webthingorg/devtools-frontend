@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "992980b0_75e50178",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-06T19:02:33Z",
+      "side": 1,
+      "message": "QQ, will there be multiple ThreadAppenders in compatibilityBuilder?\n\nif so, can we do something like other tracks, first check if any visible entries in `appendTrackAtLevel`, if not just return early. so don\u0027t need to append header only when we see a visible event, I think this way will be more straight forward and similar to other tracks, will be easier to understand.",
+      "range": {
+        "startLine": 194,
+        "startChar": 3,
+        "endLine": 194,
+        "endChar": 28
+      },
+      "revId": "f5df43ad5050d7f26a506e81fdbf53213492f1ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
