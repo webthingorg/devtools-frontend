@@ -241,4 +241,114 @@ describeWithEnvironment('FlameChart', () => {
       assert.strictEqual(event.data, -1);
     });
   });
+
+  describe('updateLevelPositions', () => {
+    class UpdateLevelPositionsTestProvider extends FakeFlameChartProvider {
+      override timelineData(): PerfUI.FlameChart.FlameChartTimelineData|null {
+        return PerfUI.FlameChart.FlameChartTimelineData.create({
+          entryLevels: [0, 1],
+          entryStartTimes: [5, 60],
+          entryTotalTimes: [50, 10],
+          groups: [
+            {
+              name: 'Test Group 0' as Platform.UIString.LocalizedString,
+              startLevel: 0,
+              style: {
+                height: 17,
+                padding: 4,
+                collapsible: false,
+                color: 'black',
+                backgroundColor: 'grey',
+                nestingLevel: 0,
+                itemsHeight: 17,
+              },
+            },
+            {
+              name: 'Test Group 1' as Platform.UIString.LocalizedString,
+              startLevel: 1,
+              style: {
+                height: 17,
+                padding: 4,
+                collapsible: true,
+                color: 'black',
+                backgroundColor: 'grey',
+                nestingLevel: 0,
+                itemsHeight: 17,
+              },
+            },
+          ],
+        });
+      }
+      override maxStackDepth(): number {
+        return 2;
+      }
+    }
+
+    it('Calculate the level position correctly', () => {
+      const provider = new UpdateLevelPositionsTestProvider();
+      const delegate = new MockFlameChartDelegate();
+      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      renderChart(chartInstance);
+
+      // For Group 0, it is expanded (not collapsible),
+      // so its offset is 17(RulerHeight + 2)
+      assert.strictEqual(chartInstance.groupIndexToOffset(0), 17);
+      // For Level 0, it is in Test Group 1, and the group is expanded (not collapsible),
+      // so its offset is 17(Group offset) + 17(group header height) = 34
+      assert.strictEqual(chartInstance.levelToOffset(0), 34);
+      // For Group 1, its offset is
+      // 34(level 0 offset) + 17(level 0 height) + 4(style.padding) = 55
+      assert.strictEqual(chartInstance.groupIndexToOffset(1), 55);
+      // For Level 1, it is in Group 1, and the group is not expanded by defualt (collapsible),
+      // so its offset is 55(Group offset) + 17(group header height) = 72
+      assert.strictEqual(chartInstance.levelToOffset(1), 72);
+      // For Group 2 and Level 2, they are "fake" group and lecel, and are used to show then end of the flame chart.
+      // Since Level 1 is invisible (collapsed), so this one has same offset as Level 1.
+      assert.strictEqual(chartInstance.groupIndexToOffset(2), 72);
+      assert.strictEqual(chartInstance.levelToOffset(2), 72);
+    });
+
+    it('Calculate the level position correctly after hide and unhide a group', () => {
+      const provider = new UpdateLevelPositionsTestProvider();
+      const delegate = new MockFlameChartDelegate();
+      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      renderChart(chartInstance);
+
+      chartInstance.setGroupHidden(/* groupIndex= */ 0, /* hidden= */ true);
+      // For Group 0, it is hidden, so its offset is 17(RulerHeight + 2)
+      assert.strictEqual(chartInstance.groupIndexToOffset(0), 17);
+      // For Level 0, it is in Test Group 1, and the group is hidden,
+      // so its offset is same as group offest
+      assert.strictEqual(chartInstance.levelToOffset(0), 17);
+      // For Group 1, its offset is
+      // 17(level 0 offset) + 0(level 0 is hidden) + 4(style.padding) = 21
+      assert.strictEqual(chartInstance.groupIndexToOffset(1), 21);
+      // For Level 1, it is in Group 1, and the group is not expanded by defualt (collapsible),
+      // so its offset is 21(Group offset) + 17(group header height) = 38
+      assert.strictEqual(chartInstance.levelToOffset(1), 38);
+      // For Group 2 and Level 2, they are "fake" group and lecel, and are used to show then end of the flame chart.
+      // Since Level 1 is invisible (collapsed), so this one has same offset as Level 1.
+      assert.strictEqual(chartInstance.groupIndexToOffset(2), 38);
+      assert.strictEqual(chartInstance.levelToOffset(2), 38);
+
+      // Unhide Group 1, so the offset should be same as default.
+      chartInstance.setGroupHidden(/* groupIndex= */ 0, /* hidden= */ false);
+      // For Group 0, it is expanded (not collapsible),
+      // so its offset is 17(RulerHeight + 2)
+      assert.strictEqual(chartInstance.groupIndexToOffset(0), 17);
+      // For Level 0, it is in Test Group 1, and the group is expanded (not collapsible),
+      // so its offset is 17(Group offset) + 17(group header height) = 34
+      assert.strictEqual(chartInstance.levelToOffset(0), 34);
+      // For Group 1, its offset is
+      // 34(level 0 offset) + 17(level 0 height) + 4(style.padding) = 55
+      assert.strictEqual(chartInstance.groupIndexToOffset(1), 55);
+      // For Level 1, it is in Group 1, and the group is not expanded by defualt (collapsible),
+      // so its offset is 55(Group offset) + 17(group header height) = 72
+      assert.strictEqual(chartInstance.levelToOffset(1), 72);
+      // For Group 2 and Level 2, they are "fake" group and lecel, and are used to show then end of the flame chart.
+      // Since Level 1 is invisible (collapsed), so this one has same offset as Level 1.
+      assert.strictEqual(chartInstance.groupIndexToOffset(2), 72);
+      assert.strictEqual(chartInstance.levelToOffset(2), 72);
+    });
+  });
 });

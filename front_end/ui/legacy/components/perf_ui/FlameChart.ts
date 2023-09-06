@@ -80,13 +80,17 @@ export class FlameChartDelegate {
 }
 
 interface GroupExpansionState {
-  [key: string]: boolean;
+  [groupName: string]: boolean;
+}
+interface GroupHiddenState {
+  [groupName: string]: boolean;
 }
 
 export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox)
     implements Calculator, ChartViewportDelegate {
   private readonly groupExpansionSetting?: Common.Settings.Setting<GroupExpansionState>;
   private groupExpansionState: GroupExpansionState;
+  private groupHiddenState: GroupHiddenState;
   private readonly flameChartDelegate: FlameChartDelegate;
   private chartViewport: ChartViewport;
   private dataProvider: FlameChartDataProvider;
@@ -135,7 +139,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private maxDragOffset!: number;
   private timelineLevels?: number[][]|null;
   private visibleLevelOffsets?: Uint32Array|null;
-  private visibleLevels?: Uint16Array|null;
+  private visibleLevels?: boolean[]|null;
   private groupOffsets?: Uint32Array|null;
   private rawTimelineData?: FlameChartTimelineData|null;
   private forceDecorationCache?: Int8Array|null;
@@ -153,6 +157,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.contentElement.classList.add('flame-chart-main-pane');
     this.groupExpansionSetting = groupExpansionSetting;
     this.groupExpansionState = groupExpansionSetting && groupExpansionSetting.get() || {};
+    this.groupHiddenState = {};
     this.flameChartDelegate = flameChartDelegate;
 
     this.chartViewport = new ChartViewport(this);
@@ -611,6 +616,32 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
                                        i18nString(UIStrings.sCollapsed, {PH1: groupName});
       UI.ARIAUtils.alert(content);
     }
+  }
+
+  setGroupHidden(groupIndex: number, hidden: boolean): void {
+    if (groupIndex < 0) {
+      return;
+    }
+
+    if (!this.rawTimelineData || !this.rawTimelineData.groups) {
+      return;
+    }
+
+    const groups = this.rawTimelineData.groups;
+    if (!groups) {
+      return;
+    }
+
+    const group = groups[groupIndex];
+    group.hidden = hidden;
+
+    this.groupHiddenState[group.name] = group.hidden;
+    this.updateLevelPositions();
+
+    this.updateHighlight();
+    this.updateHeight();
+    this.resetCanvas();
+    this.draw();
   }
 
   #onContextMenu(_event: Event): void {
@@ -1567,6 +1598,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     for (let i = 0; i < groups.length; ++i) {
       const groupTop = groupOffsets[i];
       const group = groups[i];
+      if (group.hidden) {
+        continue;
+      }
       let firstGroup = true;
       let last: {
         nestingLevel: number,
@@ -1842,8 +1876,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const groups = this.rawTimelineData.groups || [];
     for (let i = 0; i < groups.length; ++i) {
       const expanded = this.groupExpansionState[groups[i].name];
+      const hidden = this.groupHiddenState[groups[i].name];
       if (expanded !== undefined) {
         groups[i].expanded = expanded;
+      }
+      if (hidden !== undefined) {
+        groups[i].hidden = hidden;
       }
     }
     this.updateLevelPositions();
@@ -1860,7 +1898,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // Add an extra number in visibleLevelOffsets to store the end of last level
     this.visibleLevelOffsets = new Uint32Array(levelCount + 1);
     this.visibleLevelHeights = new Uint32Array(levelCount);
-    this.visibleLevels = new Uint16Array(levelCount);
+    this.visibleLevels = new Array(levelCount);
     // Add an extra number in groupOffsets to store the end of last group
     this.groupOffsets = new Uint32Array(groups.length + 1);
 
@@ -1903,9 +1941,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
           nextNestingLevel = false;
           parentGroup = groupStack[groupStack.length - 1];
         }
-        const thisGroupIsVisible =
-            groupIndex >= 0 && this.isGroupCollapsible(groupIndex) ? groups[groupIndex].expanded : true;
-
+        const thisGroupIsVisible = !groups[groupIndex].hidden &&
+            (groupIndex >= 0 && this.isGroupCollapsible(groupIndex) ? groups[groupIndex].expanded : true);
         parentGroupIsVisible = parentGroup.visible ?? false;
         // |groups[groupIndex].expanded| could be undefined, so we need to convert
         // thisGroupIsVisible to boolean here.
@@ -1918,7 +1955,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         // If |shareHeaderLine| is false, we add the height of one more level to
         // the current offset, which will be used for the start level of current
         // group.
-        if (parentGroupIsVisible && !currentGroupStyle.shareHeaderLine) {
+        if (!groups[groupIndex].hidden && parentGroupIsVisible && !currentGroupStyle.shareHeaderLine) {
           currentOffset += currentGroupStyle.height;
         }
       }
@@ -1931,8 +1968,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       }
       // Handle offset and visibility of each level.
       const isFirstOnLevel = groupIndex >= 0 && level === groups[groupIndex].startLevel;
-      const thisLevelIsVisible =
-          parentGroupIsVisible && (visible || (isFirstOnLevel && groups[groupIndex].style.useFirstLineForOverview));
+      const thisLevelIsVisible = !groups[groupIndex]?.hidden &&
+          (parentGroupIsVisible && (visible || (isFirstOnLevel && groups[groupIndex].style.useFirstLineForOverview)));
       let height;
       if (groupIndex >= 0) {
         const group = groups[groupIndex];
@@ -1943,7 +1980,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       } else {
         height = this.barHeight;
       }
-      this.visibleLevels[level] = thisLevelIsVisible ? 1 : 0;
+      this.visibleLevels[level] = thisLevelIsVisible ?? false;
       this.visibleLevelOffsets[level] = currentOffset;
       this.visibleLevelHeights[level] = height;
       if (thisLevelIsVisible ||
@@ -2043,6 +2080,17 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
   private timeToPositionClipped(time: number): number {
     return Platform.NumberUtilities.clamp(this.chartViewport.timeToPosition(time), 0, this.offsetWidth);
+  }
+
+  /**
+   * Returns the amount of pixels a group is vertically offset in the.
+   * flame chart.
+   */
+  groupIndexToOffset(groupIndex: number): number {
+    if (!this.groupOffsets) {
+      throw new Error('No visible group offsets');
+    }
+    return this.groupOffsets[groupIndex];
   }
 
   /**
@@ -2307,6 +2355,7 @@ export interface Group {
   name: Common.UIString.LocalizedString;
   startLevel: number;
   expanded?: boolean;
+  hidden?: boolean;
   selectable?: boolean;
   style: GroupStyle;
   track?: TimelineModel.TimelineModel.Track|null;
