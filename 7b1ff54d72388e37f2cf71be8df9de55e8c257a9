@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c804cd27_4f4faf6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-07T11:00:15Z",
+      "side": 1,
+      "message": "Couple of thoughts but the direction is great - and love the tests!",
+      "revId": "7b1ff54d72388e37f2cf71be8df9de55e8c257a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac14784b_14160895",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-07T11:00:15Z",
+      "side": 1,
+      "message": "nit: I find this method name confusing - I would expect this to always make a group hidden.\n\nWhat do you think about having:\n\n```\nhideGroup(groupIndex)\nshowGroup(groupIndex)\n// or rename this:\ntoggleGroupHiddenState(groupIndex, isHidden)\n```",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 61
+      },
+      "revId": "7b1ff54d72388e37f2cf71be8df9de55e8c257a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b78eb5a0_56450d63",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-07T11:00:15Z",
+      "side": 1,
+      "message": "why do we need to store this state in both places? If we are storing it on the group, why do we need the additional hidden state?",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 53
+      },
+      "revId": "7b1ff54d72388e37f2cf71be8df9de55e8c257a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
