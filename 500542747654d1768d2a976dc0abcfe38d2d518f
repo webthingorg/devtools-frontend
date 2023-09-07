@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1246932_d95e1613",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-07T10:01:44Z",
+      "side": 1,
+      "message": "I suggest to change the screenshots threshold to 0 to force updating all the screenshots, I did see some tracks like network track\u0027s screenshots are not updated",
+      "revId": "500542747654d1768d2a976dc0abcfe38d2d518f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "955b3f01_9ae40cfb",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-07T10:01:44Z",
+      "side": 1,
+      "message": "canvas",
+      "range": {
+        "startLine": 372,
+        "startChar": 30,
+        "endLine": 372,
+        "endChar": 35
+      },
+      "revId": "500542747654d1768d2a976dc0abcfe38d2d518f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d45f6ec8_3420bd07",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-07T10:01:44Z",
+      "side": 1,
+      "message": "The flame chart is not only used in Performance Panel, so this comment is not accurate",
+      "range": {
+        "startLine": 372,
+        "startChar": 39,
+        "endLine": 372,
+        "endChar": 56
+      },
+      "revId": "500542747654d1768d2a976dc0abcfe38d2d518f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
