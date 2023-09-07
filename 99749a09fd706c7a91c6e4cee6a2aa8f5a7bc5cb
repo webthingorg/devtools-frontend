@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16658599_df5e4277",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-07T15:54:51Z",
+      "side": 1,
+      "message": "just `if (!this.isConnected) { return; }` ?",
+      "revId": "99749a09fd706c7a91c6e4cee6a2aa8f5a7bc5cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
