@@ -62,7 +62,7 @@ const makeEmptyRendererEventNode =
       entry,
       id,
       parentId: null,
-      childrenIds: new Set(),
+      children: new Set(),
       depth: 0,
     });
 
@@ -383,7 +383,7 @@ export function treify(
     // node for it, mark it as a root, then proceed with the next event.
     if (stack.length === 0) {
       tree.nodes.set(nodeId, node);
-      tree.roots.add(nodeId);
+      tree.roots.add(node);
       event.selfTime = Types.Timing.MicroSeconds(duration);
       stack.push(node);
       tree.maxDepth = Math.max(tree.maxDepth, stack.length);
@@ -444,7 +444,7 @@ export function treify(
     tree.nodes.set(nodeId, node);
     node.depth = stack.length;
     node.parentId = parentNode.id;
-    parentNode.childrenIds.add(nodeId);
+    parentNode.children.add(node);
     event.selfTime = Types.Timing.MicroSeconds(duration);
     if (parentEvent.selfTime !== undefined) {
       parentEvent.selfTime = Types.Timing.MicroSeconds(parentEvent.selfTime - (event.dur || 0));
@@ -528,7 +528,7 @@ export interface RendererThread {
 
 export interface RendererTree {
   nodes: Map<RendererEntryNodeId, RendererEntryNode>;
-  roots: Set<RendererEntryNodeId>;
+  roots: Set<RendererEntryNode>;
   maxDepth: number;
 }
 
@@ -537,7 +537,7 @@ export interface RendererEntryNode {
   depth: number;
   id: RendererEntryNodeId;
   parentId?: RendererEntryNodeId|null;
-  childrenIds: Set<RendererEntryNodeId>;
+  children: Set<RendererEntryNode>;
 }
 
 class RendererEventNodeIdTag {
