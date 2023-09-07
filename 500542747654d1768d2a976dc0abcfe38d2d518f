@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62bb587d_211b7f22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-07T11:24:39Z",
+      "side": 1,
+      "message": "My hack way is upload it -\u003e run trybots -\u003e download scrrenshots -\u003e revert the threshold\nIf you find a better way, please share 😊",
+      "parentUuid": "bf2d4f74_ccb81aaf",
+      "revId": "500542747654d1768d2a976dc0abcfe38d2d518f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "955b3f01_9ae40cfb",
         "filename": "front_end/ui/legacy/themeColors.css",
         "patchSetId": 1
