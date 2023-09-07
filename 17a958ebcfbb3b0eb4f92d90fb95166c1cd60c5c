@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f85361_acd91598",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-07T15:03:37Z",
+      "side": 1,
+      "message": "Let\u0027s use `isConnected` check inside the render instead",
+      "revId": "17a958ebcfbb3b0eb4f92d90fb95166c1cd60c5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
