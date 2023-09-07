@@ -33,6 +33,24 @@
       "message": "Seems kind confusing to have this here. Wouldn\u0027t it make more sense to call `frontend.bringToFront()` after `waitForResult` on L97? We already assert `numNavigations` is 6 at that point anyway.",
       "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abcd54ed_1592afe2",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-07T06:15:20Z",
+      "side": 1,
+      "message": "I have done a few tries here but it looks like the Lighthouse panel never resolves if it\u0027s not getting focus back in this test. I can give it another try.",
+      "parentUuid": "39461362_205b5a64",
+      "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
