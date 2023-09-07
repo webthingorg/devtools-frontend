@@ -151,7 +151,13 @@ export class DataGrid extends HTMLElement {
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [dataGridStyles];
+    this.#isRendering = false;
     ComponentHelpers.SetCSSProperty.set(this, '--table-row-height', `${ROW_HEIGHT_PIXELS}px`);
+  }
+
+  async disconnectedCallback(): Promise<void> {
+    await coordinator.done();
+    this.#isRendering = true;
   }
 
   get data(): DataGridData {
