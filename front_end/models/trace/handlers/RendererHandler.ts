@@ -38,6 +38,7 @@ const makeRendererEntrytNodeId = (): RendererEntryNodeId => (++nodeIdCount) as R
 const completeEventStack: (Types.TraceEvents.TraceEventSyntheticCompleteEvent)[] = [];
 
 let handlerState = HandlerState.UNINITIALIZED;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let config: Types.Configuration.Configuration = Types.Configuration.DEFAULT;
 
 const makeRendererProcess = (): RendererProcess => ({
