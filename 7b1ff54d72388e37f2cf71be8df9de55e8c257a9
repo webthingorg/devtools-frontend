@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1164ef01_8b3fe7fd",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-07T13:02:20Z",
+      "side": 1,
+      "message": "Done.\nHaha, I took both, and made `toggleGroupHiddenState` private, i feel now it is pretty clear 😊",
+      "parentUuid": "ac14784b_14160895",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 61
+      },
+      "revId": "7b1ff54d72388e37f2cf71be8df9de55e8c257a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b78eb5a0_56450d63",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-07T11:00:15Z",
       "side": 1,
       "message": "why do we need to store this state in both places? If we are storing it on the group, why do we need the additional hidden state?",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 53
+      },
+      "revId": "7b1ff54d72388e37f2cf71be8df9de55e8c257a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b792d3_3b1e3f89",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-07T13:02:20Z",
+      "side": 1,
+      "message": "The reason is somehow we now call `timelineData()` multiple times, and that function will overwrite the `groups` with the timelineData from dataProvider. So we need this `groupHiddenState` to reapply hidden state in the `processTimelineData()`\n\nI was thinking about change the hidden state in dataProvider, but some dataProviders might recalculate the timelineData, so will discard the hidden state. \n\nSo for safety, i just kept the hidden state in flame chart, also this will have a possibility to be stored in settings, so for example, a track will always be hidden for all trace files (same as how we handle expand).",
+      "parentUuid": "b78eb5a0_56450d63",
       "range": {
         "startLine": 634,
         "startChar": 0,
