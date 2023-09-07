@@ -30,9 +30,8 @@
 }
 
 .breakpoint-hit {
-  background-color: var(--color-background-elevation-2);
-  border-right: 3px solid var(--color-details-hairline);
-  color: var(--color-text-primary);
+  background-color: var(--sys-color-neutral-container);
+  color: var(--sys-color-on-surface);
 }
 
 @media (forced-colors: active) {
