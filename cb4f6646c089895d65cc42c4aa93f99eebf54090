@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26787dd2_ae27ad24",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-07T11:25:27Z",
+      "side": 1,
+      "message": "in flame chart 😊",
+      "range": {
+        "startLine": 372,
+        "startChar": 30,
+        "endLine": 372,
+        "endChar": 36
+      },
+      "revId": "cb4f6646c089895d65cc42c4aa93f99eebf54090",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
