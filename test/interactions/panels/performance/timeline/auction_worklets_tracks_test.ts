@@ -16,6 +16,6 @@ describe('Auction Worklet tracks', () => {
   itScreenshot('correctly renders all the worklet threads', async () => {
     await loadComponentDocExample(`${urlForTest}&expanded=true`);
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/auction_worklets_expanded.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/auction_worklets_expanded.png', 0);
   });
 });

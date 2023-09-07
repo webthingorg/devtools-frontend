@@ -110,28 +110,28 @@ describe('Performance panel', () => {
     await virtualScrollBar.evaluate(el => {
       el.scrollTop = 200;
     });
-    await assertElementScreenshotUnchanged(panel, 'performance/timeline_canvas_scrolldown.png', 3);
+    await assertElementScreenshotUnchanged(panel, 'performance/timeline_canvas_scrolldown.png', 0);
   });
 
   itScreenshot('loads a cpuprofile and renders it in non-node mode', async () => {
     await loadComponentDocExample('performance_panel/basic.html?cpuprofile=node-fibonacci-website');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
-    await assertElementScreenshotUnchanged(panel, 'performance/cpu-profile.png', 3);
+    await assertElementScreenshotUnchanged(panel, 'performance/cpu-profile.png', 0);
   });
 
   itScreenshot('loads a cpuprofile and renders it in node mode', async () => {
     await loadComponentDocExample('performance_panel/basic.html?cpuprofile=node-fibonacci-website&isNode=true');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
-    await assertElementScreenshotUnchanged(panel, 'performance/cpu-profile-node.png', 3);
+    await assertElementScreenshotUnchanged(panel, 'performance/cpu-profile-node.png', 0);
   });
 
   itScreenshot('candy stripes long tasks', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=one-second-interaction');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
-    await assertElementScreenshotUnchanged(panel, 'performance/timeline-long-task-candystripe.png', 2);
+    await assertElementScreenshotUnchanged(panel, 'performance/timeline-long-task-candystripe.png', 0);
   });
 
   itScreenshot('renders screenshots in the frames track', async () => {
@@ -139,6 +139,6 @@ describe('Performance panel', () => {
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
     // With some changes made to timeline-details-view it passes with a diff of 1.98 so reduce it to 1.
-    await assertElementScreenshotUnchanged(panel, 'performance/timeline-web-dev-screenshot-frames.png', 1);
+    await assertElementScreenshotUnchanged(panel, 'performance/timeline-web-dev-screenshot-frames.png', 0);
   });
 });

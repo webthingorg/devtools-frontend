@@ -20,13 +20,13 @@ describe('Interactions track', () => {
         // small amount to make them appear on screen nicely for the screenshot.
         `${urlForTest}`);
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track.png', 0);
   });
 
   itScreenshot('renders the interactions track collapsed correctly', async () => {
     await loadComponentDocExample(`${urlForTest}&expanded=false`);
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_collapsed.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_collapsed.png', 0);
   });
 
   itScreenshot('candy stripes events over 200ms', async () => {
@@ -36,18 +36,18 @@ describe('Interactions track', () => {
         // small amount to make them appear on screen nicely for the screenshot.
         'performance_panel/track_example.html?track=Interactions&fileName=one-second-interaction&windowStart=141251500&windowEnd=141253000');
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_long_interactions.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_long_interactions.png', 0);
   });
 
   itScreenshot('renders the track (dark mode and expanded)', async () => {
     await loadComponentDocExample(`${urlForTest}&expanded=true&darkMode=true`);
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_expanded_dark_mode.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_expanded_dark_mode.png', 0);
   });
 
   itScreenshot('renders the track (dark mode and collapsed)', async () => {
     await loadComponentDocExample(`${urlForTest}&expanded=false&darkMode=true`);
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_collapsed_dark_mode.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_collapsed_dark_mode.png', 0);
   });
 });
