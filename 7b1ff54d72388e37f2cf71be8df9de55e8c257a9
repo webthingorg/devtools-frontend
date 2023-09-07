@@ -110,6 +110,30 @@
       },
       "revId": "7b1ff54d72388e37f2cf71be8df9de55e8c257a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62d45675_ee7665d3",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-07T13:43:21Z",
+      "side": 1,
+      "message": "Ah understood, thanks. Please could you add a comment to the definition of groupHiddenState explaining that? As it is not immediately obvious from the code. Thanks!",
+      "parentUuid": "f7b792d3_3b1e3f89",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 53
+      },
+      "revId": "7b1ff54d72388e37f2cf71be8df9de55e8c257a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
