@@ -142,6 +142,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5bfcb65_c95299f2",
+        "filename": "front_end/panels/timeline/UIDevtoolsUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-07T10:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39e7c2a7_1736102f",
+      "range": {
+        "startLine": 146,
+        "startChar": 82,
+        "endLine": 151,
+        "endChar": 94
+      },
+      "revId": "5262d2978f8575868bec219d9e9309cfd34525ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c50d613_b3924109",
