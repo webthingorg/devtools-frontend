@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "242edb0a_d94509fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-07T11:13:49Z",
+      "side": 1,
+      "message": "Almost LGTM, just a few nits.\nDid you check whether keyboard controls for the context menu still work in the keepOpen case?",
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f903da5_da841603",
