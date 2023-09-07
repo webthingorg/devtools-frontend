@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acca0f2f_881569a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-07T13:51:03Z",
+      "side": 1,
+      "message": "I have verified that screenshots now get generated correctly so I think this CL is ready for review. PTAL.",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
