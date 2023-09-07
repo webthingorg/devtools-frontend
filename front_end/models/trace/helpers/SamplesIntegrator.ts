@@ -480,6 +480,7 @@ export class SamplesIntegrator {
       cat: '',
       name: 'ProfileCall',
       nodeId: node.id,
+      args: {},
       ph: Types.TraceEvents.Phase.COMPLETE,
       pid,
       tid,
