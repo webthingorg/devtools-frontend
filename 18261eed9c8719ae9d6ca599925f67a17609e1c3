@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82af2441_6a921126",
+        "filename": "test/unittests/front_end/panels/timeline/SourceMaps_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-08T02:22:18Z",
+      "side": 1,
+      "message": "i was getting this: https://screenshot.googleplex.com/5X4sFdL3ir64VcL\n\ndon\u0027t know why on this one. but.. this fixes it. \n\n(the reformat of the imports was the autoformat.)",
+      "revId": "18261eed9c8719ae9d6ca599925f67a17609e1c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
