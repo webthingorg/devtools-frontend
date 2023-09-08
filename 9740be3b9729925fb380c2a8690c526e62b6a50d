@@ -16,6 +16,24 @@
       "message": "this recordtype is marked as idle, so ... with this change it\u0027ll render as the light gray of idle, instead of a faded yellow. That\u0027s preferred as the collapsed track view will show a mostly idle thread.",
       "revId": "9740be3b9729925fb380c2a8690c526e62b6a50d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5b109d2_e3f88a82",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T08:42:04Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "8c6c3bd6_6abf0e53",
+      "revId": "9740be3b9729925fb380c2a8690c526e62b6a50d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
