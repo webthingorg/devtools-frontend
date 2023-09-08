@@ -2,11 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
-import type * as Platform from '../../../../core/platform/platform.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
 
 const UIStrings = {
@@ -652,13 +653,13 @@ export function ruleSetLocationShort(
   return Bindings.ResourceUtils.displayNameForURL(url);
 }
 
-export function action({key}: SDK.PreloadingModel.PreloadingAttempt): string {
+export function capitalizedAction(action: Protocol.Preload.SpeculationAction): string {
   // Use "prefetch"/"prerender" as is in SpeculationRules.
-  switch (key.action) {
+  switch (action) {
     case Protocol.Preload.SpeculationAction.Prefetch:
-      return i18n.i18n.lockedString('prefetch');
+      return Common.UIString.LocalizedString('Prefetch');
     case Protocol.Preload.SpeculationAction.Prerender:
-      return i18n.i18n.lockedString('prerender');
+      return Common.UIString.LocalizedString('Prerender');
   }
 }
 
