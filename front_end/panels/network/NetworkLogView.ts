@@ -52,24 +52,22 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import networkLogViewStyles from './networkLogView.css.js';
-
 import {
   Events,
+  type EventTypes,
   NetworkGroupNode,
-  NetworkRequestNode,
   type NetworkLogViewInterface,
   type NetworkNode,
-  type EventTypes,
+  NetworkRequestNode,
 } from './NetworkDataGridNode.js';
 import {NetworkFrameGrouper} from './NetworkFrameGrouper.js';
+import networkLogViewStyles from './networkLogView.css.js';
 import {NetworkLogViewColumns} from './NetworkLogViewColumns.js';
-
 import {
   NetworkTimeBoundary,
+  type NetworkTimeCalculator,
   NetworkTransferDurationCalculator,
   NetworkTransferTimeCalculator,
-  type NetworkTimeCalculator,
 } from './NetworkTimeCalculator.js';
 
 const UIStrings = {
@@ -414,11 +412,11 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private readonly textFilterUI: UI.FilterBar.TextFilterUI;
   private readonly invertFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly dataURLFilterUI: UI.FilterBar.CheckboxFilterUI;
-  private resourceCategoryFilterUI: UI.FilterBar.NamedBitSetFilterUI;
   private readonly onlyBlockedResponseCookiesFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyBlockedRequestsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyThirdPartyFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly hideChromeExtensionsUI: UI.FilterBar.CheckboxFilterUI;
+  private readonly resourceCategoryFilterUI: UI.FilterBar.DropDownTypesUI|UI.FilterBar.NamedBitSetFilterUI;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
   private dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<NetworkNode>;
@@ -521,8 +519,14 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             .map(
                 category =>
                     ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}));
-    this.resourceCategoryFilterUI =
-        new UI.FilterBar.NamedBitSetFilterUI(filterItems, this.networkResourceTypeFiltersSetting);
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.NETWORK_PANEL_FILTER_BAR_REDESIGN)) {
+      this.resourceCategoryFilterUI = new UI.FilterBar.DropDownTypesUI(
+          filterItems, this.filterChanged.bind(this), this.networkResourceTypeFiltersSetting);
+    } else {
+      this.resourceCategoryFilterUI =
+          new UI.FilterBar.NamedBitSetFilterUI(filterItems, this.networkResourceTypeFiltersSetting);
+    }
     UI.ARIAUtils.setLabel(this.resourceCategoryFilterUI.element(), i18nString(UIStrings.resourceTypesToInclude));
     this.resourceCategoryFilterUI.addEventListener(
         UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
