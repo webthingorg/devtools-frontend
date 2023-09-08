@@ -22,6 +22,30 @@
       },
       "revId": "0c45ed6d7bebb8fb07857283d4f1b6320e0f0e3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5832b442_396225d2",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-08T13:00:43Z",
+      "side": 1,
+      "message": "L279 somehow has one already, so I just added to another one to L229.\ndone.",
+      "parentUuid": "a22e71b2_580b4be6",
+      "range": {
+        "startLine": 278,
+        "startChar": 2,
+        "endLine": 280,
+        "endChar": 30
+      },
+      "revId": "0c45ed6d7bebb8fb07857283d4f1b6320e0f0e3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
