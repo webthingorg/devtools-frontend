@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3bc4ce9_614ee86d",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T13:34:49Z",
+      "side": 1,
+      "message": "in how many places do we call this? I am wondering if we should cache the result:\n\n```\nlet palette: CategoryPalette|null \u003d null\n\nexport function getDefaultCategoryStylesPalette(): CategoryPalette {\n  if(palette) return palette;\n  palette \u003d {...}\n  return palette\n}\n```\n\notherwise we will re-create this quite large object on every call which we could easily avoid",
+      "range": {
+        "startLine": 506,
+        "startChar": 16,
+        "endLine": 506,
+        "endChar": 47
+      },
+      "revId": "515a1ab0d5da30faf7f49abbf33ba05734d066e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dde25f8_0f845a96",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T13:34:49Z",
+      "side": 1,
+      "message": "nit: don\u0027t need the () around this",
+      "range": {
+        "startLine": 507,
+        "startChar": 8,
+        "endLine": 507,
+        "endChar": 10
+      },
+      "revId": "515a1ab0d5da30faf7f49abbf33ba05734d066e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "877db67a_b4d9af5a",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T13:34:49Z",
+      "side": 1,
+      "message": "same comment here as above - let\u0027s cache this in an instance variable to only actually create it once",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 33
+      },
+      "revId": "515a1ab0d5da30faf7f49abbf33ba05734d066e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce61ab10_7df73e6a",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T13:34:49Z",
+      "side": 1,
+      "message": "rather than do this, can we instead return some non-broken colour, and log the error to the console? Just in case this ever happens again - then the worst thing that happens is we have the wrong colour, rather than the panel breaking.",
+      "range": {
+        "startLine": 1430,
+        "startChar": 0,
+        "endLine": 1430,
+        "endChar": 99
+      },
+      "revId": "515a1ab0d5da30faf7f49abbf33ba05734d066e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f3477f1_786d4b46",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T13:34:49Z",
+      "side": 1,
+      "message": "this is fine for now - in a follow-up we can move this into the test_setup.ts file",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 53
+      },
+      "revId": "515a1ab0d5da30faf7f49abbf33ba05734d066e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
