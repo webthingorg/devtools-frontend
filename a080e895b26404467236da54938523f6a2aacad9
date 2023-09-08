@@ -16,6 +16,114 @@
       "message": "I have verified that screenshots now get generated correctly so I think this CL is ready for review. PTAL.",
       "revId": "a080e895b26404467236da54938523f6a2aacad9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7af9ec0_e071f49b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-08T02:03:39Z",
+      "side": 1,
+      "message": "some thoughts",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde15982_7c78df3d",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-08T02:03:39Z",
+      "side": 1,
+      "message": "(nit) typo: the",
+      "range": {
+        "startLine": 70,
+        "startChar": 62,
+        "endLine": 70,
+        "endChar": 65
+      },
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39eb1e25_997e9ad9",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-08T02:03:39Z",
+      "side": 1,
+      "message": "also.. I\u0027ve confirmed the rootTarget is type \u003d\u003d\u003d \u0027tab\u0027, which is what I wondered. Personally I\u0027d rename rootTarget to rootTabTarget across the frontend to clarify this.",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a04c36b_bf1c5a67",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-08T02:03:39Z",
+      "side": 1,
+      "message": "this one should remain ppT? if yes, lets rename it.",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6abf5f38_9822151a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-08T02:03:39Z",
+      "side": 1,
+      "message": "this is another page where i _think_ rootTarget is the \"right\" choice. \n\nhowever.... it does look like its #inspectedURLInternal is not set, even though a `Target.getTargetInfo` does correctly return the url. i suspect we aren\u0027t doing a `getTargetInfo` on the root target.. and we should.",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c17e081_c21c4c71",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-08T02:03:39Z",
+      "side": 1,
+      "message": "theres a few other instances of primaryPageTarget in this file. \nIt\u0027s unclear if they should also use rootTarget instead. But... tbh it kinda looks like they should.\n\nlike this one.. if we navigate with the primary page, would we orphan a prerender page?",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
