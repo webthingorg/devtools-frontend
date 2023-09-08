@@ -16,6 +16,24 @@
       "message": "LGTM\n\nIt seems that the generated changes to NativeFunctions.js cause a unit test to fail. How about updating the relevant test in JavascriptMetadata_test.ts to:\n```\n  describe(\u0027with static methods\u0027, () \u003d\u003e {\n    it(\u0027retrieves by name and class\u0027, () \u003d\u003e {\n      const signatures \u003d metadata.signaturesForStaticMethod(\u0027from\u0027, \u0027Array\u0027)?.sort();\n      assert.deepEqual(signatures, [[\u0027arrayLike\u0027, \u0027?mapfn\u0027, \u0027?thisArg\u0027], [\u0027iterable\u0027, \u0027?mapfn\u0027, \u0027?thisArg\u0027], ]);\n    });\n ```",
       "revId": "2945db94af6c226706f5e1a9726da826e5ba7f10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b5b351_3a457baf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-09-08T13:48:37Z",
+      "side": 1,
+      "message": "Thanks for staring the bots (sorry I forgot...) and suggesting the fix!\n\nI just found an internal email thread about this test failures on roll CLs and it suggested reverting changes in front_end/models/javascript_metadata/NativeFunctions.js.\nhttps://groups.google.com/a/google.com/g/chrome-prerendering/c/mBLjF-daTqI/m/tc0RKHcAAwAJ\n\nWhich way is more preferable? If it\u0027s ok to fix it in this CL, I\u0027ll do that.\n\n(Sorry if you cannot see the email thread. The email was sent by dsv@)",
+      "parentUuid": "35e9d13d_413ff072",
+      "revId": "2945db94af6c226706f5e1a9726da826e5ba7f10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
