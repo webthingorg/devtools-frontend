@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f3676f_4338804a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T11:03:06Z",
+      "side": 1,
+      "message": "In my head we were going to solve this as part of the user editable stacks work - with an option where we would remove things filtered by the ignore list. But I am happy to land this at least for now - but wanted to check how you would feel if we did move this logic into there?",
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
