@@ -33,6 +33,98 @@
       "message": "In my head we were going to solve this as part of the user editable stacks work - with an option where we would remove things filtered by the ignore list. But I am happy to land this at least for now - but wanted to check how you would feel if we did move this logic into there?",
       "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef903ce1_f0726a13",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T11:07:45Z",
+      "side": 1,
+      "message": "stupid question I am sure - but where is this happening? I am struggling to convert this comment into the code and vice-versa",
+      "range": {
+        "startLine": 309,
+        "startChar": 50,
+        "endLine": 310,
+        "endChar": 63
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7531bf04_238c84f3",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T11:07:45Z",
+      "side": 1,
+      "message": "I am finding this quite confusing - the variable is called `canAppendIgnoreListedEvent` which implies to me that the entry is ignored listed - but then it is defined as an entry that is not ignored nor has an ignored parent.\n\nWould `entryCanBeAppended` or similar be better?",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 89
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fde595fd_fa10e187",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T11:07:45Z",
+      "side": 1,
+      "message": "this feels like a hot path to have a look up to an experiment on - can we pull this into an instance variable that we define in the constructor?",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 78
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71a9e91c_1fa0ce23",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T11:07:45Z",
+      "side": 1,
+      "message": "can a user actually ever see this if the item is ignored?\n\nWould it be better to still include the event\u0027s name, but add `(on ignored list)` to it?",
+      "range": {
+        "startLine": 403,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 5
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
