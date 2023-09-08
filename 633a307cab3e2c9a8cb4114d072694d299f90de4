@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86d23b2_46800a1b",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-08T18:02:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92ba1a26_16f509a8",
+      "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cd81493_c7e6c140",
@@ -161,6 +179,30 @@
       "side": 1,
       "message": "I think Sangbaek\u0027s question might be that why we are changing this for an unrelated adorner, \"Scroll-Snap\", in this case? It seems unrelated to the media panel adorner to me.",
       "parentUuid": "80f1c2ea_06174a32",
+      "range": {
+        "startLine": 2256,
+        "startChar": 16,
+        "endLine": 2256,
+        "endChar": 21
+      },
+      "revId": "633a307cab3e2c9a8cb4114d072694d299f90de4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c82e0257_d19fc4b8",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-08T18:02:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5ce5436_831a5ac7",
       "range": {
         "startLine": 2256,
         "startChar": 16,
