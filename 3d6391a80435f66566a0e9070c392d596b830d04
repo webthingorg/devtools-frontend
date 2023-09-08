@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41eebbcd_c3b3073c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-08T12:04:08Z",
+      "side": 1,
+      "message": "Thank you, LGTM!\n\nJack, this extracts the changes you already looked at in https://crrev.com/c/4793630 into a separate CL. PTAL whether your concerns are being addressed, thanks!",
+      "revId": "3d6391a80435f66566a0e9070c392d596b830d04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
