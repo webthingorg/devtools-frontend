@@ -1635,6 +1635,24 @@ export class RegisteredPropertiesSection extends StylePropertiesSection {
     this.selectorElement.className = 'property-registration-key';
   }
 
+  override setHeaderText(rule: SDK.CSSRule.CSSRule, newContent: string): Promise<void> {
+    function updateSourceRanges(this: RegisteredPropertiesSection, success: boolean): void {
+      if (!success) {
+        return;
+      }
+      this.parentPane.forceUpdate();
+    }
+
+    if (!(rule instanceof SDK.CSSRule.CSSPropertyRule)) {
+      return Promise.resolve();
+    }
+    const oldRange = rule.propertyName().range;
+    if (!oldRange) {
+      return Promise.resolve();
+    }
+    return rule.setPropertyName(newContent).then(updateSourceRanges.bind(this));
+  }
+
   override createRuleOriginNode(
       matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles, linkifier: Components.Linkifier.Linkifier,
       rule: SDK.CSSRule.CSSRule|null): Node {
