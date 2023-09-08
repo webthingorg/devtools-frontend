@@ -69,6 +69,24 @@
       "parentUuid": "abcd54ed_1592afe2",
       "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80a37f0_b054a1da",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-09-08T17:29:31Z",
+      "side": 1,
+      "message": "Thanks for looking into this, I think I understand why it was done this way now. I\u0027ll try and find a better way to write `waitForResult`.",
+      "parentUuid": "2a8fced8_c1989498",
+      "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
