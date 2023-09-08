@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a43c21a_4de75c62",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f903da5_da841603",
+      "range": {
+        "startLine": 429,
+        "startChar": 26,
+        "endLine": 429,
+        "endChar": 34
+      },
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6da71916_b6458a52",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d6c3c6_3b3a2d14",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6da71916_b6458a52",
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bb9e554_c74a22e7",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-09-07T11:04:17Z",
       "side": 1,
       "message": "The value for `accessibleName` is always re-assigned 2 lines further down, so this line can probably be completely removed.",
+      "range": {
+        "startLine": 384,
+        "startChar": 4,
+        "endLine": 384,
+        "endChar": 84
+      },
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b2fbc80_7be3942a",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bb9e554_c74a22e7",
       "range": {
         "startLine": 384,
         "startChar": 4,
@@ -104,6 +170,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f12814cd_f1eb50f2",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4801a86_fcd91ba4",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 59
+      },
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e567c915_c66c14ab",
@@ -117,6 +207,30 @@
       "writtenOn": "2023-09-07T11:04:17Z",
       "side": 1,
       "message": "nit: \u0027stays open after clicking on an item when keepOpen is true`\nThe console output will show the string from `describe` right before the string from `it`, so you don\u0027t need to repeat anything.",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 89
+      },
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fded6ceb_f5e7b3af",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e567c915_c66c14ab",
       "range": {
         "startLine": 38,
         "startChar": 6,
@@ -173,6 +287,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "203e1260_d57c37b5",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba20bbe9_c0de2d06",
+      "range": {
+        "startLine": 40,
+        "startChar": 83,
+        "endLine": 40,
+        "endChar": 105
+      },
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2e5542e_fe367480",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c28035b1_6fed329d",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "738e598f_141fc305",
@@ -186,6 +348,30 @@
       "writtenOn": "2023-09-07T11:04:17Z",
       "side": 1,
       "message": "nit: You can move this up a few lines, then you don\u0027t need the `?`.",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 38
+      },
+      "revId": "b1c4a6eb89c6dd462fda6b9d369ed066968ff717",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9e06a2_d61450f7",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-08T09:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "738e598f_141fc305",
       "range": {
         "startLine": 50,
         "startChar": 4,
