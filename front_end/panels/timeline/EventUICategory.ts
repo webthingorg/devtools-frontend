@@ -4,6 +4,7 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
 const UIStrings = {
   /**
@@ -502,21 +503,46 @@ export type CategoryPalette = {
   [c in EventCategory]: EventCategoryStyle
 };
 
-export const DEFAULT_CATEGORY_STYLES_PALETTE: CategoryPalette = {
-  Loading: new EventCategoryStyle(i18nLazyString(UIStrings.loading), true, 'hsl(214, 67%, 74%)', 'hsl(214, 67%, 66%)'),
-  Experience:
-      new EventCategoryStyle(i18nLazyString(UIStrings.experience), false, 'hsl(5, 80%, 74%)', 'hsl(5, 80%, 66%)'),
-  Scripting:
-      new EventCategoryStyle(i18nLazyString(UIStrings.scripting), true, 'hsl(43, 83%, 72%)', 'hsl(43, 83%, 64%) '),
-  Rendering:
-      new EventCategoryStyle(i18nLazyString(UIStrings.rendering), true, 'hsl(256, 67%, 76%)', 'hsl(256, 67%, 70%)'),
-  Painting:
-      new EventCategoryStyle(i18nLazyString(UIStrings.painting), true, 'hsl(109, 33%, 64%)', 'hsl(109, 33%, 55%)'),
-  GPU: new EventCategoryStyle(i18nLazyString(UIStrings.gpu), false, 'hsl(109, 33%, 64%)', 'hsl(109, 33%, 55%)'),
-  Async: new EventCategoryStyle(i18nLazyString(UIStrings.async), false, 'hsl(0, 100%, 50%)', 'hsl(0, 100%, 40%)'),
-  Other: new EventCategoryStyle(i18nLazyString(UIStrings.system), false, 'hsl(0, 0%, 87%)', 'hsl(0, 0%, 79%)'),
-  Idle: new EventCategoryStyle(i18nLazyString(UIStrings.idle), false, 'hsl(0, 0%, 98%)', 'hsl(0, 0%, 98%)'),
-};
+export function getDefaultCategoryStylesPalette(): CategoryPalette {
+  return ({
+    Loading: new EventCategoryStyle(
+        i18nLazyString(UIStrings.loading), true,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-loading-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-loading')),
+    Experience: new EventCategoryStyle(
+        i18nLazyString(UIStrings.experience), false,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-rendering-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-rendering')),
+    Scripting: new EventCategoryStyle(
+        i18nLazyString(UIStrings.scripting), true,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-scripting-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-scripting')),
+    Rendering: new EventCategoryStyle(
+        i18nLazyString(UIStrings.rendering), true,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-rendering-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-rendering')),
+    Painting: new EventCategoryStyle(
+        i18nLazyString(UIStrings.painting), true,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-painting-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-painting')),
+    GPU: new EventCategoryStyle(
+        i18nLazyString(UIStrings.gpu), false,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-painting-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-painting')),
+    Async: new EventCategoryStyle(
+        i18nLazyString(UIStrings.async), false,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-async-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-async')),
+    Other: new EventCategoryStyle(
+        i18nLazyString(UIStrings.system), false,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-system-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-system')),
+    Idle: new EventCategoryStyle(
+        i18nLazyString(UIStrings.idle), false,
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-idle-children'),
+        ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-idle')),
+  });
+}
 
 /**
  * This map defines the styles for events shown in the panel. This
@@ -530,496 +556,498 @@ export const DEFAULT_CATEGORY_STYLES_PALETTE: CategoryPalette = {
  *
  * The map is also used in other places, like the event's details view.
  */
-export const EventStyles: Map<
-    TraceEngine.Types.TraceEvents.KnownEventName,
-    {categoryStyle: EventCategoryStyle, label: () => string, hidden?: boolean}> =
-    new Map([
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.RunTask,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Other, label: i18nLazyString(UIStrings.task)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ProfileCall,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.jsFrame)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.Program,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Other, label: i18nLazyString(UIStrings.other)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.StartProfiling,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Other, label: i18nLazyString(UIStrings.profilingOverhead)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.Animation,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.animation)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.EventDispatch,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.event)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.RequestMainThreadFrame,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.requestMainThreadFrame),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.BeginFrame,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.frameStart),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.BeginMainThreadFrame,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.frameStartMainThread),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.DrawFrame,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.drawFrame),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.HitTest,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.hitTest)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ScheduleStyleRecalculation,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.scheduleStyleRecalculation),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.RecalculateStyles,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.recalculateStyle)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.UpdateLayoutTree,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.recalculateStyle)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.InvalidateLayout,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.invalidateLayout),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.Layerize,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.layerize)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.Layout,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.layout)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.PaintSetup,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting, label: i18nLazyString(UIStrings.paintSetup)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.PaintImage,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting,
-          label: i18nLazyString(UIStrings.paintImage),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.UpdateLayer,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting,
-          label: i18nLazyString(UIStrings.updateLayer),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.UpdateLayerTree,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.updateLayerTree)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.Paint,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting, label: i18nLazyString(UIStrings.paint)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.PrePaint,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.prePaint)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.RasterTask,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting, label: i18nLazyString(UIStrings.rasterizePaint)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ScrollLayer,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering, label: i18nLazyString(UIStrings.scroll)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.Commit,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting, label: i18nLazyString(UIStrings.commit)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CompositeLayers,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting, label: i18nLazyString(UIStrings.compositeLayers)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ComputeIntersections,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.computeIntersections),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ParseHTML,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading, label: i18nLazyString(UIStrings.parseHtml)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ParseAuthorStyleSheet,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading, label: i18nLazyString(UIStrings.parseStylesheet)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.TimerInstall,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.installTimer)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.TimerRemove,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.removeTimer)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.TimerFire,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.timerFired)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.XHRReadyStateChange,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.xhrReadyStateChange),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.XHRLoad,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.xhrLoad)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CompileScript,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.compileScript)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CacheScript,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.cacheScript)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CompileCode,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.compileCode)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.OptimizeCode,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.optimizeCode)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.EvaluateScript,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.evaluateScript)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CompileModule,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.compileModule)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CacheModule,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.cacheModule)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.EvaluateModule,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.evaluateModule)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.StreamingCompileScript,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Other, label: i18nLazyString(UIStrings.streamingCompileTask)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.StreamingCompileScriptWaiting,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Idle, label: i18nLazyString(UIStrings.waitingForNetwork)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.StreamingCompileScriptParsing,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.parseAndCompile)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.BackgroundDeserialize,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.deserializeCodeCache),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.FinalizeDeserialization,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Other, label: i18nLazyString(UIStrings.profilingOverhead)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WasmStreamFromResponseCallback,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.streamingWasmResponse),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WasmCompiledModule,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.compiledWasmModule)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WasmCachedModule,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.cachedWasmModule)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WasmModuleCacheHit,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.wasmModuleCacheHit)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WasmModuleCacheInvalid,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.wasmModuleCacheInvalid),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.FrameStartedLoading,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading,
-          label: i18nLazyString(UIStrings.frameStartedLoading),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.MarkLoad,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.onloadEvent),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.MarkDOMContent,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.domcontentloadedEvent),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.MarkFirstPaint,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting,
-          label: i18nLazyString(UIStrings.firstPaint),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.MarkFCP,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.firstContentfulPaint),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.MarkLCPCandidate,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Rendering,
-          label: i18nLazyString(UIStrings.largestContentfulPaint),
-          hidden: true,
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.TimeStamp,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.timestamp)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ConsoleTime,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.consoleTime)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.UserTiming,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.userTiming)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ResourceWillSendRequest,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading, label: i18nLazyString(UIStrings.willSendRequest)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ResourceSendRequest,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading, label: i18nLazyString(UIStrings.sendRequest)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ResourceReceiveResponse,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading, label: i18nLazyString(UIStrings.receiveResponse)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ResourceFinish,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading, label: i18nLazyString(UIStrings.finishLoading)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ResourceReceivedData,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Loading, label: i18nLazyString(UIStrings.receiveData)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.RunMicrotasks,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.runMicrotasks)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.FunctionCall,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.functionCall)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.GC,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.gcEvent)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.MajorGC,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.majorGc)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.MinorGC,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.minorGc)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.RequestAnimationFrame,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.requestAnimationFrame),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CancelAnimationFrame,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.cancelAnimationFrame),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.FireAnimationFrame,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.animationFrameFired),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.RequestIdleCallback,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.requestIdleCallback),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CancelIdleCallback,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.cancelIdleCallback)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.FireIdleCallback,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.fireIdleCallback)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WebSocketCreate,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.createWebsocket)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WebSocketSendHandshakeRequest,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.sendWebsocketHandshake),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WebSocketReceiveHandshakeResponse,
-        {
-          categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting,
-          label: i18nLazyString(UIStrings.receiveWebsocketHandshake),
-        },
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.WebSocketDestroy,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.destroyWebsocket)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.EmbedderCallback,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.embedderCallback)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.DecodeImage,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting, label: i18nLazyString(UIStrings.imageDecode)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.ResizeImage,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Painting, label: i18nLazyString(UIStrings.imageResize)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.GPUTask,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.GPU, label: i18nLazyString(UIStrings.gpu)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.GCCollectGarbage,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.domGc)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoEncrypt,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.encrypt)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoEncryptReply,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.encryptReply)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDecrypt,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.decrypt)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDecryptReply,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.decryptReply)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDigest,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.digest)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDigestReply,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.digestReply)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoSign,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.sign)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoSignReply,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.signReply)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoVerify,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.verify)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoVerifyReply,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Scripting, label: i18nLazyString(UIStrings.verifyReply)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.AsyncTask,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Async, label: i18nLazyString(UIStrings.asyncTask)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.LayoutShift,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Experience, label: i18nLazyString(UIStrings.layoutShift)},
-      ],
-      [
-        TraceEngine.Types.TraceEvents.KnownEventName.EventTiming,
-        {categoryStyle: DEFAULT_CATEGORY_STYLES_PALETTE.Experience, label: i18nLazyString(UIStrings.eventTiming)},
-      ],
-    ]);
+export function getEventStyles():
+    Map<TraceEngine.Types.TraceEvents.KnownEventName,
+        {categoryStyle: EventCategoryStyle, label: () => string, hidden?: boolean}> {
+  const defaultStyleCategoryPalette = getDefaultCategoryStylesPalette();
+  return (new Map([
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.RunTask,
+      {categoryStyle: defaultStyleCategoryPalette.Other, label: i18nLazyString(UIStrings.task)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ProfileCall,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.jsFrame)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.Program,
+      {categoryStyle: defaultStyleCategoryPalette.Other, label: i18nLazyString(UIStrings.other)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.StartProfiling,
+      {categoryStyle: defaultStyleCategoryPalette.Other, label: i18nLazyString(UIStrings.profilingOverhead)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.Animation,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.animation)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.EventDispatch,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.event)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.RequestMainThreadFrame,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.requestMainThreadFrame),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.BeginFrame,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.frameStart),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.BeginMainThreadFrame,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.frameStartMainThread),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.DrawFrame,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.drawFrame),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.HitTest,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.hitTest)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ScheduleStyleRecalculation,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.scheduleStyleRecalculation),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.RecalculateStyles,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.recalculateStyle)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.UpdateLayoutTree,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.recalculateStyle)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.InvalidateLayout,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.invalidateLayout),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.Layerize,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.layerize)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.Layout,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.layout)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.PaintSetup,
+      {categoryStyle: defaultStyleCategoryPalette.Painting, label: i18nLazyString(UIStrings.paintSetup)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.PaintImage,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Painting,
+        label: i18nLazyString(UIStrings.paintImage),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.UpdateLayer,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Painting,
+        label: i18nLazyString(UIStrings.updateLayer),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.UpdateLayerTree,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.updateLayerTree)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.Paint,
+      {categoryStyle: defaultStyleCategoryPalette.Painting, label: i18nLazyString(UIStrings.paint)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.PrePaint,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.prePaint)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.RasterTask,
+      {categoryStyle: defaultStyleCategoryPalette.Painting, label: i18nLazyString(UIStrings.rasterizePaint)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ScrollLayer,
+      {categoryStyle: defaultStyleCategoryPalette.Rendering, label: i18nLazyString(UIStrings.scroll)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.Commit,
+      {categoryStyle: defaultStyleCategoryPalette.Painting, label: i18nLazyString(UIStrings.commit)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CompositeLayers,
+      {categoryStyle: defaultStyleCategoryPalette.Painting, label: i18nLazyString(UIStrings.compositeLayers)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ComputeIntersections,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.computeIntersections),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ParseHTML,
+      {categoryStyle: defaultStyleCategoryPalette.Loading, label: i18nLazyString(UIStrings.parseHtml)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ParseAuthorStyleSheet,
+      {categoryStyle: defaultStyleCategoryPalette.Loading, label: i18nLazyString(UIStrings.parseStylesheet)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.TimerInstall,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.installTimer)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.TimerRemove,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.removeTimer)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.TimerFire,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.timerFired)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.XHRReadyStateChange,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.xhrReadyStateChange),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.XHRLoad,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.xhrLoad)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CompileScript,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.compileScript)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CacheScript,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.cacheScript)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CompileCode,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.compileCode)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.OptimizeCode,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.optimizeCode)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.EvaluateScript,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.evaluateScript)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CompileModule,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.compileModule)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CacheModule,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.cacheModule)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.EvaluateModule,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.evaluateModule)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.StreamingCompileScript,
+      {categoryStyle: defaultStyleCategoryPalette.Other, label: i18nLazyString(UIStrings.streamingCompileTask)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.StreamingCompileScriptWaiting,
+      {categoryStyle: defaultStyleCategoryPalette.Idle, label: i18nLazyString(UIStrings.waitingForNetwork)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.StreamingCompileScriptParsing,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.parseAndCompile)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.BackgroundDeserialize,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.deserializeCodeCache),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.FinalizeDeserialization,
+      {categoryStyle: defaultStyleCategoryPalette.Other, label: i18nLazyString(UIStrings.profilingOverhead)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WasmStreamFromResponseCallback,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.streamingWasmResponse),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WasmCompiledModule,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.compiledWasmModule)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WasmCachedModule,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.cachedWasmModule)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WasmModuleCacheHit,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.wasmModuleCacheHit)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WasmModuleCacheInvalid,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.wasmModuleCacheInvalid),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.FrameStartedLoading,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Loading,
+        label: i18nLazyString(UIStrings.frameStartedLoading),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.MarkLoad,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.onloadEvent),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.MarkDOMContent,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.domcontentloadedEvent),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.MarkFirstPaint,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Painting,
+        label: i18nLazyString(UIStrings.firstPaint),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.MarkFCP,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.firstContentfulPaint),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.MarkLCPCandidate,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Rendering,
+        label: i18nLazyString(UIStrings.largestContentfulPaint),
+        hidden: true,
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.TimeStamp,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.timestamp)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ConsoleTime,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.consoleTime)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.UserTiming,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.userTiming)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ResourceWillSendRequest,
+      {categoryStyle: defaultStyleCategoryPalette.Loading, label: i18nLazyString(UIStrings.willSendRequest)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ResourceSendRequest,
+      {categoryStyle: defaultStyleCategoryPalette.Loading, label: i18nLazyString(UIStrings.sendRequest)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ResourceReceiveResponse,
+      {categoryStyle: defaultStyleCategoryPalette.Loading, label: i18nLazyString(UIStrings.receiveResponse)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ResourceFinish,
+      {categoryStyle: defaultStyleCategoryPalette.Loading, label: i18nLazyString(UIStrings.finishLoading)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ResourceReceivedData,
+      {categoryStyle: defaultStyleCategoryPalette.Loading, label: i18nLazyString(UIStrings.receiveData)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.RunMicrotasks,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.runMicrotasks)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.FunctionCall,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.functionCall)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.GC,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.gcEvent)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.MajorGC,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.majorGc)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.MinorGC,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.minorGc)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.RequestAnimationFrame,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.requestAnimationFrame),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CancelAnimationFrame,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.cancelAnimationFrame),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.FireAnimationFrame,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.animationFrameFired),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.RequestIdleCallback,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.requestIdleCallback),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CancelIdleCallback,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.cancelIdleCallback)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.FireIdleCallback,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.fireIdleCallback)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WebSocketCreate,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.createWebsocket)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WebSocketSendHandshakeRequest,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.sendWebsocketHandshake),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WebSocketReceiveHandshakeResponse,
+      {
+        categoryStyle: defaultStyleCategoryPalette.Scripting,
+        label: i18nLazyString(UIStrings.receiveWebsocketHandshake),
+      },
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.WebSocketDestroy,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.destroyWebsocket)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.EmbedderCallback,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.embedderCallback)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.DecodeImage,
+      {categoryStyle: defaultStyleCategoryPalette.Painting, label: i18nLazyString(UIStrings.imageDecode)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.ResizeImage,
+      {categoryStyle: defaultStyleCategoryPalette.Painting, label: i18nLazyString(UIStrings.imageResize)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.GPUTask,
+      {categoryStyle: defaultStyleCategoryPalette.GPU, label: i18nLazyString(UIStrings.gpu)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.GCCollectGarbage,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.domGc)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoEncrypt,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.encrypt)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoEncryptReply,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.encryptReply)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDecrypt,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.decrypt)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDecryptReply,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.decryptReply)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDigest,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.digest)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoDigestReply,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.digestReply)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoSign,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.sign)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoSignReply,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.signReply)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoVerify,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.verify)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CryptoDoVerifyReply,
+      {categoryStyle: defaultStyleCategoryPalette.Scripting, label: i18nLazyString(UIStrings.verifyReply)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.AsyncTask,
+      {categoryStyle: defaultStyleCategoryPalette.Async, label: i18nLazyString(UIStrings.asyncTask)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.LayoutShift,
+      {categoryStyle: defaultStyleCategoryPalette.Experience, label: i18nLazyString(UIStrings.layoutShift)},
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.EventTiming,
+      {categoryStyle: defaultStyleCategoryPalette.Experience, label: i18nLazyString(UIStrings.eventTiming)},
+    ],
+  ]));
+}
