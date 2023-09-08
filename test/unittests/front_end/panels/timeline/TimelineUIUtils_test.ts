@@ -2,20 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import * as TimelineModel from '../../../../../front_end/models/timeline_model/timeline_model.js';
+import * as Common from '../../../../../front_end/core/common/common.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
-import * as Components from '../../../../../front_end/ui/legacy/components/utils/utils.js';
+import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
+import * as TimelineModel from '../../../../../front_end/models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../../../../front_end/models/trace/trace.js';
+import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
 import * as Timeline from '../../../../../front_end/panels/timeline/timeline.js';
+import * as Components from '../../../../../front_end/ui/legacy/components/utils/utils.js';
+import * as Utils from '../../../../../front_end/ui/legacy/utils/utils.js';
+import {doubleRaf, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
-import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
-import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
 import {setupPageResourceLoaderForSourceMap} from '../../helpers/SourceMapHelpers.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
-import * as Common from '../../../../../front_end/core/common/common.js';
-import {doubleRaf, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 import {TraceLoader} from '../../helpers/TraceLoader.js';
 
 const {assert} = chai;
@@ -41,6 +42,7 @@ describeWithMockConnection('TimelineUIUtils', function() {
       resourceMapping,
       targetManager,
     });
+    Utils.injectCoreStyles(document.documentElement);
     Bindings.IgnoreListManager.IgnoreListManager.instance({forceNew: true, debuggerWorkspaceBinding});
   });
 
@@ -264,6 +266,16 @@ describeWithMockConnection('TimelineUIUtils', function() {
       return {title, value};
     });
   }
+
+  describe('eventColor', function() {
+    it('is idle for idle-like events', async function() {
+      const event = new TraceEngine.Legacy.ConstructedEvent(
+          'v8,devtools.timeline,disabled-by-default-v8.compile',
+          TimelineModel.TimelineModel.RecordType.StreamingCompileScriptWaiting,
+          TraceEngine.Types.TraceEvents.Phase.COMPLETE, 10, thread);
+      assert.strictEqual('rgb(250 191 58 / 30%)', Timeline.TimelineUIUtils.TimelineUIUtils.eventColor(event));
+    });
+  });
 
   describe('traceEventDetails', function() {
     it('shows the interaction ID for EventTiming events that have an interaction ID', async function() {
