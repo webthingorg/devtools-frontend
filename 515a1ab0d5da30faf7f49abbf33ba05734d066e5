@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecea619f_29dd3d52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-08T13:53:19Z",
+      "side": 1,
+      "message": "Let\u0027s not rush this to land today btw - I know it was originally landed and has since been reverted, but ToT is not currently broken and we have no branch point coming up so there is no need to rush this through.\n\nWhat is making this more complex is that we now cannot define these colours until the theme support has been instantiated, so your change thus far to move the definitions into a function is correct.\n\nHowever, if we re-define that big list of colours every time the function is called, that is a lot of extra work. So we should cache them as per my comment.\n\nBut finally, we need to make sure that if the user changes the theme, we clear the cache, so that when DevTools redraws, we use the new colours. We can do this by listening to the ThemeChanged event and clearing the cache",
+      "revId": "515a1ab0d5da30faf7f49abbf33ba05734d066e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3bc4ce9_614ee86d",
