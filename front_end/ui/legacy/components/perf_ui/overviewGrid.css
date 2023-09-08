@@ -15,13 +15,31 @@
 
 .overview-grid-window-resizer {
   position: absolute;
-  top: -1px;
-  height: 20px;
-  width: 6px;
-  margin-left: -3px;
-  background-color: rgb(153 153 153); /* stylelint-disable-line plugin/use_theme_colors */
-  border: 1px solid #fff; /* stylelint-disable-line plugin/use_theme_colors */
+  top: 0;
+  height: 19px;
+  width: 10px;
+  margin-left: -5px; /* half width (incl the border) */
+  background-color: var(--sys-color-tonal-container);
+  border: 1px solid var(--sys-color-tonal-outline);
   z-index: 500;
+  border-radius: 3px;
+}
+
+/* Grip lines within the handle */
+.overview-grid-window-resizer::before,
+.overview-grid-window-resizer::after {
+  content: "";
+  width: 1px;
+  background: var(--sys-color-primary);
+  height: 7px;
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  border-radius: 1px;
+}
+
+.overview-grid-window-resizer::after {
+  left: 5px;
 }
 
 .overview-grid-window-resizer:focus-visible {
