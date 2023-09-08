@@ -51,6 +51,24 @@
       "parentUuid": "39461362_205b5a64",
       "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a8fced8_c1989498",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-08T10:59:31Z",
+      "side": 1,
+      "message": "I tried again and this test cannot get control back to the lighthouse tab after audits are done. Would you like to rewrite the waitForResult helper? Currently, I am not sure why it\u0027s written that way: as waitForFunction would always return a truthy value. Perhaps it can be rewritten in a way that it focuses on the frontend tab and if the results are not there, it focuses back to the target?",
+      "parentUuid": "abcd54ed_1592afe2",
+      "revId": "abbd2854422d97136730d3e37f86da7e97d83745",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
