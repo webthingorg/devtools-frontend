@@ -28,8 +28,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import type * as HeapSnapshotModel from '../../models/heap_snapshot_model/heap_snapshot_model.js';
+import * as HeapSnapshotModel from '../../models/heap_snapshot_model/heap_snapshot_model.js';
 
+// eslint-disable-next-line rulesdir/es_modules_import
+import * as HeapSnapshotWorker from './heap_snapshot_worker.js';
 import {HeapSnapshotLoader} from './HeapSnapshotLoader.js';
 
 interface DispatcherResponse {
@@ -91,6 +93,11 @@ export class HeapSnapshotWorkerDispatcher {
         }
         case 'evaluateForTest': {
           try {
+            // Make 'HeapSnapshotWorker' and 'HeapSnapshotModel' available to web tests. 'eval' can't use 'import'.
+            // @ts-ignore
+            globalThis.HeapSnapshotWorker = HeapSnapshotWorker;
+            // @ts-ignore
+            globalThis.HeapSnapshotModel = HeapSnapshotModel;
             response.result = self.eval(data.source);
           } catch (error) {
             response.result = error.toString();
