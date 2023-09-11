@@ -34,6 +34,24 @@
       "parentUuid": "35e9d13d_413ff072",
       "revId": "2945db94af6c226706f5e1a9726da826e5ba7f10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb5401b_578d1fc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-09-11T06:54:03Z",
+      "side": 1,
+      "message": "I reverted the changes in NativeFunctions.js but sadly now another test is failing (http/tests/devtools/elements/styles-4/styles-edit-slow-completions.js). I\u0027ll investigate...",
+      "parentUuid": "f6b5b351_3a457baf",
+      "revId": "2945db94af6c226706f5e1a9726da826e5ba7f10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
