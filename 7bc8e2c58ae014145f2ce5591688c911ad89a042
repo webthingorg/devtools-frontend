@@ -136,6 +136,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd85cece_d91c2f1a",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-09-11T12:27:15Z",
+      "side": 1,
+      "message": "makes sense! Added the explanation",
+      "parentUuid": "2df3fc05_52b956c3",
+      "range": {
+        "startLine": 120,
+        "startChar": 5,
+        "endLine": 122,
+        "endChar": 8
+      },
+      "revId": "7bc8e2c58ae014145f2ce5591688c911ad89a042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a77774fc_7946a7f1",
