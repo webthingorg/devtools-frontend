@@ -971,7 +971,7 @@ describeWithMockConnection('PreloadingResultView', async () => {
     const usedPreloadingComponent = view.getUsedPreloadingForTest();
     assertShadowRoot(usedPreloadingComponent.shadowRoot);
 
-    assert.include(usedPreloadingComponent.shadowRoot.textContent, 'This page was successfully prerendered.');
+    assert.include(usedPreloadingComponent.shadowRoot.textContent, 'Successful');
   });
 });
 
