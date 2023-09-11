@@ -238,6 +238,30 @@
       },
       "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d12142_8d803a80",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-11T14:25:00Z",
+      "side": 1,
+      "message": "Cool - thanks. Let\u0027s leave it as is.",
+      "parentUuid": "ad02a998_01e9902a",
+      "range": {
+        "startLine": 403,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 5
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
