@@ -1,21 +1,24 @@
 // Copyright 2022 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import * as Common from '../../../../../front_end/core/common/common.js';
-import * as Protocol from '../../../../../front_end/generated/protocol.js';
-import * as Network from '../../../../../front_end/panels/network/network.js';
-
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
-import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
-import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
-import * as Logs from '../../../../../front_end/models/logs/logs.js';
-import * as HAR from '../../../../../front_end/models/har/har.js';
-import * as Coordinator from '../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
-import {assertElement} from '../../helpers/DOMHelpers.js';
-
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
+import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import * as Protocol from '../../../../../front_end/generated/protocol.js';
+import * as HAR from '../../../../../front_end/models/har/har.js';
+import * as Logs from '../../../../../front_end/models/logs/logs.js';
+import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
+import * as Network from '../../../../../front_end/panels/network/network.js';
+import type * as IconButton from '../../../../../front_end/ui/components/icon_button/icon_button.js';
+import * as Coordinator from '../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
+import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
+import {
+  assertElement,
+  assertShadowRoot,
+  dispatchMouseUpEvent,
+  raf,
+} from '../../helpers/DOMHelpers.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection, dispatchEvent} from '../../helpers/MockConnection.js';
 
@@ -266,32 +269,46 @@ describeWithMockConnection('NetworkLogView', () => {
     it('replaces requests when switching scope with preserve log off', handlesSwitchingScope(false));
     it('appends requests when switching scope with preserve log on', handlesSwitchingScope(true));
 
-    it('hide Chrome extension requests', async () => {
+    it('can hide Chrome extension requests', async () => {
       createNetworkRequest('chrome-extension://url1', {target});
       createNetworkRequest('url2', {target});
       const filterBar = new UI.FilterBar.FilterBar('networkPanel', true);
       networkLogView = createNetworkLogView(filterBar);
-
       networkLogView.markAsRoot();
       networkLogView.show(document.body);
       const rootNode = networkLogView.columns().dataGrid().rootNode();
-      const hideExtCheckbox = filterBar.element.querySelector('[title="Hide \'chrome-extension://\' URLs"] span')
-                                  ?.shadowRoot?.querySelector('input') ||
-          null;
-
-      assertElement(hideExtCheckbox, HTMLInputElement);
 
       assert.deepEqual(
           rootNode.children.map(n => (n as Network.NetworkDataGridNode.NetworkNode).request()?.url()),
           ['chrome-extension://url1' as Platform.DevToolsPath.UrlString, 'url2' as Platform.DevToolsPath.UrlString]);
 
-      hideExtCheckbox.checked = true;
-      const event = new Event('change');
-      hideExtCheckbox.dispatchEvent(event);
+      const button = filterBar.element.querySelector('[aria-label="Show/hide only requests dropdown"]')
+                         ?.querySelector('.toolbar-button');
+      button?.dispatchEvent(new Event('click'));
+      await raf();
 
+      const container = document.querySelector('div[data-devtools-glass-pane]');
+      assertElement(container, HTMLElement);
+      assertShadowRoot(container.shadowRoot);
+      const softMenu = container.shadowRoot.querySelector('.soft-context-menu');
+      assertElement(softMenu, HTMLElement);
+      const dropdown = networkLogView.getDropdown();
+
+      const hideExtensionURL = softMenu.querySelector('[aria-label^="Hide extension URLs"]');
+      assertElement(hideExtensionURL, HTMLElement);
+      const hideExtensionURLCheckmark = hideExtensionURL?.querySelector<IconButton.Icon.Icon>('.checkmark');
+      assertElement(hideExtensionURLCheckmark, HTMLElement);
+      assert.strictEqual(hideExtensionURLCheckmark.style.opacity, '0');
+
+      if (hideExtensionURL) {
+        dispatchMouseUpEvent(hideExtensionURL);
+        await raf();
+      }
       assert.deepEqual(
           rootNode.children.map(n => (n as Network.NetworkDataGridNode.NetworkNode).request()?.url()),
           ['url2' as Platform.DevToolsPath.UrlString]);
+
+      dropdown.discard();
       networkLogView.detach();
     });
 
@@ -302,30 +319,46 @@ describeWithMockConnection('NetworkLogView', () => {
         cookie: null,
         cookieLine: 'foo=bar; SameSite=None',
       }];
+
       createNetworkRequest('url2', {target});
       const filterBar = new UI.FilterBar.FilterBar('networkPanel', true);
       networkLogView = createNetworkLogView(filterBar);
       networkLogView.markAsRoot();
       networkLogView.show(document.body);
       const rootNode = networkLogView.columns().dataGrid().rootNode();
-      const blockedCookiesCheckbox =
-          filterBar.element.querySelector('[title="Show only the requests with blocked response cookies"] span')
-              ?.shadowRoot?.querySelector('input') ||
-          null;
-      assertElement(blockedCookiesCheckbox, HTMLInputElement);
 
       assert.deepEqual(
           rootNode.children.map(n => (n as Network.NetworkDataGridNode.NetworkNode).request()?.url()),
           ['url1' as Platform.DevToolsPath.UrlString, 'url2' as Platform.DevToolsPath.UrlString]);
 
-      blockedCookiesCheckbox.checked = true;
-      const event = new Event('change');
-      blockedCookiesCheckbox.dispatchEvent(event);
+      const button = filterBar.element.querySelector('[aria-label="Show/hide only requests dropdown"]')
+                         ?.querySelector('.toolbar-button');
+      button?.dispatchEvent(new Event('click'));
+      await raf();
+
+      const container = document.querySelector('div[data-devtools-glass-pane]');
+      assertElement(container, HTMLElement);
+      assertShadowRoot(container.shadowRoot);
+      const softMenu = container.shadowRoot.querySelector('.soft-context-menu');
+      assertElement(softMenu, HTMLElement);
+      const dropdown = networkLogView.getDropdown();
+
+      const blockedResponseCookies = softMenu?.querySelector('[aria-label^="Blocked response cookies"]');
+      assertElement(blockedResponseCookies, HTMLElement);
+      const blockedResponseCookiesCheckmark = blockedResponseCookies.querySelector<IconButton.Icon.Icon>('.checkmark');
+      assertElement(blockedResponseCookiesCheckmark, HTMLElement);
+      assert.strictEqual(blockedResponseCookiesCheckmark.style.opacity, '0');
+
+      if (blockedResponseCookies) {
+        dispatchMouseUpEvent(blockedResponseCookies);
+        await raf();
+      }
 
       assert.deepEqual(rootNode.children.map(n => (n as Network.NetworkDataGridNode.NetworkNode).request()?.url()), [
         'url1' as Platform.DevToolsPath.UrlString,
       ]);
 
+      dropdown.discard();
       networkLogView.detach();
     });
 
