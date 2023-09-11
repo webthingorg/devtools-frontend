@@ -70,6 +70,30 @@
       },
       "revId": "0c45ed6d7bebb8fb07857283d4f1b6320e0f0e3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0821a17_4816458d",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-09-11T07:15:10Z",
+      "side": 1,
+      "message": "`\u0027text-decoration\u0027` has to be quoted because of the hyphen.",
+      "parentUuid": "b79399b0_bb79c3c5",
+      "range": {
+        "startLine": 278,
+        "startChar": 2,
+        "endLine": 280,
+        "endChar": 30
+      },
+      "revId": "0c45ed6d7bebb8fb07857283d4f1b6320e0f0e3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
