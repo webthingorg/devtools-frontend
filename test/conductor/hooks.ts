@@ -38,6 +38,8 @@ declare module 'puppeteer-core' {
   }
 }
 
+process.env['PUPPETEER_INTERNAL_TAB_TARGET'] = 'true';
+
 const viewportWidth = 1280;
 const viewportHeight = 720;
 // Adding some offset to the window size used in the headful mode
