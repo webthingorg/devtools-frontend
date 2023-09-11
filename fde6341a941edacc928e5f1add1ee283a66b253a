@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05fc7778_973e9ddd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-11T14:37:37Z",
+      "side": 1,
+      "message": "Leaving my LGTM to not block you - will leave you to work with Wolfgang to make any changes based on my comments - happy for you to decide what is best. Thanks!",
+      "revId": "fde6341a941edacc928e5f1add1ee283a66b253a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
