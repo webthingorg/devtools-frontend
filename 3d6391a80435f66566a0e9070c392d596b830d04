@@ -16,6 +16,46 @@
       "message": "Thank you, LGTM!\n\nJack, this extracts the changes you already looked at in https://crrev.com/c/4793630 into a separate CL. PTAL whether your concerns are being addressed, thanks!",
       "revId": "3d6391a80435f66566a0e9070c392d596b830d04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0836d591_eaf3d270",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-11T11:40:42Z",
+      "side": 1,
+      "message": "LGTM! I have one suggestion about doing the opacity with CSS.",
+      "revId": "3d6391a80435f66566a0e9070c392d596b830d04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26edcb47_3b67077c",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-11T11:40:42Z",
+      "side": 1,
+      "message": "This isn\u0027t blocking, but I think it would be cleaner if we did this with CSS. If the Icon component gives itself an attribute of `checked` when it is checked, we could do:\n\n```\ndevtools-icon[checked] { opacity: 1}\n```",
+      "range": {
+        "startLine": 382,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 5
+      },
+      "revId": "3d6391a80435f66566a0e9070c392d596b830d04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
