@@ -170,8 +170,17 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private onWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedEvent>): void {
     const {window, animate} = event.data;
     this.mainFlameChart.setWindowTimes(window.left, window.right, animate);
-    this.networkFlameChart.setWindowTimes(window.left, window.right, animate);
-    this.networkDataProvider.setWindowTimes(window.left, window.right);
+    
+    let newLeft = (event.data.breadcrumbWindow) ? Math.max(window.left, event.data.breadcrumbWindow?.min) : window.left;
+    let newRight = (event.data.breadcrumbWindow) ? Math.min(window.right, event.data.breadcrumbWindow?.max) : window.right;
+
+    console.log("BREADCRUMB HERE ", event.data.breadcrumbWindow);
+
+    this.networkFlameChart.setWindowTimes(newLeft, newRight, animate);
+    this.networkDataProvider.setWindowTimes(newLeft, newRight);
+
+    console.log("hey window changed to ", window.left, " and ", window.right);
+
     this.updateSearchResults(false, false);
   }
 
