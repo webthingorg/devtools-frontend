@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e633e7_4ba4977e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-11T15:44:45Z",
+      "side": 1,
+      "message": "Danil, could you please take a look? This is the backmerge onto 118 (already got approval on the bug), the CL has just landed onto origin/main",
+      "revId": "02a141b4c1c496fb3628cc82f3c80d5f0900f1ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
