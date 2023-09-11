@@ -77,6 +77,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb97d6b5_5b0cd845",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-09-11T07:05:43Z",
+      "side": 1,
+      "message": "That\u0027s not always true, e.g. when debugging Node or a service worker.",
+      "parentUuid": "39eb1e25_997e9ad9",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a04c36b_bf1c5a67",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 4
@@ -140,6 +158,24 @@
       "writtenOn": "2023-09-08T02:03:39Z",
       "side": 1,
       "message": "theres a few other instances of primaryPageTarget in this file. \nIt\u0027s unclear if they should also use rootTarget instead. But... tbh it kinda looks like they should.\n\nlike this one.. if we navigate with the primary page, would we orphan a prerender page?",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1610550d_6c69e3b7",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-09-11T07:05:43Z",
+      "side": 1,
+      "message": "It\u0027s actually very simple: tab target only exposes Target and Tracing domain. It won\u0027t have ResourceTreeModel as it depends (among others) on the Page domain.\n\nWe won\u0027t be able to navigate using a tab target, because tabs don\u0027t navigate, pages frame do.",
+      "parentUuid": "2c17e081_c21c4c71",
       "revId": "a080e895b26404467236da54938523f6a2aacad9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
