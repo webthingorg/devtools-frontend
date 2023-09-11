@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4b700e0_07483e06",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-11T07:44:52Z",
+      "side": 1,
+      "message": "not stupid at all! This comment didn\u0027t reflect what\u0027s happening at this specific point in code but rather what the high level mechanics in this file to support ignore listing. I\u0027ve updated this comment to avoid this confusion, let me know if it makes sense now.",
+      "parentUuid": "ef903ce1_f0726a13",
+      "range": {
+        "startLine": 309,
+        "startChar": 50,
+        "endLine": 310,
+        "endChar": 63
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7531bf04_238c84f3",
@@ -88,6 +112,30 @@
       "writtenOn": "2023-09-08T11:07:45Z",
       "side": 1,
       "message": "I am finding this quite confusing - the variable is called `canAppendIgnoreListedEvent` which implies to me that the entry is ignored listed - but then it is defined as an entry that is not ignored nor has an ignored parent.\n\nWould `entryCanBeAppended` or similar be better?",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 89
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74bd524d_866acb15",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-11T07:44:52Z",
+      "side": 1,
+      "message": "good point. I wanted to add \"ignore listing\" somwhere in the variable name to distinguish it from the boolean called `entryIsVisible`. I agree this might be confusing because the name implies it is ignore listing. I changed it to `skipEventDueToIgnoreListing` (and inverted it). WDYT?",
+      "parentUuid": "7531bf04_238c84f3",
       "range": {
         "startLine": 312,
         "startChar": 0,
@@ -121,6 +169,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c78bf29_5797aad9",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-11T07:44:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fde595fd_fa10e187",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 78
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71a9e91c_1fa0ce23",
@@ -134,6 +206,30 @@
       "writtenOn": "2023-09-08T11:07:45Z",
       "side": 1,
       "message": "can a user actually ever see this if the item is ignored?\n\nWould it be better to still include the event\u0027s name, but add `(on ignored list)` to it?",
+      "range": {
+        "startLine": 403,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 5
+      },
+      "revId": "9f7c29e7ce9601dc7dbc6a1d60d4182104c23734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad02a998_01e9902a",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-11T07:44:52Z",
+      "side": 1,
+      "message": "yes. To represent ignore listing items we \"collapse\" ignore listed stacks into a single entry with this name. To achieve this, we only append the bottom item to the flame chart data. This means this function will only be called for non ignored listed entries and for the bottom entry in an ignored stack. I picked this title because it\u0027s the same title used in the OPP.",
+      "parentUuid": "71a9e91c_1fa0ce23",
       "range": {
         "startLine": 403,
         "startChar": 0,
