@@ -56,6 +56,30 @@
       },
       "revId": "3d6391a80435f66566a0e9070c392d596b830d04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fd1125b_75e6dfe2",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-11T13:11:56Z",
+      "side": 1,
+      "message": "Yes, sure! Thanks for the feedback. I\u0027ll look into that in a follow up CL.",
+      "parentUuid": "26edcb47_3b67077c",
+      "range": {
+        "startLine": 382,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 5
+      },
+      "revId": "3d6391a80435f66566a0e9070c392d596b830d04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
