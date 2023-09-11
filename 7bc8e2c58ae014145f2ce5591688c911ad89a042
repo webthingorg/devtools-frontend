@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2df3fc05_52b956c3",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-11T12:08:37Z",
+      "side": 1,
+      "message": "Ahhh yeah because it is a linked list. That\u0027s fine - but maybe let\u0027s leave a comment explaining this?",
+      "parentUuid": "6b47c173_b5e7de8f",
+      "range": {
+        "startLine": 120,
+        "startChar": 5,
+        "endLine": 122,
+        "endChar": 8
+      },
+      "revId": "7bc8e2c58ae014145f2ce5591688c911ad89a042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a77774fc_7946a7f1",
         "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
         "patchSetId": 7
