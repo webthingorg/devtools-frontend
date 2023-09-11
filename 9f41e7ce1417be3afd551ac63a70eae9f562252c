@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa21bf3b_64e194c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-09-11T10:57:00Z",
+      "side": 1,
+      "message": "BTW, we need a `Bug: XXXXXXX` in the CL description to pass the presubmit.",
+      "revId": "9f41e7ce1417be3afd551ac63a70eae9f562252c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39defee5_756e7821",
