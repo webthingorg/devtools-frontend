@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b510a171_28dd75a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-11T14:39:20Z",
+      "side": 1,
+      "message": "Danil, please kindly take a look? This is the color-polishing CL in question",
+      "revId": "804c71ec90249bbc718b3cdbe3e5dfe2ae1366dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
