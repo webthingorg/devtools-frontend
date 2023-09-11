@@ -46,6 +46,30 @@
       },
       "revId": "0c45ed6d7bebb8fb07857283d4f1b6320e0f0e3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79399b0_bb79c3c5",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-11T07:12:12Z",
+      "side": 1,
+      "message": "`\u0027text-decoration\u0027: \u0027underline\u0027` is still inconsistent.",
+      "parentUuid": "5832b442_396225d2",
+      "range": {
+        "startLine": 278,
+        "startChar": 2,
+        "endLine": 280,
+        "endChar": 30
+      },
+      "revId": "0c45ed6d7bebb8fb07857283d4f1b6320e0f0e3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
