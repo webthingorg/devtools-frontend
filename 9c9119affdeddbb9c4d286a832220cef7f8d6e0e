@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee2e8809_a7aa1521",
+        "filename": "front_end/panels/application/preloading/components/usedPreloadingView.css",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-09-11T07:53:11Z",
+      "side": 1,
+      "message": "Extract these into a separate rule. Either introduce another class like `status-label` or simply list all 3 in a CSS rule like\n\n    .failure-label,\n    .neutral-label,\n    .success-label {\n        border-radius: 6px;\n        padding: ...\n        font-size: ...\n    }",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "9c9119affdeddbb9c4d286a832220cef7f8d6e0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
