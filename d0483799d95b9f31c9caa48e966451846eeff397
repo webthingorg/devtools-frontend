@@ -22,6 +22,30 @@
       },
       "revId": "d0483799d95b9f31c9caa48e966451846eeff397",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b6e455_c5b0b104",
+        "filename": "front_end/panels/application/preloading/components/RuleSetGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2023-09-11T07:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6ffd4ff_5b993329",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 30
+      },
+      "revId": "d0483799d95b9f31c9caa48e966451846eeff397",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
