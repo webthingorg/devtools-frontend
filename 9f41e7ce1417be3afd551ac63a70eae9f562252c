@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9209dda2_c8881f67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-11T05:00:21Z",
+      "side": 1,
+      "message": "Thanks a lot for doing this! The changes LGTM with one comment.\n\nChanghao, can you also take a look at the updated device list in case you have any suggestions? :)",
+      "revId": "9f41e7ce1417be3afd551ac63a70eae9f562252c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39defee5_756e7821",
+        "filename": "front_end/models/emulation/EmulatedDevices.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-11T05:00:21Z",
+      "side": 1,
+      "message": "I think \"desktop\" has no effect on the capabilities side and if it is not \"mobile\" and it has touch, it is assumed to be a `Desktop (touch)`. So, it seems like we can safely delete \"desktop\" keyword from here.",
+      "revId": "9f41e7ce1417be3afd551ac63a70eae9f562252c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
