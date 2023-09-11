@@ -36,11 +36,11 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ARIAUtils from './ARIAUtils.js';
 import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';
 import {Icon} from './Icon.js';
-import * as ThemeSupport from './theme_support/theme_support.js';
-import {createTextChild, ElementFocusRestorer} from './UIUtils.js';
-import softContextMenuStyles from './softContextMenu.css.legacy.js';
 import {InspectorView} from './InspectorView.js';
+import softContextMenuStyles from './softContextMenu.css.legacy.js';
+import * as ThemeSupport from './theme_support/theme_support.js';
 import {Tooltip} from './Tooltip.js';
+import {createTextChild, ElementFocusRestorer} from './UIUtils.js';
 
 const UIStrings = {
   /**
@@ -83,10 +83,11 @@ export class SoftContextMenu {
   private subMenu?: SoftContextMenu;
   private onMenuClosed?: () => void;
   private focusOnTheFirstItem = true;
+  private keepOpen: boolean;
 
   constructor(
-      items: SoftContextMenuDescriptor[], itemSelectedCallback: (arg0: number) => void, parentMenu?: SoftContextMenu,
-      onMenuClosed?: () => void) {
+      items: SoftContextMenuDescriptor[], itemSelectedCallback: (arg0: number) => void, keepOpen: boolean,
+      parentMenu?: SoftContextMenu, onMenuClosed?: () => void) {
     this.items = items;
     this.itemSelectedCallback = itemSelectedCallback;
     this.parentMenu = parentMenu;
@@ -94,6 +95,11 @@ export class SoftContextMenu {
 
     this.detailsForElementMap = new WeakMap();
     this.onMenuClosed = onMenuClosed;
+    this.keepOpen = keepOpen;
+  }
+
+  getItems(): SoftContextMenuDescriptor[] {
+    return this.items;
   }
 
   show(document: Document, anchorBox: AnchorBox): void {
@@ -102,7 +108,6 @@ export class SoftContextMenu {
     }
 
     this.document = document;
-
     this.glassPane = new GlassPane();
     this.glassPane.setPointerEventsBehavior(
         this.parentMenu ? PointerEventsBehavior.PierceGlassPane : PointerEventsBehavior.BlockedByGlassPane);
@@ -219,6 +224,9 @@ export class SoftContextMenu {
     const checkMarkElement = new IconButton.Icon.Icon();
     checkMarkElement.data = {iconName: 'checkmark', color: 'var(--icon-default)', width: '14px', height: '14px'};
     checkMarkElement.classList.add('checkmark');
+    if (item.id !== undefined) {
+      menuItemElement.setAttribute('data-action-id', item.id.toString());
+    }
     checkMarkElement.style.minWidth =
         '14px';  // <devtools-icon> collapses to 0 width otherwise, throwing off alignment.
     checkMarkElement.style.minHeight = '14px';
@@ -363,20 +371,48 @@ export class SoftContextMenu {
     return root;
   }
 
+  setChecked(item: SoftContextMenuDescriptor, checked: boolean): void {
+    item.checked = checked;
+    const element = this.contextMenuElement?.querySelector(`[data-action-id="${item.id}"]`);
+    const checkMarkElement = this.contextMenuElement?.querySelector<IconButton.Icon.Icon>(
+        `[data-action-id="${item.id}"] [class="checkmark"]`);
+    if (checkMarkElement) {
+      checkMarkElement.style.opacity = item.checked ? '1' : '0';
+    }
+
+    let accessibleName: Platform.UIString.LocalizedString|string = item.label || '';
+    const checkedState = item.checked ? i18nString(UIStrings.checked) : i18nString(UIStrings.unchecked);
+    if (item.shortcut) {
+      accessibleName = i18nString(UIStrings.sSS, {PH1: String(item.label), PH2: item.shortcut, PH3: checkedState});
+    } else {
+      accessibleName = i18nString(UIStrings.sS, {PH1: String(item.label), PH2: checkedState});
+    }
+
+    if (element) {
+      ARIAUtils.setLabel(element, accessibleName);
+    }
+  }
+
   private triggerAction(menuItemElement: HTMLElement, event: Event): void {
     const detailsForElement = this.detailsForElementMap.get(menuItemElement);
-    if (detailsForElement) {
-      if (!detailsForElement.subItems) {
-        this.root().discard();
+    if (detailsForElement && !detailsForElement.subItems) {
+      if (this.keepOpen) {
         event.consume(true);
-        if (typeof detailsForElement.actionId !== 'undefined') {
-          this.itemSelectedCallback(detailsForElement.actionId);
-          delete detailsForElement.actionId;
+        const item = this.items.find(item => item.id === detailsForElement.actionId);
+        if (item?.id !== undefined) {
+          this.setChecked(item, !item.checked);
+          this.itemSelectedCallback(item.id);
         }
         return;
       }
+      this.root().discard();
+      event.consume(true);
+      if (typeof detailsForElement.actionId !== 'undefined') {
+        this.itemSelectedCallback(detailsForElement.actionId);
+        delete detailsForElement.actionId;
+      }
+      return;
     }
-
     this.showSubMenu(menuItemElement);
     event.consume();
   }
@@ -399,7 +435,7 @@ export class SoftContextMenu {
     if (!detailsForElement.subItems) {
       return;
     }
-    this.subMenu = new SoftContextMenu(detailsForElement.subItems, this.itemSelectedCallback, this);
+    this.subMenu = new SoftContextMenu(detailsForElement.subItems, this.itemSelectedCallback, false, this);
     const anchorBox = menuItemElement.boxInWindow();
     // Adjust for padding.
     anchorBox.y -= 5;

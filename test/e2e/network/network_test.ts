@@ -3,8 +3,9 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
+import type * as puppeteer from 'puppeteer-core';
 
-import {$textContent, goTo, reloadDevTools, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
+import {$textContent, goTo, reloadDevTools, step, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   clearTimeWindow,
@@ -23,6 +24,30 @@ import {
 const SIMPLE_PAGE_REQUEST_NUMBER = 10;
 const SIMPLE_PAGE_URL = `requests.html?num=${SIMPLE_PAGE_REQUEST_NUMBER}`;
 
+async function openMoreFiltersDropdown() {
+  const filterDropdown = await waitFor('[aria-label="Show/hide only requests dropdown"]');
+  const filterButton = await waitFor('.toolbar-button', filterDropdown);
+  await filterButton.click();
+  return filterButton;
+}
+
+async function getFilter(label: string) {
+  const filter = await $textContent(label);
+
+  if (!filter) {
+    assert.fail('Could not find this filter. Make sure the dropdown is open.');
+  }
+  return filter;
+}
+
+async function checkOpacityCheckmark(filter: puppeteer.ElementHandle, opacity: string) {
+  const checkmarkOpacity = await filter.$eval('.checkmark', element => {
+    return window.getComputedStyle(element).getPropertyValue('opacity');
+  });
+
+  return checkmarkOpacity === opacity;
+}
+
 async function getCategoryXHRFilter() {
   const filters = await waitFor('.filter-bitset-filter');
   const categoryXHRFilter = await $textContent('Fetch/XHR', filters);
@@ -30,15 +55,6 @@ async function getCategoryXHRFilter() {
     assert.fail('Could not find category XHR filter to click.');
   }
   return categoryXHRFilter;
-}
-
-async function getThirdPartyFilter() {
-  const filters = await waitFor('.filter-bar');
-  const thirdPartyFilter = await $textContent('3rd-party requests', filters);
-  if (!thirdPartyFilter) {
-    assert.fail('Could not find category third-party filter to click.');
-  }
-  return thirdPartyFilter;
 }
 
 describe('The Network Tab', async function() {
@@ -131,13 +147,32 @@ describe('The Network Tab', async function() {
     await navigateToNetworkTab('third-party-resources.html');
     await waitForSomeRequestsToAppear(3);
 
-    let names = await getAllRequestNames();
-    /* assert.deepStrictEqual(names, [], 'The right request names should appear in the list'); */
-    const thirdPartyFilter = await getThirdPartyFilter();
-    await thirdPartyFilter.click();
+    await openMoreFiltersDropdown();
 
-    names = await getAllRequestNames();
-    assert.deepStrictEqual(names, ['external_image.svg'], 'The right request names should appear in the list');
+    const thirdPartFilter = await getFilter('3rd-party requests');
+
+    let names = await getAllRequestNames();
+
+    await step('verify the dropdown state and the requests when 3rd-part filter is selected', async () => {
+      await thirdPartFilter.click();
+      assert.isTrue(await checkOpacityCheckmark(thirdPartFilter, '1'));
+
+      names = await getAllRequestNames();
+      assert.deepEqual(1, names.length);
+      assert.deepStrictEqual(names, ['external_image.svg'], 'The right request names should appear in the list');
+    });
+
+    await step('verify the dropdown state and the requests when 3rd-party filter is deselected', async () => {
+      await thirdPartFilter.click();
+      assert.isTrue(await checkOpacityCheckmark(thirdPartFilter, '0'));
+
+      names = await getAllRequestNames();
+      assert.deepEqual(3, names.length);
+      assert.deepStrictEqual(
+          names, ['third-party-resources.html', 'image.svg', 'external_image.svg'],
+          'The right request names should appear in the list');
+    });
+
   });
 
   it('should continue receiving new requests after timeline filter is cleared', async () => {
