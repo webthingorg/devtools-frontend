@@ -2912,6 +2912,19 @@ export namespace CSS {
     value: string;
   }
 
+  export interface SetPropertyRulePropertyNameRequest {
+    styleSheetId: StyleSheetId;
+    range: SourceRange;
+    propertyName: string;
+  }
+
+  export interface SetPropertyRulePropertyNameResponse extends ProtocolResponseWithError {
+    /**
+     * The resulting key text after modification.
+     */
+    propertyName: Value;
+  }
+
   export interface SetKeyframeKeyRequest {
     styleSheetId: StyleSheetId;
     range: SourceRange;
