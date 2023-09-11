@@ -157,7 +157,7 @@ class Templates:
 
         # Typical path is /Source/platform/inspector_protocol/CodeGenerator.py
         # Let's take 4 components from the real path then.
-        fill_recursive(absolute_path, 4)
+        fill_recursive(absolute_path, 3)
 
         return "/".join(components)
 
