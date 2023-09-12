@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c896535_cad5bf39",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T09:29:30Z",
+      "side": 1,
+      "message": "`getItems` - probably due to rebasing conflict",
+      "range": {
+        "startLine": 430,
+        "startChar": 2,
+        "endLine": 430,
+        "endChar": 7
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1936bbfe_96fb83c3",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T09:29:30Z",
+      "side": 1,
+      "message": "nit: keep file unchanged",
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c892869_68e7356a",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T09:29:30Z",
+      "side": 1,
+      "message": "nit: remove",
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
