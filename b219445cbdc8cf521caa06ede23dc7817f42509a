@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c48d934f_3a36d914",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2471,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "Can the `undefined` be removed?",
+      "range": {
+        "startLine": 2471,
+        "startChar": 78,
+        "endLine": 2471,
+        "endChar": 87
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c64e732_a946c2ce",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 18
@@ -42,6 +65,213 @@
         "startChar": 32,
         "endLine": 2484,
         "endChar": 46
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e44ef0_1491aeb0",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "Let\u0027s remove this because the multi-selectable elements are in the context menu and not direct descendants of `this.filterElement`.",
+      "range": {
+        "startLine": 2492,
+        "startChar": 4,
+        "endLine": 2492,
+        "endChar": 59
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d671ea_97cabf82",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2505,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "rename since it\u0027s not a checkbox anymore",
+      "range": {
+        "startLine": 2505,
+        "startChar": 2,
+        "endLine": 2505,
+        "endChar": 30
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8cca956_3bf3165f",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2508,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "Maybe not needed?",
+      "range": {
+        "startLine": 2508,
+        "startChar": 16,
+        "endLine": 2508,
+        "endChar": 17
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9286b3f9_dd4cef9e",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "Could you check if this could be removed?",
+      "range": {
+        "startLine": 2530,
+        "startChar": 0,
+        "endLine": 2533,
+        "endChar": 5
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e241d95_df20c586",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "Why does this need brackets?",
+      "range": {
+        "startLine": 2536,
+        "startChar": 5,
+        "endLine": 2536,
+        "endChar": 15
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e2441ab_ec5f1907",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2542,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "as discussed offline: can be removed",
+      "range": {
+        "startLine": 2542,
+        "startChar": 8,
+        "endLine": 2542,
+        "endChar": 24
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583967fc_bd5b9437",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2561,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "Can be removed as long as we always have a setting",
+      "range": {
+        "startLine": 2557,
+        "startChar": 0,
+        "endLine": 2561,
+        "endChar": 5
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac0da732_ffda6c9e",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2580,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "This feels a bit brittle because a small change to the context menu could cause this to break.\nThe goal is to get at `item.name` from the contextMenu item, which has a label. How about creating a `Map\u003cstring, string\u003e` which allows easy lookup of the desired name? This could be done in the constructor with `item.label()` as key and `item.name` as value.",
+      "range": {
+        "startLine": 2580,
+        "startChar": 8,
+        "endLine": 2580,
+        "endChar": 42
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dfdaba5_788d6aba",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T14:22:58Z",
+      "side": 1,
+      "message": "Where does the need for this method come from? Should it really always return true?",
+      "range": {
+        "startLine": 2605,
+        "startChar": 2,
+        "endLine": 2605,
+        "endChar": 10
       },
       "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
