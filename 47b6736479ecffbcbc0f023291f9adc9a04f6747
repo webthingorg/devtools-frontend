@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6642120b_c858b0da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-09-12T08:34:26Z",
+      "side": 1,
+      "message": "I think this is in the right direction. I\u0027m looking forward to follow-up patchsets that can direct developers to the specific sections in the Media panel with correct Audio/Video IDs.",
+      "revId": "47b6736479ecffbcbc0f023291f9adc9a04f6747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b0ff60e_5d04a977",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-09-12T08:34:26Z",
+      "side": 1,
+      "message": "nit: could we use `playerID?: string` instead, to be consistent with other declarations?",
+      "revId": "47b6736479ecffbcbc0f023291f9adc9a04f6747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
