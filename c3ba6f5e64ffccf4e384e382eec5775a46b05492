@@ -16,6 +16,23 @@
       "message": "Does this make sense to you?  Cuz right now, without changing my system setting, allll screenshot tests fail over here. :(",
       "revId": "c3ba6f5e64ffccf4e384e382eec5775a46b05492",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7138e4a0_3c906577",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-12T05:28:55Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "c3ba6f5e64ffccf4e384e382eec5775a46b05492",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
