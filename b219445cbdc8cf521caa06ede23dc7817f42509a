@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c64e732_a946c2ce",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2483,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T11:58:59Z",
+      "side": 1,
+      "message": "This is shown when hovering over the button -\u003e needs a proper title",
+      "range": {
+        "startLine": 2483,
+        "startChar": 56,
+        "endLine": 2483,
+        "endChar": 64
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23682cc1_3e3c14ec",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-12T11:58:59Z",
+      "side": 1,
+      "message": "Should be a localizable UIString",
+      "range": {
+        "startLine": 2484,
+        "startChar": 32,
+        "endLine": 2484,
+        "endChar": 46
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c896535_cad5bf39",
         "filename": "front_end/ui/legacy/ContextMenu.ts",
         "patchSetId": 18
