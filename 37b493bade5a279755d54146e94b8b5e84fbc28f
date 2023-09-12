@@ -358,6 +358,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbfffa27_e09aba01",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-12T15:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cc8f055_7dbd5423",
+      "revId": "37b493bade5a279755d54146e94b8b5e84fbc28f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aa17791_fd9d0da1",
@@ -418,6 +436,30 @@
       "writtenOn": "2023-08-23T09:01:23Z",
       "side": 1,
       "message": "Are the CSS values based on a design file?\nWhich background color should the dropdown button have?",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 21
+      },
+      "revId": "37b493bade5a279755d54146e94b8b5e84fbc28f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc5a6003_2619317a",
+        "filename": "front_end/ui/legacy/filter.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-12T15:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d8f7063_e84c8979",
       "range": {
         "startLine": 129,
         "startChar": 2,
