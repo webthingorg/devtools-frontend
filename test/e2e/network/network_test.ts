@@ -3,8 +3,18 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
+import type * as puppeteer from 'puppeteer-core';
 
-import {$textContent, goTo, reloadDevTools, typeText, waitFor, waitForFunction} from '../../shared/helper.js';
+import {
+  $textContent,
+  enableExperiment,
+  goTo,
+  reloadDevTools,
+  step,
+  typeText,
+  waitFor,
+  waitForFunction,
+} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   clearTimeWindow,
@@ -23,13 +33,20 @@ import {
 const SIMPLE_PAGE_REQUEST_NUMBER = 10;
 const SIMPLE_PAGE_URL = `requests.html?num=${SIMPLE_PAGE_REQUEST_NUMBER}`;
 
-async function getCategoryXHRFilter() {
-  const filters = await waitFor('.filter-bitset-filter');
-  const categoryXHRFilter = await $textContent('Fetch/XHR', filters);
-  if (!categoryXHRFilter) {
-    assert.fail('Could not find category XHR filter to click.');
+async function openRequestTypeDropdown() {
+  const filterDropdown = await waitFor('[aria-label="Resource types to include"]');
+  const filterButton = await waitFor('.toolbar-button', filterDropdown);
+  await filterButton.click();
+  return filterButton;
+}
+
+async function getCategoryTypeFilter(label: string) {
+  const categoryTypeFilter = await $textContent(label);
+
+  if (!categoryTypeFilter) {
+    assert.fail('Could not find this category filter. Make sure the "Request types" dropdown is open.');
   }
-  return categoryXHRFilter;
+  return categoryTypeFilter;
 }
 
 async function getThirdPartyFilter() {
@@ -40,6 +57,91 @@ async function getThirdPartyFilter() {
   }
   return thirdPartyFilter;
 }
+
+async function checkOpacityChekmark(categoryTypeFilter: puppeteer.ElementHandle, opacity: string) {
+  const checkmarkOpacity = await categoryTypeFilter.$eval('.checkmark', element => {
+    return window.getComputedStyle(element).getPropertyValue('opacity');
+  });
+
+  return checkmarkOpacity === opacity;
+}
+
+describe('Redesign of the Filter Bar in the Network Tab', async function() {
+  this.timeout(5000);
+
+  beforeEach(async () => {
+    await enableExperiment('networkPanelFilterBarRedesign');
+    await navigateToNetworkTab('empty.html');
+    await setCacheDisabled(true);
+    await setPersistLog(false);
+  });
+
+  it('persists filters across a reload', async () => {
+    await navigateToNetworkTab(SIMPLE_PAGE_URL);
+    let filterInput = await waitFor('.filter-input-field.text-prompt');
+    filterInput.focus();
+    await typeText('foo');
+
+    await openRequestTypeDropdown();
+
+    let categoryXHRFilter = await getCategoryTypeFilter('Fetch/XHR');
+    assert.isTrue(await checkOpacityChekmark(categoryXHRFilter, '0'));
+
+    await categoryXHRFilter.click();
+
+    await reloadDevTools({selectedPanel: {name: 'network'}});
+    filterInput = await waitFor('.filter-input-field.text-prompt');
+    const filterText = await filterInput.evaluate(x => (x as HTMLElement).innerText);
+    assert.strictEqual(filterText, 'foo');
+
+    await openRequestTypeDropdown();
+
+    categoryXHRFilter = await getCategoryTypeFilter('Fetch/XHR');
+
+    assert.isTrue(await checkOpacityChekmark(categoryXHRFilter, '1'));
+  });
+
+  it('unchecks all filters and the all option is checked automatically - by checkmark opacity', async () => {
+    await navigateToNetworkTab(SIMPLE_PAGE_URL);
+    await waitForSomeRequestsToAppear(SIMPLE_PAGE_REQUEST_NUMBER);
+
+    await openRequestTypeDropdown();
+
+    const categoryXHRFilter = await getCategoryTypeFilter('Fetch/XHR');
+    const categoryAllFilter = await getCategoryTypeFilter('All');
+
+    let names = await getAllRequestNames();
+
+    await step('verify the initial state when the "All" filter is selected', async () => {
+      assert.isTrue(await checkOpacityChekmark(categoryXHRFilter, '0'));
+
+      assert.deepEqual(11, names.length);
+      assert.isTrue(names.includes('requests.html?num=10'));
+    });
+
+    await step('verify the dropdown state and the requests when XHR filter is selected', async () => {
+      await categoryXHRFilter.click();
+
+      assert.isTrue(await checkOpacityChekmark(categoryXHRFilter, '1'));
+      assert.isTrue(await checkOpacityChekmark(categoryAllFilter, '0'));
+
+      names = await getAllRequestNames();
+      assert.deepEqual(10, names.length);
+      assert.isFalse(names.includes('requests.html?num=10'));
+    });
+
+    await step('verify the dropdown state and the requests when XHR filter is deselected', async () => {
+      await categoryXHRFilter.click();
+
+      assert.isTrue(await checkOpacityChekmark(categoryXHRFilter, '0'));
+      assert.isTrue(await checkOpacityChekmark(categoryAllFilter, '1'));
+
+      names = await getAllRequestNames();
+      assert.deepEqual(11, names.length);
+      assert.isTrue(names.includes('requests.html?num=10'));
+    });
+  });
+});
 
 describe('The Network Tab', async function() {
   // The tests here tend to take time because they wait for requests to appear in the request panel.
@@ -109,27 +211,8 @@ describe('The Network Tab', async function() {
     assert.deepStrictEqual(secondPageRequestNames, firstPageRequestNames, 'The requests were persisted');
   });
 
-  it('persists filters across a reload', async () => {
-    await navigateToNetworkTab(SIMPLE_PAGE_URL);
-    let filterInput = await waitFor('.filter-input-field.text-prompt');
-    filterInput.focus();
-    await typeText('foo');
-    let categoryXHRFilter = await getCategoryXHRFilter();
-    await categoryXHRFilter.click();
-
-    await reloadDevTools({selectedPanel: {name: 'network'}});
-    filterInput = await waitFor('.filter-input-field.text-prompt');
-    const filterText = await filterInput.evaluate(x => (x as HTMLElement).innerText);
-    assert.strictEqual(filterText, 'foo');
-
-    categoryXHRFilter = await getCategoryXHRFilter();
-    const xhrHasSelectedClass = await categoryXHRFilter.evaluate(x => x.classList.contains('selected'));
-    assert.isTrue(xhrHasSelectedClass);
-  });
-
   it('can show only third-party requests', async () => {
     await navigateToNetworkTab('third-party-resources.html');
-    await waitForSomeRequestsToAppear(3);
 
     let names = await getAllRequestNames();
     /* assert.deepStrictEqual(names, [], 'The right request names should appear in the list'); */
