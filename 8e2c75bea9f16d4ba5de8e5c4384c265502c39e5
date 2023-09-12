@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "836259b6_ff7be7d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1366833
+      },
+      "writtenOn": "2023-09-12T20:42:48Z",
+      "side": 1,
+      "message": "git submodules are messed up in this CL...do not merge",
+      "revId": "8e2c75bea9f16d4ba5de8e5c4384c265502c39e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
