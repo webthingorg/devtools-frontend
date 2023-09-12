@@ -266,13 +266,27 @@ describeWithMockConnection('TimelineUIUtils', function() {
   }
 
   describe('eventColor', function() {
-    it('is idle for idle-like events', async function() {
+    it('is idle for idle-like events', function() {
       const event = new TraceEngine.Legacy.ConstructedEvent(
           'v8,devtools.timeline,disabled-by-default-v8.compile',
           TimelineModel.TimelineModel.RecordType.StreamingCompileScriptWaiting,
           TraceEngine.Types.TraceEvents.Phase.COMPLETE, 10, thread);
 
-      assert.strictEqual('hsl(0, 0%, 98%)', await Timeline.TimelineUIUtils.TimelineUIUtils.eventColor(event));
+      assert.strictEqual('rgb(250 191 58 / 30%)', Timeline.TimelineUIUtils.TimelineUIUtils.eventColor(event));
+    });
+  });
+
+  describe('parses the colors correctly', function() {
+    it('should return the correct rgb value for a corresponding CSS variable', function() {
+      const rawColor = Timeline.TimelineUIUtils.TimelineUIUtils.categories().scripting.color;
+      const parsedColor = Timeline.TimelineUIUtils.TimelineUIUtils.categories().scripting.getComputedValue(rawColor);
+      assert.strictEqual('rgb(250 191 58 / 100%)', parsedColor);
+    });
+
+    it('should return the color as a CSS variable', function() {
+      const rawColor = Timeline.TimelineUIUtils.TimelineUIUtils.categories().scripting.color;
+      const cssVariable = Timeline.TimelineUIUtils.TimelineUIUtils.categories().scripting.getCSSValue(rawColor);
+      assert.strictEqual('var(--app-color-scripting)', cssVariable);
     });
   });
 
