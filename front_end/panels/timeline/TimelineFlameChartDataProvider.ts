@@ -348,10 +348,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   textColor(index: number): string {
     const event = this.entryData[index];
-    if (!TimelineFlameChartDataProvider.isEntryRegularEvent(event)) {
-      return FlameChartStyle.textColor;
-    }
-    return this.isIgnoreListedEvent(event) ? '#888' : FlameChartStyle.textColor;
+    return event && this.#eventToDisallowRoot.get((event as TraceEngine.Legacy.Event)) ? '#888' :
+                                                                                         FlameChartStyle.textColor;
   }
 
   entryFont(_index: number): string|null {
@@ -585,8 +583,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
    * Narrows an entry of type TimelineFlameChartEntry to the 2 types of
    * simple trace events (legacy and new engine definitions).
    */
-  static isEntryRegularEvent(entry: TimelineFlameChartEntry):
-      entry is(TraceEngine.Types.TraceEvents.TraceEventData|TraceEngine.Legacy.Event) {
+  isEntryRegularEvent(entry: TimelineFlameChartEntry): entry is(TraceEngine.Types.TraceEvents.TraceEventData|
+                                                                TraceEngine.Legacy.Event) {
     return 'name' in entry;
   }
 
@@ -595,7 +593,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.timelineData();
     for (let i = 0; i < this.entryData.length; ++i) {
       const entry = this.entryData[i];
-      if (!TimelineFlameChartDataProvider.isEntryRegularEvent(entry)) {
+      if (!this.isEntryRegularEvent(entry)) {
         continue;
       }
       let event: TraceEngine.Legacy.Event|null;
@@ -630,8 +628,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     result.sort((a, b) => {
       let firstEvent: TimelineFlameChartEntry|null = this.entryData[a];
       let secondEvent: TimelineFlameChartEntry|null = this.entryData[b];
-      if (!TimelineFlameChartDataProvider.isEntryRegularEvent(firstEvent) ||
-          !TimelineFlameChartDataProvider.isEntryRegularEvent(secondEvent)) {
+      if (!this.isEntryRegularEvent(firstEvent) || !this.isEntryRegularEvent(secondEvent)) {
         return 0;
       }
       firstEvent = firstEvent instanceof TraceEngine.Legacy.Event ?
@@ -751,10 +748,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return group;
   }
 
-  isIgnoreListedEvent(event: TraceEngine.Legacy.CompatibleTraceEvent): boolean {
-    if (TraceEngine.Legacy.eventIsFromNewEngine(event) && TraceEngine.Types.TraceEvents.isProfileCall(event)) {
-      return this.isIgnoreListedURL(event.callFrame.url as Platform.DevToolsPath.UrlString);
-    }
+  isIgnoreListedEvent(event: TraceEngine.Legacy.Event): boolean {
     if (!TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
       return false;
     }
@@ -952,17 +946,16 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   entryColor(entryIndex: number): string {
     function patchColorAndCache<KEY>(cache: Map<KEY, string>, key: KEY, lookupColor: (arg0: KEY) => string): string {
-      let color = cache.get(key);
+      const color = cache.get(key);
       if (color) {
         return color;
       }
-      const parsedColor = Common.Color.parse(lookupColor(key));
+      const parsedColor = lookupColor(key);
       if (!parsedColor) {
         throw new Error('Could not parse color from entry');
       }
-      color = parsedColor.setAlpha(0.7).asString(Common.Color.Format.RGBA) || '';
-      cache.set(key, color);
-      return color;
+      cache.set(key, parsedColor);
+      return parsedColor;
     }
 
     if (!this.legacyPerformanceModel || !this.legacyTimelineModel) {
@@ -983,7 +976,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         return this.colorForEvent(event);
       }
       const category = TimelineUIUtils.eventStyle(event).category;
-      return patchColorAndCache(this.asyncColorByCategory, category, () => category.color);
+      return patchColorAndCache(this.asyncColorByCategory, category, () => category.getComputedValue(category.color));
     }
     if (entryType === entryTypes.Frame) {
       return 'white';
@@ -1198,7 +1191,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const entryType = this.entryType(entryIndex);
     let timelineSelection: TimelineSelection|null = null;
     const entry = this.entryData[entryIndex];
-    if (entry && TimelineFlameChartDataProvider.isEntryRegularEvent(entry)) {
+    if (entry && this.isEntryRegularEvent(entry)) {
       timelineSelection = TimelineSelection.fromTraceEvent(entry);
     } else if (entryType === EntryType.Frame) {
       timelineSelection =
