@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "758dbafb_7621e089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-12T16:30:37Z",
+      "side": 1,
+      "message": "love it - one teeny suggestion",
+      "revId": "aed1f49897a424cc1ef80bdad990c52bf16094a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f2f5b56_0fa1e8d7",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-12T16:30:37Z",
+      "side": 1,
+      "message": "do you think we can rename this? `zoomToRemoveDeadTime` or something?",
+      "range": {
+        "startLine": 193,
+        "startChar": 2,
+        "endLine": 193,
+        "endChar": 17
+      },
+      "revId": "aed1f49897a424cc1ef80bdad990c52bf16094a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d613e1ef_d93e20bb",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-12T16:30:37Z",
+      "side": 1,
+      "message": "I suspect waiting for the death is sensible here :)",
+      "range": {
+        "startLine": 1291,
+        "startChar": 0,
+        "endLine": 1291,
+        "endChar": 88
+      },
+      "revId": "aed1f49897a424cc1ef80bdad990c52bf16094a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
