@@ -16,6 +16,23 @@
       "message": "LGTM but no owners overrides.\n\nNeed Tim\u0027s +1.",
       "revId": "b8171d9f5dee9d9e5cbf302e8d1048be2af101e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71765091_22adc628",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1365394
+      },
+      "writtenOn": "2023-09-12T19:33:47Z",
+      "side": 1,
+      "message": "Don\u0027t see anything wrong with this, but probably best to have Danil review this one thoroughly.",
+      "revId": "b8171d9f5dee9d9e5cbf302e8d1048be2af101e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
