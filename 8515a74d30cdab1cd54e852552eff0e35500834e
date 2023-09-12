@@ -341,6 +341,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb836a20_96aace19",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ddfc1bd_dee5f832",
+      "range": {
+        "startLine": 611,
+        "startChar": 48,
+        "endLine": 611,
+        "endChar": 53
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63cc21bf_4a47b7f4",
@@ -354,6 +378,30 @@
       "writtenOn": "2023-08-30T14:49:26Z",
       "side": 1,
       "message": "Nice",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 97
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8a3a285_2b257a27",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63cc21bf_4a47b7f4",
       "range": {
         "startLine": 615,
         "startChar": 0,
@@ -411,6 +459,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ff6fb6_5e166641",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d82e91e4_f2a2a07c",
+      "range": {
+        "startLine": 618,
+        "startChar": 32,
+        "endLine": 618,
+        "endChar": 37
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f4985f7_b521db02",
@@ -457,6 +529,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a21d34d_05b4c1a9",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09673fb_4cd52548",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 19
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72e9893a_6efb03b6",
@@ -470,6 +566,30 @@
       "writtenOn": "2023-08-30T14:49:26Z",
       "side": 1,
       "message": "Please merge the 2 querySelectors into 1",
+      "range": {
+        "startLine": 377,
+        "startChar": 38,
+        "endLine": 377,
+        "endChar": 51
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deb3d3ac_2f85404b",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72e9893a_6efb03b6",
       "range": {
         "startLine": 377,
         "startChar": 38,
@@ -503,6 +623,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92827823_e41be46f",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "086422ba_424eb261",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 5
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c817edba_22ae7f87",
@@ -516,6 +660,30 @@
       "writtenOn": "2023-08-30T14:49:26Z",
       "side": 1,
       "message": "```\nif (item?.id) {\n  this.setChecked(item, !item.checked);\n  this.itemSelectedCallback(item.id);\n}\n```",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 11
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19e85d6f_3fc6d5e2",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c817edba_22ae7f87",
       "range": {
         "startLine": 394,
         "startChar": 0,

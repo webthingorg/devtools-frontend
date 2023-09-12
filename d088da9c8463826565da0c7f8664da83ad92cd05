@@ -224,6 +224,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6f25c81_d3050910",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2d7f01_003410cf",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 24
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb6ee5bd_e309ac12",
@@ -261,6 +285,30 @@
       "side": 1,
       "message": "This is not a right-click context menu, which should appear on the coords of the mouse click. The menu is triggered by left-clicking on the dropDownButton and its position should therefore be dependent on the button\u0027s position and not on the click\u0027s position.",
       "parentUuid": "cb6ee5bd_e309ac12",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 68
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33a5ac22_7e54b9ad",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8652efe_31f8213e",
       "range": {
         "startLine": 553,
         "startChar": 0,
@@ -684,6 +732,30 @@
       "side": 1,
       "message": "Also, if we can avoid this nesting, and prefer early returns, that will naturally help:\n\n```\nif(!detailsForElement) return; // why?\nif(details.forElement.subItems) return; // why?\nif(!this.keepOpen) return; // why?\n```",
       "parentUuid": "b8439fc7_7ed48b09",
+      "range": {
+        "startLine": 393,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 28
+      },
+      "revId": "d088da9c8463826565da0c7f8664da83ad92cd05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fef0e665_a08759ea",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-12T09:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "633cbcba_028befe5",
       "range": {
         "startLine": 393,
         "startChar": 4,
