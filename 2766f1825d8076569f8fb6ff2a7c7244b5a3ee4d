@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e1d1f5_fb4b8983",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-09-12T20:56:23Z",
+      "side": 1,
+      "message": "Hi Alex and Mathias 👋\n\nThis is a simple fix for an unhandled exception shown on the console. It is my understanding that intention was never to allow Devtools Extension to be moved, but if this is incorrect let me know and we can discuss a different patc",
+      "revId": "2766f1825d8076569f8fb6ff2a7c7244b5a3ee4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
