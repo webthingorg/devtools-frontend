@@ -36,11 +36,11 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ARIAUtils from './ARIAUtils.js';
 import {AnchorBehavior, GlassPane, MarginBehavior, PointerEventsBehavior, SizeBehavior} from './GlassPane.js';
 import {Icon} from './Icon.js';
-import * as ThemeSupport from './theme_support/theme_support.js';
-import {createTextChild, ElementFocusRestorer} from './UIUtils.js';
-import softContextMenuStyles from './softContextMenu.css.legacy.js';
 import {InspectorView} from './InspectorView.js';
+import softContextMenuStyles from './softContextMenu.css.legacy.js';
+import * as ThemeSupport from './theme_support/theme_support.js';
 import {Tooltip} from './Tooltip.js';
+import {createTextChild, ElementFocusRestorer} from './UIUtils.js';
 
 const UIStrings = {
   /**
@@ -108,7 +108,6 @@ export class SoftContextMenu {
     }
 
     this.document = document;
-
     this.glassPane = new GlassPane();
     this.glassPane.setPointerEventsBehavior(
         this.parentMenu ? PointerEventsBehavior.PierceGlassPane : PointerEventsBehavior.BlockedByGlassPane);
