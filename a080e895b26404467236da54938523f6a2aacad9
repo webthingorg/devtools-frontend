@@ -93,6 +93,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d03c7f4_eb8aa010",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-12T00:38:42Z",
+      "side": 1,
+      "message": "Ah. I\u0027d love a few comments thrown into TargetManager along these lines :)",
+      "parentUuid": "cb97d6b5_5b0cd845",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a04c36b_bf1c5a67",
@@ -176,6 +194,24 @@
       "side": 1,
       "message": "It\u0027s actually very simple: tab target only exposes Target and Tracing domain. It won\u0027t have ResourceTreeModel as it depends (among others) on the Page domain.\n\nWe won\u0027t be able to navigate using a tab target, because tabs don\u0027t navigate, pages frame do.",
       "parentUuid": "2c17e081_c21c4c71",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccaf3221_391e6cd0",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-12T00:38:42Z",
+      "side": 1,
+      "message": "Roger that. Okay thaks",
+      "parentUuid": "1610550d_6c69e3b7",
       "revId": "a080e895b26404467236da54938523f6a2aacad9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
