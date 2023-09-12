@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce0dab45_61b23204",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-12T18:45:11Z",
+      "side": 1,
+      "message": "(i love renames for clarity, yes!) \n\nLooks like `traceWindow` is the term that\u0027s emerged in the breadcrumb work. and `bounds` is another term we use.. (Tbh I can\u0027t immediately tell the difference between window and bounds)\n\nhmm.. so i\u0027ll pitch: `zoomWindowToMainThreadActivity` \nor also.. `zoomWindowToRemoveIdle`\n\nI\u0027m very flexible.",
+      "parentUuid": "4f2f5b56_0fa1e8d7",
+      "range": {
+        "startLine": 193,
+        "startChar": 2,
+        "endLine": 193,
+        "endChar": 17
+      },
+      "revId": "aed1f49897a424cc1ef80bdad990c52bf16094a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d613e1ef_d93e20bb",
         "filename": "front_end/panels/timeline/TimelinePanel.ts",
         "patchSetId": 21
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-12T16:30:37Z",
       "side": 1,
       "message": "I suspect waiting for the death is sensible here :)",
+      "range": {
+        "startLine": 1291,
+        "startChar": 0,
+        "endLine": 1291,
+        "endChar": 88
+      },
+      "revId": "aed1f49897a424cc1ef80bdad990c52bf16094a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb2d89d_a355f80e",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-12T18:45:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d613e1ef_d93e20bb",
       "range": {
         "startLine": 1291,
         "startChar": 0,
