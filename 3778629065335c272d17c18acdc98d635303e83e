@@ -158,6 +158,24 @@
       "parentUuid": "d8cd61b7_4f90654a",
       "revId": "3778629065335c272d17c18acdc98d635303e83e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "010449fe_06b388ee",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-13T14:03:32Z",
+      "side": 1,
+      "message": "Yes, exactly. But let\u0027s leave a comment why this is necessary. In fact we should also update the external type to reflect that the Request contains HAR data. Would you like to file a bug for that (which you can then leave a TODO(crbug.com/XXX) for here).",
+      "parentUuid": "6b01682b_fc743d6b",
+      "revId": "3778629065335c272d17c18acdc98d635303e83e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
