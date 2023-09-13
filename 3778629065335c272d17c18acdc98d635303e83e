@@ -104,6 +104,24 @@
       "parentUuid": "9e8ddd46_4f0174b4",
       "revId": "3778629065335c272d17c18acdc98d635303e83e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "338d9361_8bb3899f",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-13T13:50:47Z",
+      "side": 1,
+      "message": "That\u0027s APIImpl.Request, whereas the external type is Chrome.Network.Request.\n\nI see two options: \n- Cast through unknown. Given that this is test code I feel that\u0027s fine, just leave a comment explaining this.\n- Export and use APIImpl.Request. We could either export the APIImpl namespace entirely, or do something like `export type NetworkRequestForTyest \u003d APIImpl.Request`",
+      "parentUuid": "8f1d5f38_aaa3dca0",
+      "revId": "3778629065335c272d17c18acdc98d635303e83e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
