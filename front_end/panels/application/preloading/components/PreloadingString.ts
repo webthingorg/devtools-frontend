@@ -524,7 +524,9 @@ export function prerenderFailureReason(attempt: SDK.PreloadingModel.PrerenderAtt
       return i18nString(UIStrings.prerenderFinalStatusClientCertRequested);
     case Protocol.Preload.PrerenderFinalStatus.NavigationRequestNetworkError:
       return i18nString(UIStrings.prerenderFinalStatusNavigationRequestNetworkError);
-    case Protocol.Preload.PrerenderFinalStatus.MaxNumOfRunningPrerendersExceeded:
+    case Protocol.Preload.PrerenderFinalStatus.MaxNumOfRunningEagerPrerendersExceeded:
+    case Protocol.Preload.PrerenderFinalStatus.MaxNumOfRunningNonEagerPrerendersExceeded:
+    case Protocol.Preload.PrerenderFinalStatus.MaxNumOfRunningEmbedderPrerendersExceeded:
       return i18nString(UIStrings.prerenderFinalStatusMaxNumOfRunningPrerendersExceeded);
     case Protocol.Preload.PrerenderFinalStatus.CancelAllHostsForTesting:
       // Used only in tests.
