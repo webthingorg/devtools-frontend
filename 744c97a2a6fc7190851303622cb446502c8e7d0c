@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d129dbc_80a4fe0e",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T09:30:24Z",
+      "side": 1,
+      "message": "Label should closely resemble content",
+      "range": {
+        "startLine": 375,
+        "startChar": 2,
+        "endLine": 375,
+        "endChar": 13
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b84fd6e_1c926029",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 12
@@ -19,6 +42,138 @@
         "startChar": 3,
         "endLine": 522,
         "endChar": 80
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4c42c08_7681a506",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T09:30:24Z",
+      "side": 1,
+      "message": "Avoid empty code blocks, invert the if-clause instead",
+      "range": {
+        "startLine": 564,
+        "startChar": 107,
+        "endLine": 565,
+        "endChar": 5
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50a3f436_ba66b10d",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T09:30:24Z",
+      "side": 1,
+      "message": "This name is ambiguous since there will be 2 dropdowns. `getMoreFiltersDropDown`?\nMaybe even renaming the new class itself would make sense too. Instead of `DropDownFilterUI`, how about `moreFiltersDropDown` or `moreFiltersDropDownUI`?",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 13
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4502d169_809a1f38",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 2532,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T09:30:24Z",
+      "side": 1,
+      "message": "Use UIString to make this localizable",
+      "range": {
+        "startLine": 2532,
+        "startChar": 101,
+        "endLine": 2532,
+        "endChar": 114
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f114c21c_5852a5ee",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T09:30:24Z",
+      "side": 1,
+      "message": "Please leave the whole file unchanged if there are no functional changes to this file.",
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc4d5d2_899192b0",
+        "filename": "test/e2e/network/network-filter_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T09:30:24Z",
+      "side": 1,
+      "message": "Would using `getFilter` instead work as well?",
+      "range": {
+        "startLine": 318,
+        "startChar": 35,
+        "endLine": 318,
+        "endChar": 54
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86380e92_565ef0e6",
+        "filename": "test/e2e/network/network-filter_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T09:30:24Z",
+      "side": 1,
+      "message": "typo: thirdPartyFilter",
+      "range": {
+        "startLine": 343,
+        "startChar": 10,
+        "endLine": 343,
+        "endChar": 25
       },
       "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
