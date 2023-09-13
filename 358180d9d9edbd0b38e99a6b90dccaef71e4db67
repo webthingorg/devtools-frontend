@@ -103,6 +103,30 @@
       },
       "revId": "358180d9d9edbd0b38e99a6b90dccaef71e4db67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc9efcae_eccd47e3",
+        "filename": "scripts/search-trace-files.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-13T10:46:40Z",
+      "side": 1,
+      "message": "yeah I was thinking it would be unexpected to have the JSON files laying around locally, but maybe it isn\u0027t a big problem after all. I think we could leave it as is and if we deem those files annoying in the future, we can add the clean up bit to the script",
+      "parentUuid": "e975651f_6a232c21",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "358180d9d9edbd0b38e99a6b90dccaef71e4db67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
