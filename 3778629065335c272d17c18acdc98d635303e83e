@@ -52,6 +52,40 @@
       "parentUuid": "8fe310bf_ab3384d1",
       "revId": "3778629065335c272d17c18acdc98d635303e83e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e8ddd46_4f0174b4",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1566503
+      },
+      "writtenOn": "2023-09-13T13:33:52Z",
+      "side": 1,
+      "message": "I am not really sure how to fix this, typescript thinks that the type of r is Chrome.Devtools.Request. But actually, this is a entry and therefore should be HAR.Log.EntryDTO",
+      "revId": "3778629065335c272d17c18acdc98d635303e83e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8cd61b7_4f90654a",
+        "filename": "test/unittests/front_end/models/extensions/ExtensionServer_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1566503
+      },
+      "writtenOn": "2023-09-13T13:33:52Z",
+      "side": 1,
+      "message": "currently, I am unsure how to fix this, typescript thinks that the re",
+      "revId": "3778629065335c272d17c18acdc98d635303e83e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
