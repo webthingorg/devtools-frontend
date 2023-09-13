@@ -33,6 +33,24 @@
       "message": "nit: could we use `playerID?: string` instead, to be consistent with other declarations?",
       "revId": "47b6736479ecffbcbc0f023291f9adc9a04f6747",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a36407_b393f5aa",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-13T05:15:09Z",
+      "side": 1,
+      "message": "Got it, I have just pushed a new patchset with your suggestion! Thank you",
+      "parentUuid": "9b0ff60e_5d04a977",
+      "revId": "47b6736479ecffbcbc0f023291f9adc9a04f6747",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
