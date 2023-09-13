@@ -128,6 +128,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d603f9cc_b0c2d90c",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-13T14:42:34Z",
+      "side": 1,
+      "message": "Turns out we don\u0027t even use this code any more!",
+      "parentUuid": "5a04c36b_bf1c5a67",
+      "revId": "a080e895b26404467236da54938523f6a2aacad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6abf5f38_9822151a",

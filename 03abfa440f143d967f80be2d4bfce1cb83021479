@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d204ebf_0c44eb75",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-13T14:42:34Z",
+      "side": 0,
+      "message": "this code was not used; we deal with CPU Profile events in TimelinePanel where we branch based on if we are doing a CPU Profile or a trace profile.\n\nThe TimelineController only gets created for traces, not for CPU Profiles (e.g. NodeJS) and as such when this method was called it would exit on the line below because there would be no CPU Profiles.",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 100
+      },
+      "revId": "03abfa440f143d967f80be2d4bfce1cb83021479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
