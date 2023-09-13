@@ -1325,7 +1325,6 @@ export const generatedProperties = [
  },
  {
   "keywords": [
-   "auto",
    "none"
   ],
   "name": "contain-intrinsic-height"
@@ -1342,7 +1341,6 @@ export const generatedProperties = [
  },
  {
   "keywords": [
-   "auto",
    "none"
   ],
   "name": "contain-intrinsic-width"
@@ -4334,13 +4332,11 @@ export const generatedPropertyValues = {
  },
  "contain-intrinsic-height": {
   "values": [
-   "auto",
    "none"
   ]
  },
  "contain-intrinsic-width": {
   "values": [
-   "auto",
    "none"
   ]
  },
