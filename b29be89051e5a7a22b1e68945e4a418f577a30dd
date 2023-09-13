@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1286c4d5_3b1ae061",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-13T23:35:40Z",
+      "side": 1,
+      "message": "@joon.yoo181@berkeley.edu, please fix my comment and update a new patchset with simple unit tests.",
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac0df61_f9055ccb",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-13T23:35:40Z",
+      "side": 1,
+      "message": "I think Changhao meant `playerID?` which is nullable with `?`.",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 19
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
