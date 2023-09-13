@@ -143,7 +143,7 @@ const ResultsDBReporter = function(baseReporterDecorator, formatError, config) {
     const testId = ResultsDb.sanitizedTestId([...suite, description].join('/'));
     const expected = success || skipped;
     const status = skipped ? 'SKIP' : success ? 'PASS' : 'FAIL';
-    const duration = endTime - startTime;
+    const duration = String(endTime - startTime) + 'ms';
 
     const consoleLog = capturedLog.map(({type, log}) => `${type.toUpperCase()}: ${log}`);
     capturedLog.length = 0;
@@ -161,7 +161,7 @@ const ResultsDBReporter = function(baseReporterDecorator, formatError, config) {
       this.write(`==== ${status}: ${testId}\n\n`);
     }
 
-    const testResult = {status, expected, summaryHtml, testId, duration};
+    const testResult = {testId, duration, status, expected, summaryHtml};
     ResultsDb.recordTestResult(testResult);
   };
   this.specSuccess = specComplete;
