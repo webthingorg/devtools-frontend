@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e597a6f3_5908aae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-13T23:40:16Z",
+      "side": 1,
+      "message": "Sorry, two more comments.",
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ac0df61_f9055ccb",
@@ -36,6 +53,52 @@
         "startChar": 2,
         "endLine": 98,
         "endChar": 19
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbea5ea4_db5216d7",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-13T23:40:16Z",
+      "side": 1,
+      "message": "And this needs to be `null`.",
+      "range": {
+        "startLine": 118,
+        "startChar": 20,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c32d08b0_048ca87d",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 2188,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-13T23:40:16Z",
+      "side": 1,
+      "message": "Change to `if (node.playerID)`, it will do null-check at the same time.",
+      "range": {
+        "startLine": 2188,
+        "startChar": 4,
+        "endLine": 2188,
+        "endChar": 36
       },
       "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
