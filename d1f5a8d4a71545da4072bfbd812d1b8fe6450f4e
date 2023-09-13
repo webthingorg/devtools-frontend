@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f6d8aeb_f0d6cf3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-13T12:58:21Z",
+      "side": 1,
+      "message": "@kenoss: Can you please take a look at the strings I added, do they make sense?",
+      "revId": "d1f5a8d4a71545da4072bfbd812d1b8fe6450f4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
