@@ -16,6 +16,23 @@
       "message": "Hi Alex and Mathias 👋\n\nThis is a simple fix for an unhandled exception shown on the console. It is my understanding that intention was never to allow Devtools Extension to be moved, but if this is incorrect let me know and we can discuss a different patc",
       "revId": "2766f1825d8076569f8fb6ff2a7c7244b5a3ee4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2ed06e6_7ec48fb9",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-09-13T07:08:33Z",
+      "side": 1,
+      "message": "Let’s update the comment accordingly. Maybe:\n\n    // Don’t show the movable context panel for console or extension tabs.",
+      "revId": "2766f1825d8076569f8fb6ff2a7c7244b5a3ee4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
