@@ -23,7 +23,7 @@ import {
   type TrackAppenderName,
 } from './CompatibilityTracksAppender.js';
 import * as TimelineComponents from './components/components.js';
-import {DEFAULT_CATEGORY_STYLES_PALETTE, EventStyles} from './EventUICategory.js';
+import {getDefaultCategoryStylesPalette, getEventStyles} from './EventUICategory.js';
 
 const UIStrings = {
   /**
@@ -322,14 +322,14 @@ export class ThreadAppender implements TrackAppender {
       if (event.callFrame.scriptId === '0') {
         // If we can not match this frame to a script, return the
         // generic "scripting" color.
-        return DEFAULT_CATEGORY_STYLES_PALETTE.Scripting.color;
+        return getDefaultCategoryStylesPalette().Scripting.color;
       }
       // Otherwise, return a color created based on its URL.
       return this.#colorGenerator.colorForID(event.callFrame.url);
     }
     const idForColorGeneration = this.titleForEvent(event);
     const defaultColor =
-        EventStyles.get(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.categoryStyle.color;
+        getEventStyles().get(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.categoryStyle.color;
     return defaultColor || this.#colorGenerator.colorForID(idForColorGeneration);
   }
 
@@ -340,7 +340,7 @@ export class ThreadAppender implements TrackAppender {
     if (TraceEngine.Types.TraceEvents.isProfileCall(event)) {
       return event.callFrame.functionName || i18nString(UIStrings.anonymous);
     }
-    const defaultName = EventStyles.get(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.label();
+    const defaultName = getEventStyles().get(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.label();
     return defaultName || event.name;
   }
 
