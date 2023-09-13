@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e803d57b_9a67aa48",
+        "filename": "front_end/core/sdk/CSSRule.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-13T11:11:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56082304_a4b70844",
+      "revId": "947d4f33b69b666fd76878954048ca9b8c0cf9f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7f58a84_e11c21b3",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-09-13T11:05:55Z",
       "side": 1,
       "message": "It feels like the name of the function doesn\u0027t reflect what it does now. In addition to that, I feel like having a named function here doesn\u0027t add much value; can we use an arrow function?\n\nand while we\u0027re here, maybe we can use `async` as well, something like this, wdyt?\n```\noverride async setHeaderText(rule: SDK.CSSRule.CSSRule, newContent: string): Promise\u003cvoid\u003e {\n    if (!(rule instanceof SDK.CSSRule.CSSPropertyRule)) {\n      return;\n    }\n    const oldRange \u003d rule.propertyName().range;\n    if (!oldRange) {\n      return;\n    }\n\n    const success \u003d await rule.setPropertyName(newContent);\n    if (!success) {\n      return;\n    }\n\n    this.parentPane.forceUpdate();\n}\n```",
+      "revId": "947d4f33b69b666fd76878954048ca9b8c0cf9f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65aeceb8_99c2e40d",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-13T11:11:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7f58a84_e11c21b3",
       "revId": "947d4f33b69b666fd76878954048ca9b8c0cf9f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
