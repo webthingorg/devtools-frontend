@@ -13,22 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Dialog as BaseDialog } from '../api/Dialog.js';
+import { Dialog } from '../api/Dialog.js';
 /**
  * @internal
  */
-export class CDPDialog extends BaseDialog {
+export class CDPDialog extends Dialog {
     #client;
-    /**
-     * @internal
-     */
     constructor(client, type, message, defaultValue = '') {
         super(type, message, defaultValue);
         this.#client = client;
     }
-    /**
-     * @internal
-     */
     async sendCommand(options) {
         await this.#client.send('Page.handleJavaScriptDialog', {
             accept: options.accept,

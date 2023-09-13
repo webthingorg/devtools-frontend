@@ -24,6 +24,7 @@ export declare class EmulationManager {
     #private;
     constructor(client: CDPSession);
     updateClient(client: CDPSession): void;
+    registerSpeculativeSession(client: CDPSession): Promise<void>;
     get javascriptEnabled(): boolean;
     emulateViewport(viewport: Viewport): Promise<boolean>;
     emulateIdleState(overrides?: {

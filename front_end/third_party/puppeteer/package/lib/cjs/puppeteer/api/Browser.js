@@ -16,6 +16,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Browser = exports.WEB_PERMISSION_TO_PROTOCOL_PERMISSION = void 0;
+const disposablestack_js_1 = require("../../third_party/disposablestack/disposablestack.js");
 const EventEmitter_js_1 = require("../common/EventEmitter.js");
 const util_js_1 = require("../common/util.js");
 const Deferred_js_1 = require("../util/Deferred.js");
@@ -290,6 +291,12 @@ class Browser extends EventEmitter_js_1.EventEmitter {
      */
     isConnected() {
         throw new Error('Not implemented');
+    }
+    [disposablestack_js_1.Symbol.dispose]() {
+        return void this.close().catch(util_js_1.debugError);
+    }
+    [disposablestack_js_1.Symbol.asyncDispose]() {
+        return this.close();
     }
 }
 exports.Browser = Browser;

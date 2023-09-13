@@ -15,6 +15,7 @@
  */
 /// <reference types="node" />
 /// <reference types="node" />
+/// <reference types="node" />
 import type { Readable } from 'stream';
 import { Protocol } from 'devtools-protocol';
 import type { HTTPRequest } from '../api/HTTPRequest.js';
@@ -422,7 +423,7 @@ export interface NewDocumentScriptEvaluation {
  *
  * @public
  */
-export declare class Page extends EventEmitter {
+export declare abstract class Page extends EventEmitter implements AsyncDisposable, Disposable {
     #private;
     /**
      * @internal
@@ -1035,7 +1036,7 @@ export declare class Page extends EventEmitter {
      * @param pptrFunction - Callback function which will be called in Puppeteer's
      * context.
      */
-    exposeFunction(name: string, pptrFunction: Function | {
+    abstract exposeFunction(name: string, pptrFunction: Function | {
         default: Function;
     }): Promise<void>;
     /**
@@ -1337,7 +1338,7 @@ export declare class Page extends EventEmitter {
      */
     protected _waitForNetworkIdle(networkManager: EventEmitter & {
         inFlightRequestsCount: () => number;
-    }, idleTime: number, timeout: number, closedDeferred: Deferred<TargetCloseError>): Promise<void>;
+    }, idleTime: number, ms: number, closedDeferred: Deferred<TargetCloseError>): Promise<void>;
     /**
      * Waits for a frame matching the given conditions to appear.
      *
@@ -2193,6 +2194,8 @@ export declare class Page extends EventEmitter {
      * ```
      */
     waitForDevicePrompt(options?: WaitTimeoutOptions): Promise<DeviceRequestPrompt>;
+    [Symbol.dispose](): void;
+    [Symbol.asyncDispose](): Promise<void>;
 }
 /**
  * @internal

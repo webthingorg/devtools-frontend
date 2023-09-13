@@ -160,9 +160,16 @@ export class CallbackRegistry {
     errorMessage: string | ProtocolError,
     originalMessage?: string
   ): void {
-    const isError = errorMessage instanceof ProtocolError;
-    const message = isError ? errorMessage.message : errorMessage;
-    const error = isError ? errorMessage : callback.error;
+    let error: ProtocolError;
+    let message: string;
+    if (errorMessage instanceof ProtocolError) {
+      error = errorMessage;
+      error.cause = callback.error;
+      message = errorMessage.message;
+    } else {
+      error = callback.error;
+      message = errorMessage;
+    }
 
     callback.reject(
       rewriteError(
@@ -431,6 +438,11 @@ export interface CDPSessionOnMessageObject {
 export const CDPSessionEmittedEvents = {
   Disconnected: Symbol('CDPSession.Disconnected'),
   Swapped: Symbol('CDPSession.Swapped'),
+  /**
+   * Emitted when the session is ready to be configured during the auto-attach
+   * process. Right after the event is handled, the session will be resumed.
+   */
+  Ready: Symbol('CDPSession.Ready'),
 } as const;
 
 /**

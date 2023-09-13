@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 import { Protocol } from 'devtools-protocol';
+import { Realm } from '../api/Realm.js';
 import { CDPSession } from './Connection.js';
 import { ConsoleMessageType } from './ConsoleMessage.js';
 import { EventEmitter } from './EventEmitter.js';
-import { ExecutionContext } from './ExecutionContext.js';
 import { CDPJSHandle } from './JSHandle.js';
+import { TimeoutSettings } from './TimeoutSettings.js';
 import { EvaluateFunc, HandleFor } from './types.js';
 /**
  * @internal
@@ -27,7 +28,7 @@ export type ConsoleAPICalledCallback = (eventType: ConsoleMessageType, handles: 
 /**
  * @internal
  */
-export type ExceptionThrownCallback = (details: Protocol.Runtime.ExceptionDetails) => void;
+export type ExceptionThrownCallback = (event: Protocol.Runtime.ExceptionThrownEvent) => void;
 /**
  * This class represents a
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API | WebWorker}.
@@ -59,11 +60,15 @@ export declare class WebWorker extends EventEmitter {
     /**
      * @internal
      */
+    readonly timeoutSettings: TimeoutSettings;
+    /**
+     * @internal
+     */
     constructor(client: CDPSession, url: string, consoleAPICalled: ConsoleAPICalledCallback, exceptionThrown: ExceptionThrownCallback);
     /**
      * @internal
      */
-    executionContext(): Promise<ExecutionContext>;
+    mainRealm(): Realm;
     /**
      * The URL of this web worker.
      */

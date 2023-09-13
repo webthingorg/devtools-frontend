@@ -261,9 +261,6 @@ const getBidiKeyValue = (key) => {
  */
 class Keyboard extends Input_js_1.Keyboard {
     #context;
-    /**
-     * @internal
-     */
     constructor(context) {
         super();
         this.#context = context;
@@ -395,9 +392,6 @@ const getBidiButton = (button) => {
 class Mouse extends Input_js_1.Mouse {
     #context;
     #lastMovePoint;
-    /**
-     * @internal
-     */
     constructor(context) {
         super();
         this.#context = context;
@@ -534,9 +528,6 @@ exports.Mouse = Mouse;
  */
 class Touchscreen extends Input_js_1.Touchscreen {
     #context;
-    /**
-     * @internal
-     */
     constructor(context) {
         super();
         this.#context = context;

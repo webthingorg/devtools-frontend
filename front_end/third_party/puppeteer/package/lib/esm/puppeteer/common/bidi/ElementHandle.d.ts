@@ -14,26 +14,23 @@
  * limitations under the License.
  */
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
-import { AutofillData, ElementHandle as BaseElementHandle } from '../../api/ElementHandle.js';
-import { Frame } from './Frame.js';
-import { JSHandle } from './JSHandle.js';
+import { AutofillData, ElementHandle } from '../../api/ElementHandle.js';
+import { BidiFrame } from './Frame.js';
+import { BidiJSHandle } from './JSHandle.js';
 import { Realm } from './Realm.js';
+import { Sandbox } from './Sandbox.js';
 /**
  * @internal
  */
-export declare class ElementHandle<ElementType extends Node = Element> extends BaseElementHandle<ElementType> {
-    #private;
-    handle: JSHandle<ElementType>;
-    constructor(realm: Realm, remoteValue: Bidi.Script.RemoteValue, frame: Frame);
-    get frame(): Frame;
+export declare class BidiElementHandle<ElementType extends Node = Element> extends ElementHandle<ElementType> {
+    handle: BidiJSHandle<ElementType>;
+    constructor(sandbox: Sandbox, remoteValue: Bidi.Script.RemoteValue);
+    get realm(): Sandbox;
+    get frame(): BidiFrame;
     context(): Realm;
     get isPrimitiveValue(): boolean;
     remoteValue(): Bidi.Script.RemoteValue;
-    /**
-     * @internal
-     */
-    assertElementHasWorld(): asserts this;
     autofill(data: AutofillData): Promise<void>;
-    contentFrame(this: ElementHandle<HTMLIFrameElement>): Promise<Frame>;
+    contentFrame(this: BidiElementHandle<HTMLIFrameElement>): Promise<BidiFrame>;
 }
 //# sourceMappingURL=ElementHandle.d.ts.map

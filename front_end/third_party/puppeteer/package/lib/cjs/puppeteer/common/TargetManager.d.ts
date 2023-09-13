@@ -22,10 +22,6 @@ import { CDPTarget } from './Target.js';
  */
 export type TargetFactory = (targetInfo: Protocol.Target.TargetInfo, session?: CDPSession, parentSession?: CDPSession) => CDPTarget;
 /**
- * @internal
- */
-export type TargetInterceptor = (createdTarget: CDPTarget, parentTarget: CDPTarget | null) => void;
-/**
  * TargetManager encapsulates all interactions with CDP targets and is
  * responsible for coordinating the configuration of targets with the rest of
  * Puppeteer. Code outside of this class should not subscribe `Target.*` events
@@ -40,8 +36,6 @@ export interface TargetManager extends EventEmitter {
     getAvailableTargets(): Map<string, CDPTarget>;
     initialize(): Promise<void>;
     dispose(): void;
-    addTargetInterceptor(session: CDPSession, interceptor: TargetInterceptor): void;
-    removeTargetInterceptor(session: CDPSession, interceptor: TargetInterceptor): void;
 }
 /**
  * @internal
