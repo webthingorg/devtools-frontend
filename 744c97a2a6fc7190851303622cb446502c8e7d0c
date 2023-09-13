@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b84fd6e_1c926029",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-13T08:30:35Z",
+      "side": 1,
+      "message": "This creates an object which - depending on the experiment status - might not be used. The same thing applies to a bunch of other objects e.g. `this.hideChromeExtensionsUI`.\nWould there be a way to only instantiate the objects which are needed? Maybe extract this to helper function(s).",
+      "range": {
+        "startLine": 522,
+        "startChar": 3,
+        "endLine": 522,
+        "endChar": 80
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
