@@ -418,6 +418,7 @@
 
 .timeline-tree-view .data-grid thead {
   height: 21px;
+  z-index: 99999;
 }
 
 .timeline-stack-view-header {
