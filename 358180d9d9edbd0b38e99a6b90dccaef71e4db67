@@ -79,6 +79,30 @@
       },
       "revId": "358180d9d9edbd0b38e99a6b90dccaef71e4db67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e975651f_6a232c21",
+        "filename": "scripts/search-trace-files.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-13T07:44:39Z",
+      "side": 1,
+      "message": "I thought about that but given that the JSON files are gitignored, I thought it didn\u0027t really matter, and means future runs of the script are much quicker. WDYT? Could add it as a flag?",
+      "parentUuid": "5e887d12_c99bfe64",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "358180d9d9edbd0b38e99a6b90dccaef71e4db67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
