@@ -17,28 +17,16 @@ import { Protocol } from 'devtools-protocol';
 import { JSHandle } from '../api/JSHandle.js';
 import { CDPSession } from './Connection.js';
 import type { CDPElementHandle } from './ElementHandle.js';
-import { ExecutionContext } from './ExecutionContext.js';
-import { EvaluateFuncWith, HandleFor, HandleOr } from './types.js';
+import { IsolatedWorld } from './IsolatedWorld.js';
 /**
  * @internal
  */
 export declare class CDPJSHandle<T = unknown> extends JSHandle<T> {
     #private;
+    constructor(world: IsolatedWorld, remoteObject: Protocol.Runtime.RemoteObject);
     get disposed(): boolean;
-    constructor(context: ExecutionContext, remoteObject: Protocol.Runtime.RemoteObject);
-    executionContext(): ExecutionContext;
+    get realm(): IsolatedWorld;
     get client(): CDPSession;
-    /**
-     * @see {@link ExecutionContext.evaluate} for more details.
-     */
-    evaluate<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    /**
-     * @see {@link ExecutionContext.evaluateHandle} for more details.
-     */
-    evaluateHandle<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
-    getProperty<K extends keyof T>(propertyName: HandleOr<K>): Promise<HandleFor<T[K]>>;
-    getProperty(propertyName: string): Promise<JSHandle<unknown>>;
-    getProperties(): Promise<Map<string, JSHandle>>;
     jsonValue(): Promise<T>;
     /**
      * Either `null` or the handle itself if the handle is an

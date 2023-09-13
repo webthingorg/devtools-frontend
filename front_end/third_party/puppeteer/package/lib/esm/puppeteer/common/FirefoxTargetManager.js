@@ -15,7 +15,7 @@
  */
 import { assert } from '../util/assert.js';
 import { Deferred } from '../util/Deferred.js';
-import { Connection } from './Connection.js';
+import { CDPSessionEmittedEvents } from './Connection.js';
 import { EventEmitter } from './EventEmitter.js';
 /**
  * FirefoxTargetManager implements target management using
@@ -62,7 +62,6 @@ export class FirefoxTargetManager extends EventEmitter {
     #ignoredTargets = new Set();
     #targetFilterCallback;
     #targetFactory;
-    #targetInterceptors = new WeakMap();
     #attachedToTargetListenersBySession = new WeakMap();
     #initializeDeferred = Deferred.create();
     #targetsIdsForInit = new Set();
@@ -76,17 +75,6 @@ export class FirefoxTargetManager extends EventEmitter {
         this.#connection.on('sessiondetached', this.#onSessionDetached);
         this.setupAttachmentListeners(this.#connection);
     }
-    addTargetInterceptor(client, interceptor) {
-        const interceptors = this.#targetInterceptors.get(client) || [];
-        interceptors.push(interceptor);
-        this.#targetInterceptors.set(client, interceptors);
-    }
-    removeTargetInterceptor(client, interceptor) {
-        const interceptors = this.#targetInterceptors.get(client) || [];
-        this.#targetInterceptors.set(client, interceptors.filter(currentInterceptor => {
-            return currentInterceptor !== interceptor;
-        }));
-    }
     setupAttachmentListeners(session) {
         const listener = (event) => {
             return this.#onAttachedToTarget(session, event);
@@ -97,7 +85,6 @@ export class FirefoxTargetManager extends EventEmitter {
     }
     #onSessionDetached = (session) => {
         this.removeSessionListeners(session);
-        this.#targetInterceptors.delete(session);
         this.#availableTargetsBySessionId.delete(session.id());
     };
     removeSessionListeners(session) {
@@ -163,14 +150,7 @@ export class FirefoxTargetManager extends EventEmitter {
         assert(target, `Target ${targetInfo.targetId} is missing`);
         this.setupAttachmentListeners(session);
         this.#availableTargetsBySessionId.set(session.id(), this.#availableTargetsByTargetId.get(targetInfo.targetId));
-        for (const hook of this.#targetInterceptors.get(parentSession) || []) {
-            if (!(parentSession instanceof Connection)) {
-                assert(this.#availableTargetsBySessionId.has(parentSession.id()));
-            }
-            await hook(target, parentSession instanceof Connection
-                ? null
-                : this.#availableTargetsBySessionId.get(parentSession.id()));
-        }
+        parentSession.emit(CDPSessionEmittedEvents.Ready, session);
     };
     #finishInitializationIfReady(targetId) {
         this.#targetsIdsForInit.delete(targetId);

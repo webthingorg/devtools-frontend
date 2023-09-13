@@ -14,64 +14,27 @@
  * limitations under the License.
  */
 import { JSHandle } from '../api/JSHandle.js';
-import { assert } from '../util/assert.js';
-import { createJSHandle, releaseObject, valueFromRemoteObject, withSourcePuppeteerURLIfNone, } from './util.js';
+import { releaseObject, valueFromRemoteObject } from './util.js';
 /**
  * @internal
  */
 export class CDPJSHandle extends JSHandle {
     #disposed = false;
-    #context;
     #remoteObject;
+    #world;
+    constructor(world, remoteObject) {
+        super();
+        this.#world = world;
+        this.#remoteObject = remoteObject;
+    }
     get disposed() {
         return this.#disposed;
     }
-    constructor(context, remoteObject) {
-        super();
-        this.#context = context;
-        this.#remoteObject = remoteObject;
-    }
-    executionContext() {
-        return this.#context;
+    get realm() {
+        return this.#world;
     }
     get client() {
-        return this.#context._client;
-    }
-    /**
-     * @see {@link ExecutionContext.evaluate} for more details.
-     */
-    async evaluate(pageFunction, ...args) {
-        pageFunction = withSourcePuppeteerURLIfNone(this.evaluate.name, pageFunction);
-        return await this.executionContext().evaluate(pageFunction, this, ...args);
-    }
-    /**
-     * @see {@link ExecutionContext.evaluateHandle} for more details.
-     */
-    async evaluateHandle(pageFunction, ...args) {
-        pageFunction = withSourcePuppeteerURLIfNone(this.evaluateHandle.name, pageFunction);
-        return await this.executionContext().evaluateHandle(pageFunction, this, ...args);
-    }
-    async getProperty(propertyName) {
-        return this.evaluateHandle((object, propertyName) => {
-            return object[propertyName];
-        }, propertyName);
-    }
-    async getProperties() {
-        assert(this.#remoteObject.objectId);
-        // We use Runtime.getProperties rather than iterative building because the
-        // iterative approach might create a distorted snapshot.
-        const response = await this.client.send('Runtime.getProperties', {
-            objectId: this.#remoteObject.objectId,
-            ownProperties: true,
-        });
-        const result = new Map();
-        for (const property of response.result) {
-            if (!property.enumerable || !property.value) {
-                continue;
-            }
-            result.set(property.name, createJSHandle(this.#context, property.value));
-        }
-        return result;
+        return this.realm.environment.client;
     }
     async jsonValue() {
         if (!this.#remoteObject.objectId) {

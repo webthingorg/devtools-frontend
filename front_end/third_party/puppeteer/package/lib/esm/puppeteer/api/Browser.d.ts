@@ -16,6 +16,7 @@
 /// <reference types="node" />
 import { ChildProcess } from 'child_process';
 import { Protocol } from 'devtools-protocol';
+import { Symbol } from '../../third_party/disposablestack/disposablestack.js';
 import { EventEmitter } from '../common/EventEmitter.js';
 import type { BrowserContext } from './BrowserContext.js';
 import type { Page } from './Page.js';
@@ -156,7 +157,7 @@ export declare const enum BrowserEmittedEvents {
  *
  * @public
  */
-export declare class Browser extends EventEmitter {
+export declare class Browser extends EventEmitter implements AsyncDisposable, Disposable {
     /**
      * @internal
      */
@@ -312,6 +313,8 @@ export declare class Browser extends EventEmitter {
      * Indicates that the browser is connected.
      */
     isConnected(): boolean;
+    [Symbol.dispose](): void;
+    [Symbol.asyncDispose](): Promise<void>;
 }
 /**
  * @public

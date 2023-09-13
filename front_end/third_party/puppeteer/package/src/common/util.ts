@@ -18,6 +18,7 @@ import type {Readable} from 'stream';
 
 import type {Protocol} from 'devtools-protocol';
 
+import {map, NEVER, Observable, timer} from '../../third_party/rxjs/rxjs.js';
 import type {ElementHandle} from '../api/ElementHandle.js';
 import type {JSHandle} from '../api/JSHandle.js';
 import {Page} from '../api/Page.js';
@@ -29,8 +30,9 @@ import {isErrorLike} from '../util/ErrorLike.js';
 import type {CDPSession} from './Connection.js';
 import {debug} from './Debug.js';
 import {CDPElementHandle} from './ElementHandle.js';
+import {TimeoutError} from './Errors.js';
 import type {CommonEventEmitter} from './EventEmitter.js';
-import type {ExecutionContext} from './ExecutionContext.js';
+import {IsolatedWorld} from './IsolatedWorld.js';
 import {CDPJSHandle} from './JSHandle.js';
 import {Awaitable} from './types.js';
 
@@ -413,14 +415,14 @@ export async function waitForEvent<T>(
 /**
  * @internal
  */
-export function createJSHandle(
-  context: ExecutionContext,
+export function createCdpHandle(
+  realm: IsolatedWorld,
   remoteObject: Protocol.Runtime.RemoteObject
 ): JSHandle | ElementHandle<Node> {
-  if (remoteObject.subtype === 'node' && context._world) {
-    return new CDPElementHandle(context, remoteObject, context._world.frame());
+  if (remoteObject.subtype === 'node') {
+    return new CDPElementHandle(realm, remoteObject);
   }
-  return new CDPJSHandle(context, remoteObject);
+  return new CDPJSHandle(realm, remoteObject);
 }
 
 /**
@@ -623,7 +625,7 @@ export async function setPageContent(
 ): Promise<void> {
   // We rely upon the fact that document.open() will reset frame lifecycle with "init"
   // lifecycle event. @see https://crrev.com/608658
-  return page.evaluate(html => {
+  return await page.evaluate(html => {
     document.open();
     document.write(html);
     document.close();
@@ -668,4 +670,56 @@ export function validateDialogType(
   }
   assert(dialogType, `Unknown javascript dialog type: ${type}`);
   return dialogType as 'alert' | 'confirm' | 'prompt' | 'beforeunload';
+}
+
+/**
+ * @internal
+ */
+export class Mutex {
+  static Guard = class Guard {
+    #mutex: Mutex;
+    constructor(mutex: Mutex) {
+      this.#mutex = mutex;
+    }
+    [Symbol.dispose](): void {
+      return this.#mutex.release();
+    }
+  };
+
+  #locked = false;
+  #acquirers: Array<() => void> = [];
+
+  // This is FIFO.
+  async acquire(): Promise<InstanceType<typeof Mutex.Guard>> {
+    if (!this.#locked) {
+      this.#locked = true;
+      return new Mutex.Guard(this);
+    }
+    const deferred = Deferred.create<void>();
+    this.#acquirers.push(deferred.resolve.bind(deferred));
+    await deferred.valueOrThrow();
+    return new Mutex.Guard(this);
+  }
+
+  release(): void {
+    const resolve = this.#acquirers.shift();
+    if (!resolve) {
+      this.#locked = false;
+      return;
+    }
+    resolve();
+  }
+}
+
+/**
+ * @internal
+ */
+export function timeout(ms: number): Observable<never> {
+  return ms === 0
+    ? NEVER
+    : timer(ms).pipe(
+        map(() => {
+          throw new TimeoutError(`Timed out after waiting ${ms}ms`);
+        })
+      );
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Page as PageBase, } from '../../api/Page.js';
+import { Page, } from '../../api/Page.js';
 import { assert } from '../../util/assert.js';
 import { Deferred } from '../../util/Deferred.js';
 import { Accessibility } from '../Accessibility.js';
@@ -25,19 +25,19 @@ import { FrameTree } from '../FrameTree.js';
 import { NetworkManagerEmittedEvents } from '../NetworkManager.js';
 import { TimeoutSettings } from '../TimeoutSettings.js';
 import { Tracing } from '../Tracing.js';
-import { debugError, evaluationString, isString, validateDialogType, waitForEvent, waitWithTimeout, withSourcePuppeteerURLIfNone, } from '../util.js';
+import { debugError, evaluationString, isString, validateDialogType, waitForEvent, waitWithTimeout, } from '../util.js';
 import { BrowsingContextEmittedEvents, CDPSessionWrapper, } from './BrowsingContext.js';
-import { Dialog } from './Dialog.js';
+import { BidiDialog } from './Dialog.js';
 import { EmulationManager } from './EmulationManager.js';
-import { Frame } from './Frame.js';
+import { BidiFrame } from './Frame.js';
 import { Keyboard, Mouse, Touchscreen } from './Input.js';
 import { NetworkManager } from './NetworkManager.js';
-import { getBidiHandle } from './Realm.js';
+import { createBidiHandle } from './Realm.js';
 import { BidiSerializer } from './Serializer.js';
 /**
  * @internal
  */
-export class Page extends PageBase {
+export class BidiPage extends Page {
     #accessibility;
     #timeoutSettings = new TimeoutSettings();
     #connection;
@@ -49,12 +49,12 @@ export class Page extends PageBase {
         ['log.entryAdded', this.#onLogEntryAdded.bind(this)],
         ['browsingContext.load', this.#onFrameLoaded.bind(this)],
         [
-            'browsingContext.domContentLoaded',
-            this.#onFrameDOMContentLoaded.bind(this),
+            'browsingContext.fragmentNavigated',
+            this.#onFrameFragmentNavigated.bind(this),
         ],
         [
-            'browsingContext.navigationStarted',
-            this.#onFrameNavigationStarted.bind(this),
+            'browsingContext.domContentLoaded',
+            this.#onFrameDOMContentLoaded.bind(this),
         ],
         ['browsingContext.userPromptOpened', this.#onDialog.bind(this)],
     ]);
@@ -114,7 +114,7 @@ export class Page extends PageBase {
         for (const [event, subscriber] of this.#networkManagerEvents) {
             this.#networkManager.on(event, subscriber);
         }
-        const frame = new Frame(this, this.#browsingContext, this.#timeoutSettings, this.#browsingContext.parent);
+        const frame = new BidiFrame(this, this.#browsingContext, this.#timeoutSettings, this.#browsingContext.parent);
         this.#frameTree.addFrame(frame);
         this.emit("frameattached" /* PageEmittedEvents.FrameAttached */, frame);
         // TODO: https://github.com/w3c/webdriver-bidi/issues/443
@@ -174,38 +174,30 @@ export class Page extends PageBase {
             this.emit("load" /* PageEmittedEvents.Load */);
         }
     }
+    #onFrameFragmentNavigated(info) {
+        const frame = this.frame(info.context);
+        if (frame) {
+            this.emit("framenavigated" /* PageEmittedEvents.FrameNavigated */, frame);
+        }
+    }
     #onFrameDOMContentLoaded(info) {
         const frame = this.frame(info.context);
-        if (frame && this.mainFrame() === frame) {
-            this.emit("domcontentloaded" /* PageEmittedEvents.DOMContentLoaded */);
+        if (frame) {
+            frame._hasStartedLoading = true;
+            if (this.mainFrame() === frame) {
+                this.emit("domcontentloaded" /* PageEmittedEvents.DOMContentLoaded */);
+            }
+            this.emit("framenavigated" /* PageEmittedEvents.FrameNavigated */, frame);
         }
     }
     #onContextCreated(context) {
         if (!this.frame(context.id) &&
             (this.frame(context.parent ?? '') || !this.#frameTree.getMainFrame())) {
-            const frame = new Frame(this, context, this.#timeoutSettings, context.parent);
+            const frame = new BidiFrame(this, context, this.#timeoutSettings, context.parent);
             this.#frameTree.addFrame(frame);
             if (frame !== this.mainFrame()) {
                 this.emit("frameattached" /* PageEmittedEvents.FrameAttached */, frame);
             }
-        }
-    }
-    async #onFrameNavigationStarted(info) {
-        const frameId = info.context;
-        const frame = this.frame(frameId);
-        if (frame) {
-            // TODO: Investigate if a navigationCompleted event should be in Spec
-            const predicate = (event) => {
-                if (event.context === frame?._id) {
-                    return true;
-                }
-                return false;
-            };
-            await Deferred.race([
-                waitForEvent(this.#connection, 'browsingContext.domContentLoaded', predicate, 0, this.#closedDeferred.valueOrThrow()).catch(debugError),
-                waitForEvent(this.#connection, 'browsingContext.fragmentNavigated', predicate, 0, this.#closedDeferred.valueOrThrow()).catch(debugError),
-            ]);
-            this.emit("framenavigated" /* PageEmittedEvents.FrameNavigated */, frame);
         }
     }
     #onContextDestroyed(context) {
@@ -221,7 +213,7 @@ export class Page extends PageBase {
         for (const child of frame.childFrames()) {
             this.#removeFramesRecursively(child);
         }
-        frame.dispose();
+        frame[Symbol.dispose]();
         this.#networkManager.clearMapAfterFrameDispose(frame);
         this.#frameTree.removeFrame(frame);
         this.emit("framedetached" /* PageEmittedEvents.FrameDetached */, frame);
@@ -233,7 +225,7 @@ export class Page extends PageBase {
         }
         if (isConsoleLogEntry(event)) {
             const args = event.args.map(arg => {
-                return getBidiHandle(frame.context(), arg, frame);
+                return createBidiHandle(frame.mainRealm(), arg);
             });
             const text = args
                 .reduce((value, arg) => {
@@ -272,7 +264,7 @@ export class Page extends PageBase {
             return;
         }
         const type = validateDialogType(event.type);
-        const dialog = new Dialog(frame.context(), type, event.message);
+        const dialog = new BidiDialog(frame.context(), type, event.message, event.defaultValue);
         this.emit("dialog" /* PageEmittedEvents.Dialog */, dialog);
     }
     getNavigationResponse(id) {
@@ -293,17 +285,6 @@ export class Page extends PageBase {
         this.emit("close" /* PageEmittedEvents.Close */);
         this.removeAllListeners();
     }
-    async evaluateHandle(pageFunction, ...args) {
-        pageFunction = withSourcePuppeteerURLIfNone(this.evaluateHandle.name, pageFunction);
-        return this.mainFrame().evaluateHandle(pageFunction, ...args);
-    }
-    async evaluate(pageFunction, ...args) {
-        pageFunction = withSourcePuppeteerURLIfNone(this.evaluate.name, pageFunction);
-        return this.mainFrame().evaluate(pageFunction, ...args);
-    }
-    async goto(url, options) {
-        return this.mainFrame().goto(url, options);
-    }
     async reload(options) {
         const [response] = await Promise.all([
             this.waitForResponse(response => {
@@ -319,9 +300,6 @@ export class Page extends PageBase {
         ]);
         return response;
     }
-    url() {
-        return this.mainFrame().url();
-    }
     setDefaultNavigationTimeout(timeout) {
         this.#timeoutSettings.setDefaultNavigationTimeout(timeout);
     }
@@ -330,12 +308,6 @@ export class Page extends PageBase {
     }
     getDefaultTimeout() {
         return this.#timeoutSettings.timeout();
-    }
-    async setContent(html, options = {}) {
-        await this.mainFrame().setContent(html, options);
-    }
-    async content() {
-        return this.mainFrame().content();
     }
     isJavaScriptEnabled() {
         return this.#cdpEmulationManager.javascriptEnabled;
@@ -429,9 +401,9 @@ export class Page extends PageBase {
         await this._maybeWriteBufferToFile(path, buffer);
         return buffer;
     }
-    waitForRequest(urlOrPredicate, options = {}) {
+    async waitForRequest(urlOrPredicate, options = {}) {
         const { timeout = this.#timeoutSettings.timeout() } = options;
-        return waitForEvent(this.#networkManager, NetworkManagerEmittedEvents.Request, async (request) => {
+        return await waitForEvent(this.#networkManager, NetworkManagerEmittedEvents.Request, async (request) => {
             if (isString(urlOrPredicate)) {
                 return urlOrPredicate === request.url();
             }
@@ -441,9 +413,9 @@ export class Page extends PageBase {
             return false;
         }, timeout, this.#closedDeferred.valueOrThrow());
     }
-    waitForResponse(urlOrPredicate, options = {}) {
+    async waitForResponse(urlOrPredicate, options = {}) {
         const { timeout = this.#timeoutSettings.timeout() } = options;
-        return waitForEvent(this.#networkManager, NetworkManagerEmittedEvents.Response, async (response) => {
+        return await waitForEvent(this.#networkManager, NetworkManagerEmittedEvents.Response, async (response) => {
             if (isString(urlOrPredicate)) {
                 return urlOrPredicate === response.url();
             }
@@ -456,9 +428,6 @@ export class Page extends PageBase {
     async waitForNetworkIdle(options = {}) {
         const { idleTime = 500, timeout = this.#timeoutSettings.timeout() } = options;
         await this._waitForNetworkIdle(this.#networkManager, idleTime, timeout, this.#closedDeferred);
-    }
-    title() {
-        return this.mainFrame().title();
     }
     async createCDPSession() {
         const { sessionId } = await this.mainFrame()
@@ -486,6 +455,9 @@ export class Page extends PageBase {
         await this.#connection.send('script.removePreloadScript', {
             script: id,
         });
+    }
+    async exposeFunction(name, pptrFunction) {
+        return await this.mainFrame().exposeFunction(name, 'default' in pptrFunction ? pptrFunction.default : pptrFunction);
     }
 }
 function isConsoleLogEntry(event) {

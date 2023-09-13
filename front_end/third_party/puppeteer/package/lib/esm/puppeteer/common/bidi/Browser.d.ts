@@ -16,22 +16,21 @@
 /// <reference types="node" />
 import { ChildProcess } from 'child_process';
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
-import { Browser as BrowserBase, BrowserCloseCallback, BrowserContextOptions } from '../../api/Browser.js';
-import { BrowserContext as BrowserContextBase } from '../../api/BrowserContext.js';
+import { Browser, BrowserCloseCallback, BrowserContextOptions } from '../../api/Browser.js';
 import { Page } from '../../api/Page.js';
 import { Target } from '../../api/Target.js';
 import { Viewport } from '../PuppeteerViewport.js';
-import { BrowserContext } from './BrowserContext.js';
+import { BidiBrowserContext } from './BrowserContext.js';
 import { Connection } from './Connection.js';
-import { BiDiTarget } from './Target.js';
+import { BidiTarget } from './Target.js';
 /**
  * @internal
  */
-export declare class Browser extends BrowserBase {
+export declare class BidiBrowser extends Browser {
     #private;
     static readonly subscribeModules: string[];
     static readonly subscribeCdpEvents: Bidi.Cdp.EventNames[];
-    static create(opts: Options): Promise<Browser>;
+    static create(opts: Options): Promise<BidiBrowser>;
     constructor(opts: Options & {
         browserName: string;
         browserVersion: string;
@@ -41,21 +40,21 @@ export declare class Browser extends BrowserBase {
     close(): Promise<void>;
     isConnected(): boolean;
     process(): ChildProcess | null;
-    createIncognitoBrowserContext(_options?: BrowserContextOptions): Promise<BrowserContextBase>;
+    createIncognitoBrowserContext(_options?: BrowserContextOptions): Promise<BidiBrowserContext>;
     version(): Promise<string>;
     /**
      * Returns an array of all open browser contexts. In a newly created browser, this will
-     * return a single instance of {@link BrowserContext}.
+     * return a single instance of {@link BidiBrowserContext}.
      */
-    browserContexts(): BrowserContext[];
-    _closeContext(browserContext: BrowserContext): Promise<void>;
+    browserContexts(): BidiBrowserContext[];
+    _closeContext(browserContext: BidiBrowserContext): Promise<void>;
     /**
      * Returns the default browser context. The default browser context cannot be closed.
      */
-    defaultBrowserContext(): BrowserContext;
+    defaultBrowserContext(): BidiBrowserContext;
     newPage(): Promise<Page>;
     targets(): Target[];
-    _getTargetById(id: string): BiDiTarget;
+    _getTargetById(id: string): BidiTarget;
     target(): Target;
 }
 interface Options {

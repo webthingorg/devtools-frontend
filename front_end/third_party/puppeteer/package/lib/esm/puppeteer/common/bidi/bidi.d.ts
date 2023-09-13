@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+export * from './BidiOverCDP.js';
 export * from './Browser.js';
 export * from './BrowserContext.js';
-export * from './Page.js';
 export * from './Connection.js';
-export * from './BidiOverCDP.js';
+export * from './Page.js';
 //# sourceMappingURL=bidi.d.ts.map
