@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89dea29d_344f045c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-13T07:15:35Z",
+      "side": 1,
+      "message": "I am not sure if the original intention was to allow extension panels to be moved but I wonder what prevents this from working? it sounds like it should be possible to move those panels too? Is the view id not correct?",
+      "parentUuid": "47e1d1f5_fb4b8983",
+      "revId": "2766f1825d8076569f8fb6ff2a7c7244b5a3ee4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2ed06e6_7ec48fb9",
         "filename": "front_end/ui/legacy/InspectorView.ts",
         "patchSetId": 3
