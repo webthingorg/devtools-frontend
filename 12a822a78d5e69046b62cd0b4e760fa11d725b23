@@ -39,6 +39,30 @@
       },
       "revId": "12a822a78d5e69046b62cd0b4e760fa11d725b23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ae099d_848ce035",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-13T11:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2416a5e9_e7059097",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 100
+      },
+      "revId": "12a822a78d5e69046b62cd0b4e760fa11d725b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
