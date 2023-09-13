@@ -68,6 +68,9 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private readonly onMainEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly onNetworkEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly boundRefresh: () => void;
+
+  private currBreeadcrumb: any;
+
   #selectedEvents: TraceEngine.Legacy.CompatibleTraceEvent[]|null;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -169,9 +172,22 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   private onWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedEvent>): void {
     const {window, animate} = event.data;
-    this.mainFlameChart.setWindowTimes(window.left, window.right, animate);
-    this.networkFlameChart.setWindowTimes(window.left, window.right, animate);
-    this.networkDataProvider.setWindowTimes(window.left, window.right);
+
+    if(event.data.breadcrumbWindow) {
+      this.currBreeadcrumb = event.data.breadcrumbWindow;
+    }
+
+    if(this.currBreeadcrumb && (this.currBreeadcrumb.min > window.left || this.currBreeadcrumb.max < window.right)) {
+      console.log("here nothing should happen");
+    } else {
+      
+      this.mainFlameChart.setWindowTimes(window.left, window.right, animate);
+      this.networkFlameChart.setWindowTimes(window.left, window.right, animate);
+      this.networkDataProvider.setWindowTimes(window.left, window.right);
+
+      console.log("setting window times");
+    }
+
     this.updateSearchResults(false, false);
   }
 
