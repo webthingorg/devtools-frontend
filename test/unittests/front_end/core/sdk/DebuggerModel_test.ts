@@ -48,6 +48,7 @@ describeWithMockConnection('DebuggerModel', () => {
     });
 
     it('deactivates breakpoints on construction with inactive breakpoints', async () => {
+      assert.isTrue(false);
       let breakpointsDeactivated = false;
       setMockConnectionResponseHandler('Debugger.setBreakpointsActive', request => {
         if (request.active === false) {
