@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86034448_7c8c2312",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1566503
+      },
+      "writtenOn": "2023-09-13T11:21:25Z",
+      "side": 1,
+      "message": "i suppose we have to assert entry as NetworkRequest type to satisify the ts compiler. on my build it managed to compile without. can u resend this again?",
+      "revId": "e1265ef5bbf8eeb9f26b390ac27475de43bef813",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
