@@ -50,6 +50,27 @@ describe('Adornment in the Elements Tab', async function() {
     ]);
   });
 
+  it('click media adorners', async () => {
+    await goToResource('elements/adornment-media.html');
+    await prepareElementsTab();
+
+    await waitForAdorners([
+      {textContent: 'media', isActive: false},
+      {textContent: 'media', isActive: false},
+    ]);
+
+    // Select the first video element.
+    const {frontend} = getBrowserAndPages();
+    await frontend.keyboard.press('ArrowDown');
+    await waitForAdornerOnSelectedNode('media');
+
+    await editCSSProperty('video', 'display', 'none');
+
+    // Select the second audio element.
+    await frontend.keyboard.press('ArrowDown');
+    await waitForAdornerOnSelectedNode('media');
+  });
+
   it('displays container query adorners', async () => {
     await goToResource('elements/adornment-container-query.html');
     await prepareElementsTab();
