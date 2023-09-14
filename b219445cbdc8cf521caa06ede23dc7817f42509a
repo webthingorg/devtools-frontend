@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a62518d5_f08b309a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "nged",
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48d934f_3a36d914",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-09-12T14:22:58Z",
       "side": 1,
       "message": "Can the `undefined` be removed?",
+      "range": {
+        "startLine": 2471,
+        "startChar": 78,
+        "endLine": 2471,
+        "endChar": 87
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54a06747_409c0fc2",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2471,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c48d934f_3a36d914",
       "range": {
         "startLine": 2471,
         "startChar": 78,
@@ -47,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c0aa3f3_b189f410",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2483,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c64e732_a946c2ce",
+      "range": {
+        "startLine": 2483,
+        "startChar": 56,
+        "endLine": 2483,
+        "endChar": 64
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23682cc1_3e3c14ec",
@@ -60,6 +125,30 @@
       "writtenOn": "2023-09-12T11:58:59Z",
       "side": 1,
       "message": "Should be a localizable UIString",
+      "range": {
+        "startLine": 2484,
+        "startChar": 32,
+        "endLine": 2484,
+        "endChar": 46
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ab157a9_2bd97f71",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23682cc1_3e3c14ec",
       "range": {
         "startLine": 2484,
         "startChar": 32,
@@ -93,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9161f134_e742b8bb",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66e44ef0_1491aeb0",
+      "range": {
+        "startLine": 2492,
+        "startChar": 4,
+        "endLine": 2492,
+        "endChar": 59
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02d671ea_97cabf82",
@@ -106,6 +219,30 @@
       "writtenOn": "2023-09-12T14:22:58Z",
       "side": 1,
       "message": "rename since it\u0027s not a checkbox anymore",
+      "range": {
+        "startLine": 2505,
+        "startChar": 2,
+        "endLine": 2505,
+        "endChar": 30
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c6ea8d2_aabeecfd",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2505,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02d671ea_97cabf82",
       "range": {
         "startLine": 2505,
         "startChar": 2,
@@ -139,6 +276,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d50e10c_20c41469",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2508,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8cca956_3bf3165f",
+      "range": {
+        "startLine": 2508,
+        "startChar": 16,
+        "endLine": 2508,
+        "endChar": 17
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9286b3f9_dd4cef9e",
@@ -152,6 +313,30 @@
       "writtenOn": "2023-09-12T14:22:58Z",
       "side": 1,
       "message": "Could you check if this could be removed?",
+      "range": {
+        "startLine": 2530,
+        "startChar": 0,
+        "endLine": 2533,
+        "endChar": 5
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2176579_e0a82e94",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9286b3f9_dd4cef9e",
       "range": {
         "startLine": 2530,
         "startChar": 0,
@@ -185,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb6b4bcb_66435e61",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e241d95_df20c586",
+      "range": {
+        "startLine": 2536,
+        "startChar": 5,
+        "endLine": 2536,
+        "endChar": 15
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e2441ab_ec5f1907",
@@ -198,6 +407,30 @@
       "writtenOn": "2023-09-12T14:22:58Z",
       "side": 1,
       "message": "as discussed offline: can be removed",
+      "range": {
+        "startLine": 2542,
+        "startChar": 8,
+        "endLine": 2542,
+        "endChar": 24
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6f12e2c_92ddf350",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2542,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e2441ab_ec5f1907",
       "range": {
         "startLine": 2542,
         "startChar": 8,
@@ -231,6 +464,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "926feb11_e067a652",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2561,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "583967fc_bd5b9437",
+      "range": {
+        "startLine": 2557,
+        "startChar": 0,
+        "endLine": 2561,
+        "endChar": 5
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac0da732_ffda6c9e",
@@ -244,6 +501,30 @@
       "writtenOn": "2023-09-12T14:22:58Z",
       "side": 1,
       "message": "This feels a bit brittle because a small change to the context menu could cause this to break.\nThe goal is to get at `item.name` from the contextMenu item, which has a label. How about creating a `Map\u003cstring, string\u003e` which allows easy lookup of the desired name? This could be done in the constructor with `item.label()` as key and `item.name` as value.",
+      "range": {
+        "startLine": 2580,
+        "startChar": 8,
+        "endLine": 2580,
+        "endChar": 42
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2da10f18_c84da50e",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2580,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac0da732_ffda6c9e",
       "range": {
         "startLine": 2580,
         "startChar": 8,
@@ -277,6 +558,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d86430f4_5a5c6f3d",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dfdaba5_788d6aba",
+      "range": {
+        "startLine": 2605,
+        "startChar": 2,
+        "endLine": 2605,
+        "endChar": 10
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c896535_cad5bf39",
@@ -290,6 +595,30 @@
       "writtenOn": "2023-09-12T09:29:30Z",
       "side": 1,
       "message": "`getItems` - probably due to rebasing conflict",
+      "range": {
+        "startLine": 430,
+        "startChar": 2,
+        "endLine": 430,
+        "endChar": 7
+      },
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2851bb7a_fafac635",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c896535_cad5bf39",
       "range": {
         "startLine": 430,
         "startChar": 2,
@@ -317,6 +646,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b936dc_012e2716",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1936bbfe_96fb83c3",
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c892869_68e7356a",
@@ -330,6 +677,24 @@
       "writtenOn": "2023-09-12T09:29:30Z",
       "side": 1,
       "message": "nit: remove",
+      "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3e178b1_db93a6f9",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c892869_68e7356a",
       "revId": "b219445cbdc8cf521caa06ede23dc7817f42509a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

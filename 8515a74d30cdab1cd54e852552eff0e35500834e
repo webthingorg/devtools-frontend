@@ -506,6 +506,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79539d31_af247d17",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-14T12:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f4985f7_b521db02",
+      "range": {
+        "startLine": 652,
+        "startChar": 57,
+        "endLine": 652,
+        "endChar": 85
+      },
+      "revId": "8515a74d30cdab1cd54e852552eff0e35500834e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b09673fb_4cd52548",
