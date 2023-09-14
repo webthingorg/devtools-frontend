@@ -22,6 +22,30 @@
       },
       "revId": "6278bd3a26b0bfc2ca9c56ee135838fb510ff825",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a03ab8_d20e9f85",
+        "filename": "test/e2e/resources/elements/adornment-media.html",
+        "patchSetId": 15
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-14T22:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc491a19_2a1a113b",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "6278bd3a26b0bfc2ca9c56ee135838fb510ff825",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
