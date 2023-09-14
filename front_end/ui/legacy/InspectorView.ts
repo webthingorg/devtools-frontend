@@ -622,7 +622,7 @@ export class InspectorViewTabDelegate implements TabbedPaneTabDelegate {
 
   onContextMenu(tabId: string, contextMenu: ContextMenu): void {
     // Special case for console, we don't show the movable context panel for this two tabs
-    if (tabId === 'console' || tabId === 'console-view') {
+    if (tabId === 'console' || tabId === 'console-view' || tabId.startsWith('chrome-extension')) {
       return;
     }
 
