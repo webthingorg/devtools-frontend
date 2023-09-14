@@ -33,6 +33,24 @@
       "message": "You need to add `devtools_frontend_mac_rel` to generate mac screenshots.\nAlso can you double check the grid color in canvas is as expected.\nThanks",
       "revId": "fdd0714bd3f9a32ca1813f169fffa8bb74326ff9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c47b3cb_83a99b4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-14T12:06:47Z",
+      "side": 1,
+      "message": "I think the grid color in canvas is as expected. The difference that we see in the screenshots is due to the fact that I completely forgot to set the threshold to 0 in this CL(https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4847030) in order to \"force\" update the screenshots.\nThe threshold of 4 did not pick up this change which is why it shows now. My sincere apologies for this mistake...",
+      "parentUuid": "046a587c_f59bf902",
+      "revId": "fdd0714bd3f9a32ca1813f169fffa8bb74326ff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
