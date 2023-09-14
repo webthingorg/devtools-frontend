@@ -16,6 +16,23 @@
       "message": "lgtm",
       "revId": "fdd0714bd3f9a32ca1813f169fffa8bb74326ff9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "046a587c_f59bf902",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-14T10:59:01Z",
+      "side": 1,
+      "message": "You need to add `devtools_frontend_mac_rel` to generate mac screenshots.\nAlso can you double check the grid color in canvas is as expected.\nThanks",
+      "revId": "fdd0714bd3f9a32ca1813f169fffa8bb74326ff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
