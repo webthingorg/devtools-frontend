@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eebe9b5_b20beebe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-14T12:54:14Z",
+      "side": 1,
+      "message": "Code-wise LGTM\nQQ: Do we also need to change other tracks? or this is the missing one?",
+      "revId": "4c33bbbada3563801e4e640b7af75d36df8d62b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f64084_a772dc44",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-14T12:54:14Z",
+      "side": 1,
+      "message": "Non block Discussion: do we want to directly return the color or `\u0027--app-color-painting\u0027` to sync with color from categories?",
+      "range": {
+        "startLine": 87,
+        "startChar": 11,
+        "endLine": 87,
+        "endChar": 88
+      },
+      "revId": "4c33bbbada3563801e4e640b7af75d36df8d62b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
