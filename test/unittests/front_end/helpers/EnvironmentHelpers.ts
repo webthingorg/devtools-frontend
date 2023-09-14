@@ -125,6 +125,7 @@ const REGISTERED_EXPERIMENTS = [
   'selfXssWarning',
   'evaluateExpressionsWithSourceMaps',
   'useSourceMapScopes',
+  'networkPanelFilterBarRedesign',
 ];
 
 export async function initializeGlobalVars({reset = true} = {}) {
