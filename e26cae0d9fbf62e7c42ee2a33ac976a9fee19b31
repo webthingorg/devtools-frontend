@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3084cd_6f144a73",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "nit: maybe move this to the end of the list of experiments, so that it shows up last in the UI as well (chronological)",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 6
+      },
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "936431dd_f89910e9",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "?",
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a061eac_3c8cec79",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "UIString and maybe rephrase to just \u0027Filter requests by type\u0027",
+      "range": {
+        "startLine": 2536,
+        "startChar": 56,
+        "endLine": 2536,
+        "endChar": 91
+      },
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7c9ea88_96121b7d",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2614,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "`label` is the short form, since the available space in the dropdown is not as limited, we can use `name`. This also makes the back and forth matching of label to name unnecessary and allows us to simplify the code significantly: `itemsLabelNameMap` and `matchLabelToUIString` won\u0027t be needed anymore.",
+      "range": {
+        "startLine": 2614,
+        "startChar": 52,
+        "endLine": 2614,
+        "endChar": 57
+      },
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a60d4c4a_fe1da541",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2617,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "Because we can use the longer `name` already in the context menu, adding the same word as a tooltip doesn\u0027t add anything, so we can just drop the tooltip.",
+      "range": {
+        "startLine": 2617,
+        "startChar": 55,
+        "endLine": 2617,
+        "endChar": 87
+      },
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db31202f_9f8625a4",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2651,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "By using the long item `name` for `label` in the context menu, this gets simpler: `this.contextMenu?.setChecked(i, this.allowedTypes.has(i.label));`",
+      "range": {
+        "startLine": 2651,
+        "startChar": 8,
+        "endLine": 2651,
+        "endChar": 69
+      },
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c625065_29b57e10",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2654,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "Probably not needed anymore",
+      "range": {
+        "startLine": 2654,
+        "startChar": 4,
+        "endLine": 2654,
+        "endChar": 83
+      },
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7d1d651_d3f1f1ec",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2691,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "For many DevTools users the setting already exits and uses just \u0027All\u0027 for this. If we change this, this might cause slight breakage.",
+      "range": {
+        "startLine": 2691,
+        "startChar": 31,
+        "endLine": 2691,
+        "endChar": 40
+      },
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "563f7904_042541aa",
+        "filename": "front_end/ui/legacy/FilterBar.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "Why this change of existing code?",
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0b16ff_ff7329b5",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:23:45Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
