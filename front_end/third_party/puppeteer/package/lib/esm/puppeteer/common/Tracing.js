@@ -118,7 +118,7 @@ export class Tracing {
         });
         await this.#client.send('Tracing.end');
         this.#recording = false;
-        return contentDeferred.valueOrThrow();
+        return await contentDeferred.valueOrThrow();
     }
 }
 //# sourceMappingURL=Tracing.js.map

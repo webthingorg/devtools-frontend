@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BrowserContext = void 0;
+exports.BidiBrowserContext = void 0;
 const BrowserContext_js_1 = require("../../api/BrowserContext.js");
 /**
  * @internal
  */
-class BrowserContext extends BrowserContext_js_1.BrowserContext {
+class BidiBrowserContext extends BrowserContext_js_1.BrowserContext {
     #browser;
     #connection;
     #defaultViewport;
@@ -91,5 +91,5 @@ class BrowserContext extends BrowserContext_js_1.BrowserContext {
         return !this.#isDefault;
     }
 }
-exports.BrowserContext = BrowserContext;
+exports.BidiBrowserContext = BidiBrowserContext;
 //# sourceMappingURL=BrowserContext.js.map

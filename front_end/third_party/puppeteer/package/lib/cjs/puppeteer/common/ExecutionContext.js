@@ -37,7 +37,7 @@ const getSourceUrlComment = (url) => {
  *
  * - Each {@link Frame} of a {@link Page | page} has a "default" execution
  *   context that is always created after frame is attached to DOM. This context
- *   is returned by the {@link Frame.executionContext} method.
+ *   is returned by the {@link Frame.realm} method.
  * - Each {@link https://developer.chrome.com/extensions | Chrome extensions}
  *   creates additional execution contexts to isolate their code.
  *
@@ -73,9 +73,7 @@ class ExecutionContext {
                 this.#installGlobalBinding(new Binding_js_1.Binding('__ariaQuerySelector', AriaQueryHandler_js_1.ARIAQueryHandler.queryOne)),
                 this.#installGlobalBinding(new Binding_js_1.Binding('__ariaQuerySelectorAll', (async (element, selector) => {
                     const results = AriaQueryHandler_js_1.ARIAQueryHandler.queryAll(element, selector);
-                    return element
-                        .executionContext()
-                        .evaluateHandle((...elements) => {
+                    return await element.realm.evaluateHandle((...elements) => {
                         return elements;
                     }, ...(await AsyncIterableUtil_js_1.AsyncIterableUtil.collect(results)));
                 }))),
@@ -200,7 +198,7 @@ class ExecutionContext {
      * {@link ElementHandle | element handle}.
      */
     async evaluateHandle(pageFunction, ...args) {
-        return this.#evaluate(false, pageFunction, ...args);
+        return await this.#evaluate(false, pageFunction, ...args);
     }
     async #evaluate(returnByValue, pageFunction, ...args) {
         const sourceUrlComment = getSourceUrlComment((0, util_js_1.getSourcePuppeteerURLIfAvailable)(pageFunction)?.toString() ??
@@ -225,7 +223,7 @@ class ExecutionContext {
             }
             return returnByValue
                 ? (0, util_js_1.valueFromRemoteObject)(remoteObject)
-                : (0, util_js_1.createJSHandle)(this, remoteObject);
+                : (0, util_js_1.createCdpHandle)(this._world, remoteObject);
         }
         const functionDeclaration = (0, Function_js_1.stringifyFunction)(pageFunction);
         const functionDeclarationWithSourceUrl = SOURCE_URL_REGEX.test(functionDeclaration)
@@ -255,7 +253,7 @@ class ExecutionContext {
         }
         return returnByValue
             ? (0, util_js_1.valueFromRemoteObject)(remoteObject)
-            : (0, util_js_1.createJSHandle)(this, remoteObject);
+            : (0, util_js_1.createCdpHandle)(this._world, remoteObject);
         async function convertArgument(arg) {
             if (arg instanceof LazyArg_js_1.LazyArg) {
                 arg = await arg.get(this);
@@ -280,7 +278,7 @@ class ExecutionContext {
                 ? arg
                 : null;
             if (objectHandle) {
-                if (objectHandle.executionContext() !== this) {
+                if (objectHandle.realm !== this._world) {
                     throw new Error('JSHandles can be evaluated only in the context they were created!');
                 }
                 if (objectHandle.disposed) {

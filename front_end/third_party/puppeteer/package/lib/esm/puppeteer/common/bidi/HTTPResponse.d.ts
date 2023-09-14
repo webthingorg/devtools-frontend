@@ -33,5 +33,6 @@ export declare class HTTPResponse extends BaseHTTPResponse {
     fromCache(): boolean;
     timing(): Protocol.Network.ResourceTiming | null;
     frame(): Frame | null;
+    fromServiceWorker(): boolean;
 }
 //# sourceMappingURL=HTTPResponse.d.ts.map

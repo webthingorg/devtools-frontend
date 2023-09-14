@@ -65,7 +65,6 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
     #ignoredTargets = new Set();
     #targetFilterCallback;
     #targetFactory;
-    #targetInterceptors = new WeakMap();
     #attachedToTargetListenersBySession = new WeakMap();
     #detachedFromTargetListenersBySession = new WeakMap();
     #initializeDeferred = Deferred_js_1.Deferred.create();
@@ -144,17 +143,6 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
         }
         return result;
     }
-    addTargetInterceptor(session, interceptor) {
-        const interceptors = this.#targetInterceptors.get(session) || [];
-        interceptors.push(interceptor);
-        this.#targetInterceptors.set(session, interceptors);
-    }
-    removeTargetInterceptor(client, interceptor) {
-        const interceptors = this.#targetInterceptors.get(client) || [];
-        this.#targetInterceptors.set(client, interceptors.filter(currentInterceptor => {
-            return currentInterceptor !== interceptor;
-        }));
-    }
     #setupAttachmentListeners(session) {
         const listener = (event) => {
             return this.#onAttachedToTarget(session, event);
@@ -181,7 +169,6 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
     }
     #onSessionDetached = (session) => {
         this.#removeAttachmentListeners(session);
-        this.#targetInterceptors.delete(session);
     };
     #onTargetCreated = async (event) => {
         this.#discoveredTargetsByTargetId.set(event.targetInfo.targetId, event.targetInfo);
@@ -278,8 +265,8 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
             this.emit("targetAvailable" /* TargetManagerEmittedEvents.TargetAvailable */, target);
             return;
         }
-        const existingTarget = this.#attachedTargetsByTargetId.has(targetInfo.targetId);
-        const target = existingTarget
+        const isExistingTarget = this.#attachedTargetsByTargetId.has(targetInfo.targetId);
+        const target = isExistingTarget
             ? this.#attachedTargetsByTargetId.get(targetInfo.targetId)
             : this.#targetFactory(targetInfo, session, parentSession instanceof Connection_js_1.CDPSession ? parentSession : undefined);
         if (this.#targetFilterCallback && !this.#targetFilterCallback(target)) {
@@ -288,30 +275,20 @@ class ChromeTargetManager extends EventEmitter_js_1.EventEmitter {
             await silentDetach();
             return;
         }
-        if (!existingTarget) {
+        if (!isExistingTarget) {
             target._initialize();
         }
         this.#setupAttachmentListeners(session);
-        if (existingTarget) {
+        if (isExistingTarget) {
             this.#attachedTargetsBySessionId.set(session.id(), this.#attachedTargetsByTargetId.get(targetInfo.targetId));
         }
         else {
             this.#attachedTargetsByTargetId.set(targetInfo.targetId, target);
             this.#attachedTargetsBySessionId.set(session.id(), target);
         }
-        for (const interceptor of this.#targetInterceptors.get(parentSession) ||
-            []) {
-            if (!(parentSession instanceof Connection_js_1.Connection)) {
-                // Sanity check: if parent session is not a connection, it should be
-                // present in #attachedTargetsBySessionId.
-                (0, assert_js_1.assert)(this.#attachedTargetsBySessionId.has(parentSession.id()));
-            }
-            interceptor(target, parentSession instanceof Connection_js_1.Connection
-                ? null
-                : this.#attachedTargetsBySessionId.get(parentSession.id()));
-        }
+        parentSession.emit(Connection_js_1.CDPSessionEmittedEvents.Ready, session);
         this.#targetsIdsForInit.delete(target._targetId);
-        if (!existingTarget && isTargetExposed(target)) {
+        if (!isExistingTarget && isTargetExposed(target)) {
             this.emit("targetAvailable" /* TargetManagerEmittedEvents.TargetAvailable */, target);
         }
         this.#finishInitializationIfReady();

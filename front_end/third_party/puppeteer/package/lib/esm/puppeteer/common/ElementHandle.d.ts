@@ -18,11 +18,9 @@ import { Protocol } from 'devtools-protocol';
 import { AutofillData, ElementHandle, Point } from '../api/ElementHandle.js';
 import { ScreenshotOptions } from '../api/Page.js';
 import { CDPSession } from './Connection.js';
-import { ExecutionContext } from './ExecutionContext.js';
-import { Frame } from './Frame.js';
-import { WaitForSelectorOptions } from './IsolatedWorld.js';
+import { CDPFrame } from './Frame.js';
+import { IsolatedWorld } from './IsolatedWorld.js';
 import { CDPJSHandle } from './JSHandle.js';
-import { NodeFor } from './types.js';
 /**
  * The CDPElementHandle extends ElementHandle now to keep compatibility
  * with `instanceof` because of that we need to have methods for
@@ -32,22 +30,13 @@ import { NodeFor } from './types.js';
  */
 export declare class CDPElementHandle<ElementType extends Node = Element> extends ElementHandle<ElementType> {
     #private;
-    handle: CDPJSHandle<ElementType>;
-    constructor(context: ExecutionContext, remoteObject: Protocol.Runtime.RemoteObject, frame: Frame);
-    /**
-     * @internal
-     */
-    executionContext(): ExecutionContext;
-    /**
-     * @internal
-     */
+    protected readonly handle: CDPJSHandle<ElementType>;
+    constructor(world: IsolatedWorld, remoteObject: Protocol.Runtime.RemoteObject);
+    get realm(): IsolatedWorld;
     get client(): CDPSession;
     remoteObject(): Protocol.Runtime.RemoteObject;
-    get frame(): Frame;
-    $<Selector extends string>(selector: Selector): Promise<CDPElementHandle<NodeFor<Selector>> | null>;
-    $$<Selector extends string>(selector: Selector): Promise<Array<CDPElementHandle<NodeFor<Selector>>>>;
-    waitForSelector<Selector extends string>(selector: Selector, options?: WaitForSelectorOptions): Promise<CDPElementHandle<NodeFor<Selector>> | null>;
-    contentFrame(this: ElementHandle<HTMLIFrameElement>): Promise<Frame>;
+    get frame(): CDPFrame;
+    contentFrame(this: ElementHandle<HTMLIFrameElement>): Promise<CDPFrame>;
     scrollIntoView(this: CDPElementHandle<Element>): Promise<void>;
     /**
      * This method creates and captures a dragevent from the element.
@@ -62,6 +51,5 @@ export declare class CDPElementHandle<ElementType extends Node = Element> extend
     uploadFile(this: CDPElementHandle<HTMLInputElement>, ...filePaths: string[]): Promise<void>;
     screenshot(this: CDPElementHandle<Element>, options?: ScreenshotOptions): Promise<string | Buffer>;
     autofill(data: AutofillData): Promise<void>;
-    assertElementHasWorld(): asserts this;
 }
 //# sourceMappingURL=ElementHandle.d.ts.map

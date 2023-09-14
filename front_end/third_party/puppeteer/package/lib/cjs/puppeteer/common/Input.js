@@ -25,20 +25,11 @@ const USKeyboardLayout_js_1 = require("./USKeyboardLayout.js");
 class CDPKeyboard extends Input_js_1.Keyboard {
     #client;
     #pressedKeys = new Set();
-    /**
-     * @internal
-     */
     _modifiers = 0;
-    /**
-     * @internal
-     */
     constructor(client) {
         super();
         this.#client = client;
     }
-    /**
-     * @internal
-     */
     updateClient(client) {
         this.#client = client;
     }
@@ -213,17 +204,11 @@ const getButtonFromPressedButtons = (buttons) => {
 class CDPMouse extends Input_js_1.Mouse {
     #client;
     #keyboard;
-    /**
-     * @internal
-     */
     constructor(client, keyboard) {
         super();
         this.#client = client;
         this.#keyboard = keyboard;
     }
-    /**
-     * @internal
-     */
     updateClient(client) {
         this.#client = client;
     }
@@ -401,7 +386,7 @@ class CDPMouse extends Input_js_1.Mouse {
         await this.move(start.x, start.y);
         await this.down();
         await this.move(target.x, target.y);
-        return promise;
+        return await promise;
     }
     async dragEnter(target, data) {
         await this.#client.send('Input.dispatchDragEvent', {
@@ -451,17 +436,11 @@ exports.CDPMouse = CDPMouse;
 class CDPTouchscreen extends Input_js_1.Touchscreen {
     #client;
     #keyboard;
-    /**
-     * @internal
-     */
     constructor(client, keyboard) {
         super();
         this.#client = client;
         this.#keyboard = keyboard;
     }
-    /**
-     * @internal
-     */
     updateClient(client) {
         this.#client = client;
     }

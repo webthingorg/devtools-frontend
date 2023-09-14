@@ -38,13 +38,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateDialogType = exports.getPageContent = exports.setPageContent = exports.getReadableFromProtocolStream = exports.getReadableAsBuffer = exports.importFSPromises = exports.waitWithTimeout = exports.pageBindingInitString = exports.addPageBinding = exports.evaluationString = exports.createJSHandle = exports.waitForEvent = exports.isDate = exports.isRegExp = exports.isPlainObject = exports.isNumber = exports.isString = exports.removeEventListeners = exports.addEventListener = exports.releaseObject = exports.valueFromRemoteObject = exports.getSourcePuppeteerURLIfAvailable = exports.withSourcePuppeteerURLIfNone = exports.PuppeteerURL = exports.createClientError = exports.createEvaluationError = exports.debugError = void 0;
+exports.timeout = exports.Mutex = exports.validateDialogType = exports.getPageContent = exports.setPageContent = exports.getReadableFromProtocolStream = exports.getReadableAsBuffer = exports.importFSPromises = exports.waitWithTimeout = exports.pageBindingInitString = exports.addPageBinding = exports.evaluationString = exports.createCdpHandle = exports.waitForEvent = exports.isDate = exports.isRegExp = exports.isPlainObject = exports.isNumber = exports.isString = exports.removeEventListeners = exports.addEventListener = exports.releaseObject = exports.valueFromRemoteObject = exports.getSourcePuppeteerURLIfAvailable = exports.withSourcePuppeteerURLIfNone = exports.PuppeteerURL = exports.createClientError = exports.createEvaluationError = exports.debugError = void 0;
+const rxjs_js_1 = require("../../third_party/rxjs/rxjs.js");
 const environment_js_1 = require("../environment.js");
 const assert_js_1 = require("../util/assert.js");
 const Deferred_js_1 = require("../util/Deferred.js");
 const ErrorLike_js_1 = require("../util/ErrorLike.js");
 const Debug_js_1 = require("./Debug.js");
 const ElementHandle_js_1 = require("./ElementHandle.js");
+const Errors_js_1 = require("./Errors.js");
 const JSHandle_js_1 = require("./JSHandle.js");
 /**
  * @internal
@@ -347,13 +349,13 @@ exports.waitForEvent = waitForEvent;
 /**
  * @internal
  */
-function createJSHandle(context, remoteObject) {
-    if (remoteObject.subtype === 'node' && context._world) {
-        return new ElementHandle_js_1.CDPElementHandle(context, remoteObject, context._world.frame());
+function createCdpHandle(realm, remoteObject) {
+    if (remoteObject.subtype === 'node') {
+        return new ElementHandle_js_1.CDPElementHandle(realm, remoteObject);
     }
-    return new JSHandle_js_1.CDPJSHandle(context, remoteObject);
+    return new JSHandle_js_1.CDPJSHandle(realm, remoteObject);
 }
-exports.createJSHandle = createJSHandle;
+exports.createCdpHandle = createCdpHandle;
 /**
  * @internal
  */
@@ -527,7 +529,7 @@ exports.getReadableFromProtocolStream = getReadableFromProtocolStream;
 async function setPageContent(page, content) {
     // We rely upon the fact that document.open() will reset frame lifecycle with "init"
     // lifecycle event. @see https://crrev.com/608658
-    return page.evaluate(html => {
+    return await page.evaluate(html => {
         document.open();
         document.write(html);
         document.close();
@@ -570,4 +572,51 @@ function validateDialogType(type) {
     return dialogType;
 }
 exports.validateDialogType = validateDialogType;
+/**
+ * @internal
+ */
+class Mutex {
+    static Guard = class Guard {
+        #mutex;
+        constructor(mutex) {
+            this.#mutex = mutex;
+        }
+        [Symbol.dispose]() {
+            return this.#mutex.release();
+        }
+    };
+    #locked = false;
+    #acquirers = [];
+    // This is FIFO.
+    async acquire() {
+        if (!this.#locked) {
+            this.#locked = true;
+            return new Mutex.Guard(this);
+        }
+        const deferred = Deferred_js_1.Deferred.create();
+        this.#acquirers.push(deferred.resolve.bind(deferred));
+        await deferred.valueOrThrow();
+        return new Mutex.Guard(this);
+    }
+    release() {
+        const resolve = this.#acquirers.shift();
+        if (!resolve) {
+            this.#locked = false;
+            return;
+        }
+        resolve();
+    }
+}
+exports.Mutex = Mutex;
+/**
+ * @internal
+ */
+function timeout(ms) {
+    return ms === 0
+        ? rxjs_js_1.NEVER
+        : (0, rxjs_js_1.timer)(ms).pipe((0, rxjs_js_1.map)(() => {
+            throw new Errors_js_1.TimeoutError(`Timed out after waiting ${ms}ms`);
+        }));
+}
+exports.timeout = timeout;
 //# sourceMappingURL=util.js.map

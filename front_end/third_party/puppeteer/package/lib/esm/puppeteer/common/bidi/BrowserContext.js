@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BrowserContext as BrowserContextBase } from '../../api/BrowserContext.js';
+import { BrowserContext } from '../../api/BrowserContext.js';
 /**
  * @internal
  */
-export class BrowserContext extends BrowserContextBase {
+export class BidiBrowserContext extends BrowserContext {
     #browser;
     #connection;
     #defaultViewport;

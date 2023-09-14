@@ -120,9 +120,17 @@ class CallbackRegistry {
         this._reject(callback, message, originalMessage);
     }
     _reject(callback, errorMessage, originalMessage) {
-        const isError = errorMessage instanceof Errors_js_1.ProtocolError;
-        const message = isError ? errorMessage.message : errorMessage;
-        const error = isError ? errorMessage : callback.error;
+        let error;
+        let message;
+        if (errorMessage instanceof Errors_js_1.ProtocolError) {
+            error = errorMessage;
+            error.cause = callback.error;
+            message = errorMessage.message;
+        }
+        else {
+            error = callback.error;
+            message = errorMessage;
+        }
         callback.reject(rewriteError(error, `Protocol error (${callback.label}): ${message}`, originalMessage));
     }
     resolve(id, value) {
@@ -331,6 +339,11 @@ exports.Connection = Connection;
 exports.CDPSessionEmittedEvents = {
     Disconnected: Symbol('CDPSession.Disconnected'),
     Swapped: Symbol('CDPSession.Swapped'),
+    /**
+     * Emitted when the session is ready to be configured during the auto-attach
+     * process. Right after the event is handled, the session will be resumed.
+     */
+    Ready: Symbol('CDPSession.Ready'),
 };
 /**
  * The `CDPSession` instances are used to talk raw Chrome Devtools Protocol.

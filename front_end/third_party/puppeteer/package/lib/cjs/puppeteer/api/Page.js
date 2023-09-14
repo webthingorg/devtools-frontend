@@ -23,7 +23,6 @@ const NetworkManager_js_1 = require("../common/NetworkManager.js");
 const PDFOptions_js_1 = require("../common/PDFOptions.js");
 const util_js_1 = require("../common/util.js");
 const assert_js_1 = require("../util/assert.js");
-const Deferred_js_1 = require("../util/Deferred.js");
 const locators_js_1 = require("./locators/locators.js");
 /**
  * Page provides methods to interact with a single tab or
@@ -273,7 +272,7 @@ class Page extends EventEmitter_js_1.EventEmitter {
      * to query page for.
      */
     async $(selector) {
-        return this.mainFrame().$(selector);
+        return await this.mainFrame().$(selector);
     }
     /**
      * The method runs `document.querySelectorAll` within the page. If no elements
@@ -283,10 +282,68 @@ class Page extends EventEmitter_js_1.EventEmitter {
      * @param selector - A `selector` to query page for
      */
     async $$(selector) {
-        return this.mainFrame().$$(selector);
+        return await this.mainFrame().$$(selector);
     }
-    async evaluateHandle() {
-        throw new Error('Not implemented');
+    /**
+     * @remarks
+     *
+     * The only difference between {@link Page.evaluate | page.evaluate} and
+     * `page.evaluateHandle` is that `evaluateHandle` will return the value
+     * wrapped in an in-page object.
+     *
+     * If the function passed to `page.evaluateHandle` returns a Promise, the
+     * function will wait for the promise to resolve and return its value.
+     *
+     * You can pass a string instead of a function (although functions are
+     * recommended as they are easier to debug and use with TypeScript):
+     *
+     * @example
+     *
+     * ```ts
+     * const aHandle = await page.evaluateHandle('document');
+     * ```
+     *
+     * @example
+     * {@link JSHandle} instances can be passed as arguments to the `pageFunction`:
+     *
+     * ```ts
+     * const aHandle = await page.evaluateHandle(() => document.body);
+     * const resultHandle = await page.evaluateHandle(
+     *   body => body.innerHTML,
+     *   aHandle
+     * );
+     * console.log(await resultHandle.jsonValue());
+     * await resultHandle.dispose();
+     * ```
+     *
+     * Most of the time this function returns a {@link JSHandle},
+     * but if `pageFunction` returns a reference to an element,
+     * you instead get an {@link ElementHandle} back:
+     *
+     * @example
+     *
+     * ```ts
+     * const button = await page.evaluateHandle(() =>
+     *   document.querySelector('button')
+     * );
+     * // can call `click` because `button` is an `ElementHandle`
+     * await button.click();
+     * ```
+     *
+     * The TypeScript definitions assume that `evaluateHandle` returns
+     * a `JSHandle`, but if you know it's going to return an
+     * `ElementHandle`, pass it as the generic argument:
+     *
+     * ```ts
+     * const button = await page.evaluateHandle<ElementHandle>(...);
+     * ```
+     *
+     * @param pageFunction - a function that is run within the page
+     * @param args - arguments to be passed to the pageFunction
+     */
+    async evaluateHandle(pageFunction, ...args) {
+        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluateHandle.name, pageFunction);
+        return await this.mainFrame().evaluateHandle(pageFunction, ...args);
     }
     async queryObjects() {
         throw new Error('Not implemented');
@@ -355,7 +412,7 @@ class Page extends EventEmitter_js_1.EventEmitter {
      */
     async $eval(selector, pageFunction, ...args) {
         pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.$eval.name, pageFunction);
-        return this.mainFrame().$eval(selector, pageFunction, ...args);
+        return await this.mainFrame().$eval(selector, pageFunction, ...args);
     }
     /**
      * This method runs `Array.from(document.querySelectorAll(selector))` within
@@ -421,7 +478,7 @@ class Page extends EventEmitter_js_1.EventEmitter {
      */
     async $$eval(selector, pageFunction, ...args) {
         pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.$$eval.name, pageFunction);
-        return this.mainFrame().$$eval(selector, pageFunction, ...args);
+        return await this.mainFrame().$$eval(selector, pageFunction, ...args);
     }
     /**
      * The method evaluates the XPath expression relative to the page document as
@@ -434,7 +491,7 @@ class Page extends EventEmitter_js_1.EventEmitter {
      * @param expression - Expression to evaluate
      */
     async $x(expression) {
-        return this.mainFrame().$x(expression);
+        return await this.mainFrame().$x(expression);
     }
     async cookies() {
         throw new Error('Not implemented');
@@ -457,13 +514,10 @@ class Page extends EventEmitter_js_1.EventEmitter {
      * `<script>` element.
      */
     async addScriptTag(options) {
-        return this.mainFrame().addScriptTag(options);
+        return await this.mainFrame().addScriptTag(options);
     }
     async addStyleTag(options) {
-        return this.mainFrame().addStyleTag(options);
-    }
-    async exposeFunction() {
-        throw new Error('Not implemented');
+        return await this.mainFrame().addStyleTag(options);
     }
     async removeExposedFunction() {
         throw new Error('Not implemented');
@@ -522,19 +576,102 @@ class Page extends EventEmitter_js_1.EventEmitter {
      * {@link Frame.url | page.mainFrame().url()}.
      */
     url() {
-        throw new Error('Not implemented');
+        return this.mainFrame().url();
     }
     /**
      * The full HTML contents of the page, including the DOCTYPE.
      */
     async content() {
-        throw new Error('Not implemented');
+        return await this.mainFrame().content();
     }
-    async setContent() {
-        throw new Error('Not implemented');
+    /**
+     * Set the content of the page.
+     *
+     * @param html - HTML markup to assign to the page.
+     * @param options - Parameters that has some properties.
+     * @remarks
+     * The parameter `options` might have the following options.
+     *
+     * - `timeout` : Maximum time in milliseconds for resources to load, defaults
+     *   to 30 seconds, pass `0` to disable timeout. The default value can be
+     *   changed by using the {@link Page.setDefaultNavigationTimeout} or
+     *   {@link Page.setDefaultTimeout} methods.
+     *
+     * - `waitUntil`: When to consider setting markup succeeded, defaults to
+     *   `load`. Given an array of event strings, setting content is considered
+     *   to be successful after all events have been fired. Events can be
+     *   either:<br/>
+     * - `load` : consider setting content to be finished when the `load` event
+     *   is fired.<br/>
+     * - `domcontentloaded` : consider setting content to be finished when the
+     *   `DOMContentLoaded` event is fired.<br/>
+     * - `networkidle0` : consider setting content to be finished when there are
+     *   no more than 0 network connections for at least `500` ms.<br/>
+     * - `networkidle2` : consider setting content to be finished when there are
+     *   no more than 2 network connections for at least `500` ms.
+     */
+    async setContent(html, options) {
+        await this.mainFrame().setContent(html, options);
     }
-    async goto() {
-        throw new Error('Not implemented');
+    /**
+     * @param url - URL to navigate page to. The URL should include scheme, e.g.
+     * `https://`
+     * @param options - Navigation Parameter
+     * @returns Promise which resolves to the main resource response. In case of
+     * multiple redirects, the navigation will resolve with the response of the
+     * last redirect.
+     * @remarks
+     * The argument `options` might have the following properties:
+     *
+     * - `timeout` : Maximum navigation time in milliseconds, defaults to 30
+     *   seconds, pass 0 to disable timeout. The default value can be changed by
+     *   using the {@link Page.setDefaultNavigationTimeout} or
+     *   {@link Page.setDefaultTimeout} methods.
+     *
+     * - `waitUntil`:When to consider navigation succeeded, defaults to `load`.
+     *   Given an array of event strings, navigation is considered to be
+     *   successful after all events have been fired. Events can be either:<br/>
+     * - `load` : consider navigation to be finished when the load event is
+     *   fired.<br/>
+     * - `domcontentloaded` : consider navigation to be finished when the
+     *   DOMContentLoaded event is fired.<br/>
+     * - `networkidle0` : consider navigation to be finished when there are no
+     *   more than 0 network connections for at least `500` ms.<br/>
+     * - `networkidle2` : consider navigation to be finished when there are no
+     *   more than 2 network connections for at least `500` ms.
+     *
+     * - `referer` : Referer header value. If provided it will take preference
+     *   over the referer header value set by
+     *   {@link Page.setExtraHTTPHeaders |page.setExtraHTTPHeaders()}.<br/>
+     * - `referrerPolicy` : ReferrerPolicy. If provided it will take preference
+     *   over the referer-policy header value set by
+     *   {@link Page.setExtraHTTPHeaders |page.setExtraHTTPHeaders()}.
+     *
+     * `page.goto` will throw an error if:
+     *
+     * - there's an SSL error (e.g. in case of self-signed certificates).
+     * - target URL is invalid.
+     * - the timeout is exceeded during navigation.
+     * - the remote server does not respond or is unreachable.
+     * - the main resource failed to load.
+     *
+     * `page.goto` will not throw an error when any valid HTTP status code is
+     * returned by the remote server, including 404 "Not Found" and 500
+     * "Internal Server Error". The status code for such responses can be
+     * retrieved by calling response.status().
+     *
+     * NOTE: `page.goto` either throws an error or returns a main resource
+     * response. The only exceptions are navigation to about:blank or navigation
+     * to the same URL with a different hash, which would succeed and return null.
+     *
+     * NOTE: Headless mode doesn't support navigation to a PDF document. See the
+     * {@link https://bugs.chromium.org/p/chromium/issues/detail?id=761295 |
+     * upstream issue}.
+     *
+     * Shortcut for {@link Frame.goto | page.mainFrame().goto(url, options)}.
+     */
+    async goto(url, options) {
+        return await this.mainFrame().goto(url, options);
     }
     async reload() {
         throw new Error('Not implemented');
@@ -581,44 +718,12 @@ class Page extends EventEmitter_js_1.EventEmitter {
     /**
      * @internal
      */
-    async _waitForNetworkIdle(networkManager, idleTime, timeout, closedDeferred) {
-        const idleDeferred = Deferred_js_1.Deferred.create();
-        const abortDeferred = Deferred_js_1.Deferred.create();
-        let idleTimer;
-        const cleanup = () => {
-            clearTimeout(idleTimer);
-            abortDeferred.reject(new Error('abort'));
-        };
-        const evaluate = () => {
-            clearTimeout(idleTimer);
-            if (networkManager.inFlightRequestsCount() === 0) {
-                idleTimer = setTimeout(() => {
-                    return idleDeferred.resolve();
-                }, idleTime);
-            }
-        };
-        const listenToEvent = (event) => {
-            return (0, util_js_1.waitForEvent)(networkManager, event, () => {
-                evaluate();
-                return false;
-            }, timeout, abortDeferred);
-        };
-        const eventPromises = [
-            listenToEvent(NetworkManager_js_1.NetworkManagerEmittedEvents.Request),
-            listenToEvent(NetworkManager_js_1.NetworkManagerEmittedEvents.Response),
-            listenToEvent(NetworkManager_js_1.NetworkManagerEmittedEvents.RequestFailed),
-        ];
-        evaluate();
-        // We don't want to reject the closed deferred when
-        // the race if finished so we pass the Promise instead
-        const closedPromise = closedDeferred.valueOrThrow();
-        await Deferred_js_1.Deferred.race([idleDeferred, ...eventPromises, closedPromise]).then(r => {
-            cleanup();
-            return r;
-        }, error => {
-            cleanup();
-            throw error;
-        });
+    async _waitForNetworkIdle(networkManager, idleTime, ms, closedDeferred) {
+        await (0, rxjs_js_1.firstValueFrom)((0, rxjs_js_1.merge)((0, rxjs_js_1.fromEvent)(networkManager, NetworkManager_js_1.NetworkManagerEmittedEvents.Request), (0, rxjs_js_1.fromEvent)(networkManager, NetworkManager_js_1.NetworkManagerEmittedEvents.Response), (0, rxjs_js_1.fromEvent)(networkManager, NetworkManager_js_1.NetworkManagerEmittedEvents.RequestFailed)).pipe((0, rxjs_js_1.startWith)(null), (0, rxjs_js_1.filter)(() => {
+            return networkManager.inFlightRequestsCount() === 0;
+        }), (0, rxjs_js_1.switchMap)(v => {
+            return (0, rxjs_js_1.of)(v).pipe((0, rxjs_js_1.delay)(idleTime));
+        }), (0, rxjs_js_1.raceWith)((0, util_js_1.timeout)(ms), (0, rxjs_js_1.from)(closedDeferred.valueOrThrow()))));
     }
     /**
      * Waits for a frame matching the given conditions to appear.
@@ -638,9 +743,7 @@ class Page extends EventEmitter_js_1.EventEmitter {
                 return urlOrPredicate === frame.url();
             };
         }
-        return (0, rxjs_js_1.firstValueFrom)((0, rxjs_js_1.merge)((0, rxjs_js_1.fromEvent)(this, "frameattached" /* PageEmittedEvents.FrameAttached */), (0, rxjs_js_1.fromEvent)(this, "framenavigated" /* PageEmittedEvents.FrameNavigated */), (0, rxjs_js_1.from)(this.frames())).pipe((0, rxjs_js_1.filterAsync)(urlOrPredicate), (0, rxjs_js_1.first)(), (0, rxjs_js_1.raceWith)((0, rxjs_js_1.timer)(ms === 0 ? Infinity : ms).pipe((0, rxjs_js_1.map)(() => {
-            throw new Errors_js_1.TimeoutError(`Timed out after waiting ${ms}ms`);
-        })), (0, rxjs_js_1.fromEvent)(this, "close" /* PageEmittedEvents.Close */).pipe((0, rxjs_js_1.map)(() => {
+        return await (0, rxjs_js_1.firstValueFrom)((0, rxjs_js_1.merge)((0, rxjs_js_1.fromEvent)(this, "frameattached" /* PageEmittedEvents.FrameAttached */), (0, rxjs_js_1.fromEvent)(this, "framenavigated" /* PageEmittedEvents.FrameNavigated */), (0, rxjs_js_1.from)(this.frames())).pipe((0, rxjs_js_1.filterAsync)(urlOrPredicate), (0, rxjs_js_1.first)(), (0, rxjs_js_1.raceWith)((0, util_js_1.timeout)(ms), (0, rxjs_js_1.fromEvent)(this, "close" /* PageEmittedEvents.Close */).pipe((0, rxjs_js_1.map)(() => {
             throw new Errors_js_1.TargetCloseError('Page closed.');
         })))));
     }
@@ -743,8 +846,56 @@ class Page extends EventEmitter_js_1.EventEmitter {
     viewport() {
         throw new Error('Not implemented');
     }
-    async evaluate() {
-        throw new Error('Not implemented');
+    /**
+     * Evaluates a function in the page's context and returns the result.
+     *
+     * If the function passed to `page.evaluate` returns a Promise, the
+     * function will wait for the promise to resolve and return its value.
+     *
+     * @example
+     *
+     * ```ts
+     * const result = await frame.evaluate(() => {
+     *   return Promise.resolve(8 * 7);
+     * });
+     * console.log(result); // prints "56"
+     * ```
+     *
+     * You can pass a string instead of a function (although functions are
+     * recommended as they are easier to debug and use with TypeScript):
+     *
+     * @example
+     *
+     * ```ts
+     * const aHandle = await page.evaluate('1 + 2');
+     * ```
+     *
+     * To get the best TypeScript experience, you should pass in as the
+     * generic the type of `pageFunction`:
+     *
+     * ```ts
+     * const aHandle = await page.evaluate(() => 2);
+     * ```
+     *
+     * @example
+     *
+     * {@link ElementHandle} instances (including {@link JSHandle}s) can be passed
+     * as arguments to the `pageFunction`:
+     *
+     * ```ts
+     * const bodyHandle = await page.$('body');
+     * const html = await page.evaluate(body => body.innerHTML, bodyHandle);
+     * await bodyHandle.dispose();
+     * ```
+     *
+     * @param pageFunction - a function that is run within the page
+     * @param args - arguments to be passed to the pageFunction
+     *
+     * @returns the return value of `pageFunction`.
+     */
+    async evaluate(pageFunction, ...args) {
+        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluate.name, pageFunction);
+        return await this.mainFrame().evaluate(pageFunction, ...args);
     }
     async evaluateOnNewDocument() {
         throw new Error('Not implemented');
@@ -825,7 +976,7 @@ class Page extends EventEmitter_js_1.EventEmitter {
      * Shortcut for {@link Frame.title | page.mainFrame().title()}.
      */
     async title() {
-        throw new Error('Not implemented');
+        return await this.mainFrame().title();
     }
     async close() {
         throw new Error('Not implemented');
@@ -1167,6 +1318,12 @@ class Page extends EventEmitter_js_1.EventEmitter {
     }
     waitForDevicePrompt() {
         throw new Error('Not implemented');
+    }
+    [Symbol.dispose]() {
+        return void this.close().catch(util_js_1.debugError);
+    }
+    [Symbol.asyncDispose]() {
+        return this.close();
     }
 }
 exports.Page = Page;
