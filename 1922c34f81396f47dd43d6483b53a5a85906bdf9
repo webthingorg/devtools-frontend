@@ -39,6 +39,30 @@
       },
       "revId": "1922c34f81396f47dd43d6483b53a5a85906bdf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e397c33_034df130",
+        "filename": "test/unittests/front_end/models/trace/TreeManipulator_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-14T13:55:05Z",
+      "side": 1,
+      "message": "you can see this particular case here:\nhttps://screenshot.googleplex.com/73nyi7NBopFrfom\n\nThe stacks used to be split due to an instant event. Now that we ingore them, we have a single stack that\u0027s double the width",
+      "parentUuid": "bd090d9a_fced04a5",
+      "range": {
+        "startLine": 95,
+        "startChar": 24,
+        "endLine": 95,
+        "endChar": 27
+      },
+      "revId": "1922c34f81396f47dd43d6483b53a5a85906bdf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
