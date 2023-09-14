@@ -8,6 +8,7 @@ import {
   editCSSProperty,
   expandSelectedNodeRecursively,
   INACTIVE_GRID_ADORNER_SELECTOR,
+  MEDIA_LINK_ADORNER_SELECTOR,
   waitForAdornerOnSelectedNode,
   waitForAdorners,
   waitForContentOfSelectedElementsNode,
@@ -48,6 +49,19 @@ describe('Adornment in the Elements Tab', async function() {
     await waitForAdorners([
       {textContent: 'scroll-snap', isActive: false},
     ]);
+  });
+
+  it('click media adorners', async () => {
+    await goToResource('elements/adornment-media.html');
+    await prepareElementsTab();
+
+    await waitForAdorners([
+      {textContent: 'media', isActive: false},
+      {textContent: 'media', isActive: false},
+    ]);
+
+    await click(MEDIA_LINK_ADORNER_SELECTOR);
+    await click(MEDIA_LINK_ADORNER_SELECTOR);
   });
 
   it('displays container query adorners', async () => {
