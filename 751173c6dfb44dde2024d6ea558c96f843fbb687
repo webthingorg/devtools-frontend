@@ -16,6 +16,29 @@
       "message": "PTAL. Note that this isn\u0027t actually enabled yet - in a follow-up CL I will enable it and bind the listener to trigger the flamechart being re-rendered.",
       "revId": "751173c6dfb44dde2024d6ea558c96f843fbb687",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6583d712_2ae6b496",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-14T14:05:49Z",
+      "side": 1,
+      "message": "small optimisation, otherwise even if there is no target we still iterate over all the nodes when we know we cannot resolve the name",
+      "range": {
+        "startLine": 134,
+        "startChar": 5,
+        "endLine": 137,
+        "endChar": 0
+      },
+      "revId": "751173c6dfb44dde2024d6ea558c96f843fbb687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
