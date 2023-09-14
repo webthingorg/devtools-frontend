@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3cce4d6_a0844bac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-14T13:57:02Z",
+      "side": 1,
+      "message": "Thanks for adding helpers for tests, Silvia! In general, looks good, left a comment there",
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb9fc37_1ef0b4a3",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-14T13:57:02Z",
+      "side": 1,
+      "message": "Do you really need to pass functions (createNetworkRequest, createNetworkLogView)? It should be possible just to call them in here",
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
