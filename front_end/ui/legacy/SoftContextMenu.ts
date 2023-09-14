@@ -235,6 +235,7 @@ export class SoftContextMenu {
     if (!item.checked) {
       checkMarkElement.style.opacity = '0';
     }
+
     if (item.tooltip) {
       Tooltip.install(menuItemElement, item.tooltip);
     }
