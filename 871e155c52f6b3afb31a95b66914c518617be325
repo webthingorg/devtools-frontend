@@ -80,6 +80,30 @@
       },
       "revId": "871e155c52f6b3afb31a95b66914c518617be325",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08459ead_26e4b702",
+        "filename": "test/e2e/application/reporting-api_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-14T14:38:11Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "parentUuid": "d7b0c1f2_42e0eb5f",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "871e155c52f6b3afb31a95b66914c518617be325",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
