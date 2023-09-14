@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d082fc64_8898f4e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-14T13:22:43Z",
+      "side": 1,
+      "message": "Nice. Is it worth removing this similar code from the old engine? Or not worth it given we will fully remove it soon?",
+      "revId": "40312b27da6d383d4e8f6c49ab029bd9f104613e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
