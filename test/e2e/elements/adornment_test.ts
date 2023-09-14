@@ -50,6 +50,30 @@ describe('Adornment in the Elements Tab', async function() {
     ]);
   });
 
+  it('click media adorners', async () => {
+    // Note that this test simulates several property value editing, with delay between each keystrokes.
+    // If this test become flaky in the future, it is likely that we will have to increase the timeout.
+    await goToResource('elements/adornment-media.html');
+    await prepareElementsTab();
+
+    await waitForAdorners([
+      {textContent: 'media', isActive: false},
+      {textContent: 'media', isActive: false},
+    ]);
+
+    // Select the first video element.
+    const {frontend} = getBrowserAndPages();
+    await frontend.keyboard.press('ArrowDown');
+    await waitForAdornerOnSelectedNode('media');
+
+    // Remove the video element.
+    await editCSSProperty('video', 'display', 'none');
+
+    // Select the second audio element.
+    await frontend.keyboard.press('ArrowDown');
+    await waitForAdornerOnSelectedNode('media');
+  });
+
   it('displays container query adorners', async () => {
     await goToResource('elements/adornment-container-query.html');
     await prepareElementsTab();
