@@ -31,6 +31,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./Accessibility.js"), exports);
 __exportStar(require("./AriaQueryHandler.js"), exports);
+__exportStar(require("./Binding.js"), exports);
 __exportStar(require("./Browser.js"), exports);
 __exportStar(require("./BrowserConnector.js"), exports);
 __exportStar(require("./BrowserWebSocketTransport.js"), exports);
@@ -70,6 +71,7 @@ __exportStar(require("./PredefinedNetworkConditions.js"), exports);
 __exportStar(require("./Product.js"), exports);
 __exportStar(require("./Puppeteer.js"), exports);
 __exportStar(require("./PuppeteerViewport.js"), exports);
+__exportStar(require("./QueryHandler.js"), exports);
 __exportStar(require("./SecurityDetails.js"), exports);
 __exportStar(require("./Target.js"), exports);
 __exportStar(require("./TargetManager.js"), exports);
@@ -81,5 +83,4 @@ __exportStar(require("./USKeyboardLayout.js"), exports);
 __exportStar(require("./util.js"), exports);
 __exportStar(require("./WaitTask.js"), exports);
 __exportStar(require("./WebWorker.js"), exports);
-__exportStar(require("./QueryHandler.js"), exports);
 //# sourceMappingURL=common.js.map

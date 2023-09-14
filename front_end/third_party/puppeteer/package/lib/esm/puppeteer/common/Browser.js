@@ -20,15 +20,12 @@ import { assert } from '../util/assert.js';
 import { ChromeTargetManager } from './ChromeTargetManager.js';
 import { ConnectionEmittedEvents } from './Connection.js';
 import { FirefoxTargetManager } from './FirefoxTargetManager.js';
-import { InitializationStatus, OtherTarget, PageTarget, WorkerTarget, } from './Target.js';
+import { InitializationStatus, OtherTarget, PageTarget, WorkerTarget, DevToolsTarget, } from './Target.js';
 import { TaskQueue } from './TaskQueue.js';
 /**
  * @internal
  */
 export class CDPBrowser extends BrowserBase {
-    /**
-     * @internal
-     */
     static async _create(product, connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback, targetFilterCallback, isPageTargetCallback, waitForInitiallyDiscoveredTargets = true, useTabTarget = USE_TAB_TARGET) {
         const browser = new CDPBrowser(product, connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback, targetFilterCallback, isPageTargetCallback, waitForInitiallyDiscoveredTargets, useTabTarget);
         await browser._attach();
@@ -45,15 +42,9 @@ export class CDPBrowser extends BrowserBase {
     #contexts = new Map();
     #screenshotTaskQueue;
     #targetManager;
-    /**
-     * @internal
-     */
     get _targets() {
         return this.#targetManager.getAvailableTargets();
     }
-    /**
-     * @internal
-     */
     constructor(product, connection, contextIds, ignoreHTTPSErrors, defaultViewport, process, closeCallback, targetFilterCallback, isPageTargetCallback, waitForInitiallyDiscoveredTargets = true, useTabTarget = USE_TAB_TARGET) {
         super();
         product = product || 'chrome';
@@ -83,9 +74,6 @@ export class CDPBrowser extends BrowserBase {
     #emitDisconnected = () => {
         this.emit("disconnected" /* BrowserEmittedEvents.Disconnected */);
     };
-    /**
-     * @internal
-     */
     async _attach() {
         this.#connection.on(ConnectionEmittedEvents.Disconnected, this.#emitDisconnected);
         this.#targetManager.on("targetAvailable" /* TargetManagerEmittedEvents.TargetAvailable */, this.#onAttachedToTarget);
@@ -94,9 +82,6 @@ export class CDPBrowser extends BrowserBase {
         this.#targetManager.on("targetDiscovered" /* TargetManagerEmittedEvents.TargetDiscovered */, this.#onTargetDiscovered);
         await this.#targetManager.initialize();
     }
-    /**
-     * @internal
-     */
     _detach() {
         this.#connection.off(ConnectionEmittedEvents.Disconnected, this.#emitDisconnected);
         this.#targetManager.off("targetAvailable" /* TargetManagerEmittedEvents.TargetAvailable */, this.#onAttachedToTarget);
@@ -111,9 +96,6 @@ export class CDPBrowser extends BrowserBase {
     process() {
         return this.#process ?? null;
     }
-    /**
-     * @internal
-     */
     _targetManager() {
         return this.#targetManager;
     }
@@ -126,9 +108,6 @@ export class CDPBrowser extends BrowserBase {
                         target.type() === 'webview');
                 });
     }
-    /**
-     * @internal
-     */
     _getIsPageTargetCallback() {
         return this.#isPageTargetCallback;
     }
@@ -173,9 +152,6 @@ export class CDPBrowser extends BrowserBase {
     defaultBrowserContext() {
         return this.#defaultContext;
     }
-    /**
-     * @internal
-     */
     async _disposeContext(contextId) {
         if (!contextId) {
             return;
@@ -197,6 +173,9 @@ export class CDPBrowser extends BrowserBase {
             return this.#connection._createSession(targetInfo, isAutoAttachEmulated);
         };
         const targetForFilter = new OtherTarget(targetInfo, session, context, this.#targetManager, createSession);
+        if (targetInfo.url?.startsWith('devtools://')) {
+            return new DevToolsTarget(targetInfo, session, context, this.#targetManager, createSession, this.#ignoreHTTPSErrors, this.#defaultViewport ?? null, this.#screenshotTaskQueue);
+        }
         if (this.#isPageTargetCallback(targetForFilter)) {
             return new PageTarget(targetInfo, session, context, this.#targetManager, createSession, this.#ignoreHTTPSErrors, this.#defaultViewport ?? null, this.#screenshotTaskQueue);
         }
@@ -260,11 +239,8 @@ export class CDPBrowser extends BrowserBase {
      * a default browser context.
      */
     async newPage() {
-        return this.#defaultContext.newPage();
+        return await this.#defaultContext.newPage();
     }
-    /**
-     * @internal
-     */
     async _createPageInContext(contextId) {
         const { targetId } = await this.#connection.send('Target.createTarget', {
             url: 'about:blank',
@@ -346,9 +322,6 @@ export class CDPBrowserContext extends BrowserContext {
     #connection;
     #browser;
     #id;
-    /**
-     * @internal
-     */
     constructor(connection, browser, contextId) {
         super();
         this.#connection = connection;
@@ -396,7 +369,7 @@ export class CDPBrowserContext extends BrowserContext {
      *
      * @returns Promise which resolves to an array of all open pages.
      * Non visible pages, such as `"background_page"`, will not be listed here.
-     * You can find them using {@link CDPTarget.page | the target page}.
+     * You can find them using {@link Target.page | the target page}.
      */
     async pages() {
         const pages = await Promise.all(this.targets()

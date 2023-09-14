@@ -13,62 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { JSHandle as BaseJSHandle } from '../../api/JSHandle.js';
-import { withSourcePuppeteerURLIfNone } from '../util.js';
+import { JSHandle } from '../../api/JSHandle.js';
 import { BidiSerializer } from './Serializer.js';
 import { releaseReference } from './utils.js';
-export class JSHandle extends BaseJSHandle {
+export class BidiJSHandle extends JSHandle {
     #disposed = false;
-    #realm;
+    #sandbox;
     #remoteValue;
-    constructor(realm, remoteValue) {
+    constructor(sandbox, remoteValue) {
         super();
-        this.#realm = realm;
+        this.#sandbox = sandbox;
         this.#remoteValue = remoteValue;
     }
     context() {
-        return this.#realm;
+        return this.realm.environment.context();
+    }
+    get realm() {
+        return this.#sandbox;
     }
     get disposed() {
         return this.#disposed;
-    }
-    async evaluate(pageFunction, ...args) {
-        pageFunction = withSourcePuppeteerURLIfNone(this.evaluate.name, pageFunction);
-        return await this.context().evaluate(pageFunction, this, ...args);
-    }
-    async evaluateHandle(pageFunction, ...args) {
-        pageFunction = withSourcePuppeteerURLIfNone(this.evaluateHandle.name, pageFunction);
-        return this.context().evaluateHandle(pageFunction, this, ...args);
-    }
-    async getProperty(propertyName) {
-        return await this.evaluateHandle((object, propertyName) => {
-            return object[propertyName];
-        }, propertyName);
-    }
-    async getProperties() {
-        // TODO(lightning00blade): Either include return of depth Handles in RemoteValue
-        // or new BiDi command that returns array of remote value
-        const keys = await this.evaluate(object => {
-            const enumerableKeys = [];
-            const descriptors = Object.getOwnPropertyDescriptors(object);
-            for (const key in descriptors) {
-                if (descriptors[key]?.enumerable) {
-                    enumerableKeys.push(key);
-                }
-            }
-            return enumerableKeys;
-        });
-        const map = new Map();
-        const results = await Promise.all(keys.map(key => {
-            return this.getProperty(key);
-        }));
-        for (const [key, value] of Object.entries(keys)) {
-            const handle = results[key];
-            if (handle) {
-                map.set(value, handle);
-            }
-        }
-        return map;
     }
     async jsonValue() {
         return await this.evaluate(value => {
@@ -84,7 +48,7 @@ export class JSHandle extends BaseJSHandle {
         }
         this.#disposed = true;
         if ('handle' in this.#remoteValue) {
-            await releaseReference(this.#realm, this.#remoteValue);
+            await releaseReference(this.context(), this.#remoteValue);
         }
     }
     get isPrimitiveValue() {
