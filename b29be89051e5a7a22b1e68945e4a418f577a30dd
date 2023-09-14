@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c37e85_fee17e40",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-14T17:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ac0df61_f9055ccb",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 19
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbea5ea4_db5216d7",
@@ -129,6 +153,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71b28d5d_485e8586",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-14T17:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fa78ed6_69484754",
+      "range": {
+        "startLine": 118,
+        "startChar": 20,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c32d08b0_048ca87d",
@@ -190,6 +238,30 @@
       "side": 1,
       "message": "As I mentioned in the DOMModel.ts. As I see from the existing if-clause for nullable string here, you can do `if (node.playerID)` if you remove `this.playerID \u003d undefined` line, right? Please double check if this works.",
       "parentUuid": "cb7bd574_6b789c8d",
+      "range": {
+        "startLine": 2188,
+        "startChar": 4,
+        "endLine": 2188,
+        "endChar": 36
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4908c3_ae70a3be",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 2188,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-14T17:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38243be_32cf818d",
       "range": {
         "startLine": 2188,
         "startChar": 4,
