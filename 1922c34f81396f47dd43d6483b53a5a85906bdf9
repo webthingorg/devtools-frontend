@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "1922c34f81396f47dd43d6483b53a5a85906bdf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd090d9a_fced04a5",
+        "filename": "test/unittests/front_end/models/trace/TreeManipulator_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-14T13:53:11Z",
+      "side": 1,
+      "message": "how come this time has doubled with this change?",
+      "range": {
+        "startLine": 95,
+        "startChar": 24,
+        "endLine": 95,
+        "endChar": 27
+      },
+      "revId": "1922c34f81396f47dd43d6483b53a5a85906bdf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
