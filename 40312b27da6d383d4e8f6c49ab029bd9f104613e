@@ -16,6 +16,24 @@
       "message": "Nice. Is it worth removing this similar code from the old engine? Or not worth it given we will fully remove it soon?",
       "revId": "40312b27da6d383d4e8f6c49ab029bd9f104613e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1fc59ab_28514362",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-14T13:31:52Z",
+      "side": 1,
+      "message": "I\u0027m afraid there might be some layout tests relying on this, even if it\u0027s something invisible to users so I opted not to. Given that we expect to remove the whole thing soon I think it\u0027s not worth it.",
+      "parentUuid": "d082fc64_8898f4e5",
+      "revId": "40312b27da6d383d4e8f6c49ab029bd9f104613e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
