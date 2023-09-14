@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d390fe_c595faeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-09-14T18:51:25Z",
+      "side": 1,
+      "message": "Thanks for the comments, I pushed a new patch and left some comments. PTAL",
+      "revId": "1a1a1085d617a16887deb24355acdb380d398321",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f710e118_59ad7727",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-09-14T18:51:25Z",
+      "side": 1,
+      "message": "Good catch :) I always thought they were being filtered out (per my previous comment) but turns out they were being missed when a new view was added, the new patch should cover for this now, thanks for the feedback. I still think that we should exclude the extension (At least for now) from being moved as otherwise:\n1. This will allow to have 2+ panels from the same extension on view at the same time, which is a change of paradigm from today\u0027s behavior  and should be accounted for by the extension developer\n2. The way we move panels today, \"closes\" the panel and opens a new one on the drawer, some extensions can be broken by this behavior as they are subscribed to specific events from the Devtools extension API (e.g onShow)\n\nReact Developer tools is a good example of this:\nhttps://github.com/facebook/react/blob/d6dcad6a8beaeec0513a9851d1e0fe1181932360/packages/react-devtools-extensions/src/main/index.js#L390\n\nThoughts?",
+      "parentUuid": "89dea29d_344f045c",
+      "revId": "2766f1825d8076569f8fb6ff2a7c7244b5a3ee4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2ed06e6_7ec48fb9",
         "filename": "front_end/ui/legacy/InspectorView.ts",
         "patchSetId": 3
@@ -49,6 +67,24 @@
       "writtenOn": "2023-09-13T07:08:33Z",
       "side": 1,
       "message": "Let’s update the comment accordingly. Maybe:\n\n    // Don’t show the movable context panel for console or extension tabs.",
+      "revId": "2766f1825d8076569f8fb6ff2a7c7244b5a3ee4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4bd8358_af7b7e10",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-09-14T18:51:25Z",
+      "side": 1,
+      "message": "good catch :)",
+      "parentUuid": "b2ed06e6_7ec48fb9",
       "revId": "2766f1825d8076569f8fb6ff2a7c7244b5a3ee4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
