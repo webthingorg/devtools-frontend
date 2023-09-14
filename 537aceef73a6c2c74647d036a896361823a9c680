@@ -20,6 +20,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4ba6dc5_fe5d732c",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:40:00Z",
+      "side": 1,
+      "message": "remove, since we changed our opinion about enabling by default.",
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa4dadbf_5ac04930",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:40:00Z",
+      "side": 1,
+      "message": "Just `return this.moreFiltersDropDownUI` achieves the same effect.",
+      "range": {
+        "startLine": 623,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 38
+      },
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57df6e8f_85942e19",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 1526,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-14T15:40:00Z",
+      "side": 1,
+      "message": "`this.dataURLFilterUI?.setChecked(false);` etc.",
+      "range": {
+        "startLine": 1526,
+        "startChar": 6,
+        "endLine": 1526,
+        "endChar": 76
+      },
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcb9fc37_1ef0b4a3",
         "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
         "patchSetId": 16
