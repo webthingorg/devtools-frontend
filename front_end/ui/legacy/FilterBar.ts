@@ -454,7 +454,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper<Filt
     }
   }
 
-  static readonly ALL_TYPES = 'all';
+  static readonly ALL_TYPES = 'All types';
 }
 
 export class CheckboxFilterUI extends Common.ObjectWrapper.ObjectWrapper<FilterUIEventTypes> implements FilterUI {

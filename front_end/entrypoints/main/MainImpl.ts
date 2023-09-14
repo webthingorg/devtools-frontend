@@ -380,6 +380,10 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.DELETE_OVERRIDES_TEMP_ENABLE, 'Enable "Delete all overrides" temporarily',
         undefined, 'https://goo.gle/devtools-overrides', 'https://crbug.com/1473681');
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.NETWORK_PANEL_FILTER_BAR_REDESIGN,
+        'Redesign of the filter bar in the Network Panel',
+    );
 
     // Enable color picking outside the browser window (using Eyedropper API)
     Root.Runtime.experiments.register(

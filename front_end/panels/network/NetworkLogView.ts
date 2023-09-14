@@ -52,24 +52,22 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import networkLogViewStyles from './networkLogView.css.js';
-
 import {
   Events,
+  type EventTypes,
   NetworkGroupNode,
-  NetworkRequestNode,
   type NetworkLogViewInterface,
   type NetworkNode,
-  type EventTypes,
+  NetworkRequestNode,
 } from './NetworkDataGridNode.js';
 import {NetworkFrameGrouper} from './NetworkFrameGrouper.js';
+import networkLogViewStyles from './networkLogView.css.js';
 import {NetworkLogViewColumns} from './NetworkLogViewColumns.js';
-
 import {
   NetworkTimeBoundary,
+  type NetworkTimeCalculator,
   NetworkTransferDurationCalculator,
   NetworkTransferTimeCalculator,
-  type NetworkTimeCalculator,
 } from './NetworkTimeCalculator.js';
 
 const UIStrings = {
@@ -81,6 +79,10 @@ const UIStrings = {
    *@description Tooltip for the 'invert' checkbox in the Network panel.
    */
   invertsFilter: 'Inverts the search filter',
+  /**
+   *@description Text for everything
+   */
+  allStrings: 'All',
   /**
    *@description Text in Network Log View of the Network panel
    */
@@ -101,6 +103,10 @@ const UIStrings = {
    *@description Aria accessible name in Network Log View of the Network panel
    */
   resourceTypesToInclude: 'Resource types to include',
+  /**
+   * @description: Label for the dropdown inthe Network Panel
+   */
+  resourceTypes: 'Resource Types',
   /**
    *@description Label for a checkbox in the Network panel. When checked, only requests with
    *             blocked response cookies are shown.
@@ -369,6 +375,54 @@ const UIStrings = {
    * for creating a header override
    */
   overrideHeaders: 'Override headers',
+  /**
+   * @description Text that appears in a tooltip for the all option in the resource types dropdown filter
+   */
+  allTypes: 'All types',
+  /**
+   *@description Text that appears in a tooltip for the xhr and fetch resource types filter.
+   */
+  xhrAndFetch: '`XHR` and `Fetch`',
+  /**
+   *@description Text that appears in a tooltip for the JavaScript types filter.
+   */
+  scripts: 'Scripts',
+  /**
+   *@description Text that appears in a tooltip for the css types filter.
+   */
+  stylesheets: 'Stylesheets',
+  /**
+   *@description Text that appears in a tooltip for the image types filter.
+   */
+  images: 'Images',
+  /**
+   *@description Text that appears on a button for the media resource type filter.
+   */
+  media: 'Media',
+  /**
+   *@description Text that appears in a tooltip for the resource types filter.
+   */
+  fonts: 'Fonts',
+  /**
+   *@description Text for documents, a type of resources
+   */
+  documents: 'Documents',
+  /**
+   *@description Text that appears in a tooltip for the websocket types filter.
+   */
+  websockets: 'WebSockets',
+  /**
+   *@description Text that appears in a tooltip for the WebAssembly types filter.
+   */
+  webassembly: 'WebAssembly',
+  /**
+   *@description Text that appears on a button for the manifest resource type filter.
+   */
+  manifest: 'Manifest',
+  /**
+   *@description Text for other types of items
+   */
+  other: 'Other',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkLogView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -414,11 +468,11 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   private readonly textFilterUI: UI.FilterBar.TextFilterUI;
   private readonly invertFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly dataURLFilterUI: UI.FilterBar.CheckboxFilterUI;
-  private resourceCategoryFilterUI: UI.FilterBar.NamedBitSetFilterUI;
   private readonly onlyBlockedResponseCookiesFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyBlockedRequestsUI: UI.FilterBar.CheckboxFilterUI;
   private readonly onlyThirdPartyFilterUI: UI.FilterBar.CheckboxFilterUI;
   private readonly hideChromeExtensionsUI: UI.FilterBar.CheckboxFilterUI;
+  private readonly resourceCategoryFilterUI: DropDownTypesUI|UI.FilterBar.NamedBitSetFilterUI;
   private readonly filterParser: TextUtils.TextUtils.FilterParser;
   private readonly suggestionBuilder: UI.FilterSuggestionBuilder.FilterSuggestionBuilder;
   private dataGrid: DataGrid.SortableDataGrid.SortableDataGrid<NetworkNode>;
@@ -521,8 +575,14 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
             .map(
                 category =>
                     ({name: category.title(), label: (): string => category.shortTitle(), title: category.title()}));
-    this.resourceCategoryFilterUI =
-        new UI.FilterBar.NamedBitSetFilterUI(filterItems, this.networkResourceTypeFiltersSetting);
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.NETWORK_PANEL_FILTER_BAR_REDESIGN)) {
+      this.resourceCategoryFilterUI =
+          new DropDownTypesUI(filterItems, this.filterChanged.bind(this), this.networkResourceTypeFiltersSetting);
+    } else {
+      this.resourceCategoryFilterUI =
+          new UI.FilterBar.NamedBitSetFilterUI(filterItems, this.networkResourceTypeFiltersSetting);
+    }
     UI.ARIAUtils.setLabel(this.resourceCategoryFilterUI.element(), i18nString(UIStrings.resourceTypesToInclude));
     this.resourceCategoryFilterUI.addEventListener(
         UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
@@ -2453,3 +2513,180 @@ export const overrideFilter = {
 };
 
 export type Filter = (request: SDK.NetworkRequest.NetworkRequest) => boolean;
+
+export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.FilterBar.FilterUIEventTypes> implements
+    UI.FilterBar.FilterUI {
+  private readonly filterElement: HTMLDivElement;
+  private readonly dropDownButton: UI.Toolbar.ToolbarButton;
+  private readonly filterChanged: () => void;
+  private allowedTypes: Set<string>;
+  private readonly setting: Common.Settings.Setting<{[key: string]: boolean}>;
+  private readonly items: UI.FilterBar.Item[];
+  private contextMenu?: UI.ContextMenu.ContextMenu;
+  private itemsLabelNameMap: Map<string, string>;
+
+  constructor(
+      items: UI.FilterBar.Item[], filterChangedCallback: () => void,
+      setting: Common.Settings.Setting<{[key: string]: boolean}>) {
+    super();
+    this.items = items;
+    this.filterChanged = filterChangedCallback;
+
+    this.filterElement = document.createElement('div');
+    this.dropDownButton = new UI.Toolbar.ToolbarButton('Filters the requests by their type');
+    this.dropDownButton.setText(UIStrings.resourceTypes);
+    this.filterElement.appendChild(this.dropDownButton.element);
+    this.dropDownButton.turnIntoSelect();
+    this.dropDownButton.element.classList.add('dropdown-filterbar');
+
+    this.dropDownButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.showContextMenu.bind(this));
+    UI.ARIAUtils.markAsMenuButton(this.dropDownButton.element);
+
+    this.allowedTypes = new Set();
+    this.itemsLabelNameMap = new Map();
+    for (const i of this.items) {
+      this.itemsLabelNameMap.set(i.label(), i.name);
+    }
+
+    this.setting = setting;
+    setting.addChangeListener(this.settingChanged.bind(this));
+    this.settingChanged();
+  }
+
+  discard(): void {
+    this.contextMenu?.discard();
+  }
+
+  private matchLabelToUIString(typeName: string): Platform.UIString.LocalizedString {
+    switch (typeName) {
+      case 'All':
+        return i18nString(UIStrings.allTypes);
+      case 'Fetch/XHR':
+        return i18nString(UIStrings.xhrAndFetch);
+      case 'JS':
+        return i18nString(UIStrings.scripts);
+      case 'CSS':
+        return i18nString(UIStrings.stylesheets);
+      case 'Img':
+        return i18nString(UIStrings.images);
+      case 'Media':
+        return i18nString(UIStrings.media);
+      case 'Font':
+        return i18nString(UIStrings.fonts);
+      case 'Doc':
+        return i18nString(UIStrings.documents);
+      case 'WS':
+        return i18nString(UIStrings.websockets);
+      case 'Wasm':
+        return i18nString(UIStrings.webassembly);
+      case 'Manifest':
+        return i18nString(UIStrings.manifest);
+      default:
+        return i18nString(UIStrings.other);
+    }
+  }
+
+  showContextMenu(event: Common.EventTarget.EventTargetEvent<Event>): void {
+    const mouseEvent = event.data;
+
+    this.setting.addChangeListener(this.filterChanged.bind(this));
+
+    this.contextMenu = new UI.ContextMenu.ContextMenu(mouseEvent, {
+      useSoftMenu: true,
+      keepOpen: true,
+      x: this.dropDownButton.element.getBoundingClientRect().left,
+      y: this.dropDownButton.element.getBoundingClientRect().top +
+          (this.dropDownButton.element as HTMLElement).offsetHeight,
+    });
+
+    this.addRequestType(this.contextMenu, DropDownTypesUI.ALL_TYPES, i18nString(UIStrings.allStrings));
+    this.contextMenu.defaultSection().appendSeparator();
+
+    for (let i = 0; i < this.items.length; ++i) {
+      this.addRequestType(this.contextMenu, this.items[i].name, this.items[i].label());
+    }
+
+    this.update();
+    void this.contextMenu.show();
+  }
+
+  private addRequestType(contextMenu: UI.ContextMenu.ContextMenu, name: string, label: string): void {
+    contextMenu.defaultSection().appendCheckboxItem(label, () => {
+      this.setting.get()[name] = !this.setting.get()[name];
+      this.toggleTypeFilter(name);
+    }, this.setting.get()[name], undefined, undefined, this.matchLabelToUIString(label));
+  }
+
+  private toggleTypeFilter(typeName: string): void {
+    if (typeName !== DropDownTypesUI.ALL_TYPES) {
+      this.allowedTypes.delete(DropDownTypesUI.ALL_TYPES);
+    } else {
+      this.allowedTypes = new Set();
+    }
+
+    if (this.allowedTypes.has(typeName)) {
+      this.allowedTypes.delete(typeName);
+    } else {
+      this.allowedTypes.add(typeName);
+    }
+
+    if (this.allowedTypes.size === 0) {
+      this.allowedTypes.add(DropDownTypesUI.ALL_TYPES);
+    }
+
+    // Settings do not support `Sets` so convert it back to the Map-like object.
+    const updatedSetting = ({} as {[key: string]: boolean});
+    for (const type of this.allowedTypes) {
+      updatedSetting[type] = true;
+    }
+
+    this.setting.set(updatedSetting);
+
+    // For the feature of keeping the dropdown open while choosing its options:
+    // this code provides the dinamically changes of the checkboxes' state in this dropdown
+    const menuItems = this.contextMenu?.getItems() || [];
+    for (const i of menuItems) {
+      if (i.label) {
+        const name = this.itemsLabelNameMap.get(i.label) || '';
+        this.contextMenu?.setChecked(i, this.allowedTypes.has(name));
+      }
+    }
+    this.contextMenu?.setChecked(menuItems[0], this.allowedTypes.has('All types'));
+  }
+
+  private settingChanged(): void {
+    this.allowedTypes = new Set();
+
+    for (const s in this.setting.get()) {
+      this.allowedTypes.add(s);
+    }
+    this.update();
+  }
+
+  private update(): void {
+    if (this.allowedTypes.size === 0 || this.allowedTypes.has(DropDownTypesUI.ALL_TYPES)) {
+      this.allowedTypes = new Set();
+      this.allowedTypes.add(DropDownTypesUI.ALL_TYPES);
+    }
+
+    this.filterChanged.bind(this);
+  }
+
+  isActive(): boolean {
+    return !this.allowedTypes.has(DropDownTypesUI.ALL_TYPES);
+  }
+
+  element(): HTMLDivElement {
+    return this.filterElement;
+  }
+
+  reset(): void {
+    this.toggleTypeFilter(DropDownTypesUI.ALL_TYPES);
+  }
+
+  accept(typeName: string): boolean {
+    return this.allowedTypes.has(DropDownTypesUI.ALL_TYPES) || this.allowedTypes.has(typeName);
+  }
+
+  static readonly ALL_TYPES = 'All types';
+}
