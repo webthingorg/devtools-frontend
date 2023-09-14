@@ -83,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99414a96_6b77934a",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-14T00:18:01Z",
+      "side": 1,
+      "message": "with playerID? : string; \n\nIt is not possible to assign null value to it since playerID is string or undefined. If we want to let playerID \u003d null, it would need to be declared playerID?: string | null;",
+      "parentUuid": "fbea5ea4_db5216d7",
+      "range": {
+        "startLine": 118,
+        "startChar": 20,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c32d08b0_048ca87d",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 10
