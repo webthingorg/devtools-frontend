@@ -107,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2fa78ed6_69484754",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-14T16:09:31Z",
+      "side": 1,
+      "message": "I am not familiar with TS but if it\u0027s the case then why don\u0027t you remove this line completely. And `if (node.playerID)` can be used instead in the ElementsTreeElement.ts.",
+      "parentUuid": "99414a96_6b77934a",
+      "range": {
+        "startLine": 118,
+        "startChar": 20,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c32d08b0_048ca87d",
         "filename": "front_end/panels/elements/ElementsTreeElement.ts",
         "patchSetId": 10
@@ -142,6 +166,30 @@
       "side": 1,
       "message": "currently, the playerID is set to undefined (explained in my response to your other comment), so (node.playerID) will behave differently from (node.playerID !\u003d\u003d undefined). I will bring this up on our next meeting to get it resolved! :)",
       "parentUuid": "c32d08b0_048ca87d",
+      "range": {
+        "startLine": 2188,
+        "startChar": 4,
+        "endLine": 2188,
+        "endChar": 36
+      },
+      "revId": "b29be89051e5a7a22b1e68945e4a418f577a30dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a38243be_32cf818d",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 2188,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-14T16:09:31Z",
+      "side": 1,
+      "message": "As I mentioned in the DOMModel.ts. As I see from the existing if-clause for nullable string here, you can do `if (node.playerID)` if you remove `this.playerID \u003d undefined` line, right? Please double check if this works.",
+      "parentUuid": "cb7bd574_6b789c8d",
       "range": {
         "startLine": 2188,
         "startChar": 4,
