@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5df4204f_de67ce38",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d129dbc_80a4fe0e",
+      "range": {
+        "startLine": 375,
+        "startChar": 2,
+        "endLine": 375,
+        "endChar": 13
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b84fd6e_1c926029",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-13T08:30:35Z",
       "side": 1,
       "message": "This creates an object which - depending on the experiment status - might not be used. The same thing applies to a bunch of other objects e.g. `this.hideChromeExtensionsUI`.\nWould there be a way to only instantiate the objects which are needed? Maybe extract this to helper function(s).",
+      "range": {
+        "startLine": 522,
+        "startChar": 3,
+        "endLine": 522,
+        "endChar": 80
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eafb130_9e689b0d",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b84fd6e_1c926029",
       "range": {
         "startLine": 522,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07f765c2_bb43cf84",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4c42c08_7681a506",
+      "range": {
+        "startLine": 564,
+        "startChar": 107,
+        "endLine": 565,
+        "endChar": 5
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50a3f436_ba66b10d",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-09-13T09:30:24Z",
       "side": 1,
       "message": "This name is ambiguous since there will be 2 dropdowns. `getMoreFiltersDropDown`?\nMaybe even renaming the new class itself would make sense too. Instead of `DropDownFilterUI`, how about `moreFiltersDropDown` or `moreFiltersDropDownUI`?",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 13
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "417f3a91_9deaebe4",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50a3f436_ba66b10d",
       "range": {
         "startLine": 614,
         "startChar": 2,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a98fe4_283e997f",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 2532,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4502d169_809a1f38",
+      "range": {
+        "startLine": 2532,
+        "startChar": 101,
+        "endLine": 2532,
+        "endChar": 114
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f114c21c_5852a5ee",
@@ -129,6 +249,24 @@
       "writtenOn": "2023-09-13T09:30:24Z",
       "side": 1,
       "message": "Please leave the whole file unchanged if there are no functional changes to this file.",
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6524fdc9_2f72bfec",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f114c21c_5852a5ee",
       "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -156,6 +294,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78261cac_dd914ea2",
+        "filename": "test/e2e/network/network-filter_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc4d5d2_899192b0",
+      "range": {
+        "startLine": 318,
+        "startChar": 35,
+        "endLine": 318,
+        "endChar": 54
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86380e92_565ef0e6",
@@ -169,6 +331,30 @@
       "writtenOn": "2023-09-13T09:30:24Z",
       "side": 1,
       "message": "typo: thirdPartyFilter",
+      "range": {
+        "startLine": 343,
+        "startChar": 10,
+        "endLine": 343,
+        "endChar": 25
+      },
+      "revId": "744c97a2a6fc7190851303622cb446502c8e7d0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16676892_04a3908d",
+        "filename": "test/e2e/network/network-filter_test.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-14T13:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86380e92_565ef0e6",
       "range": {
         "startLine": 343,
         "startChar": 10,
