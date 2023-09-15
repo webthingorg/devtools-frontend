@@ -115,9 +115,18 @@ export interface Point {
 export declare abstract class ElementHandle<ElementType extends Node = Element> extends JSHandle<ElementType> {
     #private;
     /**
+     * A given method will have it's `this` replaced with an isolated version of
+     * `this` when decorated with this decorator.
+     *
+     * All changes of isolated `this` are reflected on the actual `this`.
+     *
      * @internal
      */
-    protected handle: JSHandle<ElementType>;
+    static bindIsolatedHandle<This extends ElementHandle<Node>>(target: (this: This, ...args: any[]) => Promise<any>, _: unknown): typeof target;
+    /**
+     * @internal
+     */
+    protected readonly handle: JSHandle<ElementType>;
     /**
      * @internal
      */
@@ -166,6 +175,9 @@ export declare abstract class ElementHandle<ElementType extends Node = Element> 
      * @internal
      */
     dispose(): Promise<void>;
+    /**
+     * @internal
+     */
     asElement(): ElementHandle<ElementType>;
     /**
      * Frame corresponding to the current handle.
@@ -566,10 +578,6 @@ export declare abstract class ElementHandle<ElementType extends Node = Element> 
      * or by calling element.scrollIntoView.
      */
     scrollIntoView(this: ElementHandle<Element>): Promise<void>;
-    /**
-     * @internal
-     */
-    abstract assertElementHasWorld(): asserts this;
     /**
      * If the element is a form input, you can use {@link ElementHandle.autofill}
      * to test if the form is compatible with the browser's autofill

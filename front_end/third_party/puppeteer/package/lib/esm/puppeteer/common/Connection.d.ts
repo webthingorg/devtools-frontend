@@ -130,6 +130,11 @@ export interface CDPSessionOnMessageObject {
 export declare const CDPSessionEmittedEvents: {
     readonly Disconnected: symbol;
     readonly Swapped: symbol;
+    /**
+     * Emitted when the session is ready to be configured during the auto-attach
+     * process. Right after the event is handled, the session will be resumed.
+     */
+    readonly Ready: symbol;
 };
 /**
  * The `CDPSession` instances are used to talk raw Chrome Devtools Protocol.

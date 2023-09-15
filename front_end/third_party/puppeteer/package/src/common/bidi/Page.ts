@@ -23,7 +23,7 @@ import {
   GeolocationOptions,
   MediaFeature,
   NewDocumentScriptEvaluation,
-  Page as PageBase,
+  Page,
   PageEmittedEvents,
   ScreenshotOptions,
   WaitForOptions,
@@ -43,7 +43,7 @@ import {PDFOptions} from '../PDFOptions.js';
 import {Viewport} from '../PuppeteerViewport.js';
 import {TimeoutSettings} from '../TimeoutSettings.js';
 import {Tracing} from '../Tracing.js';
-import {EvaluateFunc, HandleFor} from '../types.js';
+import {Awaitable} from '../types.js';
 import {
   debugError,
   evaluationString,
@@ -51,35 +51,34 @@ import {
   validateDialogType,
   waitForEvent,
   waitWithTimeout,
-  withSourcePuppeteerURLIfNone,
 } from '../util.js';
 
-import {Browser} from './Browser.js';
-import {BrowserContext} from './BrowserContext.js';
+import {BidiBrowser} from './Browser.js';
+import {BidiBrowserContext} from './BrowserContext.js';
 import {
   BrowsingContext,
   BrowsingContextEmittedEvents,
   CDPSessionWrapper,
 } from './BrowsingContext.js';
 import {Connection} from './Connection.js';
-import {Dialog} from './Dialog.js';
+import {BidiDialog} from './Dialog.js';
 import {EmulationManager} from './EmulationManager.js';
-import {Frame} from './Frame.js';
+import {BidiFrame} from './Frame.js';
 import {HTTPRequest} from './HTTPRequest.js';
 import {HTTPResponse} from './HTTPResponse.js';
 import {Keyboard, Mouse, Touchscreen} from './Input.js';
 import {NetworkManager} from './NetworkManager.js';
-import {getBidiHandle} from './Realm.js';
+import {createBidiHandle} from './Realm.js';
 import {BidiSerializer} from './Serializer.js';
 
 /**
  * @internal
  */
-export class Page extends PageBase {
+export class BidiPage extends Page {
   #accessibility: Accessibility;
   #timeoutSettings = new TimeoutSettings();
   #connection: Connection;
-  #frameTree = new FrameTree<Frame>();
+  #frameTree = new FrameTree<BidiFrame>();
   #networkManager: NetworkManager;
   #viewport: Viewport | null = null;
   #closedDeferred = Deferred.create<TargetCloseError>();
@@ -87,12 +86,12 @@ export class Page extends PageBase {
     ['log.entryAdded', this.#onLogEntryAdded.bind(this)],
     ['browsingContext.load', this.#onFrameLoaded.bind(this)],
     [
-      'browsingContext.domContentLoaded',
-      this.#onFrameDOMContentLoaded.bind(this),
+      'browsingContext.fragmentNavigated',
+      this.#onFrameFragmentNavigated.bind(this),
     ],
     [
-      'browsingContext.navigationStarted',
-      this.#onFrameNavigationStarted.bind(this),
+      'browsingContext.domContentLoaded',
+      this.#onFrameDOMContentLoaded.bind(this),
     ],
     ['browsingContext.userPromptOpened', this.#onDialog.bind(this)],
   ]);
@@ -134,7 +133,7 @@ export class Page extends PageBase {
   #touchscreen: Touchscreen;
   #keyboard: Keyboard;
   #browsingContext: BrowsingContext;
-  #browserContext: BrowserContext;
+  #browserContext: BidiBrowserContext;
 
   _client(): CDPSession {
     return this.mainFrame().context().cdpSession;
@@ -142,7 +141,7 @@ export class Page extends PageBase {
 
   constructor(
     browsingContext: BrowsingContext,
-    browserContext: BrowserContext
+    browserContext: BidiBrowserContext
   ) {
     super();
     this.#browsingContext = browsingContext;
@@ -163,7 +162,7 @@ export class Page extends PageBase {
       this.#networkManager.on(event, subscriber);
     }
 
-    const frame = new Frame(
+    const frame = new BidiFrame(
       this,
       this.#browsingContext,
       this.#timeoutSettings,
@@ -187,7 +186,7 @@ export class Page extends PageBase {
     this.#keyboard = new Keyboard(this.mainFrame().context());
   }
 
-  _setBrowserContext(browserContext: BrowserContext): void {
+  _setBrowserContext(browserContext: BidiBrowserContext): void {
     this.#browserContext = browserContext;
   }
 
@@ -215,29 +214,29 @@ export class Page extends PageBase {
     return this.#keyboard;
   }
 
-  override browser(): Browser {
+  override browser(): BidiBrowser {
     return this.browserContext().browser();
   }
 
-  override browserContext(): BrowserContext {
+  override browserContext(): BidiBrowserContext {
     return this.#browserContext;
   }
 
-  override mainFrame(): Frame {
+  override mainFrame(): BidiFrame {
     const mainFrame = this.#frameTree.getMainFrame();
     assert(mainFrame, 'Requesting main frame too early!');
     return mainFrame;
   }
 
-  override frames(): Frame[] {
+  override frames(): BidiFrame[] {
     return Array.from(this.#frameTree.frames());
   }
 
-  frame(frameId?: string): Frame | null {
+  frame(frameId?: string): BidiFrame | null {
     return this.#frameTree.getById(frameId ?? '') || null;
   }
 
-  childFrames(frameId: string): Frame[] {
+  childFrames(frameId: string): BidiFrame[] {
     return this.#frameTree.childFrames(frameId);
   }
 
@@ -248,10 +247,21 @@ export class Page extends PageBase {
     }
   }
 
+  #onFrameFragmentNavigated(info: Bidi.BrowsingContext.NavigationInfo): void {
+    const frame = this.frame(info.context);
+    if (frame) {
+      this.emit(PageEmittedEvents.FrameNavigated, frame);
+    }
+  }
+
   #onFrameDOMContentLoaded(info: Bidi.BrowsingContext.NavigationInfo): void {
     const frame = this.frame(info.context);
-    if (frame && this.mainFrame() === frame) {
-      this.emit(PageEmittedEvents.DOMContentLoaded);
+    if (frame) {
+      frame._hasStartedLoading = true;
+      if (this.mainFrame() === frame) {
+        this.emit(PageEmittedEvents.DOMContentLoaded);
+      }
+      this.emit(PageEmittedEvents.FrameNavigated, frame);
     }
   }
 
@@ -260,7 +270,7 @@ export class Page extends PageBase {
       !this.frame(context.id) &&
       (this.frame(context.parent ?? '') || !this.#frameTree.getMainFrame())
     ) {
-      const frame = new Frame(
+      const frame = new BidiFrame(
         this,
         context,
         this.#timeoutSettings,
@@ -270,45 +280,6 @@ export class Page extends PageBase {
       if (frame !== this.mainFrame()) {
         this.emit(PageEmittedEvents.FrameAttached, frame);
       }
-    }
-  }
-
-  async #onFrameNavigationStarted(
-    info: Bidi.BrowsingContext.NavigationInfo
-  ): Promise<void> {
-    const frameId = info.context;
-
-    const frame = this.frame(frameId);
-
-    if (frame) {
-      // TODO: Investigate if a navigationCompleted event should be in Spec
-      const predicate = (
-        event: Bidi.BrowsingContext.DomContentLoaded['params']
-      ) => {
-        if (event.context === frame?._id) {
-          return true;
-        }
-        return false;
-      };
-
-      await Deferred.race([
-        waitForEvent(
-          this.#connection,
-          'browsingContext.domContentLoaded',
-          predicate,
-          0,
-          this.#closedDeferred.valueOrThrow()
-        ).catch(debugError),
-        waitForEvent(
-          this.#connection,
-          'browsingContext.fragmentNavigated',
-          predicate,
-          0,
-          this.#closedDeferred.valueOrThrow()
-        ).catch(debugError),
-      ]);
-
-      this.emit(PageEmittedEvents.FrameNavigated, frame);
     }
   }
 
@@ -323,11 +294,11 @@ export class Page extends PageBase {
     }
   }
 
-  #removeFramesRecursively(frame: Frame): void {
+  #removeFramesRecursively(frame: BidiFrame): void {
     for (const child of frame.childFrames()) {
       this.#removeFramesRecursively(child);
     }
-    frame.dispose();
+    frame[Symbol.dispose]();
     this.#networkManager.clearMapAfterFrameDispose(frame);
     this.#frameTree.removeFrame(frame);
     this.emit(PageEmittedEvents.FrameDetached, frame);
@@ -340,7 +311,7 @@ export class Page extends PageBase {
     }
     if (isConsoleLogEntry(event)) {
       const args = event.args.map(arg => {
-        return getBidiHandle(frame.context(), arg, frame);
+        return createBidiHandle(frame.mainRealm(), arg);
       });
 
       const text = args
@@ -395,7 +366,12 @@ export class Page extends PageBase {
     }
     const type = validateDialogType(event.type);
 
-    const dialog = new Dialog(frame.context(), type, event.message);
+    const dialog = new BidiDialog(
+      frame.context(),
+      type,
+      event.message,
+      event.defaultValue
+    );
     this.emit(PageEmittedEvents.Dialog, dialog);
   }
 
@@ -423,44 +399,6 @@ export class Page extends PageBase {
     this.removeAllListeners();
   }
 
-  override async evaluateHandle<
-    Params extends unknown[],
-    Func extends EvaluateFunc<Params> = EvaluateFunc<Params>,
-  >(
-    pageFunction: Func | string,
-    ...args: Params
-  ): Promise<HandleFor<Awaited<ReturnType<Func>>>> {
-    pageFunction = withSourcePuppeteerURLIfNone(
-      this.evaluateHandle.name,
-      pageFunction
-    );
-    return this.mainFrame().evaluateHandle(pageFunction, ...args);
-  }
-
-  override async evaluate<
-    Params extends unknown[],
-    Func extends EvaluateFunc<Params> = EvaluateFunc<Params>,
-  >(
-    pageFunction: Func | string,
-    ...args: Params
-  ): Promise<Awaited<ReturnType<Func>>> {
-    pageFunction = withSourcePuppeteerURLIfNone(
-      this.evaluate.name,
-      pageFunction
-    );
-    return this.mainFrame().evaluate(pageFunction, ...args);
-  }
-
-  override async goto(
-    url: string,
-    options?: WaitForOptions & {
-      referer?: string | undefined;
-      referrerPolicy?: string | undefined;
-    }
-  ): Promise<HTTPResponse | null> {
-    return this.mainFrame().goto(url, options);
-  }
-
   override async reload(
     options?: WaitForOptions
   ): Promise<HTTPResponse | null> {
@@ -483,10 +421,6 @@ export class Page extends PageBase {
     return response;
   }
 
-  override url(): string {
-    return this.mainFrame().url();
-  }
-
   override setDefaultNavigationTimeout(timeout: number): void {
     this.#timeoutSettings.setDefaultNavigationTimeout(timeout);
   }
@@ -497,17 +431,6 @@ export class Page extends PageBase {
 
   override getDefaultTimeout(): number {
     return this.#timeoutSettings.timeout();
-  }
-
-  override async setContent(
-    html: string,
-    options: WaitForOptions = {}
-  ): Promise<void> {
-    await this.mainFrame().setContent(html, options);
-  }
-
-  override async content(): Promise<string> {
-    return this.mainFrame().content();
   }
 
   override isJavaScriptEnabled(): boolean {
@@ -659,12 +582,12 @@ export class Page extends PageBase {
     return buffer;
   }
 
-  override waitForRequest(
+  override async waitForRequest(
     urlOrPredicate: string | ((req: HTTPRequest) => boolean | Promise<boolean>),
     options: {timeout?: number} = {}
   ): Promise<HTTPRequest> {
     const {timeout = this.#timeoutSettings.timeout()} = options;
-    return waitForEvent(
+    return await waitForEvent(
       this.#networkManager,
       NetworkManagerEmittedEvents.Request,
       async request => {
@@ -681,14 +604,14 @@ export class Page extends PageBase {
     );
   }
 
-  override waitForResponse(
+  override async waitForResponse(
     urlOrPredicate:
       | string
       | ((res: HTTPResponse) => boolean | Promise<boolean>),
     options: {timeout?: number} = {}
   ): Promise<HTTPResponse> {
     const {timeout = this.#timeoutSettings.timeout()} = options;
-    return waitForEvent(
+    return await waitForEvent(
       this.#networkManager,
       NetworkManagerEmittedEvents.Response,
       async response => {
@@ -716,10 +639,6 @@ export class Page extends PageBase {
       timeout,
       this.#closedDeferred
     );
-  }
-
-  override title(): Promise<string> {
-    return this.mainFrame().title();
   }
 
   override async createCDPSession(): Promise<CDPSession> {
@@ -760,6 +679,18 @@ export class Page extends PageBase {
     await this.#connection.send('script.removePreloadScript', {
       script: id,
     });
+  }
+
+  override async exposeFunction<Args extends unknown[], Ret>(
+    name: string,
+    pptrFunction:
+      | ((...args: Args) => Awaitable<Ret>)
+      | {default: (...args: Args) => Awaitable<Ret>}
+  ): Promise<void> {
+    return await this.mainFrame().exposeFunction(
+      name,
+      'default' in pptrFunction ? pptrFunction.default : pptrFunction
+    );
   }
 }
 

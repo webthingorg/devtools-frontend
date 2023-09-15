@@ -36,17 +36,8 @@ export declare enum InitializationStatus {
  */
 export declare class CDPTarget extends Target {
     #private;
-    /**
-     * @internal
-     */
     _initializedDeferred: Deferred<InitializationStatus>;
-    /**
-     * @internal
-     */
     _isClosedDeferred: Deferred<void>;
-    /**
-     * @internal
-     */
     _targetId: string;
     /**
      * To initialize the target for use, call initialize.
@@ -54,43 +45,19 @@ export declare class CDPTarget extends Target {
      * @internal
      */
     constructor(targetInfo: Protocol.Target.TargetInfo, session: CDPSession | undefined, browserContext: BrowserContext | undefined, targetManager: TargetManager | undefined, sessionFactory: ((isAutoAttachEmulated: boolean) => Promise<CDPSession>) | undefined);
-    /**
-     * @internal
-     */
     _subtype(): string | undefined;
-    /**
-     * @internal
-     */
     _session(): CDPSession | undefined;
-    /**
-     * @internal
-     */
     protected _sessionFactory(): (isAutoAttachEmulated: boolean) => Promise<CDPSession>;
     createCDPSession(): Promise<CDPSession>;
     url(): string;
     type(): TargetType;
-    /**
-     * @internal
-     */
     _targetManager(): TargetManager;
-    /**
-     * @internal
-     */
     _getTargetInfo(): Protocol.Target.TargetInfo;
     browser(): Browser;
     browserContext(): BrowserContext;
     opener(): Target | undefined;
-    /**
-     * @internal
-     */
     _targetInfoChanged(targetInfo: Protocol.Target.TargetInfo): void;
-    /**
-     * @internal
-     */
     _initialize(): void;
-    /**
-     * @internal
-     */
     protected _checkIfInitialized(): void;
 }
 /**
@@ -99,13 +66,15 @@ export declare class CDPTarget extends Target {
 export declare class PageTarget extends CDPTarget {
     #private;
     protected pagePromise?: Promise<Page>;
-    /**
-     * @internal
-     */
     constructor(targetInfo: Protocol.Target.TargetInfo, session: CDPSession | undefined, browserContext: BrowserContext, targetManager: TargetManager, sessionFactory: (isAutoAttachEmulated: boolean) => Promise<CDPSession>, ignoreHTTPSErrors: boolean, defaultViewport: Viewport | null, screenshotTaskQueue: TaskQueue);
     _initialize(): void;
     page(): Promise<Page | null>;
     _checkIfInitialized(): void;
+}
+/**
+ * @internal
+ */
+export declare class DevToolsTarget extends PageTarget {
 }
 /**
  * @internal
