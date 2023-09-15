@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { ClickOptions, ElementHandle } from '../../api/ElementHandle.js';
-import { Realm as RealmBase } from '../../api/Frame.js';
-import { KeyboardTypeOptions } from '../../api/Input.js';
-import { JSHandle as BaseJSHandle } from '../../api/JSHandle.js';
+import { JSHandle } from '../../api/JSHandle.js';
+import { Realm } from '../../api/Realm.js';
 import { TimeoutSettings } from '../TimeoutSettings.js';
-import { EvaluateFunc, EvaluateFuncWith, HandleFor, InnerLazyParams, NodeFor } from '../types.js';
-import { TaskManager } from '../WaitTask.js';
-import { Realm } from './Realm.js';
+import { EvaluateFunc, HandleFor } from '../types.js';
+import { BrowsingContext } from './BrowsingContext.js';
+import { BidiFrame } from './Frame.js';
+import { Realm as BidiRealm } from './Realm.js';
 /**
  * A unique key for {@link SandboxChart} to denote the default world.
  * Realms are automatically created in the default sandbox.
@@ -46,31 +45,15 @@ export interface SandboxChart {
 /**
  * @internal
  */
-export declare class Sandbox implements RealmBase {
+export declare class Sandbox extends Realm {
     #private;
-    constructor(context: Realm, timeoutSettings: TimeoutSettings);
-    get taskManager(): TaskManager;
-    document(): Promise<ElementHandle<Document>>;
-    $<Selector extends string>(selector: Selector): Promise<ElementHandle<NodeFor<Selector>> | null>;
-    $$<Selector extends string>(selector: Selector): Promise<Array<ElementHandle<NodeFor<Selector>>>>;
-    $eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<NodeFor<Selector>, Params> = EvaluateFuncWith<NodeFor<Selector>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    $$eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<Array<NodeFor<Selector>>, Params> = EvaluateFuncWith<Array<NodeFor<Selector>>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    $x(expression: string): Promise<Array<ElementHandle<Node>>>;
+    readonly name: string | undefined;
+    readonly realm: BidiRealm;
+    constructor(name: string | undefined, frame: BidiFrame, realm: BidiRealm | BrowsingContext, timeoutSettings: TimeoutSettings);
+    get environment(): BidiFrame;
     evaluateHandle<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
     evaluate<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    adoptHandle<T extends BaseJSHandle<Node>>(handle: T): Promise<T>;
-    transferHandle<T extends BaseJSHandle<Node>>(handle: T): Promise<T>;
-    waitForFunction<Params extends unknown[], Func extends EvaluateFunc<InnerLazyParams<Params>> = EvaluateFunc<InnerLazyParams<Params>>>(pageFunction: Func | string, options?: {
-        polling?: 'raf' | 'mutation' | number;
-        timeout?: number;
-        root?: ElementHandle<Node>;
-        signal?: AbortSignal;
-    }, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
-    click(selector: string, options?: Readonly<ClickOptions>): Promise<void>;
-    focus(selector: string): Promise<void>;
-    hover(selector: string): Promise<void>;
-    select(selector: string, ...values: string[]): Promise<string[]>;
-    tap(selector: string): Promise<void>;
-    type(selector: string, text: string, options?: Readonly<KeyboardTypeOptions>): Promise<void>;
+    adoptHandle<T extends JSHandle<Node>>(handle: T): Promise<T>;
+    transferHandle<T extends JSHandle<Node>>(handle: T): Promise<T>;
 }
 //# sourceMappingURL=Sandbox.d.ts.map

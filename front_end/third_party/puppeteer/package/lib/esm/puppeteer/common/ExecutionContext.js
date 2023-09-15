@@ -21,7 +21,7 @@ import { CDPElementHandle } from './ElementHandle.js';
 import { CDPJSHandle } from './JSHandle.js';
 import { LazyArg } from './LazyArg.js';
 import { scriptInjector } from './ScriptInjector.js';
-import { PuppeteerURL, createEvaluationError, createJSHandle, getSourcePuppeteerURLIfAvailable, isString, valueFromRemoteObject, } from './util.js';
+import { PuppeteerURL, createEvaluationError, createCdpHandle, getSourcePuppeteerURLIfAvailable, isString, valueFromRemoteObject, } from './util.js';
 const SOURCE_URL_REGEX = /^[\040\t]*\/\/[@#] sourceURL=\s*(\S*?)\s*$/m;
 const getSourceUrlComment = (url) => {
     return `//# sourceURL=${url}`;
@@ -34,7 +34,7 @@ const getSourceUrlComment = (url) => {
  *
  * - Each {@link Frame} of a {@link Page | page} has a "default" execution
  *   context that is always created after frame is attached to DOM. This context
- *   is returned by the {@link Frame.executionContext} method.
+ *   is returned by the {@link Frame.realm} method.
  * - Each {@link https://developer.chrome.com/extensions | Chrome extensions}
  *   creates additional execution contexts to isolate their code.
  *
@@ -70,9 +70,7 @@ export class ExecutionContext {
                 this.#installGlobalBinding(new Binding('__ariaQuerySelector', ARIAQueryHandler.queryOne)),
                 this.#installGlobalBinding(new Binding('__ariaQuerySelectorAll', (async (element, selector) => {
                     const results = ARIAQueryHandler.queryAll(element, selector);
-                    return element
-                        .executionContext()
-                        .evaluateHandle((...elements) => {
+                    return await element.realm.evaluateHandle((...elements) => {
                         return elements;
                     }, ...(await AsyncIterableUtil.collect(results)));
                 }))),
@@ -197,7 +195,7 @@ export class ExecutionContext {
      * {@link ElementHandle | element handle}.
      */
     async evaluateHandle(pageFunction, ...args) {
-        return this.#evaluate(false, pageFunction, ...args);
+        return await this.#evaluate(false, pageFunction, ...args);
     }
     async #evaluate(returnByValue, pageFunction, ...args) {
         const sourceUrlComment = getSourceUrlComment(getSourcePuppeteerURLIfAvailable(pageFunction)?.toString() ??
@@ -222,7 +220,7 @@ export class ExecutionContext {
             }
             return returnByValue
                 ? valueFromRemoteObject(remoteObject)
-                : createJSHandle(this, remoteObject);
+                : createCdpHandle(this._world, remoteObject);
         }
         const functionDeclaration = stringifyFunction(pageFunction);
         const functionDeclarationWithSourceUrl = SOURCE_URL_REGEX.test(functionDeclaration)
@@ -252,7 +250,7 @@ export class ExecutionContext {
         }
         return returnByValue
             ? valueFromRemoteObject(remoteObject)
-            : createJSHandle(this, remoteObject);
+            : createCdpHandle(this._world, remoteObject);
         async function convertArgument(arg) {
             if (arg instanceof LazyArg) {
                 arg = await arg.get(this);
@@ -277,7 +275,7 @@ export class ExecutionContext {
                 ? arg
                 : null;
             if (objectHandle) {
-                if (objectHandle.executionContext() !== this) {
+                if (objectHandle.realm !== this._world) {
                     throw new Error('JSHandles can be evaluated only in the context they were created!');
                 }
                 if (objectHandle.disposed) {

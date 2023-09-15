@@ -16,9 +16,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Sandbox = exports.PUPPETEER_SANDBOX = exports.MAIN_SANDBOX = void 0;
-const assert_js_1 = require("../../util/assert.js");
+const Realm_js_1 = require("../../api/Realm.js");
 const util_js_1 = require("../util.js");
-const WaitTask_js_1 = require("../WaitTask.js");
 /**
  * A unique key for {@link SandboxChart} to denote the default world.
  * Realms are automatically created in the default sandbox.
@@ -36,53 +35,29 @@ exports.PUPPETEER_SANDBOX = Symbol('puppeteerSandbox');
 /**
  * @internal
  */
-class Sandbox {
-    #realm;
-    #timeoutSettings;
-    #taskManager = new WaitTask_js_1.TaskManager();
-    constructor(context, timeoutSettings) {
-        this.#realm = context;
-        this.#timeoutSettings = timeoutSettings;
+class Sandbox extends Realm_js_1.Realm {
+    name;
+    realm;
+    #frame;
+    constructor(name, frame, 
+    // TODO: We should split the Realm and BrowsingContext
+    realm, timeoutSettings) {
+        super(timeoutSettings);
+        this.name = name;
+        this.realm = realm;
+        this.#frame = frame;
+        this.realm.setSandbox(this);
     }
-    get taskManager() {
-        return this.#taskManager;
-    }
-    async document() {
-        // TODO(jrandolf): We should try to cache this because we need to dispose
-        // this when it's unused.
-        return await this.#realm.evaluateHandle(() => {
-            return document;
-        });
-    }
-    async $(selector) {
-        const document = await this.document();
-        return document.$(selector);
-    }
-    async $$(selector) {
-        const document = await this.document();
-        return document.$$(selector);
-    }
-    async $eval(selector, pageFunction, ...args) {
-        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.$eval.name, pageFunction);
-        const document = await this.document();
-        return document.$eval(selector, pageFunction, ...args);
-    }
-    async $$eval(selector, pageFunction, ...args) {
-        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.$$eval.name, pageFunction);
-        const document = await this.document();
-        return document.$$eval(selector, pageFunction, ...args);
-    }
-    async $x(expression) {
-        const document = await this.document();
-        return document.$x(expression);
+    get environment() {
+        return this.#frame;
     }
     async evaluateHandle(pageFunction, ...args) {
         pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluateHandle.name, pageFunction);
-        return this.#realm.evaluateHandle(pageFunction, ...args);
+        return await this.realm.evaluateHandle(pageFunction, ...args);
     }
     async evaluate(pageFunction, ...args) {
         pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluate.name, pageFunction);
-        return this.#realm.evaluate(pageFunction, ...args);
+        return await this.realm.evaluate(pageFunction, ...args);
     }
     async adoptHandle(handle) {
         return (await this.evaluateHandle(node => {
@@ -90,7 +65,7 @@ class Sandbox {
         }, handle));
     }
     async transferHandle(handle) {
-        if (handle.context() === this.#realm) {
+        if (handle.realm === this) {
             return handle;
         }
         const transferredHandle = await this.evaluateHandle(node => {
@@ -98,59 +73,6 @@ class Sandbox {
         }, handle);
         await handle.dispose();
         return transferredHandle;
-    }
-    waitForFunction(pageFunction, options = {}, ...args) {
-        const { polling = 'raf', timeout = this.#timeoutSettings.timeout(), root, signal, } = options;
-        if (typeof polling === 'number' && polling < 0) {
-            throw new Error('Cannot poll with non-positive interval');
-        }
-        const waitTask = new WaitTask_js_1.WaitTask(this, {
-            polling,
-            root,
-            timeout,
-            signal,
-        }, pageFunction, ...args);
-        return waitTask.result;
-    }
-    // ///////////////////
-    // // Input methods //
-    // ///////////////////
-    async click(selector, options) {
-        const handle = await this.$(selector);
-        (0, assert_js_1.assert)(handle, `No element found for selector: ${selector}`);
-        await handle.click(options);
-        await handle.dispose();
-    }
-    async focus(selector) {
-        const handle = await this.$(selector);
-        (0, assert_js_1.assert)(handle, `No element found for selector: ${selector}`);
-        await handle.focus();
-        await handle.dispose();
-    }
-    async hover(selector) {
-        const handle = await this.$(selector);
-        (0, assert_js_1.assert)(handle, `No element found for selector: ${selector}`);
-        await handle.hover();
-        await handle.dispose();
-    }
-    async select(selector, ...values) {
-        const handle = await this.$(selector);
-        (0, assert_js_1.assert)(handle, `No element found for selector: ${selector}`);
-        const result = await handle.select(...values);
-        await handle.dispose();
-        return result;
-    }
-    async tap(selector) {
-        const handle = await this.$(selector);
-        (0, assert_js_1.assert)(handle, `No element found for selector: ${selector}`);
-        await handle.tap();
-        await handle.dispose();
-    }
-    async type(selector, text, options) {
-        const handle = await this.$(selector);
-        (0, assert_js_1.assert)(handle, `No element found for selector: ${selector}`);
-        await handle.type(text, options);
-        await handle.dispose();
     }
 }
 exports.Sandbox = Sandbox;

@@ -17,7 +17,7 @@ import { TargetFilterCallback } from '../api/Browser.js';
 import { CDPSession, Connection } from './Connection.js';
 import { EventEmitter } from './EventEmitter.js';
 import { CDPTarget } from './Target.js';
-import { TargetFactory, TargetInterceptor, TargetManager } from './TargetManager.js';
+import { TargetFactory, TargetManager } from './TargetManager.js';
 /**
  * FirefoxTargetManager implements target management using
  * `Target.setDiscoverTargets` without using auto-attach. It, therefore, creates
@@ -35,8 +35,6 @@ import { TargetFactory, TargetInterceptor, TargetManager } from './TargetManager
 export declare class FirefoxTargetManager extends EventEmitter implements TargetManager {
     #private;
     constructor(connection: Connection, targetFactory: TargetFactory, targetFilterCallback?: TargetFilterCallback);
-    addTargetInterceptor(client: CDPSession | Connection, interceptor: TargetInterceptor): void;
-    removeTargetInterceptor(client: CDPSession | Connection, interceptor: TargetInterceptor): void;
     setupAttachmentListeners(session: CDPSession | Connection): void;
     removeSessionListeners(session: CDPSession): void;
     getAvailableTargets(): Map<string, CDPTarget>;

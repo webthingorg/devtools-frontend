@@ -15,63 +15,27 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JSHandle = void 0;
+exports.BidiJSHandle = void 0;
 const JSHandle_js_1 = require("../../api/JSHandle.js");
-const util_js_1 = require("../util.js");
 const Serializer_js_1 = require("./Serializer.js");
 const utils_js_1 = require("./utils.js");
-class JSHandle extends JSHandle_js_1.JSHandle {
+class BidiJSHandle extends JSHandle_js_1.JSHandle {
     #disposed = false;
-    #realm;
+    #sandbox;
     #remoteValue;
-    constructor(realm, remoteValue) {
+    constructor(sandbox, remoteValue) {
         super();
-        this.#realm = realm;
+        this.#sandbox = sandbox;
         this.#remoteValue = remoteValue;
     }
     context() {
-        return this.#realm;
+        return this.realm.environment.context();
+    }
+    get realm() {
+        return this.#sandbox;
     }
     get disposed() {
         return this.#disposed;
-    }
-    async evaluate(pageFunction, ...args) {
-        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluate.name, pageFunction);
-        return await this.context().evaluate(pageFunction, this, ...args);
-    }
-    async evaluateHandle(pageFunction, ...args) {
-        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluateHandle.name, pageFunction);
-        return this.context().evaluateHandle(pageFunction, this, ...args);
-    }
-    async getProperty(propertyName) {
-        return await this.evaluateHandle((object, propertyName) => {
-            return object[propertyName];
-        }, propertyName);
-    }
-    async getProperties() {
-        // TODO(lightning00blade): Either include return of depth Handles in RemoteValue
-        // or new BiDi command that returns array of remote value
-        const keys = await this.evaluate(object => {
-            const enumerableKeys = [];
-            const descriptors = Object.getOwnPropertyDescriptors(object);
-            for (const key in descriptors) {
-                if (descriptors[key]?.enumerable) {
-                    enumerableKeys.push(key);
-                }
-            }
-            return enumerableKeys;
-        });
-        const map = new Map();
-        const results = await Promise.all(keys.map(key => {
-            return this.getProperty(key);
-        }));
-        for (const [key, value] of Object.entries(keys)) {
-            const handle = results[key];
-            if (handle) {
-                map.set(value, handle);
-            }
-        }
-        return map;
     }
     async jsonValue() {
         return await this.evaluate(value => {
@@ -87,7 +51,7 @@ class JSHandle extends JSHandle_js_1.JSHandle {
         }
         this.#disposed = true;
         if ('handle' in this.#remoteValue) {
-            await (0, utils_js_1.releaseReference)(this.#realm, this.#remoteValue);
+            await (0, utils_js_1.releaseReference)(this.context(), this.#remoteValue);
         }
     }
     get isPrimitiveValue() {
@@ -119,5 +83,5 @@ class JSHandle extends JSHandle_js_1.JSHandle {
         throw new Error('Not available in WebDriver BiDi');
     }
 }
-exports.JSHandle = JSHandle;
+exports.BidiJSHandle = BidiJSHandle;
 //# sourceMappingURL=JSHandle.js.map

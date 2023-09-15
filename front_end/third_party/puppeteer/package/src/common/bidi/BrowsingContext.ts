@@ -4,10 +4,10 @@ import ProtocolMapping from 'devtools-protocol/types/protocol-mapping.js';
 import {WaitForOptions} from '../../api/Page.js';
 import {assert} from '../../util/assert.js';
 import {Deferred} from '../../util/Deferred.js';
-import {CDPSession, Connection as CDPConnection} from '../Connection.js';
+import {Connection as CDPConnection, CDPSession} from '../Connection.js';
 import {ProtocolError, TargetCloseError, TimeoutError} from '../Errors.js';
 import {PuppeteerLifeCycleEvent} from '../LifecycleWatcher.js';
-import {getPageContent, setPageContent, waitWithTimeout} from '../util.js';
+import {setPageContent, waitWithTimeout} from '../util.js';
 
 import {Connection} from './Connection.js';
 import {Realm} from './Realm.js';
@@ -101,7 +101,7 @@ export class CDPSessionWrapper extends CDPSession {
 
   override async detach(): Promise<void> {
     cdpSessions.delete(this.id());
-    if (this.#context.supportsCDP()) {
+    if (!this.#detached && this.#context.supportsCDP()) {
       await this.#context.cdpSession.send('Target.detachFromTarget', {
         sessionId: this.id(),
       });
@@ -147,8 +147,7 @@ export class BrowsingContext extends Realm {
     info: Bidi.BrowsingContext.Info,
     browserName: string
   ) {
-    super(connection, info.context);
-    this.connection = connection;
+    super(connection);
     this.#id = info.context;
     this.#url = info.url;
     this.#parent = info.parent;
@@ -156,6 +155,7 @@ export class BrowsingContext extends Realm {
     this.#cdpSession = new CDPSessionWrapper(this, undefined);
 
     this.on('browsingContext.domContentLoaded', this.#updateUrl.bind(this));
+    this.on('browsingContext.fragmentNavigated', this.#updateUrl.bind(this));
     this.on('browsingContext.load', this.#updateUrl.bind(this));
   }
 
@@ -164,19 +164,15 @@ export class BrowsingContext extends Realm {
   }
 
   #updateUrl(info: Bidi.BrowsingContext.NavigationInfo) {
-    this.url = info.url;
+    this.#url = info.url;
   }
 
-  createSandboxRealm(sandbox: string): Realm {
-    return new Realm(this.connection, this.#id, sandbox);
+  createRealmForSandbox(): Realm {
+    return new Realm(this.connection);
   }
 
   get url(): string {
     return this.#url;
-  }
-
-  set url(value: string) {
-    this.#url = value;
   }
 
   get id(): string {
@@ -189,10 +185,6 @@ export class BrowsingContext extends Realm {
 
   get cdpSession(): CDPSession {
     return this.#cdpSession;
-  }
-
-  navigated(url: string): void {
-    this.#url = url;
   }
 
   async goto(
@@ -277,15 +269,11 @@ export class BrowsingContext extends Realm {
     ]);
   }
 
-  async content(): Promise<string> {
-    return await this.evaluate(getPageContent);
-  }
-
   async sendCDPCommand<T extends keyof ProtocolMapping.Commands>(
     method: T,
     ...paramArgs: ProtocolMapping.Commands[T]['paramsType']
   ): Promise<ProtocolMapping.Commands[T]['returnType']> {
-    return this.#cdpSession.send(method, ...paramArgs);
+    return await this.#cdpSession.send(method, ...paramArgs);
   }
 
   title(): Promise<string> {

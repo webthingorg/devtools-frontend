@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Browser as BrowserBase, } from '../../api/Browser.js';
-import { BrowserContext } from './BrowserContext.js';
+import { Browser, } from '../../api/Browser.js';
+import { BidiBrowserContext } from './BrowserContext.js';
 import { BrowsingContext, BrowsingContextEmittedEvents, } from './BrowsingContext.js';
 import { BiDiBrowserTarget, BiDiBrowsingContextTarget, BiDiPageTarget, } from './Target.js';
 import { debugError } from './utils.js';
 /**
  * @internal
  */
-export class Browser extends BrowserBase {
+export class BidiBrowser extends Browser {
     // TODO: Update generator to include fully module
     static subscribeModules = [
         'browsingContext',
@@ -61,10 +61,10 @@ export class Browser extends BrowserBase {
         }
         await opts.connection.send('session.subscribe', {
             events: browserName.toLocaleLowerCase().includes('firefox')
-                ? Browser.subscribeModules
-                : [...Browser.subscribeModules, ...Browser.subscribeCdpEvents],
+                ? BidiBrowser.subscribeModules
+                : [...BidiBrowser.subscribeModules, ...BidiBrowser.subscribeCdpEvents],
         });
-        const browser = new Browser({
+        const browser = new BidiBrowser({
             ...opts,
             browserName,
             browserVersion,
@@ -101,7 +101,7 @@ export class Browser extends BrowserBase {
             this.#connection.dispose();
             this.emit("disconnected" /* BrowserEmittedEvents.Disconnected */);
         });
-        this.#defaultContext = new BrowserContext(this, {
+        this.#defaultContext = new BidiBrowserContext(this, {
             defaultViewport: this.#defaultViewport,
             isDefault: true,
         });
@@ -112,16 +112,12 @@ export class Browser extends BrowserBase {
         }
     }
     #onContextDomLoaded(event) {
-        const context = this.#connection.getBrowsingContext(event.context);
-        context.url = event.url;
         const target = this.#targets.get(event.context);
         if (target) {
             this.emit("targetchanged" /* BrowserEmittedEvents.TargetChanged */, target);
         }
     }
     #onContextNavigation(event) {
-        const context = this.#connection.getBrowsingContext(event.context);
-        context.url = event.url;
         const target = this.#targets.get(event.context);
         if (target) {
             this.emit("targetchanged" /* BrowserEmittedEvents.TargetChanged */, target);
@@ -200,7 +196,7 @@ export class Browser extends BrowserBase {
     }
     async createIncognitoBrowserContext(_options) {
         // TODO: implement incognito context https://github.com/w3c/webdriver-bidi/issues/289.
-        const context = new BrowserContext(this, {
+        const context = new BidiBrowserContext(this, {
             defaultViewport: this.#defaultViewport,
             isDefault: false,
         });
@@ -212,7 +208,7 @@ export class Browser extends BrowserBase {
     }
     /**
      * Returns an array of all open browser contexts. In a newly created browser, this will
-     * return a single instance of {@link BrowserContext}.
+     * return a single instance of {@link BidiBrowserContext}.
      */
     browserContexts() {
         // TODO: implement incognito context https://github.com/w3c/webdriver-bidi/issues/289.

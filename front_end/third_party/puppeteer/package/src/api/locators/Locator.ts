@@ -36,12 +36,10 @@ import {
   raceWith,
   retry,
   tap,
-  timer,
 } from '../../../third_party/rxjs/rxjs.js';
-import {TimeoutError} from '../../common/Errors.js';
 import {EventEmitter} from '../../common/EventEmitter.js';
 import {HandleFor} from '../../common/types.js';
-import {debugError} from '../../common/util.js';
+import {debugError, timeout} from '../../common/util.js';
 import {BoundingBox, ClickOptions, ElementHandle} from '../ElementHandle.js';
 
 import {
@@ -213,17 +211,7 @@ export abstract class Locator<T> extends EventEmitter {
           )
         );
       }
-      if (this._timeout > 0) {
-        candidates.push(
-          timer(this._timeout).pipe(
-            map(() => {
-              throw new TimeoutError(
-                `Timed out after waiting ${this._timeout}ms`
-              );
-            })
-          )
-        );
-      }
+      candidates.push(timeout(this._timeout));
       return pipe(
         retry({delay: RETRY_DELAY}),
         raceWith<T, never[]>(...candidates)
@@ -692,12 +680,8 @@ export abstract class Locator<T> extends EventEmitter {
    * @public
    */
   async wait(options?: Readonly<ActionOptions>): Promise<T> {
-    const handle = await this.waitHandle(options);
-    try {
-      return await handle.jsonValue();
-    } finally {
-      void handle.dispose().catch(debugError);
-    }
+    using handle = await this.waitHandle(options);
+    return await handle.jsonValue();
   }
 
   /**
