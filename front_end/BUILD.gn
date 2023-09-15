@@ -38,7 +38,6 @@ group("legacy_entrypoints") {
     "core/sdk:legacy",
     "entrypoints/heap_snapshot_worker:legacy",
     "models/breakpoints:legacy",
-    "models/formatter:legacy",
     "models/heap_snapshot_model:legacy",
     "models/persistence:legacy",
     "models/text_utils:legacy",
