@@ -87,6 +87,24 @@
       "parentUuid": "8deddba9_a5162a63",
       "revId": "7b949d24c536fc675e627c8d9cb354381607bb52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf5393fd_a405cca8",
+        "filename": "front_end/entrypoints/formatter_worker/HTMLFormatter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-09-15T09:42:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08891e9_87e025ab",
+      "revId": "7b949d24c536fc675e627c8d9cb354381607bb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
