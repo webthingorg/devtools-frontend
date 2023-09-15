@@ -71,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "84971d04_9c8c9f43",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-15T11:01:51Z",
+      "side": 1,
+      "message": "Good question. Different AsyncScopes don\u0027t stack together, so the DX would be a little weird. E.g., if you have a timeout in a waitFor in a step, the output is\n\n```\nWaiting for element matching selector: \nframe0\nframe1\nframe2\n...\n\n\nStep foobar\nframe1\nframe2\n...\n```",
+      "parentUuid": "6359a85c_0551a311",
+      "range": {
+        "startLine": 471,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 24
+      },
+      "revId": "1162cbcec0e58381ca31b5d278cd941eb33e5d29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9daf8950_19f2705a",
