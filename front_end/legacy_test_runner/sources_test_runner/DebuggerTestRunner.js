@@ -8,7 +8,8 @@
 self.SourcesTestRunner = self.SourcesTestRunner || {};
 
 import * as Common from '../../core/common/common.js';
-import * as SourcesModule from 'devtools/panels/sources/sources.js';
+import * as SourcesModule from '../../panels/sources/sources.js';
+import * as BindingsModule from '../../models/bindings/bindings.js';
 
 SourcesTestRunner.startDebuggerTest = async function(callback, quiet) {
   console.assert(TestRunner.debuggerModel.debuggerEnabled(), 'Debugger has to be enabled');
@@ -273,9 +274,13 @@ SourcesTestRunner.captureStackTraceIntoString = async function(callFrames, async
       const frame = callFrames[i];
       const location = locationFunction.call(frame);
       const script = location.script();
-      const uiLocation = await self.Bindings.debuggerWorkspaceBinding.rawLocationToUILocation(location);
-      const isFramework =
-          uiLocation ? self.Bindings.ignoreListManager.isUserIgnoreListedURL(uiLocation.uiSourceCode.url()) : false;
+      const uiLocation =
+          await BindingsModule.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().rawLocationToUILocation(
+              location);
+      const isFramework = uiLocation ?
+          BindingsModule.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(
+              uiLocation.uiSourceCode.url()) :
+          false;
 
       if (options.dropFrameworkCallFrames && isFramework) {
         continue;
@@ -288,7 +293,7 @@ SourcesTestRunner.captureStackTraceIntoString = async function(callFrames, async
         url = uiLocation.uiSourceCode.name();
         lineNumber = uiLocation.lineNumber + 1;
       } else {
-        url = Bindings.displayNameForURL(script.sourceURL);
+        url = BindingsModule.ResourceUtils.displayNameForURL(script.sourceURL);
         lineNumber = location.lineNumber + 1;
       }
 
