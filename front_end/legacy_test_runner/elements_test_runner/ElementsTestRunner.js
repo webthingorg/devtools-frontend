@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as ElementsModule from '../../panels/elements/elements.js';
 import * as EventListeners from '../../panels/event_listeners/event_listeners.js';
 
 /**
@@ -292,7 +293,8 @@ globalThis.waitForStylesRebuild = function(matchFunction, callback, requireRebui
       return;
     }
 
-    TestRunner.addSniffer(Elements.StylesSidebarPane.prototype, 'nodeStylesUpdatedForTest', sniff);
+    TestRunner.addSniffer(
+        ElementsModule.StylesSidebarPane.StylesSidebarPane.prototype, 'nodeStylesUpdatedForTest', sniff);
   })(null);
 };
 
@@ -307,9 +309,10 @@ ElementsTestRunner.waitForStyles = function(idValue, callback, requireRebuild) {
 };
 
 ElementsTestRunner.waitForStyleCommitted = function(next) {
-  TestRunner.addSniffer(Elements.StylePropertyTreeElement.prototype, 'editingCommitted', (...args) => {
-    Promise.all(args).then(next);
-  });
+  TestRunner.addSniffer(
+      ElementsModule.StylePropertyTreeElement.StylePropertyTreeElement.prototype, 'editingCommitted', (...args) => {
+        Promise.all(args).then(next);
+      });
 };
 
 ElementsTestRunner.waitForStylesForClass = function(classValue, callback, requireRebuild) {
@@ -324,15 +327,20 @@ ElementsTestRunner.waitForStylesForClass = function(classValue, callback, requir
 };
 
 ElementsTestRunner.waitForSelectorCommitted = function(callback) {
-  TestRunner.addSniffer(Elements.StylePropertiesSection.prototype, 'editingSelectorCommittedForTest', callback);
+  TestRunner.addSniffer(
+      ElementsModule.StylePropertiesSection.StylePropertiesSection.prototype, 'editingSelectorCommittedForTest',
+      callback);
 };
 
 ElementsTestRunner.waitForMediaTextCommitted = function(callback) {
-  TestRunner.addSniffer(Elements.StylePropertiesSection.prototype, 'editingMediaTextCommittedForTest', callback);
+  TestRunner.addSniffer(
+      ElementsModule.StylePropertiesSection.StylePropertiesSection.prototype, 'editingMediaTextCommittedForTest',
+      callback);
 };
 
 ElementsTestRunner.waitForStyleApplied = function(callback) {
-  TestRunner.addSniffer(Elements.StylePropertyTreeElement.prototype, 'styleTextAppliedForTest', callback);
+  TestRunner.addSniffer(
+      ElementsModule.StylePropertyTreeElement.StylePropertyTreeElement.prototype, 'styleTextAppliedForTest', callback);
 };
 
 ElementsTestRunner.waitForStyleAppliedPromise = function() {
@@ -581,7 +589,7 @@ ElementsTestRunner.toggleMatchedStyleProperty = function(propertyName, checked) 
 
 ElementsTestRunner.eventListenersWidget = function() {
   self.UI.viewManager.showView('elements.eventListeners');
-  return Elements.EventListenersWidget.instance();
+  return ElementsModule.EventListenersWidget.EventListenersWidget.instance();
 };
 
 ElementsTestRunner.showEventListenersWidget = function() {
@@ -826,7 +834,8 @@ ElementsTestRunner.dumpElementsTree = function(rootNode, depth, resultsArray) {
 
 ElementsTestRunner.dumpDOMUpdateHighlights = function(rootNode, callback, depth) {
   let hasHighlights = false;
-  TestRunner.addSniffer(Elements.ElementsTreeOutline.prototype, 'updateModifiedNodes', didUpdate);
+  TestRunner.addSniffer(
+      ElementsModule.ElementsTreeOutline.ElementsTreeOutline.prototype, 'updateModifiedNodes', didUpdate);
 
   function didUpdate() {
     const treeOutline = ElementsTestRunner.firstElementsTreeOutline();
@@ -843,7 +852,7 @@ ElementsTestRunner.dumpDOMUpdateHighlights = function(rootNode, callback, depth)
 
   function print(treeItem, prefix, depth) {
     if (!treeItem.root) {
-      const elementXPath = Elements.DOMPath.xPath(treeItem.node(), true);
+      const elementXPath = ElementsModule.DOMPath.DOMPath.xPath(treeItem.node(), true);
       const highlightedElements = treeItem.listItemElement.querySelectorAll('.dom-update-highlight');
 
       for (let i = 0; i < highlightedElements.length; ++i) {
@@ -1191,7 +1200,8 @@ ElementsTestRunner.matchingSelectors = function(matchedStyles, rule) {
 
 ElementsTestRunner.addNewRuleInStyleSheet = function(styleSheetHeader, selector, callback) {
   TestRunner.addSniffer(
-      Elements.StylesSidebarPane.prototype, 'addBlankSection', onBlankSection.bind(null, selector, callback));
+      ElementsModule.StylesSidebarPane.StylesSidebarPane.prototype, 'addBlankSection',
+      onBlankSection.bind(null, selector, callback));
   UI.panels.elements.stylesWidget.createNewRuleInStyleSheet(styleSheetHeader);
 };
 
@@ -1200,7 +1210,8 @@ ElementsTestRunner.addNewRule = function(selector, callback) {
       .shadowRoot.querySelector('.plus')
       .click();
   TestRunner.addSniffer(
-      Elements.StylesSidebarPane.prototype, 'addBlankSection', onBlankSection.bind(null, selector, callback));
+      ElementsModule.StylesSidebarPane.StylesSidebarPane.prototype, 'addBlankSection',
+      onBlankSection.bind(null, selector, callback));
 };
 
 function onBlankSection(selector, callback) {
@@ -1299,8 +1310,8 @@ ElementsTestRunner.dumpAnimationTimeline = function(timeline) {
 // Saves time by ignoring sidebar updates, use in tests that don't interact
 // with these sidebars.
 ElementsTestRunner.ignoreSidebarUpdates = function() {
-  Elements.StylesSidebarPane.prototype.update = function() {};
-  Elements.MetricsSidebarPane.prototype.update = function() {};
+  ElementsModule.StylesSidebarPane.StylesSidebarPane.prototype.update = function() {};
+  ElementsModule.MetricsSidebarPane.MetricsSidebarPane.prototype.update = function() {};
 };
 
 ElementsTestRunner.getDocumentElements = function() {
