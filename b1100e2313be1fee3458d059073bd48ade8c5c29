@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34babd28_a2bf4496",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-15T11:18:15Z",
+      "side": 1,
+      "message": "PTAL, wdyt?\n\nAnother thought is we could store a global weakmap of Entry \u003d\u003e SourceMapName that SourceMapsResolver maintains...but that maybe is a bit overkill for now. I think this is probably fine?",
+      "revId": "b1100e2313be1fee3458d059073bd48ade8c5c29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
