@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3b472dc_8bd8b001",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-15T11:52:57Z",
+      "side": 1,
+      "message": "PTAL. 2nd try at deflaking. Stressor bot shows no flakiness, but could still flake on the waterfall. Therefore I\u0027d merge on Monday when I can keep an eye on the tree.",
+      "revId": "13f78bf3ea1a23530cadcdaa3fbda9440ae53032",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
