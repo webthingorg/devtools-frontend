@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de339637_f59fe73f",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-09-15T09:37:51Z",
+      "side": 0,
+      "message": "You can remove the msgs array as well, as there is at most one message created in the `if (stacks.length \u003e 0) {` condition.",
+      "range": {
+        "startLine": 151,
+        "startChar": 1,
+        "endLine": 151,
+        "endChar": 59
+      },
+      "revId": "4686ab1e36b4f076c8f529a96dcefc6f135ba8e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
