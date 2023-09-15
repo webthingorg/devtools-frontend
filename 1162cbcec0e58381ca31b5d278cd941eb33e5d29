@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b95114d6_26118df3",
+        "filename": "test/shared/async-scope.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-15T09:32:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "823ffbb6_6d32d1f3",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 43
+      },
+      "revId": "1162cbcec0e58381ca31b5d278cd941eb33e5d29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6359a85c_0551a311",
