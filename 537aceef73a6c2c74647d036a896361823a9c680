@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab2c309b_eee1c821",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-15T13:14:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4ba6dc5_fe5d732c",
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa4dadbf_5ac04930",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-09-14T15:40:00Z",
       "side": 1,
       "message": "Just `return this.moreFiltersDropDownUI` achieves the same effect.",
+      "range": {
+        "startLine": 623,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 38
+      },
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a6a32a_4a61ab34",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-15T13:14:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa4dadbf_5ac04930",
       "range": {
         "startLine": 623,
         "startChar": 0,
@@ -81,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f15273a3_c3ea33be",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 1526,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-15T13:14:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57df6e8f_85942e19",
+      "range": {
+        "startLine": 1526,
+        "startChar": 6,
+        "endLine": 1526,
+        "endChar": 76
+      },
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcb9fc37_1ef0b4a3",
@@ -94,6 +160,24 @@
       "writtenOn": "2023-09-14T13:57:02Z",
       "side": 1,
       "message": "Do you really need to pass functions (createNetworkRequest, createNetworkLogView)? It should be possible just to call them in here",
+      "revId": "537aceef73a6c2c74647d036a896361823a9c680",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fab7bba_ac8d00c3",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-15T13:14:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcb9fc37_1ef0b4a3",
       "revId": "537aceef73a6c2c74647d036a896361823a9c680",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
