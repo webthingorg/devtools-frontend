@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "823ffbb6_6d32d1f3",
+        "filename": "test/shared/async-scope.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-09-15T09:24:30Z",
+      "side": 1,
+      "message": "We never pop the description.\n\nI think it would make more sense to change the type of asyncStack to {stack: string[], description?: string}[] so that descriptions and stacks are popped together.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 43
+      },
+      "revId": "1162cbcec0e58381ca31b5d278cd941eb33e5d29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
