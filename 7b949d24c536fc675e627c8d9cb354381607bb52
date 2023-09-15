@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00e1867b_3d6e615d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1562752
+      },
+      "writtenOn": "2023-09-15T11:55:23Z",
+      "side": 1,
+      "message": "Guess I\u0027ll update CodeHighlighter.ts to add in this support, shouldn\u0027t be too hard, will add a new CL for that.",
+      "parentUuid": "0b412d3b_85f39f5e",
+      "revId": "7b949d24c536fc675e627c8d9cb354381607bb52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8deddba9_a5162a63",
         "filename": "front_end/entrypoints/formatter_worker/HTMLFormatter.ts",
         "patchSetId": 2
