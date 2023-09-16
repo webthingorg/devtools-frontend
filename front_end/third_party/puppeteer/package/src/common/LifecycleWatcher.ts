@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
+import Protocol from 'devtools-protocol';
+
 import {HTTPResponse} from '../api/HTTPResponse.js';
 import {assert} from '../util/assert.js';
 import {Deferred} from '../util/Deferred.js';
 
 import {TimeoutError} from './Errors.js';
-import {Frame, FrameEmittedEvents} from './Frame.js';
+import {CDPFrame, FrameEmittedEvents} from './Frame.js';
+import {FrameManagerEmittedEvents} from './FrameManager.js';
 import {HTTPRequest} from './HTTPRequest.js';
 import {NetworkManager, NetworkManagerEmittedEvents} from './NetworkManager.js';
 import {
@@ -60,7 +63,7 @@ const puppeteerToProtocolLifecycle = new Map<
  */
 export class LifecycleWatcher {
   #expectedLifecycle: ProtocolLifeCycleEvent[];
-  #frame: Frame;
+  #frame: CDPFrame;
   #timeout: number;
   #navigationRequest: HTTPRequest | null = null;
   #eventListeners: PuppeteerEventListener[];
@@ -78,7 +81,7 @@ export class LifecycleWatcher {
 
   constructor(
     networkManager: NetworkManager,
-    frame: Frame,
+    frame: CDPFrame,
     waitUntil: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[],
     timeout: number
   ) {
@@ -98,8 +101,9 @@ export class LifecycleWatcher {
     this.#timeout = timeout;
     this.#eventListeners = [
       addEventListener(
-        frame,
-        FrameEmittedEvents.LifecycleEvent,
+        // Revert if TODO #1 is done
+        frame._frameManager,
+        FrameManagerEmittedEvents.LifecycleEvent,
         this.#checkLifecycleComplete.bind(this)
       ),
       addEventListener(
@@ -181,7 +185,7 @@ export class LifecycleWatcher {
     this.#navigationResponseReceived?.resolve();
   }
 
-  #onFrameDetached(frame: Frame): void {
+  #onFrameDetached(frame: CDPFrame): void {
     if (this.#frame === frame) {
       this.#terminationDeferred.resolve(
         new Error('Navigating frame was detached')
@@ -218,7 +222,10 @@ export class LifecycleWatcher {
     this.#checkLifecycleComplete();
   }
 
-  #navigated(): void {
+  #navigated(navigationType: Protocol.Page.NavigationType): void {
+    if (navigationType === 'BackForwardCacheRestore') {
+      return this.#frameSwapped();
+    }
     this.#checkLifecycleComplete();
   }
 
@@ -241,7 +248,7 @@ export class LifecycleWatcher {
     }
 
     function checkLifecycle(
-      frame: Frame,
+      frame: CDPFrame,
       expectedLifecycle: ProtocolLifeCycleEvent[]
     ): boolean {
       for (const event of expectedLifecycle) {
@@ -249,6 +256,10 @@ export class LifecycleWatcher {
           return false;
         }
       }
+      // TODO(#1): Its possible we don't need this check
+      // CDP provided the correct order for Loading Events
+      // And NetworkIdle is a global state
+      // Consider removing
       for (const child of frame.childFrames()) {
         if (
           child._hasStartedLoading &&

@@ -14,10 +14,54 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+var __addDisposableResource = (this && this.__addDisposableResource) || function (env, value, async) {
+    if (value !== null && value !== void 0) {
+        if (typeof value !== "object" && typeof value !== "function") throw new TypeError("Object expected.");
+        var dispose;
+        if (async) {
+            if (!Symbol.asyncDispose) throw new TypeError("Symbol.asyncDispose is not defined.");
+            dispose = value[Symbol.asyncDispose];
+        }
+        if (dispose === void 0) {
+            if (!Symbol.dispose) throw new TypeError("Symbol.dispose is not defined.");
+            dispose = value[Symbol.dispose];
+        }
+        if (typeof dispose !== "function") throw new TypeError("Object not disposable.");
+        env.stack.push({ value: value, dispose: dispose, async: async });
+    }
+    else if (async) {
+        env.stack.push({ async: true });
+    }
+    return value;
+};
+var __disposeResources = (this && this.__disposeResources) || (function (SuppressedError) {
+    return function (env) {
+        function fail(e) {
+            env.error = env.hasError ? new SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
+            env.hasError = true;
+        }
+        function next() {
+            while (env.stack.length) {
+                var rec = env.stack.pop();
+                try {
+                    var result = rec.dispose && rec.dispose.call(rec.value);
+                    if (rec.async) return Promise.resolve(result).then(next, function(e) { fail(e); return next(); });
+                }
+                catch (e) {
+                    fail(e);
+                }
+            }
+            if (env.hasError) throw env.error;
+        }
+        return next();
+    };
+})(typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+});
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Locator = exports.LocatorEmittedEvents = exports.RETRY_DELAY = void 0;
 const rxjs_js_1 = require("../../../third_party/rxjs/rxjs.js");
-const Errors_js_1 = require("../../common/Errors.js");
 const EventEmitter_js_1 = require("../../common/EventEmitter.js");
 const util_js_1 = require("../../common/util.js");
 const locators_js_1 = require("./locators.js");
@@ -90,11 +134,7 @@ class Locator extends EventEmitter_js_1.EventEmitter {
                     throw signal.reason;
                 })));
             }
-            if (this._timeout > 0) {
-                candidates.push((0, rxjs_js_1.timer)(this._timeout).pipe((0, rxjs_js_1.map)(() => {
-                    throw new Errors_js_1.TimeoutError(`Timed out after waiting ${this._timeout}ms`);
-                })));
-            }
+            candidates.push((0, util_js_1.timeout)(this._timeout));
             return (0, rxjs_js_1.pipe)((0, rxjs_js_1.retry)({ delay: exports.RETRY_DELAY }), (0, rxjs_js_1.raceWith)(...candidates));
         },
     };
@@ -398,12 +438,17 @@ class Locator extends EventEmitter_js_1.EventEmitter {
      * @public
      */
     async wait(options) {
-        const handle = await this.waitHandle(options);
+        const env_1 = { stack: [], error: void 0, hasError: false };
         try {
+            const handle = __addDisposableResource(env_1, await this.waitHandle(options), false);
             return await handle.jsonValue();
         }
+        catch (e_1) {
+            env_1.error = e_1;
+            env_1.hasError = true;
+        }
         finally {
-            void handle.dispose().catch(util_js_1.debugError);
+            __disposeResources(env_1);
         }
     }
     /**

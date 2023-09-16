@@ -22,20 +22,11 @@ import { _keyDefinitions } from './USKeyboardLayout.js';
 export class CDPKeyboard extends Keyboard {
     #client;
     #pressedKeys = new Set();
-    /**
-     * @internal
-     */
     _modifiers = 0;
-    /**
-     * @internal
-     */
     constructor(client) {
         super();
         this.#client = client;
     }
-    /**
-     * @internal
-     */
     updateClient(client) {
         this.#client = client;
     }
@@ -209,17 +200,11 @@ const getButtonFromPressedButtons = (buttons) => {
 export class CDPMouse extends Mouse {
     #client;
     #keyboard;
-    /**
-     * @internal
-     */
     constructor(client, keyboard) {
         super();
         this.#client = client;
         this.#keyboard = keyboard;
     }
-    /**
-     * @internal
-     */
     updateClient(client) {
         this.#client = client;
     }
@@ -397,7 +382,7 @@ export class CDPMouse extends Mouse {
         await this.move(start.x, start.y);
         await this.down();
         await this.move(target.x, target.y);
-        return promise;
+        return await promise;
     }
     async dragEnter(target, data) {
         await this.#client.send('Input.dispatchDragEvent', {
@@ -446,17 +431,11 @@ export class CDPMouse extends Mouse {
 export class CDPTouchscreen extends Touchscreen {
     #client;
     #keyboard;
-    /**
-     * @internal
-     */
     constructor(client, keyboard) {
         super();
         this.#client = client;
         this.#keyboard = keyboard;
     }
-    /**
-     * @internal
-     */
     updateClient(client) {
         this.#client = client;
     }

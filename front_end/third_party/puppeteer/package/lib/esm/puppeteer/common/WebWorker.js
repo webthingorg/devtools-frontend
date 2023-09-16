@@ -1,7 +1,8 @@
-import { Deferred } from '../util/Deferred.js';
 import { EventEmitter } from './EventEmitter.js';
 import { ExecutionContext } from './ExecutionContext.js';
+import { IsolatedWorld } from './IsolatedWorld.js';
 import { CDPJSHandle } from './JSHandle.js';
+import { TimeoutSettings } from './TimeoutSettings.js';
 import { debugError, withSourcePuppeteerURLIfNone } from './util.js';
 /**
  * This class represents a
@@ -30,7 +31,11 @@ import { debugError, withSourcePuppeteerURLIfNone } from './util.js';
  * @public
  */
 export class WebWorker extends EventEmitter {
-    #executionContext = Deferred.create();
+    /**
+     * @internal
+     */
+    timeoutSettings = new TimeoutSettings();
+    #world;
     #client;
     #url;
     /**
@@ -40,32 +45,29 @@ export class WebWorker extends EventEmitter {
         super();
         this.#client = client;
         this.#url = url;
+        this.#world = new IsolatedWorld(this, new TimeoutSettings());
         this.#client.once('Runtime.executionContextCreated', async (event) => {
-            const context = new ExecutionContext(client, event.context);
-            this.#executionContext.resolve(context);
+            this.#world.setContext(new ExecutionContext(client, event.context, this.#world));
         });
         this.#client.on('Runtime.consoleAPICalled', async (event) => {
             try {
-                const context = await this.#executionContext.valueOrThrow();
                 return consoleAPICalled(event.type, event.args.map((object) => {
-                    return new CDPJSHandle(context, object);
+                    return new CDPJSHandle(this.#world, object);
                 }), event.stackTrace);
             }
             catch (err) {
                 debugError(err);
             }
         });
-        this.#client.on('Runtime.exceptionThrown', exception => {
-            return exceptionThrown(exception.exceptionDetails);
-        });
+        this.#client.on('Runtime.exceptionThrown', exceptionThrown);
         // This might fail if the target is closed before we receive all execution contexts.
         this.#client.send('Runtime.enable').catch(debugError);
     }
     /**
      * @internal
      */
-    async executionContext() {
-        return this.#executionContext.valueOrThrow();
+    mainRealm() {
+        return this.#world;
     }
     /**
      * The URL of this web worker.
@@ -95,8 +97,7 @@ export class WebWorker extends EventEmitter {
      */
     async evaluate(pageFunction, ...args) {
         pageFunction = withSourcePuppeteerURLIfNone(this.evaluate.name, pageFunction);
-        const context = await this.#executionContext.valueOrThrow();
-        return context.evaluate(pageFunction, ...args);
+        return await this.mainRealm().evaluate(pageFunction, ...args);
     }
     /**
      * The only difference between `worker.evaluate` and `worker.evaluateHandle`
@@ -112,8 +113,7 @@ export class WebWorker extends EventEmitter {
      */
     async evaluateHandle(pageFunction, ...args) {
         pageFunction = withSourcePuppeteerURLIfNone(this.evaluateHandle.name, pageFunction);
-        const context = await this.#executionContext.valueOrThrow();
-        return context.evaluateHandle(pageFunction, ...args);
+        return await this.mainRealm().evaluateHandle(pageFunction, ...args);
     }
 }
 //# sourceMappingURL=WebWorker.js.map

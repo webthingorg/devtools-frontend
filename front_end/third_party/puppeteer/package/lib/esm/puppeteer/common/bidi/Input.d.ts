@@ -22,9 +22,6 @@ import { BrowsingContext } from './BrowsingContext.js';
  */
 export declare class Keyboard extends BaseKeyboard {
     #private;
-    /**
-     * @internal
-     */
     constructor(context: BrowsingContext);
     down(key: KeyInput, _options?: Readonly<KeyDownOptions>): Promise<void>;
     up(key: KeyInput): Promise<void>;
@@ -54,9 +51,6 @@ interface BidiTouchMoveOptions {
  */
 export declare class Mouse extends BaseMouse {
     #private;
-    /**
-     * @internal
-     */
     constructor(context: BrowsingContext);
     reset(): Promise<void>;
     move(x: number, y: number, options?: Readonly<BidiMouseMoveOptions>): Promise<void>;
@@ -70,9 +64,6 @@ export declare class Mouse extends BaseMouse {
  */
 export declare class Touchscreen extends BaseTouchscreen {
     #private;
-    /**
-     * @internal
-     */
     constructor(context: BrowsingContext);
     tap(x: number, y: number, options?: BidiTouchMoveOptions): Promise<void>;
     touchStart(x: number, y: number, options?: BidiTouchMoveOptions): Promise<void>;

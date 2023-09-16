@@ -16,36 +16,31 @@
 
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
 
-import {
-  AutofillData,
-  ElementHandle as BaseElementHandle,
-} from '../../api/ElementHandle.js';
-import {debugError} from '../util.js';
+import {AutofillData, ElementHandle} from '../../api/ElementHandle.js';
 
-import {Frame} from './Frame.js';
-import {JSHandle as BidiJSHandle, JSHandle} from './JSHandle.js';
+import {BidiFrame} from './Frame.js';
+import {BidiJSHandle} from './JSHandle.js';
 import {Realm} from './Realm.js';
+import {Sandbox} from './Sandbox.js';
 
 /**
  * @internal
  */
-export class ElementHandle<
+export class BidiElementHandle<
   ElementType extends Node = Element,
-> extends BaseElementHandle<ElementType> {
-  declare handle: JSHandle<ElementType>;
-  #frame: Frame;
+> extends ElementHandle<ElementType> {
+  declare handle: BidiJSHandle<ElementType>;
 
-  constructor(
-    realm: Realm,
-    remoteValue: Bidi.Script.RemoteValue,
-    frame: Frame
-  ) {
-    super(new JSHandle(realm, remoteValue));
-    this.#frame = frame;
+  constructor(sandbox: Sandbox, remoteValue: Bidi.Script.RemoteValue) {
+    super(new BidiJSHandle(sandbox, remoteValue));
   }
 
-  override get frame(): Frame {
-    return this.#frame;
+  override get realm(): Sandbox {
+    return this.handle.realm;
+  }
+
+  override get frame(): BidiFrame {
+    return this.realm.environment;
   }
 
   context(): Realm {
@@ -60,21 +55,13 @@ export class ElementHandle<
     return this.handle.remoteValue();
   }
 
-  /**
-   * @internal
-   */
-  assertElementHasWorld(): asserts this {
-    // TODO: Should assert element has a Sandbox
-    return;
-  }
-
   override async autofill(data: AutofillData): Promise<void> {
-    const client = this.#frame.context().cdpSession;
+    const client = this.frame.client;
     const nodeInfo = await client.send('DOM.describeNode', {
       objectId: this.handle.id,
     });
     const fieldId = nodeInfo.node.backendNodeId;
-    const frameId = this.#frame._id;
+    const frameId = this.frame._id;
     await client.send('Autofill.trigger', {
       fieldId,
       frameId,
@@ -83,18 +70,16 @@ export class ElementHandle<
   }
 
   override async contentFrame(
-    this: ElementHandle<HTMLIFrameElement>
-  ): Promise<Frame>;
-  override async contentFrame(): Promise<Frame | null> {
-    const adoptedThis = await this.frame.isolatedRealm().adoptHandle(this);
-    const handle = (await adoptedThis.evaluateHandle(element => {
+    this: BidiElementHandle<HTMLIFrameElement>
+  ): Promise<BidiFrame>;
+  @ElementHandle.bindIsolatedHandle
+  override async contentFrame(): Promise<BidiFrame | null> {
+    using handle = (await this.evaluateHandle(element => {
       if (element instanceof HTMLIFrameElement) {
         return element.contentWindow;
       }
       return;
     })) as BidiJSHandle;
-    void handle.dispose().catch(debugError);
-    void adoptedThis.dispose().catch(debugError);
     const value = handle.remoteValue();
     if (value.type === 'window') {
       return this.frame.page().frame(value.value.context);

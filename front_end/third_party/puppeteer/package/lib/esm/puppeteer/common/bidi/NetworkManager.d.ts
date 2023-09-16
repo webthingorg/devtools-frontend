@@ -15,18 +15,18 @@
  */
 import { EventEmitter } from '../EventEmitter.js';
 import { Connection } from './Connection.js';
-import { Frame } from './Frame.js';
+import { BidiFrame } from './Frame.js';
 import { HTTPResponse } from './HTTPResponse.js';
-import { Page } from './Page.js';
+import { BidiPage } from './Page.js';
 /**
  * @internal
  */
 export declare class NetworkManager extends EventEmitter {
     #private;
-    constructor(connection: Connection, page: Page);
+    constructor(connection: Connection, page: BidiPage);
     getNavigationResponse(navigationId: string | null): HTTPResponse | null;
     inFlightRequestsCount(): number;
-    clearMapAfterFrameDispose(frame: Frame): void;
+    clearMapAfterFrameDispose(frame: BidiFrame): void;
     dispose(): void;
 }
 //# sourceMappingURL=NetworkManager.d.ts.map

@@ -134,7 +134,7 @@ export class DeviceRequestPrompt {
         assert(!this.#handled, 'Cannot select DeviceRequestPrompt which is already handled!');
         this.#client.off('DeviceAccess.deviceRequestPrompted', this.#updateDevicesHandle);
         this.#handled = true;
-        return this.#client.send('DeviceAccess.selectPrompt', {
+        return await this.#client.send('DeviceAccess.selectPrompt', {
             id: this.#id,
             deviceId: device.id,
         });
@@ -147,7 +147,7 @@ export class DeviceRequestPrompt {
         assert(!this.#handled, 'Cannot cancel DeviceRequestPrompt which is already handled!');
         this.#client.off('DeviceAccess.deviceRequestPrompted', this.#updateDevicesHandle);
         this.#handled = true;
-        return this.#client.send('DeviceAccess.cancelPrompt', { id: this.#id });
+        return await this.#client.send('DeviceAccess.cancelPrompt', { id: this.#id });
     }
 }
 /**
