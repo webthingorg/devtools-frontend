@@ -38,7 +38,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Page = void 0;
+exports.BidiPage = void 0;
 const Page_js_1 = require("../../api/Page.js");
 const assert_js_1 = require("../../util/assert.js");
 const Deferred_js_1 = require("../../util/Deferred.js");
@@ -63,7 +63,7 @@ const Serializer_js_1 = require("./Serializer.js");
 /**
  * @internal
  */
-class Page extends Page_js_1.Page {
+class BidiPage extends Page_js_1.Page {
     #accessibility;
     #timeoutSettings = new TimeoutSettings_js_1.TimeoutSettings();
     #connection;
@@ -75,12 +75,12 @@ class Page extends Page_js_1.Page {
         ['log.entryAdded', this.#onLogEntryAdded.bind(this)],
         ['browsingContext.load', this.#onFrameLoaded.bind(this)],
         [
-            'browsingContext.domContentLoaded',
-            this.#onFrameDOMContentLoaded.bind(this),
+            'browsingContext.fragmentNavigated',
+            this.#onFrameFragmentNavigated.bind(this),
         ],
         [
-            'browsingContext.navigationStarted',
-            this.#onFrameNavigationStarted.bind(this),
+            'browsingContext.domContentLoaded',
+            this.#onFrameDOMContentLoaded.bind(this),
         ],
         ['browsingContext.userPromptOpened', this.#onDialog.bind(this)],
     ]);
@@ -140,7 +140,7 @@ class Page extends Page_js_1.Page {
         for (const [event, subscriber] of this.#networkManagerEvents) {
             this.#networkManager.on(event, subscriber);
         }
-        const frame = new Frame_js_1.Frame(this, this.#browsingContext, this.#timeoutSettings, this.#browsingContext.parent);
+        const frame = new Frame_js_1.BidiFrame(this, this.#browsingContext, this.#timeoutSettings, this.#browsingContext.parent);
         this.#frameTree.addFrame(frame);
         this.emit("frameattached" /* PageEmittedEvents.FrameAttached */, frame);
         // TODO: https://github.com/w3c/webdriver-bidi/issues/443
@@ -200,38 +200,30 @@ class Page extends Page_js_1.Page {
             this.emit("load" /* PageEmittedEvents.Load */);
         }
     }
+    #onFrameFragmentNavigated(info) {
+        const frame = this.frame(info.context);
+        if (frame) {
+            this.emit("framenavigated" /* PageEmittedEvents.FrameNavigated */, frame);
+        }
+    }
     #onFrameDOMContentLoaded(info) {
         const frame = this.frame(info.context);
-        if (frame && this.mainFrame() === frame) {
-            this.emit("domcontentloaded" /* PageEmittedEvents.DOMContentLoaded */);
+        if (frame) {
+            frame._hasStartedLoading = true;
+            if (this.mainFrame() === frame) {
+                this.emit("domcontentloaded" /* PageEmittedEvents.DOMContentLoaded */);
+            }
+            this.emit("framenavigated" /* PageEmittedEvents.FrameNavigated */, frame);
         }
     }
     #onContextCreated(context) {
         if (!this.frame(context.id) &&
             (this.frame(context.parent ?? '') || !this.#frameTree.getMainFrame())) {
-            const frame = new Frame_js_1.Frame(this, context, this.#timeoutSettings, context.parent);
+            const frame = new Frame_js_1.BidiFrame(this, context, this.#timeoutSettings, context.parent);
             this.#frameTree.addFrame(frame);
             if (frame !== this.mainFrame()) {
                 this.emit("frameattached" /* PageEmittedEvents.FrameAttached */, frame);
             }
-        }
-    }
-    async #onFrameNavigationStarted(info) {
-        const frameId = info.context;
-        const frame = this.frame(frameId);
-        if (frame) {
-            // TODO: Investigate if a navigationCompleted event should be in Spec
-            const predicate = (event) => {
-                if (event.context === frame?._id) {
-                    return true;
-                }
-                return false;
-            };
-            await Deferred_js_1.Deferred.race([
-                (0, util_js_1.waitForEvent)(this.#connection, 'browsingContext.domContentLoaded', predicate, 0, this.#closedDeferred.valueOrThrow()).catch(util_js_1.debugError),
-                (0, util_js_1.waitForEvent)(this.#connection, 'browsingContext.fragmentNavigated', predicate, 0, this.#closedDeferred.valueOrThrow()).catch(util_js_1.debugError),
-            ]);
-            this.emit("framenavigated" /* PageEmittedEvents.FrameNavigated */, frame);
         }
     }
     #onContextDestroyed(context) {
@@ -247,7 +239,7 @@ class Page extends Page_js_1.Page {
         for (const child of frame.childFrames()) {
             this.#removeFramesRecursively(child);
         }
-        frame.dispose();
+        frame[Symbol.dispose]();
         this.#networkManager.clearMapAfterFrameDispose(frame);
         this.#frameTree.removeFrame(frame);
         this.emit("framedetached" /* PageEmittedEvents.FrameDetached */, frame);
@@ -259,7 +251,7 @@ class Page extends Page_js_1.Page {
         }
         if (isConsoleLogEntry(event)) {
             const args = event.args.map(arg => {
-                return (0, Realm_js_1.getBidiHandle)(frame.context(), arg, frame);
+                return (0, Realm_js_1.createBidiHandle)(frame.mainRealm(), arg);
             });
             const text = args
                 .reduce((value, arg) => {
@@ -298,7 +290,7 @@ class Page extends Page_js_1.Page {
             return;
         }
         const type = (0, util_js_1.validateDialogType)(event.type);
-        const dialog = new Dialog_js_1.Dialog(frame.context(), type, event.message);
+        const dialog = new Dialog_js_1.BidiDialog(frame.context(), type, event.message, event.defaultValue);
         this.emit("dialog" /* PageEmittedEvents.Dialog */, dialog);
     }
     getNavigationResponse(id) {
@@ -319,17 +311,6 @@ class Page extends Page_js_1.Page {
         this.emit("close" /* PageEmittedEvents.Close */);
         this.removeAllListeners();
     }
-    async evaluateHandle(pageFunction, ...args) {
-        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluateHandle.name, pageFunction);
-        return this.mainFrame().evaluateHandle(pageFunction, ...args);
-    }
-    async evaluate(pageFunction, ...args) {
-        pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluate.name, pageFunction);
-        return this.mainFrame().evaluate(pageFunction, ...args);
-    }
-    async goto(url, options) {
-        return this.mainFrame().goto(url, options);
-    }
     async reload(options) {
         const [response] = await Promise.all([
             this.waitForResponse(response => {
@@ -345,9 +326,6 @@ class Page extends Page_js_1.Page {
         ]);
         return response;
     }
-    url() {
-        return this.mainFrame().url();
-    }
     setDefaultNavigationTimeout(timeout) {
         this.#timeoutSettings.setDefaultNavigationTimeout(timeout);
     }
@@ -356,12 +334,6 @@ class Page extends Page_js_1.Page {
     }
     getDefaultTimeout() {
         return this.#timeoutSettings.timeout();
-    }
-    async setContent(html, options = {}) {
-        await this.mainFrame().setContent(html, options);
-    }
-    async content() {
-        return this.mainFrame().content();
     }
     isJavaScriptEnabled() {
         return this.#cdpEmulationManager.javascriptEnabled;
@@ -455,9 +427,9 @@ class Page extends Page_js_1.Page {
         await this._maybeWriteBufferToFile(path, buffer);
         return buffer;
     }
-    waitForRequest(urlOrPredicate, options = {}) {
+    async waitForRequest(urlOrPredicate, options = {}) {
         const { timeout = this.#timeoutSettings.timeout() } = options;
-        return (0, util_js_1.waitForEvent)(this.#networkManager, NetworkManager_js_1.NetworkManagerEmittedEvents.Request, async (request) => {
+        return await (0, util_js_1.waitForEvent)(this.#networkManager, NetworkManager_js_1.NetworkManagerEmittedEvents.Request, async (request) => {
             if ((0, util_js_1.isString)(urlOrPredicate)) {
                 return urlOrPredicate === request.url();
             }
@@ -467,9 +439,9 @@ class Page extends Page_js_1.Page {
             return false;
         }, timeout, this.#closedDeferred.valueOrThrow());
     }
-    waitForResponse(urlOrPredicate, options = {}) {
+    async waitForResponse(urlOrPredicate, options = {}) {
         const { timeout = this.#timeoutSettings.timeout() } = options;
-        return (0, util_js_1.waitForEvent)(this.#networkManager, NetworkManager_js_1.NetworkManagerEmittedEvents.Response, async (response) => {
+        return await (0, util_js_1.waitForEvent)(this.#networkManager, NetworkManager_js_1.NetworkManagerEmittedEvents.Response, async (response) => {
             if ((0, util_js_1.isString)(urlOrPredicate)) {
                 return urlOrPredicate === response.url();
             }
@@ -482,9 +454,6 @@ class Page extends Page_js_1.Page {
     async waitForNetworkIdle(options = {}) {
         const { idleTime = 500, timeout = this.#timeoutSettings.timeout() } = options;
         await this._waitForNetworkIdle(this.#networkManager, idleTime, timeout, this.#closedDeferred);
-    }
-    title() {
-        return this.mainFrame().title();
     }
     async createCDPSession() {
         const { sessionId } = await this.mainFrame()
@@ -513,8 +482,11 @@ class Page extends Page_js_1.Page {
             script: id,
         });
     }
+    async exposeFunction(name, pptrFunction) {
+        return await this.mainFrame().exposeFunction(name, 'default' in pptrFunction ? pptrFunction.default : pptrFunction);
+    }
 }
-exports.Page = Page;
+exports.BidiPage = BidiPage;
 function isConsoleLogEntry(event) {
     return event.type === 'console';
 }

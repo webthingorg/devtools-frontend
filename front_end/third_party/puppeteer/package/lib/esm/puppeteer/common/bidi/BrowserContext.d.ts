@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { BrowserContext as BrowserContextBase } from '../../api/BrowserContext.js';
-import { Page as PageBase } from '../../api/Page.js';
+import { BrowserContext } from '../../api/BrowserContext.js';
+import { Page } from '../../api/Page.js';
 import { Target } from '../../api/Target.js';
 import { Viewport } from '../PuppeteerViewport.js';
-import { Browser } from './Browser.js';
+import { BidiBrowser } from './Browser.js';
 import { Connection } from './Connection.js';
+import { BidiPage } from './Page.js';
 interface BrowserContextOptions {
     defaultViewport: Viewport | null;
     isDefault: boolean;
@@ -26,18 +27,18 @@ interface BrowserContextOptions {
 /**
  * @internal
  */
-export declare class BrowserContext extends BrowserContextBase {
+export declare class BidiBrowserContext extends BrowserContext {
     #private;
-    constructor(browser: Browser, options: BrowserContextOptions);
+    constructor(browser: BidiBrowser, options: BrowserContextOptions);
     targets(): Target[];
     waitForTarget(predicate: (x: Target) => boolean | Promise<boolean>, options?: {
         timeout?: number;
     }): Promise<Target>;
     get connection(): Connection;
-    newPage(): Promise<PageBase>;
+    newPage(): Promise<Page>;
     close(): Promise<void>;
-    browser(): Browser;
-    pages(): Promise<PageBase[]>;
+    browser(): BidiBrowser;
+    pages(): Promise<BidiPage[]>;
     isIncognito(): boolean;
 }
 export {};

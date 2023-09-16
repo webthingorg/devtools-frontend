@@ -258,9 +258,6 @@ const getBidiKeyValue = (key) => {
  */
 export class Keyboard extends BaseKeyboard {
     #context;
-    /**
-     * @internal
-     */
     constructor(context) {
         super();
         this.#context = context;
@@ -391,9 +388,6 @@ const getBidiButton = (button) => {
 export class Mouse extends BaseMouse {
     #context;
     #lastMovePoint;
-    /**
-     * @internal
-     */
     constructor(context) {
         super();
         this.#context = context;
@@ -529,9 +523,6 @@ export class Mouse extends BaseMouse {
  */
 export class Touchscreen extends BaseTouchscreen {
     #context;
-    /**
-     * @internal
-     */
     constructor(context) {
         super();
         this.#context = context;

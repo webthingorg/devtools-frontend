@@ -20,7 +20,7 @@ import { CDPSessionEmittedEvents, CDPSessionImpl, isTargetClosedError, } from '.
 import { DeviceRequestPromptManager } from './DeviceRequestPrompt.js';
 import { EventEmitter } from './EventEmitter.js';
 import { ExecutionContext } from './ExecutionContext.js';
-import { Frame, FrameEmittedEvents } from './Frame.js';
+import { CDPFrame, FrameEmittedEvents } from './Frame.js';
 import { FrameTree } from './FrameTree.js';
 import { MAIN_WORLD, PUPPETEER_WORLD } from './IsolatedWorlds.js';
 import { NetworkManager } from './NetworkManager.js';
@@ -56,9 +56,6 @@ export class FrameManager extends EventEmitter {
     #contextIdToContext = new Map();
     #isolatedWorlds = new Set();
     #client;
-    /**
-     * @internal
-     */
     _frameTree = new FrameTree();
     /**
      * Set of frame IDs stored to indicate if a frame has received a
@@ -80,7 +77,7 @@ export class FrameManager extends EventEmitter {
         super();
         this.#client = client;
         this.#page = page;
-        this.#networkManager = new NetworkManager(client, ignoreHTTPSErrors, this);
+        this.#networkManager = new NetworkManager(ignoreHTTPSErrors, this);
         this.#timeoutSettings = timeoutSettings;
         this.setupEventListeners(this.#client);
         client.once(CDPSessionEmittedEvents.Disconnected, () => {
@@ -138,10 +135,13 @@ export class FrameManager extends EventEmitter {
             this.#onClientDisconnect().catch(debugError);
         });
         await this.initialize(client);
-        await this.#networkManager.updateClient(client);
+        await this.#networkManager.addClient(client);
         if (frame) {
             frame.emit(FrameEmittedEvents.FrameSwappedByActivation);
         }
+    }
+    async registerSpeculativeSession(client) {
+        await this.#networkManager.addClient(client);
     }
     setupEventListeners(session) {
         session.on('Page.frameAttached', event => {
@@ -149,7 +149,7 @@ export class FrameManager extends EventEmitter {
         });
         session.on('Page.frameNavigated', event => {
             this.#frameNavigatedReceived.add(event.frame.id);
-            void this.#onFrameNavigated(event.frame);
+            void this.#onFrameNavigated(event.frame, event.type);
         });
         session.on('Page.navigatedWithinDocument', event => {
             this.#onFrameNavigatedWithinDocument(event.frameId, event.url);
@@ -176,8 +176,9 @@ export class FrameManager extends EventEmitter {
             this.#onLifecycleEvent(event);
         });
     }
-    async initialize(client = this.#client) {
+    async initialize(client) {
         try {
+            const networkInit = this.#networkManager.addClient(client);
             const result = await Promise.all([
                 client.send('Page.enable'),
                 client.send('Page.getFrameTree'),
@@ -189,10 +190,7 @@ export class FrameManager extends EventEmitter {
                 client.send('Runtime.enable').then(() => {
                     return this.#createIsolatedWorld(client, UTILITY_WORLD_NAME);
                 }),
-                // TODO: Network manager is not aware of OOP iframes yet.
-                client === this.#client
-                    ? this.#networkManager.initialize()
-                    : Promise.resolve(),
+                networkInit,
             ]);
         }
         catch (error) {
@@ -236,9 +234,6 @@ export class FrameManager extends EventEmitter {
         this.setupEventListeners(target._session());
         void this.initialize(target._session());
     }
-    /**
-     * @internal
-     */
     _deviceRequestPromptManager(client) {
         let manager = this.#deviceRequestPromptManagerMap.get(client);
         if (manager === undefined) {
@@ -277,7 +272,7 @@ export class FrameManager extends EventEmitter {
             this.#onFrameAttached(session, frameTree.frame.id, frameTree.frame.parentId);
         }
         if (!this.#frameNavigatedReceived.has(frameTree.frame.id)) {
-            void this.#onFrameNavigated(frameTree.frame);
+            void this.#onFrameNavigated(frameTree.frame, 'Navigation');
         }
         else {
             this.#frameNavigatedReceived.delete(frameTree.frame.id);
@@ -300,11 +295,11 @@ export class FrameManager extends EventEmitter {
             }
             return;
         }
-        frame = new Frame(this, frameId, parentFrameId, session);
+        frame = new CDPFrame(this, frameId, parentFrameId, session);
         this._frameTree.addFrame(frame);
         this.emit(FrameManagerEmittedEvents.FrameAttached, frame);
     }
-    async #onFrameNavigated(framePayload) {
+    async #onFrameNavigated(framePayload, navigationType) {
         const frameId = framePayload.id;
         const isMainFrame = !framePayload.parentId;
         let frame = this._frameTree.getById(frameId);
@@ -323,14 +318,14 @@ export class FrameManager extends EventEmitter {
             }
             else {
                 // Initial main frame navigation.
-                frame = new Frame(this, frameId, undefined, this.#client);
+                frame = new CDPFrame(this, frameId, undefined, this.#client);
             }
             this._frameTree.addFrame(frame);
         }
         frame = await this._frameTree.waitForFrame(frameId);
         frame._navigated(framePayload);
         this.emit(FrameManagerEmittedEvents.FrameNavigated, frame);
-        frame.emit(FrameEmittedEvents.FrameNavigated);
+        frame.emit(FrameEmittedEvents.FrameNavigated, navigationType);
     }
     async #createIsolatedWorld(session, name) {
         const key = `${session.id()}:${name}`;
@@ -343,7 +338,7 @@ export class FrameManager extends EventEmitter {
         });
         await Promise.all(this.frames()
             .filter(frame => {
-            return frame._client() === session;
+            return frame.client === session;
         })
             .map(frame => {
             // Frames might be removed before we send this, so we don't want to
@@ -391,7 +386,7 @@ export class FrameManager extends EventEmitter {
         let world;
         if (frame) {
             // Only care about execution contexts created for the current session.
-            if (frame._client() !== session) {
+            if (frame.client !== session) {
                 return;
             }
             if (contextPayload.auxData && contextPayload.auxData['isDefault']) {
@@ -405,7 +400,11 @@ export class FrameManager extends EventEmitter {
                 world = frame.worlds[PUPPETEER_WORLD];
             }
         }
-        const context = new ExecutionContext(frame?._client() || this.#client, contextPayload, world);
+        // If there is no world, the context is not meant to be handled by us.
+        if (!world) {
+            return;
+        }
+        const context = new ExecutionContext(frame?.client || this.#client, contextPayload, world);
         if (world) {
             world.setContext(context);
         }
@@ -440,7 +439,7 @@ export class FrameManager extends EventEmitter {
         for (const child of frame.childFrames()) {
             this.#removeFramesRecursively(child);
         }
-        frame._detach();
+        frame[Symbol.dispose]();
         this._frameTree.removeFrame(frame);
         this.emit(FrameManagerEmittedEvents.FrameDetached, frame);
         frame.emit(FrameEmittedEvents.FrameDetached, frame);

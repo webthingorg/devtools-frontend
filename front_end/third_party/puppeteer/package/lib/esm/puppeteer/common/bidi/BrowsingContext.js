@@ -2,7 +2,7 @@ import { assert } from '../../util/assert.js';
 import { Deferred } from '../../util/Deferred.js';
 import { CDPSession } from '../Connection.js';
 import { ProtocolError, TargetCloseError, TimeoutError } from '../Errors.js';
-import { getPageContent, setPageContent, waitWithTimeout } from '../util.js';
+import { setPageContent, waitWithTimeout } from '../util.js';
 import { Realm } from './Realm.js';
 import { debugError } from './utils.js';
 /**
@@ -74,7 +74,7 @@ export class CDPSessionWrapper extends CDPSession {
     }
     async detach() {
         cdpSessions.delete(this.id());
-        if (this.#context.supportsCDP()) {
+        if (!this.#detached && this.#context.supportsCDP()) {
             await this.#context.cdpSession.send('Target.detachFromTarget', {
                 sessionId: this.id(),
             });
@@ -112,30 +112,27 @@ export class BrowsingContext extends Realm {
     #parent;
     #browserName = '';
     constructor(connection, info, browserName) {
-        super(connection, info.context);
-        this.connection = connection;
+        super(connection);
         this.#id = info.context;
         this.#url = info.url;
         this.#parent = info.parent;
         this.#browserName = browserName;
         this.#cdpSession = new CDPSessionWrapper(this, undefined);
         this.on('browsingContext.domContentLoaded', this.#updateUrl.bind(this));
+        this.on('browsingContext.fragmentNavigated', this.#updateUrl.bind(this));
         this.on('browsingContext.load', this.#updateUrl.bind(this));
     }
     supportsCDP() {
         return !this.#browserName.toLowerCase().includes('firefox');
     }
     #updateUrl(info) {
-        this.url = info.url;
+        this.#url = info.url;
     }
-    createSandboxRealm(sandbox) {
-        return new Realm(this.connection, this.#id, sandbox);
+    createRealmForSandbox() {
+        return new Realm(this.connection);
     }
     get url() {
         return this.#url;
-    }
-    set url(value) {
-        this.#url = value;
     }
     get id() {
         return this.#id;
@@ -145,9 +142,6 @@ export class BrowsingContext extends Realm {
     }
     get cdpSession() {
         return this.#cdpSession;
-    }
-    navigated(url) {
-        this.#url = url;
     }
     async goto(url, options) {
         const { waitUntil = 'load', timeout } = options;
@@ -191,11 +185,8 @@ export class BrowsingContext extends Realm {
             }), waitUntilEvent, timeout),
         ]);
     }
-    async content() {
-        return await this.evaluate(getPageContent);
-    }
     async sendCDPCommand(method, ...paramArgs) {
-        return this.#cdpSession.send(method, ...paramArgs);
+        return await this.#cdpSession.send(method, ...paramArgs);
     }
     title() {
         return this.evaluate(() => {

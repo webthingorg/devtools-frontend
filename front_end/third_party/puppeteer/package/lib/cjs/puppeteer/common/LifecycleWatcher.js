@@ -19,6 +19,7 @@ exports.LifecycleWatcher = void 0;
 const assert_js_1 = require("../util/assert.js");
 const Deferred_js_1 = require("../util/Deferred.js");
 const Frame_js_1 = require("./Frame.js");
+const FrameManager_js_1 = require("./FrameManager.js");
 const NetworkManager_js_1 = require("./NetworkManager.js");
 const util_js_1 = require("./util.js");
 const puppeteerToProtocolLifecycle = new Map([
@@ -60,7 +61,9 @@ class LifecycleWatcher {
         this.#frame = frame;
         this.#timeout = timeout;
         this.#eventListeners = [
-            (0, util_js_1.addEventListener)(frame, Frame_js_1.FrameEmittedEvents.LifecycleEvent, this.#checkLifecycleComplete.bind(this)),
+            (0, util_js_1.addEventListener)(
+            // Revert if TODO #1 is done
+            frame._frameManager, FrameManager_js_1.FrameManagerEmittedEvents.LifecycleEvent, this.#checkLifecycleComplete.bind(this)),
             (0, util_js_1.addEventListener)(frame, Frame_js_1.FrameEmittedEvents.FrameNavigatedWithinDocument, this.#navigatedWithinDocument.bind(this)),
             (0, util_js_1.addEventListener)(frame, Frame_js_1.FrameEmittedEvents.FrameNavigated, this.#navigated.bind(this)),
             (0, util_js_1.addEventListener)(frame, Frame_js_1.FrameEmittedEvents.FrameSwapped, this.#frameSwapped.bind(this)),
@@ -130,7 +133,10 @@ class LifecycleWatcher {
         this.#hasSameDocumentNavigation = true;
         this.#checkLifecycleComplete();
     }
-    #navigated() {
+    #navigated(navigationType) {
+        if (navigationType === 'BackForwardCacheRestore') {
+            return this.#frameSwapped();
+        }
         this.#checkLifecycleComplete();
     }
     #frameSwapped() {
@@ -155,6 +161,10 @@ class LifecycleWatcher {
                     return false;
                 }
             }
+            // TODO(#1): Its possible we don't need this check
+            // CDP provided the correct order for Loading Events
+            // And NetworkIdle is a global state
+            // Consider removing
             for (const child of frame.childFrames()) {
                 if (child._hasStartedLoading &&
                     !checkLifecycle(child, expectedLifecycle)) {

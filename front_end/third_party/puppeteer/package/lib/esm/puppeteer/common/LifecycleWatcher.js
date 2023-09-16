@@ -16,6 +16,7 @@
 import { assert } from '../util/assert.js';
 import { Deferred } from '../util/Deferred.js';
 import { FrameEmittedEvents } from './Frame.js';
+import { FrameManagerEmittedEvents } from './FrameManager.js';
 import { NetworkManagerEmittedEvents } from './NetworkManager.js';
 import { addEventListener, removeEventListeners, } from './util.js';
 const puppeteerToProtocolLifecycle = new Map([
@@ -57,7 +58,9 @@ export class LifecycleWatcher {
         this.#frame = frame;
         this.#timeout = timeout;
         this.#eventListeners = [
-            addEventListener(frame, FrameEmittedEvents.LifecycleEvent, this.#checkLifecycleComplete.bind(this)),
+            addEventListener(
+            // Revert if TODO #1 is done
+            frame._frameManager, FrameManagerEmittedEvents.LifecycleEvent, this.#checkLifecycleComplete.bind(this)),
             addEventListener(frame, FrameEmittedEvents.FrameNavigatedWithinDocument, this.#navigatedWithinDocument.bind(this)),
             addEventListener(frame, FrameEmittedEvents.FrameNavigated, this.#navigated.bind(this)),
             addEventListener(frame, FrameEmittedEvents.FrameSwapped, this.#frameSwapped.bind(this)),
@@ -127,7 +130,10 @@ export class LifecycleWatcher {
         this.#hasSameDocumentNavigation = true;
         this.#checkLifecycleComplete();
     }
-    #navigated() {
+    #navigated(navigationType) {
+        if (navigationType === 'BackForwardCacheRestore') {
+            return this.#frameSwapped();
+        }
         this.#checkLifecycleComplete();
     }
     #frameSwapped() {
@@ -152,6 +158,10 @@ export class LifecycleWatcher {
                     return false;
                 }
             }
+            // TODO(#1): Its possible we don't need this check
+            // CDP provided the correct order for Loading Events
+            // And NetworkIdle is a global state
+            // Consider removing
             for (const child of frame.childFrames()) {
                 if (child._hasStartedLoading &&
                     !checkLifecycle(child, expectedLifecycle)) {
