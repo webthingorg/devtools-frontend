@@ -65,7 +65,6 @@ class FirefoxTargetManager extends EventEmitter_js_1.EventEmitter {
     #ignoredTargets = new Set();
     #targetFilterCallback;
     #targetFactory;
-    #targetInterceptors = new WeakMap();
     #attachedToTargetListenersBySession = new WeakMap();
     #initializeDeferred = Deferred_js_1.Deferred.create();
     #targetsIdsForInit = new Set();
@@ -79,17 +78,6 @@ class FirefoxTargetManager extends EventEmitter_js_1.EventEmitter {
         this.#connection.on('sessiondetached', this.#onSessionDetached);
         this.setupAttachmentListeners(this.#connection);
     }
-    addTargetInterceptor(client, interceptor) {
-        const interceptors = this.#targetInterceptors.get(client) || [];
-        interceptors.push(interceptor);
-        this.#targetInterceptors.set(client, interceptors);
-    }
-    removeTargetInterceptor(client, interceptor) {
-        const interceptors = this.#targetInterceptors.get(client) || [];
-        this.#targetInterceptors.set(client, interceptors.filter(currentInterceptor => {
-            return currentInterceptor !== interceptor;
-        }));
-    }
     setupAttachmentListeners(session) {
         const listener = (event) => {
             return this.#onAttachedToTarget(session, event);
@@ -100,7 +88,6 @@ class FirefoxTargetManager extends EventEmitter_js_1.EventEmitter {
     }
     #onSessionDetached = (session) => {
         this.removeSessionListeners(session);
-        this.#targetInterceptors.delete(session);
         this.#availableTargetsBySessionId.delete(session.id());
     };
     removeSessionListeners(session) {
@@ -166,14 +153,7 @@ class FirefoxTargetManager extends EventEmitter_js_1.EventEmitter {
         (0, assert_js_1.assert)(target, `Target ${targetInfo.targetId} is missing`);
         this.setupAttachmentListeners(session);
         this.#availableTargetsBySessionId.set(session.id(), this.#availableTargetsByTargetId.get(targetInfo.targetId));
-        for (const hook of this.#targetInterceptors.get(parentSession) || []) {
-            if (!(parentSession instanceof Connection_js_1.Connection)) {
-                (0, assert_js_1.assert)(this.#availableTargetsBySessionId.has(parentSession.id()));
-            }
-            await hook(target, parentSession instanceof Connection_js_1.Connection
-                ? null
-                : this.#availableTargetsBySessionId.get(parentSession.id()));
-        }
+        parentSession.emit(Connection_js_1.CDPSessionEmittedEvents.Ready, session);
     };
     #finishInitializationIfReady(targetId) {
         this.#targetsIdsForInit.delete(targetId);

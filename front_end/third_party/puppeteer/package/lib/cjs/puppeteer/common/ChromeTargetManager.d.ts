@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 import { TargetFilterCallback } from '../api/Browser.js';
-import { CDPSession, Connection } from './Connection.js';
+import { Connection } from './Connection.js';
 import { EventEmitter } from './EventEmitter.js';
 import { CDPTarget } from './Target.js';
-import { TargetInterceptor, TargetFactory, TargetManager } from './TargetManager.js';
+import { TargetFactory, TargetManager } from './TargetManager.js';
 /**
  * ChromeTargetManager uses the CDP's auto-attach mechanism to intercept
  * new targets and allow the rest of Puppeteer to configure listeners while
@@ -31,7 +31,5 @@ export declare class ChromeTargetManager extends EventEmitter implements TargetM
     initialize(): Promise<void>;
     dispose(): void;
     getAvailableTargets(): Map<string, CDPTarget>;
-    addTargetInterceptor(session: CDPSession | Connection, interceptor: TargetInterceptor): void;
-    removeTargetInterceptor(client: CDPSession | Connection, interceptor: TargetInterceptor): void;
 }
 //# sourceMappingURL=ChromeTargetManager.d.ts.map

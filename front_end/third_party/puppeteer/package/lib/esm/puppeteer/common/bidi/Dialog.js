@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Dialog as BaseDialog } from '../../api/Dialog.js';
+import { Dialog } from '../../api/Dialog.js';
 /**
  * @internal
  */
-export class Dialog extends BaseDialog {
+export class BidiDialog extends Dialog {
     #context;
     /**
      * @internal
      */
-    constructor(context, type, message, defaultValue = '') {
+    constructor(context, type, message, defaultValue) {
         super(type, message, defaultValue);
         this.#context = context;
     }

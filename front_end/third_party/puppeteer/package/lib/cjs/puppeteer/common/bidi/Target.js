@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BiDiPageTarget = exports.BiDiBrowsingContextTarget = exports.BiDiBrowserTarget = exports.BiDiTarget = void 0;
+exports.BiDiPageTarget = exports.BiDiBrowsingContextTarget = exports.BiDiBrowserTarget = exports.BidiTarget = void 0;
 const Target_js_1 = require("../../api/Target.js");
 const BrowsingContext_js_1 = require("./BrowsingContext.js");
 const Page_js_1 = require("./Page.js");
-class BiDiTarget extends Target_js_1.Target {
+class BidiTarget extends Target_js_1.Target {
     _browserContext;
     constructor(browserContext) {
         super();
@@ -41,11 +41,11 @@ class BiDiTarget extends Target_js_1.Target {
         this._browserContext = browserContext;
     }
 }
-exports.BiDiTarget = BiDiTarget;
+exports.BidiTarget = BidiTarget;
 /**
  * @internal
  */
-class BiDiBrowserTarget extends BiDiTarget {
+class BiDiBrowserTarget extends BidiTarget {
     url() {
         return '';
     }
@@ -57,7 +57,7 @@ exports.BiDiBrowserTarget = BiDiBrowserTarget;
 /**
  * @internal
  */
-class BiDiBrowsingContextTarget extends BiDiTarget {
+class BiDiBrowsingContextTarget extends BidiTarget {
     _browsingContext;
     constructor(browserContext, browsingContext) {
         super(browserContext);
@@ -85,7 +85,7 @@ class BiDiPageTarget extends BiDiBrowsingContextTarget {
     #page;
     constructor(browserContext, browsingContext) {
         super(browserContext, browsingContext);
-        this.#page = new Page_js_1.Page(browsingContext, browserContext);
+        this.#page = new Page_js_1.BidiPage(browsingContext, browserContext);
     }
     async page() {
         return this.#page;

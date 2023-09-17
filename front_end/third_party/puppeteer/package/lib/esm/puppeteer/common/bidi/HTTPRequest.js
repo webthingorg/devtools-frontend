@@ -13,7 +13,7 @@ export class HTTPRequest extends BaseHTTPRequest {
     #headers = {};
     #initiator;
     #frame;
-    constructor(event, frame, redirectChain) {
+    constructor(event, frame, redirectChain = []) {
         super();
         this.#url = event.request.url;
         this.#resourceType = event.initiator.type.toLowerCase();
@@ -22,7 +22,7 @@ export class HTTPRequest extends BaseHTTPRequest {
         this.#initiator = event.initiator;
         this.#frame = frame;
         this._requestId = event.request.request;
-        this._redirectChain = redirectChain ?? [];
+        this._redirectChain = redirectChain;
         this._navigationId = event.navigation;
         for (const header of event.request.headers) {
             // TODO: How to handle Binary Headers

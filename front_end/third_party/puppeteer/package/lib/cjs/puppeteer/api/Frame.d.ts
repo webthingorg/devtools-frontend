@@ -19,36 +19,12 @@ import { Page, WaitTimeoutOptions } from '../api/Page.js';
 import { CDPSession } from '../common/Connection.js';
 import { DeviceRequestPrompt } from '../common/DeviceRequestPrompt.js';
 import { EventEmitter } from '../common/EventEmitter.js';
-import { ExecutionContext } from '../common/ExecutionContext.js';
 import { IsolatedWorldChart, WaitForSelectorOptions } from '../common/IsolatedWorld.js';
 import { PuppeteerLifeCycleEvent } from '../common/LifecycleWatcher.js';
-import { Awaitable, EvaluateFunc, EvaluateFuncWith, HandleFor, InnerLazyParams, NodeFor } from '../common/types.js';
-import { TaskManager } from '../common/WaitTask.js';
+import { Awaitable, EvaluateFunc, EvaluateFuncWith, HandleFor, NodeFor } from '../common/types.js';
 import { KeyboardTypeOptions } from './Input.js';
-import { JSHandle } from './JSHandle.js';
 import { Locator } from './locators/locators.js';
-/**
- * @internal
- */
-export interface Realm {
-    taskManager: TaskManager;
-    waitForFunction<Params extends unknown[], Func extends EvaluateFunc<InnerLazyParams<Params>> = EvaluateFunc<InnerLazyParams<Params>>>(pageFunction: Func | string, options: {
-        polling?: 'raf' | 'mutation' | number;
-        timeout?: number;
-        root?: ElementHandle<Node>;
-        signal?: AbortSignal;
-    }, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
-    adoptHandle<T extends JSHandle<Node>>(handle: T): Promise<T>;
-    transferHandle<T extends JSHandle<Node>>(handle: T): Promise<T>;
-    evaluateHandle<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
-    evaluate<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    click(selector: string, options: Readonly<ClickOptions>): Promise<void>;
-    focus(selector: string): Promise<void>;
-    hover(selector: string): Promise<void>;
-    select(selector: string, ...values: string[]): Promise<string[]>;
-    tap(selector: string): Promise<void>;
-    type(selector: string, text: string, options?: Readonly<KeyboardTypeOptions>): Promise<void>;
-}
+import { Realm } from './Realm.js';
 /**
  * @public
  */
@@ -127,6 +103,10 @@ export interface FrameAddStyleTagOptions {
     content?: string;
 }
 /**
+ * @internal
+ */
+export declare const throwIfDetached: (target: (this: Frame, ...args: any[]) => any, _: unknown) => (this: Frame, ...args: any[]) => any;
+/**
  * Represents a DOM frame.
  *
  * To understand frames, you can think of frames as `<iframe>` elements. Just
@@ -179,7 +159,8 @@ export interface FrameAddStyleTagOptions {
  *
  * @public
  */
-export declare class Frame extends EventEmitter {
+export declare abstract class Frame extends EventEmitter {
+    #private;
     /**
      * @internal
      */
@@ -207,7 +188,7 @@ export declare class Frame extends EventEmitter {
     /**
      * The page associated with the frame.
      */
-    page(): Page;
+    abstract page(): Page;
     /**
      * Is `true` if the frame is an out-of-process (OOP) frame. Otherwise,
      * `false`.
@@ -250,7 +231,7 @@ export declare class Frame extends EventEmitter {
      * Server Error". The status code for such responses can be retrieved by
      * calling {@link HTTPResponse.status}.
      */
-    goto(url: string, options?: {
+    abstract goto(url: string, options?: {
         referer?: string;
         referrerPolicy?: string;
         timeout?: number;
@@ -279,26 +260,28 @@ export declare class Frame extends EventEmitter {
      * finished.
      * @returns a promise that resolves when the frame navigates to a new URL.
      */
-    waitForNavigation(options?: {
+    abstract waitForNavigation(options?: {
         timeout?: number;
         waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     }): Promise<HTTPResponse | null>;
     /**
      * @internal
      */
-    _client(): CDPSession;
+    abstract get client(): CDPSession;
     /**
      * @internal
      */
-    executionContext(): Promise<ExecutionContext>;
+    abstract mainRealm(): Realm;
     /**
      * @internal
      */
-    mainRealm(): Realm;
+    abstract isolatedRealm(): Realm;
     /**
+     * Used to clear the document handle that has been destroyed.
+     *
      * @internal
      */
-    isolatedRealm(): Realm;
+    clearDocumentHandle(): void;
     /**
      * @internal
      */
@@ -371,7 +354,7 @@ export declare class Frame extends EventEmitter {
      * @param args - Additional arguments to pass to `pageFunction`.
      * @returns A promise to the result of the function.
      */
-    $eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<NodeFor<Selector>, Params> = EvaluateFuncWith<NodeFor<Selector>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
+    $eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<NodeFor<Selector>, Params> = EvaluateFuncWith<NodeFor<Selector>, Params>>(selector: Selector, pageFunction: string | Func, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
     /**
      * Runs the given function on an array of elements matching the given selector
      * in the frame.
@@ -392,7 +375,7 @@ export declare class Frame extends EventEmitter {
      * @param args - Additional arguments to pass to `pageFunction`.
      * @returns A promise to the result of the function.
      */
-    $$eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<Array<NodeFor<Selector>>, Params> = EvaluateFuncWith<Array<NodeFor<Selector>>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
+    $$eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<Array<NodeFor<Selector>>, Params> = EvaluateFuncWith<Array<NodeFor<Selector>>, Params>>(selector: Selector, pageFunction: string | Func, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
     /**
      * @deprecated Use {@link Frame.$$} with the `xpath` prefix.
      *
@@ -508,7 +491,7 @@ export declare class Frame extends EventEmitter {
      * @param options - Options to configure how long before timing out and at
      * what point to consider the content setting successful.
      */
-    setContent(html: string, options?: {
+    abstract setContent(html: string, options?: {
         timeout?: number;
         waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     }): Promise<void>;
@@ -526,19 +509,29 @@ export declare class Frame extends EventEmitter {
     /**
      * The frame's URL.
      */
-    url(): string;
+    abstract url(): string;
     /**
      * The parent frame, if any. Detached and main frames return `null`.
      */
-    parentFrame(): Frame | null;
+    abstract parentFrame(): Frame | null;
     /**
      * An array of child frames.
      */
-    childFrames(): Frame[];
+    abstract childFrames(): Frame[];
+    /**
+     * @returns `true` if the frame has detached. `false` otherwise.
+     */
+    abstract get detached(): boolean;
     /**
      * Is`true` if the frame has been detached. Otherwise, `false`.
+     *
+     * @deprecated Use the `detached` getter.
      */
     isDetached(): boolean;
+    /**
+     * @internal
+     */
+    get disposed(): boolean;
     /**
      * Adds a `<script>` tag into the page with the desired url or content.
      *
@@ -548,13 +541,18 @@ export declare class Frame extends EventEmitter {
      */
     addScriptTag(options: FrameAddScriptTagOptions): Promise<ElementHandle<HTMLScriptElement>>;
     /**
-     * Adds a `<link rel="stylesheet">` tag into the page with the desired URL or
-     * a `<style type="text/css">` tag with the content.
+     * Adds a `HTMLStyleElement` into the frame with the desired URL
      *
-     * @returns An {@link ElementHandle | element handle} to the loaded `<link>`
-     * or `<style>` element.
+     * @returns An {@link ElementHandle | element handle} to the loaded `<style>`
+     * element.
      */
     addStyleTag(options: Omit<FrameAddStyleTagOptions, 'url'>): Promise<ElementHandle<HTMLStyleElement>>;
+    /**
+     * Adds a `HTMLLinkElement` into the frame with the desired URL
+     *
+     * @returns An {@link ElementHandle | element handle} to the loaded `<link>`
+     * element.
+     */
     addStyleTag(options: FrameAddStyleTagOptions): Promise<ElementHandle<HTMLLinkElement>>;
     /**
      * Clicks the first element found that matches `selector`.
@@ -687,5 +685,9 @@ export declare class Frame extends EventEmitter {
      * ```
      */
     waitForDevicePrompt(options?: WaitTimeoutOptions): Promise<DeviceRequestPrompt>;
+    /**
+     * @internal
+     */
+    exposeFunction<Args extends unknown[], Ret>(name: string, fn: (...args: Args) => Awaitable<Ret>): Promise<void>;
 }
 //# sourceMappingURL=Frame.d.ts.map

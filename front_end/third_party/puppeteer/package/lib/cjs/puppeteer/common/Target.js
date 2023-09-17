@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OtherTarget = exports.WorkerTarget = exports.PageTarget = exports.CDPTarget = exports.InitializationStatus = void 0;
+exports.OtherTarget = exports.WorkerTarget = exports.DevToolsTarget = exports.PageTarget = exports.CDPTarget = exports.InitializationStatus = void 0;
 const Target_js_1 = require("../api/Target.js");
 const Deferred_js_1 = require("../util/Deferred.js");
 const Connection_js_1 = require("./Connection.js");
@@ -39,17 +39,8 @@ class CDPTarget extends Target_js_1.Target {
     #targetInfo;
     #targetManager;
     #sessionFactory;
-    /**
-     * @internal
-     */
     _initializedDeferred = Deferred_js_1.Deferred.create();
-    /**
-     * @internal
-     */
     _isClosedDeferred = Deferred_js_1.Deferred.create();
-    /**
-     * @internal
-     */
     _targetId;
     /**
      * To initialize the target for use, call initialize.
@@ -68,21 +59,12 @@ class CDPTarget extends Target_js_1.Target {
             this.#session._setTarget(this);
         }
     }
-    /**
-     * @internal
-     */
     _subtype() {
         return this.#targetInfo.subtype;
     }
-    /**
-     * @internal
-     */
     _session() {
         return this.#session;
     }
-    /**
-     * @internal
-     */
     _sessionFactory() {
         if (!this.#sessionFactory) {
             throw new Error('sessionFactory is not initialized');
@@ -122,18 +104,12 @@ class CDPTarget extends Target_js_1.Target {
                 return Target_js_1.TargetType.OTHER;
         }
     }
-    /**
-     * @internal
-     */
     _targetManager() {
         if (!this.#targetManager) {
             throw new Error('targetManager is not initialized');
         }
         return this.#targetManager;
     }
-    /**
-     * @internal
-     */
     _getTargetInfo() {
         return this.#targetInfo;
     }
@@ -156,22 +132,13 @@ class CDPTarget extends Target_js_1.Target {
         }
         return this.browser()._targets.get(openerId);
     }
-    /**
-     * @internal
-     */
     _targetInfoChanged(targetInfo) {
         this.#targetInfo = targetInfo;
         this._checkIfInitialized();
     }
-    /**
-     * @internal
-     */
     _initialize() {
         this._initializedDeferred.resolve(InitializationStatus.SUCCESS);
     }
-    /**
-     * @internal
-     */
     _checkIfInitialized() {
         if (!this._initializedDeferred.resolved()) {
             this._initializedDeferred.resolve(InitializationStatus.SUCCESS);
@@ -187,9 +154,6 @@ class PageTarget extends CDPTarget {
     pagePromise;
     #screenshotTaskQueue;
     #ignoreHTTPSErrors;
-    /**
-     * @internal
-     */
     constructor(targetInfo, session, browserContext, targetManager, sessionFactory, ignoreHTTPSErrors, defaultViewport, screenshotTaskQueue) {
         super(targetInfo, session, browserContext, targetManager, sessionFactory);
         this.#ignoreHTTPSErrors = ignoreHTTPSErrors;
@@ -245,6 +209,12 @@ exports.PageTarget = PageTarget;
 /**
  * @internal
  */
+class DevToolsTarget extends PageTarget {
+}
+exports.DevToolsTarget = DevToolsTarget;
+/**
+ * @internal
+ */
 class WorkerTarget extends CDPTarget {
     #workerPromise;
     async worker() {
@@ -257,7 +227,7 @@ class WorkerTarget extends CDPTarget {
                 return new WebWorker_js_1.WebWorker(client, this._getTargetInfo().url, () => { } /* consoleAPICalled */, () => { } /* exceptionThrown */);
             });
         }
-        return this.#workerPromise;
+        return await this.#workerPromise;
     }
 }
 exports.WorkerTarget = WorkerTarget;

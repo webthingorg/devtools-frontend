@@ -27,7 +27,7 @@ import { EvaluateFunc, HandleFor } from './types.js';
  *
  * - Each {@link Frame} of a {@link Page | page} has a "default" execution
  *   context that is always created after frame is attached to DOM. This context
- *   is returned by the {@link Frame.executionContext} method.
+ *   is returned by the {@link Frame.realm} method.
  * - Each {@link https://developer.chrome.com/extensions | Chrome extensions}
  *   creates additional execution contexts to isolate their code.
  *
@@ -44,10 +44,10 @@ import { EvaluateFunc, HandleFor } from './types.js';
 export declare class ExecutionContext {
     #private;
     _client: CDPSession;
-    _world?: IsolatedWorld;
+    _world: IsolatedWorld;
     _contextId: number;
     _contextName?: string;
-    constructor(client: CDPSession, contextPayload: Protocol.Runtime.ExecutionContextDescription, world?: IsolatedWorld);
+    constructor(client: CDPSession, contextPayload: Protocol.Runtime.ExecutionContextDescription, world: IsolatedWorld);
     get puppeteerUtil(): Promise<JSHandle<PuppeteerUtil>>;
     /**
      * Evaluates the given function.

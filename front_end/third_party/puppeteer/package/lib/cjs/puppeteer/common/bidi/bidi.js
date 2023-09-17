@@ -29,9 +29,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(require("./BidiOverCDP.js"), exports);
 __exportStar(require("./Browser.js"), exports);
 __exportStar(require("./BrowserContext.js"), exports);
-__exportStar(require("./Page.js"), exports);
 __exportStar(require("./Connection.js"), exports);
-__exportStar(require("./BidiOverCDP.js"), exports);
+__exportStar(require("./Page.js"), exports);
 //# sourceMappingURL=bidi.js.map
