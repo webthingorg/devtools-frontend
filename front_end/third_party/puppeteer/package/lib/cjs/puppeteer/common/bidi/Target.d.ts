@@ -16,32 +16,32 @@
 import { Target, TargetType } from '../../api/Target.js';
 import { CDPSession } from '../Connection.js';
 import type { WebWorker } from '../WebWorker.js';
-import { Browser } from './Browser.js';
-import { BrowserContext } from './BrowserContext.js';
+import { BidiBrowser } from './Browser.js';
+import { BidiBrowserContext } from './BrowserContext.js';
 import { BrowsingContext } from './BrowsingContext.js';
-import { Page } from './Page.js';
-export declare class BiDiTarget extends Target {
-    protected _browserContext: BrowserContext;
-    constructor(browserContext: BrowserContext);
+import { BidiPage } from './Page.js';
+export declare class BidiTarget extends Target {
+    protected _browserContext: BidiBrowserContext;
+    constructor(browserContext: BidiBrowserContext);
     worker(): Promise<WebWorker | null>;
-    browser(): Browser;
-    browserContext(): BrowserContext;
+    browser(): BidiBrowser;
+    browserContext(): BidiBrowserContext;
     opener(): Target | undefined;
-    _setBrowserContext(browserContext: BrowserContext): void;
+    _setBrowserContext(browserContext: BidiBrowserContext): void;
 }
 /**
  * @internal
  */
-export declare class BiDiBrowserTarget extends BiDiTarget {
+export declare class BiDiBrowserTarget extends BidiTarget {
     url(): string;
     type(): TargetType;
 }
 /**
  * @internal
  */
-export declare class BiDiBrowsingContextTarget extends BiDiTarget {
+export declare class BiDiBrowsingContextTarget extends BidiTarget {
     protected _browsingContext: BrowsingContext;
-    constructor(browserContext: BrowserContext, browsingContext: BrowsingContext);
+    constructor(browserContext: BidiBrowserContext, browsingContext: BrowsingContext);
     url(): string;
     createCDPSession(): Promise<CDPSession>;
     type(): TargetType;
@@ -51,8 +51,8 @@ export declare class BiDiBrowsingContextTarget extends BiDiTarget {
  */
 export declare class BiDiPageTarget extends BiDiBrowsingContextTarget {
     #private;
-    constructor(browserContext: BrowserContext, browsingContext: BrowsingContext);
-    page(): Promise<Page | null>;
-    _setBrowserContext(browserContext: BrowserContext): void;
+    constructor(browserContext: BidiBrowserContext, browsingContext: BrowsingContext);
+    page(): Promise<BidiPage | null>;
+    _setBrowserContext(browserContext: BidiBrowserContext): void;
 }
 //# sourceMappingURL=Target.d.ts.map

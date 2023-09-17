@@ -15,8 +15,8 @@
  */
 import { LazyArg } from '../LazyArg.js';
 import { debugError, isDate, isPlainObject, isRegExp } from '../util.js';
-import { ElementHandle } from './ElementHandle.js';
-import { JSHandle } from './JSHandle.js';
+import { BidiElementHandle } from './ElementHandle.js';
+import { BidiJSHandle } from './JSHandle.js';
 /**
  * @internal
  */
@@ -56,7 +56,7 @@ export class BidiSerializer {
         }
         else if (Array.isArray(arg)) {
             const parsedArray = arg.map(subArg => {
-                return BidiSerializer.serializeRemoveValue(subArg);
+                return BidiSerializer.serializeRemoteValue(subArg);
             });
             return {
                 type: 'array',
@@ -77,8 +77,8 @@ export class BidiSerializer {
             const parsedObject = [];
             for (const key in arg) {
                 parsedObject.push([
-                    BidiSerializer.serializeRemoveValue(key),
-                    BidiSerializer.serializeRemoveValue(arg[key]),
+                    BidiSerializer.serializeRemoteValue(key),
+                    BidiSerializer.serializeRemoteValue(arg[key]),
                 ]);
             }
             return {
@@ -103,7 +103,7 @@ export class BidiSerializer {
         }
         throw new UnserializableError('Custom object sterilization not possible. Use plain objects instead.');
     }
-    static serializeRemoveValue(arg) {
+    static serializeRemoteValue(arg) {
         switch (typeof arg) {
             case 'symbol':
             case 'function':
@@ -133,15 +133,17 @@ export class BidiSerializer {
                 };
         }
     }
-    static async serialize(arg, context) {
+    static async serialize(sandbox, arg) {
         if (arg instanceof LazyArg) {
-            arg = await arg.get(context);
+            arg = await arg.get(sandbox.realm);
         }
-        const objectHandle = arg && (arg instanceof JSHandle || arg instanceof ElementHandle)
+        // eslint-disable-next-line rulesdir/use-using -- We want this to continue living.
+        const objectHandle = arg && (arg instanceof BidiJSHandle || arg instanceof BidiElementHandle)
             ? arg
             : null;
         if (objectHandle) {
-            if (objectHandle.context() !== context &&
+            if (objectHandle.realm.environment.context() !==
+                sandbox.environment.context() &&
                 !('sharedId' in objectHandle.remoteValue())) {
                 throw new Error('JSHandles can be evaluated only in the context they were created!');
             }
@@ -150,7 +152,7 @@ export class BidiSerializer {
             }
             return objectHandle.remoteValue();
         }
-        return BidiSerializer.serializeRemoveValue(arg);
+        return BidiSerializer.serializeRemoteValue(arg);
     }
     static deserializeNumber(value) {
         switch (value) {

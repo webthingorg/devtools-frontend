@@ -16,8 +16,7 @@
 
 import {Protocol} from 'devtools-protocol';
 
-import {ElementHandle} from '../api/ElementHandle.js';
-import {Frame as BaseFrame} from '../api/Frame.js';
+import {Frame, throwIfDetached} from '../api/Frame.js';
 import {HTTPResponse} from '../api/HTTPResponse.js';
 import {Page, WaitTimeoutOptions} from '../api/Page.js';
 import {assert} from '../util/assert.js';
@@ -29,13 +28,11 @@ import {
   DeviceRequestPrompt,
   DeviceRequestPromptManager,
 } from './DeviceRequestPrompt.js';
-import {ExecutionContext} from './ExecutionContext.js';
 import {FrameManager} from './FrameManager.js';
 import {IsolatedWorld} from './IsolatedWorld.js';
 import {MAIN_WORLD, PUPPETEER_WORLD} from './IsolatedWorlds.js';
 import {LifecycleWatcher, PuppeteerLifeCycleEvent} from './LifecycleWatcher.js';
-import {EvaluateFunc, EvaluateFuncWith, HandleFor, NodeFor} from './types.js';
-import {withSourcePuppeteerURLIfNone} from './util.js';
+import {setPageContent} from './util.js';
 
 /**
  * We use symbols to prevent external parties listening to these events.
@@ -55,7 +52,7 @@ export const FrameEmittedEvents = {
 /**
  * @internal
  */
-export class Frame extends BaseFrame {
+export class CDPFrame extends Frame {
   #url = '';
   #detached = false;
   #client!: CDPSession;
@@ -63,7 +60,6 @@ export class Frame extends BaseFrame {
   _frameManager: FrameManager;
   override _id: string;
   _loaderId = '';
-  override _hasStartedLoading = false;
   _lifecycleEvents = new Set<string>();
   override _parentId?: string;
 
@@ -103,8 +99,14 @@ export class Frame extends BaseFrame {
     this.#client = client;
     if (!keepWorlds) {
       this.worlds = {
-        [MAIN_WORLD]: new IsolatedWorld(this),
-        [PUPPETEER_WORLD]: new IsolatedWorld(this),
+        [MAIN_WORLD]: new IsolatedWorld(
+          this,
+          this._frameManager.timeoutSettings
+        ),
+        [PUPPETEER_WORLD]: new IsolatedWorld(
+          this,
+          this._frameManager.timeoutSettings
+        ),
       };
     } else {
       this.worlds[MAIN_WORLD].frameUpdated();
@@ -120,6 +122,7 @@ export class Frame extends BaseFrame {
     return this.#client !== this._frameManager.client;
   }
 
+  @throwIfDetached
   override async goto(
     url: string,
     options: {
@@ -203,6 +206,7 @@ export class Frame extends BaseFrame {
     }
   }
 
+  @throwIfDetached
   override async waitForNavigation(
     options: {
       timeout?: number;
@@ -234,108 +238,19 @@ export class Frame extends BaseFrame {
     }
   }
 
-  override _client(): CDPSession {
+  override get client(): CDPSession {
     return this.#client;
   }
 
-  override executionContext(): Promise<ExecutionContext> {
-    return this.worlds[MAIN_WORLD].executionContext();
-  }
-
-  /**
-   * @internal
-   */
   override mainRealm(): IsolatedWorld {
     return this.worlds[MAIN_WORLD];
   }
 
-  /**
-   * @internal
-   */
   override isolatedRealm(): IsolatedWorld {
     return this.worlds[PUPPETEER_WORLD];
   }
 
-  override async evaluateHandle<
-    Params extends unknown[],
-    Func extends EvaluateFunc<Params> = EvaluateFunc<Params>,
-  >(
-    pageFunction: Func | string,
-    ...args: Params
-  ): Promise<HandleFor<Awaited<ReturnType<Func>>>> {
-    pageFunction = withSourcePuppeteerURLIfNone(
-      this.evaluateHandle.name,
-      pageFunction
-    );
-    return this.mainRealm().evaluateHandle(pageFunction, ...args);
-  }
-
-  override async evaluate<
-    Params extends unknown[],
-    Func extends EvaluateFunc<Params> = EvaluateFunc<Params>,
-  >(
-    pageFunction: Func | string,
-    ...args: Params
-  ): Promise<Awaited<ReturnType<Func>>> {
-    pageFunction = withSourcePuppeteerURLIfNone(
-      this.evaluate.name,
-      pageFunction
-    );
-    return this.mainRealm().evaluate(pageFunction, ...args);
-  }
-
-  override async $<Selector extends string>(
-    selector: Selector
-  ): Promise<ElementHandle<NodeFor<Selector>> | null> {
-    return this.mainRealm().$(selector);
-  }
-
-  override async $$<Selector extends string>(
-    selector: Selector
-  ): Promise<Array<ElementHandle<NodeFor<Selector>>>> {
-    return this.mainRealm().$$(selector);
-  }
-
-  override async $eval<
-    Selector extends string,
-    Params extends unknown[],
-    Func extends EvaluateFuncWith<NodeFor<Selector>, Params> = EvaluateFuncWith<
-      NodeFor<Selector>,
-      Params
-    >,
-  >(
-    selector: Selector,
-    pageFunction: Func | string,
-    ...args: Params
-  ): Promise<Awaited<ReturnType<Func>>> {
-    pageFunction = withSourcePuppeteerURLIfNone(this.$eval.name, pageFunction);
-    return this.mainRealm().$eval(selector, pageFunction, ...args);
-  }
-
-  override async $$eval<
-    Selector extends string,
-    Params extends unknown[],
-    Func extends EvaluateFuncWith<
-      Array<NodeFor<Selector>>,
-      Params
-    > = EvaluateFuncWith<Array<NodeFor<Selector>>, Params>,
-  >(
-    selector: Selector,
-    pageFunction: Func | string,
-    ...args: Params
-  ): Promise<Awaited<ReturnType<Func>>> {
-    pageFunction = withSourcePuppeteerURLIfNone(this.$$eval.name, pageFunction);
-    return this.mainRealm().$$eval(selector, pageFunction, ...args);
-  }
-
-  override async $x(expression: string): Promise<Array<ElementHandle<Node>>> {
-    return this.mainRealm().$x(expression);
-  }
-
-  override async content(): Promise<string> {
-    return this.isolatedRealm().content();
-  }
-
+  @throwIfDetached
   override async setContent(
     html: string,
     options: {
@@ -343,46 +258,57 @@ export class Frame extends BaseFrame {
       waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     } = {}
   ): Promise<void> {
-    return this.isolatedRealm().setContent(html, options);
-  }
+    const {
+      waitUntil = ['load'],
+      timeout = this._frameManager.timeoutSettings.navigationTimeout(),
+    } = options;
 
-  override name(): string {
-    return this._name || '';
+    await setPageContent(this.isolatedRealm(), html);
+
+    const watcher = new LifecycleWatcher(
+      this._frameManager.networkManager,
+      this,
+      waitUntil,
+      timeout
+    );
+    const error = await Deferred.race<void | Error | undefined>([
+      watcher.terminationPromise(),
+      watcher.lifecyclePromise(),
+    ]);
+    watcher.dispose();
+    if (error) {
+      throw error;
+    }
   }
 
   override url(): string {
     return this.#url;
   }
 
-  override parentFrame(): Frame | null {
+  override parentFrame(): CDPFrame | null {
     return this._frameManager._frameTree.parentFrame(this._id) || null;
   }
 
-  override childFrames(): Frame[] {
+  override childFrames(): CDPFrame[] {
     return this._frameManager._frameTree.childFrames(this._id);
   }
 
-  override isDetached(): boolean {
-    return this.#detached;
-  }
-
-  override async title(): Promise<string> {
-    return this.isolatedRealm().title();
-  }
-
-  _deviceRequestPromptManager(): DeviceRequestPromptManager {
+  #deviceRequestPromptManager(): DeviceRequestPromptManager {
     if (this.isOOPFrame()) {
       return this._frameManager._deviceRequestPromptManager(this.#client);
     }
     const parentFrame = this.parentFrame();
     assert(parentFrame !== null);
-    return parentFrame._deviceRequestPromptManager();
+    return parentFrame.#deviceRequestPromptManager();
   }
 
-  override waitForDevicePrompt(
+  @throwIfDetached
+  override async waitForDevicePrompt(
     options: WaitTimeoutOptions = {}
   ): Promise<DeviceRequestPrompt> {
-    return this._deviceRequestPromptManager().waitForDevicePrompt(options);
+    return await this.#deviceRequestPromptManager().waitForDevicePrompt(
+      options
+    );
   }
 
   _navigated(framePayload: Protocol.Page.Frame): void {
@@ -411,9 +337,16 @@ export class Frame extends BaseFrame {
     this._hasStartedLoading = true;
   }
 
-  _detach(): void {
+  override get detached(): boolean {
+    return this.#detached;
+  }
+
+  [Symbol.dispose](): void {
+    if (this.#detached) {
+      return;
+    }
     this.#detached = true;
-    this.worlds[MAIN_WORLD]._detach();
-    this.worlds[PUPPETEER_WORLD]._detach();
+    this.worlds[MAIN_WORLD][Symbol.dispose]();
+    this.worlds[PUPPETEER_WORLD][Symbol.dispose]();
   }
 }

@@ -234,7 +234,7 @@ class ProductLauncher {
         const BiDi = await Promise.resolve().then(() => __importStar(require(
         /* webpackIgnore: true */ '../common/bidi/bidi.js')));
         const bidiConnection = await BiDi.connectBidiOverCDP(connection);
-        return await BiDi.Browser.create({
+        return await BiDi.BidiBrowser.create({
             connection: bidiConnection,
             closeCallback,
             process: browserProcess.nodeProcess,
@@ -252,7 +252,7 @@ class ProductLauncher {
         /* webpackIgnore: true */ '../common/bidi/bidi.js')));
         const bidiConnection = new BiDi.Connection(browserWSEndpoint, transport, opts.slowMo, opts.protocolTimeout);
         // TODO: use other options too.
-        return await BiDi.Browser.create({
+        return await BiDi.BidiBrowser.create({
             connection: bidiConnection,
             closeCallback,
             process: browserProcess.nodeProcess,

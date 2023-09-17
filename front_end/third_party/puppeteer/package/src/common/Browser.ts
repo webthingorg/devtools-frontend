@@ -45,6 +45,7 @@ import {
   PageTarget,
   CDPTarget,
   WorkerTarget,
+  DevToolsTarget,
 } from './Target.js';
 import {TargetManager, TargetManagerEmittedEvents} from './TargetManager.js';
 import {TaskQueue} from './TaskQueue.js';
@@ -53,9 +54,6 @@ import {TaskQueue} from './TaskQueue.js';
  * @internal
  */
 export class CDPBrowser extends BrowserBase {
-  /**
-   * @internal
-   */
   static async _create(
     product: 'firefox' | 'chrome' | undefined,
     connection: Connection,
@@ -97,16 +95,10 @@ export class CDPBrowser extends BrowserBase {
   #screenshotTaskQueue: TaskQueue;
   #targetManager: TargetManager;
 
-  /**
-   * @internal
-   */
   override get _targets(): Map<string, CDPTarget> {
     return this.#targetManager.getAvailableTargets();
   }
 
-  /**
-   * @internal
-   */
   constructor(
     product: 'chrome' | 'firefox' | undefined,
     connection: Connection,
@@ -162,9 +154,6 @@ export class CDPBrowser extends BrowserBase {
     this.emit(BrowserEmittedEvents.Disconnected);
   };
 
-  /**
-   * @internal
-   */
   override async _attach(): Promise<void> {
     this.#connection.on(
       ConnectionEmittedEvents.Disconnected,
@@ -189,9 +178,6 @@ export class CDPBrowser extends BrowserBase {
     await this.#targetManager.initialize();
   }
 
-  /**
-   * @internal
-   */
   override _detach(): void {
     this.#connection.off(
       ConnectionEmittedEvents.Disconnected,
@@ -223,9 +209,6 @@ export class CDPBrowser extends BrowserBase {
     return this.#process ?? null;
   }
 
-  /**
-   * @internal
-   */
   _targetManager(): TargetManager {
     return this.#targetManager;
   }
@@ -242,9 +225,6 @@ export class CDPBrowser extends BrowserBase {
       });
   }
 
-  /**
-   * @internal
-   */
   override _getIsPageTargetCallback(): IsPageTargetCallback | undefined {
     return this.#isPageTargetCallback;
   }
@@ -303,9 +283,6 @@ export class CDPBrowser extends BrowserBase {
     return this.#defaultContext;
   }
 
-  /**
-   * @internal
-   */
   override async _disposeContext(contextId?: string): Promise<void> {
     if (!contextId) {
       return;
@@ -340,6 +317,18 @@ export class CDPBrowser extends BrowserBase {
       this.#targetManager,
       createSession
     );
+    if (targetInfo.url?.startsWith('devtools://')) {
+      return new DevToolsTarget(
+        targetInfo,
+        session,
+        context,
+        this.#targetManager,
+        createSession,
+        this.#ignoreHTTPSErrors,
+        this.#defaultViewport ?? null,
+        this.#screenshotTaskQueue
+      );
+    }
     if (this.#isPageTargetCallback(targetForFilter)) {
       return new PageTarget(
         targetInfo,
@@ -436,12 +425,9 @@ export class CDPBrowser extends BrowserBase {
    * a default browser context.
    */
   override async newPage(): Promise<Page> {
-    return this.#defaultContext.newPage();
+    return await this.#defaultContext.newPage();
   }
 
-  /**
-   * @internal
-   */
   override async _createPageInContext(contextId?: string): Promise<Page> {
     const {targetId} = await this.#connection.send('Target.createTarget', {
       url: 'about:blank',
@@ -540,9 +526,6 @@ export class CDPBrowserContext extends BrowserContext {
   #browser: CDPBrowser;
   #id?: string;
 
-  /**
-   * @internal
-   */
   constructor(connection: Connection, browser: CDPBrowser, contextId?: string) {
     super();
     this.#connection = connection;
@@ -597,7 +580,7 @@ export class CDPBrowserContext extends BrowserContext {
    *
    * @returns Promise which resolves to an array of all open pages.
    * Non visible pages, such as `"background_page"`, will not be listed here.
-   * You can find them using {@link CDPTarget.page | the target page}.
+   * You can find them using {@link Target.page | the target page}.
    */
   override async pages(): Promise<Page[]> {
     const pages = await Promise.all(

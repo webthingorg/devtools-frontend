@@ -36,17 +36,8 @@ export class CDPTarget extends Target {
     #targetInfo;
     #targetManager;
     #sessionFactory;
-    /**
-     * @internal
-     */
     _initializedDeferred = Deferred.create();
-    /**
-     * @internal
-     */
     _isClosedDeferred = Deferred.create();
-    /**
-     * @internal
-     */
     _targetId;
     /**
      * To initialize the target for use, call initialize.
@@ -65,21 +56,12 @@ export class CDPTarget extends Target {
             this.#session._setTarget(this);
         }
     }
-    /**
-     * @internal
-     */
     _subtype() {
         return this.#targetInfo.subtype;
     }
-    /**
-     * @internal
-     */
     _session() {
         return this.#session;
     }
-    /**
-     * @internal
-     */
     _sessionFactory() {
         if (!this.#sessionFactory) {
             throw new Error('sessionFactory is not initialized');
@@ -119,18 +101,12 @@ export class CDPTarget extends Target {
                 return TargetType.OTHER;
         }
     }
-    /**
-     * @internal
-     */
     _targetManager() {
         if (!this.#targetManager) {
             throw new Error('targetManager is not initialized');
         }
         return this.#targetManager;
     }
-    /**
-     * @internal
-     */
     _getTargetInfo() {
         return this.#targetInfo;
     }
@@ -153,22 +129,13 @@ export class CDPTarget extends Target {
         }
         return this.browser()._targets.get(openerId);
     }
-    /**
-     * @internal
-     */
     _targetInfoChanged(targetInfo) {
         this.#targetInfo = targetInfo;
         this._checkIfInitialized();
     }
-    /**
-     * @internal
-     */
     _initialize() {
         this._initializedDeferred.resolve(InitializationStatus.SUCCESS);
     }
-    /**
-     * @internal
-     */
     _checkIfInitialized() {
         if (!this._initializedDeferred.resolved()) {
             this._initializedDeferred.resolve(InitializationStatus.SUCCESS);
@@ -183,9 +150,6 @@ export class PageTarget extends CDPTarget {
     pagePromise;
     #screenshotTaskQueue;
     #ignoreHTTPSErrors;
-    /**
-     * @internal
-     */
     constructor(targetInfo, session, browserContext, targetManager, sessionFactory, ignoreHTTPSErrors, defaultViewport, screenshotTaskQueue) {
         super(targetInfo, session, browserContext, targetManager, sessionFactory);
         this.#ignoreHTTPSErrors = ignoreHTTPSErrors;
@@ -240,6 +204,11 @@ export class PageTarget extends CDPTarget {
 /**
  * @internal
  */
+export class DevToolsTarget extends PageTarget {
+}
+/**
+ * @internal
+ */
 export class WorkerTarget extends CDPTarget {
     #workerPromise;
     async worker() {
@@ -252,7 +221,7 @@ export class WorkerTarget extends CDPTarget {
                 return new WebWorker(client, this._getTargetInfo().url, () => { } /* consoleAPICalled */, () => { } /* exceptionThrown */);
             });
         }
-        return this.#workerPromise;
+        return await this.#workerPromise;
     }
 }
 /**

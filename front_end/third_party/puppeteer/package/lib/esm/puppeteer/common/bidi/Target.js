@@ -15,8 +15,8 @@
  */
 import { Target, TargetType } from '../../api/Target.js';
 import { CDPSessionWrapper } from './BrowsingContext.js';
-import { Page } from './Page.js';
-export class BiDiTarget extends Target {
+import { BidiPage } from './Page.js';
+export class BidiTarget extends Target {
     _browserContext;
     constructor(browserContext) {
         super();
@@ -41,7 +41,7 @@ export class BiDiTarget extends Target {
 /**
  * @internal
  */
-export class BiDiBrowserTarget extends BiDiTarget {
+export class BiDiBrowserTarget extends BidiTarget {
     url() {
         return '';
     }
@@ -52,7 +52,7 @@ export class BiDiBrowserTarget extends BiDiTarget {
 /**
  * @internal
  */
-export class BiDiBrowsingContextTarget extends BiDiTarget {
+export class BiDiBrowsingContextTarget extends BidiTarget {
     _browsingContext;
     constructor(browserContext, browsingContext) {
         super(browserContext);
@@ -79,7 +79,7 @@ export class BiDiPageTarget extends BiDiBrowsingContextTarget {
     #page;
     constructor(browserContext, browsingContext) {
         super(browserContext, browsingContext);
-        this.#page = new Page(browsingContext, browserContext);
+        this.#page = new BidiPage(browsingContext, browserContext);
     }
     async page() {
         return this.#page;

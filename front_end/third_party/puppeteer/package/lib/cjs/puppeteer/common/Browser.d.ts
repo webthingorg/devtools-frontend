@@ -28,38 +28,17 @@ import { TargetManager } from './TargetManager.js';
  */
 export declare class CDPBrowser extends BrowserBase {
     #private;
-    /**
-     * @internal
-     */
     static _create(product: 'firefox' | 'chrome' | undefined, connection: Connection, contextIds: string[], ignoreHTTPSErrors: boolean, defaultViewport?: Viewport | null, process?: ChildProcess, closeCallback?: BrowserCloseCallback, targetFilterCallback?: TargetFilterCallback, isPageTargetCallback?: IsPageTargetCallback, waitForInitiallyDiscoveredTargets?: boolean, useTabTarget?: boolean): Promise<CDPBrowser>;
-    /**
-     * @internal
-     */
     get _targets(): Map<string, CDPTarget>;
-    /**
-     * @internal
-     */
     constructor(product: 'chrome' | 'firefox' | undefined, connection: Connection, contextIds: string[], ignoreHTTPSErrors: boolean, defaultViewport?: Viewport | null, process?: ChildProcess, closeCallback?: BrowserCloseCallback, targetFilterCallback?: TargetFilterCallback, isPageTargetCallback?: IsPageTargetCallback, waitForInitiallyDiscoveredTargets?: boolean, useTabTarget?: boolean);
-    /**
-     * @internal
-     */
     _attach(): Promise<void>;
-    /**
-     * @internal
-     */
     _detach(): void;
     /**
      * The spawned browser process. Returns `null` if the browser instance was created with
      * {@link Puppeteer.connect}.
      */
     process(): ChildProcess | null;
-    /**
-     * @internal
-     */
     _targetManager(): TargetManager;
-    /**
-     * @internal
-     */
     _getIsPageTargetCallback(): IsPageTargetCallback | undefined;
     /**
      * Creates a new incognito browser context. This won't share cookies/cache with other
@@ -89,9 +68,6 @@ export declare class CDPBrowser extends BrowserBase {
      * Returns the default browser context. The default browser context cannot be closed.
      */
     defaultBrowserContext(): CDPBrowserContext;
-    /**
-     * @internal
-     */
     _disposeContext(contextId?: string): Promise<void>;
     /**
      * The browser websocket endpoint which can be used as an argument to
@@ -116,9 +92,6 @@ export declare class CDPBrowser extends BrowserBase {
      * a default browser context.
      */
     newPage(): Promise<Page>;
-    /**
-     * @internal
-     */
     _createPageInContext(contextId?: string): Promise<Page>;
     /**
      * All active targets inside the Browser. In case of multiple browser contexts, returns
@@ -147,9 +120,6 @@ export declare class CDPBrowser extends BrowserBase {
  */
 export declare class CDPBrowserContext extends BrowserContext {
     #private;
-    /**
-     * @internal
-     */
     constructor(connection: Connection, browser: CDPBrowser, contextId?: string);
     get id(): string | undefined;
     /**
@@ -184,7 +154,7 @@ export declare class CDPBrowserContext extends BrowserContext {
      *
      * @returns Promise which resolves to an array of all open pages.
      * Non visible pages, such as `"background_page"`, will not be listed here.
-     * You can find them using {@link CDPTarget.page | the target page}.
+     * You can find them using {@link Target.page | the target page}.
      */
     pages(): Promise<Page[]>;
     /**

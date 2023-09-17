@@ -23,17 +23,8 @@ import { KeyInput } from './USKeyboardLayout.js';
  */
 export declare class CDPKeyboard extends Keyboard {
     #private;
-    /**
-     * @internal
-     */
     _modifiers: number;
-    /**
-     * @internal
-     */
     constructor(client: CDPSession);
-    /**
-     * @internal
-     */
     updateClient(client: CDPSession): void;
     down(key: KeyInput, options?: Readonly<KeyDownOptions>): Promise<void>;
     up(key: KeyInput): Promise<void>;
@@ -47,13 +38,7 @@ export declare class CDPKeyboard extends Keyboard {
  */
 export declare class CDPMouse extends Mouse {
     #private;
-    /**
-     * @internal
-     */
     constructor(client: CDPSession, keyboard: CDPKeyboard);
-    /**
-     * @internal
-     */
     updateClient(client: CDPSession): void;
     reset(): Promise<void>;
     move(x: number, y: number, options?: Readonly<MouseMoveOptions>): Promise<void>;
@@ -74,13 +59,7 @@ export declare class CDPMouse extends Mouse {
  */
 export declare class CDPTouchscreen extends Touchscreen {
     #private;
-    /**
-     * @internal
-     */
     constructor(client: CDPSession, keyboard: CDPKeyboard);
-    /**
-     * @internal
-     */
     updateClient(client: CDPSession): void;
     tap(x: number, y: number): Promise<void>;
     touchStart(x: number, y: number): Promise<void>;

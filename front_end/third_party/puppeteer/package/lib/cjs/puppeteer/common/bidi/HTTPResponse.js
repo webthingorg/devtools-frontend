@@ -63,6 +63,9 @@ class HTTPResponse extends HTTPResponse_js_1.HTTPResponse {
     frame() {
         return this.#request.frame();
     }
+    fromServiceWorker() {
+        return false;
+    }
 }
 exports.HTTPResponse = HTTPResponse;
 //# sourceMappingURL=HTTPResponse.js.map
