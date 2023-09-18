@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b034ebb6_8b104bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2023-09-18T17:39:22Z",
+      "side": 1,
+      "message": "I appreciate the detailed commit message, made this easy to review. Haven\u0027t tested locally, but trust it\u0027s working as advertised.",
+      "revId": "53249a245bf6d3233b74ad87f01b6f6d17df2d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
