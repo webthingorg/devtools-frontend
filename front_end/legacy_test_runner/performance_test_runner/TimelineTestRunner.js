@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as TimelineModule from '../../panels/timeline/timeline.js';
+
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
  */
@@ -122,7 +124,7 @@ PerformanceTestRunner.createPerformanceModelWithEvents = async function(events) 
   const tracingModel = new Trace.TracingModel();
   tracingModel.addEvents(events);
   tracingModel.tracingComplete();
-  const performanceModel = new Timeline.PerformanceModel();
+  const performanceModel = new TimelineModule.PerformanceModel.PerformanceModel();
   await performanceModel.setTracingModel(tracingModel);
   UI.panels.timeline.performanceModel = performanceModel;
   UI.panels.timeline.applyFilters(performanceModel);
