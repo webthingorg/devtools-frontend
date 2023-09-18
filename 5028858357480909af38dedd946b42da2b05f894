@@ -33,6 +33,24 @@
       "message": "no need to make it async, just call it like `void this.#render()`",
       "revId": "5028858357480909af38dedd946b42da2b05f894",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da8dcff9_13386163",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-18T10:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a39ee08_fe957ab7",
+      "revId": "5028858357480909af38dedd946b42da2b05f894",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
