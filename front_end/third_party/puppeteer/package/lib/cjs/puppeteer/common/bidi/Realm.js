@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBidiHandle = exports.Realm = exports.getSourceUrlComment = exports.SOURCE_URL_REGEX = void 0;
+exports.createBidiHandle = exports.Realm = exports.getSourceUrlComment = exports.SOURCE_URL_REGEX = void 0;
 const Bidi = __importStar(require("chromium-bidi/lib/cjs/protocol/protocol.js"));
 const Function_js_1 = require("../../util/Function.js");
 const EventEmitter_js_1 = require("../EventEmitter.js");
@@ -40,36 +40,38 @@ const getSourceUrlComment = (url) => {
 exports.getSourceUrlComment = getSourceUrlComment;
 class Realm extends EventEmitter_js_1.EventEmitter {
     connection;
-    #frame;
     #id;
     #sandbox;
-    constructor(connection, id, sandbox) {
+    constructor(connection) {
         super();
         this.connection = connection;
-        this.#id = id;
-        this.#sandbox = sandbox;
     }
     get target() {
         return {
-            context: this.#id,
-            sandbox: this.#sandbox,
+            context: this.#sandbox.environment._id,
+            sandbox: this.#sandbox.name,
         };
     }
-    setFrame(frame) {
-        this.#frame = frame;
-        // TODO(jrandolf): We should try to find a less brute-force way of doing
-        // this.
-        this.connection.on(Bidi.ChromiumBidi.Script.EventNames.RealmDestroyed, async () => {
-            const promise = this.internalPuppeteerUtil;
+    handleRealmDestroyed = async (params) => {
+        if (params.realm === this.#id) {
+            // Note: The Realm is destroyed, so in theory the handle should be as
+            // well.
             this.internalPuppeteerUtil = undefined;
-            try {
-                const util = await promise;
-                await util?.dispose();
-            }
-            catch (error) {
-                (0, util_js_1.debugError)(error);
-            }
-        });
+            this.#sandbox.environment.clearDocumentHandle();
+        }
+    };
+    handleRealmCreated = (params) => {
+        if (params.type === 'window' &&
+            params.context === this.#sandbox.environment._id &&
+            params.sandbox === this.#sandbox.name) {
+            this.#id = params.realm;
+            void this.#sandbox.taskManager.rerunAll();
+        }
+    };
+    setSandbox(sandbox) {
+        this.#sandbox = sandbox;
+        this.connection.on(Bidi.ChromiumBidi.Script.EventNames.RealmCreated, this.handleRealmCreated);
+        this.connection.on(Bidi.ChromiumBidi.Script.EventNames.RealmDestroyed, this.handleRealmDestroyed);
     }
     internalPuppeteerUtil;
     get puppeteerUtil() {
@@ -87,18 +89,25 @@ class Realm extends EventEmitter_js_1.EventEmitter {
         return this.internalPuppeteerUtil;
     }
     async evaluateHandle(pageFunction, ...args) {
-        return this.#evaluate(false, pageFunction, ...args);
+        return await this.#evaluate(false, pageFunction, ...args);
     }
     async evaluate(pageFunction, ...args) {
-        return this.#evaluate(true, pageFunction, ...args);
+        return await this.#evaluate(true, pageFunction, ...args);
     }
     async #evaluate(returnByValue, pageFunction, ...args) {
         const sourceUrlComment = (0, exports.getSourceUrlComment)((0, util_js_1.getSourcePuppeteerURLIfAvailable)(pageFunction)?.toString() ??
             util_js_1.PuppeteerURL.INTERNAL_URL);
+        const sandbox = this.#sandbox;
         let responsePromise;
         const resultOwnership = returnByValue
             ? "none" /* Bidi.Script.ResultOwnership.None */
             : "root" /* Bidi.Script.ResultOwnership.Root */;
+        const serializationOptions = returnByValue
+            ? {}
+            : {
+                maxObjectDepth: 0,
+                maxDomDepth: 0,
+            };
         if ((0, util_js_1.isString)(pageFunction)) {
             const expression = exports.SOURCE_URL_REGEX.test(pageFunction)
                 ? pageFunction
@@ -109,6 +118,7 @@ class Realm extends EventEmitter_js_1.EventEmitter {
                 resultOwnership,
                 awaitPromise: true,
                 userActivation: true,
+                serializationOptions,
             });
         }
         else {
@@ -119,12 +129,13 @@ class Realm extends EventEmitter_js_1.EventEmitter {
             responsePromise = this.connection.send('script.callFunction', {
                 functionDeclaration,
                 arguments: await Promise.all(args.map(arg => {
-                    return Serializer_js_1.BidiSerializer.serialize(arg, this);
+                    return Serializer_js_1.BidiSerializer.serialize(sandbox, arg);
                 })),
                 target: this.target,
                 resultOwnership,
                 awaitPromise: true,
                 userActivation: true,
+                serializationOptions,
             });
         }
         const { result } = await responsePromise;
@@ -133,18 +144,22 @@ class Realm extends EventEmitter_js_1.EventEmitter {
         }
         return returnByValue
             ? Serializer_js_1.BidiSerializer.deserialize(result.result)
-            : getBidiHandle(this, result.result, this.#frame);
+            : createBidiHandle(sandbox, result.result);
+    }
+    [Symbol.dispose]() {
+        this.connection.off(Bidi.ChromiumBidi.Script.EventNames.RealmCreated, this.handleRealmCreated);
+        this.connection.off(Bidi.ChromiumBidi.Script.EventNames.RealmDestroyed, this.handleRealmDestroyed);
     }
 }
 exports.Realm = Realm;
 /**
  * @internal
  */
-function getBidiHandle(realmOrContext, result, frame) {
+function createBidiHandle(sandbox, result) {
     if (result.type === 'node' || result.type === 'window') {
-        return new ElementHandle_js_1.ElementHandle(realmOrContext, result, frame);
+        return new ElementHandle_js_1.BidiElementHandle(sandbox, result);
     }
-    return new JSHandle_js_1.JSHandle(realmOrContext, result);
+    return new JSHandle_js_1.BidiJSHandle(sandbox, result);
 }
-exports.getBidiHandle = getBidiHandle;
+exports.createBidiHandle = createBidiHandle;
 //# sourceMappingURL=Realm.js.map

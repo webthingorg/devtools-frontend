@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Symbol } from '../../third_party/disposablestack/disposablestack.js';
 import { EventEmitter } from '../common/EventEmitter.js';
-import { waitWithTimeout } from '../common/util.js';
+import { debugError, waitWithTimeout } from '../common/util.js';
 import { Deferred } from '../util/Deferred.js';
 /**
  * @internal
@@ -287,6 +288,12 @@ export class Browser extends EventEmitter {
      */
     isConnected() {
         throw new Error('Not implemented');
+    }
+    [Symbol.dispose]() {
+        return void this.close().catch(debugError);
+    }
+    [Symbol.asyncDispose]() {
+        return this.close();
     }
 }
 //# sourceMappingURL=Browser.js.map

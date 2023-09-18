@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 import { Protocol } from 'devtools-protocol';
+import { Frame } from '../api/Frame.js';
 import { CDPSession } from './Connection.js';
 import { EventEmitter } from './EventEmitter.js';
-import { FrameManager } from './FrameManager.js';
 /**
  * @public
  */
@@ -54,15 +54,16 @@ export declare const NetworkManagerEmittedEvents: {
 /**
  * @internal
  */
+export interface FrameProvider {
+    frame(id: string): Frame | null;
+}
+/**
+ * @internal
+ */
 export declare class NetworkManager extends EventEmitter {
     #private;
-    constructor(client: CDPSession, ignoreHTTPSErrors: boolean, frameManager: Pick<FrameManager, 'frame'>);
-    updateClient(client: CDPSession): Promise<void>;
-    /**
-     * Initialize calls should avoid async dependencies between CDP calls as those
-     * might not resolve until after the target is resumed causing a deadlock.
-     */
-    initialize(): Promise<void>;
+    constructor(ignoreHTTPSErrors: boolean, frameManager: FrameProvider);
+    addClient(client: CDPSession): Promise<void>;
     authenticate(credentials?: Credentials): Promise<void>;
     setExtraHTTPHeaders(extraHTTPHeaders: Record<string, string>): Promise<void>;
     extraHTTPHeaders(): Record<string, string>;

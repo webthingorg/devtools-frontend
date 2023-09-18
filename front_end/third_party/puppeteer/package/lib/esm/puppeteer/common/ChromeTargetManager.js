@@ -16,7 +16,7 @@
 import { TargetType } from '../api/Target.js';
 import { assert } from '../util/assert.js';
 import { Deferred } from '../util/Deferred.js';
-import { CDPSession, CDPSessionEmittedEvents, Connection } from './Connection.js';
+import { CDPSession, CDPSessionEmittedEvents } from './Connection.js';
 import { EventEmitter } from './EventEmitter.js';
 import { InitializationStatus, CDPTarget } from './Target.js';
 import { debugError } from './util.js';
@@ -62,7 +62,6 @@ export class ChromeTargetManager extends EventEmitter {
     #ignoredTargets = new Set();
     #targetFilterCallback;
     #targetFactory;
-    #targetInterceptors = new WeakMap();
     #attachedToTargetListenersBySession = new WeakMap();
     #detachedFromTargetListenersBySession = new WeakMap();
     #initializeDeferred = Deferred.create();
@@ -141,17 +140,6 @@ export class ChromeTargetManager extends EventEmitter {
         }
         return result;
     }
-    addTargetInterceptor(session, interceptor) {
-        const interceptors = this.#targetInterceptors.get(session) || [];
-        interceptors.push(interceptor);
-        this.#targetInterceptors.set(session, interceptors);
-    }
-    removeTargetInterceptor(client, interceptor) {
-        const interceptors = this.#targetInterceptors.get(client) || [];
-        this.#targetInterceptors.set(client, interceptors.filter(currentInterceptor => {
-            return currentInterceptor !== interceptor;
-        }));
-    }
     #setupAttachmentListeners(session) {
         const listener = (event) => {
             return this.#onAttachedToTarget(session, event);
@@ -178,7 +166,6 @@ export class ChromeTargetManager extends EventEmitter {
     }
     #onSessionDetached = (session) => {
         this.#removeAttachmentListeners(session);
-        this.#targetInterceptors.delete(session);
     };
     #onTargetCreated = async (event) => {
         this.#discoveredTargetsByTargetId.set(event.targetInfo.targetId, event.targetInfo);
@@ -275,8 +262,8 @@ export class ChromeTargetManager extends EventEmitter {
             this.emit("targetAvailable" /* TargetManagerEmittedEvents.TargetAvailable */, target);
             return;
         }
-        const existingTarget = this.#attachedTargetsByTargetId.has(targetInfo.targetId);
-        const target = existingTarget
+        const isExistingTarget = this.#attachedTargetsByTargetId.has(targetInfo.targetId);
+        const target = isExistingTarget
             ? this.#attachedTargetsByTargetId.get(targetInfo.targetId)
             : this.#targetFactory(targetInfo, session, parentSession instanceof CDPSession ? parentSession : undefined);
         if (this.#targetFilterCallback && !this.#targetFilterCallback(target)) {
@@ -285,30 +272,20 @@ export class ChromeTargetManager extends EventEmitter {
             await silentDetach();
             return;
         }
-        if (!existingTarget) {
+        if (!isExistingTarget) {
             target._initialize();
         }
         this.#setupAttachmentListeners(session);
-        if (existingTarget) {
+        if (isExistingTarget) {
             this.#attachedTargetsBySessionId.set(session.id(), this.#attachedTargetsByTargetId.get(targetInfo.targetId));
         }
         else {
             this.#attachedTargetsByTargetId.set(targetInfo.targetId, target);
             this.#attachedTargetsBySessionId.set(session.id(), target);
         }
-        for (const interceptor of this.#targetInterceptors.get(parentSession) ||
-            []) {
-            if (!(parentSession instanceof Connection)) {
-                // Sanity check: if parent session is not a connection, it should be
-                // present in #attachedTargetsBySessionId.
-                assert(this.#attachedTargetsBySessionId.has(parentSession.id()));
-            }
-            interceptor(target, parentSession instanceof Connection
-                ? null
-                : this.#attachedTargetsBySessionId.get(parentSession.id()));
-        }
+        parentSession.emit(CDPSessionEmittedEvents.Ready, session);
         this.#targetsIdsForInit.delete(target._targetId);
-        if (!existingTarget && isTargetExposed(target)) {
+        if (!isExistingTarget && isTargetExposed(target)) {
             this.emit("targetAvailable" /* TargetManagerEmittedEvents.TargetAvailable */, target);
         }
         this.#finishInitializationIfReady();

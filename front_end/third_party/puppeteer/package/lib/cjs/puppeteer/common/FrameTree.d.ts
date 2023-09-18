@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Frame as BaseFrame } from '../api/Frame.js';
+import { Frame } from '../api/Frame.js';
 /**
  * Keeps track of the page frame tree and it's is managed by
  * {@link FrameManager}. FrameTree uses frame IDs to reference frame and it
@@ -21,19 +21,19 @@ import { Frame as BaseFrame } from '../api/Frame.js';
  * structure is eventually consistent.
  * @internal
  */
-export declare class FrameTree<Frame extends BaseFrame> {
+export declare class FrameTree<FrameType extends Frame> {
     #private;
-    getMainFrame(): Frame | undefined;
-    getById(frameId: string): Frame | undefined;
+    getMainFrame(): FrameType | undefined;
+    getById(frameId: string): FrameType | undefined;
     /**
      * Returns a promise that is resolved once the frame with
      * the given ID is added to the tree.
      */
-    waitForFrame(frameId: string): Promise<Frame>;
-    frames(): Frame[];
-    addFrame(frame: Frame): void;
-    removeFrame(frame: Frame): void;
-    childFrames(frameId: string): Frame[];
-    parentFrame(frameId: string): Frame | undefined;
+    waitForFrame(frameId: string): Promise<FrameType>;
+    frames(): FrameType[];
+    addFrame(frame: FrameType): void;
+    removeFrame(frame: FrameType): void;
+    childFrames(frameId: string): FrameType[];
+    parentFrame(frameId: string): FrameType | undefined;
 }
 //# sourceMappingURL=FrameTree.d.ts.map

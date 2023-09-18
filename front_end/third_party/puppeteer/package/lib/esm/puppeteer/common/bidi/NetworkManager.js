@@ -35,7 +35,7 @@ export class NetworkManager extends EventEmitter {
         super();
         this.#connection = connection;
         this.#page = page;
-        // TODO: Subscribe to the Frame indivutally
+        // TODO: Subscribe to the Frame individually
         for (const [event, subscriber] of this.#subscribedEvents) {
             this.#connection.on(event, subscriber);
         }
@@ -108,7 +108,7 @@ export class NetworkManager extends EventEmitter {
         }
         for (const [id, response] of this.#navigationMap.entries()) {
             if (response.frame() === frame) {
-                this.#requestMap.delete(id);
+                this.#navigationMap.delete(id);
             }
         }
     }

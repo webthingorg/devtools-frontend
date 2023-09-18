@@ -15,17 +15,17 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Dialog = void 0;
+exports.BidiDialog = void 0;
 const Dialog_js_1 = require("../../api/Dialog.js");
 /**
  * @internal
  */
-class Dialog extends Dialog_js_1.Dialog {
+class BidiDialog extends Dialog_js_1.Dialog {
     #context;
     /**
      * @internal
      */
-    constructor(context, type, message, defaultValue = '') {
+    constructor(context, type, message, defaultValue) {
         super(type, message, defaultValue);
         this.#context = context;
     }
@@ -40,5 +40,5 @@ class Dialog extends Dialog_js_1.Dialog {
         });
     }
 }
-exports.Dialog = Dialog;
+exports.BidiDialog = BidiDialog;
 //# sourceMappingURL=Dialog.js.map
