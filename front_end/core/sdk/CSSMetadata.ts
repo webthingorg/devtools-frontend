@@ -550,7 +550,7 @@ const extraPropertyValues = {
   'overscroll-behavior': {values: ['contain']},
   'text-rendering': {values: ['optimizeSpeed', 'optimizeLegibility', 'geometricPrecision']},
   'text-align': {values: ['-webkit-auto', '-webkit-match-parent']},
-  'clip-path': {values: ['circle', 'ellipse', 'inset', 'polygon', 'url']},
+  'clip-path': {values: ['inset()', 'xywh()', 'rect()', 'circle()', 'ellipse()', 'polygon()', 'url()']},
   'color-interpolation': {values: ['sRGB', 'linearRGB']},
   'word-wrap': {values: ['normal', 'break-word']},
   'font-weight': {values: ['100', '200', '300', '400', '500', '600', '700', '800', '900']},
