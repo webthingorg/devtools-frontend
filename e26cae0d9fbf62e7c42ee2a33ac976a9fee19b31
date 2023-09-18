@@ -41,6 +41,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e993723a_bd2696f7",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-18T08:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "936431dd_f89910e9",
+      "revId": "e26cae0d9fbf62e7c42ee2a33ac976a9fee19b31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a061eac_3c8cec79",
