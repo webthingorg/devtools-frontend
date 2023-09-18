@@ -149,9 +149,10 @@ export class DataGrid extends HTMLElement {
   #userHasFocusInDataGrid = false;
   #scheduleRender = false;
 
-  connectedCallback(): void {
+  async connectedCallback(): Promise<void> {
     this.#shadow.adoptedStyleSheets = [dataGridStyles];
     ComponentHelpers.SetCSSProperty.set(this, '--table-row-height', `${ROW_HEIGHT_PIXELS}px`);
+    await this.#render();
   }
 
   get data(): DataGridData {
@@ -736,6 +737,9 @@ export class DataGrid extends HTMLElement {
    * padding).
    */
   async #render(): Promise<void> {
+    if (!this.isConnected) {
+      return;
+    }
     if (this.#isRendering) {
       // If we receive a request to render during a previous render call, we block
       // the newly requested render (since we could receive a lot of them in quick
