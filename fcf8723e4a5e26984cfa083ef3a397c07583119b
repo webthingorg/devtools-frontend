@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0400ba6b_be5fc141",
+        "filename": "test/e2e/network/network_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-18T09:30:10Z",
+      "side": 0,
+      "message": "Is this test being removed? Why? Would it break after your changes?",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 38
+      },
+      "revId": "fcf8723e4a5e26984cfa083ef3a397c07583119b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
