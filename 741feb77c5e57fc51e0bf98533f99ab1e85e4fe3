@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bda77b_0b4bca45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-18T07:21:35Z",
+      "side": 1,
+      "message": "Hi, the test fails to find the resource, it needs to be added to /test/e2e/resources/elements/BUILD.gn.\n\nYou can see this if you scroll down in the failing shard\u0027s e2e test stdout, there\u0027s a link to screenshots of the frontend at failure time. I\u0027m not sure whether that\u0027s accessible publicly though!",
+      "revId": "741feb77c5e57fc51e0bf98533f99ab1e85e4fe3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
