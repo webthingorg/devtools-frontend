@@ -38,7 +38,7 @@ import { Protocol } from 'devtools-protocol';
  *
  * @public
  */
-export declare class Dialog {
+export declare abstract class Dialog {
     #private;
     /**
      * @internal
@@ -60,7 +60,7 @@ export declare class Dialog {
     /**
      * @internal
      */
-    sendCommand(_options: {
+    protected abstract sendCommand(options: {
         accept: boolean;
         text?: string;
     }): Promise<void>;

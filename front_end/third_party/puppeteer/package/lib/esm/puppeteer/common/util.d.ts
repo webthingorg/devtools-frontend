@@ -18,13 +18,14 @@
 /// <reference types="node" />
 import type { Readable } from 'stream';
 import type { Protocol } from 'devtools-protocol';
+import { Observable } from '../../third_party/rxjs/rxjs.js';
 import type { ElementHandle } from '../api/ElementHandle.js';
 import type { JSHandle } from '../api/JSHandle.js';
 import { Page } from '../api/Page.js';
 import { Deferred } from '../util/Deferred.js';
 import type { CDPSession } from './Connection.js';
 import type { CommonEventEmitter } from './EventEmitter.js';
-import type { ExecutionContext } from './ExecutionContext.js';
+import { IsolatedWorld } from './IsolatedWorld.js';
 import { Awaitable } from './types.js';
 /**
  * @internal
@@ -114,7 +115,7 @@ export declare function waitForEvent<T>(emitter: CommonEventEmitter, eventName: 
 /**
  * @internal
  */
-export declare function createJSHandle(context: ExecutionContext, remoteObject: Protocol.Runtime.RemoteObject): JSHandle | ElementHandle<Node>;
+export declare function createCdpHandle(realm: IsolatedWorld, remoteObject: Protocol.Runtime.RemoteObject): JSHandle | ElementHandle<Node>;
 /**
  * @internal
  */
@@ -155,4 +156,22 @@ export declare function getPageContent(): string;
  * @internal
  */
 export declare function validateDialogType(type: string): 'alert' | 'confirm' | 'prompt' | 'beforeunload';
+/**
+ * @internal
+ */
+export declare class Mutex {
+    #private;
+    static Guard: {
+        new (mutex: Mutex): {
+            "__#1097@#mutex": Mutex;
+            [Symbol.dispose](): void;
+        };
+    };
+    acquire(): Promise<InstanceType<typeof Mutex.Guard>>;
+    release(): void;
+}
+/**
+ * @internal
+ */
+export declare function timeout(ms: number): Observable<never>;
 //# sourceMappingURL=util.d.ts.map

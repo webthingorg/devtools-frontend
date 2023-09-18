@@ -449,6 +449,13 @@ export declare class Touchscreen {
      * Dispatches a `touchMove` event.
      * @param x - Horizontal position of the move.
      * @param y - Vertical position of the move.
+     *
+     * @remarks
+     *
+     * Not every `touchMove` call results in a `touchmove` event being emitted,
+     * depending on the browser's optimizations. For example, Chrome
+     * {@link https://developer.chrome.com/blog/a-more-compatible-smoother-touch/#chromes-new-model-the-throttled-async-touchmove-model | throttles}
+     * touch move events.
      */
     touchMove(x: number, y: number): Promise<void>;
     /**
