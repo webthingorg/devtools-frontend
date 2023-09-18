@@ -136,7 +136,7 @@ let viewManagerInstance: ViewManager|undefined;
 
 export class ViewManager {
   readonly views: Map<string, View>;
-  private readonly locationNameByViewId: Map<string, string>;
+  readonly locationNameByViewId: Map<string, string>;
   private readonly locationOverrideSetting: Common.Settings.Setting<{[key: string]: string}>;
 
   private constructor() {
@@ -537,11 +537,17 @@ class Location {
   protected readonly manager: ViewManager;
   private readonly revealCallback: (() => void)|undefined;
   private readonly widgetInternal: Widget;
+  private readonly nameInternal?: string;
 
-  constructor(manager: ViewManager, widget: Widget, revealCallback?: (() => void)) {
+  constructor(manager: ViewManager, widget: Widget, revealCallback?: (() => void), name?: string) {
     this.manager = manager;
     this.revealCallback = revealCallback;
     this.widgetInternal = widget;
+    this.nameInternal = name;
+  }
+
+  name(): string|undefined {
+    return this.nameInternal;
   }
 
   widget(): Widget {
@@ -592,7 +598,7 @@ class TabbedLocation extends Location implements TabbedViewLocation {
       tabbedPane.setAllowTabReorder(true);
     }
 
-    super(manager, tabbedPane, revealCallback);
+    super(manager, tabbedPane, revealCallback, location);
     this.tabbedPaneInternal = tabbedPane;
     this.allowReorder = allowReorder;
 
@@ -721,6 +727,12 @@ class TabbedLocation extends Location implements TabbedViewLocation {
     if (oldLocation && oldLocation !== this) {
       oldLocation.removeView(view);
     }
+
+    const locationName = this.name();
+    if (locationName) {
+      this.manager.locationNameByViewId.set(view.viewId(), locationName);
+    }
+
     locationForView.set(view, this);
     this.manager.views.set(view.viewId(), view);
     this.views.set(view.viewId(), view);
@@ -776,6 +788,12 @@ class TabbedLocation extends Location implements TabbedViewLocation {
     }
 
     locationForView.delete(view);
+    const location = this.manager.locationNameByViewId.get(view.viewId());
+
+    if (location) {
+      this.manager.locationNameByViewId.delete(view.viewId());
+    }
+
     this.manager.views.delete(view.viewId());
     this.tabbedPaneInternal.closeTab(view.viewId());
     this.views.delete(view.viewId());
@@ -837,7 +855,7 @@ class StackLocation extends Location implements ViewLocation {
 
   constructor(manager: ViewManager, revealCallback?: (() => void), location?: string) {
     const vbox = new VBox();
-    super(manager, vbox, revealCallback);
+    super(manager, vbox, revealCallback, location);
     this.vbox = vbox;
     ARIAUtils.markAsTree(vbox.element);
 
