@@ -13,8 +13,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
+};
+var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
+    }
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
+};
 import { ElementHandle } from '../api/ElementHandle.js';
 import { assert } from '../util/assert.js';
+import { throwIfDisposed } from '../util/decorators.js';
 import { CDPJSHandle } from './JSHandle.js';
 import { debugError } from './util.js';
 /**
@@ -24,194 +59,215 @@ import { debugError } from './util.js';
  *
  * @internal
  */
-export class CDPElementHandle extends ElementHandle {
-    #frame;
-    constructor(context, remoteObject, frame) {
-        super(new CDPJSHandle(context, remoteObject));
-        this.#frame = frame;
-    }
-    /**
-     * @internal
-     */
-    executionContext() {
-        return this.handle.executionContext();
-    }
-    /**
-     * @internal
-     */
-    get client() {
-        return this.handle.client;
-    }
-    remoteObject() {
-        return this.handle.remoteObject();
-    }
-    get #frameManager() {
-        return this.#frame._frameManager;
-    }
-    get #page() {
-        return this.#frame.page();
-    }
-    get frame() {
-        return this.#frame;
-    }
-    async $(selector) {
-        return super.$(selector);
-    }
-    async $$(selector) {
-        return super.$$(selector);
-    }
-    async waitForSelector(selector, options) {
-        return (await super.waitForSelector(selector, options));
-    }
-    async contentFrame() {
-        const nodeInfo = await this.client.send('DOM.describeNode', {
-            objectId: this.id,
-        });
-        if (typeof nodeInfo.node.frameId !== 'string') {
-            return null;
+let CDPElementHandle = (() => {
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+    let _classSuper = ElementHandle;
+    let _instanceExtraInitializers = [];
+    let _contentFrame_decorators;
+    let _scrollIntoView_decorators;
+    let _drag_decorators;
+    let _dragEnter_decorators;
+    let _dragOver_decorators;
+    let _drop_decorators;
+    let _dragAndDrop_decorators;
+    let _uploadFile_decorators;
+    let _screenshot_decorators;
+    let _autofill_decorators;
+    return class CDPElementHandle extends _classSuper {
+        static {
+            const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
+            _contentFrame_decorators = [throwIfDisposed()];
+            _scrollIntoView_decorators = [throwIfDisposed(), (_a = ElementHandle).bindIsolatedHandle.bind(_a)];
+            _drag_decorators = [throwIfDisposed(), (_b = ElementHandle).bindIsolatedHandle.bind(_b)];
+            _dragEnter_decorators = [throwIfDisposed(), (_c = ElementHandle).bindIsolatedHandle.bind(_c)];
+            _dragOver_decorators = [throwIfDisposed(), (_d = ElementHandle).bindIsolatedHandle.bind(_d)];
+            _drop_decorators = [throwIfDisposed(), (_e = ElementHandle).bindIsolatedHandle.bind(_e)];
+            _dragAndDrop_decorators = [throwIfDisposed(), (_f = ElementHandle).bindIsolatedHandle.bind(_f)];
+            _uploadFile_decorators = [throwIfDisposed(), (_g = ElementHandle).bindIsolatedHandle.bind(_g)];
+            _screenshot_decorators = [throwIfDisposed(), (_h = ElementHandle).bindIsolatedHandle.bind(_h)];
+            _autofill_decorators = [throwIfDisposed()];
+            __esDecorate(this, null, _contentFrame_decorators, { kind: "method", name: "contentFrame", static: false, private: false, access: { has: obj => "contentFrame" in obj, get: obj => obj.contentFrame }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _scrollIntoView_decorators, { kind: "method", name: "scrollIntoView", static: false, private: false, access: { has: obj => "scrollIntoView" in obj, get: obj => obj.scrollIntoView }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _drag_decorators, { kind: "method", name: "drag", static: false, private: false, access: { has: obj => "drag" in obj, get: obj => obj.drag }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _dragEnter_decorators, { kind: "method", name: "dragEnter", static: false, private: false, access: { has: obj => "dragEnter" in obj, get: obj => obj.dragEnter }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _dragOver_decorators, { kind: "method", name: "dragOver", static: false, private: false, access: { has: obj => "dragOver" in obj, get: obj => obj.dragOver }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _drop_decorators, { kind: "method", name: "drop", static: false, private: false, access: { has: obj => "drop" in obj, get: obj => obj.drop }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _dragAndDrop_decorators, { kind: "method", name: "dragAndDrop", static: false, private: false, access: { has: obj => "dragAndDrop" in obj, get: obj => obj.dragAndDrop }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _uploadFile_decorators, { kind: "method", name: "uploadFile", static: false, private: false, access: { has: obj => "uploadFile" in obj, get: obj => obj.uploadFile }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _screenshot_decorators, { kind: "method", name: "screenshot", static: false, private: false, access: { has: obj => "screenshot" in obj, get: obj => obj.screenshot }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _autofill_decorators, { kind: "method", name: "autofill", static: false, private: false, access: { has: obj => "autofill" in obj, get: obj => obj.autofill }, metadata: _metadata }, null, _instanceExtraInitializers);
+            if (_metadata) Object.defineProperty(this, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
         }
-        return this.#frameManager.frame(nodeInfo.node.frameId);
-    }
-    async scrollIntoView() {
-        await this.assertConnectedElement();
-        try {
-            await this.client.send('DOM.scrollIntoViewIfNeeded', {
+        constructor(world, remoteObject) {
+            super(new CDPJSHandle(world, remoteObject));
+            __runInitializers(this, _instanceExtraInitializers);
+        }
+        get realm() {
+            return this.handle.realm;
+        }
+        get client() {
+            return this.handle.client;
+        }
+        remoteObject() {
+            return this.handle.remoteObject();
+        }
+        get #frameManager() {
+            return this.frame._frameManager;
+        }
+        get #page() {
+            return this.frame.page();
+        }
+        get frame() {
+            return this.realm.environment;
+        }
+        async contentFrame() {
+            const nodeInfo = await this.client.send('DOM.describeNode', {
                 objectId: this.id,
             });
-        }
-        catch (error) {
-            debugError(error);
-            // Fallback to Element.scrollIntoView if DOM.scrollIntoViewIfNeeded is not supported
-            await super.scrollIntoView();
-        }
-    }
-    /**
-     * This method creates and captures a dragevent from the element.
-     */
-    async drag(target) {
-        assert(this.#page.isDragInterceptionEnabled(), 'Drag Interception is not enabled!');
-        await this.scrollIntoViewIfNeeded();
-        const start = await this.clickablePoint();
-        return await this.#page.mouse.drag(start, target);
-    }
-    async dragEnter(data = { items: [], dragOperationsMask: 1 }) {
-        await this.scrollIntoViewIfNeeded();
-        const target = await this.clickablePoint();
-        await this.#page.mouse.dragEnter(target, data);
-    }
-    async dragOver(data = { items: [], dragOperationsMask: 1 }) {
-        await this.scrollIntoViewIfNeeded();
-        const target = await this.clickablePoint();
-        await this.#page.mouse.dragOver(target, data);
-    }
-    async drop(data = { items: [], dragOperationsMask: 1 }) {
-        await this.scrollIntoViewIfNeeded();
-        const destination = await this.clickablePoint();
-        await this.#page.mouse.drop(destination, data);
-    }
-    async dragAndDrop(target, options) {
-        assert(this.#page.isDragInterceptionEnabled(), 'Drag Interception is not enabled!');
-        await this.scrollIntoViewIfNeeded();
-        const startPoint = await this.clickablePoint();
-        const targetPoint = await target.clickablePoint();
-        await this.#page.mouse.dragAndDrop(startPoint, targetPoint, options);
-    }
-    async uploadFile(...filePaths) {
-        const isMultiple = await this.evaluate(element => {
-            return element.multiple;
-        });
-        assert(filePaths.length <= 1 || isMultiple, 'Multiple file uploads only work with <input type=file multiple>');
-        // Locate all files and confirm that they exist.
-        let path;
-        try {
-            path = await import('path');
-        }
-        catch (error) {
-            if (error instanceof TypeError) {
-                throw new Error(`JSHandle#uploadFile can only be used in Node-like environments.`);
+            if (typeof nodeInfo.node.frameId !== 'string') {
+                return null;
             }
-            throw error;
+            return this.#frameManager.frame(nodeInfo.node.frameId);
         }
-        const files = filePaths.map(filePath => {
-            if (path.win32.isAbsolute(filePath) || path.posix.isAbsolute(filePath)) {
-                return filePath;
+        async scrollIntoView() {
+            await this.assertConnectedElement();
+            try {
+                await this.client.send('DOM.scrollIntoViewIfNeeded', {
+                    objectId: this.id,
+                });
+            }
+            catch (error) {
+                debugError(error);
+                // Fallback to Element.scrollIntoView if DOM.scrollIntoViewIfNeeded is not supported
+                await super.scrollIntoView();
+            }
+        }
+        /**
+         * This method creates and captures a dragevent from the element.
+         */
+        async drag(target) {
+            assert(this.#page.isDragInterceptionEnabled(), 'Drag Interception is not enabled!');
+            await this.scrollIntoViewIfNeeded();
+            const start = await this.clickablePoint();
+            return await this.#page.mouse.drag(start, target);
+        }
+        async dragEnter(data = { items: [], dragOperationsMask: 1 }) {
+            await this.scrollIntoViewIfNeeded();
+            const target = await this.clickablePoint();
+            await this.#page.mouse.dragEnter(target, data);
+        }
+        async dragOver(data = { items: [], dragOperationsMask: 1 }) {
+            await this.scrollIntoViewIfNeeded();
+            const target = await this.clickablePoint();
+            await this.#page.mouse.dragOver(target, data);
+        }
+        async drop(data = { items: [], dragOperationsMask: 1 }) {
+            await this.scrollIntoViewIfNeeded();
+            const destination = await this.clickablePoint();
+            await this.#page.mouse.drop(destination, data);
+        }
+        async dragAndDrop(target, options) {
+            assert(this.#page.isDragInterceptionEnabled(), 'Drag Interception is not enabled!');
+            await this.scrollIntoViewIfNeeded();
+            const startPoint = await this.clickablePoint();
+            const targetPoint = await target.clickablePoint();
+            await this.#page.mouse.dragAndDrop(startPoint, targetPoint, options);
+        }
+        async uploadFile(...filePaths) {
+            const isMultiple = await this.evaluate(element => {
+                return element.multiple;
+            });
+            assert(filePaths.length <= 1 || isMultiple, 'Multiple file uploads only work with <input type=file multiple>');
+            // Locate all files and confirm that they exist.
+            let path;
+            try {
+                path = await import('path');
+            }
+            catch (error) {
+                if (error instanceof TypeError) {
+                    throw new Error(`JSHandle#uploadFile can only be used in Node-like environments.`);
+                }
+                throw error;
+            }
+            const files = filePaths.map(filePath => {
+                if (path.win32.isAbsolute(filePath) || path.posix.isAbsolute(filePath)) {
+                    return filePath;
+                }
+                else {
+                    return path.resolve(filePath);
+                }
+            });
+            const { node } = await this.client.send('DOM.describeNode', {
+                objectId: this.id,
+            });
+            const { backendNodeId } = node;
+            /*  The zero-length array is a special case, it seems that
+                 DOM.setFileInputFiles does not actually update the files in that case,
+                 so the solution is to eval the element value to a new FileList directly.
+             */
+            if (files.length === 0) {
+                await this.evaluate(element => {
+                    element.files = new DataTransfer().files;
+                    // Dispatch events for this case because it should behave akin to a user action.
+                    element.dispatchEvent(new Event('input', { bubbles: true }));
+                    element.dispatchEvent(new Event('change', { bubbles: true }));
+                });
             }
             else {
-                return path.resolve(filePath);
+                await this.client.send('DOM.setFileInputFiles', {
+                    objectId: this.id,
+                    files,
+                    backendNodeId,
+                });
             }
-        });
-        const { node } = await this.client.send('DOM.describeNode', {
-            objectId: this.id,
-        });
-        const { backendNodeId } = node;
-        /*  The zero-length array is a special case, it seems that
-             DOM.setFileInputFiles does not actually update the files in that case,
-             so the solution is to eval the element value to a new FileList directly.
-         */
-        if (files.length === 0) {
-            await this.evaluate(element => {
-                element.files = new DataTransfer().files;
-                // Dispatch events for this case because it should behave akin to a user action.
-                element.dispatchEvent(new Event('input', { bubbles: true }));
-                element.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        async screenshot(options = {}) {
+            let needsViewportReset = false;
+            let boundingBox = await this.boundingBox();
+            assert(boundingBox, 'Node is either not visible or not an HTMLElement');
+            const viewport = this.#page.viewport();
+            if (viewport &&
+                (boundingBox.width > viewport.width ||
+                    boundingBox.height > viewport.height)) {
+                const newViewport = {
+                    width: Math.max(viewport.width, Math.ceil(boundingBox.width)),
+                    height: Math.max(viewport.height, Math.ceil(boundingBox.height)),
+                };
+                await this.#page.setViewport(Object.assign({}, viewport, newViewport));
+                needsViewportReset = true;
+            }
+            await this.scrollIntoViewIfNeeded();
+            boundingBox = await this.boundingBox();
+            assert(boundingBox, 'Node is either not visible or not an HTMLElement');
+            assert(boundingBox.width !== 0, 'Node has 0 width.');
+            assert(boundingBox.height !== 0, 'Node has 0 height.');
+            const layoutMetrics = await this.client.send('Page.getLayoutMetrics');
+            // Fallback to `layoutViewport` in case of using Firefox.
+            const { pageX, pageY } = layoutMetrics.cssVisualViewport || layoutMetrics.layoutViewport;
+            const clip = Object.assign({}, boundingBox);
+            clip.x += pageX;
+            clip.y += pageY;
+            const imageData = await this.#page.screenshot(Object.assign({}, {
+                clip,
+            }, options));
+            if (needsViewportReset && viewport) {
+                await this.#page.setViewport(viewport);
+            }
+            return imageData;
+        }
+        async autofill(data) {
+            const nodeInfo = await this.client.send('DOM.describeNode', {
+                objectId: this.handle.id,
+            });
+            const fieldId = nodeInfo.node.backendNodeId;
+            const frameId = this.frame._id;
+            await this.client.send('Autofill.trigger', {
+                fieldId,
+                frameId,
+                card: data.creditCard,
             });
         }
-        else {
-            await this.client.send('DOM.setFileInputFiles', {
-                objectId: this.id,
-                files,
-                backendNodeId,
-            });
-        }
-    }
-    async screenshot(options = {}) {
-        let needsViewportReset = false;
-        let boundingBox = await this.boundingBox();
-        assert(boundingBox, 'Node is either not visible or not an HTMLElement');
-        const viewport = this.#page.viewport();
-        if (viewport &&
-            (boundingBox.width > viewport.width ||
-                boundingBox.height > viewport.height)) {
-            const newViewport = {
-                width: Math.max(viewport.width, Math.ceil(boundingBox.width)),
-                height: Math.max(viewport.height, Math.ceil(boundingBox.height)),
-            };
-            await this.#page.setViewport(Object.assign({}, viewport, newViewport));
-            needsViewportReset = true;
-        }
-        await this.scrollIntoViewIfNeeded();
-        boundingBox = await this.boundingBox();
-        assert(boundingBox, 'Node is either not visible or not an HTMLElement');
-        assert(boundingBox.width !== 0, 'Node has 0 width.');
-        assert(boundingBox.height !== 0, 'Node has 0 height.');
-        const layoutMetrics = await this.client.send('Page.getLayoutMetrics');
-        // Fallback to `layoutViewport` in case of using Firefox.
-        const { pageX, pageY } = layoutMetrics.cssVisualViewport || layoutMetrics.layoutViewport;
-        const clip = Object.assign({}, boundingBox);
-        clip.x += pageX;
-        clip.y += pageY;
-        const imageData = await this.#page.screenshot(Object.assign({}, {
-            clip,
-        }, options));
-        if (needsViewportReset && viewport) {
-            await this.#page.setViewport(viewport);
-        }
-        return imageData;
-    }
-    async autofill(data) {
-        const nodeInfo = await this.client.send('DOM.describeNode', {
-            objectId: this.handle.id,
-        });
-        const fieldId = nodeInfo.node.backendNodeId;
-        const frameId = this.#frame._id;
-        await this.client.send('Autofill.trigger', {
-            fieldId,
-            frameId,
-            card: data.creditCard,
-        });
-    }
-    assertElementHasWorld() {
-        assert(this.executionContext()._world);
-    }
-}
+    };
+})();
+export { CDPElementHandle };
 //# sourceMappingURL=ElementHandle.js.map

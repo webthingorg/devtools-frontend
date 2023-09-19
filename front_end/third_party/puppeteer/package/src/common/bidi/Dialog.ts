@@ -16,14 +16,14 @@
 
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
 
-import {Dialog as BaseDialog} from '../../api/Dialog.js';
+import {Dialog} from '../../api/Dialog.js';
 
 import {BrowsingContext} from './BrowsingContext.js';
 
 /**
  * @internal
  */
-export class Dialog extends BaseDialog {
+export class BidiDialog extends Dialog {
   #context: BrowsingContext;
 
   /**
@@ -33,7 +33,7 @@ export class Dialog extends BaseDialog {
     context: BrowsingContext,
     type: Bidi.BrowsingContext.UserPromptOpenedParameters['type'],
     message: string,
-    defaultValue = ''
+    defaultValue?: string
   ) {
     super(type, message, defaultValue);
     this.#context = context;

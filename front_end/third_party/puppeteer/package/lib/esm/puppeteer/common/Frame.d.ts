@@ -14,17 +14,14 @@
  * limitations under the License.
  */
 import { Protocol } from 'devtools-protocol';
-import { ElementHandle } from '../api/ElementHandle.js';
-import { Frame as BaseFrame } from '../api/Frame.js';
+import { Frame } from '../api/Frame.js';
 import { HTTPResponse } from '../api/HTTPResponse.js';
 import { Page, WaitTimeoutOptions } from '../api/Page.js';
 import { CDPSession } from './Connection.js';
-import { DeviceRequestPrompt, DeviceRequestPromptManager } from './DeviceRequestPrompt.js';
-import { ExecutionContext } from './ExecutionContext.js';
+import { DeviceRequestPrompt } from './DeviceRequestPrompt.js';
 import { FrameManager } from './FrameManager.js';
 import { IsolatedWorld } from './IsolatedWorld.js';
 import { PuppeteerLifeCycleEvent } from './LifecycleWatcher.js';
-import { EvaluateFunc, EvaluateFuncWith, HandleFor, NodeFor } from './types.js';
 /**
  * We use symbols to prevent external parties listening to these events.
  * They are internal to Puppeteer.
@@ -42,12 +39,11 @@ export declare const FrameEmittedEvents: {
 /**
  * @internal
  */
-export declare class Frame extends BaseFrame {
+export declare class CDPFrame extends Frame {
     #private;
     _frameManager: FrameManager;
     _id: string;
     _loaderId: string;
-    _hasStartedLoading: boolean;
     _lifecycleEvents: Set<string>;
     _parentId?: string;
     constructor(frameManager: FrameManager, frameId: string, parentFrameId: string | undefined, client: CDPSession);
@@ -69,41 +65,23 @@ export declare class Frame extends BaseFrame {
         timeout?: number;
         waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     }): Promise<HTTPResponse | null>;
-    _client(): CDPSession;
-    executionContext(): Promise<ExecutionContext>;
-    /**
-     * @internal
-     */
+    get client(): CDPSession;
     mainRealm(): IsolatedWorld;
-    /**
-     * @internal
-     */
     isolatedRealm(): IsolatedWorld;
-    evaluateHandle<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
-    evaluate<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    $<Selector extends string>(selector: Selector): Promise<ElementHandle<NodeFor<Selector>> | null>;
-    $$<Selector extends string>(selector: Selector): Promise<Array<ElementHandle<NodeFor<Selector>>>>;
-    $eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<NodeFor<Selector>, Params> = EvaluateFuncWith<NodeFor<Selector>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    $$eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<Array<NodeFor<Selector>>, Params> = EvaluateFuncWith<Array<NodeFor<Selector>>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    $x(expression: string): Promise<Array<ElementHandle<Node>>>;
-    content(): Promise<string>;
     setContent(html: string, options?: {
         timeout?: number;
         waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     }): Promise<void>;
-    name(): string;
     url(): string;
-    parentFrame(): Frame | null;
-    childFrames(): Frame[];
-    isDetached(): boolean;
-    title(): Promise<string>;
-    _deviceRequestPromptManager(): DeviceRequestPromptManager;
+    parentFrame(): CDPFrame | null;
+    childFrames(): CDPFrame[];
     waitForDevicePrompt(options?: WaitTimeoutOptions): Promise<DeviceRequestPrompt>;
     _navigated(framePayload: Protocol.Page.Frame): void;
     _navigatedWithinDocument(url: string): void;
     _onLifecycleEvent(loaderId: string, name: string): void;
     _onLoadingStopped(): void;
     _onLoadingStarted(): void;
-    _detach(): void;
+    get detached(): boolean;
+    [Symbol.dispose](): void;
 }
 //# sourceMappingURL=Frame.d.ts.map

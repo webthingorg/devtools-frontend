@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebWorker = void 0;
-const Deferred_js_1 = require("../util/Deferred.js");
 const EventEmitter_js_1 = require("./EventEmitter.js");
 const ExecutionContext_js_1 = require("./ExecutionContext.js");
+const IsolatedWorld_js_1 = require("./IsolatedWorld.js");
 const JSHandle_js_1 = require("./JSHandle.js");
+const TimeoutSettings_js_1 = require("./TimeoutSettings.js");
 const util_js_1 = require("./util.js");
 /**
  * This class represents a
@@ -33,7 +34,11 @@ const util_js_1 = require("./util.js");
  * @public
  */
 class WebWorker extends EventEmitter_js_1.EventEmitter {
-    #executionContext = Deferred_js_1.Deferred.create();
+    /**
+     * @internal
+     */
+    timeoutSettings = new TimeoutSettings_js_1.TimeoutSettings();
+    #world;
     #client;
     #url;
     /**
@@ -43,32 +48,29 @@ class WebWorker extends EventEmitter_js_1.EventEmitter {
         super();
         this.#client = client;
         this.#url = url;
+        this.#world = new IsolatedWorld_js_1.IsolatedWorld(this, new TimeoutSettings_js_1.TimeoutSettings());
         this.#client.once('Runtime.executionContextCreated', async (event) => {
-            const context = new ExecutionContext_js_1.ExecutionContext(client, event.context);
-            this.#executionContext.resolve(context);
+            this.#world.setContext(new ExecutionContext_js_1.ExecutionContext(client, event.context, this.#world));
         });
         this.#client.on('Runtime.consoleAPICalled', async (event) => {
             try {
-                const context = await this.#executionContext.valueOrThrow();
                 return consoleAPICalled(event.type, event.args.map((object) => {
-                    return new JSHandle_js_1.CDPJSHandle(context, object);
+                    return new JSHandle_js_1.CDPJSHandle(this.#world, object);
                 }), event.stackTrace);
             }
             catch (err) {
                 (0, util_js_1.debugError)(err);
             }
         });
-        this.#client.on('Runtime.exceptionThrown', exception => {
-            return exceptionThrown(exception.exceptionDetails);
-        });
+        this.#client.on('Runtime.exceptionThrown', exceptionThrown);
         // This might fail if the target is closed before we receive all execution contexts.
         this.#client.send('Runtime.enable').catch(util_js_1.debugError);
     }
     /**
      * @internal
      */
-    async executionContext() {
-        return this.#executionContext.valueOrThrow();
+    mainRealm() {
+        return this.#world;
     }
     /**
      * The URL of this web worker.
@@ -98,8 +100,7 @@ class WebWorker extends EventEmitter_js_1.EventEmitter {
      */
     async evaluate(pageFunction, ...args) {
         pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluate.name, pageFunction);
-        const context = await this.#executionContext.valueOrThrow();
-        return context.evaluate(pageFunction, ...args);
+        return await this.mainRealm().evaluate(pageFunction, ...args);
     }
     /**
      * The only difference between `worker.evaluate` and `worker.evaluateHandle`
@@ -115,8 +116,7 @@ class WebWorker extends EventEmitter_js_1.EventEmitter {
      */
     async evaluateHandle(pageFunction, ...args) {
         pageFunction = (0, util_js_1.withSourcePuppeteerURLIfNone)(this.evaluateHandle.name, pageFunction);
-        const context = await this.#executionContext.valueOrThrow();
-        return context.evaluateHandle(pageFunction, ...args);
+        return await this.mainRealm().evaluateHandle(pageFunction, ...args);
     }
 }
 exports.WebWorker = WebWorker;

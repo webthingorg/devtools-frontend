@@ -14,20 +14,14 @@
  * limitations under the License.
  */
 import { Protocol } from 'devtools-protocol';
-import { Dialog as BaseDialog } from '../api/Dialog.js';
+import { Dialog } from '../api/Dialog.js';
 import { CDPSession } from './Connection.js';
 /**
  * @internal
  */
-export declare class CDPDialog extends BaseDialog {
+export declare class CDPDialog extends Dialog {
     #private;
-    /**
-     * @internal
-     */
     constructor(client: CDPSession, type: Protocol.Page.DialogType, message: string, defaultValue?: string);
-    /**
-     * @internal
-     */
     sendCommand(options: {
         accept: boolean;
         text?: string;

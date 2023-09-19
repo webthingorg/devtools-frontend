@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
-import { Dialog as BaseDialog } from '../../api/Dialog.js';
+import { Dialog } from '../../api/Dialog.js';
 import { BrowsingContext } from './BrowsingContext.js';
 /**
  * @internal
  */
-export declare class Dialog extends BaseDialog {
+export declare class BidiDialog extends Dialog {
     #private;
     /**
      * @internal

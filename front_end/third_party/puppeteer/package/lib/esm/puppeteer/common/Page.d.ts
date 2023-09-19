@@ -29,6 +29,7 @@ import { CDPSession } from './Connection.js';
 import { Coverage } from './Coverage.js';
 import { DeviceRequestPrompt } from './DeviceRequestPrompt.js';
 import { FileChooser } from './FileChooser.js';
+import { CDPFrame } from './Frame.js';
 import { CDPKeyboard, CDPMouse, CDPTouchscreen } from './Input.js';
 import { Credentials, NetworkConditions } from './NetworkManager.js';
 import { PDFOptions } from './PDFOptions.js';
@@ -36,24 +37,14 @@ import { Viewport } from './PuppeteerViewport.js';
 import { CDPTarget } from './Target.js';
 import { TaskQueue } from './TaskQueue.js';
 import { Tracing } from './Tracing.js';
-import { EvaluateFunc, HandleFor } from './types.js';
 import { WebWorker } from './WebWorker.js';
 /**
  * @internal
  */
 export declare class CDPPage extends Page {
     #private;
-    /**
-     * @internal
-     */
     static _create(client: CDPSession, target: CDPTarget, ignoreHTTPSErrors: boolean, defaultViewport: Viewport | null, screenshotTaskQueue: TaskQueue): Promise<CDPPage>;
-    /**
-     * @internal
-     */
     constructor(client: CDPSession, target: CDPTarget, ignoreHTTPSErrors: boolean, screenshotTaskQueue: TaskQueue);
-    /**
-     * @internal
-     */
     _client(): CDPSession;
     isServiceWorkerBypassed(): boolean;
     isDragInterceptionEnabled(): boolean;
@@ -63,7 +54,7 @@ export declare class CDPPage extends Page {
     target(): CDPTarget;
     browser(): Browser;
     browserContext(): BrowserContext;
-    mainFrame(): Frame;
+    mainFrame(): CDPFrame;
     get keyboard(): CDPKeyboard;
     get touchscreen(): CDPTouchscreen;
     get coverage(): Coverage;
@@ -79,7 +70,6 @@ export declare class CDPPage extends Page {
     setDefaultNavigationTimeout(timeout: number): void;
     setDefaultTimeout(timeout: number): void;
     getDefaultTimeout(): number;
-    evaluateHandle<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
     queryObjects<Prototype>(prototypeHandle: JSHandle<Prototype>): Promise<JSHandle<Prototype[]>>;
     cookies(...urls: string[]): Promise<Protocol.Network.Cookie[]>;
     deleteCookie(...cookies: Protocol.Network.DeleteCookiesRequest[]): Promise<void>;
@@ -92,13 +82,6 @@ export declare class CDPPage extends Page {
     setExtraHTTPHeaders(headers: Record<string, string>): Promise<void>;
     setUserAgent(userAgent: string, userAgentMetadata?: Protocol.Emulation.UserAgentMetadata): Promise<void>;
     metrics(): Promise<Metrics>;
-    url(): string;
-    content(): Promise<string>;
-    setContent(html: string, options?: WaitForOptions): Promise<void>;
-    goto(url: string, options?: WaitForOptions & {
-        referer?: string;
-        referrerPolicy?: string;
-    }): Promise<HTTPResponse | null>;
     reload(options?: WaitForOptions): Promise<HTTPResponse | null>;
     createCDPSession(): Promise<CDPSession>;
     waitForRequest(urlOrPredicate: string | ((req: HTTPRequest) => boolean | Promise<boolean>), options?: {
@@ -127,7 +110,6 @@ export declare class CDPPage extends Page {
     emulateVisionDeficiency(type?: Protocol.Emulation.SetEmulatedVisionDeficiencyRequest['type']): Promise<void>;
     setViewport(viewport: Viewport): Promise<void>;
     viewport(): Viewport | null;
-    evaluate<Params extends unknown[], Func extends EvaluateFunc<Params> = EvaluateFunc<Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
     evaluateOnNewDocument<Params extends unknown[], Func extends (...args: Params) => unknown = (...args: Params) => unknown>(pageFunction: Func | string, ...args: Params): Promise<NewDocumentScriptEvaluation>;
     removeScriptToEvaluateOnNewDocument(identifier: string): Promise<void>;
     setCacheEnabled(enabled?: boolean): Promise<void>;
@@ -139,7 +121,6 @@ export declare class CDPPage extends Page {
     }): Promise<Buffer>;
     createPDFStream(options?: PDFOptions): Promise<Readable>;
     pdf(options?: PDFOptions): Promise<Buffer>;
-    title(): Promise<string>;
     close(options?: {
         runBeforeUnload?: boolean;
     }): Promise<void>;

@@ -16,7 +16,7 @@ class HTTPRequest extends HTTPRequest_js_1.HTTPRequest {
     #headers = {};
     #initiator;
     #frame;
-    constructor(event, frame, redirectChain) {
+    constructor(event, frame, redirectChain = []) {
         super();
         this.#url = event.request.url;
         this.#resourceType = event.initiator.type.toLowerCase();
@@ -25,7 +25,7 @@ class HTTPRequest extends HTTPRequest_js_1.HTTPRequest {
         this.#initiator = event.initiator;
         this.#frame = frame;
         this._requestId = event.request.request;
-        this._redirectChain = redirectChain ?? [];
+        this._redirectChain = redirectChain;
         this._navigationId = event.navigation;
         for (const header of event.request.headers) {
             // TODO: How to handle Binary Headers

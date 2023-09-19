@@ -60,5 +60,8 @@ export class HTTPResponse extends BaseHTTPResponse {
     frame() {
         return this.#request.frame();
     }
+    fromServiceWorker() {
+        return false;
+    }
 }
 //# sourceMappingURL=HTTPResponse.js.map
