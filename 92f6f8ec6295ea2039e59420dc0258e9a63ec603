@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9f9877_8eda3408",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-19T09:42:43Z",
+      "side": 1,
+      "message": "Nice job!\nBTW, we can add some tests for this. Feel free to do it in follow up",
+      "revId": "92f6f8ec6295ea2039e59420dc0258e9a63ec603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "965ea7b2_cfafec28",
+        "filename": "front_end/ui/legacy/components/perf_ui/ChartViewport.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-19T09:42:43Z",
+      "side": 1,
+      "message": "nits: we are now try to avoid `private`\n\n```suggestion\n  #showVerticalScrollOnExpandInternal: boolean;\n```",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "92f6f8ec6295ea2039e59420dc0258e9a63ec603",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
