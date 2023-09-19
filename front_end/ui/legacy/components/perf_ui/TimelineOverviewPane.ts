@@ -145,6 +145,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     this.update();
   }
 
+  // breadcrumbs bounds
   setBounds(
       minimumBoundary: TraceEngine.Types.Timing.MilliSeconds,
       maximumBoundary: TraceEngine.Types.Timing.MilliSeconds): void {
@@ -277,6 +278,7 @@ export enum Events {
 export interface WindowChangedEvent {
   startTime: number;
   endTime: number;
+  breadcrumb?: TraceEngine.Types.Timing.TraceWindow;
 }
 
 export interface BreadcrumbAddedEvent {
