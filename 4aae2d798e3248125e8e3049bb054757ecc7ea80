@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d7328fd_a66ef168",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-19T15:28:33Z",
+      "side": 1,
+      "message": "Thanks! This looks good on first glance, I\u0027ll take a closer look tomorrow morning.",
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7431a8e9_96734c5e",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 2535,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-19T15:28:33Z",
+      "side": 1,
+      "message": "You can remove this parameter",
+      "range": {
+        "startLine": 2535,
+        "startChar": 80,
+        "endLine": 2535,
+        "endChar": 93
+      },
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
