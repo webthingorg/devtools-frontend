@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803eb428_8e9d0167",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-19T10:09:51Z",
+      "side": 1,
+      "message": "the e2e test failures are legit and due to crbug.com/1484504, so this CL is blocked until that is resolved.",
+      "revId": "3d79a16da09f538db38c515fc4d528f7336c88be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
