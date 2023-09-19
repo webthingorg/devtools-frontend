@@ -223,6 +223,7 @@ function executeTestSuite({
   setEnvValueIfValuePresent('TARGET', target);
   setEnvValueIfValuePresent('TEST_PATTERNS', testFilePattern);
   setEnvValueIfValuePresent('COVERAGE', coverage);
+  setEnvValueIfValuePresent('PUPPETEER_INTERNAL_TAB_TARGET', true);
 
   /**
    * This one has to be set as an ENV variable as Node looks for the NODE_PATH environment variable.
