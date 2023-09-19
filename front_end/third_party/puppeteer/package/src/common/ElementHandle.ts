@@ -19,14 +19,13 @@ import {Protocol} from 'devtools-protocol';
 import {AutofillData, ElementHandle, Point} from '../api/ElementHandle.js';
 import {Page, ScreenshotOptions} from '../api/Page.js';
 import {assert} from '../util/assert.js';
+import {throwIfDisposed} from '../util/decorators.js';
 
 import {CDPSession} from './Connection.js';
-import {ExecutionContext} from './ExecutionContext.js';
-import {Frame} from './Frame.js';
+import {CDPFrame} from './Frame.js';
 import {FrameManager} from './FrameManager.js';
-import {WaitForSelectorOptions} from './IsolatedWorld.js';
+import {IsolatedWorld} from './IsolatedWorld.js';
 import {CDPJSHandle} from './JSHandle.js';
-import {NodeFor} from './types.js';
 import {debugError} from './util.js';
 
 /**
@@ -39,28 +38,19 @@ import {debugError} from './util.js';
 export class CDPElementHandle<
   ElementType extends Node = Element,
 > extends ElementHandle<ElementType> {
-  #frame: Frame;
-  declare handle: CDPJSHandle<ElementType>;
+  protected declare readonly handle: CDPJSHandle<ElementType>;
 
   constructor(
-    context: ExecutionContext,
-    remoteObject: Protocol.Runtime.RemoteObject,
-    frame: Frame
+    world: IsolatedWorld,
+    remoteObject: Protocol.Runtime.RemoteObject
   ) {
-    super(new CDPJSHandle(context, remoteObject));
-    this.#frame = frame;
+    super(new CDPJSHandle(world, remoteObject));
   }
 
-  /**
-   * @internal
-   */
-  executionContext(): ExecutionContext {
-    return this.handle.executionContext();
+  override get realm(): IsolatedWorld {
+    return this.handle.realm;
   }
 
-  /**
-   * @internal
-   */
   get client(): CDPSession {
     return this.handle.client;
   }
@@ -70,46 +60,23 @@ export class CDPElementHandle<
   }
 
   get #frameManager(): FrameManager {
-    return this.#frame._frameManager;
+    return this.frame._frameManager;
   }
 
   get #page(): Page {
-    return this.#frame.page();
+    return this.frame.page();
   }
 
-  override get frame(): Frame {
-    return this.#frame;
-  }
-
-  override async $<Selector extends string>(
-    selector: Selector
-  ): Promise<CDPElementHandle<NodeFor<Selector>> | null> {
-    return super.$(selector) as Promise<CDPElementHandle<
-      NodeFor<Selector>
-    > | null>;
-  }
-
-  override async $$<Selector extends string>(
-    selector: Selector
-  ): Promise<Array<CDPElementHandle<NodeFor<Selector>>>> {
-    return super.$$(selector) as Promise<
-      Array<CDPElementHandle<NodeFor<Selector>>>
-    >;
-  }
-
-  override async waitForSelector<Selector extends string>(
-    selector: Selector,
-    options?: WaitForSelectorOptions
-  ): Promise<CDPElementHandle<NodeFor<Selector>> | null> {
-    return (await super.waitForSelector(selector, options)) as CDPElementHandle<
-      NodeFor<Selector>
-    > | null;
+  override get frame(): CDPFrame {
+    return this.realm.environment as CDPFrame;
   }
 
   override async contentFrame(
     this: ElementHandle<HTMLIFrameElement>
-  ): Promise<Frame>;
-  override async contentFrame(): Promise<Frame | null> {
+  ): Promise<CDPFrame>;
+
+  @throwIfDisposed()
+  override async contentFrame(): Promise<CDPFrame | null> {
     const nodeInfo = await this.client.send('DOM.describeNode', {
       objectId: this.id,
     });
@@ -119,6 +86,8 @@ export class CDPElementHandle<
     return this.#frameManager.frame(nodeInfo.node.frameId);
   }
 
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async scrollIntoView(
     this: CDPElementHandle<Element>
   ): Promise<void> {
@@ -137,6 +106,8 @@ export class CDPElementHandle<
   /**
    * This method creates and captures a dragevent from the element.
    */
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async drag(
     this: CDPElementHandle<Element>,
     target: Point
@@ -150,6 +121,8 @@ export class CDPElementHandle<
     return await this.#page.mouse.drag(start, target);
   }
 
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async dragEnter(
     this: CDPElementHandle<Element>,
     data: Protocol.Input.DragData = {items: [], dragOperationsMask: 1}
@@ -159,6 +132,8 @@ export class CDPElementHandle<
     await this.#page.mouse.dragEnter(target, data);
   }
 
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async dragOver(
     this: CDPElementHandle<Element>,
     data: Protocol.Input.DragData = {items: [], dragOperationsMask: 1}
@@ -168,6 +143,8 @@ export class CDPElementHandle<
     await this.#page.mouse.dragOver(target, data);
   }
 
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async drop(
     this: CDPElementHandle<Element>,
     data: Protocol.Input.DragData = {items: [], dragOperationsMask: 1}
@@ -177,6 +154,8 @@ export class CDPElementHandle<
     await this.#page.mouse.drop(destination, data);
   }
 
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async dragAndDrop(
     this: CDPElementHandle<Element>,
     target: CDPElementHandle<Node>,
@@ -192,6 +171,8 @@ export class CDPElementHandle<
     await this.#page.mouse.dragAndDrop(startPoint, targetPoint, options);
   }
 
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async uploadFile(
     this: CDPElementHandle<HTMLInputElement>,
     ...filePaths: string[]
@@ -249,6 +230,8 @@ export class CDPElementHandle<
     }
   }
 
+  @throwIfDisposed()
+  @ElementHandle.bindIsolatedHandle
   override async screenshot(
     this: CDPElementHandle<Element>,
     options: ScreenshotOptions = {}
@@ -307,20 +290,17 @@ export class CDPElementHandle<
     return imageData;
   }
 
+  @throwIfDisposed()
   override async autofill(data: AutofillData): Promise<void> {
     const nodeInfo = await this.client.send('DOM.describeNode', {
       objectId: this.handle.id,
     });
     const fieldId = nodeInfo.node.backendNodeId;
-    const frameId = this.#frame._id;
+    const frameId = this.frame._id;
     await this.client.send('Autofill.trigger', {
       fieldId,
       frameId,
       card: data.creditCard,
     });
-  }
-
-  override assertElementHasWorld(): asserts this {
-    assert(this.executionContext()._world);
   }
 }

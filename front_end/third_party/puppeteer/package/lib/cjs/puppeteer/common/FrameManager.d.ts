@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 import { Page } from '../api/Page.js';
-import { CDPSession } from './Connection.js';
+import { CDPSession, CDPSessionImpl } from './Connection.js';
 import { DeviceRequestPromptManager } from './DeviceRequestPrompt.js';
 import { EventEmitter } from './EventEmitter.js';
 import { ExecutionContext } from './ExecutionContext.js';
-import { Frame } from './Frame.js';
+import { CDPFrame } from './Frame.js';
 import { FrameTree } from './FrameTree.js';
 import { NetworkManager } from './NetworkManager.js';
 import { CDPTarget } from './Target.js';
@@ -48,10 +48,7 @@ export declare const FrameManagerEmittedEvents: {
  */
 export declare class FrameManager extends EventEmitter {
     #private;
-    /**
-     * @internal
-     */
-    _frameTree: FrameTree<Frame>;
+    _frameTree: FrameTree<CDPFrame>;
     get timeoutSettings(): TimeoutSettings;
     get networkManager(): NetworkManager;
     get client(): CDPSession;
@@ -62,18 +59,16 @@ export declare class FrameManager extends EventEmitter {
      * its frame tree and ID.
      */
     swapFrameTree(client: CDPSession): Promise<void>;
+    registerSpeculativeSession(client: CDPSessionImpl): Promise<void>;
     private setupEventListeners;
-    initialize(client?: CDPSession): Promise<void>;
+    initialize(client: CDPSession): Promise<void>;
     executionContextById(contextId: number, session?: CDPSession): ExecutionContext;
     getExecutionContextById(contextId: number, session?: CDPSession): ExecutionContext | undefined;
     page(): Page;
-    mainFrame(): Frame;
-    frames(): Frame[];
-    frame(frameId: string): Frame | null;
+    mainFrame(): CDPFrame;
+    frames(): CDPFrame[];
+    frame(frameId: string): CDPFrame | null;
     onAttachedToTarget(target: CDPTarget): void;
-    /**
-     * @internal
-     */
     _deviceRequestPromptManager(client: CDPSession): DeviceRequestPromptManager;
 }
 //# sourceMappingURL=FrameManager.d.ts.map

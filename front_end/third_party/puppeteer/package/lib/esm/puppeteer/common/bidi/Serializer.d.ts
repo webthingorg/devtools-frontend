@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
-import { BrowsingContext } from './BrowsingContext.js';
+import { Sandbox } from './Sandbox.js';
 /**
  * @internal
  */
 export declare class BidiSerializer {
     static serializeNumber(arg: number): Bidi.Script.LocalValue;
     static serializeObject(arg: object | null): Bidi.Script.LocalValue;
-    static serializeRemoveValue(arg: unknown): Bidi.Script.LocalValue;
-    static serialize(arg: unknown, context: BrowsingContext): Promise<Bidi.Script.LocalValue>;
+    static serializeRemoteValue(arg: unknown): Bidi.Script.LocalValue;
+    static serialize(sandbox: Sandbox, arg: unknown): Promise<Bidi.Script.LocalValue>;
     static deserializeNumber(value: Bidi.Script.SpecialNumber | number): number;
     static deserializeLocalValue(result: Bidi.Script.RemoteValue): unknown;
     static deserializeTuple([serializedKey, serializedValue]: [

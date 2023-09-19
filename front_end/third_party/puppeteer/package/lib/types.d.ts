@@ -206,7 +206,7 @@ export declare interface BoxModel {
  *
  * @public
  */
-export declare class Browser extends EventEmitter {
+export declare class Browser extends EventEmitter implements AsyncDisposable, Disposable {
     /* Excluded from this release type: __constructor */
     /* Excluded from this release type: _attach */
     /* Excluded from this release type: _detach */
@@ -341,6 +341,8 @@ export declare class Browser extends EventEmitter {
      * Indicates that the browser is connected.
      */
     isConnected(): boolean;
+    [Symbol_2.dispose](): void;
+    [Symbol_2.asyncDispose](): Promise<void>;
 }
 
 /* Excluded from this release type: BrowserCloseCallback */
@@ -645,6 +647,8 @@ export declare interface BrowserLaunchArgumentOptions {
 /* Excluded from this release type: CDPDialog */
 
 /* Excluded from this release type: CDPElementHandle */
+
+/* Excluded from this release type: CDPFrame */
 
 /* Excluded from this release type: CDPJSHandle */
 
@@ -1107,13 +1111,13 @@ export declare interface CoverageEntry {
     }>;
 }
 
+/* Excluded from this release type: createCdpHandle */
+
 /* Excluded from this release type: createClientError */
 
 /* Excluded from this release type: createDebuggableDeferred */
 
 /* Excluded from this release type: createEvaluationError */
-
-/* Excluded from this release type: createJSHandle */
 
 /**
  * @public
@@ -1328,6 +1332,8 @@ export declare class DeviceRequestPromptDevice {
  */
 export declare const devices: Readonly<Record<"Blackberry PlayBook" | "Blackberry PlayBook landscape" | "BlackBerry Z30" | "BlackBerry Z30 landscape" | "Galaxy Note 3" | "Galaxy Note 3 landscape" | "Galaxy Note II" | "Galaxy Note II landscape" | "Galaxy S III" | "Galaxy S III landscape" | "Galaxy S5" | "Galaxy S5 landscape" | "Galaxy S8" | "Galaxy S8 landscape" | "Galaxy S9+" | "Galaxy S9+ landscape" | "Galaxy Tab S4" | "Galaxy Tab S4 landscape" | "iPad" | "iPad landscape" | "iPad (gen 6)" | "iPad (gen 6) landscape" | "iPad (gen 7)" | "iPad (gen 7) landscape" | "iPad Mini" | "iPad Mini landscape" | "iPad Pro" | "iPad Pro landscape" | "iPad Pro 11" | "iPad Pro 11 landscape" | "iPhone 4" | "iPhone 4 landscape" | "iPhone 5" | "iPhone 5 landscape" | "iPhone 6" | "iPhone 6 landscape" | "iPhone 6 Plus" | "iPhone 6 Plus landscape" | "iPhone 7" | "iPhone 7 landscape" | "iPhone 7 Plus" | "iPhone 7 Plus landscape" | "iPhone 8" | "iPhone 8 landscape" | "iPhone 8 Plus" | "iPhone 8 Plus landscape" | "iPhone SE" | "iPhone SE landscape" | "iPhone X" | "iPhone X landscape" | "iPhone XR" | "iPhone XR landscape" | "iPhone 11" | "iPhone 11 landscape" | "iPhone 11 Pro" | "iPhone 11 Pro landscape" | "iPhone 11 Pro Max" | "iPhone 11 Pro Max landscape" | "iPhone 12" | "iPhone 12 landscape" | "iPhone 12 Pro" | "iPhone 12 Pro landscape" | "iPhone 12 Pro Max" | "iPhone 12 Pro Max landscape" | "iPhone 12 Mini" | "iPhone 12 Mini landscape" | "iPhone 13" | "iPhone 13 landscape" | "iPhone 13 Pro" | "iPhone 13 Pro landscape" | "iPhone 13 Pro Max" | "iPhone 13 Pro Max landscape" | "iPhone 13 Mini" | "iPhone 13 Mini landscape" | "JioPhone 2" | "JioPhone 2 landscape" | "Kindle Fire HDX" | "Kindle Fire HDX landscape" | "LG Optimus L70" | "LG Optimus L70 landscape" | "Microsoft Lumia 550" | "Microsoft Lumia 950" | "Microsoft Lumia 950 landscape" | "Nexus 10" | "Nexus 10 landscape" | "Nexus 4" | "Nexus 4 landscape" | "Nexus 5" | "Nexus 5 landscape" | "Nexus 5X" | "Nexus 5X landscape" | "Nexus 6" | "Nexus 6 landscape" | "Nexus 6P" | "Nexus 6P landscape" | "Nexus 7" | "Nexus 7 landscape" | "Nokia Lumia 520" | "Nokia Lumia 520 landscape" | "Nokia N9" | "Nokia N9 landscape" | "Pixel 2" | "Pixel 2 landscape" | "Pixel 2 XL" | "Pixel 2 XL landscape" | "Pixel 3" | "Pixel 3 landscape" | "Pixel 4" | "Pixel 4 landscape" | "Pixel 4a (5G)" | "Pixel 4a (5G) landscape" | "Pixel 5" | "Pixel 5 landscape" | "Moto G4" | "Moto G4 landscape", Device>>;
 
+/* Excluded from this release type: DevToolsTarget */
+
 /**
  * Dialog instances are dispatched by the {@link Page} via the `dialog` event.
  *
@@ -1352,7 +1358,7 @@ export declare const devices: Readonly<Record<"Blackberry PlayBook" | "Blackberr
  *
  * @public
  */
-export declare class Dialog {
+export declare abstract class Dialog {
     #private;
     /* Excluded from this release type: __constructor */
     /**
@@ -1382,6 +1388,8 @@ export declare class Dialog {
      */
     dismiss(): Promise<void>;
 }
+
+/* Excluded from this release type: Disposed */
 
 declare type Drop<Arr extends readonly unknown[], Remove, Acc extends unknown[] = []> = Arr extends [infer Head, ...infer Tail] ? Head extends Remove ? Drop<Tail, Remove> : Drop<Tail, Remove, [...Acc, Head]> : Acc;
 
@@ -1425,6 +1433,7 @@ export declare type ElementFor<TagName extends keyof HTMLElementTagNameMap | key
  */
 export declare abstract class ElementHandle<ElementType extends Node = Element> extends JSHandle<ElementType> {
     #private;
+    /* Excluded from this release type: bindIsolatedHandle */
     /* Excluded from this release type: handle */
     /* Excluded from this release type: __constructor */
     /* Excluded from this release type: id */
@@ -1438,7 +1447,7 @@ export declare abstract class ElementHandle<ElementType extends Node = Element> 
     /* Excluded from this release type: toString */
     /* Excluded from this release type: remoteObject */
     /* Excluded from this release type: dispose */
-    asElement(): ElementHandle<ElementType>;
+    /* Excluded from this release type: asElement */
     /**
      * Frame corresponding to the current handle.
      */
@@ -1832,7 +1841,6 @@ export declare abstract class ElementHandle<ElementType extends Node = Element> 
      * or by calling element.scrollIntoView.
      */
     scrollIntoView(this: ElementHandle<Element>): Promise<void>;
-    /* Excluded from this release type: assertElementHasWorld */
     /**
      * If the element is a form input, you can use {@link ElementHandle.autofill}
      * to test if the form is compatible with the browser's autofill
@@ -1862,6 +1870,8 @@ export declare abstract class ElementHandle<ElementType extends Node = Element> 
 }
 
 /* Excluded from this release type: EmulationManager */
+
+/* Excluded from this release type: Environment */
 
 /**
  * @public
@@ -2146,7 +2156,8 @@ export declare type FlattenHandle<T> = T extends HandleOr<infer U> ? U : never;
  *
  * @public
  */
-export declare class Frame extends EventEmitter {
+export declare abstract class Frame extends EventEmitter {
+    #private;
     /* Excluded from this release type: _id */
     /* Excluded from this release type: _parentId */
     /* Excluded from this release type: worlds */
@@ -2156,7 +2167,7 @@ export declare class Frame extends EventEmitter {
     /**
      * The page associated with the frame.
      */
-    page(): Page;
+    abstract page(): Page;
     /**
      * Is `true` if the frame is an out-of-process (OOP) frame. Otherwise,
      * `false`.
@@ -2199,7 +2210,7 @@ export declare class Frame extends EventEmitter {
      * Server Error". The status code for such responses can be retrieved by
      * calling {@link HTTPResponse.status}.
      */
-    goto(url: string, options?: {
+    abstract goto(url: string, options?: {
         referer?: string;
         referrerPolicy?: string;
         timeout?: number;
@@ -2228,14 +2239,14 @@ export declare class Frame extends EventEmitter {
      * finished.
      * @returns a promise that resolves when the frame navigates to a new URL.
      */
-    waitForNavigation(options?: {
+    abstract waitForNavigation(options?: {
         timeout?: number;
         waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     }): Promise<HTTPResponse | null>;
-    /* Excluded from this release type: _client */
-    /* Excluded from this release type: executionContext */
+    /* Excluded from this release type: client */
     /* Excluded from this release type: mainRealm */
     /* Excluded from this release type: isolatedRealm */
+    /* Excluded from this release type: clearDocumentHandle */
     /* Excluded from this release type: frameElement */
     /**
      * Behaves identically to {@link Page.evaluateHandle} except it's run within
@@ -2305,7 +2316,7 @@ export declare class Frame extends EventEmitter {
      * @param args - Additional arguments to pass to `pageFunction`.
      * @returns A promise to the result of the function.
      */
-    $eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<NodeFor<Selector>, Params> = EvaluateFuncWith<NodeFor<Selector>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
+    $eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<NodeFor<Selector>, Params> = EvaluateFuncWith<NodeFor<Selector>, Params>>(selector: Selector, pageFunction: string | Func, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
     /**
      * Runs the given function on an array of elements matching the given selector
      * in the frame.
@@ -2326,7 +2337,7 @@ export declare class Frame extends EventEmitter {
      * @param args - Additional arguments to pass to `pageFunction`.
      * @returns A promise to the result of the function.
      */
-    $$eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<Array<NodeFor<Selector>>, Params> = EvaluateFuncWith<Array<NodeFor<Selector>>, Params>>(selector: Selector, pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
+    $$eval<Selector extends string, Params extends unknown[], Func extends EvaluateFuncWith<Array<NodeFor<Selector>>, Params> = EvaluateFuncWith<Array<NodeFor<Selector>>, Params>>(selector: Selector, pageFunction: string | Func, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
     /**
      * @deprecated Use {@link Frame.$$} with the `xpath` prefix.
      *
@@ -2442,7 +2453,7 @@ export declare class Frame extends EventEmitter {
      * @param options - Options to configure how long before timing out and at
      * what point to consider the content setting successful.
      */
-    setContent(html: string, options?: {
+    abstract setContent(html: string, options?: {
         timeout?: number;
         waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     }): Promise<void>;
@@ -2460,19 +2471,26 @@ export declare class Frame extends EventEmitter {
     /**
      * The frame's URL.
      */
-    url(): string;
+    abstract url(): string;
     /**
      * The parent frame, if any. Detached and main frames return `null`.
      */
-    parentFrame(): Frame | null;
+    abstract parentFrame(): Frame | null;
     /**
      * An array of child frames.
      */
-    childFrames(): Frame[];
+    abstract childFrames(): Frame[];
+    /**
+     * @returns `true` if the frame has detached. `false` otherwise.
+     */
+    abstract get detached(): boolean;
     /**
      * Is`true` if the frame has been detached. Otherwise, `false`.
+     *
+     * @deprecated Use the `detached` getter.
      */
     isDetached(): boolean;
+    /* Excluded from this release type: disposed */
     /**
      * Adds a `<script>` tag into the page with the desired url or content.
      *
@@ -2482,13 +2500,18 @@ export declare class Frame extends EventEmitter {
      */
     addScriptTag(options: FrameAddScriptTagOptions): Promise<ElementHandle<HTMLScriptElement>>;
     /**
-     * Adds a `<link rel="stylesheet">` tag into the page with the desired URL or
-     * a `<style type="text/css">` tag with the content.
+     * Adds a `HTMLStyleElement` into the frame with the desired URL
      *
-     * @returns An {@link ElementHandle | element handle} to the loaded `<link>`
-     * or `<style>` element.
+     * @returns An {@link ElementHandle | element handle} to the loaded `<style>`
+     * element.
      */
     addStyleTag(options: Omit<FrameAddStyleTagOptions, 'url'>): Promise<ElementHandle<HTMLStyleElement>>;
+    /**
+     * Adds a `HTMLLinkElement` into the frame with the desired URL
+     *
+     * @returns An {@link ElementHandle | element handle} to the loaded `<link>`
+     * element.
+     */
     addStyleTag(options: FrameAddStyleTagOptions): Promise<ElementHandle<HTMLLinkElement>>;
     /**
      * Clicks the first element found that matches `selector`.
@@ -2621,9 +2644,8 @@ export declare class Frame extends EventEmitter {
      * ```
      */
     waitForDevicePrompt(options?: WaitTimeoutOptions): Promise<DeviceRequestPrompt>;
+    /* Excluded from this release type: exposeFunction */
 }
-
-/* Excluded from this release type: Frame_2 */
 
 /**
  * @public
@@ -2679,6 +2701,8 @@ export declare interface FrameAddStyleTagOptions {
 /* Excluded from this release type: FrameManager */
 
 /* Excluded from this release type: FrameManagerEmittedEvents */
+
+/* Excluded from this release type: FrameProvider */
 
 /* Excluded from this release type: FrameTree */
 
@@ -3253,27 +3277,29 @@ export declare interface JSCoverageOptions {
  *
  * @public
  */
-export declare abstract class JSHandle<T = unknown> {
+export declare abstract class JSHandle<T = unknown> implements Disposable, AsyncDisposable, Moveable {
+    move: () => this;
     /**
      * Used for nominally typing {@link JSHandle}.
      */
     _?: T;
     /* Excluded from this release type: __constructor */
+    /* Excluded from this release type: realm */
     /* Excluded from this release type: disposed */
     /**
      * Evaluates the given function with the current handle as its first argument.
      */
-    abstract evaluate<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
+    evaluate<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
     /**
      * Evaluates the given function with the current handle as its first argument.
      *
      */
-    abstract evaluateHandle<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
+    evaluateHandle<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
     /**
      * Fetches a single property from the referenced object.
      */
-    abstract getProperty<K extends keyof T>(propertyName: HandleOr<K>): Promise<HandleFor<T[K]>>;
-    abstract getProperty(propertyName: string): Promise<JSHandle<unknown>>;
+    getProperty<K extends keyof T>(propertyName: HandleOr<K>): Promise<HandleFor<T[K]>>;
+    getProperty(propertyName: string): Promise<JSHandle<unknown>>;
     /**
      * Gets a map of handles representing the properties of the current handle.
      *
@@ -3292,7 +3318,7 @@ export declare abstract class JSHandle<T = unknown> {
      * children; // holds elementHandles to all children of document.body
      * ```
      */
-    abstract getProperties(): Promise<Map<string, JSHandle<unknown>>>;
+    getProperties(): Promise<Map<string, JSHandle>>;
     /**
      * A vanilla object representing the serializable portions of the
      * referenced object.
@@ -3325,6 +3351,8 @@ export declare abstract class JSHandle<T = unknown> {
      * backing this handle.
      */
     abstract remoteObject(): Protocol.Runtime.RemoteObject;
+    [Symbol_2.dispose](): void;
+    [Symbol_2.asyncDispose](): Promise<void>;
 }
 
 /**
@@ -4063,7 +4091,19 @@ export declare interface MouseWheelOptions {
     deltaY?: number;
 }
 
+/**
+ * @public
+ */
+export declare interface Moveable {
+    /**
+     * Moves the resource when 'using'.
+     */
+    move(): this;
+}
+
 /* Excluded from this release type: MutationPoller */
+
+/* Excluded from this release type: Mutex */
 
 /**
  * @public
@@ -4175,7 +4215,7 @@ export declare interface Offset {
  *
  * @public
  */
-export declare class Page extends EventEmitter {
+export declare abstract class Page extends EventEmitter implements AsyncDisposable, Disposable {
     #private;
     /* Excluded from this release type: __constructor */
     /**
@@ -4780,7 +4820,7 @@ export declare class Page extends EventEmitter {
      * @param pptrFunction - Callback function which will be called in Puppeteer's
      * context.
      */
-    exposeFunction(name: string, pptrFunction: Function | {
+    abstract exposeFunction(name: string, pptrFunction: Function | {
         default: Function;
     }): Promise<void>;
     /**
@@ -5927,6 +5967,8 @@ export declare class Page extends EventEmitter {
      * ```
      */
     waitForDevicePrompt(options?: WaitTimeoutOptions): Promise<DeviceRequestPrompt>;
+    [Symbol.dispose](): void;
+    [Symbol.asyncDispose](): Promise<void>;
 }
 
 /* Excluded from this release type: PageBinding */
@@ -6924,6 +6966,8 @@ declare type SplitWithDelemiters<Input extends string, Delemiters extends readon
 
 /* Excluded from this release type: supportedMetrics */
 
+declare const Symbol_2: SymbolConstructor;
+
 /**
  * Target represents a
  * {@link https://chromedevtools.github.io/devtools-protocol/tot/Target/ | CDP target}.
@@ -6978,8 +7022,6 @@ export declare class Target {
  */
 export declare type TargetFilterCallback = (target: Target) => boolean;
 
-/* Excluded from this release type: TargetInterceptor */
-
 /* Excluded from this release type: TargetManager */
 
 /* Excluded from this release type: TargetManagerEmittedEvents */
@@ -7003,6 +7045,10 @@ export declare enum TargetType {
 /* Excluded from this release type: TaskQueue */
 
 /* Excluded from this release type: TextContent */
+
+/* Excluded from this release type: throwIfDetached */
+
+/* Excluded from this release type: timeout */
 
 /**
  * TimeoutError is emitted whenever certain operations are terminated due to
@@ -7041,6 +7087,13 @@ export declare class Touchscreen {
      * Dispatches a `touchMove` event.
      * @param x - Horizontal position of the move.
      * @param y - Vertical position of the move.
+     *
+     * @remarks
+     *
+     * Not every `touchMove` call results in a `touchmove` event being emitted,
+     * depending on the browser's optimizations. For example, Chrome
+     * {@link https://developer.chrome.com/blog/a-more-compatible-smoother-touch/#chromes-new-model-the-throttled-async-touchmove-model | throttles}
+     * touch move events.
      */
     touchMove(x: number, y: number): Promise<void>;
     /**
@@ -7287,8 +7340,9 @@ export declare interface WaitTimeoutOptions {
  */
 export declare class WebWorker extends EventEmitter {
     #private;
+    /* Excluded from this release type: timeoutSettings */
     /* Excluded from this release type: __constructor */
-    /* Excluded from this release type: executionContext */
+    /* Excluded from this release type: mainRealm */
     /**
      * The URL of this web worker.
      */

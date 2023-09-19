@@ -1,7 +1,7 @@
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
 import ProtocolMapping from 'devtools-protocol/types/protocol-mapping.js';
 import { WaitForOptions } from '../../api/Page.js';
-import { CDPSession, Connection as CDPConnection } from '../Connection.js';
+import { Connection as CDPConnection, CDPSession } from '../Connection.js';
 import { PuppeteerLifeCycleEvent } from '../LifecycleWatcher.js';
 import { Connection } from './Connection.js';
 import { Realm } from './Realm.js';
@@ -47,13 +47,11 @@ export declare class BrowsingContext extends Realm {
     #private;
     constructor(connection: Connection, info: Bidi.BrowsingContext.Info, browserName: string);
     supportsCDP(): boolean;
-    createSandboxRealm(sandbox: string): Realm;
+    createRealmForSandbox(): Realm;
     get url(): string;
-    set url(value: string);
     get id(): string;
     get parent(): string | undefined | null;
     get cdpSession(): CDPSession;
-    navigated(url: string): void;
     goto(url: string, options: {
         referer?: string;
         referrerPolicy?: string;
@@ -67,7 +65,6 @@ export declare class BrowsingContext extends Realm {
         timeout: number;
         waitUntil?: PuppeteerLifeCycleEvent | PuppeteerLifeCycleEvent[];
     }): Promise<void>;
-    content(): Promise<string>;
     sendCDPCommand<T extends keyof ProtocolMapping.Commands>(method: T, ...paramArgs: ProtocolMapping.Commands[T]['paramsType']): Promise<ProtocolMapping.Commands[T]['returnType']>;
     title(): Promise<string>;
     dispose(): void;

@@ -16,19 +16,15 @@
 import * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
 import Protocol from 'devtools-protocol';
 import { ElementHandle } from '../../api/ElementHandle.js';
-import { JSHandle as BaseJSHandle } from '../../api/JSHandle.js';
-import { EvaluateFuncWith, HandleFor, HandleOr } from '../../common/types.js';
+import { JSHandle } from '../../api/JSHandle.js';
 import { Realm } from './Realm.js';
-export declare class JSHandle<T = unknown> extends BaseJSHandle<T> {
+import { Sandbox } from './Sandbox.js';
+export declare class BidiJSHandle<T = unknown> extends JSHandle<T> {
     #private;
-    constructor(realm: Realm, remoteValue: Bidi.Script.RemoteValue);
+    constructor(sandbox: Sandbox, remoteValue: Bidi.Script.RemoteValue);
     context(): Realm;
+    get realm(): Sandbox;
     get disposed(): boolean;
-    evaluate<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<Awaited<ReturnType<Func>>>;
-    evaluateHandle<Params extends unknown[], Func extends EvaluateFuncWith<T, Params> = EvaluateFuncWith<T, Params>>(pageFunction: Func | string, ...args: Params): Promise<HandleFor<Awaited<ReturnType<Func>>>>;
-    getProperty<K extends keyof T>(propertyName: HandleOr<K>): Promise<HandleFor<T[K]>>;
-    getProperty(propertyName: string): Promise<HandleFor<unknown>>;
-    getProperties(): Promise<Map<string, BaseJSHandle>>;
     jsonValue(): Promise<T>;
     asElement(): ElementHandle<Node> | null;
     dispose(): Promise<void>;

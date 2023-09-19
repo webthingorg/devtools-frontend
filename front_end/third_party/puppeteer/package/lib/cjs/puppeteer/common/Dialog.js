@@ -22,16 +22,10 @@ const Dialog_js_1 = require("../api/Dialog.js");
  */
 class CDPDialog extends Dialog_js_1.Dialog {
     #client;
-    /**
-     * @internal
-     */
     constructor(client, type, message, defaultValue = '') {
         super(type, message, defaultValue);
         this.#client = client;
     }
-    /**
-     * @internal
-     */
     async sendCommand(options) {
         await this.#client.send('Page.handleJavaScriptDialog', {
             accept: options.accept,
