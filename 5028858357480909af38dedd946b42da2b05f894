@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27ed093c_371cf051",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-19T08:36:29Z",
+      "side": 1,
+      "message": "I think that the scrolling behavior of the grid was not impacted by those changes. Previously, there was an automatic scroll to the bottom of the grid only if the scrolling cursor was at the bottom of the grid before changing the view and the changes made in this CL did not change this behavior. If the cursor is anywhere else on the grid, however, it will remain at the top and the user will have to manually scroll to the bottom but again this is the current behavior.",
+      "parentUuid": "aeb3625e_f7cf8130",
+      "revId": "5028858357480909af38dedd946b42da2b05f894",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a39ee08_fe957ab7",
         "filename": "front_end/ui/components/data_grid/DataGrid.ts",
         "patchSetId": 5
