@@ -112,8 +112,9 @@ export function unionIssueKind(a: IssueKind, b: IssueKind): IssueKind {
   return IssueKind.Improvement;
 }
 
+// Approach 1: completely switch to a new settings for the existing user.
 export function getShowThirdPartyIssuesSetting(): Common.Settings.Setting<boolean> {
-  return Common.Settings.Settings.instance().createSetting('showThirdPartyIssues', true);
+  return Common.Settings.Settings.instance().createSetting('showThirdPartyIssuesEnabled', true);
 }
 
 export interface AffectedElement {

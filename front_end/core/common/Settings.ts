@@ -584,7 +584,7 @@ export class VersionController {
   static readonly SYNCED_VERSION_SETTING_NAME = 'syncedInspectorVersion';
   static readonly LOCAL_VERSION_SETTING_NAME = 'localInspectorVersion';
 
-  static readonly CURRENT_VERSION = 35;
+  static readonly CURRENT_VERSION = 36;
 
   readonly #globalVersionSetting: Setting<number>;
   readonly #syncedVersionSetting: Setting<number>;
@@ -1195,6 +1195,13 @@ export class VersionController {
       }
     }
     breakpointsSetting.set(breakpoints);
+  }
+
+  // Approach 2: keep using the current setting but update the setting value in migration.
+  updateVersionFrom35To36(): void {
+    // Force enabling including third-party cookie issues checkbox.
+    const oldSetting = Settings.instance().createSetting('showThirdPartyIssues', true);
+    oldSetting.set(true);
   }
 
   /*
