@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "878b3289_7bd08220",
+        "filename": "test/interactions/goldens/linux/dialog/narrow-top-auto-open.png",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-19T09:40:34Z",
+      "side": 1,
+      "message": "nits: emmm, this one seems shouldn\u0027t be here, i would guess the screenshot script includes it by mistake, can you revert it?",
+      "revId": "e2f71829f1d9e2d2b949a6a36805de1e25c13545",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
