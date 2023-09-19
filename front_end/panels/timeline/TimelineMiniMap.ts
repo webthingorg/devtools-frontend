@@ -10,6 +10,7 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import * as TimelineComponents from './components/components.js';
+
 import {type PerformanceModel} from './PerformanceModel.js';
 import {
   type TimelineEventOverview,
@@ -52,7 +53,7 @@ export class TimelineMiniMap extends
     this.#overviewComponent.show(this.element);
     // Push the event up into the parent component so the panel knows when the window is changed.
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
-      this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
+      // this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
       // Create first breadcrumb from the initial full window
       if (this.#breadcrumbs === null) {
         this.addBreadcrumb(this.breadcrumbWindowBounds({
@@ -60,7 +61,20 @@ export class TimelineMiniMap extends
           endTime: TraceEngine.Types.Timing.MilliSeconds(event.data.endTime),
         }));
       }
+
+      if (this.#breadcrumbs) {
+        this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, {
+          ...event.data,
+          breadcrumb: {
+            min: TraceEngine.Types.Timing.MicroSeconds(this.#breadcrumbs?.lastBreadcrumb.window.min + this.#minTime),
+            max: TraceEngine.Types.Timing.MicroSeconds(this.#breadcrumbs?.lastBreadcrumb.window.max + this.#minTime),
+            range: TraceEngine.Types.Timing.MicroSeconds(
+                this.#breadcrumbs?.lastBreadcrumb.window.max - this.#breadcrumbs?.lastBreadcrumb.window.min),
+          },
+        });
+      }
     });
+    // this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {

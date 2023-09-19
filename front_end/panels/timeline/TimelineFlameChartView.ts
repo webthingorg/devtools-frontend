@@ -44,6 +44,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private model: PerformanceModel|null;
   private searchResults!: number[]|undefined;
   private eventListeners: Common.EventTarget.EventDescriptor[];
+  private currBreadcrumb?: TraceEngine.Types.Timing.TraceWindow;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private readonly showMemoryGraphSetting: Common.Settings.Setting<any>;
@@ -64,6 +65,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private readonly onMainEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly onNetworkEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly boundRefresh: () => void;
+
   #selectedEvents: TraceEngine.Legacy.CompatibleTraceEvent[]|null;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -166,9 +168,22 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   private onWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedEvent>): void {
     const {window, animate} = event.data;
-    this.mainFlameChart.setWindowTimes(window.left, window.right, animate);
-    this.networkFlameChart.setWindowTimes(window.left, window.right, animate);
-    this.networkDataProvider.setWindowTimes(window.left, window.right);
+
+    if (event.data.breadcrumbWindow) {
+      this.currBreadcrumb = event.data.breadcrumbWindow;
+      this.mainFlameChart.updateBoundariesWithBreadcrumbValues(
+          event.data.breadcrumbWindow.min, event.data.breadcrumbWindow.max - event.data.breadcrumbWindow.min);
+      this.networkFlameChart.updateBoundariesWithBreadcrumbValues(
+          event.data.breadcrumbWindow.min, event.data.breadcrumbWindow.max - event.data.breadcrumbWindow.min);
+      this.mainFlameChart.update();
+    }
+
+    if (this.currBreadcrumb && !(this.currBreadcrumb.min > window.left || this.currBreadcrumb.max < window.right)) {
+      this.mainFlameChart.setWindowTimes(window.left, window.right, animate);
+      this.networkFlameChart.setWindowTimes(window.left, window.right, animate);
+      this.networkDataProvider.setWindowTimes(window.left, window.right);
+    }
+
     this.updateSearchResults(false, false);
   }
 
