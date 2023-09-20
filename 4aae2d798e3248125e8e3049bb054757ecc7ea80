@@ -114,6 +114,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f748741a_620c5fdc",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 2503,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T11:24:59Z",
+      "side": 1,
+      "message": "I think we want to keep this in. In case the setting gets changed elsewhere, this would trigger an update.",
+      "range": {
+        "startLine": 2503,
+        "startChar": 4,
+        "endLine": 2503,
+        "endChar": 62
+      },
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e859ec7_02203c41",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 21
@@ -189,6 +212,86 @@
         "startChar": 80,
         "endLine": 2535,
         "endChar": 93
+      },
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd2204b4_f831dee3",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 2593,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T11:24:59Z",
+      "side": 1,
+      "message": "This does not actually call `filterChanged`. It can therefore be removed.",
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed486656_bdf686b3",
+        "filename": "front_end/ui/legacy/filter.css",
+        "patchSetId": 21
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T11:24:59Z",
+      "side": 1,
+      "message": "I don\u0027t think we should use palette colors directly.",
+      "range": {
+        "startLine": 120,
+        "startChar": 19,
+        "endLine": 120,
+        "endChar": 26
+      },
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eb9d40b_daa65ac2",
+        "filename": "front_end/ui/legacy/filter.css",
+        "patchSetId": 21
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T11:24:59Z",
+      "side": 1,
+      "message": "from what I can tell, `.toolbar-has-dropdown` and `.dropdown-filterbar` apply to the same element. Why do we need both classes? Is one of them reused elsewhere?",
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6f26d2e_ab963a0e",
+        "filename": "test/e2e/network/network-filter_test.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T11:24:59Z",
+      "side": 1,
+      "message": "Looking at the comment in `network_tests` we probably want the longer timeout for these tests.\n```\n  // The tests here tend to take time because they wait for requests to appear in the request panel.\n  this.timeout(5000);\n```",
+      "range": {
+        "startLine": 294,
+        "startChar": 2,
+        "endLine": 294,
+        "endChar": 24
       },
       "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"

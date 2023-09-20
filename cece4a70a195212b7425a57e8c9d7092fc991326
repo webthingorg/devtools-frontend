@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31db4cf3_0d80de47",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T11:24:59Z",
+      "side": 1,
+      "message": "Good catch to change it to \u0027Request Types\u0027. Please also change the variable names accordingly.",
+      "revId": "cece4a70a195212b7425a57e8c9d7092fc991326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
