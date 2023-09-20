@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb8638d_2051c105",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-20T09:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c04c035_d1e9451e",
+      "range": {
+        "startLine": 90,
+        "startChar": 12,
+        "endLine": 90,
+        "endChar": 46
+      },
+      "revId": "60c653dec077123043c7c219dc1fa6a28777d502",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bfd73b3_d67ece8b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-18T09:30:10Z",
       "side": 1,
       "message": "I\u0027d prefer it if this was not a separate function. You can probably drop the `if` and then it\u0027s only 2 lines of code, and the method name is also slightly misleading.",
+      "range": {
+        "startLine": 542,
+        "startChar": 15,
+        "endLine": 542,
+        "endChar": 24
+      },
+      "revId": "60c653dec077123043c7c219dc1fa6a28777d502",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a97b654_d29a82fc",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1587132
+      },
+      "writtenOn": "2023-09-20T09:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfd73b3_d67ece8b",
       "range": {
         "startLine": 542,
         "startChar": 15,
