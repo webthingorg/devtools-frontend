@@ -12,4 +12,11 @@
 .breadcrumbs {
   display: flex;
   flex-direction: row;
+  height: 29px;
+  gap: 0.5px;
+  padding: 2px;
+}
+
+.range {
+  font-size: 12px;
 }
