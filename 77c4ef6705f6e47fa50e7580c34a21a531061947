@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8de1d3c_18e5ed94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T15:26:07Z",
+      "side": 1,
+      "message": "If this can wait until next week, I\u0027d like to add Simon who has worked on this but is currently OOO.\n\nSimon, PTAL. The background is that there is an existing setting, and we want to set it to `true` for everyone. But only once, after that the users are free to switch it to `false` again.",
+      "revId": "77c4ef6705f6e47fa50e7580c34a21a531061947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b67a75e_8b81c326",
+        "filename": "front_end/models/issues_manager/Issue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T15:26:07Z",
+      "side": 1,
+      "message": "It looks like this is the only place in the code where the setting is accessed directly. So the change you\u0027re making here should be enough.\n\nBut if we want to be prudent and want to remove the old setting, I\u0027d add the following migration:\n```\nupdateVersionFrom35To36(): void {\n  Settings.instance().createSetting(\u0027showThirdPartyIssuesEnabled\u0027, true)\n  removeSetting(Settings.instance().createSetting(\u0027showThirdPartyIssues\u0027, true));\n}\n```",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 1
+      },
+      "revId": "77c4ef6705f6e47fa50e7580c34a21a531061947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
