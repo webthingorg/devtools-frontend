@@ -43,6 +43,11 @@
   --color-selection-highlight: rgb(56 121 217 / 30%);
   --color-selection-highlight-border: rgb(16 81 177);
   /**
+   * Used for highlighting a range of the active minimap breadcrumb
+   * in the performance panel timeline.
+   */
+  --color-active-breadcrumb-highlight: rgb(11 87 208);
+  /**
    * When showing matching elements of a particular search filter (for example
    * when showing all matching css selectors/rules in the elements style
    * pane). The highlight is intended to be used on top of the original background
