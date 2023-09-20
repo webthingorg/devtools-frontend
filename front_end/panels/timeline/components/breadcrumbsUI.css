@@ -4,12 +4,19 @@
  * found in the LICENSE file.
  */
 
-.breadcrumb {
-  display: flex;
-  align-items: center;
-}
-
 .breadcrumbs {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  height: 29px;
+  gap: 0.5px;
+  padding: 6px 8px;
+}
+
+.range {
+  font-size: 12px;
+}
+
+.last-breadcrumb {
+  font-weight: bold;
+  color: var(--color-selection-highlight-border);
 }
