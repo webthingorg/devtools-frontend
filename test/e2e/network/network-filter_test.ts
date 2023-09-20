@@ -2,23 +2,32 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {expect} from 'chai';
+import {assert, expect} from 'chai';
 import {type ElementHandle} from 'puppeteer-core';
 
 import {
+  $textContent,
   click,
-  waitFor,
+  clickElement,
+  disableExperiment,
+  enableExperiment,
+  getTestServerPort,
   reloadDevTools,
+  step,
   typeText,
+  waitFor,
   waitForAria,
   waitForMany,
   waitForNone,
-  getTestServerPort,
-  clickElement,
 } from '../../shared/helper.js';
-
 import {describe, it} from '../../shared/mocha-extensions.js';
-import {navigateToNetworkTab, setPersistLog} from '../helpers/network-helpers.js';
+import {
+  getAllRequestNames,
+  navigateToNetworkTab,
+  setCacheDisabled,
+  setPersistLog,
+  waitForSomeRequestsToAppear,
+} from '../helpers/network-helpers.js';
 
 const SIMPLE_PAGE_REQUEST_NUMBER = 10;
 const SIMPLE_PAGE_URL = `requests.html?num=${SIMPLE_PAGE_REQUEST_NUMBER}`;
@@ -42,6 +51,30 @@ async function clearFilter() {
   if (await clearFilter.isIntersectingViewport()) {
     await clickElement(clearFilter);
   }
+}
+
+async function openMoreFiltersDropdown() {
+  const filterDropdown = await waitFor('[aria-label="Show only/hide requests dropdown"]');
+  const filterButton = await waitFor('.toolbar-button', filterDropdown);
+  await filterButton.click();
+  return filterButton;
+}
+
+async function getFilter(label: string, root?: ElementHandle) {
+  const filter = await $textContent(label, root);
+
+  if (!filter) {
+    assert.fail(`Could not find ${label} filter.`);
+  }
+  return filter;
+}
+
+async function checkOpacityCheckmark(filter: ElementHandle, opacity: string) {
+  const checkmarkOpacity = await filter.$eval('.checkmark', element => {
+    return window.getComputedStyle(element).getPropertyValue('opacity');
+  });
+
+  return checkmarkOpacity === opacity;
 }
 
 describe('The Network Tab', async function() {
@@ -254,5 +287,73 @@ describe('The Network Tab', async function() {
       const invertCheckbox = await (await waitForAria('Invert')).toElement('input');
       expect(await checkboxIsChecked(invertCheckbox)).to.equal(false);
     }
+  });
+});
+
+describe('The Network Tab', async function() {
+  this.timeout(5000);
+
+  beforeEach(async () => {
+    await disableExperiment('networkPanelFilterBarRedesign');
+
+    await navigateToNetworkTab('empty.html');
+    await setCacheDisabled(true);
+    await setPersistLog(false);
+  });
+
+  it('can show only third-party requests from checkbox', async () => {
+    await navigateToNetworkTab('third-party-resources.html');
+    await waitForSomeRequestsToAppear(3);
+    let names = await getAllRequestNames();
+    const filters = await waitFor('.filter-bar');
+
+    const thirdPartyFilter = await getFilter('3rd-party requests', filters);
+    await thirdPartyFilter.click();
+
+    names = await getAllRequestNames();
+    assert.deepStrictEqual(names, ['external_image.svg'], 'The right request names should appear in the list');
+  });
+});
+
+describe('The Network Tab', async function() {
+  this.timeout(5000);
+
+  beforeEach(async () => {
+    await enableExperiment('networkPanelFilterBarRedesign');
+
+    await navigateToNetworkTab('empty.html');
+    await setCacheDisabled(true);
+    await setPersistLog(false);
+  });
+
+  it('can show only third-party requests from dropdown', async () => {
+    await navigateToNetworkTab('third-party-resources.html');
+    await waitForSomeRequestsToAppear(3);
+
+    await openMoreFiltersDropdown();
+
+    const thirdPartyFilter = await getFilter('3rd-party requests');
+
+    let names = await getAllRequestNames();
+
+    await step('verify the dropdown state and the requests when 3rd-part filter is selected', async () => {
+      await thirdPartyFilter.click();
+      assert.isTrue(await checkOpacityCheckmark(thirdPartyFilter, '1'));
+
+      names = await getAllRequestNames();
+      assert.deepEqual(1, names.length);
+      assert.deepStrictEqual(names, ['external_image.svg'], 'The right request names should appear in the list');
+    });
+
+    await step('verify the dropdown state and the requests when 3rd-party filter is deselected', async () => {
+      await thirdPartyFilter.click();
+      assert.isTrue(await checkOpacityCheckmark(thirdPartyFilter, '0'));
+
+      names = await getAllRequestNames();
+      assert.deepEqual(3, names.length);
+      assert.deepStrictEqual(
+          names, ['third-party-resources.html', 'image.svg', 'external_image.svg'],
+          'The right request names should appear in the list');
+    });
   });
 });
