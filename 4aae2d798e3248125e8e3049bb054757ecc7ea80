@@ -20,6 +20,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49c7fc0c_a1dd6c25",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T08:56:35Z",
+      "side": 1,
+      "message": "nit: just \u0027all\u0027",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 12
+      },
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97f89078_71d4d9fb",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T08:56:35Z",
+      "side": 1,
+      "message": "nit: add space",
+      "range": {
+        "startLine": 111,
+        "startChar": 42,
+        "endLine": 111,
+        "endChar": 47
+      },
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e859ec7_02203c41",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 2514,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-20T08:56:35Z",
+      "side": 1,
+      "message": "This adds a new change listener every time the method is executed. How about moving this to the constructor instead?",
+      "revId": "4aae2d798e3248125e8e3049bb054757ecc7ea80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7431a8e9_96734c5e",
         "filename": "front_end/panels/network/NetworkLogView.ts",
         "patchSetId": 21
