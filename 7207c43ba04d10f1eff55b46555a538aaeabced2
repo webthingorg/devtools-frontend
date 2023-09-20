@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe7eeed_38d7fa28",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-20T15:20:13Z",
+      "side": 1,
+      "message": "nits: maybe move to some place near Line 737, `--app-color-strokestyle`, the Perf panel related colors are all there",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 5
+      },
+      "revId": "7207c43ba04d10f1eff55b46555a538aaeabced2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
