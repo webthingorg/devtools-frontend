@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "652ab989_151c6966",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-21T14:27:39Z",
+      "side": 1,
+      "message": "The place to collect extra information about the failure.",
+      "range": {
+        "startLine": 835,
+        "startChar": 13,
+        "endLine": 835,
+        "endChar": 28
+      },
+      "revId": "ad778b314acff18c86c6fa06bbd0e064cb329bce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d78730ef_8e8845ee",
+        "filename": "test/shared/mocha-resultsdb-reporter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-21T14:27:39Z",
+      "side": 1,
+      "message": "Rdb sink seems to want to read the files itself, so we write the images in the os temp folder under unique names.",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 0
+      },
+      "revId": "ad778b314acff18c86c6fa06bbd0e064cb329bce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b321df5_a97251bf",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-21T14:27:39Z",
+      "side": 1,
+      "message": "Making sure we do not loose the contents. By the time we send results to ResultDB we might have already updated the goldens.",
+      "range": {
+        "startLine": 322,
+        "startChar": 24,
+        "endLine": 322,
+        "endChar": 102
+      },
+      "revId": "ad778b314acff18c86c6fa06bbd0e064cb329bce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

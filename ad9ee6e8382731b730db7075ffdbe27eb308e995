@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08d9123e_d36c7c2a",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-21T14:27:39Z",
+      "side": 0,
+      "message": "Not sure how this was doing anything useful, but it effectively obscures the ScreenshotError now.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 78
+      },
+      "revId": "ad9ee6e8382731b730db7075ffdbe27eb308e995",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
