@@ -33,6 +33,23 @@
       "message": "I have implemented the test and the CL is now ready for review!",
       "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db03a4ea_e5f487ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-21T23:45:30Z",
+      "side": 1,
+      "message": "Hello, I have finished the CL for GSoC \u002723,  but because ChangHao is OOO, I have invited Ergun as a proxy to review the CL.",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
