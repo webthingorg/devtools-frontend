@@ -199,7 +199,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.createBreadcrumbButton = new IconButton.Icon.Icon();
     this.createBreadcrumbButton.className = 'create-breadcrumb-button';
     this.createBreadcrumbButton.data = {
-      iconName: 'plus',
+      iconName: 'zoom-in',
       color: 'var(--icon-default)',
       width: '20px',
       height: '20px',
