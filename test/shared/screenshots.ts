@@ -12,14 +12,14 @@ import * as path from 'path';
 import type * as puppeteer from 'puppeteer-core';
 
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
-import {makeCustomWrappedIt} from '../shared/mocha-extensions.js';
-
 import {
-  platform,
   getBrowserAndPages,
-  waitFor,
+  platform,
+  ScreenshotError,
   timeout,
+  waitFor,
 } from '../shared/helper.js';
+import {makeCustomWrappedIt} from '../shared/mocha-extensions.js';
 
 /**
  * The goldens screenshot folder is always taken from the source directory (NOT
@@ -118,8 +118,6 @@ const assertScreenshotUnchangedWithRetries = async (
       maximumDiffThreshold,
       maximumRetries,
     });
-  } catch (e) {
-    throw new Error(`Error occurred when comparing screenshots:\n${e.stack}`);
   } finally {
     await frontend.evaluate(() => window.dispatchEvent(new Event('showcomponentdocsui')));
   }
@@ -319,7 +317,8 @@ async function compare(golden: string, generated: string, maximumDiffThreshold: 
     }
 
   } catch (assertionError) {
-    throw assertionError;
+    throw new ScreenshotError(
+        assertionError, fs.readFileSync(golden), fs.readFileSync(generated), fs.readFileSync(diffPath));
   }
 }
 
