@@ -1321,7 +1321,6 @@
 
   TestSuite.prototype.testInspectedElementIs = async function(nodeName) {
     this.takeControl();
-    /** @type {import('./panels/elements/elements.js')} */
     const Elements = await self.runtime.loadLegacyModule('panels/elements/elements.js');
     if (!Elements.ElementsPanel.ElementsPanel.firstInspectElementNodeNameForTest) {
       await new Promise(
