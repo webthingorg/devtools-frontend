@@ -139,6 +139,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private rightResizeElement: HTMLElement;
   private leftCurtainElement: HTMLElement;
   private rightCurtainElement: HTMLElement;
+  private breadcrumbButtonContainerElement: HTMLElement;
   private createBreadcrumbButton: IconButton.Icon.Icon;
 
   private overviewWindowSelector!: WindowSelector|undefined;
@@ -196,20 +197,23 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.leftCurtainElement = (parentElement.createChild('div', 'window-curtain-left') as HTMLElement);
     this.rightCurtainElement = (parentElement.createChild('div', 'window-curtain-right') as HTMLElement);
 
+    this.breadcrumbButtonContainerElement =
+        (parentElement.createChild('div', 'create-breadcrumb-button-container') as HTMLElement);
     this.createBreadcrumbButton = new IconButton.Icon.Icon();
-    this.createBreadcrumbButton.className = 'create-breadcrumb-button';
-    this.createBreadcrumbButton.data = {
-      iconName: 'plus',
-      color: 'var(--icon-default)',
-      width: '20px',
-      height: '20px',
-    };
 
     this.reset();
   }
 
   enableCreateBreadcrumbsButton(): void {
-    this.parentElement.appendChild(this.createBreadcrumbButton);
+    this.createBreadcrumbButton.className = 'create-breadcrumb-button';
+    this.createBreadcrumbButton.data = {
+      iconName: 'zoom-in',
+      color: 'var(--icon-default)',
+      width: '20px',
+      height: '20px',
+    };
+
+    this.breadcrumbButtonContainerElement.appendChild(this.createBreadcrumbButton);
     this.breadcrumbsEnabled = true;
     this.createBreadcrumbButton.addEventListener('click', () => {
       this.createBreadcrumb();
@@ -462,7 +466,8 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
 
   // Add breadcrumb button is only visible when the window is set to something other than the full range
   private changeBreadcrumbButtonVisibility(windowLeft: number, windowRight: number): void {
-    this.createBreadcrumbButton.style.visibility = (windowRight >= 1 && windowLeft <= 0) ? 'hidden' : 'visible';
+    this.breadcrumbButtonContainerElement.style.visibility =
+        (windowRight >= 1 && windowLeft <= 0) ? 'hidden' : 'visible';
   }
 
   createBreadcrumb(): void {
@@ -500,8 +505,8 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.leftCurtainElement.style.width = leftResizerPercLeftOffsetString;
     this.rightCurtainElement.style.width = rightResizerPercRightOffset + '%';
 
-    this.createBreadcrumbButton.style.paddingLeft = leftResizerPercLeftOffsetString;
-    this.createBreadcrumbButton.style.paddingRight = (100 - rightResizerPercLeftOffset) + '%';
+    this.breadcrumbButtonContainerElement.style.marginLeft = leftResizerPercLeftOffsetString;
+    this.breadcrumbButtonContainerElement.style.marginRight = (100 - rightResizerPercLeftOffset) + '%';
 
     this.updateResizeElementPositionValue(leftResizerPercLeftOffset, rightResizerPercLeftOffset);
     if (this.calculator) {
