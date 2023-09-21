@@ -105,6 +105,24 @@
       "parentUuid": "09d1f2d5_c6a1bbb5",
       "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "311d631f_947c7df1",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-09-21T23:24:10Z",
+      "side": 1,
+      "message": "`--disable-features\u003dBackForwardCache` also appears to be set on main branch. So now I\u0027m wondering why this audit was passing on main if bfcache is supposed to be disabled.\n\nOn main, I confirmed that CDP is definitely reporting a bfcache restoration on `Page.frameNavigated`.",
+      "parentUuid": "a7f59a8f_00ed07db",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
