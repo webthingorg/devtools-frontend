@@ -69,6 +69,24 @@
       "parentUuid": "bb5ec174_88b91091",
       "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09d1f2d5_c6a1bbb5",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-09-21T20:56:07Z",
+      "side": 1,
+      "message": "Update: this behavior is flaky for me locally :/",
+      "parentUuid": "953d08ac_4b872586",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
