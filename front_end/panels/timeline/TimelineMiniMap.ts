@@ -61,6 +61,8 @@ export class TimelineMiniMap extends
         }));
       }
     });
+
+    // this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {
