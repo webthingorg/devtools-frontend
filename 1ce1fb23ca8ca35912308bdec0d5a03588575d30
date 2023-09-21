@@ -34,6 +34,24 @@
       "parentUuid": "b9c09b81_22de0079",
       "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "953d08ac_4b872586",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-09-21T20:46:04Z",
+      "side": 1,
+      "message": "I was able to reproduce this without Lighthouse using the DT application panel. Perhaps bfcache is not supported with tab target yet, in which case this audit failure is expected?\n\nIf DT tab target is enabled, then bfcache fails with this warning.\n\nIf DT tab target is disabled, bfcache works as expected.",
+      "parentUuid": "bb5ec174_88b91091",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
