@@ -19,6 +19,7 @@ import {
   getBrowserAndPages,
   waitFor,
   timeout,
+  ScreenshotError,
 } from '../shared/helper.js';
 
 /**
@@ -118,8 +119,6 @@ const assertScreenshotUnchangedWithRetries = async (
       maximumDiffThreshold,
       maximumRetries,
     });
-  } catch (e) {
-    throw new Error(`Error occurred when comparing screenshots:\n${e.stack}`);
   } finally {
     await frontend.evaluate(() => window.dispatchEvent(new Event('showcomponentdocsui')));
   }
@@ -319,7 +318,8 @@ async function compare(golden: string, generated: string, maximumDiffThreshold: 
     }
 
   } catch (assertionError) {
-    throw assertionError;
+    throw new ScreenshotError(
+        assertionError, fs.readFileSync(golden), fs.readFileSync(generated), fs.readFileSync(diffPath));
   }
 }
 

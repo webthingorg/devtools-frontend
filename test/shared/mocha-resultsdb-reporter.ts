@@ -6,6 +6,15 @@ import * as Mocha from 'mocha';
 
 import * as ResultsDb from './resultsdb.js';
 
+import {
+  type ScreenshotError,
+} from '../shared/helper.js';
+
+import {tmpdir} from 'os';
+import {join} from 'path';
+import * as fs from 'fs';
+import {createHash} from 'crypto';
+
 const {
   EVENT_RUN_END,
   EVENT_TEST_FAIL,
@@ -58,12 +67,32 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
     ResultsDb.recordTestResult(testResult);
   }
 
-  private onTestFail(test: Mocha.Test, error: Error|unknown) {
+  private onTestFail(test: Mocha.Test, error: Error|ScreenshotError|unknown) {
     const testResult = this.buildDefaultTestResultFrom(test);
     testResult.status = 'FAIL';
     testResult.expected = false;
-    testResult.summaryHtml = `<pre>${getErrorMessage(error)}</pre>`;
+    if ((error as ScreenshotError).goldenImg) {
+      const serr = error as ScreenshotError;
+      testResult.artifacts = {
+        'golden.png': this.writeScreenshotFile(serr.goldenImg),
+        'generated.png': this.writeScreenshotFile(serr.generatedImg),
+        'diff.png': this.writeScreenshotFile(serr.diffImg),
+      };
+      const summary = '<img-diff-artifact expected="golden.png" actual="generated.png" diff="diff.png" />';
+      testResult.summaryHtml = summary;
+    } else {
+      testResult.summaryHtml = `<pre>${getErrorMessage(error).slice(0, 3985)}</pre>`;
+    }
     ResultsDb.recordTestResult(testResult);
+  }
+
+  private writeScreenshotFile(content: Buffer): {filePath: string} {
+    const fileName = createHash('sha256').update(content).digest('hex');
+    const screenshotFile = join(tmpdir(), fileName);
+    fs.writeFileSync(screenshotFile, content);
+    return {
+      filePath: screenshotFile,
+    };
   }
 
   private onTestSkip(test: Mocha.Test) {
