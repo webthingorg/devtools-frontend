@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4a9402f_bfd66d2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-21T20:48:32Z",
+      "side": 1,
+      "message": "\u003e  In the next releases of Puppeteer it will be enabled by default and this configuration can be removed.\n\nwhat config are you referring to?",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9c09b81_22de0079",
         "filename": "test/e2e/lighthouse/navigation_test.ts",
         "patchSetId": 8
