@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e53812_7a6a8192",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-21T09:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73901f52_d2d3c857",
+      "revId": "4c33bbbada3563801e4e640b7af75d36df8d62b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96f64084_a772dc44",
@@ -49,6 +67,30 @@
       "writtenOn": "2023-09-14T12:54:14Z",
       "side": 1,
       "message": "Non block Discussion: do we want to directly return the color or `\u0027--app-color-painting\u0027` to sync with color from categories?",
+      "range": {
+        "startLine": 87,
+        "startChar": 11,
+        "endLine": 87,
+        "endChar": 88
+      },
+      "revId": "4c33bbbada3563801e4e640b7af75d36df8d62b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8daaf7d_a4e774ab",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-21T09:22:36Z",
+      "side": 1,
+      "message": "I personnaly think it is okay to do it like this since we don\u0027t have a map and that there is no need to convert it later to var(--app-color-painting) as it was needed for the TimelineCategory",
+      "parentUuid": "96f64084_a772dc44",
       "range": {
         "startLine": 87,
         "startChar": 11,
