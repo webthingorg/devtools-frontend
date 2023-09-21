@@ -87,6 +87,24 @@
       "parentUuid": "953d08ac_4b872586",
       "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7f59a8f_00ed07db",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-21T22:46:10Z",
+      "side": 1,
+      "message": "found it! the Chrome For Testing invocation comes from puppeteer which has `--disable-features\u003dBackForwardCache` by default these days.  :)\n\nA e2e test of the bfcache view in application panel would fail for the same reasons.. but.. there\u0027s only a unittest of that.. and our unit tests don\u0027t run in a Chrome with that flag. ;)",
+      "parentUuid": "09d1f2d5_c6a1bbb5",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
