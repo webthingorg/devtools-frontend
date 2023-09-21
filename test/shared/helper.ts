@@ -831,3 +831,13 @@ export async function raf(page: puppeteer.Page): Promise<void> {
     return new Promise(resolve => window.requestAnimationFrame(resolve));
   });
 }
+
+export class ScreenshotError extends Error {
+  constructor(cause: Error, readonly goldenImg: Buffer, readonly generatedImg: Buffer, readonly diffImg: Buffer) {
+    super(cause.message);
+    this.cause = cause;
+    this.goldenImg = goldenImg;
+    this.generatedImg = generatedImg;
+    this.diffImg = diffImg;
+  }
+}
