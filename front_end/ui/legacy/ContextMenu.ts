@@ -396,6 +396,7 @@ export class ContextMenu extends SubMenu {
     this.handlers = new Map();
     this.idInternal = 0;
     this.hostedMenuOpened = false;
+    this.eventTarget = this.event.target;
 
     const target = deepElementFromEvent(event);
     if (target) {
@@ -470,7 +471,6 @@ export class ContextMenu extends SubMenu {
 
   private innerShow(): void {
     const menuObject = this.buildMenuDescriptors();
-
     if (!this.eventTarget) {
       return;
     }
