@@ -16,6 +16,40 @@
       "message": "Friendly ping 😊",
       "revId": "fb16faa8fbc57b615fd76d9d7309f77d177b5bf7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15bcbecb_a7897bc2",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-22T11:26:26Z",
+      "side": 1,
+      "message": "does this change contribute to the fix?",
+      "revId": "fb16faa8fbc57b615fd76d9d7309f77d177b5bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7cb1f3b_33012418",
+        "filename": "front_end/ui/legacy/ViewManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-22T11:26:26Z",
+      "side": 1,
+      "message": "Is it the best way to fix this? By exposing the internals of the view manager? Is there a way to test this change in unit tests?\n\nI am not very familiar with this part of the code but the changes look too ad-hoc. Perhaps at least comments could define what happens? Or perhaps a setter on ViewManager to update views and locationNameByViewId would be better.",
+      "revId": "fb16faa8fbc57b615fd76d9d7309f77d177b5bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
