@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be3e4dff_0b562828",
+        "filename": "scripts/test/run_test_suite.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-22T05:52:03Z",
+      "side": 1,
+      "message": "This flag should remove the disable bfcache from the launcher",
+      "revId": "fb0b6573ebcd9d33228954499846d7a0e32627e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
