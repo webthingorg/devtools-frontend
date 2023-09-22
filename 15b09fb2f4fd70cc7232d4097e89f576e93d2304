@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca8e64fc_39619323",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 2558,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-22T10:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73d48df1_b255cfcb",
+      "range": {
+        "startLine": 2558,
+        "startChar": 27,
+        "endLine": 2558,
+        "endChar": 59
+      },
+      "revId": "15b09fb2f4fd70cc7232d4097e89f576e93d2304",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43bcae96_99958537",
@@ -70,6 +94,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23dd7113_3b0d74f8",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 2566,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-22T10:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6908b364_10f6a9ed",
+      "range": {
+        "startLine": 2566,
+        "startChar": 75,
+        "endLine": 2566,
+        "endChar": 91
+      },
+      "revId": "15b09fb2f4fd70cc7232d4097e89f576e93d2304",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c58090_59806c2f",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 2566,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-22T10:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43bcae96_99958537",
+      "range": {
+        "startLine": 2566,
+        "startChar": 30,
+        "endLine": 2566,
+        "endChar": 41
+      },
+      "revId": "15b09fb2f4fd70cc7232d4097e89f576e93d2304",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49655e5c_757321b4",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-09-22T06:53:32Z",
       "side": 1,
       "message": "would `this.allowedTypes \u003d new Set(this.setting.get())` work here?",
+      "range": {
+        "startLine": 2577,
+        "startChar": 4,
+        "endLine": 2581,
+        "endChar": 5
+      },
+      "revId": "15b09fb2f4fd70cc7232d4097e89f576e93d2304",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c08e8f7_cd02b09b",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 2581,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-22T10:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49655e5c_757321b4",
       "range": {
         "startLine": 2577,
         "startChar": 4,

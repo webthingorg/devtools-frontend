@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7364f912_a74d4b2b",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-22T10:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31db4cf3_0d80de47",
+      "revId": "cece4a70a195212b7425a57e8c9d7092fc991326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a842bef_b02a1dd6",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6fe8986_095d8ac1",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 2500,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-22T10:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a842bef_b02a1dd6",
+      "range": {
+        "startLine": 2500,
+        "startChar": 9,
+        "endLine": 2500,
+        "endChar": 21
+      },
+      "revId": "cece4a70a195212b7425a57e8c9d7092fc991326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2a4de6c_0d6488f8",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-09-22T06:53:32Z",
       "side": 1,
       "message": "Can we do it as `for (const item in this.items)` instead? As we don\u0027t specifically need to use the index",
+      "range": {
+        "startLine": 2524,
+        "startChar": 4,
+        "endLine": 2524,
+        "endChar": 47
+      },
+      "revId": "cece4a70a195212b7425a57e8c9d7092fc991326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a50c6eb1_f3506242",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 1587757
+      },
+      "writtenOn": "2023-09-22T10:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a4de6c_0d6488f8",
       "range": {
         "startLine": 2524,
         "startChar": 4,
