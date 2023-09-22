@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8aaf6b_67bb4ecb",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-09-22T12:35:17Z",
+      "side": 1,
+      "message": "agree, that is less confusing",
+      "parentUuid": "57fc886c_d96b9a59",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "4225f6ae2f73d726eb26ff112250c799da3f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1226418c_259b94ba",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-20T13:06:00Z",
       "side": 1,
       "message": "is this same as ` event.data.breadcrumbWindow.range`?",
+      "range": {
+        "startLine": 174,
+        "startChar": 43,
+        "endLine": 174,
+        "endChar": 108
+      },
+      "revId": "4225f6ae2f73d726eb26ff112250c799da3f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8de9eba9_54a78501",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-09-22T12:35:17Z",
+      "side": 1,
+      "message": "good catch! changed to event.data.breadcrumbWindow.range",
+      "parentUuid": "1226418c_259b94ba",
       "range": {
         "startLine": 174,
         "startChar": 43,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54127b15_5e822257",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-09-22T12:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfdd0fa3_5ac2dbd1",
+      "range": {
+        "startLine": 150,
+        "startChar": 10,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "4225f6ae2f73d726eb26ff112250c799da3f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26e4445e_b96c0fed",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f643bfed_dc8def01",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-09-22T12:35:17Z",
+      "side": 1,
+      "message": "Agree, your suggestion is more readable.\nI made a different function for setting breadcrumbs boundaries and `this.breadcrumbExists`",
+      "parentUuid": "26e4445e_b96c0fed",
+      "range": {
+        "startLine": 2181,
+        "startChar": 4,
+        "endLine": 2183,
+        "endChar": 5
+      },
+      "revId": "4225f6ae2f73d726eb26ff112250c799da3f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "900809db_4fb8f9c0",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-09-20T13:06:00Z",
       "side": 1,
       "message": "[non-block, but nice to solve] This seems same as the `WindowChangedEvent` in `PerformanceModel.ts` (seems a remaining problem from migration a long time ago), can you try to remove this one and use the one from `PerformanceModel.ts`? If not add a TODO comment here.",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 1
+      },
+      "revId": "4225f6ae2f73d726eb26ff112250c799da3f18b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f11c5d8_65305daf",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-09-22T12:35:17Z",
+      "side": 1,
+      "message": "I tried removing it and it is also used in the Network panel so I don\u0027t want to touch it right now. Also the parameters of this event are different from `PerformanceModel.WindowChanged` event.\nYou\u0027re right that we should reduce them. I\u0027ve recently started writing a design doc for unifying those. https://docs.google.com/document/d/1LjTup2JOIu3vmjs0kYYVxnqHqAmQmpLIPq2oWGihgXQ/edit?resourcekey\u003d0-fTrsfvwkQlIfKzEf9kfZbA#heading\u003dh.fbcnxd9f8zfy\n\nAdded a TODO.",
+      "parentUuid": "900809db_4fb8f9c0",
       "range": {
         "startLine": 277,
         "startChar": 0,
