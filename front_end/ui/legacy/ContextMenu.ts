@@ -470,7 +470,6 @@ export class ContextMenu extends SubMenu {
 
   private innerShow(): void {
     const menuObject = this.buildMenuDescriptors();
-
     if (!this.eventTarget) {
       return;
     }
