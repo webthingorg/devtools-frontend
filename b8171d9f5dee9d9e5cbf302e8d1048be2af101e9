@@ -51,6 +51,23 @@
       "parentUuid": "71765091_22adc628",
       "revId": "b8171d9f5dee9d9e5cbf302e8d1048be2af101e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97e1d60_ae5c850c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1516057
+      },
+      "writtenOn": "2023-09-22T08:13:07Z",
+      "side": 1,
+      "message": "Hi Danil, thanks for reviewing it. Could you please also submit the CLs in the topic? Seems like the CQ isn\u0027t running.",
+      "revId": "b8171d9f5dee9d9e5cbf302e8d1048be2af101e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
