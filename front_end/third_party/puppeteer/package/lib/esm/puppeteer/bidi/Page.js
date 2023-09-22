@@ -422,19 +422,43 @@ export class BidiPage extends Page {
         }
     }
     async screenshot(options = {}) {
-        const { path = undefined, encoding, ...args } = options;
-        if (Object.keys(args).length >= 1) {
-            throw new Error('BiDi only supports "encoding" and "path" options');
+        const { clip, type, captureBeyondViewport, allowViewportExpansion = true, } = options;
+        if (captureBeyondViewport) {
+            throw new Error(`BiDi does not support 'captureBeyondViewport'.`);
         }
-        const { result } = await this.#connection.send('browsingContext.captureScreenshot', {
-            context: this.mainFrame()._id,
+        const invalidOption = Object.keys(options).find(option => {
+            return [
+                'fromSurface',
+                'omitBackground',
+                'optimizeForSpeed',
+                'quality',
+            ].includes(option);
         });
-        if (encoding === 'base64') {
-            return result.data;
+        if (invalidOption !== undefined) {
+            throw new Error(`BiDi does not support ${invalidOption}.`);
         }
-        const buffer = Buffer.from(result.data, 'base64');
-        await this._maybeWriteBufferToFile(path, buffer);
-        return buffer;
+        if ((type ?? 'png') !== 'png') {
+            throw new Error(`BiDi only supports 'png' type.`);
+        }
+        if (clip?.scale !== undefined) {
+            throw new Error(`BiDi does not support 'scale' in 'clip'.`);
+        }
+        return await super.screenshot({
+            ...options,
+            captureBeyondViewport,
+            allowViewportExpansion: captureBeyondViewport ?? allowViewportExpansion,
+        });
+    }
+    async _screenshot(options) {
+        const { clip } = options;
+        const { result: { data }, } = await this.#connection.send('browsingContext.captureScreenshot', {
+            context: this.mainFrame()._id,
+            clip: clip && {
+                type: 'viewport',
+                ...clip,
+            },
+        });
+        return data;
     }
     async waitForRequest(urlOrPredicate, options = {}) {
         const { timeout = this.#timeoutSettings.timeout() } = options;
