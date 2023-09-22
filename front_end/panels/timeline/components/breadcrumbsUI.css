@@ -9,6 +9,9 @@
   align-items: center;
   height: 29px;
   padding: 6px 2px;
+  /* position:fixed; */
+  overflow-y:hidden;
+  overflow-x:scroll;
 }
 
 .breadcrumb {
