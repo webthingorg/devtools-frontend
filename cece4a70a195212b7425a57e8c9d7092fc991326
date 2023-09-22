@@ -16,6 +16,52 @@
       "message": "Good catch to change it to \u0027Request Types\u0027. Please also change the variable names accordingly.",
       "revId": "cece4a70a195212b7425a57e8c9d7092fc991326",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a842bef_b02a1dd6",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 2500,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-22T06:53:32Z",
+      "side": 1,
+      "message": "Can we rename this to `typesToShow` or `displayedTypes` or similar, I feel `allowedTypes` might not be the most fitting here",
+      "range": {
+        "startLine": 2500,
+        "startChar": 9,
+        "endLine": 2500,
+        "endChar": 21
+      },
+      "revId": "cece4a70a195212b7425a57e8c9d7092fc991326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2a4de6c_0d6488f8",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-22T06:53:32Z",
+      "side": 1,
+      "message": "Can we do it as `for (const item in this.items)` instead? As we don\u0027t specifically need to use the index",
+      "range": {
+        "startLine": 2524,
+        "startChar": 4,
+        "endLine": 2524,
+        "endChar": 47
+      },
+      "revId": "cece4a70a195212b7425a57e8c9d7092fc991326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
