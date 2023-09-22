@@ -22,6 +22,30 @@
       },
       "revId": "527bf413eab1488183f405ff191033d15ac308cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d463c6b_7d3774cc",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-22T11:33:35Z",
+      "side": 0,
+      "message": "Yes I think it is.\n\nFor instance, here the same color is used for the rendering and experience categories \nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelineUIUtils.ts;l\u003d2965",
+      "parentUuid": "e7021c64_bbcf0d7b",
+      "range": {
+        "startLine": 114,
+        "startChar": 12,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "527bf413eab1488183f405ff191033d15ac308cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
