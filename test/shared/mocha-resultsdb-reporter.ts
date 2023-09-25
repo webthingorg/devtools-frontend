@@ -4,6 +4,10 @@
 
 import * as Mocha from 'mocha';
 
+import {
+  ScreenshotError,
+} from '../shared/screenshots.js';
+
 import * as ResultsDb from './resultsdb.js';
 
 const {
@@ -58,11 +62,15 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
     ResultsDb.recordTestResult(testResult);
   }
 
-  private onTestFail(test: Mocha.Test, error: Error|unknown) {
+  private onTestFail(test: Mocha.Test, error: Error|ScreenshotError|unknown) {
     const testResult = this.buildDefaultTestResultFrom(test);
     testResult.status = 'FAIL';
     testResult.expected = false;
-    testResult.summaryHtml = `<pre>${getErrorMessage(error)}</pre>`;
+    if (error instanceof ScreenshotError) {
+      [testResult.artifacts, testResult.summaryHtml] = error.toMiloArtifacts();
+    } else {
+      testResult.summaryHtml = `<pre>${getErrorMessage(error).slice(0, 3985)}</pre>`;
+    }
     ResultsDb.recordTestResult(testResult);
   }
 
