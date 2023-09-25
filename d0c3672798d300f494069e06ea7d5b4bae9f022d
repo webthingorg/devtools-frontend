@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f416d57_43d0b846",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2728,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-25T14:41:19Z",
+      "side": 1,
+      "message": "If you call `updateActiveFiltersCount()` from `NetworkLogView.filterChanged()`, you can probably skip adding the call to the callbacks here.",
+      "range": {
+        "startLine": 2728,
+        "startChar": 6,
+        "endLine": 2728,
+        "endChar": 38
+      },
+      "revId": "d0c3672798d300f494069e06ea7d5b4bae9f022d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3d3c333_53af1d65",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2770,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-25T14:41:19Z",
+      "side": 1,
+      "message": "Would something like `settings.filter(Boolean).length` work as well?",
+      "revId": "d0c3672798d300f494069e06ea7d5b4bae9f022d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
