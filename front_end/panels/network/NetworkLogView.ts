@@ -46,6 +46,7 @@ import * as Persistence from '../../models/persistence/persistence.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as Sources from '../../panels/sources/sources.js';
+import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
@@ -1901,6 +1902,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
           this.hideChromeExtensionsUI?.checked(),
         ];
 
+    this.moreFiltersDropDownUI?.updateActiveFiltersCount();
     if (hideDataURL && (request.parsedURL.isDataURL() || request.parsedURL.isBlobURL())) {
       return false;
     }
@@ -2666,6 +2668,7 @@ export class MoreFiltersDropDownUI extends
   private networkOnlyBlockedRequestsSetting: Common.Settings.Setting<boolean>;
   private networkOnlyThirdPartySetting: Common.Settings.Setting<boolean>;
   private contextMenu?: UI.ContextMenu.ContextMenu;
+  private activeFiltersCount: HTMLElement;
 
   constructor(filterChangedCallback: () => void) {
     super();
@@ -2683,8 +2686,18 @@ export class MoreFiltersDropDownUI extends
 
     this.filterElement = document.createElement('div');
     this.filterElement.setAttribute('aria-label', 'Show only/hide requests dropdown');
+
+    const activeFiltersCountAdorner = new Adorners.Adorner.Adorner();
+    this.activeFiltersCount = document.createElement('span');
+    activeFiltersCountAdorner.data = {
+      name: 'countWrapper',
+      content: this.activeFiltersCount,
+    };
+    activeFiltersCountAdorner.classList.add('active-filters-count');
+    this.updateActiveFiltersCount();
+
     this.dropDownButton = new UI.Toolbar.ToolbarButton(
-        i18nString(UIStrings.showOnlyHideRequests), undefined, i18nString(UIStrings.moreFilters));
+        i18nString(UIStrings.showOnlyHideRequests), activeFiltersCountAdorner, i18nString(UIStrings.moreFilters));
     this.filterElement.appendChild(this.dropDownButton.element);
     this.dropDownButton.turnIntoSelect();
     this.dropDownButton.element.classList.add('dropdown-filterbar');
@@ -2709,35 +2722,52 @@ export class MoreFiltersDropDownUI extends
           (this.dropDownButton.element as HTMLElement).offsetHeight,
     });
 
-    this.contextMenu.defaultSection().appendCheckboxItem(
-        i18nString(UIStrings.hideDataUrls),
-        () => this.networkHideDataURLSetting.set(!this.networkHideDataURLSetting.get()),
-        this.networkHideDataURLSetting.get(), undefined, undefined, i18nString(UIStrings.hidesDataAndBlobUrls));
-    this.contextMenu.defaultSection().appendCheckboxItem(
-        i18nString(UIStrings.chromeExtensions),
-        () => this.networkHideChromeExtensionsSetting.set(!this.networkHideChromeExtensionsSetting.get()),
-        this.networkHideChromeExtensionsSetting.get(), undefined, undefined, i18nString(UIStrings.hideChromeExtension));
+    this.contextMenu.defaultSection().appendCheckboxItem(i18nString(UIStrings.hideDataUrls), () => {
+      this.networkHideDataURLSetting.set(!this.networkHideDataURLSetting.get());
+      this.updateActiveFiltersCount();
+    }, this.networkHideDataURLSetting.get(), undefined, undefined, i18nString(UIStrings.hidesDataAndBlobUrls));
+    this.contextMenu.defaultSection().appendCheckboxItem(i18nString(UIStrings.chromeExtensions), () => {
+      this.networkHideChromeExtensionsSetting.set(!this.networkHideChromeExtensionsSetting.get());
+      this.updateActiveFiltersCount();
+    }, this.networkHideChromeExtensionsSetting.get(), undefined, undefined, i18nString(UIStrings.hideChromeExtension));
     this.contextMenu.defaultSection().appendSeparator();
     this.contextMenu.defaultSection().appendCheckboxItem(
         i18nString(UIStrings.hasBlockedCookies),
         () => {
           this.networkShowBlockedCookiesOnlySetting.set(!this.networkShowBlockedCookiesOnlySetting.get());
+          this.updateActiveFiltersCount();
         },
         this.networkShowBlockedCookiesOnlySetting.get(), undefined, undefined,
         i18nString(UIStrings.onlyShowRequestsWithBlockedCookies));
 
     this.contextMenu.defaultSection().appendCheckboxItem(
         i18nString(UIStrings.blockedRequests),
-        () => this.networkOnlyBlockedRequestsSetting.set(!this.networkOnlyBlockedRequestsSetting.get()),
+        () => {
+          this.networkOnlyBlockedRequestsSetting.set(!this.networkOnlyBlockedRequestsSetting.get());
+          this.updateActiveFiltersCount();
+        },
         this.networkOnlyBlockedRequestsSetting.get(), undefined, undefined,
         i18nString(UIStrings.onlyShowBlockedRequests));
-    this.contextMenu.defaultSection().appendCheckboxItem(
-        i18nString(UIStrings.thirdParty),
-        () => this.networkOnlyThirdPartySetting.set(!this.networkOnlyThirdPartySetting.get()),
-        this.networkOnlyThirdPartySetting.get(), undefined, undefined,
-        i18nString(UIStrings.onlyShowThirdPartyRequests));
+    this.contextMenu.defaultSection().appendCheckboxItem(i18nString(UIStrings.thirdParty), () => {
+      this.networkOnlyThirdPartySetting.set(!this.networkOnlyThirdPartySetting.get());
+      this.updateActiveFiltersCount();
+    }, this.networkOnlyThirdPartySetting.get(), undefined, undefined, i18nString(UIStrings.onlyShowThirdPartyRequests));
+
+    this.updateActiveFiltersCount();
 
     void this.contextMenu.show();
+  }
+
+  updateActiveFiltersCount(): void {
+    const settings = [
+      this.networkHideDataURLSetting.get(),
+      this.networkHideChromeExtensionsSetting.get(),
+      this.networkShowBlockedCookiesOnlySetting.get(),
+      this.networkOnlyBlockedRequestsSetting.get(),
+      this.networkOnlyThirdPartySetting.get(),
+    ];
+    const count = settings.reduce((activeCount, setting) => activeCount + (setting ? 1 : 0), 0);
+    this.activeFiltersCount.textContent = count.toString();
   }
 
   discard(): void {
