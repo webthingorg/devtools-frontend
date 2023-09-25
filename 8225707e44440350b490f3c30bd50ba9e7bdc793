@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e04a84_8c50caac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-25T10:59:12Z",
+      "side": 1,
+      "message": "Added 6px top and bottom padding; updated screenshot",
+      "parentUuid": "f017e1c0_d33ae52f",
+      "revId": "8225707e44440350b490f3c30bd50ba9e7bdc793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "472ec47a_de4ad089",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-09-25T10:17:49Z",
       "side": 1,
       "message": "```suggestion\n      \u0027Web SQL access in all contexts is no longer available in Chromium 119. A deprecation trial to keep using Web SQL is available until Chromium 123.\u0027,\n```",
+      "revId": "8225707e44440350b490f3c30bd50ba9e7bdc793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f971bed3_9ee121c9",
+        "filename": "front_end/panels/application/ResourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-25T10:59:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "472ec47a_de4ad089",
       "revId": "8225707e44440350b490f3c30bd50ba9e7bdc793",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
