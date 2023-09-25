@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0963d80c_84d6b3a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-25T09:58:22Z",
+      "side": 1,
+      "message": "Hey Wolfgang, please kindly take a look? Disregard the not ideal padding, let\u0027s polish it once all the counters, dividers are in",
+      "revId": "9b3fa365bd5b30674e6528130787a0a5b32e7af7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
