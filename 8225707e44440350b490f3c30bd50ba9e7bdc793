@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f017e1c0_d33ae52f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-09-25T05:09:32Z",
+      "side": 1,
+      "message": "Code LGTM, but can we please use this chance to improve spacing in the warning bar. There\u0027s virtually no top or bottom padding. Can we at least add 12px vertical padding?",
+      "revId": "8225707e44440350b490f3c30bd50ba9e7bdc793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
