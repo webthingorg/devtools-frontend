@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89cb2a51_fb31087a",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-25T07:56:02Z",
+      "side": 1,
+      "message": "I slightly prefer this method over introducing a new setting. The only code nit I have is to not call it `oldSetting`, but just `setting`. And add a comment that we change the default from \u0027false\u0027 to \u0027true\u0027 and do an update of the existing setting once.",
+      "range": {
+        "startLine": 1200,
+        "startChar": 0,
+        "endLine": 1204,
+        "endChar": 25
+      },
+      "revId": "77c4ef6705f6e47fa50e7580c34a21a531061947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b67a75e_8b81c326",
         "filename": "front_end/models/issues_manager/Issue.ts",
         "patchSetId": 1
