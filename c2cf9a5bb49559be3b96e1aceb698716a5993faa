@@ -16,6 +16,57 @@
       "message": "I lost your +1s since I refactored and fixed the diff image summary.\nPTAL",
       "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97d7752b_0b9b9e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-25T16:06:55Z",
+      "side": 1,
+      "message": "LGTM, thanks! few nits but this looks great.",
+      "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30c7f7da_2c0351b3",
+        "filename": "test/shared/mocha-resultsdb-reporter.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-25T16:06:55Z",
+      "side": 1,
+      "message": "Nit: can we add a comment here? the limit can also be a global const, that\u0027s usually how we approach this!\n\nIs this worth a mention in the commit message too?",
+      "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea9df47_54042ca8",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-25T16:06:55Z",
+      "side": 1,
+      "message": "Nit: I think we prefer ?? over || in this case.",
+      "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
