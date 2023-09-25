@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73ad68e9_f45ef735",
+        "filename": "test/shared/mocha-resultsdb-reporter.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-25T18:21:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30c7f7da_2c0351b3",
+      "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aea9df47_54042ca8",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-09-25T16:06:55Z",
       "side": 1,
       "message": "Nit: I think we prefer ?? over || in this case.",
+      "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82ff5895_c37e4328",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-25T18:21:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aea9df47_54042ca8",
       "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
