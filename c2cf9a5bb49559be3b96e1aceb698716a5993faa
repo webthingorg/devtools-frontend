@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26684639_79dc7139",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-09-25T13:21:24Z",
+      "side": 1,
+      "message": "I lost your +1s since I refactored and fixed the diff image summary.\nPTAL",
+      "revId": "c2cf9a5bb49559be3b96e1aceb698716a5993faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

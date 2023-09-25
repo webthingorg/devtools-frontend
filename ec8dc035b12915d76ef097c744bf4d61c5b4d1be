@@ -156,6 +156,24 @@
       "message": "Why not `error instanceof ScreenshotError`?",
       "revId": "ec8dc035b12915d76ef097c744bf4d61c5b4d1be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce263e2f_0aeb37a7",
+        "filename": "test/shared/mocha-resultsdb-reporter.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-09-25T13:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdab02d3_a27074a9",
+      "revId": "ec8dc035b12915d76ef097c744bf4d61c5b4d1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
