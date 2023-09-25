@@ -16,6 +16,24 @@
       "message": "This add a side effect to this method. Maybe it would be a better fit to move this elsewhere e.g. in `this.filterChanged()`?",
       "revId": "8bf1f584e3332ca2d96c6beaab82cd92e55bf5c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ad6365a_1592a547",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-09-25T15:02:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d983994c_303c96bf",
+      "revId": "8bf1f584e3332ca2d96c6beaab82cd92e55bf5c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
