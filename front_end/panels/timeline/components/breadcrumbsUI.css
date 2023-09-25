@@ -9,6 +9,26 @@
   align-items: center;
   height: 29px;
   padding: 6px 2px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.breadcrumbs::-webkit-scrollbar {
+  width: 3px;
+}
+
+.breadcrumbs::-webkit-scrollbar-track {
+  
+  width: 3px;
+  /* padding: 2px 0; */
+  background-color: #ffffff;
+}
+
+.breadcrumbs::-webkit-scrollbar-thumb {
+  /* border-radius: 2px; */
+  /* width: 2px; */
+  background-color: var(--color-selection-highlight-border);
+  /* border: 1px solid var(--color-selection-highlight-border); */
 }
 
 .breadcrumb {
@@ -22,6 +42,7 @@
 
 .range {
   font-size: 12px;
+  white-space: nowrap;
 }
 
 .last-breadcrumb {
