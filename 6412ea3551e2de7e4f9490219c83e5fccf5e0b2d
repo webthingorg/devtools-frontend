@@ -127,6 +127,30 @@
       },
       "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc05bb2_df9c5ee9",
+        "filename": "front_end/legacy_test_runner/test_runner/TestRunner.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-25T07:59:11Z",
+      "side": 1,
+      "message": "\u003e You also can only turn this call into a no-op after all the globals of that module are gone xD (btw some loadLegacyModule calls might be superfluous as the \"integrated_test_runner.html\" loads them by default).\nYes, absolutely, same as removing the -legacy.ts file :) I rather meant, if we follow the per-global workflow in general, the loadLegacyModule calls can only be removed after all globals are done (at least within the file). So we mostly have to touch all the files again after all the CLs are done. Not a big issue, just felt a bit noisy :)\n\n\u003e But I\u0027m fine with this change if it makes dealing with `elements` easier.",
+      "parentUuid": "755ef436_d2acaa06",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
