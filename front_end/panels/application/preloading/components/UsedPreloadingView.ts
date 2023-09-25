@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
@@ -14,18 +15,15 @@ import * as ReportView from '../../../../ui/components/report_view/report_view.j
 import * as UI from '../../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
-import type * as Platform from '../../../../core/platform/platform.js';
-
-import usedPreloadingStyles from './usedPreloadingView.css.js';
-
-import {prefetchFailureReason, prerenderFailureReason} from './PreloadingString.js';
 import * as MismatchedPreloadingGrid from './MismatchedPreloadingGrid.js';
+import {prefetchFailureReason, prerenderFailureReason} from './PreloadingString.js';
+import usedPreloadingStyles from './usedPreloadingView.css.js';
 
 const UIStrings = {
   /**
-   *@description Header for preloading status.
+   *@description Header for preloading status for this page.
    */
-  preloadingStatus: 'Preloading status',
+  preloadingStatus: 'Preloading status for this page',
   /**
    *@description Label for failure reason of preloeading
    */
@@ -38,25 +36,37 @@ const UIStrings = {
   /**
    *@description Message that tells this page was prefetched.
    */
-  prefetchUsed: 'This page was successfully prefetched.',
+  prefetchUsed: 'Prefetch successful',
   /**
    *@description Message that tells this page was prerendered.
    */
-  prerenderUsed: 'This page was successfully prerendered.',
+  prerenderUsed: 'Prerender successful',
   /**
    *@description Message that tells this page was prefetched.
    */
-  prefetchFailed:
+  prefetchFailed: 'Prefetch failed',
+  /**
+   *@description Tooltip that explains why this page was not prefetched.
+   */
+  prefetchFailedTooltip:
       'The initiating page attempted to prefetch this page\'s URL, but the prefetch failed, so a full navigation was performed instead.',
   /**
    *@description Message that tells this page was prerendered.
    */
-  prerenderFailed:
+  prerenderFailed: 'Prerender failed',
+  /**
+   *@description Tooltip that explains why this page was not prerendered.
+   */
+  prerenderFailedTooltip:
       'The initiating page attempted to prerender this page\'s URL, but the prerender failed, so a full navigation was performed instead.',
   /**
    *@description Message that tells this page was not preloaded.
    */
-  noPreloads: 'The initiating page did not attempt to preload this page\'s URL.',
+  noPreloads: 'Not attempted',
+  /**
+   *@description Tooltip that explains no preload.
+   */
+  noPreloadTooltip: 'The initiating page did not attempt to preload this page\'s URL.',
   /**
    *@description Header for current URL.
    */
@@ -143,37 +153,57 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
     }
 
     let basicMessage;
+    let icon: IconButton.Icon.Icon|null = null;
+
     switch (kind) {
       case UsedKind.DowngradedPrerenderToPrefetchAndUsed:
         basicMessage = LitHtml.html`${i18nString(UIStrings.downgradedPrefetchUsed)}`;
         break;
       case UsedKind.PrefetchUsed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prefetchUsed)}`;
+        basicMessage = LitHtml.html`<span class="success-label">
+      <${IconButton.Icon.Icon.litTagName}
+          .data=${{
+          iconName: 'check-circle',
+          color: 'var(--icon-default)',
+          width: '16px',
+        } as IconButton.Icon.IconWithName}
+        >
+        </${IconButton.Icon.Icon.litTagName}>&nbsp;${i18nString(UIStrings.prefetchUsed)}</span>`;
         break;
       case UsedKind.PrerenderUsed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prerenderUsed)}`;
+        basicMessage = LitHtml.html`<span class="success-label">
+        <${IconButton.Icon.Icon.litTagName}
+            .data=${{
+          iconName: 'check-circle',
+          color: 'var(--icon-default)',
+          width: '16px',
+        } as IconButton.Icon.IconWithName}
+          >
+          </${IconButton.Icon.Icon.litTagName}>&nbsp;${i18nString(UIStrings.prerenderUsed)}</span>`;
         break;
       case UsedKind.PrefetchFailed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prefetchFailed)}`;
+        icon = new IconButton.Icon.Icon();
+        icon.data = {iconName: 'cross-circle', color: 'var(--icon-error)', width: '16px'};
+        UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.prefetchFailedTooltip));
+        basicMessage = LitHtml.html`<span class="failure-label">${icon}
+      ${i18nString(UIStrings.prefetchFailed)}</span>`;
         break;
       case UsedKind.PrerenderFailed:
-        basicMessage = LitHtml.html`${i18nString(UIStrings.prerenderFailed)}`;
+        icon = new IconButton.Icon.Icon();
+        icon.data = {iconName: 'cross-circle', color: 'var(--icon-error)', width: '16px'};
+        UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.prerenderFailedTooltip));
+        basicMessage = LitHtml.html`<span class="failure-label">${icon}
+      ${i18nString(UIStrings.prerenderFailed)}</span>`;
         break;
       case UsedKind.NoPreloads:
+        icon = new IconButton.Icon.Icon();
+        icon.data = {iconName: 'clear', color: 'var(--icon-default)', width: '16px'};
+        UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.noPreloadTooltip));
         // Disabled until https://crbug.com/1079231 is fixed.
         // clang-format off
-        basicMessage = LitHtml.html`
-          <${IconButton.Icon.Icon.litTagName}
-            .data=${
-              {
-                iconName: 'clear',
-                color: 'var(--icon-default)',
-                width: '16px',
-              } as IconButton.Icon.IconWithName
-            }
-          >
-          </${IconButton.Icon.Icon.litTagName}>
-          ${i18nString(UIStrings.noPreloads)}
+        basicMessage = LitHtml.html`<span class="neutral-label">
+          ${icon}
+          ${i18nString(UIStrings.noPreloads)}</span>
         `;
         // clang-format on
         break;
@@ -249,7 +279,7 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.currentURL)}</${
         ReportView.ReportView.ReportSectionHeader.litTagName}>
       <${ReportView.ReportView.ReportSection.litTagName}>
-        ${UI.XLink.XLink.create(this.#data.pageURL)}
+        ${UI.XLink.XLink.create(this.#data.pageURL, this.#data.pageURL, 'link')}
       </${ReportView.ReportView.ReportSection.litTagName}>
 
       <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.preloadedURLs)}</${
