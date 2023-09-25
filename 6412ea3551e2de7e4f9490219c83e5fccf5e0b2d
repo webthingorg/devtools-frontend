@@ -16,6 +16,69 @@
       "message": "Simon do you want to take a look as well?",
       "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38df7079_ca94628d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-25T05:42:34Z",
+      "side": 1,
+      "message": "lgtm with comments",
+      "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cccce9c9_d1f2e683",
+        "filename": "front_end/legacy_test_runner/elements_test_runner/ElementsTestRunner.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-25T05:42:34Z",
+      "side": 1,
+      "message": "nit: We should mirror the code in `front_end` and call the import `Elements` as well.",
+      "range": {
+        "startLine": 6,
+        "startChar": 12,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ce1dc69_cd10357d",
+        "filename": "front_end/legacy_test_runner/test_runner/TestRunner.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-25T05:42:34Z",
+      "side": 1,
+      "message": "Ideally all calls to `loadLegacyModule(\u0027elements\u0027)` should be updated in the respective layout tests, and the entry in the mappings map removed.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
