@@ -9,6 +9,8 @@
   align-items: center;
   height: 29px;
   padding: 6px 2px;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
 .breadcrumb {
@@ -22,6 +24,7 @@
 
 .range {
   font-size: 12px;
+  white-space: nowrap;
 }
 
 .last-breadcrumb {

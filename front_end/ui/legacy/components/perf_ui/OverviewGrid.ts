@@ -157,6 +157,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   constructor(parentElement: Element, dividersLabelBarElement?: Element, calculator?: Calculator) {
     super();
     this.parentElement = parentElement;
+    this.parentElement.classList.add('parent-element');
     UI.ARIAUtils.markAsGroup(this.parentElement);
     this.calculator = calculator;
 
@@ -221,6 +222,18 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     });
 
     this.breadcrumbsEnabled = true;
+
+    this.parentElement.addEventListener('mouseover', () => {
+      console.log("in");
+      // if (!((this.windowLeft && this.windowLeft <= 0) && (this.windowRight && this.windowRight >= 1))) {
+        this.breadcrumbButtonContainerElement.style.visibility = 'visible';
+      // }
+
+    })
+
+    this.parentElement.addEventListener('mouseout', () => {
+        this.breadcrumbButtonContainerElement.style.visibility = 'hidden';  
+    })
   }
 
   private onRightResizeElementFocused(): void {
@@ -257,12 +270,14 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   }
 
   private leftResizeElementDragging(event: Event): void {
+    this.breadcrumbButtonContainerElement.style.visibility = 'visible';
     const mouseEvent = (event as MouseEvent);
     this.resizeWindowLeft(mouseEvent.pageX - (this.resizerParentOffsetLeft || 0));
     event.preventDefault();
   }
 
   private rightResizeElementDragging(event: Event): void {
+    this.breadcrumbButtonContainerElement.style.visibility = 'visible';
     const mouseEvent = (event as MouseEvent);
     this.resizeWindowRight(mouseEvent.pageX - (this.resizerParentOffsetLeft || 0));
     event.preventDefault();
@@ -464,7 +479,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
       this.dispatchEventToListeners(Events.WindowChangedWithPosition, this.calculateWindowPosition());
     }
     this.dispatchEventToListeners(Events.WindowChanged);
-    this.changeBreadcrumbButtonVisibility(windowLeft, windowRight);
+    // this.changeBreadcrumbButtonVisibility(windowLeft, windowRight);
   }
 
   // Add breadcrumb button is only visible when the window is set to something other than the full range
