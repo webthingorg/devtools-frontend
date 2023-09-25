@@ -80,6 +80,40 @@
       "message": "Code LGTM but I am not familiar with resultsdb",
       "revId": "ec8dc035b12915d76ef097c744bf4d61c5b4d1be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9a9562_2cae71c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-25T08:03:11Z",
+      "side": 1,
+      "message": "LGTM with one nit. Let\u0027s maybe wait with landing until we understand what\u0027s up with milo not showing the results?",
+      "revId": "ec8dc035b12915d76ef097c744bf4d61c5b4d1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdab02d3_a27074a9",
+        "filename": "test/shared/mocha-resultsdb-reporter.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-25T08:03:11Z",
+      "side": 1,
+      "message": "Why not `error instanceof ScreenshotError`?",
+      "revId": "ec8dc035b12915d76ef097c744bf4d61c5b4d1be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
