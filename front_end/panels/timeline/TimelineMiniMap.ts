@@ -55,8 +55,9 @@ export class TimelineMiniMap extends
       // Create first breadcrumb from the initial full window
       if (this.#breadcrumbs === null) {
         this.addBreadcrumb(this.breadcrumbWindowBounds({
-          startTime: TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
-          endTime: TraceEngine.Types.Timing.MilliSeconds(event.data.endTime),
+          startTime:
+              TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.minimumBoundary()),
+          endTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.maximumBoundary()),
         }));
       }
 
@@ -72,6 +73,7 @@ export class TimelineMiniMap extends
         });
       }
     });
+    this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {
