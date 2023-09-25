@@ -79,6 +79,30 @@
       },
       "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d661e8a8_5c4a4652",
+        "filename": "front_end/legacy_test_runner/test_runner/TestRunner.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-25T07:39:58Z",
+      "side": 1,
+      "message": "I don\u0027t disagree! I saw however that that\u0027s a huge change and can only be done after all globals uses for a specific module are gone. (I did remove all globals for elements in on CL and could have included that change, but the CL had already landed before I realized that\u0027s what I had to do).\n\nMy thinking here was by updating the mapping we can make loadLegacyModule a noop from within devtools, together with removal of the legacy module, and then clean up all the remaining loadLegacyModule calls in one giant chromium CL.",
+      "parentUuid": "1ce1dc69_cd10357d",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "6412ea3551e2de7e4f9490219c83e5fccf5e0b2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
