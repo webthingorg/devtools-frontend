@@ -16,6 +16,23 @@
       "message": "Jack, PTAL",
       "revId": "4e29cced9793c328ce47bd9b8363d0bd77e20593",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "016c4b8f_8db0fd57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-25T08:48:53Z",
+      "side": 1,
+      "message": "lgtm, nice fix!",
+      "revId": "4e29cced9793c328ce47bd9b8363d0bd77e20593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
