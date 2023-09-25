@@ -16,6 +16,23 @@
       "message": "Code LGTM, but can we please use this chance to improve spacing in the warning bar. There\u0027s virtually no top or bottom padding. Can we at least add 12px vertical padding?",
       "revId": "8225707e44440350b490f3c30bd50ba9e7bdc793",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "472ec47a_de4ad089",
+        "filename": "front_end/panels/application/ResourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-09-25T10:17:49Z",
+      "side": 1,
+      "message": "```suggestion\n      \u0027Web SQL access in all contexts is no longer available in Chromium 119. A deprecation trial to keep using Web SQL is available until Chromium 123.\u0027,\n```",
+      "revId": "8225707e44440350b490f3c30bd50ba9e7bdc793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
