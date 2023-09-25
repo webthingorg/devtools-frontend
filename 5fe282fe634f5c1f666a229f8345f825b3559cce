@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "5fe282fe634f5c1f666a229f8345f825b3559cce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fab34c6_36799264",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-25T15:19:18Z",
+      "side": 1,
+      "message": "Thanks! LGTM with a comment",
+      "revId": "5fe282fe634f5c1f666a229f8345f825b3559cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "740a52df_1af2b6ed",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-25T15:19:18Z",
+      "side": 1,
+      "message": "Since this method is public, it could be called multiple times. Would we end up with multiple adorners in this case? Maybe it would be more prudent to handle this similar to icons and perform a replacement if already set.",
+      "range": {
+        "startLine": 600,
+        "startChar": 6,
+        "endLine": 600,
+        "endChar": 39
+      },
+      "revId": "5fe282fe634f5c1f666a229f8345f825b3559cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
