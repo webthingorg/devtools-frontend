@@ -2643,7 +2643,6 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
       this.displayedTypes.add(s);
     }
     this.update();
-    this.updateSelectedTypesCount();
   }
 
   private update(): void {
@@ -2651,6 +2650,8 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
       this.displayedTypes = new Set();
       this.displayedTypes.add(DropDownTypesUI.ALL_TYPES);
     }
+    this.updateSelectedTypesCount();
+    this.updateLabel();
   }
 
   updateSelectedTypesCount(): void {
@@ -2659,6 +2660,23 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
       this.typesCountAdorner.classList.remove('hidden');
     } else {
       this.typesCountAdorner.classList.add('hidden');
+    }
+  }
+
+  updateLabel(): void {
+    if (!this.displayedTypes.has(DropDownTypesUI.ALL_TYPES)) {
+      // show up to two last selected types
+      const twoLastSelected = Array.from(this.displayedTypes).slice(-2).reverse();
+      const shortNames =
+          twoLastSelected.map(type => Common.ResourceType.ResourceCategory.categoryByTitle(type)?.shortTitle());
+      let newLabel = shortNames.join(', ');
+
+      if (this.displayedTypes.size > 2) {
+        newLabel += '...';
+      }
+      this.dropDownButton.setText(newLabel);
+    } else {
+      this.dropDownButton.setText(i18nString(UIStrings.requestTypes));
     }
   }
 
