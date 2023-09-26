@@ -50,6 +50,91 @@
       "message": "Hello, I have finished the CL for GSoC \u002723,  but because ChangHao is OOO, I have invited Ergun as a proxy to review the CL.",
       "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "829e8e9b_0e7916f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T10:25:12Z",
+      "side": 1,
+      "message": "Overall, I think this makes sense to me. Only thing maybe we can improve is, currently, the experience is:\n* I see a media tag in Elements panel\n* Click on the Adorner to jump to the Media panel\n\nI expected the player related to the element to be captured and focused.\n\nHowever, there isn\u0027t any players captured so one needs to use refresh. Re-adding Changhao for a second eye :)",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd5b4f1_f946056a",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T10:25:12Z",
+      "side": 1,
+      "message": "(nit): Can we use `playerId` with camel case without special cases?",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f965f8_4da063c2",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T10:25:12Z",
+      "side": 1,
+      "message": "(nit): I think \"View element\" in Media panel might be misleading since we won\u0027t automatically capture and focus on the element in the media panel. So, let\u0027s rename this to \"Jump to Media panel\", WDYT?",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fed6093_b510425e",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 2188,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T10:25:12Z",
+      "side": 1,
+      "message": "As far as I understand, we\u0027re setting a `playerID` for media nodes and then using this `playerID` as a boolean to decide whether to add media adorner or not.\n\nInstead of that, can we remove `playerID` from `DOMModel` and add a new method called `isMedia` and use it here to decide whether to push adorner media or not?\n\nWDYT?",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421a9a09_5e36b627",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T10:25:12Z",
+      "side": 1,
+      "message": "(nit): Let\u0027s rename this to \"displays media adorner for video and audio elements\".",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
