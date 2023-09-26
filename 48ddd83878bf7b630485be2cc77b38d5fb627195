@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb4ae8a_e2aa6abe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-26T15:03:41Z",
+      "side": 1,
+      "message": "It will be nice to add some test, for the full time range and a small one\nyou can use `front_end/ui/components/docs/performance_panel/overview.html`, and for select a range you can check `interactions_track_test.ts`",
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "129109e0_d993ebf0",
+        "filename": "front_end/ui/legacy/components/perf_ui/OverviewGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-26T15:03:41Z",
+      "side": 1,
+      "message": "can we move this to CSS?",
+      "range": {
+        "startLine": 179,
+        "startChar": 4,
+        "endLine": 179,
+        "endChar": 53
+      },
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ccfd3e1_c599b542",
+        "filename": "front_end/ui/legacy/components/perf_ui/overviewGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-26T15:03:41Z",
+      "side": 1,
+      "message": "Is this number from Figma? can you add a screenshot to the bug and add a comment link to the screenshot?",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
