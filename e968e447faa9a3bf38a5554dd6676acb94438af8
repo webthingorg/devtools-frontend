@@ -16,6 +16,46 @@
       "message": "Wolfgang, could you please take a look?",
       "revId": "e968e447faa9a3bf38a5554dd6676acb94438af8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "491d480b_db9035d5",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2669,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-26T09:30:47Z",
+      "side": 1,
+      "message": "My gut feeling would be to use the first 2 entries in `displayedTypes`. Vatikaa likes your approach because it ensures that when users make changes, they\u0027ll get a visual confirmation.",
+      "revId": "e968e447faa9a3bf38a5554dd6676acb94438af8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceef1c9a_71df9585",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2675,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-26T09:30:47Z",
+      "side": 1,
+      "message": "We might want to use localize this, something like \u0027{PH1}, {PH2},...\u0027. I\u0027m not sure whether \u0027...\u0027 is used in every language und using UIStrings helps with right-to-left languages.",
+      "range": {
+        "startLine": 2675,
+        "startChar": 8,
+        "endLine": 2675,
+        "endChar": 26
+      },
+      "revId": "e968e447faa9a3bf38a5554dd6676acb94438af8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
