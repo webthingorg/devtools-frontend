@@ -1573,6 +1573,21 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     return this.#blockedResponseCookiesInternal;
   }
 
+  nonBlockedResponseCookies(): Cookie[] {
+    const blockedCookieLines: (string|null)[] =
+        this.blockedResponseCookies().map(blockedCookie => blockedCookie.cookieLine);
+    const responseCookies = this.responseCookies.filter(cookie => {
+      // remove the regular cookies that would overlap with blocked cookies
+      const index = blockedCookieLines.indexOf(cookie.getCookieLine());
+      if (index !== -1) {
+        blockedCookieLines[index] = null;
+        return false;
+      }
+      return true;
+    });
+    return responseCookies;
+  }
+
   responseCookiesPartitionKey(): string|null {
     return this.#responseCookiesPartitionKey;
   }
