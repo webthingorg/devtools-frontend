@@ -38,7 +38,7 @@ import {
   stopRecording,
 } from './helpers.js';
 
-describe('Recorder', function() {
+describe.only('Recorder', function() {
   if (this.timeout() !== 0) {
     this.timeout(5000);
   }
@@ -89,6 +89,7 @@ describe('Recorder', function() {
       assert.strictEqual(step.type, 'click');
       assert.isTrue('duration' in step && step.duration && step.duration > 350);
     }
+    assert(false);
   });
 
   it('should capture non-primary clicks and double clicks', async () => {
