@@ -4,21 +4,23 @@
 
 import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
+import {NetworkRequest} from '../../../../core/sdk/NetworkRequest.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
+import * as Protocol from '../../../../generated/protocol.js';
+import * as Logs from '../../../../models/logs/logs.js';
 import * as DataGrid from '../../../../ui/components/data_grid/data_grid.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LegacyWrapper from '../../../../ui/components/legacy_wrapper/legacy_wrapper.js';
-import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
-
-import type * as Platform from '../../../../core/platform/platform.js';
+import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 import type * as UI from '../../../../ui/legacy/legacy.js';
-import type * as Protocol from '../../../../generated/protocol.js';
-
-import * as PreloadingString from './PreloadingString.js';
+import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
+import {NetworkRequestId} from '../../../network/forward/NetworkRequestId.js';
 
 import preloadingGridStyles from './preloadingGrid.css.js';
+import * as PreloadingString from './PreloadingString.js';
 
 const UIStrings = {
   /**
@@ -39,9 +41,12 @@ export const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const {render, html} = LitHtml;
 
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
+
 export interface PreloadingGridData {
   rows: PreloadingGridRow[];
   pageURL: Platform.DevToolsPath.UrlString;
+  requestResolver?: Logs.RequestResolver.RequestResolver;
 }
 
 export interface PreloadingGridRow {
@@ -67,52 +72,68 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
     this.#render();
   }
 
-  #render(): void {
-    if (this.#data === null) {
-      return;
-    }
+  async #render(): Promise<void> {
+    await coordinator.write('RuleSetDetailsView render', () => {
+      if (this.#data === null) {
+        return;
+      }
 
-    const reportsGridData: DataGrid.DataGridController.DataGridControllerData = {
-      columns: [
-        {
-          id: 'url',
-          title: i18n.i18n.lockedString('URL'),
-          widthWeighting: 40,
-          hideable: false,
-          visible: true,
-          sortable: true,
-        },
-        {
-          id: 'action',
-          title: i18nString(UIStrings.action),
-          widthWeighting: 15,
-          hideable: false,
-          visible: true,
-          sortable: true,
-        },
-        {
-          id: 'ruleSet',
-          title: i18nString(UIStrings.ruleSet),
-          widthWeighting: 20,
-          hideable: false,
-          visible: true,
-          sortable: true,
-        },
-        {
-          id: 'status',
-          title: i18nString(UIStrings.status),
-          widthWeighting: 40,
-          hideable: false,
-          visible: true,
-          sortable: true,
-        },
-      ],
-      rows: this.#buildReportRows(),
-      striped: true,
-    };
+      const requestResolver = this.#data.requestResolver || new Logs.RequestResolver.RequestResolver();
+      let requests = new Map<NetworkRequestId, NetworkRequest>();
+      for (const requestId: NetworkRequestId in
+           this.#data.rows
+               .map(row => {
+                 if (row.attempt.action == Protocol.Preload.SpeculationAction.Prefetch) {
+                   return row.attempt.requestId;
+                 } else {
+                   return null;
+                 }
+               })
+               .filter(row => !!row)) {
+        requests.set(requestId, await requestResolver.waitFor(requestId));
+      }
 
-    // Disabled until https://crbug.com/1079231 is fixed.
-    // clang-format off
+      const reportsGridData: DataGrid.DataGridController.DataGridControllerData = {
+        columns: [
+          {
+            id: 'url',
+            title: i18n.i18n.lockedString('URL'),
+            widthWeighting: 40,
+            hideable: false,
+            visible: true,
+            sortable: true,
+          },
+          {
+            id: 'action',
+            title: i18nString(UIStrings.action),
+            widthWeighting: 15,
+            hideable: false,
+            visible: true,
+            sortable: true,
+          },
+          {
+            id: 'ruleSet',
+            title: i18nString(UIStrings.ruleSet),
+            widthWeighting: 20,
+            hideable: false,
+            visible: true,
+            sortable: true,
+          },
+          {
+            id: 'status',
+            title: i18nString(UIStrings.status),
+            widthWeighting: 40,
+            hideable: false,
+            visible: true,
+            sortable: true,
+          },
+        ],
+        rows: this.#buildReportRows(),
+        striped: true,
+      };
+
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
     render(html`
       <div class="preloading-container">
         <${DataGrid.DataGridController.DataGridController.litTagName} .data=${
@@ -120,11 +141,13 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
         </${DataGrid.DataGridController.DataGridController.litTagName}>
       </div>
     `, this.#shadow, {host: this});
-    // clang-format on
+      // clang-format on
+    });
   }
 
-  #buildReportRows(): DataGrid.DataGridUtils.Row[] {
-    function statusRenderer(statusString: string, status: SDK.PreloadingModel.PreloadingStatus): LitHtml.LitTemplate {
+  #buildReportRows(requests: Map<NetworkRequestId, NetworkRequest>): DataGrid.DataGridUtils.Row[] {
+    function statusRenderer(
+        statusString: string, statusstatus: SDK.PreloadingModel.PreloadingStatus): LitHtml.LitTemplate {
       if (status !== SDK.PreloadingModel.PreloadingStatus.Failure) {
         return LitHtml.html`<div>${statusString}</div>`;
       }
@@ -158,6 +181,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
     assertNotNullOrUndefined(this.#data);
 
     const pageURL = this.#data.pageURL;
+    const requestResolver = this.#data.requestResolver;
     const securityOrigin = pageURL === '' ? null : (new Common.ParsedURL.ParsedURL(pageURL)).securityOrigin();
     return this.#data.rows.map(
         row => ({
@@ -175,7 +199,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
             },
             {
               columnId: 'status',
-              value: PreloadingString.composedStatus(row.attempt),
+              value: showHttpStatus(row.attempt, requestResolver),
               renderer: status => statusRenderer(status as string, row.attempt.status),
             },
           ],
@@ -194,5 +218,23 @@ ComponentHelpers.CustomElements.defineComponent('devtools-resources-preloading-g
 declare global {
   interface HTMLElementTagNameMap {
     'devtools-resources-preloading-grid': PreloadingGrid;
+  }
+}
+
+async function showHttpStatus(
+    attempt: SDK.PreloadingModel.PreloadingAttempt, requestResolver?: Logs.RequestResolver.RequestResolver): Promise <
+    string {
+  // const requestResolver = new Logs.RequestResolver.RequestResolver();
+  if (attempt.action == Protocol.Preload.SpeculationAction.Prefetch && attempt.requestId != null) {
+    const requestId = attempt.requestId;
+    const request = await (requestResolver || new Logs.RequestResolver.RequestResolver()).waitFor(requestId);
+    if (request == null) {
+      return PreloadingString.composedStatus(attempt, null);
+    }
+    const StatusCode = request.statusCode;
+    const composedStatus = PreloadingString.composedStatus(attempt, StatusCode);
+    return composedStatus;
+  } else {
+    return PreloadingString.composedStatus(attempt, null);
   }
 }
