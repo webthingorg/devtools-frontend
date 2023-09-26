@@ -7,6 +7,7 @@ import * as Mocha from 'mocha';
 import * as Path from 'path';
 
 import {getBrowserAndPages} from '../conductor/puppeteer-state.js';
+import {ScreenshotError} from '../shared/screenshots.js';
 
 import {AsyncScope} from './async-scope.js';
 import {getEnvVar} from './config.js';
@@ -20,7 +21,7 @@ function htmlEscape(raw: string) {
   return raw.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 }
 
-export async function takeScreenshots(testName: string) {
+export async function takeScreenshots(testName: string): Promise<[string?, string?]> {
   try {
     const {target, frontend} = getBrowserAndPages();
     const opts = {
@@ -44,13 +45,15 @@ export async function takeScreenshots(testName: string) {
         console.error(`Error saving to file "${screenshotFile}": `, err);
       }
     } else {
-      console.error('Target page screenshot (copy the next line and open in the browser):');
-      console.error(prefix + targetScreenshot);
-      console.error('Frontend screenshot (copy the next line and open in the browser):');
-      console.error(prefix + frontendScreenshot);
+      console.error(
+          'Screenshots were captured. Make sure you run the tests with *-rdb ' +
+          'scripts and check the report generated at the end of the run to ' +
+          'see the screenshots.');
     }
+    return [targetScreenshot, frontendScreenshot];
   } catch (err) {
     console.error('Error taking a screenshot', err);
+    return [];
   }
 }
 
@@ -157,7 +160,8 @@ async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err
     }
   }
   if (err && !getEnvVar('DEBUG_TEST')) {
-    await takeScreenshots(this.fullTitle());
+    const [targetScreenshot, frontendScreenshot] = await takeScreenshots(this.fullTitle());
+    err = ScreenshotError.fromBase64Images(err, targetScreenshot, frontendScreenshot);
   }
   if (done) {
     // This workaround is needed to allow timeoutHook to be async.
@@ -250,9 +254,11 @@ function wrapMochaCall(
     if (callback.length === 0) {
       async function onError(this: unknown, err?: unknown) {
         if (err && !getEnvVar('DEBUG_TEST')) {
-          await takeScreenshots(name);
+          const [targetScreenshot, frontendScreenshot] = await takeScreenshots(name);
+          done.call(this, ScreenshotError.fromBase64Images(err, targetScreenshot, frontendScreenshot));
+        } else {
+          done.call(this, err);
         }
-        done.call(this, err);
       }
       (callback as Mocha.AsyncFunc).bind(this)().then(onError, onError);
     } else {
