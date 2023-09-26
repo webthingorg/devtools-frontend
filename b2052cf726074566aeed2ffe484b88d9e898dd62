@@ -16,6 +16,57 @@
       "message": "PTAL!",
       "revId": "b2052cf726074566aeed2ffe484b88d9e898dd62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0902b86b_3af8dd04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T09:16:04Z",
+      "side": 1,
+      "message": "LGTM with two comments :)",
+      "revId": "b2052cf726074566aeed2ffe484b88d9e898dd62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6fe65c_c2aeae9b",
+        "filename": "front_end/models/issues_manager/PropertyRuleIssue.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T09:16:04Z",
+      "side": 1,
+      "message": "Copy paste error I think, can you update this? :)",
+      "revId": "b2052cf726074566aeed2ffe484b88d9e898dd62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0cdb69e_199266c6",
+        "filename": "test/unittests/front_end/panels/issues/PropertyRuleIssue_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-26T09:16:04Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand why this test is related to this change. It seems like this is a responsibility of the `IssueAggregator`, why is this test related to PropertyRuleIssue?",
+      "revId": "b2052cf726074566aeed2ffe484b88d9e898dd62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
