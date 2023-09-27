@@ -16,6 +16,23 @@
       "message": "PTAL\nThanks!",
       "revId": "81b233715b5d3aafe3ee74b3dcc66c1fe7e14642",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72208e5_094ac5d7",
+        "filename": "package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-27T05:54:31Z",
+      "side": 1,
+      "message": "Does it make sense to add rdb commands to the package json? Will we be able to run rdb locally? perhaps alternatively, the infrastructure code could wrap regular commands into rdb invocations?",
+      "revId": "81b233715b5d3aafe3ee74b3dcc66c1fe7e14642",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
