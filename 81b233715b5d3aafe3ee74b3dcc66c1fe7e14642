@@ -86,6 +86,24 @@
       "message": "I\u0027d slightly prefer an object with named properties instead of an array here",
       "revId": "81b233715b5d3aafe3ee74b3dcc66c1fe7e14642",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dea21699_2e4c735f",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-27T08:56:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf84e265_302b51ee",
+      "revId": "81b233715b5d3aafe3ee74b3dcc66c1fe7e14642",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
