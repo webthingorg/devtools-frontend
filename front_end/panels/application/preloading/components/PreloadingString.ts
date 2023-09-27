@@ -6,6 +6,7 @@ import type * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import type * as Platform from '../../../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
+import * as NetworkManager from '../../../../core/sdk/NetworkManager.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
@@ -695,7 +696,7 @@ export function status(status: SDK.PreloadingModel.PreloadingStatus): string {
   }
 }
 
-export function composedStatus(attempt: SDK.PreloadingModel.PreloadingAttempt): string {
+export function composedStatus(attempt: SDK.PreloadingModel.PreloadingAttempt, statusCode: number|null): string {
   const short = status(attempt.status);
 
   if (attempt.status !== SDK.PreloadingModel.PreloadingStatus.Failure) {
@@ -705,6 +706,9 @@ export function composedStatus(attempt: SDK.PreloadingModel.PreloadingAttempt): 
   switch (attempt.action) {
     case Protocol.Preload.SpeculationAction.Prefetch: {
       const detail = prefetchFailureReason(attempt) ?? i18n.i18n.lockedString('Internal error');
+      if (detail == PrefetchReasonDescription['PrefetchFailedNon2XX'].name() && attempt.requestId != null) {
+        return short + ' - ' + detail + ' (' + statusCode + ')';
+      }
       return short + ' - ' + detail;
     }
     case Protocol.Preload.SpeculationAction.Prerender: {
