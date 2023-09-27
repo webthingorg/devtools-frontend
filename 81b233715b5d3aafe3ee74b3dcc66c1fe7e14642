@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc60045c_af796bb9",
+        "filename": "package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-27T08:50:11Z",
+      "side": 1,
+      "message": "rdb can be installed locally, if not already available, offers report similar to the CI ones. \n\ngo/resultdb/index.md?cl\u003dhead#cli",
+      "parentUuid": "d72208e5_094ac5d7",
+      "revId": "81b233715b5d3aafe3ee74b3dcc66c1fe7e14642",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf84e265_302b51ee",
         "filename": "test/shared/mocha-extensions.ts",
         "patchSetId": 6
