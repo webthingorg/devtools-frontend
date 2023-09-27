@@ -166,7 +166,7 @@ const ResultsDBReporter = function(baseReporterDecorator, formatError, config) {
 
     const testResult = {testId, duration, status, expected, summaryHtml};
     if (status !== 'SKIP') {
-      ResultsDb.recordTestResult(testResult);
+      ResultsDb.sendTestResult(testResult);
     }
   };
   this.specSuccess = specComplete;
