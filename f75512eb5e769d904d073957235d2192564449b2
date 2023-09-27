@@ -104,6 +104,30 @@
       },
       "revId": "f75512eb5e769d904d073957235d2192564449b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36ca34eb_3ea30f94",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-27T11:52:40Z",
+      "side": 1,
+      "message": "On second thought, we cannot be sure that DevTools does not receive duplicate cookies from the backend, so I\u0027m reverting to the previous implementation which can handle this case and adding a test for it.",
+      "parentUuid": "85e7edc2_1ed2f0f0",
+      "range": {
+        "startLine": 1577,
+        "startChar": 0,
+        "endLine": 1588,
+        "endChar": 27
+      },
+      "revId": "f75512eb5e769d904d073957235d2192564449b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
