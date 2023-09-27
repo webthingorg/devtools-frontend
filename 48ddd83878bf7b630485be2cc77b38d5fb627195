@@ -128,6 +128,30 @@
       },
       "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264f4319_43f8dc6f",
+        "filename": "front_end/ui/legacy/components/perf_ui/overviewGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-27T08:51:53Z",
+      "side": 1,
+      "message": "I have added both screenshot before and after to the bug",
+      "parentUuid": "66b37334_e7d1ef1a",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
