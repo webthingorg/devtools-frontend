@@ -75,7 +75,17 @@ export class BreadcrumbsUI extends HTMLElement {
       <div class="breadcrumbs">
       ${flattenBreadcrumbs(this.#breadcrumb).map((breadcrumb, index) => this.#renderElement(breadcrumb, index))}
       </div>`;
-    render(output, this.#shadow, {host: this});
+      render(output, this.#shadow, {host: this});
+      this.shadowRoot?.querySelector('.last-breadcrumb')?.scrollIntoView({ block: 'end', behavior: 'smooth' });
+
+      // this line above does not scroll to the very end. Event the code below that cas additional width added does not scroll to the very end
+      // const targetScrollPosition = this.shadowRoot?.querySelector('.breadcrumbs')?.getBoundingClientRect().right;
+      // const withPadding = (targetScrollPosition) ? targetScrollPosition + 100 : 0;
+      // this.shadowRoot?.querySelector('.breadcrumbs')?.scrollTo({
+      //   left: withPadding,
+      //   behavior: 'smooth',
+      // });
+
   }
 }
 
