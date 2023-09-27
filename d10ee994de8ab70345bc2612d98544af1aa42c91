@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cab163cf_5239a73f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-27T09:31:16Z",
+      "side": 1,
+      "message": "LGTM\n\n(fyi, CQ errors seem unrelated to your CL, we\u0027re currently experiencing infra issues)",
+      "revId": "d10ee994de8ab70345bc2612d98544af1aa42c91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
