@@ -152,6 +152,30 @@
       },
       "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36675837_4c78d1f4",
+        "filename": "front_end/ui/legacy/components/perf_ui/overviewGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-09-27T11:26:12Z",
+      "side": 1,
+      "message": "The add a comment, mainly says the number is chosen by debugging",
+      "parentUuid": "264f4319_43f8dc6f",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
