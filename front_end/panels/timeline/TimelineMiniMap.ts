@@ -52,14 +52,6 @@ export class TimelineMiniMap extends
     this.#overviewComponent.show(this.element);
     // Push the event up into the parent component so the panel knows when the window is changed.
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
-      // Create first breadcrumb from the initial full window
-      if (this.#breadcrumbs === null) {
-        this.addBreadcrumb(this.breadcrumbWindowBounds({
-          startTime: TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
-          endTime: TraceEngine.Types.Timing.MilliSeconds(event.data.endTime),
-        }));
-      }
-
       if (this.#breadcrumbs) {
         this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, {
           ...event.data,
@@ -72,6 +64,7 @@ export class TimelineMiniMap extends
         });
       }
     });
+    this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {
@@ -216,5 +209,12 @@ export class TimelineMiniMap extends
       this.#controls.push(new TimelineEventOverviewMemory(data.traceParsedData));
     }
     this.#overviewComponent.setOverviewControls(this.#controls);
+
+    // Create first breadcrumb from the initial full window
+    this.#breadcrumbs = null;
+    this.addBreadcrumb(this.breadcrumbWindowBounds({
+      startTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.minimumBoundary()),
+      endTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.maximumBoundary()),
+    }));
   }
 }
