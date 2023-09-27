@@ -75,7 +75,8 @@ export class BreadcrumbsUI extends HTMLElement {
       <div class="breadcrumbs">
       ${flattenBreadcrumbs(this.#breadcrumb).map((breadcrumb, index) => this.#renderElement(breadcrumb, index))}
       </div>`;
-    render(output, this.#shadow, {host: this});
+      render(output, this.#shadow, {host: this});
+      this.shadowRoot?.querySelector('.last-breadcrumb')?.scrollIntoView({ block: 'end', behavior: 'smooth' });
   }
 }
 

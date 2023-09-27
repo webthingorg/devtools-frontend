@@ -157,6 +157,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   constructor(parentElement: Element, dividersLabelBarElement?: Element, calculator?: Calculator) {
     super();
     this.parentElement = parentElement;
+    this.parentElement.classList.add('parent-element');
     UI.ARIAUtils.markAsGroup(this.parentElement);
     this.calculator = calculator;
 
@@ -221,6 +222,19 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     });
 
     this.breadcrumbsEnabled = true;
+
+    this.parentElement.addEventListener('mouseover', () => {
+      if (this.windowLeft !== undefined && this.windowLeft <= 0 && this.windowRight !== undefined &&
+          this.windowRight >= 1) {
+        this.breadcrumbButtonContainerElement.style.visibility = 'hidden';
+      } else {
+        this.breadcrumbButtonContainerElement.style.visibility = 'visible';
+      }
+    });
+
+    this.parentElement.addEventListener('mouseout', () => {
+      this.breadcrumbButtonContainerElement.style.visibility = 'hidden';
+    });
   }
 
   private onRightResizeElementFocused(): void {
@@ -257,12 +271,14 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   }
 
   private leftResizeElementDragging(event: Event): void {
+    this.breadcrumbButtonContainerElement.style.visibility = 'visible';
     const mouseEvent = (event as MouseEvent);
     this.resizeWindowLeft(mouseEvent.pageX - (this.resizerParentOffsetLeft || 0));
     event.preventDefault();
   }
 
   private rightResizeElementDragging(event: Event): void {
+    this.breadcrumbButtonContainerElement.style.visibility = 'visible';
     const mouseEvent = (event as MouseEvent);
     this.resizeWindowRight(mouseEvent.pageX - (this.resizerParentOffsetLeft || 0));
     event.preventDefault();
@@ -365,6 +381,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   }
 
   private windowDragging(event: Event): void {
+    this.breadcrumbButtonContainerElement.style.visibility = 'visible';
     const mouseEvent = (event as MouseEvent);
     mouseEvent.preventDefault();
     let delta: number = (mouseEvent.pageX - this.dragStartPoint) / this.parentElement.clientWidth;
@@ -508,11 +525,15 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.leftCurtainElement.style.width = leftResizerPercLeftOffsetString;
     this.rightCurtainElement.style.width = rightResizerPercRightOffset + '%';
 
-    this.breadcrumbButtonContainerElement.style.marginLeft = leftResizerPercLeftOffsetString;
-    this.breadcrumbButtonContainerElement.style.marginRight = (100 - rightResizerPercLeftOffset) + '%';
+    this.breadcrumbButtonContainerElement.style.marginLeft = (leftResizerPercLeftOffset > 0) ? leftResizerPercLeftOffset + '%' : "0%";
+    this.breadcrumbButtonContainerElement.style.marginRight = ((100 - rightResizerPercLeftOffset) > 0) ? (100 - rightResizerPercLeftOffset) + '%' : "0%";
+
+    // console.log("left ", this.breadcrumbButtonContainerElement.style.marginLeft);
+    // console.log("right ", this.breadcrumbButtonContainerElement.style.marginRight);
 
     if (this.curtainsRange) {
-      this.curtainsRange.textContent = (this.getRawSliderValue(false) - this.getRawSliderValue(true)).toFixed(0) + 'ms';
+      
+      this.curtainsRange.textContent = this.getRange().toFixed(0) + 'ms';
     }
 
     this.updateResizeElementPositionValue(leftResizerPercLeftOffset, rightResizerPercLeftOffset);
@@ -522,6 +543,18 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
       this.updateResizeElementPercentageLabels(leftResizerPercLeftOffsetString, rightResizerPercLeftOffsetString);
     }
   }
+
+  private getRange(): number {
+    if (!this.calculator) {
+      throw new Error('No calculator to calculate boundaries');
+    }
+
+    const minimumValue = this.calculator.minimumBoundary();
+    const valueSpan = this.calculator.maximumBoundary() - minimumValue;
+    
+    return (minimumValue + valueSpan * (this.windowRight)) - (minimumValue + valueSpan * (this.windowLeft));
+  }
+
 
   private setWindowPosition(start: number|null, end: number|null): void {
     const clientWidth = this.parentElement.clientWidth;
