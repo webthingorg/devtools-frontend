@@ -36,7 +36,6 @@ group("front_end") {
 group("legacy_entrypoints") {
   public_deps = [
     "core/sdk:legacy",
-    "models/bindings:legacy",
     "models/breakpoints:legacy",
     "models/extensions:legacy",
     "models/formatter:legacy",
@@ -53,7 +52,6 @@ group("legacy_entrypoints") {
     "panels/changes:legacy",
     "panels/console:legacy",
     "panels/coverage:legacy",
-    "panels/elements:legacy",
     "panels/emulation:legacy",
     "panels/layer_viewer:legacy",
     "panels/lighthouse:legacy",
