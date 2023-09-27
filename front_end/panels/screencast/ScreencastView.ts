@@ -156,13 +156,12 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
     this.canvasElement.addEventListener('mousedown', this.handleMouseEvent.bind(this), false);
     this.canvasElement.addEventListener('mouseup', this.handleMouseEvent.bind(this), false);
     this.canvasElement.addEventListener('mousemove', this.handleMouseEvent.bind(this), false);
-    this.canvasElement.addEventListener('mousewheel', this.handleMouseEvent.bind(this), false);
+    this.canvasElement.addEventListener('wheel', this.handleWheelEvent.bind(this), false);
     this.canvasElement.addEventListener('click', this.handleMouseEvent.bind(this), false);
     this.canvasElement.addEventListener('contextmenu', this.handleContextMenuEvent.bind(this), false);
     this.canvasElement.addEventListener('keydown', this.handleKeyEvent.bind(this), false);
     this.canvasElement.addEventListener('keyup', this.handleKeyEvent.bind(this), false);
     this.canvasElement.addEventListener('keypress', this.handleKeyEvent.bind(this), false);
-    this.canvasElement.addEventListener('blur', this.handleBlurEvent.bind(this), false);
     this.titleElement =
         this.canvasContainerElement.createChild('div', 'screencast-element-title monospace hidden') as HTMLElement;
     this.tagNameElement = this.titleElement.createChild('span', 'screencast-tag-name') as HTMLElement;
@@ -299,19 +298,17 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
     }
   }
 
-  private async handleMouseEvent(event: Event): Promise<void> {
+  private async handleMouseEvent(event: MouseEvent): Promise<void> {
     if (this.isGlassPaneActive()) {
       event.consume();
       return;
     }
-
     if (!this.pageScaleFactor || !this.domModel) {
       return;
     }
-
-    if (!this.inspectModeConfig || event.type === 'mousewheel') {
+    if (!this.inspectModeConfig) {
       if (this.inputModel) {
-        this.inputModel.emitTouchFromMouseEvent(event, this.screenOffsetTop, this.screenZoom);
+        this.inputModel.emitMouseEvent(event, this.screenOffsetTop, this.screenZoom);
       }
       event.preventDefault();
       if (event.type === 'mousedown') {
@@ -321,12 +318,10 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
     }
 
     const position = this.convertIntoScreenSpace(event as MouseEvent);
-
     const node = await this.domModel.nodeForLocation(
         Math.floor(position.x / this.pageScaleFactor + this.scrollOffsetX),
         Math.floor(position.y / this.pageScaleFactor + this.scrollOffsetY),
         Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get());
-
     if (!node) {
       return;
     }
@@ -339,7 +334,21 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
     }
   }
 
-  private handleKeyEvent(event: Event): void {
+  private async handleWheelEvent(event: WheelEvent): Promise<void> {
+    if (this.isGlassPaneActive()) {
+      event.consume();
+      return;
+    }
+    if (!this.pageScaleFactor || !this.domModel) {
+      return;
+    }
+    if (this.inputModel) {
+      this.inputModel.emitWheelEvent(event, this.screenOffsetTop, this.screenZoom);
+    }
+    event.preventDefault();
+  }
+
+  private handleKeyEvent(event: KeyboardEvent): void {
     if (this.isGlassPaneActive()) {
       event.consume();
       return;
@@ -361,12 +370,6 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
 
   private handleContextMenuEvent(event: Event): void {
     event.consume(true);
-  }
-
-  private handleBlurEvent(_event: Event): void {
-    if (this.inputModel) {
-      this.inputModel.cancelTouch();
-    }
   }
 
   private convertIntoScreenSpace(event: MouseEvent): Point {
