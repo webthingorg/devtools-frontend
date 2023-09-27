@@ -176,10 +176,16 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     ThemeSupport.ThemeSupport.instance().appendStyle(this.parentElement, overviewGridStyles);
 
     this.leftResizeElement = parentElement.createChild('div', 'overview-grid-window-resizer') as HTMLElement;
+    this.leftResizeElement.style.marginLeft = '-7px';
+    this.leftResizeElement.createChild('div', 'overview-grid-window-resizer-vertical-bar') as HTMLElement;
+    this.leftResizeElement.createChild('div', 'overview-grid-window-resizer-vertical-bar') as HTMLElement;
     UI.UIUtils.installDragHandle(
         this.leftResizeElement, this.resizerElementStartDragging.bind(this), this.leftResizeElementDragging.bind(this),
         null, 'ew-resize');
     this.rightResizeElement = (parentElement.createChild('div', 'overview-grid-window-resizer') as HTMLElement);
+    this.rightResizeElement.style.marginLeft = '-5px';
+    this.rightResizeElement.createChild('div', 'overview-grid-window-resizer-vertical-bar') as HTMLElement;
+    this.rightResizeElement.createChild('div', 'overview-grid-window-resizer-vertical-bar') as HTMLElement;
     UI.UIUtils.installDragHandle(
         this.rightResizeElement, this.resizerElementStartDragging.bind(this),
         this.rightResizeElementDragging.bind(this), null, 'ew-resize');
