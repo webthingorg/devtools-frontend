@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../bindings/bindings.js';
 import * as Formatter from '../formatter/formatter.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import type * as Workspace from '../workspace/workspace.js';
-import * as Protocol from '../../generated/protocol.js';
-import * as Platform from '../../core/platform/platform.js';
 
 import {ScopeTreeCache} from './ScopeTreeCache.js';
 
@@ -391,8 +391,222 @@ export const resolveScopeChain =
       return scopeChain;
     }
   }
+
+  // Work in progress - let us build the scope chain from the source maps scope/inline info.
+  // See if the source map has scope info.
+  const script = callFrame.script;
+  const sourceMap = script.debuggerModel.sourceMapManager().sourceMapForClient(script);
+  if (!sourceMap) {
+    return callFrame.scopeChain();
+  }
+
+  const rawLocation = callFrame.location();
+  const {lineNumber, columnNumber} = script.rawLocationToRelativeLocation(rawLocation);
+  let sourceURL: Platform.DevToolsPath.UrlString;
+  let sourceLineNumber: number;
+  let sourceColumnNumber: number;
+  let inlineEntry: SDK.SourceMap.InlinedFunction|null;
+
+  if (rawLocation.inlineFrameIndex > 0) {
+    const inlineFunctions: SDK.SourceMap.InlinedFunction[] = sourceMap.getInliningStack(lineNumber, columnNumber);
+    if (inlineFunctions.length < rawLocation.inlineFrameIndex) {
+      return null;
+    }
+
+    inlineEntry = inlineFunctions[rawLocation.inlineFrameIndex - 1];
+    sourceURL = inlineEntry.sourceFile;
+    sourceLineNumber = inlineEntry.sourceLine;
+    sourceColumnNumber = inlineEntry.sourceColumn;
+  } else {
+    const entry = sourceMap.findEntry(lineNumber, columnNumber);
+    if (!entry || !entry.sourceURL) {
+      return null;
+    }
+    inlineEntry = null;
+    sourceURL = entry.sourceURL;
+    sourceLineNumber = entry.sourceLineNumber;
+    sourceColumnNumber = entry.sourceColumnNumber;
+  }
+
+  // Find the scope chain.
+  const scopeEntry = sourceMap.findScopeEntry(sourceURL, sourceLineNumber, sourceColumnNumber);
+  // TODO(jarin) Let us construct the scope chain from the source map scope chain entry.
+  scopeEntry;
+
   return callFrame.scopeChain();
 };
+
+// Scope that was generated from source map scope info.
+export class SourceMapScope implements SDK.DebuggerModel.ScopeChainEntry {
+  #callFrameInternal: SDK.DebuggerModel.CallFrame;
+  #scopeEntry: SDK.SourceMap.ScopeEntry;
+
+  constructor(frame: SDK.DebuggerModel.CallFrame, scopeEntry: SDK.SourceMap.ScopeEntry) {
+    this.#callFrameInternal = frame;
+    this.#scopeEntry = scopeEntry;
+  }
+
+  callFrame(): SDK.DebuggerModel.CallFrame {
+    return this.#callFrameInternal;
+  }
+
+  type(): string {
+    // TODO(jarin) Thread through the correct scope type.
+    return 'source-map-scope';
+  }
+
+  typeName(): string {
+    // TODO(jarin) Thread through the correct scope type name.
+    return 'source-map-scope-type-name';
+  }
+
+  name(): string|undefined {
+    return this.#scopeEntry.scopeName();
+  }
+
+  range(): SDK.DebuggerModel.LocationRange|null {
+    return null;
+  }
+
+  object(): SDK.RemoteObject.RemoteObject {
+    return new SourceMapScopeRemoteObject(this);
+  }
+
+  description(): string {
+    // TODO(jarin) Thread through the correct scope type description.
+    return 'source-map-scope-description';
+  }
+
+  icon(): string|undefined {
+    return undefined;
+  }
+}
+
+export class SourceMapScopeRemoteObject extends SDK.RemoteObject.RemoteObject {
+  private readonly scope: SDK.DebuggerModel.ScopeChainEntry;
+  private readonly object: SDK.RemoteObject.RemoteObject;
+  constructor(scope: SDK.DebuggerModel.ScopeChainEntry) {
+    super();
+    this.scope = scope;
+    this.object = scope.object();
+  }
+
+  override customPreview(): Protocol.Runtime.CustomPreview|null {
+    return this.object.customPreview();
+  }
+
+  override get objectId(): Protocol.Runtime.RemoteObjectId|undefined {
+    return this.object.objectId;
+  }
+
+  override get type(): string {
+    return this.object.type;
+  }
+
+  override get subtype(): string|undefined {
+    return this.object.subtype;
+  }
+
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  override get value(): any {
+    return this.object.value;
+  }
+
+  override get description(): string|undefined {
+    return this.object.description;
+  }
+
+  override get hasChildren(): boolean {
+    // TODO(jarin) Fix up to reflect the variables from the source map!
+    return this.object.hasChildren;
+  }
+
+  override get preview(): Protocol.Runtime.ObjectPreview|undefined {
+    return this.object.preview;
+  }
+
+  override arrayLength(): number {
+    return this.object.arrayLength();
+  }
+
+  override getOwnProperties(generatePreview: boolean): Promise<SDK.RemoteObject.GetPropertiesResult> {
+    return this.object.getOwnProperties(generatePreview);
+  }
+
+  override async getAllProperties(accessorPropertiesOnly: boolean, generatePreview: boolean):
+      Promise<SDK.RemoteObject.GetPropertiesResult> {
+    // TODO(jarin) Fix up to reflect the variables from the source map!
+    const allProperties = await this.object.getAllProperties(accessorPropertiesOnly, generatePreview);
+    const {variableMapping} = await resolveDebuggerScope(this.scope);
+
+    const properties = allProperties.properties;
+    const internalProperties = allProperties.internalProperties;
+    const newProperties = properties?.map(property => {
+      const name = variableMapping.get(property.name);
+      return name !== undefined ? property.cloneWithNewName(name) : property;
+    });
+    return {properties: newProperties ?? [], internalProperties};
+  }
+
+  override async setPropertyValue(argumentName: string|Protocol.Runtime.CallArgument, value: string):
+      Promise<string|undefined> {
+    // TODO(jarin) Fix up to reflect the variables from the source map!
+    const {variableMapping} = await resolveDebuggerScope(this.scope);
+
+    let name;
+    if (typeof argumentName === 'string') {
+      name = argumentName;
+    } else {
+      name = (argumentName.value as string);
+    }
+
+    let actualName: string = name;
+    for (const compiledName of variableMapping.keys()) {
+      if (variableMapping.get(compiledName) === name) {
+        actualName = compiledName;
+        break;
+      }
+    }
+    return this.object.setPropertyValue(actualName, value);
+  }
+
+  override async deleteProperty(name: Protocol.Runtime.CallArgument): Promise<string|undefined> {
+    // TODO(jarin) Fix up to reflect the variables from the source map!
+    return this.object.deleteProperty(name);
+  }
+
+  override callFunction<T>(
+      functionDeclaration: (this: Object, ...arg1: unknown[]) => T,
+      args?: Protocol.Runtime.CallArgument[]): Promise<SDK.RemoteObject.CallFunctionResult> {
+    // TODO(jarin) Fix up to reflect the variables from the source map!
+    return this.object.callFunction(functionDeclaration, args);
+  }
+
+  override callFunctionJSON<T>(
+      functionDeclaration: (this: Object, ...arg1: unknown[]) => T,
+      args?: Protocol.Runtime.CallArgument[]): Promise<T> {
+    // TODO(jarin) Fix up to reflect the variables from the source map!
+    return this.object.callFunctionJSON(functionDeclaration, args);
+  }
+
+  override release(): void {
+    // TODO(jarin) Fix up to reflect the variables from the source map!
+    this.object.release();
+  }
+
+  override debuggerModel(): SDK.DebuggerModel.DebuggerModel {
+    return this.object.debuggerModel();
+  }
+
+  override runtimeModel(): SDK.RuntimeModel.RuntimeModel {
+    return this.object.runtimeModel();
+  }
+
+  override isNode(): boolean {
+    return this.object.isNode();
+  }
+}
 
 /**
  * @returns A mapping from original name -> compiled name. If the orignal name is unavailable (e.g. because the compiled name was
@@ -743,6 +957,61 @@ async function getFunctionNameFromScopeStart(
   }
 
   return name;
+}
+
+export async function resolveDebuggerFrameNameAndInlinees(frame: SDK.DebuggerModel.CallFrame):
+    Promise<{frame: SDK.DebuggerModel.CallFrame, uiLocation?: Workspace.UISourceCode.UILocation}[]> {
+  const result: {frame: SDK.DebuggerModel.CallFrame, uiLocation?: Workspace.UISourceCode.UILocation}[] = [{frame}];
+
+  const location = frame.location();
+  if (!location) {
+    return result;
+  }
+  const script = frame.script;
+  const lineNumber = location.lineNumber;
+  const columnNumber = location.columnNumber;
+
+  const sourceMap = script.debuggerModel.sourceMapManager().sourceMapForClient(script);
+  if (!sourceMap) {
+    return result;
+  }
+
+  const mappingEntry = sourceMap.findEntry(lineNumber, columnNumber);
+  if (!mappingEntry || !mappingEntry.sourceURL) {
+    return result;
+  }
+
+  // Find the function name for the current position.
+  const scopeName =
+      sourceMap.findScopeEntry(mappingEntry.sourceURL, mappingEntry.sourceLineNumber, mappingEntry.sourceColumnNumber)
+          ?.scopeName();
+
+  if (scopeName) {
+    result[0] = {frame: frame.createVirtualCallFrame(0, scopeName)};
+  }
+
+  const inlineFunctions: SDK.SourceMap.InlinedFunction[] = sourceMap.getInliningStack(lineNumber, columnNumber);
+  const workspaceBinding = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
+  for (let i = 0; i < inlineFunctions.length; i++) {
+    // Lookup the function name in the scope info.
+    let inlinedScopeName =
+        sourceMap
+            .findScopeEntry(
+                inlineFunctions[i].sourceFile, inlineFunctions[i].sourceLine, inlineFunctions[i].sourceColumn)
+            ?.scopeName();
+    if (!inlinedScopeName) {
+      inlinedScopeName = `${frame.functionName}\`${i + 1}`;
+    }
+
+    const virtualFrame = frame.createVirtualCallFrame(i + 1, inlinedScopeName);
+    const uiSourceCode = await workspaceBinding.uiSourceCodeForSourceMapSourceURLPromise(
+        frame.debuggerModel, inlineFunctions[i].sourceFile, false /* TODO */);
+    const uiLocation = uiSourceCode.uiLocation(inlineFunctions[i].sourceLine, inlineFunctions[i].sourceColumn);
+
+    result.push({frame: virtualFrame, uiLocation});
+  }
+
+  return result;
 }
 
 export async function resolveDebuggerFrameFunctionName(frame: SDK.DebuggerModel.CallFrame): Promise<string|null> {

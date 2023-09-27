@@ -32,16 +32,15 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
 import type * as Workspace from '../../models/workspace/workspace.js';
-import * as UI from '../../ui/legacy/legacy.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 import callStackSidebarPaneStyles from './callStackSidebarPane.css.js';
-
-import type * as Protocol from '../../generated/protocol.js';
 
 const UIStrings = {
   /**
@@ -226,11 +225,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     const itemPromises = [];
     const uniqueWarnings: Set<string> = new Set();
     for (const frame of details.callFrames) {
-      const itemPromise =
-          Item.createForDebuggerCallFrame(frame, this.locationPool, this.refreshItem.bind(this)).then(item => {
-            itemToCallFrame.set(item, frame);
-            return item;
-          });
+      const itemPromise = Item.createForDebuggerCallFrame(frame, this.locationPool, this.refreshItem.bind(this));
       itemPromises.push(itemPromise);
       if (frame.missingDebugInfoDetails) {
         uniqueWarnings.add(frame.missingDebugInfoDetails.details);
@@ -308,7 +303,31 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
         for (let i = 0; i < this.items.length; ++i) {
           const item = this.items.at(i);
           if (itemsSet.has(item)) {
+            // Refresh the item itself.
             this.list.refreshItemByIndex(i);
+
+            // Now make sure we have the correct inlined items after this item.
+            for (let j = 0; j < item.inlineItems.length; j++) {
+              const subItem = item.inlineItems[j];
+              const index = i + j + 1;
+              if (index < this.items.length) {
+                // If there is already the correct item, then just continue.
+                if (this.items.at(index) === subItem) {
+                  continue;
+                }
+                // If it is a different inline item of this frame, then replace it.
+                if (this.items.at(index).inlineParent === item) {
+                  this.items.replace(index, subItem);
+                  continue;
+                }
+              }
+              this.items.insert(index, subItem);
+            }
+            // Remove any leftover inlined items.
+            const nextIndex = i + item.inlineItems.length + 1;
+            while (nextIndex < this.items.length && this.items.at(nextIndex).inlineParent === item) {
+              this.items.remove(nextIndex);
+            }
           }
           hasIgnoreListed = hasIgnoreListed || item.isIgnoreListed;
         }
@@ -335,11 +354,11 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
       if (item.isIgnoreListed) {
         UI.ARIAUtils.setDescription(element, i18nString(UIStrings.onIgnoreList));
       }
-      if (!itemToCallFrame.has(item)) {
+      if (!item.frame) {
         UI.ARIAUtils.setDisabled(element, true);
       }
     }
-    const callframe = itemToCallFrame.get(item);
+    const callframe = item.frame;  // TODO(jarin) Handle inlined frames?
     const isSelected = callframe === UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
 
     element.classList.toggle('selected', isSelected);
@@ -439,7 +458,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
       return;
     }
     const contextMenu = new UI.ContextMenu.ContextMenu(event);
-    const debuggerCallFrame = itemToCallFrame.get(item);
+    const debuggerCallFrame = item.frame;  // TODO(jarin) Handle inlined frames?
     if (debuggerCallFrame) {
       contextMenu.defaultSection().appendItem(i18nString(UIStrings.restartFrame), () => {
         Host.userMetrics.actionTaken(Host.UserMetrics.Action.StackFrameRestarted);
@@ -466,7 +485,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
       return;
     }
     this.list.selectItem(item);
-    const debuggerCallFrame = itemToCallFrame.get(item);
+    const debuggerCallFrame = item.frame;  // TODO(jarin) Handle inlined frames?
     const oldItem = this.activeCallFrameItem();
     if (debuggerCallFrame && oldItem !== item) {
       debuggerCallFrame.debuggerModel.setSelectedCallFrame(debuggerCallFrame);
@@ -483,7 +502,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
   activeCallFrameItem(): Item|null {
     const callFrame = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
     if (callFrame) {
-      return this.items.find(callFrameItem => itemToCallFrame.get(callFrameItem) === callFrame) || null;
+      return this.items.find(callFrameItem => callFrameItem.frame === callFrame) || null;
     }
     return null;
   }
@@ -512,7 +531,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     const startIndex = oldItem ? this.items.indexOf(oldItem) + 1 : 0;
     for (let i = startIndex; i < this.items.length; i++) {
       const newItem = this.items.at(i);
-      if (itemToCallFrame.has(newItem)) {
+      if (newItem.frame) {
         this.activateItem(newItem);
         break;
       }
@@ -524,7 +543,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     const startIndex = oldItem ? this.items.indexOf(oldItem) - 1 : this.items.length - 1;
     for (let i = startIndex; i >= 0; i--) {
       const newItem = this.items.at(i);
-      if (itemToCallFrame.has(newItem)) {
+      if (newItem.frame) {
         this.activateItem(newItem);
         break;
       }
@@ -547,8 +566,6 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     this.registerCSSFiles([callStackSidebarPaneStyles]);
   }
 }
-
-const itemToCallFrame = new WeakMap<Item, SDK.DebuggerModel.CallFrame>();
 
 export const elementSymbol = Symbol('element');
 export const defaultMaxAsyncStackChainDepth = 32;
@@ -586,20 +603,43 @@ export class Item {
   uiLocation: Workspace.UISourceCode.UILocation|null;
   isAsyncHeader: boolean;
   updateDelegate: (arg0: Item) => void;
+  inlineItems: Item[] = [];
+  inlineParent: Item|null = null;
+  frame: SDK.DebuggerModel.CallFrame|null = null;
+  inlineFrameIndex: number = 0;
 
   static async createForDebuggerCallFrame(
       frame: SDK.DebuggerModel.CallFrame, locationPool: Bindings.LiveLocation.LiveLocationPool,
       updateDelegate: (arg0: Item) => void): Promise<Item> {
     const name = frame.functionName;
     const item = new Item(UI.UIUtils.beautifyFunctionName(name), updateDelegate);
+    item.frame = frame;
+
     await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().createCallFrameLiveLocation(
         frame.location(), item.update.bind(item), locationPool);
-    void SourceMapScopes.NamesResolver.resolveDebuggerFrameFunctionName(frame).then(functionName => {
-      if (functionName && functionName !== name) {
-        // Just update the item's title and call the update delegate directly,
-        // instead of going through the update method below, since location
-        // didn't change.
-        item.title = functionName;
+    void SourceMapScopes.NamesResolver.resolveDebuggerFrameNameAndInlinees(frame).then(async frames => {
+      if (!frames || frames.length === 0 || frames[0].frame === frame) {
+        // TODO(jarin) We should handle the case of empty frames separately and perhaps remove the frame.
+        return;
+      }
+
+      if (frames[0].frame.functionName !== name) {
+        item.title = frames[0].frame.functionName;
+      }
+
+      // Create children frames if necessary.
+      for (let i = 1; i < frames.length; i++) {
+        const inlinedFrameItem = new Item(frames[i].frame.functionName, updateDelegate);
+        inlinedFrameItem.inlineParent = item;
+        inlinedFrameItem.frame = frames[i].frame;
+        inlinedFrameItem.inlineFrameIndex = i;
+        inlinedFrameItem.uiLocation = frames[i].uiLocation ?? null;
+        inlinedFrameItem.linkText = inlinedFrameItem.uiLocation?.linkText() ?? '';
+
+        item.inlineItems.push(inlinedFrameItem);
+      }
+
+      if (frames.length > 1 || frames[0].frame.functionName !== name) {
         item.updateDelegate(item);
       }
     });

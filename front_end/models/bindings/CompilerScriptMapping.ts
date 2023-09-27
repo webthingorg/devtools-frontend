@@ -207,12 +207,31 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
       return null;
     }
 
-    const entry = sourceMap.findEntry(lineNumber, columnNumber);
-    if (!entry || !entry.sourceURL) {
-      return null;
+    let sourceURL: Platform.DevToolsPath.UrlString;
+    let sourceLineNumber: number;
+    let sourceColumnNumber: number;
+
+    if (rawLocation.inlineFrameIndex > 0) {
+      const inlineFunctions: SDK.SourceMap.InlinedFunction[] = sourceMap.getInliningStack(lineNumber, columnNumber);
+      if (inlineFunctions.length < rawLocation.inlineFrameIndex) {
+        return null;
+      }
+
+      const inlineEntry = inlineFunctions[rawLocation.inlineFrameIndex - 1];
+      sourceURL = inlineEntry.sourceFile;
+      sourceLineNumber = inlineEntry.sourceLine;
+      sourceColumnNumber = inlineEntry.sourceColumn;
+    } else {
+      const entry = sourceMap.findEntry(lineNumber, columnNumber);
+      if (!entry || !entry.sourceURL) {
+        return null;
+      }
+      sourceURL = entry.sourceURL;
+      sourceLineNumber = entry.sourceLineNumber;
+      sourceColumnNumber = entry.sourceColumnNumber;
     }
 
-    const uiSourceCode = project.uiSourceCodeForURL(entry.sourceURL);
+    const uiSourceCode = project.uiSourceCodeForURL(sourceURL);
     if (!uiSourceCode) {
       return null;
     }
@@ -223,7 +242,7 @@ export class CompilerScriptMapping implements DebuggerSourceMapping {
       return null;
     }
 
-    return uiSourceCode.uiLocation(entry.sourceLineNumber, entry.sourceColumnNumber);
+    return uiSourceCode.uiLocation(sourceLineNumber, sourceColumnNumber);
   }
 
   /**
