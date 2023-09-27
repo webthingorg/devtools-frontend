@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "f75512eb5e769d904d073957235d2192564449b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9daf2a3f_d6d8cd3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-27T05:36:47Z",
+      "side": 1,
+      "message": "lgtm with suggestion",
+      "revId": "f75512eb5e769d904d073957235d2192564449b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a9bcbad_1eef5095",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-27T05:36:47Z",
+      "side": 1,
+      "message": "This code seems a bit convoluted. How about:\n\n\n```suggestion\n    const blockedCookieLines \u003d new Set(\n        this.blockedResponseCookies().map(blockedCookie \u003d\u003e blockedCookie.cookieLine));\n    return this.responseCookies.filter(cookie \u003d\u003e !blockedCookieLines.has(cookie.getCookieLine()));\n```",
+      "range": {
+        "startLine": 1577,
+        "startChar": 0,
+        "endLine": 1588,
+        "endChar": 27
+      },
+      "revId": "f75512eb5e769d904d073957235d2192564449b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
