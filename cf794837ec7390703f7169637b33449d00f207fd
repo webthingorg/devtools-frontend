@@ -22,6 +22,30 @@
       },
       "revId": "cf794837ec7390703f7169637b33449d00f207fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0c9d8e9_b2c1e20c",
+        "filename": "test/shared/mocha-extensions.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-09-27T12:42:10Z",
+      "side": 1,
+      "message": "Sure ... Is there a use case I am missing? Because I am trying to eliminate the need for printing the data with this change.",
+      "parentUuid": "f2a5f25e_7645b688",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 78
+      },
+      "revId": "cf794837ec7390703f7169637b33449d00f207fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
