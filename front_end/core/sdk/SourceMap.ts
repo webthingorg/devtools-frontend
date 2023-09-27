@@ -59,7 +59,51 @@ export type SourceMapV3Object = {
   'x_google_ignoreList'?: number[],
   // eslint-disable-next-line @typescript-eslint/naming-convention
   'x_com_bloomberg_sourcesFunctionMappings'?: string[],
+  // TODO(jarin) Experimental unpacked scopes, DO NOT COMMIT!
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  'x_google_scopes'?: ExperimentalScope[],
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  'x_google_inlines'?: ExperimentalInlineInfo[],
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  'x_google_bindings'?: ExperimentalBinding[],
   // clang-format on
+};
+
+// TODO(jarin) Experimental unpacked scopes, DO NOT COMMIT!
+export type ExperimentalScopeVariable = {
+  kind: string,
+  name: number,
+};
+
+export type ExperimentalScope = {
+  kind: string,
+  startLine: number,
+  startColumn: number,
+  endLine: number,
+  endColumn: number,
+  name: number,
+  children: ExperimentalScope[],
+  variables: ExperimentalScopeVariable[],
+};
+
+export type ExperimentalBinding = {
+  file: number,
+  line: number,
+  col: number,
+  name: number,
+  expr: number,
+};
+
+export type ExperimentalInlineInfo = {
+  file: number,
+  line: number,
+  col: number,
+  startLine: number,
+  startCol: number,
+  endLine: number,
+  endCol: number,
+  children: ExperimentalInlineInfo[],
+  bindings: ExperimentalBinding[],
 };
 
 /**
@@ -146,12 +190,19 @@ export interface ScopeEntry {
   end(): Position;
 }
 
+export class ScopeVariableEntry {
+  constructor(readonly kind: 'local'|'arg', readonly name: string) {
+  }
+}
+
 class ScopeTreeEntry implements ScopeEntry {
   children: ScopeTreeEntry[] = [];
+  variables: ScopeVariableEntry[] = [];
 
   constructor(
-      readonly startLineNumber: number, readonly startColumnNumber: number, readonly endLineNumber: number,
-      readonly endColumnNumber: number, readonly name: string) {
+      readonly kind: 'function'|'toplevel'|'arrow'|'class'|'method', readonly startLineNumber: number,
+      readonly startColumnNumber: number, readonly endLineNumber: number, readonly endColumnNumber: number,
+      readonly name: string) {
   }
 
   scopeName(): string {
@@ -165,6 +216,43 @@ class ScopeTreeEntry implements ScopeEntry {
   end(): Position {
     return {lineNumber: this.endLineNumber, columnNumber: this.endColumnNumber};
   }
+}
+
+export class VariableBinding {
+  constructor(
+      readonly sourceFile: Platform.DevToolsPath.UrlString, readonly sourceLine: number, readonly sourceColumn: number,
+      readonly sourceName: string, readonly expression: string) {
+  }
+}
+
+export class InlinedFunction {
+  readonly children: InlinedFunction[] = [];
+  readonly bindings = new Map<Platform.DevToolsPath.UrlString, VariableBinding>();
+
+  constructor(
+      readonly sourceFile: Platform.DevToolsPath.UrlString, readonly sourceLine: number, readonly sourceColumn: number,
+      readonly startLine: number, readonly startColumn: number, readonly endLine: number, readonly endColumn: number) {
+  }
+
+  start(): Position {
+    return {lineNumber: this.startLine, columnNumber: this.startColumn};
+  }
+}
+
+function findInlinedFunction(list: InlinedFunction[], lineNumber: number, columnNumber: number): InlinedFunction|null {
+  const upperBoundIndex = Platform.ArrayUtilities.upperBound(
+      list, undefined, (unused, entry) => lineNumber - entry.startLine || columnNumber - entry.startColumn);
+  if (upperBoundIndex === 0) {
+    return null;
+  }
+  const candidate = list[upperBoundIndex - 1];
+  if (lineNumber < candidate.endLine) {
+    return candidate;
+  }
+  if (lineNumber === candidate.endLine && columnNumber <= candidate.endColumn) {
+    return candidate;
+  }
+  return null;
 }
 
 const base64Digits = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
@@ -190,6 +278,8 @@ export class SourceMap {
   readonly #baseURL: Platform.DevToolsPath.UrlString;
   #mappingsInternal: SourceMapEntry[]|null;
   readonly #sourceInfos: Map<Platform.DevToolsPath.UrlString, SourceInfo>;
+  readonly #inlineTree: InlinedFunction[] = [];
+  readonly #variableBindings = new Map<Platform.DevToolsPath.UrlString, VariableBinding>();
 
   /**
    * Implements Source Map V3 model. See https://github.com/google/closure-compiler/wiki/Source-Maps
@@ -534,15 +624,142 @@ export class SourceMap {
   }
 
   private parseScopes(map: SourceMapV3Object): void {
-    if (!map.x_com_bloomberg_sourcesFunctionMappings) {
-      return;
+    if (map.x_com_bloomberg_sourcesFunctionMappings) {
+      this.parsePastaScopes(map);
+    } else if (map.x_google_scopes) {
+      this.parseExperimentalScopes(map);
     }
+
+    if (map.x_google_inlines) {
+      this.parseExperimentalInlines(map);
+    }
+  }
+
+  private parseExperimentalScopes(map: SourceMapV3Object): void {
+    function parseVariable(variable: ExperimentalScopeVariable): ScopeVariableEntry|null {
+      const kind = variable.kind;
+      if (kind !== 'local' && kind !== 'arg') {
+        return null;
+      }
+      const name = names?.[variable.name] ?? '';
+      return new ScopeVariableEntry(kind, name);
+    }
+
+    function parseScope(scope: ExperimentalScope): ScopeTreeEntry|null {
+      const kind = scope.kind;
+      if (kind !== 'function' && kind !== 'arrow' && kind !== 'class' && kind !== 'method' && kind !== 'toplevel') {
+        return null;
+      }
+
+      const entry = new ScopeTreeEntry(
+          kind, scope.startLine, scope.startColumn, scope.endLine, scope.endColumn, names?.[scope.name]);
+
+      scope.children.forEach(s => {
+        const parsed = parseScope(s);
+        if (parsed) {
+          entry.children.push(parsed);
+        }
+      });
+      scope.variables.forEach(v => {
+        const parsed = parseVariable(v);
+        if (parsed) {
+          entry.variables.push(parsed);
+        }
+      });
+      return entry;
+    }
+
     const sources = sourceMapToSourceList.get(map);
     if (!sources) {
       return;
     }
     const names = map.names ?? [];
-    const scopeList = map.x_com_bloomberg_sourcesFunctionMappings;
+    const scopeList = map.x_google_scopes;
+    if (!scopeList) {
+      return;
+    }
+    for (let i = 0; i < sources?.length; i++) {
+      if (!scopeList[i] || !sources[i]) {
+        continue;
+      }
+      const sourceInfo = this.#sourceInfos.get(sources[i]);
+      if (!sourceInfo) {
+        continue;
+      }
+      const scopeTree = parseScope(scopeList[i]);
+      if (!scopeTree) {
+        continue;
+      }
+      sourceInfo.scopeTree = [scopeTree];
+    }
+  }
+
+  private parseExperimentalInlines(map: SourceMapV3Object): void {
+    const sources = sourceMapToSourceList.get(map);
+    const inlines = map.x_google_inlines;
+    const toplevelBindings = map.x_google_bindings;
+    if (!inlines || !toplevelBindings) {
+      return;
+    }
+    if (!sources) {
+      return;
+    }
+    const names = map.names ?? [];
+
+    function parseBinding(binding: ExperimentalBinding): VariableBinding {
+      const name = names?.[binding.name] ?? '';
+      const expr = names?.[binding.expr] ?? '';
+      return new VariableBinding(
+          sources?.[binding.file] ?? ('' as Platform.DevToolsPath.UrlString), binding.line, binding.col, name, expr);
+    }
+
+    function parseBindingList(
+        bindings: ExperimentalBinding[], parsedBindings: Map<Platform.DevToolsPath.UrlString, VariableBinding>): void {
+      bindings.forEach(v => {
+        const parsed = parseBinding(v);
+        if (parsed) {
+          parsedBindings.set(parsed.sourceFile, parsed);
+        }
+      });
+    }
+
+    function parseInlineInfo(inlineInfo: ExperimentalInlineInfo): InlinedFunction|null {
+      const sourceFile = sources?.[inlineInfo.file];
+      if (!sourceFile) {
+        return null;
+      }
+      const inlinedFunction = new InlinedFunction(
+          sourceFile, inlineInfo.line, inlineInfo.col, inlineInfo.startLine, inlineInfo.startCol, inlineInfo.endLine,
+          inlineInfo.endCol);
+
+      inlineInfo.children.forEach(inline => {
+        const parsed = parseInlineInfo(inline);
+        if (parsed) {
+          inlinedFunction.children.push(parsed);
+        }
+      });
+      parseBindingList(inlineInfo.bindings, inlinedFunction.bindings);
+      inlinedFunction.children.sort((l, r) => comparePositions(l.start(), r.start()));
+      return inlinedFunction;
+    }
+
+    inlines.forEach(inline => {
+      const parsed = parseInlineInfo(inline);
+      if (parsed) {
+        this.#inlineTree.push(parsed);
+      }
+    });
+    this.#inlineTree.sort((l, r) => comparePositions(l.start(), r.start()));
+    parseBindingList(toplevelBindings, this.#variableBindings);
+  }
+
+  private parsePastaScopes(map: SourceMapV3Object): void {
+    const sources = sourceMapToSourceList.get(map);
+    if (!sources) {
+      return;
+    }
+    const names = map.names ?? [];
+    const scopeList = map.x_com_bloomberg_sourcesFunctionMappings ?? [];
 
     for (let i = 0; i < sources?.length; i++) {
       if (!scopeList[i] || !sources[i]) {
@@ -578,7 +795,8 @@ export class SourceMap {
         endLineNumber += this.decodeVLQ(stringCharIterator);
         endColumnNumber += this.decodeVLQ(stringCharIterator);
         entries.push(new ScopeTreeEntry(
-            startLineNumber, startColumnNumber, endLineNumber, endColumnNumber, names[nameIndex] ?? '<invalid>'));
+            'function', startLineNumber, startColumnNumber, endLineNumber, endColumnNumber,
+            names[nameIndex] ?? '<invalid>'));
       }
       sourceInfo.scopeTree = this.buildScopeTree(entries);
     }
@@ -630,6 +848,20 @@ export class SourceMap {
       }
       current = match;
     }
+  }
+
+  getInliningStack(generatedLineNumber: number, generatedColumnNumber: number): InlinedFunction[] {
+    const result: InlinedFunction[] = [];
+
+    let inlinedFunctionScope: InlinedFunction[] = this.#inlineTree;
+    let inlinedFunction = findInlinedFunction(inlinedFunctionScope, generatedLineNumber, generatedColumnNumber);
+    while (inlinedFunction) {
+      result.push(inlinedFunction);
+      inlinedFunctionScope = inlinedFunction.children;
+      inlinedFunction = findInlinedFunction(inlinedFunctionScope, generatedLineNumber, generatedColumnNumber);
+    }
+
+    return result.reverse();
   }
 
   private isSeparator(char: string): boolean {
