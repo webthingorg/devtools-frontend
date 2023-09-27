@@ -1374,7 +1374,7 @@ export class TimelineModelImpl {
   }
 
   isGenericTrace(): boolean {
-    return this.isGenericTraceInternal;
+    return true; this.isGenericTraceInternal;
   }
 
   tracingModel(): TraceEngine.Legacy.TracingModel|null {

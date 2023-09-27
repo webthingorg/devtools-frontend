@@ -18,15 +18,19 @@ await ComponentSetup.ComponentServerSetup.setup();
  **/
 function renderExample1() {
   class FakeProviderWithBasicEvents extends TraceHelpers.FakeFlameChartProvider {
+    override maxStackDepth(): number {
+      return 4
+    }
     override timelineData(): PerfUI.FlameChart.FlameChartTimelineData|null {
       return PerfUI.FlameChart.FlameChartTimelineData.create({
-        entryLevels: [0, 0, 0, 1, 1, 1, 2, 2, 2],
-        entryStartTimes: [5, 60, 80, 5, 60, 80, 5, 60, 80],
-        entryTotalTimes: [50, 10, 10, 50, 10, 10, 50, 10, 10],
+        entryLevels: [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3],
+        entryStartTimes: [5, 60, 80, 5, 60, 80, 5, 60, 80, 5, 60, 80],
+        entryTotalTimes: [50, 10, 10, 50, 10, 10, 50, 10, 10, 50, 10, 10],
         groups: [
           {
             name: 'Test Group' as Platform.UIString.LocalizedString,
-            startLevel: 0,
+            startLevel: 1,
+            endLevel: 2,
             style: {
               height: 17,
               padding: 4,
@@ -39,7 +43,8 @@ function renderExample1() {
           },
           {
             name: 'Test Group 2' as Platform.UIString.LocalizedString,
-            startLevel: 1,
+            startLevel: 2,
+            endLevel: 3,
             style: {
               height: 17,
               padding: 4,
@@ -52,7 +57,8 @@ function renderExample1() {
           },
           {
             name: 'Test Group 3' as Platform.UIString.LocalizedString,
-            startLevel: 2,
+            startLevel: 3,
+            endLevel: 4,
             style: {
               height: 17,
               padding: 4,
@@ -89,6 +95,16 @@ function renderExample1() {
   buttonUnhide?.addEventListener('click', () => {
     flameChart.showGroup(1);
   });
+
+  const buttonForMoveUp = document.querySelector('#testForMoveUp');
+  buttonForMoveUp?.addEventListener('click', ()=>{
+    flameChart.moveGroupUp(1)
+  })
+  const buttonForMoveDown = document.querySelector('#testForMoveDown');
+  buttonForMoveDown?.addEventListener('click', ()=>{
+    flameChart.moveGroupDown(1)
+  })
+  
 }
 
 /**
@@ -120,6 +136,7 @@ function renderExample2() {
         groups: [{
           name: 'Testing Candy Stripe decorations and warning triangles' as Platform.UIString.LocalizedString,
           startLevel: 0,
+          endLevel: 2,
           style: {
             height: 17,
             padding: 4,
@@ -162,6 +179,7 @@ function renderExample3() {
           {
             name: 'Test Group' as Platform.UIString.LocalizedString,
             startLevel: 0,
+            endLevel: 1,
             style: {
               height: 17,
               padding: 4,
@@ -175,6 +193,7 @@ function renderExample3() {
           {
             name: 'Test Nested Group' as Platform.UIString.LocalizedString,
             startLevel: 0,
+            endLevel: 2,
             style: {
               height: 17,
               padding: 4,
@@ -188,6 +207,7 @@ function renderExample3() {
           {
             name: 'Test Group 3' as Platform.UIString.LocalizedString,
             startLevel: 2,
+            endLevel: 3,
             style: {
               height: 17,
               padding: 4,
@@ -218,5 +238,5 @@ function renderExample3() {
 }
 
 renderExample1();
-renderExample2();
-renderExample3();
+// renderExample2();
+// renderExample3();

@@ -7,6 +7,7 @@ import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import * as Timeline from '../../../../../../front_end/panels/timeline/timeline.js';
 import {defaultTraceEvent} from '../../../helpers/TraceHelpers.js';
 import * as TraceEngine from '../../../../../../front_end/models/trace/trace.js';
+import * as Common from '../../../../../../front_end/core/common/common.js';
 
 const {assert} = chai;
 
@@ -39,17 +40,18 @@ describeWithEnvironment('AppenderUtils', () => {
   });
 
   describe('buildTrackHeader', () => {
-    const trackHeader = {
+    const trackHeader:PerfUI.FlameChart.Group = {
       startLevel: 0,
-      name: 'Header Name',
+      endLevel: 1,
+      name: 'Header Name' as Common.UIString.LocalizedString,
       style: defaultGroupStyle,
       selectable: true,
       expanded: true,
-    } as PerfUI.FlameChart.Group;
+    };
 
     it('builds a track header correctly', () => {
       const builtHeader = Timeline.AppenderUtils.buildTrackHeader(
-          /* startLevel= */ 0, 'Header Name', Timeline.AppenderUtils.buildGroupStyle(), /* selectable= */ true,
+          /* startLevel= */ 0, /* endLevel= */ 1, 'Header Name', Timeline.AppenderUtils.buildGroupStyle(), /* selectable= */ true,
           /* expanded= */ true);
       assert.deepEqual(builtHeader, trackHeader);
     });

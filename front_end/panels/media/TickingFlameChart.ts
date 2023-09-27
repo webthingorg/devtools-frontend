@@ -391,9 +391,10 @@ class TickingFlameChartDataProvider implements PerfUI.FlameChart.FlameChartDataP
    */
   addGroup(name: Common.UIString.LocalizedString, depth: number): void {
     if (this.timelineDataInternal.groups) {
-      const newGroup = {
+      const newGroup: PerfUI.FlameChart.Group= {
         name: name,
         startLevel: this.maxLevel,
+        endLevel: this.maxLevel += depth,
         expanded: true,
         selectable: false,
         style: DefaultStyle(),

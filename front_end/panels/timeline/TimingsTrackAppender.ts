@@ -63,12 +63,13 @@ export class TimingsTrackAppender implements TrackAppender {
         timestampEvents.length === 0 && consoleTimings.length === 0) {
       return trackStartLevel;
     }
-    this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
     let newLevel = this.#appendMarkersAtLevel(trackStartLevel);
     newLevel = this.#compatibilityBuilder.appendEventsAtLevel(performanceMarks, newLevel, this);
     newLevel = this.#compatibilityBuilder.appendEventsAtLevel(performanceMeasures, newLevel, this);
     newLevel = this.#compatibilityBuilder.appendEventsAtLevel(timestampEvents, newLevel, this);
-    return this.#compatibilityBuilder.appendEventsAtLevel(consoleTimings, newLevel, this);
+    const endLevel = this.#compatibilityBuilder.appendEventsAtLevel(consoleTimings, newLevel, this)
+    this.#appendTrackHeaderAtLevel(trackStartLevel, endLevel, expanded);
+    return endLevel;
   }
 
   /**
@@ -80,12 +81,12 @@ export class TimingsTrackAppender implements TrackAppender {
    * @param currentLevel the flame chart level at which the header is
    * appended.
    */
-  #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
+  #appendTrackHeaderAtLevel(currentLevel: number,endLevel:number, expanded?: boolean): void {
     const trackIsCollapsible = this.#traceParsedData.UserTimings.performanceMeasures.length > 0;
     const style =
         buildGroupStyle({shareHeaderLine: true, useFirstLineForOverview: true, collapsible: trackIsCollapsible});
     const group =
-        buildTrackHeader(currentLevel, i18nString(UIStrings.timings), style, /* selectable= */ true, expanded);
+        buildTrackHeader(currentLevel, endLevel, i18nString(UIStrings.timings), style, /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
   }
 

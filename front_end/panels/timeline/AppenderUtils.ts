@@ -6,6 +6,7 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import type * as Platform from '../../core/platform/platform.js';
 
 const UIStrings = {
   /**
@@ -51,9 +52,9 @@ export function buildGroupStyle(extra?: Object): PerfUI.FlameChart.GroupStyle {
  * @returns the group that built from the give data
  */
 export function buildTrackHeader(
-    startLevel: number, name: string, style: PerfUI.FlameChart.GroupStyle, selectable: boolean, expanded?: boolean,
+    startLevel: number,endLevel: number, name: string, style: PerfUI.FlameChart.GroupStyle, selectable: boolean, expanded?: boolean,
     track?: TimelineModel.TimelineModel.Track|null): PerfUI.FlameChart.Group {
-  const group = ({startLevel, name, style, selectable, expanded} as PerfUI.FlameChart.Group);
+  const group: PerfUI.FlameChart.Group = {startLevel,endLevel, name: name as Platform.UIString.LocalizedString, style, selectable, expanded};
   if (selectable && track) {
     group.track = track;
   }

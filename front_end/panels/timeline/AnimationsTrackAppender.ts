@@ -42,14 +42,15 @@ export class AnimationsTrackAppender implements TrackAppender {
     if (animations.length === 0) {
       return trackStartLevel;
     }
-    this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
-    return this.#compatibilityBuilder.appendEventsAtLevel(animations, trackStartLevel, this);
+    const endLevel = this.#compatibilityBuilder.appendEventsAtLevel(animations, trackStartLevel, this);
+    this.#appendTrackHeaderAtLevel(trackStartLevel, endLevel, expanded);
+    return endLevel;
   }
 
-  #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
+  #appendTrackHeaderAtLevel(currentLevel: number,endLevel: number, expanded?: boolean): void {
     const style = buildGroupStyle({useFirstLineForOverview: false});
     const group =
-        buildTrackHeader(currentLevel, i18nString(UIStrings.animations), style, /* selectable= */ true, expanded);
+        buildTrackHeader(currentLevel, endLevel, i18nString(UIStrings.animations), style, /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
   }
 

@@ -50,8 +50,9 @@ export class GPUTrackAppender implements TrackAppender {
     if (gpuEvents.length === 0) {
       return trackStartLevel;
     }
-    this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
-    return this.#compatibilityBuilder.appendEventsAtLevel(gpuEvents, trackStartLevel, this);
+    const endLevel = this.#compatibilityBuilder.appendEventsAtLevel(gpuEvents, trackStartLevel, this);
+    this.#appendTrackHeaderAtLevel(trackStartLevel, endLevel, expanded);
+    return endLevel
   }
 
   /**
@@ -64,9 +65,10 @@ export class GPUTrackAppender implements TrackAppender {
    * appended.
    * @param expanded wether the track should be rendered expanded.
    */
-  #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
-    const style = buildGroupStyle({shareHeaderLine: false});
-    const group = buildTrackHeader(currentLevel, i18nString(UIStrings.gpu), style, /* selectable= */ true, expanded);
+  #appendTrackHeaderAtLevel(currentLevel: number,endLevel: number, expanded?: boolean): void {
+    const style = buildGroupStyle({useFirstLineForOverview: false});
+    const group =
+        buildTrackHeader(currentLevel, endLevel, i18nString(UIStrings.gpu), style, /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
   }
 

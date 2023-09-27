@@ -71,8 +71,9 @@ export class NetworkTrackAppender implements TrackAppender {
     if (networkEvents.length === 0) {
       return trackStartLevel;
     }
-    this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
-    return this.#appendEventsAtLevel(networkEvents, trackStartLevel);
+    const endLevel = this.#appendEventsAtLevel(networkEvents, trackStartLevel);
+    this.#appendTrackHeaderAtLevel(trackStartLevel,endLevel, expanded);
+    return endLevel
   }
 
   /**
@@ -85,14 +86,14 @@ export class NetworkTrackAppender implements TrackAppender {
    * appended.
    * @param expanded wether the track should be rendered expanded.
    */
-  #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
+  #appendTrackHeaderAtLevel(currentLevel: number,endLevel: number, expanded?: boolean): void {
     const style = buildGroupStyle({
       font: this.#flameChartData,
       shareHeaderLine: false,
       useFirstLineForOverview: false,
       useDecoratorsForOverview: true,
     });
-    this.#group = buildTrackHeader(0, i18nString(UIStrings.network), style, /* selectable= */ true, expanded);
+    this.#group = buildTrackHeader(0,endLevel, i18nString(UIStrings.network), style, /* selectable= */ true, expanded);
     this.#flameChartData.groups.push(this.#group);
   }
 

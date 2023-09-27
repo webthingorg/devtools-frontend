@@ -432,7 +432,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     for (const process of tracksByProcess.keysArray()) {
       if (tracksByProcess.size > 1) {
         const name = `${process.name()} ${process.id()}`;
-        this.appendHeader(name, processGroupStyle, false /* selectable */);
+        this.appendHeader(this.currentLevel, this.currentLevel, name, processGroupStyle, false /* selectable */);
       }
       for (const track of tracksByProcess.get(process)) {
         const group = this.appendSyncEvents(
@@ -596,9 +596,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         break;
       }
 
-      case TimelineModel.TimelineModel.TrackType.Raster: {
+      case TimelineModel.TimelineModel. TrackType.Raster: {
         if (!this.#rasterCount) {
-          this.appendHeader(i18nString(UIStrings.raster), this.headerLevel1, false /* selectable */, expanded);
+          this.appendHeader(this.currentLevel, this.currentLevel, i18nString(UIStrings.raster), this.headerLevel1, false /* selectable */, expanded);
         }
         ++this.#rasterCount;
         this.appendSyncEvents(
@@ -706,10 +706,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const ignoreListingEnabled = Root.Runtime.experiments.isEnabled('ignoreListJSFramesOnTimeline');
     let maxStackDepth = 0;
     let group: PerfUI.FlameChart.Group|null = null;
-    if (track && track.type === TimelineModel.TimelineModel.TrackType.MainThread) {
-      group = this.appendHeader((title as string), (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
-      group.track = track;
-    }
+    const startLevel = this.currentLevel;
     for (let i = 0; i < events.length; ++i) {
       const event = events[i];
       const {duration: eventDuration} = TraceEngine.Legacy.timesForEventInMilliseconds(event);
@@ -752,7 +749,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         this.#eventToDisallowRoot.set(event, true);
       }
       if (!group && title) {
-        group = this.appendHeader(title, (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
+        group = this.appendHeader(this.currentLevel, this.currentLevel, title, (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
         if (selectable) {
           group.track = track;
         }
@@ -792,6 +789,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.entryTypeByLevel.length = this.currentLevel + maxStackDepth;
     this.entryTypeByLevel.fill(entryType, this.currentLevel);
     this.currentLevel += maxStackDepth;
+    
+    if (track && track.type === TimelineModel.TimelineModel.TrackType.MainThread) {
+      group = this.appendHeader(startLevel, this.currentLevel,title ?? '', (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
+      group.track = track;
+    }
     return group;
   }
 
@@ -817,18 +819,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (!events.length) {
       return null;
     }
+    const startLevel = this.currentLevel
     const lastUsedTimeByLevel: number[] = [];
-    let group: PerfUI.FlameChart.Group|null = null;
     for (let i = 0; i < events.length; ++i) {
       const asyncEvent = events[i];
       if (!this.legacyPerformanceModel || !this.legacyPerformanceModel.isVisible(asyncEvent)) {
         continue;
-      }
-      if (!group && title) {
-        group = this.appendHeader(title, (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
-        if (selectable) {
-          group.track = track;
-        }
       }
       const startTime = asyncEvent.startTime;
       let level;
@@ -840,6 +836,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.entryTypeByLevel.length = this.currentLevel + lastUsedTimeByLevel.length;
     this.entryTypeByLevel.fill(entryType, this.currentLevel);
     this.currentLevel += lastUsedTimeByLevel.length;
+    let group: PerfUI.FlameChart.Group|null = null;
+    if (!group && title) {
+      group = this.appendHeader(startLevel, this.currentLevel, title, (style as PerfUI.FlameChart.GroupStyle), selectable, expanded);
+      if (selectable) {
+        group.track = track;
+      }
+    }
     return group;
   }
 
@@ -866,7 +869,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.framesHeader.collapsible = hasScreenshots;
     const expanded = Root.Runtime.Runtime.queryParam('flamechart-force-expand') === 'frames';
 
-    this.appendHeader(i18nString(UIStrings.frames), this.framesHeader, false /* selectable */, expanded);
+    // Frames track only needs one level
+    this.appendHeader(this.currentLevel, this.currentLevel + 1, i18nString(UIStrings.frames), this.framesHeader, false /* selectable */, expanded);
 
     this.entryTypeByLevel[this.currentLevel] = EntryType.Frame;
     for (const frame of this.legacyPerformanceModel.frames()) {
@@ -884,7 +888,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (!this.timelineDataInternal || !this.legacyTimelineModel) {
       return;
     }
-    this.appendHeader('', this.screenshotsHeader, false /* selectable */);
+    // Screenshots track only needs one level
+    this.appendHeader(this.currentLevel, this.currentLevel + 1,'', this.screenshotsHeader, false /* selectable */);
     this.entryTypeByLevel[this.currentLevel] = EntryType.Screenshot;
     let prevTimestamp: TraceEngine.Types.Timing.MilliSeconds|undefined = undefined;
 
@@ -1190,12 +1195,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return Boolean(this.traceEngineData?.Warnings.perEvent.get(event));
   }
 
-  private appendHeader(title: string, style: PerfUI.FlameChart.GroupStyle, selectable: boolean, expanded?: boolean):
+  private appendHeader(startLevel:number, endLevel:number,title: string, style: PerfUI.FlameChart.GroupStyle, selectable: boolean, expanded?: boolean):
       PerfUI.FlameChart.Group {
-    const group =
-        ({startLevel: this.currentLevel, name: title, style: style, selectable: selectable, expanded} as
-         PerfUI.FlameChart.Group);
+    const group:PerfUI.FlameChart.Group =
+        {startLevel, endLevel, name: title as Common.UIString.LocalizedString, style: style, selectable: selectable, expanded};
     (this.timelineDataInternal as PerfUI.FlameChart.FlameChartTimelineData).groups.push(group);
+    // (this.timelineDataInternal as PerfUI.FlameChart.FlameChartTimelineData).groupsOrder.push(index);
     return group;
   }
 

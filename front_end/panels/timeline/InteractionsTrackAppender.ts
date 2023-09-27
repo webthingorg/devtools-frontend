@@ -54,8 +54,9 @@ export class InteractionsTrackAppender implements TrackAppender {
     if (this.#traceParsedData.UserInteractions.interactionEvents.length === 0) {
       return trackStartLevel;
     }
-    this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
-    return this.#appendInteractionsAtLevel(trackStartLevel);
+    const endLevel = this.#appendInteractionsAtLevel(trackStartLevel);
+    this.#appendTrackHeaderAtLevel(trackStartLevel,endLevel, expanded);
+    return endLevel
   }
 
   /**
@@ -67,11 +68,11 @@ export class InteractionsTrackAppender implements TrackAppender {
    * @param currentLevel the flame chart level at which the header is
    * appended.
    */
-  #appendTrackHeaderAtLevel(currentLevel: number, expanded?: boolean): void {
+  #appendTrackHeaderAtLevel(currentLevel: number,endLevel:number, expanded?: boolean): void {
     const trackIsCollapsible = this.#traceParsedData.UserInteractions.interactionEvents.length > 0;
     const style = buildGroupStyle({shareHeaderLine: false, collapsible: trackIsCollapsible});
     const group =
-        buildTrackHeader(currentLevel, i18nString(UIStrings.interactions), style, /* selectable= */ true, expanded);
+        buildTrackHeader(currentLevel, endLevel, i18nString(UIStrings.interactions), style, /* selectable= */ true, expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
   }
 

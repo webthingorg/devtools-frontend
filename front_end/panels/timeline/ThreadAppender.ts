@@ -201,7 +201,7 @@ export class ThreadAppender implements TrackAppender {
   #appendTrackHeaderAtLevel(currentLevel: number): void {
     const trackIsCollapsible = this.#entries.length > 0;
     const style = buildGroupStyle({shareHeaderLine: false, collapsible: trackIsCollapsible});
-    const group = buildTrackHeader(currentLevel, this.trackName(), style, /* selectable= */ true, this.#expanded);
+    const group = buildTrackHeader(currentLevel, currentLevel, this.trackName(), style, /* selectable= */ true, this.#expanded);
     this.#compatibilityBuilder.registerTrackForGroup(group, this);
   }
   /**
@@ -214,7 +214,7 @@ export class ThreadAppender implements TrackAppender {
       const trackIsCollapsible = this.#entries.length > 0;
       const headerStyle = buildGroupStyle({shareHeaderLine: false, collapsible: trackIsCollapsible});
       const headerGroup =
-          buildTrackHeader(trackStartLevel, this.trackName(), headerStyle, /* selectable= */ false, this.#expanded);
+          buildTrackHeader(trackStartLevel, trackStartLevel,  this.trackName(), headerStyle, /* selectable= */ false, this.#expanded);
       this.#flameChartData.groups.push(headerGroup);
     }
     // Nesting is set to 1 because the track is appended inside the
@@ -222,7 +222,7 @@ export class ThreadAppender implements TrackAppender {
     const titleStyle = buildGroupStyle({padding: 2, nestingLevel: 1, collapsible: false});
     const rasterizerTitle = i18nString(UIStrings.rasterizerThreadS, {PH1: this.#rasterIndex});
     const titleGroup =
-        buildTrackHeader(trackStartLevel, rasterizerTitle, titleStyle, /* selectable= */ true, this.#expanded);
+        buildTrackHeader(trackStartLevel, trackStartLevel,  rasterizerTitle, titleStyle, /* selectable= */ true, this.#expanded);
     this.#compatibilityBuilder.registerTrackForGroup(titleGroup, this);
   }
 

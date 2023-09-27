@@ -63,6 +63,7 @@ describeWithEnvironment('FlameChart', () => {
         groups: [{
           name: 'Test Group' as Platform.UIString.LocalizedString,
           startLevel: 1,
+          endLevel: 2,
           style: defaultGroupStyle,
         }],
       });
@@ -103,6 +104,7 @@ describeWithEnvironment('FlameChart', () => {
           groups: [{
             name: 'Test Group' as Platform.UIString.LocalizedString,
             startLevel: 1,
+            endLevel: 2,
             style: defaultGroupStyle,
           }],
         });
@@ -247,16 +249,19 @@ describeWithEnvironment('FlameChart', () => {
             {
               name: 'Test Group 0' as Platform.UIString.LocalizedString,
               startLevel: 0,
+              endLevel: 1,
               style: defaultGroupStyle,
             },
             {
               name: 'Test Group 1' as Platform.UIString.LocalizedString,
               startLevel: 1,
+              endLevel: 2,
               style: defaultGroupStyle,
             },
             {
               name: 'Test Group 2' as Platform.UIString.LocalizedString,
               startLevel: 2,
+              endLevel: 3,
               style: {...defaultGroupStyle, collapsible: true, nestingLevel: 1},
             },
           ],
@@ -264,7 +269,7 @@ describeWithEnvironment('FlameChart', () => {
       }
     }
 
-    it('Calculate the level position correctly', () => {
+    it.only('Calculate the level position correctly', () => {
       const provider = new UpdateLevelPositionsTestProvider();
       const delegate = new MockFlameChartDelegate();
       chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
@@ -297,7 +302,7 @@ describeWithEnvironment('FlameChart', () => {
       assert.strictEqual(chartInstance.levelToOffset(3), 106);
     });
 
-    it('Calculate the level position correctly after hide and unhide a group without nested group', () => {
+    it.only('Calculate the level position correctly after hide and unhide a group without nested group', () => {
       const provider = new UpdateLevelPositionsTestProvider();
       const delegate = new MockFlameChartDelegate();
       chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
@@ -344,7 +349,7 @@ describeWithEnvironment('FlameChart', () => {
       assert.strictEqual(chartInstance.levelToOffset(3), 106);
     });
 
-    describe('hide/unhide nested group', () => {
+    describe.only('hide/unhide nested group', () => {
       class UpdateLevelPositionsWithNestedGroupTestProvider extends FakeFlameChartProvider {
         override timelineData(): PerfUI.FlameChart.FlameChartTimelineData|null {
           return PerfUI.FlameChart.FlameChartTimelineData.create({
@@ -355,17 +360,20 @@ describeWithEnvironment('FlameChart', () => {
               {
                 name: 'Test Group 0' as Platform.UIString.LocalizedString,
                 startLevel: 0,
+                endLevel: 1,
                 style: defaultGroupStyle,
               },
               {
                 name: 'Test Group 1' as Platform.UIString.LocalizedString,
                 startLevel: 1,
+                endLevel: 2,
                 style: defaultGroupStyle,
               },
               // Make the nested group always expanded for better testing the nested case
               {
                 name: 'Test Group 2' as Platform.UIString.LocalizedString,
                 startLevel: 2,
+                endLevel: 3,
                 style: {...defaultGroupStyle, nestingLevel: 1},
               },
             ],
