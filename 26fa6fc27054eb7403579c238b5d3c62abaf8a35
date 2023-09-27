@@ -16,6 +16,24 @@
       "message": "Does this create a uniform shuffling? If not, do we need the shuffling to be uniform?",
       "revId": "26fa6fc27054eb7403579c238b5d3c62abaf8a35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea9f1f5_3f075353",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-09-27T10:47:38Z",
+      "side": 1,
+      "message": "I am not 100% sure but I think this does uniform shuffling; the comparison method is random every time it is run. Is there a way to confirm this? or do you know a better shuffling algorithm I can use?",
+      "parentUuid": "8a4a4308_bd620749",
+      "revId": "26fa6fc27054eb7403579c238b5d3c62abaf8a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
