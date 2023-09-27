@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34d59b31_f4e3e958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-09-27T05:28:47Z",
+      "side": 1,
+      "message": "Clearing my -1 since my comments about splitting the states and keeping the information in a tooltip are addressed.\n\nI\u0027m not sure whether the spacing 100% matches the mocks, per dsv@\u0027s comment.\n\nAlso note that to fully close issue 1471842 we need to fix the failure reason display to look like the mock as well, instead of being a table with double-spaced text.",
+      "revId": "d0a78b691e870d971afba9f226559e4ed8ec0ea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
