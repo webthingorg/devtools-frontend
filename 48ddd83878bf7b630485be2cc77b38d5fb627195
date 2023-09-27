@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5090abf_8c2aa7a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-27T08:51:08Z",
+      "side": 1,
+      "message": "I have created a new screenshot test to really show both resizers 😊",
+      "parentUuid": "9fb4ae8a_e2aa6abe",
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "129109e0_d993ebf0",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bdd3fa4_d9542f88",
+        "filename": "front_end/ui/legacy/components/perf_ui/OverviewGrid.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-27T08:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "129109e0_d993ebf0",
+      "range": {
+        "startLine": 179,
+        "startChar": 4,
+        "endLine": 179,
+        "endChar": 53
+      },
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ccfd3e1_c599b542",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-09-26T15:03:41Z",
       "side": 1,
       "message": "Is this number from Figma? can you add a screenshot to the bug and add a comment link to the screenshot?",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "48ddd83878bf7b630485be2cc77b38d5fb627195",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b37334_e7d1ef1a",
+        "filename": "front_end/ui/legacy/components/perf_ui/overviewGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-09-27T08:51:08Z",
+      "side": 1,
+      "message": "No but if I use the value of the figma it looks really really tiny...",
+      "parentUuid": "5ccfd3e1_c599b542",
       "range": {
         "startLine": 19,
         "startChar": 2,
