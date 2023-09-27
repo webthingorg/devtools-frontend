@@ -56,6 +56,30 @@
       },
       "revId": "f75512eb5e769d904d073957235d2192564449b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddbcc270_c767a175",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-27T05:39:52Z",
+      "side": 1,
+      "message": "Unless I understood the code wrong and the problem is that the same identical cookie line can occur multiple times. In that case I suggest a test for that if there is not already :)",
+      "parentUuid": "9a9bcbad_1eef5095",
+      "range": {
+        "startLine": 1577,
+        "startChar": 0,
+        "endLine": 1588,
+        "endChar": 27
+      },
+      "revId": "f75512eb5e769d904d073957235d2192564449b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
