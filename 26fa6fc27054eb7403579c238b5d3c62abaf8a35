@@ -34,6 +34,24 @@
       "parentUuid": "8a4a4308_bd620749",
       "revId": "26fa6fc27054eb7403579c238b5d3c62abaf8a35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0512bd4_a9bcb9a7",
+        "filename": "test/unittests/karma.conf.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-09-27T12:31:30Z",
+      "side": 1,
+      "message": "As per our chat, I change the shuffle algorithm to Fisher-Yates",
+      "parentUuid": "aea9f1f5_3f075353",
+      "revId": "26fa6fc27054eb7403579c238b5d3c62abaf8a35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
