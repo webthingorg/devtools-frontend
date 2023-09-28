@@ -7,8 +7,10 @@
  */
 self.SourcesTestRunner = self.SourcesTestRunner || {};
 
+import * as Sources from '../../panels/sources/sources.js';
+
 /**
- * @param {!Sources.NavigatorView} navigatorView
+ * @param {!Sources.NavigatorView.NavigatorView} navigatorView
  * @param {boolean=} dumpIcons
  */
 SourcesTestRunner.dumpNavigatorView = function(navigatorView, dumpIcons) {
@@ -29,8 +31,8 @@ SourcesTestRunner.dumpNavigatorView = function(navigatorView, dumpIcons) {
       }
     }
     titleText += treeElement.title;
-    if (treeElement.nodeType === Sources.NavigatorView.Types.FileSystem ||
-        treeElement.nodeType === Sources.NavigatorView.Types.FileSystemFolder) {
+    if (treeElement.nodeType === Sources.NavigatorView.NavigatorView.Types.FileSystem ||
+        treeElement.nodeType === Sources.NavigatorView.NavigatorView.Types.FileSystemFolder) {
       const hasMappedFiles = treeElement.listItemElement.classList.contains('has-mapped-files');
       if (!hasMappedFiles) {
         titleText += ' [dimmed]';
@@ -56,7 +58,7 @@ SourcesTestRunner.dumpNavigatorView = function(navigatorView, dumpIcons) {
 };
 
 /**
- * @param {!Sources.NavigatorView} view
+ * @param {!Sources.NavigatorView.NavigatorView} view
  */
 SourcesTestRunner.dumpNavigatorViewInAllModes = function(view) {
   ['frame', 'frame/domain', 'frame/domain/folder', 'domain', 'domain/folder'].forEach(
@@ -64,11 +66,11 @@ SourcesTestRunner.dumpNavigatorViewInAllModes = function(view) {
 };
 
 /**
- * @param {!Sources.NavigatorView} view
+ * @param {!Sources.NavigatorView.NavigatorView} view
  * @param {string} mode
  */
 SourcesTestRunner.dumpNavigatorViewInMode = function(view, mode) {
-  TestRunner.addResult(view instanceof Sources.NetworkNavigatorView ? 'Sources:' : 'Content Scripts:');
+  TestRunner.addResult(view instanceof Sources.SourcesNavigator.NetworkNavigatorView ? 'Sources:' : 'Content Scripts:');
   view.groupByFrame = mode.includes('frame');
   view.groupByDomain = mode.includes('domain');
   view.groupByFolder = mode.includes('folder');
