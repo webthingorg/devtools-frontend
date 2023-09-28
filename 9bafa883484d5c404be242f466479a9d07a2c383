@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94b65d0b_3c3c50f5",
+        "filename": "front_end/panels/timeline/TimelineFilters.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-28T08:31:26Z",
+      "side": 1,
+      "message": "there are other filters in this file that we can update to work with new events - I will do that but will do a follow-up CL otherwise this one will get quite big.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 1
+      },
+      "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
