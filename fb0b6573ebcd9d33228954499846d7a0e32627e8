@@ -39,6 +39,29 @@
       },
       "revId": "fb0b6573ebcd9d33228954499846d7a0e32627e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69796ca4_b462d100",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-28T00:37:05Z",
+      "side": 1,
+      "message": "```suggestion\n      \u0027html-has-lang\u0027,\n      \u0027meta-description\u0027,\n```",
+      "range": {
+        "startLine": 212,
+        "startChar": 22,
+        "endLine": 214,
+        "endChar": 17
+      },
+      "revId": "fb0b6573ebcd9d33228954499846d7a0e32627e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
