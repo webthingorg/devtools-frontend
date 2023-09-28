@@ -123,6 +123,24 @@
       "parentUuid": "a7f59a8f_00ed07db",
       "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b23e3c5_4e211ac1",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-28T00:36:00Z",
+      "side": 1,
+      "message": "if the pptr side was fixed (patchset 9?) then presumably this change isnt needed anymore",
+      "parentUuid": "311d631f_947c7df1",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
