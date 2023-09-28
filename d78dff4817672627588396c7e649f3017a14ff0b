@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32fd95e4_9bc61970",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-09-28T17:17:38Z",
+      "side": 1,
+      "message": "I have no qualms with the CL.. But.. question for you:\n\nWhy? And how is this related to tab target?\n\n(I don\u0027t have a strong understanding of how captureBeyondViewport works. Lighthouse failed to adopt it a while ago: https://github.com/GoogleChrome/lighthouse/issues/11708 )",
+      "revId": "d78dff4817672627588396c7e649f3017a14ff0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
