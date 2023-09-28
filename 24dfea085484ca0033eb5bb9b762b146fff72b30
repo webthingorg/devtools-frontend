@@ -22,6 +22,30 @@
       },
       "revId": "24dfea085484ca0033eb5bb9b762b146fff72b30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d14c6bf_fd58d057",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-28T08:18:17Z",
+      "side": 0,
+      "message": "Rebase error. I expect it\u0027ll clear itself once the CL is rebased ontop of the elements-legacy reland.",
+      "parentUuid": "34cdd03e_f9dc3344",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 29
+      },
+      "revId": "24dfea085484ca0033eb5bb9b762b146fff72b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
