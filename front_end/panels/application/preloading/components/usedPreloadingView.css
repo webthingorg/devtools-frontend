@@ -18,6 +18,33 @@ devtools-report-section-header:nth-of-type(1) {
   padding-top: 1em;
 }
 
+.success-label,
+.failure-label,
+.neutral-label {
+  border-radius: 4px;
+  padding: 1px 4px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.success-label devtools-icon,
+.failure-label devtools-icon,
+.neutral-label devtools-icon {
+  vertical-align: sub;
+}
+
+.success-label {
+  background: var(--sys-color-tertiary-container);
+}
+
+.failure-label {
+  background: var(--sys-color-error-container);
+}
+
+.neutral-label {
+  background: var(--sys-color-neutral-container);
+}
+
 .link {
   color: var(--sys-color-primary);
   text-decoration: underline;
