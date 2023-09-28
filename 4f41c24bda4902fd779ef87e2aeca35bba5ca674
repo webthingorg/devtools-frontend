@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c7df0f_392b6c73",
+        "filename": "front_end/legacy_test_runner/sdk_test_runner/sdk_test_runner.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-28T08:13:38Z",
+      "side": 1,
+      "message": "Looks like we put `Bindings` somewhere on the global (probably in `MainImpl.ts`).\n\nOptional cleanup task as a follow-up to fix this (both in tests, here and in `MainImpl.ts`). 😊",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 70
+      },
+      "revId": "4f41c24bda4902fd779ef87e2aeca35bba5ca674",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

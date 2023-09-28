@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34cdd03e_f9dc3344",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-28T08:13:38Z",
+      "side": 0,
+      "message": "Intentional or did this slip in?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 29
+      },
+      "revId": "24dfea085484ca0033eb5bb9b762b146fff72b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
