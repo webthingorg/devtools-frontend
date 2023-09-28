@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d4a33e0_7f27cb7c",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-28T12:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8b51a76_b9e0e4d4",
+      "range": {
+        "startLine": 228,
+        "startChar": 31,
+        "endLine": 228,
+        "endChar": 38
+      },
+      "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94b65d0b_3c3c50f5",
@@ -101,6 +125,30 @@
       "writtenOn": "2023-09-28T12:24:13Z",
       "side": 1,
       "message": "Happy to land this as is, but I\u0027m concerned that we are going to have to add this special handling for profile calls in order to get their correct display name in multiple places, and that we can easily miss it somewhere. I know the alternative is mutating the event to contain the name after resolving with source maps, but I\u0027m unsure that is worse for this particular case. 100% your call, I just wanted to raise this and know your thoughts.",
+      "range": {
+        "startLine": 1366,
+        "startChar": 38,
+        "endLine": 1366,
+        "endChar": 51
+      },
+      "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4095c9_0dc5beea",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-28T12:47:47Z",
+      "side": 1,
+      "message": "Yeah...I completely agree with this and share the concern - whilst also not being so sure that I am comfortable mutating the name purely because that isn\u0027t something we do anywhere else and I like the design choice to keep events immutable.\n\nMy other thought is that we create a `EntryTitle.forEntry(entry)` and use that everywhere; at least then it would be in one place. But maybe that is overkill? But it would let us remove the very similar titleForEvent() function from the appenders. \n\nLet\u0027s land as is - but I agree this needs some thought.",
+      "parentUuid": "c7db5f12_5e24a8bd",
       "range": {
         "startLine": 1366,
         "startChar": 38,
