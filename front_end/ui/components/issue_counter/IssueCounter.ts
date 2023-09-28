@@ -193,7 +193,7 @@ export class IssueCounter extends HTMLElement {
     LitHtml.render(
         LitHtml.html`
         <icon-button .data=${data as IconButton.IconButton.IconButtonData} .accessibleName=${
-            this.#accessibleName}></icon-button>
+            this.#accessibleName} tabindex=${this.#clickHandler ? undefined : '-1'}></icon-button>
         `,
         this.#shadow, {host: this});
     this.#tooltipCallback?.();
