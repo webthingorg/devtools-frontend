@@ -16,6 +16,23 @@
       "message": "Thanks for continuously working on this! Overall LGTM as well, and I\u0027m just waiting to see the update after the backend is updated to give the player id information.",
       "revId": "e2f7ff63aaf745d989b1a0937381cc9ea2922983",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c005bd6d_eee5af06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546373
+      },
+      "writtenOn": "2023-09-28T22:10:49Z",
+      "side": 1,
+      "message": "@changhaohan@chromium.org, thank you for your review! I am a GSoC mentor of this project. Can he land this CL separately first since the next CL will focus on taking users to the right player. For now, this CL is just taking ones to the Media panel. He will continue to work on the next CL to complete the feature at the end.",
+      "revId": "e2f7ff63aaf745d989b1a0937381cc9ea2922983",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
