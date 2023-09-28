@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3a6a506_41cbab24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-28T12:24:13Z",
+      "side": 1,
+      "message": "Thanks for the fix!! LGTM with a thought",
+      "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b51a76_b9e0e4d4",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-28T12:24:13Z",
+      "side": 1,
+      "message": "typo: update",
+      "range": {
+        "startLine": 228,
+        "startChar": 31,
+        "endLine": 228,
+        "endChar": 38
+      },
+      "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94b65d0b_3c3c50f5",
@@ -19,6 +59,53 @@
         "startChar": 0,
         "endLine": 57,
         "endChar": 1
+      },
+      "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cab8a8a3_eba56169",
+        "filename": "front_end/panels/timeline/TimelineFilters.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-28T12:24:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "94b65d0b_3c3c50f5",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 1
+      },
+      "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7db5f12_5e24a8bd",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-28T12:24:13Z",
+      "side": 1,
+      "message": "Happy to land this as is, but I\u0027m concerned that we are going to have to add this special handling for profile calls in order to get their correct display name in multiple places, and that we can easily miss it somewhere. I know the alternative is mutating the event to contain the name after resolving with source maps, but I\u0027m unsure that is worse for this particular case. 100% your call, I just wanted to raise this and know your thoughts.",
+      "range": {
+        "startLine": 1366,
+        "startChar": 38,
+        "endLine": 1366,
+        "endChar": 51
       },
       "revId": "9bafa883484d5c404be242f466479a9d07a2c383",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
