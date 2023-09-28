@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0c153bf_b97a0ba4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-28T06:04:48Z",
+      "side": 1,
+      "message": "This is actually the feature that is currently being developed rn! There needs to be a bit of changes in the backend, so I am working on implementing a feature for it!",
+      "parentUuid": "829e8e9b_0e7916f8",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fd5b4f1_f946056a",
@@ -82,6 +100,24 @@
       "writtenOn": "2023-09-26T10:25:12Z",
       "side": 1,
       "message": "(nit): Can we use `playerId` with camel case without special cases?",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "439fbe12_0b4fee91",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-28T06:04:48Z",
+      "side": 1,
+      "message": "I will delete playerID as a whole and implement a method instead to check if a node is a media element.",
+      "parentUuid": "1fd5b4f1_f946056a",
       "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +139,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe381744_2836189c",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-28T06:04:48Z",
+      "side": 1,
+      "message": "I agree with this! I will have my next patchset to rename to \"Jump to Media panel\"",
+      "parentUuid": "85f965f8_4da063c2",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fed6093_b510425e",
@@ -120,6 +174,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b917853_58372393",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 2188,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-28T06:04:48Z",
+      "side": 1,
+      "message": "I actually agree with this approach more. I believe that it will allow for better readability and coding practice. Until I get the backend to properly set the playerIds, I will create this method to check whether or not a node is a media node. Thank you for the advice!",
+      "parentUuid": "6fed6093_b510425e",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "421a9a09_5e36b627",
@@ -133,6 +205,24 @@
       "writtenOn": "2023-09-26T10:25:12Z",
       "side": 1,
       "message": "(nit): Let\u0027s rename this to \"displays media adorner for video and audio elements\".",
+      "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c2a7db4_06d2d601",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-09-28T06:04:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "421a9a09_5e36b627",
       "revId": "ba5e47bb99ba03efd082017a5fe82e713273a6d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
