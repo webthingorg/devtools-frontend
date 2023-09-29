@@ -16,6 +16,24 @@
       "message": "I wonder if this change can cause regressions for the folks with screen readers.\n\nPreviously, were we announcing the numbers to the screen readers?  If so, maybe we can skip this change; WDYT?",
       "revId": "3f160b0c43529c5285e222ab9061defad57ea631",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ce7c6e4_7b053a08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-09-29T11:34:40Z",
+      "side": 1,
+      "message": "Just checked and you are right, the screen reader announces the numbers when tabbing to the issues counter.\nLet\u0027s keep it as is then, thanks!",
+      "parentUuid": "dc93d094_734f8cc2",
+      "revId": "3f160b0c43529c5285e222ab9061defad57ea631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
