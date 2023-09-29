@@ -59,7 +59,6 @@ group("legacy_entrypoints") {
     "panels/snippets:legacy",
     "panels/web_audio:legacy",
     "third_party/diff:legacy",
-    "ui/legacy:legacy",
     "ui/legacy/components/color_picker:legacy",
     "ui/legacy/components/cookie_table:legacy",
     "ui/legacy/components/data_grid:legacy",
