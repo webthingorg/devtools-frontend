@@ -504,9 +504,6 @@ export function prerenderFailureReason(attempt: SDK.PreloadingModel.PrerenderAtt
       return i18nString(UIStrings.prerenderFinalStatusInvalidSchemeRedirect);
     case Protocol.Preload.PrerenderFinalStatus.InvalidSchemeNavigation:
       return i18nString(UIStrings.prerenderFinalStatusInvalidSchemeNavigation);
-    case Protocol.Preload.PrerenderFinalStatus.InProgressNavigation:
-      // Not used.
-      return i18n.i18n.lockedString('Internal error');
     case Protocol.Preload.PrerenderFinalStatus.NavigationRequestBlockedByCsp:
       return i18nString(UIStrings.prerenderFinalStatusNavigationRequestBlockedByCsp);
     case Protocol.Preload.PrerenderFinalStatus.MainFrameNavigation:
@@ -561,8 +558,17 @@ export function prerenderFailureReason(attempt: SDK.PreloadingModel.PrerenderAtt
       return i18nString(UIStrings.prerenderFinalStatusMemoryLimitExceeded);
     case Protocol.Preload.PrerenderFinalStatus.DataSaverEnabled:
       return i18nString(UIStrings.prerenderFinalStatusDataSaverEnabled);
-    case Protocol.Preload.PrerenderFinalStatus.HasEffectiveUrl:
+    case Protocol.Preload.PrerenderFinalStatus.PrerenderingUrlHasEffectiveUrl:
       return i18nString(UIStrings.prerenderFinalStatusHasEffectiveUrl);
+    case Protocol.Preload.PrerenderFinalStatus.TriggerUrlHasEffectiveUrl:
+      // TODO(https://crbug.com/1410709): Fill it.
+      return i18n.i18n.lockedString('Unknown');
+    case Protocol.Preload.PrerenderFinalStatus.RedirectedPrerenderingUrlHasEffectiveUrl:
+      // TODO(https://crbug.com/1410709): Fill it.
+      return i18n.i18n.lockedString('Unknown');
+    case Protocol.Preload.PrerenderFinalStatus.ActivationUrlHasEffectiveUrl:
+      // TODO(https://crbug.com/1410709): Fill it.
+      return i18n.i18n.lockedString('Unknown');
     case Protocol.Preload.PrerenderFinalStatus.ActivatedBeforeStarted:
       // Status for debugging.
       return i18n.i18n.lockedString('Internal error');
