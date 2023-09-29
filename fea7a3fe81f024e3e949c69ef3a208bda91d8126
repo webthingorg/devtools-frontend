@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e955bee_e336a96d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-29T15:01:41Z",
+      "side": 1,
+      "message": "LGTM with two questions. Thanks!",
+      "revId": "fea7a3fe81f024e3e949c69ef3a208bda91d8126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c618ebb_0e2541c2",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-29T15:01:41Z",
+      "side": 1,
+      "message": "just to check my understanding: is this code effectively now unused? I am not advocating for removing it now - I saw you logged a bug around this, but right now as of this CL nothing in our panel relies on these calculations?",
+      "range": {
+        "startLine": 279,
+        "startChar": 1,
+        "endLine": 295,
+        "endChar": 3
+      },
+      "revId": "fea7a3fe81f024e3e949c69ef3a208bda91d8126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba4b3ea4_96feaced",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-29T15:01:41Z",
+      "side": 1,
+      "message": "this is a bit confusing: by \"site\" do you mean top level domain? e.g. these point to the same site because they are both google.com?",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 17
+      },
+      "revId": "fea7a3fe81f024e3e949c69ef3a208bda91d8126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
