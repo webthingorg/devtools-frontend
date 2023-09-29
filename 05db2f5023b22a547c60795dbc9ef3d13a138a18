@@ -68,6 +68,24 @@
       "parentUuid": "45400f20_3a09b2c8",
       "revId": "05db2f5023b22a547c60795dbc9ef3d13a138a18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2af93bbc_421e4f70",
+        "filename": "test/e2e/resources/sources/sourcemap-css.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-29T13:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93765dd9_b0c458ee",
+      "revId": "05db2f5023b22a547c60795dbc9ef3d13a138a18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
