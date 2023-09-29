@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb0ce4e5_508e9823",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-29T13:40:07Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "54a1896e04e69e9274c79dcb399b4a19ee17aa54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae82e62_11ea3464",
+        "filename": "front_end/models/trace/handlers/PageLoadMetricsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-09-29T13:40:07Z",
+      "side": 1,
+      "message": "I opted not to add the filtering based on the isOutermostFrame given that it isn\u0027t a property all page load events have. Keeping this filter means we can have a single filtering for all of these events",
+      "range": {
+        "startLine": 449,
+        "startChar": 35,
+        "endLine": 449,
+        "endChar": 82
+      },
+      "revId": "54a1896e04e69e9274c79dcb399b4a19ee17aa54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
