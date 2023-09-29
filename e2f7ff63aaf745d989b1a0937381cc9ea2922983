@@ -33,6 +33,24 @@
       "message": "@changhaohan@chromium.org, thank you for your review! I am a GSoC mentor of this project. Can he land this CL separately first since the next CL will focus on taking users to the right player. For now, this CL is just taking ones to the Media panel. He will continue to work on the next CL to complete the feature at the end.",
       "revId": "e2f7ff63aaf745d989b1a0937381cc9ea2922983",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5a1d00_a306b232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-09-29T12:24:26Z",
+      "side": 1,
+      "message": "Yes, I think that makes sense. However, I would suggest to land the CL after M119 branch cut, which is next Monday (Oct. 2nd), and turn the adorner off by default until the feature is complete.",
+      "parentUuid": "c005bd6d_eee5af06",
+      "revId": "e2f7ff63aaf745d989b1a0937381cc9ea2922983",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
