@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b442192_ef3469d8",
+        "filename": "front_end/panels/lighthouse/LighthouseProtocolService.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-09-29T18:12:50Z",
+      "side": 1,
+      "message": "I believe we can remove this `mainFrame` now, it isn\u0027t used anywhere except to verify that it exists.",
+      "revId": "41290839bc4e364e684a95923e86f749d8f12b2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
