@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc93d094_734f8cc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-09-29T10:31:59Z",
+      "side": 1,
+      "message": "I wonder if this change can cause regressions for the folks with screen readers.\n\nPreviously, were we announcing the numbers to the screen readers?  If so, maybe we can skip this change; WDYT?",
+      "revId": "3f160b0c43529c5285e222ab9061defad57ea631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
