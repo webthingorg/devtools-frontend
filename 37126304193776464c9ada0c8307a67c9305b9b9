@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bef56e0_1e8f0548",
+        "filename": "test/unittests/front_end/models/text_utils/TextUtils_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-09-29T08:02:51Z",
+      "side": 1,
+      "message": "Here are the identical tests.",
+      "revId": "37126304193776464c9ada0c8307a67c9305b9b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
