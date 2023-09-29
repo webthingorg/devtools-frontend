@@ -50,6 +50,24 @@
       "message": "This formatting looks a bit off 🤔",
       "revId": "05db2f5023b22a547c60795dbc9ef3d13a138a18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93765dd9_b0c458ee",
+        "filename": "test/e2e/resources/sources/sourcemap-css.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-09-29T11:41:06Z",
+      "side": 1,
+      "message": "Yeah, the format stems from the other css sourcemap tests and is what the sourcemap describes. The test doesn\u0027t look at the contents though, and the sourcemap is off either way with the license header that was force-added, so I\u0027ll just make this shorter and. nicely formatted.",
+      "parentUuid": "45400f20_3a09b2c8",
+      "revId": "05db2f5023b22a547c60795dbc9ef3d13a138a18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
