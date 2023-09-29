@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c001ee26_08fec1f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-29T15:31:43Z",
+      "side": 1,
+      "message": "I am landing as andoli is now AFK and we want this bug fix in for branch point",
+      "revId": "fea7a3fe81f024e3e949c69ef3a208bda91d8126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c618ebb_0e2541c2",
@@ -54,6 +71,30 @@
       "writtenOn": "2023-09-29T15:01:41Z",
       "side": 1,
       "message": "this is a bit confusing: by \"site\" do you mean top level domain? e.g. these point to the same site because they are both google.com?",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 17
+      },
+      "revId": "fea7a3fe81f024e3e949c69ef3a208bda91d8126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c39e837_4839f265",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-09-29T15:31:43Z",
+      "side": 1,
+      "message": "Answered this myself thanks to the web.dev articled: subdomains do not matter.",
+      "parentUuid": "ba4b3ea4_96feaced",
       "range": {
         "startLine": 356,
         "startChar": 0,
