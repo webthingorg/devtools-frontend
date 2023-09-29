@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7185bfe6_44f90a9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-29T07:56:22Z",
+      "side": 1,
+      "message": "I left a comment and a todo to remove the configuration flag in scripts/test/run_test_suite.js",
+      "parentUuid": "a4a9402f_bfd66d2a",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9c09b81_22de0079",
@@ -139,6 +157,24 @@
       "side": 1,
       "message": "if the pptr side was fixed (patchset 9?) then presumably this change isnt needed anymore",
       "parentUuid": "311d631f_947c7df1",
+      "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07fce96e_3f4832aa",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-29T07:56:22Z",
+      "side": 1,
+      "message": "I believe this is fixed now.",
+      "parentUuid": "5b23e3c5_4e211ac1",
       "revId": "1ce1fb23ca8ca35912308bdec0d5a03588575d30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

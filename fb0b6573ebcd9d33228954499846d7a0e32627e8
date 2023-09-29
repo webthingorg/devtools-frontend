@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f1dcab_b5ea11e5",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-29T07:56:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4a697bb9_ab90ff72",
+      "range": {
+        "startLine": 128,
+        "startChar": 22,
+        "endLine": 130,
+        "endChar": 17
+      },
+      "revId": "fb0b6573ebcd9d33228954499846d7a0e32627e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69796ca4_b462d100",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-28T00:37:05Z",
       "side": 1,
       "message": "```suggestion\n      \u0027html-has-lang\u0027,\n      \u0027meta-description\u0027,\n```",
+      "range": {
+        "startLine": 212,
+        "startChar": 22,
+        "endLine": 214,
+        "endChar": 17
+      },
+      "revId": "fb0b6573ebcd9d33228954499846d7a0e32627e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5220bb1_e5e9c462",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-09-29T07:56:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "69796ca4_b462d100",
       "range": {
         "startLine": 212,
         "startChar": 22,
