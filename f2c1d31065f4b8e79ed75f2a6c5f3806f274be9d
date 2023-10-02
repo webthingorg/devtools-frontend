@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c372b8e_40765a1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-02T10:23:14Z",
+      "side": 1,
+      "message": "Needs another +1 please! I had to sprinkle a couple of self.UIs everywhere",
+      "revId": "f2c1d31065f4b8e79ed75f2a6c5f3806f274be9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
