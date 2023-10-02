@@ -56,6 +56,24 @@
       "message": "I tried it, but I feel that this tooltip is very difficult to find. (I see it because I know it from source code, but I don\u0027t think organic user can find it.) I prefer to show the message in raw text.\nAt least, it\u0027s good to expand it to whole \u003cspan\u003e, rather than icon. (But still difficult to find.)",
       "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfdff5b0_9b9bf79e",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-02T17:50:25Z",
+      "side": 1,
+      "message": "I think we should stick with the design as much as possible though. If we think the design is hard to understand, we should have a workflow of ask Peter for new design -\u003e implement that, instead of changing it while implementing. (Ideally we would note that we are unhappy with it when Peter first gave us the designs.)",
+      "parentUuid": "7bda92cc_ad3f00b6",
+      "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
