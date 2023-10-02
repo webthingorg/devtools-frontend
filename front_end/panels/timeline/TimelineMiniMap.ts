@@ -69,6 +69,7 @@ export class TimelineMiniMap extends
 
   activateBreadcrumbs(): void {
     this.element.prepend(this.#breadcrumbsUI);
+    this.#overviewComponent.enableCreateBreadcrumbsButton();
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.BreadcrumbAdded, event => {
       this.addBreadcrumb(this.breadcrumbWindowBounds(event.data));
     });
@@ -77,7 +78,6 @@ export class TimelineMiniMap extends
       const breadcrumb = (event as TimelineComponents.BreadcrumbsUI.BreadcrumbRemovedEvent).breadcrumb;
       this.removeBreadcrumb(breadcrumb);
     });
-    this.#overviewComponent.enableCreateBreadcrumbsButton();
   }
 
   // If the window sliders are on the edges of the window, the window values are set to 0 or Infity.
