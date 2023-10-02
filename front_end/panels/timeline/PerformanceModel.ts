@@ -20,6 +20,7 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
   private readonly timelineModelInternal: TimelineModel.TimelineModel.TimelineModelImpl;
   private readonly frameModelInternal: TimelineModel.TimelineFrameModel.TimelineFrameModel;
   private windowInternal: Window;
+  private breadcrumbWindowInternal?: TraceEngine.Types.Timing.TraceWindow;
   private willResolveNames = false;
   private recordStartTimeInternal?: number;
 
@@ -179,11 +180,15 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
     return this.frameModelInternal;
   }
 
-  setWindow(window: Window, animate?: boolean): void {
-    const didWindowChange = this.windowInternal.left !== window.left || this.windowInternal.right !== window.right;
+  setWindow(window: Window, animate?: boolean, breadcrumb?: TraceEngine.Types.Timing.TraceWindow): void {
+    const didWindowOrBreadcrumbChange = this.windowInternal.left !== window.left ||
+        this.windowInternal.right !== window.right || (breadcrumb && (this.breadcrumbWindowInternal !== breadcrumb));
     this.windowInternal = window;
-    if (didWindowChange) {
-      this.dispatchEventToListeners(Events.WindowChanged, {window, animate});
+    if (breadcrumb) {
+      this.breadcrumbWindowInternal = breadcrumb;
+    }
+    if (didWindowOrBreadcrumbChange) {
+      this.dispatchEventToListeners(Events.WindowChanged, {window, animate, breadcrumbWindow: breadcrumb});
     }
   }
 
@@ -272,6 +277,7 @@ export enum Events {
 export interface WindowChangedEvent {
   window: Window;
   animate: boolean|undefined;
+  breadcrumbWindow?: TraceEngine.Types.Timing.TraceWindow;
 }
 
 export type EventTypes = {
