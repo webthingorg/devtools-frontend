@@ -345,7 +345,7 @@ const UIStrings = {
    * Description text for PrerenderFinalStatus::kMaxNumOfRunningNonEagerPrerendersExceeded.
    */
   prerenderFinalStatusMaxNumOfRunningNonEagerPrerendersExceeded:
-      'The prerender was not performed because the initiating page already has too many prerenders ongoing. Remove other speculation rules to enable further prerendering.',
+      'The old non-eager prerender (with a moderate or conservative eagerness and triggered by hovering or clicking links) was automatically canceled due to the triggering of another new non-eager prerender. It can be re-triggered by interacting with the link again.',
   /**
    *@description Text in grid and details: Preloading attempt is not yet triggered.
    */
