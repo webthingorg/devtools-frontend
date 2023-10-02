@@ -472,9 +472,6 @@ export class MainImpl {
   async #createAppUI(): Promise<void> {
     MainImpl.time('Main._createAppUI');
 
-    // @ts-ignore layout test global
-    self.UI.viewManager = UI.ViewManager.ViewManager.instance();
-
     // Request filesystems early, we won't create connections until callback is fired. Things will happen in parallel.
     // @ts-ignore layout test global
     self.Persistence.isolatedFileSystemManager =
@@ -508,12 +505,6 @@ export class MainImpl {
 
     this.#addMainEventListeners(document);
 
-    const canDock = Boolean(Root.Runtime.Runtime.queryParam('can_dock'));
-    // @ts-ignore layout test global
-    self.UI.zoomManager = UI.ZoomManager.ZoomManager.instance(
-        {forceNew: true, win: window, frontendHost: Host.InspectorFrontendHost.InspectorFrontendHostInstance});
-    // @ts-ignore layout test global
-    self.UI.inspectorView = UI.InspectorView.InspectorView.instance();
     UI.ContextMenu.ContextMenu.initialize();
     UI.ContextMenu.ContextMenu.installHandler(document);
 
@@ -529,8 +520,6 @@ export class MainImpl {
     });
     IssuesManager.ContrastCheckTrigger.ContrastCheckTrigger.instance();
 
-    // @ts-ignore layout test global
-    self.UI.dockController = UI.DockController.DockController.instance({forceNew: true, canDock});
     // @ts-ignore layout test global
     self.SDK.multitargetNetworkManager = SDK.NetworkManager.MultitargetNetworkManager.instance({forceNew: true});
     // @ts-ignore layout test global
@@ -609,13 +598,7 @@ export class MainImpl {
 
     new PauseListener();
 
-    const actionRegistryInstance = UI.ActionRegistry.ActionRegistry.instance({forceNew: true});
     // Required for legacy a11y layout tests
-    // @ts-ignore layout test global
-    self.UI.actionRegistry = actionRegistryInstance;
-    // @ts-ignore layout test global
-    self.UI.shortcutRegistry =
-        UI.ShortcutRegistry.ShortcutRegistry.instance({forceNew: true, actionRegistry: actionRegistryInstance});
     this.#registerMessageSinkListener();
 
     MainImpl.timeEnd('Main._createAppUI');

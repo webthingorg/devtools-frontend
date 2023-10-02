@@ -585,12 +585,12 @@ ElementsTestRunner.toggleMatchedStyleProperty = function(propertyName, checked) 
 };
 
 ElementsTestRunner.eventListenersWidget = function() {
-  self.UI.viewManager.showView('elements.eventListeners');
+  UI.ViewManager.ViewManager.instance().showView('elements.eventListeners');
   return Elements.EventListenersWidget.EventListenersWidget.instance();
 };
 
 ElementsTestRunner.showEventListenersWidget = function() {
-  return self.UI.viewManager.showView('elements.eventListeners');
+  return UI.ViewManager.ViewManager.instance().showView('elements.eventListeners');
 };
 
 /**

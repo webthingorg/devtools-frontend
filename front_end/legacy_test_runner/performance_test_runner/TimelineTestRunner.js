@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Timeline from '../../panels/timeline/timeline.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
@@ -159,7 +160,7 @@ PerformanceTestRunner.runPerfTraceWithReload = async function() {
 };
 
 PerformanceTestRunner.getTimelineWidget = async function() {
-  return await self.UI.viewManager.view('timeline').widget();
+  return await UI.ViewManager.ViewManager.instance().view('timeline').widget();
 };
 
 PerformanceTestRunner.getNetworkFlameChartElement = async function() {
