@@ -266,3 +266,5 @@ function wrapMochaCall(
     }
   });
 }
+
+export const itScreenshot = makeCustomWrappedIt('[screenshot]:');
