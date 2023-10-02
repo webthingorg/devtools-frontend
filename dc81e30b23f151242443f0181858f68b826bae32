@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d20bb417_8d052391",
+        "filename": "test/unittests/front_end/panels/application/InterestGroupStorageView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2023-10-02T17:57:41Z",
+      "side": 1,
+      "message": "So I am a bit unsure as to what to do here --- the similar tests this was based on are disabled due to flakiness, and I haven\u0027t had much luck reproducing that (it doesn\u0027t help since there doesn\u0027t seem to be a working equivalent of --gtest_repeat, and the equivalent of --gtest_filter seems to fail to launch half the time).",
+      "revId": "dc81e30b23f151242443f0181858f68b826bae32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
