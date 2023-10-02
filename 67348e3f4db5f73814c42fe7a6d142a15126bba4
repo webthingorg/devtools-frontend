@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a63e0d6c_4c400824",
+        "filename": "test/unittests/front_end/models/timeline_model/TimelineFrameModel_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-02T17:50:56Z",
+      "side": 1,
+      "message": "this particular trace is a little weird with frames track. we have mainthread paint+commit\u0027s with no frame.. and screenshots with no frame..\n\nbut.. my guess is that\u0027s cuz of bugs in the frames model?  anyway. not a huge deal.  \ni\u0027m totally cool with using it. there are worse ones :)",
+      "revId": "67348e3f4db5f73814c42fe7a6d142a15126bba4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
