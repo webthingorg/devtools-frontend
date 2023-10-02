@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29361df4_883a1b3f",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-02T15:30:56Z",
+      "side": 0,
+      "message": "drive-by: TS was moaning that this was unused",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 26
+      },
+      "revId": "b10e99abbaa80f5be3b6685f1dfaabf70bc61ac7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e04b372e_9aa4d65b",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-02T15:30:56Z",
+      "side": 0,
+      "message": "checked and even before we decided to drop CPU Time, this was not being used at all or referred to anywhere.",
+      "range": {
+        "startLine": 431,
+        "startChar": 2,
+        "endLine": 431,
+        "endChar": 16
+      },
+      "revId": "b10e99abbaa80f5be3b6685f1dfaabf70bc61ac7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
