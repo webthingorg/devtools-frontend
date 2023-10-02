@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cae2319_1909865a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-02T04:25:32Z",
+      "side": 1,
+      "message": "awesome, thanks! lgtm % nit",
+      "revId": "8e1a6fa03060d55ee613321e0ff305d088ae07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bdcaa4c_3682e87b",
+        "filename": "front_end/legacy_test_runner/heap_profiler_test_runner/heap_profiler_test_runner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-02T04:25:32Z",
+      "side": 1,
+      "message": "I was hoping that as part of this migration we could also get rid of `self.UI.panels` but not sure how pervasive it is.",
+      "range": {
+        "startLine": 353,
+        "startChar": 58,
+        "endLine": 353,
+        "endChar": 86
+      },
+      "revId": "8e1a6fa03060d55ee613321e0ff305d088ae07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526a9028_9f2abfe5",
+        "filename": "front_end/legacy_test_runner/sources_test_runner/DebuggerTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-02T04:25:32Z",
+      "side": 1,
+      "message": "nit: Leave this as `UI` if possible and address the global via `self.UI`.",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "8e1a6fa03060d55ee613321e0ff305d088ae07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
