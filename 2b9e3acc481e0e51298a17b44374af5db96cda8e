@@ -103,6 +103,24 @@
       "parentUuid": "9339c7d9_f2e20690",
       "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61628d0f_16f9e7f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-02T19:12:32Z",
+      "side": 1,
+      "message": "Thanks for explaining!\n\nI think this makes sense. But maybe in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4904670 we should add back the word \"eager\" for prerenderFinalStatusMaxNumOfRunningEagerPrerendersExceeded?\n\nMy reasoning is, when a web developer sees these errors, how should they understand what caused them and how to fix them? If they see the message for prerenderFinalStatusMaxNumOfRunningEagerPrerendersExceeded, it seems the correct way is to make sure to remove the *eager* speculation rules; removing a non-eager speculation rule will not help.",
+      "parentUuid": "e0da1809_1d5bcf00",
+      "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
