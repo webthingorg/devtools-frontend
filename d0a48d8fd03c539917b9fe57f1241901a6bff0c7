@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31b1e776_b0d829d3",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-02T08:57:05Z",
+      "side": 1,
+      "message": "Before this CL, those message were abbrev of \n\n- (Not attempted) Preload was not attempted in the previous page\n- (Successful) Preload was used successfully\n- (Failed) Preload failed.\n\nThis CL changes them as follows:\n\n- Preload was not attempted in the previous page\n- Preload was Prefetch and used successfully\n- Preload was Prefetch and failed.\n\nSo, I think abbrev should be\n\n- (Not attempted) Preload was not attempted in the previous page\n- (Prefetch succeed) Preload was Prefetch and used successfully\n- (Prefetch failed) Preload was Prefetch and failed.\n\nHow about `s/successful/succeeded/g`?",
+      "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5254540_678efcdc",
         "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
         "patchSetId": 33
@@ -20,6 +37,23 @@
         "endLine": 182,
         "endChar": 52
       },
+      "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bda92cc_ad3f00b6",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-02T08:57:05Z",
+      "side": 1,
+      "message": "I tried it, but I feel that this tooltip is very difficult to find. (I see it because I know it from source code, but I don\u0027t think organic user can find it.) I prefer to show the message in raw text.\nAt least, it\u0027s good to expand it to whole \u003cspan\u003e, rather than icon. (But still difficult to find.)",
       "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
