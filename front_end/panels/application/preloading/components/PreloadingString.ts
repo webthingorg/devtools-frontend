@@ -335,17 +335,17 @@ const UIStrings = {
    * Description text for PrerenderFinalStatus::kMaxNumOfRunningEagerPrerendersExceeded.
    */
   prerenderFinalStatusMaxNumOfRunningEagerPrerendersExceeded:
-      'The prerender was not performed because the initiating page already has too many eager prerenders ongoing. Remove other speculation rules to enable further prerendering.',
+      'The prerender was not performed because the initiating page already has too many prerenders ongoing. Remove other speculation rules to enable further prerendering.',
   /**
    * Description text for PrerenderFinalStatus::kMaxNumOfRunningEmbedderPrerendersExceeded.
    */
   prerenderFinalStatusMaxNumOfRunningEmbedderPrerendersExceeded:
-      'The prerender was not performed because the initiating page already has too many embedder prerenders ongoing. Remove other speculation rules to enable further prerendering.',
+      'The prerender was not performed because the initiating page already has too many prerenders ongoing.',
   /**
    * Description text for PrerenderFinalStatus::kMaxNumOfRunningNonEagerPrerendersExceeded.
    */
   prerenderFinalStatusMaxNumOfRunningNonEagerPrerendersExceeded:
-      'The prerender was not performed because the initiating page already has too many non-eager prerenders ongoing. Remove other speculation rules to enable further prerendering.',
+      'The old non-eager prerender (with a moderate or conservative eagerness and triggered by hovering or clicking links) was automatically canceled due to the triggering of another new non-eager prerender. It can be re-triggered by interacting with the link again.',
   /**
    *@description Text in grid and details: Preloading attempt is not yet triggered.
    */
