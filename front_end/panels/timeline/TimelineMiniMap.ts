@@ -52,14 +52,6 @@ export class TimelineMiniMap extends
     this.#overviewComponent.show(this.element);
     // Push the event up into the parent component so the panel knows when the window is changed.
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
-      // Create first breadcrumb from the initial full window
-      if (this.#breadcrumbs === null) {
-        this.addBreadcrumb(this.breadcrumbWindowBounds({
-          startTime: TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
-          endTime: TraceEngine.Types.Timing.MilliSeconds(event.data.endTime),
-        }));
-      }
-
       if (this.#breadcrumbs) {
         this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, {
           ...event.data,
@@ -72,10 +64,12 @@ export class TimelineMiniMap extends
         });
       }
     });
+    // this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {
     this.element.prepend(this.#breadcrumbsUI);
+    this.#overviewComponent.enableCreateBreadcrumbsButton();
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.BreadcrumbAdded, event => {
       this.addBreadcrumb(this.breadcrumbWindowBounds(event.data));
     });
@@ -84,7 +78,6 @@ export class TimelineMiniMap extends
       const breadcrumb = (event as TimelineComponents.BreadcrumbsUI.BreadcrumbRemovedEvent).breadcrumb;
       this.removeBreadcrumb(breadcrumb);
     });
-    this.#overviewComponent.enableCreateBreadcrumbsButton();
   }
 
   // If the window sliders are on the edges of the window, the window values are set to 0 or Infity.
@@ -216,5 +209,12 @@ export class TimelineMiniMap extends
       this.#controls.push(new TimelineEventOverviewMemory(data.traceParsedData));
     }
     this.#overviewComponent.setOverviewControls(this.#controls);
+
+    // Create first breadcrumb from the initial full window
+    this.#breadcrumbs = null;
+    this.addBreadcrumb(this.breadcrumbWindowBounds({
+      startTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.minimumBoundary()),
+      endTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.maximumBoundary()),
+    }));
   }
 }
