@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5254540_678efcdc",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-02T08:21:55Z",
+      "side": 1,
+      "message": "There\u0027s much more space here in the mock. Let\u0027s have it defined in CSS, not in the markup.",
+      "range": {
+        "startLine": 182,
+        "startChar": 48,
+        "endLine": 182,
+        "endChar": 52
+      },
+      "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
