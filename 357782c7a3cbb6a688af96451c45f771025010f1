@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f82b235_55027996",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1368998
+      },
+      "writtenOn": "2023-10-02T08:31:04Z",
+      "side": 0,
+      "message": "There is no dependency between the wrapper and the rest of the screenshot functionality in this module. The wrapper is just a way to label tests for the screenshot update tool and can be deprecated if the tool starts using ResultDB artifacts instead.",
+      "range": {
+        "startLine": 339,
+        "startChar": 13,
+        "endLine": 339,
+        "endChar": 25
+      },
+      "revId": "357782c7a3cbb6a688af96451c45f771025010f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
