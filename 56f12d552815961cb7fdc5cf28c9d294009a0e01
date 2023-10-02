@@ -16,6 +16,24 @@
       "message": "Not sure if this is the right string for this case, and also of what to put in the other cases.",
       "revId": "56f12d552815961cb7fdc5cf28c9d294009a0e01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95023806_54f99324",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-10-02T01:13:47Z",
+      "side": 1,
+      "message": "\u003e prerenderFinalStatusHasEffectiveUrl:\n\u003e \u0027The initiating page cannot perform prerendering, because it has an effective URL that is different from its normal URL. (For example, the New Tab Page, or hosted apps.)\u0027,\n\nThis string is for `TriggerUrlHasEffectiveUrl`.\n\nFor others, I propose following strings:\n\n\u003e prerenderFinalStatusPrerenderingUrlHasEffectiveUrl:\n\u003e \u0027The prerendering navigation failed because it has an effective URL that is different from its normal URL. (For example, the New Tab Page, or hosted apps.)\u0027\n\u003e \n\u003e prerenderFinalStatusRedirectedPrerenderingUrlHasEffectiveUrl:\n\u003e \u0027The prerendering navigation failed because it redirected to an effective URL that is different from its normal URL. (For example, the New Tab Page, or hosted apps.)\u0027\n\u003e \n\u003e prerenderFinalStatusActivationUrlHasEffectiveUrl:\n\u003e \u0027The prerender was not used because during activation time, navigation has an effective URL that is different from its normal URL. (For example, the New Tab Page, or hosted apps.)\u0027",
+      "parentUuid": "964e6af6_f3177743",
+      "revId": "56f12d552815961cb7fdc5cf28c9d294009a0e01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

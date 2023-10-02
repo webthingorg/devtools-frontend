@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e4c00a4_0da40343",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-10-02T01:13:47Z",
+      "side": 1,
+      "message": "Thank you! LGTM with some comments.",
+      "revId": "500c62def4ea2cf852431f198455d8b631e88575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ba5d82_3fab2888",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-10-02T01:13:47Z",
+      "side": 1,
+      "message": "Can you rearrange these in the declaration order in https://source.chromium.org/chromium/chromium/src/+/main:content/browser/preloading/prerender/prerender_final_status.h ?\n\n```\n  kTriggerUrlHasEffectiveUrl \u003d 39,\n  (snip)\n  kPrerenderingUrlHasEffectiveUrl \u003d 76,\n  kRedirectedPrerenderingUrlHasEffectiveUrl \u003d 77,\n  kActivationUrlHasEffectiveUrl \u003d 78,\n```",
+      "revId": "500c62def4ea2cf852431f198455d8b631e88575",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
