@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2a37399_c8b19510",
+        "filename": "front_end/legacy_test_runner/heap_profiler_test_runner/heap_profiler_test_runner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-02T06:53:22Z",
+      "side": 1,
+      "message": "Agreed, we should discuss how to do that nicely though. We could add more global singletons, but I was wondering if there isn\u0027t a nicer way to access the panels and other things we\u0027re stashing onto the window. Haven\u0027t had the time to go look so far.",
+      "parentUuid": "8bdcaa4c_3682e87b",
+      "range": {
+        "startLine": 353,
+        "startChar": 58,
+        "endLine": 353,
+        "endChar": 86
+      },
+      "revId": "8e1a6fa03060d55ee613321e0ff305d088ae07b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "526a9028_9f2abfe5",
         "filename": "front_end/legacy_test_runner/sources_test_runner/DebuggerTestRunner.js",
         "patchSetId": 2
