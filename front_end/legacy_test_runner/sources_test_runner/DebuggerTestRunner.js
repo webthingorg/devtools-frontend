@@ -10,6 +10,7 @@ self.SourcesTestRunner = self.SourcesTestRunner || {};
 import * as Common from '../../core/common/common.js';
 import * as Sources from '../../panels/sources/sources.js';
 import * as Bindings from '../../models/bindings/bindings.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 SourcesTestRunner.startDebuggerTest = async function(callback, quiet) {
   console.assert(TestRunner.debuggerModel.debuggerEnabled(), 'Debugger has to be enabled');
@@ -609,7 +610,7 @@ SourcesTestRunner.waitForExecutionContextInTarget = function(target, callback) {
 };
 
 SourcesTestRunner.selectThread = function(target) {
-  self.UI.context.setFlavor(SDK.Target, target);
+  UI.Context.Context.instance().setFlavor(SDK.Target, target);
 };
 
 SourcesTestRunner.evaluateOnCurrentCallFrame = function(code) {
