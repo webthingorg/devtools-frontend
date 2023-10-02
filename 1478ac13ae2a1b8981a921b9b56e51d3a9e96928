@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36dec900_af103287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-02T14:47:23Z",
+      "side": 1,
+      "message": "LGTM\n(to fix the presubmit error, remove the empty line before \u0027Change-Id\u0027 in the commit message)",
+      "revId": "1478ac13ae2a1b8981a921b9b56e51d3a9e96928",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
