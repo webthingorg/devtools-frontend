@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e31778b4_79554ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1577372
+      },
+      "writtenOn": "2023-10-02T08:27:15Z",
+      "side": 1,
+      "message": "+domenic@: Hello, can you please check this current DevTools Strings? Thanks! (This should be updated after new limit work is enabled. I\u0027m working this on succeeding CL)\n+wolfi@: Hello, can you please review this? Thanks!",
+      "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
