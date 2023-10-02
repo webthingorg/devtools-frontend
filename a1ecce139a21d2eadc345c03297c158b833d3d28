@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0df63c7_bcb2ded5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-10-02T22:35:08Z",
+      "side": 1,
+      "message": "Hi Jack - sorry did you have time to take a look at this bug fix?",
+      "revId": "a1ecce139a21d2eadc345c03297c158b833d3d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
