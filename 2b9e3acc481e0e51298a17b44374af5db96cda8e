@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c0208806_5f4d700a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1577372
+      },
+      "writtenOn": "2023-10-02T18:48:40Z",
+      "side": 1,
+      "message": "Done, sorry :bow:",
+      "parentUuid": "35f9fb32_9eec44f3",
+      "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e31778b4_79554ac3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -65,6 +83,24 @@
       "writtenOn": "2023-10-02T17:46:43Z",
       "side": 1,
       "message": "Hi, sorry, I don\u0027t understand the motivation for this change. (I wish I were in the same timezone so I could chat, but this week I am in California.)\n\nYou say that this makes the messages more accurate. In what way were the old messages inaccurate?",
+      "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0da1809_1d5bcf00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1577372
+      },
+      "writtenOn": "2023-10-02T18:48:40Z",
+      "side": 1,
+      "message": "\u003e  In what way were the old messages inaccurate?\n\n- For `MaxNumOfRunningEmbedderPrerendersExceeded`, it is not relevant to  speculation rules prerender so I would remove \"Remove other speculation rules to enable further prerendering\".\n- For `Eager`/`NonEager`, I would eliminate the term \"eager\"/\"non-eager\", because currently they are treated the same way in the limit (Also, if we introduce these terms here, maybe we need to explain these words but I think it is not so worthwhile to do that for the conciseness). With this change, the updated message will be identical to the original `MaxNumOfRunningPrerendersExceeded` strings. And to align this, the word \"embedder\" on `Embedder` is also eliminated. \n\n\nThe context and motivation is: I broke down the original `kMaxNumOfRunningPrerendersExceeded`\n into `kMaxNumOfRunning(Eager|NonEager|Embedder)PrerendersExceeded` in crrev.com/c/4783749. And Philip-san thankfully prepared for these strings before I worked, by extending the original strings on  crrev.com/c/4855761 (This was 404 link as you indicated, sorry) .\nWhen I started trying to update these strings for the new limit (As mentioned, this will be on succeeding CL), I revisited this and noticed these are slightly inaccurate for current behavior, so I created this CL to maintain the string until the new limit is enabled.\n\nDoes this make sense to you...?",
+      "parentUuid": "9339c7d9_f2e20690",
       "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
