@@ -34,6 +34,24 @@
       "parentUuid": "964e6af6_f3177743",
       "revId": "56f12d552815961cb7fdc5cf28c9d294009a0e01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9daae4_578479b1",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2023-10-02T13:46:42Z",
+      "side": 1,
+      "message": "Done, thank you. I was unsure if to rename prerenderFinalStatusHasEffectiveUrl --- it seems like the name is part of translations, so I am worried it may waste translators\u0027 work?",
+      "parentUuid": "95023806_54f99324",
+      "revId": "56f12d552815961cb7fdc5cf28c9d294009a0e01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
