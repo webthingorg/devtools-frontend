@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f9fb32_9eec44f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-02T17:46:43Z",
+      "side": 1,
+      "message": "This 404s",
+      "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e31778b4_79554ac3",
@@ -31,6 +48,23 @@
       "writtenOn": "2023-10-02T08:35:00Z",
       "side": 1,
       "message": "LGTM",
+      "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9339c7d9_f2e20690",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-02T17:46:43Z",
+      "side": 1,
+      "message": "Hi, sorry, I don\u0027t understand the motivation for this change. (I wish I were in the same timezone so I could chat, but this week I am in California.)\n\nYou say that this makes the messages more accurate. In what way were the old messages inaccurate?",
       "revId": "2b9e3acc481e0e51298a17b44374af5db96cda8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
