@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7c44363_08cf802f",
+        "filename": "front_end/Images/src/pointer.svg",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-10-03T22:40:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efc24eed_8e0f45f3",
+      "revId": "f004623f062ea51c857c9ee567219add41c59948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72657003_25699f59",
