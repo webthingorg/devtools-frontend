@@ -102,7 +102,7 @@ export class TimelineMiniMap extends
     };
     if (this.#breadcrumbs === null) {
       this.#breadcrumbs = new TimelineComponents.Breadcrumbs.Breadcrumbs(traceWindow);
-      
+
     } else {
       this.#breadcrumbs.add(traceWindow);
       this.setBounds(startTime, endTime);
