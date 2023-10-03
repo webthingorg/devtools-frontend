@@ -553,6 +553,11 @@ export function eventStackFrame(event: TraceEngine.Legacy.Event|
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export function _eventId(event: TraceEngine.Legacy.CompatibleTraceEvent): string {
+  if (TraceEngine.Legacy.eventIsFromNewEngine(event) && TraceEngine.Types.TraceEvents.isProfileCall(event)) {
+    const name = event.callFrame.functionName;
+    const location = event.callFrame.scriptId || event.callFrame.url || '';
+    return `f:${name}@${location}`;
+  }
   if (event.name === RecordType.TimeStamp) {
     return `${event.name}:${event.args.data.message}`;
   }
