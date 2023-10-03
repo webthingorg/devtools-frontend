@@ -74,6 +74,24 @@
       "parentUuid": "7bda92cc_ad3f00b6",
       "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50642494_f3e029aa",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 33
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-03T05:12:11Z",
+      "side": 1,
+      "message": "I love the new design at the first look, but we have now found the wireframe doesn\u0027t have failure case for \"Preload status for this page\" with this Robert\u0027s effort. (Failure on \"Preloads initialized by this page\" is not a problem because we can see details in Preloads panel. But we don\u0027t have such thing for \"this page\" other than here.) I think it\u0027s good time to step back to design and reconsider failure case.",
+      "parentUuid": "cfdff5b0_9b9bf79e",
+      "revId": "d0a48d8fd03c539917b9fe57f1241901a6bff0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
