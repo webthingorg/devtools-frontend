@@ -52,13 +52,16 @@ export class TimelineMiniMap extends
     this.#overviewComponent.show(this.element);
     // Push the event up into the parent component so the panel knows when the window is changed.
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.WindowChanged, event => {
-      this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
-      // Create first breadcrumb from the initial full window
-      if (this.#breadcrumbs === null) {
-        this.addBreadcrumb(this.breadcrumbWindowBounds({
-          startTime: TraceEngine.Types.Timing.MilliSeconds(event.data.startTime),
-          endTime: TraceEngine.Types.Timing.MilliSeconds(event.data.endTime),
-        }));
+      if (this.#breadcrumbs) {
+        this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, {
+          ...event.data,
+          breadcrumb: {
+            min: TraceEngine.Types.Timing.MicroSeconds(this.#breadcrumbs?.lastBreadcrumb.window.min + this.#minTime),
+            max: TraceEngine.Types.Timing.MicroSeconds(this.#breadcrumbs?.lastBreadcrumb.window.max + this.#minTime),
+            range: TraceEngine.Types.Timing.MicroSeconds(
+                this.#breadcrumbs?.lastBreadcrumb.window.max - this.#breadcrumbs?.lastBreadcrumb.window.min),
+          },
+        });
       }
     });
   }
@@ -99,7 +102,7 @@ export class TimelineMiniMap extends
     };
     if (this.#breadcrumbs === null) {
       this.#breadcrumbs = new TimelineComponents.Breadcrumbs.Breadcrumbs(traceWindow);
-
+      
     } else {
       this.#breadcrumbs.add(traceWindow);
       this.setBounds(startTime, endTime);
@@ -205,5 +208,14 @@ export class TimelineMiniMap extends
       this.#controls.push(new TimelineEventOverviewMemory(data.traceParsedData));
     }
     this.#overviewComponent.setOverviewControls(this.#controls);
+  }
+
+  addInitialBreadcrumb(): void {
+    // Create first breadcrumb from the initial full window
+    this.#breadcrumbs = null;
+    this.addBreadcrumb(this.breadcrumbWindowBounds({
+      startTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.minimumBoundary()),
+      endTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.maximumBoundary()),
+    }));
   }
 }
