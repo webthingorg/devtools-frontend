@@ -502,7 +502,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
     const left = (event.data.startTime > 0) ? event.data.startTime : this.performanceModel.minimumRecordTime();
     const right = Number.isFinite(event.data.endTime) ? event.data.endTime : this.performanceModel.maximumRecordTime();
-    this.performanceModel.setWindow({left, right}, /* animate */ true);
+    this.performanceModel.setWindow({left, right}, /* animate */ true, event.data.breadcrumb);
   }
 
   private onModelWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedEvent>): void {
@@ -1384,6 +1384,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         filmStripForPreview: TraceEngine.Extras.FilmStrip.fromTraceData(traceData),
         traceParsedData: traceData,
       });
+      if (this.#minimapComponent.breadcrumbsActivated) {
+        this.#minimapComponent.addInitialBreadcrumb();
+      }
     } catch (error) {
       void this.recordingFailed(error.message);
       console.error(error);
