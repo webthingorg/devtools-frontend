@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7272ebe1_d005284c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T12:59:01Z",
+      "side": 1,
+      "message": "nit: typo, I think you mean Specifically 😊",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 13
+      },
+      "revId": "051fa59a7bbf5f9cdd52cea6eb8f466cc339fc68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91cf94d4_a3ef7161",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T12:59:01Z",
+      "side": 1,
+      "message": "nit: `TimelineRecordStyle and TimelineRecordStyle`",
+      "range": {
+        "startLine": 14,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 69
+      },
+      "revId": "051fa59a7bbf5f9cdd52cea6eb8f466cc339fc68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21955955_966eee8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T12:59:01Z",
+      "side": 1,
+      "message": "lgtm with teeny nits! ty",
+      "revId": "051fa59a7bbf5f9cdd52cea6eb8f466cc339fc68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
