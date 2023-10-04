@@ -2971,6 +2971,13 @@ export namespace ProtocolMapping {
       returnType: void;
     };
     /**
+     * Show Window Controls Overlay for PWA
+     */
+    'Overlay.setShowWco': {
+      paramsType: [Protocol.Overlay.SetShowWcoRequest?];
+      returnType: void;
+    };
+    /**
      * Deprecated, please use addScriptToEvaluateOnNewDocument instead.
      */
     'Page.addScriptToEvaluateOnLoad': {
