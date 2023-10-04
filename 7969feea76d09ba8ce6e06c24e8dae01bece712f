@@ -16,6 +16,24 @@
       "message": "Let\u0027s please turn this off by default for now, and we can turn it on after the backend feature has been implemented.",
       "revId": "7969feea76d09ba8ce6e06c24e8dae01bece712f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d90a49e_b6459f08",
+        "filename": "front_end/panels/elements/components/AdornerManager.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1576432
+      },
+      "writtenOn": "2023-10-04T18:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0975c56_aaff3ecf",
+      "revId": "7969feea76d09ba8ce6e06c24e8dae01bece712f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
