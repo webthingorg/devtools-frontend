@@ -1983,8 +1983,8 @@ export class TimelineUIUtils {
     const contentHelper = new TimelineDetailsContentHelper(model.targetByEvent(event), linkifier);
 
     const defaultColorForEvent = TraceEngine.Legacy.eventIsFromNewEngine(event) ?
-        getEventStyle(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.category.color :
-        TimelineUIUtils.eventStyle(event).category.color;
+        getEventStyle(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.category.getComputedValue() :
+        TimelineUIUtils.eventStyle(event).category.getComputedValue();
     const color = model.isMarkerEvent(event) ? TimelineUIUtils.markerStyleForEvent(event).color : defaultColorForEvent;
 
     contentHelper.addSection(TimelineUIUtils.eventTitle(event), color);
