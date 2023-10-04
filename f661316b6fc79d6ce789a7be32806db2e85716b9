@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "665ff56e_c927929c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-04T11:48:33Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "f661316b6fc79d6ce789a7be32806db2e85716b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93ccc171_66089188",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-04T11:48:33Z",
+      "side": 1,
+      "message": "this ensures we use the correct color for profile calls in the tree view",
+      "range": {
+        "startLine": 1410,
+        "startChar": 4,
+        "endLine": 1410,
+        "endChar": 6
+      },
+      "revId": "f661316b6fc79d6ce789a7be32806db2e85716b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
