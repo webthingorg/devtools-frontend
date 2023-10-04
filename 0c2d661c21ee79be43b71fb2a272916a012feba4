@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd7b4a53_861e3bf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-10-04T20:52:59Z",
+      "side": 1,
+      "message": "Global UI stuff is going away, so we need to start using direct import",
+      "revId": "0c2d661c21ee79be43b71fb2a272916a012feba4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
