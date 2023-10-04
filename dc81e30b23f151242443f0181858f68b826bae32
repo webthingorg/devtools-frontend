@@ -51,6 +51,24 @@
       "parentUuid": "d20bb417_8d052391",
       "revId": "dc81e30b23f151242443f0181858f68b826bae32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "289d1849_c4b82533",
+        "filename": "test/unittests/front_end/panels/application/InterestGroupStorageView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2023-10-04T14:11:36Z",
+      "side": 1,
+      "message": "\u003e If you mark a test as `it.only` it will only run that test. This also works on all `describe*` blocks.\n\nThat seems to fail some of the time the same way as --mocha-fgrep does:\n04 10 2023 09:47:46.036:INFO [Chrome Headless 119.0.0.0 (Linux x86_64)]: Connected on socket 8uEuYqV2fqUGCJtaAAAB with id 46555580\nChrome Headless 119.0.0.0 (Linux x86_64) ERROR\n  Uncaught Error loading out/Default/gen/test/unittests/front_end/test_setup/test_setup.js\n  at http://localhost:9876/context.html:7394:311\n\nFinished in 2.214 secs / 0 secs @ 09:47:48 GMT-0400 (Eastern Daylight Time)\n\nSUMMARY:\n✔ 0 tests completed\n\n(This would be a bit more helpful if it printed anything about the error... and context.html looks to be template-expanded by something at runtime, so line numbers in it are unhelpful).\n\n\u003e \n\u003e In these tests the `await raf()` looks a bit suspicious to me. I don\u0027t think it guarantees that everything triggered by the dispatchedEvent finished running. Especially if the event listener triggers more async things.\n\nThis does look suspect since there is indeed some async processing happening, but the flake looks like a timeout, so that\u0027s probably not it (though I think the test fixture does weird stuff with requestAnimationFrame?). Is there a way of waiting on DOM contents somehow? An alternative would be to do a watch on setSidebarWidget like the sinon stuff but with a promise --- is something like that available? \n\n\u003e \n\u003e The change is not that complex and the unit test similar to others, so I\u0027d be fine to also skip this unit test as well under the same crbug and let the owner fix it together with the rest.\n\nWell... The author of the other tests is on the same team as me, and I don\u0027t think he knew about them being disabled until I mentioned it (and I may have been too vague), and he has enough of other fires to deal with. Though the bug is still open, so maybe it will get fixed from the devtools-frontend side...\n\nAnd it would be nice to have a test to be able to backport it, since it\u0027s a potentially confusing thing (although only if people are being silly, but then they need help from devtools more than usual?), and it\u0027s very early in new branch.",
+      "parentUuid": "992bb07a_d8d1a07b",
+      "revId": "dc81e30b23f151242443f0181858f68b826bae32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
