@@ -16,6 +16,23 @@
       "message": "PTAL! There\u0027s a use of UI.panels left behind in a lighthouse e2e test helper. The fact that e2e tests pass is a little disconcerting.",
       "revId": "c9929400b920be9ccf27ec4e474d34ca50805a43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9af644a_33698a36",
+        "filename": "test/e2e/helpers/extension-helpers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-04T11:21:43Z",
+      "side": 1,
+      "message": "This is also a somewhat breaking change, but none of our tests currently rely on global shortcuts, and this whole setup is going away at some point (chromium:1246836).",
+      "revId": "c9929400b920be9ccf27ec4e474d34ca50805a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
