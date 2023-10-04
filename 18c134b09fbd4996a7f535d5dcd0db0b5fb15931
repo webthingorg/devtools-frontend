@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef2a52b_667abed8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-04T10:55:04Z",
+      "side": 1,
+      "message": "LGTM with tiny suggestion",
+      "revId": "18c134b09fbd4996a7f535d5dcd0db0b5fb15931",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "405932f0_aba7c858",
+        "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-04T10:55:04Z",
+      "side": 1,
+      "message": "maybe it\u0027s worth to also mention that the key in the nested map is the trace file name.",
+      "range": {
+        "startLine": 28,
+        "startChar": 40,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "18c134b09fbd4996a7f535d5dcd0db0b5fb15931",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
