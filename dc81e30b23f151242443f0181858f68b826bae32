@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e46a0c2_54f0ac37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-04T04:38:57Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "dc81e30b23f151242443f0181858f68b826bae32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d20bb417_8d052391",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-10-02T17:57:41Z",
       "side": 1,
       "message": "So I am a bit unsure as to what to do here --- the similar tests this was based on are disabled due to flakiness, and I haven\u0027t had much luck reproducing that (it doesn\u0027t help since there doesn\u0027t seem to be a working equivalent of --gtest_repeat, and the equivalent of --gtest_filter seems to fail to launch half the time).",
+      "revId": "dc81e30b23f151242443f0181858f68b826bae32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "992bb07a_d8d1a07b",
+        "filename": "test/unittests/front_end/panels/application/InterestGroupStorageView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-04T04:38:57Z",
+      "side": 1,
+      "message": "If you mark a test as `it.only` it will only run that test. This also works on all `describe*` blocks.\n\nIn these tests the `await raf()` looks a bit suspicious to me. I don\u0027t think it guarantees that everything triggered by the dispatchedEvent finished running. Especially if the event listener triggers more async things.\n\nThe change is not that complex and the unit test similar to others, so I\u0027d be fine to also skip this unit test as well under the same crbug and let the owner fix it together with the rest.",
+      "parentUuid": "d20bb417_8d052391",
       "revId": "dc81e30b23f151242443f0181858f68b826bae32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
