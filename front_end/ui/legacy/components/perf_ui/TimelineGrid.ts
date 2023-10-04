@@ -169,9 +169,11 @@ export class TimelineGrid {
     this.dividersLabelBarElementInternal.removeChildren();
   }
 
+  // here updating times
   updateDividers(calculator: Calculator, freeZoneAtLeft?: number): boolean {
     const dividersData = TimelineGrid.calculateGridOffsets(calculator, freeZoneAtLeft);
     const dividerOffsets = dividersData.offsets;
+    console.log("offsets ", dividerOffsets);
     const precision = dividersData.precision;
 
     const dividersElementClientWidth = this.dividersElementInternal.clientWidth;
@@ -200,7 +202,7 @@ export class TimelineGrid {
       if (dividerLabelBar) {
         const label = labelMap.get(dividerLabelBar);
         if (label) {
-          label.textContent = calculator.formatValue(time, precision);
+          label.textContent = calculator.formatValue(time + calculator.minimumBoundary() - 606150544.702);
         }
       }
 
