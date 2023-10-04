@@ -701,20 +701,20 @@ export class ScreencastView extends UI.Widget.VBox implements SDK.OverlayModel.H
     this.navigationUrl.type = 'text';
     UI.ARIAUtils.setLabel(this.navigationUrl, i18nString(UIStrings.addressBar));
 
-    this.touchInputToggle = this.navigationBar.createChild('button') as HTMLButtonElement;
-    {
-      const icon = this.touchInputToggle.appendChild(new IconButton.Icon.Icon());
-      icon.data = {color: 'var(--icon-default)', iconName: 'touch-app'};
-    }
-    UI.ARIAUtils.setLabel(this.touchInputToggle, i18nString(UIStrings.touchInput));
-
-    this.mouseInputToggle = this.navigationBar.createChild('button') as HTMLButtonElement;
+    this.mouseInputToggle = this.navigationBar.createChild('button', 'mouse') as HTMLButtonElement;
     this.mouseInputToggle.disabled = true;
     {
       const icon = this.mouseInputToggle.appendChild(new IconButton.Icon.Icon());
       icon.data = {color: 'var(--icon-default)', iconName: 'mouse'};
     }
     UI.ARIAUtils.setLabel(this.mouseInputToggle, i18nString(UIStrings.mouseInput));
+
+    this.touchInputToggle = this.navigationBar.createChild('button', 'touch-app') as HTMLButtonElement;
+    {
+      const icon = this.touchInputToggle.appendChild(new IconButton.Icon.Icon());
+      icon.data = {color: 'var(--icon-default)', iconName: 'touch-app'};
+    }
+    UI.ARIAUtils.setLabel(this.touchInputToggle, i18nString(UIStrings.touchInput));
 
     this.navigationProgressBar = new ProgressTracker(
         this.resourceTreeModel, this.networkManager, this.navigationBar.createChild('div', 'progress') as HTMLElement);

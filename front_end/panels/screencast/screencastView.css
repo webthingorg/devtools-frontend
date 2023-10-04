@@ -60,6 +60,12 @@
   opacity: 50%;
 }
 
+.screencast-navigation button[disabled].mouse,
+.screencast-navigation button[disabled].touch-app {
+  opacity: 100%;
+  color: var(--color-primary-bright);
+}
+
 .screencast-navigation input {
   flex: 1;
   margin: 2px;
@@ -73,9 +79,9 @@
   height: 3px;
   left: 0;
   position: absolute;
-  top: 100%;  /* Align with the bottom edge of the parent. */
+  top: 100%; /* Align with the bottom edge of the parent. */
   width: 0;
-  z-index: 2;  /* Above .screencast-glasspane. */
+  z-index: 2; /* Above .screencast-glasspane. */
 }
 
 .-theme-with-dark-background .screencast-navigation .progress,
@@ -101,7 +107,12 @@
 }
 
 .screencast-canvas-container.touchable {
-  cursor: image-set(var(--image-file-touchCursor) 1x, var(--image-file-touchCursor_2x) 2x), default;
+  cursor:
+    image-set(
+      var(--image-file-touchCursor) 1x,
+      var(--image-file-touchCursor_2x) 2x
+    ),
+    default;
 }
 
 .screencast canvas {
