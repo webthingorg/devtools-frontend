@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "437c3963_cc6b63b2",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-04T15:33:17Z",
+      "side": 1,
+      "message": "Yes, it\u0027s the active breadcrumb window. \nI see! changed it to `#activeBreadcrumbWindow`. Should I also change `windowInternal` variable to `#window`?",
+      "parentUuid": "46c3abc5_4c05708e",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 74
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6893378e_f22559b4",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-04T10:57:38Z",
       "side": 1,
       "message": "#currentBreadcrumbTimeWindow and no `private`",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd74b229_2b197098",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-04T15:33:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6893378e_f22559b4",
       "range": {
         "startLine": 47,
         "startChar": 10,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d25016a5_000a8645",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-04T15:33:17Z",
+      "side": 1,
+      "message": "Agree. Added a comment and `isWindowWithinBreadcrumb` variable",
+      "parentUuid": "a23bde08_b04c6060",
+      "range": {
+        "startLine": 180,
+        "startChar": 3,
+        "endLine": 182,
+        "endChar": 115
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77f7425f_8c5bf4be",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-10-04T10:57:38Z",
       "side": 1,
       "message": "I feel like this should probably do nothing if breadcrumbs are not enabled.",
+      "range": {
+        "startLine": 213,
+        "startChar": 1,
+        "endLine": 214,
+        "endChar": 59
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf4a01d_9dbd814d",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-04T15:33:17Z",
+      "side": 1,
+      "message": "This method is only called form `TimelinePanel`. I added a check there to only call it when breadcrumbs exist",
+      "parentUuid": "77f7425f_8c5bf4be",
       "range": {
         "startLine": 213,
         "startChar": 1,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e46d7de_82063db1",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-04T15:33:17Z",
+      "side": 1,
+      "message": "Agree, added a check to see if breadcrumbs exist before calling it",
+      "parentUuid": "8e40d8ca_5390ac10",
+      "range": {
+        "startLine": 1387,
+        "startChar": 0,
+        "endLine": 1387,
+        "endChar": 52
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c433ac8c_328496b1",
@@ -139,6 +259,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c3c6995_69daf260",
+        "filename": "front_end/panels/timeline/components/Breadcrumbs.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-04T15:33:17Z",
+      "side": 1,
+      "message": "Sorry this is unclear, I added a comment now.\nBreadcrumbs are a Linked List, so to add a new one, we set the child of last breadcrumb to the new breadcrumb.\nAlternatively, we could loop through the whole list and add a new one at the end, but for efficiency we keep track of the last breadcrumb and set it\u0027s child to the new one. \n\nI changed it to \n`this.lastBreadcrumb \u003d this.lastBreadcrumb.child;` so it looks more like a Linked List operation.\n\nWe have tests for removing and adding breadcrumbs. I added a check there to make sure the `lastbreadcrumb` is correct. Is that sufficient?",
+      "parentUuid": "c433ac8c_328496b1",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 42
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "626c1375_97c4d3d1",
@@ -152,6 +296,30 @@
       "writtenOn": "2023-10-04T10:57:38Z",
       "side": 1,
       "message": "nit: I understand why you are taking these values, but we nearly always pass in `min` and `max` and calculate the range.\n\nSo I would either have this take (min, max), or actually it could just take `TraceEngine.Types.Timings.Window` (or whatever the type is that represents the bounds).\n\nAlso if we are going to take in numbers, please use the `Timings.Milliseconds` etc types to make it clear what units we are working in.",
+      "range": {
+        "startLine": 2145,
+        "startChar": 0,
+        "endLine": 2145,
+        "endChar": 72
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b36e5df_5271f3a2",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-04T15:33:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "626c1375_97c4d3d1",
       "range": {
         "startLine": 2145,
         "startChar": 0,
