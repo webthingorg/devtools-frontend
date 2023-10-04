@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c3abc5_4c05708e",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T10:57:38Z",
+      "side": 1,
+      "message": "is this the current active breadcrumb window?\n\nAlso let\u0027s make it a proper private property with # and no need for `Internal` on the end - that is from a time where there were no private values so we used that to try to denote them.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 74
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6893378e_f22559b4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T10:57:38Z",
+      "side": 1,
+      "message": "#currentBreadcrumbTimeWindow and no `private`",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a23bde08_b04c6060",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T10:57:38Z",
+      "side": 1,
+      "message": "This is very hard to parse - might need splitting out into a few variables.\n\nAlso a comment in this method explaining what we do and why if we have breadcrumbs enabled vs disabled would be useful.",
+      "range": {
+        "startLine": 180,
+        "startChar": 3,
+        "endLine": 182,
+        "endChar": 115
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f7425f_8c5bf4be",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T10:57:38Z",
+      "side": 1,
+      "message": "I feel like this should probably do nothing if breadcrumbs are not enabled.",
+      "range": {
+        "startLine": 213,
+        "startChar": 1,
+        "endLine": 214,
+        "endChar": 59
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e40d8ca_5390ac10",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T10:57:38Z",
+      "side": 1,
+      "message": "should we only do this if breadcrumbs are enabled? Or does it not matter as we won\u0027t surface them in the UI?",
+      "range": {
+        "startLine": 1387,
+        "startChar": 0,
+        "endLine": 1387,
+        "endChar": 52
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c433ac8c_328496b1",
+        "filename": "front_end/panels/timeline/components/Breadcrumbs.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T10:57:38Z",
+      "side": 1,
+      "message": "sorry if I am missing something here, why do we have to set the lastBreadcrumb\u0027s child to be the new breadcrumb? Wont that line (line 45) be overridden by line 46?\n\nAlso, can we add tests that cover the setting of lastBreadcrumb please if we don\u0027t have them already.",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 42
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "626c1375_97c4d3d1",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-04T10:57:38Z",
+      "side": 1,
+      "message": "nit: I understand why you are taking these values, but we nearly always pass in `min` and `max` and calculate the range.\n\nSo I would either have this take (min, max), or actually it could just take `TraceEngine.Types.Timings.Window` (or whatever the type is that represents the bounds).\n\nAlso if we are going to take in numbers, please use the `Timings.Milliseconds` etc types to make it clear what units we are working in.",
+      "range": {
+        "startLine": 2145,
+        "startChar": 0,
+        "endLine": 2145,
+        "endChar": 72
+      },
+      "revId": "938f1e9fa6a39b1e055e4a301b16794b7f9620c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
