@@ -5,6 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Elements from '../../panels/elements/elements.js';
 import * as EventListeners from '../../panels/event_listeners/event_listeners.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
@@ -585,12 +586,12 @@ ElementsTestRunner.toggleMatchedStyleProperty = function(propertyName, checked) 
 };
 
 ElementsTestRunner.eventListenersWidget = function() {
-  self.UI.viewManager.showView('elements.eventListeners');
+  UI.ViewManager.ViewManager.instance().showView('elements.eventListeners');
   return Elements.EventListenersWidget.EventListenersWidget.instance();
 };
 
 ElementsTestRunner.showEventListenersWidget = function() {
-  return self.UI.viewManager.showView('elements.eventListeners');
+  return UI.ViewManager.ViewManager.instance().showView('elements.eventListeners');
 };
 
 /**

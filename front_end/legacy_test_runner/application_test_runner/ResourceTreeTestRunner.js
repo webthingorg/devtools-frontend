@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Sources from '../../panels/sources/sources.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
@@ -79,7 +80,7 @@ ApplicationTestRunner.dumpResourcesTree = function() {
 
   if (!ApplicationTestRunner.testSourceNavigator) {
     ApplicationTestRunner.testSourceNavigator = new Sources.SourcesNavigator.NetworkNavigatorView();
-    ApplicationTestRunner.testSourceNavigator.show(self.UI.inspectorView.element);
+    ApplicationTestRunner.testSourceNavigator.show(UI.InspectorView.InspectorView.instance().element);
   }
 
   SourcesTestRunner.dumpNavigatorViewInAllModes(ApplicationTestRunner.testSourceNavigator);
