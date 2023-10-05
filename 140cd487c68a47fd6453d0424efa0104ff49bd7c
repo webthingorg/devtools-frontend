@@ -22,6 +22,30 @@
       },
       "revId": "140cd487c68a47fd6453d0424efa0104ff49bd7c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13aba780_23901b81",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-05T12:45:20Z",
+      "side": 1,
+      "message": "Let\u0027s make it consistent 😊",
+      "parentUuid": "7eefcb3f_8a575815",
+      "range": {
+        "startLine": 2145,
+        "startChar": 0,
+        "endLine": 2147,
+        "endChar": 62
+      },
+      "revId": "140cd487c68a47fd6453d0424efa0104ff49bd7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
