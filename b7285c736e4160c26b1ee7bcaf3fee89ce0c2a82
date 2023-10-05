@@ -20,6 +20,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "138a2329_3e6964ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-05T09:27:03Z",
+      "side": 1,
+      "message": "love the fix and the tests.\n\nDo you think we should propose backmerging this?",
+      "revId": "b7285c736e4160c26b1ee7bcaf3fee89ce0c2a82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "185a1b62_e0574565",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-05T09:27:03Z",
+      "side": 1,
+      "message": "nit: I would maybe call this `forceImmediateUpdate` but don\u0027t feel strongly",
+      "range": {
+        "startLine": 189,
+        "startChar": 43,
+        "endLine": 189,
+        "endChar": 60
+      },
+      "revId": "b7285c736e4160c26b1ee7bcaf3fee89ce0c2a82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "648651ca_7af64c8f",
         "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
         "patchSetId": 1
