@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13493f05_d32a161d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-05T09:14:55Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "b7285c736e4160c26b1ee7bcaf3fee89ce0c2a82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "648651ca_7af64c8f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-05T09:14:55Z",
+      "side": 1,
+      "message": "this was added mostly for testing, but it can be useful in the future",
+      "range": {
+        "startLine": 992,
+        "startChar": 2,
+        "endLine": 992,
+        "endChar": 25
+      },
+      "revId": "b7285c736e4160c26b1ee7bcaf3fee89ce0c2a82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
