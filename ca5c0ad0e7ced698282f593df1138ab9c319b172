@@ -70,6 +70,30 @@
       },
       "revId": "ca5c0ad0e7ced698282f593df1138ab9c319b172",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17a8224f_94cb3c80",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-05T15:25:34Z",
+      "side": 1,
+      "message": "sounds good, let\u0027s do that. \nYes, otherwise should be good to last",
+      "parentUuid": "4d15823c_428e7cb6",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 100
+      },
+      "revId": "ca5c0ad0e7ced698282f593df1138ab9c319b172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
