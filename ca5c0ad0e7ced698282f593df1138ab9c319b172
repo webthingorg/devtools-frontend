@@ -46,6 +46,30 @@
       },
       "revId": "ca5c0ad0e7ced698282f593df1138ab9c319b172",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d15823c_428e7cb6",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-05T15:09:55Z",
+      "side": 1,
+      "message": "OK great - how about we remove this line and the comment, and land it? Then we can look at that scroll issue as a separate CL.\n\nHow does that sound? And in that case, is the rest of this CL ready to land? Thanks!",
+      "parentUuid": "68ed8467_c6462c74",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 100
+      },
+      "revId": "ca5c0ad0e7ced698282f593df1138ab9c319b172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
