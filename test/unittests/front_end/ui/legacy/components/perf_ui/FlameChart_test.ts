@@ -480,4 +480,45 @@ describeWithEnvironment('FlameChart', () => {
       });
     });
   });
+
+  describe('entryIndexToCoordinates', () => {
+    class SetSelectedEntryTestProvider extends FakeFlameChartProvider {
+      override entryColor(_entryIndex: number): string {
+        return 'red';
+      }
+
+      override timelineData(): PerfUI.FlameChart.FlameChartTimelineData|null {
+        return PerfUI.FlameChart.FlameChartTimelineData.create({
+          entryLevels: [1, 1, 1, 1],
+          entryStartTimes: [5, 60, 80, 300],
+          entryTotalTimes: [50, 10, 10, 500],
+          groups: [{
+            name: 'Test Group' as Platform.UIString.LocalizedString,
+            startLevel: 1,
+            style: defaultGroupStyle,
+          }],
+        });
+      }
+    }
+
+    it('returns the correct coordinates for a given entry', async () => {
+      const provider = new SetSelectedEntryTestProvider();
+      const delegate = new MockFlameChartDelegate();
+      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      // Make the width narrow so that not everything fits
+      chartInstance.setSize(100, 400);
+      chartInstance.setWindowTimes(0, 100);
+      renderChart(chartInstance);
+      const {x: canvasOffsetX, y: canvasOffsetY} = chartInstance.getCanvasOffset();
+      // TODO(crbug.com/1440169): We can get all the expected values from
+      // the chart's data and avoid magic numbers
+      assert.deepEqual(chartInstance.entryIndexToCoordinates(0), {x: 36 + canvasOffsetX, y: 51 + canvasOffsetY});
+
+      // Emulate two scrolls to force a change in coordinates.
+      chartInstance.setSelectedEntry(3);
+      assert.deepEqual(chartInstance.entryIndexToCoordinates(0), {x: 36 + canvasOffsetX, y: -17 + canvasOffsetY});
+      chartInstance.setWindowTimes(250, 600);
+      assert.deepEqual(chartInstance.entryIndexToCoordinates(0), {x: -514 + canvasOffsetX, y: -17 + canvasOffsetY});
+    });
+  });
 });
