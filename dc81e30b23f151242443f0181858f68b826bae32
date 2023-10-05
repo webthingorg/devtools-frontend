@@ -105,6 +105,24 @@
       "parentUuid": "5914515b_249f0941",
       "revId": "dc81e30b23f151242443f0181858f68b826bae32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d241c88e_6c3a1868",
+        "filename": "test/unittests/front_end/panels/application/InterestGroupStorageView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-05T05:53:22Z",
+      "side": 1,
+      "message": "lgtm % one last comment.",
+      "parentUuid": "46b021ea_4ed057be",
+      "revId": "dc81e30b23f151242443f0181858f68b826bae32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

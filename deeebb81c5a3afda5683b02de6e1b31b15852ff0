@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63fff208_9c0d17bf",
+        "filename": "test/unittests/front_end/panels/application/InterestGroupStorageView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-05T05:53:22Z",
+      "side": 1,
+      "message": "last nit: We added a `Platform.PromiseUtilities.promiseWithResolvers()` that makes this easier. Alternatively you could also call the `sinon.stub` directly in the promise executor here instead of leaking `resolve`.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 7
+      },
+      "revId": "deeebb81c5a3afda5683b02de6e1b31b15852ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
