@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "392fc90798179ecec2de9000235ba3d808ccefab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d50cd30_13064454",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-05T10:52:10Z",
+      "side": 1,
+      "message": "wondering if we can lose the name property from the appenders. WDYT andoli?",
+      "range": {
+        "startLine": 201,
+        "startChar": 67,
+        "endLine": 201,
+        "endChar": 91
+      },
+      "revId": "392fc90798179ecec2de9000235ba3d808ccefab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
