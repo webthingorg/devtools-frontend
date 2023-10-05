@@ -60,6 +60,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "78ba3192_be2ebf48",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-05T10:06:05Z",
+      "side": 1,
+      "message": "I like it! Done.",
+      "parentUuid": "185a1b62_e0574565",
+      "range": {
+        "startLine": 189,
+        "startChar": 43,
+        "endLine": 189,
+        "endChar": 60
+      },
+      "revId": "b7285c736e4160c26b1ee7bcaf3fee89ce0c2a82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "648651ca_7af64c8f",
         "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
         "patchSetId": 1
