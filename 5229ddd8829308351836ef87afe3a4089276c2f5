@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b19a16_a6685897",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-05T10:57:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4764a06_121398f9",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "5229ddd8829308351836ef87afe3a4089276c2f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59234c8e_6e5ab546",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1856b3e_02b419ab",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-05T10:57:52Z",
+      "side": 1,
+      "message": "true, missed it",
+      "parentUuid": "59234c8e_6e5ab546",
+      "range": {
+        "startLine": 60,
+        "startChar": 58,
+        "endLine": 60,
+        "endChar": 74
+      },
+      "revId": "5229ddd8829308351836ef87afe3a4089276c2f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc6b4413_2255281e",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-05T09:32:43Z",
       "side": 1,
       "message": "the TraceWindow type I think is microseconds - but I think the flamechart works in milliseconds? (sorry, I realise I suggested using the TraceWindow type). But if we do use that, I think we need to convert the values to milliseconds before setting them in the flamechart.",
+      "range": {
+        "startLine": 2145,
+        "startChar": 17,
+        "endLine": 2147,
+        "endChar": 46
+      },
+      "revId": "5229ddd8829308351836ef87afe3a4089276c2f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c6db515_bb66d7ab",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-05T10:57:52Z",
+      "side": 1,
+      "message": "aah right, true. We should probably also change `this.totalTime` and `this.minimumBoundaryInternal` to `TraceEngine.Types.Timing.MilliSeconds` at some point",
+      "parentUuid": "fc6b4413_2255281e",
       "range": {
         "startLine": 2145,
         "startChar": 17,
