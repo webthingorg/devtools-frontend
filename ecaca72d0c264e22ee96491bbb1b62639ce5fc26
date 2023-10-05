@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6efa5cb7_cdc0135a",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1577372
+      },
+      "writtenOn": "2023-10-05T19:49:04Z",
+      "side": 1,
+      "message": "Thanks! I replaced with \"browser-triggered prerender\".",
+      "parentUuid": "f413ded5_ad33d929",
+      "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22f3571f_da0178b1",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-10-05T18:17:15Z",
       "side": 1,
       "message": "accept another new -\u003e starting a new\n\nre-triggered -\u003e retriggered, I think. Based on https://books.google.com/ngrams/graph?content\u003dretrigger%2Cre-trigger\u0026year_start\u003d1800\u0026year_end\u003d2019\u0026corpus\u003den-2019\u0026smoothing\u003d3# .",
+      "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "677ee987_08d95a2e",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1577372
+      },
+      "writtenOn": "2023-10-05T19:49:04Z",
+      "side": 1,
+      "message": "Fixed both cases. Thank you so much!",
+      "parentUuid": "22f3571f_da0178b1",
       "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
