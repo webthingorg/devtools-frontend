@@ -16,6 +16,57 @@
       "message": "+domenic@: Hello, can you please check these DevTools Strings that will be used after kPrerender2NewLimitAndScheduler is enabled? It is like a draft, I would appreciate any feedback!",
       "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c122a75f_f7fdae80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-05T18:17:15Z",
+      "side": 1,
+      "message": "Nice, this looks like a great improvement! Just some wording tweaks.",
+      "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f413ded5_ad33d929",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-05T18:17:15Z",
+      "side": 1,
+      "message": "chrome -\u003e Chrome. But, mentioning product names directly in the strings seems subpar. For example, on non-official builds this should probably say Chromium; in Edge it should say Edge; etc. Probably DevTools already has a technique for this?\n\nOr, maybe the easier route is to just say \"driven by the browser\".\n\nAlso, maybe \"browser-triggered prerender\" is more consistent with what we\u0027ve said elsewhere.",
+      "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f3571f_da0178b1",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-05T18:17:15Z",
+      "side": 1,
+      "message": "accept another new -\u003e starting a new\n\nre-triggered -\u003e retriggered, I think. Based on https://books.google.com/ngrams/graph?content\u003dretrigger%2Cre-trigger\u0026year_start\u003d1800\u0026year_end\u003d2019\u0026corpus\u003den-2019\u0026smoothing\u003d3# .",
+      "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
