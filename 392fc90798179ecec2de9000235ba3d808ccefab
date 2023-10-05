@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27466247_75dbc175",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-05T11:30:16Z",
+      "side": 1,
+      "message": "LGTM!!",
+      "revId": "392fc90798179ecec2de9000235ba3d808ccefab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d50cd30_13064454",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-10-05T10:52:10Z",
       "side": 1,
       "message": "wondering if we can lose the name property from the appenders. WDYT andoli?",
+      "range": {
+        "startLine": 201,
+        "startChar": 67,
+        "endLine": 201,
+        "endChar": 91
+      },
+      "revId": "392fc90798179ecec2de9000235ba3d808ccefab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed002d1b_fc66a375",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-05T11:30:16Z",
+      "side": 1,
+      "message": "sometimes we don\u0027t have predefined names for threads and resort to the name in the event as the track\u0027s name. This is the case with ThreadPoolForegroundWorker or Chrome_ChildIOThread threads.\n\nMaybe we could define the default name in a setter for threads we don\u0027t have predefined names for? Or maybe we can make the param optional?",
+      "parentUuid": "6d50cd30_13064454",
       "range": {
         "startLine": 201,
         "startChar": 67,
