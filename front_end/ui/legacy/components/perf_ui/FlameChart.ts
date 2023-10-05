@@ -332,7 +332,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.updateHighlight();
   }
 
-  private timelineData(): FlameChartTimelineData|null {
+  timelineData(): FlameChartTimelineData|null {
     if (!this.dataProvider) {
       return null;
     }
@@ -983,6 +983,23 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return entryIndex;
     }
     return -1;
+  }
+
+  /**
+   * Given an entry's index, retrns its coordinates relative to the
+   * viewport.
+   */
+  entryIndexToCoordinates(entryIndex: number): {x: number, y: number}|null {
+    const timelineData = this.timelineData();
+    const {x: canvasViewportOffsetX, y: canvasViewportOffsetY} = this.canvas.getBoundingClientRect();
+    if (!timelineData || !this.visibleLevelOffsets) {
+      return null;
+    }
+
+    const x = this.chartViewport.timeToPosition(timelineData.entryStartTimes[entryIndex]) + canvasViewportOffsetX;
+    const y = this.visibleLevelOffsets[timelineData.entryLevels[entryIndex]] - this.chartViewport.scrollOffset() +
+        canvasViewportOffsetY;
+    return {x, y};
   }
 
   private coordinatesToGroupIndex(x: number, y: number, headerOnly: boolean): number {
