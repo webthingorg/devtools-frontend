@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "808e9f94_a0545b2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-10-05T07:27:10Z",
+      "side": 1,
+      "message": "I assume there are no further comments on this? Please let me know if there are follow-ups needed, I will try landing the change now (if anything breaks, please revert).",
+      "revId": "a2b10b31e63b0b90c08f702ecbe8fc5cad6d7974",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
