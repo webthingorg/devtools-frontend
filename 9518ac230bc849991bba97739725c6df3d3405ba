@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "298c88ba_c5881ddd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-05T13:11:38Z",
+      "side": 1,
+      "message": "s",
+      "revId": "9518ac230bc849991bba97739725c6df3d3405ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c11ace59_e3da6bca",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-09-20T19:44:52Z",
       "side": 1,
       "message": "you probably wanted this to be ?? instead of ||.\nIt definitely doesn\u0027t matter for this case.\n\nBut I\u0027ve run into a few cases where 0 is valid but we\u0027re using ||. \nA trap to keep an eye out for.",
+      "range": {
+        "startLine": 383,
+        "startChar": 62,
+        "endLine": 383,
+        "endChar": 65
+      },
+      "revId": "9518ac230bc849991bba97739725c6df3d3405ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac9e4a0_bb23a734",
+        "filename": "front_end/ui/legacy/components/perf_ui/ChartViewport.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-05T13:11:38Z",
+      "side": 1,
+      "message": "Ah yeah good catch - I wonder if we can ESLint this...",
+      "parentUuid": "c11ace59_e3da6bca",
       "range": {
         "startLine": 383,
         "startChar": 62,
