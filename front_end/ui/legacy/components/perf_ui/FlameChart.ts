@@ -2142,6 +2142,13 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.chartViewport.setBoundaries(this.minimumBoundaryInternal, this.totalTime);
   }
 
+  setTotalAndMinimumBreadcrumbValues(
+      breadcrumbTotal: TraceEngine.Types.Timing.MilliSeconds,
+      breadcrumbMin: TraceEngine.Types.Timing.MilliSeconds): void {
+    this.totalTime = breadcrumbTotal;
+    this.minimumBoundaryInternal = breadcrumbMin;
+  }
+
   private updateHeight(): void {
     const height = this.levelToOffset(this.dataProvider.maxStackDepth()) + 2;
     this.chartViewport.setContentHeight(height);
