@@ -63,7 +63,12 @@ export const decorateNodeLabel = function(
 
   if (isPseudo) {
     const pseudoElement = parentElement.createChild('span', 'extra node-label-pseudo');
-    const pseudoText = '::' + originalNode.pseudoType();
+    const pseudoIdentifier = originalNode.pseudoIdentifier();
+    let pseudoText = '::' + originalNode.pseudoType();
+    if (pseudoIdentifier) {
+      pseudoText += `(${pseudoIdentifier})`;
+    }
+
     UI.UIUtils.createTextChild(pseudoElement, pseudoText);
     title += pseudoText;
   }
