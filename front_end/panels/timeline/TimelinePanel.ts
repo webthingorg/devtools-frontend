@@ -391,15 +391,18 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.#minimapComponent.show(topPaneElement);
     this.#minimapComponent.addEventListener(
         PerfUI.TimelineOverviewPane.Events.WindowChanged, this.onOverviewWindowChanged.bind(this));
-
-    this.statusPaneContainer = this.timelinePane.element.createChild('div', 'status-pane-container fill');
-
-    this.createFileSelector();
-
-    SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.Load, this.loadEventFired, this);
-
+        
+        this.statusPaneContainer = this.timelinePane.element.createChild('div', 'status-pane-container fill');
+        
+        this.createFileSelector();
+        
+        SDK.TargetManager.TargetManager.instance().addModelListener(
+          SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.Load, this.loadEventFired, this);
+          
     this.flameChart = new TimelineFlameChartView(this, threadTracksSource);
+    if(this.#minimapComponent.breadcrumbsActivated) {
+      this.flameChart.disableNetworkRuler();
+    }
     this.searchableViewInternal = new UI.SearchableView.SearchableView(this.flameChart, null);
     this.searchableViewInternal.setMinimumSize(0, 100);
     this.searchableViewInternal.element.classList.add('searchable-view');

@@ -38,6 +38,7 @@ export interface OverviewData {
  */
 export class TimelineMiniMap extends
     Common.ObjectWrapper.eventMixin<PerfUI.TimelineOverviewPane.EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
+  breadcrumbsActivated: boolean = false;
   #overviewComponent = new PerfUI.TimelineOverviewPane.TimelineOverviewPane('timeline');
   #controls: TimelineEventOverview[] = [];
   #breadcrumbs: TimelineComponents.Breadcrumbs.Breadcrumbs|null = null;
@@ -61,9 +62,11 @@ export class TimelineMiniMap extends
         }));
       }
     });
+    // this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {
+    this.breadcrumbsActivated = true;
     this.element.prepend(this.#breadcrumbsUI);
     this.#overviewComponent.addEventListener(PerfUI.TimelineOverviewPane.Events.BreadcrumbAdded, event => {
       this.addBreadcrumb(this.breadcrumbWindowBounds(event.data));

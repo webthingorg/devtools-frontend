@@ -152,6 +152,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateColorMapper();
   }
 
+  disableNetworkRuler() {
+    this.networkFlameChart.enableRuler(false);
+  }
+
   isNetworkTrackShownForTests(): boolean {
     return this.networkSplitWidget.showMode() !== UI.SplitWidget.ShowMode.OnlyMain;
   }
