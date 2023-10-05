@@ -522,4 +522,53 @@ describeWithEnvironment('ThreadAppender', function() {
       assert.strictEqual(threadAppenders[0].titleForEvent(callFrameB), 'On ignore list');
     });
   });
+
+  describe('AuctionWorklet threads', () => {
+    it('finds all the worklet threads', async function() {
+      const {threadAppenders} = await renderThreadAppendersFromTrace(this, 'fenced-frame-fledge.json.gz');
+      const workletAppenders = threadAppenders.filter(threadAppender => {
+        return threadAppender.trackName().includes('Worklet');
+      });
+      assert.lengthOf(workletAppenders, 6);
+    });
+
+    it('sets the title correctly for an Auction Worklet service', async function() {
+      const UTILITY_THREAD_PID = 776435 as TraceModel.Types.TraceEvents.ProcessID;
+      const UTILITY_THREAD_TID = 1 as TraceModel.Types.TraceEvents.ThreadID;
+      const {threadAppenders} = await renderThreadAppendersFromTrace(this, 'fenced-frame-fledge.json.gz');
+      const appender = threadAppenders.find(threadAppender => {
+        return threadAppender.processId() === UTILITY_THREAD_PID && threadAppender.threadId() === UTILITY_THREAD_TID;
+      });
+      if (!appender) {
+        throw new Error('Could not find expected thread appender');
+      }
+      assert.strictEqual(appender.trackName(), 'Auction Worklet Service — https://ssp-fledge-demo.glitch.me');
+    });
+
+    it('sets the title correctly for an Auction Worklet seller service', async function() {
+      const SELLER_THREAD_PID = 776435 as TraceModel.Types.TraceEvents.ProcessID;
+      const SELLER_THREAD_TID = 6 as TraceModel.Types.TraceEvents.ThreadID;
+      const {threadAppenders} = await renderThreadAppendersFromTrace(this, 'fenced-frame-fledge.json.gz');
+      const appender = threadAppenders.find(threadAppender => {
+        return threadAppender.processId() === SELLER_THREAD_PID && threadAppender.threadId() === SELLER_THREAD_TID;
+      });
+      if (!appender) {
+        throw new Error('Could not find expected thread appender');
+      }
+      assert.strictEqual(appender.trackName(), 'Seller Worklet — https://ssp-fledge-demo.glitch.me');
+    });
+
+    it('sets the title correctly for an Auction Worklet bidder service', async function() {
+      const BIDDER_THREAD_PID = 776436 as TraceModel.Types.TraceEvents.ProcessID;
+      const BIDDER_THREAD_TID = 6 as TraceModel.Types.TraceEvents.ThreadID;
+      const {threadAppenders} = await renderThreadAppendersFromTrace(this, 'fenced-frame-fledge.json.gz');
+      const appender = threadAppenders.find(threadAppender => {
+        return threadAppender.processId() === BIDDER_THREAD_PID && threadAppender.threadId() === BIDDER_THREAD_TID;
+      });
+      if (!appender) {
+        throw new Error('Could not find expected thread appender');
+      }
+      assert.strictEqual(appender.trackName(), 'Bidder Worklet — https://dsp-fledge-demo.glitch.me');
+    });
+  });
 });
