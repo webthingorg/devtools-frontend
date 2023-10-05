@@ -22,6 +22,30 @@
       },
       "revId": "deeebb81c5a3afda5683b02de6e1b31b15852ff0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6ad18af_8959fa02",
+        "filename": "test/unittests/front_end/panels/application/InterestGroupStorageView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2023-10-05T13:33:27Z",
+      "side": 1,
+      "message": "Thanks. Went with the latter approach, but that\u0027s a nice helper. (I don\u0027t do JS much and so doing this by hand always feels extra-weird for me, too)",
+      "parentUuid": "63fff208_9c0d17bf",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 7
+      },
+      "revId": "deeebb81c5a3afda5683b02de6e1b31b15852ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
