@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eefcb3f_8a575815",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-05T11:00:36Z",
+      "side": 1,
+      "message": "Sorry - I know I am nitpicking here, but we consistently pass in `min` and `max` or the bounds everywhere.\n\nSo this should either take `min: Milliseconds, Max: Milliseconds`, or it should take the bounds in Microseconds like you had it, but then convert the values we need into milliseconds.\n\nAnd plus one on changing totalTime and minimumBoundaryInternal to Millisecond types - please could you do that in a follow-up CL once this lands? That would be a nice tidy up :)",
+      "range": {
+        "startLine": 2145,
+        "startChar": 0,
+        "endLine": 2147,
+        "endChar": 62
+      },
+      "revId": "140cd487c68a47fd6453d0424efa0104ff49bd7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
