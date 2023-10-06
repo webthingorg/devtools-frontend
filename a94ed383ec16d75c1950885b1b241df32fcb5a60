@@ -33,6 +33,23 @@
       "message": "+wolfi@: Hello, can you please review this? Thanks!",
       "revId": "a94ed383ec16d75c1950885b1b241df32fcb5a60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e2cad19_71595cd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-06T06:30:43Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a94ed383ec16d75c1950885b1b241df32fcb5a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

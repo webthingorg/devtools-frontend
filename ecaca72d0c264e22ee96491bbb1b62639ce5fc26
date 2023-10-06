@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3e35af0_e6153eda",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-06T06:30:43Z",
+      "side": 1,
+      "message": "FYI, the word \u0027Chrome\u0027 is used in some UIStrings here and there, but great that it can be avoided in this instance.",
+      "parentUuid": "6efa5cb7_cdc0135a",
+      "revId": "ecaca72d0c264e22ee96491bbb1b62639ce5fc26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22f3571f_da0178b1",
