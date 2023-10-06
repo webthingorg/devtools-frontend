@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "056f18f1_386d07bc",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-06T15:02:18Z",
+      "side": 1,
+      "message": "the trace engine by default parses all trace events already. This is because the visibility of events is determined using the styles defined in the UI, so the engine doesn\u0027t try to query an event\u0027s visibility before processing. Enabling this flag means we draw all the events coming from the engine.\n\nThis is likely not the ideal solution, so we can define a set of events that we keep track of and that we use in the engine and in the UI. In the engine we will use this to filter events (unless the configuration says otherwise) and in the UI to define events\u0027 styles. wdyt?",
+      "parentUuid": "a78e5d0f_7677e698",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 86
+      },
+      "revId": "64c4ad373302a17839dbb32bb5a6d29e3ec11a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3964571e_00734a1f",
