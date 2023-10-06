@@ -16,6 +16,24 @@
       "message": "LGTM. Can you make sure that you have tested the scrolling/interactions both with and without breadcrumbs enabled to make sure the bug we had previously is fixed? Thank you!",
       "revId": "1c6319aaaf79dd8c1bbdc2f69d4b28495d41d509",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e66e4a5_3f6fc54a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-06T09:24:12Z",
+      "side": 1,
+      "message": "Thanks for the review! I tested recording many times and it looks like it\u0027s working as intended 😄",
+      "parentUuid": "5b86e7fa_c89491d0",
+      "revId": "1c6319aaaf79dd8c1bbdc2f69d4b28495d41d509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
