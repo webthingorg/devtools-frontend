@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6692f3e1_be0ce6c7",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-06T15:08:01Z",
+      "side": 1,
+      "message": "sorry for the awful redaction, I meant *we can define a set of events that we keep track of and use that in the engine and in the UI",
+      "parentUuid": "056f18f1_386d07bc",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 86
+      },
+      "revId": "64c4ad373302a17839dbb32bb5a6d29e3ec11a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3964571e_00734a1f",
