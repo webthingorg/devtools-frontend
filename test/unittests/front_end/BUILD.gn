@@ -89,6 +89,7 @@ group("front_end") {
     "ui/components/settings",
     "ui/components/split_view",
     "ui/components/two_states_counter",
+    "ui/components/visual_logging",
     "ui/legacy",
     "ui/legacy/components/color_picker",
     "ui/legacy/components/inline_editor",
