@@ -39,6 +39,30 @@
       },
       "revId": "3b0088845979125e33de4e09eca7e67741a96fd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c7f66fb_03285f48",
+        "filename": "front_end/ui/legacy/components/perf_ui/OverviewGrid.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-06T10:17:16Z",
+      "side": 1,
+      "message": "This definitely needs a comment.\nWhen the window is less than 5 seconds, we hide the button that creates breadcrumb so that is the minimum possible breadcrumb size. 4.5 ms is when in the us it switches from 5 to 4 because of rounding",
+      "parentUuid": "3eac67f8_327bf92c",
+      "range": {
+        "startLine": 555,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 40
+      },
+      "revId": "3b0088845979125e33de4e09eca7e67741a96fd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
