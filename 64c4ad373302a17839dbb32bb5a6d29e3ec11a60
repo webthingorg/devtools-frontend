@@ -115,6 +115,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "125bc2d9_0c2b0630",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-06T15:15:39Z",
+      "side": 1,
+      "message": "ah good point, I hadn\u0027t thought about changes in the setting value. In that case, let\u0027s leave the handling in the UI. Thanks!",
+      "parentUuid": "4b39948e_e09a399b",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 86
+      },
+      "revId": "64c4ad373302a17839dbb32bb5a6d29e3ec11a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3964571e_00734a1f",
         "filename": "front_end/panels/timeline/ThreadAppender.ts",
         "patchSetId": 4
