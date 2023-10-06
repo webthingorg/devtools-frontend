@@ -169,6 +169,6 @@ describe('Performance panel', () => {
     // Click to select a network event.
     await frontend.mouse.click(104, 144);
     await timeout(100);  // cannot await for DOM as this is a purely canvas change.
-    await assertElementScreenshotUnchanged(panel, 'performance/timeline-expand-network-panel-and-select-event.png', 1);
+    await assertElementScreenshotUnchanged(panel, 'performance/timeline-expand-network-panel-and-select-event.png', 0);
   });
 });
