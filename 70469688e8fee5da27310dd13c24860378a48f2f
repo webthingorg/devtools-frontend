@@ -16,6 +16,40 @@
       "message": "Wolfgang, please kindly take a look",
       "revId": "70469688e8fee5da27310dd13c24860378a48f2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fddca2d8_04c09f14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-06T12:26:11Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "70469688e8fee5da27310dd13c24860378a48f2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12edfc6a_f24e1fc7",
+        "filename": "front_end/panels/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-06T12:26:11Z",
+      "side": 1,
+      "message": "This block and the previous block used to be colored differently, and now use the same color. Is that relevant?",
+      "revId": "70469688e8fee5da27310dd13c24860378a48f2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
