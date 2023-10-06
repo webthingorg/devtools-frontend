@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3964571e_00734a1f",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-06T14:50:01Z",
+      "side": 1,
+      "message": "this is a drive-by change. We don\u0027t mean to use the color generator for trace events.",
+      "range": {
+        "startLine": 506,
+        "startChar": 27,
+        "endLine": 506,
+        "endChar": 72
+      },
+      "revId": "64c4ad373302a17839dbb32bb5a6d29e3ec11a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
