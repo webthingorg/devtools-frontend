@@ -3,6 +3,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d0c37b66_5d170df8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-06T14:57:14Z",
+      "side": 1,
+      "message": "lgtm with follow-up suggestion, thanks!",
+      "revId": "64c4ad373302a17839dbb32bb5a6d29e3ec11a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a78e5d0f_7677e698",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-06T14:57:14Z",
+      "side": 1,
+      "message": "we should probably migrate these to use the new trace engine configuration approach - do you fancy doing that in a follow up? Thanks!",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 86
+      },
+      "revId": "64c4ad373302a17839dbb32bb5a6d29e3ec11a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3964571e_00734a1f",
         "filename": "front_end/panels/timeline/ThreadAppender.ts",
         "patchSetId": 4
