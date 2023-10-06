@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8176bf5_e7eec9c0",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-06T12:21:23Z",
+      "side": 0,
+      "message": "this call is moved to the implementation of the function called inside, because that function is used in other places too.",
+      "range": {
+        "startLine": 121,
+        "startChar": 11,
+        "endLine": 121,
+        "endChar": 65
+      },
+      "revId": "d87fae510bd8fadd846408c0982920434e6d98f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
