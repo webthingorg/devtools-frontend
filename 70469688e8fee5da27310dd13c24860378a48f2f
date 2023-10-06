@@ -68,6 +68,29 @@
       "parentUuid": "12edfc6a_f24e1fc7",
       "revId": "70469688e8fee5da27310dd13c24860378a48f2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e965a241_70a8eade",
+        "filename": "front_end/panels/network/networkPanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-10-06T14:47:53Z",
+      "side": 1,
+      "message": "```\n:root {\n  --network-overview-total: var(--sys-color-surface-variant);\n  --network-overview-blocking: var(--sys-color-neutral-bright);\n  --network-overview-connecting: var(--ref-palette-yellow60);\n  --network-overview-service-worker: var(--sys-color-orange-bright);\n  --network-overview-service-worker-respond-with: var(--sys-color-cyan-bright);\n  --network-overview-push: var(--ref-palette-blue60);\n  --override-network-overview-proxy: var(--ref-palette-neutral60);\n  --network-overview-dns: var(--sys-color-cyan);\n  --network-overview-ssl: var(--ref-palette-purple70);\n  --override-network-overview-sending: var(--ref-palette-cyan60);\n  --network-overview-waiting: var(--ref-palette-green70);\n  --network-overview-receiving: var(--ref-palette-blue60);\n  --network-overview-queueing: var(--ref-palette-neutral100);\n  --network-grid-navigation-color: var(--ref-palette-blue90);\n  --network-grid-initiator-path-color: var(--ref-palette-green90);\n  --network-grid-initiated-path-color: var(--ref-palette-error80);\n  --network-grid-focus-selected-color-has-error: var(--sys-color-error-container);\n  --network-grid-from-frame-color: var(--ref-palette-cyan95);\n  --network-grid-is-product-color: var(--ref-palette-yellow95);\n  --network-frame-divider-color: var(--ref-palette-yellow60);\n}\n\n.-theme-with-dark-background {\n  --network-grid-initiator-path-color: var(--ref-palette-green40);\n  --network-grid-initiated-path-color: var(--ref-palette-error20);\n  --network-grid-from-frame-color: var(--ref-palette-neutral50);\n  --network-grid-is-product-color: var(--ref-palette-neutral70);\n}\n```",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 1
+      },
+      "revId": "70469688e8fee5da27310dd13c24860378a48f2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
