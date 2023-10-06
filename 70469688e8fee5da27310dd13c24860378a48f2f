@@ -50,6 +50,24 @@
       "message": "This block and the previous block used to be colored differently, and now use the same color. Is that relevant?",
       "revId": "70469688e8fee5da27310dd13c24860378a48f2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3da15a_fb40db77",
+        "filename": "front_end/panels/network/networkLogView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-10-06T12:39:10Z",
+      "side": 1,
+      "message": "It seems that was done to increase color-contrast, but this GM3 color should be good in both cases",
+      "parentUuid": "12edfc6a_f24e1fc7",
+      "revId": "70469688e8fee5da27310dd13c24860378a48f2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
