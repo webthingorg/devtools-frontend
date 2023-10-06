@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b39948e_e09a399b",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-06T15:08:07Z",
+      "side": 1,
+      "message": "Ah sorry - I got confused and thought this file was in the models/trace folder, but it is not and purely UI. So please ignore my suggestion 😊\n\nWhile we are on this topic though, I thought we did filter events already based on this flag at the engine level - in Trace.Configuration.experiments we already have `timelineShowAllEvents` defined. `SamplesIntegrator` uses this when filtering stack traces, as far as I can tell. But yes I suppose there are potentially other places in the RendererHandler in particular where we could filter.\n\nRight now I could see the argument that it is best for the engine to parse everything, because then when this setting changes (noting that one day I want us to promote this from an experiment to an actual setting) we wouldn\u0027t have to re-parse the trace, but instead when the user changed the setting we could just redraw the UI.\n\nwdyt? \n\n(either way, this doesn\u0027t have to block this CL landing)",
+      "parentUuid": "056f18f1_386d07bc",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 86
+      },
+      "revId": "64c4ad373302a17839dbb32bb5a6d29e3ec11a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3964571e_00734a1f",
