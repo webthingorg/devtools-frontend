@@ -86,6 +86,14 @@ interface GroupHiddenState {
   [groupName: string]: boolean;
 }
 
+interface GroupTreeNode {
+  index: number;
+  nestingLevel: number;
+  startLevel: number;
+  endLevel: number;
+  children: GroupTreeNode[];
+}
+
 export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox)
     implements Calculator, ChartViewportDelegate {
   private readonly groupExpansionSetting?: Common.Settings.Setting<GroupExpansionState>;
@@ -1940,9 +1948,135 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.flameChartDelegate.updateSelectedGroup(this, timelineData.selectedGroup);
   }
 
+  /**
+   * Builds a tree node for a group. For each group the start level is inclusive and the end level is exclusive.
+   * @param group
+   * @param index index of the group in the |FlameChartTimelineData.groups[]|
+   * @param endLevel The end level of this group, which is also the start level of the next group or the end of all
+   * groups
+   * @returns the tree node for the group
+   */
+  #buildGroupTreeNode(group: Group, index: number, endLevel: number): GroupTreeNode {
+    return {
+      index,
+      nestingLevel: group.style.nestingLevel,
+      startLevel: group.startLevel,
+      endLevel,
+      children: [],
+    };
+  }
+
+  /**
+   * Builds a tree for the given group array, the tree will be builded based on the nesting level.
+   * We will add one fake root to represent the top level parent, and the for each tree node, its children means the
+   * group nested in.
+   * This function is public for test purpose.
+   * @param groups the array of all groups, it should be the one from FlameChartTimelineData
+   * @returns the root of the Group tree. The root is the fake one we added, which represent the parent for all groups
+   */
+  buildGroupTree(groups: Group[]): GroupTreeNode {
+    // Add an extra top level. This will be used as a parent for all groups, and
+    // will be used to contain the levels that not belong to any group.
+    const treeRoot: GroupTreeNode = {
+      index: -1,
+      nestingLevel: -1,
+      startLevel: 0,
+      // If there is no |groups| (for example the JS Profiler), it means all the
+      // levels belong to the top level, so just use the max level as the end.
+      endLevel: groups.length ? groups[0].startLevel : this.dataProvider.maxStackDepth(),
+      children: [],
+    };
+    const groupStack: GroupTreeNode[] = [treeRoot];
+    for (let i = 0; i < groups.length; i++) {
+      const group = groups[i];
+      const currentGroupNestingLevel = group.style.nestingLevel;
+      let parentGroup: GroupTreeNode = groupStack[groupStack.length - 1];
+      while (parentGroup && parentGroup.nestingLevel >= currentGroupNestingLevel) {
+        groupStack.pop();
+        parentGroup = groupStack[groupStack.length - 1];
+      }
+
+      const nextGroup = groups[i + 1];
+      // If this group is the last one, it means all the remaining levels belong
+      // to this level, so just use the max level as the end.
+      const endLevel = nextGroup?.startLevel ?? this.dataProvider.maxStackDepth();
+      const currentGroupNode = this.#buildGroupTreeNode(group, i, endLevel);
+      parentGroup.children.push(currentGroupNode);
+      groupStack.push(currentGroupNode);
+    }
+    return treeRoot;
+  }
+
+  #traverseGroupTree(groupNode: GroupTreeNode, currentOffset: number, parentGroupIsVisible: boolean): number {
+    if (!this.visibleLevels || !this.visibleLevelOffsets || !this.visibleLevelHeights || !this.groupOffsets) {
+      return currentOffset;
+    }
+
+    const groups = this.rawTimelineData?.groups || [];
+
+    if (groupNode.index >= 0) {
+      this.groupOffsets[groupNode.index] = currentOffset;
+      // If |shareHeaderLine| is false, we add the height of one more level to
+      // the current offset, which will be used for the start level of current
+      // group.
+      if (!groups[groupNode.index].hidden && parentGroupIsVisible && !groups[groupNode.index].style.shareHeaderLine) {
+        currentOffset += groups[groupNode.index].style.height;
+      }
+    }
+
+    // If this is the top level, it is always shown.
+    const thisGroupHeaderIsVisible = groupNode.index < 0 ? true :
+                                                           !groups[groupNode.index].hidden &&
+            (this.isGroupCollapsible(groupNode.index) ? (groups[groupNode.index].expanded ?? false) : true);
+    const thisGroupIsVisible = thisGroupHeaderIsVisible && parentGroupIsVisible;
+
+    for (let level = groupNode.startLevel; level < groupNode.endLevel; level++) {
+      // Handle offset and visibility of each level inside this group.
+      const isFirstOnLevel = level === groupNode.startLevel;
+      // If this is the top level, all the levels in this group are always shown.
+      const thisLevelIsVisible = groupNode.index < 0 ? true :
+                                                       !groups[groupNode.index].hidden &&
+              (parentGroupIsVisible &&
+               (thisGroupIsVisible || (isFirstOnLevel && groups[groupNode.index].style.useFirstLineForOverview)));
+
+      let height;
+      if (groups[groupNode.index]) {
+        const groupStyle = groups[groupNode.index].style;
+        height = isFirstOnLevel && !groupStyle.shareHeaderLine ||
+                (groupStyle.collapsible && !groups[groupNode.index].expanded) ?
+            groupStyle?.height :
+            (groupStyle?.itemsHeight || this.barHeight);
+      } else {
+        height = this.barHeight;
+      }
+
+      this.visibleLevels[level] = thisLevelIsVisible ?? false;
+      this.visibleLevelOffsets[level] = currentOffset;
+      this.visibleLevelHeights[level] = height;
+
+      if (thisLevelIsVisible ||
+          (parentGroupIsVisible && groups[groupNode.index].style.shareHeaderLine && isFirstOnLevel)) {
+        currentOffset += this.visibleLevelHeights[level];
+      }
+    }
+
+    if (groupNode.children.length === 0) {
+      return currentOffset;
+    }
+
+    for (const child of groupNode.children) {
+      // If the child is not the first child, we will add a padding top.
+      if (thisGroupIsVisible && !groups[child.index].hidden && child !== groupNode.children[0]) {
+        currentOffset += groups[child.index].style.padding ?? 0;
+      }
+      currentOffset = this.#traverseGroupTree(child, currentOffset, thisGroupIsVisible);
+    }
+    return currentOffset;
+  }
+
   private updateLevelPositions(): void {
     const levelCount = this.dataProvider.maxStackDepth();
-    const groups = this.rawTimelineData ? (this.rawTimelineData.groups || []) : [];
+    const groups = this.rawTimelineData?.groups || [];
     // Add an extra number in visibleLevelOffsets to store the end of last level
     this.visibleLevelOffsets = new Uint32Array(levelCount + 1);
     this.visibleLevelHeights = new Uint32Array(levelCount);
@@ -1950,99 +2084,15 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // Add an extra number in groupOffsets to store the end of last group
     this.groupOffsets = new Uint32Array(groups.length + 1);
 
-    // For some flame chart (like the one in JS Profiler), we don't use group
-    // for them, so in this case, use -1 to avoid any group header related
-    // calculation.
-    let groupIndex = -1;
+    const root = this.buildGroupTree(groups);
     let currentOffset = this.rulerEnabled ? RulerHeight + 2 : 2;
-    let visible = true;
-    // For the group we added from data provider, the nesting level should start
-    // from 0.
-    // Adding this fake groupStack to be the parent of all the groups.
-    const groupStack: {
-      nestingLevel: number,
-      visible: boolean,
-    }[] = [{nestingLevel: -1, visible: true}];
+    currentOffset = this.#traverseGroupTree(root, currentOffset, true);
 
-    // For some flame chart (like the one in JS Profiler), we don't use group
-    // for them, so in this case, use the total level as the start level of last
-    // group.
-    const lastGroupLevel = Math.max(levelCount, groups.length ? groups[groups.length - 1].startLevel + 1 : 0);
-    let level;
-    for (level = 0; level < lastGroupLevel; ++level) {
-      let parentGroupIsVisible = true;
-      let currentGroupStyle;
-      // This while block will handle the offset of a group based on the nesting
-      // level and visibility of the group.
-      // This needs to be while because the nested group might have same start
-      // level with its parent.
-      while (groupIndex < groups.length - 1 && level === groups[groupIndex + 1].startLevel) {
-        ++groupIndex;
-        currentGroupStyle = groups[groupIndex].style;
-        let nextNestingLevel = true;
-        let parentGroup: {
-          nestingLevel: number,
-          visible: boolean,
-        } = groupStack[groupStack.length - 1];
-        while (parentGroup && parentGroup.nestingLevel >= currentGroupStyle.nestingLevel) {
-          groupStack.pop();
-          nextNestingLevel = false;
-          parentGroup = groupStack[groupStack.length - 1];
-        }
-        const thisGroupIsVisible = !groups[groupIndex].hidden &&
-            (groupIndex >= 0 && this.isGroupCollapsible(groupIndex) ? groups[groupIndex].expanded : true);
-        parentGroupIsVisible = parentGroup.visible ?? false;
-        // |groups[groupIndex].expanded| could be undefined, so we need to convert
-        // thisGroupIsVisible to boolean here.
-        visible = Boolean(thisGroupIsVisible) && parentGroupIsVisible;
-        groupStack.push({nestingLevel: currentGroupStyle.nestingLevel, visible});
-        if (parentGroupIsVisible && !groups[groupIndex].hidden && !nextNestingLevel) {
-          currentOffset += currentGroupStyle.padding;
-        }
-        this.groupOffsets[groupIndex] = currentOffset;
-        // If |shareHeaderLine| is false, we add the height of one more level to
-        // the current offset, which will be used for the start level of current
-        // group.
-        if (!groups[groupIndex].hidden && parentGroupIsVisible && !currentGroupStyle.shareHeaderLine) {
-          currentOffset += currentGroupStyle.height;
-        }
-      }
-
-      // This shouldn't happen, if this is true, it means the lastGroupLevel is
-      // bigger than |dataProvider.maxStackDepth()|, which means
-      // |dataProvider.maxStackDepth()| is returning a wrong number.
-      if (level >= levelCount) {
-        continue;
-      }
-      // Handle offset and visibility of each level.
-      const isFirstOnLevel = groupIndex >= 0 && level === groups[groupIndex].startLevel;
-      const thisLevelIsVisible = !groups[groupIndex]?.hidden &&
-          (parentGroupIsVisible && (visible || (isFirstOnLevel && groups[groupIndex].style.useFirstLineForOverview)));
-      let height;
-      if (groupIndex >= 0) {
-        const group = groups[groupIndex];
-        const styleB = group.style;
-        height = isFirstOnLevel && !styleB.shareHeaderLine || (styleB.collapsible && !group.expanded) ?
-            styleB.height :
-            (styleB.itemsHeight || this.barHeight);
-      } else {
-        height = this.barHeight;
-      }
-      this.visibleLevels[level] = thisLevelIsVisible ?? false;
-      this.visibleLevelOffsets[level] = currentOffset;
-      this.visibleLevelHeights[level] = height;
-      if (thisLevelIsVisible ||
-          (parentGroupIsVisible && currentGroupStyle && currentGroupStyle.shareHeaderLine && isFirstOnLevel)) {
-        currentOffset += this.visibleLevelHeights[level];
-      }
-    }
     // Set the final offset to the last element of |groupOffsets| and
     // |visibleLevelOffsets|. This number represent the end of last group and
     // level.
-    if (groupIndex >= 0) {
-      this.groupOffsets[groupIndex + 1] = currentOffset;
-    }
-    this.visibleLevelOffsets[level] = currentOffset;
+    this.groupOffsets[groups.length] = currentOffset;
+    this.visibleLevelOffsets[levelCount] = currentOffset;
   }
 
   private isGroupCollapsible(index: number): boolean|undefined {
