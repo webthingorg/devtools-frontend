@@ -149,13 +149,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private timelineLevels?: number[][]|null;
   private visibleLevelOffsets?: Uint32Array|null;
   private visibleLevels?: boolean[]|null;
+  private visibleLevelHeights?: Uint32Array;
   private groupOffsets?: Uint32Array|null;
   private rawTimelineData?: FlameChartTimelineData|null;
   private forceDecorationCache?: Int8Array|null;
   private entryColorsCache?: string[]|null;
-  private visibleLevelHeights?: Uint32Array;
   private totalTime?: number;
   #font: string;
+  #groupTreeRoot?: GroupTreeNode|null;
 
   constructor(
       dataProvider: FlameChartDataProvider, flameChartDelegate: FlameChartDelegate,
@@ -627,6 +628,72 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
   }
 
+  moveGroupUp(groupIndex: number): void {
+    if (groupIndex < 0) {
+      return;
+    }
+
+    if (!this.rawTimelineData || !this.rawTimelineData.groups) {
+      return;
+    }
+
+    if (!this.#groupTreeRoot) {
+      return;
+    }
+
+    for (let i = 0; i < this.#groupTreeRoot.children.length; i++) {
+      const child = this.#groupTreeRoot.children[i];
+      if (child.index === groupIndex) {
+        // exchange with previous one, only second or later group can do so
+        if (i >= 1) {
+          this.#groupTreeRoot.children[i] = this.#groupTreeRoot.children[i - 1];
+          this.#groupTreeRoot.children[i - 1] = child;
+          break;
+        }
+      }
+    }
+
+    this.updateLevelPositions();
+
+    this.updateHighlight();
+    this.updateHeight();
+    this.resetCanvas();
+    this.draw();
+  }
+
+  moveGroupDown(groupIndex: number): void {
+    if (groupIndex < 0) {
+      return;
+    }
+
+    if (!this.rawTimelineData || !this.rawTimelineData.groups) {
+      return;
+    }
+
+    if (!this.#groupTreeRoot) {
+      return;
+    }
+
+    for (let i = 0; i < this.#groupTreeRoot.children.length; i++) {
+      const child = this.#groupTreeRoot.children[i];
+      if (child.index === groupIndex) {
+        // exchange with previous one, only second to last or before group can do so
+        if (i <= this.#groupTreeRoot.children.length - 2) {
+          this.#groupTreeRoot.children[i] = this.#groupTreeRoot.children[i + 1];
+          this.#groupTreeRoot.children[i + 1] = child;
+          break;
+        }
+      }
+    }
+
+    this.updateLevelPositions();
+
+    this.updateHighlight();
+    this.updateHeight();
+    this.resetCanvas();
+    this.draw();
+  }
+
   hideGroup(groupIndex: number): void {
     this.#toggleGroupHiddenState(groupIndex, /* hidden= */ true);
   }
@@ -920,7 +987,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return false;
   }
 
-  private coordinatesToEntryIndex(x: number, y: number): number {
+  /**
+   * Given offset of the cursor, returns the index of the entry.
+   * This function is public for test purpose.
+   * @param x
+   * @param y
+   * @returns the index of the entry
+   */
+  coordinatesToEntryIndex(x: number, y: number): number {
     if (x < 0 || y < 0) {
       return -1;
     }
@@ -929,11 +1003,18 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return -1;
     }
     y += this.chartViewport.scrollOffset();
-    if (!this.visibleLevelOffsets) {
-      throw new Error('No visible level offsets');
+    if (!this.visibleLevelOffsets || !this.visibleLevelHeights) {
+      throw new Error('No visible level offsets or heights');
     }
-    const cursorLevel =
-        Platform.ArrayUtilities.upperBound(this.visibleLevelOffsets, y, Platform.ArrayUtilities.DEFAULT_COMPARATOR) - 1;
+
+    let cursorLevel = -1;
+    for (let i = 0; i < this.dataProvider.maxStackDepth(); i++) {
+      if (y >= this.visibleLevelOffsets[i] && y < this.visibleLevelOffsets[i] + this.visibleLevelHeights[i]) {
+        cursorLevel = i;
+        break;
+      }
+    }
+
     if (cursorLevel < 0 || (this.visibleLevels && !this.visibleLevels[cursorLevel])) {
       return -1;
     }
@@ -995,8 +1076,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   /**
-   * Given an entry's index, retrns its coordinates relative to the
+   * Given an entry's index, returns its coordinates relative to the
    * viewport.
+   * This function is public for test purpose.
    */
   entryIndexToCoordinates(entryIndex: number): {x: number, y: number}|null {
     const timelineData = this.timelineData();
@@ -1025,7 +1107,16 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return this.chartViewport.scrollOffset();
   }
 
-  private coordinatesToGroupIndex(x: number, y: number, headerOnly: boolean): number {
+  /**
+   * Given offset of the cursor, returns the index of the group.
+   * This function is public for test purpose.
+   * @param x
+   * @param y
+   * @param headerOnly if we only want to check the cursor is inside the header area, This is used for expand/collapse
+   * a track now.
+   * @returns the index of the group
+   */
+  coordinatesToGroupIndex(x: number, y: number, headerOnly: boolean): number {
     if (!this.rawTimelineData || !this.rawTimelineData.groups || !this.groupOffsets) {
       return -1;
     }
@@ -1035,16 +1126,55 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
     y += this.chartViewport.scrollOffset();
     const groups = this.rawTimelineData.groups || [];
-    const groupIndex =
-        Platform.ArrayUtilities.upperBound(this.groupOffsets, y, Platform.ArrayUtilities.DEFAULT_COMPARATOR) - 1;
+
+    const sortedGroupOffsets = this.groupOffsets;
+    sortedGroupOffsets.sort();
+    let groupIndex = -1;
+    // Sort the group first because the groups might be reordered so the offset might be random.
+    // After sort, the index we got is the index of visual order.
+    //
+    // For example, if there are 3 one-level groups. So by default the |groupOffsets| is [0, 17, 34].
+    // and then the user move the Group 1 up, now the |groupOffsets| is [17, 0, 34].
+    // And the order of the groups is [1, 0, 2], which is the preorder traversal of the group tree.
+    const indexInAfterSortedGroup =
+        Platform.ArrayUtilities.upperBound(sortedGroupOffsets, y, Platform.ArrayUtilities.DEFAULT_COMPARATOR) - 1;
+    // The real order of the groups is the preorder traversal, and it will match the order in the sortedGroup.
+    // So we first do a preorder traversal to get an array of GroupIndex. And then based on the visual index we got
+    // before, we can get the real group index
+    if (this.#groupTreeRoot) {
+      const sortedGroupIndexes: number[] = [];
+
+      function traverse(root: GroupTreeNode): void {
+        sortedGroupIndexes.push(root.index);
+        for (const child of root.children) {
+          traverse(child);
+        }
+      }
+      traverse(this.#groupTreeRoot);
+      // Skip the one whose index is -1, because we added to represent the top
+      // level to be the parent of all groups.
+      sortedGroupIndexes.shift();
+      // Add an extra index, which is equal to the length of the |groups|, this
+      // will be used for the coordinates after the last group.
+      // If the coordinates after the last group, it will return in later check
+      // `groupIndex >= groups.length` anyway. But add one more element to make
+      // this array same length as the |groupOffsets|.
+      sortedGroupIndexes.push(groups.length);
+
+      groupIndex = sortedGroupIndexes[indexInAfterSortedGroup] ?? -1;
+    } else {
+      groupIndex = indexInAfterSortedGroup;
+    }
+
     if (groupIndex < 0 || groupIndex >= groups.length) {
       return -1;
     }
     // |groupIndex + 1| is safe here because we added one more element to |this.groupOffsets| to represent the end of
     // all groups.
-    const height = headerOnly ? groups[groupIndex].style.height :
-                                this.groupOffsets[groupIndex + 1] - this.groupOffsets[groupIndex];
-    if (y - this.groupOffsets[groupIndex] >= height) {
+    const height = headerOnly ?
+        groups[groupIndex].style.height :
+        sortedGroupOffsets[indexInAfterSortedGroup + 1] - sortedGroupOffsets[indexInAfterSortedGroup];
+    if (y - sortedGroupOffsets[indexInAfterSortedGroup] >= height) {
       return -1;
     }
     if (!headerOnly) {
@@ -1900,6 +2030,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       this.forceDecorationCache = null;
       this.entryColorsCache = null;
       this.rawTimelineDataLength = 0;
+      this.#groupTreeRoot = null;
       this.selectedGroup = -1;
       this.keyboardFocusedGroup = -1;
       this.flameChartDelegate.updateSelectedGroup(this, null);
@@ -2112,9 +2243,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // Add an extra number in groupOffsets to store the end of last group
     this.groupOffsets = new Uint32Array(groups.length + 1);
 
-    const root = this.buildGroupTree(groups);
+    if (!this.#groupTreeRoot) {
+      this.#groupTreeRoot = this.buildGroupTree(groups);
+    }
     let currentOffset = this.rulerEnabled ? RulerHeight + 2 : 2;
-    currentOffset = this.#traverseGroupTree(root, currentOffset, true);
+    // The root is always visible, so just simply set the |parentGroupIsVisible| to visible.
+    currentOffset = this.#traverseGroupTree(this.#groupTreeRoot, currentOffset, /* parentGroupIsVisible= */ true);
 
     // Set the final offset to the last element of |groupOffsets| and
     // |visibleLevelOffsets|. This number represent the end of last group and
