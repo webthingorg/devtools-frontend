@@ -127,6 +127,30 @@
       },
       "revId": "0d73b44c622cd69ba0517673341239129cc139ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc932683_90ecc84e",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T14:41:57Z",
+      "side": 1,
+      "message": "Yeah, I like it! Perhaps a comment just to explain as it could easily look like a typo otherwise?",
+      "parentUuid": "c763ef90_cab03ba6",
+      "range": {
+        "startLine": 138,
+        "startChar": 79,
+        "endLine": 138,
+        "endChar": 83
+      },
+      "revId": "0d73b44c622cd69ba0517673341239129cc139ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
