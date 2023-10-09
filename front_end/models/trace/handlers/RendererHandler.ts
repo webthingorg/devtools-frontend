@@ -351,7 +351,8 @@ export function buildHierarchy(
         thread.entries = Helpers.Trace.mergeEventsInOrder(thread.entries, profileCalls);
       }
       // Step 3. Build the tree.
-      thread.tree = treify(thread.entries, options);
+      const {tree} = treify(thread.entries, options);
+      thread.tree = tree;
     }
   }
 }
@@ -372,9 +373,9 @@ export function buildHierarchy(
  *
  * Complexity: O(n), where n = number of events
  */
-export function treify(
-    entries: Types.TraceEvents.RendererEntry[],
-    options?: {filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean}}): RendererTree {
+export function treify(entries: Types.TraceEvents.RendererEntry[], options?: {
+  filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean},
+}): {tree: RendererTree, entryToNode: Map<Types.TraceEvents.RendererEntry, RendererEntryNode>} {
   const stack = [];
   // Reset the node id counter for every new renderer.
   nodeIdCount = -1;
@@ -465,7 +466,7 @@ export function treify(
     tree.maxDepth = Math.max(tree.maxDepth, stack.length);
     entryToNode.set(event, node);
   }
-  return tree;
+  return {tree, entryToNode};
 }
 
 export function makeCompleteEvent(event: Types.TraceEvents.TraceEventBegin|Types.TraceEvents.TraceEventEnd):
@@ -557,3 +558,50 @@ class RendererEventNodeIdTag {
   readonly #tag: (symbol|undefined);
 }
 export type RendererEntryNodeId = number&RendererEventNodeIdTag;
+
+/**
+ * Iterates events in a tree hierarchically, from top to bottom,
+ * calling back on every event's start and end in the order
+ * as it traverses down and then up the tree.
+ *
+ * For example, given this tree, the following callbacks
+ * are expected to be made in the following order
+ * |---------------A---------------|
+ *  |------B------||-------D------|
+ *    |---C---|
+ *
+ * 1. Start A
+ * 3. Start B
+ * 4. Start C
+ * 5. End C
+ * 6. End B
+ * 7. Start D
+ * 8. End D
+ * 9. End A
+ *
+ */
+export function walkTree(
+    entryToNode: Map<Types.TraceEvents.RendererEntry, RendererEntryNode>,
+    rootEntry: Types.TraceEvents.RendererEntry,
+    onEntryStart: (entry: Types.TraceEvents.RendererEntry) => void,
+    onEntryEnd: (entry: Types.TraceEvents.RendererEntry) => void,
+    ): void {
+  const startNode = entryToNode.get(rootEntry);
+  if (!startNode) {
+    return;
+  }
+  walkTreeByNode(entryToNode, startNode, onEntryStart, onEntryEnd);
+}
+
+function walkTreeByNode(
+    entryToNode: Map<Types.TraceEvents.RendererEntry, RendererEntryNode>,
+    rootNode: RendererEntryNode,
+    onEntryStart: (entry: Types.TraceEvents.RendererEntry) => void,
+    onEntryEnd: (entry: Types.TraceEvents.RendererEntry) => void,
+    ): void {
+  onEntryStart(rootNode.entry);
+  for (const child of rootNode.children) {
+    walkTreeByNode(entryToNode, child, onEntryStart, onEntryEnd);
+  }
+  onEntryEnd(rootNode.entry);
+}
