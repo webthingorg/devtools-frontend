@@ -96,6 +96,7 @@ export class CompatibilityTracksAppender {
   #indexForEvent = new WeakMap<TraceEngine.Types.TraceEvents.TraceEventData, number>();
   #allTrackAppenders: TrackAppender[] = [];
   #visibleTrackNames: Set<TrackAppenderName> = new Set([...TrackNames]);
+  #isCpuProfile = false;
 
   // TODO(crbug.com/1416533)
   // These are used only for compatibility with the legacy flame chart
@@ -127,7 +128,8 @@ export class CompatibilityTracksAppender {
   constructor(
       flameChartData: PerfUI.FlameChart.FlameChartTimelineData,
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData, entryData: TimelineFlameChartEntry[],
-      legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl) {
+      legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
+      isCpuProfile = false) {
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;
@@ -138,7 +140,7 @@ export class CompatibilityTracksAppender {
         /* alphaSpace= */ 0.7);
     this.#legacyEntryTypeByLevel = legacyEntryTypeByLevel;
     this.#legacyTimelineModel = legacyTimelineModel;
-
+    this.#isCpuProfile = isCpuProfile;
     this.#timingsTrackAppender =
         new TimingsTrackAppender(this, this.#flameChartData, this.#traceParsedData, this.#colorGenerator);
     this.#allTrackAppenders.push(this.#timingsTrackAppender);
@@ -186,6 +188,14 @@ export class CompatibilityTracksAppender {
           return 6;
       }
     };
+    if (this.#isCpuProfile && this.#traceParsedData.Samples) {
+      for (const [pid, process] of this.#traceParsedData.Samples.profilesInProcess) {
+        for (const tid of process.keys()) {
+          this.#threadAppenders.push(new ThreadAppender(
+              this, this.#flameChartData, this.#traceParsedData, pid, tid, 'IDK', ThreadType.CPU_PROFILE, 0));
+        }
+      }
+    }
     if (this.#traceParsedData.Renderer) {
       let rasterCount = 0;
       for (const [pid, process] of this.#traceParsedData.Renderer.processes) {

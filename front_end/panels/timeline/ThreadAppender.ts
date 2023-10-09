@@ -128,6 +128,7 @@ export const enum ThreadType {
   RASTERIZER = 'RASTERIZER',
   AUCTION_WORKLET = 'AUCTION_WORKLET',
   OTHER = 'OTHER',
+  CPU_PROFILE = 'OTHER',
 }
 
 // This appender is only triggered when the Renderer handler is run. At
@@ -183,8 +184,13 @@ export class ThreadAppender implements TrackAppender {
     this.#threadId = threadId;
     this.#rasterIndex = rasterCount;
     this.#flameChartData = flameChartData;
-    const entries = this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
-    const tree = this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.tree;
+
+    const entries = type === ThreadType.CPU_PROFILE ?
+        this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileCalls :
+        this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
+    const tree = type === ThreadType.CPU_PROFILE ?
+        this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileTree :
+        this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.tree;
     if (!entries) {
       throw new Error(`Could not find data for thread with id ${threadId} in process with id ${processId}`);
     }
