@@ -51,6 +51,24 @@
       "parentUuid": "ef4d6e2f_78cb55b5",
       "revId": "5ad9fbd8638f037819f71f8a72f751b6960fbe3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d86733a6_6898d7a3",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-09T14:23:37Z",
+      "side": 1,
+      "message": "I see, that\u0027s too bad, that would\u0027ve been pretty!",
+      "parentUuid": "4ddc7eca_3afeb7cf",
+      "revId": "5ad9fbd8638f037819f71f8a72f751b6960fbe3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
