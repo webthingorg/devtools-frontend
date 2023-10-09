@@ -303,6 +303,8 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'timelineAsConsoleProfileResultPanel', 'View console.profile() results in the Performance panel for Node.js',
         true);
+    Root.Runtime.experiments.register(
+        'breadcrumbsPerformancePanel', 'Create breadcrumbs from the the Performance Panel Timeline', true);
 
     // JS Profiler
     Root.Runtime.experiments.register(
