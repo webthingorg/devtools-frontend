@@ -231,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8eafc5af_2016f902",
+        "filename": "front_end/ui/components/visual_logging/LoggingConfig.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T08:48:20Z",
+      "side": 1,
+      "message": "No, the problematic part is that `NaN \u003d\u003d\u003d NaN` is false.\n\nIs it also intended that `0` is an invalid context?\n\nSide-note: `undefined` gets coerced to `NaN` as well by `parseInt`, so we could rewrite the code as:\n\n```\nconst context \u003d parseInt(contextString);\nif (!Number.isNaN(context)) {\n```",
+      "parentUuid": "740953da_9151aa75",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b6e1194a_02117625",
         "filename": "front_end/ui/components/visual_logging/LoggingConfig.ts",
         "patchSetId": 3
@@ -271,6 +295,29 @@
         "startChar": 0,
         "endLine": 48,
         "endChar": 3
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "741308cc_f2e11c5f",
+        "filename": "front_end/ui/components/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T08:48:20Z",
+      "side": 1,
+      "message": "This seems to be unused?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 81
       },
       "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
@@ -372,6 +419,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "faa77bf3_f307a341",
+        "filename": "front_end/ui/components/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T08:48:20Z",
+      "side": 1,
+      "message": "Sounds like we really want to go for speed here.\n\nAs an alternative we could export `function shouldLog(Element): boolean` and let `logImpressions` flip the `impressionLogged` bit. But no strong opinion, happy with the code as-is.",
+      "parentUuid": "f558a592_e7bed70d",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a190050f_ee035900",
+        "filename": "front_end/ui/components/visual_logging/LoggingState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T08:48:20Z",
+      "side": 1,
+      "message": "Unused I think?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3035d73_be4e8d96",
         "filename": "front_end/ui/components/visual_logging/LoggingState.ts",
         "patchSetId": 3
@@ -407,6 +501,30 @@
       "side": 1,
       "message": "`veid` are transient by design. They are only used to reference another VE within a session. `type` and `type` of a `parent` is what matters, it tells us what the user saw.",
       "parentUuid": "e3035d73_be4e8d96",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aa11c24_e4f427ff",
+        "filename": "front_end/ui/components/visual_logging/LoggingState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T08:48:20Z",
+      "side": 1,
+      "message": "Thanks for the explanation! So we use the `veid` to convey the hierarchy for each session but not to identify concrete elements, got it.",
+      "parentUuid": "f842441e_12956472",
       "range": {
         "startLine": 27,
         "startChar": 4,
