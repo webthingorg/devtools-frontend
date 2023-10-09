@@ -39,6 +39,30 @@
       },
       "revId": "a6f729f876dc019942c8840bd50f92690fc53cce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78d8319f_2710d954",
+        "filename": "buckets/ci.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-10-09T10:40:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fa9cea27_71150381",
+      "range": {
+        "startLine": 126,
+        "startChar": 26,
+        "endLine": 126,
+        "endChar": 33
+      },
+      "revId": "a6f729f876dc019942c8840bd50f92690fc53cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
