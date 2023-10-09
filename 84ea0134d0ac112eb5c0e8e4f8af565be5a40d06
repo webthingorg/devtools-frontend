@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca69d45a_51b433d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "Thanks, this is really great and the code was easy to follow! Some questions and some optional suggestions (feel free to ignore those).\n\nAs a side note: For the DevTools developer side we could go with a simple builder-style API to make it slightly more save to use:\n\n```\n// For legacy.\nelement.setAttribute(\u0027jslog\u0027, treeItem().context(42));\n\n// For Lit.\nhtml`\u003cdiv jslog\u003d${treeItem().context(42)}\u003e\u003c/div\u003e`\n```",
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11a0216d_03a80b08",
+        "filename": "front_end/ui/components/visual_logging/DomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "nit: `parent?: Element;`",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7400fc0_bc3d0d21",
+        "filename": "front_end/ui/components/visual_logging/DomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "Is there a reason why we use `unshift/shift` instead of `push/pop` for `stack`? Depending on the number of `children` this might be noticable since `unshift/shift` have to move the rest of the array.",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 19
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5525282_d22db966",
+        "filename": "front_end/ui/components/visual_logging/DomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "Alternative: `return overlap \u0026\u0026 overlap.width \u003e\u003d ...;`",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2823441b_186a67f1",
+        "filename": "front_end/ui/components/visual_logging/LoggingConfig.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "Alternative: `components.find(c \u003d\u003e c.startsWith(name))?.substr(name.length);`",
+      "range": {
+        "startLine": 31,
+        "startChar": 41,
+        "endLine": 31,
+        "endChar": 118
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2e93074_ff626c9c",
+        "filename": "front_end/ui/components/visual_logging/LoggingConfig.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "Should we also check for `NaN` if context is not a valid number?\n\n`context \u0026\u0026 !Number.isNaN(context)`",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6e1194a_02117625",
+        "filename": "front_end/ui/components/visual_logging/LoggingConfig.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "```\nif (trackString) {\n  config.track \u003d new Map\u003cstring, string\u003e(...);\n}\n```",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42bd2456_df231998",
+        "filename": "front_end/ui/components/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "This is a bit iffy for unit tests: Karma loads all frontend JS resources upfront. This means if this module is instantiated first, and then some random tests re-creates `RenderCoordinator`, then the \"visual_logging\" test code would use a different coordinator for rendering then the LoggingDriver here since `coordinator !\u003d\u003d RenderCoordinator.instance()`.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 79
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "337177ad_9cdde351",
+        "filename": "front_end/ui/components/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "2 questions/suggestions:\n\n1) Are we doing the `loggingState.impressionLogged` check here because we want to reduce the amount of `isVisible` checks? Otherwise we could push that into `logImpressions` so this code here does not need to know about `LoggingState`.\n\n2) If `isVisible` is fast enough we could pass the `viewportRect` to `getDomState()` and do the visibility filtering there.",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3035d73_be4e8d96",
+        "filename": "front_end/ui/components/visual_logging/LoggingState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "Not sure I follow correctly: How do we compare impressions from different DevTools sessions? The current implementation makes `veid` assignment non-deterministic so the IDs depend on e.g. in which order panels are opened.\n\nIs this known and we\u0027ll address that in a follow-up?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd221cec_0aac0ce4",
+        "filename": "front_end/ui/components/visual_logging/visual_logging.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T05:32:02Z",
+      "side": 1,
+      "message": "Any particular reason we don\u0027t follow the standard `import * as LoggingDriver ...` here?",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 21
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
