@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e4de87b_61d126f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:31:16Z",
+      "side": 1,
+      "message": "lgtm with one suggestion",
+      "revId": "98cf5531867a4a71d27688af4ab870b244e63e64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32b9e4b_af43fd5a",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:31:16Z",
+      "side": 1,
+      "message": "love the rename. What is `groupTop` ? Is that a pixels value? I wonder if a JSDoc comment here explaining each param would be helpful.",
+      "range": {
+        "startLine": 1631,
+        "startChar": 0,
+        "endLine": 1631,
+        "endChar": 100
+      },
+      "revId": "98cf5531867a4a71d27688af4ab870b244e63e64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
