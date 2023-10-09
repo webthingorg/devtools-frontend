@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Root from '../../core/root/root.js';
 import * as Helpers from '../../models/trace/helpers/helpers.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as TimingTypes from '../../models/trace/types/types.js';
@@ -67,6 +68,10 @@ export class TimelineMiniMap extends
         this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
       }
     });
+
+    if (Root.Runtime.experiments.isEnabled('breadcrumbsPerformancePanel')) {
+      this.activateBreadcrumbs();
+    }
   }
 
   activateBreadcrumbs(): void {
