@@ -34,6 +34,24 @@
       "parentUuid": "29329470_3a7a41dd",
       "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db2cfb3_f73db850",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-09T14:02:07Z",
+      "side": 1,
+      "message": "What I meant was, if you check out the callers of #fetchChunk, they all concatenate all the chunks, too. Won\u0027t that mean that we now fail in one of the callers instead, if maybe a little later?",
+      "parentUuid": "6345ca69_d73da0c5",
+      "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
