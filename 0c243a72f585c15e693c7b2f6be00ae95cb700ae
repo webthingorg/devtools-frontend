@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cfc2604_c8c0d54b",
+        "filename": "front_end/panels/animation/animationTimeline.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-09T14:11:07Z",
+      "side": 0,
+      "message": "was this property unused?",
+      "revId": "0c243a72f585c15e693c7b2f6be00ae95cb700ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
