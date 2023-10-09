@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3531466_bf34c6bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-09T11:22:02Z",
+      "side": 1,
+      "message": "Big +1 to the beauty of the CL! :)\n\nI also loved Simon\u0027s suggestion on having a helper API to build `jslog` attributes easier.",
+      "parentUuid": "ca69d45a_51b433d7",
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11a0216d_03a80b08",
         "filename": "front_end/ui/components/visual_logging/DomState.ts",
         "patchSetId": 3
