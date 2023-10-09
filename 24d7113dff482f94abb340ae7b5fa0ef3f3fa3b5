@@ -16,6 +16,24 @@
       "message": "Does this really help? Is it really #buffer that\u0027s overflowing? But even if so, it looks to me like this is only moving the crash into the callers of #fetchChunk, all of which are themseves +\u003d-ing the chunks.",
       "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6345ca69_d73da0c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T13:35:11Z",
+      "side": 1,
+      "message": "One of the reported RangeError was indeed the accumulation of `#buffer`. Moreover #fetchChunk does not only accumulate but consume from time to time. So depending on timing peak memory might not be as high.",
+      "parentUuid": "29329470_3a7a41dd",
+      "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
