@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8781e2d8_96d46d59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T09:56:54Z",
+      "side": 1,
+      "message": "PT(another)L, I had to patch the legacy test runner.",
+      "revId": "2319f70fc4d3ec1d27f61b5051ff661bad33e916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
