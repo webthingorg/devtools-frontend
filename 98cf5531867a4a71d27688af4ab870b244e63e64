@@ -39,6 +39,30 @@
       },
       "revId": "98cf5531867a4a71d27688af4ab870b244e63e64",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25061e52_3ff784f9",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-09T13:40:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d32b9e4b_af43fd5a",
+      "range": {
+        "startLine": 1631,
+        "startChar": 0,
+        "endLine": 1631,
+        "endChar": 100
+      },
+      "revId": "98cf5531867a4a71d27688af4ab870b244e63e64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
