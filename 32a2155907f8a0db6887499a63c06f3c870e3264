@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13918ee0_532054af",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-09T08:10:59Z",
+      "side": 1,
+      "message": "I understand this is simply moving the code, but can we use this as an opportunity to also move UI strings to the UI level?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 5
+      },
+      "revId": "32a2155907f8a0db6887499a63c06f3c870e3264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
