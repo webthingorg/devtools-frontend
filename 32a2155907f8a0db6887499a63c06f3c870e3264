@@ -22,6 +22,30 @@
       },
       "revId": "32a2155907f8a0db6887499a63c06f3c870e3264",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f66243c9_7abb9b9b",
+        "filename": "front_end/core/sdk/EventBreakpointsModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-09T08:19:57Z",
+      "side": 1,
+      "message": "Sounds like a good idea. I also noticed that this CL even breaks L10n for some of the breakpoints as there is more happening on the model level [0]. I\u0027ll send a follow-up that also moves/duplicates that logic as a temporary measure.\n\nI\u0027ll finish the migration first and then see about lifting the strings into `ui/`. The strings seem to be needed in 2 places: DebuggerPausedMessage and the sidebar.\n\n[0]: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/DOMDebuggerModel.ts;l\u003d982;drc\u003de25dbdff09521277a4334ae16347de1c884b63c5",
+      "parentUuid": "13918ee0_532054af",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 5
+      },
+      "revId": "32a2155907f8a0db6887499a63c06f3c870e3264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
