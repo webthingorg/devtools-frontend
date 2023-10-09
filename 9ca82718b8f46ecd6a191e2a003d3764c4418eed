@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9f215b4_f76e7a7d",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:37:52Z",
+      "side": 1,
+      "message": "can you list out what the exact order will be? It is not immediately clear at a glance if this is DFS (-1, 0, 1, 2, 3, 4, 5, 6, 7) or BFS (-1, 0, 3, 4, 1, 2, 5, 6, 7)",
+      "range": {
+        "startLine": 2028,
+        "startChar": 5,
+        "endLine": 2028,
+        "endChar": 40
+      },
+      "revId": "9ca82718b8f46ecd6a191e2a003d3764c4418eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95434948_437ae13d",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:37:52Z",
+      "side": 1,
+      "message": "is `offset` in pixels or levels?",
+      "range": {
+        "startLine": 2032,
+        "startChar": 0,
+        "endLine": 2032,
+        "endChar": 55
+      },
+      "revId": "9ca82718b8f46ecd6a191e2a003d3764c4418eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc94481d_23da5436",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2034,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:37:52Z",
+      "side": 1,
+      "message": "The name of this function might need changing - it is clear that it is traversing the tree, but I do not at a glance understand why or what this function is doing.",
+      "range": {
+        "startLine": 2034,
+        "startChar": 0,
+        "endLine": 2034,
+        "endChar": 100
+      },
+      "revId": "9ca82718b8f46ecd6a191e2a003d3764c4418eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22d30ad4_a790a765",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2056,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:37:52Z",
+      "side": 1,
+      "message": "let\u0027s break this conditional up into a few variables as this is very hard to read.",
+      "range": {
+        "startLine": 2054,
+        "startChar": 0,
+        "endLine": 2056,
+        "endChar": 108
+      },
+      "revId": "9ca82718b8f46ecd6a191e2a003d3764c4418eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab70c518_c3616d9f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2068,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:37:52Z",
+      "side": 1,
+      "message": "break this one up too",
+      "range": {
+        "startLine": 2064,
+        "startChar": 0,
+        "endLine": 2068,
+        "endChar": 92
+      },
+      "revId": "9ca82718b8f46ecd6a191e2a003d3764c4418eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a0b28f_ae2cf9eb",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2076,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:37:52Z",
+      "side": 1,
+      "message": "let\u0027s break this up too, there is too much nesting here to be able to follow the logic.",
+      "range": {
+        "startLine": 2073,
+        "startChar": 2,
+        "endLine": 2076,
+        "endChar": 56
+      },
+      "revId": "9ca82718b8f46ecd6a191e2a003d3764c4418eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "731c11c5_70523fdf",
+        "filename": "test/unittests/front_end/ui/legacy/components/perf_ui/FlameChart_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T08:37:52Z",
+      "side": 1,
+      "message": "should we add any tests for traverseGroupTree too? We could check it sets the levels and heights in the timeline data correctly",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 5
+      },
+      "revId": "9ca82718b8f46ecd6a191e2a003d3764c4418eed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
