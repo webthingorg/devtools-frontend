@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "531d233e_a7cb585c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-09T14:05:01Z",
+      "side": 1,
+      "message": "Thanks! A builder API is a good idea indeed, I will add one in the following CL.",
+      "parentUuid": "e3531466_bf34c6bc",
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11a0216d_03a80b08",
@@ -271,6 +289,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e67f70ef_306e51cc",
+        "filename": "front_end/ui/components/visual_logging/LoggingConfig.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-09T14:05:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eafc5af_2016f902",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6e1194a_02117625",
@@ -496,6 +538,30 @@
       "writtenOn": "2023-10-09T08:48:20Z",
       "side": 1,
       "message": "Unused I think?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "84ea0134d0ac112eb5c0e8e4f8af565be5a40d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8865aa65_bf3db644",
+        "filename": "front_end/ui/components/visual_logging/LoggingState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-09T14:05:01Z",
+      "side": 1,
+      "message": "Will be used later, removed for now,",
+      "parentUuid": "a190050f_ee035900",
       "range": {
         "startLine": 25,
         "startChar": 4,
