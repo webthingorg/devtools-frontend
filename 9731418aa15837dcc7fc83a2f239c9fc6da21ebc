@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "776414dc_9d8b874a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-09T14:26:09Z",
+      "side": 1,
+      "message": "lgtm but can we add a test that checks when this experiment is enabled that it creates the first breadcrumb? I think we could do a unit test and add to TimelineMiniMap_test.ts",
+      "revId": "9731418aa15837dcc7fc83a2f239c9fc6da21ebc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
