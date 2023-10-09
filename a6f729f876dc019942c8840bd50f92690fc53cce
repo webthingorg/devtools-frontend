@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "067a987b_c097747a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-10-09T10:05:56Z",
+      "side": 1,
+      "message": "This should be landed after the recipe change here: https://chromium-review.googlesource.com/c/chromium/tools/build/+/4920554",
+      "revId": "a6f729f876dc019942c8840bd50f92690fc53cce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
