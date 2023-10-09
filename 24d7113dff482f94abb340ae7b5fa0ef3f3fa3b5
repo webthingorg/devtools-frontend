@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29329470_3a7a41dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-09T12:19:13Z",
+      "side": 1,
+      "message": "Does this really help? Is it really #buffer that\u0027s overflowing? But even if so, it looks to me like this is only moving the crash into the callers of #fetchChunk, all of which are themseves +\u003d-ing the chunks.",
+      "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
