@@ -16,6 +16,24 @@
       "message": "was this property unused?",
       "revId": "0c243a72f585c15e693c7b2f6be00ae95cb700ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baeab575_6b55ec5b",
+        "filename": "front_end/panels/animation/animationTimeline.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-09T14:20:54Z",
+      "side": 0,
+      "message": "I think so, I couldn\u0027t see any transform applying to `.animation-node-description` and its children so this seemed irrelevant. WDYT?",
+      "parentUuid": "6cfc2604_c8c0d54b",
+      "revId": "0c243a72f585c15e693c7b2f6be00ae95cb700ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
