@@ -10,6 +10,7 @@ import * as Host from '../host/host.js';
 import type * as ProtocolClient from '../protocol_client/protocol_client.js';
 
 import {ParallelConnection} from './Connections.js';
+import {DebuggerModel, Events as DebuggerModelEvents} from './DebuggerModel.js';
 import {PrimaryPageChangeType, ResourceTreeModel} from './ResourceTreeModel.js';
 import {SDKModel} from './SDKModel.js';
 import {Capability, type Target, Type} from './Target.js';
@@ -194,6 +195,18 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
     // [crbug/1423096] Invoking this on a worker session that is not waiting for the debugger can force the worker
     // to resume even if there is another session waiting for the debugger.
     if (waitingForDebugger) {
+      // For shared storage worklet, let it pause on first script by default.
+      if (target.type() === Type.SharedStorageWorklet) {
+        const debuggerModel = target.model(DebuggerModel);
+        if (debuggerModel) {
+          if (!debuggerModel.isReadyToPause()) {
+            await debuggerModel.once(DebuggerModelEvents.DebuggerIsReadyToPause);
+          }
+
+          debuggerModel.pause();
+        }
+      }
+
       void target.runtimeAgent().invoke_runIfWaitingForDebugger();
     }
   }
