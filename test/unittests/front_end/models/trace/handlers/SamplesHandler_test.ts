@@ -190,6 +190,7 @@ describeWithEnvironment('SamplesHandler', function() {
                                          selfTime: Math.round(c.selfTime || 0),
                                          children: c.children?.map(child => child.nodeId) || [],
                                        }));
+
       assert.deepEqual(callsTestData, expectedResult);
     });
   });

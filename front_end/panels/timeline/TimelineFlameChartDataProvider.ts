@@ -270,7 +270,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       this.timelineDataInternal = this.#instantiateTimelineData();
       this.compatibilityTracksAppender = new CompatibilityTracksAppender(
           this.timelineDataInternal, this.traceEngineData, this.entryData, this.entryTypeByLevel,
-          this.legacyTimelineModel);
+          this.legacyTimelineModel, this.isCpuProfile);
     }
     return this.compatibilityTracksAppender;
   }
@@ -496,9 +496,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const allTrackAppenders =
         this.compatibilityTracksAppender ? this.compatibilityTracksAppender.allVisibleTrackAppenders() : [];
 
-    const legacyTracks = this.#threadTracksSource === ThreadTracksSource.NEW_ENGINE && !this.isCpuProfile ?
-        [] :
-        this.legacyTimelineModel.tracks();
+    const legacyTracks =
+        this.#threadTracksSource === ThreadTracksSource.NEW_ENGINE ? [] : this.legacyTimelineModel.tracks();
 
     const newTracks = allTrackAppenders.filter(trackAppender => {
       if (trackAppender instanceof ThreadAppender) {

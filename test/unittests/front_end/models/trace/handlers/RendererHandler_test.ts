@@ -645,7 +645,7 @@ describeWithEnvironment('RendererHandler', function() {
     ];
 
     TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
-    const tree = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter: {has: () => true}});
+    const {tree} = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter: {has: () => true}});
 
     assert.strictEqual(tree.maxDepth, 3, 'Got the correct tree max depth');
 
@@ -712,7 +712,7 @@ describeWithEnvironment('RendererHandler', function() {
 
     TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
     const filter = new Set(['A', 'D']);
-    const tree = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter});
+    const {tree} = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter});
 
     assert.strictEqual(tree.maxDepth, 2, 'Got the correct tree max depth');
 
@@ -757,7 +757,7 @@ describeWithEnvironment('RendererHandler', function() {
     ];
 
     TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
-    const tree = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter: {has: () => true}});
+    const {tree} = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter: {has: () => true}});
 
     assert.strictEqual(tree.maxDepth, 3, 'Got the correct tree max depth');
 
@@ -823,7 +823,7 @@ describeWithEnvironment('RendererHandler', function() {
     ] as TraceModel.Types.TraceEvents.RendererEntry[];
 
     TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
-    const tree = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter: {has: () => true}});
+    const {tree} = TraceModel.Handlers.ModelHandlers.Renderer.treify(data, {filter: {has: () => true}});
 
     const nodeA = [...tree.roots].at(0);
     const nodeE = [...tree.roots].at(1);
@@ -1187,7 +1187,7 @@ describeWithEnvironment('RendererHandler', function() {
 
       const profileCalls = [makeProfileCall('a', 100, 200), makeProfileCall('b', 300, 200)];
       const allEntries = TraceModel.Helpers.Trace.mergeEventsInOrder(traceEvents, profileCalls);
-      const tree = TraceModel.Handlers.ModelHandlers.Renderer.treify(allEntries, {filter: {has: () => true}});
+      const {tree} = TraceModel.Handlers.ModelHandlers.Renderer.treify(allEntries, {filter: {has: () => true}});
       assert.strictEqual(prettyPrint(tree), `
 -EvaluateScript [0.5ms]
   -v8.run [0.49ms]
@@ -1202,7 +1202,7 @@ describeWithEnvironment('RendererHandler', function() {
         makeProfileCall('c', 300, 200),
         makeProfileCall('d', 400, 100),
       ];
-      const tree = TraceModel.Handlers.ModelHandlers.Renderer.treify(allEntries, {filter: {has: () => true}});
+      const {tree} = TraceModel.Handlers.ModelHandlers.Renderer.treify(allEntries, {filter: {has: () => true}});
       assert.strictEqual(prettyPrint(tree), `
 -ProfileCall (a) [0.2ms]
 -ProfileCall (b) [0.2ms]
