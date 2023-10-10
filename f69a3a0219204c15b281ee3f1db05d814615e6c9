@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "475c97cb_901a5193",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-10T07:55:28Z",
+      "side": 1,
+      "message": "LGTM with some comments/suggestions",
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0482a29_b3996491",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-10T07:55:28Z",
+      "side": 1,
+      "message": "wdyt if we assign to this file\u0027s `entryToNode` map the value returned by this call and declare a new map on treify? This way the treify function becomes portable too and not tied to the engine\u0027s data. (this is unrelated to this CL really but I just realized it could be useful)",
+      "range": {
+        "startLine": 354,
+        "startChar": 21,
+        "endLine": 354,
+        "endChar": 27
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed132c51_1185b8c3",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-10T07:55:28Z",
+      "side": 1,
+      "message": "is it possible that we need to walk from multiple roots (i.e. all events in a thread)? If so, we\u0027d only need the tree from `treify` here (since it actually contains multiple trees)",
+      "range": {
+        "startLine": 583,
+        "startChar": 16,
+        "endLine": 583,
+        "endChar": 24
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daab0f46_08fa5ce1",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-10T07:55:28Z",
+      "side": 1,
+      "message": "do we also need a dedicated callback for instant events or is it unnecessary?",
+      "range": {
+        "startLine": 600,
+        "startChar": 64,
+        "endLine": 600,
+        "endChar": 65
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
