@@ -32,7 +32,7 @@ const compositorTileWorkers = Array<{
   pid: Types.TraceEvents.ProcessID,
   tid: Types.TraceEvents.ThreadID,
 }>();
-const entryToNode = new Map<Types.TraceEvents.RendererEntry, RendererEntryNode>();
+let entryToNode: Map<Types.TraceEvents.RendererEntry, RendererEntryNode>;
 const allRendererEvents: Types.TraceEvents.TraceEventRendererEvent[] = [];
 let nodeIdCount = 0;
 const makeRendererEntrytNodeId = (): RendererEntryNodeId => (++nodeIdCount) as RendererEntryNodeId;
@@ -351,7 +351,9 @@ export function buildHierarchy(
         thread.entries = Helpers.Trace.mergeEventsInOrder(thread.entries, profileCalls);
       }
       // Step 3. Build the tree.
-      thread.tree = treify(thread.entries, options);
+      const {tree, entryToNode: localEntryToNode} = treify(thread.entries, options);
+      thread.tree = tree;
+      entryToNode = localEntryToNode;
     }
   }
 }
@@ -372,9 +374,11 @@ export function buildHierarchy(
  *
  * Complexity: O(n), where n = number of events
  */
-export function treify(
-    entries: Types.TraceEvents.RendererEntry[],
-    options?: {filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean}}): RendererTree {
+export function treify(entries: Types.TraceEvents.RendererEntry[], options?: {
+  filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean},
+}): {tree: RendererTree, entryToNode: Map<Types.TraceEvents.RendererEntry, RendererEntryNode>} {
+  const entryToNode = new Map<Types.TraceEvents.RendererEntry, RendererEntryNode>();
+
   const stack = [];
   // Reset the node id counter for every new renderer.
   nodeIdCount = -1;
@@ -465,7 +469,7 @@ export function treify(
     tree.maxDepth = Math.max(tree.maxDepth, stack.length);
     entryToNode.set(event, node);
   }
-  return tree;
+  return {tree, entryToNode};
 }
 
 export function makeCompleteEvent(event: Types.TraceEvents.TraceEventBegin|Types.TraceEvents.TraceEventEnd):
