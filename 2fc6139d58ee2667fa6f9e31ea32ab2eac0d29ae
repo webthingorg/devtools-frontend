@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8189a8c1_d38bff86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-10T12:00:47Z",
+      "side": 1,
+      "message": "Danil, PTAL.\n\nI am aware that \u0027http/tests/devtools/bindings/contentscripts-navigator-multiple-frames.js\u0027 is failing. I propose to update its test expectations.",
+      "revId": "2fc6139d58ee2667fa6f9e31ea32ab2eac0d29ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
