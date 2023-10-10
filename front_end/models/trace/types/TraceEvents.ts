@@ -127,6 +127,14 @@ export interface TraceEventProfile extends TraceEventSample {
     },
   };
 }
+export interface SyntheticTraceEventCpuProfile extends TraceEventInstant {
+  name: 'CpuProfile';
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      cpuProfile: Protocol.Profiler.Profile,
+    },
+  };
+}
 
 export interface TraceEventProfileChunk extends TraceEventSample {
   name: 'ProfileChunk';
@@ -1010,7 +1018,6 @@ export interface SyntheticEventWithSelfTime extends TraceEventData {
 export interface TraceEventSyntheticProfileCall extends SyntheticEventWithSelfTime {
   callFrame: Protocol.Runtime.CallFrame;
   nodeId: Protocol.integer;
-  children?: TraceEventSyntheticProfileCall[];
 }
 
 /**
@@ -1220,6 +1227,11 @@ export function isTraceEventGPUTask(traceEventData: TraceEventData): traceEventD
 
 export function isTraceEventProfile(traceEventData: TraceEventData): traceEventData is TraceEventProfile {
   return traceEventData.name === 'Profile';
+}
+
+export function isSyntheticTraceEventCpuProfile(traceEventData: TraceEventData):
+    traceEventData is SyntheticTraceEventCpuProfile {
+  return traceEventData.name === 'CpuProfile';
 }
 
 export function isTraceEventProfileChunk(traceEventData: TraceEventData): traceEventData is TraceEventProfileChunk {

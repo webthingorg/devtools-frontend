@@ -140,6 +140,16 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     throw new Error('Samples Handler is not initialized');
   }
 
+  if (Types.TraceEvents.isSyntheticTraceEventCpuProfile(event)) {
+    const pid = 1 as Types.TraceEvents.ProcessID;
+    const tid = 1 as Types.TraceEvents.ThreadID;
+    const profileId = '0x1' as Types.TraceEvents.ProfileID;
+    const profileData = getOrCreatePreProcessedData(pid, profileId);
+    profileData.rawProfile = event.args.data.cpuProfile;
+    profileData.threadId = tid;
+    return;
+  }
+
   if (Types.TraceEvents.isTraceEventProfile(event)) {
     // Do not use event.args.data.startTime as it is in CLOCK_MONOTONIC domain,
     // but use profileEvent.ts which has been translated to Perfetto's clock
@@ -200,6 +210,7 @@ export async function finalize(): Promise<void> {
     throw new Error('Samples Handler is not initialized');
   }
   buildProfileCalls();
+
   handlerState = HandlerState.FINALIZED;
 }
 
