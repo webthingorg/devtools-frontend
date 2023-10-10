@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80e12ab0_aa61b764",
+        "filename": "test/unittests/front_end/panels/sources/NavigatorView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-10T14:04:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c50fe23_e8e56faf",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 106
+      },
+      "revId": "2fc6139d58ee2667fa6f9e31ea32ab2eac0d29ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae2de28f_a66cf622",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-10T12:07:41Z",
       "side": 1,
       "message": "Please extract this into a named function to keep the test code readable.\nSomething like `addResourceAndUISourceCode(url, frameId, content, mimeType)`?",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 94
+      },
+      "revId": "2fc6139d58ee2667fa6f9e31ea32ab2eac0d29ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e034f2ff_e8c991e1",
+        "filename": "test/unittests/front_end/panels/sources/NavigatorView_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-10T14:04:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae2de28f_a66cf622",
       "range": {
         "startLine": 65,
         "startChar": 4,
