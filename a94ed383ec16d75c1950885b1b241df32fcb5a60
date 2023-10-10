@@ -50,6 +50,23 @@
       "message": "LGTM",
       "revId": "a94ed383ec16d75c1950885b1b241df32fcb5a60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe8757e_c82e6357",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1577372
+      },
+      "writtenOn": "2023-10-10T02:21:08Z",
+      "side": 1,
+      "message": "Thanks! This will be merged after crbug.com/c/4867841.",
+      "revId": "a94ed383ec16d75c1950885b1b241df32fcb5a60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
