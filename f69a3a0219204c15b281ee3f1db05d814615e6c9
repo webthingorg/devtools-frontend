@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd416693_55641543",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-10T08:28:55Z",
+      "side": 1,
+      "message": "Yeah like it!",
+      "parentUuid": "f0482a29_b3996491",
+      "range": {
+        "startLine": 354,
+        "startChar": 21,
+        "endLine": 354,
+        "endChar": 27
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed132c51_1185b8c3",
         "filename": "front_end/models/trace/handlers/RendererHandler.ts",
         "patchSetId": 1
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1cce2424_920d9338",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-10T08:28:55Z",
+      "side": 1,
+      "message": "Yeah - I think we would. My thinking was that if we wanted to do that we could run `walkTree` for every `const root of tree.roots()` and so I didn\u0027t implement that as part of this function. wdyt?\n\nBut perhaps this should be called `walkTreeFromParentEntry` or something. wdyt?",
+      "parentUuid": "ed132c51_1185b8c3",
+      "range": {
+        "startLine": 583,
+        "startChar": 16,
+        "endLine": 583,
+        "endChar": 24
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "daab0f46_08fa5ce1",
         "filename": "front_end/models/trace/handlers/RendererHandler.ts",
         "patchSetId": 1
@@ -94,6 +142,30 @@
       "writtenOn": "2023-10-10T07:55:28Z",
       "side": 1,
       "message": "do we also need a dedicated callback for instant events or is it unnecessary?",
+      "range": {
+        "startLine": 600,
+        "startChar": 64,
+        "endLine": 600,
+        "endChar": 65
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e52232_f61b74b9",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-10T08:28:55Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure if that distinction is useful - my thought was in the callback the caller could check on the phase of the event and just do different things for different event phases/types if they want. I would rather keep the amount of callbacks down and then add in the future.\n\nGenerally I like the idea of trying not to differentiate events and just having generic handlers for all events and leave anything else up to the caller.",
+      "parentUuid": "daab0f46_08fa5ce1",
       "range": {
         "startLine": 600,
         "startChar": 64,
