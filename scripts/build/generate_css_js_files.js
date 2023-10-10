@@ -14,11 +14,25 @@ async function runCSSMinification(input, fileName) {
   return result.css;
 }
 
-async function codeForFile({fileName, input, isDebug, isLegacy = false, buildTimestamp}) {
+async function codeForFile({srcDir, fileName, input, isDebug, isLegacy = false, buildTimestamp}) {
   input = input.replace(/\`/g, '\\\'');
   input = input.replace(/\\/g, '\\\\');
 
   const stylesheetContents = isDebug ? input : await runCSSMinification(input, fileName);
+
+  const WATCH_PORT = Number.parseInt(process.env.WATCH_PORT, 10);
+  // clang-format off
+  const hotReloadListener = (isDebug && !Number.isNaN(WATCH_PORT)) ? `
+// CSS hot reloading code for 'watch' script
+const ws = new WebSocket("ws://localhost:${WATCH_PORT}");
+ws.addEventListener('message', (message) => {
+  const parsedData = JSON.parse(message.data);
+  if (parsedData.file === "${path.resolve(srcDir, fileName)}") {
+    styles.replace(parsedData.content);
+  }
+});
+` : '';
+  // clang-format on
 
   let exportStatement;
   if (isLegacy) {
@@ -31,6 +45,7 @@ styles.replaceSync(
 \`${stylesheetContents}
 /*# sourceURL=${fileName} */
 \`);
+${hotReloadListener}
 export default styles;`;
   }
 
@@ -58,7 +73,7 @@ async function runMain() {
 
   for (const fileName of filenames) {
     const contents = fs.readFileSync(path.join(srcDir, fileName), {encoding: 'utf8', flag: 'r'});
-    const newContents = await codeForFile({fileName, isDebug, input: contents, isLegacy, buildTimestamp});
+    const newContents = await codeForFile({srcDir, fileName, isDebug, input: contents, isLegacy, buildTimestamp});
     const generatedFileName = `${fileName}${isLegacy ? '.legacy' : ''}.js`;
     const generatedFileLocation = path.join(targetGenDir, generatedFileName);
 
