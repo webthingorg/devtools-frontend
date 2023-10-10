@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b429c8e9_22613e0f",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-10T13:59:48Z",
+      "side": 1,
+      "message": "I\u0027m not sure how good of an idea to pass an argument to this script through environment variables but couldn\u0027t think of a better setup here. WDYT?",
+      "revId": "b11163c87b277cec64e776bb2e33448f2898edcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
