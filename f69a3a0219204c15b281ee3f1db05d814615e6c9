@@ -177,6 +177,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef4f2ae3_053a9e13",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-10T10:39:42Z",
+      "side": 1,
+      "message": "Decided to implement this 😄",
+      "parentUuid": "8712d5a4_4ea59b32",
+      "range": {
+        "startLine": 583,
+        "startChar": 16,
+        "endLine": 583,
+        "endChar": 24
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daab0f46_08fa5ce1",
