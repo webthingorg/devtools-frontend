@@ -420,6 +420,10 @@ export class MainImpl {
         'Redesign of the filter bar in the Network Panel',
     );
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.BREADCRUMBS_PERFORMANCE_PANEL,
+        'Create breadcrumbs from the the Performance Panel Timeline', false);
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'cssTypeComponentLength',
