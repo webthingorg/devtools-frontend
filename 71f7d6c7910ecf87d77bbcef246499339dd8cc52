@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06760333_2975c9a2",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-10T19:41:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0c88af24_f5aa73f1",
+      "range": {
+        "startLine": 1134,
+        "startChar": 4,
+        "endLine": 1135,
+        "endChar": 30
+      },
+      "revId": "71f7d6c7910ecf87d77bbcef246499339dd8cc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf046a56_58c28b4b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-09T08:55:39Z",
       "side": 1,
       "message": "I am finding this function quite hard to follow, and it also I think has the potential to be slightly inefficient to sort the list, then find the right index via the upperBound method, and then traverse the entire tree.\n\nWould it not be possible to go through the tree, and look at each group\u0027s offset and height, and determine the right index from there?\n\nMore importantly, I am a bit concerned that we are ending up here with two data structures that represent the groups. We have all the existing group code that existed before this CL, and now we also have the tree structure too. So what is happening in some of these methods is that we are using both data structures.\n\nFor example, we have both the tree structure and this.groupOffsets. But it would be easy for these to get out of sync, or to use the wrong one in a certain situation.\n\nHave you thought about if we could have one single source of truth, that would ideally be the tree, for all the sorting, re-ordering and rendering? So the tree becomes the list of groups that we walk through when we generate the timeline data?",
+      "range": {
+        "startLine": 1143,
+        "startChar": 3,
+        "endLine": 1149,
+        "endChar": 46
+      },
+      "revId": "71f7d6c7910ecf87d77bbcef246499339dd8cc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d33437e_7bceba8f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-10T19:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf046a56_58c28b4b",
       "range": {
         "startLine": 1143,
         "startChar": 3,
