@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9848a99c_55188be0",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-10T08:42:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fd416693_55641543",
+      "range": {
+        "startLine": 354,
+        "startChar": 21,
+        "endLine": 354,
+        "endChar": 27
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed132c51_1185b8c3",
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Yeah - I think we would. My thinking was that if we wanted to do that we could run `walkTree` for every `const root of tree.roots()` and so I didn\u0027t implement that as part of this function. wdyt?\n\nBut perhaps this should be called `walkTreeFromParentEntry` or something. wdyt?",
       "parentUuid": "ed132c51_1185b8c3",
+      "range": {
+        "startLine": 583,
+        "startChar": 16,
+        "endLine": 583,
+        "endChar": 24
+      },
+      "revId": "f69a3a0219204c15b281ee3f1db05d814615e6c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8712d5a4_4ea59b32",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-10T08:42:55Z",
+      "side": 1,
+      "message": "makes sense. If walking all trees is something we\u0027ll do repeteadly it makes sense to have the function do it without every caller having to wrap the call in a `const root of tree.roots()`. And if we also expect to walk a single tree in repeated cases, then we can have another helper for that scenario",
+      "parentUuid": "1cce2424_920d9338",
       "range": {
         "startLine": 583,
         "startChar": 16,
