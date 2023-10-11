@@ -44,7 +44,8 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
       showScreenshots: true,
     },
   });
-  models.performanceModel.zoomWindowToMainThreadActivity();
+  const {left, right} = models.performanceModel.calculateWindowForMainThreadActivity();
+  models.performanceModel.setWindow({left, right});
   if (customStartWindowTime && customEndWindowTime) {
     minimap.setWindowTimes(Number(customStartWindowTime), Number(customEndWindowTime));
   } else {
