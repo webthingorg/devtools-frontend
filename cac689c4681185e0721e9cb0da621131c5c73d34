@@ -22,6 +22,30 @@
       },
       "revId": "cac689c4681185e0721e9cb0da621131c5c73d34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f175078_326ecd1b",
+        "filename": "buckets/ci.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-10-11T11:10:01Z",
+      "side": 1,
+      "message": "Done here https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4931710",
+      "parentUuid": "cb661978_53db3467",
+      "range": {
+        "startLine": 129,
+        "startChar": 20,
+        "endLine": 129,
+        "endChar": 46
+      },
+      "revId": "cac689c4681185e0721e9cb0da621131c5c73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
