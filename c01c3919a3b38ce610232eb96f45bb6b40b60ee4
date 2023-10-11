@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b93ac488_d4791952",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-11T19:22:44Z",
+      "side": 1,
+      "message": "driveby to not repeatedly hide the highlight if the highlight is already hidden.\n\n\n(this fn is called on every mousemove over empty area)",
+      "revId": "c01c3919a3b38ce610232eb96f45bb6b40b60ee4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
