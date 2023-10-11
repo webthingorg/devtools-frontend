@@ -16,6 +16,92 @@
       "message": "PTAL",
       "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d6f488_ee473952",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-11T08:36:49Z",
+      "side": 1,
+      "message": "LGTM! Love the approach! having a single source of truth and a single window change dispatcher will reduce a lot of complexity!!",
+      "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac2f87f_09a499e0",
+        "filename": "front_end/models/trace/helpers/Timing.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-11T08:36:49Z",
+      "side": 1,
+      "message": "nit: so far `trace bounds` has referred to the entire trace bounds. I think it will help avoid confusion if we made the names reflect so, and use other terms like maybe `time window` to reflect time windows in general. (not a critic of this change but rather of how the codebase evolved, also not necessarily something to be actioned on in this cl). wdyt?",
+      "range": {
+        "startLine": 190,
+        "startChar": 16,
+        "endLine": 190,
+        "endChar": 39
+      },
+      "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b915911b_7cd38492",
+        "filename": "front_end/services/trace_bounds/TraceBounds.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-11T08:36:49Z",
+      "side": 1,
+      "message": "we\u0027ll probably need a `removeInstance` method as well",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "058aa666_04e7c642",
+        "filename": "front_end/services/trace_bounds/TraceBounds.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-11T08:36:49Z",
+      "side": 1,
+      "message": "nit: This helper is very similar to `traceBoundsMillisecondsToMicroSeconds`, does it make sense to place them together under helpers/Timing.ts?",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 36
+      },
+      "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
