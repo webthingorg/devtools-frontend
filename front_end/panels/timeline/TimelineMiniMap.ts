@@ -67,6 +67,7 @@ export class TimelineMiniMap extends
         this.dispatchEventToListeners(PerfUI.TimelineOverviewPane.Events.WindowChanged, event.data);
       }
     });
+    this.activateBreadcrumbs();
   }
 
   activateBreadcrumbs(): void {
