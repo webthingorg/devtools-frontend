@@ -20,6 +20,161 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "40483e32_5cb85bc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T13:26:36Z",
+      "side": 1,
+      "message": "I have a bunch of small comments and nits, but otherwise LGTM. But please let Nancy plus one too before landing. Ty!",
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cf008e2_72bac01b",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T13:26:36Z",
+      "side": 1,
+      "message": "nit: comment here explaining that this is a fake event that has been generated from CDP (I know it might seem obvious now, but let\u0027s try and make sure future folks have an easier time than we have had figuring some of this out!)",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 65
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7d40e31_f9dae028",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T13:26:36Z",
+      "side": 1,
+      "message": "maybe worth a comment explaining that using these values is OK? I can imagine someone new to the code wondering why we picked these values in particular",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 49
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f1b0f03_0e29a810",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T13:26:36Z",
+      "side": 1,
+      "message": "actually, thinking more about this, what happens if I use a worker in Node? (https://nodejs.org/api/worker_threads.html#:~:text\u003dWorkers%20(threads)%20are%20useful%20for,cluster%20%2C%20worker_threads%20can%20share%20memory) ?\n\nOr do we only get data from the main thread? Is it a safe assumption that we will only get one process \u0026 thread?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 59
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f23116_69622e5d",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T13:26:36Z",
+      "side": 1,
+      "message": "maybe a comment here explaining what this event is and why it exists",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 74
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4225a507_a25c500c",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T13:26:36Z",
+      "side": 1,
+      "message": "should we only run this if `isCpuProfile` is false? Or I guess it doesn\u0027t really matter as presumably `Renderer.processes` will be empty?\n\nI wonder if it is worth having a:\n\n```\nif(this.isCpuProfile) {\n  this.#renderCpuProfileThreads()\n} else {\n  this.#renderThreadsFromTrace()\n}\n```\n\nor something? wdyt?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 41
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0b7eb4_5840bd5b",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T13:26:36Z",
+      "side": 1,
+      "message": "maybe worth a comment here too (sorry, I know I am maybe going overboard but it is so easy to get lost in this stuff!)\n\nJust a note explaining that for CPU_PROFILE we will only have samples perhaps. wdyt?",
+      "range": {
+        "startLine": 192,
+        "startChar": 3,
+        "endLine": 197,
+        "endChar": 95
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0bd565cd_dd767ee1",
         "filename": "test/interactions/goldens/linux/performance/cpu-profile.png",
         "patchSetId": 8
