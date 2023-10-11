@@ -398,7 +398,6 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, 'Enable Preloading Status Panel in Application panel',
         true);
-    Root.Runtime.experiments.setEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, true);
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.DISABLE_COLOR_FORMAT_SETTING,
@@ -433,6 +432,7 @@ export class MainImpl {
       Root.Runtime.ExperimentName.WASM_DWARF_DEBUGGING,
       Root.Runtime.ExperimentName.HEADER_OVERRIDES,
       Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
+      Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL,
     ]);
 
     Root.Runtime.experiments.setNonConfigurableExperiments([
