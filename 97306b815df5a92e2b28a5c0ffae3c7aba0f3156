@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb429143_dda04fc9",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-10-11T10:20:12Z",
+      "side": 1,
+      "message": "Can we not just merge again what we divided before? And also adjust/remove extra time out properties?",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 10
+      },
+      "revId": "97306b815df5a92e2b28a5c0ffae3c7aba0f3156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
