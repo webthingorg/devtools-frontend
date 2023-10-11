@@ -16,6 +16,24 @@
       "message": "do we know why?",
       "revId": "d7b4cd516b9ab7973e2001ab21bcb02ac4554a9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c6229e_9a2fffd0",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-10-11T20:28:29Z",
+      "side": 1,
+      "message": "Yeah, there is a render blocking resource that registers some small amount of savings. Under the previous scoring of this audit, the savings would not be enough to fail the audit. Under the new scoring, just having any metric savings will fail the audit.",
+      "parentUuid": "d06c822a_95619194",
+      "revId": "d7b4cd516b9ab7973e2001ab21bcb02ac4554a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
