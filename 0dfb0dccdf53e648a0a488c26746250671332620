@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "975cc8d4_4fd7ac8e",
+        "filename": "front_end/models/trace/helpers/Timing.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T08:43:37Z",
+      "side": 1,
+      "message": "Yeah I agree - I will do this in a standalone follow-up as it is not part of this. Thanks!",
+      "parentUuid": "1ac2f87f_09a499e0",
+      "range": {
+        "startLine": 190,
+        "startChar": 16,
+        "endLine": 190,
+        "endChar": 39
+      },
+      "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b915911b_7cd38492",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e983112b_933e1842",
+        "filename": "front_end/services/trace_bounds/TraceBounds.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T08:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b915911b_7cd38492",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "058aa666_04e7c642",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-10-11T08:36:49Z",
       "side": 1,
       "message": "nit: This helper is very similar to `traceBoundsMillisecondsToMicroSeconds`, does it make sense to place them together under helpers/Timing.ts?",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 36
+      },
+      "revId": "0dfb0dccdf53e648a0a488c26746250671332620",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "076d57c6_db84cca1",
+        "filename": "front_end/services/trace_bounds/TraceBounds.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T08:43:37Z",
+      "side": 1,
+      "message": "Yes! Done",
+      "parentUuid": "058aa666_04e7c642",
       "range": {
         "startLine": 34,
         "startChar": 9,
