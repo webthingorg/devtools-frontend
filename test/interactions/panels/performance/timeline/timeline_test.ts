@@ -117,7 +117,7 @@ describe('Performance panel', () => {
     await loadComponentDocExample('performance_panel/basic.html?cpuprofile=node-fibonacci-website');
     await waitFor('.timeline-flamechart');
     const panel = await waitFor('body');
-    await assertElementScreenshotUnchanged(panel, 'performance/cpu-profile.png', 3);
+    await assertElementScreenshotUnchanged(panel, 'performance/cpu-profile.png', 0);
   });
 
   itScreenshot(
