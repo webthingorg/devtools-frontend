@@ -22,6 +22,30 @@
       },
       "revId": "61aac5940ff47d595b1b842bd893dce393a94f17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf08f857_508437f7",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-11T11:55:02Z",
+      "side": 0,
+      "message": "that\u0027s right. To be consistent with the rest of trace events, we should use the tree we build for them.",
+      "parentUuid": "d34279fa_5601a8fb",
+      "range": {
+        "startLine": 1013,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 46
+      },
+      "revId": "61aac5940ff47d595b1b842bd893dce393a94f17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
