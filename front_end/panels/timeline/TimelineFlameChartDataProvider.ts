@@ -946,7 +946,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         const range = (endLine !== -1 || endLine === startLine) ? `${startLine}...${endLine}` : startLine;
         title += ` - ${url} [${range}]`;
       }
-
     } else if (entryType === EntryType.Frame) {
       const frame = (this.entryData[entryIndex] as TimelineModel.TimelineFrameModel.TimelineFrame);
       time = i18n.TimeUtilities.preciseMillisToString(frame.duration, 1);
@@ -965,6 +964,16 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       }
     } else {
       return null;
+    }
+
+    if (Root.Runtime.experiments.isEnabled('timelineShowTraceEventDetails')) {
+      const entry = this.entryData[entryIndex];
+      try {
+        const extraTooltipText = '\n' + JSON.stringify(entry, null, 2).slice(0, 1000).replace(/{\n  /, '{ ');
+        title += extraTooltipText;
+      } catch (e) {
+        console.warn(e);
+      }
     }
 
     const element = document.createElement('div');
