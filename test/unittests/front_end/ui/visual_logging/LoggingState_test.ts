@@ -22,10 +22,18 @@ describe('LoggingState', () => {
     const state = VisualLogging.LoggingState.getLoggingState(element, parent);
     assert.deepEqual(state, {
       impressionLogged: false,
-      config: {ve: 1, context: 42},
+      config: {ve: 1, context: '42'},
       veid: 1,
       processed: false,
-      parent: {impressionLogged: false, config: {ve: 1}, veid: 2, processed: false, parent: null},
+      context: state.context,
+      parent: {
+        impressionLogged: false,
+        config: {ve: 1},
+        veid: 2,
+        processed: false,
+        context: state.parent?.context as VisualLogging.LoggingState.ContextProvider,
+        parent: null,
+      },
     });
   });
 
