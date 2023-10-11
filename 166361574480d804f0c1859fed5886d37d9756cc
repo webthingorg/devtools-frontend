@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "166361574480d804f0c1859fed5886d37d9756cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a0c815_14111730",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T10:23:41Z",
+      "side": 1,
+      "message": "lgtm with two nits that you can take or leave 😊",
+      "revId": "166361574480d804f0c1859fed5886d37d9756cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba11f972_abb9270a",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-11T10:23:41Z",
+      "side": 1,
+      "message": "can we make this always defined? is there a case where this doesn\u0027t end up as defined?\n\nedit: I think this is the case when we have no nodes in this profile - but would it be better to represent that as an empty tree? Not sure and will leave it up to you.",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 13
+      },
+      "revId": "166361574480d804f0c1859fed5886d37d9756cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
