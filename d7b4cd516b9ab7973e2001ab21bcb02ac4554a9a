@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d06c822a_95619194",
+        "filename": "test/e2e/lighthouse/navigation_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-11T19:23:27Z",
+      "side": 1,
+      "message": "do we know why?",
+      "revId": "d7b4cd516b9ab7973e2001ab21bcb02ac4554a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
