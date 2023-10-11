@@ -2177,7 +2177,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
 
     const groups = this.rawTimelineData?.groups;
-    if (!groups) {
+    if (!groups || !groups.length) {
       return currentOffset;
     }
 
