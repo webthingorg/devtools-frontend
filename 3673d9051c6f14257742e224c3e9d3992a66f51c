@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5c2d506_30bee793",
+        "filename": "buckets/ci.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-10-11T11:51:39Z",
+      "side": 1,
+      "message": "What about this? Still needed?",
+      "range": {
+        "startLine": 134,
+        "startChar": 32,
+        "endLine": 134,
+        "endChar": 50
+      },
+      "revId": "3673d9051c6f14257742e224c3e9d3992a66f51c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
