@@ -13,19 +13,30 @@ import {loadComponentDocExample, preloadForCodeCoverage} from '../../../helpers/
 describe('FlameChart', () => {
   preloadForCodeCoverage('performance_panel/basic.html');
 
-  async function getCoordinatesForEntry(entryIndex: number): Promise<{x: number, y: number}> {
+  async function getCoordinatesForEntryWithTitleAndTs(
+      title: string, tsMicroSecs: number): Promise<{x: number, y: number}> {
     const perfPanel = await waitFor('.vbox.panel.timeline');
-    return await perfPanel.evaluate((element: Element, entryIndex: number) => {
+    return await perfPanel.evaluate((element: Element, title: string, ts: number) => {
       const panelWidget = element as LegacyUI.Widget.WidgetElement;
       const panel = panelWidget.__widget as Timeline.TimelinePanel.TimelinePanel;
       const mainFlameChart = panel.getFlameChart().getMainFlameChart();
-      const eventCoordinates = mainFlameChart.entryIndexToCoordinates(entryIndex);
+      const data = mainFlameChart.timelineData();
+      if (!data) {
+        throw new Error('Timeline data was not found');
+      }
+      const entryIndices =
+          data?.entryStartTimes.map((_time, i) => i).filter(index => data.entryStartTimes[index] === (ts / 1000));
+      const matchedIndex = entryIndices.find(index => mainFlameChart.entryTitle(index) === title);
+      if (!matchedIndex) {
+        throw new Error('Match was not found');
+      }
+      const eventCoordinates = mainFlameChart.entryIndexToCoordinates(matchedIndex);
       if (!eventCoordinates) {
         throw new Error('Coordinates were not found');
       }
       const {x, y} = eventCoordinates;
       return {x, y};
-    }, entryIndex);
+    }, title, tsMicroSecs);
   }
 
   it('shows the details of an entry when selected on the timeline', async () => {
@@ -38,8 +49,10 @@ describe('FlameChart', () => {
     const margin = 3;
 
     // Click on an entry on the timings track first.
-    const indexForTimingEntry = 10;
-    const {x: timingEntryX, y: timingEntryY} = await getCoordinatesForEntry(indexForTimingEntry);
+    const titleForTimingEntry = 'label1';
+    const timeStampForTimingEntry = 251126671072;
+    const {x: timingEntryX, y: timingEntryY} =
+        await getCoordinatesForEntryWithTitleAndTs(titleForTimingEntry, timeStampForTimingEntry);
     await frontend.mouse.click(timingEntryX + margin, timingEntryY + margin);
     const timingTitleHandle = await waitFor('.timeline-details-chip-title');
     const timingTitle = await timingTitleHandle.evaluate(element => element.innerHTML);
@@ -47,8 +60,10 @@ describe('FlameChart', () => {
 
     // Now click on an entry on the main thread track and ensure details
     // are visible.
-    const indexForMainEntry = 19285;
-    const {x: mainEntryX, y: mainEntryY} = await getCoordinatesForEntry(indexForMainEntry);
+    const titleForMainEntry = 'Task';
+    const timeStampForMainEntry = 251126679497;
+    const {x: mainEntryX, y: mainEntryY} =
+        await getCoordinatesForEntryWithTitleAndTs(titleForMainEntry, timeStampForMainEntry);
     await frontend.mouse.click(mainEntryX + margin, mainEntryY + margin);
     const mainEntryTitles1 = await waitForMany('.timeline-details-chip-title', 2);
     let mainEntryNameHandle = mainEntryTitles1[0];
