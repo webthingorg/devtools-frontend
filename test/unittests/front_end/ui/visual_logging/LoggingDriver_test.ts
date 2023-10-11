@@ -37,9 +37,10 @@ describe('LoggingDriver', () => {
     renderElementIntoDOM(parent);
   }
 
-  it('logs impressions on startLogging', () => {
+  it('logs impressions on startLogging', async () => {
     addLoggableElements();
     VisualLogging.startLogging();
+    await new Promise(resolve => setTimeout(resolve, 0));
     assert.isTrue(recordImpression.calledOnce);
     assert.sameDeepMembers(
         recordImpression.firstCall.firstArg.impressions, [{id: 2, type: 1, context: 42, parent: 1}, {id: 1, type: 1}]);
@@ -124,6 +125,7 @@ describe('LoggingDriver', () => {
     const element = document.getElementById('element') as HTMLElement;
     element.click();
 
+    await new Promise(resolve => setTimeout(resolve, 0));
     assert.isTrue(recordClick.calledOnce);
   });
 
