@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb661978_53db3467",
+        "filename": "buckets/ci.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-10-11T10:35:39Z",
+      "side": 1,
+      "message": "There\u0027s still stuff slipping through the cracks...\n\nCan you ensure to include really all builders that run the devtools-frontend recipe?",
+      "range": {
+        "startLine": 129,
+        "startChar": 20,
+        "endLine": 129,
+        "endChar": 46
+      },
+      "revId": "cac689c4681185e0721e9cb0da621131c5c73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
