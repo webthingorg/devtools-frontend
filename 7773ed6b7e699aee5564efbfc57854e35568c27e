@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34093c15_6b94bbcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-11T12:18:50Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd565cd_dd767ee1",
+        "filename": "test/interactions/goldens/linux/performance/cpu-profile.png",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-11T12:18:50Z",
+      "side": 1,
+      "message": "this change happens because in this particular test we are using both engines, so a thread is appended by each engine",
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
