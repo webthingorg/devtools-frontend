@@ -52,6 +52,7 @@ async function processDom(): Promise<void> {
   if (document.hidden) {
     return;
   }
+  const startTime = performance.now();
   const {loggables, shadowRoots} = getDomState();
   const visibleElements: Element[] = [];
   const viewportRect = new DOMRect(0, 0, document.documentElement.clientWidth, document.documentElement.clientHeight);
@@ -80,4 +81,6 @@ async function processDom(): Promise<void> {
     }
   }
   await logImpressions(visibleElements);
+  InspectorFrontendHostInstance.recordPerformanceHistogram(
+      'DevTools.VisualLogging.ProcessingTime', performance.now() - startTime);
 }
