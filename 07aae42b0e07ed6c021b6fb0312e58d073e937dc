@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84888132_05e84ac4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-12T09:42:40Z",
+      "side": 1,
+      "message": "Awesome catch, LGTM! I don\u0027t think we have a performance issue here. In the standard non-slot path nothing really changes except for some extra ticks. Since the slot path was broken before, we\u0027re not introducing a perf regression :)\n\nOne style suggestion!",
+      "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d3b4dd6_76ce7790",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-12T09:42:40Z",
+      "side": 1,
+      "message": "How about making this a factory instead?",
+      "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
