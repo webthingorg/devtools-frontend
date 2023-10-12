@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04dac15d_6972f168",
+        "filename": "front_end/ui/visual_logging/LoggingEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-12T07:58:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e012ec10_5b916476",
+      "range": {
+        "startLine": 19,
+        "startChar": 20,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "bb2d4b889b98c4758159808831f1e4f5f3ef3fae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "089f12b7_98e61c1f",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-12T05:07:17Z",
       "side": 1,
       "message": "`() \u003d\u003e Promise.resolve(undefined)`; will make it slightly faster (here and below).",
+      "range": {
+        "startLine": 49,
+        "startChar": 11,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "bb2d4b889b98c4758159808831f1e4f5f3ef3fae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2526a6a_13b8389c",
+        "filename": "front_end/ui/visual_logging/LoggingState.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-12T07:58:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "089f12b7_98e61c1f",
       "range": {
         "startLine": 49,
         "startChar": 11,
