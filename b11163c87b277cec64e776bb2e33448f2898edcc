@@ -16,6 +16,24 @@
       "message": "I\u0027m not sure how good of an idea to pass an argument to this script through environment variables but couldn\u0027t think of a better setup here. WDYT?",
       "revId": "b11163c87b277cec64e776bb2e33448f2898edcc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed33cc7_5a1cbb8b",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T05:36:07Z",
+      "side": 1,
+      "message": "I\u0027m really, really not a fan of having environment variables suddenly impact the DevTools (and as a result, Chromium) build process. This seems especially dangerous on bots where we don\u0027t fully control the environment. I\u0027m mostly worried about hard-to-debug determinism issues, e.g. where parts of DevTools were built with WATCH_PORT present and others are not.\n\nMore-over Chromium has a hard assumption that invoking `ninja` a second time after a full build is a no-op. This might no longer be true since we basically circumvent GN with an env variable.\n\nThe two more-or-less acceptable solutions I could come up with are:\n  1) Hardcode the port.\n  2) Control it via GN. In particular this means we want a \"devtools_watch_port\" GN variable that defaults to 8080. The `gni` script that invokes `generate_css_js_files` has the \"is_debug\" check, and if so enables the watch bit and passes along the GN configured port.",
+      "parentUuid": "b429c8e9_22613e0f",
+      "revId": "b11163c87b277cec64e776bb2e33448f2898edcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
