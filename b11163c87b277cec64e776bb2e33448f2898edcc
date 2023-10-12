@@ -70,6 +70,24 @@
       "parentUuid": "0a50628b_a3490da1",
       "revId": "b11163c87b277cec64e776bb2e33448f2898edcc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8e72332_536219f7",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-12T14:30:02Z",
+      "side": 1,
+      "message": "FYI added a GNI parameter so that this won\u0027t be enabled in test builds and users will need to explicitly enable the feature.\n\nIf it turns out to be successful, I\u0027ll update the documentation too.",
+      "parentUuid": "c9cbdaa6_c3035225",
+      "revId": "b11163c87b277cec64e776bb2e33448f2898edcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
