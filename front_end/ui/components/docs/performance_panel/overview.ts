@@ -20,12 +20,13 @@ const fileName = (params.get('trace') || 'web-dev') + '.json.gz';
 const customStartWindowTime = params.get('windowStart');
 const customEndWindowTime = params.get('windowEnd');
 
-async function renderMiniMap(containerSelector: string, options: {showMemory: boolean}) {
+async function renderMiniMap(
+    containerSelector: string, options: {showMemory: boolean, source: Timeline.TimelinePanel.ThreadTracksSource}) {
   const container = document.querySelector<HTMLElement>(containerSelector);
   if (!container) {
     throw new Error('could not find container');
   }
-  const minimap = new Timeline.TimelineMiniMap.TimelineMiniMap();
+  const minimap = new Timeline.TimelineMiniMap.TimelineMiniMap(options.source);
   minimap.activateBreadcrumbs();
   minimap.markAsRoot();
   minimap.show(container);
@@ -52,5 +53,7 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
   }
 }
 
-await renderMiniMap('.container', {showMemory: false});
-await renderMiniMap('.container-with-memory', {showMemory: true});
+await renderMiniMap('.container', {showMemory: false, source: Timeline.TimelinePanel.ThreadTracksSource.OLD_ENGINE});
+await renderMiniMap(
+    '.container-with-memory', {showMemory: false, source: Timeline.TimelinePanel.ThreadTracksSource.NEW_ENGINE});
+// await renderMiniMap('.container-with-memory', {showMemory: true});
