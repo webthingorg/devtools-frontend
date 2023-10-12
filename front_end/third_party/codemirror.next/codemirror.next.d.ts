@@ -610,6 +610,14 @@ declare class Tree {
     */
     resolveInner(pos: number, side?: -1 | 0 | 1): SyntaxNode;
     /**
+    In some situations, it can be useful to iterate through all
+    nodes around a position, including those in overlays that don't
+    directly cover the position. This method gives you an iterator
+    that will produce all nodes, from small to big, around the given
+    position.
+    */
+    resolveStack(pos: number, side?: -1 | 0 | 1): NodeIterator;
+    /**
     Iterate over the tree and its children, calling `enter` for any
     node that touches the `from`/`to` region (if given) before
     running over such a node's children, and `leave` (if given) when
@@ -651,6 +659,13 @@ declare class Tree {
     */
     static build(data: BuildData): Tree;
 }
+/**
+Represents a sequence of nodes.
+*/
+type NodeIterator = {
+    node: SyntaxNode;
+    next: NodeIterator | null;
+};
 type BuildData = {
     /**
     The buffer or buffer cursor to read the node data from.
@@ -822,7 +837,9 @@ interface SyntaxNodeRef {
     */
     readonly node: SyntaxNode;
     /**
-    Test whether the node matches a given context.
+    Test whether the node matches a given context—a sequence of
+    direct parent nodes. Empty strings in the context array act as
+    wildcards, other strings must match the ancestor node's name.
     */
     matchContext(context: readonly string[]): boolean;
 }
@@ -916,12 +933,6 @@ interface SyntaxNode extends SyntaxNodeRef {
     matching children, not just the first.
     */
     getChildren(type: string | number, before?: string | number | null, after?: string | number | null): SyntaxNode[];
-    /**
-    Test whether the node matches a given context—a sequence of
-    direct parent nodes. Empty strings in the context array act as
-    wildcards, other strings must match the ancestor node's name.
-    */
-    matchContext(context: readonly string[]): boolean;
 }
 /**
 A tree cursor object focuses on a given node in a syntax tree, and
@@ -1639,10 +1650,18 @@ Examples of uses of facets are the [tab
 size](https://codemirror.net/6/docs/ref/#state.EditorState^tabSize), [editor
 attributes](https://codemirror.net/6/docs/ref/#view.EditorView^editorAttributes), and [update
 listeners](https://codemirror.net/6/docs/ref/#view.EditorView^updateListener).
+
+Note that `Facet` instances can be used anywhere where
+[`FacetReader`](https://codemirror.net/6/docs/ref/#state.FacetReader) is expected.
 */
-declare class Facet<Input, Output = readonly Input[]> {
+declare class Facet<Input, Output = readonly Input[]> implements FacetReader<Output> {
     private isStatic;
     private constructor();
+    /**
+    Returns a facet reader for this facet, which can be used to
+    [read](https://codemirror.net/6/docs/ref/#state.EditorState.facet) it but not to define values for it.
+    */
+    get reader(): FacetReader<Output>;
     /**
     Define a new facet.
     */
@@ -1674,8 +1693,23 @@ declare class Facet<Input, Output = readonly Input[]> {
     */
     from<T extends Input>(field: StateField<T>): Extension;
     from<T>(field: StateField<T>, get: (value: T) => Input): Extension;
+    tag: typeof FacetTag;
 }
-type Slot<T> = Facet<any, T> | StateField<T> | "doc" | "selection";
+declare const FacetTag: unique symbol;
+/**
+A facet reader can be used to fetch the value of a facet, though
+[`EditorState.facet`](https://codemirror.net/6/docs/ref/#state.EditorState.facet) or as a dependency
+in [`Facet.compute`](https://codemirror.net/6/docs/ref/#state.Facet.compute), but not to define new
+values for the facet.
+*/
+type FacetReader<Output> = {
+    /**
+    Dummy tag that makes sure TypeScript doesn't consider all object
+    types as conforming to this type.
+    */
+    tag: typeof FacetTag;
+};
+type Slot<T> = FacetReader<T> | StateField<T> | "doc" | "selection";
 type StateFieldSpec<Value> = {
     /**
     Creates the initial value for the field when a state is created.
@@ -2234,7 +2268,7 @@ declare class EditorState {
     /**
     Get the value of a state [facet](https://codemirror.net/6/docs/ref/#state.Facet).
     */
-    facet<Output>(facet: Facet<any, Output>): Output;
+    facet<Output>(facet: FacetReader<Output>): Output;
     /**
     Convert this state to a JSON-serializable object. When custom
     fields should be serialized, you can pass them in as an object
