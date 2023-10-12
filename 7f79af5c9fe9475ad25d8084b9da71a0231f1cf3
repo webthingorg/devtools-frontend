@@ -33,6 +33,24 @@
       "message": "You don\u0027t have to add the new arg in `vars.gni` you can add a `declare_args()` block here. This is commonly done in GN to declare the GN args where you use them.\n\n(e.g. search for \"devtools_release_sourcemaps\")",
       "revId": "7f79af5c9fe9475ad25d8084b9da71a0231f1cf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ae159a_0fca5320",
+        "filename": "scripts/build/ninja/generate_css.gni",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-12T15:06:21Z",
+      "side": 1,
+      "message": "Ah cool, thanks; updated it! :)",
+      "parentUuid": "aa960a13_126e9ae9",
+      "revId": "7f79af5c9fe9475ad25d8084b9da71a0231f1cf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
