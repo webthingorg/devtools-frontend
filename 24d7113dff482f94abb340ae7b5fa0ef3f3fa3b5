@@ -70,6 +70,24 @@
       "parentUuid": "7db2cfb3_f73db850",
       "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a97be6_064c4fd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-12T08:25:37Z",
+      "side": 1,
+      "message": "That\u0027s fair. It\u0027s certainly helpful that with the CL the loader only hands out the small `write` chunks instead of aggregating them first!",
+      "parentUuid": "6064153c_5aa0cc20",
+      "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
