@@ -26,6 +26,7 @@ template("generate_css") {
       _src,
       _dest,
       string_join(",", sources),
+      "$devtools_css_hot_reload_enabled",
     ]
 
     outputs = []
