@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "811a3b5e_260832d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-10-12T07:51:03Z",
+      "side": 1,
+      "message": "I guess this could be `Fixed: 345205` now?",
+      "revId": "3910dfa66fcdee3ec5f291728cfc709efeafd7b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1169d31a_efdf1af7",
