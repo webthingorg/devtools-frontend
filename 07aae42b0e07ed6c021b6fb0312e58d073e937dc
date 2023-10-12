@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2cd68af_66a3963b",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-12T16:31:47Z",
+      "side": 1,
+      "message": "I think that\u0027d definitely be better! I have tried doing that and it turned out be a quite big change considering two things:\n* There are quite a lot of dependencies in init function to the internal variables that is scattered around different functions (buildMainCascade, buildPseudoCascades...)\n* We\u0027re creating a NodeCascade in initialization and it has a reference to the CSSMatchedStyles instance which I couldn\u0027t find a good way to abstract away.\n\nSo, WDYT of submitting this CL to fix the issue and tackling this refactoring in a separate CL; maybe we can also sit together and try to find a good way of doing it?",
+      "parentUuid": "5d3b4dd6_76ce7790",
+      "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "663ecbfe_fad9c9da",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2023-10-12T09:43:21Z",
       "side": 1,
       "message": "Just to double check: slotted trees inherit from the slot, not their contextual parent?",
+      "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51c9beb0_6d728a17",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-12T16:31:47Z",
+      "side": 1,
+      "message": "Yep, as described here: https://drafts.csswg.org/css-scoping/#slots-in-shadow-tree:~:text\u003dNOTE%3A%20A%20non%2Dobvious%20result%20of%20assigning%20elements%20to%20slots%20is%20that%20they%20inherit%20from%20the%20slot%20they%E2%80%99re%20assigned%20to.%20Their%20original%20light%20tree%20parent%2C%20and%20any%20deeper%20slots%20that%20their%20slot%20gets%20assigned%20to%2C%20don%E2%80%99t%20affect%20inheritance :)",
+      "parentUuid": "663ecbfe_fad9c9da",
       "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
