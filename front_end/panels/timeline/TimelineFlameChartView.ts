@@ -144,7 +144,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onNetworkEntrySelected, this);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryHighlighted, this.onEntryHighlighted, this);
 
-    this.boundRefresh = this.refresh.bind(this);
+    this.boundRefresh = this.reset.bind(this);
     this.#selectedEvents = null;
 
     this.mainDataProvider.setEventColorMapping(TimelineUIUtils.eventColor);
@@ -234,6 +234,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.#selectedEvents = null;
     this.mainDataProvider.setModel(this.model, newTraceEngineData, isCpuProfile);
     this.networkDataProvider.setModel(newTraceEngineData);
+    this.reset();
     if (this.model) {
       this.eventListeners = [
         this.model.addEventListener(PerformanceModelEvents.WindowChanged, this.onWindowChanged, this),
@@ -246,7 +247,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     this.updateColorMapper();
     this.updateTrack();
-    this.refresh();
   }
 
   private updateTrack(): void {
@@ -255,7 +255,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     void this.detailsView.setModel(this.model, this.#traceEngineData, this.#selectedEvents);
   }
 
-  private refresh(): void {
+  private reset(): void {
     if (this.networkDataProvider.isEmpty()) {
       this.mainFlameChart.enableRuler(true);
       this.networkSplitWidget.hideSidebar();
