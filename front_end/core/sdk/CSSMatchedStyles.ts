@@ -95,23 +95,23 @@ export class CSSRegisteredProperty {
 }
 
 export class CSSMatchedStyles {
-  readonly #cssModelInternal: CSSModel;
-  readonly #nodeInternal: DOMNode;
-  readonly #addedStyles: Map<CSSStyleDeclaration, DOMNode>;
-  readonly #matchingSelectors: Map<number, Map<string, boolean>>;
-  readonly #keyframesInternal: CSSKeyframesRule[];
-  readonly #registeredProperties: CSSRegisteredProperty[];
-  readonly #registeredPropertyMap = new Map<string, CSSRegisteredProperty>();
-  readonly #nodeForStyleInternal: Map<CSSStyleDeclaration, DOMNode|null>;
-  readonly #inheritedStyles: Set<CSSStyleDeclaration>;
-  readonly #mainDOMCascade: DOMInheritanceCascade;
-  readonly #pseudoDOMCascades: Map<Protocol.DOM.PseudoType, DOMInheritanceCascade>;
-  readonly #customHighlightPseudoDOMCascades: Map<string, DOMInheritanceCascade>;
-  readonly #styleToDOMCascade: Map<CSSStyleDeclaration, DOMInheritanceCascade>;
-  readonly #parentLayoutNodeId: Protocol.DOM.NodeId|undefined;
-  readonly #positionFallbackRules: CSSPositionFallbackRule[];
+  #cssModelInternal!: CSSModel;
+  #nodeInternal!: DOMNode;
+  #addedStyles!: Map<CSSStyleDeclaration, DOMNode>;
+  #matchingSelectors!: Map<number, Map<string, boolean>>;
+  #keyframesInternal!: CSSKeyframesRule[];
+  #registeredProperties!: CSSRegisteredProperty[];
+  #registeredPropertyMap = new Map<string, CSSRegisteredProperty>();
+  #nodeForStyleInternal!: Map<CSSStyleDeclaration, DOMNode|null>;
+  #inheritedStyles!: Set<CSSStyleDeclaration>;
+  #mainDOMCascade!: DOMInheritanceCascade;
+  #pseudoDOMCascades!: Map<Protocol.DOM.PseudoType, DOMInheritanceCascade>;
+  #customHighlightPseudoDOMCascades!: Map<string, DOMInheritanceCascade>;
+  #styleToDOMCascade!: Map<CSSStyleDeclaration, DOMInheritanceCascade>;
+  #parentLayoutNodeId!: Protocol.DOM.NodeId|undefined;
+  #positionFallbackRules!: CSSPositionFallbackRule[];
 
-  constructor({
+  async init({
     cssModel,
     node,
     inlinePayload,
@@ -125,7 +125,7 @@ export class CSSMatchedStyles {
     positionFallbackRules,
     propertyRules,
     cssPropertyRegistrations,
-  }: CSSMatchedStylesPayload) {
+  }: CSSMatchedStylesPayload): Promise<CSSMatchedStyles> {
     this.#cssModelInternal = cssModel;
     this.#nodeInternal = node;
     this.#addedStyles = new Map();
@@ -149,7 +149,8 @@ export class CSSMatchedStyles {
       inheritedResult.matchedCSSRules = cleanUserAgentPayload(inheritedResult.matchedCSSRules);
     }
 
-    this.#mainDOMCascade = this.buildMainCascade(inlinePayload, attributesPayload, matchedPayload, inheritedPayload);
+    this.#mainDOMCascade =
+        await this.buildMainCascade(inlinePayload, attributesPayload, matchedPayload, inheritedPayload);
     [this.#pseudoDOMCascades, this.#customHighlightPseudoDOMCascades] =
         this.buildPseudoCascades(pseudoPayload, inheritedPseudoPayload);
 
@@ -221,12 +222,14 @@ export class CSSMatchedStyles {
         ruleMatch.matchingSelectors = matchingSelectors.map((item, i) => i);
       }
     }
+
+    return this;
   }
 
-  private buildMainCascade(
+  private async buildMainCascade(
       inlinePayload: Protocol.CSS.CSSStyle|null, attributesPayload: Protocol.CSS.CSSStyle|null,
       matchedPayload: Protocol.CSS.RuleMatch[],
-      inheritedPayload: Protocol.CSS.InheritedStyleEntry[]): DOMInheritanceCascade {
+      inheritedPayload: Protocol.CSS.InheritedStyleEntry[]): Promise<DOMInheritanceCascade> {
     const nodeCascades: NodeCascade[] = [];
 
     const nodeStyles: CSSStyleDeclaration[] = [];
@@ -268,6 +271,14 @@ export class CSSMatchedStyles {
 
     // Walk the node structure and identify styles with inherited properties.
     let parentNode: (DOMNode|null) = this.#nodeInternal.parentNode;
+    const traverseParentInFlatTree = async(node: DOMNode): Promise<DOMNode|null> => {
+      if (node.hasAssignedSlot()) {
+        return await node.assignedSlot?.deferredNode.resolvePromise() ?? null;
+      }
+
+      return node.parentNode;
+    };
+
     for (let i = 0; parentNode && inheritedPayload && i < inheritedPayload.length; ++i) {
       const inheritedStyles = [];
       const entryPayload = inheritedPayload[i];
@@ -295,7 +306,7 @@ export class CSSMatchedStyles {
         inheritedStyles.push(inheritedRule.style);
         this.#inheritedStyles.add(inheritedRule.style);
       }
-      parentNode = parentNode.parentNode;
+      parentNode = await traverseParentInFlatTree(parentNode);
       nodeCascades.push(new NodeCascade(this, inheritedStyles, true /* #isInherited */));
     }
 
