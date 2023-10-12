@@ -325,7 +325,7 @@ export class CSSModel extends SDKModel<EventTypes> {
       return null;
     }
 
-    return new CSSMatchedStyles({
+    return (new CSSMatchedStyles()).init({
       cssModel: this,
       node: (node as DOMNode),
       inlinePayload: response.inlineStyle || null,
