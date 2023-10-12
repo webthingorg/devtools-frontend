@@ -33,6 +33,23 @@
       "message": "How about making this a factory instead?",
       "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "663ecbfe_fad9c9da",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-12T09:43:21Z",
+      "side": 1,
+      "message": "Just to double check: slotted trees inherit from the slot, not their contextual parent?",
+      "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
