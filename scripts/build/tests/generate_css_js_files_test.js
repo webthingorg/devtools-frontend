@@ -15,6 +15,18 @@ describe('generating CSS JS files', () => {
     assert.isTrue(contents.includes('div{height:20px}'));
   });
 
+  it('does not include hot reloading code when not in debug mode', async () => {
+    const css = `
+    @container (width<1024px) {
+      .test {
+        color: #fff;
+      }
+    }`;
+    const contents = await codeForFile(
+        {srcDir: '/tmp', fileName: 'app.css', isDebug: false, input: css, isLegacy: false, buildTimestamp: Date.now()});
+    assert.isFalse(contents.includes('const ws = new WebSocket("ws://localhost:8080");'));
+  });
+
   it('supports container queries', async () => {
     const css = `
     @container (width<1024px) {
@@ -35,7 +47,19 @@ describe('generating CSS JS files', () => {
       }
     }`;
     const contents = await codeForFile(
-        {fileName: 'app.css', isDebug: true, input: css, isLegacy: false, buildTimestamp: Date.now()});
+        {srcDir: '/tmp', fileName: 'app.css', isDebug: true, input: css, isLegacy: false, buildTimestamp: Date.now()});
     assert.isTrue(contents.includes(css));
+  });
+
+  it('includes hot reloading code when debug mode is on', async () => {
+    const css = `
+    @container (width<1024px) {
+      .test {
+        color: #fff;
+      }
+    }`;
+    const contents = await codeForFile(
+        {srcDir: '/tmp', fileName: 'app.css', isDebug: true, input: css, isLegacy: false, buildTimestamp: Date.now()});
+    assert.isTrue(contents.includes('const ws = new WebSocket("ws://localhost:8080");'));
   });
 });
