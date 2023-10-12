@@ -62,6 +62,30 @@
       },
       "revId": "da70858c02046a55accd20849882185a1e0e0f64",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cd578a6_e456d358",
+        "filename": "front_end/panels/accessibility/AXBreadcrumbsPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-12T13:29:58Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer keeping it only returning a string and not doing anything particular on the element.\n\nMaybe to get rid of template literal usage, we can add a `build` method or explicitly call `toString()` method?",
+      "parentUuid": "6a156872_b871adb1",
+      "range": {
+        "startLine": 450,
+        "startChar": 4,
+        "endLine": 450,
+        "endChar": 99
+      },
+      "revId": "da70858c02046a55accd20849882185a1e0e0f64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
