@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61f980fb_2ae08c9b",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T10:51:42Z",
+      "side": 1,
+      "message": "With `Record` instead of `Map` TS guarantees that all enum variants are present.",
+      "range": {
+        "startLine": 344,
+        "startChar": 28,
+        "endLine": 344,
+        "endChar": 34
+      },
+      "revId": "abc0887890df27f77182fd1c8555d58a4c419272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
