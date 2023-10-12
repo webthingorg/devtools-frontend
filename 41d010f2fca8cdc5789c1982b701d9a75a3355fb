@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c62c4b6_5a48ac23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T14:11:56Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "41d010f2fca8cdc5789c1982b701d9a75a3355fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3d9f7ea_2c4da3d7",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T14:11:56Z",
+      "side": 1,
+      "message": "just to make sure, this means that we will temporarily not show cpu data in the minimap until we use cpu data from the new entine in the cpu activity class. I think that\u0027s fine if we aim to land the follow up soonish :)",
+      "range": {
+        "startLine": 202,
+        "startChar": 58,
+        "endLine": 202,
+        "endChar": 68
+      },
+      "revId": "41d010f2fca8cdc5789c1982b701d9a75a3355fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f30fdbfe_c6185901",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T14:11:56Z",
+      "side": 1,
+      "message": "optionally we can use the `isNode` var and avoid declaring another one.",
+      "range": {
+        "startLine": 785,
+        "startChar": 10,
+        "endLine": 785,
+        "endChar": 22
+      },
+      "revId": "41d010f2fca8cdc5789c1982b701d9a75a3355fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
