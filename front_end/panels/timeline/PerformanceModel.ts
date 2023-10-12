@@ -9,6 +9,7 @@ import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scop
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import type * as TraceEngine from '../../models/trace/trace.js';
 
+import {ThreadTracksSource} from './TimelinePanel.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 
 const resolveNamesTimeout = 500;
@@ -69,10 +70,13 @@ export class PerformanceModel extends Common.ObjectWrapper.ObjectWrapper<EventTy
 
   async setTracingModel(model: TraceEngine.Legacy.TracingModel, isFreshRecording = false, options = {
     resolveSourceMaps: true,
+    threadTracksSource: ThreadTracksSource.OLD_ENGINE,
     isCpuProfile: false,
   }): Promise<void> {
     this.tracingModelInternal = model;
-    this.timelineModelInternal.setEvents(model, isFreshRecording, options.isCpuProfile);
+    this.timelineModelInternal.setEvents(
+        model, isFreshRecording, options.isCpuProfile,
+        /* renderSyncTracks */ options.threadTracksSource !== ThreadTracksSource.NEW_ENGINE);
     if (options.resolveSourceMaps) {
       await this.addSourceMapListeners();
     }
