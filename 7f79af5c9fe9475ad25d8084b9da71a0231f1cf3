@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fbaafd7_e10a034f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T14:38:13Z",
+      "side": 1,
+      "message": "lgtm % comment",
+      "revId": "7f79af5c9fe9475ad25d8084b9da71a0231f1cf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa960a13_126e9ae9",
+        "filename": "scripts/build/ninja/generate_css.gni",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T14:38:13Z",
+      "side": 1,
+      "message": "You don\u0027t have to add the new arg in `vars.gni` you can add a `declare_args()` block here. This is commonly done in GN to declare the GN args where you use them.\n\n(e.g. search for \"devtools_release_sourcemaps\")",
+      "revId": "7f79af5c9fe9475ad25d8084b9da71a0231f1cf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
