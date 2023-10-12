@@ -56,6 +56,30 @@
       },
       "revId": "5311fa9054e006dfd8fbd2d24a6c464f634e9eb6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7bd4a78_30929070",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-12T12:33:07Z",
+      "side": 1,
+      "message": "Ah that sounds nice! Since we\u0027ve removed the PORT argument and we don\u0027t need any other argument for now, didn\u0027t move forward with `yargs` package.\n\nWe can do that if we need to add more arguments in the future, WDYT? :)",
+      "parentUuid": "649242f3_3ae0d4dc",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "5311fa9054e006dfd8fbd2d24a6c464f634e9eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

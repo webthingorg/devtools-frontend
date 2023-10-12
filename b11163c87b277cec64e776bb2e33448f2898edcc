@@ -34,6 +34,24 @@
       "parentUuid": "b429c8e9_22613e0f",
       "revId": "b11163c87b277cec64e776bb2e33448f2898edcc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a50628b_a3490da1",
+        "filename": "scripts/build/generate_css_js_files.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-12T12:33:07Z",
+      "side": 1,
+      "message": "I didn\u0027t want to add another variable for this since it will require updating `gn` config for running in watch mode. I think hardcoding the port is fine for now and I\u0027ve went with it.\n\nI\u0027ve wanted to check for the port before adding the listener because I didn\u0027t want to spam the console when the watch script is not used. So, I think this is the best of both worlds:\n\n* Hardcoding the port.\n* Adding hot reload script on all debug builds, keeping one connection and being fine if it throws an error to the console.\n\nUpdated the CL accordingly, LMK what you think!",
+      "parentUuid": "eed33cc7_5a1cbb8b",
+      "revId": "b11163c87b277cec64e776bb2e33448f2898edcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
