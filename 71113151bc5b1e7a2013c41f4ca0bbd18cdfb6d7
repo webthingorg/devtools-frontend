@@ -16,6 +16,23 @@
       "message": "szuend@: PTAL. Thanks!",
       "revId": "71113151bc5b1e7a2013c41f4ca0bbd18cdfb6d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bbf8cf3_621b2298",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1294707
+      },
+      "writtenOn": "2023-10-12T01:23:45Z",
+      "side": 1,
+      "message": "Will abandon this CL as the design will need to change per https://chromium-review.googlesource.com/c/chromium/src/+/4875182/comments/62a30022_cb4c3fcf",
+      "revId": "71113151bc5b1e7a2013c41f4ca0bbd18cdfb6d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
