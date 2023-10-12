@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44083bbc_19cb61c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T05:07:17Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "bb2d4b889b98c4758159808831f1e4f5f3ef3fae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e012ec10_5b916476",
+        "filename": "front_end/ui/visual_logging/LoggingEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T05:07:17Z",
+      "side": 1,
+      "message": "Depending how many async contexts we\u0027ll have and how long they\u0027ll need we might wanna `Promise.all` this loop. (e.g. turning the loop body into an async arrow function and use `map` on `elements`.)",
+      "range": {
+        "startLine": 19,
+        "startChar": 20,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "bb2d4b889b98c4758159808831f1e4f5f3ef3fae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "089f12b7_98e61c1f",
+        "filename": "front_end/ui/visual_logging/LoggingState.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T05:07:17Z",
+      "side": 1,
+      "message": "`() \u003d\u003e Promise.resolve(undefined)`; will make it slightly faster (here and below).",
+      "range": {
+        "startLine": 49,
+        "startChar": 11,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "bb2d4b889b98c4758159808831f1e4f5f3ef3fae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
