@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8449f0e_d56c5cab",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-12T15:18:07Z",
+      "side": 1,
+      "message": "Done in crrev.com/c/4936312",
+      "parentUuid": "1b266fb4_ccc4cca9",
+      "range": {
+        "startLine": 158,
+        "startChar": 23,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "da70858c02046a55accd20849882185a1e0e0f64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a156872_b871adb1",
