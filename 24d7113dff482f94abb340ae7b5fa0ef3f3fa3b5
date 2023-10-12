@@ -52,6 +52,24 @@
       "parentUuid": "6345ca69_d73da0c5",
       "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6064153c_5aa0cc20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T04:40:54Z",
+      "side": 1,
+      "message": "No, because `#fetchCunk` is called on an on-demand way and `#json` is conumed (shortend) while parsing. See e.g. \"parseArray\" which is called multiple times:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/entrypoints/heap_snapshot_worker/HeapSnapshotLoader.ts;l\u003d135;drc\u003d3a80260722c77d984a637b923cad4883857e57dc\n\nYou see similar calls to `#json.slice` in `parseUIntArray`.\n\nWe still run the risk that individual parts of the heapsnapshot are still too large to fit into a string, but chances are better with this CL.",
+      "parentUuid": "7db2cfb3_f73db850",
+      "revId": "24d7113dff482f94abb340ae7b5fa0ef3f3fa3b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
