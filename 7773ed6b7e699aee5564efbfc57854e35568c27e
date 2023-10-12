@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b039400_121b560a",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T08:31:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf008e2_72bac01b",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 65
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7d40e31_f9dae028",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-10-11T13:26:36Z",
       "side": 1,
       "message": "maybe worth a comment explaining that using these values is OK? I can imagine someone new to the code wondering why we picked these values in particular",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 49
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db47b7f1_bcf5f35f",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T08:31:08Z",
+      "side": 1,
+      "message": "resolved per following comment.",
+      "parentUuid": "d7d40e31_f9dae028",
       "range": {
         "startLine": 125,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c130283b_a3901018",
+        "filename": "front_end/models/trace/handlers/SamplesHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T08:31:08Z",
+      "side": 1,
+      "message": "We are attaching to a single node target so we will only get a single CPU profile. I\u0027m unsure what changes we need to make to support profiling node workers but it might include changes in devtools. I\u0027ve changed this values to the values contained in the trace event should this change in the future.",
+      "parentUuid": "5f1b0f03_0e29a810",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 59
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05f23116_69622e5d",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-10-11T13:26:36Z",
       "side": 1,
       "message": "maybe a comment here explaining what this event is and why it exists",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 74
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c51ac026_0b3efbdd",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T08:31:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05f23116_69622e5d",
       "range": {
         "startLine": 130,
         "startChar": 0,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04fbc07_846ef91e",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T08:31:08Z",
+      "side": 1,
+      "message": "in theory if `isCpuProfile` is false, `Renderer.processes` will be empty. But I\u0027ve added your suggestion just in case.",
+      "parentUuid": "4225a507_a25c500c",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 41
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a0b7eb4_5840bd5b",
@@ -163,6 +283,30 @@
       "writtenOn": "2023-10-11T13:26:36Z",
       "side": 1,
       "message": "maybe worth a comment here too (sorry, I know I am maybe going overboard but it is so easy to get lost in this stuff!)\n\nJust a note explaining that for CPU_PROFILE we will only have samples perhaps. wdyt?",
+      "range": {
+        "startLine": 192,
+        "startChar": 3,
+        "endLine": 197,
+        "endChar": 95
+      },
+      "revId": "7773ed6b7e699aee5564efbfc57854e35568c27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44cd8a26_9f880aa2",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-12T08:31:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a0b7eb4_5840bd5b",
       "range": {
         "startLine": 192,
         "startChar": 3,
