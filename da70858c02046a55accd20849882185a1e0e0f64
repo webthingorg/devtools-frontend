@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88bb2407_165816b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T13:21:44Z",
+      "side": 1,
+      "message": "lgtm, really happy with what we ended up overall!",
+      "revId": "da70858c02046a55accd20849882185a1e0e0f64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b266fb4_ccc4cca9",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T13:21:44Z",
+      "side": 1,
+      "message": "Drive-by comment: Do we plan to introduce some form of performance metric (e.g. timing histogram) to record how much time we spend in the visual logging code?\n\nI know V8 has a bunch of them: https://source.chromium.org/chromium/chromium/src/+/main:v8/src/logging/counters-definitions.h;l\u003d152;drc\u003d60fdd54c9168dcbc745a5f70cabc2232b0bd17fe",
+      "range": {
+        "startLine": 158,
+        "startChar": 23,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "da70858c02046a55accd20849882185a1e0e0f64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a156872_b871adb1",
+        "filename": "front_end/panels/accessibility/AXBreadcrumbsPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-12T13:21:44Z",
+      "side": 1,
+      "message": "One more idea for the user-facing API which I\u0027m not so sure about though: We could extend the `makeConfigStringBuilder` returned closer to optionally take an `Element` so this would read instead:\n\n```\nVisualLogging.treeItem(this.elementInternal).track({click: true});\n```\n\nAlternatively we add `set`/`log` to the builder:\n\n```\nVisualLogging.treeItem().track({click: true}).set(this.elementInternal);\n```\n\nAgain, I\u0027m not sure, maybe one of you has a better suggestion?",
+      "range": {
+        "startLine": 450,
+        "startChar": 4,
+        "endLine": 450,
+        "endChar": 99
+      },
+      "revId": "da70858c02046a55accd20849882185a1e0e0f64",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
