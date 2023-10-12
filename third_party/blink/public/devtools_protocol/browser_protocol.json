@@ -24075,6 +24075,25 @@
                         "PrefetchSuccessfulButNotUsed",
                         "PrefetchNotUsedProbeFailed"
                     ]
+                },
+                {
+                    "id": "MismatchedHeaders",
+                    "description": "information of headers to be shown when",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "headerName",
+                            "type": "string"
+                        },
+                        {
+                            "name": "initialValue",
+                            "type": "string"
+                        },
+                        {
+                            "name": "activationValue",
+                            "type": "string"
+                        }
+                    ]
                 }
             ],
             "commands": [
@@ -24184,6 +24203,14 @@
                             "description": "This is used to give users more information about the name of Mojo interface\nthat is incompatible with prerender and has caused the cancellation of the attempt.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "mismatchedHeaders",
+                            "optional": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "MismatchedHeaders"
+                            }
                         }
                     ]
                 },
