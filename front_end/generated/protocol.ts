@@ -16089,6 +16089,15 @@ export namespace Preload {
   }
 
   /**
+   * information of headers to be shown when
+   */
+  export interface MismatchedHeaders {
+    headerName: string;
+    initialValue: string;
+    activationValue: string;
+  }
+
+  /**
    * Upsert. Currently, it is only emitted when a rule set added.
    */
   export interface RuleSetUpdatedEvent {
@@ -16137,6 +16146,7 @@ export namespace Preload {
      * that is incompatible with prerender and has caused the cancellation of the attempt.
      */
     disallowedMojoInterface?: string;
+    mismatchedHeaders?: MismatchedHeaders[];
   }
 
   /**
