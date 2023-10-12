@@ -42,6 +42,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
 import * as PanelFeedback from '../../ui/components/panel_feedback/panel_feedback.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -325,7 +326,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   #traceEngineActiveTraceIndex = -1;
   #threadTracksSource: ThreadTracksSource;
   #sourceMapsResolver: SourceMapsResolver|null = null;
-
   #onSourceMapsNodeNamesResolvedBound = this.#onSourceMapsNodeNamesResolved.bind(this);
 
   constructor(threadTracksSource: ThreadTracksSource) {
@@ -507,6 +507,16 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     const left = (event.data.startTime > 0) ? event.data.startTime : this.performanceModel.minimumRecordTime();
     const right = Number.isFinite(event.data.endTime) ? event.data.endTime : this.performanceModel.maximumRecordTime();
     this.performanceModel.setWindow({left, right}, /* animate */ true, event.data.breadcrumb);
+
+    TraceBounds.TraceBounds.BoundsManager.instance().setNewBounds(
+        TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(
+            TraceEngine.Types.Timing.MilliSeconds(left),
+            TraceEngine.Types.Timing.MilliSeconds(right),
+            ),
+        {
+          shouldAnimate: true,
+        },
+    );
   }
 
   private onModelWindowChanged(event: Common.EventTarget.EventTargetEvent<WindowChangedEvent>): void {
@@ -1133,7 +1143,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
     this.#traceEngineActiveTraceIndex = traceEngineIndex;
     const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
-    this.flameChart.setModel(model, traceParsedData);
+    const isCpuProfile = this.#traceEngineModel.metadata(this.#traceEngineActiveTraceIndex)?.dataOrigin ===
+        TraceEngine.Types.File.DataOrigin.CPUProfile;
+    if (traceParsedData) {
+      TraceBounds.TraceBounds.BoundsManager.instance({
+        forceNew: true,
+        initialBounds: traceParsedData.Meta.traceBounds,
+      });
+    }
+    this.flameChart.setModel(model, traceParsedData, isCpuProfile);
 
     this.updateOverviewControls();
     this.#minimapComponent.reset();
@@ -1147,8 +1165,14 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         PerfUI.LineLevelProfile.Performance.instance().appendCPUProfile(profile.cpuProfileData, profile.target);
       }
       this.flameChart.setSelection(null);
-      model.zoomWindowToMainThreadActivity();
-      this.#minimapComponent.setWindowTimes(model.window().left, model.window().right);
+      const {left, right} = model.calculateWindowForMainThreadActivity();
+      model.setWindow({left, right});
+      this.#minimapComponent.setWindowTimes(left, right);
+      if (traceParsedData) {
+        TraceBounds.TraceBounds.BoundsManager.instance().setNewBounds(
+            TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(left, right),
+        );
+      }
     }
 
     this.updateOverviewControls();
@@ -1564,6 +1588,16 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       offset = startTime - window.left;
     }
     this.performanceModel.setWindow({left: window.left + offset, right: window.right + offset}, /* animate */ true);
+
+    TraceBounds.TraceBounds.BoundsManager.instance().setNewBounds(
+        TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(
+            TraceEngine.Types.Timing.MilliSeconds(window.left + offset),
+            TraceEngine.Types.Timing.MilliSeconds(window.right + offset),
+            ),
+        {
+          shouldAnimate: true,
+        },
+    );
   }
 
   private handleDrop(dataTransfer: DataTransfer): void {
