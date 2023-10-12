@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "63dc6ef5_c93ca782",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-12T11:00:55Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "abc0887890df27f77182fd1c8555d58a4c419272",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "61f980fb_2ae08c9b",
         "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
         "patchSetId": 4
