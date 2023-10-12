@@ -1344,8 +1344,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     // fresh by checking the state value.
     const recordingIsFresh = this.state === State.StopPending;
 
-    this.setState(State.Idle);
-
     if (!tracingModel) {
       this.clear();
       return;
@@ -1421,6 +1419,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     } finally {
       this.recordTraceLoadMetric();
     }
+
+    this.setState(State.Idle);
   }
 
   recordTraceLoadMetric(): void {
