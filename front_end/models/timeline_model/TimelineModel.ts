@@ -827,7 +827,7 @@ export class TimelineModelImpl {
     }
     this.tracksInternal.push(track);
 
-    const events = this.injectJSFrameEvents(tracingModel, thread);
+    const events = thread.events();
     this.eventStack = [];
     const eventStack = this.eventStack;
 
