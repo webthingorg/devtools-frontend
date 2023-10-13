@@ -46,6 +46,30 @@
       },
       "revId": "a2b1445704667627cf30d4bb5b4f961435cb84e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84951365_3dc37f20",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-10-13T09:22:17Z",
+      "side": 0,
+      "message": "Ah yes, overlooked that, great!",
+      "parentUuid": "35ab1798_fb39de1d",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 126
+      },
+      "revId": "a2b1445704667627cf30d4bb5b4f961435cb84e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
