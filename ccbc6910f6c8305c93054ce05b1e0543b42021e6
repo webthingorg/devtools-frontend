@@ -22,6 +22,30 @@
       },
       "revId": "ccbc6910f6c8305c93054ce05b1e0543b42021e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "519fd859_5a53396b",
+        "filename": "front_end/panels/sensors/sensors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-10-13T12:28:23Z",
+      "side": 1,
+      "message": "Yes that\u0027s intentional -- these gradient colors are for the background of the phone in the sensors view. `--override-gradient-color-1` is the top of the gradient, `-override-gradient-color-2` is the darker horizon, `--override-gradient-color-3` is the end of the gradient.\n\nLike here: https://screenshot.googleplex.com/8iTLAtbsceSagGC.png\n\nI think it makes sense to have the beginning and end the same color. We could also (in line 94) remove `...gradient-color-3` and simply re-use `...gradient-color-1` at the lower end again.",
+      "parentUuid": "2e8e13cd_81aed5e7",
+      "range": {
+        "startLine": 86,
+        "startChar": 28,
+        "endLine": 86,
+        "endChar": 29
+      },
+      "revId": "ccbc6910f6c8305c93054ce05b1e0543b42021e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
