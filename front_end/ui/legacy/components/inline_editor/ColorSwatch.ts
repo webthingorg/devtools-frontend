@@ -99,7 +99,7 @@ export class ColorSwatch extends HTMLElement {
     }
 
     if (typeof formatOrUseUserSetting === 'boolean' && formatOrUseUserSetting) {
-      this.format = Common.Settings.detectColorFormat(this.color);
+      this.format = this.color.format();
     } else if (typeof formatOrUseUserSetting === 'string') {
       this.format = Common.Color.getFormat(formatOrUseUserSetting);
     } else {
