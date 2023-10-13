@@ -2,20 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Platform from '../../core/platform/platform.js';
+import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
+import * as Protocol from '../../generated/protocol.js';
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Root from '../root/root.js';
-import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
-import * as Protocol from '../../generated/protocol.js';
 
+import {type CSSModel} from './CSSModel.js';
 import {DebuggerModel, Events as DebuggerModelEvents} from './DebuggerModel.js';
-
-import {DeferredDOMNode, DOMModel, Events as DOMModelEvents, type DOMNode} from './DOMModel.js';
+import {DeferredDOMNode, DOMModel, type DOMNode, Events as DOMModelEvents} from './DOMModel.js';
 import {OverlayPersistentHighlighter} from './OverlayPersistentHighlighter.js';
 import {type RemoteObject} from './RemoteObject.js';
-
-import {Capability, type Target} from './Target.js';
 import {SDKModel} from './SDKModel.js';
+import {Capability, type Target} from './Target.js';
 import {TargetManager} from './TargetManager.js';
 
 const UIStrings = {
@@ -51,6 +51,12 @@ export interface Hinge {
   outlineColor: HighlightColor;
 }
 
+export const enum OSType {
+  WindowsOS = 'Windows',
+  MacOS = 'Mac',
+  LinuxOS = 'Linux',
+}
+
 export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyApi.OverlayDispatcher {
   readonly #domModel: DOMModel;
   overlayAgent: ProtocolProxyApi.OverlayApi;
@@ -71,6 +77,9 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
   #persistentHighlighter: OverlayPersistentHighlighter|null;
   readonly #sourceOrderHighlighter: SourceOrderHighlighter;
   #sourceOrderModeActiveInternal: boolean;
+  runtimeAgent: ProtocolProxyApi.RuntimeApi;
+  #windowControlsOverlay: WindowControlsOverlay;
+  #wcoModeActiveInternal: boolean;
 
   constructor(target: Target) {
     super(target);
@@ -78,6 +87,7 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
 
     target.registerOverlayDispatcher(this);
     this.overlayAgent = target.overlayAgent();
+    this.runtimeAgent = target.runtimeAgent();
 
     this.#debuggerModel = target.model(DebuggerModel);
     if (this.#debuggerModel) {
@@ -126,6 +136,9 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
 
     this.#sourceOrderHighlighter = new SourceOrderHighlighter(this);
     this.#sourceOrderModeActiveInternal = false;
+
+    this.#windowControlsOverlay = new WindowControlsOverlay(this.#domModel.cssModel());
+    this.#wcoModeActiveInternal = false;
   }
 
   static highlightObjectAsDOMNode(object: RemoteObject): void {
@@ -274,6 +287,11 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
   }
 
   highlightInOverlay(data: HighlightData, mode?: string, showInfo?: boolean): void {
+    if (this.#wcoModeActiveInternal) {
+      // Return early if the source order is currently being shown the in the
+      // overlay, so that it is not cleared by the highlight
+      return;
+    }
     if (this.#sourceOrderModeActiveInternal) {
       // Return early if the source order is currently being shown the in the
       // overlay, so that it is not cleared by the highlight
@@ -445,6 +463,14 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
     return this.#sourceOrderModeActiveInternal;
   }
 
+  setWcoModeActive(isActive: boolean): void {
+    this.#wcoModeActiveInternal = isActive;
+  }
+
+  wcoModeActive(): boolean {
+    return this.#wcoModeActiveInternal;
+  }
+
   highlightIsolatedElementInPersistentOverlay(nodeId: Protocol.DOM.NodeId): void {
     if (!this.#persistentHighlighter) {
       return;
@@ -490,6 +516,41 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
     } else {
       void this.overlayAgent.invoke_setShowHinge({});
     }
+  }
+
+  updateWCOPlatform(opt: OSType): void {
+    this.#windowControlsOverlay.setWindowControlsOverlayConfigPlatform(opt);
+  }
+  updateWCOThemeColor(themeColor: string): void {
+    this.#windowControlsOverlay.setWindowControlsOverlayConfigThemeColor(themeColor);
+  }
+
+  toggleWcoToolbar(show: boolean): void {
+    this.#wcoModeActiveInternal = show;
+    if (!this.#wcoModeActiveInternal) {
+      this.#windowControlsOverlay.setWindowControlsOverlayConfigCSS(false);
+    }
+    const wcoConfigObj = show ? {windowControlsOverlayConfig: this.#windowControlsOverlay.getConfig()} : {};
+
+    void this.overlayAgent.invoke_setShowWindowControlsOverlay(wcoConfigObj);
+
+    void this.#windowControlsOverlay.updateStylesheet(show);
+
+    this.setShowViewportSizeOnResize(!this.#wcoModeActiveInternal);
+  }
+
+  toggleWcoCss(show: boolean): void {
+    this.#windowControlsOverlay.setWindowControlsOverlayConfigCSS(show);
+    if (show && !this.#wcoModeActiveInternal) {
+      // if the WCO overlay is not active, we need to activate it and set the stylesheet
+      // If the WCO overlay is already active, we don't want to set the stylesheet again
+      this.#wcoModeActiveInternal = show;
+      void this.#windowControlsOverlay.updateStylesheet(show);
+    }
+    void this.overlayAgent.invoke_setShowWindowControlsOverlay(
+        {windowControlsOverlayConfig: this.#windowControlsOverlay.getConfig()});
+
+    this.setShowViewportSizeOnResize(!this.#wcoModeActiveInternal);
   }
 
   private buildHighlightConfig(mode: string|undefined = 'all', showDetailedToolip: boolean|undefined = false):
@@ -764,6 +825,103 @@ export class OverlayModel extends SDKModel<EventTypes> implements ProtocolProxyA
 
   getOverlayAgent(): ProtocolProxyApi.OverlayApi {
     return this.overlayAgent;
+  }
+
+  async hasStyleSheetTextForWCO(url: Platform.DevToolsPath.UrlString): Promise<boolean> {
+    return this.#windowControlsOverlay.getStylesheetTextForWCO(url);
+  }
+}
+
+export class WindowControlsOverlay {
+  readonly #cssModel: CSSModel;
+  private originalStylesheetText: string = '';
+  private stylesheetId?: Protocol.CSS.StyleSheetId;
+  private currentUrl: string = '';
+
+  private wcoConfig: Protocol.Overlay
+      .WindowControlsOverlayConfig = {showCSS: false, selectedPlatform: OSType.WindowsOS, themeColor: '#ffffff'};
+  constructor(cssModel: CSSModel) {
+    this.#cssModel = cssModel;
+  }
+
+  getConfig(): Protocol.Overlay.WindowControlsOverlayConfig {
+    return this.wcoConfig;
+  }
+
+  setWindowControlsOverlayConfigPlatform(opt: OSType): void {
+    this.wcoConfig.selectedPlatform = opt;
+  }
+
+  setWindowControlsOverlayConfigThemeColor(themeColor: string): void {
+    this.wcoConfig.themeColor = themeColor;
+  }
+
+  setWindowControlsOverlayConfigCSS(shouldShow: boolean): void {
+    this.wcoConfig.showCSS = shouldShow;
+  }
+
+  async getStylesheetTextForWCO(url: Platform.DevToolsPath.UrlString): Promise<boolean> {
+    // The stylesheet text is only fetched once
+    if (this.originalStylesheetText && url === this.currentUrl) {
+      return true;
+    }
+    let completeURL = this.currentUrl = url;
+    const parentURL = Common.ParsedURL.ParsedURL.extractOrigin(url);
+    const cssHeaders = this.#cssModel.styleSheetHeaders();
+    // find the css URL that matches the parent URL
+    for (const header of cssHeaders) {
+      if (header.sourceURL && header.sourceURL.includes(parentURL)) {
+        completeURL = header.sourceURL;
+      }
+    }
+    const stylesheetIds = this.#cssModel.getStyleSheetIdsForURL(completeURL);
+    this.stylesheetId = stylesheetIds[0];
+    const stylesheetText = await this.#cssModel.getStyleSheetText(this.stylesheetId);
+    if (!stylesheetText) {
+      return false;
+    }
+    this.originalStylesheetText = stylesheetText;
+    return true;
+  }
+
+  async updateStylesheet(shouldApplyParsedStylesheet: boolean): Promise<void> {
+    if (!this.stylesheetId || !this.originalStylesheetText) {
+      return;
+    }
+    if (shouldApplyParsedStylesheet) {
+      // Set the new stylesheet with updated titlebar area
+      const styleSheetText = this.getStyleSheetForPlatform();
+      await this.#cssModel.setStyleSheetText(this.stylesheetId, styleSheetText, false);
+    } else {
+      // Set the original stylesheet
+      await this.#cssModel.setStyleSheetText(this.stylesheetId, this.originalStylesheetText, false);
+    }
+  }
+
+  private getStyleSheetForPlatform(): string {
+    if (this.wcoConfig.selectedPlatform === OSType.WindowsOS) {
+      return this.parseStyleSheet(
+          ': env(titlebar-area-x, 0);', ': env(titlebar-area-y, 0);', ': env(titlebar-area-width, calc(100% - 238px));',
+          ': env(titlebar-area-height, 33px);');
+    }
+    if (this.wcoConfig.selectedPlatform === OSType.MacOS) {
+      return this.parseStyleSheet(
+          ': env(titlebar-area-x, 85px);', ': env(titlebar-area-y, 0);',
+          ': env(titlebar-area-width, calc(100% - 185px));', ': env(titlebar-area-height, 40px);');
+    }
+
+    return this.parseStyleSheet(
+        ': env(titlebar-area-x, 0);', ': env(titlebar-area-y, 0);', ': env(titlebar-area-width, calc(100% - 196px));',
+        ': env(titlebar-area-height, 34px);');
+  }
+
+  private parseStyleSheet(x: string, y: string, width: string, height: string): string {
+    const stylesheetText = this.originalStylesheetText;
+    let updatedStylesheet = stylesheetText.replace(/: env\(titlebar-area-x.*\);/g, x);
+    updatedStylesheet = updatedStylesheet.replace(/: env\(titlebar-area-y.*\);/g, y);
+    updatedStylesheet = updatedStylesheet.replace(/: env\(titlebar-area-width.*\);/g, width);
+    updatedStylesheet = updatedStylesheet.replace(/: env\(titlebar-area-height.*\);/g, height);
+    return updatedStylesheet;
   }
 }
 
