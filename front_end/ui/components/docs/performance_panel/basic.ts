@@ -96,7 +96,7 @@ const cpuprofileName = params.get('cpuprofile');
 const nodeMode = params.get('isNode');
 const isNodeMode = nodeMode === 'true' ? true : false;
 // By default we run both engines in the dev server, but this can be overridden by passing the parameter.
-let threadTracksSource = Timeline.TimelinePanel.ThreadTracksSource.BOTH_ENGINES;
+let threadTracksSource = Timeline.TimelinePanel.ThreadTracksSource.NEW_ENGINE;
 const threadTracksSourceParam = params.get('threadTracksSource');
 if (threadTracksSourceParam === 'new') {
   threadTracksSource = Timeline.TimelinePanel.ThreadTracksSource.NEW_ENGINE;
