@@ -16,6 +16,24 @@
       "message": "PTAL, trying to reopen the tree with this",
       "revId": "e5aa246efcc4b336b904fa98151ec0049f1f0471",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf08979_2aa65164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-13T08:30:51Z",
+      "side": 1,
+      "message": "it automatically reopened, but let\u0027s prevent further closures :)",
+      "parentUuid": "bc1a438c_8b243dce",
+      "revId": "e5aa246efcc4b336b904fa98151ec0049f1f0471",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
