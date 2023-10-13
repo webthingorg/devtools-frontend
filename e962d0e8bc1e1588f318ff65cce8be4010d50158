@@ -16,6 +16,24 @@
       "message": "This CL is already over 600 LOC and it doesn\u0027t have any tests yet. Before we go into the details, I suggest splitting along the following lines: \n1) rolling protocol changes (third_party/blink/public/devtools_protocol and front_end/generated). Should be trivial to review.\n2) inspector_overlay/...\n3) everything else",
       "revId": "e962d0e8bc1e1588f318ff65cce8be4010d50158",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3deb74ab_fb758e96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-10-13T21:52:59Z",
+      "side": 1,
+      "message": "Thanks Danil - updated.",
+      "parentUuid": "08ccf56d_c9bf025d",
+      "revId": "e962d0e8bc1e1588f318ff65cce8be4010d50158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
