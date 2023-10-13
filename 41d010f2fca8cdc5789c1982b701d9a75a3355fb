@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "485a9a3b_43ed876a",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-13T08:17:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1a9823b3_357fd1c1",
+      "range": {
+        "startLine": 202,
+        "startChar": 58,
+        "endLine": 202,
+        "endChar": 68
+      },
+      "revId": "41d010f2fca8cdc5789c1982b701d9a75a3355fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f30fdbfe_c6185901",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Would that work in the case where I am running DevTools in \"web mode\" and import a CPU Profile? I\u0027m not sure which is why I went for this - as isNode is set when the panel is created.\n\n(we could probably tidy this up and clarify it a bit)",
       "parentUuid": "f30fdbfe_c6185901",
+      "range": {
+        "startLine": 785,
+        "startChar": 10,
+        "endLine": 785,
+        "endChar": 22
+      },
+      "revId": "41d010f2fca8cdc5789c1982b701d9a75a3355fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "006d5e85_8d7142ed",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-13T08:17:02Z",
+      "side": 1,
+      "message": "ah good point. It doesn\u0027t. This state definetly deserves a clean up!",
+      "parentUuid": "bc14409f_80a37c73",
       "range": {
         "startLine": 785,
         "startChar": 10,
