@@ -174,13 +174,18 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
+    assert.strictEqual(headers.length, 2);
     assert.strictEqual(sections.length, 3);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
     assert.include(
         sections[0]?.textContent,
         'The initiating page attempted to prefetch this page\'s URL, but the prefetch failed, so a full navigation was performed instead.');
+
+    assert.include(headers[1]?.textContent, 'Failure reason');
+    assert.include(
+        sections[1]?.textContent,
+        'The prefetch was not performed because the initiating page already has too many prefetches ongoing.');
 
     const keys = getCleanTextContentFromElements(sections[1], 'devtools-report-key');
     const values = getCleanTextContentFromElements(sections[1], 'devtools-report-value');
@@ -232,13 +237,18 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
+    assert.strictEqual(headers.length, 2);
     assert.strictEqual(sections.length, 3);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
     assert.include(
         sections[0]?.textContent,
         'The initiating page attempted to prerender this page\'s URL, but the prerender failed, so a full navigation was performed instead.');
+
+    assert.include(headers[1]?.textContent, 'Failure reason');
+    assert.include(
+        sections[1]?.textContent,
+        'The prefetch was not performed because the initiating page already has too many prefetches ongoing.');
 
     const keys = getCleanTextContentFromElements(sections[1], 'devtools-report-key');
     const values = getCleanTextContentFromElements(sections[1], 'devtools-report-value');
@@ -290,13 +300,18 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     const sections = getElementsWithinComponent(
         component, 'devtools-report devtools-report-section', ReportView.ReportView.ReportSection);
 
-    assert.strictEqual(headers.length, 1);
+    assert.strictEqual(headers.length, 2);
     assert.strictEqual(sections.length, 3);
 
     assert.include(headers[0]?.textContent, 'Preloading status');
     assert.include(
         sections[0]?.textContent,
         'The initiating page attempted to prerender this page\'s URL. The prerender failed, but the resulting response body was still used as a prefetch.');
+
+    assert.include(headers[1]?.textContent, 'Failure reason');
+    assert.include(
+        sections[1]?.textContent,
+        'The prefetch was not performed because the initiating page already has too many prefetches ongoing.');
 
     const keys = getCleanTextContentFromElements(sections[1], 'devtools-report-key');
     const values = getCleanTextContentFromElements(sections[1], 'devtools-report-value');
