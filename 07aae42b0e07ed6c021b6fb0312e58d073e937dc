@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b554e768_cf7067e4",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-13T08:42:10Z",
+      "side": 1,
+      "message": "I\u0027m not sure I fully understand what the problem is tbh. Why is the init function necessary and why can\u0027t the factory function do the initialization?",
+      "parentUuid": "a1efe4f5_60d08753",
+      "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "663ecbfe_fad9c9da",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 3
