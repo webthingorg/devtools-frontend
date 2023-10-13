@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6a288a6_6fd70038",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-10-13T15:01:52Z",
+      "side": 0,
+      "message": "These colors aren\u0027t in use anymore so I removed them",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 59
+      },
+      "revId": "a3f4dd8a33162310c78fde79549f8b91f1be9bfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
