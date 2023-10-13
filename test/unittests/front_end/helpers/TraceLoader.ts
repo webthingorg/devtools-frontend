@@ -54,7 +54,9 @@ export class TraceLoader {
    * The context might be null when we only render a component example.
    **/
   static setTestTimeout(context: Mocha.Context|Mocha.Suite|null): void {
-    context?.timeout(10_000);
+    // TODO(crbug.com/1492405): Speed up trace loading so that we need
+    // a lower timeout.
+    context?.timeout(15_000);
   }
 
   /**

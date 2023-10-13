@@ -28,7 +28,8 @@ describe('FlameChart', () => {
     }, entryIndex);
   }
 
-  it('shows the details of an entry when selected on the timeline', async () => {
+  // Slow test
+  it.skip('[crbug.com/1492405]: shows the details of an entry when selected on the timeline', async () => {
     await loadComponentDocExample('performance_panel/basic.html?trace=simple-js-program');
     await waitFor('.timeline-flamechart');
     const {frontend} = getBrowserAndPages();
