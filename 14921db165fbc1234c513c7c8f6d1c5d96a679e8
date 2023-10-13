@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30aaa1b9_7e775982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-10-13T01:51:36Z",
+      "side": 1,
+      "message": "LGTM, thanks for the quick action!\n\nTo be clear to others, this is a short-term minimal-effort fix to get rid of the ugliness pointed out in issue 1471842, before we work on the bigger redesign discussed in issue 1492044 / issue 1474670 and which was partially worked on in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4819949 .",
+      "revId": "14921db165fbc1234c513c7c8f6d1c5d96a679e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
