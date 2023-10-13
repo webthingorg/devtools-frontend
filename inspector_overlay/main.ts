@@ -14,18 +14,19 @@ import highlightStyle from './tool_highlight.css'; // eslint-disable-line rulesd
 import {HighlightOverlay} from './tool_highlight.js';
 // @ts-ignore Importing CSS is handled in Rollup.
 import pausedStyle from './tool_paused.css'; // eslint-disable-line rulesdir/es_modules_import
-
 import {PausedOverlay, type PausedToolMessage} from './tool_paused.js';
-
 import {PersistentOverlay, type PersistentToolMessage} from './tool_persistent.js';
 // @ts-ignore Importing CSS is handled in Rollup.
 import screenshotStyle from './tool_screenshot.css'; // eslint-disable-line rulesdir/es_modules_import
 import {ScreenshotOverlay, type ScreenshotToolMessage} from './tool_screenshot.js';
-
 // @ts-ignore Importing CSS is handled in Rollup.
 import sourceOrderStyle from './tool_source_order.css'; // eslint-disable-line rulesdir/es_modules_import
 import {SourceOrderOverlay} from './tool_source_order.js';
 import {ViewportSizeOverlay} from './tool_viewport_size.js';
+// @ts-ignore Importing CSS is handled in Rollup.
+import windowControlsOverlayStyle from
+    './tool_window_controls_overlay.css.js'; // eslint-disable-line rulesdir/es_modules_import
+import {WindowControlsOverlay} from './tool_window_controls_overlay.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -47,6 +48,7 @@ const pausedOverlay = new PausedOverlay(window, pausedStyle);
 const screenshotOverlay = new ScreenshotOverlay(window, screenshotStyle);
 const sourceOrderOverlay = new SourceOrderOverlay(window, sourceOrderStyle);
 const viewportSizeOverlay = new ViewportSizeOverlay(window);
+const windowControlsOverlay = new WindowControlsOverlay(window, [windowControlsOverlayStyle]);
 
 interface Overlays {
   distances: DistancesOverlay;
@@ -56,6 +58,7 @@ interface Overlays {
   screenshot: ScreenshotOverlay;
   sourceOrder: SourceOrderOverlay;
   viewportSize: ViewportSizeOverlay;
+  windowControlsOverlay: WindowControlsOverlay;
 }
 
 type PlatformName = string;
@@ -69,6 +72,7 @@ const overlays: Overlays = {
   screenshot: screenshotOverlay,
   sourceOrder: sourceOrderOverlay,
   viewportSize: viewportSizeOverlay,
+  windowControlsOverlay: windowControlsOverlay,
 };
 
 let currentOverlay: Overlays[keyof Overlays];
