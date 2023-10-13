@@ -5,7 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
-import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
 import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
@@ -131,6 +131,7 @@ export class CompatibilityTracksAppender {
       legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
       isCpuProfile = false) {
     this.#flameChartData = flameChartData;
+    // data ror manipulator
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;
     this.#colorGenerator = new Common.Color.Generator(
@@ -169,6 +170,16 @@ export class CompatibilityTracksAppender {
             ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
       }
     });
+    ThemeSupport.ThemeSupport.instance().addEventListener(PerfUI.FlameChart.Events.TreeModified, ()=> {
+      console.log("EVENT DISPATCHED");
+    })
+  }
+
+  modifyTree(nodeIndex: number) : void {
+    // console.log("from CompatibilityTracksAppender ", nodeIndex);
+    this.#threadAppenders.forEach(appender => {
+      appender.modifyTree(nodeIndex);
+    })
   }
 
   #addThreadAppenders(): void {

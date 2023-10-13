@@ -97,7 +97,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         Common.Settings.Settings.instance().createSetting('timelineFlamechartMainViewGroupExpansion', {});
     this.mainDataProvider = new TimelineFlameChartDataProvider(threadTracksSource);
     this.mainDataProvider.addEventListener(
-        TimelineFlameChartDataProviderEvents.DataChanged, () => this.mainFlameChart.scheduleUpdate());
+        TimelineFlameChartDataProviderEvents.DataChanged, () => {
+          console.log("changed");
+          this.mainFlameChart.scheduleUpdate()
+        });
     this.mainFlameChart = new PerfUI.FlameChart.FlameChart(this.mainDataProvider, this, mainViewGroupExpansionSetting);
     this.mainFlameChart.alwaysShowVerticalScroll();
     this.mainFlameChart.enableRuler(false);
@@ -361,6 +364,12 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     this.delegate.select((dataProvider as TimelineFlameChartNetworkDataProvider | TimelineFlameChartDataProvider)
                              .createSelection(entryIndex));
+    this.modifyTree(entryIndex);
+  }
+
+  private modifyTree(nodeIndex: number): void {
+    // console.log("selected");
+    this.mainDataProvider.modifyTree(nodeIndex);
   }
 
   resizeToPreferredHeights(): void {

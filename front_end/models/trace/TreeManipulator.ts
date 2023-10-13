@@ -2,10 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Platform from '../../core/platform/platform.js';
-
+import * as Common from '../../core/common/common.js';
 import type * as Handlers from './handlers/handlers.js';
 import type * as Helpers from './helpers/helpers.js';
 import type * as Types from './types/types.js';
+import { TimelineFlameChartDataProvider, TimelineFlameChartNetworkDataProvider } from '../../panels/timeline/timeline.js';
 
 type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
 
@@ -24,7 +25,7 @@ export interface UserTreeAction {
  * entries that are still visible, and this is the list of entries that can
  * then be used to render the resulting thread on the timeline.
  **/
-export class TreeManipulator {
+export class TreeManipulator extends Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProvider.EventTypes> {
   readonly #thread: Handlers.ModelHandlers.Renderer.RendererThread;
   // Maps from an individual TraceEvent entry to its representation as a
   // RendererEntryNode. We need this so we can then parse the tree structure
@@ -41,6 +42,7 @@ export class TreeManipulator {
       thread: Handlers.ModelHandlers.Renderer.RendererThread,
       entryToNode: EntryToNodeMap,
   ) {
+    super();
     this.#thread = thread;
     this.#entryToNode = entryToNode;
   }
@@ -61,6 +63,9 @@ export class TreeManipulator {
     // ensures that the visible list will be recalculated, which we have to do
     // now we have changed the list of actions.
     this.#lastVisibleEntries = null;
+
+    this.dispatchEventToListeners(TimelineFlameChartDataProvider.Events.DataChanged)
+    console.log("apply");
   }
 
   /**

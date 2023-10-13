@@ -8,6 +8,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import { TraceEntry } from '../../models/trace/types/TraceEvents.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import {
@@ -163,6 +164,7 @@ export class ThreadAppender implements TrackAppender {
   readonly isOnMainFrame: boolean;
   #ignoreListingEnabled = Root.Runtime.experiments.isEnabled('ignoreListJSFramesOnTimeline');
   #showAllEventsEnabled = Root.Runtime.experiments.isEnabled('timelineShowAllEvents');
+  #treeManipulator?: TraceEngine.TreeManipulator.TreeManipulator;
   // TODO(crbug.com/1428024) Clean up API so that we don't have to pass
   // a raster index to the appender (for instance, by querying the flame
   // chart data in the appender or by passing data about the flamechart
@@ -172,7 +174,7 @@ export class ThreadAppender implements TrackAppender {
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData,
       processId: TraceEngine.Types.TraceEvents.ProcessID, threadId: TraceEngine.Types.TraceEvents.ThreadID,
       threadName: string|null, type: ThreadType, rasterCount: number = 0) {
-    this.#compatibilityBuilder = compatibilityBuilder;
+        this.#compatibilityBuilder = compatibilityBuilder;
     // TODO(crbug.com/1456706):
     // The values for this color generator have been taken from the old
     // engine to keep the colors the same after the migration. This
@@ -192,11 +194,11 @@ export class ThreadAppender implements TrackAppender {
     // When loading a CPU profile, only CPU data will be available, thus
     // we get the data from the SamplesHandler.
     const entries = type === ThreadType.CPU_PROFILE ?
-        this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileCalls :
-        this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
+    this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileCalls :
+    this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
     const tree = type === ThreadType.CPU_PROFILE ?
-        this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileTree :
-        this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.tree;
+    this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileTree :
+    this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.tree;
     if (!entries || !tree) {
       throw new Error(`Could not find data for thread with id ${threadId} in process with id ${processId}`);
     }
@@ -211,6 +213,18 @@ export class ThreadAppender implements TrackAppender {
     if (this.#traceParsedData.AuctionWorklets.worklets.has(processId)) {
       this.appenderName = 'Thread_AuctionWorklet';
     }
+
+    if(traceParsedData.Renderer) {
+      this.#treeManipulator = new TraceEngine.TreeManipulator.TreeManipulator({name: this.#threadDefaultName , entries: entries, tree: tree}, traceParsedData.Renderer?.entryToNode);
+    }
+
+    // this.#tree.ad
+  }
+
+  modifyTree(nodeIndex: number) : void {
+    console.log("from ThreadAppender ", nodeIndex);
+     
+   this.#treeManipulator?.applyAction({type: 'MERGE_FUNCTION', entry: (nodeIndex) as unknown as TraceEntry}); 
   }
 
   processId(): TraceEngine.Types.TraceEvents.ProcessID {
