@@ -131,6 +131,7 @@ export class CompatibilityTracksAppender {
       legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
       isCpuProfile = false) {
     this.#flameChartData = flameChartData;
+    // data ror manipulator
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;
     this.#colorGenerator = new Common.Color.Generator(
