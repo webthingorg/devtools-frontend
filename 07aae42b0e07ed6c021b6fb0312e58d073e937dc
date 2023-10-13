@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1efe4f5_60d08753",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-13T08:33:52Z",
+      "side": 1,
+      "message": "I\u0027ve moved the `(new CSSMatchedStyles()).init()` call to a static method `create` so that people won\u0027t be able to create a CSSMatchedStyles without initializing it.\n\nThough still non-null assertions are there. WDYT now?",
+      "parentUuid": "a2cd68af_66a3963b",
+      "revId": "07aae42b0e07ed6c021b6fb0312e58d073e937dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "663ecbfe_fad9c9da",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 3
