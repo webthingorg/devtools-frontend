@@ -33,6 +33,24 @@
       "message": "You can now merge this with the else branch.",
       "revId": "3a72bbfc01f003dd568a08281f86c703f18fa59b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "042bafd6_219962e6",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-10-13T14:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "439c3607_9673cd4d",
+      "revId": "3a72bbfc01f003dd568a08281f86c703f18fa59b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
