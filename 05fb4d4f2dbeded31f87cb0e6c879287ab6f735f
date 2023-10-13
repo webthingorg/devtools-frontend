@@ -16,6 +16,23 @@
       "message": "Could you take a look please?",
       "revId": "05fb4d4f2dbeded31f87cb0e6c879287ab6f735f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "649e0236_f4f9564e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-13T14:13:35Z",
+      "side": 1,
+      "message": "Do you also want to remove the diff-legacy file or is that used somewhere still?\n\nAlso there\u0027s the loadLegacyModule mapping that can be removed: https://crsrc.org/c/third_party/devtools-frontend/src/front_end/legacy_test_runner/test_runner/TestRunner.js;drc\u003d95748b655ad6a9496d5783f42d163f78ab1362b6;l\u003d273",
+      "revId": "05fb4d4f2dbeded31f87cb0e6c879287ab6f735f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
