@@ -127,6 +127,7 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
   #scrubberPlayer?: Animation;
   #gridOffsetLeft?: number;
   #originalScrubberTime?: number|null;
+  #animationGroupPausedBeforeScrub: boolean;
   #originalMousePosition?: number;
   #timelineControlsResizer: HTMLElement;
 
@@ -141,6 +142,7 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
 
     this.#playbackRate = 1;
     this.#allPaused = false;
+    this.#animationGroupPausedBeforeScrub = false;
     this.createHeader();
     this.#animationsContainer = this.contentElement.createChild('div', 'animation-timeline-rows');
     const timelineHint = this.contentElement.createChild('div', 'animation-timeline-rows-hint');
@@ -321,14 +323,9 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     const gridHeader = container.createChild('div', 'animation-grid-header');
     UI.UIUtils.installDragHandle(
         gridHeader, this.repositionScrubber.bind(this), this.scrubberDragMove.bind(this),
-        this.scrubberDragEnd.bind(this), 'text');
+        this.scrubberDragEnd.bind(this), 'pointer');
     this.#gridWrapper.appendChild(this.createScrubber());
 
-    if (this.#timelineScrubberLine) {
-      UI.UIUtils.installDragHandle(
-          this.#timelineScrubberLine, this.scrubberDragStart.bind(this), this.scrubberDragMove.bind(this),
-          this.scrubberDragEnd.bind(this), 'col-resize');
-    }
     this.#currentTime.textContent = '';
 
     return container;
@@ -854,6 +851,10 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
       this.#gridOffsetLeft = this.#grid.getBoundingClientRect().left + 10;
     }
 
+    const currentTime = this.#scrubberPlayer?.currentTime;
+    this.#animationGroupPausedBeforeScrub =
+        this.#selectedGroup.paused() || typeof currentTime === 'number' && currentTime >= this.duration();
+
     const {x} = (event as any);  // eslint-disable-line @typescript-eslint/no-explicit-any
     const seekTime = Math.max(0, x - this.#gridOffsetLeft) / this.pixelMsRatio();
     this.#selectedGroup.seekTo(seekTime);
@@ -863,23 +864,6 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     // Interface with scrubber drag.
     this.#originalScrubberTime = seekTime;
     this.#originalMousePosition = x;
-    return true;
-  }
-
-  private scrubberDragStart(event: Event): boolean {
-    if (!this.#scrubberPlayer || !this.#selectedGroup) {
-      return false;
-    }
-
-    this.#originalScrubberTime =
-        typeof this.#scrubberPlayer.currentTime === 'number' ? this.#scrubberPlayer.currentTime : null;
-    this.#timelineScrubber.classList.remove('animation-timeline-end');
-    this.#scrubberPlayer.pause();
-
-    const {x} = (event as any);  // eslint-disable-line @typescript-eslint/no-explicit-any
-    this.#originalMousePosition = x;
-
-    this.togglePause(true);
     return true;
   }
 
@@ -910,6 +894,10 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     }
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.AnimationGroupScrubbed);
     this.#currentTime.window().requestAnimationFrame(this.updateScrubber.bind(this));
+
+    if (!this.#animationGroupPausedBeforeScrub) {
+      this.togglePause(false);
+    }
   }
 }
 
