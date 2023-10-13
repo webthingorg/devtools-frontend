@@ -83,9 +83,9 @@
 }
 
 .orientation-stage {
-  --override-gradient-color-1: #e1f5fe;
-  --override-gradient-color-2: #b0ebf3;
-  --override-gradient-color-3: #def6f9;
+  --override-gradient-color-1: var(--ref-palette-cyan95);
+  --override-gradient-color-2: var(--ref-palette-cyan90);
+  --override-gradient-color-3: var(--ref-palette-cyan95);
 
   perspective: 700px;
   perspective-origin: 50% 50%;
@@ -99,9 +99,9 @@
 
 .-theme-with-dark-background .orientation-stage,
 :host-context(.-theme-with-dark-background) .orientation-stage {
-  --override-gradient-color-1: rgb(1 21 30);
-  --override-gradient-color-2: rgb(12 71 79);
-  --override-gradient-color-3: rgb(6 30 33);
+  --override-gradient-color-1: var(--ref-palette-cyan10);
+  --override-gradient-color-2: var(--ref-palette-cyan30);
+  --override-gradient-color-3: var(--ref-palette-cyan10);
 }
 
 .orientation-stage.disabled {
