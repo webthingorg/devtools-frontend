@@ -352,6 +352,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const timelineData = this.dataProvider.timelineData();
     if (timelineData !== this.rawTimelineData ||
         (timelineData && timelineData.entryStartTimes.length !== this.rawTimelineDataLength)) {
+      // this rerenders
       this.processTimelineData(timelineData);
     }
     return this.rawTimelineData || null;

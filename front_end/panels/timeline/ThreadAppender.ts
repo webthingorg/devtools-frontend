@@ -163,6 +163,7 @@ export class ThreadAppender implements TrackAppender {
   readonly isOnMainFrame: boolean;
   #ignoreListingEnabled = Root.Runtime.experiments.isEnabled('ignoreListJSFramesOnTimeline');
   #showAllEventsEnabled = Root.Runtime.experiments.isEnabled('timelineShowAllEvents');
+  #treeManipulator?: TraceEngine.TreeManipulator.TreeManipulator;
   // TODO(crbug.com/1428024) Clean up API so that we don't have to pass
   // a raster index to the appender (for instance, by querying the flame
   // chart data in the appender or by passing data about the flamechart
@@ -188,15 +189,15 @@ export class ThreadAppender implements TrackAppender {
     this.#threadId = threadId;
     this.#rasterIndex = rasterCount;
     this.#flameChartData = flameChartData;
-
+    
     // When loading a CPU profile, only CPU data will be available, thus
     // we get the data from the SamplesHandler.
     const entries = type === ThreadType.CPU_PROFILE ?
-        this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileCalls :
-        this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
+    this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileCalls :
+    this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
     const tree = type === ThreadType.CPU_PROFILE ?
-        this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileTree :
-        this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.tree;
+    this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileTree :
+    this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.tree;
     if (!entries || !tree) {
       throw new Error(`Could not find data for thread with id ${threadId} in process with id ${processId}`);
     }
@@ -210,6 +211,10 @@ export class ThreadAppender implements TrackAppender {
     // lower down than other threads.
     if (this.#traceParsedData.AuctionWorklets.worklets.has(processId)) {
       this.appenderName = 'Thread_AuctionWorklet';
+    }
+
+    if(traceParsedData.Renderer) {
+      this.#treeManipulator = new TraceEngine.TreeManipulator.TreeManipulator({name: this.#threadDefaultName , entries: entries, tree: tree}, traceParsedData.Renderer?.entryToNode);
     }
   }
 
