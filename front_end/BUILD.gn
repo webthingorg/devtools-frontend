@@ -41,7 +41,6 @@ group("legacy_entrypoints") {
     "models/trace:legacy",
     "models/workspace:legacy",
     "models/workspace_diff:legacy",
-    "panels/accessibility:legacy",
     "panels/animation:legacy",
     "panels/browser_debugger:legacy",
     "panels/changes:legacy",
