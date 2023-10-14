@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc35ad06_c1c7d50d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-14T10:35:11Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "a6c29dbe13d7eeeeec561dd3ddb2acafd16ad1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f97e9cee_ab6c7963",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-14T10:35:11Z",
+      "side": 1,
+      "message": "The reason is we are still developing this feature, so let\u0027s set it as unstable 😊\n```suggestion\n    Root.Runtime.experiments.register(\n        Root.Runtime.ExperimentName.TRACK_CONTEXT_MENU,\n        \u0027Enable context menu that allows to modify trees in the Flame Chart\u0027, /* unstable\u003d */ true);\n```",
+      "range": {
+        "startLine": 427,
+        "startChar": 4,
+        "endLine": 429,
+        "endChar": 85
+      },
+      "revId": "a6c29dbe13d7eeeeec561dd3ddb2acafd16ad1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
