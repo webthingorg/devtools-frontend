@@ -16,6 +16,24 @@
       "message": "I\u0027m taking over this CL from Kateryna.\n\nTom, PTAL again.",
       "revId": "7d8c937135c14165d5e96ebc71a9e80de8956464",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "800dff87_f86cfeaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-16T15:36:13Z",
+      "side": 1,
+      "message": "I forgot to mention that I checked the size increase of the DevTools binary. It goes from 4061781 bytes to 4071987 bytes, so a size increase of about 10kB or 0.25%.",
+      "parentUuid": "22722475_da6c263f",
+      "revId": "7d8c937135c14165d5e96ebc71a9e80de8956464",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
