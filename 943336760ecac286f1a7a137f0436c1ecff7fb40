@@ -16,6 +16,24 @@
       "message": "Do we need to copy this in or can we use DEPS for it instead?",
       "revId": "943336760ecac286f1a7a137f0436c1ecff7fb40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88758ee0_3d283934",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-16T15:00:28Z",
+      "side": 1,
+      "message": "From what I can tell, for DevTools we typically copy the library into our repo. This approach is described in [1] and [2]. \n\n[1] https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/dependencies.md#third_party-code-included-in-devtools-bundle [2] https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/front_end/third_party/#inclusion-of-new-packages",
+      "parentUuid": "307e8d6e_b9c3cbd4",
+      "revId": "943336760ecac286f1a7a137f0436c1ecff7fb40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
