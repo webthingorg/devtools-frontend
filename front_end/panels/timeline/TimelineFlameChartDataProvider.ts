@@ -211,6 +211,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.flowEventIndexById = new Map();
   }
 
+  modifyTree(nodeIndex: number): void {
+    this.compatibilityTracksAppender?.modifyTree(nodeIndex);
+  }
+
   private buildGroupStyle(extra: Object): PerfUI.FlameChart.GroupStyle {
     const defaultGroupStyle = {
       padding: 4,
@@ -272,6 +276,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           this.timelineDataInternal, this.traceEngineData, this.entryData, this.entryTypeByLevel,
           this.legacyTimelineModel, this.isCpuProfile);
     }
+
+    this.compatibilityTracksAppender.addEventListener(Events.DataChanged, () => {
+      // console.log("DATA PROVIDER");
+      this.dispatchEventToListeners(Events.DataChanged);
+    })
+
     return this.compatibilityTracksAppender;
   }
 

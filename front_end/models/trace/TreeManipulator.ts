@@ -1,7 +1,12 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
+import {
+  type TimelineFlameChartDataProvider,
+  TimelineFlameChartNetworkDataProvider
+} from '../../panels/timeline/timeline.js';
 
 import type * as Handlers from './handlers/handlers.js';
 import type * as Helpers from './helpers/helpers.js';
@@ -24,7 +29,7 @@ export interface UserTreeAction {
  * entries that are still visible, and this is the list of entries that can
  * then be used to render the resulting thread on the timeline.
  **/
-export class TreeManipulator {
+export class TreeManipulator extends Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProvider.EventTypes> {
   readonly #thread: Handlers.ModelHandlers.Renderer.RendererThread;
   // Maps from an individual TraceEvent entry to its representation as a
   // RendererEntryNode. We need this so we can then parse the tree structure
@@ -34,13 +39,14 @@ export class TreeManipulator {
   // Track the last calculated set of visible entries. This means we can avoid
   // re-generating this if the set of actions that have been applied has not
   // changed.
-  #lastVisibleEntries: readonly Types.TraceEvents.TraceEntry[]|null = null;
+  #lastVisibleEntries: Types.TraceEvents.TraceEntry[]|null = null;
   #activeActions: UserTreeAction[] = [];
 
   constructor(
       thread: Handlers.ModelHandlers.Renderer.RendererThread,
       entryToNode: EntryToNodeMap,
   ) {
+    super();
     this.#thread = thread;
     this.#entryToNode = entryToNode;
   }
@@ -51,6 +57,7 @@ export class TreeManipulator {
    * of actions.
    **/
   applyAction(action: UserTreeAction): void {
+    // console.log(action);
     if (this.#actionIsActive(action)) {
       // If the action is already active there is no reason to apply it again.
       return;
@@ -100,14 +107,14 @@ export class TreeManipulator {
    *
    * This method is cached, so it is safe to call multiple times.
    **/
-  visibleEntries(): readonly Types.TraceEvents.TraceEventData[] {
+  visibleEntries(): Types.TraceEvents.TraceEventData[] {
     if (this.#activeActions.length === 0) {
       return this.#thread.entries;
     }
     return this.#calculateVisibleEntries();
   }
 
-  #calculateVisibleEntries(): readonly Types.TraceEvents.TraceEventData[] {
+  #calculateVisibleEntries(): Types.TraceEvents.TraceEventData[] {
     // When an action is added, we clear this cache. So if this cache is
     // present it means that the set of active actions has not changed, and so
     // we do not need to recalculate anything.
@@ -166,6 +173,7 @@ export class TreeManipulator {
     this.#lastVisibleEntries = entries.filter(entry => {
       return entriesToHide.has(entry) === false;
     });
+    console.log('filtered');
 
     return this.#lastVisibleEntries;
   }
