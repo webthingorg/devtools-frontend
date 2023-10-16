@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f4c09a_3b11ed89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116053
+      },
+      "writtenOn": "2023-10-16T16:39:22Z",
+      "side": 1,
+      "message": "The metadata files are in order and the code is self-contained and clean of eval() / function Function(\"\") so I\u0027m not going to object, but it might be easier to deps it in (though if you are making local mods, then copying is sometimes unavoidable).",
+      "revId": "0f9c00ca514802990f6527a064a7edf20539e508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
