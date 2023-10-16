@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9628c74a_7d0508bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-16T11:24:00Z",
+      "side": 1,
+      "message": "PT(another)L, I had to revert a refactoring to make web tests happy",
+      "revId": "29b0dffd5f735f26607837e83813f1c9d068dafb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
