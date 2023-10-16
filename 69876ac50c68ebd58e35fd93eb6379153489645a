@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "884c7110_04e5176a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-16T08:20:30Z",
+      "side": 1,
+      "message": "This CL over 400 LOC (ignoring the CSS) and doesn\u0027t have any tests. I\u0027m sorry, but there\u0027s no way for me to meaningfully review such a large change.\n\nAlso as I [commented](https://docs.google.com/document/d/1ggCMPmF85kPwaWUPCjafYmgq4lZRoktPiiw2rI5J9Xg/edit?pli\u003d1\u0026disco\u003dAAAAu0rQEGE) on the design doc, it seems strange that we want to show CSS in the overlay just for window control, while everything else is in a Styles pane. \n\nI was under impression that we wanted to start with a more traditional approach with CSS in a Styles pane\n\nOnce we agree on *what* we want to build, let\u0027s split this into a few smaller changes, e.g. have an `inspector_overlay/` changes in one CL. `core/sdk` in another one and `panels/application` in one. Let\u0027s also add some unit tests.",
+      "revId": "69876ac50c68ebd58e35fd93eb6379153489645a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
