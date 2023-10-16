@@ -33,6 +33,24 @@
       "message": "Are there rules for which color to pick? I just picked one that felt fitting.",
       "revId": "e6fe4b79775cae2d57e2603bc48cb95f0b2a9241",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc356c6_2b0ce7d0",
+        "filename": "front_end/ui/legacy/components/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-10-16T14:24:28Z",
+      "side": 1,
+      "message": "There is currently no doc explaining the color rules (there will be one as soon as we finish the update), but this is correct! Generally, surface/container is for backgrounds, on-surface/-container for text, state-something for hover/focused/disabled/etc. states.",
+      "parentUuid": "b78ad5ba_9cc735b7",
+      "revId": "e6fe4b79775cae2d57e2603bc48cb95f0b2a9241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
