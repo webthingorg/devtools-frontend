@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4cb263_f2d00679",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-16T13:05:46Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "e6fe4b79775cae2d57e2603bc48cb95f0b2a9241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b78ad5ba_9cc735b7",
+        "filename": "front_end/ui/legacy/components/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-16T13:05:46Z",
+      "side": 1,
+      "message": "Are there rules for which color to pick? I just picked one that felt fitting.",
+      "revId": "e6fe4b79775cae2d57e2603bc48cb95f0b2a9241",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

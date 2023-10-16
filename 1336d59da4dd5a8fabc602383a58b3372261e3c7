@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca8e81f_e17e9e6b",
+        "filename": "front_end/ui/legacy/components/data_grid/dataGrid.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-16T13:05:46Z",
+      "side": 0,
+      "message": "The `sort-order-icon-container` div sits inside of the `th.sortable` div. This means that for background colors with opacity the colors \"stack\" on top of eachother resulting in a slightly different color overall. I therefore removed the background color from the inner div, so that it just takes on the outer div\u0027s color.",
+      "range": {
+        "startLine": 153,
+        "startChar": 14,
+        "endLine": 153,
+        "endChar": 40
+      },
+      "revId": "1336d59da4dd5a8fabc602383a58b3372261e3c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
