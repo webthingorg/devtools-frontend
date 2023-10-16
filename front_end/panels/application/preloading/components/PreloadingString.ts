@@ -596,7 +596,17 @@ export function prerenderFailureReason(attempt: SDK.PreloadingModel.PrerenderAtt
     case Protocol.Preload.PrerenderFinalStatus.SameSiteCrossOriginNavigationNotOptInInInitialNavigation:
       return i18nString(UIStrings.prerenderFinalStatusSameSiteCrossOriginNavigationNotOptInInInitialNavigation);
     case Protocol.Preload.PrerenderFinalStatus.ActivationNavigationParameterMismatch:
-      return i18nString(UIStrings.prerenderFinalStatusActivationNavigationParameterMismatch);
+      // assertNotNullOrUndefined(attempt.mismatchedHeaders);
+      if (!attempt.mismatchedHeaders) {
+        return i18nString(UIStrings.prerenderFinalStatusActivationNavigationParameterMismatch);
+      }
+      const headers = attempt.mismatchedHeaders[0];
+      const headerName: string = headers.headerName;
+      const initialValue: string = headers.initialValue;
+      const activationValue: string = headers.activationValue;
+      return i18nString(UIStrings.prerenderFinalStatusActivationNavigationParameterMismatch) +
+          '; header name: ' + headerName + ', initial value: ' + initialValue +
+          ', activation value: ' + activationValue;
     case Protocol.Preload.PrerenderFinalStatus.ActivatedInBackground:
       // Status for debugging.
       return i18n.i18n.lockedString('Internal error');
