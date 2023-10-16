@@ -626,16 +626,10 @@ SourcesTestRunner.debuggerPlugin = function(sourceFrame) {
 SourcesTestRunner.setEventListenerBreakpoint = function(id, enabled, targetName) {
   const pane = BrowserDebugger.EventListenerBreakpointsSidebarPane.instance();
 
-  const auxData = {'eventName': id};
-
-  if (targetName) {
-    auxData.targetName = targetName;
-  }
-
-  let breakpoint = SDKModule.DOMDebuggerModel.DOMDebuggerManager.instance().resolveEventListenerBreakpoint(auxData);
+  let breakpoint =
+      SDKModule.DOMDebuggerModel.DOMDebuggerManager.instance().resolveEventListenerBreakpoint(id, targetName);
   if (!breakpoint) {
-    breakpoint =
-        SDKModule.EventBreakpointsModel.EventBreakpointsManager.instance().resolveEventListenerBreakpoint(auxData);
+    breakpoint = SDKModule.EventBreakpointsModel.EventBreakpointsManager.instance().resolveEventListenerBreakpoint(id);
   }
 
   if (breakpoint.enabled() !== enabled) {
