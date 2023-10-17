@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d309002f_db02662a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-10-17T10:46:36Z",
+      "side": 1,
+      "message": "Hi Kateryna. Please take a look. Screenshots are here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1482704#c6",
+      "revId": "75afa9ba2cb24d1403702c83ebc5358e0e99aa50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
