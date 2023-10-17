@@ -999,6 +999,14 @@ const InspectorFrontendHostImpl = class {
 
   /**
    * @override
+   * @param {InspectorFrontendHostAPI.HoverEvent} hoverEvent
+   */
+  recordHover(hoverEvent) {
+    DevToolsAPI.sendMessageToEmbedder('recordHover', [hoverEvent], null);
+  }
+
+  /**
+   * @override
    * @param {InspectorFrontendHostAPI.ChangeEvent} changeEvent
    */
   recordChange(changeEvent) {

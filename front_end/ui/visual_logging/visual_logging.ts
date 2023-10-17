@@ -15,10 +15,14 @@ const accessibilitySourceOrder = LoggingConfig.makeConfigStringBuilder.bind(null
 const addStylesRule = LoggingConfig.makeConfigStringBuilder.bind(null, 'AddStylesRule');
 const ariaAttributes = LoggingConfig.makeConfigStringBuilder.bind(null, 'AriaAttributes');
 const filterTextField = LoggingConfig.makeConfigStringBuilder.bind(null, 'FilterTextField');
+const jumpToSource = LoggingConfig.makeConfigStringBuilder.bind(null, 'JumpToSource');
+const metricsBox = LoggingConfig.makeConfigStringBuilder.bind(null, 'MetricsBox');
+const metricsBoxPart = LoggingConfig.makeConfigStringBuilder.bind(null, 'MetricsBoxPart');
 const showAllStyleProperties = LoggingConfig.makeConfigStringBuilder.bind(null, 'ShowAllStyleProperties');
 const stylePropertiesSection = LoggingConfig.makeConfigStringBuilder.bind(null, 'StylePropertiesSection');
 const stylePropertiesSectionSeparator =
     LoggingConfig.makeConfigStringBuilder.bind(null, 'StylePropertiesSectionSeparator');
+const stylesMetricsPane = LoggingConfig.makeConfigStringBuilder.bind(null, 'StylesMetricsPane');
 const stylesPane = LoggingConfig.makeConfigStringBuilder.bind(null, 'StylesPane');
 const stylesSelector = LoggingConfig.makeConfigStringBuilder.bind(null, 'StylesSelector');
 const toggle = LoggingConfig.makeConfigStringBuilder.bind(null, 'Toggle');
@@ -35,9 +39,13 @@ export {
   addStylesRule,
   ariaAttributes,
   filterTextField,
+  jumpToSource,
+  metricsBox,
+  metricsBoxPart,
   showAllStyleProperties,
   stylePropertiesSection,
   stylePropertiesSectionSeparator,
+  stylesMetricsPane,
   stylesPane,
   stylesSelector,
   toggle,
