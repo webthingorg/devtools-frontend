@@ -261,7 +261,6 @@ const mappingForLayoutTests = new Map([
   ['panels/animation', 'animation'],
   ['panels/browser_debugger', 'browser_debugger'],
   ['panels/network', 'network'],
-  ['panels/search', 'search'],
   ['panels/sources', 'sources'],
   ['panels/snippets', 'snippets'],
   ['panels/settings', 'settings'],
