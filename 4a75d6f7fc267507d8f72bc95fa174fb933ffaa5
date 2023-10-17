@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7536a116_51d445f9",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-17T12:21:58Z",
+      "side": 1,
+      "message": "should update and rerender here",
+      "revId": "4a75d6f7fc267507d8f72bc95fa174fb933ffaa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
