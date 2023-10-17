@@ -7,24 +7,29 @@ import * as Host from '../../core/host/host.js';
 import * as Coordinator from '../components/render_coordinator/render_coordinator.js';
 
 import {getDomState, isVisible} from './DomState.js';
-import {logChange, logClick, logImpressions, logKeyDown} from './LoggingEvents.js';
+import {logChange, logClick, logHover, logImpressions, logKeyDown} from './LoggingEvents.js';
 import {getLoggingState} from './LoggingState.js';
 
 const PROCESS_DOM_INTERVAL = 500;
 const KEYBOARD_LOG_INTERVAL = 3000;
+const HOVER_LOG_INTERVAL = 1000;
 
 let domProcessingThrottler: Common.Throttler.Throttler;
 let keyboardLogThrottler: Common.Throttler.Throttler;
+let hoverLogThrottler: Common.Throttler.Throttler;
 
 function observeMutations(root: Node): void {
   new MutationObserver(scheduleProcessDom).observe(root, {attributes: true, childList: true, subtree: true});
 }
 
-export async function startLogging(
-    options?: {domProcessingThrottler?: Common.Throttler.Throttler, keyboardLogThrottler?: Common.Throttler.Throttler}):
-    Promise<void> {
+export async function startLogging(options?: {
+  domProcessingThrottler?: Common.Throttler.Throttler,
+  keyboardLogThrottler?: Common.Throttler.Throttler,
+  hoverLogThrottler?: Common.Throttler.Throttler,
+}): Promise<void> {
   domProcessingThrottler = options?.domProcessingThrottler || new Common.Throttler.Throttler(PROCESS_DOM_INTERVAL);
   keyboardLogThrottler = options?.keyboardLogThrottler || new Common.Throttler.Throttler(KEYBOARD_LOG_INTERVAL);
+  hoverLogThrottler = options?.hoverLogThrottler || new Common.Throttler.Throttler(HOVER_LOG_INTERVAL);
   if (['interactive', 'complete'].includes(document.readyState)) {
     await processDom();
   }
@@ -69,6 +74,15 @@ async function processDom(): Promise<void> {
     if (!loggingState.processed) {
       if (loggingState.config.track?.has('click')) {
         element.addEventListener('click', logClick, {capture: true});
+      }
+      if (loggingState.config.track?.has('dblclick')) {
+        element.addEventListener('click', e => logClick(e, true), {capture: true});
+      }
+      const trackHover = loggingState.config.track?.has('hover');
+      if (trackHover) {
+        element.addEventListener('mouseover', logHover(hoverLogThrottler), {capture: true});
+        element.addEventListener(
+            'mouseout', () => hoverLogThrottler.schedule(() => Promise.resolve()), {capture: true});
       }
       if (loggingState.config.track?.has('change')) {
         element.addEventListener('change', logChange, {capture: true});
