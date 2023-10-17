@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17730dd2_3634690c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-10-17T08:55:34Z",
+      "side": 1,
+      "message": "Hi Jecelyn, please take a look!\n\nScreenshots are here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1493148#c2",
+      "revId": "329b0ba8cb0eb6acda047f24e276ad0b4be0953d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
