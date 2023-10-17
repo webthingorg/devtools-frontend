@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0bb4a96_e9e3f081",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-10-17T13:23:22Z",
+      "side": 1,
+      "message": "Please take a look again, I also removed the `settings-legacy.ts` now.",
+      "revId": "c6d1fe37e95c2ccaecbaaefd5e823b33a39fa319",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
