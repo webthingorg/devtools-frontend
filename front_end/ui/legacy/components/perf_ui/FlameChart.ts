@@ -194,6 +194,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.markerHighlighElement = this.viewportElement.createChild('div', 'flame-chart-marker-highlight-element');
     this.highlightElement = this.viewportElement.createChild('div', 'flame-chart-highlight-element');
     this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
+
     this.canvas.addEventListener('focus', () => {
       this.dispatchEventToListeners(Events.CanvasFocused);
     }, false);
@@ -352,6 +353,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const timelineData = this.dataProvider.timelineData();
     if (timelineData !== this.rawTimelineData ||
         (timelineData && timelineData.entryStartTimes.length !== this.rawTimelineDataLength)) {
+      // this rerenders
       this.processTimelineData(timelineData);
     }
     return this.rawTimelineData || null;
@@ -740,6 +742,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (this.highlightedEntryIndex === -1) {
       return;
     }
+    this.dispatchEventToListeners(
+        Events.TreeModified, {
+          level: this.coordinatesToGroupIndex(this.lastMouseOffsetX, this.lastMouseOffsetY, false),
+          node: this.coordinatesToEntryIndex(this.lastMouseOffsetX, this.lastMouseOffsetY)});
     const data = this.timelineData();
     if (!data) {
       return;
@@ -2031,7 +2037,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.viewportElement.appendChild(element);
   }
 
-  private processTimelineData(timelineData: FlameChartTimelineData|null): void {
+  processTimelineData(timelineData: FlameChartTimelineData|null): void {
     if (!timelineData) {
       this.timelineLevels = null;
       this.visibleLevelOffsets = null;
@@ -2435,6 +2441,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.scheduleUpdate();
   }
 
+  // call this
   update(): void {
     if (!this.timelineData()) {
       return;
@@ -2652,6 +2659,7 @@ export enum Events {
    * mouse off the event)
    */
   EntryHighlighted = 'EntryHighlighted',
+  TreeModified = 'TreeModified',
 }
 
 export type EventTypes = {
@@ -2659,6 +2667,10 @@ export type EventTypes = {
   [Events.EntryInvoked]: number,
   [Events.EntrySelected]: number,
   [Events.EntryHighlighted]: number,
+  [Events.TreeModified]: {
+    level: number
+    node: number,
+  },
 };
 
 export interface Group {
