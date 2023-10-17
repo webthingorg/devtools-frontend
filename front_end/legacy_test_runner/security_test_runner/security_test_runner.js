@@ -4,6 +4,7 @@
 
 import '../../panels/security/security-legacy.js';
 
+import * as SDK from '../../core/sdk/sdk.js';
 import {TestRunner} from '../test_runner/test_runner.js';
 
 /**
