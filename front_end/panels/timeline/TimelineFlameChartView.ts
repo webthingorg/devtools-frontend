@@ -96,11 +96,24 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     const mainViewGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timelineFlamechartMainViewGroupExpansion', {});
     this.mainDataProvider = new TimelineFlameChartDataProvider(threadTracksSource);
-    this.mainDataProvider.addEventListener(
-        TimelineFlameChartDataProviderEvents.DataChanged, () => this.mainFlameChart.scheduleUpdate());
     this.mainFlameChart = new PerfUI.FlameChart.FlameChart(this.mainDataProvider, this, mainViewGroupExpansionSetting);
     this.mainFlameChart.alwaysShowVerticalScroll();
     this.mainFlameChart.enableRuler(false);
+    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.TreeModified, event => {
+      console.log('Tree Modified triggered. Data is ', event.data);
+      this.mainDataProvider.modifyTree(event.data.level, event.data.node);
+    });
+    this.mainDataProvider.addEventListener(TimelineFlameChartDataProviderEvents.DataChanged, () => {
+      console.log("now update");
+      this.mainDataProvider.timelineData(true);
+      // this.mainDataProvider.buildFromTrackAppenders();
+      // this.mainFlameChart.processTimelineData(null);
+      // this.mainFlameChart.timelineData(true);
+      this.mainFlameChart.update();
+      // this.updateTrack();
+      // this.refresh();
+      
+    })
 
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timelineFlamechartNetworkViewGroupExpansion', {});
@@ -226,7 +239,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       model: PerformanceModel|null, newTraceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null,
       isCpuProfile = false): void {
     if (model === this.model) {
-      return;
+      // return;
     }
     this.#traceEngineData = newTraceEngineData;
     Common.EventTarget.removeEventListeners(this.eventListeners);

@@ -7,7 +7,9 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
+import {type TraceEntryNodeId} from '../../models/trace/helpers/TreeHelpers.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import {TraceEntry} from '../../models/trace/types/TraceEvents.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import {
@@ -24,6 +26,7 @@ import {
 } from './CompatibilityTracksAppender.js';
 import * as TimelineComponents from './components/components.js';
 import {getCategoryStyles, getEventStyle} from './EventUICategory.js';
+import { TimelineFlameChartDataProvider } from './timeline.js';
 
 const UIStrings = {
   /**
@@ -140,7 +143,7 @@ export const enum ThreadType {
 // In the future, once this appender fully supports the behaviour of the
 // old engine's thread/sync tracks we can always run it by enabling the
 // Renderer and Samples handler by default.
-export class ThreadAppender implements TrackAppender {
+export class ThreadAppender extends Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProvider.EventTypes>  implements TrackAppender {
   readonly appenderName: TrackAppenderName = 'Thread';
 
   #colorGenerator: Common.Color.Generator;
@@ -154,6 +157,7 @@ export class ThreadAppender implements TrackAppender {
   #threadDefaultName: string;
   #flameChartData: PerfUI.FlameChart.FlameChartTimelineData;
   #expanded = false;
+  level: number = 0;
   // Raster threads are rendered together under a singler header, so
   // the header is added for the first raster thread and skipped
   // thereafter.
@@ -163,6 +167,7 @@ export class ThreadAppender implements TrackAppender {
   readonly isOnMainFrame: boolean;
   #ignoreListingEnabled = Root.Runtime.experiments.isEnabled('ignoreListJSFramesOnTimeline');
   #showAllEventsEnabled = Root.Runtime.experiments.isEnabled('timelineShowAllEvents');
+  #treeManipulator?: TraceEngine.TreeManipulator.TreeManipulator;
   // TODO(crbug.com/1428024) Clean up API so that we don't have to pass
   // a raster index to the appender (for instance, by querying the flame
   // chart data in the appender or by passing data about the flamechart
@@ -172,6 +177,7 @@ export class ThreadAppender implements TrackAppender {
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData,
       processId: TraceEngine.Types.TraceEvents.ProcessID, threadId: TraceEngine.Types.TraceEvents.ThreadID,
       threadName: string|null, type: ThreadType, rasterCount: number = 0) {
+    super();
     this.#compatibilityBuilder = compatibilityBuilder;
     // TODO(crbug.com/1456706):
     // The values for this color generator have been taken from the old
@@ -211,6 +217,29 @@ export class ThreadAppender implements TrackAppender {
     if (this.#traceParsedData.AuctionWorklets.worklets.has(processId)) {
       this.appenderName = 'Thread_AuctionWorklet';
     }
+
+    if (traceParsedData.Renderer) {
+      this.#treeManipulator = new TraceEngine.TreeManipulator.TreeManipulator(
+          {name: this.#threadDefaultName, entries: entries, tree: tree}, traceParsedData.Renderer?.entryToNode);
+    }
+  }
+
+  modifyTree(nodeIndex: number): void {
+    const traceEntry = this.#tree.nodes.get(nodeIndex as TraceEntryNodeId);
+    if (!traceEntry?.entry) {
+      console.log("EVENT NOT HERE");
+      return;
+    }
+
+    // console.log('Events No before ', this.#treeManipulator?.visibleEntries().length);
+
+    if (traceEntry?.entry) {
+      this.#treeManipulator?.applyAction({type: 'MERGE_FUNCTION', entry: traceEntry?.entry});
+      // console.log('Events No after ', this.#treeManipulator?.visibleEntries().length);
+    }
+
+    this.dispatchEventToListeners(TimelineFlameChartDataProvider.Events.DataChanged);
+    // this.appendTrackAtLevel(this.level, false);
   }
 
   processId(): TraceEngine.Types.TraceEvents.ProcessID {
@@ -231,6 +260,7 @@ export class ThreadAppender implements TrackAppender {
    * appended the track's events.
    */
   appendTrackAtLevel(trackStartLevel: number, expanded: boolean = false): number {
+    this.level = trackStartLevel;
     if (this.#entries.length === 0) {
       return trackStartLevel;
     }
@@ -419,6 +449,7 @@ export class ThreadAppender implements TrackAppender {
       nodes: Iterable<TraceEngine.Helpers.TreeHelpers.TraceEntryNode>, startingLevel: number,
       parentIsIgnoredListed: boolean = false): number {
     let maxDepthInTree = startingLevel;
+    this.#treeManipulator?.visibleEntries();
     for (const node of nodes) {
       let nextLevel = startingLevel;
       const entry = node.entry;
@@ -431,7 +462,13 @@ export class ThreadAppender implements TrackAppender {
       // another traversal to the entries array (which could grow
       // large). To avoid the extra cost we  add the check in the
       // traversal we already need to append events.
-      const entryIsVisible = this.#compatibilityBuilder.entryIsVisibleInTimeline(entry) || this.#showAllEventsEnabled;
+      const entryIsHidden = this.#treeManipulator?.entiesToHide.has(entry);
+
+      if(entryIsHidden) {
+        console.log("hiding ", entry);
+      }
+
+      const entryIsVisible = (this.#compatibilityBuilder.entryIsVisibleInTimeline(entry) || this.#showAllEventsEnabled) && !entryIsHidden;
       // For ignore listing support, these two conditions need to be met
       // to not append a profile call to the flame chart:
       // 1. It is ignore listed
