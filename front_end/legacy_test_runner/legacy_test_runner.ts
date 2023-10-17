@@ -8,7 +8,6 @@ import '../models/persistence/persistence-legacy.js';
 import '../entrypoints/devtools_app/devtools_app.js';
 import '../panels/animation/animation-legacy.js';
 import '../models/breakpoints/breakpoints-legacy.js';
-import '../models/trace/trace-legacy.js';
 import '../core/sdk/sdk-legacy.js';
 import './test_runner/test_runner.js';
 
