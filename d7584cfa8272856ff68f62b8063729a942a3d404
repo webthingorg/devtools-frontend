@@ -16,6 +16,23 @@
       "message": "Kateryna, please take a look.\n\nThe screenshots are here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1492041#c1",
       "revId": "d7584cfa8272856ff68f62b8063729a942a3d404",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1454265e_1cdcc2a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-10-17T08:39:08Z",
+      "side": 1,
+      "message": "Thanks, Yang! Could you please attach a screenshot?",
+      "revId": "d7584cfa8272856ff68f62b8063729a942a3d404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
