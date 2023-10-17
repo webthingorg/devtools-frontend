@@ -10,7 +10,7 @@
 
 .object-properties-section {
   padding: 0;
-  color: var(--color-text-primary);
+  color: var(--sys-color-on-surface);
   display: flex;
   flex-direction: column;
 }
@@ -44,11 +44,11 @@
 }
 
 .object-properties-section .synthetic-property {
-  color: var(--color-text-secondary);
+  color: var(--sys-color-token-subtle);
 }
 
 .object-properties-section .private-property-hash {
-  color: var(--color-text-primary);
+  color: var(--sys-color-on-surface);
 }
 
 .object-properties-section-root-element {

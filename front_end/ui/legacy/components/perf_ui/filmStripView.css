@@ -19,7 +19,7 @@
 .film-strip-view .label {
   margin: auto;
   font-size: 18px;
-  color: var(--color-text-secondary);
+  color: var(--sys-color-token-subtle);
 }
 
 .film-strip-view .frame {

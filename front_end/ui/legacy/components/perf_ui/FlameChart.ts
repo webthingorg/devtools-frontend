@@ -1624,7 +1624,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     });
     context.restore();
 
-    context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--color-text-secondary');
+    context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-token-subtle');
     context.beginPath();
     this.forEachGroupInViewport((offset, index, group) => {
       if (this.isGroupCollapsible(index)) {
