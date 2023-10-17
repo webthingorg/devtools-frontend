@@ -43,7 +43,6 @@ group("legacy_entrypoints") {
     "panels/browser_debugger:legacy",
     "panels/coverage:legacy",
     "panels/lighthouse:legacy",
-    "panels/search:legacy",
     "panels/security:legacy",
     "panels/settings:legacy",
     "panels/snippets:legacy",
