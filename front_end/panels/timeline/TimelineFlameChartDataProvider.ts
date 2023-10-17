@@ -211,6 +211,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.flowEventIndexById = new Map();
   }
 
+  modifyTree(level: number, node: number): void {
+    this.compatibilityTracksAppender?.modifyTree(level, node);
+  }
+
   private buildGroupStyle(extra: Object): PerfUI.FlameChart.GroupStyle {
     const defaultGroupStyle = {
       padding: 4,
@@ -268,10 +272,17 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
             'Attempted to instantiate a CompatibilityTracksAppender without having set the trace parse data first.');
       }
       this.timelineDataInternal = this.#instantiateTimelineData();
+      // here engine data assigned
       this.compatibilityTracksAppender = new CompatibilityTracksAppender(
           this.timelineDataInternal, this.traceEngineData, this.entryData, this.entryTypeByLevel,
           this.legacyTimelineModel, this.isCpuProfile);
     }
+
+    this.compatibilityTracksAppender.addEventListener(Events.DataChanged, () => {
+      // this.buildFromTrackAppenders();
+      this.dispatchEventToListeners(Events.DataChanged);
+    })
+
     return this.compatibilityTracksAppender;
   }
 
@@ -302,9 +313,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         continue;
       }
       const expanded = Boolean(options?.expandedTracks?.has(appender.appenderName));
+      // call and clear data
       this.currentLevel = appender.appendTrackAtLevel(this.currentLevel, expanded);
     }
   }
+
 
   groupTrack(group: PerfUI.FlameChart.Group): TimelineModel.TimelineModel.Track|null {
     return group.track || null;
@@ -449,6 +462,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
   }
 
+  // appenders called
   private processInspectorTrace(): void {
     if (!this.isCpuProfile) {
       this.appendFrames();
