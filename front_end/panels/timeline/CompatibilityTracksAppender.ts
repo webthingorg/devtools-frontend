@@ -5,7 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
-import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
 import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
@@ -21,6 +21,7 @@ import {
   type TimelineFlameChartEntry,
 } from './TimelineFlameChartDataProvider.js';
 import {TimingsTrackAppender} from './TimingsTrackAppender.js';
+import { TimelineFlameChartDataProvider } from './timeline.js';
 
 export type HighlightedEntryInfo = {
   title: string,
@@ -84,7 +85,7 @@ export const TrackNames =
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
 
-export class CompatibilityTracksAppender {
+export class CompatibilityTracksAppender extends Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProvider.EventTypes> {
   #trackForLevel = new Map<number, TrackAppender>();
   #trackForGroup = new Map<PerfUI.FlameChart.Group, TrackAppender>();
   #eventsForTrack = new Map<TrackAppender, TraceEngine.Types.TraceEvents.TraceEventData[]>();
@@ -130,7 +131,9 @@ export class CompatibilityTracksAppender {
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData, entryData: TimelineFlameChartEntry[],
       legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
       isCpuProfile = false) {
+    super();
     this.#flameChartData = flameChartData;
+    // data ror manipulator
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;
     this.#colorGenerator = new Common.Color.Generator(
@@ -169,6 +172,22 @@ export class CompatibilityTracksAppender {
             ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
       }
     });
+  }
+
+  modifyTree(level: number, node: number): void {
+    (this.#allTrackAppenders[level] as ThreadAppender).modifyTree(node);
+    (this.#allTrackAppenders[level] as ThreadAppender).addEventListener(TimelineFlameChartDataProvider.Events.DataChanged, () => {
+      this.dispatchEventToListeners(TimelineFlameChartDataProvider.Events.DataChanged);
+    });
+    
+    // this.#threadAppenders.forEach(appender => {
+    //   if(appender.level == level) {
+    //     appender.modifyTree(node);
+    //     appender.addEventListener(TimelineFlameChartDataProvider.Events.DataChanged, () => {
+    //       this.dispatchEventToListeners(TimelineFlameChartDataProvider.Events.DataChanged);
+    //     })
+    //   }
+    // });
   }
 
   #addThreadAppenders(): void {
