@@ -986,9 +986,11 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       showMetricsWidgetInStylesPane();
     });
     this.stylesWidget.addEventListener(StylesSidebarPaneEvents.InitialUpdateCompleted, () => {
-      this.stylesWidget.appendToolbarItem(stylesSplitWidget.createShowHideSidebarButton(
-          i18nString(UIStrings.showComputedStylesSidebar), i18nString(UIStrings.hideComputedStylesSidebar),
-          i18nString(UIStrings.computedStylesShown), i18nString(UIStrings.computedStylesHidden)));
+      this.stylesWidget.appendToolbarItem(
+          stylesSplitWidget.createShowHideSidebarButton(
+              i18nString(UIStrings.showComputedStylesSidebar), i18nString(UIStrings.hideComputedStylesSidebar),
+              i18nString(UIStrings.computedStylesShown), i18nString(UIStrings.computedStylesHidden)),
+          'computedStyles');
     });
 
     const showMetricsWidgetInComputedPane = (): void => {

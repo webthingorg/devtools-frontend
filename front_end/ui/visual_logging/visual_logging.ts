@@ -25,6 +25,13 @@ const toggle = LoggingConfig.makeConfigStringBuilder.bind(null, 'Toggle');
 const treeItem = LoggingConfig.makeConfigStringBuilder.bind(null, 'TreeItem');
 const treeItemExpand = LoggingConfig.makeConfigStringBuilder.bind(null, 'TreeItemExpand');
 
+const toggleSubpane = LoggingConfig.makeConfigStringBuilder.bind(null, 'ToggleSubpane');
+const elementClassesPane = LoggingConfig.makeConfigStringBuilder.bind(null, 'ElementClassesPane');
+const addElementClassPrompt = LoggingConfig.makeConfigStringBuilder.bind(null, 'AddElementClassPrompt');
+const elementStatesPane = LoggingConfig.makeConfigStringBuilder.bind(null, 'ElementStatesPan');
+const cssLayersPane = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssLayersPane');
+const dropDownButton = LoggingConfig.makeConfigStringBuilder.bind(null, 'DropDownButton');
+
 export {
   startLogging,
   registerContextProvider,
@@ -43,4 +50,11 @@ export {
   toggle,
   treeItem,
   treeItemExpand,
+
+  toggleSubpane,
+  elementClassesPane,
+  addElementClassPrompt,
+  elementStatesPane,
+  cssLayersPane,
+  dropDownButton,
 };
