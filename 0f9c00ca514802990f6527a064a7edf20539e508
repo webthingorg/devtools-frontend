@@ -33,6 +33,23 @@
       "message": "+1/LGTM from third-party-owners, but no permissions to vote",
       "revId": "0f9c00ca514802990f6527a064a7edf20539e508",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad68ba57_d682260c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-18T12:26:12Z",
+      "side": 1,
+      "message": "Danil, Kateryna PTAL.\n\nThis now has approvals from both security- and third-party-reviewers.",
+      "revId": "0f9c00ca514802990f6527a064a7edf20539e508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
