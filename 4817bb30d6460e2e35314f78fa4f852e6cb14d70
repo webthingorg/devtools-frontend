@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58742260_0922417c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-10-18T15:55:17Z",
+      "side": 1,
+      "message": "I also updated the e2e tests. PTAL again, thanks!",
+      "revId": "4817bb30d6460e2e35314f78fa4f852e6cb14d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
