@@ -758,6 +758,17 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // update the selected index to match the highlighted index, which
     // represents the entry under the cursor where the user has right clicked
     // to trigger a context menu.
+    const contextMenu = new UI.ContextMenu.ContextMenu(_event);
+    contextMenu.headerSection().appendItem('Merge function', () => {});
+
+    contextMenu.headerSection().appendItem('Collapse function', () => {});
+
+    contextMenu.headerSection().appendItem('Collapse recursion', () => {});
+
+    contextMenu.defaultSection().appendAction('timeline.load-from-file');
+    contextMenu.defaultSection().appendAction('timeline.save-to-file');
+
+    void contextMenu.show();
   }
 
   private onKeyDown(e: KeyboardEvent): void {
