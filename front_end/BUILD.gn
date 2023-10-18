@@ -35,7 +35,6 @@ group("front_end") {
 
 group("legacy_entrypoints") {
   public_deps = [
-    "core/sdk:legacy",
     "models/breakpoints:legacy",
     "models/trace:legacy",
     "panels/animation:legacy",

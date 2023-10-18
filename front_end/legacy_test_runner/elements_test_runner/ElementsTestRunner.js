@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as SDK from '../../core/sdk/sdk.js';
 import * as Elements from '../../panels/elements/elements.js';
 import * as EventListeners from '../../panels/event_listeners/event_listeners.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -988,7 +989,7 @@ ElementsTestRunner.generateUndoTest = function(testBody) {
           ElementsTestRunner.dumpElementsTree(testNode);
         }
 
-        self.SDK.domModelUndoStack.undo().then(redo);
+        SDK.DOMModel.DOMModelUndoStack.instance().undo().then(redo);
       }
     }
 
@@ -1003,7 +1004,7 @@ ElementsTestRunner.generateUndoTest = function(testBody) {
           ElementsTestRunner.dumpElementsTree(testNode);
         }
 
-        self.SDK.domModelUndoStack.redo().then(done);
+        SDK.DOMModel.DOMModelUndoStack.instance().redo().then(done);
       }
     }
 
@@ -1314,7 +1315,7 @@ ElementsTestRunner.ignoreSidebarUpdates = function() {
 
 ElementsTestRunner.getDocumentElements = function() {
   const map = TestRunner.domModel.idToDOMNode;
-  const documents = Array.from(map.values()).filter(n => n instanceof SDK.DOMDocument);
+  const documents = Array.from(map.values()).filter(n => n instanceof SDK.DOMModel.DOMDocument);
   return documents;
 };
 

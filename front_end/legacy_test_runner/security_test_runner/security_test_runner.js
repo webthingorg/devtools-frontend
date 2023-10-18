@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import * as Security from '../../panels/security/security.js';
+import * as SDK from '../../core/sdk/sdk.js';
+
 import {TestRunner} from '../test_runner/test_runner.js';
 
 /**
