@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "094eea5b_81f584d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-18T04:53:12Z",
+      "side": 1,
+      "message": "lgtm % questions and current unit test failure",
+      "revId": "ee9ab0db97f888b805798cb6b825f15694216234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92339cb_d7649be5",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-18T04:53:12Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `\u0027dblclick\u0027` as well?",
+      "range": {
+        "startLine": 79,
+        "startChar": 34,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "ee9ab0db97f888b805798cb6b825f15694216234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b20f1921_96993a6a",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-18T04:53:12Z",
+      "side": 1,
+      "message": "Neat! I like using `Throttler` for cancellation here! Makes it unit testable compared to setTimeout/clearTimeout!",
+      "range": {
+        "startLine": 85,
+        "startChar": 48,
+        "endLine": 85,
+        "endChar": 81
+      },
+      "revId": "ee9ab0db97f888b805798cb6b825f15694216234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "900a0d65_86b0097a",
+        "filename": "test/unittests/front_end/ui/visual_logging/LoggingDriver_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-18T04:53:12Z",
+      "side": 1,
+      "message": "left-over (here and below)?",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 60
+      },
+      "revId": "ee9ab0db97f888b805798cb6b825f15694216234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
