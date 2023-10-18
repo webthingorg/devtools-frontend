@@ -160,7 +160,7 @@ export class InspectorView extends VBox implements ViewLocationResolver {
 
     // Create drawer tabbed pane.
     this.drawerTabbedLocation =
-        ViewManager.instance().createTabbedLocation(this.showDrawer.bind(this, false), 'drawer-view', true, true);
+        ViewManager.instance().createTabbedLocation(this.showDrawer.bind(this, false, true), 'drawer-view', true, true);
     const moreTabsButton = this.drawerTabbedLocation.enableMoreTabsButton();
     moreTabsButton.setTitle(i18nString(UIStrings.moreTools));
     this.drawerTabbedPane = this.drawerTabbedLocation.tabbedPane();
@@ -338,10 +338,12 @@ export class InspectorView extends VBox implements ViewLocationResolver {
     return (ViewManager.instance().materializedWidget(this.tabbedPane.selectedTabId || '') as Widget | null);
   }
 
-  showDrawer(focus: boolean): void {
+  showDrawer(focus: boolean, hasTargetDrawer = false): void {
     if (this.drawerTabbedPane.isShowing()) {
       return;
     }
+    // Only auto-select the first drawer (console) when no drawer is chosen specifically.
+    this.drawerTabbedPane.setAutoSelectFirstItemOnShow(!hasTargetDrawer);
     this.drawerSplitWidget.showBoth();
     if (focus) {
       this.focusRestorer = new WidgetFocusRestorer(this.drawerTabbedPane);
