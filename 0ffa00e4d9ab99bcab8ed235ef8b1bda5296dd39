@@ -16,6 +16,24 @@
       "message": "There\u0027s an entry in TestRunner.js\u0027 loadLegacyModule, do you want to remove this as well?",
       "revId": "0ffa00e4d9ab99bcab8ed235ef8b1bda5296dd39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d709a0b0_5bdb2630",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-10-18T08:25:48Z",
+      "side": 1,
+      "message": "I removed it as well, thanks for the tip! PTAL again 😊",
+      "parentUuid": "cd9a7bc4_58090e31",
+      "revId": "0ffa00e4d9ab99bcab8ed235ef8b1bda5296dd39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
