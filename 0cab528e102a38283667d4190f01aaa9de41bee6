@@ -16,6 +16,24 @@
       "message": "(nit): Can we turn this into using an object parameter as it\u0027s impossible to understand what the boolean parameters does 😅",
       "revId": "0cab528e102a38283667d4190f01aaa9de41bee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830058d3_bc52403c",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-18T13:22:07Z",
+      "side": 1,
+      "message": "... does from the callsite 😅",
+      "parentUuid": "d3f7f829_3844f328",
+      "revId": "0cab528e102a38283667d4190f01aaa9de41bee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
