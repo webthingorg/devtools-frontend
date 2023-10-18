@@ -14,16 +14,10 @@ import * as TraceModule from './trace.js';
 self.SDK = self.SDK || {};
 SDK = SDK || {};
 /** @constructor */
-SDK.TracingManager = TraceModule.TracingManager.TracingManager;
 
 /** @constructor */
-SDK.TracingModel = TraceModule.Legacy.TracingModel;
 
 /** @constructor */
-SDK.TracingModel.Event = TraceModule.Legacy.Event;
-
-SDK.TracingModel.LegacyTopLevelEventCategory = TraceModule.Legacy.LegacyTopLevelEventCategory;
-SDK.TracingModel.DevToolsMetadataEventCategory = TraceModule.Legacy.DevToolsMetadataEventCategory;
 
 self.Trace = self.Trace || {};
 Trace = Trace || {};
