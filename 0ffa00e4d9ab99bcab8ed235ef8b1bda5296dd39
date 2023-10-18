@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd9a7bc4_58090e31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-18T08:01:04Z",
+      "side": 1,
+      "message": "There\u0027s an entry in TestRunner.js\u0027 loadLegacyModule, do you want to remove this as well?",
+      "revId": "0ffa00e4d9ab99bcab8ed235ef8b1bda5296dd39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
