@@ -16,6 +16,24 @@
       "message": "Is this testable in any way?",
       "revId": "a8d74b88f4f698eab160c32eb257144ba70fe920",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eb5a5f2_fc6cc8db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-18T13:27:22Z",
+      "side": 1,
+      "message": "I feel like for proper testing of the feature, we need an E2E test; which I thought is a bit too much for this feature.\n\nShould I add an E2E test, WDYT?",
+      "parentUuid": "c0e6b006_2c69bcdb",
+      "revId": "a8d74b88f4f698eab160c32eb257144ba70fe920",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
