@@ -22,11 +22,9 @@ ts_library("legacy_test_runner-source") {
 
   deps = [
     "../entrypoints/devtools_app:entrypoint",
-    "../models/breakpoints:legacy",
     "../models/trace:legacy",
     "../panels/console_counters:bundle",
     "../panels/event_listeners:bundle",
-    "../ui/legacy/components/utils:legacy",
     "test_runner:bundle",
   ]
 }
