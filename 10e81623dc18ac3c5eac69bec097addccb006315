@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5ed6fd4_58435e6d",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-18T13:48:44Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "parentUuid": "865d47bb_e01851a7",
+      "revId": "10e81623dc18ac3c5eac69bec097addccb006315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40042d37_fb263da6",
