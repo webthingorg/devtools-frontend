@@ -16,6 +16,24 @@
       "message": "There\u0027s also https://crrev.com/c/4945811, is this a duplicate?",
       "revId": "e87c354c30ecd884df86451ec5cb0c6c77defcfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a7e0eff_055c49d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-18T10:00:25Z",
+      "side": 1,
+      "message": "Ah, when I saw that `models/trace` was marked as complete I thought we forgot the final removal. Looks like it\u0027s just still in-flight. Lets prefer Andres\u0027 CL.",
+      "parentUuid": "d1c707b3_2652089e",
+      "revId": "e87c354c30ecd884df86451ec5cb0c6c77defcfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
