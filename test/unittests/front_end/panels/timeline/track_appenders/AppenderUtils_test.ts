@@ -15,7 +15,7 @@ describeWithEnvironment('AppenderUtils', () => {
     padding: 4,
     height: 17,
     collapsible: true,
-    // This color is same as --color-text-primary in themeColors.css
+    // This color is same as --sys-color-on-surface in themeColors.css
     color: 'rgb(32 33 36)',
     // This color is same as --color-background in themeColors.css
     backgroundColor: 'rgb(255 255 255)',

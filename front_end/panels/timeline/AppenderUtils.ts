@@ -32,7 +32,7 @@ export function buildGroupStyle(extra?: Object): PerfUI.FlameChart.GroupStyle {
     padding: 4,
     height: 17,
     collapsible: true,
-    color: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-text-primary'),
+    color: ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-on-surface'),
     backgroundColor: ThemeSupport.ThemeSupport.instance().getComputedValue('--color-background'),
     nestingLevel: 0,
     shareHeaderLine: true,
