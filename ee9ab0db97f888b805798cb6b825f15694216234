@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9a2ff509_ca24d005",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-18T09:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92339cb_d7649be5",
+      "range": {
+        "startLine": 79,
+        "startChar": 34,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "ee9ab0db97f888b805798cb6b825f15694216234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b20f1921_96993a6a",
         "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
         "patchSetId": 1
@@ -77,6 +101,30 @@
       "writtenOn": "2023-10-18T04:53:12Z",
       "side": 1,
       "message": "left-over (here and below)?",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 60
+      },
+      "revId": "ee9ab0db97f888b805798cb6b825f15694216234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ebe23be_5d9ab9c5",
+        "filename": "test/unittests/front_end/ui/visual_logging/LoggingDriver_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-18T09:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "900a0d65_86b0097a",
       "range": {
         "startLine": 193,
         "startChar": 4,
