@@ -34,6 +34,24 @@
       "parentUuid": "d3f7f829_3844f328",
       "revId": "0cab528e102a38283667d4190f01aaa9de41bee6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec2fbcb4_51ea41e8",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-10-18T13:34:26Z",
+      "side": 1,
+      "message": "Done, thanks for the suggestion!",
+      "parentUuid": "830058d3_bc52403c",
+      "revId": "0cab528e102a38283667d4190f01aaa9de41bee6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
