@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3e919f_92b0aa60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-18T19:08:11Z",
+      "side": 1,
+      "message": "thanks for the review 😊\nyes, I added showStackContextMenu to the existing test to fix it.\n\nTrue, we should add tests for that later. Hopefully it\u0027s possible to do screenshot tests for menu",
+      "parentUuid": "d4c90d9b_d75b87d1",
+      "revId": "67ae1e84860c5a1152940cc6bdf5e07984438d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "788267c9_0e04a04f",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dd9dfb0_599de2cb",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-18T19:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "788267c9_0e04a04f",
+      "range": {
+        "startLine": 272,
+        "startChar": 87,
+        "endLine": 272,
+        "endChar": 91
+      },
+      "revId": "67ae1e84860c5a1152940cc6bdf5e07984438d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc767692_e55f34a0",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-10-18T14:49:24Z",
       "side": 1,
       "message": "nits: add a TODO comments here, because we might want to change the display text after talk with Vaatika, but not block for now 😊",
+      "range": {
+        "startLine": 767,
+        "startChar": 3,
+        "endLine": 771,
+        "endChar": 75
+      },
+      "revId": "67ae1e84860c5a1152940cc6bdf5e07984438d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efc9ac73_b601d0be",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-18T19:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc767692_e55f34a0",
       "range": {
         "startLine": 767,
         "startChar": 3,
