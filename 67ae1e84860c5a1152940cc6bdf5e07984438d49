@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c90d9b_d75b87d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-18T14:49:24Z",
+      "side": 1,
+      "message": "LGTM!\n\nBut seems you need to update a few tests because the change of `PerfUI.FlameChart.Group` class\nAlso it will be good to add some tests to check only the context menu in thread tracks will be modified. But we only need this before the removal of the experiment flag 😊",
+      "revId": "67ae1e84860c5a1152940cc6bdf5e07984438d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "788267c9_0e04a04f",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-18T14:49:24Z",
+      "side": 1,
+      "message": "nits\n```suggestion\n        currentLevel, this.trackName(), style, /* selectable\u003d */ true, this.#expanded, /* track\u003d */ null,\n```",
+      "range": {
+        "startLine": 272,
+        "startChar": 87,
+        "endLine": 272,
+        "endChar": 91
+      },
+      "revId": "67ae1e84860c5a1152940cc6bdf5e07984438d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc767692_e55f34a0",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-18T14:49:24Z",
+      "side": 1,
+      "message": "nits: add a TODO comments here, because we might want to change the display text after talk with Vaatika, but not block for now 😊",
+      "range": {
+        "startLine": 767,
+        "startChar": 3,
+        "endLine": 771,
+        "endChar": 75
+      },
+      "revId": "67ae1e84860c5a1152940cc6bdf5e07984438d49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
