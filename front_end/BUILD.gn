@@ -35,13 +35,8 @@ group("front_end") {
 
 group("legacy_entrypoints") {
   public_deps = [
-    "models/breakpoints:legacy",
     "models/trace:legacy",
-    "panels/browser_debugger:legacy",
-    "panels/coverage:legacy",
-    "panels/lighthouse:legacy",
     "panels/search:legacy",
-    "ui/legacy/components/utils:legacy",
   ]
 }
 
