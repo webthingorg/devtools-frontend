@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffb824ca_9e64a501",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-18T11:30:03Z",
+      "side": 1,
+      "message": "I wonder if we should use `mouseenter` or `mouseover` here.\n\nAFAIU their difference is, `mouseover` is fired for a parent element when the elements inside the parent are hovered as well.\n\n`mouseenter` is fired when the pointer hovers over the parent element and it doesn\u0027t fire again when the child elements are mouseovered.\n\nMDN example is here: https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event#examples\n\nSimilarly, the same question exists for `mouseout` vs `mouseleave`\nhttps://developer.mozilla.org/en-US/docs/Web/API/Element/mouseout_event#mouseout_and_mouseleave",
+      "revId": "10e81623dc18ac3c5eac69bec097addccb006315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f16fce4_061dc8c4",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-18T11:30:03Z",
+      "side": 1,
+      "message": "I think the reason of `hoverLogThrottler.schedule` call with a `noop` feels a bit hard to understand, can we add a comment here explaining why we need this and how this works for cancelling the previous schedule call for logging?",
+      "revId": "10e81623dc18ac3c5eac69bec097addccb006315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40042d37_fb263da6",
+        "filename": "front_end/ui/visual_logging/LoggingEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-18T11:30:03Z",
+      "side": 1,
+      "message": "(nit): I think it gets quite hard to understand what a boolean parameter does in this regard on the callsite. Can we maybe put the options in an object?",
+      "revId": "10e81623dc18ac3c5eac69bec097addccb006315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb4d5ed_2b3273c7",
+        "filename": "front_end/ui/visual_logging/LoggingState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-18T11:30:03Z",
+      "side": 1,
+      "message": "(are these leftovers from debugging? 😅)",
+      "revId": "10e81623dc18ac3c5eac69bec097addccb006315",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
