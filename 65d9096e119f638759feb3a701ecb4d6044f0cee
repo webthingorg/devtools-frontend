@@ -16,6 +16,23 @@
       "message": "Kateryna, Danil PTAL",
       "revId": "65d9096e119f638759feb3a701ecb4d6044f0cee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a40a89f1_417ea99d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-10-18T12:49:37Z",
+      "side": 1,
+      "message": "Looks good, thank you, Wolfgang!",
+      "revId": "65d9096e119f638759feb3a701ecb4d6044f0cee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
