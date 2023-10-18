@@ -50,6 +50,23 @@
       "message": "Danil, Kateryna PTAL.\n\nThis now has approvals from both security- and third-party-reviewers.",
       "revId": "0f9c00ca514802990f6527a064a7edf20539e508",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba5f2846_8e9bf4a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-10-18T12:29:36Z",
+      "side": 1,
+      "message": "LGTM, thanks Wolfgang!",
+      "revId": "0f9c00ca514802990f6527a064a7edf20539e508",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
