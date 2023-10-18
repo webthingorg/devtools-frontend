@@ -18,6 +18,7 @@ let nextVeId = 0;
 
 export function resetStateForTesting(): void {
   nextVeId = 0;
+  console.error('In resetStateForTesting, nextVeId is ' + nextVeId);
 }
 
 export function getLoggingState(element: Element, parent?: Element): LoggingState {
@@ -25,6 +26,8 @@ export function getLoggingState(element: Element, parent?: Element): LoggingStat
   if (config.parent && parentProviders.has(config.parent)) {
     parent = parentProviders.get(config.parent)?.(element);
   }
+
+  console.error('In getLoggingState, nextVeId is ' + nextVeId);
   const elementState = state.get(element) || {
     impressionLogged: false,
     processed: false,
@@ -33,6 +36,7 @@ export function getLoggingState(element: Element, parent?: Element): LoggingStat
     veid: ++nextVeId,
     parent: parent ? getLoggingState(parent) : null,
   };
+  console.error('nextVeId is ' + nextVeId);
   state.set(element, elementState);
   return elementState;
 }

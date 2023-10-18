@@ -12,7 +12,7 @@ const {assert} = chai;
 
 describe('LoggingDriver', () => {
   let recordImpression: sinon.SinonStub;
-  const throttler = new Common.Throttler.Throttler(100000);
+  const throttler = new Common.Throttler.Throttler(1000000000);
 
   beforeEach(() => {
     VisualLoggingTesting.LoggingState.resetStateForTesting();
@@ -22,15 +22,24 @@ describe('LoggingDriver', () => {
     );
   });
 
+  afterEach(() => {
+    VisualLogging.stopLogging();
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    });
+  });
+
   function addLoggableElements() {
     const parent = document.createElement('div') as HTMLElement;
     parent.id = 'parent';
-    parent.setAttribute('jslog', 'TreeItem');
+    parent.setAttribute('jslog', 'TreeItem; track: hover');
     parent.style.width = '300px';
     parent.style.height = '300px';
     const element = document.createElement('div') as HTMLElement;
     element.id = 'element';
-    element.setAttribute('jslog', 'TreeItem; context:42; track: click, keydown');
+    element.setAttribute('jslog', 'TreeItem; context:42; track: click, keydown, hover');
     element.style.width = '300px';
     element.style.height = '300px';
     parent.appendChild(element);
@@ -86,12 +95,8 @@ describe('LoggingDriver', () => {
       left: 0,
       behavior: 'instant',
     });
+    await new Promise(resolve => window.addEventListener('scrollend', resolve, {once: true}));
     await assertImpressionRecordedDeferred();
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant',
-    });
   });
 
   it('logs impressions on mutation', async () => {
@@ -114,7 +119,7 @@ describe('LoggingDriver', () => {
 
   it('logs clicks', async () => {
     addLoggableElements();
-    await VisualLogging.startLogging({domProcessingThrottler: throttler});
+    await VisualLogging.startLogging();
     const recordClick = sinon.stub(
         Host.InspectorFrontendHost.InspectorFrontendHostInstance,
         'recordClick',
@@ -129,7 +134,7 @@ describe('LoggingDriver', () => {
 
   it('does not log clicks if not configured', async () => {
     addLoggableElements();
-    await VisualLogging.startLogging({domProcessingThrottler: throttler});
+    await VisualLogging.startLogging();
     const recordClick = sinon.stub(
         Host.InspectorFrontendHost.InspectorFrontendHostInstance,
         'recordClick',
@@ -138,14 +143,14 @@ describe('LoggingDriver', () => {
     const parent = document.getElementById('parent') as HTMLElement;
     parent.click();
 
+    await new Promise(resolve => setTimeout(resolve, 0));
     assert.isFalse(recordClick.called);
   });
 
   it('logs keydown', async () => {
-    const domProcessingThrottler = new Common.Throttler.Throttler(100000);
-    const keyboardLogThrottler = new Common.Throttler.Throttler(100000);
+    const keyboardLogThrottler = new Common.Throttler.Throttler(1000000000);
     addLoggableElements();
-    await VisualLogging.startLogging({domProcessingThrottler, keyboardLogThrottler});
+    await VisualLogging.startLogging({keyboardLogThrottler});
     const recordKeyDown = sinon.stub(
         Host.InspectorFrontendHost.InspectorFrontendHostInstance,
         'recordKeyDown',
@@ -160,5 +165,65 @@ describe('LoggingDriver', () => {
 
     await keyboardLogThrottler.process?.();
     assert.isTrue(recordKeyDown.calledOnce);
+  });
+
+  it('logs hover', async () => {
+    const hoverLogThrottler = new Common.Throttler.Throttler(1000000000);
+    addLoggableElements();
+    await VisualLogging.startLogging({hoverLogThrottler});
+    const recordHover = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordHover',
+    );
+
+    const element = document.getElementById('element') as HTMLElement;
+    element.dispatchEvent(new MouseEvent('mouseover'));
+    assert.exists(hoverLogThrottler.process);
+    assert.isFalse(recordHover.called);
+
+    await hoverLogThrottler.process?.();
+    assert.isTrue(recordHover.calledOnce);
+  });
+
+  it('does not log hover if too short', async () => {
+    const hoverLogThrottler = new Common.Throttler.Throttler(1000000000);
+    addLoggableElements();
+    await VisualLogging.startLogging({hoverLogThrottler});
+    const recordHover = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordHover',
+    );
+
+    const element = document.getElementById('element') as HTMLElement;
+    element.dispatchEvent(new MouseEvent('mouseover'));
+    assert.exists(hoverLogThrottler.process);
+    assert.isFalse(recordHover.called);
+
+    element.dispatchEvent(new MouseEvent('mouseout'));
+
+    await hoverLogThrottler.process?.();
+    assert.isFalse(recordHover.called);
+  });
+
+  it('does not log hover if in descendent', async () => {
+    const hoverLogThrottler = new Common.Throttler.Throttler(1000000000);
+    addLoggableElements();
+    await VisualLogging.startLogging({hoverLogThrottler});
+    const recordHover = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordHover',
+    );
+
+    const parent = document.getElementById('parent') as HTMLElement;
+    const element = document.getElementById('element') as HTMLElement;
+    parent.dispatchEvent(new MouseEvent('mouseover'));
+    assert.exists(hoverLogThrottler.process);
+    assert.isFalse(recordHover.called);
+
+    element.dispatchEvent(new MouseEvent('mouseover'));
+
+    await hoverLogThrottler.process?.();
+    assert.isTrue(recordHover.called);
+    assert.deepStrictEqual(recordHover.firstCall.firstArg, {veid: 2, context: 42});
   });
 });
