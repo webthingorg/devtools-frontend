@@ -22,6 +22,30 @@
       },
       "revId": "2f36c48db1e6057208c081cfeb90ef115f569ccf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d77c9587_233718f4",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1532146
+      },
+      "writtenOn": "2023-10-19T17:10:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39e737c2_8d50e334",
+      "range": {
+        "startLine": 559,
+        "startChar": 96,
+        "endLine": 559,
+        "endChar": 101
+      },
+      "revId": "2f36c48db1e6057208c081cfeb90ef115f569ccf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
