@@ -418,6 +418,11 @@ export class UserMetrics {
         EnumeratedHistogram.AnimationPointDragged, dragType, AnimationPointDragType.MaxValue);
   }
 
+  traceExpanded(expandedType: TraceExpandedType): void {
+    InspectorFrontendHostInstance.recordEnumeratedHistogram(
+        EnumeratedHistogram.TraceExpanded, expandedType, TraceExpandedType.MaxValue);
+  }
+
   #breakpointCountToBucket(count: number): BreakpointsRestoredFromStorageCount {
     if (count < 100) {
       return BreakpointsRestoredFromStorageCount.LessThan100;
@@ -1489,4 +1494,13 @@ export const enum AnimationPointDragType {
   FinishEndpointMove = 3,
   Other = 4,
   MaxValue = 5,
+}
+
+/* eslint-disable @typescript-eslint/naming-convention */
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+export enum TraceExpandedType {
+  False = 0,
+  True = 1,
+  MaxValue = 2,
 }
