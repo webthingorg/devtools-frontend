@@ -935,9 +935,10 @@ export enum DevtoolsExperiments {
   'networkPanelFilterBarRedesign' = 79,
   'breadcrumbsPerformancePanel' = 80,
   'trackContextMenu' = 81,
+  'bfcacheDisplayJsDetails' = 82,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 82,
+  'MaxValue' = 83,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
