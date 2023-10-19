@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3da77079_90155d50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-19T18:50:42Z",
+      "side": 1,
+      "message": "I just followed the pattern we used for DIPS - is there a doc with specific guidance about deprecation issues? I think we at least need new user-facing strings with details about the deprecation. (Although we won\u0027t need a separate panel like we have for DIPS.)",
+      "parentUuid": "6fbbeb97_aec19656",
+      "revId": "986233bcf3cf1cda3ff0fd06ced814a5d8966161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9194cb9e_7d1fc006",
         "filename": "front_end/models/issues_manager/descriptions/cookieDeprecationMetadata.md",
         "patchSetId": 6
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-19T18:35:14Z",
       "side": 1,
       "message": "nit: remove commas in \"current page, in order\" and \"support on Chrome, and site\"\n\nI think we might want to link out to some support document instead of referencing entries in the settings that might change.",
+      "range": {
+        "startLine": 3,
+        "startChar": 117,
+        "endLine": 3,
+        "endChar": 122
+      },
+      "revId": "986233bcf3cf1cda3ff0fd06ced814a5d8966161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ad8429_ff2b63ba",
+        "filename": "front_end/models/issues_manager/descriptions/cookieDeprecationMetadata.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-19T18:50:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9194cb9e_7d1fc006",
       "range": {
         "startLine": 3,
         "startChar": 117,
