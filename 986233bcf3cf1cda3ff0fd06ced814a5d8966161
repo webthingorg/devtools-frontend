@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fbbeb97_aec19656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1296898
+      },
+      "writtenOn": "2023-10-19T18:35:14Z",
+      "side": 1,
+      "message": "For some reason I thought most deprecation issues did not need to make changes to the devtools repo.  Is there something special about our deprecation?",
+      "revId": "986233bcf3cf1cda3ff0fd06ced814a5d8966161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9194cb9e_7d1fc006",
+        "filename": "front_end/models/issues_manager/descriptions/cookieDeprecationMetadata.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1296898
+      },
+      "writtenOn": "2023-10-19T18:35:14Z",
+      "side": 1,
+      "message": "nit: remove commas in \"current page, in order\" and \"support on Chrome, and site\"\n\nI think we might want to link out to some support document instead of referencing entries in the settings that might change.",
+      "range": {
+        "startLine": 3,
+        "startChar": 117,
+        "endLine": 3,
+        "endChar": 122
+      },
+      "revId": "986233bcf3cf1cda3ff0fd06ced814a5d8966161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
