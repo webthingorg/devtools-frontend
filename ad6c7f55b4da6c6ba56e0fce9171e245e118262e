@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d8df3ef_f24c3119",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-19T18:04:00Z",
+      "side": 1,
+      "message": "Hey Ben, could you review the user-facing strings in `cookieDeprecationMetadata.md` and `AffectedMetadataAllowedSitesView.ts`? Thanks!",
+      "revId": "ad6c7f55b4da6c6ba56e0fce9171e245e118262e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
