@@ -13,6 +13,7 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as SDK from '../../core/sdk/sdk.js';
+import * as BrowserDebugger from '../../panels/browser_debugger/browser_debugger.js';
 
 SourcesTestRunner.startDebuggerTest = async function(callback, quiet) {
   console.assert(TestRunner.debuggerModel.debuggerEnabled(), 'Debugger has to be enabled');
