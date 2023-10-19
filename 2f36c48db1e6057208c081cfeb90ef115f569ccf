@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39e737c2_8d50e334",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-10-19T16:55:57Z",
+      "side": 1,
+      "message": "This would happen only if the trace is expanded and then collapsed again, right? Is this important for us to know?\n\nI guess what *could* make sense to track is whether the trace was expanded and quickly collapsed again, indicating that the user has not actually spent time to understand the trace, and would also indicate that a information that takes longer time to provide will not become useful?\n\nFor now though I think it might be good enough if we add one more action to DevTools.ActionTaken metric? I.e. here https://source.chromium.org/chromium/chromium/src/+/main:tools/metrics/histograms/metadata/dev/histograms.xml;l\u003d25;drc\u003d3d5c3745de5e5f0926d7bf0743d2e7a439237a1b",
+      "range": {
+        "startLine": 559,
+        "startChar": 96,
+        "endLine": 559,
+        "endChar": 101
+      },
+      "revId": "2f36c48db1e6057208c081cfeb90ef115f569ccf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
