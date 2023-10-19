@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "389f2b7d_825b4061",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-19T12:24:26Z",
+      "side": 1,
+      "message": "With https://crrev.com/c/4952372 landed this is the last remaining -legacy.ts file 🎉",
+      "revId": "3d276fc78010b40244e0e827dba15ea091e134c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
