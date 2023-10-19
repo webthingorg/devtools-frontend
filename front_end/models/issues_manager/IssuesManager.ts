@@ -113,6 +113,10 @@ const issueCodeHandlers = new Map<
     Protocol.Audits.InspectorIssueCode.PropertyRuleIssue,
     PropertyRuleIssue.fromInspectorIssue,
   ],
+  [
+    Protocol.Audits.InspectorIssueCode.CookieDeprecationMetadataIssue,
+    CookieDeprecationMetadataIssue.fromInspectorIssue,
+  ],
 ]);
 
 /**
