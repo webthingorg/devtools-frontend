@@ -16,6 +16,24 @@
       "message": "Should we put a more restrictive name to reflect that this `refresh` button is in eventListenersPane? 🤔\n\nSame question for filterDropdown too.",
       "revId": "dd59d63a8fd965dd89e92217db345fa8bc9d5cff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2021a62e_3bfa87f1",
+        "filename": "front_end/panels/elements/EventListenersWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-19T13:41:15Z",
+      "side": 1,
+      "message": "No, this is by design. We don\u0027t want the set of visual elements to explode, so we log them hierarchically (via parent field). We don\u0027t just log it as a `Refresh` button, but rather as  a `Refresh` button under `EventListenersPane`.",
+      "parentUuid": "dbc4a675_55922dea",
+      "revId": "dd59d63a8fd965dd89e92217db345fa8bc9d5cff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
