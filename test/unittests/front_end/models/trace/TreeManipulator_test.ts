@@ -101,6 +101,7 @@ describe('TreeManipulator', function() {
 
     // Now remove the action and ensure that all entries are now visible.
     stack.removeActiveAction({type: 'MERGE_FUNCTION', entry: entryTwo});
+    console.log('ENTRY ', entryTwo);
     assert.strictEqual(stack.visibleEntries().length, mainThread.entries.length, 'All the entries should be visible.');
   });
 
