@@ -197,6 +197,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.markerHighlighElement = this.viewportElement.createChild('div', 'flame-chart-marker-highlight-element');
     this.highlightElement = this.viewportElement.createChild('div', 'flame-chart-highlight-element');
     this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
+
     this.canvas.addEventListener('focus', () => {
       this.dispatchEventToListeners(Events.CanvasFocused);
     }, false);
@@ -348,13 +349,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.updateHighlight();
   }
 
-  timelineData(): FlameChartTimelineData|null {
+  timelineData(rebuid?: boolean): FlameChartTimelineData|null {
     if (!this.dataProvider) {
       return null;
     }
-    const timelineData = this.dataProvider.timelineData();
+    const timelineData = this.dataProvider.timelineData(rebuid);
     if (timelineData !== this.rawTimelineData ||
         (timelineData && timelineData.entryStartTimes.length !== this.rawTimelineDataLength)) {
+      // this rerenders
       this.processTimelineData(timelineData);
     }
     return this.rawTimelineData || null;
@@ -743,6 +745,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (this.highlightedEntryIndex === -1) {
       return;
     }
+    
     const data = this.timelineData();
     if (!data) {
       return;
@@ -764,13 +767,23 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
     const contextMenu = new UI.ContextMenu.ContextMenu(_event);
 
+    if (!this.timelineLevels) {
+      return;
+    }
+
+    const firstEntryIndex = this.timelineLevels[group.startLevel][0];
+
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
-    contextMenu.headerSection().appendItem('Merge function', () => {});
+    contextMenu.headerSection().appendItem('Merge function', () => {
+      this.dispatchEventToListeners(
+        Events.TreeModified, {
+          group: group,
+          node: this.selectedEntryIndex - firstEntryIndex,
+        })
+    });
 
     contextMenu.headerSection().appendItem('Collapse function', () => {});
-
     contextMenu.headerSection().appendItem('Collapse recursion', () => {});
-
     contextMenu.defaultSection().appendAction('timeline.load-from-file');
     contextMenu.defaultSection().appendAction('timeline.save-to-file');
 
@@ -2048,7 +2061,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.viewportElement.appendChild(element);
   }
 
-  private processTimelineData(timelineData: FlameChartTimelineData|null): void {
+  processTimelineData(timelineData: FlameChartTimelineData|null): void {
     if (!timelineData) {
       this.timelineLevels = null;
       this.visibleLevelOffsets = null;
@@ -2452,6 +2465,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.scheduleUpdate();
   }
 
+  // call this
   update(): void {
     if (!this.timelineData()) {
       return;
@@ -2605,7 +2619,7 @@ export interface FlameChartDataProvider {
 
   maxStackDepth(): number;
 
-  timelineData(): FlameChartTimelineData|null;
+  timelineData(rebuild?: boolean): FlameChartTimelineData|null;
 
   prepareHighlightedEntryInfo(entryIndex: number): Element|null;
 
@@ -2668,6 +2682,7 @@ export enum Events {
    * mouse off the event)
    */
   EntryHighlighted = 'EntryHighlighted',
+  TreeModified = 'TreeModified',
 }
 
 export type EventTypes = {
@@ -2675,6 +2690,10 @@ export type EventTypes = {
   [Events.EntryInvoked]: number,
   [Events.EntrySelected]: number,
   [Events.EntryHighlighted]: number,
+  [Events.TreeModified]: {
+    group: Group,
+    node: number,
+  },
 };
 
 export interface Group {
