@@ -24,6 +24,7 @@ import {
 } from './CompatibilityTracksAppender.js';
 import * as TimelineComponents from './components/components.js';
 import {getCategoryStyles, getEventStyle} from './EventUICategory.js';
+import {TimelineFlameChartDataProvider} from './timeline.js';
 
 const UIStrings = {
   /**
@@ -140,7 +141,8 @@ export const enum ThreadType {
 // In the future, once this appender fully supports the behaviour of the
 // old engine's thread/sync tracks we can always run it by enabling the
 // Renderer and Samples handler by default.
-export class ThreadAppender implements TrackAppender {
+export class ThreadAppender extends
+    Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProvider.EventTypes> implements TrackAppender {
   readonly appenderName: TrackAppenderName = 'Thread';
 
   #colorGenerator: Common.Color.Generator;
@@ -163,6 +165,7 @@ export class ThreadAppender implements TrackAppender {
   readonly isOnMainFrame: boolean;
   #ignoreListingEnabled = Root.Runtime.experiments.isEnabled('ignoreListJSFramesOnTimeline');
   #showAllEventsEnabled = Root.Runtime.experiments.isEnabled('timelineShowAllEvents');
+  #treeManipulator?: TraceEngine.TreeManipulator.TreeManipulator;
   // TODO(crbug.com/1428024) Clean up API so that we don't have to pass
   // a raster index to the appender (for instance, by querying the flame
   // chart data in the appender or by passing data about the flamechart
@@ -172,6 +175,7 @@ export class ThreadAppender implements TrackAppender {
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData,
       processId: TraceEngine.Types.TraceEvents.ProcessID, threadId: TraceEngine.Types.TraceEvents.ThreadID,
       threadName: string|null, type: ThreadType, rasterCount: number = 0) {
+    super();
     this.#compatibilityBuilder = compatibilityBuilder;
     // TODO(crbug.com/1456706):
     // The values for this color generator have been taken from the old
@@ -211,6 +215,21 @@ export class ThreadAppender implements TrackAppender {
     if (this.#traceParsedData.AuctionWorklets.worklets.has(processId)) {
       this.appenderName = 'Thread_AuctionWorklet';
     }
+
+    if (traceParsedData.Renderer) {
+      this.#treeManipulator = new TraceEngine.TreeManipulator.TreeManipulator(
+          {name: this.#threadDefaultName, entries: entries, tree: tree}, traceParsedData.Renderer?.entryToNode);
+    }
+  }
+
+  modifyTree(traceEvent: TraceEngine.Types.TraceEvents.TraceEntry): void {
+    if (!this.#treeManipulator) {
+      return;
+    }
+    this.#treeManipulator.applyAction({type: 'MERGE_FUNCTION', entry: traceEvent});
+    this.#entries = this.#treeManipulator.visibleEntries();
+
+    this.dispatchEventToListeners(TimelineFlameChartDataProvider.Events.DataChanged);
   }
 
   processId(): TraceEngine.Types.TraceEvents.ProcessID {
