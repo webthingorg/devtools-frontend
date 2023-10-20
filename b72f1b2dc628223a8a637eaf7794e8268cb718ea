@@ -22,6 +22,30 @@
       },
       "revId": "b72f1b2dc628223a8a637eaf7794e8268cb718ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e96e86d3_1833645a",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1532678
+      },
+      "writtenOn": "2023-10-20T10:32:59Z",
+      "side": 1,
+      "message": "Throttler wouldn\u0027t work here since all events still eventually get triggered. Debouncing is used to prevent someone from spamming expand. I\u0027ve manually tested that this works. Are there testing utilities for the UMA itself? Otherwise we have to thread a synthetic event here.",
+      "parentUuid": "46b7b670_7e23aa98",
+      "range": {
+        "startLine": 562,
+        "startChar": 0,
+        "endLine": 562,
+        "endChar": 19
+      },
+      "revId": "b72f1b2dc628223a8a637eaf7794e8268cb718ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
