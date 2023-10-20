@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c97d00_d86f34af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-20T11:59:45Z",
+      "side": 1,
+      "message": "LGTM with comments/questions :)",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7e3cb1a_e47e5509",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-20T11:59:45Z",
+      "side": 1,
+      "message": "Should we track \"click\" on this one too since on click it shows the grid or flex editor?",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2375e4c2_49279b96",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-20T11:59:45Z",
+      "side": 1,
+      "message": "Why don\u0027t we use `hex` as the context here?",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2effe377_bffe0a53",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-20T11:59:45Z",
+      "side": 1,
+      "message": "I wonder if it makes sense to use `button` as visual logging element and add context for `add color`; wdyt?\n\nApplies to `copyColor` usage below.",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3c2c64f_28cb1598",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-20T11:59:45Z",
+      "side": 1,
+      "message": "Instead of `showStyleEditor`, can we name these as `swatch` as some of them are not related to the showing an editor but readonly visualization of the property?",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
