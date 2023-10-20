@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Platform from '../../core/platform/platform.js';
-
 import type * as Handlers from './handlers/handlers.js';
 import type * as Helpers from './helpers/helpers.js';
 import type * as Types from './types/types.js';
@@ -34,7 +33,7 @@ export class TreeManipulator {
   // Track the last calculated set of visible entries. This means we can avoid
   // re-generating this if the set of actions that have been applied has not
   // changed.
-  #lastVisibleEntries: readonly Types.TraceEvents.TraceEntry[]|null = null;
+  #lastVisibleEntries: Types.TraceEvents.TraceEntry[]|null = null;
   #activeActions: UserTreeAction[] = [];
 
   constructor(
@@ -100,14 +99,14 @@ export class TreeManipulator {
    *
    * This method is cached, so it is safe to call multiple times.
    **/
-  visibleEntries(): readonly Types.TraceEvents.TraceEventData[] {
+  visibleEntries(): Types.TraceEvents.TraceEventData[] {
     if (this.#activeActions.length === 0) {
       return this.#thread.entries;
     }
     return this.#calculateVisibleEntries();
   }
 
-  #calculateVisibleEntries(): readonly Types.TraceEvents.TraceEventData[] {
+  #calculateVisibleEntries(): Types.TraceEvents.TraceEventData[] {
     // When an action is added, we clear this cache. So if this cache is
     // present it means that the set of active actions has not changed, and so
     // we do not need to recalculate anything.
