@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46b7b670_7e23aa98",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-20T05:57:44Z",
+      "side": 1,
+      "message": "Let\u0027s add a unit test please. You might find it easier to test if you use Throttler class here and schedule a noop for cancelation.",
+      "range": {
+        "startLine": 562,
+        "startChar": 0,
+        "endLine": 562,
+        "endChar": 19
+      },
+      "revId": "b72f1b2dc628223a8a637eaf7794e8268cb718ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
