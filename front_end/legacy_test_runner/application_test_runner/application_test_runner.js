@@ -2,14 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import '../test_runner/test_runner.js';
 import '../sources_test_runner/sources_test_runner.js';
-import './CacheStorageTestRunner.js';
 import './IndexedDBTestRunner.js';
 import './ResourceTreeTestRunner.js';
 import './ResourcesTestRunner.js';
 import './ServiceWorkersTestRunner.js';
 import './StorageTestRunner.js';
 
-const {ApplicationTestRunner} = self;
-export {ApplicationTestRunner};
+import * as CacheStorageTestRunner from './CacheStorageTestRunner.js';
+
+const ApplicationTestRunnerGlobal = self.ApplicationTestRunner;
+
+export const ApplicationTestRunner = {
+  ...ApplicationTestRunnerGlobal,
+  ...CacheStorageTestRunner,
+};
