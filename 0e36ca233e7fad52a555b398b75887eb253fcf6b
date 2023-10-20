@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88fe970a_2a62a899",
+        "filename": "inspector_overlay/tool_window_controls_overlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-20T06:18:31Z",
+      "side": 1,
+      "message": "This file should probable be called `tool_window_controls.ts` to follow the (weird) pattern that other files in this dir use.",
+      "revId": "0e36ca233e7fad52a555b398b75887eb253fcf6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3cda729_cfef5fcf",
+        "filename": "inspector_overlay/tool_window_controls_overlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-20T06:18:31Z",
+      "side": 1,
+      "message": "Is this mean to be called more then once with different platforms?\n\nI.e. can the user change the platform as they wish or are we always using the platform matching user\u0027s machine?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 66
+      },
+      "revId": "0e36ca233e7fad52a555b398b75887eb253fcf6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580d63a6_8f139d40",
+        "filename": "inspector_overlay/tool_window_controls_overlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-20T06:18:31Z",
+      "side": 1,
+      "message": "I don\u0027t think these functions need to be exported. They are implementation details of the WindowControlsOverlay, and don\u0027t make much sense on their own.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 57
+      },
+      "revId": "0e36ca233e7fad52a555b398b75887eb253fcf6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "128fae15_6ef1bbe0",
+        "filename": "test/unittests/inspector_overlay/tool_window_controls_overlay_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-20T06:18:31Z",
+      "side": 1,
+      "message": "`describe` label combined with an `it` label should read as a sentence e.g. \n\n    describe(\u0027WindowControlOverlay\u0027, () \u003d\u003e {\n        it(\u0027creates initially hidden toolbars\u0027, () \u003d\u003e {\n           ...\n        \nwould read as `WindowControlOverlay creates initially hidden toolbars`",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 53
+      },
+      "revId": "0e36ca233e7fad52a555b398b75887eb253fcf6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a5e3531_67b725a1",
+        "filename": "test/unittests/inspector_overlay/tool_window_controls_overlay_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-20T06:18:31Z",
+      "side": 1,
+      "message": "As I said above, I don\u0027t think it is useful to test these helpers. We should rather test the `WindowControlOverlay` class itself, which encapsulates the new behavior added in this CL. You could think of the following test cases:\n\n* creates initially hidden toolbars\n* shows mac toolbars\n* shows win toolbars\n* shows linux toolbars\n* clears overlay\n* cleans up on uninstall",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "0e36ca233e7fad52a555b398b75887eb253fcf6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
