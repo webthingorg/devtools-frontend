@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b36d5ead_5542b8e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-10-20T19:53:31Z",
+      "side": 1,
+      "message": "Small fix for a Coverage reload issue, appreciate if you can take a look.",
+      "revId": "1b5f80bc5e719a7604fff83c9787d7d04ad62448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
