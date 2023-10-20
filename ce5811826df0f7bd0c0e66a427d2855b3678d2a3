@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e956a1af_1ae30d78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-20T08:12:59Z",
+      "side": 1,
+      "message": "Looks good, with a nit and a question!",
+      "revId": "ce5811826df0f7bd0c0e66a427d2855b3678d2a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08e0d2e8_ec761ef6",
+        "filename": "front_end/core/sdk/OverlayPersistentHighlighter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-20T08:12:59Z",
+      "side": 1,
+      "message": "Nit: This method isn\u0027t strictly necessary I think, you can look up settings directly on the Settings instance (interestingly Settings also as a ForTest getter which is unnecessary).",
+      "revId": "ce5811826df0f7bd0c0e66a427d2855b3678d2a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af1b1944_23ed77b0",
+        "filename": "test/unittests/front_end/core/sdk/OverlayPersistentHighlighter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-20T08:12:59Z",
+      "side": 1,
+      "message": "Do we have any policy regarding valid, non-example.com URLs in the codebase?",
+      "revId": "ce5811826df0f7bd0c0e66a427d2855b3678d2a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
