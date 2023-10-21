@@ -37,11 +37,12 @@ function findFirstEntry(
 }
 
 describe('TreeManipulator', function() {
-  it('parses a stack and returns all the entries', async function() {
+  it('parses a stack and returns all the entries and tree', async function() {
     const data = await TraceLoader.traceEngine(this, 'basic-stack.json.gz');
     const mainThread = getMainThread(data.Renderer);
     const stack = new TraceEngine.TreeManipulator.TreeManipulator(mainThread, data.Renderer.entryToNode);
-    assert.deepEqual(mainThread.entries, stack.visibleEntries());
+    assert.deepEqual(mainThread.entries, stack.visibleEntriesAndTree().entries);
+    assert.deepEqual(mainThread.tree, stack.visibleEntriesAndTree().tree);
   });
 
   it('supports the user merging an entry into its parent', async function() {
@@ -69,17 +70,61 @@ describe('TreeManipulator', function() {
      *                  ==== fibonacci ===
      *
      **/
+    const entryOne = findFirstEntry(mainThread.entries, entry => {
+      // Processing this trace ends up with two distinct stacks for basicStackOne()
+      // So we find the first one so we can focus this test on just one stack.
+      return TraceEngine.Types.TraceEvents.isProfileCall(entry) && entry.callFrame.functionName === 'basicStackOne' &&
+          entry.dur === 827;
+    });
     const entryTwo = findFirstEntry(mainThread.entries, entry => {
       // Processing this trace ends up with two distinct stacks for basicTwo()
       // So we find the first one so we can focus this test on just one stack.
       return TraceEngine.Types.TraceEvents.isProfileCall(entry) && entry.callFrame.functionName === 'basicTwo' &&
           entry.dur === 827;
     });
+    const entryThree = findFirstEntry(mainThread.entries, entry => {
+      // Processing this trace ends up with two distinct stacks for basicThree()
+      // So we find the first one so we can focus this test on just one stack.
+      return TraceEngine.Types.TraceEvents.isProfileCall(entry) && entry.callFrame.functionName === 'basicThree' &&
+          entry.dur === 827;
+    });
+
     const stack = new TraceEngine.TreeManipulator.TreeManipulator(mainThread, data.Renderer.entryToNode);
     stack.applyAction({type: 'MERGE_FUNCTION', entry: entryTwo});
-    assert.isFalse(stack.visibleEntries().includes(entryTwo), 'entryTwo is still visible');
+
+    const visibleEntries = stack.visibleEntriesAndTree().entries;
+    assert.isFalse(visibleEntries.includes(entryTwo), 'entryTwo is still visible');
+    // Check entryTwo's parent and child are still visible
+    const entryOneIndexAfterAction = visibleEntries.findIndex(entry => {
+      return TraceEngine.Types.TraceEvents.isProfileCall(entry) && entry.callFrame.functionName === 'basicStackOne' &&
+          entry.dur === 827;
+    });
+    const entryThreeIndexAfterAction = visibleEntries.findIndex(entry => {
+      return TraceEngine.Types.TraceEvents.isProfileCall(entry) && entry.callFrame.functionName === 'basicThree' &&
+          entry.dur === 827;
+    });
+    // Add a sanity check, since |basicTwo| is no longer visible, the |basicStackOne| and |basicThree| should be
+    // connected.
+    assert.strictEqual(entryOneIndexAfterAction + 1, entryThreeIndexAfterAction);
+    assert.deepEqual(
+        stack.visibleEntriesAndTree()
+            .tree.nodes.get(entryOneIndexAfterAction as TraceEngine.Helpers.TreeHelpers.TraceEntryNodeId)
+            ?.entry,
+        entryOne);
+    assert.deepEqual(
+        stack.visibleEntriesAndTree()
+            .tree.nodes.get(entryThreeIndexAfterAction as TraceEngine.Helpers.TreeHelpers.TraceEntryNodeId)
+            ?.entry,
+        entryThree);
+
     // Only one entry - the one for the `basicTwo` function - should have been hidden.
-    assert.strictEqual(stack.visibleEntries().length, mainThread.entries.length - 1);
+    assert.strictEqual(visibleEntries.length, mainThread.entries.length - 1);
+    // The tree should be built in the TraceEngine. Or in the TreeManipulator.
+    assert.exists(mainThread.tree);
+    const originalTreeMaxDepth = mainThread.tree?.maxDepth as number;
+    // In this test case, the stack we modified is the tallest, so when we merge one function in this stack, the
+    // |maxDepth| is reduced by 1.
+    assert.strictEqual(stack.visibleEntriesAndTree().tree.maxDepth, originalTreeMaxDepth - 1);
   });
 
   it('supports removing an action', async function() {
@@ -95,13 +140,19 @@ describe('TreeManipulator', function() {
     });
     const stack = new TraceEngine.TreeManipulator.TreeManipulator(mainThread, data.Renderer.entryToNode);
     stack.applyAction({type: 'MERGE_FUNCTION', entry: entryTwo});
-    assert.isFalse(stack.visibleEntries().includes(entryTwo), 'entryTwo is still visible');
-    // Only one entry - the one for the `basicTwo` function - should have been hidden.
-    assert.strictEqual(stack.visibleEntries().length, mainThread.entries.length - 1);
+    // Add some sanity check here, see 'supports the user merging an entry into its parent' test for more information.
+    assert.isFalse(stack.visibleEntriesAndTree().entries.includes(entryTwo), 'entryTwo is still visible');
+    assert.strictEqual(stack.visibleEntriesAndTree().entries.length, mainThread.entries.length - 1);
+    assert.exists(mainThread.tree);
+    const originalTreeMaxDepth = mainThread.tree?.maxDepth as number;
+    assert.strictEqual(stack.visibleEntriesAndTree().tree.maxDepth, originalTreeMaxDepth - 1);
 
     // Now remove the action and ensure that all entries are now visible.
     stack.removeActiveAction({type: 'MERGE_FUNCTION', entry: entryTwo});
-    assert.strictEqual(stack.visibleEntries().length, mainThread.entries.length, 'All the entries should be visible.');
+    assert.strictEqual(
+        stack.visibleEntriesAndTree().entries.length, mainThread.entries.length, 'All the entries should be visible.');
+    assert.deepEqual(mainThread.entries, stack.visibleEntriesAndTree().entries);
+    assert.deepEqual(mainThread.tree, stack.visibleEntriesAndTree().tree);
   });
 
   it('supports collapsing an entry', async function() {
@@ -147,11 +198,18 @@ describe('TreeManipulator', function() {
     stack.applyAction({type: 'COLLAPSE_FUNCTION', entry: basicTwoCallEntry});
 
     // We collapsed at the `basicTwo` entry - so it should be visible itself.
-    assert.isTrue(stack.visibleEntries().includes(basicTwoCallEntry), 'entryTwo is not visible');
+    const visibleEntries = stack.visibleEntriesAndTree().entries;
+    assert.isTrue(visibleEntries.includes(basicTwoCallEntry), 'entryTwo is not visible');
     // But all fib() calls below it in the stack should now be hidden.
     const allFibonacciInStackAreHidden = fibonacciCalls.every(fibCall => {
-      return stack.visibleEntries().includes(fibCall) === false;
+      return visibleEntries.includes(fibCall) === false;
     });
     assert.isTrue(allFibonacciInStackAreHidden, 'Some fibonacci calls are still visible');
+    // Make sure all fib() calls are not in the tree either.
+    stack.visibleEntriesAndTree().tree.nodes.forEach(value => {
+      if (TraceEngine.Types.TraceEvents.isProfileCall(value.entry)) {
+        assert.notEqual(value.entry.callFrame.functionName, 'fibonacci');
+      }
+    });
   });
 });

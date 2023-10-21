@@ -4,7 +4,7 @@
 import * as Platform from '../../core/platform/platform.js';
 
 import type * as Handlers from './handlers/handlers.js';
-import type * as Helpers from './helpers/helpers.js';
+import * as Helpers from './helpers/helpers.js';
 import type * as Types from './types/types.js';
 
 type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
@@ -34,7 +34,8 @@ export class TreeManipulator {
   // Track the last calculated set of visible entries. This means we can avoid
   // re-generating this if the set of actions that have been applied has not
   // changed.
-  #lastVisibleEntries: readonly Types.TraceEvents.TraceEntry[]|null = null;
+  #lastVisibleEntries: Types.TraceEvents.TraceEntry[]|null = null;
+  #lastVisibleTree: Helpers.TreeHelpers.TraceEntryTree|null = null;
   #activeActions: UserTreeAction[] = [];
 
   constructor(
@@ -61,6 +62,7 @@ export class TreeManipulator {
     // ensures that the visible list will be recalculated, which we have to do
     // now we have changed the list of actions.
     this.#lastVisibleEntries = null;
+    this.#lastVisibleTree = null;
   }
 
   /**
@@ -83,8 +85,9 @@ export class TreeManipulator {
 
     if (removedAction) {
       // If we found and removed an action, we need to clear the cache to force
-      // the set of visible entries to be recalculcated.
+      // the set of visible entries to be recalculated.
       this.#lastVisibleEntries = null;
+      this.#lastVisibleTree = null;
     }
   }
 
@@ -100,32 +103,37 @@ export class TreeManipulator {
    *
    * This method is cached, so it is safe to call multiple times.
    **/
-  visibleEntries(): readonly Types.TraceEvents.TraceEventData[] {
+  visibleEntriesAndTree(): {entries: Types.TraceEvents.TraceEventData[], tree: Helpers.TreeHelpers.TraceEntryTree} {
     if (this.#activeActions.length === 0) {
-      return this.#thread.entries;
+      const tree = this.#thread.tree ?? Helpers.TreeHelpers.treify(this.#thread.entries).tree;
+      return {entries: this.#thread.entries, tree};
     }
-    return this.#calculateVisibleEntries();
+    return this.#calculateVisibleEntriesAndTree();
   }
 
-  #calculateVisibleEntries(): readonly Types.TraceEvents.TraceEventData[] {
+  #calculateVisibleEntriesAndTree():
+      {entries: Types.TraceEvents.TraceEventData[], tree: Helpers.TreeHelpers.TraceEntryTree} {
     // When an action is added, we clear this cache. So if this cache is
     // present it means that the set of active actions has not changed, and so
     // we do not need to recalculate anything.
     if (this.#lastVisibleEntries) {
-      return this.#lastVisibleEntries;
+      const tree = this.#lastVisibleTree ?? Helpers.TreeHelpers.treify(this.#lastVisibleEntries).tree;
+      return {entries: this.#lastVisibleEntries, tree};
     }
 
     if (!this.#thread.tree) {
-      // We need a tree to be able to calculate user actions, if we do not have
-      // it, just return all the entries.
-      return this.#thread.entries;
+      // We need a tree to be able to calculate user actions, and the tree should be built by the TraceEngine.
+      // So add a sanity check here, if we do not have it, build it and assign to the RendererThread to avoid error.
+      console.warn(`The tree of thread ${
+          this.#thread.name} shouldn't be undefined, pleas check if RendererHandler ran correctly`);
+      this.#thread.tree = Helpers.TreeHelpers.treify(this.#thread.entries).tree;
     }
 
     // We apply each user action in turn to the set of all entries, and mark
     // any that should be hidden by adding them to this set. We do this to
     // ensure we minimise the amount of passes through the list of all entries.
     // Another approach would be to use splice() to remove items from the
-    // array, but doing this would be a mutation of the arry for every hidden
+    // array, but doing this would be a mutation of the array for every hidden
     // event. Instead, we add entries to this set, and at the very end loop
     // through the entries array once to filter out any that should be hidden.
     const entriesToHide = new Set<Types.TraceEvents.TraceEntry>();
@@ -167,7 +175,9 @@ export class TreeManipulator {
       return entriesToHide.has(entry) === false;
     });
 
-    return this.#lastVisibleEntries;
+    this.#lastVisibleTree = Helpers.TreeHelpers.treify(this.#lastVisibleEntries).tree;
+
+    return {entries: this.#lastVisibleEntries, tree: this.#lastVisibleTree};
   }
 
   #findAllAncestorsOfNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEntry[] {
