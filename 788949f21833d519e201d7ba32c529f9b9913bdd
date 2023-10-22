@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "922a4da6_a4bbee20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341608
+      },
+      "writtenOn": "2023-10-22T03:58:42Z",
+      "side": 1,
+      "message": "Hi @mattreynolds, could you give me a dry-runner permission? (jwoo.park@navercorp.com) and thank you for your review too.",
+      "revId": "788949f21833d519e201d7ba32c529f9b9913bdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
