@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71333601_9ea6479c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-22T23:47:52Z",
+      "side": 1,
+      "message": "ptal. prep for changing the trace event.\nsee go/interaction-track-redux appendix for details.",
+      "revId": "8565d06d959258779f7f9695acf9f6b9c12f5958",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
