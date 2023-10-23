@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ad75ffc_1f27880f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-23T20:56:41Z",
+      "side": 1,
+      "message": "Followed up with Josh. It turns out we can get the same behavior by extending CookieIssue with an exclusion or warning enum, and render it with custom text on the frontend. This greatly simplifies the implementation from crrev/c/4916620 as we don\u0027t need our own observer to step in and fire the new issue, we can just add the logic in content/browser/devtools/devtools_instrumentation.cc.\n\nLeaving this CL for now to redo the backend code.",
+      "parentUuid": "3da77079_90155d50",
+      "revId": "986233bcf3cf1cda3ff0fd06ced814a5d8966161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9194cb9e_7d1fc006",
         "filename": "front_end/models/issues_manager/descriptions/cookieDeprecationMetadata.md",
         "patchSetId": 6
