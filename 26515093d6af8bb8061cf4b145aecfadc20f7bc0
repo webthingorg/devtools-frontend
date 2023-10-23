@@ -16,6 +16,40 @@
       "message": "Can you take a look please?",
       "revId": "26515093d6af8bb8061cf4b145aecfadc20f7bc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a344ada0_c4d49ef5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-23T12:27:36Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "26515093d6af8bb8061cf4b145aecfadc20f7bc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dadd070_9bf2c22c",
+        "filename": "front_end/ui/legacy/tabbedPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-23T12:27:36Z",
+      "side": 1,
+      "message": "Would the new `--sys-color-primary` also work here?",
+      "revId": "26515093d6af8bb8061cf4b145aecfadc20f7bc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
