@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e66c72_4331b9bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-23T10:01:06Z",
+      "side": 1,
+      "message": "Awesome, I love this pattern. LGTM with one questsion!",
+      "revId": "f5c7c890ac62b6f6054e99cc0c0096fc15b0544d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35fe307_aae43964",
+        "filename": "front_end/legacy_test_runner/bindings_test_runner/IsolatedFilesystemTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-23T10:01:06Z",
+      "side": 1,
+      "message": "Could this be a map? If you want to keep this sort of migrations mechanical though, I\u0027m fine keeping this as is though!",
+      "revId": "f5c7c890ac62b6f6054e99cc0c0096fc15b0544d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
