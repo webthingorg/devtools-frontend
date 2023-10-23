@@ -16,6 +16,46 @@
       "message": "ptal",
       "revId": "a7205f6139eda2daef56828eaf1d9a333f058864",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbbabde_5fa490b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-23T08:50:54Z",
+      "side": 1,
+      "message": "LGTM with suggestion about using i18n. Thanks for the ultra quick fix!",
+      "revId": "a7205f6139eda2daef56828eaf1d9a333f058864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8171e9fd_e172295f",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-23T08:50:54Z",
+      "side": 1,
+      "message": "should we use i18n here?\nthe title for the old engine version is here:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/TimelineUIUtils.ts;l\u003d1485;bpv\u003d1?q\u003dtimelineuiuti\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2F",
+      "range": {
+        "startLine": 557,
+        "startChar": 14,
+        "endLine": 557,
+        "endChar": 19
+      },
+      "revId": "a7205f6139eda2daef56828eaf1d9a333f058864",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
