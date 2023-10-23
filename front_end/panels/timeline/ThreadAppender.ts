@@ -550,6 +550,13 @@ export class ThreadAppender implements TrackAppender {
       return entry.callFrame.functionName || i18nString(UIStrings.anonymous);
     }
 
+    if (TraceEngine.Types.TraceEvents.isTraceEventDispatch(entry)) {
+      // EventDispatch represent user actions such as clicks, so in this case
+      // rather than show the event title (which is always just "Event"), we
+      // add the type ("click") to help the user understand the event.
+      return `Event: ${entry.args.data.type}`;
+    }
+
     const defaultName = getEventStyle(entry.name as TraceEngine.Types.TraceEvents.KnownEventName)?.title;
     return defaultName || entry.name;
   }
