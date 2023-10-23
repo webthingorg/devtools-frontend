@@ -33,6 +33,24 @@
       "message": "Thanks for this! Would it be possible to add an e2e test case for reload coverage?",
       "revId": "1b5f80bc5e719a7604fff83c9787d7d04ad62448",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e66eecde_2a7aa837",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-10-23T22:21:07Z",
+      "side": 1,
+      "message": "Done - Added an e2etest for content loaded scenario.",
+      "parentUuid": "c6a7e2c5_2c9d1ae8",
+      "revId": "1b5f80bc5e719a7604fff83c9787d7d04ad62448",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
