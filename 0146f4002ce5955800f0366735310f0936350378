@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d1bb12d_f364b1b5",
+        "filename": "test/interactions/panels/performance/timeline/timeline_selection_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-23T08:51:16Z",
+      "side": 1,
+      "message": "figured it would be easier to maintain this if it took a title and timestamp to query an event (which don\u0027t change) instead of a hardcoded index (which can change f.e. if we only append data from new engine in tests).",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "0146f4002ce5955800f0366735310f0936350378",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
