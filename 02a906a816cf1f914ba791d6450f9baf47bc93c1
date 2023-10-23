@@ -174,6 +174,24 @@
       "parentUuid": "f3c2c64f_28cb1598",
       "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca7d3a50_60bc3d1c",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-23T09:04:48Z",
+      "side": 1,
+      "message": "Yep, color-mix is a readonly visualization.\n\nAh that\u0027s fair.",
+      "parentUuid": "b46cdeee_e1101fe5",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
