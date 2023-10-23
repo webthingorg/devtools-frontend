@@ -16,6 +16,23 @@
       "message": "ptal. prep for changing the trace event.\nsee go/interaction-track-redux appendix for details.",
       "revId": "8565d06d959258779f7f9695acf9f6b9c12f5958",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f84dcbb_8b7f5a83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-23T09:59:11Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "8565d06d959258779f7f9695acf9f6b9c12f5958",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
