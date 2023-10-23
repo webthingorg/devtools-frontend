@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6550ef6b_7764104c",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-23T14:44:00Z",
+      "side": 0,
+      "message": "Why did we decide to remove this logging? 🤔",
+      "revId": "beafd6bc7f47d6a32b2a43917568e4f975317bf2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

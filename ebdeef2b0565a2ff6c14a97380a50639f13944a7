@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4489b87c_64e59a2f",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-23T14:44:00Z",
+      "side": 1,
+      "message": "Maybe `propertyKey` for this specific view, WDYT?",
+      "revId": "ebdeef2b0565a2ff6c14a97380a50639f13944a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
