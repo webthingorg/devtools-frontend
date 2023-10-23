@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d9389b0_19d7c6fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2023-10-23T22:43:04Z",
+      "side": 1,
+      "message": "In addition to code review, please also review the Issue text and let me know if you see any problems.\n\nThanks",
+      "revId": "450add60ba837e5e811be32e3d08a251fbe8a972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
