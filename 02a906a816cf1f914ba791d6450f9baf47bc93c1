@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "668b87d0_771c55da",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-23T07:41:49Z",
+      "side": 1,
+      "message": "Absolutely! Thanks, done.",
+      "parentUuid": "d7e3cb1a_e47e5509",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2375e4c2_49279b96",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-10-20T11:59:45Z",
       "side": 1,
       "message": "Why don\u0027t we use `hex` as the context here?",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6213420a_5b91da9e",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-23T07:41:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2375e4c2_49279b96",
       "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f27e3b6f_3ea1d953",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-23T07:41:49Z",
+      "side": 1,
+      "message": "I was asking myself the same question...\n\nFirst, I don\u0027t like to call it `button` (and I should probably rename `dropDownButton` to `dropDown`) because I want to encode the function rather than appearance  in the persistent logs. We might want to change the appearance and would probably like to keep tracking the function usage. OTOH, if we change the function but keep the appearance, we certainly want this to be logged as something else.\n\nWe could call it `action` instead, and maybe it is a better idea indeed. For now I am a bit reluctant to do it, as those actions seem to be the most interesting VEs for analysis and they seem important enough to deserve their own VE. \n\nSimon, wdyt?",
+      "parentUuid": "2effe377_bffe0a53",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3c2c64f_28cb1598",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
         "patchSetId": 4
@@ -82,6 +136,24 @@
       "writtenOn": "2023-10-20T11:59:45Z",
       "side": 1,
       "message": "Instead of `showStyleEditor`, can we name these as `swatch` as some of them are not related to the showing an editor but readonly visualization of the property?",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b46cdeee_e1101fe5",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-23T07:41:49Z",
+      "side": 1,
+      "message": "I couldn\u0027t trigger this one so I might be wrong about `showStyleEditor` here. Is color mix read-only visualization?\n\nI don\u0027t like the term `swatch` as it doesn\u0027t carry any meaning in itself. Only those familiar with the code base would be able to tell what it is.",
+      "parentUuid": "f3c2c64f_28cb1598",
       "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
