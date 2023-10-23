@@ -16,6 +16,23 @@
       "message": "WDYT?",
       "revId": "89fbd3767a7b24c206cf69df0145abf8aa58ee60",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0536472d_9155fe33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-23T13:33:34Z",
+      "side": 1,
+      "message": "Sounds good to me!",
+      "revId": "89fbd3767a7b24c206cf69df0145abf8aa58ee60",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
