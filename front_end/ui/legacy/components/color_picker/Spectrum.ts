@@ -361,8 +361,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     UI.ARIAUtils.setLabel(this.hexValue, label.textContent);
 
     const displaySwitcher = toolsContainer.createChild('button', 'spectrum-display-switcher spectrum-switcher');
-    displaySwitcher.setAttribute(
-        'jslog', `${VisualLogging.dropDownButton().track({click: true}).context('colorFormat')}`);
+    displaySwitcher.setAttribute('jslog', `${VisualLogging.dropDown().track({click: true}).context('colorFormat')}`);
     appendSwitcherIcon(displaySwitcher);
     UI.UIUtils.setTitle(displaySwitcher, i18nString(UIStrings.changeColorFormat));
     displaySwitcher.tabIndex = 0;
@@ -408,7 +407,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     const paletteSwitcher =
         this.paletteSectionContainer.createChild('div', 'spectrum-palette-switcher spectrum-switcher');
     paletteSwitcher.setAttribute(
-        'jslog', `${VisualLogging.dropDownButton().track({click: true}).context('paletteSwitcher')}`);
+        'jslog', `${VisualLogging.dropDown().track({click: true}).context('paletteSwitcher')}`);
     appendSwitcherIcon(paletteSwitcher);
     UI.UIUtils.setTitle(paletteSwitcher, i18nString(UIStrings.previewPalettes));
     UI.ARIAUtils.markAsButton(paletteSwitcher);
@@ -645,7 +644,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
   private createPaletteColor(colorText: string, colorName?: string, animationDelay?: number): HTMLElement {
     const element = document.createElement('div') as HTMLElement;
     element.classList.add('spectrum-palette-color');
-    element.setAttribute('jslog', `${VisualLogging.option().track({click: true, drag: true})}`);
+    element.setAttribute('jslog', `${VisualLogging.item().track({click: true, drag: true})}`);
     element.style.background =
         Platform.StringUtilities.sprintf('linear-gradient(%s, %s), var(--image-file-checker)', colorText, colorText);
     if (animationDelay) {
