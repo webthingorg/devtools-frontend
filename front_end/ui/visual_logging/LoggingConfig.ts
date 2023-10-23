@@ -75,6 +75,10 @@ enum VisualElements {
   CssColorMix = 52,
   Value = 53,
   Key = 54,
+  GridSettings = 55,
+  FlexboxOverlays = 56,
+  GridOverlays = 57,
+  JumpToElement = 58,
 }
 
 function resolveVe(ve: string): number {
