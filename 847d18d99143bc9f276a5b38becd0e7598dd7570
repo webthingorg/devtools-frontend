@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1eb7de7_60ee7770",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-23T13:32:01Z",
+      "side": 1,
+      "message": "Can you take a look? This essentially reverts crrev.com/c/3477101",
+      "revId": "847d18d99143bc9f276a5b38becd0e7598dd7570",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
