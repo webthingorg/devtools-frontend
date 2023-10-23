@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ce25648_e1525150",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-10-23T08:29:19Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "fba060c7472ed8df45a4509d76c79632f71d9393",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "114c5c4b_d65f212a",
@@ -31,6 +48,24 @@
       "writtenOn": "2023-10-23T08:23:12Z",
       "side": 1,
       "message": "This only works for nested parens, not for sequences like ()(). Is that a problem?",
+      "revId": "fba060c7472ed8df45a4509d76c79632f71d9393",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0fe696c_99eebeae",
+        "filename": "front_end/panels/console/ErrorStackParser.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-10-23T08:29:19Z",
+      "side": 1,
+      "message": "This is intended.",
+      "parentUuid": "114c5c4b_d65f212a",
       "revId": "fba060c7472ed8df45a4509d76c79632f71d9393",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
