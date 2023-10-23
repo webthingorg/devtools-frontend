@@ -50,6 +50,24 @@
       "message": "Would the new `--sys-color-primary` also work here?",
       "revId": "26515093d6af8bb8061cf4b145aecfadc20f7bc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e5dae5_4502e28d",
+        "filename": "front_end/ui/legacy/tabbedPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-10-23T13:08:56Z",
+      "side": 1,
+      "message": "I intentionally used exactly the same styling as in the Performance and other panels.",
+      "parentUuid": "4dadd070_9bf2c22c",
+      "revId": "26515093d6af8bb8061cf4b145aecfadc20f7bc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
