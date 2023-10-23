@@ -33,6 +33,24 @@
       "message": "Could this be a map? If you want to keep this sort of migrations mechanical though, I\u0027m fine keeping this as is though!",
       "revId": "f5c7c890ac62b6f6054e99cc0c0096fc15b0544d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "006995e8_49371681",
+        "filename": "front_end/legacy_test_runner/bindings_test_runner/IsolatedFilesystemTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-23T10:04:12Z",
+      "side": 1,
+      "message": "Yeah, this could be a `Map` and `TestFileSystem` a class. But I don\u0027t wanna put too much effort in here. We can refactor those if we decide to move forward with a TS migration.",
+      "parentUuid": "d35fe307_aae43964",
+      "revId": "f5c7c890ac62b6f6054e99cc0c0096fc15b0544d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
