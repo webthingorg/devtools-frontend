@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf3b0ff9_e946e013",
+        "filename": "front_end/core/sdk/OverlayPersistentHighlighter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-23T13:41:53Z",
+      "side": 1,
+      "message": "Updated it, thanks! :)",
+      "parentUuid": "08e0d2e8_ec761ef6",
+      "revId": "ce5811826df0f7bd0c0e66a427d2855b3678d2a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af1b1944_23ed77b0",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-10-20T08:12:59Z",
       "side": 1,
       "message": "Do we have any policy regarding valid, non-example.com URLs in the codebase?",
+      "revId": "ce5811826df0f7bd0c0e66a427d2855b3678d2a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "135afd4c_96e6d1d8",
+        "filename": "test/unittests/front_end/core/sdk/OverlayPersistentHighlighter_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-23T13:41:53Z",
+      "side": 1,
+      "message": "Ah, used example.com and notexample.com (this is also used in other places); thanks for the catch!",
+      "parentUuid": "af1b1944_23ed77b0",
       "revId": "ce5811826df0f7bd0c0e66a427d2855b3678d2a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
