@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48c07a24_34ec40f7",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-23T07:51:19Z",
+      "side": 1,
+      "message": "No strong opinion. I think in the end it\u0027ll come down to whether we\u0027ll be able to make sense of the data during analysis and what will be easier to read/handle/process.\n\nI think we can land as-is with the understanding that we may iterate here to better fit what we need later on.",
+      "parentUuid": "f27e3b6f_3ea1d953",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3c2c64f_28cb1598",
         "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
         "patchSetId": 4
