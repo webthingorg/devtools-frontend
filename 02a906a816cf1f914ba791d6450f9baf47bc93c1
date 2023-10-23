@@ -192,6 +192,24 @@
       "parentUuid": "b46cdeee_e1101fe5",
       "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ddbabbc_68640ea4",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorMixSwatch.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-23T10:28:07Z",
+      "side": 1,
+      "message": "Thanks, changed to a dedicated VE for now. We\u0027ll see if we can generalize it later.",
+      "parentUuid": "ca7d3a50_60bc3d1c",
+      "revId": "02a906a816cf1f914ba791d6450f9baf47bc93c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
