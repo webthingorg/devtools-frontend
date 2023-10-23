@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb8b267a_77d1ef98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-23T02:44:52Z",
+      "side": 1,
+      "message": "i need some help with the types on this. not sure how to handle the phase enum at very least.",
+      "revId": "500e818878620b98289cdeab6c74350f7719b2db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
