@@ -16,6 +16,46 @@
       "message": "wdyt?",
       "revId": "2c4f0f0710e11456eec4bac32c533b045b5f755b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f692b3a3_3c2868b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-23T12:25:43Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "2c4f0f0710e11456eec4bac32c533b045b5f755b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dd24db7_82e801f3",
+        "filename": "test/unittests/fixtures/traces/node-fibonacci-website.cpuprofile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-23T12:25:43Z",
+      "side": 1,
+      "message": "I think this file leaked into the cl? ;)",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "2c4f0f0710e11456eec4bac32c533b045b5f755b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
