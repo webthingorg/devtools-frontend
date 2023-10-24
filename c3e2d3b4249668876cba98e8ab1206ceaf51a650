@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "975631e0_3f69c2c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-24T08:03:15Z",
+      "side": 1,
+      "message": "LGTM with suggestion",
+      "revId": "c3e2d3b4249668876cba98e8ab1206ceaf51a650",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0267d53a_18ff3ecc",
+        "filename": "front_end/legacy_test_runner/test_runner/test_runner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-10-24T08:03:15Z",
+      "side": 1,
+      "message": "Can we move this to the extension tests/testrunner?",
+      "revId": "c3e2d3b4249668876cba98e8ab1206ceaf51a650",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
