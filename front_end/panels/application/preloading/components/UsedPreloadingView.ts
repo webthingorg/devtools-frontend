@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
+import type * as Platform from '../../../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Protocol from '../../../../generated/protocol.js';
@@ -14,12 +15,10 @@ import * as ReportView from '../../../../ui/components/report_view/report_view.j
 import * as UI from '../../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
-import type * as Platform from '../../../../core/platform/platform.js';
-
-import usedPreloadingStyles from './usedPreloadingView.css.js';
-
-import {prefetchFailureReason, prerenderFailureReason} from './PreloadingString.js';
 import * as MismatchedPreloadingGrid from './MismatchedPreloadingGrid.js';
+import * as PreloadingMismatchedHeadersGrid from './PreloadingMismatchedHeadersGrid.js';
+import {prefetchFailureReason, prerenderFailureReason} from './PreloadingString.js';
+import usedPreloadingStyles from './usedPreloadingView.css.js';
 
 const UIStrings = {
   /**
@@ -69,6 +68,10 @@ const UIStrings = {
    *@description Link to learn more about Preloading
    */
   learnMore: 'Learn more: Preloading on developer.chrome.com',
+  /**
+   *@description Header for mismatched preloads.
+   */
+  mismatchedHeadersdetail: 'Mismatched headers detail',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/preloading/components/UsedPreloadingView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -217,6 +220,7 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
         ${maybeFailureReason}
 
         ${this.#maybeMismatchedSections(kind)}
+        ${this.#maybeMismatchedHeadersSections(kind)}
 
         <${ReportView.ReportView.ReportSection.litTagName}>
           ${UI.XLink.XLink.create('https://developer.chrome.com/blog/prerender-pages/', i18nString(UIStrings.learnMore), 'link')}
@@ -258,6 +262,44 @@ export class UsedPreloadingView extends LegacyWrapper.LegacyWrapper.WrappableCom
         <${MismatchedPreloadingGrid.MismatchedPreloadingGrid.litTagName}
           .data=${data as MismatchedPreloadingGrid.MismatchedPreloadingGridData}></${
           MismatchedPreloadingGrid.MismatchedPreloadingGrid.litTagName}>
+      </${ReportView.ReportView.ReportSection.litTagName}>
+    `;
+    // clang-format on
+  }
+
+  #maybeMismatchedHeadersSections(kind: UsedKind): LitHtml.LitTemplate {
+    if (kind !== UsedKind.PrerenderFailed || this.#data.attempts.length === 0) {
+      return LitHtml.nothing;
+    }
+
+    let mismatchedHeadersAttempt: SDK.PreloadingModel.PrerenderAttempt|null = null;
+    const rows = this.#data.attempts;
+    for (const attempt of rows) {
+      if (attempt.action === Protocol.Preload.SpeculationAction.Prerender && attempt.mismatchedHeaders) {
+        mismatchedHeadersAttempt = attempt;
+        break;
+      }
+    }
+
+    if (mismatchedHeadersAttempt === null) {
+      return LitHtml.nothing;
+    }
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return LitHtml.html`
+      <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.currentURL)}</${
+        ReportView.ReportView.ReportSectionHeader.litTagName}>
+      <${ReportView.ReportView.ReportSection.litTagName}>
+        ${UI.XLink.XLink.create(this.#data.pageURL)}
+      </${ReportView.ReportView.ReportSection.litTagName}>
+
+      <${ReportView.ReportView.ReportSectionHeader.litTagName}>${i18nString(UIStrings.mismatchedHeadersdetail)}</${
+        ReportView.ReportView.ReportSectionHeader.litTagName}>
+      <${ReportView.ReportView.ReportSection.litTagName}>
+        <${PreloadingMismatchedHeadersGrid.PreloadingMismatchedHeadersGrid.litTagName}
+          .data=${mismatchedHeadersAttempt as SDK.PreloadingModel.PrerenderAttempt}></${
+            PreloadingMismatchedHeadersGrid.PreloadingMismatchedHeadersGrid.litTagName}>
       </${ReportView.ReportView.ReportSection.litTagName}>
     `;
     // clang-format on
