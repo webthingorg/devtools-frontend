@@ -289,6 +289,13 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     this.consoleGroupInternal = null;
   }
 
+  setInsight(insight: HTMLElement): void {
+    if (!this.elementInternal?.querySelector('devtools-console-insight')) {
+      this.elementInternal?.append(insight);
+    }
+    (this.elementInternal?.querySelector('devtools-console-insight') as unknown as {update(): void})?.update();
+  }
+
   element(): HTMLElement {
     return this.toMessageElement();
   }
