@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a58f20c_ebfd74be",
+        "filename": "front_end/legacy_test_runner/elements_test_runner/EditDOMTestRunner.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-24T08:09:49Z",
+      "side": 1,
+      "message": "Nice catch! Done.",
+      "parentUuid": "f927a8e2_483cd04f",
+      "revId": "57e4eb5066f1afbfe2fdf4029ad3b9ba60238244",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dd38e01_431c0794",
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "This is to avoid losing updates to the properties in the runner?",
       "parentUuid": "2dd38e01_431c0794",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 4
+      },
+      "revId": "57e4eb5066f1afbfe2fdf4029ad3b9ba60238244",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8560c4e1_7b74b059",
+        "filename": "front_end/legacy_test_runner/elements_test_runner/elements_test_runner.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-24T08:09:49Z",
+      "side": 1,
+      "message": "Yes. `SetOuterHTMLTestRunner` updates those variables as the test goes on and we need a \"live view\" of those. Ideally these would be functions but this is the low-overhead solution that only required one test update.",
+      "parentUuid": "2d840ca0_8afb6e4f",
       "range": {
         "startLine": 17,
         "startChar": 0,
