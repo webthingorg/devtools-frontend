@@ -15,6 +15,8 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as BrowserDebugger from '../../panels/browser_debugger/browser_debugger.js';
 
+import {TestRunner} from '../test_runner/test_runner.js';
+
 SourcesTestRunner.startDebuggerTest = async function(callback, quiet) {
   console.assert(TestRunner.debuggerModel.debuggerEnabled(), 'Debugger has to be enabled');
 

@@ -6,6 +6,7 @@ import * as Application from '../../panels/application/application.js';
 import * as Sources from '../../panels/sources/sources.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import {SourcesTestRunner} from '../sources_test_runner/sources_test_runner.js';
+import {TestRunner} from '../test_runner/test_runner.js';
 
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
