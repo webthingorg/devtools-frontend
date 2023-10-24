@@ -16,6 +16,46 @@
       "message": "Hi @mattreynolds, could you give me a dry-runner permission? (jwoo.park@navercorp.com) and thank you for your review too.",
       "revId": "788949f21833d519e201d7ba32c529f9b9913bdd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fe252e1_a212ec42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1136314
+      },
+      "writtenOn": "2023-10-24T22:37:00Z",
+      "side": 1,
+      "message": "Please update `getPositionPromise` in https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/http/tests/devtools/geolocation-emulation-tests.js to output the Accuracy in addition to the Latitude and Longitude, then update the expectations file (geolocation-emulation-tests-expected.txt) with the new expected output.",
+      "revId": "788949f21833d519e201d7ba32c529f9b9913bdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c12a86_81e84bf2",
+        "filename": "front_end/panels/sensors/SensorsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1136314
+      },
+      "writtenOn": "2023-10-24T22:37:00Z",
+      "side": 1,
+      "message": "```suggestion\n   *@description Label for Accuracy of a GPS location.\n```",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 45
+      },
+      "revId": "788949f21833d519e201d7ba32c529f9b9913bdd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
