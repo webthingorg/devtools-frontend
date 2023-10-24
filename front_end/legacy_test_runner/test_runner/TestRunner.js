@@ -106,7 +106,6 @@ export function completeTest() {
   _innerCompleteTest();
 }
 
-self.TestRunner = self.TestRunner || {};
 function flushResults() {
   Array.prototype.forEach.call(document.documentElement.childNodes, x => x.remove());
   const outputElement = document.createElement('div');
@@ -406,7 +405,7 @@ export function textContentWithoutStyles(node) {
  */
 export async function evaluateInPageRemoteObject(code) {
   const response = await _evaluateInPage(code);
-  return TestRunner.runtimeModel.createRemoteObject(response.result);
+  return this.runtimeModel.createRemoteObject(response.result);
 }
 
 /**
@@ -442,7 +441,7 @@ export async function _evaluateInPage(code) {
   if (code.indexOf('sourceURL=') === -1) {
     code += `//# sourceURL=${sourceURL}`;
   }
-  const response = await TestRunner.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console'});
+  const response = await this.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console'});
   const error = response[ProtocolClient.InspectorBackend.ProtocolError];
   if (error) {
     addResult('Error: ' + error);
@@ -460,8 +459,7 @@ export async function _evaluateInPage(code) {
  * @return {!Promise<*>}
  */
 export async function evaluateInPageAnonymously(code, userGesture) {
-  const response =
-      await TestRunner.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console', userGesture});
+  const response = await this.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console', userGesture});
   if (!response[ProtocolClient.InspectorBackend.ProtocolError]) {
     return response.result.value;
   }
@@ -484,7 +482,7 @@ export function evaluateInPagePromise(code) {
  * @return {!Promise<*>}
  */
 export async function evaluateInPageAsync(code) {
-  const response = await TestRunner.RuntimeAgent.invoke_evaluate(
+  const response = await this.RuntimeAgent.invoke_evaluate(
       {expression: code, objectGroup: 'console', includeCommandLineAPI: false, awaitPromise: true});
 
   const error = response[ProtocolClient.InspectorBackend.ProtocolError];
@@ -529,7 +527,7 @@ export function evaluateInPageWithTimeout(code, userGesture) {
  */
 export function evaluateFunctionInOverlay(func, callback) {
   const expression = 'internals.evaluateInInspectorOverlay("(" + ' + func + ' + ")()")';
-  const mainContext = TestRunner.runtimeModel.executionContexts()[0];
+  const mainContext = this.runtimeModel.executionContexts()[0];
   mainContext
       .evaluate(
           {
@@ -661,7 +659,7 @@ export function addIframe(path, options = {}) {
  * @param {string} code
  */
 export async function deprecatedInitAsync(code) {
-  await TestRunner.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console'});
+  await this.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console'});
 }
 
 /**
@@ -682,8 +680,8 @@ export function startDumpingProtocolMessages() {
  */
 export function addScriptForFrame(url, content, frame) {
   content += '\n//# sourceURL=' + url;
-  const executionContext = TestRunner.runtimeModel.executionContexts().find(context => context.frameId === frame.id);
-  TestRunner.RuntimeAgent.evaluate(content, 'console', false, false, executionContext.id);
+  const executionContext = this.runtimeModel.executionContexts().find(context => context.frameId === frame.id);
+  this.RuntimeAgent.evaluate(content, 'console', false, false, executionContext.id);
 }
 
 export const formatters = {
@@ -990,7 +988,7 @@ let _pageLoadedCallback;
  */
 export function navigate(url, callback) {
   _pageLoadedCallback = safeWrap(callback);
-  TestRunner.resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, _pageNavigated);
+  this.resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, _pageNavigated);
   // Note: injected <base> means that url is relative to test
   // and not the inspected page
   evaluateInPageAnonymously('window.location.replace(\'' + url + '\')');
@@ -1004,7 +1002,7 @@ export function navigatePromise(url) {
 }
 
 export function _pageNavigated() {
-  TestRunner.resourceTreeModel.removeEventListener(SDK.ResourceTreeModel.Events.Load, _pageNavigated);
+  this.resourceTreeModel.removeEventListener(SDK.ResourceTreeModel.Events.Load, _pageNavigated);
   _handlePageLoaded();
 }
 
@@ -1044,18 +1042,18 @@ export function reloadPagePromise() {
  */
 export function _innerReloadPage(hardReload, injectedScript, callback) {
   _pageLoadedCallback = safeWrap(callback);
-  TestRunner.resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, pageLoaded);
-  TestRunner.resourceTreeModel.reloadPage(hardReload, injectedScript);
+  this.resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, pageLoaded);
+  this.resourceTreeModel.reloadPage(hardReload, injectedScript);
 }
 
 export function pageLoaded() {
-  TestRunner.resourceTreeModel.removeEventListener(SDK.ResourceTreeModel.Events.Load, pageLoaded);
+  this.resourceTreeModel.removeEventListener(SDK.ResourceTreeModel.Events.Load, pageLoaded);
   addResult('Page reloaded.');
   _handlePageLoaded();
 }
 
 export async function _handlePageLoaded() {
-  await waitForExecutionContext(/** @type {!SDK.RuntimeModel.RuntimeModel} */ (TestRunner.runtimeModel));
+  await waitForExecutionContext(/** @type {!SDK.RuntimeModel.RuntimeModel} */ (this.runtimeModel));
   if (_pageLoadedCallback) {
     const callback = _pageLoadedCallback;
     _pageLoadedCallback = undefined;
@@ -1067,10 +1065,10 @@ export async function _handlePageLoaded() {
  * @param {function():void} callback
  */
 export function waitForPageLoad(callback) {
-  TestRunner.resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, onLoaded);
+  this.resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, onLoaded);
 
   function onLoaded() {
-    TestRunner.resourceTreeModel.removeEventListener(SDK.ResourceTreeModel.Events.Load, onLoaded);
+    this.resourceTreeModel.removeEventListener(SDK.ResourceTreeModel.Events.Load, onLoaded);
     callback();
   }
 }
@@ -1203,7 +1201,7 @@ export function hideInspectorView() {
  * @return {?SDK.ResourceTreeModel.ResourceTreeFrame}
  */
 export function mainFrame() {
-  return TestRunner.resourceTreeModel.mainFrame;
+  return this.resourceTreeModel.mainFrame;
 }
 
 export class StringOutputStream {
@@ -1394,79 +1392,7 @@ export async function waitForPendingLiveLocationUpdates() {
   await Bindings.CSSWorkspaceBinding.CSSWorkspaceBinding.instance().pendingLiveLocationChangesPromise();
 }
 
+export const isScrolledToBottom = UI.UIUtils.isScrolledToBottom;
+
 /** @type {!{logToStderr: function(), navigateSecondaryWindow: function(string), notifyDone: function()}|undefined} */
 self.testRunner;
-
-TestRunner.StringOutputStream = StringOutputStream;
-TestRunner.MockSetting = MockSetting;
-
-TestRunner.formatters = formatters;
-
-TestRunner.completeTest = completeTest;
-TestRunner.addResult = addResult;
-TestRunner.addResults = addResults;
-TestRunner.runTests = runTests;
-TestRunner.addSniffer = addSniffer;
-TestRunner.addSnifferPromise = addSnifferPromise;
-TestRunner.showPanel = showPanel;
-TestRunner.createKeyEvent = createKeyEvent;
-TestRunner.safeWrap = safeWrap;
-TestRunner.textContentWithLineBreaks = textContentWithLineBreaks;
-TestRunner.textContentWithLineBreaksTrimmed = textContentWithLineBreaksTrimmed;
-TestRunner.textContentWithoutStyles = textContentWithoutStyles;
-TestRunner.evaluateInPagePromise = evaluateInPagePromise;
-TestRunner.callFunctionInPageAsync = callFunctionInPageAsync;
-TestRunner.evaluateInPageWithTimeout = evaluateInPageWithTimeout;
-TestRunner.evaluateFunctionInOverlay = evaluateFunctionInOverlay;
-TestRunner.check = check;
-TestRunner.deprecatedRunAfterPendingDispatches = deprecatedRunAfterPendingDispatches;
-TestRunner.loadHTML = loadHTML;
-TestRunner.addScriptTag = addScriptTag;
-TestRunner.addStylesheetTag = addStylesheetTag;
-TestRunner.addIframe = addIframe;
-TestRunner.markStep = markStep;
-TestRunner.startDumpingProtocolMessages = startDumpingProtocolMessages;
-TestRunner.addScriptForFrame = addScriptForFrame;
-TestRunner.addObject = addObject;
-TestRunner.addArray = addArray;
-TestRunner.dumpDeepInnerHTML = dumpDeepInnerHTML;
-TestRunner.deepTextContent = deepTextContent;
-TestRunner.dump = dump;
-TestRunner.waitForEvent = waitForEvent;
-TestRunner.waitForTarget = waitForTarget;
-TestRunner.waitForTargetRemoved = waitForTargetRemoved;
-TestRunner.waitForExecutionContext = waitForExecutionContext;
-TestRunner.waitForExecutionContextDestroyed = waitForExecutionContextDestroyed;
-TestRunner.assertGreaterOrEqual = assertGreaterOrEqual;
-TestRunner.navigate = navigate;
-TestRunner.navigatePromise = navigatePromise;
-TestRunner.hardReloadPage = hardReloadPage;
-TestRunner.reloadPage = reloadPage;
-TestRunner.reloadPageWithInjectedScript = reloadPageWithInjectedScript;
-TestRunner.reloadPagePromise = reloadPagePromise;
-TestRunner.pageLoaded = pageLoaded;
-TestRunner.waitForPageLoad = waitForPageLoad;
-TestRunner.runWhenPageLoads = runWhenPageLoads;
-TestRunner.runTestSuite = runTestSuite;
-TestRunner.assertEquals = assertEquals;
-TestRunner.assertTrue = assertTrue;
-TestRunner.override = override;
-TestRunner.clearSpecificInfoFromStackFrames = clearSpecificInfoFromStackFrames;
-TestRunner.hideInspectorView = hideInspectorView;
-TestRunner.mainFrame = mainFrame;
-TestRunner.waitForUISourceCode = waitForUISourceCode;
-TestRunner.waitForUISourceCodeRemoved = waitForUISourceCodeRemoved;
-TestRunner.url = url;
-TestRunner.dumpSyntaxHighlight = dumpSyntaxHighlight;
-TestRunner.evaluateInPageRemoteObject = evaluateInPageRemoteObject;
-TestRunner.evaluateInPage = evaluateInPage;
-TestRunner.evaluateInPageAnonymously = evaluateInPageAnonymously;
-TestRunner.evaluateInPageAsync = evaluateInPageAsync;
-TestRunner.deprecatedInitAsync = deprecatedInitAsync;
-TestRunner.runAsyncTestSuite = runAsyncTestSuite;
-TestRunner.dumpInspectedPageElementText = dumpInspectedPageElementText;
-TestRunner.waitForPendingLiveLocationUpdates = waitForPendingLiveLocationUpdates;
-TestRunner.findLineEndingIndexes = findLineEndingIndexes;
-TestRunner.selectTextInTextNode = selectTextInTextNode;
-
-TestRunner.isScrolledToBottom = UI.UIUtils.isScrolledToBottom;

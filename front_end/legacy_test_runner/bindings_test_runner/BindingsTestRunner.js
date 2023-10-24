@@ -4,14 +4,14 @@
 
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import * as Workspace from '../../models/workspace/workspace.js';
-
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
  */
 
 import * as Bindings from '../../models/bindings/bindings.js';
+import * as Workspace from '../../models/workspace/workspace.js';
 import * as Diff from '../../third_party/diff/diff.js';
+import {TestRunner} from '../test_runner/test_runner.js';
 
 export const cleanupURL = function(url) {
   if (!url.startsWith('debugger://')) {

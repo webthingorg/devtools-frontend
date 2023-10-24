@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import * as UI from '../../ui/legacy/legacy.js';
+import {TestRunner} from '../test_runner/test_runner.js';
+
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
  */

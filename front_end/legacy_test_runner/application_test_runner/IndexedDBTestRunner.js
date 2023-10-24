@@ -5,6 +5,7 @@
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Application from '../../panels/application/application.js';
 import {ConsoleTestRunner} from '../console_test_runner/console_test_runner.js';
+import {TestRunner} from '../test_runner/test_runner.js';
 
 /**
  * @fileoverview using private properties isn't a Closure violation in tests.
