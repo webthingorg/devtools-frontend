@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79ec755_21dffc42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-10-24T08:17:23Z",
+      "side": 1,
+      "message": "See https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4968502/1..4 for the fixes",
+      "revId": "9dade575a54f668af79782f9d45198450d2c702b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
