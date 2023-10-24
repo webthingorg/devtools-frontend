@@ -180,6 +180,8 @@ export class CompatibilityTracksAppender {
           return 2;
         case ThreadType.RASTERIZER:
           return 3;
+        case ThreadType.THREAD_POOL:
+          return 4;
         case ThreadType.AUCTION_WORKLET:
           return 4;
         case ThreadType.OTHER:
@@ -197,6 +199,7 @@ export class CompatibilityTracksAppender {
       }
     } else if (this.#traceParsedData.Renderer) {
       let rasterCount = 0;
+      let threadPoolCount = 0;
       for (const [pid, process] of this.#traceParsedData.Renderer.processes) {
         if (this.#traceParsedData.AuctionWorklets.worklets.has(pid)) {
           const workletEvent = this.#traceParsedData.AuctionWorklets.worklets.get(pid);
@@ -226,9 +229,14 @@ export class CompatibilityTracksAppender {
           } else if (thread.name?.startsWith('CompositorTileWorker')) {
             threadType = ThreadType.RASTERIZER;
             rasterCount++;
+          } else if (thread.name?.startsWith('ThreadPool')) {
+            threadType = ThreadType.THREAD_POOL;
+            threadPoolCount++;
           }
+
+          const groupedChildCount = threadType === ThreadType.RASTERIZER ? rasterCount : threadType === ThreadType.THREAD_POOL ? threadPoolCount : 0;
           this.#threadAppenders.push(new ThreadAppender(
-              this, this.#flameChartData, this.#traceParsedData, pid, tid, thread.name, threadType, rasterCount));
+              this, this.#flameChartData, this.#traceParsedData, pid, tid, thread.name, threadType, groupedChildCount));
         }
       }
     }
