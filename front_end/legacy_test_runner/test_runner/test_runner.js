@@ -7,43 +7,51 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Trace from '../../models/trace/trace.js';
 
-import * as TestRunner from './TestRunner.js';
+import * as TestRunnerModule from './TestRunner.js';
+
+export const TestRunner = {
+  ...TestRunnerModule,
+};
+
+// Extension tests currently require 'TestRunner' to be available
+// on globalThis.
+self.TestRunner ??= TestRunner;
 
 /**
  * @param {!SDK.Target.Target} target
  */
 function _setupTestHelpers(target) {
-  self.TestRunner.BrowserAgent = target.browserAgent();
-  self.TestRunner.CSSAgent = target.cssAgent();
-  self.TestRunner.DeviceOrientationAgent = target.deviceOrientationAgent();
-  self.TestRunner.DOMAgent = target.domAgent();
-  self.TestRunner.DOMDebuggerAgent = target.domdebuggerAgent();
-  self.TestRunner.DebuggerAgent = target.debuggerAgent();
-  self.TestRunner.EmulationAgent = target.emulationAgent();
-  self.TestRunner.HeapProfilerAgent = target.heapProfilerAgent();
-  self.TestRunner.InputAgent = target.inputAgent();
-  self.TestRunner.InspectorAgent = target.inspectorAgent();
-  self.TestRunner.NetworkAgent = target.networkAgent();
-  self.TestRunner.OverlayAgent = target.overlayAgent();
-  self.TestRunner.PageAgent = target.pageAgent();
-  self.TestRunner.ProfilerAgent = target.profilerAgent();
-  self.TestRunner.RuntimeAgent = target.runtimeAgent();
-  self.TestRunner.TargetAgent = target.targetAgent();
+  TestRunner.BrowserAgent = target.browserAgent();
+  TestRunner.CSSAgent = target.cssAgent();
+  TestRunner.DeviceOrientationAgent = target.deviceOrientationAgent();
+  TestRunner.DOMAgent = target.domAgent();
+  TestRunner.DOMDebuggerAgent = target.domdebuggerAgent();
+  TestRunner.DebuggerAgent = target.debuggerAgent();
+  TestRunner.EmulationAgent = target.emulationAgent();
+  TestRunner.HeapProfilerAgent = target.heapProfilerAgent();
+  TestRunner.InputAgent = target.inputAgent();
+  TestRunner.InspectorAgent = target.inspectorAgent();
+  TestRunner.NetworkAgent = target.networkAgent();
+  TestRunner.OverlayAgent = target.overlayAgent();
+  TestRunner.PageAgent = target.pageAgent();
+  TestRunner.ProfilerAgent = target.profilerAgent();
+  TestRunner.RuntimeAgent = target.runtimeAgent();
+  TestRunner.TargetAgent = target.targetAgent();
 
-  self.TestRunner.networkManager = target.model(SDK.NetworkManager.NetworkManager);
-  self.TestRunner.securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager);
-  self.TestRunner.storageKeyManager = target.model(SDK.StorageKeyManager.StorageKeyManager);
-  self.TestRunner.resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
-  self.TestRunner.debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
-  self.TestRunner.runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
-  self.TestRunner.domModel = target.model(SDK.DOMModel.DOMModel);
-  self.TestRunner.domDebuggerModel = target.model(SDK.DOMDebuggerModel.DOMDebuggerModel);
-  self.TestRunner.cssModel = target.model(SDK.CSSModel.CSSModel);
-  self.TestRunner.cpuProfilerModel = target.model(SDK.CPUProfilerModel.CPUProfilerModel);
-  self.TestRunner.overlayModel = target.model(SDK.OverlayModel.OverlayModel);
-  self.TestRunner.serviceWorkerManager = target.model(SDK.ServiceWorkerManager.ServiceWorkerManager);
-  self.TestRunner.tracingManager = target.model(Trace.TracingManager.TracingManager);
-  self.TestRunner.mainTarget = target;
+  TestRunner.networkManager = target.model(SDK.NetworkManager.NetworkManager);
+  TestRunner.securityOriginManager = target.model(SDK.SecurityOriginManager.SecurityOriginManager);
+  TestRunner.storageKeyManager = target.model(SDK.StorageKeyManager.StorageKeyManager);
+  TestRunner.resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+  TestRunner.debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+  TestRunner.runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
+  TestRunner.domModel = target.model(SDK.DOMModel.DOMModel);
+  TestRunner.domDebuggerModel = target.model(SDK.DOMDebuggerModel.DOMDebuggerModel);
+  TestRunner.cssModel = target.model(SDK.CSSModel.CSSModel);
+  TestRunner.cpuProfilerModel = target.model(SDK.CPUProfilerModel.CPUProfilerModel);
+  TestRunner.overlayModel = target.model(SDK.OverlayModel.OverlayModel);
+  TestRunner.serviceWorkerManager = target.model(SDK.ServiceWorkerManager.ServiceWorkerManager);
+  TestRunner.tracingManager = target.model(Trace.TracingManager.TracingManager);
+  TestRunner.mainTarget = target;
 }
 
 export async function _executeTestScript() {
@@ -110,6 +118,3 @@ export class _TestObserver {
 }
 
 SDK.TargetManager.TargetManager.instance().observeTargets(new _TestObserver());
-
-const globalTestRunner = self.TestRunner;
-export {globalTestRunner as TestRunner};
