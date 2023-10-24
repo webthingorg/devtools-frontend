@@ -13361,6 +13361,7 @@ export namespace ServiceWorker {
     scriptResponseTime?: number;
     controlledClients?: Target.TargetID[];
     targetId?: Target.TargetID;
+    rules?: string;
   }
 
   /**

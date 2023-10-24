@@ -113,6 +113,12 @@
   text-overflow: ellipsis;
 }
 
+.service-worker-rules {
+  margin-right: 4px;
+  max-width: 400px;
+  min-width: 80px;
+}
+
 .service-worker-client {
   display: flex;
 }
