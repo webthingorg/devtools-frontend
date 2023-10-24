@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "835d5c15_03f95796",
+        "filename": "front_end/models/issues_manager/descriptions/cookieCrossSiteRedirectDowngrade.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2023-10-24T17:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48690b1d_69fb9d4e",
+      "range": {
+        "startLine": 3,
+        "startChar": 35,
+        "endLine": 3,
+        "endChar": 38
+      },
+      "revId": "450add60ba837e5e811be32e3d08a251fbe8a972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39d2b1af_1663d3e8",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-10-24T14:14:12Z",
       "side": 1,
       "message": "enclose in backticks to improve formatting: `SameSite\u003dLax`",
+      "range": {
+        "startLine": 5,
+        "startChar": 54,
+        "endLine": 5,
+        "endChar": 66
+      },
+      "revId": "450add60ba837e5e811be32e3d08a251fbe8a972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d39127c_2b5a3db5",
+        "filename": "front_end/models/issues_manager/descriptions/cookieCrossSiteRedirectDowngrade.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2023-10-24T17:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d2b1af_1663d3e8",
       "range": {
         "startLine": 5,
         "startChar": 54,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8b89d04_df87180d",
+        "filename": "front_end/models/issues_manager/descriptions/cookieCrossSiteRedirectDowngrade.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2023-10-24T17:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb72d6b7_3f2f8657",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 15
+      },
+      "revId": "450add60ba837e5e811be32e3d08a251fbe8a972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be8f22c1_9192b010",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-10-24T14:14:12Z",
       "side": 1,
       "message": "super-nit: add comma after breakage",
+      "range": {
+        "startLine": 11,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "450add60ba837e5e811be32e3d08a251fbe8a972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f7497b_5b65eb18",
+        "filename": "front_end/models/issues_manager/descriptions/cookieCrossSiteRedirectDowngrade.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1316595
+      },
+      "writtenOn": "2023-10-24T17:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be8f22c1_9192b010",
       "range": {
         "startLine": 11,
         "startChar": 28,
