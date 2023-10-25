@@ -189,7 +189,7 @@
 
 .console-message-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 4px;
   border-radius: 5px;
 
