@@ -293,7 +293,16 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
         }
       }
 
-      TraceEngine.Helpers.TreeHelpers.walkEntireTree(entryToNode, thread.tree, onEntryStart, onEntryEnd);
+      const bounds = {...traceParsedData.Meta.traceBounds};
+      if (customStart) {
+        bounds.min = TraceEngine.Helpers.Timing.millisecondsToMicroseconds(customStart);
+      }
+      if (customEnd) {
+        bounds.max = TraceEngine.Helpers.Timing.millisecondsToMicroseconds(customEnd);
+      }
+      bounds.range = TraceEngine.Types.Timing.MicroSeconds(bounds.max - bounds.min);
+
+      TraceEngine.Helpers.TreeHelpers.walkEntireTree(entryToNode, thread.tree, onEntryStart, onEntryEnd, bounds);
 
       quantizer.appendInterval(timeStart + timeRange + quantTime, idleIndex);  // Kick drawing the last bucket.
       for (let i = categoryOrder.length - 1; i > 0; --i) {
@@ -317,7 +326,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
       // TODO(crbug.com/1464206): we are falling back to the old engine for CPU Profiles. We need to
       // update this code to have the ability to find the Main Thread from the
       // CPU Profile and use that if we are in CPU Profiling mode.
-      this.#drawWithNewEngine(this.#traceParsedData);
+      this.#drawWithNewEngine(this.#traceParsedData, start, end);
       return;
     }
 
