@@ -103,7 +103,15 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       this.mainDataProvider.modifyTree(event.data.group, event.data.node);
     });
     // TODO(crbug.com/1469887): Rerender the FlameChart when DataChanged event is triggered
-    this.mainDataProvider.addEventListener(TimelineFlameChartDataProviderEvents.DataChanged, () => {});
+    this.mainDataProvider.addEventListener(TimelineFlameChartDataProviderEvents.DataChanged, () => {
+      this.mainDataProvider.timelineData(true);
+      this.mainFlameChart.reset();
+      const window = this.model?.window();
+      if (window) {
+        this.mainFlameChart.setWindowTimes(window.left, window.right);
+      }
+      this.mainFlameChart.update();
+    });
 
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timelineFlamechartNetworkViewGroupExpansion', {});
