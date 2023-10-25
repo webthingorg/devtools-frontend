@@ -26,6 +26,64 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96c2c64d_9f2f1aff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "Could you add a demo screenshot like https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4627686 ?\nIt makes review easy.",
+      "parentUuid": "9fe92737_6f7f01a9",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5849a89b_6a960abe",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "Please fix.",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1346ba48_07bc6209",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "It doesn\u0027t look to be used.\nI think you can use bare SDK.PreloadingModel.PrerenderAttempt for the argument.",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8e3cdb1_8553d14a",
         "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
         "patchSetId": 6
@@ -72,6 +130,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98327362_4e342515",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "Please use i18n for all use-facing strings here.",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4385c176_b41a11de",
         "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
         "patchSetId": 6
@@ -89,6 +164,74 @@
         "endLine": 98,
         "endChar": 66
       },
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee259aca_7fdbf446",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "Why this is changed...?",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cad19be9_6f619b84",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "```\nconst attempt \u003d this.#data.attempts.find(attempt \u003d\u003e attempt.action \u003d\u003d\u003d Protocol.Preload.SpeculationAction.Prerender \u0026\u0026 attempt.mismatchedHeaders !\u003d\u003d null);\nif (attempt \u003d\u003d\u003d undefined) {\n  return LitHtml.nothing;\n}\n```\n\nwould be more straight.",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c164e18_1694b437",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "Redundant?",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5e45f53_4de80b3c",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/UsedPreloadingView_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-25T06:41:10Z",
+      "side": 1,
+      "message": "Could you add tests?",
       "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
