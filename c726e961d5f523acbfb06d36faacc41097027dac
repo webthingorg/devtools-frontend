@@ -16,6 +16,24 @@
       "message": "this bug is already fixed?",
       "revId": "c726e961d5f523acbfb06d36faacc41097027dac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54372899_c84c17ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1581285
+      },
+      "writtenOn": "2023-10-25T13:53:36Z",
+      "side": 1,
+      "message": "Whooops good catch thx, I copy pasted the wrong bug",
+      "parentUuid": "ed93e99a_2954c19f",
+      "revId": "c726e961d5f523acbfb06d36faacc41097027dac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
