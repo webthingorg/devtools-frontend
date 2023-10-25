@@ -180,6 +180,14 @@ export class CompatibilityTracksAppender extends
     });
   }
 
+  
+  setFlameChartDataAndEntryData(flameChartData: PerfUI.FlameChart.FlameChartTimelineData, entryData: TimelineFlameChartEntry[],
+    legacyEntryTypeByLevel: EntryType[]):void{
+    this.#flameChartData = flameChartData;
+    this.#entryData = entryData
+    this.#legacyEntryTypeByLevel = legacyEntryTypeByLevel
+  }
+
   modifyTree(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.TraceEntry): void {
     const threadTrackAppender = this.#trackForGroup.get(group);
     if (threadTrackAppender instanceof ThreadAppender) {

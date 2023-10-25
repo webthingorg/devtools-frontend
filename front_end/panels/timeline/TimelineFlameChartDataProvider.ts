@@ -398,8 +398,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
    * the new trace engine) and the legacy code paths present in this
    * file. The result built data is cached and returned.
    */
-  timelineData(): PerfUI.FlameChart.FlameChartTimelineData {
-    if (this.timelineDataInternal && this.timelineDataInternal.entryLevels.length !== 0) {
+  timelineData(rebuild: boolean = false): PerfUI.FlameChart.FlameChartTimelineData {
+    if (this.timelineDataInternal && this.timelineDataInternal.entryLevels.length !== 0 && !rebuild) {
       // The flame chart data is built already, so return the cached
       // data.
       return this.timelineDataInternal;
@@ -408,6 +408,22 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.timelineDataInternal = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
     if (!this.legacyTimelineModel) {
       return this.timelineDataInternal;
+    }
+    if(rebuild) {
+      // this.reset()
+      this.currentLevel = 0;
+      // this.timelineDataInternal = null;
+      this.entryData = [];
+      this.entryParent = [];
+      this.entryTypeByLevel = [];
+      this.entryIndexToTitle = [];
+      this.asyncColorByCategory = new Map();
+      this.screenshotImageCache = new Map();
+      // this.compatibilityTracksAppender = null;
+      this.#eventToDisallowRoot = new WeakMap<TraceEngine.Legacy.Event, boolean>();
+      this.#indexForEvent = new WeakMap<TraceEngine.Legacy.Event, number>();
+      // this.timelineDataInternal = null
+      this.compatibilityTracksAppender?.setFlameChartDataAndEntryData(this.timelineDataInternal, this.entryData, this.entryTypeByLevel)
     }
 
     this.flowEventIndexById.clear();
