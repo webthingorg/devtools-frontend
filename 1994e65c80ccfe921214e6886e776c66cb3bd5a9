@@ -69,6 +69,24 @@
       "parentUuid": "3b91b52c_bedfaaf3",
       "revId": "1994e65c80ccfe921214e6886e776c66cb3bd5a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26d1f8c2_ddfdf848",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2023-10-25T18:10:49Z",
+      "side": 1,
+      "message": "OK let\u0027s go with your suggestion. Consistency is good and it is a tool tip so not too in their face.",
+      "parentUuid": "31ff38b7_60f2ccf3",
+      "revId": "1994e65c80ccfe921214e6886e776c66cb3bd5a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
