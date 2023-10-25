@@ -70,6 +70,30 @@
       },
       "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79b39e3_13e8cdeb",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-25T16:09:44Z",
+      "side": 1,
+      "message": "yep I did test it locally and after your comment just noticed something else, which is the mouse-dragging case.\nLet me check it and send a new patch/CL tomorrow to be more confirmed.",
+      "parentUuid": "1ef64f48_945ac87d",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
