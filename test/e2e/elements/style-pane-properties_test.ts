@@ -800,7 +800,6 @@ describe('The Styles pane', async () => {
 
     const inspectedRules = await getDisplayedCSSDeclarations();
     assert.deepStrictEqual(inspectedRules, [
-      'margin: 10px;',
       'margin-top: 10px;',
       'margin-right: 10px;',
       'margin-bottom: 10px;',
