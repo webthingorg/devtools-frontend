@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "667ec50a_f3f5bd3d",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-25T16:14:59Z",
+      "side": 1,
+      "message": "don\u0027t need the boolean cast, right??",
+      "revId": "cc50659f5d22891d448e950fa6479a344577deca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "648cc681_1b8a60e5",
+        "filename": "test/interactions/goldens/win32/performance/main-thread-track-candy-stripe.png",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-25T16:14:59Z",
+      "side": 1,
+      "message": "Ah! The discovery of a lost call frame! \nThat seems like an unexpected side effect of this patch, right??",
+      "revId": "cc50659f5d22891d448e950fa6479a344577deca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
