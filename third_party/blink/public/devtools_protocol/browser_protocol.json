@@ -1012,7 +1012,8 @@
                         "WarnAttributeValueExceedsMaxSize",
                         "WarnDomainNonASCII",
                         "WarnThirdPartyPhaseout",
-                        "WarnCrossSiteRedirectDowngradeChangesInclusion"
+                        "WarnCrossSiteRedirectDowngradeChangesInclusion",
+                        "WarnMetadataGrant"
                     ]
                 },
                 {

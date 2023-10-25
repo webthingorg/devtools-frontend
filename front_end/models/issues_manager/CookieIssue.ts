@@ -467,6 +467,34 @@ const cookieExcludeThirdPartyPhaseoutRead: LazyMarkdownIssueDescription = {
   }],
 };
 
+<<<<<<< HEAD
+=======
+const cookieCrossSiteRedirectDowngrade: LazyMarkdownIssueDescription = {
+  file: 'cookieCrossSiteRedirectDowngrade.md',
+  links: [{
+    link:
+        'https://bugs.chromium.org/p/chromium/issues/entry?template=Defect%20report%20from%20user&summary=[Cross-Site Redirect Chain] <INSERT BUG SUMMARY HERE>&comment=Chrome Version: (copy from chrome://version)%0AChannel: (e.g. Canary, Dev, Beta, Stable)%0A%0AAffected URLs:%0A%0AWhat is the expected result?%0A%0AWhat happens instead?%0A%0AWhat is the purpose of the cross-site redirect?:%0A%0AWhat steps will reproduce the problem?:%0A(1)%0A(2)%0A(3)%0A%0APlease provide any additional information below.&components=Internals%3ENetwork%3ECookies',
+    linkTitle: i18nLazyString(UIStrings.fileCrosSiteRedirectBug),
+  }],
+};
+
+const cookieWarnMetadataGrantRead: LazyMarkdownIssueDescription = {
+  file: 'cookieWarnMetadataGrantRead.md',
+  links: [{
+    link: 'https://developer.chrome.com/docs/privacy-sandbox/third-party-cookie-phase-out/',
+    linkTitle: i18nLazyString(UIStrings.thirdPartyPhaseoutExplained),
+  }],
+};
+
+const cookieWarnMetadataGrantSet: LazyMarkdownIssueDescription = {
+  file: 'cookieWarnMetadataGrantSet.md',
+  links: [{
+    link: 'https://developer.chrome.com/docs/privacy-sandbox/third-party-cookie-phase-out/',
+    linkTitle: i18nLazyString(UIStrings.thirdPartyPhaseoutExplained),
+  }],
+};
+
+>>>>>>> c560a0770b (git squash commit for devtools-frontend.)
 const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
   // These two don't have a deprecation date yet, but they need to be fixed eventually.
   ['CookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie', sameSiteUnspecifiedWarnRead],
@@ -512,4 +540,10 @@ const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
   ['CookieIssue::WarnThirdPartyPhaseout::SetCookie', cookieWarnThirdPartyPhaseoutSet],
   ['CookieIssue::ExcludeThirdPartyPhaseout::ReadCookie', cookieExcludeThirdPartyPhaseoutRead],
   ['CookieIssue::ExcludeThirdPartyPhaseout::SetCookie', cookieExcludeThirdPartyPhaseoutSet],
+<<<<<<< HEAD
+=======
+  ['CookieIssue::CrossSiteRedirectDowngradeChangesInclusion', cookieCrossSiteRedirectDowngrade],
+  ['CookieIssue::WarnMetadataGrant::ReadCookie', cookieWarnMetadataGrantRead],
+  ['CookieIssue::WarnMetadataGrant::SetCookie', cookieWarnMetadataGrantSet],
+>>>>>>> c560a0770b (git squash commit for devtools-frontend.)
 ]);
