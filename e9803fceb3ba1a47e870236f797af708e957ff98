@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f3ee39_4df005e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-25T21:34:43Z",
+      "side": 1,
+      "message": "ptal. \n\ni tried to resolve the TODO you left about rasterCount. seems pretty decent to me. \n\nperf wise i don\u0027t love that we go back to check count but.. as this is track-level it shouldn\u0027t be a huge deal.",
+      "revId": "e9803fceb3ba1a47e870236f797af708e957ff98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
