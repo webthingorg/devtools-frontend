@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a311f5_070fb4d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-10-25T02:53:19Z",
+      "side": 1,
+      "message": "example diff: https://screenshot.googleplex.com/BU8WVaHnoct6SAg \n\na lot easier than going 1 by 1 on the diff changes. :)",
+      "revId": "0d9d21cfbe05e78be468668f68a1481322fa9e1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
