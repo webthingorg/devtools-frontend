@@ -46,6 +46,30 @@
       },
       "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ef64f48_945ac87d",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-25T13:59:41Z",
+      "side": 1,
+      "message": "Ah OK, thanks. That seems like an interesting design choice (which I know you didn\u0027t make!). This LGTM assuming you\u0027ve tested it locally and it all looks good 😊",
+      "parentUuid": "4af378ce_28d28b3d",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
