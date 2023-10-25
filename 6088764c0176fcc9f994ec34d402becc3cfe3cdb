@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "372ab2bc_0a0a1b0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-10-25T11:22:52Z",
+      "side": 1,
+      "message": "Alex, please kindly take a look:) This should fix the Recorder icons being invisible",
+      "revId": "6088764c0176fcc9f994ec34d402becc3cfe3cdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
