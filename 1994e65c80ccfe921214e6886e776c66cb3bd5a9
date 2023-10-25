@@ -51,6 +51,24 @@
       "parentUuid": "0cacf537_70f8982d",
       "revId": "1994e65c80ccfe921214e6886e776c66cb3bd5a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ff38b7_60f2ccf3",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-10-25T17:59:13Z",
+      "side": 1,
+      "message": "Good point! Thanks for clarification. Didn\u0027t thought about that. I did a quick check for the Size column as it has similar case. https://imgur.com/a/9ibY7hb\n\nIt shows the same message regardless of big and small row, and doesn\u0027t matter if the final and transfer size are the same or not.\n\nMy preference was having something similar but I don\u0027t have strong opinion.",
+      "parentUuid": "3b91b52c_bedfaaf3",
+      "revId": "1994e65c80ccfe921214e6886e776c66cb3bd5a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
