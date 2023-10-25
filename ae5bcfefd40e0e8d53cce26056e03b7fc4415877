@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eb452c3_2676f5e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-10-25T02:22:39Z",
+      "side": 1,
+      "message": "Could you update this Cl description?",
+      "revId": "ae5bcfefd40e0e8d53cce26056e03b7fc4415877",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
