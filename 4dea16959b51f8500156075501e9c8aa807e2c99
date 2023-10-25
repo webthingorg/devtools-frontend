@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f525653_6ed7505d",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-25T13:22:39Z",
+      "side": 1,
+      "message": "I am slightly surprised that we need to reset the entire flame chart when the window times change - I would expect the setWindowTimes() call to take care of updating things that need to be updated.\n\nWhat part of the reset() needs to happen when window times change and can that be done in the setWindowTimes() call?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
