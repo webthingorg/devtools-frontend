@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fe92737_6f7f01a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-10-25T02:26:26Z",
+      "side": 1,
+      "message": "let\u0027s update the CL description.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e3cdb1_8553d14a",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-10-25T02:26:26Z",
+      "side": 1,
+      "message": "these statements are longer needed.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 0
+      },
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55f66ee_5fda5633",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-10-25T02:26:26Z",
+      "side": 1,
+      "message": "let\u0027s clean up this comment.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4385c176_b41a11de",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-10-25T02:26:26Z",
+      "side": 1,
+      "message": "let\u0027s start a new line after this point, to allow the formatter refine the style.",
+      "range": {
+        "startLine": 98,
+        "startChar": 65,
+        "endLine": 98,
+        "endChar": 66
+      },
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
