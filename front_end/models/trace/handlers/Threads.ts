@@ -5,8 +5,8 @@
 import type * as Helpers from '../helpers/helpers.js';
 import type * as Types from '../types/types.js';
 
-import {type PartialTraceData} from './Migration.js';
 import type * as Renderer from './RendererHandler.js';
+import {type TraceParseData} from './types.js';
 
 export interface ThreadData {
   pid: Types.TraceEvents.ProcessID;
@@ -15,7 +15,6 @@ export interface ThreadData {
   tree: Helpers.TreeHelpers.TraceEntryTree;
   type: ThreadType;
   name: string|null;
-  entryToNode: Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
 }
 
 export const enum ThreadType {
@@ -28,7 +27,7 @@ export const enum ThreadType {
 }
 
 function getThreadTypeForRendererThread(
-    traceParseData: PartialTraceData, pid: Types.TraceEvents.ProcessID, thread: Renderer.RendererThread): ThreadType {
+    traceParseData: TraceParseData, pid: Types.TraceEvents.ProcessID, thread: Renderer.RendererThread): ThreadType {
   let threadType = ThreadType.OTHER;
   if (thread.name === 'CrRendererMain') {
     threadType = ThreadType.MAIN_THREAD;
@@ -49,7 +48,7 @@ function getThreadTypeForRendererThread(
  * can use this helper to iterate over threads in confidence that it will work
  * for both trace types.
  */
-export function threadsInTrace(traceParseData: PartialTraceData): readonly ThreadData[] {
+export function threadsInTrace(traceParseData: TraceParseData): readonly ThreadData[] {
   const foundThreads: ThreadData[] = [];
   // If we have Renderer threads, we prefer to use those. In the event that a
   // trace is a CPU Profile trace, we will never have Renderer threads, so we
@@ -72,7 +71,6 @@ export function threadsInTrace(traceParseData: PartialTraceData): readonly Threa
           entries: thread.entries,
           tree: thread.tree,
           type: threadType,
-          entryToNode: traceParseData.Renderer.entryToNode,
         });
       }
     }
@@ -94,7 +92,6 @@ export function threadsInTrace(traceParseData: PartialTraceData): readonly Threa
           entries: thread.profileCalls,
           tree: thread.profileTree,
           type: ThreadType.CPU_PROFILE,
-          entryToNode: traceParseData.Samples.entryToNode,
         });
       }
     }
