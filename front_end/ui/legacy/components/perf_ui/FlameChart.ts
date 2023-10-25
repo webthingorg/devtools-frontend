@@ -765,10 +765,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const contextMenu = new UI.ContextMenu.ContextMenu(_event);
 
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
-    contextMenu.headerSection().appendItem('Merge function', () => {});
-
+    // TODO(crbug.com/1469887): Pass was tree operation needs to be applied in TreeModified event
+    contextMenu.headerSection().appendItem('Merge function', () => {
+      this.dispatchEventToListeners(Events.TreeModified, {
+        group: group,
+        node: this.selectedEntryIndex,
+      });
+    });
     contextMenu.headerSection().appendItem('Collapse function', () => {});
-
     contextMenu.headerSection().appendItem('Collapse recursion', () => {});
 
     contextMenu.defaultSection().appendAction('timeline.load-from-file');
@@ -2675,6 +2679,7 @@ export enum Events {
    * mouse off the event)
    */
   EntryHighlighted = 'EntryHighlighted',
+  TreeModified = 'TreeModified',
 }
 
 export type EventTypes = {
@@ -2682,6 +2687,10 @@ export type EventTypes = {
   [Events.EntryInvoked]: number,
   [Events.EntrySelected]: number,
   [Events.EntryHighlighted]: number,
+  [Events.TreeModified]: {
+    group: Group,
+    node: number,
+  },
 };
 
 export interface Group {
