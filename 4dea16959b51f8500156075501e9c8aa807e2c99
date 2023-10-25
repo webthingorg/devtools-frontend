@@ -22,6 +22,30 @@
       },
       "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4af378ce_28d28b3d",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-25T13:40:14Z",
+      "side": 1,
+      "message": "For the network one, we do it kinda differently, when we change the time, we will recalculate all the timeline data in the data provider. So this is a real re-drawing, That\u0027s why we need to reset the network flame chart and then re-render it.\n\nThe `reset` function will reset the chartView, timelineData, groupTree, and those selected/highlighted entry\u0027s index stored in the `FlameChart`, so can\u0027t be moved here.\n\nAdded comment in code also.",
+      "parentUuid": "7f525653_6ed7505d",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
