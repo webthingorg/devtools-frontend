@@ -124,7 +124,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export type TimelineFlameChartEntry =
     (TraceEngine.Legacy.Event|TimelineModel.TimelineFrameModel.TimelineFrame|
      TraceEngine.Types.TraceEvents.TraceEventData);
-export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
+export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectWrapper<DataState.EventTypes> implements
     PerfUI.FlameChart.FlameChartDataProvider {
   private droppedFramePatternCanvas: HTMLCanvasElement;
   private partialFramePatternCanvas: HTMLCanvasElement;
@@ -211,6 +211,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.flowEventIndexById = new Map();
   }
 
+  modifyTree(group: PerfUI.FlameChart.Group, node: number): void {
+    const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.TraceEntry;
+    this.compatibilityTracksAppender?.modifyTree(group, entry);
+  }
+
   private buildGroupStyle(extra: Object): PerfUI.FlameChart.GroupStyle {
     const defaultGroupStyle = {
       padding: 4,
@@ -272,6 +277,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           this.timelineDataInternal, this.traceEngineData, this.entryData, this.entryTypeByLevel,
           this.legacyTimelineModel, this.isCpuProfile);
     }
+
+    this.compatibilityTracksAppender.addEventListener(DataState.Events.DataChanged, () => {
+      this.dispatchEventToListeners(DataState.Events.DataChanged);
+    });
+
     return this.compatibilityTracksAppender;
   }
 
@@ -1122,7 +1132,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       const data = screenshot.args.snapshot;
       const image = await UI.UIUtils.loadImageFromData(data);
       this.screenshotImageCache.set(screenshot, image);
-      this.dispatchEventToListeners(Events.DataChanged);
+      this.dispatchEventToListeners(DataState.Events.DataChanged);
       return;
     }
 
@@ -1350,15 +1360,17 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
 export const InstantEventVisibleDurationMs = 0.001;
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum Events {
-  DataChanged = 'DataChanged',
-}
+export namespace DataState {
+  // TODO(crbug.com/1167717): Make this a const enum again
+  // eslint-disable-next-line rulesdir/const_enum
+  export enum Events {
+    DataChanged = 'DataChanged',
+  }
 
-export type EventTypes = {
-  [Events.DataChanged]: void,
-};
+  export type EventTypes = {
+    [Events.DataChanged]: void,
+  };
+}
 
 // an entry is a trace event, they are classified into "entry types"
 // because some events are rendered differently. For example, screenshot

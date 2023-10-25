@@ -19,7 +19,7 @@ import {Events as PerformanceModelEvents, type PerformanceModel, type WindowChan
 import {TimelineDetailsView} from './TimelineDetailsView.js';
 import {TimelineRegExp} from './TimelineFilters.js';
 import {
-  Events as TimelineFlameChartDataProviderEvents,
+  DataState as TimelineFlameChartDataProviderEvents,
   TimelineFlameChartDataProvider,
 } from './TimelineFlameChartDataProvider.js';
 import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetworkDataProvider.js';
@@ -96,11 +96,14 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     const mainViewGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timelineFlamechartMainViewGroupExpansion', {});
     this.mainDataProvider = new TimelineFlameChartDataProvider(threadTracksSource);
-    this.mainDataProvider.addEventListener(
-        TimelineFlameChartDataProviderEvents.DataChanged, () => this.mainFlameChart.scheduleUpdate());
     this.mainFlameChart = new PerfUI.FlameChart.FlameChart(this.mainDataProvider, this, mainViewGroupExpansionSetting);
     this.mainFlameChart.alwaysShowVerticalScroll();
     this.mainFlameChart.enableRuler(false);
+    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.TreeModified, event => {
+      this.mainDataProvider.modifyTree(event.data.group, event.data.node);
+    });
+    // TODO(crbug.com/1469887): Rerender the FlameChart when DataChanged event is triggered
+    this.mainDataProvider.addEventListener(TimelineFlameChartDataProviderEvents.Events.DataChanged, () => {});
 
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timelineFlamechartNetworkViewGroupExpansion', {});
