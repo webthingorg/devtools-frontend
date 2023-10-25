@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5809ff7e_c728f354",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-25T15:39:54Z",
+      "side": 1,
+      "message": "In the interest of having a working version by M120, we will proceed with this separate issue for now. Will use b/305738703 to track moving this into a Warning of CookieIssue (which requires refactoring to expose the allowlist to net/services.)",
+      "parentUuid": "9ad75ffc_1f27880f",
+      "revId": "986233bcf3cf1cda3ff0fd06ced814a5d8966161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9194cb9e_7d1fc006",
