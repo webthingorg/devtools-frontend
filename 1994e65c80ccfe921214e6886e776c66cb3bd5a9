@@ -33,6 +33,24 @@
       "message": "How about the tooltip consistent and simplify to always display the same pformat doesn\u0027t matter the value \n\n- low (initial priority was high)\n- none (initial priority was none)",
       "revId": "1994e65c80ccfe921214e6886e776c66cb3bd5a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b91b52c_bedfaaf3",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2023-10-25T17:49:09Z",
+      "side": 1,
+      "message": "I think when Big Request Rows is enabled this makes sense as the user can see two priorities.\n\nHowever, the same tool tip shows also when that setting is not enabled and it might be confusing to users to get that extra information in that scenario when they are the same.\n\nI think it\u0027s still worthwhile to show when they are different (it saves you having to enable big request rows to see if it if you don\u0027t want to, and it might help explain why it\u0027s not acting as you thought it should) but less convinced when the same.\n\nBut not 100% against it either...",
+      "parentUuid": "0cacf537_70f8982d",
+      "revId": "1994e65c80ccfe921214e6886e776c66cb3bd5a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
