@@ -81,6 +81,30 @@
       },
       "revId": "6c0810172f41a9248fd25333563d2b5cb7522212",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a84b6572_ecedde8a",
+        "filename": "test/e2e/issues/cookie-deprecation-metadata-issues_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-26T20:29:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "88dc9641_6ce96ccd",
+      "range": {
+        "startLine": 47,
+        "startChar": 90,
+        "endLine": 47,
+        "endChar": 96
+      },
+      "revId": "6c0810172f41a9248fd25333563d2b5cb7522212",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
