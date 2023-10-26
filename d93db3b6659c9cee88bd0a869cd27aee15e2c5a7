@@ -56,6 +56,30 @@
       },
       "revId": "d93db3b6659c9cee88bd0a869cd27aee15e2c5a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2abb81e6_08bdc6b7",
+        "filename": "scripts/build/generate_deprecations.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1595032
+      },
+      "writtenOn": "2023-10-26T14:31:41Z",
+      "side": 1,
+      "message": "Fix applied. Thank you!",
+      "parentUuid": "497d270e_19388347",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "d93db3b6659c9cee88bd0a869cd27aee15e2c5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
