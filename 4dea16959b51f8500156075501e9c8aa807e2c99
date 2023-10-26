@@ -94,6 +94,30 @@
       },
       "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5c5a8bb_e1db85b4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-26T09:39:50Z",
+      "side": 1,
+      "message": "What i tested locally:\n- (scroll) zoom in network track, main flame chart and minimap\n- (mouse drag) panning in network track/ main flame chart\n- select a range in the minimap\n- WASD in the panel\n\nAnd all these work well now.",
+      "parentUuid": "b79b39e3_13e8cdeb",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "4dea16959b51f8500156075501e9c8aa807e2c99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
