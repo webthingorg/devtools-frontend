@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5207cb1d_58fcae91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-26T13:13:13Z",
+      "side": 1,
+      "message": "Still LGTM",
+      "revId": "0fcc520efa48787f65ca098537b63456d22cfc46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94dcfe56_7a1447a2",
@@ -118,6 +135,24 @@
       "side": 1,
       "message": "Thank you for your suggestion! But I\u0027m concerned about inclusion here. Let me echo a previous reviewer\u0027s thoughtful comment:\n\n\u003e \"Native\" implies speaking a language since birth or early childhood, which is a property that someone can\u0027t decide or change for themselves, so I\u0027d be cautious about dividing people into \"native\" or \"non-native\" categories. I think there are people in both categories who feel qualified or not qualified to give input on naming, and may feel uncomfortable if they are or aren\u0027t asked for their input based on that categorization.\n\u003e https://chromium-review.googlesource.com/c/chromium/src/+/2484831/2..33/content/browser/prerendering_binder_policy.h#b35\n\nRegarding the suggested name, \"Speculative loads\" sounds good to me, but the name of this sidebar category is also \"Speculative loads\" and it may look odd.\n\nScreenshot: https://drive.google.com/file/d/1Dv-8erLUJfUu08gTOiGI9-mcVvznoXOm/view?usp\u003dsharing",
       "parentUuid": "f0ff3346_07cfa266",
+      "revId": "0fcc520efa48787f65ca098537b63456d22cfc46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfee4e68_68181e6a",
+        "filename": "front_end/panels/application/PreloadingTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-10-26T13:13:13Z",
+      "side": 1,
+      "message": "Thanks!\n\nAh, I see. \u003e screenshot\n\"Speculative loads\" twice looks odd. Let\u0027s use \"Speculations\".",
+      "parentUuid": "0f6be727_9b983ca6",
       "revId": "0fcc520efa48787f65ca098537b63456d22cfc46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
