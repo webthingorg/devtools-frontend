@@ -63,6 +63,30 @@
       },
       "revId": "0f30ba9e80548f546060ab9f87e99fe040bfc384",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39792a5_8338a241",
+        "filename": "front_end/models/trace/helpers/TreeHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-10-26T10:55:40Z",
+      "side": 1,
+      "message": "I see, thank you",
+      "parentUuid": "7678c022_681e7041",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 273,
+        "endChar": 67
+      },
+      "revId": "0f30ba9e80548f546060ab9f87e99fe040bfc384",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
