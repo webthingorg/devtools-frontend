@@ -16,6 +16,46 @@
       "message": "I\u0027m adding @szuend@chromium.org as reviewer directly because we discussed this change earlier (go/3pcd-ltr)",
       "revId": "d93db3b6659c9cee88bd0a869cd27aee15e2c5a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfd71ca8_41b34a91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-26T04:44:51Z",
+      "side": 1,
+      "message": "lgtm % nit",
+      "revId": "d93db3b6659c9cee88bd0a869cd27aee15e2c5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "497d270e_19388347",
+        "filename": "scripts/build/generate_deprecations.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-10-26T04:44:51Z",
+      "side": 1,
+      "message": "Slight preference over using a set instead of a dictionary here:\n\n```suggestion\nEXEMPTED_FROM_DEVTOOLS_GENERATION \u003d {\n    \"ThirdPartyCookieAccessWarning\",\n    \"ThirdPartyCookieAccessError\",\n}\n```\n\nMembership check below stays the same.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "d93db3b6659c9cee88bd0a869cd27aee15e2c5a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
