@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ea359a_7b02f3a8",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T10:46:55Z",
+      "side": 1,
+      "message": "good catch!",
+      "parentUuid": "667ec50a_f3f5bd3d",
+      "revId": "cc50659f5d22891d448e950fa6479a344577deca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "648cc681_1b8a60e5",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-10-25T16:14:59Z",
       "side": 1,
       "message": "Ah! The discovery of a lost call frame! \nThat seems like an unexpected side effect of this patch, right??",
+      "revId": "cc50659f5d22891d448e950fa6479a344577deca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "085d34e6_ca9b8f69",
+        "filename": "test/interactions/goldens/win32/performance/main-thread-track-candy-stripe.png",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T10:46:55Z",
+      "side": 1,
+      "message": "yeah hehe tbh this was an accidental fix. After checking, the problem was that by not skipping program samples in the js stack tracking array, we had an intruder callframe in it that caused a shift of one in the starting position of the check done to sample stacks, so it ended up ignoring the top anonymous function call.\n\nsee the fix in line 349 in the new version in\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4970513/5/front_end/models/trace/helpers/SamplesIntegrator.ts#349",
+      "parentUuid": "648cc681_1b8a60e5",
       "revId": "cc50659f5d22891d448e950fa6479a344577deca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
