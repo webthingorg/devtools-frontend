@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3708edd2_bc255ac1",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-26T14:10:18Z",
+      "side": 1,
+      "message": "Wrapped the entire block in a save and restore, good catch!",
+      "parentUuid": "d094bbc0_9744cab4",
+      "range": {
+        "startLine": 1252,
+        "startChar": 4,
+        "endLine": 1252,
+        "endChar": 11
+      },
+      "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77159fc3_313cf4ff",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "610142b9_f69c66a9",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-26T14:10:18Z",
+      "side": 1,
+      "message": "If an entry is marked as decorated, the flamechart does not try to draw its title. So the original title is never actually drawn because we decorate it.",
+      "parentUuid": "77159fc3_313cf4ff",
+      "range": {
+        "startLine": 1272,
+        "startChar": 14,
+        "endLine": 1272,
+        "endChar": 22
+      },
+      "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b045e584_e92689c5",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-10-26T13:39:19Z",
       "side": 1,
       "message": "in the future, we should probably add this warning to the warnings handler",
+      "range": {
+        "startLine": 427,
+        "startChar": 19,
+        "endLine": 427,
+        "endChar": 72
+      },
+      "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7feb6bd4_5d226f36",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-26T14:10:18Z",
+      "side": 1,
+      "message": "Yes - for some reason I thought we had done this but it doesn\u0027t look like it. I have added this to go/removing-opp-engine-blockers to investigate.",
+      "parentUuid": "b045e584_e92689c5",
       "range": {
         "startLine": 427,
         "startChar": 19,
