@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db7f3389_24e17ab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-10-26T11:47:14Z",
+      "side": 1,
+      "message": "+domenic@,dsv@,kenoss@: PTAL. For the failing web_tests, I made another CL to tentatively disable them in the main repository. Thanks!\nhttps://chromium-review.googlesource.com/c/chromium/src/+/4976502",
+      "revId": "0fcc520efa48787f65ca098537b63456d22cfc46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
