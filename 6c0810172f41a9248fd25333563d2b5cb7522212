@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "653f1faa_812fad46",
+        "filename": "front_end/models/issues_manager/CookieDeprecationMetadataIssue.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-26T14:47:43Z",
+      "side": 1,
+      "message": "Later these descriptions will be incorporated into CookieIssue where we can map each one to a ReadCookie/SetCookie action (see CookieIssue.ts for similar warning/exclusion labels). I wanted to add both versions to this CL so they could be translated earlier. But if you prefer I can leave out the unused file for now.",
+      "parentUuid": "1ee5cc20_5a21ebb2",
+      "revId": "6c0810172f41a9248fd25333563d2b5cb7522212",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a2f9668_2aaf2a90",
         "filename": "test/e2e/issues/cookie-deprecation-metadata-issues_test.ts",
         "patchSetId": 16
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-26T08:23:40Z",
       "side": 1,
       "message": "Update to take read/set split into account",
+      "range": {
+        "startLine": 47,
+        "startChar": 90,
+        "endLine": 47,
+        "endChar": 96
+      },
+      "revId": "6c0810172f41a9248fd25333563d2b5cb7522212",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88dc9641_6ce96ccd",
+        "filename": "test/e2e/issues/cookie-deprecation-metadata-issues_test.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-26T14:47:43Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2a2f9668_2aaf2a90",
       "range": {
         "startLine": 47,
         "startChar": 90,
