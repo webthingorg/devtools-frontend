@@ -76,7 +76,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(headers.length, 1);
     assert.strictEqual(sections.length, 2);
 
-    assert.include(headers[0]?.textContent, 'Preloading status');
+    assert.include(headers[0]?.textContent, 'Speculative loading status');
     assert.include(sections[0]?.textContent, 'This page was successfully prefetched.');
   });
 
@@ -123,7 +123,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(headers.length, 1);
     assert.strictEqual(sections.length, 2);
 
-    assert.include(headers[0]?.textContent, 'Preloading status');
+    assert.include(headers[0]?.textContent, 'Speculative loading status');
     assert.include(sections[0]?.textContent, 'This page was successfully prerendered.');
   });
 
@@ -170,7 +170,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(headers.length, 2);
     assert.strictEqual(sections.length, 3);
 
-    assert.include(headers[0]?.textContent, 'Preloading status');
+    assert.include(headers[0]?.textContent, 'Speculative loading status');
     assert.include(
         sections[0]?.textContent,
         'The initiating page attempted to prefetch this page\'s URL, but the prefetch failed, so a full navigation was performed instead.');
@@ -224,7 +224,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(headers.length, 2);
     assert.strictEqual(sections.length, 3);
 
-    assert.include(headers[0]?.textContent, 'Preloading status');
+    assert.include(headers[0]?.textContent, 'Speculative loading status');
     assert.include(
         sections[0]?.textContent,
         'The initiating page attempted to prerender this page\'s URL, but the prerender failed, so a full navigation was performed instead.');
@@ -278,7 +278,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(headers.length, 2);
     assert.strictEqual(sections.length, 3);
 
-    assert.include(headers[0]?.textContent, 'Preloading status');
+    assert.include(headers[0]?.textContent, 'Speculative loading status');
     assert.include(
         sections[0]?.textContent,
         'The initiating page attempted to prerender this page\'s URL. The prerender failed, but the resulting response body was still used as a prefetch.');
@@ -305,7 +305,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(headers.length, 1);
     assert.strictEqual(sections.length, 2);
 
-    assert.include(headers[0]?.textContent, 'Preloading status');
+    assert.include(headers[0]?.textContent, 'Speculative loading status');
     assert.include(sections[0]?.textContent, 'The initiating page did not attempt to preload this page\'s URL.');
   });
 
@@ -352,7 +352,7 @@ describeWithEnvironment('UsedPreloadingView', async () => {
     assert.strictEqual(headers.length, 3);
     assert.strictEqual(sections.length, 4);
 
-    assert.include(headers[0]?.textContent, 'Preloading status');
+    assert.include(headers[0]?.textContent, 'Speculative loading status');
     assert.include(sections[0]?.textContent, 'The initiating page did not attempt to preload this page\'s URL.');
     assert.include(headers[1]?.textContent, 'Current URL');
     assert.include(sections[1]?.textContent, 'https://example.com/no-preloads.html');
