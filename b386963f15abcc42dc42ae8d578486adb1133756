@@ -33,6 +33,24 @@
       "message": "LGTM. Thanks, the TODO is indeed outdated and has been implemented already.",
       "revId": "b386963f15abcc42dc42ae8d578486adb1133756",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e8c7d07_993837d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1366833
+      },
+      "writtenOn": "2023-10-26T12:13:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5171eea4_e9ab28aa",
+      "revId": "b386963f15abcc42dc42ae8d578486adb1133756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
