@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5e247e_1136acfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1595032
+      },
+      "writtenOn": "2023-10-26T01:39:24Z",
+      "side": 1,
+      "message": "I\u0027m adding @szuend@chromium.org as reviewer directly because we discussed this change earlier (go/3pcd-ltr)",
+      "revId": "cbb466ed485fc7709031ff40ace65889f8d19f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
