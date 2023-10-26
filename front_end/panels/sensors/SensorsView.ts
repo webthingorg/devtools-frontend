@@ -71,6 +71,10 @@ const UIStrings = {
    */
   locale: 'Locale',
   /**
+   *@description Label for Accuracy of a GPS location.
+   */
+  accuracy: 'Accuracy',
+  /**
    *@description Label the orientation of a user's device e.g. tilt in 3D-space.
    */
   orientation: 'Orientation',
@@ -182,10 +186,12 @@ export class SensorsView extends UI.Widget.VBox {
   private longitudeInput!: HTMLInputElement;
   private timezoneInput!: HTMLInputElement;
   private localeInput!: HTMLInputElement;
+  private accuracyInput!: HTMLInputElement;
   private latitudeSetter!: (arg0: string) => void;
   private longitudeSetter!: (arg0: string) => void;
   private timezoneSetter!: (arg0: string) => void;
   private localeSetter!: (arg0: string) => void;
+  private accuracySetter!: (arg0: string) => void;
   private localeError!: HTMLElement;
   private customLocationsGroup!: HTMLOptGroupElement;
   private readonly deviceOrientationSetting: Common.Settings.Setting<string>;
@@ -307,6 +313,7 @@ export class SensorsView extends UI.Widget.VBox {
     const longitudeGroup = this.fieldsetElement.createChild('div', 'latlong-group');
     const timezoneGroup = this.fieldsetElement.createChild('div', 'latlong-group');
     const localeGroup = this.fieldsetElement.createChild('div', 'latlong-group');
+    const accuracyGroup = this.fieldsetElement.createChild('div', 'latlong-group');
 
     const cmdOrCtrl = Host.Platform.isMac() ? '\u2318' : 'Ctrl';
     const modifierKeyMessage = i18nString(UIStrings.adjustWithMousewheelOrUpdownKeys, {PH1: cmdOrCtrl});
@@ -354,6 +361,18 @@ export class SensorsView extends UI.Widget.VBox {
     this.localeSetter(location.locale);
     localeGroup.appendChild(UI.UIUtils.createLabel(i18nString(UIStrings.locale), 'locale-title', this.localeInput));
     this.localeError = (localeGroup.createChild('div', 'locale-error') as HTMLElement);
+
+    this.accuracyInput = UI.UIUtils.createInput('', 'text');
+    accuracyGroup.appendChild(this.accuracyInput);
+    this.latitudeInput.setAttribute('step', 'any');
+    this.accuracyInput.value = '150';
+    this.accuracySetter = UI.UIUtils.bindInput(
+        this.accuracyInput, this.applyLocationUserInput.bind(this), SDK.EmulationModel.Location.accuracyValidator, true,
+        1);
+    this.accuracySetter(location.accuracy);
+    accuracyGroup.appendChild(
+        UI.UIUtils.createLabel(i18nString(UIStrings.accuracy), 'accuracy-title', this.accuracyInput));
+    this.accuracyError = (accuracyGroup.createChild('div', 'accuracy-error') as HTMLElement);
   }
 
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
@@ -370,23 +389,24 @@ export class SensorsView extends UI.Widget.VBox {
       this.LocationOverrideEnabled = true;
       const location = SDK.EmulationModel.Location.parseUserInput(
           this.latitudeInput.value.trim(), this.longitudeInput.value.trim(), this.timezoneInput.value.trim(),
-          this.localeInput.value.trim());
+          this.localeInput.value.trim(), this.accuracyInput.value.trim());
       if (!location) {
         return;
       }
       this.Location = location;
     } else if (value === NonPresetOptions.Unavailable) {
       this.LocationOverrideEnabled = true;
-      this.Location = new SDK.EmulationModel.Location(0, 0, '', '', true);
+      this.Location = new SDK.EmulationModel.Location(0, 0, '', '', 150, true);
     } else {
       this.LocationOverrideEnabled = true;
       const coordinates = JSON.parse(value);
       this.Location = new SDK.EmulationModel.Location(
-          coordinates.lat, coordinates.long, coordinates.timezoneId, coordinates.locale, false);
+          coordinates.lat, coordinates.long, coordinates.timezoneId, coordinates.locale, coordinates.accuracy, false);
       this.latitudeSetter(coordinates.lat);
       this.longitudeSetter(coordinates.long);
       this.timezoneSetter(coordinates.timezoneId);
       this.localeSetter(coordinates.locale);
+      this.accuracySetter(coordinates.accuracy);
     }
 
     this.applyLocation();
@@ -398,7 +418,7 @@ export class SensorsView extends UI.Widget.VBox {
   private applyLocationUserInput(): void {
     const location = SDK.EmulationModel.Location.parseUserInput(
         this.latitudeInput.value.trim(), this.longitudeInput.value.trim(), this.timezoneInput.value.trim(),
-        this.localeInput.value.trim());
+        this.localeInput.value.trim(), this.accuracyInput.value.trim());
     if (!location) {
       return;
     }
@@ -437,6 +457,7 @@ export class SensorsView extends UI.Widget.VBox {
     this.longitudeSetter('0');
     this.timezoneSetter('');
     this.localeSetter('');
+    this.accuracySetter('150');
   }
 
   private createDeviceOrientationSection(): void {
