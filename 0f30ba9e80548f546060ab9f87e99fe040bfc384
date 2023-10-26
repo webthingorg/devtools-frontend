@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d3b2355_89aa80c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-26T09:36:08Z",
+      "side": 1,
+      "message": "looks good to me 😊",
+      "revId": "0f30ba9e80548f546060ab9f87e99fe040bfc384",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "301418cd_072adde7",
+        "filename": "front_end/models/trace/helpers/TreeHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-26T09:36:08Z",
+      "side": 1,
+      "message": "does this mean we would allow creating breadcrumbs if the window is equal? In case ``traceWindow.min \u003d\u003d startTime \u0026\u0026 traceWindow.max \u003d\u003d endTime``",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 273,
+        "endChar": 67
+      },
+      "revId": "0f30ba9e80548f546060ab9f87e99fe040bfc384",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
