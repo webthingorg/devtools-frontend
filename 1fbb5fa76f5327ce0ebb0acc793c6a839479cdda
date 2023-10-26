@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc165134_b94ebc60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T13:53:38Z",
+      "side": 1,
+      "message": "cool! LGTM. Thanks for the drive-by fix. \n\nseems you\u0027ll need to update the screenshots with `./scripts/tools/update_goldens_v2.py` and then get the review vote again :/",
+      "revId": "1fbb5fa76f5327ce0ebb0acc793c6a839479cdda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b95090f5_271e4c12",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T13:53:38Z",
+      "side": 1,
+      "message": "nit: we could change this for `this.#threadAppenders`",
+      "range": {
+        "startLine": 413,
+        "startChar": 32,
+        "endLine": 413,
+        "endChar": 73
+      },
+      "revId": "1fbb5fa76f5327ce0ebb0acc793c6a839479cdda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
