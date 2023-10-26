@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e33e180_918bd304",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-26T08:51:59Z",
+      "side": 1,
+      "message": "Code LGTM, but we need some tests. \n\nI\u0027d prefer unit tests but it would be more involved as we don\u0027t have an existing unit test for this view to extend.\n\nYou could add an end-to-end test instead, following the websocket example at https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/network/network-request-view_test.ts;l\u003d209\n\nTo serve a request with a text/event-stream you could have use a .rawresponse file in the resource dir like https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/e2e/resources/network/utf-8.rawresponse;l\u003d1",
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb40aa74_69296367",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-26T08:51:59Z",
+      "side": 1,
+      "message": "Lowecase \u0027a\u0027 please",
+      "range": {
+        "startLine": 43,
+        "startChar": 19,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99f90b82_7945ddfe",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-26T08:51:59Z",
+      "side": 1,
+      "message": "It looks like regexp escaping was added to the websockets view recently in the crrev.com/c/4516057 to fix the handling of invalid regexp.\n\nI don\u0027t know how useful would it be to filter the event stream via a regexp as opposed to a plain string.\n\nWe could do one of the following: \n* change the UI label to not mention regexp and keep the escaping\n* wrap the RegExp constructor invocation into a try/catch and simply ignore invalid syntax\n* instead of ignoring invalid syntax, escape the string only if it is an invalid regex\n\nI am leaning towards the latter, but I don\u0027t have a strong opinion here.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 100
+      },
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f16674f9_f0344620",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-26T08:51:59Z",
+      "side": 1,
+      "message": "Let\u0027s drop the leading underscore and remove the comment above",
+      "range": {
+        "startLine": 223,
+        "startChar": 6,
+        "endLine": 223,
+        "endChar": 26
+      },
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
