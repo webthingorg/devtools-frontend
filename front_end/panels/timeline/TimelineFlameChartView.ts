@@ -102,8 +102,20 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.TreeModified, event => {
       this.mainDataProvider.modifyTree(event.data.group, event.data.node);
     });
+<<<<<<< HEAD
     // TODO(crbug.com/1469887): Rerender the FlameChart when DataChanged event is triggered
     this.mainDataProvider.addEventListener(TimelineFlameChartDataProviderEvents.Events.DataChanged, () => {});
+=======
+    this.mainDataProvider.addEventListener(TimelineFlameChartDataProviderEvents.DataChanged, () => {
+      console.log("now update");
+      const timelineData = this.mainDataProvider.timelineData(true);
+      console.log("after update", timelineData);
+      this.mainFlameChart.reset();
+      const window = this.model?.window();
+      this.mainFlameChart.setWindowTimes(window!.left, window!.right);
+      this.mainFlameChart.update();
+    })
+>>>>>>> 4299943da3 (ammend)
 
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timelineFlamechartNetworkViewGroupExpansion', {});
@@ -234,7 +246,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       model: PerformanceModel|null, newTraceEngineData: TraceEngine.Handlers.Migration.PartialTraceData|null,
       isCpuProfile = false): void {
     if (model === this.model) {
-      return;
+      // return;
     }
     this.#traceEngineData = newTraceEngineData;
     Common.EventTarget.removeEventListeners(this.eventListeners);

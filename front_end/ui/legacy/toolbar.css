@@ -490,6 +490,13 @@ input[is="history-input"]:hover:not(:focus) {
   }
 }
 
+<<<<<<< HEAD
+=======
+.toolbar-item.highlight:hover:not(:active) > .title {
+  color: var(--sys-color-on-tonal-container);
+}
+
+>>>>>>> 4299943da3 (ammend)
 devtools-icon.leading-issue-icon {
   margin: 0 7px;
 }

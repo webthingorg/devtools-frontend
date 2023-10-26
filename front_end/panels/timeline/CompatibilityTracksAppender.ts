@@ -5,7 +5,8 @@
 import * as Common from '../../core/common/common.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
-import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import { Group } from '../../ui/legacy/components/perf_ui/FlameChart.js';
+import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
 import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
@@ -15,6 +16,7 @@ import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
 import {ThreadAppender, ThreadType} from './ThreadAppender.js';
+import {TimelineFlameChartDataProvider} from './timeline.js';
 import {
   DataState as TimelineFlameChartDataProviderEvents,
   EntryType,
@@ -22,6 +24,7 @@ import {
   type TimelineFlameChartEntry,
 } from './TimelineFlameChartDataProvider.js';
 import {TimingsTrackAppender} from './TimingsTrackAppender.js';
+import { TimelineFlameChartDataProvider } from './timeline.js';
 
 export type HighlightedEntryInfo = {
   title: string,
@@ -86,7 +89,11 @@ export const TrackNames =
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
 
 export class CompatibilityTracksAppender extends
+<<<<<<< HEAD
     Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProviderEvents.EventTypes> {
+=======
+    Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProvider.EventTypes> {
+>>>>>>> 4299943da3 (ammend)
   #trackForLevel = new Map<number, TrackAppender>();
   #trackForGroup = new Map<PerfUI.FlameChart.Group, TrackAppender>();
   #eventsForTrack = new Map<TrackAppender, TraceEngine.Types.TraceEvents.TraceEventData[]>();
@@ -134,6 +141,7 @@ export class CompatibilityTracksAppender extends
       isCpuProfile = false) {
     super();
     this.#flameChartData = flameChartData;
+    // data ror manipulator
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;
     this.#colorGenerator = new Common.Color.Generator(
@@ -174,12 +182,27 @@ export class CompatibilityTracksAppender extends
     });
 
     this.#threadAppenders.forEach(appender => {
+<<<<<<< HEAD
       appender.addEventListener(TimelineFlameChartDataProviderEvents.Events.DataChanged, () => {
         this.dispatchEventToListeners(TimelineFlameChartDataProviderEvents.Events.DataChanged);
+=======
+      appender.addEventListener(TimelineFlameChartDataProvider.Events.DataChanged, () => {
+        this.dispatchEventToListeners(TimelineFlameChartDataProvider.Events.DataChanged);
+>>>>>>> 4299943da3 (ammend)
       });
     });
   }
 
+<<<<<<< HEAD
+=======
+  setFlameChartDataAndEntryData(flameChartData: PerfUI.FlameChart.FlameChartTimelineData, entryData: TimelineFlameChartEntry[],
+    legacyEntryTypeByLevel: EntryType[]):void{
+    this.#flameChartData = flameChartData;
+    this.#entryData = entryData
+    this.#legacyEntryTypeByLevel = legacyEntryTypeByLevel
+  }
+
+>>>>>>> 4299943da3 (ammend)
   modifyTree(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.TraceEntry): void {
     const threadTrackAppender = this.#trackForGroup.get(group);
     if (threadTrackAppender instanceof ThreadAppender) {

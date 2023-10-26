@@ -8,7 +8,11 @@
   position: absolute;
   top: 0;
   bottom: 0;
+<<<<<<< HEAD
   background-color: var(--sys-color-state-ripple-primary);
+=======
+  background-color: var(--sys-color-tonal-container);
+>>>>>>> 4299943da3 (ammend)
   z-index: 250;
   pointer-events: none;
 }

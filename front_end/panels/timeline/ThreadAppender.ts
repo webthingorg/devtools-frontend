@@ -7,7 +7,9 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
+import {type TraceEntryNodeId} from '../../models/trace/helpers/TreeHelpers.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import {TraceEntry} from '../../models/trace/types/TraceEvents.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import {
@@ -24,7 +26,11 @@ import {
 } from './CompatibilityTracksAppender.js';
 import * as TimelineComponents from './components/components.js';
 import {getCategoryStyles, getEventStyle} from './EventUICategory.js';
+<<<<<<< HEAD
 import {DataState as TimelineFlameChartDataProviderEvents} from './TimelineFlameChartDataProvider.js';
+=======
+import {TimelineFlameChartDataProvider} from './timeline.js';
+>>>>>>> 4299943da3 (ammend)
 
 const UIStrings = {
   /**
@@ -147,7 +153,11 @@ export const enum ThreadType {
 // old engine's thread/sync tracks we can always run it by enabling the
 // Renderer and Samples handler by default.
 export class ThreadAppender extends
+<<<<<<< HEAD
     Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProviderEvents.EventTypes> implements TrackAppender {
+=======
+    Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProvider.EventTypes> implements TrackAppender {
+>>>>>>> 4299943da3 (ammend)
   readonly appenderName: TrackAppenderName = 'Thread';
 
   #colorGenerator: Common.Color.Generator;
@@ -161,6 +171,7 @@ export class ThreadAppender extends
   #threadDefaultName: string;
   #flameChartData: PerfUI.FlameChart.FlameChartTimelineData;
   #expanded = false;
+  level: number = 0;
   // Raster threads are rendered together under a singler header, so
   // the header is added for the first raster thread and skipped
   // thereafter.
@@ -203,6 +214,7 @@ export class ThreadAppender extends
     const entries = type === ThreadType.CPU_PROFILE ?
         this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileCalls :
         this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.entries;
+        
     const tree = type === ThreadType.CPU_PROFILE ?
         this.#traceParsedData.Samples?.profilesInProcess.get(processId)?.get(threadId)?.profileTree :
         this.#traceParsedData.Renderer?.processes.get(processId)?.threads?.get(threadId)?.tree;
@@ -232,9 +244,15 @@ export class ThreadAppender extends
       return;
     }
     this.#treeManipulator.applyAction({type: 'MERGE_FUNCTION', entry: traceEvent});
+<<<<<<< HEAD
     this.#entries = this.#treeManipulator.visibleEntries();
 
     this.dispatchEventToListeners(TimelineFlameChartDataProviderEvents.Events.DataChanged);
+=======
+    // this.#entries = this.#treeManipulator.visibleEntries();
+
+    this.dispatchEventToListeners(TimelineFlameChartDataProvider.Events.DataChanged);
+>>>>>>> 4299943da3 (ammend)
   }
 
   processId(): TraceEngine.Types.TraceEvents.ProcessID {
@@ -255,6 +273,9 @@ export class ThreadAppender extends
    * appended the track's events.
    */
   appendTrackAtLevel(trackStartLevel: number, expanded: boolean = false): number {
+    this.level = trackStartLevel;
+    this.#headerAppended = false
+
     if (this.#entries.length === 0) {
       return trackStartLevel;
     }
@@ -445,6 +466,7 @@ export class ThreadAppender extends
       nodes: Iterable<TraceEngine.Helpers.TreeHelpers.TraceEntryNode>, startingLevel: number,
       parentIsIgnoredListed: boolean = false): number {
     let maxDepthInTree = startingLevel;
+    const invisibleEntries = this.#treeManipulator?.visibleEntries() ?? [];
     for (const node of nodes) {
       let nextLevel = startingLevel;
       const entry = node.entry;
@@ -457,7 +479,8 @@ export class ThreadAppender extends
       // another traversal to the entries array (which could grow
       // large). To avoid the extra cost we  add the check in the
       // traversal we already need to append events.
-      const entryIsVisible = this.#compatibilityBuilder.entryIsVisibleInTimeline(entry) || this.#showAllEventsEnabled;
+
+      const entryIsVisible = (!invisibleEntries.includes(entry) && this.#compatibilityBuilder.entryIsVisibleInTimeline(entry)) || this.#showAllEventsEnabled;
       // For ignore listing support, these two conditions need to be met
       // to not append a profile call to the flame chart:
       // 1. It is ignore listed

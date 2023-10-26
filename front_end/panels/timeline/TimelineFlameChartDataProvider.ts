@@ -35,6 +35,7 @@ import * as Root from '../../core/root/root.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import { Group } from '../../ui/legacy/components/perf_ui/FlameChart.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
@@ -273,14 +274,22 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
             'Attempted to instantiate a CompatibilityTracksAppender without having set the trace parse data first.');
       }
       this.timelineDataInternal = this.#instantiateTimelineData();
+      // here engine data assigned
       this.compatibilityTracksAppender = new CompatibilityTracksAppender(
           this.timelineDataInternal, this.traceEngineData, this.entryData, this.entryTypeByLevel,
           this.legacyTimelineModel, this.isCpuProfile);
     }
 
+<<<<<<< HEAD
     this.compatibilityTracksAppender.addEventListener(DataState.Events.DataChanged, () => {
       this.dispatchEventToListeners(DataState.Events.DataChanged);
     });
+=======
+    this.compatibilityTracksAppender.addEventListener(Events.DataChanged, () => {
+      // this.buildFromTrackAppenders();
+      this.dispatchEventToListeners(Events.DataChanged);
+    })
+>>>>>>> 4299943da3 (ammend)
 
     return this.compatibilityTracksAppender;
   }
@@ -312,9 +321,11 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         continue;
       }
       const expanded = Boolean(options?.expandedTracks?.has(appender.appenderName));
+      // call and clear data
       this.currentLevel = appender.appendTrackAtLevel(this.currentLevel, expanded);
     }
   }
+
 
   groupTrack(group: PerfUI.FlameChart.Group): TimelineModel.TimelineModel.Track|null {
     return group.track || null;
@@ -398,8 +409,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
    * the new trace engine) and the legacy code paths present in this
    * file. The result built data is cached and returned.
    */
-  timelineData(): PerfUI.FlameChart.FlameChartTimelineData {
-    if (this.timelineDataInternal && this.timelineDataInternal.entryLevels.length !== 0) {
+  timelineData(rebuild: boolean = false): PerfUI.FlameChart.FlameChartTimelineData {
+    if (this.timelineDataInternal && this.timelineDataInternal.entryLevels.length !== 0 && !rebuild) {
       // The flame chart data is built already, so return the cached
       // data.
       return this.timelineDataInternal;
@@ -409,11 +420,26 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (!this.legacyTimelineModel) {
       return this.timelineDataInternal;
     }
+    if(rebuild) {
+      this.currentLevel = 0;
+      this.entryData = [];
+      this.entryParent = [];
+      this.entryTypeByLevel = [];
+      this.entryIndexToTitle = [];
+      this.asyncColorByCategory = new Map();
+      this.screenshotImageCache = new Map();
+      this.#eventToDisallowRoot = new WeakMap<TraceEngine.Legacy.Event, boolean>();
+      this.#indexForEvent = new WeakMap<TraceEngine.Legacy.Event, number>();
+      this.compatibilityTracksAppender?.setFlameChartDataAndEntryData(this.timelineDataInternal, this.entryData, this.entryTypeByLevel)
+    }
+
+    // this.entryData = []
 
     this.flowEventIndexById.clear();
     this.currentLevel = 0;
 
     if (this.traceEngineData) {
+      console.log(rebuild)
       this.compatibilityTracksAppender = this.compatibilityTracksAppenderInstance();
     }
     if (this.legacyTimelineModel.isGenericTrace()) {
@@ -459,6 +485,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
   }
 
+  // appenders called
   private processInspectorTrace(): void {
     if (!this.isCpuProfile) {
       this.appendFrames();
