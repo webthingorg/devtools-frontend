@@ -16,6 +16,92 @@
       "message": "PTAL - Paul in particular can you confirm my maths and understanding of the different timings is correct?",
       "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b2e06e_786dd386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T13:39:19Z",
+      "side": 1,
+      "message": "great to have this in place! LGTM with small suggestions",
+      "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d094bbc0_9744cab4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T13:39:19Z",
+      "side": 1,
+      "message": "should we also wrap the tick draws ctx.save() \u0026 restore()?",
+      "range": {
+        "startLine": 1252,
+        "startChar": 4,
+        "endLine": 1252,
+        "endChar": 11
+      },
+      "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77159fc3_313cf4ff",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T13:39:19Z",
+      "side": 1,
+      "message": "IIUC the original entry\u0027s name might make it to the flamechart if the rectangles that clear the original block left end isn\u0027t wide enough (I\u0027m not really sure this is the case). \n\nIf so, should we not write the event\u0027s name when it\u0027s an event timing when we draw the original block? Or maybe draw the whiskers as part of the event\u0027s original drawing instead of its decoration?",
+      "range": {
+        "startLine": 1272,
+        "startChar": 14,
+        "endLine": 1272,
+        "endChar": 22
+      },
+      "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b045e584_e92689c5",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-26T13:39:19Z",
+      "side": 1,
+      "message": "in the future, we should probably add this warning to the warnings handler",
+      "range": {
+        "startLine": 427,
+        "startChar": 19,
+        "endLine": 427,
+        "endChar": 72
+      },
+      "revId": "0a2ce3ab223c08bbbba360a9b6f0272ca118a3e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
