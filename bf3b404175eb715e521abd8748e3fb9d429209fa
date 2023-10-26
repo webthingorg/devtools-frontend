@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af550990_e9a4633b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1264475
+      },
+      "writtenOn": "2023-10-26T17:51:23Z",
+      "side": 1,
+      "message": "Very happy to add tests for the clear button and the filter input. \n\nDo you know which build target I need to run to be able to `npm run auto-e2etest` from `/src/third_party/devtools-frontend/src`? At present, it\u0027s failing for me _I think_ because it\u0027s not pulling down node-darwin-arm64. I\u0027m running node 21 if it matters.",
+      "parentUuid": "3e33e180_918bd304",
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb40aa74_69296367",
         "filename": "front_end/panels/network/EventSourceMessagesView.ts",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-26T08:51:59Z",
       "side": 1,
       "message": "Lowecase \u0027a\u0027 please",
+      "range": {
+        "startLine": 43,
+        "startChar": 19,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b654aeef_aec95cb8",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1264475
+      },
+      "writtenOn": "2023-10-26T17:51:23Z",
+      "side": 1,
+      "message": "I changed to lowercase. Just FYI, it\u0027s a capital \u0027A\u0027 in the websocket panel.",
+      "parentUuid": "cb40aa74_69296367",
       "range": {
         "startLine": 43,
         "startChar": 19,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02e23bf5_fb9e048d",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1264475
+      },
+      "writtenOn": "2023-10-26T17:51:23Z",
+      "side": 1,
+      "message": "Regex provides a lot of power and it would be great if it was supported. To me, 1416218 was about making sure that invalid user input wouldn\u0027t stop the app from working. I just pushed a try/catch around the RegExp c\u0027tor - the downstream effect is that invalid regex (like \"[{\" without the quotes) will match ALL messages.",
+      "parentUuid": "99f90b82_7945ddfe",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 100
+      },
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f16674f9_f0344620",
         "filename": "front_end/panels/network/EventSourceMessagesView.ts",
         "patchSetId": 2
@@ -77,6 +143,30 @@
       "writtenOn": "2023-10-26T08:51:59Z",
       "side": 1,
       "message": "Let\u0027s drop the leading underscore and remove the comment above",
+      "range": {
+        "startLine": 223,
+        "startChar": 6,
+        "endLine": 223,
+        "endChar": 26
+      },
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f9f007f_b4768c61",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1264475
+      },
+      "writtenOn": "2023-10-26T17:51:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f16674f9_f0344620",
       "range": {
         "startLine": 223,
         "startChar": 6,
