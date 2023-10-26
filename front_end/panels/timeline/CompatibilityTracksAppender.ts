@@ -16,6 +16,7 @@ import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
 import {ThreadAppender, ThreadType} from './ThreadAppender.js';
 import {
+  DataState as TimelineFlameChartDataProviderEvents,
   EntryType,
   InstantEventVisibleDurationMs,
   type TimelineFlameChartEntry,
@@ -84,7 +85,8 @@ export const TrackNames =
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
 
-export class CompatibilityTracksAppender {
+export class CompatibilityTracksAppender extends
+    Common.ObjectWrapper.ObjectWrapper<TimelineFlameChartDataProviderEvents.EventTypes> {
   #trackForLevel = new Map<number, TrackAppender>();
   #trackForGroup = new Map<PerfUI.FlameChart.Group, TrackAppender>();
   #eventsForTrack = new Map<TrackAppender, TraceEngine.Types.TraceEvents.TraceEventData[]>();
@@ -130,6 +132,7 @@ export class CompatibilityTracksAppender {
       traceParsedData: TraceEngine.Handlers.Migration.PartialTraceData, entryData: TimelineFlameChartEntry[],
       legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl,
       isCpuProfile = false) {
+    super();
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
     this.#entryData = entryData;
@@ -169,6 +172,21 @@ export class CompatibilityTracksAppender {
             ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
       }
     });
+
+    this.#threadAppenders.forEach(appender => {
+      appender.addEventListener(TimelineFlameChartDataProviderEvents.Events.DataChanged, () => {
+        this.dispatchEventToListeners(TimelineFlameChartDataProviderEvents.Events.DataChanged);
+      });
+    });
+  }
+
+  modifyTree(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.TraceEntry): void {
+    const threadTrackAppender = this.#trackForGroup.get(group);
+    if (threadTrackAppender instanceof ThreadAppender) {
+      threadTrackAppender.modifyTree(node);
+    } else {
+      console.warn('Could not modify tree in not thread track');
+    }
   }
 
   #addThreadAppenders(): void {
