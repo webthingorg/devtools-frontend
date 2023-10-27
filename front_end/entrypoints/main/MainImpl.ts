@@ -284,6 +284,7 @@ export class MainImpl {
     // Back/forward cache
     Root.Runtime.experiments.register(
         'bfcacheDisplayTree', 'Show back/forward cache blocking reasons in the frame tree structure view');
+    Root.Runtime.experiments.register('bfcacheDisplayJsDetails', 'Display back/forward cache blocking details');
 
     // Timeline
     Root.Runtime.experiments.register('timelineEventInitiators', 'Timeline: event initiators');
@@ -430,6 +431,7 @@ export class MainImpl {
     }
     Root.Runtime.experiments.enableExperimentsTransiently([
       'bfcacheDisplayTree',
+      'bfcacheDisplayJsDetails',
       'webauthnPane',
       'developerResourcesView',
     ]);

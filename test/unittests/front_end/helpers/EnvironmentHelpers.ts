@@ -107,6 +107,7 @@ export function registerNoopActions(actionIds: string[]): void {
 }
 
 const REGISTERED_EXPERIMENTS = [
+  'bfcacheDisplayJsDetails',
   'bfcacheDisplayTree',
   'captureNodeCreationStacks',
   'preciseChanges',
