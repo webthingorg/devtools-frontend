@@ -144,7 +144,19 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntrySelected, this.onMainEntrySelected, this);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onMainEntrySelected, this);
     // TODO(crbug.com/1469887): Rerender the FlameChart when EntriesModified event is triggered
-    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntriesModified, () => {});
+    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntriesModified, () => {
+    
+      console.log("here");
+      this.mainDataProvider.timelineData(true);
+      this.mainFlameChart.reset();
+      const window = this.model?.window();
+      if (window) {
+        this.mainFlameChart.setWindowTimes(window.left, window.right);
+      }
+      this.mainFlameChart.update();
+    
+    });
+
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.EntrySelected, this.onNetworkEntrySelected, this);
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onNetworkEntrySelected, this);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryHighlighted, this.onEntryHighlighted, this);
