@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "573f867b_1cbe21b1",
+        "filename": "front_end/models/issues_manager/CookieDeprecationMetadataIssue.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-27T15:06:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0aebffe3_11f1d6d2",
+      "revId": "6c0810172f41a9248fd25333563d2b5cb7522212",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a2f9668_2aaf2a90",

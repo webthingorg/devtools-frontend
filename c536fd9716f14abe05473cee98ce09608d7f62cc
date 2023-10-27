@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c54fef0_a9b4fd2a",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnMetadataGrantRead.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-27T15:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cffba192_c3caab2d",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 69
+      },
+      "revId": "c536fd9716f14abe05473cee98ce09608d7f62cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff242beb_7059783f",
@@ -71,6 +95,24 @@
       "writtenOn": "2023-10-27T09:08:22Z",
       "side": 1,
       "message": "```suggestion\nOne or more websites are allowed to bypass user settings to read third-party cookies on this page. Chrome no longer supports third-party cookies and web developers should take steps to remove these reads without disrupting user experience. To forcefully block these third-party cookies, update [user settings](https://support.google.com/chrome/answer/95647).\n```",
+      "revId": "c536fd9716f14abe05473cee98ce09608d7f62cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cbdc53e_5b3ee48d",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnMetadataGrantRead.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-27T15:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff242beb_7059783f",
       "revId": "c536fd9716f14abe05473cee98ce09608d7f62cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +134,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc2ab1a0_e08d3a0b",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnMetadataGrantSet.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-27T15:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "988e35a4_dafdc8c8",
+      "revId": "c536fd9716f14abe05473cee98ce09608d7f62cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1090d014_f776a350",
@@ -105,6 +165,24 @@
       "writtenOn": "2023-10-27T09:08:22Z",
       "side": 1,
       "message": "```suggestion\nOne or more websites are allowed to bypass user settings to set third-party cookies on this page. Chrome no longer supports third-party cookies and web developers should take steps to remove these sets without disrupting user experience. To forcefully block these third-party cookies, update [user settings](https://support.google.com/chrome/answer/95647).\n```",
+      "revId": "c536fd9716f14abe05473cee98ce09608d7f62cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cef1f00c_1293274a",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnMetadataGrantSet.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2023-10-27T15:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1090d014_f776a350",
       "revId": "c536fd9716f14abe05473cee98ce09608d7f62cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
