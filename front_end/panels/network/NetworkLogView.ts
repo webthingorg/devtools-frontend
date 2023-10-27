@@ -91,7 +91,7 @@ const UIStrings = {
   /**
    *@description Data urlfilter ui element title in Network Log View of the Network panel
    */
-  hidesDataAndBlobUrls: 'Hide \'data:\' and \'blob:\' URLs',
+  hideDataAndBlobUrls: 'Hide \'data:\' and \'blob:\' URLs',
   /**
    * @description Label for a filter in the Network panel
    */
@@ -134,7 +134,7 @@ const UIStrings = {
    *             cookie (https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). Such response cookies can
    *             be malformed or otherwise invalid and the browser may choose to ignore or not accept invalid cookies.
    */
-  onlyShowRequestsWithBlockedCookies: 'Show only the requests with blocked response cookies',
+  onlyShowRequestsWithBlockedCookies: 'Show only requests with blocked response cookies',
   /**
    *@description Label for a filter in the Network panel
    */
@@ -400,6 +400,10 @@ const UIStrings = {
    * @description Text for the Show only/Hide requests dropdown button of the filterbar
    */
   moreFilters: 'More filters',
+  /**
+   * @description Text for the Request types dropdown button
+   */
+  filterBy: 'Filter by ',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/NetworkLogView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -557,7 +561,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
           'hide-data-url', i18nString(UIStrings.hideDataUrls), true, this.networkHideDataURLSetting);
       this.dataURLFilterUI.addEventListener(
           UI.FilterBar.FilterUIEvents.FilterChanged, this.filterChanged.bind(this), this);
-      UI.Tooltip.Tooltip.install(this.dataURLFilterUI.element(), i18nString(UIStrings.hidesDataAndBlobUrls));
+      UI.Tooltip.Tooltip.install(this.dataURLFilterUI.element(), i18nString(UIStrings.hideDataAndBlobUrls));
       filterBar.addFilter(this.dataURLFilterUI);
 
       this.hideChromeExtensionsUI = new UI.FilterBar.CheckboxFilterUI(
@@ -2664,6 +2668,7 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
     }
     this.updateSelectedTypesCount();
     this.updateLabel();
+    this.updateTooltip();
   }
 
   updateSelectedTypesCount(): void {
@@ -2687,7 +2692,7 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
       newLabel = Common.ResourceType.ResourceCategory.categoryByTitle(type)?.shortTitle() || '';
     } else {
       // show up to two last selected types
-      const twoLastSelected = Array.from(this.displayedTypes).slice(-2).reverse();
+      const twoLastSelected = [...this.displayedTypes].slice(-2).reverse();
       const shortNames =
           twoLastSelected.map(type => Common.ResourceType.ResourceCategory.categoryByTitle(type)?.shortTitle() || '');
       const valuesToDisplay = {PH1: shortNames[0], PH2: shortNames[1]};
@@ -2695,6 +2700,12 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
                                                   i18nString(UIStrings.overTwoTypesSelected, valuesToDisplay);
     }
     this.dropDownButton.setText(newLabel);
+  }
+
+  updateTooltip(): void {
+    // reverse the order to match the button label
+    const selectedTypes = [...this.displayedTypes].reverse().join(', ');
+    this.dropDownButton.setTitle(UIStrings.filterBy + selectedTypes);
   }
 
   isActive(): boolean {
@@ -2785,7 +2796,7 @@ export class MoreFiltersDropDownUI extends
     this.contextMenu.defaultSection().appendCheckboxItem(
         i18nString(UIStrings.hideDataUrls),
         () => this.networkHideDataURLSetting.set(!this.networkHideDataURLSetting.get()),
-        this.networkHideDataURLSetting.get(), undefined, undefined, i18nString(UIStrings.hidesDataAndBlobUrls));
+        this.networkHideDataURLSetting.get(), undefined, undefined, i18nString(UIStrings.hideDataAndBlobUrls));
     this.contextMenu.defaultSection().appendCheckboxItem(
         i18nString(UIStrings.chromeExtensions),
         () => this.networkHideChromeExtensionsSetting.set(!this.networkHideChromeExtensionsSetting.get()),
