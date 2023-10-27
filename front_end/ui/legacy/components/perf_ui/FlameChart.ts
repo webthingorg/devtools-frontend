@@ -2716,6 +2716,11 @@ export enum Events {
    * chosen from the flame chart context  menu
    */
   TreeModified = 'TreeModified',
+  /**
+   * Emitted when a there is a modify actioned(ex. merge, collapse recursion)
+   * chosen from the flame chart context  menu
+   */
+  EntriesModified = 'EntriesModified',
 }
 
 export type EventTypes = {
@@ -2727,6 +2732,7 @@ export type EventTypes = {
     group: Group,
     node: number,
   },
+  [Events.EntriesModified]: void,
 };
 
 export interface Group {
