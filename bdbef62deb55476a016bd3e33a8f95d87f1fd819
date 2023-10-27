@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "bdbef62deb55476a016bd3e33a8f95d87f1fd819",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f4a11b2_ce076931",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-27T09:48:34Z",
+      "side": 1,
+      "message": "LGTM!\n\nnote: we should also make sure we are using the new engine to power this warning in the ui by adding an entry here:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/components/DetailsView.ts",
+      "revId": "bdbef62deb55476a016bd3e33a8f95d87f1fd819",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
