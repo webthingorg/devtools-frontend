@@ -69,6 +69,24 @@
       "parentUuid": "648cc681_1b8a60e5",
       "revId": "cc50659f5d22891d448e950fa6479a344577deca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "007a88e2_80eb867b",
+        "filename": "test/interactions/goldens/win32/performance/main-thread-track-candy-stripe.png",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2023-10-27T02:21:15Z",
+      "side": 1,
+      "message": "ah. I was inspecting and saw items in an array including something at index -1. (i think it was the currentJSStack)  so yeah.. that was probably it. \n\nwell, thats probably ends up being an important fix too. :)  \n\nnice one",
+      "parentUuid": "085d34e6_ca9b8f69",
+      "revId": "cc50659f5d22891d448e950fa6479a344577deca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
