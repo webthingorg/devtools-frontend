@@ -16,6 +16,23 @@
       "message": "Wolfgang, could you please take a look?",
       "revId": "40b630bd2e6fd988efb880eb8be94de57fab11cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa9c86cd_cb48439d",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-27T13:12:22Z",
+      "side": 1,
+      "message": "How about \u0027Show only\u0027?\nInstead of the trailing space, how about a placeholder, which is then filled with the result of the join?",
+      "revId": "40b630bd2e6fd988efb880eb8be94de57fab11cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
