@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fdbea08_526d7a2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2023-10-27T09:47:50Z",
+      "side": 1,
+      "message": "Hi Wolfgang, can you PTAL?\n\nOne thing I did not know how to address was the length of the URL text.\nCurrently it\u0027s trimmed pretty short, and I was not sure how to pass the length to the likifier. (LinkifyOptions do not take maxLength as a param.)\n\nPlease let me know how to fix this.\nThanks!",
+      "revId": "bf0e272a1fe8662b5b3938af5d06ee1e87807656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
