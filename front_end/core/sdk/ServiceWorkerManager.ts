@@ -371,6 +371,7 @@ export class ServiceWorkerVersion {
   scriptResponseTime!: number|undefined;
   controlledClients!: Protocol.Target.TargetID[];
   targetId!: string|null;
+  routerRules!: string|null;
   currentState!: ServiceWorkerVersionState;
   registration: ServiceWorkerRegistration;
   constructor(registration: ServiceWorkerRegistration, payload: Protocol.ServiceWorker.ServiceWorkerVersion) {
@@ -393,6 +394,7 @@ export class ServiceWorkerVersion {
       this.controlledClients = [];
     }
     this.targetId = payload.targetId || null;
+    this.routerRules = payload.routerRules || null;
   }
 
   isStartable(): boolean {

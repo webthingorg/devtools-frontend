@@ -117,6 +117,10 @@ const UIStrings = {
    */
   receivedS: 'Received {PH1}',
   /**
+   * @description Text in Service Workers View of the Application panel.
+   */
+  routers: 'Routers',
+  /**
    *@description Text in Service Workers View of the Application panel
    *@example {example.com} PH1
    */
@@ -491,6 +495,7 @@ export class Section {
   private readonly clientInfoCache: Map<string, Protocol.Target.TargetInfo>;
   private readonly throttler: Common.Throttler.Throttler;
   private updateCycleField?: Element;
+  private routersField?: Element;
 
   constructor(
       manager: SDK.ServiceWorkerManager.ServiceWorkerManager, section: UI.ReportView.Section,
@@ -672,6 +677,14 @@ export class Section {
         this.createLink(activeEntry, i18nString(UIStrings.startString), this.startButtonClicked.bind(this));
       }
       this.updateClientsField(active);
+      if (active.routerRules) {
+        // ToDo: Do decent styling
+        if (!this.routersField) {
+          this.routersField = this.wrapWidget(this.section.appendField(i18nString(UIStrings.routers)));
+        }
+        this.routersField.appendChild(
+            UI.Fragment.html`<textarea class="service-worker-rules" readonly>${active.routerRules}</textarea>`);
+      }
     } else if (redundant) {
       this.updateSourceField(redundant);
       this.addVersion(
