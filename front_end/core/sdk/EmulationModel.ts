@@ -239,7 +239,7 @@ export class EmulationModel extends SDKModel<void> {
             .invoke_setGeolocationOverride({
               latitude: location.latitude,
               longitude: location.longitude,
-              accuracy: Location.defaultGeoMockAccuracy,
+              accuracy: location.accuracy,
             })
             .then(result => processEmulationResult('emulation-set-location', result)),
         this.#emulationAgent
@@ -416,41 +416,48 @@ export class Location {
   longitude: number;
   timezoneId: string;
   locale: string;
+  accuracy: number;
   error: boolean;
 
-  constructor(latitude: number, longitude: number, timezoneId: string, locale: string, error: boolean) {
+  constructor(
+      latitude: number, longitude: number, timezoneId: string, locale: string, accuracy: number, error: boolean) {
     this.latitude = latitude;
     this.longitude = longitude;
     this.timezoneId = timezoneId;
     this.locale = locale;
+    this.accuracy = accuracy;
     this.error = error;
   }
 
   static parseSetting(value: string): Location {
     if (value) {
-      const [position, timezoneId, locale, error] = value.split(':');
+      const [position, timezoneId, locale, accuracy, error] = value.split(':');
       const [latitude, longitude] = position.split('@');
-      return new Location(parseFloat(latitude), parseFloat(longitude), timezoneId, locale, Boolean(error));
+      return new Location(
+          parseFloat(latitude), parseFloat(longitude), timezoneId, locale, parseFloat(accuracy), Boolean(error));
     }
-    return new Location(0, 0, '', '', false);
+    return new Location(0, 0, '', '', 150, false);
   }
 
-  static parseUserInput(latitudeString: string, longitudeString: string, timezoneId: string, locale: string): Location
-      |null {
-    if (!latitudeString && !longitudeString) {
+  static parseUserInput(
+      latitudeString: string, longitudeString: string, timezoneId: string, locale: string,
+      accuracyString: string): Location|null {
+    if (!latitudeString && !longitudeString && !accuracyString) {
       return null;
     }
 
     const {valid: isLatitudeValid} = Location.latitudeValidator(latitudeString);
     const {valid: isLongitudeValid} = Location.longitudeValidator(longitudeString);
+    const {valid: isAccuracyValid} = Location.accuracyValidator(accuracyString);
 
-    if (!isLatitudeValid && !isLongitudeValid) {
+    if (!isLatitudeValid && !isLongitudeValid && !isAccuracyValid) {
       return null;
     }
 
     const latitude = isLatitudeValid ? parseFloat(latitudeString) : -1;
     const longitude = isLongitudeValid ? parseFloat(longitudeString) : -1;
-    return new Location(latitude, longitude, timezoneId, locale, false);
+    const accuracy = isAccuracyValid ? parseFloat(accuracyString) : -1;
+    return new Location(latitude, longitude, timezoneId, locale, accuracy, false);
   }
 
   static latitudeValidator(value: string): {
@@ -499,11 +506,18 @@ export class Location {
     return {valid, errorMessage: undefined};
   }
 
-  toSetting(): string {
-    return `${this.latitude}@${this.longitude}:${this.timezoneId}:${this.locale}:${this.error || ''}`;
+  static accuracyValidator(value: string): {
+    valid: boolean,
+    errorMessage: (string|undefined),
+  } {
+    const numValue = parseFloat(value);
+    const valid = /^([+-]?[\d]+(\.\d+)?|[+-]?\.\d+)$/.test(value) && numValue >= 0;
+    return {valid, errorMessage: undefined};
   }
 
-  static defaultGeoMockAccuracy = 150;
+  toSetting(): string {
+    return `${this.latitude}@${this.longitude}:${this.timezoneId}:${this.locale}:${this.accuracy}:${this.error || ''}`;
+  }
 }
 
 export class DeviceOrientation {
