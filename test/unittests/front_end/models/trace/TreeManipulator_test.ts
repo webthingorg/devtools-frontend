@@ -41,7 +41,7 @@ describe('TreeManipulator', function() {
     const data = await TraceLoader.traceEngine(this, 'basic-stack.json.gz');
     const mainThread = getMainThread(data.Renderer);
     const stack = new TraceEngine.TreeManipulator.TreeManipulator(mainThread, data.Renderer.entryToNode);
-    assert.deepEqual(mainThread.entries, stack.visibleEntries());
+    assert.deepEqual(mainThread.entries, stack.invisibleEntries());
   });
 
   it('supports the user merging an entry into its parent', async function() {
@@ -77,9 +77,9 @@ describe('TreeManipulator', function() {
     });
     const stack = new TraceEngine.TreeManipulator.TreeManipulator(mainThread, data.Renderer.entryToNode);
     stack.applyAction({type: 'MERGE_FUNCTION', entry: entryTwo});
-    assert.isFalse(stack.visibleEntries().includes(entryTwo), 'entryTwo is still visible');
+    assert.isFalse(stack.invisibleEntries().includes(entryTwo), 'entryTwo is still visible');
     // Only one entry - the one for the `basicTwo` function - should have been hidden.
-    assert.strictEqual(stack.visibleEntries().length, mainThread.entries.length - 1);
+    assert.strictEqual(stack.invisibleEntries().length, mainThread.entries.length - 1);
   });
 
   it('supports removing an action', async function() {
@@ -95,13 +95,14 @@ describe('TreeManipulator', function() {
     });
     const stack = new TraceEngine.TreeManipulator.TreeManipulator(mainThread, data.Renderer.entryToNode);
     stack.applyAction({type: 'MERGE_FUNCTION', entry: entryTwo});
-    assert.isFalse(stack.visibleEntries().includes(entryTwo), 'entryTwo is still visible');
+    assert.isFalse(stack.invisibleEntries().includes(entryTwo), 'entryTwo is still visible');
     // Only one entry - the one for the `basicTwo` function - should have been hidden.
-    assert.strictEqual(stack.visibleEntries().length, mainThread.entries.length - 1);
+    assert.strictEqual(stack.invisibleEntries().length, mainThread.entries.length - 1);
 
     // Now remove the action and ensure that all entries are now visible.
     stack.removeActiveAction({type: 'MERGE_FUNCTION', entry: entryTwo});
-    assert.strictEqual(stack.visibleEntries().length, mainThread.entries.length, 'All the entries should be visible.');
+    assert.strictEqual(
+        stack.invisibleEntries().length, mainThread.entries.length, 'All the entries should be visible.');
   });
 
   it('supports collapsing an entry', async function() {
@@ -147,10 +148,10 @@ describe('TreeManipulator', function() {
     stack.applyAction({type: 'COLLAPSE_FUNCTION', entry: basicTwoCallEntry});
 
     // We collapsed at the `basicTwo` entry - so it should be visible itself.
-    assert.isTrue(stack.visibleEntries().includes(basicTwoCallEntry), 'entryTwo is not visible');
+    assert.isTrue(stack.invisibleEntries().includes(basicTwoCallEntry), 'entryTwo is not visible');
     // But all fib() calls below it in the stack should now be hidden.
     const allFibonacciInStackAreHidden = fibonacciCalls.every(fibCall => {
-      return stack.visibleEntries().includes(fibCall) === false;
+      return stack.invisibleEntries().includes(fibCall) === false;
     });
     assert.isTrue(allFibonacciInStackAreHidden, 'Some fibonacci calls are still visible');
   });

@@ -34,7 +34,7 @@ export class TreeManipulator {
   // Track the last calculated set of visible entries. This means we can avoid
   // re-generating this if the set of actions that have been applied has not
   // changed.
-  #lastVisibleEntries: Types.TraceEvents.TraceEntry[]|null = null;
+  #lastInvisibleEntries: Types.TraceEvents.TraceEntry[]|null = null;
   #activeActions: UserTreeAction[] = [];
 
   constructor(
@@ -60,7 +60,7 @@ export class TreeManipulator {
     // Clear the last list of visible entries - this invalidates the cache and
     // ensures that the visible list will be recalculated, which we have to do
     // now we have changed the list of actions.
-    this.#lastVisibleEntries = null;
+    this.#lastInvisibleEntries = null;
   }
 
   /**
@@ -84,7 +84,7 @@ export class TreeManipulator {
     if (removedAction) {
       // If we found and removed an action, we need to clear the cache to force
       // the set of visible entries to be recalculcated.
-      this.#lastVisibleEntries = null;
+      this.#lastInvisibleEntries = null;
     }
   }
 
@@ -100,19 +100,19 @@ export class TreeManipulator {
    *
    * This method is cached, so it is safe to call multiple times.
    **/
-  visibleEntries(): Types.TraceEvents.TraceEventData[] {
+  invisibleEntries(): Types.TraceEvents.TraceEventData[] {
     if (this.#activeActions.length === 0) {
-      return this.#thread.entries;
+      return [];
     }
-    return this.#calculateVisibleEntries();
+    return this.#calculateInvisibleEntries();
   }
 
-  #calculateVisibleEntries(): Types.TraceEvents.TraceEventData[] {
+  #calculateInvisibleEntries(): Types.TraceEvents.TraceEventData[] {
     // When an action is added, we clear this cache. So if this cache is
     // present it means that the set of active actions has not changed, and so
     // we do not need to recalculate anything.
-    if (this.#lastVisibleEntries) {
-      return this.#lastVisibleEntries;
+    if (this.#lastInvisibleEntries) {
+      return this.#lastInvisibleEntries;
     }
 
     if (!this.#thread.tree) {
@@ -130,7 +130,7 @@ export class TreeManipulator {
     // through the entries array once to filter out any that should be hidden.
     const entriesToHide = new Set<Types.TraceEvents.TraceEntry>();
 
-    const entries = [...this.#thread.entries];
+    // const entries = [...this.#thread.entries];
     for (const action of this.#activeActions) {
       switch (action.type) {
         case 'MERGE_FUNCTION': {
@@ -163,11 +163,14 @@ export class TreeManipulator {
     // again and the user actions have not changed, we can avoid recalculating
     // this and just return the last one. This cache is automatically cleared
     // when the user actions are changed.
-    this.#lastVisibleEntries = entries.filter(entry => {
-      return entriesToHide.has(entry) === false;
-    });
 
-    return this.#lastVisibleEntries;
+    // this.#lastInvisibleEntries = entries.filter(entry => {
+    //   return entriesToHide.has(entry) === false;
+    // });
+
+    this.#lastInvisibleEntries = [...entriesToHide];
+
+    return this.#lastInvisibleEntries;
   }
 
   #findAllAncestorsOfNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEntry[] {

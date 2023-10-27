@@ -267,9 +267,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (this.highlightedEntryIndex === entryIndex) {
       return;
     }
-    if (!this.dataProvider.entryColor(entryIndex)) {
-      return;
-    }
+    // if (!this.dataProvider.entryColor(entryIndex)) {
+    //   return;
+    // }
     this.highlightedEntryIndex = entryIndex;
     this.updateElementPosition(this.highlightElement, this.highlightedEntryIndex);
     this.dispatchEventToListeners(Events.EntryHighlighted, entryIndex);
@@ -354,11 +354,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.#groupTreeRoot = null;
   }
 
-  timelineData(): FlameChartTimelineData|null {
+  timelineData(rebuid?: boolean): FlameChartTimelineData|null {
     if (!this.dataProvider) {
       return null;
     }
-    const timelineData = this.dataProvider.timelineData();
+    const timelineData = this.dataProvider.timelineData(rebuid);
     if (timelineData !== this.rawTimelineData ||
         (timelineData && timelineData.entryStartTimes.length !== this.rawTimelineDataLength)) {
       this.processTimelineData(timelineData);
@@ -769,6 +769,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // to trigger a context menu.
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
     const contextMenu = new UI.ContextMenu.ContextMenu(_event);
+
+    if (!this.timelineLevels) {
+      return;
+    }
 
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
     contextMenu.headerSection().appendItem('Merge function', () => {
@@ -1188,6 +1192,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // Skip the one whose index is -1, because we added to represent the top
       // level to be the parent of all groups.
       sortedGroupIndexes.shift();
+
+      if (sortedGroupIndexes.length !== groups.length) {
+        // This shouldn't happen, because the tree should have the fake root and all groups. Add a sanity check to avoid
+        // error.
+        return -1;
+      }
 
       // This shouldn't happen, because the tree should have the fake root and all groups. Add a sanity check to avoid
       // error.
@@ -2648,7 +2658,7 @@ export interface FlameChartDataProvider {
 
   maxStackDepth(): number;
 
-  timelineData(): FlameChartTimelineData|null;
+  timelineData(rebuild?: boolean): FlameChartTimelineData|null;
 
   prepareHighlightedEntryInfo(entryIndex: number): Element|null;
 
