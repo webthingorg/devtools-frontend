@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e147d119_dc78908c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-10-27T06:47:24Z",
+      "side": 1,
+      "message": "Yeah, `npm run auto-e2etest` should work.",
+      "parentUuid": "af550990_e9a4633b",
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb40aa74_69296367",
         "filename": "front_end/panels/network/EventSourceMessagesView.ts",
         "patchSetId": 2
