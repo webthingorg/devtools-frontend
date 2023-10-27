@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0aebffe3_11f1d6d2",
+        "filename": "front_end/models/issues_manager/CookieDeprecationMetadataIssue.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-27T06:47:58Z",
+      "side": 1,
+      "message": "I see, thanks, SGTM.",
+      "parentUuid": "653f1faa_812fad46",
+      "revId": "6c0810172f41a9248fd25333563d2b5cb7522212",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a2f9668_2aaf2a90",
         "filename": "test/e2e/issues/cookie-deprecation-metadata-issues_test.ts",
         "patchSetId": 16
