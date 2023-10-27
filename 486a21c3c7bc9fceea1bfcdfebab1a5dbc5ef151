@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dc1c5bbc_5d0046b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-27T18:18:32Z",
+      "side": 1,
+      "message": "Thanks for review 😊",
+      "revId": "486a21c3c7bc9fceea1bfcdfebab1a5dbc5ef151",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0343613e_9197fffb",
         "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
         "patchSetId": 3
@@ -64,6 +81,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba3870f_4251d2b4",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-27T18:18:32Z",
+      "side": 1,
+      "message": "good point, I added the comment.\nWill pass the operation is next CLs",
+      "parentUuid": "cce91e72_d13b339c",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 231,
+        "endChar": 83
+      },
+      "revId": "486a21c3c7bc9fceea1bfcdfebab1a5dbc5ef151",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fef5cf1_f948503c",
@@ -77,6 +118,30 @@
       "writtenOn": "2023-10-27T12:17:06Z",
       "side": 1,
       "message": "nits: we can move this comment to the `dispatchEventToListeners` part.",
+      "range": {
+        "startLine": 774,
+        "startChar": 4,
+        "endLine": 774,
+        "endChar": 97
+      },
+      "revId": "486a21c3c7bc9fceea1bfcdfebab1a5dbc5ef151",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96193c5_c8dfefbf",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-10-27T18:18:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fef5cf1_f948503c",
       "range": {
         "startLine": 774,
         "startChar": 4,
