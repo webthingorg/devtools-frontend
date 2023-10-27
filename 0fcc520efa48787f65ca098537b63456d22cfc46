@@ -189,6 +189,24 @@
       "message": "This has moved yet again, so it should now be \n\n```suggestion\n    preloadingSettingLink.href \u003d \u0027chrome://settings/performance\u0027;\n```",
       "revId": "0fcc520efa48787f65ca098537b63456d22cfc46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f70eb3b_f776a64b",
+        "filename": "front_end/panels/application/preloading/components/PreloadingDisabledInfobar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2023-10-27T00:37:20Z",
+      "side": 1,
+      "message": "Fix applied. Thanks!",
+      "parentUuid": "86b3d637_e93f5b72",
+      "revId": "0fcc520efa48787f65ca098537b63456d22cfc46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
