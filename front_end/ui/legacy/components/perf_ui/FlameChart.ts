@@ -354,11 +354,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.#groupTreeRoot = null;
   }
 
-  timelineData(): FlameChartTimelineData|null {
+  timelineData(rebuid?: boolean): FlameChartTimelineData|null {
     if (!this.dataProvider) {
       return null;
     }
-    const timelineData = this.dataProvider.timelineData();
+    const timelineData = this.dataProvider.timelineData(rebuid);
     if (timelineData !== this.rawTimelineData ||
         (timelineData && timelineData.entryStartTimes.length !== this.rawTimelineDataLength)) {
       this.processTimelineData(timelineData);
@@ -1188,6 +1188,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // Skip the one whose index is -1, because we added to represent the top
       // level to be the parent of all groups.
       sortedGroupIndexes.shift();
+
+      if (sortedGroupIndexes.length !== groups.length) {
+        // This shouldn't happen, because the tree should have the fake root and all groups. Add a sanity check to avoid
+        // error.
+        return -1;
+      }
 
       // This shouldn't happen, because the tree should have the fake root and all groups. Add a sanity check to avoid
       // error.
@@ -2648,7 +2654,7 @@ export interface FlameChartDataProvider {
 
   maxStackDepth(): number;
 
-  timelineData(): FlameChartTimelineData|null;
+  timelineData(rebuild?: boolean): FlameChartTimelineData|null;
 
   prepareHighlightedEntryInfo(entryIndex: number): Element|null;
 
