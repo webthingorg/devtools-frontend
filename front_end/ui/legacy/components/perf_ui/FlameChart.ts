@@ -776,6 +776,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       this.dispatchEventToListeners(Events.TreeModified, {
         group: group,
         node: this.selectedEntryIndex,
+        action: TraceEngine.TreeManipulator.TreeAction.MERGE_FUNCTION,
       });
     });
 
@@ -2737,6 +2738,7 @@ export type EventTypes = {
   [Events.TreeModified]: {
     group: Group,
     node: number,
+    action: TraceEngine.TreeManipulator.TreeAction,
   },
   [Events.EntriesModified]: void,
 };
