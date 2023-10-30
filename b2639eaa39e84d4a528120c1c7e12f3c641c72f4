@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2eac8cb_2047c26e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-30T08:10:56Z",
+      "side": 1,
+      "message": "It would be great if you could add a unit test in BackForwardCacheView_test.ts.",
+      "revId": "b2639eaa39e84d4a528120c1c7e12f3c641c72f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0923aab0_7ea3d2b2",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-30T08:10:56Z",
+      "side": 1,
+      "message": "Is there a specific reason for adding an experiment? I think from the DevTools-side it\u0027s fine without having one, since it can handle both the case where this data is available and the case where there is no such data.",
+      "range": {
+        "startLine": 287,
+        "startChar": 4,
+        "endLine": 287,
+        "endChar": 112
+      },
+      "revId": "b2639eaa39e84d4a528120c1c7e12f3c641c72f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ea41531_3a19b7ee",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-30T08:10:56Z",
+      "side": 1,
+      "message": "The maxLength param is optional. Have you tried without it? Maybe that helps with the short link length.",
+      "range": {
+        "startLine": 597,
+        "startChar": 57,
+        "endLine": 597,
+        "endChar": 82
+      },
+      "revId": "b2639eaa39e84d4a528120c1c7e12f3c641c72f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64fc3d69_bfb706a5",
+        "filename": "front_end/panels/application/components/backForwardCacheView.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-10-30T08:10:56Z",
+      "side": 1,
+      "message": "Let\u0027s remove this class and use details-list in both places.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "b2639eaa39e84d4a528120c1c7e12f3c641c72f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
