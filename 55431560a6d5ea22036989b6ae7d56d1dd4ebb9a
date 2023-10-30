@@ -33,6 +33,24 @@
       "message": "I think this makes a lot of sense to me!\n\nIn addition to that, WDYT of not comitting text edit when the user selected something from autocomplete and pressed enter. (just fill the text but not move the focus away)",
       "revId": "55431560a6d5ea22036989b6ae7d56d1dd4ebb9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b64500e_f3c211d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-10-30T18:59:55Z",
+      "side": 1,
+      "message": "Yes I agree, in the long term. I briefly tried the editing behavior in the Styles pane and in the Source panel, especially on what happens when you tab, enter, or space, and I think I like the Sources panel behavior better, which is what you described, IIUC. But this won\u0027t be easy I think, and since it breaks user behavior, maybe we should understand how much change it is to users before doing it. Let\u0027s move this conversation to the chat to better capture it.",
+      "parentUuid": "0b9105d8_06a7eeab",
+      "revId": "55431560a6d5ea22036989b6ae7d56d1dd4ebb9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
