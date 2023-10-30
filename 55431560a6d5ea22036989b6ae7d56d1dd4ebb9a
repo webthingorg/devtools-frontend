@@ -16,6 +16,23 @@
       "message": "Hi Ergün, PTAL, thanks!",
       "revId": "55431560a6d5ea22036989b6ae7d56d1dd4ebb9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9105d8_06a7eeab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-30T11:36:25Z",
+      "side": 1,
+      "message": "I think this makes a lot of sense to me!\n\nIn addition to that, WDYT of not comitting text edit when the user selected something from autocomplete and pressed enter. (just fill the text but not move the focus away)",
+      "revId": "55431560a6d5ea22036989b6ae7d56d1dd4ebb9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
