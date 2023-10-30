@@ -33,6 +33,24 @@
       "message": "is it going to be different from the scriptFirstStatement string? It looks like scriptFirstStatement can be re-used for this.",
       "revId": "2d71b3b49ead9110b26163a2a086c67d96b1d89f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c2412ac_996ec6c3",
+        "filename": "front_end/panels/sources/CategorizedBreakpointL10n.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1294707
+      },
+      "writtenOn": "2023-10-30T07:42:46Z",
+      "side": 1,
+      "message": "scriptFristStatement may be sufficient in some cases, but could also be too general (i.e. when there are a lot of scripts in the page, in which case all scripts in the page will be paused successively) if we only want to pause on shared storage worklet script.",
+      "parentUuid": "fe70b432_f5c1c502",
+      "revId": "2d71b3b49ead9110b26163a2a086c67d96b1d89f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
