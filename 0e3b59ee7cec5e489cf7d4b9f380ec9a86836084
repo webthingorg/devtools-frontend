@@ -33,6 +33,92 @@
       "message": "I would like to land this today so it makes it into the branch cut, but I won\u0027t land any of the follow-up refactors and tidying up until tomorrow onwards 😊",
       "revId": "0e3b59ee7cec5e489cf7d4b9f380ec9a86836084",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b76ca5f_2c619298",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-30T09:06:04Z",
+      "side": 1,
+      "message": "Thanks for fixing this!\nLGTM with a couple of non-blocking observations",
+      "revId": "0e3b59ee7cec5e489cf7d4b9f380ec9a86836084",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a0bf05_356a942a",
+        "filename": "front_end/panels/timeline/SourceMapsResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-30T09:06:04Z",
+      "side": 1,
+      "message": "I think there is a possibility node ids collide between profiles of different processes. Maybe we can key by something less likely to collide f.e. the profile call obj",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "0e3b59ee7cec5e489cf7d4b9f380ec9a86836084",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eccd2faf_0e62a412",
+        "filename": "front_end/panels/timeline/SourceMapsResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-30T09:06:04Z",
+      "side": 1,
+      "message": "do we want to have a way of resetting this map so that it doesn\u0027t grow ever larger f.e. when running tests? If so, not something we need to do as part of this CL, but it could be a nice follow up.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "0e3b59ee7cec5e489cf7d4b9f380ec9a86836084",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c065ed0_394ccec8",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-10-30T09:06:04Z",
+      "side": 1,
+      "message": "do we need to add a test for the resolved function name in the data grid or do we have coverage already?",
+      "range": {
+        "startLine": 1456,
+        "startChar": 9,
+        "endLine": 1456,
+        "endChar": 19
+      },
+      "revId": "0e3b59ee7cec5e489cf7d4b9f380ec9a86836084",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
