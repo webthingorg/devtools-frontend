@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17a48927_e0ded032",
+        "filename": "front_end/panels/timeline/SourceMapsResolver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-30T09:42:22Z",
+      "side": 1,
+      "message": "Ah good point. I was trying to avoid having to key it by anything that means that we have to pass in an `entryToNode` map. I will have another think about this. I had assumed a node ID would be unique but you\u0027ree right I assume between different processes there will likely be TID collisions.",
+      "parentUuid": "c0a0bf05_356a942a",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "0e3b59ee7cec5e489cf7d4b9f380ec9a86836084",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eccd2faf_0e62a412",
         "filename": "front_end/panels/timeline/SourceMapsResolver.ts",
         "patchSetId": 2
