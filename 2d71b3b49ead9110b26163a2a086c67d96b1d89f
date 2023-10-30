@@ -69,6 +69,24 @@
       "parentUuid": "2c2412ac_996ec6c3",
       "revId": "2d71b3b49ead9110b26163a2a086c67d96b1d89f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff46ae33_9175bcfb",
+        "filename": "front_end/panels/sources/CategorizedBreakpointL10n.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1294707
+      },
+      "writtenOn": "2023-10-30T07:57:03Z",
+      "side": 1,
+      "message": "Yes this is intended. This will be a sub-item under \"Shared Storage Worklet\" (see the screenshot). So it should be sufficiently clear.",
+      "parentUuid": "2c2412ac_996ec6c3",
+      "revId": "2d71b3b49ead9110b26163a2a086c67d96b1d89f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
