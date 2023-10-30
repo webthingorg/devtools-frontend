@@ -17,6 +17,13 @@ export class NodeNamesUpdated extends Event {
   }
 }
 
+// Track node function names resolved by sourcemaps. The key here is the
+// NodeId, which is found on each SyntheticProfileCall. Keying it by the ID
+// rather than the Node itself means we do not jump from the
+// SyntheticProfileCall.nodeId=>Node=>resolved name, and can instead use the
+// NodeId directly.
+const resolvedNodeNames: Map<number, string|null> = new Map();
+
 export class SourceMapsResolver extends EventTarget {
   #traceData: TraceEngine.Handlers.Migration.PartialTraceData;
 
@@ -32,6 +39,10 @@ export class SourceMapsResolver extends EventTarget {
   constructor(traceData: TraceEngine.Handlers.Migration.PartialTraceData) {
     super();
     this.#traceData = traceData;
+  }
+
+  static resolvedNodeNamesByNodeId(): ReadonlyMap<number, string|null> {
+    return resolvedNodeNames;
   }
 
   async install(): Promise<void> {
@@ -105,6 +116,7 @@ export class SourceMapsResolver extends EventTarget {
           const resolvedFunctionName =
               await SourceMapScopes.NamesResolver.resolveProfileFrameFunctionName(node.callFrame, target);
           node.setFunctionName(resolvedFunctionName);
+          resolvedNodeNames.set(node.id, resolvedFunctionName);
         }
       }
     }

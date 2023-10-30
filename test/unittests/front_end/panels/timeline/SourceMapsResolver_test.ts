@@ -228,6 +228,11 @@ describeWithMockConnection('SourceMapsResolver', () => {
        // Now that the script and source map have loaded, test that the model has been automatically
        // reparsed to resolve function names.
        assert.strictEqual(bottomModelNode?.functionName, AUTHORED_FUNCTION_NAME);
+
+       // Ensure we populate the cache
+       assert.strictEqual(
+           Timeline.SourceMapsResolver.SourceMapsResolver.resolvedNodeNamesByNodeId().get(NODE_ID),
+           AUTHORED_FUNCTION_NAME);
      });
 
   it('resolves function names using a plugin when available', async () => {
