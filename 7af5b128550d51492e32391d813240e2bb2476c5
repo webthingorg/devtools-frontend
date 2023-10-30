@@ -34,6 +34,24 @@
       "parentUuid": "241de472_1beeb85c",
       "revId": "7af5b128550d51492e32391d813240e2bb2476c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f838882_12a12d6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-10-30T12:10:07Z",
+      "side": 1,
+      "message": "LGTM!\n\nAs a side thinking, since we\u0027re having some touches to this console tab regarding the project; I wonder having a screenshot test would be useful.",
+      "parentUuid": "a9d36888_dcc8e9f5",
+      "revId": "7af5b128550d51492e32391d813240e2bb2476c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
