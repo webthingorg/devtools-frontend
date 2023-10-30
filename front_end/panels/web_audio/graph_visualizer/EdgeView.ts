@@ -41,7 +41,7 @@ export const generateEdgePortIdsByData = (data: NodesConnectionData|NodeParamCon
   destinationPortId: string,
 }|null => {
   if (!data.sourceId || !data.destinationId) {
-    console.error(`Undefined node message: ${JSON.stringify(data)}`);
+    console.warn(`Undefined node message: ${JSON.stringify(data)}`);
     return null;
   }
 

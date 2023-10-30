@@ -52,7 +52,7 @@ export class ExtensionEndpoint {
     const {requestId, result, error} = data;
     const pendingRequest = this.pendingRequests.get(requestId);
     if (!pendingRequest) {
-      console.error(`No pending request ${requestId}`);
+      console.error('No pending request.');
       return;
     }
     this.pendingRequests.delete(requestId);

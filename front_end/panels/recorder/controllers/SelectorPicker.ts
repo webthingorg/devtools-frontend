@@ -150,17 +150,12 @@ export class SelectorPicker implements SDK.TargetManager.Observer {
     );
     if (!contextTarget || !frameId) {
       throw new Error(
-          `No execution context found for the binding call + ${
-              JSON.stringify(
-                  event.data,
-                  )}`,
+          'No execution context found for the binding call',
       );
     }
     const model = contextTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
     if (!model) {
-      throw new Error(
-          `ResourceTreeModel instance is missing for the target: ${contextTarget.id()}`,
-      );
+      throw new Error('ResourceTreeModel instance is missing for the target');
     }
     const frame = model.frameForId(frameId);
     if (!frame) {

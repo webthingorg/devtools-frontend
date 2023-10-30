@@ -123,7 +123,7 @@ export class WebSocketConnection implements ProtocolClient.InspectorBackend.Conn
   private onOpen(): void {
     this.#connected = true;
     if (this.#socket) {
-      this.#socket.onerror = console.error;
+      this.#socket.onerror = console.warn;
       for (const message of this.#messages) {
         this.#socket.send(message);
       }

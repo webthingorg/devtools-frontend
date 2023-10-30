@@ -336,12 +336,12 @@ export class SamplesIntegrator {
     if (this.#lockedJsStackDepth.length) {
       const lockedDepth = this.#lockedJsStackDepth.at(-1);
       if (lockedDepth && depth < lockedDepth) {
-        console.error(`Child stack is shallower (${depth}) than the parent stack (${lockedDepth}) at ${time}`);
+        console.error('Child stack is shallower than the parent stack');
         depth = lockedDepth;
       }
     }
     if (this.#currentJSStack.length < depth) {
-      console.error(`Trying to truncate higher than the current stack size at ${time}`);
+      console.error('Trying to truncate higher than the current stack size');
       depth = this.#currentJSStack.length;
     }
     for (let k = 0; k < this.#currentJSStack.length; ++k) {

@@ -40,11 +40,6 @@ import {PlatformFileSystem} from './PlatformFileSystem.js';
 
 const UIStrings = {
   /**
-   *@description Text in Isolated File System of the Workspace settings in Settings
-   *@example {folder does not exist} PH1
-   */
-  fileSystemErrorS: 'File system error: {PH1}',
-  /**
    *@description Error message when reading a remote blob
    */
   blobCouldNotBeLoaded: 'Blob could not be loaded.',
@@ -113,8 +108,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
   }
 
   static errorMessage(error: DOMError): string {
-    // @ts-ignore TODO(crbug.com/1172300) Properly type this after jsdoc to ts migration
-    return i18nString(UIStrings.fileSystemErrorS, {PH1: error.message});
+    return `File system error: ${error}`;
   }
 
   private serializedFileOperation<T>(path: Platform.DevToolsPath.EncodedPathString, operation: () => Promise<T>):
@@ -139,7 +133,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
 
     function errorHandler(error: DOMError): void {
       const errorMessage = IsolatedFileSystem.errorMessage(error);
-      console.error(errorMessage + ' when getting file metadata \'' + path);
+      console.error(`${errorMessage} when getting file metadata`);
       fulfill(null);
     }
   }
@@ -225,7 +219,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     return new Promise(resolve => {
       this.domFileSystem.root.getDirectory(path, {create: true}, dirEntry => resolve(dirEntry), error => {
         const errorMessage = IsolatedFileSystem.errorMessage(error);
-        console.error(errorMessage + ' trying to create directory \'' + path + '\'');
+        console.error(errorMessage + ' trying to create directory');
         resolve(null);
       });
     });
@@ -259,9 +253,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
             return;
           }
           const errorMessage = IsolatedFileSystem.errorMessage(error);
-          console.error(
-              errorMessage + ' when testing if file exists \'' + (this.path() + '/' + path + '/' + nameCandidate) +
-              '\'');
+          console.error(errorMessage + ' when testing if file exists');
           resolve(null);
         });
       });
@@ -291,7 +283,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
      */
     function errorHandler(this: IsolatedFileSystem, error: DOMError): void {
       const errorMessage = IsolatedFileSystem.errorMessage(error);
-      console.error(errorMessage + ' when deleting file \'' + (this.path() + '/' + path) + '\'');
+      console.error(errorMessage + ' when deleting file');
       resolveCallback(false);
     }
   }
@@ -319,7 +311,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
      */
     function errorHandler(this: IsolatedFileSystem, error: DOMError): void {
       const errorMessage = IsolatedFileSystem.errorMessage(error);
-      console.error(errorMessage + ' when deleting directory \'' + (this.path() + '/' + path) + '\'');
+      console.error(errorMessage + ' when deleting directory');
       resolveCallback(false);
     }
   }
@@ -337,7 +329,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
         }
 
         const errorMessage = IsolatedFileSystem.errorMessage(error);
-        console.error(errorMessage + ' when getting content for file \'' + (this.path() + '/' + path) + '\'');
+        console.error(errorMessage + ' when getting content for file');
         resolve(null);
       }
     });
@@ -368,9 +360,12 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     }
     await readPromise;
     if (reader.error) {
-      const error = i18nString(UIStrings.cantReadFileSS, {PH1: path, PH2: reader.error.toString()});
-      console.error(error);
-      return {content: null, isEncoded: false, error};
+      console.error(`Can't read file ${reader.error.toString()}`);
+      return {
+        content: null,
+        isEncoded: false,
+        error: i18nString(UIStrings.cantReadFileSS, {PH1: path, PH2: reader.error.toString()}),
+      };
     }
     let result: string|null = null;
     let error: Common.UIString.LocalizedString|null = null;
@@ -379,10 +374,14 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     } catch (e) {
       result = null;
       error = i18nString(UIStrings.cantReadFileSS, {PH1: path, PH2: e.message});
+      console.error(`Can't read file ${e.message}`);
     }
     if (result === undefined || result === null) {
+      if (!error) {
+        console.error('Unknown error reading a file.');
+      }
+
       error = error || i18nString(UIStrings.unknownErrorReadingFileS, {PH1: path});
-      console.error(error);
       return {content: null, isEncoded: false, error};
     }
     return {isEncoded: encoded, content: encoded ? btoa(result) : result};
@@ -429,7 +428,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
     function errorHandler(this: IsolatedFileSystem, error: DOMError|ProgressEvent<EventTarget>): void {
       // @ts-ignore TODO(crbug.com/1172300) Properly type this after jsdoc to ts migration
       const errorMessage = IsolatedFileSystem.errorMessage(error);
-      console.error(errorMessage + ' when setting content for file \'' + (this.path() + '/' + path) + '\'');
+      console.error(errorMessage + ' when setting content for file');
       callback(undefined);
     }
   }
@@ -482,7 +481,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
 
     function errorHandler(this: IsolatedFileSystem, error: DOMError): void {
       const errorMessage = IsolatedFileSystem.errorMessage(error);
-      console.error(errorMessage + ' when renaming file \'' + (this.path() + '/' + path) + '\' to \'' + newName + '\'');
+      console.error(errorMessage + ' when renaming file');
       callback(false);
     }
   }
@@ -508,7 +507,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
 
     function errorHandler(error: DOMError): void {
       const errorMessage = IsolatedFileSystem.errorMessage(error);
-      console.error(errorMessage + ' when reading directory \'' + dirEntry.fullPath + '\'');
+      console.error(errorMessage + ' when reading directory');
       callback([]);
     }
   }
@@ -522,7 +521,7 @@ export class IsolatedFileSystem extends PlatformFileSystem {
 
     function errorHandler(error: DOMError): void {
       const errorMessage = IsolatedFileSystem.errorMessage(error);
-      console.error(errorMessage + ' when requesting entry \'' + path + '\'');
+      console.warn(errorMessage + ' when requesting entry \'' + path + '\'');
       callback([]);
     }
   }
