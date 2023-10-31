@@ -662,11 +662,6 @@ declare namespace ProtocolProxyApi {
     invoke_setEffectivePropertyValueForNode(params: Protocol.CSS.SetEffectivePropertyValueForNodeRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     /**
-     * Modifies the property rule property name.
-     */
-    invoke_setPropertyRulePropertyName(params: Protocol.CSS.SetPropertyRulePropertyNameRequest): Promise<Protocol.CSS.SetPropertyRulePropertyNameResponse>;
-
-    /**
      * Modifies the keyframe rule key text.
      */
     invoke_setKeyframeKey(params: Protocol.CSS.SetKeyframeKeyRequest): Promise<Protocol.CSS.SetKeyframeKeyResponse>;
@@ -1258,11 +1253,6 @@ declare namespace ProtocolProxyApi {
      */
     invoke_removeInstrumentationBreakpoint(params: Protocol.EventBreakpoints.RemoveInstrumentationBreakpointRequest): Promise<Protocol.ProtocolResponseWithError>;
 
-    /**
-     * Removes all breakpoints
-     */
-    invoke_disable(): Promise<Protocol.ProtocolResponseWithError>;
-
   }
   export interface EventBreakpointsDispatcher {
   }
@@ -1435,23 +1425,6 @@ declare namespace ProtocolProxyApi {
      * unavailable.
      */
     invoke_setGeolocationOverride(params: Protocol.Emulation.SetGeolocationOverrideRequest): Promise<Protocol.ProtocolResponseWithError>;
-
-    invoke_getOverriddenSensorInformation(params: Protocol.Emulation.GetOverriddenSensorInformationRequest): Promise<Protocol.Emulation.GetOverriddenSensorInformationResponse>;
-
-    /**
-     * Overrides a platform sensor of a given type. If |enabled| is true, calls to
-     * Sensor.start() will use a virtual sensor as backend rather than fetching
-     * data from a real hardware sensor. Otherwise, existing virtual
-     * sensor-backend Sensor objects will fire an error event and new calls to
-     * Sensor.start() will attempt to use a real sensor instead.
-     */
-    invoke_setSensorOverrideEnabled(params: Protocol.Emulation.SetSensorOverrideEnabledRequest): Promise<Protocol.ProtocolResponseWithError>;
-
-    /**
-     * Updates the sensor readings reported by a sensor type previously overriden
-     * by setSensorOverrideEnabled.
-     */
-    invoke_setSensorOverrideReadings(params: Protocol.Emulation.SetSensorOverrideReadingsRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     /**
      * Overrides the Idle state.
@@ -2354,11 +2327,6 @@ declare namespace ProtocolProxyApi {
      * Show elements in isolation mode with overlays.
      */
     invoke_setShowIsolatedElements(params: Protocol.Overlay.SetShowIsolatedElementsRequest): Promise<Protocol.ProtocolResponseWithError>;
-
-    /**
-     * Show Window Controls Overlay for PWA
-     */
-    invoke_setShowWindowControlsOverlay(params: Protocol.Overlay.SetShowWindowControlsOverlayRequest): Promise<Protocol.ProtocolResponseWithError>;
 
   }
   export interface OverlayDispatcher {
@@ -3763,6 +3731,11 @@ declare namespace ProtocolProxyApi {
     ruleSetRemoved(params: Protocol.Preload.RuleSetRemovedEvent): void;
 
     /**
+     * Fired when a prerender attempt is completed.
+     */
+    prerenderAttemptCompleted(params: Protocol.Preload.PrerenderAttemptCompletedEvent): void;
+
+    /**
      * Fired when a preload enabled state is updated.
      */
     preloadEnabledStateUpdated(params: Protocol.Preload.PreloadEnabledStateUpdatedEvent): void;
@@ -3792,10 +3765,10 @@ declare namespace ProtocolProxyApi {
     invoke_selectAccount(params: Protocol.FedCm.SelectAccountRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     /**
-     * Only valid if the dialog type is ConfirmIdpLogin. Acts as if the user had
+     * Only valid if the dialog type is ConfirmIdpSignin. Acts as if the user had
      * clicked the continue button.
      */
-    invoke_confirmIdpLogin(params: Protocol.FedCm.ConfirmIdpLoginRequest): Promise<Protocol.ProtocolResponseWithError>;
+    invoke_confirmIdpSignin(params: Protocol.FedCm.ConfirmIdpSigninRequest): Promise<Protocol.ProtocolResponseWithError>;
 
     invoke_dismissDialog(params: Protocol.FedCm.DismissDialogRequest): Promise<Protocol.ProtocolResponseWithError>;
 

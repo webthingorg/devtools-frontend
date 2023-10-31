@@ -720,7 +720,6 @@ export namespace Audits {
     WarnAttributeValueExceedsMaxSize = 'WarnAttributeValueExceedsMaxSize',
     WarnDomainNonASCII = 'WarnDomainNonASCII',
     WarnThirdPartyPhaseout = 'WarnThirdPartyPhaseout',
-    WarnCrossSiteRedirectDowngradeChangesInclusion = 'WarnCrossSiteRedirectDowngradeChangesInclusion',
   }
 
   export const enum CookieOperation {
@@ -1045,17 +1044,6 @@ export namespace Audits {
     trackingSites: string[];
   }
 
-  /**
-   * This issue warns about third-party sites that are accessing cookies on the
-   * current page, and have been permitted due to having a global metadata grant.
-   * Note that in this context 'site' means eTLD+1. For example, if the URL
-   * `https://example.test:80/web_page` was accessing cookies, the site reported
-   * would be `example.test`.
-   */
-  export interface CookieDeprecationMetadataIssueDetails {
-    allowedSites: string[];
-  }
-
   export const enum ClientHintIssueReason {
     MetaTagAllowListInvalidOrigin = 'MetaTagAllowListInvalidOrigin',
     MetaTagModifiedHTML = 'MetaTagModifiedHTML',
@@ -1107,7 +1095,6 @@ export namespace Audits {
     RpPageNotVisible = 'RpPageNotVisible',
     SilentMediationFailure = 'SilentMediationFailure',
     ThirdPartyCookiesBlocked = 'ThirdPartyCookiesBlocked',
-    NotSignedInWithIdp = 'NotSignedInWithIdp',
   }
 
   export interface FederatedAuthUserInfoRequestIssueDetails {
@@ -1175,32 +1162,6 @@ export namespace Audits {
     failedRequestInfo?: FailedRequestInfo;
   }
 
-  export const enum PropertyRuleIssueReason {
-    InvalidSyntax = 'InvalidSyntax',
-    InvalidInitialValue = 'InvalidInitialValue',
-    InvalidInherits = 'InvalidInherits',
-    InvalidName = 'InvalidName',
-  }
-
-  /**
-   * This issue warns about errors in property rules that lead to property
-   * registrations being ignored.
-   */
-  export interface PropertyRuleIssueDetails {
-    /**
-     * Source code position of the property rule.
-     */
-    sourceCodeLocation: SourceCodeLocation;
-    /**
-     * Reason why the property rule was discarded.
-     */
-    propertyRuleIssueReason: PropertyRuleIssueReason;
-    /**
-     * The value of the property rule property that failed to parse
-     */
-    propertyValue?: string;
-  }
-
   /**
    * A unique identifier for the type of issue. Each type may use one of the
    * optional fields in InspectorIssueDetails to convey more specific
@@ -1223,10 +1184,8 @@ export namespace Audits {
     ClientHintIssue = 'ClientHintIssue',
     FederatedAuthRequestIssue = 'FederatedAuthRequestIssue',
     BounceTrackingIssue = 'BounceTrackingIssue',
-    CookieDeprecationMetadataIssue = 'CookieDeprecationMetadataIssue',
     StylesheetLoadingIssue = 'StylesheetLoadingIssue',
     FederatedAuthUserInfoRequestIssue = 'FederatedAuthUserInfoRequestIssue',
-    PropertyRuleIssue = 'PropertyRuleIssue',
   }
 
   /**
@@ -1251,9 +1210,7 @@ export namespace Audits {
     clientHintIssueDetails?: ClientHintIssueDetails;
     federatedAuthRequestIssueDetails?: FederatedAuthRequestIssueDetails;
     bounceTrackingIssueDetails?: BounceTrackingIssueDetails;
-    cookieDeprecationMetadataIssueDetails?: CookieDeprecationMetadataIssueDetails;
     stylesheetLoadingIssueDetails?: StylesheetLoadingIssueDetails;
-    propertyRuleIssueDetails?: PropertyRuleIssueDetails;
     federatedAuthUserInfoRequestIssueDetails?: FederatedAuthUserInfoRequestIssueDetails;
   }
 
@@ -3028,19 +2985,6 @@ export namespace CSS {
     value: string;
   }
 
-  export interface SetPropertyRulePropertyNameRequest {
-    styleSheetId: StyleSheetId;
-    range: SourceRange;
-    propertyName: string;
-  }
-
-  export interface SetPropertyRulePropertyNameResponse extends ProtocolResponseWithError {
-    /**
-     * The resulting key text after modification.
-     */
-    propertyName: Value;
-  }
-
   export interface SetKeyframeKeyRequest {
     styleSheetId: StyleSheetId;
     range: SourceRange;
@@ -4160,6 +4104,10 @@ export namespace DOM {
      * True to search in user agent shadow DOM.
      */
     includeUserAgentShadowDOM?: boolean;
+    /**
+     * True to search in style elements.
+     */
+    searchWithinStyleElements?: boolean;
   }
 
   export interface PerformSearchResponse extends ProtocolResponseWithError {
@@ -4855,9 +4803,10 @@ export namespace DOMDebugger {
 }
 
 /**
- * EventBreakpoints permits setting JavaScript breakpoints on operations and events
- * occurring in native code invoked from JavaScript. Once breakpoint is hit, it is
- * reported through Debugger domain, similarly to regular breakpoints being hit.
+ * EventBreakpoints permits setting breakpoints on particular operations and
+ * events in targets that run JavaScript but do not have a DOM.
+ * JavaScript execution will stop on these operations as if there was a regular
+ * breakpoint set.
  */
 export namespace EventBreakpoints {
 
@@ -5664,51 +5613,6 @@ export namespace Emulation {
   }
 
   /**
-   * Used to specify sensor types to emulate.
-   * See https://w3c.github.io/sensors/#automation for more information.
-   */
-  export const enum SensorType {
-    AbsoluteOrientation = 'absolute-orientation',
-    Accelerometer = 'accelerometer',
-    AmbientLight = 'ambient-light',
-    Gravity = 'gravity',
-    Gyroscope = 'gyroscope',
-    LinearAcceleration = 'linear-acceleration',
-    Magnetometer = 'magnetometer',
-    Proximity = 'proximity',
-    RelativeOrientation = 'relative-orientation',
-  }
-
-  export interface SensorMetadata {
-    available?: boolean;
-    minimumFrequency?: number;
-    maximumFrequency?: number;
-  }
-
-  export interface SensorReadingSingle {
-    value: number;
-  }
-
-  export interface SensorReadingXYZ {
-    x: number;
-    y: number;
-    z: number;
-  }
-
-  export interface SensorReadingQuaternion {
-    x: number;
-    y: number;
-    z: number;
-    w: number;
-  }
-
-  export interface SensorReading {
-    single?: SensorReadingSingle;
-    xyz?: SensorReadingXYZ;
-    quaternion?: SensorReadingQuaternion;
-  }
-
-  /**
    * Enum of image types that can be disabled.
    */
   export const enum DisabledImageType {
@@ -5883,25 +5787,6 @@ export namespace Emulation {
      * Mock accuracy
      */
     accuracy?: number;
-  }
-
-  export interface GetOverriddenSensorInformationRequest {
-    type: SensorType;
-  }
-
-  export interface GetOverriddenSensorInformationResponse extends ProtocolResponseWithError {
-    requestedSamplingFrequency: number;
-  }
-
-  export interface SetSensorOverrideEnabledRequest {
-    enabled: boolean;
-    type: SensorType;
-    metadata?: SensorMetadata;
-  }
-
-  export interface SetSensorOverrideReadingsRequest {
-    type: SensorType;
-    reading: SensorReading;
   }
 
   export interface SetIdleOverrideRequest {
@@ -6573,11 +6458,11 @@ export namespace Input {
     /**
      * The plane angle between the Y-Z plane and the plane containing both the stylus axis and the Y axis, in degrees of the range [-90,90], a positive tiltX is to the right (default: 0)
      */
-    tiltX?: number;
+    tiltX?: integer;
     /**
      * The plane angle between the X-Z plane and the plane containing both the stylus axis and the X axis, in degrees of the range [-90,90], a positive tiltY is towards the user (default: 0).
      */
-    tiltY?: number;
+    tiltY?: integer;
     /**
      * The clockwise rotation of a pen stylus around its own major axis, in degrees in the range [0,359] (default: 0).
      */
@@ -6836,11 +6721,11 @@ export namespace Input {
     /**
      * The plane angle between the Y-Z plane and the plane containing both the stylus axis and the Y axis, in degrees of the range [-90,90], a positive tiltX is to the right (default: 0).
      */
-    tiltX?: number;
+    tiltX?: integer;
     /**
      * The plane angle between the X-Z plane and the plane containing both the stylus axis and the X axis, in degrees of the range [-90,90], a positive tiltY is towards the user (default: 0).
      */
-    tiltY?: number;
+    tiltY?: integer;
     /**
      * The clockwise rotation of a pen stylus around its own major axis, in degrees in the range [0,359] (default: 0).
      */
@@ -8422,7 +8307,6 @@ export namespace Network {
     SameSiteUnspecifiedTreatedAsLax = 'SameSiteUnspecifiedTreatedAsLax',
     SameSiteNoneInsecure = 'SameSiteNoneInsecure',
     UserPreferences = 'UserPreferences',
-    ThirdPartyPhaseout = 'ThirdPartyPhaseout',
     ThirdPartyBlockedInFirstPartySet = 'ThirdPartyBlockedInFirstPartySet',
     SyntaxError = 'SyntaxError',
     SchemeNotSupported = 'SchemeNotSupported',
@@ -8437,7 +8321,6 @@ export namespace Network {
     SamePartyConflictsWithOtherAttributes = 'SamePartyConflictsWithOtherAttributes',
     NameValuePairExceedsMaxSize = 'NameValuePairExceedsMaxSize',
     DisallowedCharacter = 'DisallowedCharacter',
-    NoCookieContent = 'NoCookieContent',
   }
 
   /**
@@ -8452,7 +8335,6 @@ export namespace Network {
     SameSiteUnspecifiedTreatedAsLax = 'SameSiteUnspecifiedTreatedAsLax',
     SameSiteNoneInsecure = 'SameSiteNoneInsecure',
     UserPreferences = 'UserPreferences',
-    ThirdPartyPhaseout = 'ThirdPartyPhaseout',
     ThirdPartyBlockedInFirstPartySet = 'ThirdPartyBlockedInFirstPartySet',
     UnknownError = 'UnknownError',
     SchemefulSameSiteStrict = 'SchemefulSameSiteStrict',
@@ -10421,24 +10303,6 @@ export namespace Overlay {
     outlineColor?: DOM.RGBA;
   }
 
-  /**
-   * Configuration for Window Controls Overlay
-   */
-  export interface WindowControlsOverlayConfig {
-    /**
-     * Whether the title bar CSS should be shown when emulating the Window Controls Overlay.
-     */
-    showCSS: boolean;
-    /**
-     * Seleted platforms to show the overlay.
-     */
-    selectedPlatform: string;
-    /**
-     * The theme color defined in app manifest.
-     */
-    themeColor: string;
-  }
-
   export interface ContainerQueryHighlightConfig {
     /**
      * A descriptor for the highlight appearance of container query containers.
@@ -10771,13 +10635,6 @@ export namespace Overlay {
      * An array of node identifiers and descriptors for the highlight appearance.
      */
     isolatedElementHighlightConfigs: IsolatedElementHighlightConfig[];
-  }
-
-  export interface SetShowWindowControlsOverlayRequest {
-    /**
-     * Window Controls Overlay data, null means hide Window Controls Overlay
-     */
-    windowControlsOverlayConfig?: WindowControlsOverlayConfig;
   }
 
   /**
@@ -11688,25 +11545,6 @@ export namespace Page {
     Circumstantial = 'Circumstantial',
   }
 
-  export interface BackForwardCacheBlockingDetails {
-    /**
-     * Url of the file where blockage happened. Optional because of tests.
-     */
-    url?: string;
-    /**
-     * Function name where blockage happened. Optional because of anonymous functions and tests.
-     */
-    function?: string;
-    /**
-     * Line number in the script (0-based).
-     */
-    lineNumber: integer;
-    /**
-     * Column number in the script (0-based).
-     */
-    columnNumber: integer;
-  }
-
   export interface BackForwardCacheNotRestoredExplanation {
     /**
      * Type of the reason
@@ -11722,7 +11560,6 @@ export namespace Page {
      * - EmbedderExtensionSentMessageToCachedFrame: the extension ID.
      */
     context?: string;
-    details?: BackForwardCacheBlockingDetails[];
   }
 
   export interface BackForwardCacheNotRestoredExplanationTree {
@@ -13492,16 +13329,13 @@ export namespace Storage {
     Loaded = 'loaded',
     Bid = 'bid',
     Win = 'win',
-    AdditionalBid = 'additionalBid',
-    AdditionalBidWin = 'additionalBidWin',
-    Clear = 'clear',
   }
 
   /**
    * Ad advertising element inside an interest group.
    */
   export interface InterestGroupAd {
-    renderURL: string;
+    renderUrl: string;
     metadata?: string;
   }
 
@@ -13513,10 +13347,10 @@ export namespace Storage {
     name: string;
     expirationTime: Network.TimeSinceEpoch;
     joiningOrigin: string;
-    biddingLogicURL?: string;
-    biddingWasmHelperURL?: string;
-    updateURL?: string;
-    trustedBiddingSignalsURL?: string;
+    biddingUrl?: string;
+    biddingWasmHelperUrl?: string;
+    updateUrl?: string;
+    trustedBiddingSignalsUrl?: string;
     trustedBiddingSignalsKeys: string[];
     userBiddingSignals?: string;
     ads: InterestGroupAd[];
@@ -13695,22 +13529,22 @@ export namespace Storage {
     ends: integer[];
   }
 
-  export const enum AttributionReportingTriggerDataMatching {
-    Exact = 'exact',
-    Modulus = 'modulus',
-  }
-
   export interface AttributionReportingSourceRegistration {
     time: Network.TimeSinceEpoch;
     /**
      * duration in seconds
      */
-    expiry: integer;
-    eventReportWindows: AttributionReportingEventReportWindows;
+    expiry?: integer;
+    /**
+     * eventReportWindow and eventReportWindows are mutually exclusive
+     * duration in seconds
+     */
+    eventReportWindow?: integer;
+    eventReportWindows?: AttributionReportingEventReportWindows;
     /**
      * duration in seconds
      */
-    aggregatableReportWindow: integer;
+    aggregatableReportWindow?: integer;
     type: AttributionReportingSourceType;
     sourceOrigin: string;
     reportingOrigin: string;
@@ -13720,7 +13554,6 @@ export namespace Storage {
     filterData: AttributionReportingFilterDataEntry[];
     aggregationKeys: AttributionReportingAggregationKeysEntry[];
     debugKey?: UnsignedInt64AsBase10;
-    triggerDataMatching: AttributionReportingTriggerDataMatching;
   }
 
   export const enum AttributionReportingSourceRegistrationResult {
@@ -16105,6 +15938,7 @@ export namespace Preload {
     LowEndDevice = 'LowEndDevice',
     InvalidSchemeRedirect = 'InvalidSchemeRedirect',
     InvalidSchemeNavigation = 'InvalidSchemeNavigation',
+    InProgressNavigation = 'InProgressNavigation',
     NavigationRequestBlockedByCsp = 'NavigationRequestBlockedByCsp',
     MainFrameNavigation = 'MainFrameNavigation',
     MojoBinderPolicy = 'MojoBinderPolicy',
@@ -16116,6 +15950,7 @@ export namespace Preload {
     NavigationBadHttpStatus = 'NavigationBadHttpStatus',
     ClientCertRequested = 'ClientCertRequested',
     NavigationRequestNetworkError = 'NavigationRequestNetworkError',
+    MaxNumOfRunningPrerendersExceeded = 'MaxNumOfRunningPrerendersExceeded',
     CancelAllHostsForTesting = 'CancelAllHostsForTesting',
     DidFailLoad = 'DidFailLoad',
     Stop = 'Stop',
@@ -16127,8 +15962,9 @@ export namespace Preload {
     MixedContent = 'MixedContent',
     TriggerBackgrounded = 'TriggerBackgrounded',
     MemoryLimitExceeded = 'MemoryLimitExceeded',
+    FailToGetMemoryUsage = 'FailToGetMemoryUsage',
     DataSaverEnabled = 'DataSaverEnabled',
-    TriggerUrlHasEffectiveUrl = 'TriggerUrlHasEffectiveUrl',
+    HasEffectiveUrl = 'HasEffectiveUrl',
     ActivatedBeforeStarted = 'ActivatedBeforeStarted',
     InactivePageRestriction = 'InactivePageRestriction',
     StartFailed = 'StartFailed',
@@ -16157,14 +15993,9 @@ export namespace Preload {
     MemoryPressureOnTrigger = 'MemoryPressureOnTrigger',
     MemoryPressureAfterTriggered = 'MemoryPressureAfterTriggered',
     PrerenderingDisabledByDevTools = 'PrerenderingDisabledByDevTools',
+    ResourceLoadBlockedByClient = 'ResourceLoadBlockedByClient',
     SpeculationRuleRemoved = 'SpeculationRuleRemoved',
     ActivatedWithAuxiliaryBrowsingContexts = 'ActivatedWithAuxiliaryBrowsingContexts',
-    MaxNumOfRunningEagerPrerendersExceeded = 'MaxNumOfRunningEagerPrerendersExceeded',
-    MaxNumOfRunningNonEagerPrerendersExceeded = 'MaxNumOfRunningNonEagerPrerendersExceeded',
-    MaxNumOfRunningEmbedderPrerendersExceeded = 'MaxNumOfRunningEmbedderPrerendersExceeded',
-    PrerenderingUrlHasEffectiveUrl = 'PrerenderingUrlHasEffectiveUrl',
-    RedirectedPrerenderingUrlHasEffectiveUrl = 'RedirectedPrerenderingUrlHasEffectiveUrl',
-    ActivationUrlHasEffectiveUrl = 'ActivationUrlHasEffectiveUrl',
   }
 
   /**
@@ -16226,6 +16057,24 @@ export namespace Preload {
 
   export interface RuleSetRemovedEvent {
     id: RuleSetId;
+  }
+
+  /**
+   * Fired when a prerender attempt is completed.
+   */
+  export interface PrerenderAttemptCompletedEvent {
+    key: PreloadingAttemptKey;
+    /**
+     * The frame id of the frame initiating prerendering.
+     */
+    initiatingFrameId: Page.FrameId;
+    prerenderingUrl: string;
+    finalStatus: PrerenderFinalStatus;
+    /**
+     * This is used to give users more information about the name of the API call
+     * that is incompatible with prerender and has caused the cancellation of the attempt
+     */
+    disallowedApiMethod?: string;
   }
 
   /**
@@ -16297,7 +16146,7 @@ export namespace FedCm {
   export const enum DialogType {
     AccountChooser = 'AccountChooser',
     AutoReauthn = 'AutoReauthn',
-    ConfirmIdpLogin = 'ConfirmIdpLogin',
+    ConfirmIdpSignin = 'ConfirmIdpSignin',
   }
 
   /**
@@ -16310,7 +16159,7 @@ export namespace FedCm {
     givenName: string;
     pictureUrl: string;
     idpConfigUrl: string;
-    idpLoginUrl: string;
+    idpSigninUrl: string;
     loginState: LoginState;
     /**
      * These two are only set if the loginState is signUp
@@ -16333,7 +16182,7 @@ export namespace FedCm {
     accountIndex: integer;
   }
 
-  export interface ConfirmIdpLoginRequest {
+  export interface ConfirmIdpSigninRequest {
     dialogId: string;
   }
 
