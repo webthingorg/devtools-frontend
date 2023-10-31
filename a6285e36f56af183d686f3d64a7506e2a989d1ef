@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dacca1f2_615ab786",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "`OSType` is a pretty generic name that feels like it could belong elsewhere. What about `EmulatedOSType` or something like that?",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e6dbb3_969d23c4",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Nit: No need for a newline here",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a56d94c_7b4edd8c",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Why is this `void`ed while the following call is `await`ed?\n\nIf you want them to run in parallel you can `Promise.all([...])` them.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72cabac0_5f2afebf",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Did this pass presubmit? I thought our new convention is to make new private fields be hash-prefixed (`#originalStylesheetText`) rather than `private fieldName`.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "791aae4b_f92d5a60",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Nit: Can be static or a constant outside of the class.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5cdbf23_f8d740fe",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Where does the theme color come from here? I don\u0027t hate that it\u0027s fixed, but it could make it difficult to theme. (That might be intentional, I\u0027m asking for clarification).",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35eaeb0b_d66fd827",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "It is an antipattern to have setter-only properties.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b73f252a_dba546e1",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "This is an odd function name. The object of the sentence is \"text\" but the function returns a Boolean.\n\nThis should be something like `initialize`. If I\u0027m reading it correctly, it is basically returning whether the page has CSS and therefore whether any CSS variables are needing to be emulated.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "056896ed_f9c06d80",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "This seems to me to be named oddly too. You\u0027re not toggling a stylesheet, you\u0027re toggling whether the overlay is being emulated, right?",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd31ab4_01e0f3e5",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "\u0027Set\u0027 -\u003e \u0027Restore\u0027 ?",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb303cf_77eb4711",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Should be hash-prefixed, and can probably be made to be `static` or a separate (non-member) utility function by passing in the platform as a parameter.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff12f67a_e09d1b80",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Should be hash-prefixed",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a394f6f_7d2dfedb",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "Should be hash-prefixed.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "567166f5_5a7ae583",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-10-31T22:57:41Z",
+      "side": 1,
+      "message": "The verb \u0027Parse\u0027 generally denotes taking a string and producing structured data. I think a more appropriate function name might be `transformStyleSheet`.\n\nThis also seems like it could be static as I don\u0027t believe it refers to any member variables.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
