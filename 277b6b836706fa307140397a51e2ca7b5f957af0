@@ -50,6 +50,24 @@
       "message": "Alex, can you also take a look. Seems fine to me but wanted to make sure.",
       "revId": "277b6b836706fa307140397a51e2ca7b5f957af0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48f7af6c_87607496",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-10-31T11:36:39Z",
+      "side": 1,
+      "message": "As I commented on the bug, I am not sure it is necessary (the solution is not run in the translated mode on apple silicon) but probably it does not hurt.",
+      "parentUuid": "30617d77_d99ba1ca",
+      "revId": "277b6b836706fa307140397a51e2ca7b5f957af0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
