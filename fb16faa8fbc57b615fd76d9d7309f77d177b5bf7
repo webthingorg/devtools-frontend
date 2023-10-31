@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e19071cb_38afeffe",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-10-31T21:30:52Z",
+      "side": 1,
+      "message": "Yes,\n- application/service-worker-network_test.ts: The Application Tab\nTimed out during step: Close drawer and network tab should move back to main panel \n\nThis test case validates that when launched from application tab for a service worker, network tab should move back to main panel. Before the fix this was working by luck as the `locationNameForViewId` never added the view so it always returned \u0027panel\u0027 for location. With the fix this was actually working as expected and returning the last location so the \u0027panel\u0027 has to be hardcoded as it should always be default location",
+      "parentUuid": "15bcbecb_a7897bc2",
+      "revId": "fb16faa8fbc57b615fd76d9d7309f77d177b5bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7cb1f3b_33012418",
         "filename": "front_end/ui/legacy/ViewManager.ts",
         "patchSetId": 7
@@ -48,6 +66,24 @@
       "writtenOn": "2023-09-22T11:26:26Z",
       "side": 1,
       "message": "Is it the best way to fix this? By exposing the internals of the view manager? Is there a way to test this change in unit tests?\n\nI am not very familiar with this part of the code but the changes look too ad-hoc. Perhaps at least comments could define what happens? Or perhaps a setter on ViewManager to update views and locationNameByViewId would be better.",
+      "revId": "fb16faa8fbc57b615fd76d9d7309f77d177b5bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d6fbd6_163cfb49",
+        "filename": "front_end/ui/legacy/ViewManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-10-31T21:30:52Z",
+      "side": 1,
+      "message": "I see what you mean, I initially tried to do it by removing `locationNameViewId` completely and rely on `locationForView` inside the view and do: \n\nViewManager -\u003e views -\u003e location \n\nBut `ViewManager` is keeping state in two different ways and it relies on `locationNameViewId` for some behaviors (move, reveal) while it depends on the `view` for others (view, resolveLocation), also `locationNameViewId` is already partially exposed through `locationNameViewId(viewId: string)` so I just tried to add the rest of operations (update, delete) with minimal changes. This design can be changed to decouple `ViewManager` from `Location` (e.g by creating a `LocationManager`) and use the same state across the board, but when I started on it, it became a large change that seems out of the scope from fixing the exception. (You can see how just changing the name propagated to other classes)\n\nAs this is a high visibility area, I tried to make the safest and scoped change by just fixing an \"intented behavior\" (keeping state in locationNameViewId) that seems to be broken, this is also the reason why I did not added any test, as no behavior was changed. (the getters and setters IMO are not worth it in its current state) Still I feel that the area is well tested as a small regression was caught while I was working on it (see my reply on the ServiceWorkerView). Thank you for the nice feedback.",
+      "parentUuid": "c7cb1f3b_33012418",
       "revId": "fb16faa8fbc57b615fd76d9d7309f77d177b5bf7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
