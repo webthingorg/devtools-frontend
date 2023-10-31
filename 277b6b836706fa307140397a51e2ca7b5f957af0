@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8bf534d_0c747c99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1606142
+      },
+      "writtenOn": "2023-10-31T08:41:35Z",
+      "side": 1,
+      "message": "PTAL - this is my first patch to DevTools, hope I\u0027m doing this right!",
+      "revId": "277b6b836706fa307140397a51e2ca7b5f957af0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
