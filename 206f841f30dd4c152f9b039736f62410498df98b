@@ -16,6 +16,23 @@
       "message": "PTAL!",
       "revId": "206f841f30dd4c152f9b039736f62410498df98b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc48b1b7_5e35ce30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-10-31T07:58:32Z",
+      "side": 1,
+      "message": "Removing Alina as she is OOO. @andoli would you mind stamping? Thanks!",
+      "revId": "206f841f30dd4c152f9b039736f62410498df98b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
