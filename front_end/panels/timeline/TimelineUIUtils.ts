@@ -1443,11 +1443,11 @@ export class TimelineUIUtils {
         return TimelineUIUtils.colorForId(frame.url);
       }
     }
-    let parsedColor = TimelineUIUtils.eventStyle(event).category.getComputedValue();
+    let parsedColor = TimelineUIUtils.eventStyle(event).category.getComputedColorValue();
     // This event is considered idle time but still rendered as a scripting event here
     // to connect the StreamingCompileScriptParsing events it belongs to.
     if (event.name === TimelineModel.TimelineModel.RecordType.StreamingCompileScriptWaiting) {
-      parsedColor = TimelineUIUtils.categories().scripting.getComputedValue();
+      parsedColor = TimelineUIUtils.categories().scripting.getComputedColorValue();
       if (!parsedColor) {
         throw new Error('Unable to parse color from TimelineUIUtils.categories().scripting.color');
       }
@@ -1813,7 +1813,9 @@ export class TimelineUIUtils {
         if (!TraceEngine.Legacy.eventIsFromNewEngine(event) || !TraceEngine.Types.TraceEvents.isProfileCall(event)) {
           break;
         }
-        UI.UIUtils.createTextChild(details, TimelineUIUtils.frameDisplayName(event.callFrame));
+        const maybeResolvedName = SourceMapsResolver.resolvedNodeNameForEntry(event);
+        const functionName = maybeResolvedName || TimelineUIUtils.frameDisplayName(event.callFrame);
+        UI.UIUtils.createTextChild(details, functionName);
         const location = this.linkifyLocation({
           scriptId: event.callFrame['scriptId'],
           url: event.callFrame['url'],
@@ -2001,8 +2003,8 @@ export class TimelineUIUtils {
     const contentHelper = new TimelineDetailsContentHelper(model.targetByEvent(event), linkifier);
 
     const defaultColorForEvent = TraceEngine.Legacy.eventIsFromNewEngine(event) ?
-        getEventStyle(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.category.getComputedValue() :
-        TimelineUIUtils.eventStyle(event).category.getComputedValue();
+        getEventStyle(event.name as TraceEngine.Types.TraceEvents.KnownEventName)?.category.getComputedColorValue() :
+        TimelineUIUtils.eventStyle(event).category.getComputedColorValue();
     const color = model.isMarkerEvent(event) ? TimelineUIUtils.markerStyleForEvent(event).color : defaultColorForEvent;
 
     contentHelper.addSection(TimelineUIUtils.eventTitle(event), color);

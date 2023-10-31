@@ -630,7 +630,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       const eventStyle = TimelineUIUtils.eventStyle(event);
       const eventCategory = eventStyle.category;
       UI.ARIAUtils.setLabel(icon, eventCategory.title);
-      icon.style.backgroundColor = eventCategory.getComputedValue();
+      icon.style.backgroundColor = eventCategory.getComputedColorValue();
     }
     return cell;
   }
@@ -790,7 +790,6 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
     const unattributed = i18nString(UIStrings.unattributed);
 
     const id = typeof node.id === 'symbol' ? undefined : node.id;
-
     switch (this.groupBySetting.get()) {
       case AggregatedTimelineTreeView.GroupBy.Category: {
         const category = id ? categories[id] || categories['other'] : {title: unattributed, color: unattributed};
