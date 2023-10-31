@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97ab675f_f9dab3f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1136314
+      },
+      "writtenOn": "2023-10-31T19:46:05Z",
+      "side": 1,
+      "message": "code changes lgtm",
+      "revId": "3c0d1855da812af028191afe985a6720bfd16ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3f15092_ad14010b",
+        "filename": "AUTHORS",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1136314
+      },
+      "writtenOn": "2023-10-31T19:46:05Z",
+      "side": 1,
+      "message": "dtf_presubmit_* bots are failing because this address doesn\u0027t match the email associated with the CL (skeksk91@gmail.com)",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 39
+      },
+      "revId": "3c0d1855da812af028191afe985a6720bfd16ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8adb968_9ae397fc",
+        "filename": "AUTHORS",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1136314
+      },
+      "writtenOn": "2023-10-31T19:46:05Z",
+      "side": 1,
+      "message": "You don\u0027t need to add to the `organizations` section since @navercorp.com authors are already listed under `individuals`.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 23
+      },
+      "revId": "3c0d1855da812af028191afe985a6720bfd16ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
