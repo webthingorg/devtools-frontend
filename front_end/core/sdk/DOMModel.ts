@@ -1472,8 +1472,10 @@ export class DOMModel extends SDKModel<EventTypes> {
     return response.nodeIds;
   }
 
-  async performSearch(query: string, includeUserAgentShadowDOM: boolean): Promise<number> {
-    const response = await this.agent.invoke_performSearch({query, includeUserAgentShadowDOM});
+  async performSearch(query: string, includeUserAgentShadowDOM: boolean, searchWithinStyleElements: boolean):
+      Promise<number> {
+    const response =
+        await this.agent.invoke_performSearch({query, includeUserAgentShadowDOM, searchWithinStyleElements});
     if (!response.getError()) {
       this.#searchId = response.searchId;
     }

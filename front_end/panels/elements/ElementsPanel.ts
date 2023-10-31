@@ -650,8 +650,11 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     this.searchConfig = searchConfig;
 
     const showUAShadowDOM = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get();
+    const searchWithinStyleElements =
+        Common.Settings.Settings.instance().moduleSetting('searchWithinStyleElements').get();
     const domModels = SDK.TargetManager.TargetManager.instance().models(SDK.DOMModel.DOMModel, {scoped: true});
-    const promises = domModels.map(domModel => domModel.performSearch(whitespaceTrimmedQuery, showUAShadowDOM));
+    const promises = domModels.map(
+        domModel => domModel.performSearch(whitespaceTrimmedQuery, showUAShadowDOM, searchWithinStyleElements));
     void Promise.all(promises).then(resultCounts => {
       this.searchResults = [];
       for (let i = 0; i < resultCounts.length; ++i) {
@@ -914,7 +917,6 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
       treeOutline.update();
     }
   }
-
   private setupTextSelectionHack(stylePaneWrapperElement: HTMLElement): void {
     // We "extend" the sidebar area when dragging, in order to keep smooth text
     // selection. It should be replaced by 'user-select: contain' in the future.

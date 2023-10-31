@@ -130,6 +130,11 @@ const UIStrings = {
    */
   showCSSDocumentationTooltip: 'Show CSS documentation tooltip',
   /**
+   * @description Title of a setting under the Elements category in Settings. Turns on a mode where
+   * search matches within <style>...</style> elements will show up (in case there are any).
+   */
+  searchWithinStyleElements: 'Search within style elements',
+  /**
    *@description A context menu item (command) in the Elements panel that copy the styles of
    * the HTML element.
    */
@@ -527,6 +532,15 @@ Common.Settings.registerSettingExtension({
   storageType: Common.Settings.SettingStorageType.Synced,
   title: i18nLazyString(UIStrings.showCSSDocumentationTooltip),
   settingName: 'showCSSPropertyDocumentationOnHover',
+  settingType: Common.Settings.SettingType.BOOLEAN,
+  defaultValue: true,
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.ELEMENTS,
+  storageType: Common.Settings.SettingStorageType.Synced,
+  title: i18nLazyString(UIStrings.searchWithinStyleElements),
+  settingName: 'searchWithinStyleElements',
   settingType: Common.Settings.SettingType.BOOLEAN,
   defaultValue: true,
 });
