@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9229ee72_4446f339",
+        "filename": "front_end/models/trace/TreeManipulator.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-31T10:23:55Z",
+      "side": 0,
+      "message": "nits: we can keep this to make people understand why we didn\u0027t choose the other approach (also this can be documented in the design doc 😊)",
+      "range": {
+        "startLine": 125,
+        "startChar": 60,
+        "endLine": 130,
+        "endChar": 78
+      },
+      "revId": "258cd81d4b0078691c7c10d5d79cea9d2035eb85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

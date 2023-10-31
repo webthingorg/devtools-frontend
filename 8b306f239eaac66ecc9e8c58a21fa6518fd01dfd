@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8529eb7d_a3f9e647",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-31T10:23:55Z",
+      "side": 1,
+      "message": "let\u0027s add a comment here that this is similar to `this.reset()`, but we can\u0027t reset the `compatibilityTracksAppender` because we do not want to recreate the thread appenders.",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 419,
+        "endChar": 76
+      },
+      "revId": "8b306f239eaac66ecc9e8c58a21fa6518fd01dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c160dc42_1c1e8f85",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-31T10:23:55Z",
+      "side": 1,
+      "message": "maybe we can add an early return if `this.model` is null",
+      "range": {
+        "startLine": 164,
+        "startChar": 18,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "8b306f239eaac66ecc9e8c58a21fa6518fd01dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d7ceb1_30dc5b4f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-31T10:23:55Z",
+      "side": 1,
+      "message": "We can remove this, since it\u0027s same as the next lines, I feel this is some rebase thing,",
+      "range": {
+        "startLine": 1192,
+        "startChar": 6,
+        "endLine": 1196,
+        "endChar": 7
+      },
+      "revId": "8b306f239eaac66ecc9e8c58a21fa6518fd01dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

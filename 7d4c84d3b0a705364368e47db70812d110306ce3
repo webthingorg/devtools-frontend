@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8662e512_656dc900",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-31T10:23:55Z",
+      "side": 1,
+      "message": "So we still miss: keep the `selectedTrack`, and keep the Y scroll position. We can either fix here or add a TODO and finish it later",
+      "revId": "7d4c84d3b0a705364368e47db70812d110306ce3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8cf5aff_b4b92f2b",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-10-31T10:23:55Z",
+      "side": 1,
+      "message": "we should also clear the `this.#trackForGroup` to keep the data updated",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 174,
+        "endChar": 31
+      },
+      "revId": "7d4c84d3b0a705364368e47db70812d110306ce3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
