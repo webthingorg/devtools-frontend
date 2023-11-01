@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc707677_5b36786e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2023-11-01T20:24:51Z",
+      "side": 1,
+      "message": "Paul, would like to ask if you think this would be acceptable. I have multiple partners asking for this functionality.",
+      "revId": "8a39c7dd8a0c0353472a3e78a5c3f0b330d70106",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
