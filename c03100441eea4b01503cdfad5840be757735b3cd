@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d2d4f9b_87841bb3",
+        "filename": "front_end/models/javascript_metadata/NativeFunctions.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-01T13:14:53Z",
+      "side": 1,
+      "message": "You should revert this file.",
+      "revId": "c03100441eea4b01503cdfad5840be757735b3cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
