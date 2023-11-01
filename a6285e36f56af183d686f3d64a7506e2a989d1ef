@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12fe5aec_a543b47b",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dacca1f2_615ab786",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60e6dbb3_969d23c4",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-10-31T22:57:41Z",
       "side": 1,
       "message": "Nit: No need for a newline here",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fbc480f_1ddc9d0a",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60e6dbb3_969d23c4",
       "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "453b8075_b5b4b61d",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a56d94c_7b4edd8c",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72cabac0_5f2afebf",
@@ -69,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a99c13d0_9eddfb4b",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Yeah it passed presubmit. Updated to new convention.",
+      "parentUuid": "72cabac0_5f2afebf",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "791aae4b_f92d5a60",
@@ -82,6 +154,24 @@
       "writtenOn": "2023-10-31T22:57:41Z",
       "side": 1,
       "message": "Nit: Can be static or a constant outside of the class.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3984befb_07a29a31",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791aae4b_f92d5a60",
       "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e2f0461f_12ca52b6",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Theme color would come from parsedManifest in AppManifestView when it detects the theme color of the page. Initialized it to a default color here.",
+      "parentUuid": "e5cdbf23_f8d740fe",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35eaeb0b_d66fd827",
         "filename": "front_end/core/sdk/OverlayModel.ts",
         "patchSetId": 2
@@ -116,6 +224,24 @@
       "writtenOn": "2023-10-31T22:57:41Z",
       "side": 1,
       "message": "It is an antipattern to have setter-only properties.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8986c4a_c6be68d9",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35eaeb0b_d66fd827",
       "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +263,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aed51f5_9d71cc92",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "updated to initializeStyleSheetText",
+      "parentUuid": "b73f252a_dba546e1",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "056896ed_f9c06d80",
@@ -150,6 +294,24 @@
       "writtenOn": "2023-10-31T22:57:41Z",
       "side": 1,
       "message": "This seems to me to be named oddly too. You\u0027re not toggling a stylesheet, you\u0027re toggling whether the overlay is being emulated, right?",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f883991_078f65dd",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Yeah that\u0027s correct.  Renamed to toggleEmulatedOverlay",
+      "parentUuid": "056896ed_f9c06d80",
       "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +333,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4504d1d9_860b061b",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fd31ab4_01e0f3e5",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cb303cf_77eb4711",
@@ -184,6 +364,24 @@
       "writtenOn": "2023-10-31T22:57:41Z",
       "side": 1,
       "message": "Should be hash-prefixed, and can probably be made to be `static` or a separate (non-member) utility function by passing in the platform as a parameter.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbd0ec88_7982b726",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb303cf_77eb4711",
       "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -205,6 +403,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5905515_7e8b7383",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff12f67a_e09d1b80",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a394f6f_7d2dfedb",
@@ -222,6 +438,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ecf8048_e3280d3f",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a394f6f_7d2dfedb",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "567166f5_5a7ae583",
@@ -235,6 +469,24 @@
       "writtenOn": "2023-10-31T22:57:41Z",
       "side": 1,
       "message": "The verb \u0027Parse\u0027 generally denotes taking a string and producing structured data. I think a more appropriate function name might be `transformStyleSheet`.\n\nThis also seems like it could be static as I don\u0027t believe it refers to any member variables.",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39d7280a_91cdee48",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-01T19:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "567166f5_5a7ae583",
       "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
