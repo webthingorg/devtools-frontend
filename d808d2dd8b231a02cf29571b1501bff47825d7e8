@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d1296ab_0b9bd6b9",
+        "filename": "front_end/generated/protocol.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16220,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-01T04:27:23Z",
+      "side": 1,
+      "message": "Not fresh. Could you reroll?",
+      "revId": "d808d2dd8b231a02cf29571b1501bff47825d7e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
