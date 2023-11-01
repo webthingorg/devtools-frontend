@@ -439,14 +439,12 @@ export async function finalize(): Promise<void> {
   // NOTE: if you are looking for the TBT calculation, it has temporarily been
   // removed. See crbug.com/1424335 for details.
   const allFinalLCPEvents = gatherFinalLCPEvents();
-  const mainFrame = metaHandlerData().mainFrameId;
   // Filter out LCP candidates to use only definitive LCP values
   const allEventsButLCP =
       pageLoadEventsArray.filter(event => !Types.TraceEvents.isTraceEventLargestContentfulPaintCandidate(event));
   const markerEvents = [...allFinalLCPEvents, ...allEventsButLCP].filter(isTraceEventMarkerEvent);
   // Filter by main frame and sort.
-  allMarkerEvents =
-      markerEvents.filter(event => getFrameIdForPageLoadEvent(event) === mainFrame).sort((a, b) => a.ts - b.ts);
+  allMarkerEvents = markerEvents.sort((a, b) => a.ts - b.ts);
 }
 
 export type PageLoadMetricsData = {
