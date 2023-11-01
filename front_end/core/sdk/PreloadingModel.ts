@@ -268,6 +268,7 @@ export class PreloadingModel extends SDKModel<EventTypes> {
       status: convertPreloadingStatus(event.status),
       prerenderStatus: event.prerenderStatus || null,
       disallowedMojoInterface: event.disallowedMojoInterface || null,
+      mismatchedHeaders: event.mismatchedHeaders || null,
     };
     this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
     this.dispatchEventToListeners(Events.ModelUpdated);
@@ -436,6 +437,7 @@ export interface PrerenderAttempt {
   status: PreloadingStatus;
   prerenderStatus: Protocol.Preload.PrerenderFinalStatus|null;
   disallowedMojoInterface: string|null;
+  mismatchedHeaders: Protocol.Preload.MismatchedHeaders[]|null;
   ruleSetIds: Protocol.Preload.RuleSetId[];
   nodeIds: Protocol.DOM.BackendNodeId[];
 }
@@ -456,6 +458,7 @@ export interface PrerenderAttemptInternal {
   status: PreloadingStatus;
   prerenderStatus: Protocol.Preload.PrerenderFinalStatus|null;
   disallowedMojoInterface: string|null;
+  mismatchedHeaders: Protocol.Preload.MismatchedHeaders[]|null;
 }
 
 function makePreloadingAttemptId(key: Protocol.Preload.PreloadingAttemptKey): PreloadingAttemptId {
@@ -559,6 +562,8 @@ class PreloadingAttemptRegistry {
             status: PreloadingStatus.NotTriggered,
             prerenderStatus: null,
             disallowedMojoInterface: null,
+            // TODO check if this is correct
+            mismatchedHeaders: null,
           };
           break;
       }
