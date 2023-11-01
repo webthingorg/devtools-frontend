@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac93eb4_3778890e",
+        "filename": "AUTHORS",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1341608
+      },
+      "writtenOn": "2023-11-01T03:17:08Z",
+      "side": 1,
+      "message": "I changed prefer email as jwoo.park@navercorp.com, so now on it could work. \nThank you for checking!",
+      "parentUuid": "b3f15092_ad14010b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 39
+      },
+      "revId": "3c0d1855da812af028191afe985a6720bfd16ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8adb968_9ae397fc",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-31T19:46:05Z",
       "side": 1,
       "message": "You don\u0027t need to add to the `organizations` section since @navercorp.com authors are already listed under `individuals`.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 23
+      },
+      "revId": "3c0d1855da812af028191afe985a6720bfd16ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c94e7eb3_c5d452a9",
+        "filename": "AUTHORS",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1341608
+      },
+      "writtenOn": "2023-11-01T03:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8adb968_9ae397fc",
       "range": {
         "startLine": 90,
         "startChar": 0,
