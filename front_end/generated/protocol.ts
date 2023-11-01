@@ -13361,6 +13361,7 @@ export namespace ServiceWorker {
     scriptResponseTime?: number;
     controlledClients?: Target.TargetID[];
     targetId?: Target.TargetID;
+    routerRules?: string;
   }
 
   /**
@@ -13695,6 +13696,11 @@ export namespace Storage {
     ends: integer[];
   }
 
+  export const enum AttributionReportingTriggerDataMatching {
+    Exact = 'exact',
+    Modulus = 'modulus',
+  }
+
   export interface AttributionReportingSourceRegistration {
     time: Network.TimeSinceEpoch;
     /**
@@ -13715,6 +13721,7 @@ export namespace Storage {
     filterData: AttributionReportingFilterDataEntry[];
     aggregationKeys: AttributionReportingAggregationKeysEntry[];
     debugKey?: UnsignedInt64AsBase10;
+    triggerDataMatching: AttributionReportingTriggerDataMatching;
   }
 
   export const enum AttributionReportingSourceRegistrationResult {
@@ -16212,6 +16219,15 @@ export namespace Preload {
   }
 
   /**
+   * Information of headers to be displayed when the header mismatch occurred.
+   */
+  export interface PrerenderMismatchedHeaders {
+    headerName: string;
+    initialValue?: string;
+    activationValue?: string;
+  }
+
+  /**
    * Upsert. Currently, it is only emitted when a rule set added.
    */
   export interface RuleSetUpdatedEvent {
@@ -16260,6 +16276,7 @@ export namespace Preload {
      * that is incompatible with prerender and has caused the cancellation of the attempt.
      */
     disallowedMojoInterface?: string;
+    mismatchedHeaders?: PrerenderMismatchedHeaders[];
   }
 
   /**

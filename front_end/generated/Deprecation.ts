@@ -223,6 +223,14 @@ export const UIStrings = {
    */
   TextToSpeech_DisallowedByAutoplay: "`speechSynthesis.speak()` without user activation is deprecated and will be removed.",
   /**
+   * @description This error occurs when the website attempts to access third-party cookies and the browser blocks them.
+   */
+  ThirdPartyCookieAccessError: "Cookies marked with `SameSite=None; Secure` and not `Partitioned` are blocked in cross-site contexts.",
+  /**
+   * @description This warning occurs when the website attempts to access third-party cookies but the browser does not block them yet.
+   */
+  ThirdPartyCookieAccessWarning: "In a future version of the browser, cookies marked with `SameSite=None; Secure` and not `Partitioned` will be blocked in cross-site context.",
+  /**
    * @description A deprecation warning shown in the DevTools Issues tab. The placeholder is always the noun 'SharedArrayBuffer' which refers to a JavaScript construct. 'Extensions' refers to Chrome extensions. The warning is shown when Chrome Extensions attempt to use 'SharedArrayBuffer's under insecure circumstances.
    */
   V8SharedArrayBufferConstructedInExtensionWithoutIsolation: "Extensions should opt into cross-origin isolation to continue using `SharedArrayBuffer`. See https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/.",
@@ -373,6 +381,12 @@ export const DEPRECATIONS_METADATA: Partial<Record<string, DeprecationDescriptor
   "TextToSpeech_DisallowedByAutoplay": {
     "chromeStatusFeature": 5687444770914304,
     "milestone": 71
+  },
+  "ThirdPartyCookieAccessError": {
+    "chromeStatusFeature": 5133113939722240
+  },
+  "ThirdPartyCookieAccessWarning": {
+    "chromeStatusFeature": 5133113939722240
   },
   "V8SharedArrayBufferConstructedInExtensionWithoutIsolation": {
     "milestone": 96
