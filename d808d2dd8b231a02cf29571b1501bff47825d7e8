@@ -16,6 +16,24 @@
       "message": "Not fresh. Could you reroll?",
       "revId": "d808d2dd8b231a02cf29571b1501bff47825d7e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3300e511_22bd26e6",
+        "filename": "front_end/generated/protocol.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16220,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-01T12:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d1296ab_0b9bd6b9",
+      "revId": "d808d2dd8b231a02cf29571b1501bff47825d7e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
