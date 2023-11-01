@@ -99,19 +99,40 @@ export class TimingsTrackAppender implements TrackAppender {
    * page load markers (the first available level to append more data).
    */
   #appendMarkersAtLevel(currentLevel: number): number {
-    const markers = this.#traceParsedData.PageLoadMetrics.allMarkerEvents;
-    markers.forEach(marker => {
-      const index = this.#compatibilityBuilder.appendEventAtLevel(marker, currentLevel, this);
-      this.#flameChartData.entryTotalTimes[index] = Number.NaN;
-    });
+    const allMarkers = this.#traceParsedData.PageLoadMetrics.allMarkerEvents;
+    const tracks = allMarkers.reduce((accum, currentMarker)=> {
+      const marker = currentMarker as TraceEngine.Types.TraceEvents.PageLoadEvent & {
+        args: {
+          frame?: string,
+        },
+      };
 
-    const minTimeMs = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(this.#traceParsedData.Meta.traceBounds.min);
-    const flameChartMarkers = markers.map(marker => {
-      const startTimeMs = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(marker.ts);
-      return new TimelineFlameChartMarker(startTimeMs, startTimeMs - minTimeMs, this.markerStyleForEvent(marker));
-    });
-    this.#flameChartData.markers.push(...flameChartMarkers);
-    return ++currentLevel;
+      const frameId: string = marker.args.frame || currentMarker.args.data?.frame || '';
+      if (!(frameId in accum)) {
+          accum[frameId] = [];
+      }
+      accum[frameId].push(currentMarker);
+      return accum;
+    }, {} as Record<string, TraceEngine.Types.TraceEvents.PageLoadEvent[]>);
+
+    const trackIds = Object.keys(tracks);
+    for (const trackId of trackIds) {
+      const markers = tracks[trackId];
+      markers.sort((a, b) => a.ts - b.ts);
+      markers.forEach(marker => {
+        const index = this.#compatibilityBuilder.appendEventAtLevel(marker, currentLevel, this);
+        this.#flameChartData.entryTotalTimes[index] = Number.NaN;
+      });
+
+      const minTimeMs = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(this.#traceParsedData.Meta.traceBounds.min);
+      const flameChartMarkers = markers.map(marker => {
+        const startTimeMs = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(marker.ts);
+        return new TimelineFlameChartMarker(startTimeMs, startTimeMs - minTimeMs, this.markerStyleForEvent(marker));
+      });
+      this.#flameChartData.markers.push(...flameChartMarkers);
+      currentLevel++;
+    }
+    return currentLevel;
   }
 
   /*

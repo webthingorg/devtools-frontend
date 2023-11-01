@@ -262,13 +262,28 @@ describeWithEnvironment('PageLoadMetricsHandler', function() {
       allMarkerEvents = PageLoadMetrics.allMarkerEvents;
     });
     it('extracts all marker events from a trace correctly', () => {
-      for (const metricName of TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MarkerName) {
+      const kMainFrame = 'B0282596AB8EBAD249F5DEDAF1DD6D45';
+      const kSubFrame1 = '891AFADDA9B0F06DCFE0E4F6486BA5DC';
+      const kSubFrame2 = '8053D74A4D935AD054C1F71B33F2FED0';
+      const kExpectedForMainFrame = [2, 2, 2, 2, 2];
+      const kExpectedForSubFrame1 = [2, 1, 1, 1, 0];
+      const kExpectedForSubFrame2 = [3, 1, 1, 1, 1];
+
+      for (let markerIndex = 0; markerIndex < TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MarkerName.length; markerIndex++) {
+        const metricName = TraceModel.Handlers.ModelHandlers.PageLoadMetrics.MarkerName[markerIndex];
         const markerEventsOfThisType = allMarkerEvents.filter(event => event.name === metricName);
-        // There should be 2 events for each marker and all of them should correspond to the main frame
-        assert.strictEqual(markerEventsOfThisType.length, 2);
-        assert.isTrue(markerEventsOfThisType.every(
-            marker =>
-                TraceModel.Handlers.ModelHandlers.PageLoadMetrics.getFrameIdForPageLoadEvent(marker) === mainFrameId));
+        const markerEventsByFrame = markerEventsOfThisType.reduce((accumulator, current) => {
+          const frameId = TraceModel.Handlers.ModelHandlers.PageLoadMetrics.getFrameIdForPageLoadEvent(current);
+          if (!(frameId in accumulator)) {
+            accumulator[frameId] = [];
+          }
+          accumulator[frameId].push(current);
+          return accumulator;
+        }, { } as Record<string, TraceModel.Types.TraceEvents.PageLoadEvent[]>);
+
+        assert.strictEqual(markerEventsByFrame[kMainFrame]?.length ?? 0, kExpectedForMainFrame[markerIndex]);
+        assert.strictEqual(markerEventsByFrame[kSubFrame1]?.length ?? 0, kExpectedForSubFrame1[markerIndex]);
+        assert.strictEqual(markerEventsByFrame[kSubFrame2]?.length ?? 0, kExpectedForSubFrame2[markerIndex]);
       }
     });
     it('only marker events are exported in allMarkerEvents', () => {
