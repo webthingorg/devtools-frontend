@@ -47,7 +47,7 @@
     "debug-interactionstest": "DEBUG_TEST=1 npm run interactionstest",
     "debug-test": "vpython third_party/node/node.py --output scripts/npm_test.js --debug-devtools",
     "debug-unittest": "DEBUG_TEST=1 npm run unittest",
-    "e2etest": "vpython third_party/node/node.py --output scripts/test/run_test_suite.js --config=test/e2e/test-runner-config.json",
+    "e2etest": "vpython3 third_party/node/node.py --output scripts/test/run_test_suite.js --config=test/e2e/test-runner-config.json",
     "e2etest-parallel": "vpython3 scripts/test/run_test_suite_parallel.py",
     "eslint-test": "vpython third_party/node/node.py --output node_modules/mocha/bin/mocha \"./scripts/eslint_rules/tests/*_test.js\"",
     "build-test": "vpython third_party/node/node.py --output node_modules/mocha/bin/mocha \"./scripts/build/tests/*_test.js\"",
