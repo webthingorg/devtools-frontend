@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "211f8ac2_83022494",
+        "filename": "front_end/core/sdk/ServiceWorkerManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1543982
+      },
+      "writtenOn": "2023-11-01T02:44:46Z",
+      "side": 1,
+      "message": "This will trigger syntax error if `input` is not a valid JSON format string. \n\nProbably it\u0027s good to have try-catch and handle the error case.",
+      "range": {
+        "startLine": 482,
+        "startChar": 25,
+        "endLine": 482,
+        "endChar": 43
+      },
+      "revId": "300c5e35553000041394c6135be87b3e003889ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
