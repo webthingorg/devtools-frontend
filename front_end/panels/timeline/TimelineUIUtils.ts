@@ -2327,6 +2327,13 @@ export class TimelineUIUtils {
       case recordTypes.MarkLCPCandidate: {
         contentHelper.appendTextRow(i18nString(UIStrings.type), String(eventData['type']));
         contentHelper.appendTextRow(i18nString(UIStrings.size), String(eventData['size']));
+        const frameId = timelineData.frameId;
+        if (frameId) {
+          const frameData = model.pageFrameById(frameId);
+          if (frameData) {
+            contentHelper.appendTextRow(i18nString(UIStrings.frame), frameData.url);
+          }
+        }
       }
 
       case recordTypes.MarkFirstPaint:
@@ -2348,6 +2355,13 @@ export class TimelineUIUtils {
               i18nString(UIStrings.timestamp), i18n.TimeUtilities.preciseMillisToString(adjustedEventTimeStamp, 1));
           contentHelper.appendElementRow(
               i18nString(UIStrings.details), TimelineUIUtils.buildDetailsNodeForPerformanceEvent(event));
+          const frameId = timelineData.frameId;
+          if (frameId) {
+            const frameData = model.pageFrameById(frameId);
+            if (frameData) {
+              contentHelper.appendTextRow(i18nString(UIStrings.frame), frameData.url);
+            }
+          }
         }
 
         break;
