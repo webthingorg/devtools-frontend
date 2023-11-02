@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "751b8afe_ee667829",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-02T06:15:38Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "19e990ff_e926288a",
+      "range": {
+        "startLine": 45,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 52
+      },
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "327380cb_fb39ef36",
         "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
         "patchSetId": 11
@@ -106,6 +130,24 @@
       "side": 1,
       "message": "I guess this one would be `i18n.i18n.lockedString` based on our previous discussion?",
       "parentUuid": "8120ae44_62256734",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d750548_205669ae",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-02T06:15:38Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "5d8bfc10_b4fb3650",
       "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
