@@ -790,7 +790,6 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
     const unattributed = i18nString(UIStrings.unattributed);
 
     const id = typeof node.id === 'symbol' ? undefined : node.id;
-
     switch (this.groupBySetting.get()) {
       case AggregatedTimelineTreeView.GroupBy.Category: {
         const category = id ? categories[id] || categories['other'] : {title: unattributed, color: unattributed};
