@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40b942b3_cbf9d687",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-02T11:58:48Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "546a0b4f7f867e9447af7ecebd37157c0ac10213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e877187_329750f0",
@@ -31,6 +48,24 @@
       "writtenOn": "2023-11-02T11:48:28Z",
       "side": 1,
       "message": "Is this an expected change? @szuend do you have context on this maybe?",
+      "revId": "546a0b4f7f867e9447af7ecebd37157c0ac10213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6af9e4a_d5e1526c",
+        "filename": "test/e2e/console/console-message-format_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-02T11:58:48Z",
+      "side": 1,
+      "message": "I think this might be related to https://crrev.com/c/4978887. In which case rebasing is fine.",
+      "parentUuid": "7e877187_329750f0",
       "revId": "546a0b4f7f867e9447af7ecebd37157c0ac10213",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
