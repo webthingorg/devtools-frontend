@@ -22,6 +22,30 @@
       },
       "revId": "8cc8a978221bd0f7865eddc63aad4ae1ef06de92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7534ec77_6e0f8eff",
+        "filename": "front_end/ui/legacy/components/perf_ui/overviewGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-02T13:07:59Z",
+      "side": 1,
+      "message": "Afraid that doesn\u0027t work, because it is transparent, and this button is placed over the top of a canvas that has a chart on, so that doesn\u0027t work right. I am chatting with Vaatika about what we should use. In the meantime this is OK as it\u0027s behind an experiment and we will resolve this \"properly\" before it ever ships to all users.",
+      "parentUuid": "2befd3f1_76441b5a",
+      "range": {
+        "startLine": 121,
+        "startChar": 18,
+        "endLine": 121,
+        "endChar": 41
+      },
+      "revId": "8cc8a978221bd0f7865eddc63aad4ae1ef06de92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
