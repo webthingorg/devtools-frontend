@@ -50,6 +50,190 @@
       "message": "Eric, please take a look.",
       "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4481af9_90406e9a",
+        "filename": "front_end/panels/coverage/CoverageListView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "This is being run once for every element of `sourcesURLCoverageInfo` but it doesn\u0027t depend on the particular element. Should it be run once after the loop if every or any source node was found?",
+      "range": {
+        "startLine": 236,
+        "startChar": 8,
+        "endLine": 236,
+        "endChar": 75
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4177f41f_656f0f93",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "Not sure why this can\u0027t be `const currentBacklog \u003d this.processSourceMapBacklog;`.",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 61
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c82d00d_87d1a392",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 52
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c146d8c_66d042bd",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "Could this loop be parallel?\n\n`await Promise.all(currentBackLog.map(({script, sourceMap}) \u003d\u003e this.resolveSourceMap(script, sourceMap)));`\n\nor is there in practice no delay when requesting script contents?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 5
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea055f72_20093264",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "Nit: Change comment to say \"If the urlCoverage has not been created yet, there is no need to update it.\" or move the comment inside the if block. When I read this I expect this to be a statement of fact about the state if the code hits the location where the comment is, which it isn\u0027t.",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 143,
+        "endChar": 73
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f09146ed_e651fb49",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "Similar to above, should this be parallel?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 73
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac969de8_3fb16725",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "Why is this cast needed?",
+      "range": {
+        "startLine": 605,
+        "startChar": 60,
+        "endLine": 605,
+        "endChar": 80
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8821c597_53c63f89",
+        "filename": "front_end/panels/coverage/CoverageView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-02T16:30:41Z",
+      "side": 1,
+      "message": "Nit: \"are\"",
+      "range": {
+        "startLine": 587,
+        "startChar": 47,
+        "endLine": 587,
+        "endChar": 49
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
