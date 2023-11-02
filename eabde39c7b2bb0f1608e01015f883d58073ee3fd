@@ -33,6 +33,40 @@
       "message": "Ditto. \"Value in activation\"",
       "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8120ae44_62256734",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-02T05:56:28Z",
+      "side": 1,
+      "message": "I propose to use a special string for null, e.g. \u0027\u003cnull\u003e\u0027.\n\nSee, for example, https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts;l\u003d90",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "599d2228_aa5bba69",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-02T05:56:28Z",
+      "side": 1,
+      "message": "```suggestion\n  mismatchedHeadersDetail: \u0027Mismatched headers detail\u0027,\n```",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
