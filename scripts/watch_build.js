@@ -30,17 +30,16 @@ const currentTimeString = () => {
       .toLocaleTimeString('en-US', {hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit'});
 };
 
+const NODE_PATH = path.join('third_party', 'node', 'node.py');
+const ESBUILD_PATH = path.join('third_party', 'esbuild', 'esbuild');
+const GENERATE_CSS_JS_FILES_PATH = path.join('scripts', 'build', 'generate_css_js_files.js');
+
 const connections = {};
 let lastConnectionId = 0;
 
 // Extract the target if it's provided.
 const target = extractArgument('--target') || 'Default';
 const PORT = 8080;
-
-let restartBuild = false;
-let autoninja;
-
-const changedFiles = new Set();
 
 const startWebSocketServerForCssChanges = () => {
   const wss = new WebSocketServer({port: PORT});
@@ -62,28 +61,24 @@ const startWebSocketServerForCssChanges = () => {
   });
 };
 
-const onFileChange = fileName => {
-  // Some filesystems emit multiple events in quick succession for a
-  // single file change. Here we track the changed files, and reset
-  // after a short timeout.
-  if (!fileName || changedFiles.has(fileName)) {
-    return;
-  }
+const runGenerateCssFiles = ({fileName}) => {
+  const scriptArgs = [
+    /* buildTimestamp */ Date.now(),
+    /* isDebugString */ 'true',
+    /* isLegacyString */ 'false',
+    /* targetName */ target,
+    /* srcDir */ '',
+    /* targetGenDir */ path.join('out', target, 'gen'),
+    /* files */ relativeFileName(fileName),
+    /* hotReloadEnabledString */ 'true'
+  ];
 
-  changedFiles.add(fileName);
-  setTimeout(() => {
-    changedFiles.delete(fileName);
-  }, 250);
+  childProcess.spawnSync(
+      'vpython', [NODE_PATH, '--output', GENERATE_CSS_JS_FILES_PATH, ...scriptArgs], {cwd, env, stdio: 'inherit'});
+};
 
-  // If the exitCode is null, autoninja is still running so stop it
-  // and try to restart it again.
-  const ninjaProcessExists = Boolean(autoninja && autoninja.pid);
-  if (ninjaProcessExists) {
-    const isRunning = ninjaProcessExists && autoninja.exitCode === null;
-    if (isRunning) {
-      autoninja.kill();
-      restartBuild = true;
-    }
+const onFileChange = async fileName => {
+  if (!fileName) {
     return;
   }
 
@@ -91,21 +86,26 @@ const onFileChange = fileName => {
     console.log(`${currentTimeString()} - ${relativeFileName(fileName)} changed, notifying frontend`);
     const content = fs.readFileSync(fileName, {encoding: 'utf8', flag: 'r'});
 
+    runGenerateCssFiles({fileName: relativeFileName(fileName)});
+
     Object.values(connections).forEach(connection => {
       connection.ws.send(JSON.stringify({file: fileName, content}));
     });
     return;
   }
 
-  autoninja = childProcess.spawn('autoninja', ['-C', `out/${target}`], {cwd, env, stdio: 'inherit'});
-  autoninja.on('close', () => {
-    autoninja = null;
-    if (restartBuild) {
-      restartBuild = false;
-      console.log(`${currentTimeString()}  - ${relativeFileName(fileName)} changed, restarting ninja`);
-      onFileChange();
-    }
-  });
+  if (fileName.endsWith('.ts')) {
+    console.log(`${currentTimeString()} - ${relativeFileName(fileName)} changed, generating js file`);
+
+    const jsFileName = `${fileName.substring(0, fileName.length - 3)}.js`;
+    const outFile = path.resolve('out', target, 'gen', relativeFileName(jsFileName));
+    childProcess.spawnSync(
+        ESBUILD_PATH, [fileName, `--outfile=${outFile}`, '--sourcemap'], {cwd, env, stdio: 'inherit'});
+    return;
+  }
+
+  console.log(`${currentTimeString()} - ${relativeFileName(fileName)} changed, running ninja`);
+  childProcess.spawnSync('autoninja', ['-C', `out/${target}`], {cwd, env, stdio: 'inherit'});
 };
 
 // Run build initially before starting to watch for changes.
