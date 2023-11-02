@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1afc4508_3bec6c2b",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-02T09:47:42Z",
+      "side": 0,
+      "message": "drive-by clean up :)",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 84
+      },
+      "revId": "177b0f44d11b352ebbd18603c6b8641cfd10a982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
