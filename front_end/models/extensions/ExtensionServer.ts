@@ -1099,7 +1099,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       }
       this.addExtensionFrame(extensionInfo);
     } catch (e) {
-      console.error('Failed to initialize extension ' + startPage + ':' + e);
+      console.error('Failed to initialize extension :' + e);
       return false;
     }
     return true;
@@ -1108,7 +1108,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   private registerExtension(origin: Platform.DevToolsPath.UrlString, port: MessagePort): void {
     if (!this.registeredExtensions.has(origin)) {
       if (origin !== window.location.origin) {  // Just ignore inspector frames.
-        console.error('Ignoring unauthorized client request from ' + origin);
+        console.warn('Ignoring unauthorized client request from ' + origin);
       }
       return;
     }
@@ -1403,7 +1403,7 @@ export class ExtensionStatus {
       const status: Record = {code, description, details};
       if (code !== 'OK') {
         status.isError = true;
-        console.error('Extension server error: ' + Platform.StringUtilities.sprintf(description, ...details));
+        console.warn('Extension server error: ' + Platform.StringUtilities.sprintf(description, ...details));
       }
       return status;
     }

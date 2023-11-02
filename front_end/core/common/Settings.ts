@@ -516,10 +516,9 @@ export class Setting<V> {
   }
 
   private printSettingsSavingError(message: string, name: string, value: string): void {
-    const errorMessage =
-        'Error saving setting with name: ' + this.name + ', value length: ' + value.length + '. Error: ' + message;
-    console.error(errorMessage);
-    Console.instance().error(errorMessage);
+    console.error('Error saving setting with name: ' + this.name + '. Error: ' + message);
+    Console.instance().error(
+        'Error saving setting with name: ' + this.name + ', value length: ' + value.length + '. Error: ' + message);
     this.storage.dumpSizes();
   }
 }

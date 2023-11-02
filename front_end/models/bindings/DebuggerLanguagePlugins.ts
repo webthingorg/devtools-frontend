@@ -803,7 +803,7 @@ export class DebuggerLanguagePluginManager implements
                 }
                 return sourceFileURLs;
               } catch (error) {
-                console.error(i18nString(
+                console.warn(i18nString(
                     UIStrings.failedToLoadDebugSymbolsFor, {PH1: plugin.name, PH2: url, PH3: error.message}));
                 this.#rawModuleHandles.delete(rawModuleId);
                 return [];

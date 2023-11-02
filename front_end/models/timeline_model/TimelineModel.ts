@@ -859,7 +859,7 @@ export class TimelineModelImpl {
           if (parent) {
             parent.selfTime -= event.duration;
             if (parent.selfTime < 0) {
-              this.fixNegativeDuration(parent, event);
+              this.fixNegativeDuration(parent);
             }
           }
         }
@@ -877,12 +877,10 @@ export class TimelineModelImpl {
     this.processAsyncEvents(thread);
   }
 
-  private fixNegativeDuration(event: TraceEngine.Legacy.Event, child: TraceEngine.Legacy.Event): void {
+  private fixNegativeDuration(event: TraceEngine.Legacy.Event): void {
     const epsilon = 1e-3;
     if (event.selfTime < -epsilon) {
-      console.error(
-          `Children are longer than parent at ${event.startTime} ` +
-          `(${(child.startTime - this.minimumRecordTime()).toFixed(3)} by ${(-event.selfTime).toFixed(3)}`);
+      console.error('Children are longer than parent');
     }
     event.selfTime = 0;
   }
@@ -1936,7 +1934,7 @@ export class InvalidationTracker {
 
     if (!invalidation.nodeId) {
       console.error('Invalidation lacks node information.');
-      console.error(invalidation);
+      console.warn(invalidation);
       return;
     }
 
@@ -2022,7 +2020,7 @@ export class InvalidationTracker {
     }
     if (!styleInvalidatorInvalidation.nodeId) {
       console.error('Invalidation lacks node information.');
-      console.error(styleInvalidatorInvalidation);
+      console.warn(styleInvalidatorInvalidation);
       return;
     }
     for (let i = 0; i < styleInvalidatorInvalidation.invalidationList.length; i++) {

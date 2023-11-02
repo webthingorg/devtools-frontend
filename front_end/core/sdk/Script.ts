@@ -349,7 +349,7 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
     if (response.getError()) {
       // Something went seriously wrong, like the V8 inspector no longer knowing about this script without
       // shutting down the Debugger agent etc.
-      throw new Error(`Script#editSource failed for script with id ${this.scriptId}: ${response.getError()}`);
+      throw new Error(`Script#editSource failed for a script: ${response.getError()}`);
     }
 
     if (!response.getError() && response.status === Protocol.Debugger.SetScriptSourceResponseStatus.Ok) {

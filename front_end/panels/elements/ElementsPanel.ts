@@ -1299,9 +1299,6 @@ export class DOMNodeRevealer implements Common.Revealer.Revealer {
       }
 
       Common.Console.Console.instance().warn(message);
-      // Blink tests expect an exception to be raised and unhandled here to detect that the node
-      // was actually not successfully viewed.
-      throw reason;
     });
 
     function revealPromise(

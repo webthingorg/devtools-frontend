@@ -59,8 +59,7 @@ export class TracingModel {
       return typeof id2['global'] !== 'undefined' ? `:${scope}:${id2['global']}` :
                                                     `:${scope}:${payload.pid}:${id2['local']}`;
     }
-    console.error(
-        `Unexpected id2 field at ${payload.ts / 1000}, one and only one of 'local' and 'global' should be present.`);
+    console.error('Unexpected id2 field; one and only one of \'local\' and \'global\' should be present.');
     return undefined;
   }
 
@@ -301,8 +300,7 @@ export class TracingModel {
           break;
         }
         if (top.name !== event.name) {
-          console.error(
-              `Begin/end event mismatch for nestable async event, ${top.name} vs. ${event.name}, key: ${key}`);
+          console.error('Begin/end event mismatch for nestable async event');
           break;
         }
         top.addStep(event);
@@ -468,7 +466,7 @@ export class Event {
     if (endEvent.args) {
       this.addArgs(endEvent.args);
     } else {
-      console.error('Missing mandatory event argument \'args\' at ' + endEvent.startTime);
+      console.error('Missing mandatory event argument \'args\'');
     }
     this.setEndTime(endEvent.startTime);
   }
@@ -552,7 +550,7 @@ export class ObjectSnapshot extends PayloadEvent {
       snapshot.id = id;
     }
     if (!payload.args || !payload.args['snapshot']) {
-      console.error('Missing mandatory \'snapshot\' argument at ' + payload.ts / 1000);
+      console.error('Missing mandatory \'snapshot\' argument');
       return snapshot;
     }
     if (payload.args) {
@@ -723,9 +721,7 @@ export class Thread extends NamedObject {
           continue;
         }
         if (top.name !== e.name || top.categoriesString !== e.categoriesString) {
-          console.error(
-              'B/E events mismatch at ' + top.startTime + ' (' + top.name + ') vs. ' + e.startTime + ' (' + e.name +
-              ')');
+          console.error('B/E events mismatch');
         } else {
           top.complete(e);
         }

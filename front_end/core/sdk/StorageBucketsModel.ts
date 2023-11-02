@@ -163,7 +163,7 @@ export class StorageBucketsModel extends SDKModel<EventTypes> implements Protoco
       this.bucketRemoved(curBucket);
     } else {
       throw new Error(
-          `Received an event that Storage Bucket '${bucketId}' was deleted, but it wasn't in the StorageBucketsModel.`);
+          'Received an event that Storage Bucket a storage bucket was deleted, but it wasn\'t in the StorageBucketsModel.');
     }
   }
 
