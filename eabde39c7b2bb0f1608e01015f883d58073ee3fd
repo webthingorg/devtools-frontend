@@ -175,6 +175,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc39283_a42971ad",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-02T06:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd727275_2ccd4eba",
+      "range": {
+        "startLine": 72,
+        "startChar": 17,
+        "endLine": 72,
+        "endChar": 47
+      },
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "599d2228_aa5bba69",
@@ -188,6 +212,24 @@
       "writtenOn": "2023-11-02T05:56:28Z",
       "side": 1,
       "message": "```suggestion\n  mismatchedHeadersDetail: \u0027Mismatched headers detail\u0027,\n```",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ced972ae_0d2efc1d",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-02T06:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "599d2228_aa5bba69",
       "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

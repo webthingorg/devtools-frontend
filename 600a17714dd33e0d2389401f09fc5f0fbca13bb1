@@ -385,6 +385,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "444651cd_41f74d68",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-02T06:55:58Z",
+      "side": 1,
+      "message": "I think the formatter changed these for some reason.",
+      "parentUuid": "ee259aca_7fdbf446",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cad19be9_6f619b84",
         "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
         "patchSetId": 6
@@ -396,6 +414,24 @@
       "writtenOn": "2023-10-25T06:41:10Z",
       "side": 1,
       "message": "```\nconst attempt \u003d this.#data.attempts.find(attempt \u003d\u003e attempt.action \u003d\u003d\u003d Protocol.Preload.SpeculationAction.Prerender \u0026\u0026 attempt.mismatchedHeaders !\u003d\u003d null);\nif (attempt \u003d\u003d\u003d undefined) {\n  return LitHtml.nothing;\n}\n```\n\nwould be more straight.",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d0d6809_f5262483",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-02T06:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cad19be9_6f619b84",
       "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -413,6 +449,24 @@
       "writtenOn": "2023-10-25T06:41:10Z",
       "side": 1,
       "message": "Redundant?",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30de072c_f5e81592",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-02T06:55:58Z",
+      "side": 1,
+      "message": "That\u0027s right. I removed it!",
+      "parentUuid": "8c164e18_1694b437",
       "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
