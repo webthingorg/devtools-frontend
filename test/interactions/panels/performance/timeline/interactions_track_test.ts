@@ -39,7 +39,7 @@ describe('Interactions track', function() {
         // small amount to make them appear on screen nicely for the screenshot.
         'performance_panel/track_example.html?track=Interactions&fileName=one-second-interaction&windowStart=141251500&windowEnd=141253000');
     const flameChart = await waitFor('.flame-chart-main-pane');
-    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_long_interactions.png', 3);
+    await assertElementScreenshotUnchanged(flameChart, 'performance/interactions_track_long_interactions.png', 0);
   });
 
   itScreenshot('renders the track (dark mode and expanded)', async () => {
