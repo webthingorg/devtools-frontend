@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99aebe1e_cda80dfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-02T14:00:40Z",
+      "side": 1,
+      "message": "Wolfgang, please kindly take another look? Also added a tooltip for more filters here as well as some tests",
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
