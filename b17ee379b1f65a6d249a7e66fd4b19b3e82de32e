@@ -16,6 +16,23 @@
       "message": "Could you take a look please?",
       "revId": "b17ee379b1f65a6d249a7e66fd4b19b3e82de32e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b05606ed_eb62d60a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-02T08:48:29Z",
+      "side": 1,
+      "message": "Default hover color should be `sys-color-hover-on-subtle`, I don\u0027t think we\u0027ve made any exceptions, but let\u0027s ask Peter if we need to here",
+      "revId": "b17ee379b1f65a6d249a7e66fd4b19b3e82de32e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
