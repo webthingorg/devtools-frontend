@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04e09c23_5e5b73e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-02T06:13:25Z",
+      "side": 1,
+      "message": "thank you!",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19e990ff_e926288a",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-02T06:13:25Z",
+      "side": 1,
+      "message": "I\u0027d prefer HTTP request header name. \n(because I do not now the reason why we\u0027re having \"Header for mismatched preloads\" as a comment for `preloadedURLs: \u0027URLs being speculatively loaded by the initiating page\u0027,`\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/preloading/components/UsedPreloadingView.ts;drc\u003d5b4c2082bd36ab2fa8eccf24c2348f85148a2eb5;l\u003d65",
+      "range": {
+        "startLine": 45,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 52
+      },
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "327380cb_fb39ef36",
@@ -48,6 +88,47 @@
       "writtenOn": "2023-11-02T05:56:28Z",
       "side": 1,
       "message": "I propose to use a special string for null, e.g. \u0027\u003cnull\u003e\u0027.\n\nSee, for example, https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/linear_memory_inspector/LinearMemoryHighlightChipList.ts;l\u003d90",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d8bfc10_b4fb3650",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-02T06:13:25Z",
+      "side": 1,
+      "message": "I guess this one would be `i18n.i18n.lockedString` based on our previous discussion?",
+      "parentUuid": "8120ae44_62256734",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd727275_2ccd4eba",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-02T06:13:25Z",
+      "side": 1,
+      "message": "Network requests header",
+      "range": {
+        "startLine": 72,
+        "startChar": 17,
+        "endLine": 72,
+        "endChar": 47
+      },
       "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
