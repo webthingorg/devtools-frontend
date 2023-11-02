@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a557165e_7344b11b",
+        "filename": "test/e2e/console/console-message-format_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-02T12:05:00Z",
+      "side": 1,
+      "message": "That looks right!",
+      "parentUuid": "d6af9e4a_d5e1526c",
+      "revId": "546a0b4f7f867e9447af7ecebd37157c0ac10213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba1c2461_feba8c4a",
