@@ -320,6 +320,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77c527c5_269d3a10",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-02T05:38:00Z",
+      "side": 1,
+      "message": "I added a new line after this, but the formatter reverted to this style...",
+      "parentUuid": "aafae69c_dec3b9b7",
+      "range": {
+        "startLine": 98,
+        "startChar": 65,
+        "endLine": 98,
+        "endChar": 66
+      },
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee259aca_7fdbf446",
         "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
         "patchSetId": 6
