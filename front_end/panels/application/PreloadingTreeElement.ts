@@ -30,34 +30,21 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/application/PreloadingTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-type M = SDK.PreloadingModel.PreloadingModel;
-
-export class PreloadingTreeElement<V extends PreloadingRuleSetView|PreloadingAttemptView|PreloadingResultView> extends
+class PreloadingTreeElementBase<V extends PreloadingRuleSetView|PreloadingAttemptView|PreloadingResultView> extends
     ApplicationPanelTreeElement {
-  private model?: M;
-  private ctorV: {new(model: M): V};
-  private view?: V;
-  private path: Platform.DevToolsPath.UrlString;
+  #model?: SDK.PreloadingModel.PreloadingModel;
+  #viewCtor: {new(model: SDK.PreloadingModel.PreloadingModel): V};
+  protected view?: V;
+  #path: Platform.DevToolsPath.UrlString;
   #selectedInternal: boolean;
 
-  static newForPreloadingRuleSetView(resourcesPanel: ResourcesPanel): PreloadingTreeElement<PreloadingRuleSetView> {
-    return new PreloadingTreeElement(
-        resourcesPanel, PreloadingRuleSetView, 'rule-set', i18nString(UIStrings.speculationRules));
-  }
-
-  static newForPreloadingAttemptView(resourcesPanel: ResourcesPanel): PreloadingTreeElement<PreloadingAttemptView> {
-    return new PreloadingTreeElement(resourcesPanel, PreloadingAttemptView, 'attempt', i18nString(UIStrings.preloads));
-  }
-
-  static newForPreloadingResultView(resourcesPanel: ResourcesPanel): PreloadingTreeElement<PreloadingResultView> {
-    return new PreloadingTreeElement(resourcesPanel, PreloadingResultView, 'result', i18nString(UIStrings.thisPage));
-  }
-
-  constructor(resourcesPanel: ResourcesPanel, ctorV: {new(model: M): V}, path: string, title: string) {
+  constructor(
+      resourcesPanel: ResourcesPanel, ctorV: {new(model: SDK.PreloadingModel.PreloadingModel): V}, path: string,
+      title: string) {
     super(resourcesPanel, title, false);
 
-    this.ctorV = ctorV;
-    this.path = 'preloading://{path}' as Platform.DevToolsPath.UrlString;
+    this.#viewCtor = ctorV;
+    this.#path = 'preloading://{path}' as Platform.DevToolsPath.UrlString;
 
     const icon = UI.Icon.Icon.create('arrow-up-down', 'resource-tree-item');
     this.setLeadingIcons([icon]);
@@ -67,11 +54,11 @@ export class PreloadingTreeElement<V extends PreloadingRuleSetView|PreloadingAtt
   }
 
   override get itemURL(): Platform.DevToolsPath.UrlString {
-    return this.path;
+    return this.#path;
   }
 
   initialize(model: SDK.PreloadingModel.PreloadingModel): void {
-    this.model = model;
+    this.#model = model;
 
     // Show the view if the model was initialized after selection.
     if (this.#selectedInternal && !this.view) {
@@ -83,12 +70,12 @@ export class PreloadingTreeElement<V extends PreloadingRuleSetView|PreloadingAtt
     super.onselect(selectedByUser);
     this.#selectedInternal = true;
 
-    if (!this.model) {
+    if (!this.#model) {
       return false;
     }
 
     if (!this.view) {
-      this.view = new this.ctorV(this.model);
+      this.view = new this.#viewCtor(this.#model);
     }
 
     this.showView(this.view);
@@ -96,20 +83,44 @@ export class PreloadingTreeElement<V extends PreloadingRuleSetView|PreloadingAtt
 
     return false;
   }
+}
+
+export class PreloadingRuleSetTreeElement extends PreloadingTreeElementBase<PreloadingRuleSetView> {
+  constructor(resourcesPanel: ResourcesPanel) {
+    super(
+        resourcesPanel, PreloadingRuleSetView, 'preloading://rule-set' as Platform.DevToolsPath.UrlString,
+        i18nString(UIStrings.speculationRules));
+  }
 
   revealRuleSet(revealInfo: PreloadingHelper.PreloadingForward.RuleSetView): void {
-    if (!this.view || !(this.view instanceof PreloadingRuleSetView)) {
-      throw new Error('unreachable');
+    if (this.view === undefined) {
+      return;
     }
 
     this.view.revealRuleSet(revealInfo);
   }
+}
+
+export class PreloadingAttemptTreeElement extends PreloadingTreeElementBase<PreloadingAttemptView> {
+  constructor(resourcesPanel: ResourcesPanel) {
+    super(
+        resourcesPanel, PreloadingAttemptView, 'preloading://attempt' as Platform.DevToolsPath.UrlString,
+        i18nString(UIStrings.preloads));
+  }
 
   setFilter(filter: PreloadingHelper.PreloadingForward.AttemptViewWithFilter): void {
-    if (!this.view || !(this.view instanceof PreloadingAttemptView)) {
-      throw new Error('unreachable');
+    if (this.view === undefined) {
+      return;
     }
 
     this.view.setFilter(filter);
+  }
+}
+
+export class PreloadingResultTreeElement extends PreloadingTreeElementBase<PreloadingResultView> {
+  constructor(resourcesPanel: ResourcesPanel) {
+    super(
+        resourcesPanel, PreloadingResultView, 'preloading://result' as Platform.DevToolsPath.UrlString,
+        i18nString(UIStrings.thisPage));
   }
 }

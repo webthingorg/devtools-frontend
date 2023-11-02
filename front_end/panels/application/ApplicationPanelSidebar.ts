@@ -68,11 +68,10 @@ import {InterestGroupTreeElement} from './InterestGroupTreeElement.js';
 import {OpenedWindowDetailsView, WorkerDetailsView} from './OpenedWindowDetailsView.js';
 import type * as PreloadingHelper from './preloading/helper/helper.js';
 import {
-  type PreloadingAttemptView,
-  type PreloadingResultView,
-  type PreloadingRuleSetView,
-} from './preloading/PreloadingView.js';
-import {PreloadingTreeElement} from './PreloadingTreeElement.js';
+  PreloadingAttemptTreeElement,
+  PreloadingResultTreeElement,
+  PreloadingRuleSetTreeElement,
+} from './PreloadingTreeElement.js';
 import {ReportingApiTreeElement} from './ReportingApiTreeElement.js';
 import {type ResourcesPanel} from './ResourcesPanel.js';
 import resourcesSidebarStyles from './resourcesSidebar.css.js';
@@ -267,9 +266,9 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   periodicBackgroundSyncTreeElement: BackgroundServiceTreeElement;
   pushMessagingTreeElement: BackgroundServiceTreeElement;
   reportingApiTreeElement: ReportingApiTreeElement;
-  preloadingRuleSetTreeElement: PreloadingTreeElement<PreloadingRuleSetView>|undefined;
-  preloadingAttemptTreeElement: PreloadingTreeElement<PreloadingAttemptView>|undefined;
-  preloadingResultTreeElement: PreloadingTreeElement<PreloadingResultView>|undefined;
+  preloadingRuleSetTreeElement: PreloadingRuleSetTreeElement|undefined;
+  preloadingAttemptTreeElement: PreloadingAttemptTreeElement|undefined;
+  preloadingResultTreeElement: PreloadingResultTreeElement|undefined;
   private readonly resourcesSection: ResourcesSection;
   private readonly databaseTableViews: Map<DatabaseModelDatabase, {
     [x: string]: DatabaseTableView,
@@ -410,9 +409,9 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
       const preloadingSectionTitle = i18nString(UIStrings.preloading);
       const preloadingSectionTreeElement = this.addSidebarSection(preloadingSectionTitle);
 
-      this.preloadingRuleSetTreeElement = PreloadingTreeElement.newForPreloadingRuleSetView(panel);
-      this.preloadingAttemptTreeElement = PreloadingTreeElement.newForPreloadingAttemptView(panel);
-      this.preloadingResultTreeElement = PreloadingTreeElement.newForPreloadingResultView(panel);
+      this.preloadingRuleSetTreeElement = new PreloadingRuleSetTreeElement(panel);
+      this.preloadingAttemptTreeElement = new PreloadingAttemptTreeElement(panel);
+      this.preloadingResultTreeElement = new PreloadingResultTreeElement(panel);
       preloadingSectionTreeElement.appendChild(this.preloadingRuleSetTreeElement);
       preloadingSectionTreeElement.appendChild(this.preloadingAttemptTreeElement);
       preloadingSectionTreeElement.appendChild(this.preloadingResultTreeElement);
