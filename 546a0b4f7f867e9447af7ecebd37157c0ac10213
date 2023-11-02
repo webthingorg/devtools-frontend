@@ -16,6 +16,29 @@
       "message": "Adding Simon for DEPS owner review.",
       "revId": "546a0b4f7f867e9447af7ecebd37157c0ac10213",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba1c2461_feba8c4a",
+        "filename": "test/e2e/console/console-message-format_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-11-02T11:42:14Z",
+      "side": 1,
+      "message": "These two lines are needed to rebase tests due to Chromium version differences.",
+      "range": {
+        "startLine": 143,
+        "startChar": 6,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "546a0b4f7f867e9447af7ecebd37157c0ac10213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
