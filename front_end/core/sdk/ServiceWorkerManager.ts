@@ -362,6 +362,15 @@ export class ServiceWorkerVersionState {
   }
 }
 
+export class ServiceWorkerRouterRule {
+  condition: string;
+  source: string;
+  constructor(condition: string, source: string) {
+    this.condition = condition;
+    this.source = source;
+  }
+}
+
 export class ServiceWorkerVersion {
   id!: string;
   scriptURL!: Platform.DevToolsPath.UrlString;
@@ -371,6 +380,7 @@ export class ServiceWorkerVersion {
   scriptResponseTime!: number|undefined;
   controlledClients!: Protocol.Target.TargetID[];
   targetId!: string|null;
+  routerRules!: ServiceWorkerRouterRule[]|null;
   currentState!: ServiceWorkerVersionState;
   registration: ServiceWorkerRegistration;
   constructor(registration: ServiceWorkerRegistration, payload: Protocol.ServiceWorker.ServiceWorkerVersion) {
@@ -393,6 +403,9 @@ export class ServiceWorkerVersion {
       this.controlledClients = [];
     }
     this.targetId = payload.targetId || null;
+    if (payload.routerRules) {
+      this.routerRules = this.parseJSONRules(payload.routerRules);
+    }
   }
 
   isStartable(): boolean {
@@ -463,6 +476,26 @@ export class ServiceWorkerVersion {
       return ServiceWorkerVersion.Modes.Active;
     }
     return ServiceWorkerVersion.Modes.Redundant;
+  }
+
+  private parseJSONRules(input: string): ServiceWorkerRouterRule[]|null {
+    try {
+      const parsedObject = JSON.parse(input);
+      if (!Array.isArray(parsedObject)) {
+        return null;
+      }
+      const routerRules: ServiceWorkerRouterRule[] = [];
+      for (const parsedRule of parsedObject) {
+        if (!('condition' in parsedRule) || !('source' in parsedRule)) {
+          return null;
+        }
+        routerRules.push(
+            new ServiceWorkerRouterRule(JSON.stringify(parsedRule.condition), JSON.stringify(parsedRule.source)));
+      }
+      return routerRules;
+    } catch (e) {
+      return null;
+    }
   }
 }
 
