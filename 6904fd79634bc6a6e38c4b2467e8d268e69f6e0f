@@ -16,6 +16,23 @@
       "message": "@kprokopenko@chromium.org Could you take this CL since dsv@ is OOO this week?\nThanks",
       "revId": "6904fd79634bc6a6e38c4b2467e8d268e69f6e0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "421c953b_5d075ea8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-02T08:44:21Z",
+      "side": 1,
+      "message": "Sure, LGTM!",
+      "revId": "6904fd79634bc6a6e38c4b2467e8d268e69f6e0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
