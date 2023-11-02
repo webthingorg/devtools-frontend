@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "134c5314bb31be4ca18c368fc72b09fd2b504b25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "153fecbd_83564a1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-02T15:23:31Z",
+      "side": 1,
+      "message": "lgtm. I can go further soon - I am going to start removing the flag (as we are committed to sync tracks) and then we can just rip out the old code. But this LGTM as a first step. TY!",
+      "revId": "134c5314bb31be4ca18c368fc72b09fd2b504b25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
