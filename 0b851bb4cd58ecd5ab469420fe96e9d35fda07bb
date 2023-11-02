@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c022c0a_5e26a5d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2023-11-02T16:17:56Z",
+      "side": 1,
+      "message": "This change is obselete\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5001005",
+      "revId": "0b851bb4cd58ecd5ab469420fe96e9d35fda07bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
