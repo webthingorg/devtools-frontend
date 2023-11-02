@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2befd3f1_76441b5a",
+        "filename": "front_end/ui/legacy/components/perf_ui/overviewGrid.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-02T07:55:24Z",
+      "side": 1,
+      "message": "hey-hey, could you please use `sys-color-state-hover-on-subtle` for the hover state?",
+      "range": {
+        "startLine": 121,
+        "startChar": 18,
+        "endLine": 121,
+        "endChar": 41
+      },
+      "revId": "8cc8a978221bd0f7865eddc63aad4ae1ef06de92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
