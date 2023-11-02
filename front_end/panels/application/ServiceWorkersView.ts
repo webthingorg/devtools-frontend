@@ -41,6 +41,10 @@ const UIStrings = {
    */
   bypassTheServiceWorkerAndLoad: 'Bypass the `service worker` and load resources from the network',
   /**
+   *@description Text for the static router conditions
+   */
+  condition: 'Condition',
+  /**
    *@description Screen reader title for a section of the Service Workers view of the Application panel
    *@example {https://example.com} PH1
    */
@@ -116,6 +120,10 @@ const UIStrings = {
    * @example {7/3/2019, 3:38:37 PM} PH1
    */
   receivedS: 'Received {PH1}',
+  /**
+   * @description Text in Service Workers View of the Application panel.
+   */
+  routers: 'Routers',
   /**
    *@description Text in Service Workers View of the Application panel
    *@example {example.com} PH1
@@ -491,6 +499,7 @@ export class Section {
   private readonly clientInfoCache: Map<string, Protocol.Target.TargetInfo>;
   private readonly throttler: Common.Throttler.Throttler;
   private updateCycleField?: Element;
+  private routersField?: Element;
 
   constructor(
       manager: SDK.ServiceWorkerManager.ServiceWorkerManager, section: UI.ReportView.Section,
@@ -672,6 +681,7 @@ export class Section {
         this.createLink(activeEntry, i18nString(UIStrings.startString), this.startButtonClicked.bind(this));
       }
       this.updateClientsField(active);
+      this.updateRouterRules(active.routerRules);
     } else if (redundant) {
       this.updateSourceField(redundant);
       this.addVersion(
@@ -812,6 +822,32 @@ export class Section {
     this.createLink(
         element, i18nString(UIStrings.focus), this.activateTarget.bind(this, targetInfo.targetId),
         'service-worker-client-focus-link');
+  }
+
+  private updateRouterRules(routerRules: SDK.ServiceWorkerManager.ServiceWorkerRouterRule[]|null): void {
+    if (this.routersField) {
+      this.section.removeField(i18nString(UIStrings.routers));
+    }
+    if (!routerRules) {
+      return;
+    }
+    this.routersField = this.wrapWidget(this.section.appendField(i18nString(UIStrings.routers)));
+    for (let i = 0; i < routerRules.length; ++i) {
+      const rule = routerRules[i];
+
+      const ruleField = this.routersField.createChild('div', 'service-worker-router-rule');
+
+      const ruleTitle = ruleField.createChild('span');
+      UI.UIUtils.createTextChild(ruleTitle, 'Rule ' + (i + 1).toString());
+
+      const tableElement = ruleField.createChild('table', 'service-worker-router-rule');
+      const conditionRow = tableElement.createChild('tr');
+      UI.UIUtils.createTextChild(conditionRow.createChild('td'), i18nString(UIStrings.condition));
+      UI.UIUtils.createTextChild(conditionRow.createChild('td', 'service-worker-router-rule'), rule.condition);
+      const sourcesRow = tableElement.createChild('tr');
+      UI.UIUtils.createTextChild(sourcesRow.createChild('td'), i18nString(UIStrings.source));
+      UI.UIUtils.createTextChild(sourcesRow.createChild('td', 'service-worker-router-rule'), rule.source);
+    }
   }
 
   private activateTarget(targetId: Protocol.Target.TargetID): void {
