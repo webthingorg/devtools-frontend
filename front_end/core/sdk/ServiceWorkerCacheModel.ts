@@ -92,7 +92,7 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
   async deleteCache(cache: Cache): Promise<void> {
     const response = await this.cacheAgent.invoke_deleteCache({cacheId: cache.cacheId});
     if (response.getError()) {
-      console.error(`ServiceWorkerCacheAgent error deleting cache ${cache.toString()}: ${response.getError()}`);
+      console.error('ServiceWorkerCacheAgent error deleting cache.');
       return;
     }
     this.#cachesInternal.delete(cache.cacheId);
@@ -229,7 +229,7 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
     const response =
         await this.cacheAgent.invoke_requestEntries({cacheId: cache.cacheId, skipCount, pageSize, pathFilter});
     if (response.getError()) {
-      console.error('ServiceWorkerCacheAgent error while requesting entries: ', response.getError());
+      console.error('ServiceWorkerCacheAgent error while requesting entries.');
       return;
     }
     callback(response.cacheDataEntries, response.returnCount);
@@ -240,7 +240,7 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
       callback: (arg0: Array<Protocol.CacheStorage.DataEntry>, arg1: number) => void): Promise<void> {
     const response = await this.cacheAgent.invoke_requestEntries({cacheId: cache.cacheId, pathFilter});
     if (response.getError()) {
-      console.error('ServiceWorkerCacheAgent error while requesting entries: ', response.getError());
+      console.error('ServiceWorkerCacheAgent error while requesting entries.');
       return;
     }
     callback(response.cacheDataEntries, response.returnCount);

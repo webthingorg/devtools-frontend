@@ -152,7 +152,7 @@ export class RecordingSession extends Common.ObjectWrapper.ObjectWrapper<EventTy
     this.#networkManager = SDK.NetworkManager.MultitargetNetworkManager.instance();
     const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
     if (!resourceTreeModel) {
-      throw new Error('ResourceTreeModel is missing for the target: ' + target.id());
+      throw new Error('ResourceTreeModel is missing for the target');
     }
     this.#resourceTreeModel = resourceTreeModel;
     this.#target = target;
@@ -419,7 +419,7 @@ export class RecordingSession extends Common.ObjectWrapper.ObjectWrapper<EventTy
       }
     }
     if (!frameId) {
-      throw new Error('No execution context found for the binding call + ' + JSON.stringify(event.data));
+      throw new Error('No execution context found for the binding call');
     }
 
     const step = JSON.parse(event.data.payload) as Injected.Step.Step;

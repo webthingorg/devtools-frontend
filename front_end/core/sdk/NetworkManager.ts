@@ -919,7 +919,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       redirectURL: Platform.DevToolsPath.UrlString): NetworkRequest {
     const originalNetworkRequest = this.#requestsById.get(requestId);
     if (!originalNetworkRequest) {
-      throw new Error(`Could not find original network request for ${requestId}`);
+      throw new Error('Could not find original network request for a pending redirect');
     }
     let redirectCount = 0;
     for (let redirect = originalNetworkRequest.redirectSource(); redirect; redirect = redirect.redirectSource()) {

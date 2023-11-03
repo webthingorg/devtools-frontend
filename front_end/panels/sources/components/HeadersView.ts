@@ -86,7 +86,7 @@ export class HeadersView extends UI.View.SimpleView {
         throw 'Type mismatch after parsing';
       }
     } catch (e) {
-      console.error('Failed to parse', this.#uiSourceCode.url(), 'for locally overriding headers.');
+      console.error('Failed to parse for locally overriding headers.');
       parsingError = true;
     }
 

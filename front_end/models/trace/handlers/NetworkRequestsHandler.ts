@@ -56,7 +56,7 @@ function storeTraceEventWithRequestId<K extends keyof TraceEventsForNetworkReque
 
   const traceEvents = requestMap.get(requestId);
   if (!traceEvents) {
-    throw new Error(`Unable to locate trace events for request ID ${requestId}`);
+    throw new Error('Unable to locate trace events for request a request');
   }
 
   if (Array.isArray(traceEvents[key])) {

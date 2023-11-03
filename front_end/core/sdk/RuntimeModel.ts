@@ -711,7 +711,7 @@ export class ExecutionContext {
 
     const error = response.getError();
     if (error) {
-      console.error(error);
+      console.warn(error);
       return {error: error};
     }
     return {object: this.runtimeModel.createRemoteObject(response.result), exceptionDetails: response.exceptionDetails};

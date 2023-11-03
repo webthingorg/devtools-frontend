@@ -42,7 +42,7 @@ export class TimelineJSProfileProcessor {
     for (let i = 0; i < samples.length; ++i) {
       const node: CPUProfile.ProfileTreeModel.ProfileNode|null = jsProfileModel.nodeByIndex(i);
       if (!node) {
-        console.error(`Node with unknown id ${samples[i]} at index ${i}`);
+        console.error('Node with unknown id');
         continue;
       }
       let callFrames;
@@ -236,12 +236,12 @@ export class TimelineJSProfileProcessor {
       if (lockedJsStackDepth.length) {
         const lockedDepth = lockedJsStackDepth.at(-1);
         if (lockedDepth && depth < lockedDepth) {
-          console.error(`Child stack is shallower (${depth}) than the parent stack (${lockedDepth}) at ${time}`);
+          console.error('Child stack is shallower than the parent stack');
           depth = lockedDepth;
         }
       }
       if (jsFramesStack.length < depth) {
-        console.error(`Trying to truncate higher than the current stack size at ${time}`);
+        console.error('Trying to truncate higher than the current stack size');
         depth = jsFramesStack.length;
       }
       for (let k = 0; k < jsFramesStack.length; ++k) {

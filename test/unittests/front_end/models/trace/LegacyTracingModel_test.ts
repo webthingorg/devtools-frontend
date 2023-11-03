@@ -244,7 +244,7 @@ describeWithEnvironment('TracingModel', function() {
       assert.isUndefined(TraceEngine.Legacy.TracingModel.extractId(fakePayload));
       assert(consoleErrorStub.calledWithExactly(
           // The number 1 here is the timestamp divided by 1000.
-          'Unexpected id2 field at 1, one and only one of \'local\' and \'global\' should be present.'));
+          'Unexpected id2 field; one and only one of \'local\' and \'global\' should be present.'));
     });
   });
 

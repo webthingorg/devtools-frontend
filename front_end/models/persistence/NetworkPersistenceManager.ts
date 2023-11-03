@@ -307,7 +307,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
     try {
       return unescape(path);
     } catch (e) {
-      console.error(e);
+      console.warn(e);
     }
     return path;
   }
@@ -545,7 +545,7 @@ export class NetworkPersistenceManager extends Common.ObjectWrapper.ObjectWrappe
         throw 'Type mismatch after parsing';
       }
     } catch (e) {
-      console.error('Failed to parse', uiSourceCode.url(), 'for locally overriding headers.');
+      console.error('Failed to parse for locally overriding headers.');
       return [];
     }
     return headerOverrides;

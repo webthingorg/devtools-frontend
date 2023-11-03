@@ -55,7 +55,7 @@ export class RemoteArrayBufferWrapper implements LazyUint8Array {
   async getRange(start: number, end: number): Promise<Uint8Array> {
     const newEnd = Math.min(end, this.length());
     if (start < 0 || start > newEnd) {
-      console.error(`Requesting invalid range of memory: (${start}, ${end})`);
+      console.error('Requesting invalid range of memory');
       return new Uint8Array(0);
     }
     const array = await this.#remoteArrayBuffer.bytes(start, newEnd);

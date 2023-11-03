@@ -73,8 +73,8 @@ export class CompilerSourceMappingContentProvider implements TextUtils.ContentPr
       const {content} = await PageResourceLoader.instance().loadResource(this.#sourceURL, this.#initiator);
       return {content, isEncoded: false};
     } catch (e) {
+      console.error(e);
       const error = i18nString(UIStrings.couldNotLoadContentForSS, {PH1: this.#sourceURL, PH2: e.message});
-      console.error(error);
       return {content: null, error, isEncoded: false};
     }
   }

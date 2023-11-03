@@ -354,9 +354,7 @@ export function makeCompleteEvent(event: Types.TraceEvents.TraceEventBegin|Types
       return null;
     }
     if (beginEvent.name !== event.name || beginEvent.cat !== event.cat) {
-      console.error(
-          'Begin/End events mismatch at ' + beginEvent.ts + ' (' + beginEvent.name + ') vs. ' + event.ts + ' (' +
-          event.name + ')');
+      console.error('Begin/End events mismatch');
       return null;
     }
     // Update the begin event's duration using the timestamp of the end

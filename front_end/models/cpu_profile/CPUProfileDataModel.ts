@@ -347,7 +347,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
       const prevNode = idToNode.get(prevNodeId);
       const nextNode = idToNode.get(nextNodeId);
       if (prevNodeId === undefined || nextNodeId === undefined || !prevNode || !nextNode) {
-        console.error(`Unexpectedly found undefined nodes: ${prevNodeId} ${nextNodeId}`);
+        console.error('Unexpectedly found undefined nodes.');
         continue;
       }
       if (nodeId === programNodeId && !isSystemNode(prevNodeId) && !isSystemNode(nextNodeId) &&

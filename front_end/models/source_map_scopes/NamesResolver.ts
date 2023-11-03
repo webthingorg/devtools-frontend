@@ -370,7 +370,7 @@ const resolveScope = async(
           punctuation = Punctuation.None;
           break;
         default:
-          console.error(`Name token parsing error: unexpected token "${match[2]}"`);
+          console.error('Name token parsing error: unexpected token');
           return null;
       }
 

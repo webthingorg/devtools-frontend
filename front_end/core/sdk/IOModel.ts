@@ -32,7 +32,7 @@ export class IOModel extends SDKModel<void> {
   async close(handle: Protocol.IO.StreamHandle): Promise<void> {
     const result = await this.target().ioAgent().invoke_close({handle});
     if (result.getError()) {
-      console.error('Could not close stream.');
+      console.warn('Could not close stream.');
     }
   }
 

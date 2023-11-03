@@ -134,7 +134,7 @@ export function evaluatableJavaScriptSubstring(content: string): string {
     }
     return content.substring(startIndex, endIndex);
   } catch (e) {
-    console.error(e);
+    console.warn(e);
     return '';
   }
 }
@@ -181,7 +181,7 @@ export function format(mimeType: string, text: string, indentString?: string): F
       content: builder.content(),
     };
   } catch (e) {
-    console.error(e);
+    console.warn(e);
     result = {
       mapping: {original: [0], formatted: [0]},
       content: text,
