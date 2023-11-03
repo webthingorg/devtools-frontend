@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "643776b4_58524d69",
+        "filename": "front_end/models/timeline_model/TimelineProfileTree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-11-03T09:22:29Z",
+      "side": 1,
+      "message": "why do we need this? or can it be `??`",
+      "range": {
+        "startLine": 556,
+        "startChar": 91,
+        "endLine": 556,
+        "endChar": 98
+      },
+      "revId": "345121c4bf1a9ee3b00f43c2ff856e5cabfb9f20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
