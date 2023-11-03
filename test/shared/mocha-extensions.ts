@@ -154,10 +154,11 @@ async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err
   if (stacks.length > 0) {
     const msg = `Pending async operations during timeout:\n${stacks.join('\n\n')}`;
     console.error(msg);
-
     if (err && err instanceof Error) {
       err.cause = new Error(msg);
     }
+    // const {target, frontend} = await takeScreenshots(this.fullTitle());
+    // err = ScreenshotError.fromBase64Images(err, target, frontend);
   }
   if (err && !getEnvVar('DEBUG_TEST') && !(err instanceof ScreenshotError)) {
     const {target, frontend} = await takeScreenshots(this.fullTitle());
