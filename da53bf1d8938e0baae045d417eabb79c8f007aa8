@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bca2cdcb_38274f29",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-03T12:19:31Z",
+      "side": 1,
+      "message": "Good point. I actually altered and documented the tab detection appropriately now.",
+      "parentUuid": "e0109560_c3f78e85",
+      "revId": "da53bf1d8938e0baae045d417eabb79c8f007aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "236e3d03_ea67d417",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0879d3bf_7c55f462",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-03T12:19:31Z",
+      "side": 1,
+      "message": "Went with `charAt` instead, which is far more readable.",
+      "parentUuid": "236e3d03_ea67d417",
+      "revId": "da53bf1d8938e0baae045d417eabb79c8f007aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c73cd8c3_bf54a57f",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-11-03T11:59:32Z",
       "side": 1,
       "message": "(nit): I find it a bit harder to understand bitwise operations; can we do `total / 4` if there aren\u0027t any performance concerns? :)",
+      "revId": "da53bf1d8938e0baae045d417eabb79c8f007aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef9e5b6f_79e1b16d",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-03T12:19:31Z",
+      "side": 1,
+      "message": "See comment above.",
+      "parentUuid": "c73cd8c3_bf54a57f",
       "revId": "da53bf1d8938e0baae045d417eabb79c8f007aa8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
