@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2aac726_76bd57aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1264475
+      },
+      "writtenOn": "2023-11-03T02:02:01Z",
+      "side": 1,
+      "message": "Update from me - \nWhen I run the above, I get \"OSError: [Errno 2] No such file or directory\" _I think_ when it\u0027s trying to look for this binary: third_party/node/mac/node-darwin-arm64/bin/node. The \"node-darwin-arm64\" path doesn\u0027t exist. In \"mac\", I only have the two sha1 files located in the source.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/third_party/node/mac/\n\nWhen I put a node binary (21.1.0) in that path, I get a bit further:\n```\nninja: Entering directory `out/Default\u0027\nninja: error: loading \u0027build.ninja\u0027: No such file or directory\n[run_test_suite.js] Chrome binary path /Users/cvazac/repos/chromium/src/third_party/devtools-frontend/src/third_party/chrome/chrome-mac/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing is not valid\n[run_test_suite.js] Using Chromium binary /Users/cvazac/repos/chromium/src/third_party/devtools-frontend/src/third_party/chrome/chrome-mac/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing\n[run_test_suite.js] Using target Default\n[run_test_suite.js] Using test suite gen/test/e2e/\n[run_test_suite.js] Failed: Full path to test suite [/Users/cvazac/repos/chromium/src/third_party/devtools-frontend/src/out/Default/gen/test/e2e] does not exist.\n[\u0027third_party/node/mac/node-darwin-arm64/bin/node\u0027, \u0027scripts/test/run_test_suite.js\u0027, \u0027--config\u003dtest/e2e/test-runner-config.json\u0027, \u0027--autoninja\u0027] failed:\n```\n\nThe path to Google Chrome for Testing.app does not exist. It looks to me like I want a `download_chrome_mac` to execute (from /third_party/devtools-frontend/src/DEPS) but maybe no condition is matching - not sure how to debug that. \n\nAny guidance would be greatly appreciated. I\u0027m running the full Chromium checkout if it helps. Thanks!",
+      "parentUuid": "e147d119_dc78908c",
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb40aa74_69296367",
         "filename": "front_end/panels/network/EventSourceMessagesView.ts",
         "patchSetId": 2
