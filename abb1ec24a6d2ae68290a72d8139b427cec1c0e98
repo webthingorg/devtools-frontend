@@ -63,6 +63,30 @@
       },
       "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55fe9722_72b5eebd",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-03T08:49:54Z",
+      "side": 1,
+      "message": "I\u0027d consider the `watch_build` script something for advanced users and not the \"happy path\". This is because you need to know the clear trade offs and that it might not work reliably. But IMO thats a separate discussion we can have.",
+      "parentUuid": "af741605_e2458f6e",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 103
+      },
+      "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
