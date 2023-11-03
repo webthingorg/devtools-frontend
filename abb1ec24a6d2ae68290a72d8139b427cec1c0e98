@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29cffaec_5f01fd53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-03T05:22:08Z",
+      "side": 1,
+      "message": "Thanks for taking a stab at this :) Unfortunately I have some blocking concerns about the current version, but it\u0027s nothing we can\u0027t fix :)",
+      "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27f36d1d_3e7b772c",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-03T05:22:08Z",
+      "side": 1,
+      "message": "I think we can\u0027t land this CL as is. We need to add GN argument parsing of the target directory. This script now ONLY works for the following configuration:\n\n```\nis_debug \u003d true\ndevtools_skip_typecheck \u003d true\n```\n\nWhy?\n\n* Release builds bundle into their entrypoints. E.g `gen/front_end/core/common/common.js` contains all of `common`. If the user changes `common/Settings.ts` then we\u0027ll get a new `common/Settings.js` but `common/common.js` won\u0027t be rebuilt so the user won\u0027t actually see any changes. It\u0027s even worse: Inside the module the changes will happen, since we direct import `Settings.js`. Outside the module we use the entrypoint. So both new and old will be live at the same time.\n\n* If we use this script on a `devtools_skip_typecheck \u003d false` build, we\u0027ll mix TSC output with ESBuild output. As discussed offline yesterday this will break `const enum`: TSC has inlined the const values, which is fine. But ESBuild treats them as normal enums. This means if 1) a const enum is defined in a TSC compiled file, and 2) the const enum is used in a ESBuild compiled file, will result in a ReferenceErrror, since the const enum the ESBuild compiled file relies on, does not exist at runtime.\n\nI\u0027m not sure whether we want to only support the above GN configuration and bail if we detect invalid flags. Or keep the existing mechanism as a fallback. I\u0027ll leave that up to you (and maybe @jacktfranklin@chromium.org xD?)\n\nSide-note: If we turn this script into a build output it would be pretty easy to inject the `is_debug` and `devtools_skip_typecheck` into JS so we don\u0027t have to actually parse the `args.gn`.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 103
+      },
+      "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
