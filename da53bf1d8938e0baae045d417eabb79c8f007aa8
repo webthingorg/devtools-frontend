@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0109560_c3f78e85",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-03T11:59:32Z",
+      "side": 1,
+      "message": "(nit): It seems like there is some modification to the suggested algorithm regarding tab detection, can we document here what is different and why?",
+      "revId": "da53bf1d8938e0baae045d417eabb79c8f007aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "236e3d03_ea67d417",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-03T11:59:32Z",
+      "side": 1,
+      "message": "(nit): can we define these as constants like TAB_CHAR_CODE so that we can understand what this charcode refers to directly :)",
+      "revId": "da53bf1d8938e0baae045d417eabb79c8f007aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c73cd8c3_bf54a57f",
+        "filename": "front_end/models/text_utils/TextUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-03T11:59:32Z",
+      "side": 1,
+      "message": "(nit): I find it a bit harder to understand bitwise operations; can we do `total / 4` if there aren\u0027t any performance concerns? :)",
+      "revId": "da53bf1d8938e0baae045d417eabb79c8f007aa8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
