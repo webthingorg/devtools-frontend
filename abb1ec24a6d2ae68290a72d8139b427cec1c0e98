@@ -111,6 +111,30 @@
       },
       "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23ac0416_eb2e374f",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-03T08:55:18Z",
+      "side": 1,
+      "message": "That\u0027s very fair, I was thinking about newcomer open source contributors where they want to fix one or two things in the codebase but checkout \u0026 build steps might be scary for them as a lot of people didn\u0027t hear about GN in the wild.\n\nThough I agree that this feature should be thought of something for advanced users, so we can skip this discussion in the context of this script and come back to it later if we hear such concerns from the newcomer people :)\n\nThanks for the reviews!",
+      "parentUuid": "ac7a18de_6e1a8425",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 103
+      },
+      "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
