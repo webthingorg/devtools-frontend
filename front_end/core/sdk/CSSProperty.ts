@@ -279,7 +279,7 @@ export class CSSProperty {
     if (lines.length < 2) {
       return '';
     }
-    return TextUtils.TextUtils.Utils.lineIndent(lines[1]);
+    return TextUtils.TextUtils.detectIndentation(lines) ?? '';
   }
 
   setValue(newValue: string, majorChange: boolean, overwrite: boolean, userCallback?: ((arg0: boolean) => void)): void {
