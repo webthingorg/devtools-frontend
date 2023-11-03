@@ -16,6 +16,109 @@
       "message": "Wolfgang, please kindly take another look? Also added a tooltip for more filters here as well as some tests",
       "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ae5602_5651220a",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-03T08:10:08Z",
+      "side": 1,
+      "message": "```suggestion\n    this.dropDownButton \u003d new UI.Toolbar.ToolbarButton(i18nString(UIStrings.requestTypesTooltip), this.typesCountAdorner);\n    this.dropDownButton.setText(i18nString(UIStrings.requestTypes));\n```",
+      "range": {
+        "startLine": 2572,
+        "startChar": 0,
+        "endLine": 2573,
+        "endChar": 56
+      },
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38df42b6_e498303a",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2708,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-03T08:10:08Z",
+      "side": 1,
+      "message": "```suggestion\n    let tooltipText \u003d i18nString(UIStrings.requestTypesTooltip);\n```",
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0bf7390_7c57253f",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2711,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-03T08:10:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t `selectedTypes` be localized as well?",
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2a21ff3_fb91b937",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2834,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-03T08:10:08Z",
+      "side": 1,
+      "message": "`i18nString(UIStrings.hidDataUrls)`\nsame for the following lines",
+      "range": {
+        "startLine": 2834,
+        "startChar": 49,
+        "endLine": 2834,
+        "endChar": 71
+      },
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa82ea9f_1fa947ba",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-03T08:10:08Z",
+      "side": 1,
+      "message": "default",
+      "range": {
+        "startLine": 573,
+        "startChar": 27,
+        "endLine": 573,
+        "endChar": 33
+      },
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
