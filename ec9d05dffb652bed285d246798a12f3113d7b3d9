@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41521ea_0df97b6e",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2573,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-03T10:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ae5602_5651220a",
+      "range": {
+        "startLine": 2572,
+        "startChar": 0,
+        "endLine": 2573,
+        "endChar": 56
+      },
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38df42b6_e498303a",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae461a8_1e7f1dd5",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2708,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-03T10:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38df42b6_e498303a",
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0bf7390_7c57253f",
@@ -71,6 +113,24 @@
       "writtenOn": "2023-11-03T08:10:08Z",
       "side": 1,
       "message": "Shouldn\u0027t `selectedTypes` be localized as well?",
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "029f52b1_7abdb8be",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2711,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-03T10:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0bf7390_7c57253f",
       "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -98,6 +158,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "146f7fbe_3d98ca41",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2834,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-03T10:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2a21ff3_fb91b937",
+      "range": {
+        "startLine": 2834,
+        "startChar": 49,
+        "endLine": 2834,
+        "endChar": 71
+      },
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa82ea9f_1fa947ba",
@@ -111,6 +195,30 @@
       "writtenOn": "2023-11-03T08:10:08Z",
       "side": 1,
       "message": "default",
+      "range": {
+        "startLine": 573,
+        "startChar": 27,
+        "endLine": 573,
+        "endChar": 33
+      },
+      "revId": "ec9d05dffb652bed285d246798a12f3113d7b3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67797a70_05b27ab4",
+        "filename": "test/unittests/front_end/panels/network/NetworkLogView_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-03T10:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa82ea9f_1fa947ba",
       "range": {
         "startLine": 573,
         "startChar": 27,
