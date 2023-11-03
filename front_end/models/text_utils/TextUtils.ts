@@ -263,6 +263,75 @@ export class BalancedJSONTokenizer {
 }
 
 /**
+ * Detects the indentation used by a given text document, using the _Comparing
+ * lines_ approach suggested by Heather Arthur (and also found in Firefox
+ * DevTools).
+ *
+ * @param lines The input document lines.
+ * @return The indentation detected for the lines as string or `null` if it's inconclusive.
+ *
+ * @see https://heathermoor.medium.com/detecting-code-indentation-eff3ed0fb56b
+ */
+export const detectIndentation = function(lines: Iterable<string>): string|null {
+  const frequencies: Array<number> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let total = 0, tabs = 0, previous = 0;
+
+  for (const line of lines) {
+    let current = 0;
+    if (line.length !== 0) {
+      let code = line.charCodeAt(0);
+      if (code === 0x09) {
+        total++;
+        tabs++;
+        continue;
+      }
+      do {
+        if (code !== 0x20) {
+          break;
+        }
+        code = line.charCodeAt(++current);
+      } while (current !== line.length);
+    }
+
+    if (current === line.length) {
+      // Don't consider empty lines.
+      previous = 0;
+      continue;
+    }
+
+    if (current) {
+      total++;
+    }
+
+    const delta = Math.abs(current - previous);
+    if (delta < frequencies.length) {
+      // Don't consider deltas above 8 characters.
+      frequencies[delta] = frequencies[delta] + 1;
+    }
+    previous = current;
+  }
+
+  if (tabs > total >>> 2) {
+    return '\t';
+  }
+
+  // Find most frequent non-zero width difference between adjacent lines.
+  let mostFrequentDelta = 0, highestFrequency = 0;
+  for (let delta = 1; delta < frequencies.length; ++delta) {
+    const frequency = frequencies[delta];
+    if (frequency > highestFrequency) {
+      highestFrequency = frequency;
+      mostFrequentDelta = delta;
+    }
+  }
+  if (!mostFrequentDelta) {
+    return null;
+  }
+
+  return ' '.repeat(mostFrequentDelta);
+};
+
+/**
  * Heuristic to check whether a given text was likely minified. Intended to
  * be used for HTML, CSS, and JavaScript inputs.
  *
