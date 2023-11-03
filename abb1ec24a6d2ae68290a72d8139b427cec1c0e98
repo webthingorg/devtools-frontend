@@ -39,6 +39,30 @@
       },
       "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af741605_e2458f6e",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-03T08:32:58Z",
+      "side": 1,
+      "message": "Ah it makes a lot of sense to me! I have played a bit with making this part of an output but then thought that parsing the arguments might be better.\n\nUpdated the CL to parse the arguments, PTAL :)\n\n(I have also thought about something create-react-appy where we create a specific target for the watch_script when the user runs it and open the browser directly with the custom frontend for the newly generated target, that way newcomers won\u0027t need to setup `gn` or even know about `gn` but just run `watch_build` or `start`, WDYT about this?)",
+      "parentUuid": "27f36d1d_3e7b772c",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 103
+      },
+      "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
