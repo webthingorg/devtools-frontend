@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e970a3_8f0f0551",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2023-11-03T17:48:48Z",
+      "side": 1,
+      "message": "Is it possible to craft a test case that requires a smaller `bottom-up-test-trace.json` file?",
+      "revId": "9282b334a4d7416a30095331b8e9459598bbda39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
