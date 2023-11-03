@@ -16,6 +16,23 @@
       "message": "Wolfgang, please take a nother look?",
       "revId": "907eb3ac76b1d70fba2d6763b15eb6ce2f0fb950",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8233f4_9ef63cde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-03T11:04:05Z",
+      "side": 1,
+      "message": "Thanks, LGTM",
+      "revId": "907eb3ac76b1d70fba2d6763b15eb6ce2f0fb950",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
