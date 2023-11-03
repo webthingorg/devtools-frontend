@@ -56,4 +56,52 @@ describeWithMockConnection('CookieModel', () => {
     assert.strictEqual(cookies[0].sourceScheme(), Protocol.Network.CookieSourceScheme.NonSecure);
     assert.strictEqual(cookies[0].partitionKey(), 'https://example.net');
   });
+
+  it('can retrieve cookies with same name but different partition key', async () => {
+    // CDP Connection mock: for Network.getCookies, respond with a single cookie.
+    setMockConnectionResponseHandler('Network.getCookies', () => {
+      return {
+        cookies: [
+          {
+            domain: '.example.com',
+            name: 'name',
+            path: '/test',
+            size: 23,
+            value: 'value',
+            expires: 42,
+            httpOnly: false,
+            secure: true,
+            session: true,
+            sameParty: false,
+            priority: Protocol.Network.CookiePriority.Medium,
+            sourcePort: 80,
+            sourceScheme: Protocol.Network.CookieSourceScheme.NonSecure,
+            partitionKey: 'https://example.net',
+          },
+          {
+            domain: '.example.com',
+            name: 'name',
+            path: '/test',
+            size: 23,
+            value: 'value',
+            expires: 42,
+            httpOnly: false,
+            secure: true,
+            session: true,
+            sameParty: false,
+            priority: Protocol.Network.CookiePriority.Medium,
+            sourcePort: 80,
+            sourceScheme: Protocol.Network.CookieSourceScheme.NonSecure,
+            partitionKey: '',
+          },
+        ],
+      };
+    });
+
+    const target = createTarget();
+    const model = new SDK.CookieModel.CookieModel(target);
+    const cookies = await model.getCookies(['https://www.google.com']);
+    assert.isArray(cookies);
+    assert.lengthOf(cookies, 2);
+  });
 });
