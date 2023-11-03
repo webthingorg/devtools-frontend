@@ -87,6 +87,30 @@
       },
       "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac7a18de_6e1a8425",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-03T08:50:13Z",
+      "side": 1,
+      "message": "This is a good example of my slight anxiety around extracting away from the build system - Thanks for adding me to review but I trust you two so no need to wait for my plus one 😊\n\nRegarding abstracting over GN - IMO having beginners not setup gn is a mistake - I appreciate it can be hard to get up and running but I think we should work on ensuring the documentation is up to date and having people learn it than hiding it away from them.",
+      "parentUuid": "af741605_e2458f6e",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 103
+      },
+      "revId": "abb1ec24a6d2ae68290a72d8139b427cec1c0e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
