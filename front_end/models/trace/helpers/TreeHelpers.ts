@@ -4,8 +4,6 @@
 
 import * as Types from '../types/types.js';
 
-import {eventTimingsMicroSeconds} from './Timing.js';
-
 let nodeIdCount = 0;
 export const makeTraceEntryNodeId = (): TraceEntryNodeId => (++nodeIdCount) as TraceEntryNodeId;
 
@@ -246,7 +244,9 @@ function walkTreeByNode(
 
   onEntryStart(rootNode.entry);
   for (const child of rootNode.children) {
-    walkTreeByNode(entryToNode, child, onEntryStart, onEntryEnd, traceWindowToInclude);
+    // We don't pass in the window bounds here: if this entry is in the window,
+    // we don't need to check if its children are in the window as they must be
+    walkTreeByNode(entryToNode, child, onEntryStart, onEntryEnd);
   }
   onEntryEnd(rootNode.entry);
 }
@@ -257,7 +257,8 @@ function walkTreeByNode(
  * have to partially intersect it.
  */
 function treeNodeIsInWindow(node: TraceEntryNode, traceWindow: Types.Timing.TraceWindow): boolean {
-  const {startTime, endTime} = eventTimingsMicroSeconds(node.entry);
+  const startTime = node.entry.ts;
+  const endTime = node.entry.ts + (node.entry.dur || 0);
 
   // Min ======= startTime ========= Max => node is within window
   if (startTime >= traceWindow.min && startTime < traceWindow.max) {
