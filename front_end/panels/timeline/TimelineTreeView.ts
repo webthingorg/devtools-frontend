@@ -150,6 +150,14 @@ const UIStrings = {
    *@description Data grid name for Timeline Stack data grids
    */
   timelineStack: 'Timeline Stack',
+  /**
+  /*@description Text to search by matching case of the input
+   */
+  matchCase: 'Match Case',
+  /**
+   *@description Text for searching with regular expressinn
+   */
+  useRegularExpression: 'Use Regular Expression',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelineTreeView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -174,6 +182,8 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
   private root?: TimelineModel.TimelineProfileTree.Node;
   private currentResult?: number;
   textFilterUI?: UI.Toolbar.ToolbarInput;
+  private caseSensitiveButton: UI.Toolbar.ToolbarToggle|undefined;
+  private regexButton: UI.Toolbar.ToolbarToggle|undefined;
 
   #traceParseData: TraceEngine.Handlers.Migration.PartialTraceData|null = null;
 
@@ -308,15 +318,21 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
   }
 
   populateToolbar(toolbar: UI.Toolbar.Toolbar): void {
+    this.caseSensitiveButton = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.matchCase));
+    this.caseSensitiveButton.setText('Aa');
+    this.caseSensitiveButton.addEventListener(
+        UI.Toolbar.ToolbarButton.Events.Click, this.toggleCaseSensitiveSearch, this);
+    toolbar.appendToolbarItem(this.caseSensitiveButton);
+
+    this.regexButton = new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.useRegularExpression));
+    this.regexButton.setText('.*');
+    this.regexButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.toggleRegexSearch, this);
+    toolbar.appendToolbarItem(this.regexButton);
+
     const textFilterUI =
         new UI.Toolbar.ToolbarInput(i18nString(UIStrings.filter), this.getToolbarInputAccessiblePlaceHolder());
-    textFilterUI.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, () => {
-      const searchQuery = textFilterUI.value();
-      this.textFilterInternal.setRegExp(
-          searchQuery ? Platform.StringUtilities.createPlainTextSearchRegex(searchQuery, 'i') : null);
-      this.refreshTree();
-    }, this);
     this.textFilterUI = textFilterUI;
+    textFilterUI.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this.filterChanged, this);
     toolbar.appendToolbarItem(textFilterUI);
   }
 
@@ -461,6 +477,32 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
       const nameB = TimelineTreeView.eventNameForSorting(eventB);
       return nameA.localeCompare(nameB);
     }
+  }
+
+  private filterChanged(): void {
+    const searchQuery = this.textFilterUI && this.textFilterUI.value();
+    const caseSensitive = this.caseSensitiveButton !== undefined && this.caseSensitiveButton.toggled();
+    const isRegex = this.regexButton !== undefined && this.regexButton.toggled();
+
+    this.textFilterInternal.setRegExp(
+        searchQuery ? Platform.StringUtilities.createSearchRegex(searchQuery, caseSensitive, isRegex) : null);
+    this.refreshTree();
+  }
+
+  private toggleCaseSensitiveSearch(): void {
+    if (this.caseSensitiveButton) {
+      this.caseSensitiveButton.setToggled(!this.caseSensitiveButton.toggled());
+    }
+
+    this.filterChanged();
+  }
+
+  private toggleRegexSearch(): void {
+    if (this.regexButton) {
+      this.regexButton.setToggled(!this.regexButton.toggled());
+    }
+
+    this.filterChanged();
   }
 
   private onShowModeChanged(): void {
