@@ -31,9 +31,9 @@ const ALLOWED_ASSERTION_FAILURES = [
   // evaluations will fail. We ignore these kinds of errors. Tests have to make sure themselves
   // that all assertions and success criteria are met (e.g. autocompletions etc).
   // See: https://crbug.com/1192052
-  'Request Runtime.evaluate failed. {"code":-32602,"message":"uniqueContextId not found"}',
+  'Request Runtime.evaluate failed.',
   'uniqueContextId not found',
-  'Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}',
+  'Request Storage.getStorageKeyForFrame failed.',
   'Unable to create texture',
 ];
 

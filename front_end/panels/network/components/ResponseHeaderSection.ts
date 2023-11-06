@@ -233,8 +233,7 @@ export class ResponseHeaderSection extends HTMLElement {
         header.valueEditable = this.#headersAreOverrideable;
       }
     } catch (error) {
-      console.error(
-          'Failed to parse', this.#uiSourceCode?.url() || 'source code file', 'for locally overriding headers.');
+      console.error('Failed to parse source code file for locally overriding headers.');
       this.#resetEditorState();
     } finally {
       this.#render();
