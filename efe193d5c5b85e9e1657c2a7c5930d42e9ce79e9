@@ -146,6 +146,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec8b79b1_2fe9a363",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-06T15:15:45Z",
+      "side": 1,
+      "message": "But the very next line sets `this.processSourceMapBacklog \u003d [];` which is a new object. Unless a function that pushes to the backlog holds a local reference to the backlog across an await, I don\u0027t think it is possible for anything more to be pushed to the previous backlog.\n\nOn the other hand, it\u0027s okay to be paranoid about this sort of thing when it\u0027s not performance critical, if for no other reason than to ensure someone doesn\u0027t introduce a subtle bug in the future. Up to you.",
+      "parentUuid": "678962dc_2e7a3c47",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 61
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c82d00d_87d1a392",
@@ -324,6 +348,30 @@
       "side": 1,
       "message": "I think this one is better to remain as is because this call is taking care of processing the coverage data, where the timestamp will affect the usage delta calculation if they are for the same script. The awaiting situation will only happen when a script coverage changes for the first time, subsequent update should not hit it.",
       "parentUuid": "f09146ed_e651fb49",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 73
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18194e0b_d04d2772",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-06T15:15:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c84e637b_bf717ecd",
       "range": {
         "startLine": 345,
         "startChar": 0,
