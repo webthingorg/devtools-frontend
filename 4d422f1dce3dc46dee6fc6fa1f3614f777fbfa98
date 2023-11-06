@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3780ca0e_da96a7f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-06T15:18:13Z",
+      "side": 1,
+      "message": "WDYT of this?\n\nAs of now, we\u0027re not able to dedupe protocol errors in the crashpad as they contain requests etc too. So, I thought it makes sense to just report what failed for now.\n\nI think in the long term, we need to think a bit more holistically on how we approach error handling :)",
+      "revId": "4d422f1dce3dc46dee6fc6fa1f3614f777fbfa98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
