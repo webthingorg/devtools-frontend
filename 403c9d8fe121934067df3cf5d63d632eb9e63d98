@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d8497e_0340e872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-06T01:49:09Z",
+      "side": 1,
+      "message": "Thanks! Only some minor comments.\nLet\u0027s update tests 😊",
+      "revId": "403c9d8fe121934067df3cf5d63d632eb9e63d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe36283_5d632202",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-06T01:49:09Z",
+      "side": 1,
+      "message": "I\u0027m assuming that the length of header name and the length of value might be close.\nOr sometimes the value would be longer.\n\nMaybe widthWeighting can be 30, 30, 30? (defer to Ken-san)",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 29
+      },
+      "revId": "403c9d8fe121934067df3cf5d63d632eb9e63d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c1f772_3d68c743",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-06T01:49:09Z",
+      "side": 1,
+      "message": "maybeMismatched(HTTP)HeadersSections",
+      "range": {
+        "startLine": 221,
+        "startChar": 16,
+        "endLine": 221,
+        "endChar": 46
+      },
+      "revId": "403c9d8fe121934067df3cf5d63d632eb9e63d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88cb31ef_bf60d531",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-06T01:49:09Z",
+      "side": 1,
+      "message": "let\u0027s remove them 😊",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 0
+      },
+      "revId": "403c9d8fe121934067df3cf5d63d632eb9e63d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
