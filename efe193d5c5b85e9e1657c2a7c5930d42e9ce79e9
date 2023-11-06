@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4f687d_dceb203d",
+        "filename": "front_end/panels/coverage/CoverageListView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "Good call, updated.",
+      "parentUuid": "f4481af9_90406e9a",
+      "range": {
+        "startLine": 236,
+        "startChar": 8,
+        "endLine": 236,
+        "endChar": 75
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4177f41f_656f0f93",
@@ -88,6 +112,30 @@
       "writtenOn": "2023-11-02T16:30:41Z",
       "side": 1,
       "message": "Not sure why this can\u0027t be `const currentBacklog \u003d this.processSourceMapBacklog;`.",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 61
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678962dc_2e7a3c47",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "My idea here was to create a copy of `this.processSourceMapBacklog` array and reset the original array immediately, let the processing source map step only happens every 500ms so it wont block the thread.\nIf we do `const currentBacklog \u003d this.processSourceMapBacklog;` which only assign the `currentBacklog` to reference the same object of this.processSourceMapBacklog, then when processing `currentBacklog`, the array may continue to grow longer as source map being attached.",
+      "parentUuid": "4177f41f_656f0f93",
       "range": {
         "startLine": 131,
         "startChar": 4,
@@ -121,6 +169,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dfe4fe9_7c810233",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c82d00d_87d1a392",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 52
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c146d8c_66d042bd",
@@ -144,6 +216,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca3eef21_28351283",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "I think you are right. We can do this in parallel.",
+      "parentUuid": "3c146d8c_66d042bd",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 5
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea055f72_20093264",
@@ -157,6 +253,30 @@
       "writtenOn": "2023-11-02T16:30:41Z",
       "side": 1,
       "message": "Nit: Change comment to say \"If the urlCoverage has not been created yet, there is no need to update it.\" or move the comment inside the if block. When I read this I expect this to be a statement of fact about the state if the code hits the location where the comment is, which it isn\u0027t.",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 143,
+        "endChar": 73
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8886211e_c4f28c87",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea055f72_20093264",
       "range": {
         "startLine": 143,
         "startChar": 4,
@@ -192,6 +312,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c84e637b_bf717ecd",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "I think this one is better to remain as is because this call is taking care of processing the coverage data, where the timestamp will affect the usage delta calculation if they are for the same script. The awaiting situation will only happen when a script coverage changes for the first time, subsequent update should not hit it.",
+      "parentUuid": "f09146ed_e651fb49",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 73
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac969de8_3fb16725",
         "filename": "front_end/panels/coverage/CoverageModel.ts",
         "patchSetId": 10
@@ -203,6 +347,30 @@
       "writtenOn": "2023-11-02T16:30:41Z",
       "side": 1,
       "message": "Why is this cast needed?",
+      "range": {
+        "startLine": 605,
+        "startChar": 60,
+        "endLine": 605,
+        "endChar": 80
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8944d35_8b1e753f",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac969de8_3fb16725",
       "range": {
         "startLine": 605,
         "startChar": 60,
@@ -226,6 +394,30 @@
       "writtenOn": "2023-11-02T16:30:41Z",
       "side": 1,
       "message": "Nit: \"are\"",
+      "range": {
+        "startLine": 587,
+        "startChar": 47,
+        "endLine": 587,
+        "endChar": 49
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5326cf3b_04ccd028",
+        "filename": "front_end/panels/coverage/CoverageView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T04:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8821c597_53c63f89",
       "range": {
         "startLine": 587,
         "startChar": 47,
