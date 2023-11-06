@@ -401,6 +401,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4bc7344_839c332b",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-06T12:05:18Z",
+      "side": 1,
+      "message": "Resolved",
+      "parentUuid": "444651cd_41f74d68",
+      "revId": "600a17714dd33e0d2389401f09fc5f0fbca13bb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cad19be9_6f619b84",
