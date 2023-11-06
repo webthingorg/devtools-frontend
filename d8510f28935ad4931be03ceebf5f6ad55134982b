@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d27c11_c40e6f1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2023-11-06T02:45:21Z",
+      "side": 1,
+      "message": "lgtm w/ comment.",
+      "revId": "d8510f28935ad4931be03ceebf5f6ad55134982b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97411538_9de05790",
+        "filename": "front_end/core/sdk/ServiceWorkerManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2023-11-06T02:45:21Z",
+      "side": 1,
+      "message": "Why not show console.error for unexpected inputs?\nI feel we currently return null to hide the unexpected inputs.",
+      "range": {
+        "startLine": 481,
+        "startChar": 72,
+        "endLine": 481,
+        "endChar": 73
+      },
+      "revId": "d8510f28935ad4931be03ceebf5f6ad55134982b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
