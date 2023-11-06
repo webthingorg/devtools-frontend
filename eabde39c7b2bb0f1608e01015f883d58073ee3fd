@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebef33a0_93139965",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-06T12:00:30Z",
+      "side": 1,
+      "message": "I changed the heading displayed above the table to \"Mismatched HTTP request headers detail\" instead of changing the name of the column to identify the header as an HTTP header. Let me know if you have any thoughts!\n\nThe following is the picture of the demo.(The same one as the one below)\nhttps://drive.google.com/file/d/17MSZkrAv021tXW7WZJVGoIkULK-7dHcI/view?usp\u003dsharing\u0026resourcekey\u003d0-kQVNm0R0t02RyjXJ6sNC8g",
+      "parentUuid": "751b8afe_ee667829",
+      "range": {
+        "startLine": 45,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 52
+      },
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "327380cb_fb39ef36",
         "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
         "patchSetId": 11
@@ -78,6 +102,24 @@
       "writtenOn": "2023-11-02T05:49:26Z",
       "side": 1,
       "message": "I propose \"(Header) Value in initial navigation\".\n\nLet\u0027s chat.",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f4f0e68_4efd6155",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-06T12:00:30Z",
+      "side": 1,
+      "message": "I changed it to \"Value in initial navigation\". Thank you for your suggestion!",
+      "parentUuid": "327380cb_fb39ef36",
       "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -95,6 +137,24 @@
       "writtenOn": "2023-11-02T05:49:26Z",
       "side": 1,
       "message": "Ditto. \"Value in activation\"",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18452a92_71f30f27",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-06T12:00:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfd3e2a6_0ba8e0c3",
       "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -148,6 +208,24 @@
       "side": 1,
       "message": "Yes.",
       "parentUuid": "5d8bfc10_b4fb3650",
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90c30547_03bf33dc",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-06T12:00:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d750548_205669ae",
       "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

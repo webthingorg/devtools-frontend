@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d240e2e1_1e09ab91",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-06T12:00:30Z",
+      "side": 1,
+      "message": "I modified it to 30, 30, 30 and it looks better, thank you!\nThe following is the picture of the demo.\nhttps://drive.google.com/file/d/17MSZkrAv021tXW7WZJVGoIkULK-7dHcI/view?usp\u003dsharing\u0026resourcekey\u003d0-kQVNm0R0t02RyjXJ6sNC8g",
+      "parentUuid": "fbe36283_5d632202",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 29
+      },
+      "revId": "403c9d8fe121934067df3cf5d63d632eb9e63d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5c1f772_3d68c743",
         "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
         "patchSetId": 12
