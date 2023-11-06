@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43f406fc_0a48d808",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-06T12:10:12Z",
+      "side": 1,
+      "message": "Looks good, but needs more tests (at minimum for `toggleWindowControlsToolbar`, but ideally also for `initializeStyleSheetText` and `toggleEmulatedOverlay`)",
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10881870_7d18c95c",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-06T12:10:12Z",
+      "side": 1,
+      "message": "Please add a blank line above",
+      "range": {
+        "startLine": 834,
+        "startChar": 0,
+        "endLine": 834,
+        "endChar": 35
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf9a228_44cb1006",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-06T12:10:12Z",
+      "side": 1,
+      "message": "Let\u0027s make this a getter for consistency",
+      "range": {
+        "startLine": 854,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 61
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf072e4_b2ea05f2",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-06T12:10:12Z",
+      "side": 1,
+      "message": "Please add a comment explaining why do we need this transformation.",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
