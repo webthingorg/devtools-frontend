@@ -108,7 +108,7 @@ describe('The Application Tab', async () => {
   });
 
   it('shows stack traces for OOPIF', async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
     await goToResource('application/js-oopif.html');
     await ensureApplicationPanel();
     await waitForFunction(async () => {
@@ -135,7 +135,7 @@ describe('The Application Tab', async () => {
   });
 
   it('stack traces for OOPIF with ignore listed frames can be expanded and collapsed', async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
     await setIgnoreListPattern('js-oopif.js');
     await goToResource('application/js-oopif.html');
     await ensureApplicationPanel();
@@ -235,7 +235,7 @@ describe('The Application Tab', async () => {
   });
 
   it('shows dedicated workers in the frame tree', async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
     const {target} = getBrowserAndPages();
     await goToResource('application/frame-tree.html');
     await click('#tab-resources');
@@ -264,7 +264,7 @@ describe('The Application Tab', async () => {
   });
 
   it('shows service workers in the frame tree', async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
     await goToResource('application/service-worker-network.html');
     await click('#tab-resources');
     await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
@@ -290,7 +290,7 @@ describe('The Application Tab', async () => {
 
   // Update and reactivate when the whole FrameDetailsView is a custom component
   it('can handle when JS writes to frame', async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
     const {target} = getBrowserAndPages();
     await goToResource('application/main-frame.html');
     await click('#tab-resources');

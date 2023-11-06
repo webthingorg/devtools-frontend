@@ -35,7 +35,7 @@ describe('The Application Tab', async () => {
   });
 
   afterEach(async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
     const {target} = getBrowserAndPages();
     const cookies = await target.cookies();
     await target.deleteCookie(...cookies);
@@ -157,7 +157,7 @@ describe('The Application Tab', async () => {
   });
 
   it('only clear currently visible cookies (crbug.com/978059)', async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
     const {target} = getBrowserAndPages();
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');

@@ -119,7 +119,7 @@ export class CookieParser {
     // cookie values, though.
     const keyValueMatch = /^[ \t]*([^=;]+)[ \t]*(?:=[ \t]*([^;\n]*))?/.exec(this.#input);
     if (!keyValueMatch) {
-      console.error('Failed parsing cookie header before: ' + this.#input);
+      console.warn('Failed parsing cookie header before: ' + this.#input);
       return null;
     }
 

@@ -122,14 +122,6 @@ export class InspectorBackend {
     return this.#eventParameterNamesForDomain;
   }
 
-  static reportProtocolError(error: string, messageObject: Object): void {
-    console.error(error + ': ' + JSON.stringify(messageObject));
-  }
-
-  static reportProtocolWarning(error: string, messageObject: Object): void {
-    console.warn(error + ': ' + JSON.stringify(messageObject));
-  }
-
   isInitialized(): boolean {
     return this.#initialized;
   }
@@ -389,8 +381,7 @@ export class SessionRouter {
       }
 
       if (!session.proxyConnection.onMessage) {
-        InspectorBackend.reportProtocolError(
-            'Protocol Error: the session has a proxyConnection with no _onMessage', messageObject);
+        console.error('Protocol Error: the session has a proxyConnection with no _onMessage');
         continue;
       }
 
@@ -402,7 +393,7 @@ export class SessionRouter {
     const session = this.#sessions.get(sessionId);
     if (!session) {
       if (!suppressUnknownMessageErrors) {
-        InspectorBackend.reportProtocolError('Protocol Error: the message with wrong session id', messageObject);
+        console.error('Protocol Error: the message with wrong session id');
       }
       return;
     }
@@ -425,7 +416,7 @@ export class SessionRouter {
           return;
         }
         if (!suppressUnknownMessageErrors) {
-          InspectorBackend.reportProtocolError('Protocol Error: the message with wrong id', messageObject);
+          console.error('Protocol Error: the message with wrong id');
         }
         return;
       }
@@ -439,7 +430,7 @@ export class SessionRouter {
       }
     } else {
       if (messageObject.method === undefined) {
-        InspectorBackend.reportProtocolError('Protocol Error: the message without method', messageObject);
+        console.error('Protocol Error: the message without method');
         return;
       }
       // This cast is justified as we just checked for the presence of messageObject.method.
@@ -558,9 +549,7 @@ export class TargetBase {
     const [domainName, method] = splitQualifiedName(eventMessage.method);
     const dispatcher = this.#dispatchers.get(domainName as ProtocolDomainName);
     if (!dispatcher) {
-      InspectorBackend.reportProtocolError(
-          `Protocol Error: the message ${eventMessage.method} is for non-existing domain '${domainName}'`,
-          eventMessage);
+      console.error(`Protocol Error: the message ${eventMessage.method} is for non-existing domain '${domainName}'`);
       return;
     }
     dispatcher.dispatch(method, eventMessage);
@@ -1019,7 +1008,7 @@ class _AgentPrototype {
         if (error) {
           if (!test.suppressRequestErrors && error.code !== DevToolsStubErrorCode && error.code !== GenericErrorCode &&
               error.code !== ConnectionClosedErrorCode) {
-            console.error('Request ' + method + ' failed. ' + JSON.stringify(error));
+            console.error('Request ' + method + ' failed.');
           }
 
           resolve(null);
@@ -1044,7 +1033,7 @@ class _AgentPrototype {
       const callback: Callback = (error: MessageError|undefined|null, result: Object|null): void => {
         if (error && !test.suppressRequestErrors && error.code !== DevToolsStubErrorCode &&
             error.code !== GenericErrorCode && error.code !== ConnectionClosedErrorCode) {
-          console.error('Request ' + method + ' failed. ' + JSON.stringify(error));
+          console.error('Request ' + method + ' failed. ');
         }
 
         const errorMessage = error?.message;
@@ -1094,8 +1083,7 @@ class DispatcherManager<Domain extends ProtocolDomainName> {
     }
 
     if (!this.#eventArgs.has(messageObject.method)) {
-      InspectorBackend.reportProtocolWarning(
-          `Protocol Warning: Attempted to dispatch an unspecified event '${messageObject.method}'`, messageObject);
+      console.error(`Protocol Warning: Attempted to dispatch an unspecified event '${messageObject.method}'`);
       return;
     }
 

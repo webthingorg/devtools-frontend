@@ -42,7 +42,7 @@ describe('The Application Tab', async () => {
   });
 
   afterEach(async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+    expectError('Request CacheStorage.requestCacheNames failed.');
   });
 
   // Failing test.
