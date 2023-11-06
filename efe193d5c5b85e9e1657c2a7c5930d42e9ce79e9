@@ -170,6 +170,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8551819a_dc2bb36a",
+        "filename": "front_end/panels/coverage/CoverageModel.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-06T19:58:19Z",
+      "side": 1,
+      "message": "Ah you are right, thanks for the explanation! I updated it",
+      "parentUuid": "ec8b79b1_2fe9a363",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 61
+      },
+      "revId": "efe193d5c5b85e9e1657c2a7c5930d42e9ce79e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c82d00d_87d1a392",
