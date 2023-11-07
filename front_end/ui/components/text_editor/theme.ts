@@ -40,7 +40,7 @@ export const editorTheme = CM.EditorView.theme({
   },
 
   '.cm-selectionBackground': {
-    background: 'var(--sys-color-tonal-container)',
+    background: 'var(--sys-color-tonal-container) !important',
   },
 
   '&.cm-focused .cm-selectionBackground': {
