@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "876464b5_918d187f",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-11-07T16:50:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4564118d_bb7a82a4",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 419,
+        "endChar": 76
+      },
+      "revId": "8b306f239eaac66ecc9e8c58a21fa6518fd01dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c160dc42_1c1e8f85",
