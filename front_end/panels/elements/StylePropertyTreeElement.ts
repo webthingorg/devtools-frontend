@@ -504,25 +504,39 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
   private processVar(text: string): Node {
     const computedSingleValue = this.matchedStylesInternal.computeSingleVariableValue(this.style, text);
-    if (!computedSingleValue) {
+    const {variableName, fallback} = SDK.CSSMatchedStyles.parseCSSVariableNameAndFallback(text);
+    if (!computedSingleValue || !variableName) {
       return document.createTextNode(text);
     }
 
     const {computedValue, fromFallback} = computedSingleValue;
+    let fallbackHtml: Node|null = null;
+    if (fromFallback && fallback?.startsWith('var(')) {
+      fallbackHtml = this.processVar(fallback);
+    } else if (fallback) {
+      fallbackHtml = document.createTextNode(fallback);
+    }
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
     UI.UIUtils.createTextChild(varSwatch, text);
     varSwatch.data = {
-      text,
       computedValue,
+      variableName,
       fromFallback,
+      fallbackHtml,
       onLinkActivate: this.handleVarDefinitionActivate.bind(this),
     };
 
     if (varSwatch.link?.linkElement) {
       const {textContent} = varSwatch.link.linkElement;
-      this.parentPaneInternal.addPopover(
-          varSwatch.link, () => textContent ? this.#getVariablePopoverContents(textContent, computedValue) : undefined);
+      if (textContent) {
+        const computedValueOfLink = textContent ?
+            this.matchedStylesInternal.computeSingleVariableValue(this.style, `var(${textContent})`) :
+            null;
+        this.parentPaneInternal.addPopover(
+            varSwatch.link,
+            () => this.#getVariablePopoverContents(textContent, computedValueOfLink?.computedValue ?? null));
+      }
     }
 
     if (!computedValue || !Common.Color.parse(computedValue)) {
@@ -917,11 +931,11 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   #getVariablePopoverContents(variableName: string, computedValue: string|null): HTMLElement|undefined {
-    const registrationDetails = this.#getRegisteredPropertyDetails(variableName);
-    if (!registrationDetails && !computedValue) {
-      return undefined;
-    }
-    return new ElementsComponents.CSSVariableValueView.CSSVariableValueView(computedValue ?? '', registrationDetails);
+    return new ElementsComponents.CSSVariableValueView.CSSVariableValueView({
+      variableName,
+      value: computedValue ?? undefined,
+      details: this.#getRegisteredPropertyDetails(variableName),
+    });
   }
 
   updateTitleIfComputedValueChanged(): void {
