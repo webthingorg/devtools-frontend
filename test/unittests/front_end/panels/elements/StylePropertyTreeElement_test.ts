@@ -41,7 +41,10 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       };
 
       if (!mockVariableMap[param]) {
-        return null;
+        return {
+          computedValue: null,
+          fromFallback: true,
+        };
       }
 
       return {
@@ -475,6 +478,107 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       varSwatch.link?.linkElement?.dispatchEvent(new MouseEvent('mousedown'));
       assert.isTrue(jumpToPropertySpy.calledWith(
           'initial-value', '--prop', Elements.StylesSidebarPane.REGISTERED_PROPERTY_SECTION_NAME));
+    });
+  });
+
+  describe('CSSVarSwatch', () => {
+    it('should render a CSSVarSwatch for variable usage without fallback', () => {
+      const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
+          mockCssStyleDeclaration, 0, 'color', 'var(--a)', true, false, true, false, '', undefined);
+      const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+        stylesPane: stylesSidebarPane,
+        matchedStyles: mockMatchedStyles,
+        property: cssPropertyWithColorMix,
+        isShorthand: false,
+        inherited: false,
+        overloaded: false,
+        newProperty: true,
+      });
+
+      stylePropertyTreeElement.updateTitle();
+
+      const cssVarSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-css-var-swatch');
+      assertNotNullOrUndefined(cssVarSwatch);
+
+      const linkSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-base-link-swatch');
+      assertNotNullOrUndefined(linkSwatch);
+
+      assert.strictEqual(cssVarSwatch.textContent, 'var(--a)');
+      assert.strictEqual(linkSwatch.shadowRoot?.textContent, '--a');
+    });
+
+    it('should render a CSSVarSwatch for variable usage with fallback', () => {
+      const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
+          mockCssStyleDeclaration, 0, 'color', 'var(--not-existing, red)', true, false, true, false, '', undefined);
+      const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+        stylesPane: stylesSidebarPane,
+        matchedStyles: mockMatchedStyles,
+        property: cssPropertyWithColorMix,
+        isShorthand: false,
+        inherited: false,
+        overloaded: false,
+        newProperty: true,
+      });
+
+      stylePropertyTreeElement.updateTitle();
+
+      const cssVarSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-css-var-swatch');
+      assertNotNullOrUndefined(cssVarSwatch);
+
+      const linkSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-base-link-swatch');
+      assertNotNullOrUndefined(linkSwatch);
+
+      assert.strictEqual(cssVarSwatch.textContent, 'var(--not-existing, red)');
+      assert.strictEqual(linkSwatch.shadowRoot?.textContent, '--not-existing');
+    });
+
+    it('should render a CSSVarSwatch inside CSSVarSwatch for variable usage with another variable fallack', () => {
+      const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
+          mockCssStyleDeclaration, 0, 'color', 'var(--not-existing, var(--a))', true, false, true, false, '',
+          undefined);
+      const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+        stylesPane: stylesSidebarPane,
+        matchedStyles: mockMatchedStyles,
+        property: cssPropertyWithColorMix,
+        isShorthand: false,
+        inherited: false,
+        overloaded: false,
+        newProperty: true,
+      });
+
+      stylePropertyTreeElement.updateTitle();
+
+      const cssVarSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-css-var-swatch');
+      assertNotNullOrUndefined(cssVarSwatch);
+
+      const firstLinkSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-base-link-swatch');
+      const insideCssVarSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-css-var-swatch');
+      assert.strictEqual(firstLinkSwatch?.shadowRoot?.textContent, '--not-existing');
+      assert.strictEqual(cssVarSwatch.textContent, 'var(--not-existing, var(--a))');
+      assert.strictEqual(insideCssVarSwatch?.textContent, 'var(--a)');
+    });
+
+    it('should render a CSSVarSwatch for var() with spaces', () => {
+      const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
+          mockCssStyleDeclaration, 0, 'color', 'var( --test    )', true, false, true, false, '', undefined);
+      const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+        stylesPane: stylesSidebarPane,
+        matchedStyles: mockMatchedStyles,
+        property: cssPropertyWithColorMix,
+        isShorthand: false,
+        inherited: false,
+        overloaded: false,
+        newProperty: true,
+      });
+
+      stylePropertyTreeElement.updateTitle();
+
+      const cssVarSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-css-var-swatch');
+      assertNotNullOrUndefined(cssVarSwatch);
+
+      const linkSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-base-link-swatch');
+      assert.strictEqual(linkSwatch?.shadowRoot?.textContent, '--test');
+      assert.strictEqual(cssVarSwatch.deepTextContent(), 'var(--test)');
     });
   });
 });
