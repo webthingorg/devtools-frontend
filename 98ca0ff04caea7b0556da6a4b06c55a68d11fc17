@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c3d477_18e993fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "s/DevTool/DevTools/g",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "90c90097_bb5ef2be",
@@ -14,6 +31,57 @@
       "writtenOn": "2023-11-07T07:10:03Z",
       "side": 1,
       "message": "Thanks! looks pretty good to me!",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b58693b5_ef022953",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "Redundant?",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde9ca71_11c1bffc",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "Could you use `i18nString`?\n\n(You might misunderstood [1]. `lockedString` is appropriate for strings that shouldn\u0027t be translated. In this case, \u0027\u003cnull\u003e\u0027 or \u0027\u003cmissing\u003e\u0027 are special values and should be shown as is. \u0027Header name\u0027 etc should be translated.)\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4933567/comment/8120ae44_62256734/",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6965968f_afa35e4b",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "It looks it is not checked before and we can\u0027t assume it here. Maybe L29 should be `if (data.mismatchedHeaders \u003d\u003d\u003d null) {`?",
       "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -91,6 +159,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "411e21f5_bb6a9f45",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "We must care about truthy/falsy [1] and implicit type conversion in JavaScipt:\n\n```\nBoolean(\"a\")\n\u003d\u003e true\nBoolean(undefined)\n\u003d\u003e false\nBoolean(\"\")\n\u003d\u003e false\n\n// In addition\nBoolean(\"0\")\n\u003d\u003e true\n\"0\" \u003d\u003d true\n\u003d\u003e false\n\"0\" \u003d\u003d false\n\u003d\u003e true\n\"0\" \u003d\u003d\u003d true\n\u003d\u003e false\n\"0\" \u003d\u003d\u003d false\n\u003d\u003e false\n```\n\nSo, general rule is: Use strict equality `\u003d\u003d\u003d null` (and `\u003d\u003d\u003d undefined`) to check whether the type is null. Exception: `if (x)` and `x || ...` are allowed if x is `T|null` and T doesn\u0027t contains falsy. (Rough approximation is \"T is object\". See [2].)\n(Personally, I don\u0027t like this exception because exception takes brain resources. But lots of JS/TS users use it.)\n\nI strongly recommend you to see [3].\n\nHere, we can use `mismatchedHeaders.initialValue ?? i18n.i18n.lockedString(\u0027\u003cnull\u003e\u0027)` [4].\n\n[1] https://developer.mozilla.org/ja/docs/Glossary/Truthy\n[2] https://developer.mozilla.org/ja/docs/Glossary/Falsy\n[3] https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness\n[4] https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "288b62be_c45081ad",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "Looks redundant because L276 cares these cases.",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c2085a_e2c4daef",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "Prerender falks know that this `attempt` necessarily satisfies `attempt.url \u003d\u003d\u003d pageURL` because header mismatch is reported only if activation is tried.\n\nSo, it\u0027s nice to put the following assersion (for readable code):\n\n```\nif (attempt.url !\u003d\u003d pageURL) {\n   // Reason brabra...\n   throw new Error(\u0027unreachable\u0027);\n}\n```",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcb44aba_8a141184",
         "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid_test.ts",
         "patchSetId": 20
@@ -132,6 +251,64 @@
         "endLine": 36,
         "endChar": 2
       },
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ff2e63b_6a18b867",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "+1. I guess it is because I copied existing code from other component.",
+      "parentUuid": "dcb44aba_8a141184",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87cdd1c1_89e5dfca",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "Advanced: You can use table tests to make maintenance easy.\n\nE.g. https://source.chromium.org/chromium/chromium/src/+/refs/tags/119.0.6000.0:third_party/devtools-frontend/src/test/unittests/front_end/panels/application/preloading/PreloadingView_test.ts;l\u003d1028-1058",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57e9b0e4_3642727d",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-07T09:19:00Z",
+      "side": 1,
+      "message": "Let\u0027s use consistent header name for single mismatched samples. (The above two uses \u0027sec-ch-ua-platform\u0027 for non-null vs non-nul and null vs non-null. This uses \u0027sec-ch-ua\u0027 for non-null vs null. Essentially the same to the second one. So, should be similar.)",
       "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
