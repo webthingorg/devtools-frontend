@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a393439_b559f7c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2023-11-07T13:59:44Z",
+      "side": 1,
+      "message": "Hi Wolfgang, sorry for the delayed response, I was out for vacation.\nI addressed all your feedbacks, though I was not able to pass the test. PTAL again, thanks!",
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
