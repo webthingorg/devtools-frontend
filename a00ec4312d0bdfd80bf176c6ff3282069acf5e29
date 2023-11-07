@@ -50,6 +50,24 @@
       "message": "I\u0027m not quite sure what to make of the test. It seems to be instrumenting EditorView.dispatch to be called with precisely the kludge you used here, instead of just verifying that the scroll position is in the right place. So probably the test failure is nonsense. But I\u0027m not familiar enough with your test setup to know what it should look like.",
       "revId": "a00ec4312d0bdfd80bf176c6ff3282069acf5e29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ab8c57_b44528dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-07T13:43:06Z",
+      "side": 1,
+      "message": "yep, it is nonsense; essentially we were testing our interaction with CodeMirror regarding scroll handling and since we\u0027ve changed that, we need to update the test too.\n\nwould you like me to take it over the CL and update the tests?",
+      "parentUuid": "487fef57_6f69ca20",
+      "revId": "a00ec4312d0bdfd80bf176c6ff3282069acf5e29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
