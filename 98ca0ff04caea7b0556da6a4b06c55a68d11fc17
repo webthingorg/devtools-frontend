@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a732451_f3872ded",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T08:30:12Z",
+      "side": 1,
+      "message": "I changed it to \u003cmissing\u003e. Thank you for the suggestions!",
+      "parentUuid": "b65eeb51_7e4bbec3",
+      "range": {
+        "startLine": 97,
+        "startChar": 79,
+        "endLine": 97,
+        "endChar": 85
+      },
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcb44aba_8a141184",
@@ -78,6 +102,30 @@
       "writtenOn": "2023-11-07T07:10:03Z",
       "side": 1,
       "message": "This one is a function, right?\nvery nit but I\u0027m wondering if we can define a function explicitly.\n`async function funName` ...",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8e9bdb3_eb919144",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T08:30:12Z",
+      "side": 1,
+      "message": "I wrote in this way because I mimicked the one in UsedPreloadingView_test.ts [1].\nTherefore I think both of them should be changed if I change the one I wrote. \nI will work on this modification.\n\n@kenoss - I think you wrote this function in UsedPreloadingView_test.ts [1], so let me know if you have any opinions/suggestions.\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/application/preloading/components/UsedPreloadingView_test.ts;l\u003d24?q\u003dusedpreloadingview_test.ts",
+      "parentUuid": "dcb44aba_8a141184",
       "range": {
         "startLine": 26,
         "startChar": 0,
