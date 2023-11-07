@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7237985_f6756dfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1528118
+      },
+      "writtenOn": "2023-11-07T23:31:31Z",
+      "side": 1,
+      "message": "4952267: Add AutofillView | https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/4952267",
+      "revId": "9602aa167de3c246f16692be6c38ca0d4da56c04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
