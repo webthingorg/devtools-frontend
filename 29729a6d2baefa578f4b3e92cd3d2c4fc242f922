@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5455b3cf_f011a117",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-07T12:28:03Z",
+      "side": 1,
+      "message": "LGTM modulo comment.",
+      "revId": "29729a6d2baefa578f4b3e92cd3d2c4fc242f922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fcc8471_b5fa9c6f",
+        "filename": "front_end/ui/components/text_editor/theme.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-07T12:28:03Z",
+      "side": 1,
+      "message": "As per offline discussion: This needs a different color (some gray).",
+      "revId": "29729a6d2baefa578f4b3e92cd3d2c4fc242f922",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
