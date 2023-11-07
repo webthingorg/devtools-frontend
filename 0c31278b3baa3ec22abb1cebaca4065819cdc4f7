@@ -33,6 +33,24 @@
       "message": "Looks good but please add a unit test at test/unittests/front_end/core/sdk/ServiceWorkerManager_test.ts",
       "revId": "0c31278b3baa3ec22abb1cebaca4065819cdc4f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26fb59aa_3168a630",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1599693
+      },
+      "writtenOn": "2023-11-07T08:20:37Z",
+      "side": 1,
+      "message": "Thank you for adding `ServiceWorkerManager_test.ts`!",
+      "parentUuid": "627e90e8_04b2e901",
+      "revId": "0c31278b3baa3ec22abb1cebaca4065819cdc4f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
