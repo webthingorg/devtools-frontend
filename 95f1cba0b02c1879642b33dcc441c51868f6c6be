@@ -39,6 +39,30 @@
       },
       "revId": "95f1cba0b02c1879642b33dcc441c51868f6c6be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f9bd69f_63c5e936",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-07T16:06:44Z",
+      "side": 1,
+      "message": "The handler for Autofill in the backend is in chrome and not in content. This means it\u0027s not available in content shell. The DevTools web tests try to enable the Autofill domain, and log an error (error: Request Autofill.enable failed. {\"code\":-32601,\"message\":\"\u0027Autofill.enable\u0027 wasn\u0027t found\"}).\n\nAdding a try..catch here wouldn\u0027t work, because the error is already logged earlier in InspectorBackend.ts. An alternative would be to create a dummy no-op Autofill_handler in content.",
+      "parentUuid": "c0c9ea62_633a09fc",
+      "range": {
+        "startLine": 24,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "95f1cba0b02c1879642b33dcc441c51868f6c6be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
