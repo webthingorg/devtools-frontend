@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "deec252d_899dbe51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T13:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94c3d477_18e993fd",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "90c90097_bb5ef2be",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 20
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af289c01_a14eed3c",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T13:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b58693b5_ef022953",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dde9ca71_11c1bffc",
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55909d8f_824853da",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T13:47:44Z",
+      "side": 1,
+      "message": "Ah I see, I changed to using i18nString for the titles. \nThanks for the clarification!",
+      "parentUuid": "dde9ca71_11c1bffc",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6965968f_afa35e4b",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-11-07T09:19:00Z",
       "side": 1,
       "message": "It looks it is not checked before and we can\u0027t assume it here. Maybe L29 should be `if (data.mismatchedHeaders \u003d\u003d\u003d null) {`?",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5056bea5_e98ad055",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T13:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6965968f_afa35e4b",
       "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -174,6 +246,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ef0707_0b16eb6c",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T13:47:44Z",
+      "side": 1,
+      "message": "I totally understood and modified it to use ?? instead of ||.\nThank you so much for the explanation!",
+      "parentUuid": "411e21f5_bb6a9f45",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "288b62be_c45081ad",
@@ -187,6 +277,42 @@
       "writtenOn": "2023-11-07T09:19:00Z",
       "side": 1,
       "message": "Looks redundant because L276 cares these cases.",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc9a15b9_8faaa6ef",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T13:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288b62be_c45081ad",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2da84fd_fab98d56",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-07T13:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288b62be_c45081ad",
       "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
