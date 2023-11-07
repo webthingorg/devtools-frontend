@@ -33,6 +33,24 @@
       "message": "One question, I remember the network overview is also shown by default, should we also add a check there? (no need to be done now)",
       "revId": "4cd2e67b45cdf3dbd3c25a454a1df2ae753b045a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "921908db_591ed225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-07T08:06:46Z",
+      "side": 1,
+      "message": "that\u0027s true! I only added the check for the CPU activity because that\u0027s the only one that takes significant time (because it\u0027s input can grow very large). We can do the same for the others should they become slow",
+      "parentUuid": "441c57ba_7cb4a34e",
+      "revId": "4cd2e67b45cdf3dbd3c25a454a1df2ae753b045a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
