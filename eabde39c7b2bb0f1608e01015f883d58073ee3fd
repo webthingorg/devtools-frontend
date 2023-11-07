@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b600db2_ac18c19b",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-11-07T01:56:51Z",
+      "side": 1,
+      "message": "This looks really good! Minor nit: I think the heading can just be \"Mismatched HTTP request headers\". The \"detail\" suffix is not necessary.\n\nAlso, good idea to be specific about \"HTTP request header\". That is even better than \"HTTP header\", or our original \"header\" idea.",
+      "parentUuid": "ebef33a0_93139965",
+      "range": {
+        "startLine": 45,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 52
+      },
+      "revId": "eabde39c7b2bb0f1608e01015f883d58073ee3fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "327380cb_fb39ef36",
         "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
         "patchSetId": 11
