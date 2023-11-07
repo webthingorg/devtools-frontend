@@ -12,6 +12,7 @@ type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.Trac
 export const enum TreeAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
+  COLLAPSE_RECURSION = 'COLLAPSE_RECURSION',
 }
 
 export interface UserTreeAction {
@@ -145,6 +146,18 @@ export class TreeManipulator {
         }
 
         case TreeAction.COLLAPSE_FUNCTION: {
+          // The entry itself remains visible, but all of its ancestors are hidden.
+          const entryNode = this.#entryToNode.get(action.entry);
+          if (!entryNode) {
+            // Invalid node was given, just ignore and move on.
+            continue;
+          }
+          const allAncestors = this.#findAllAncestorsOfNode(entryNode);
+          allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
+          break;
+        }
+
+        case TreeAction.COLLAPSE_RECURSION: {
           // The entry itself remains visible, but all of its ancestors are hidden.
           const entryNode = this.#entryToNode.get(action.entry);
           if (!entryNode) {
