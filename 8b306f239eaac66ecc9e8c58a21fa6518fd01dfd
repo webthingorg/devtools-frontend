@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4564118d_bb7a82a4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-11-07T14:58:24Z",
+      "side": 1,
+      "message": "you\u0027re right about it being similar. \nI passed a boolean to `this.reset()` that checks if we need to recreate thread appenders and changed to call `reset(false)` here to avoid code dublication. What do you think about this solution?",
+      "parentUuid": "8529eb7d_a3f9e647",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 419,
+        "endChar": 76
+      },
+      "revId": "8b306f239eaac66ecc9e8c58a21fa6518fd01dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c160dc42_1c1e8f85",
         "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-31T10:23:55Z",
       "side": 1,
       "message": "maybe we can add an early return if `this.model` is null",
+      "range": {
+        "startLine": 164,
+        "startChar": 18,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "8b306f239eaac66ecc9e8c58a21fa6518fd01dfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd146a8_7d220590",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-11-07T14:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c160dc42_1c1e8f85",
       "range": {
         "startLine": 164,
         "startChar": 18,
