@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "822a3868_b0c1ce26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1355985
+      },
+      "writtenOn": "2023-11-08T23:46:28Z",
+      "side": 1,
+      "message": "Removing myself from review, not an owner of dtfe",
+      "revId": "0fc71e2333a0b7fb66cb31e4b3a81665b1aaf6dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
