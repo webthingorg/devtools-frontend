@@ -12,6 +12,7 @@ type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.Trac
 export const enum TreeAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
+  COLLAPSE_RECURSION = 'COLLAPSE_RECURSION',
 }
 
 export interface UserTreeAction {
@@ -155,6 +156,19 @@ export class TreeManipulator {
           allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
           break;
         }
+
+        case TreeAction.COLLAPSE_RECURSION: {
+          // The entry itself remains visible, but all of its ancestors are hidden.
+          const entryNode = this.#entryToNode.get(action.entry);
+          if (!entryNode) {
+            // Invalid node was given, just ignore and move on.
+            continue;
+          }
+          const allAncestors = this.#findAllAncestorsOfNextRecursiveNode(entryNode);
+          allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
+          console.log("hide ", allAncestors);
+          break;
+        }
         default:
           Platform.assertNever(action.type, `Unknown TreeManipulator action: ${action.type}`);
       }
@@ -180,6 +194,26 @@ export class TreeManipulator {
       const childNode = children.shift();
       if (childNode) {
         ancestors.push(childNode.entry);
+        children.push(...childNode.children);
+      }
+    }
+
+    return ancestors;
+  }
+
+  #findAllAncestorsOfNextRecursiveNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEntry[] {
+    const ancestors: Types.TraceEvents.TraceEntry[] = [];
+    let foundRecurion: boolean = false;
+
+    // Walk through all the ancestors, starting at the root node.
+    const children: Helpers.TreeHelpers.TraceEntryNode[] = root.children;
+    while (children.length > 0) {
+      const childNode = children.shift();
+      if (childNode) {
+        foundRecurion = JSON.stringify(childNode.entry.callFrame) == JSON.stringify(root.entry.callFrame);
+        if(foundRecurion) {
+          return this.#findAllAncestorsOfNode(childNode);
+        }
         children.push(...childNode.children);
       }
     }
