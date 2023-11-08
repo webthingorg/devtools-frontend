@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8459e54d_dbc23160",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-08T13:24:50Z",
+      "side": 1,
+      "message": "WDYT of this? I found it quite helpful while debugging a unit test :)",
+      "revId": "63aa01ffcd4f365ad75c4598a25146f54e945f2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
