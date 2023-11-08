@@ -788,7 +788,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       dispatchTreeModifiedEvent(TraceEngine.TreeManipulator.TreeAction.COLLAPSE_FUNCTION);
     });
 
-    contextMenu.headerSection().appendItem('Collapse recursion', () => {});
+    contextMenu.headerSection().appendItem('Collapse recursion', () => {
+      dispatchTreeModifiedEvent(TraceEngine.TreeManipulator.TreeAction.COLLAPSE_RECURSION);
+    });
 
     contextMenu.defaultSection().appendAction('timeline.load-from-file');
     contextMenu.defaultSection().appendAction('timeline.save-to-file');
