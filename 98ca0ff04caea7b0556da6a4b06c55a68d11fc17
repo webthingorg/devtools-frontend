@@ -336,6 +336,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58cb839e_a9c8de19",
+        "filename": "front_end/panels/application/preloading/components/UsedPreloadingView.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-08T02:26:38Z",
+      "side": 1,
+      "message": "（If so, let\u0027s also add a TODO comment:\nRemove this check once DevTools supports embedder-triggered prerender or prerender supports no-vary-search.",
+      "parentUuid": "56c2085a_e2c4daef",
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcb44aba_8a141184",
         "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid_test.ts",
         "patchSetId": 20
@@ -395,6 +413,30 @@
       "side": 1,
       "message": "+1. I guess it is because I copied existing code from other component.",
       "parentUuid": "dcb44aba_8a141184",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "98ca0ff04caea7b0556da6a4b06c55a68d11fc17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15c04d98_af43f6a2",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid_test.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2023-11-08T02:26:38Z",
+      "side": 1,
+      "message": "`UsedPreloadingView_test.ts` does not define other functions in the non-arrow function way, so it looks fine.\n\nIn this file, you defined two function in two ways, one is a arrow function and the other isn\u0027t. So I feel like we can unify them to keep the style in the same file consistent.",
+      "parentUuid": "6ff2e63b_6a18b867",
       "range": {
         "startLine": 26,
         "startChar": 0,
