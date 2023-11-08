@@ -215,6 +215,9 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
   private cssStyleTrackerByCSSModel: Map<SDK.CSSModel.CSSModel, SDK.CSSModel.CSSPropertyTracker>;
 
+  // @ts-expect-error
+  #highlights = new Highlight();
+
   constructor() {
     super('elements');
 
@@ -294,6 +297,17 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
         Common.Settings.Settings.instance().moduleSetting('adornerSettings'));
     this.adornerSettingsPane = null;
     this.adornersByName = new Map();
+
+    // @ts-expect-error
+    CSS.highlights.set('elements-search-highlight', this.#highlights);
+  }
+
+  addHighlight(range: Range): void {
+    this.#highlights.add(range);
+  }
+
+  removeHighlight(range: Range): void {
+    this.#highlights.delete(range);
   }
 
   private initializeFullAccessibilityTreeView(): void {

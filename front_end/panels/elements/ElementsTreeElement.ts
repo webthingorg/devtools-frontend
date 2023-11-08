@@ -38,7 +38,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as IssuesManager from '../../models/issues_manager/issues_manager.js';
-import * as TextUtils from '../../models/text_utils/text_utils.js';
+import type * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as CodeHighlighter from '../../ui/components/code_highlighter/code_highlighter.js';
@@ -230,6 +230,57 @@ function isOpeningTag(context: TagTypeContext): context is OpeningTagContext {
   return context.tagType === TagType.OPENING;
 }
 
+class RangeWalker {
+  #offset = 0;
+  readonly #treeWalker: TreeWalker;
+  #eof: boolean;
+
+  constructor(readonly root: HTMLElement) {
+    this.#treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    this.#eof = !this.#treeWalker.firstChild();
+  }
+
+  #next(): boolean {
+    this.#offset += this.#treeWalker.currentNode.textContent?.length ?? 0;
+    this.#eof = !this.#treeWalker.nextNode();
+    return this.#eof;
+  }
+
+  #goToPosition(offset: number): Node|null {
+    if (offset < this.#offset || this.#eof) {
+      return null;
+    }
+    while (offset > this.#offset + (this.#treeWalker.currentNode.textContent?.length ?? 0)) {
+      if (this.#next()) {
+        return null;
+      }
+    }
+    return this.#treeWalker.currentNode;
+  }
+
+  nextRange(start: number, length: number): Range|null {
+    if (length <= 0 || this.#eof) {
+      return null;
+    }
+
+    const startNode = this.#goToPosition(start);
+    if (!startNode) {
+      return null;
+    }
+    const offsetInStartNode = start - this.#offset;
+    const endNode = this.#goToPosition(start + length);
+    if (!endNode) {
+      return null;
+    }
+    const offsetInEndNode = start + length - this.#offset;
+
+    const range = new Range();
+    range.setStart(startNode, offsetInStartNode);
+    range.setEnd(endNode, offsetInEndNode);
+    return range;
+  }
+}
+
 export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   nodeInternal: SDK.DOMModel.DOMNode;
   override treeOutline: ElementsTreeOutline|null;
@@ -241,15 +292,14 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   private inClipboard: boolean;
   private hoveredInternal: boolean;
   private editing: EditorHandles|null;
-  private highlightResult: UI.UIUtils.HighlightChange[];
   private htmlEditElement?: HTMLElement;
   expandAllButtonElement: UI.TreeOutline.TreeElement|null;
-  private searchHighlightsVisible?: boolean;
   selectionElement?: HTMLDivElement;
   private hintElement?: HTMLElement;
   private contentElement: HTMLElement;
   #elementIssues: Map<string, IssuesManager.GenericIssue.GenericIssue> = new Map();
   #nodeElementToIssue: Map<Element, IssuesManager.GenericIssue.GenericIssue> = new Map();
+  #highlights: Range[] = [];
 
   readonly tagTypeContext: TagTypeContext;
 
@@ -282,8 +332,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     this.hoveredInternal = false;
 
     this.editing = null;
-
-    this.highlightResult = [];
 
     if (isClosingTag) {
       this.tagTypeContext = {tagType: TagType.CLOSING};
@@ -373,38 +421,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   highlightSearchResults(searchQuery: string): void {
-    if (this.searchQuery !== searchQuery) {
-      this.hideSearchHighlight();
-    }
-
     this.searchQuery = searchQuery;
-    this.searchHighlightsVisible = true;
     this.updateTitle(null, true);
   }
 
   hideSearchHighlights(): void {
-    delete this.searchHighlightsVisible;
-    this.hideSearchHighlight();
-  }
-
-  private hideSearchHighlight(): void {
-    if (this.highlightResult.length === 0) {
-      return;
-    }
-
-    for (let i = (this.highlightResult.length - 1); i >= 0; --i) {
-      const entry = this.highlightResult[i];
-      switch (entry.type) {
-        case 'added':
-          entry.node.remove();
-          break;
-        case 'changed':
-          entry.node.textContent = entry.oldText || null;
-          break;
-      }
-    }
-
-    this.highlightResult = [];
+    this.#highlights.forEach(r => ElementsPanel.instance().removeHighlight(r));
+    this.#highlights = [];
   }
 
   setInClipboard(inClipboard: boolean): void {
@@ -1357,7 +1380,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     if (onlySearchQueryChanged) {
-      this.hideSearchHighlight();
+      this.hideSearchHighlights();
     } else {
       const nodeInfo = this.nodeTitleInfo(updateRecord || null);
       if (this.nodeInternal.nodeType() === Node.DOCUMENT_FRAGMENT_NODE && this.nodeInternal.isInShadowTree() &&
@@ -1389,7 +1412,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           this.contentElement.append(this.tagTypeContext.slot);
         }
       }
-      this.highlightResult = [];
       delete this.selectionElement;
       delete this.hintElement;
       if (this.selected) {
@@ -1749,7 +1771,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const node = this.nodeInternal;
     const titleDOM = document.createDocumentFragment();
     const updateSearchHighlight = (): void => {
-      this.highlightResult = [];
       this.highlightSearchResultsInternal();
     };
 
@@ -2004,29 +2025,36 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(lines.join('\n'));
   }
 
+  #highlightRange(range: Range): void {
+    if (!range.collapsed) {
+      ElementsPanel.instance().addHighlight(range);
+      this.#highlights.push(range);
+    }
+  }
+
   private highlightSearchResultsInternal(): void {
-    if (!this.searchQuery || !this.searchHighlightsVisible) {
+    this.hideSearchHighlights();
+
+    if (!this.searchQuery) {
       return;
     }
-    this.hideSearchHighlight();
 
     const text = this.listItemElement.textContent || '';
     const regexObject = Platform.StringUtilities.createPlainTextSearchRegex(this.searchQuery, 'gi');
 
+    const rangeWalker = new RangeWalker(this.listItemElement);
     let match = regexObject.exec(text);
-    const matchRanges = [];
     while (match) {
-      matchRanges.push(new TextUtils.TextRange.SourceRange(match.index, match[0].length));
+      const range = rangeWalker.nextRange(match.index, match[0].length);
+      range && this.#highlightRange(range);
       match = regexObject.exec(text);
     }
 
     // Fall back for XPath, etc. matches.
-    if (!matchRanges.length) {
-      matchRanges.push(new TextUtils.TextRange.SourceRange(0, text.length));
+    if (this.#highlights.length === 0) {
+      const range = rangeWalker.nextRange(0, text.length);
+      range && this.#highlightRange(range);
     }
-
-    this.highlightResult = [];
-    UI.UIUtils.highlightSearchResults(this.listItemElement, matchRanges, this.highlightResult);
   }
 
   private editAsHTML(): void {
