@@ -16,6 +16,69 @@
       "message": "Hi Wolfgang, sorry for the delayed response, I was out for vacation.\nI addressed all your feedbacks, though I was not able to pass the test. PTAL again, thanks!",
       "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef5be8dc_6c1e13a9",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-08T08:15:34Z",
+      "side": 1,
+      "message": "add `resourceForURL: () \u003d\u003e null,` to the mainFrame-mock to get rid of the error.",
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48097bb5_27e3b31d",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-08T08:15:34Z",
+      "side": 1,
+      "message": "Most of this is not really relevant to what we want to test here and can probably be skipped. Alternatively, `mainframe.explanations` could be shrunk to only contain a single item (with details).",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 53
+      },
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a32cf0d_ed7d98a9",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-08T08:15:34Z",
+      "side": 1,
+      "message": "You probably want to select something like `.details-list expandable-list`. The expandable list has a shadow-root, so you\u0027ll have to explicitly target the shadow root to peek inside. And you\u0027ll need to click the button to see the linkified script location. Something like\n```\nconst button \u003d details.shadowRoot.querySelector(\u0027button\u0027);\nassertElement(button, HTMLButtonElement);\nbutton.click();\nconst items \u003d details.shadowRoot.querySelector(\u0027.expandable-list-items\u0027);\n// assert items text-content\n```",
+      "range": {
+        "startLine": 275,
+        "startChar": 61,
+        "endLine": 275,
+        "endChar": 73
+      },
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
