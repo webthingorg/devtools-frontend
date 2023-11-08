@@ -16,6 +16,24 @@
       "message": "Would it be possible to parse var() with CodeMirror, or a more proper parsing, instead of Regex?",
       "revId": "cd5f2a52e43c02687fe00fb902a005f47aeb0e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051f3eae_2f72a75d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-08T15:29:58Z",
+      "side": 1,
+      "message": "Hey hey, I think there are two places here that is concerned with parsing:\n* `StylesSidebarPropertyRenderer` where they parse a whole value to get the swatchable bits from the text.\n* `parseCSSVariableNameAndFallback` where it tries to extract variable name and fallback from `var()` expression.\n\nI think changing the first one requires a bit more thinking and I believe that trying to move there to CSS parser would be a better approach.\n\nFor the second one, I have tried it just now and hit a roadblock: variable names with escaped characters are not getting tokenized properly. Created a bug in `@lezer/css` repo for that: https://github.com/lezer-parser/css/issues/9\n\nI think, for now, we can move forward with the current state of the CL and then update the 2nd case to use parser in a separate CL; WDYT?",
+      "parentUuid": "55f9ce0e_bdb7380a",
+      "revId": "cd5f2a52e43c02687fe00fb902a005f47aeb0e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
