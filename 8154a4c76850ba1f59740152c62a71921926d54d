@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40264bf9_1029d828",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-08T23:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43f406fc_0a48d808",
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10881870_7d18c95c",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-11-06T12:10:12Z",
       "side": 1,
       "message": "Please add a blank line above",
+      "range": {
+        "startLine": 834,
+        "startChar": 0,
+        "endLine": 834,
+        "endChar": 35
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43bccc1e_41b9ab06",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-08T23:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10881870_7d18c95c",
       "range": {
         "startLine": 834,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "798a6634_7f656212",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-08T23:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf9a228_44cb1006",
+      "range": {
+        "startLine": 854,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 61
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdf072e4_b2ea05f2",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-11-06T12:10:12Z",
       "side": 1,
       "message": "Please add a comment explaining why do we need this transformation.",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "099681dd_6c3784bf",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-08T23:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf072e4_b2ea05f2",
       "range": {
         "startLine": 920,
         "startChar": 0,

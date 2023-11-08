@@ -211,6 +211,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "528cca1e_709cd721",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-08T23:03:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2f0461f_12ca52b6",
+      "revId": "a6285e36f56af183d686f3d64a7506e2a989d1ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35eaeb0b_d66fd827",
