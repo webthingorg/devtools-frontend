@@ -69,8 +69,8 @@ import {OpenedWindowDetailsView, WorkerDetailsView} from './OpenedWindowDetailsV
 import type * as PreloadingHelper from './preloading/helper/helper.js';
 import {
   PreloadingAttemptTreeElement,
-  PreloadingResultTreeElement,
   PreloadingRuleSetTreeElement,
+  PreloadingSummaryTreeElement,
 } from './PreloadingTreeElement.js';
 import {ReportingApiTreeElement} from './ReportingApiTreeElement.js';
 import {type ResourcesPanel} from './ResourcesPanel.js';
@@ -117,10 +117,6 @@ const UIStrings = {
    *@description Text in Application Panel Sidebar of the Application panel
    */
   backgroundServices: 'Background services',
-  /**
-   *@description Text in Application Panel Sidebar of the Application panel
-   */
-  preloading: 'Speculative loads',
   /**
    *@description Text for rendering frames
    */
@@ -268,7 +264,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   reportingApiTreeElement: ReportingApiTreeElement;
   preloadingRuleSetTreeElement: PreloadingRuleSetTreeElement|undefined;
   preloadingAttemptTreeElement: PreloadingAttemptTreeElement|undefined;
-  preloadingResultTreeElement: PreloadingResultTreeElement|undefined;
+  preloadingSummaryTreeElement: PreloadingSummaryTreeElement|undefined;
   private readonly resourcesSection: ResourcesSection;
   private readonly databaseTableViews: Map<DatabaseModelDatabase, {
     [x: string]: DatabaseTableView,
@@ -399,23 +395,21 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.periodicBackgroundSyncTreeElement =
         new BackgroundServiceTreeElement(panel, Protocol.BackgroundService.ServiceName.PeriodicBackgroundSync);
     backgroundServiceTreeElement.appendChild(this.periodicBackgroundSyncTreeElement);
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)) {
+      this.preloadingSummaryTreeElement = new PreloadingSummaryTreeElement(panel);
+      this.preloadingRuleSetTreeElement = new PreloadingRuleSetTreeElement(panel);
+      this.preloadingAttemptTreeElement = new PreloadingAttemptTreeElement(panel);
+      backgroundServiceTreeElement.appendChild(this.preloadingSummaryTreeElement);
+      this.preloadingSummaryTreeElement.appendChild(this.preloadingRuleSetTreeElement);
+      this.preloadingSummaryTreeElement.appendChild(this.preloadingAttemptTreeElement);
+    }
+
     this.pushMessagingTreeElement =
         new BackgroundServiceTreeElement(panel, Protocol.BackgroundService.ServiceName.PushMessaging);
     backgroundServiceTreeElement.appendChild(this.pushMessagingTreeElement);
     this.reportingApiTreeElement = new ReportingApiTreeElement(panel);
     backgroundServiceTreeElement.appendChild(this.reportingApiTreeElement);
-
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)) {
-      const preloadingSectionTitle = i18nString(UIStrings.preloading);
-      const preloadingSectionTreeElement = this.addSidebarSection(preloadingSectionTitle);
-
-      this.preloadingRuleSetTreeElement = new PreloadingRuleSetTreeElement(panel);
-      this.preloadingAttemptTreeElement = new PreloadingAttemptTreeElement(panel);
-      this.preloadingResultTreeElement = new PreloadingResultTreeElement(panel);
-      preloadingSectionTreeElement.appendChild(this.preloadingRuleSetTreeElement);
-      preloadingSectionTreeElement.appendChild(this.preloadingAttemptTreeElement);
-      preloadingSectionTreeElement.appendChild(this.preloadingResultTreeElement);
-    }
 
     const resourcesSectionTitle = i18nString(UIStrings.frames);
     const resourcesTreeElement = this.addSidebarSection(resourcesSectionTitle);
@@ -583,9 +577,9 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)) {
       const preloadingModel = this.target?.model(SDK.PreloadingModel.PreloadingModel);
       if (preloadingModel) {
+        this.preloadingSummaryTreeElement?.initialize(preloadingModel);
         this.preloadingRuleSetTreeElement?.initialize(preloadingModel);
         this.preloadingAttemptTreeElement?.initialize(preloadingModel);
-        this.preloadingResultTreeElement?.initialize(preloadingModel);
       }
     }
   }

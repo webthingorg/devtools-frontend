@@ -17,15 +17,15 @@ const UIStrings = {
   /**
    *@description Text in Application Panel Sidebar of the Application panel
    */
-  speculationRules: 'Rules',
+  speculativeLoads: 'Speculative loads',
   /**
    *@description Text in Application Panel Sidebar of the Application panel
    */
-  preloads: 'Speculations',
+  rules: 'Rules',
   /**
    *@description Text in Application Panel Sidebar of the Application panel
    */
-  thisPage: 'This page',
+  speculations: 'Speculations',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/PreloadingTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -85,11 +85,19 @@ class PreloadingTreeElementBase<V extends PreloadingRuleSetView|PreloadingAttemp
   }
 }
 
+export class PreloadingSummaryTreeElement extends PreloadingTreeElementBase<PreloadingResultView> {
+  constructor(resourcesPanel: ResourcesPanel) {
+    super(
+        resourcesPanel, PreloadingResultView, 'preloading://summary' as Platform.DevToolsPath.UrlString,
+        i18nString(UIStrings.speculativeLoads));
+  }
+}
+
 export class PreloadingRuleSetTreeElement extends PreloadingTreeElementBase<PreloadingRuleSetView> {
   constructor(resourcesPanel: ResourcesPanel) {
     super(
         resourcesPanel, PreloadingRuleSetView, 'preloading://rule-set' as Platform.DevToolsPath.UrlString,
-        i18nString(UIStrings.speculationRules));
+        i18nString(UIStrings.rules));
   }
 
   revealRuleSet(revealInfo: PreloadingHelper.PreloadingForward.RuleSetView): void {
@@ -105,7 +113,7 @@ export class PreloadingAttemptTreeElement extends PreloadingTreeElementBase<Prel
   constructor(resourcesPanel: ResourcesPanel) {
     super(
         resourcesPanel, PreloadingAttemptView, 'preloading://attempt' as Platform.DevToolsPath.UrlString,
-        i18nString(UIStrings.preloads));
+        i18nString(UIStrings.speculations));
   }
 
   setFilter(filter: PreloadingHelper.PreloadingForward.AttemptViewWithFilter): void {
@@ -114,13 +122,5 @@ export class PreloadingAttemptTreeElement extends PreloadingTreeElementBase<Prel
     }
 
     this.view.setFilter(filter);
-  }
-}
-
-export class PreloadingResultTreeElement extends PreloadingTreeElementBase<PreloadingResultView> {
-  constructor(resourcesPanel: ResourcesPanel) {
-    super(
-        resourcesPanel, PreloadingResultView, 'preloading://result' as Platform.DevToolsPath.UrlString,
-        i18nString(UIStrings.thisPage));
   }
 }
