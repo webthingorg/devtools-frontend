@@ -38,10 +38,11 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as IssuesManager from '../../models/issues_manager/issues_manager.js';
-import type * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as CodeHighlighter from '../../ui/components/code_highlighter/code_highlighter.js';
+import * as Highlighting from '../../ui/components/highlighting/highlighting.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as TextEditor from '../../ui/components/text_editor/text_editor.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -230,57 +231,6 @@ function isOpeningTag(context: TagTypeContext): context is OpeningTagContext {
   return context.tagType === TagType.OPENING;
 }
 
-class RangeWalker {
-  #offset = 0;
-  readonly #treeWalker: TreeWalker;
-  #eof: boolean;
-
-  constructor(readonly root: HTMLElement) {
-    this.#treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    this.#eof = !this.#treeWalker.firstChild();
-  }
-
-  #next(): boolean {
-    this.#offset += this.#treeWalker.currentNode.textContent?.length ?? 0;
-    this.#eof = !this.#treeWalker.nextNode();
-    return this.#eof;
-  }
-
-  #goToPosition(offset: number): Node|null {
-    if (offset < this.#offset || this.#eof) {
-      return null;
-    }
-    while (offset > this.#offset + (this.#treeWalker.currentNode.textContent?.length ?? 0)) {
-      if (this.#next()) {
-        return null;
-      }
-    }
-    return this.#treeWalker.currentNode;
-  }
-
-  nextRange(start: number, length: number): Range|null {
-    if (length <= 0 || this.#eof) {
-      return null;
-    }
-
-    const startNode = this.#goToPosition(start);
-    if (!startNode) {
-      return null;
-    }
-    const offsetInStartNode = start - this.#offset;
-    const endNode = this.#goToPosition(start + length);
-    if (!endNode) {
-      return null;
-    }
-    const offsetInEndNode = start + length - this.#offset;
-
-    const range = new Range();
-    range.setStart(startNode, offsetInStartNode);
-    range.setEnd(endNode, offsetInEndNode);
-    return range;
-  }
-}
-
 export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   nodeInternal: SDK.DOMModel.DOMNode;
   override treeOutline: ElementsTreeOutline|null;
@@ -426,7 +376,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   hideSearchHighlights(): void {
-    this.#highlights.forEach(r => ElementsPanel.instance().removeHighlight(r));
+    Highlighting.HighlightManager.HighlightManager.instance().removeHighlights(this.#highlights);
     this.#highlights = [];
   }
 
@@ -1589,7 +1539,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         ++highlightIndex;
       }
       element.setTextContentTruncatedIfNeeded(value);
-      UI.UIUtils.highlightRangesWithStyleClass(element, result.entityRanges, 'webkit-html-entity-value');
+      // UI.UIUtils.highlightRangesWithStyleClass(element, result.entityRanges, 'webkit-html-entity-value');
     }
 
     const hasText = (forceValue || value.length > 0);
@@ -1756,7 +1706,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       if (charToEntity.has(char)) {
         result += text.substring(lastIndexAfterEntity, i);
         const entityValue = '&' + charToEntity.get(char) + ';';
-        entityRanges.push({offset: result.length, length: entityValue.length});
+        entityRanges.push(new TextUtils.TextRange.SourceRange(result.length, entityValue.length));
         result += entityValue;
         lastIndexAfterEntity = i + 1;
       }
@@ -1828,7 +1778,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           }
           const result = this.convertWhitespaceToEntities(firstChild.nodeValue());
           textNodeElement.textContent = Platform.StringUtilities.collapseWhitespace(result.text);
-          UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
+          // UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
           UI.UIUtils.createTextChild(titleDOM, '\u200B');
           this.buildTagDOM(titleDOM, tagName, true, false, updateRecord);
           if (updateRecord && updateRecord.hasChangedChildren()) {
@@ -1862,7 +1812,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           const textNodeElement = titleDOM.createChild('span', 'webkit-html-text-node');
           const result = this.convertWhitespaceToEntities(node.nodeValue());
           textNodeElement.textContent = Platform.StringUtilities.collapseWhitespace(result.text);
-          UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
+          // UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
           UI.UIUtils.createTextChild(titleDOM, '"');
           if (updateRecord && updateRecord.isCharDataModified()) {
             UI.UIUtils.runCSSAnimationOnce(textNodeElement, 'dom-update-highlight');
@@ -2025,13 +1975,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(lines.join('\n'));
   }
 
-  #highlightRange(range: Range): void {
-    if (!range.collapsed) {
-      ElementsPanel.instance().addHighlight(range);
-      this.#highlights.push(range);
-    }
-  }
-
   private highlightSearchResultsInternal(): void {
     this.hideSearchHighlights();
 
@@ -2042,19 +1985,20 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const text = this.listItemElement.textContent || '';
     const regexObject = Platform.StringUtilities.createPlainTextSearchRegex(this.searchQuery, 'gi');
 
-    const rangeWalker = new RangeWalker(this.listItemElement);
+    const matchRanges = [];
     let match = regexObject.exec(text);
     while (match) {
-      const range = rangeWalker.nextRange(match.index, match[0].length);
-      range && this.#highlightRange(range);
+      matchRanges.push(new TextUtils.TextRange.SourceRange(match.index, match[0].length));
       match = regexObject.exec(text);
     }
 
     // Fall back for XPath, etc. matches.
-    if (this.#highlights.length === 0) {
-      const range = rangeWalker.nextRange(0, text.length);
-      range && this.#highlightRange(range);
+    if (!matchRanges.length) {
+      matchRanges.push(new TextUtils.TextRange.SourceRange(0, text.length));
     }
+
+    this.#highlights = Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(
+        this.listItemElement, matchRanges);
   }
 
   private editAsHTML(): void {

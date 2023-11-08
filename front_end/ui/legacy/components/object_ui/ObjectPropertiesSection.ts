@@ -29,24 +29,25 @@
  */
 
 import * as Common from '../../../../core/common/common.js';
-import type * as Components from '../utils/utils.js';
-import * as Root from '../../../../core/root/root.js';
 import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
-import * as LinearMemoryInspector from '../../../components/linear_memory_inspector/linear_memory_inspector.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import * as Root from '../../../../core/root/root.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
-import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as JavaScriptMetaData from '../../../../models/javascript_metadata/javascript_metadata.js';
+import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as Highlighting from '../../../../ui/components/highlighting/highlighting.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
+import * as LinearMemoryInspector from '../../../components/linear_memory_inspector/linear_memory_inspector.js';
 import * as TextEditor from '../../../components/text_editor/text_editor.js';
 import * as UI from '../../legacy.js';
+import type * as Components from '../utils/utils.js';
 
 import {CustomPreviewComponent} from './CustomPreviewComponent.js';
 import {JavaScriptREPL} from './JavaScriptREPL.js';
-import {createSpansForNodeTitle, RemoteObjectPreviewFormatter} from './RemoteObjectPreviewFormatter.js';
-import objectValueStyles from './objectValue.css.js';
 import objectPropertiesSectionStyles from './objectPropertiesSection.css.js';
+import objectValueStyles from './objectValue.css.js';
+import {createSpansForNodeTitle, RemoteObjectPreviewFormatter} from './RemoteObjectPreviewFormatter.js';
 
 const UIStrings = {
   /**
@@ -738,7 +739,6 @@ export const InitialVisibleChildrenLimit = 200;
 export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
   property: SDK.RemoteObject.RemoteObjectProperty;
   override toggleOnClick: boolean;
-  private highlightChanges: UI.UIUtils.HighlightChange[];
   private linkifier: Components.Linkifier.Linkifier|undefined;
   private readonly maxNumPropertiesToShow: number;
   nameElement!: HTMLElement;
@@ -749,13 +749,13 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
   private editableDiv!: HTMLElement;
   propertyValue?: ObjectPropertyValue;
   expandedValueElement?: Element|null;
+  #highlights: Range[] = [];
   constructor(property: SDK.RemoteObject.RemoteObjectProperty, linkifier?: Components.Linkifier.Linkifier) {
     // Pass an empty title, the title gets made later in onattach.
     super();
 
     this.property = property;
     this.toggleOnClick = true;
-    this.highlightChanges = [];
     this.linkifier = linkifier;
     this.maxNumPropertiesToShow = InitialVisibleChildrenLimit;
     this.listItemElement.addEventListener('contextmenu', this.contextMenuFired.bind(this), false);
@@ -962,10 +962,10 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
 
-    return Boolean(this.highlightChanges.length);
+    return Boolean(this.#highlights.length);
   }
 
-  private applySearch(regex: RegExp, element: Element, cssClassName: string): void {
+  private applySearch(regex: RegExp, element: Element, _cssClassName: string): void {
     const ranges = [];
     const content = element.textContent || '';
     regex.lastIndex = 0;
@@ -975,7 +975,8 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       match = regex.exec(content);
     }
     if (ranges.length) {
-      UI.UIUtils.highlightRangesWithStyleClass(element, ranges, cssClassName, this.highlightChanges);
+      this.#highlights =
+          Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(element, ranges);
     }
   }
 
@@ -1002,8 +1003,8 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   revertHighlightChanges(): void {
-    UI.UIUtils.revertDomChanges(this.highlightChanges);
-    this.highlightChanges = [];
+    Highlighting.HighlightManager.HighlightManager.instance().removeHighlights(this.#highlights);
+    this.#highlights = [];
   }
 
   override async onpopulate(): Promise<void> {

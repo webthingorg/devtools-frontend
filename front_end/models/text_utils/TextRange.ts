@@ -289,4 +289,54 @@ export class TextRange {
 export class SourceRange {
   constructor(public offset: number, public length: number) {
   }
+
+  static comparator(range1: SourceRange, range2: SourceRange): number {
+    return range1.compareTo(range2);
+  }
+
+  compareTo(other: SourceRange): number {
+    if (this.offset > other.offset) {
+      return 1;
+    }
+    if (this.offset < other.offset) {
+      return -1;
+    }
+    return 0;
+  }
+
+  empty(): boolean {
+    return this.length === 0;
+  }
+
+  intersection(that: SourceRange): SourceRange {
+    if (this.compareTo(that) > 0) {
+      return that.intersection(this);
+    }
+    if (that.offset > this.offset + this.length) {
+      return new SourceRange(0, 0);
+    }
+    return new SourceRange(this.offset, that.offset + that.length - this.offset);
+  }
+
+  static mergeRanges(ranges: SourceRange[]): SourceRange[] {
+    ranges.sort(SourceRange.comparator);
+
+    const result = [];
+
+    let previous = undefined;
+    for (const range of ranges) {
+      if (!previous) {
+        previous = range;
+        continue;
+      }
+      const intersection = previous.intersection(range);
+      if (intersection.empty()) {
+        result.push(previous);
+      }
+      previous = intersection;
+    }
+
+    previous && result.push(previous);
+    return result;
+  }
 }
