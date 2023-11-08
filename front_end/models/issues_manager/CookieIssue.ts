@@ -441,8 +441,8 @@ const excludeDomainNonAscii: LazyMarkdownIssueDescription = {
   links: [],
 };
 
-const excludeBlockedWithinFirstPartySet: LazyMarkdownIssueDescription = {
-  file: 'cookieExcludeBlockedWithinFirstPartySet.md',
+const excludeBlockedWithinRelatedWebsiteSet: LazyMarkdownIssueDescription = {
+  file: 'cookieExcludeBlockedWithinRelatedWebsiteSet.md',
   links: [],
 };
 
@@ -521,12 +521,12 @@ const issueDescriptions: Map<string, LazyMarkdownIssueDescription> = new Map([
   ['CookieIssue::ExcludeDomainNonASCII::ReadCookie', excludeDomainNonAscii],
   ['CookieIssue::ExcludeDomainNonASCII::SetCookie', excludeDomainNonAscii],
   [
-    'CookieIssue::ExcludeThirdPartyCookieBlockedInFirstPartySet::ReadCookie',
-    excludeBlockedWithinFirstPartySet,
+    'CookieIssue::ExcludeThirdPartyCookieBlockedInRelatedWebsiteSet::ReadCookie',
+    excludeBlockedWithinRelatedWebsiteSet,
   ],
   [
-    'CookieIssue::ExcludeThirdPartyCookieBlockedInFirstPartySet::SetCookie',
-    excludeBlockedWithinFirstPartySet,
+    'CookieIssue::ExcludeThirdPartyCookieBlockedInRelatedWebsiteSet::SetCookie',
+    excludeBlockedWithinRelatedWebsiteSet,
   ],
   ['CookieIssue::WarnThirdPartyPhaseout::ReadCookie', cookieWarnThirdPartyPhaseoutRead],
   ['CookieIssue::WarnThirdPartyPhaseout::SetCookie', cookieWarnThirdPartyPhaseoutSet],
