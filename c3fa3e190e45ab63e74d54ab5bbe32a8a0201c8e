@@ -16,6 +16,46 @@
       "message": "Hi Paul and Jack,\n\nThis CL introduces \"Advanced filtering capabilities in the Performance tool\" described in:\nhttps://tinyurl.com/4f9v3cp6\n\nWhile coding this I realized that the TreeView used in the BottomUp panel is shared across the other 2 panels next to it: \"Call Tree\" and \nEvent Log\", this means that they will get the goodness from the change for free, but as this was not discussed in the original proposal I can scope the change down only to Bottom-up panel, although I recommend to keep it consistent across the tool 😊 (I left a comment on the design doc around this). \n\nThis change also requires a rebaseline on a web_test, which means a 3-way commit is needed. I added more details and set up a CL for this in here:\n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/5005613\n\nPTAL and thank you for the help 😊",
       "revId": "c3fa3e190e45ab63e74d54ab5bbe32a8a0201c8e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b4c5eb_13fa08cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-08T09:21:49Z",
+      "side": 1,
+      "message": "This LGTM but I would like Paul\u0027s eyes before landing. Thank you for contributing!",
+      "revId": "c3fa3e190e45ab63e74d54ab5bbe32a8a0201c8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d1d452_996e655f",
+        "filename": "front_end/panels/timeline/TimelineTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-08T09:21:49Z",
+      "side": 1,
+      "message": "I know we are not consistent here, but we are migrating DevTools to use actual JS private methods, so could you change this and others to #filterChanged() please?",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 33
+      },
+      "revId": "c3fa3e190e45ab63e74d54ab5bbe32a8a0201c8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
