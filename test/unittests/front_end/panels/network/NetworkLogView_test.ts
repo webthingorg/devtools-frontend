@@ -364,7 +364,7 @@ describeWithMockConnection('NetworkLogView', () => {
          dispatchClickEvent(button, {bubbles: true, composed: true});
          await raf();
 
-         const optionImg = getRequestTypeDropdownOption('Images');
+         const optionImg = getRequestTypeDropdownOption('Image');
          const optionImgCheckmark = optionImg?.querySelector('.checkmark') || null;
          const optionAll = getRequestTypeDropdownOption('All');
          const optionAllCheckmark = optionAll?.querySelector('.checkmark') || null;
@@ -375,21 +375,21 @@ describeWithMockConnection('NetworkLogView', () => {
          assertElement(optionAllCheckmark, HTMLElement);
 
          assert.isTrue(optionAll.ariaLabel === 'All, checked');
-         assert.isTrue(optionImg.ariaLabel === 'Images, unchecked');
+         assert.isTrue(optionImg.ariaLabel === 'Image, unchecked');
          assert.isTrue(window.getComputedStyle(optionAllCheckmark).getPropertyValue('opacity') === '1');
          assert.isTrue(window.getComputedStyle(optionImgCheckmark).getPropertyValue('opacity') === '0');
 
          await selectRequestTypesOption('Images');
 
          assert.isTrue(optionAll.ariaLabel === 'All, unchecked');
-         assert.isTrue(optionImg.ariaLabel === 'Images, checked');
+         assert.isTrue(optionImg.ariaLabel === 'Image, checked');
          assert.isTrue(window.getComputedStyle(optionAllCheckmark).getPropertyValue('opacity') === '0');
          assert.isTrue(window.getComputedStyle(optionImgCheckmark).getPropertyValue('opacity') === '1');
 
-         await selectRequestTypesOption('Images');
+         await selectRequestTypesOption('Image');
 
          assert.isTrue(optionAll.ariaLabel === 'All, checked');
-         assert.isTrue(optionImg.ariaLabel === 'Images, unchecked');
+         assert.isTrue(optionImg.ariaLabel === 'Image, unchecked');
          assert.isTrue(window.getComputedStyle(optionAllCheckmark).getPropertyValue('opacity') === '1');
          assert.isTrue(window.getComputedStyle(optionImgCheckmark).getPropertyValue('opacity') === '0');
 
@@ -409,7 +409,7 @@ describeWithMockConnection('NetworkLogView', () => {
 
       dispatchClickEvent(button, {bubbles: true, composed: true});
       await raf();
-      await selectRequestTypesOption('Images');
+      await selectRequestTypesOption('Image');
 
       countAdorner = button.querySelector('.active-filters-count');
       assert.isFalse(countAdorner?.classList.contains('hidden'));
@@ -431,13 +431,13 @@ describeWithMockConnection('NetworkLogView', () => {
 
       dispatchClickEvent(button, {bubbles: true, composed: true});
       await raf();
-      await selectRequestTypesOption('Images');
-      await selectRequestTypesOption('Scripts');
+      await selectRequestTypesOption('Image');
+      await selectRequestTypesOption('JavaScript');
 
       toolbarText = button.querySelector('.toolbar-text')?.textContent;
       assert.strictEqual(toolbarText, 'JS, Img');
 
-      await selectRequestTypesOption('Stylesheets');
+      await selectRequestTypesOption('CSS');
 
       toolbarText = button.querySelector('.toolbar-text')?.textContent;
       assert.strictEqual(toolbarText, 'CSS, JS...');
@@ -458,11 +458,11 @@ describeWithMockConnection('NetworkLogView', () => {
 
       dispatchClickEvent(button, {bubbles: true, composed: true});
       await raf();
-      await selectRequestTypesOption('Images');
-      await selectRequestTypesOption('Scripts');
+      await selectRequestTypesOption('Image');
+      await selectRequestTypesOption('JavaScript');
 
       tooltipText = button.title;
-      assert.strictEqual(tooltipText, 'Show only Scripts, Images');
+      assert.strictEqual(tooltipText, 'Show only JavaScript, Image');
 
       dropdown.discard();
       await raf();
@@ -477,12 +477,12 @@ describeWithMockConnection('NetworkLogView', () => {
 
       dispatchClickEvent(button, {bubbles: true, composed: true});
       await raf();
-      await selectRequestTypesOption('Images');
+      await selectRequestTypesOption('Image');
 
       let tooltipText = button.title;
-      assert.strictEqual(tooltipText, 'Show only Images');
+      assert.strictEqual(tooltipText, 'Show only Image');
 
-      await selectRequestTypesOption('Images');
+      await selectRequestTypesOption('Image');
 
       tooltipText = button.title;
       assert.strictEqual(tooltipText, 'Filter requests by type');
