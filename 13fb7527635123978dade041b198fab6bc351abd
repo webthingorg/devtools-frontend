@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "13fb7527635123978dade041b198fab6bc351abd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ecf8e36_eaccb369",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-08T10:43:18Z",
+      "side": 1,
+      "message": "LGTM with suggestion",
+      "revId": "13fb7527635123978dade041b198fab6bc351abd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65dc4ab2_e0565d66",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-08T10:43:18Z",
+      "side": 1,
+      "message": "we saw recently that maps that grow large can become slow when adding new data to them (in https://crrev.com/c/5001006 we saw a 10x improvement in the time it took to process all events by not adding them to a map). I wonder if this could also get slow on large traces/cpu profiles, since we are adding a registry for every flame chart entry.\n\nIf it does indeed get slow, a workaround for the expensive category query could be using the `getEventStyle().category` helper instead of  `TimelineUIUtils.eventStyle().category;`. We did this on https://crrev.com/c/5003863 and saw some improvement (not dramatic but significant :)).",
+      "range": {
+        "startLine": 191,
+        "startChar": 3,
+        "endLine": 191,
+        "endChar": 27
+      },
+      "revId": "13fb7527635123978dade041b198fab6bc351abd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
