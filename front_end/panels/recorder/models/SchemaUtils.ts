@@ -30,6 +30,8 @@ export function createEmulateNetworkConditionsStep(conditions: {
   download: number,
   upload: number,
   latency: number,
+  packetLoss: number,
+  packetReordering: boolean,
 }): EmulateNetworkConditionsStep {
   return {type: StepType.EmulateNetworkConditions, ...conditions};
 }
