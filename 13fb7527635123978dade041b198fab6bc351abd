@@ -56,6 +56,30 @@
       },
       "revId": "13fb7527635123978dade041b198fab6bc351abd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60abdecc_53be9f31",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-09T14:42:15Z",
+      "side": 1,
+      "message": "Good suggestion, done! Thanks.",
+      "parentUuid": "65dc4ab2_e0565d66",
+      "range": {
+        "startLine": 191,
+        "startChar": 3,
+        "endLine": 191,
+        "endChar": 27
+      },
+      "revId": "13fb7527635123978dade041b198fab6bc351abd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
