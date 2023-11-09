@@ -83,6 +83,8 @@ const dataTypeByAttribute = Object.freeze({
   download: 'number',
   upload: 'number',
   latency: 'number',
+  packetLoss: 'number',
+  packetReordering: 'boolean',
   name: 'string',
   parameters: 'string',
   visible: 'boolean',
@@ -121,6 +123,8 @@ const defaultValuesByAttribute = deepFreeze({
   download: 1000,
   upload: 1000,
   latency: 25,
+  packetLoss: 0,
+  packetReordering: false,
   name: 'customParam',
   parameters: '{}',
   properties: '{}',
@@ -206,7 +210,7 @@ const attributesByType = deepFreeze<{
     optional: ['assertedEvents', 'target', 'timeout'],
   },
   [Models.Schema.StepType.EmulateNetworkConditions]: {
-    required: ['download', 'latency', 'upload'],
+    required: ['download', 'latency', 'upload', 'packetLoss', 'packetReordering'],
     optional: ['assertedEvents', 'target', 'timeout'],
   },
   [Models.Schema.StepType.SetViewport]: {
@@ -319,6 +323,8 @@ export interface EditorState {
   download?: number;
   upload?: number;
   latency?: number;
+  packetLoss?: number;
+  packetReordering?: boolean;
   name?: string;
   parameters?: string;
   visible?: boolean;

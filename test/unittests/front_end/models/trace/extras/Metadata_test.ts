@@ -19,6 +19,8 @@ describeWithEnvironment('Trace Metadata', () => {
       download: 1,
       upload: 1,
       latency: 1,
+      packetLoss: 0,
+      packetReordering: false,
     });
     const metadata = await TraceEngine.Extras.Metadata.forNewRecording();
     assert.deepEqual(metadata, {
@@ -41,6 +43,8 @@ describeWithEnvironment('Trace Metadata', () => {
       download: 1,
       upload: 1,
       latency: 1,
+      packetLoss: 0,
+      packetReordering: false,
     });
     const metadata = await TraceEngine.Extras.Metadata.forNewRecording();
     assert.deepEqual(metadata, {
@@ -63,6 +67,8 @@ describeWithEnvironment('Trace Metadata', () => {
       download: 1,
       upload: 1,
       latency: 1,
+      packetLoss: 0,
+      packetReordering: false,
     });
     const metadata = await TraceEngine.Extras.Metadata.forNewRecording();
     assert.deepEqual(metadata, {

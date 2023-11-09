@@ -77,6 +77,8 @@ const data = {
       download: 3000,
       upload: 3000,
       latency: 3000,
+      packetLoss: 0,
+      packetReordering: false,
       type: Models.Schema.StepType.EmulateNetworkConditions as const,
     },
     viewportSettings: {

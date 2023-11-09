@@ -9045,6 +9045,14 @@ export namespace Network {
      */
     uploadThroughput: number;
     /**
+     * Packet loss (percent). 0 disables packet loss emulation.
+     */
+    packetLoss: number;
+    /**
+     * Packet reordering
+     */
+    packetReordering: boolean;
+    /**
      * Connection type if known.
      */
     connectionType?: ConnectionType;
