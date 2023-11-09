@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcdae4ad_6f16b09d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-09T06:21:36Z",
+      "side": 1,
+      "message": "I noticed these when trying to understand crbug.com/1325226, please take a look. Thanks!",
+      "revId": "979b0134f9d2730671f958eadb04d1627d15548d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
