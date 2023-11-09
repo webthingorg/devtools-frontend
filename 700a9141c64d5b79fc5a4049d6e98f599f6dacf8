@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "793cd63a_bf0d1c75",
+        "filename": "front_end/panels/application/ServiceWorkerStaticRouterView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T14:37:13Z",
+      "side": 1,
+      "message": "Please don\u0027t construct DOM by hand. We are using LitHTML for the new UI, see example at third_party/devtools-frontend/src/front_end/panels/application/components/BounceTrackingMitigationsView.ts",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
