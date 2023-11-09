@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01d0110a_c6673259",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2023-11-09T15:12:41Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef5be8dc_6c1e13a9",
@@ -31,6 +48,24 @@
       "writtenOn": "2023-11-08T08:15:34Z",
       "side": 1,
       "message": "add `resourceForURL: () \u003d\u003e null,` to the mainFrame-mock to get rid of the error.",
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e87a46_c7660ca9",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2023-11-09T15:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef5be8dc_6c1e13a9",
       "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -58,6 +93,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a0ac61d_27e02132",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2023-11-09T15:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48097bb5_27e3b31d",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 53
+      },
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a32cf0d_ed7d98a9",
@@ -71,6 +130,30 @@
       "writtenOn": "2023-11-08T08:15:34Z",
       "side": 1,
       "message": "You probably want to select something like `.details-list expandable-list`. The expandable list has a shadow-root, so you\u0027ll have to explicitly target the shadow root to peek inside. And you\u0027ll need to click the button to see the linkified script location. Something like\n```\nconst button \u003d details.shadowRoot.querySelector(\u0027button\u0027);\nassertElement(button, HTMLButtonElement);\nbutton.click();\nconst items \u003d details.shadowRoot.querySelector(\u0027.expandable-list-items\u0027);\n// assert items text-content\n```",
+      "range": {
+        "startLine": 275,
+        "startChar": 61,
+        "endLine": 275,
+        "endChar": 73
+      },
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7862d09c_9e9c32bb",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1151889
+      },
+      "writtenOn": "2023-11-09T15:12:41Z",
+      "side": 1,
+      "message": "It seems that details is none if I select `.details-list expandable-list`.\n`const details \u003d component.shadowRoot.querySelectorAll(\u0027.details-list expandable-list\u0027);`\n\nDo I possibly need to declare `detail-list` at the end of BackForwardCacheView.ts ?",
+      "parentUuid": "6a32cf0d_ed7d98a9",
       "range": {
         "startLine": 275,
         "startChar": 61,
