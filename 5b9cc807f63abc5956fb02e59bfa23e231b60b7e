@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20bb6df1_9c2f465c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-09T15:35:04Z",
+      "side": 1,
+      "message": "PTAL. We have hit a few instances now where the transparent hover colours cause bugs like this (see attached bug). Kateryna, please could you see if there is an alternative non-transparent colour that we can use for these situations? I assume GM3 does define them but I will defer to you on this 😊\n\nHappy to update this CL with a different preferred colour, as long as it is not at all transparent. Thank you!",
+      "revId": "5b9cc807f63abc5956fb02e59bfa23e231b60b7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
