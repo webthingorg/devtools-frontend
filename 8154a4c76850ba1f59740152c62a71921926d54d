@@ -175,6 +175,30 @@
       },
       "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e7a06f_0fc42ef8",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T06:26:32Z",
+      "side": 1,
+      "message": "So much is clear from the code already. But why do we need to transform CSS variables? What if we don\u0027t?",
+      "parentUuid": "099681dd_6c3784bf",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

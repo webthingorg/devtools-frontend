@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac15b51c_36c8e92f",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T06:26:32Z",
+      "side": 1,
+      "message": "Use a template string like\n\n\n    const defaultStyleSheet \u003d `.titlebar {\n      left: env(...)\n      top: ...\n    }`;",
+      "range": {
+        "startLine": 40,
+        "startChar": 30,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "074452b8_c000f6bc",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T06:26:32Z",
+      "side": 1,
+      "message": "overlayModel \u003d target.model(SDK.OverlayModel.OverlayModel)\n    \n like below, otherwise you will end up with two overlay model instances",
+      "range": {
+        "startLine": 49,
+        "startChar": 19,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5ee3a2a_2e1a9d38",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T06:26:32Z",
+      "side": 1,
+      "message": "This comment is basically repeated this code below, why do we want to have it?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 66
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120ba24c_097ceb19",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T06:26:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 60
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f26f78f0_969fce24",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T06:26:32Z",
+      "side": 1,
+      "message": "Also use a template string here?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 52
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
