@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cac6ca5_2ad12221",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-09T08:06:27Z",
+      "side": 1,
+      "message": "Nice, thank you! Unfortunately I wasn\u0027t able to find the issue where I saw someone mentioning this.",
+      "revId": "5aa582abe659b20a55748c33d214daea1a3a174e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
