@@ -14,15 +14,3 @@
   grid-template-columns: min-content 1fr;
   user-select: text;
 }
-
-.report-title {
-  padding: 12px 24px;
-  font-size: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-bottom: 1px solid var(--sys-color-divider);
-  color: var(--sys-color-on-surface);
-  background-color: var(--sys-color-cdt-base-container);
-  grid-column-start: span 2;
-}
