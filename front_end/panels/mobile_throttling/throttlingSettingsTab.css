@@ -24,7 +24,7 @@
 }
 
 .conditions-list {
-  max-width: 500px;
+  /*max-width: 580px;*/
   min-width: 340px;
   flex: auto;
 }
@@ -39,23 +39,24 @@
 }
 
 .conditions-list-text {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  flex: 0 0 70px;
+  /*white-space: nowrap;
+  text-overflow: ellipsis;*/
+  flex: 0 0 80px;
   user-select: none;
   color: var(--sys-color-on-surface);
-  text-align: end;
+  /*text-align: end;*/
+  text-align: center;
   position: relative;
 }
-
+/*
 .conditions-list-text:last-child {
-  flex-basis: 140px;
+  flex-basis: 70px;
   text-align: left;
 }
 
 .conditions-edit-row .conditions-list-text:last-child {
   text-align: right;
-}
+}*/
 
 .conditions-list-title {
   text-align: start;
@@ -65,10 +66,10 @@
 }
 
 .conditions-list-title-text {
-  overflow: hidden;
+  /*overflow: hidden;*/
   flex: auto;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  /*white-space: nowrap;
+  text-overflow: ellipsis;*/
 }
 
 .conditions-list-separator {
