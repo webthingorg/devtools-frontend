@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ad7cba7_0209b453",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1543982
+      },
+      "writtenOn": "2023-11-09T14:34:26Z",
+      "side": 1,
+      "message": "This CL took over the work. crrev.com/c/5015533",
+      "revId": "d0f7707e80565bd099c6f1cef0cd5f3787768497",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
