@@ -22,6 +22,30 @@
       },
       "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39e69f08_701b7ce9",
+        "filename": "front_end/panels/application/ServiceWorkerStaticRouterView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1543982
+      },
+      "writtenOn": "2023-11-09T14:52:30Z",
+      "side": 1,
+      "message": "Thank you! Let me work on updating to Lit.\n\nQQ: Does LitHtml.html appropriately escape the string to output HTML? Some values to be rendered in this CL are from user inputs.",
+      "parentUuid": "793cd63a_bf0d1c75",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
