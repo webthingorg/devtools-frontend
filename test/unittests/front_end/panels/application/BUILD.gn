@@ -19,6 +19,7 @@ ts_library("application") {
     "ReportingApiReportsView_test.ts",
     "ReportingApiView_test.ts",
     "ServiceWorkerCacheModel_test.ts",
+    "ServiceWorkerStaticRouterView_test.ts",
     "ServiceWorkerUpdateCycleView_test.ts",
     "ServiceWorkersView_test.ts",
     "SharedStorageEventsView_test.ts",

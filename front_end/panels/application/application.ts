@@ -25,6 +25,7 @@ import * as ReportingApiReportsView from './ReportingApiReportsView.js';
 import * as ReportingApiView from './ReportingApiView.js';
 import * as ResourcesPanel from './ResourcesPanel.js';
 import * as ServiceWorkerCacheViews from './ServiceWorkerCacheViews.js';
+import * as ServiceWorkerStaticRouterView from './ServiceWorkerStaticRouterView.js';
 import * as ServiceWorkersView from './ServiceWorkersView.js';
 import * as ServiceWorkerUpdateCycleView from './ServiceWorkerUpdateCycleView.js';
 import * as SharedStorageEventsView from './SharedStorageEventsView.js';
@@ -61,6 +62,7 @@ export {
   ReportingApiView,
   ResourcesPanel,
   ServiceWorkerCacheViews,
+  ServiceWorkerStaticRouterView,
   ServiceWorkersView,
   ServiceWorkerUpdateCycleView,
   SharedStorageEventsView,
