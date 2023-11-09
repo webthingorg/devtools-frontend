@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e68873_3b21d82f",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2023-11-09T19:13:17Z",
+      "side": 1,
+      "message": "Nit: Make them singular",
+      "revId": "7bca7f8ce5b78a8b8a66f46ef0700284f617ef18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
