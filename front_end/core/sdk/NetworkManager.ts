@@ -356,6 +356,8 @@ export const NoThrottlingConditions: Conditions = {
   download: -1,
   upload: -1,
   latency: 0,
+  packetLoss: 0,
+  packetReordering: false,
 };
 
 export const OfflineConditions: Conditions = {
@@ -364,6 +366,8 @@ export const OfflineConditions: Conditions = {
   download: 0,
   upload: 0,
   latency: 0,
+  packetLoss: 0,
+  packetReordering: false,
 };
 
 export const Slow3GConditions: Conditions = {
@@ -372,6 +376,8 @@ export const Slow3GConditions: Conditions = {
   download: 500 * 1000 / 8 * .8,
   upload: 500 * 1000 / 8 * .8,
   latency: 400 * 5,
+  packetLoss: 0,
+  packetReordering: false,
 };
 
 export const Fast3GConditions: Conditions = {
@@ -380,6 +386,8 @@ export const Fast3GConditions: Conditions = {
   download: 1.6 * 1000 * 1000 / 8 * .9,
   upload: 750 * 1000 / 8 * .9,
   latency: 150 * 3.75,
+  packetLoss: 0,
+  packetReordering: false,
 };
 
 const MAX_EAGER_POST_REQUEST_BODY_LENGTH = 64 * 1024;  // bytes
@@ -1328,13 +1336,15 @@ export class MultitargetNetworkManager extends Common.ObjectWrapper.ObjectWrappe
     const conditions = this.#networkConditionsInternal;
     if (!this.isThrottling()) {
       void networkAgent.invoke_emulateNetworkConditions(
-          {offline: false, latency: 0, downloadThroughput: 0, uploadThroughput: 0});
+          {offline: false, latency: 0, downloadThroughput: 0, uploadThroughput: 0, packetLoss: 0, packetReordering: false});
     } else {
       void networkAgent.invoke_emulateNetworkConditions({
         offline: this.isOffline(),
         latency: conditions.latency,
         downloadThroughput: conditions.download < 0 ? 0 : conditions.download,
         uploadThroughput: conditions.upload < 0 ? 0 : conditions.upload,
+        packetLoss: conditions.packetLoss < 0 ? 0: conditions.packetLoss,
+        packetReordering: conditions.packetReordering,
         connectionType: NetworkManager.connectionType(conditions),
       });
     }
@@ -1859,6 +1869,7 @@ export function networkConditionsEqual(first: Conditions, second: Conditions): b
   const firstTitle = typeof first.title === 'function' ? first.title() : first.title;
   const secondTitle = typeof second.title === 'function' ? second.title() : second.title;
   return second.download === first.download && second.upload === first.upload && second.latency === first.latency &&
+      first.packetLoss == second.packetLoss && first.packetReordering == second.packetReordering &&
       secondTitle === firstTitle;
 }
 
@@ -1866,6 +1877,8 @@ export interface Conditions {
   download: number;
   upload: number;
   latency: number;
+  packetLoss: number;
+  packetReordering: boolean;
   // TODO(crbug.com/1219425): In the future, it might be worthwhile to
   // consider avoiding mixing up presentation state (e.g.: displayed
   // titles) with behavioral state (e.g.: the throttling amounts). In

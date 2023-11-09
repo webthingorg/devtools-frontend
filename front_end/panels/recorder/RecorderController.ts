@@ -714,10 +714,13 @@ export class RecorderController extends LitElement {
       }
     } else if (emulateNetworkConditionsIdx === -1) {
       // Insert at the first position.
-      this.currentRecording.flow.steps.splice(
-          0, 0,
-          Models.SchemaUtils.createEmulateNetworkConditionsStep(
-              {download: event.data.download, upload: event.data.upload, latency: event.data.latency}));
+      this.currentRecording.flow.steps.splice(0, 0, Models.SchemaUtils.createEmulateNetworkConditionsStep({
+        download: event.data.download,
+        upload: event.data.upload,
+        latency: event.data.latency,
+        packetLoss: event.data.packetLoss,
+        packetReordering: event.data.packetReordering
+      }));
     } else {
       // Update existing step.
       const step =
@@ -725,6 +728,8 @@ export class RecorderController extends LitElement {
       step.download = event.data.download;
       step.upload = event.data.upload;
       step.latency = event.data.latency;
+      step.packetLoss = event.data.packetLoss;
+      step.packetReordering = event.data.packetReordering;
     }
     this.#setCurrentRecording(
         await this.#storage.updateRecording(this.currentRecording.storageName, this.currentRecording.flow));

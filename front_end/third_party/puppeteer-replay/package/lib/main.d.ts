@@ -148,6 +148,8 @@ interface EmulateNetworkConditionsStep extends StepWithTarget {
     download: number;
     upload: number;
     latency: number;
+    packetLoss: number;
+    packetReordering: boolean;
 }
 interface KeyDownStep extends StepWithTarget {
     type: StepType.KeyDown;

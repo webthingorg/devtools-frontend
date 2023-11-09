@@ -13587,6 +13587,16 @@
                             "type": "number"
                         },
                         {
+                            "name": "packetLoss",
+                            "description": "Packet loss (percent). 0 disables packet loss emulation.",
+                            "type": "number"
+                        },
+                        {
+                            "name": "packetReordering",
+                            "description": "Packet reordering",
+                            "type": "boolean"
+                        },
+                        {
                             "name": "connectionType",
                             "description": "Connection type if known.",
                             "optional": true,
