@@ -46,6 +46,30 @@
       },
       "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f4188fa_6296401c",
+        "filename": "front_end/panels/application/ServiceWorkerStaticRouterView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-09T15:10:04Z",
+      "side": 1,
+      "message": "It does escape strings by default.",
+      "parentUuid": "39e69f08_701b7ce9",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
