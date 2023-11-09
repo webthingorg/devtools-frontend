@@ -177,7 +177,11 @@
 }
 
 .data-grid th.sortable:hover {
-  background-color: var(--sys-color-state-hover-on-subtle);
+  /* Cannot use the hover-subtle colour here as the th is often over the top of
+   * rows and the hover-subtle colour is partially transparent which leads to
+   * the row behind it shining through.
+   */
+  background-color: var(--sys-color-surface4);
 }
 
 .data-grid .top-filler-td {
