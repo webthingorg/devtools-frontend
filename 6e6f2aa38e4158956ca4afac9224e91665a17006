@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec7885da_cb002aa4",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-09T18:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac15b51c_36c8e92f",
+      "range": {
+        "startLine": 40,
+        "startChar": 30,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "074452b8_c000f6bc",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-09T06:26:32Z",
       "side": 1,
       "message": "overlayModel \u003d target.model(SDK.OverlayModel.OverlayModel)\n    \n like below, otherwise you will end up with two overlay model instances",
+      "range": {
+        "startLine": 49,
+        "startChar": 19,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b9a5e4_7fbf0eea",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-09T18:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "074452b8_c000f6bc",
       "range": {
         "startLine": 49,
         "startChar": 19,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6f035e9_25440d37",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-09T18:40:28Z",
+      "side": 1,
+      "message": "We need to have the mock handlers to handle requests to the native code so that a timeout does not occur when try calling the particular CDP method. \n\nThe `getStyleSheetText` CDP method is mainly used for the `WindowControls.initializeStyleSheetText` method where we want to get the original stylesheet text of the webpage and save it.  This is so we can emulate the overlay by transforming certain env variables in that stylesheet text, while also maintaining the original stylesheet so we can return the overlay back to the original styles.",
+      "parentUuid": "f5ee3a2a_2e1a9d38",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 66
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "120ba24c_097ceb19",
         "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
         "patchSetId": 4
@@ -83,6 +155,30 @@
       "writtenOn": "2023-11-09T06:26:32Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 60
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ed29f9_360da127",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-09T18:40:28Z",
+      "side": 1,
+      "message": "Same as above. \n\nThe `setShowWindowControlsOverlay` mock handler in this case is used to mock sending the Window Controls Overlay configuration.",
+      "parentUuid": "120ba24c_097ceb19",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -106,6 +202,30 @@
       "writtenOn": "2023-11-09T06:26:32Z",
       "side": 1,
       "message": "Also use a template string here?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 52
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "333a4081_58556819",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-09T18:40:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f26f78f0_969fce24",
       "range": {
         "startLine": 126,
         "startChar": 0,

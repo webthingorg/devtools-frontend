@@ -199,6 +199,30 @@
       },
       "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab127312_1bc1d486",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-09T18:40:28Z",
+      "side": 1,
+      "message": "Transforming the CSS variables `titlebar-area-{x, y, width, and height}` would emulate the window controls toolbar for a selected platform (Mac, Windows, Linux). If we do not transform the CSS variables, overlay would not be emulated so nothing would happen.",
+      "parentUuid": "16e7a06f_0fc42ef8",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
