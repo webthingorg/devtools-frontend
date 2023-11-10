@@ -22,6 +22,30 @@
       },
       "revId": "fc64b5f727e420b02634255c5a62e1f30bdec96b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "729d7a74_0f810a00",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2023-11-10T12:45:09Z",
+      "side": 1,
+      "message": "No idea. The aim was to refactor the code to allow the rbd wrapping.",
+      "parentUuid": "9dfce0bd_fbbc6f84",
+      "range": {
+        "startLine": 599,
+        "startChar": 18,
+        "endLine": 599,
+        "endChar": 31
+      },
+      "revId": "fc64b5f727e420b02634255c5a62e1f30bdec96b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
