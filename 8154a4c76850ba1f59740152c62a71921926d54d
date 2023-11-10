@@ -247,6 +247,54 @@
       },
       "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba60484_602ef7aa",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-10T19:14:13Z",
+      "side": 1,
+      "message": "So the",
+      "parentUuid": "2ecd86cc_dc4031f1",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5135b6f0_6dac3dcb",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-10T19:14:13Z",
+      "side": 1,
+      "message": "Sorry let me try again. So we obtain the original stylesheet from the current webpage and store it in the `originalStylesheetText` variable. When the overlay is activated, the `#transformStyleSheet` function alters specific CSS environment variables based on the selected platform. These variables are detailed on page 9 in the explainer found at https://bit.ly/3w5hn7y. The `updatedStylesheet` variable, which contains the styles for the emulated overlay, is the return value of this function. This updated stylesheet is then applied using the `setStyleSheetText` function to emulate the overlay.\n\nIn summary, the primary objective of this function is to adjust certain CSS environment variables within the existing stylesheet and provide it as the style sheet for the emulated overlay.",
+      "parentUuid": "2ecd86cc_dc4031f1",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
