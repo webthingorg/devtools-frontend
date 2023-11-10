@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d99de1_b6955789",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-10T20:34:19Z",
+      "side": 1,
+      "message": "Do we want to these to be translated?",
+      "range": {
+        "startLine": 450,
+        "startChar": 1,
+        "endLine": 462,
+        "endChar": 38
+      },
+      "revId": "d9e43295807ed9567a2f00ed5ba08655d5a7c114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "688b20c7_70369226",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-10T20:34:19Z",
+      "side": 1,
+      "message": "This needs a left margin so that there\u0027s a space between \"on\" and the dropdown.",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 100
+      },
+      "revId": "d9e43295807ed9567a2f00ed5ba08655d5a7c114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
