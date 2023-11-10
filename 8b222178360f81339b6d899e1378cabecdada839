@@ -39,6 +39,30 @@
       },
       "revId": "8b222178360f81339b6d899e1378cabecdada839",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ccaafb_4b9a1240",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-11-10T10:10:18Z",
+      "side": 1,
+      "message": "Done. nice catch! In fact, we even don\u0027t need the `this.#tree`, so just removed it from tree manipulator",
+      "parentUuid": "ea188292_964bfe4d",
+      "range": {
+        "startLine": 222,
+        "startChar": 14,
+        "endLine": 222,
+        "endChar": 18
+      },
+      "revId": "8b222178360f81339b6d899e1378cabecdada839",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
