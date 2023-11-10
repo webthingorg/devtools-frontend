@@ -16,6 +16,24 @@
       "message": "Nit: Make them singular",
       "revId": "7bca7f8ce5b78a8b8a66f46ef0700284f617ef18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbbb348b_328c0729",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-10T08:41:19Z",
+      "side": 1,
+      "message": "This matches what is used in https://crsrc.org/c/third_party/devtools-frontend/src/front_end/core/common/ResourceType.ts;l\u003d379.\n\nI want this CL to contain minimal changes in order to be back-mergeable.",
+      "parentUuid": "55e68873_3b21d82f",
+      "revId": "7bca7f8ce5b78a8b8a66f46ef0700284f617ef18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
