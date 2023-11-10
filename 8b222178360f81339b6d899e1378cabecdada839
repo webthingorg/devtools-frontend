@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301bad6f_6491c17f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-11-10T09:28:05Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8b222178360f81339b6d899e1378cabecdada839",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea188292_964bfe4d",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1542443
+      },
+      "writtenOn": "2023-11-10T09:28:05Z",
+      "side": 1,
+      "message": "maybe let\u0027s check if tree exists here and make it not optional in TreeManipulator? \n``\nif(this.#tree) {\n this.#treeManipulator \u003d new TraceEngine.TreeManipulator.TreeManipulator(...);\n}\n ``\n \nWith that we can remove another ``if (!this.#tree)`` check in TreeManipulator",
+      "range": {
+        "startLine": 222,
+        "startChar": 14,
+        "endLine": 222,
+        "endChar": 18
+      },
+      "revId": "8b222178360f81339b6d899e1378cabecdada839",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
