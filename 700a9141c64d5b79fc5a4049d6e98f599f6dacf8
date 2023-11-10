@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c671d32c_0147254b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2023-11-10T05:16:00Z",
+      "side": 1,
+      "message": "overall lgtm.",
+      "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "793cd63a_bf0d1c75",
@@ -84,6 +101,53 @@
         "startChar": 0,
         "endLine": 29,
         "endChar": 32
+      },
+      "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e494387_95b6b944",
+        "filename": "front_end/panels/application/ServiceWorkerStaticRouterView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2023-11-10T05:16:00Z",
+      "side": 1,
+      "message": "Great!!!  We are afraid of script injection attacks because some of fields accepts DOMString, and will be shown here.",
+      "parentUuid": "7f4188fa_6296401c",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "437807f4_09386f01",
+        "filename": "test/unittests/front_end/panels/application/ServiceWorkerStaticRouterView_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2023-11-10T05:16:00Z",
+      "side": 1,
+      "message": "I know the implementation and the router rules will be updated only during the activated, but I did not come up with the reason why we should enforce this.",
+      "range": {
+        "startLine": 63,
+        "startChar": 62,
+        "endLine": 63,
+        "endChar": 63
       },
       "revId": "700a9141c64d5b79fc5a4049d6e98f599f6dacf8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
