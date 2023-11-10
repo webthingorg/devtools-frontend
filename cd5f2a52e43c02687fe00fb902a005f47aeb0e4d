@@ -68,6 +68,24 @@
       "message": "How about adding something like `--shadow: var(--width) var(--theme)`, too? I\u0027m not 100% sure that the testcase above covers this case for CSSVarSwatch.",
       "revId": "cd5f2a52e43c02687fe00fb902a005f47aeb0e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f152f7_6c96d92f",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-10T10:03:14Z",
+      "side": 1,
+      "message": "Oh nice catch! Updated it and asserted that it renders to CSS var swatches for that case :)",
+      "parentUuid": "f05013d5_50c1bbb6",
+      "revId": "cd5f2a52e43c02687fe00fb902a005f47aeb0e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
