@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b631981c_63b7d51b",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-10T22:16:08Z",
+      "side": 1,
+      "message": "I think only where necessary since I believe OS names are often used internationally without translation.  Added comment:\n\n(Operating system names are often used internationally without translation, please translate only where necessary)",
+      "parentUuid": "f5d99de1_b6955789",
+      "range": {
+        "startLine": 450,
+        "startChar": 1,
+        "endLine": 462,
+        "endChar": 38
+      },
+      "revId": "d9e43295807ed9567a2f00ed5ba08655d5a7c114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "688b20c7_70369226",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-10T20:34:19Z",
       "side": 1,
       "message": "This needs a left margin so that there\u0027s a space between \"on\" and the dropdown.",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 100
+      },
+      "revId": "d9e43295807ed9567a2f00ed5ba08655d5a7c114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "931daaa1_f8852423",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2023-11-10T22:16:08Z",
+      "side": 1,
+      "message": "Added 4px margin in CSS file for chrome-select.\n\nhttps://imgur.com/a/E8nUuC1",
+      "parentUuid": "688b20c7_70369226",
       "range": {
         "startLine": 1319,
         "startChar": 0,
