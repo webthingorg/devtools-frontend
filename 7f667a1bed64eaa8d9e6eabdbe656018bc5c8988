@@ -16,6 +16,23 @@
       "message": "Hey Jack, can you take a look? For some time, I have been annoyed when the page was loading slower if the protocol monitor is open :)",
       "revId": "7f667a1bed64eaa8d9e6eabdbe656018bc5c8988",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58f806d_bde79615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-10T15:12:08Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "7f667a1bed64eaa8d9e6eabdbe656018bc5c8988",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
