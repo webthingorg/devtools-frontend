@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5bf9b7c_4ed68062",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 28
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-11-10T07:43:49Z",
+      "side": 1,
+      "message": "FWIW I kind of like how explicit these are. It might not be obvious to developers without the extra \"navigation\" word.",
+      "parentUuid": "5c02891c_478f2205",
+      "range": {
+        "startLine": 24,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 32
+      },
+      "revId": "64683653cd4e4175cefb1670155d03ba9d492694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "17afaa99_83acbb39",
         "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
         "patchSetId": 28
