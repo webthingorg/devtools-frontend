@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3982e729_d3d46002",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2023-11-10T16:41:18Z",
+      "side": 1,
+      "message": "I refactored RootCauses to a class, and ported over the tests. The tests are slightly simpler b/c instead of mocking SDK / CDT data model, instead can mock things more directly w/ the protocol interface callbacks.",
+      "revId": "2da4924c950ec5768426f8f00a8dac71b5372a1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

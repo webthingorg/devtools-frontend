@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "042412c6_a3a480fc",
+        "filename": "front_end/models/trace/helpers/TreeHelpers.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2023-11-10T16:41:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7e04bb7_f0f0b162",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 15
+      },
+      "revId": "3b611197e7d7d454162e49e6999c35ff7f2611a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a89646e8_c55ff3dc",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-09T16:39:16Z",
       "side": 1,
       "message": "I think I would rather be explicit and pass this in - or if you want to avoid that perhaps we go for:\n\n```\nconst rootCauseCalculator \u003d new RootCauseThing(protocolInterface)\n```\n\nWDYT? Relying on the global makes me a bit edgy - even though I understand and agree with your comment that the risk is low. It could cause us issues in tests as well.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "3b611197e7d7d454162e49e6999c35ff7f2611a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f15fa282_1aff905f",
+        "filename": "front_end/models/trace/root-causes/LayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2023-11-10T16:41:18Z",
+      "side": 1,
+      "message": "Done - refactored to class.",
+      "parentUuid": "a89646e8_c55ff3dc",
       "range": {
         "startLine": 80,
         "startChar": 0,
