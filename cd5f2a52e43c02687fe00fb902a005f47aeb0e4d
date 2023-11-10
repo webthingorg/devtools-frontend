@@ -34,6 +34,40 @@
       "parentUuid": "55f9ce0e_bdb7380a",
       "revId": "cd5f2a52e43c02687fe00fb902a005f47aeb0e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70727a8c_68ef5a26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-10T08:04:09Z",
+      "side": 1,
+      "message": "Awesome, I love how much complex code this removes! LGTM with one suggestion",
+      "revId": "cd5f2a52e43c02687fe00fb902a005f47aeb0e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f05013d5_50c1bbb6",
+        "filename": "test/unittests/front_end/panels/elements/StylePropertyTreeElement_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-10T08:04:09Z",
+      "side": 1,
+      "message": "How about adding something like `--shadow: var(--width) var(--theme)`, too? I\u0027m not 100% sure that the testcase above covers this case for CSSVarSwatch.",
+      "revId": "cd5f2a52e43c02687fe00fb902a005f47aeb0e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
