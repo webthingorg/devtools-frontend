@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40203acc_5809b8c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-10T10:08:33Z",
+      "side": 1,
+      "message": "LGTM and thanks for the refactoring of `appendItem` :)",
+      "revId": "b8e8418a8123b5009a5d96978d109937e1c7bc6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
