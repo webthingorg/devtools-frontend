@@ -140,20 +140,20 @@ export function suggestionFilter(option: string, query: string): boolean {
 export class JSONEditor extends LitElement {
   static override styles = [editorWidgetStyles];
   @property()
-  declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
-  @property() declare typesByName: Map<string, Parameter[]>;
-  @property() declare enumsByName: Map<string, Record<string, string>>;
-  @state() declare parameters: Parameter[];
-  @state() declare targets: SDK.Target.Target[];
-  @state() command: string = '';
-  @state() targetId?: string;
+  accessor metadataByCommand!: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
+  @property() accessor typesByName!: Map<string, Parameter[]>;
+  @property() accessor enumsByName!: Map<string, Record<string, string>>;
+  @property() accessor command: string = '';
+  @property() accessor parameters: Parameter[];
+  @property() accessor targetId: string|undefined;
+  @state() accessor #targets: SDK.Target.Target[];
 
   #hintPopoverHelper?: UI.PopoverHelper.PopoverHelper;
 
   constructor() {
     super();
     this.parameters = [];
-    this.targets = [];
+    this.#targets = [];
     this.addEventListener('keydown', event => {
       if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
         this.#handleParameterInputKeydown(event);
@@ -188,9 +188,9 @@ export class JSONEditor extends LitElement {
   }
 
   #handleAvailableTargetsChanged(): void {
-    this.targets = SDK.TargetManager.TargetManager.instance().targets();
-    if (this.targets.length && this.targetId === undefined) {
-      this.targetId = this.targets[0].id();
+    this.#targets = SDK.TargetManager.TargetManager.instance().targets();
+    if (this.#targets.length && this.targetId === undefined) {
+      this.targetId = this.#targets[0].id();
     }
   }
 
@@ -808,8 +808,8 @@ export class JSONEditor extends LitElement {
   }
 
   #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
-    const target = this.targets.find(el => el.id() === this.targetId);
-    const targetLabel = target ? this.#computeTargetLabel(target) : this.#computeTargetLabel(this.targets[0]);
+    const target = this.#targets.find(el => el.id() === this.targetId);
+    const targetLabel = target ? this.#computeTargetLabel(target) : this.#computeTargetLabel(this.#targets[0]);
 
     // clang-format off
     return html`
@@ -826,7 +826,7 @@ export class JSONEditor extends LitElement {
             .position=${Dialogs.Dialog.DialogVerticalPosition.BOTTOM}
             .buttonTitle=${targetLabel}
           >
-          ${repeat(this.targets, target => {
+          ${repeat(this.#targets, target => {
           return LitHtml.html`
                 <${Menus.Menu.MenuItem.litTagName}
                   .value=${target.id()}>
