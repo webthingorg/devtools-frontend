@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31501692_c0ed7072",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-10T11:54:47Z",
+      "side": 1,
+      "message": "I am struggling a bit here to understand the motivation behind this CL.\n\nWhat are the problems with the current approach? Is this causing bugs with other features such as the context menu? Or are you trying to optimise performance?\n\nI am reluctant for us to end with an approach when we have to explicitly call some reset() methods in some scenarios but not others; that is open to having bugs if a developer incorrectly calls it when they don\u0027t need to, or forgets to call it when they do need to.",
+      "revId": "e52f985b7af4f22ef4bcbd4df1b9d3fff9958493",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
