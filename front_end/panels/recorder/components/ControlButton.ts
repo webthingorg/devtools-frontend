@@ -19,9 +19,9 @@ declare global {
 export class ControlButton extends LitElement {
   static override styles = [controlButtonStyles];
 
-  @property() declare label: string;
-  @property() declare shape: string;
-  @property() declare disabled: boolean;
+  @property() accessor label: string;
+  @property() accessor shape: string;
+  @property() accessor disabled: boolean;
 
   constructor() {
     super();
