@@ -7,11 +7,10 @@ import * as ComponentHelpers from '../helpers/helpers.js';
 
 import iconStyles from './newIcon.css.js';
 
+const {property} = LitHtml.Decorators;
+
 export class NewIcon extends LitHtml.LitElement {
-  @LitHtml
-      .Decorators.property({
-        type: String,
-      }) name = '';
+  @property({type: String}) accessor name = '';
 
   static override get styles(): CSSStyleSheet[] {
     return [iconStyles];
