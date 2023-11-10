@@ -464,7 +464,7 @@ export class EditorState {
 class RecorderSelectorPickerButton extends LitElement {
   static override styles = [stepEditorStyles];
 
-  @property() declare disabled: boolean;
+  @property() accessor disabled: boolean;
 
   #picker = new Controllers.SelectorPicker.SelectorPicker(this);
 
@@ -508,18 +508,18 @@ class RecorderSelectorPickerButton extends LitElement {
 export class StepEditor extends LitElement {
   static override styles = [stepEditorStyles];
 
-  @state() private declare state: DeepImmutable<EditorState>;
-  @state() private declare error: string|undefined;
+  @state() accessor #state: DeepImmutable<EditorState>;
+  @state() accessor #error: string|undefined;
 
-  @property() declare isTypeEditable: boolean;
-  @property() declare disabled: boolean;
+  @property() accessor isTypeEditable: boolean;
+  @property() accessor disabled: boolean;
 
   #renderedAttributes: Set<Attribute> = new Set();
 
   constructor() {
     super();
 
-    this.state = {type: Models.Schema.StepType.WaitForElement};
+    this.#state = {type: Models.Schema.StepType.WaitForElement};
 
     this.isTypeEditable = true;
     this.disabled = false;
@@ -532,8 +532,8 @@ export class StepEditor extends LitElement {
   }
 
   set step(step: DeepImmutable<Models.Schema.Step>) {
-    this.state = deepFreeze(EditorState.fromStep(step));
-    this.error = undefined;
+    this.#state = deepFreeze(EditorState.fromStep(step));
+    this.#error = undefined;
   }
 
   #commit(updatedState: DeepImmutable<EditorState>): void {
@@ -544,9 +544,9 @@ export class StepEditor extends LitElement {
       // reliably know when the state will come back down. Since we need to
       // focus the DOM elements that may be created as a result of this new
       // state, we set it here for waiting on the updateComplete promise later.
-      this.state = updatedState;
+      this.#state = updatedState;
     } catch (error) {
-      this.error = error.message;
+      this.#error = error.message;
     }
   }
 
@@ -554,7 +554,7 @@ export class StepEditor extends LitElement {
     event.preventDefault();
     event.stopPropagation();
 
-    this.#commit(immutableDeepAssign(this.state, {
+    this.#commit(immutableDeepAssign(this.#state, {
       target: event.data.target,
       frame: event.data.frame,
       selectors: event.data.selectors.map(selector => typeof selector === 'string' ? [selector] : selector),
@@ -569,7 +569,7 @@ export class StepEditor extends LitElement {
         event.preventDefault();
         event.stopPropagation();
 
-        this.#commit(immutableDeepAssign(this.state, assignments));
+        this.#commit(immutableDeepAssign(this.#state, assignments));
 
         this.#ensureFocus(query);
 
@@ -610,7 +610,7 @@ export class StepEditor extends LitElement {
     if (!assignments) {
       return;
     }
-    this.#commit(immutableDeepAssign(this.state, assignments));
+    this.#commit(immutableDeepAssign(this.#state, assignments));
 
     if (opts.metric) {
       Host.userMetrics.recordingEdited(opts.metric);
@@ -624,11 +624,11 @@ export class StepEditor extends LitElement {
     }
 
     const value = event.target.value as Models.Schema.StepType;
-    if (value === this.state.type) {
+    if (value === this.#state.type) {
       return;
     }
     if (!Object.values(Models.Schema.StepType).includes(value)) {
-      this.error = i18nString(UIStrings.unknownActionType);
+      this.#error = i18nString(UIStrings.unknownActionType);
       return;
     }
     this.#commit(await EditorState.default(value));
@@ -641,8 +641,8 @@ export class StepEditor extends LitElement {
 
     const attribute = (event.target as HTMLElement).dataset.attribute as Attribute;
 
-    this.#commit(immutableDeepAssign(this.state, {
-      [attribute]: await EditorState.defaultByAttribute(this.state, attribute),
+    this.#commit(immutableDeepAssign(this.#state, {
+      [attribute]: await EditorState.defaultByAttribute(this.#state, attribute),
     }));
 
     this.#ensureFocus(`[data-attribute=${attribute}].attribute devtools-suggestion-input`);
@@ -670,7 +670,7 @@ export class StepEditor extends LitElement {
       return;
     }
 
-    const attributes = attributesByType[this.state.type];
+    const attributes = attributesByType[this.#state.type];
     const optional = [...attributes.optional].includes(attribute as typeof attributes.optional[number]);
     if (!optional || this.disabled) {
       return;
@@ -689,7 +689,7 @@ export class StepEditor extends LitElement {
         event.stopPropagation();
 
         this.#commit(
-          immutableDeepAssign(this.state, { [attribute]: undefined }),
+          immutableDeepAssign(this.#state, { [attribute]: undefined }),
         );
       }}
     ></devtools-button>`;
@@ -705,7 +705,7 @@ export class StepEditor extends LitElement {
         .disabled=${!editable || this.disabled}
         .options=${Object.values(Models.Schema.StepType)}
         .placeholder=${defaultValuesByAttribute.type}
-        .value=${live(this.state.type)}
+        .value=${live(this.#state.type)}
         @blur=${this.#handleTypeInputBlur}
       ></devtools-suggestion-input>
     </div>`;
@@ -714,7 +714,7 @@ export class StepEditor extends LitElement {
 
   #renderRow(attribute: Attribute): LitHtml.TemplateResult|undefined {
     this.#renderedAttributes.add(attribute);
-    const attributeValue = this.state[attribute]?.toString();
+    const attributeValue = this.#state[attribute]?.toString();
     if (attributeValue === undefined) {
       return;
     }
@@ -738,7 +738,7 @@ export class StepEditor extends LitElement {
         @blur=${this.#handleInputBlur({
       attribute,
       from(value) {
-        if (this.state[attribute] === undefined) {
+        if (this.#state[attribute] === undefined) {
           return;
         }
         switch (attribute) {
@@ -758,7 +758,7 @@ export class StepEditor extends LitElement {
 
   #renderFrameRow(): LitHtml.TemplateResult|undefined {
     this.#renderedAttributes.add('frame');
-    if (this.state.frame === undefined) {
+    if (this.#state.frame === undefined) {
       return;
     }
     // clang-format off
@@ -768,7 +768,7 @@ export class StepEditor extends LitElement {
           <div>frame<span class="separator">:</span></div>
           ${this.#renderDeleteButton('frame')}
         </div>
-        ${this.state.frame.map((frame, index, frames) => {
+        ${this.#state.frame.map((frame, index, frames) => {
           return html`
             <div class="padded row">
               <devtools-suggestion-input
@@ -779,7 +779,7 @@ export class StepEditor extends LitElement {
                 @blur=${this.#handleInputBlur({
                   attribute: 'frame',
                   from(value) {
-                    if (this.state.frame?.[index] === undefined) {
+                    if (this.#state.frame?.[index] === undefined) {
                       return;
                     }
                     return {
@@ -830,7 +830,7 @@ export class StepEditor extends LitElement {
 
   #renderSelectorsRow(): LitHtml.TemplateResult|undefined {
     this.#renderedAttributes.add('selectors');
-    if (this.state.selectors === undefined) {
+    if (this.#state.selectors === undefined) {
       return;
     }
     // clang-format off
@@ -843,7 +843,7 @@ export class StepEditor extends LitElement {
         ></devtools-recorder-selector-picker-button>
         ${this.#renderDeleteButton('selectors')}
       </div>
-      ${this.state.selectors.map((selector, index, selectors) => {
+      ${this.#state.selectors.map((selector, index, selectors) => {
         return html`<div class="padded row" data-selector-path=${index}>
             <div>selector #${index + 1}<span class="separator">:</span></div>
             ${this.#renderInlineButton({
@@ -890,7 +890,7 @@ export class StepEditor extends LitElement {
                   attribute: 'selectors',
                   from(value) {
                     if (
-                      this.state.selectors?.[index]?.[partIndex] === undefined
+                      this.#state.selectors?.[index]?.[partIndex] === undefined
                     ) {
                       return;
                     }
@@ -953,7 +953,7 @@ export class StepEditor extends LitElement {
 
   #renderAssertedEvents(): LitHtml.TemplateResult|undefined {
     this.#renderedAttributes.add('assertedEvents');
-    if (this.state.assertedEvents === undefined) {
+    if (this.#state.assertedEvents === undefined) {
       return;
     }
     // clang-format off
@@ -962,7 +962,7 @@ export class StepEditor extends LitElement {
         <div>asserted events<span class="separator">:</span></div>
         ${this.#renderDeleteButton('assertedEvents')}
       </div>
-      ${this.state.assertedEvents.map((event, index) => {
+      ${this.#state.assertedEvents.map((event, index) => {
         return html` <div class="padded row">
             <div>type<span class="separator">:</span></div>
             <div>${event.type}</div>
@@ -976,7 +976,7 @@ export class StepEditor extends LitElement {
               @blur=${this.#handleInputBlur({
                 attribute: 'assertedEvents',
                 from(value) {
-                  if (this.state.assertedEvents?.[index]?.title === undefined) {
+                  if (this.#state.assertedEvents?.[index]?.title === undefined) {
                     return;
                   }
                   return {
@@ -998,7 +998,7 @@ export class StepEditor extends LitElement {
               @blur=${this.#handleInputBlur({
                 attribute: 'url',
                 from(value) {
-                  if (this.state.assertedEvents?.[index]?.url === undefined) {
+                  if (this.#state.assertedEvents?.[index]?.url === undefined) {
                     return;
                   }
                   return {
@@ -1018,7 +1018,7 @@ export class StepEditor extends LitElement {
 
   #renderAttributesRow(): LitHtml.TemplateResult|undefined {
     this.#renderedAttributes.add('attributes');
-    if (this.state.attributes === undefined) {
+    if (this.#state.attributes === undefined) {
       return;
     }
     // clang-format off
@@ -1027,7 +1027,7 @@ export class StepEditor extends LitElement {
         <div>attributes<span class="separator">:</span></div>
         ${this.#renderDeleteButton('attributes')}
       </div>
-      ${this.state.attributes.map(({ name, value }, index, attributes) => {
+      ${this.#state.attributes.map(({ name, value }, index, attributes) => {
         return html`<div class="padded row">
           <devtools-suggestion-input
             .disabled=${this.disabled}
@@ -1037,7 +1037,7 @@ export class StepEditor extends LitElement {
             @blur=${this.#handleInputBlur({
               attribute: 'attributes',
               from(name) {
-                if (this.state.attributes?.[index]?.name === undefined) {
+                if (this.#state.attributes?.[index]?.name === undefined) {
                   return;
                 }
                 Host.userMetrics.recordingAssertion(
@@ -1059,7 +1059,7 @@ export class StepEditor extends LitElement {
             @blur=${this.#handleInputBlur({
               attribute: 'attributes',
               from(value) {
-                if (this.state.attributes?.[index]?.value === undefined) {
+                if (this.#state.attributes?.[index]?.value === undefined) {
                   return;
                 }
                 Host.userMetrics.recordingAssertion(
@@ -1125,8 +1125,8 @@ export class StepEditor extends LitElement {
   }
 
   #renderAddRowButtons(): Array<LitHtml.TemplateResult|undefined> {
-    const attributes = attributesByType[this.state.type];
-    return [...attributes.optional].filter(attr => this.state[attr] === undefined).map(attr => {
+    const attributes = attributesByType[this.#state.type];
+    return [...attributes.optional].filter(attr => this.#state[attr] === undefined).map(attr => {
       // clang-format off
         return html`<devtools-button
           .variant=${Buttons.Button.Variant.SECONDARY}
@@ -1172,11 +1172,11 @@ export class StepEditor extends LitElement {
         ${this.#renderRow('name')} ${this.#renderRow('parameters')}
         ${this.#renderRow('visible')} ${this.#renderRow('properties')}
         ${this.#renderAttributesRow()}
-        ${this.error
+        ${this.#error
           ? html`
               <div class="error">
                 ${i18nString(UIStrings.notSaved, {
-                  error: this.error,
+                  error: this.#error,
                 })}
               </div>
             `
