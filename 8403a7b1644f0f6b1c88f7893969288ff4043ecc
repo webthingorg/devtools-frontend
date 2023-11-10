@@ -162,6 +162,30 @@
       },
       "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc62347_391b1ad0",
+        "filename": "test/unittests/front_end/panels/application/components/BackForwardCacheView_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-10T08:17:29Z",
+      "side": 1,
+      "message": "It should be `devtools-expandable-list` instead of `expandable-list`.\n\nIn case you\u0027re not aware, you can `console.log()` elements and shadow roots when debugging the tests to see their contents.",
+      "parentUuid": "7862d09c_9e9c32bb",
+      "range": {
+        "startLine": 275,
+        "startChar": 61,
+        "endLine": 275,
+        "endChar": 73
+      },
+      "revId": "8403a7b1644f0f6b1c88f7893969288ff4043ecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
