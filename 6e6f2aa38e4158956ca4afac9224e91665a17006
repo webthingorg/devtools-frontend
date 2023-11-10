@@ -142,6 +142,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "691ef3e6_e4904c9c",
+        "filename": "test/unittests/front_end/core/sdk/OverlayWindowControls_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-10T14:05:55Z",
+      "side": 1,
+      "message": "Yeah, I understand why you need them. I am just saying that the comment doesn\u0027t seem to add much value and could be removed.",
+      "parentUuid": "b6f035e9_25440d37",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 66
+      },
+      "revId": "6e6f2aa38e4158956ca4afac9224e91665a17006",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "120ba24c_097ceb19",

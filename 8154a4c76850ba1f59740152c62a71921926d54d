@@ -223,6 +223,30 @@
       },
       "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ecd86cc_dc4031f1",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-10T14:05:55Z",
+      "side": 1,
+      "message": "Sorry, but it is still not clear to me why is that. Maybe link to an explainer or design doc here?",
+      "parentUuid": "ab127312_1bc1d486",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
