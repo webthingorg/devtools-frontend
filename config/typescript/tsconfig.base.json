@@ -16,8 +16,6 @@
     "noImplicitOverride": true,
     "noFallthroughCasesInSwitch": true,
 
-    "experimentalDecorators": true,
-
     "composite": true,
     "declaration": true,
 
