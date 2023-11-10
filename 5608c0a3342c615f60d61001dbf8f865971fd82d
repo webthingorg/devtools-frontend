@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a1128f_714e1fbf",
+        "filename": "front_end/ui/components/report_view/report.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-10T07:56:27Z",
+      "side": 0,
+      "message": "This is being used e.g. in the Application panel\u0027s frame tree (FrameDetailsView)",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "5608c0a3342c615f60d61001dbf8f865971fd82d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
