@@ -22,6 +22,30 @@
       },
       "revId": "5608c0a3342c615f60d61001dbf8f865971fd82d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b84e02d_b0920504",
+        "filename": "front_end/ui/components/report_view/report.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-13T06:01:13Z",
+      "side": 0,
+      "message": "Ah, thanks, the selector reuse confused me. Restored.",
+      "parentUuid": "f9a1128f_714e1fbf",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "5608c0a3342c615f60d61001dbf8f865971fd82d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
