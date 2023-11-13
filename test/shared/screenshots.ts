@@ -271,7 +271,8 @@ async function execImageDiffCommand(cmd: string) {
 
 async function compare(golden: string, generated: string, maximumDiffThreshold: number) {
   const isOnBot = process.env.LUCI_CONTEXT !== undefined;
-
+  if (maximumDiffThreshold) {
+  }
   if (!isOnBot && process.env.SKIP_SCREENSHOT_COMPARISONS_FOR_FAST_COVERAGE) {
     // When checking test coverage locally the tests get sped up significantly
     // if we do not do the actual image comparison. Obviously this makes the
@@ -309,7 +310,7 @@ async function compare(golden: string, generated: string, maximumDiffThreshold: 
 
   try {
     assert.isAtMost(
-        rawMisMatchPercentage, maximumDiffThreshold,
+        rawMisMatchPercentage, 0,
         `There is a ${rawMisMatchPercentage}% difference between the golden and generated image.
 
     ${debugInfo}`);
