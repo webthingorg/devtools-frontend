@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e547e7bb_c193bc53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-13T08:53:41Z",
+      "side": 1,
+      "message": "LGTM with a question",
+      "revId": "5b4f415ed8d4cc9c722c34f9cc452755e0d76762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07690fee_17e5b678",
+        "filename": "front_end/panels/explain/PromptBuilder.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-13T08:53:41Z",
+      "side": 1,
+      "message": "Should \u0027set-cookie\u0027 headers be skipped as well? Are there additional headers containing private info which should be skipped?",
+      "revId": "5b4f415ed8d4cc9c722c34f9cc452755e0d76762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
