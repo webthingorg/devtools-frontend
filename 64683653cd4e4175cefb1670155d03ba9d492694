@@ -105,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03c2910b_be92add7",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 28
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-13T05:31:34Z",
+      "side": 1,
+      "message": "I changed it to using angular and made it translatable. Thank you for your suggestion!",
+      "parentUuid": "17afaa99_83acbb39",
+      "range": {
+        "startLine": 115,
+        "startChar": 65,
+        "endLine": 115,
+        "endChar": 77
+      },
+      "revId": "64683653cd4e4175cefb1670155d03ba9d492694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59c7b739_e7bd9ee1",
@@ -118,6 +142,30 @@
       "writtenOn": "2023-11-10T06:13:05Z",
       "side": 1,
       "message": "We should probably move this to DataGridHelpers",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 100
+      },
+      "revId": "64683653cd4e4175cefb1670155d03ba9d492694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520e0b10_83896976",
+        "filename": "test/unittests/front_end/panels/application/preloading/components/UsedPreloadingView_test.ts",
+        "patchSetId": 28
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-13T05:31:34Z",
+      "side": 1,
+      "message": "That\u0027s true. I will make another CL for this!",
+      "parentUuid": "59c7b739_e7bd9ee1",
       "range": {
         "startLine": 40,
         "startChar": 0,
