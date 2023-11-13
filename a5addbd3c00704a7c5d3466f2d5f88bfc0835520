@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3ba688f9_f813a6a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-13T16:31:23Z",
+      "side": 1,
+      "message": "yes, thanks for catching!",
+      "parentUuid": "e956fae5_ecd06ebf",
+      "revId": "a5addbd3c00704a7c5d3466f2d5f88bfc0835520",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e3fb2313_d51fbd35",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
