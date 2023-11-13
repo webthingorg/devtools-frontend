@@ -69,6 +69,7 @@ export class TimelineFrameModel {
   }
 
   getFrames(): TimelineFrame[] {
+    console.log(this.frames);
     return this.frames;
   }
 

@@ -1,7 +1,6 @@
 # Traces
 
 This folder contains traces saved by the DevTools Performance Panel that can be used in tests.
-
 To add a trace, copy the `*.json.gz` file into this folder, and add it to the `BUILD.gn`. You can also add the unzipped `*.json` file, but these are git-ignored. However, it's useful when working with a trace file to have it extracted and inspectable!
 
 There are two helpers you can use to load a trace file into a test, depending on which model you are working with:
@@ -51,6 +50,10 @@ This trace is a trace of example.com which was recorded via the OPP's "Start pro
 ### web-dev
 
 A trace of web.dev being loaded.
+
+### web-dev-commit
+
+A newer trace from web.dev which has Commit events rather than CompositeLayers events.
 
 ### multiple-top-level-renderers
 

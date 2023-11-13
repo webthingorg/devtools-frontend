@@ -367,6 +367,8 @@ export function data(): MetaHandlerData {
     throw new Error('Meta Handler is not finalized');
   }
 
+  console.log(mainFrameNavigations);
+
   return {
     traceBounds: {...traceBounds},
     browserProcessId,
