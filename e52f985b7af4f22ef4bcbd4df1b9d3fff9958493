@@ -39,6 +39,30 @@
       },
       "revId": "e52f985b7af4f22ef4bcbd4df1b9d3fff9958493",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d2847ce_9e8e43f5",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-11-13T06:01:35Z",
+      "side": 1,
+      "message": "I don\u0027t think the groups could change for the same trace either, but there is an exception for ignore listing, every time you toggle the ignore listing related flag, it will reset the flame chart and re-render it",
+      "parentUuid": "d4443722_228db3b1",
+      "range": {
+        "startLine": 2601,
+        "startChar": 2,
+        "endLine": 2601,
+        "endChar": 7
+      },
+      "revId": "e52f985b7af4f22ef4bcbd4df1b9d3fff9958493",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
