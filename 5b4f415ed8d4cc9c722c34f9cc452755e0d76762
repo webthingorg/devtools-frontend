@@ -51,6 +51,24 @@
       "parentUuid": "07690fee_17e5b678",
       "revId": "5b4f415ed8d4cc9c722c34f9cc452755e0d76762",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc08d23e_5fd338c8",
+        "filename": "front_end/panels/explain/PromptBuilder.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-13T09:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0d3546b_88cd1e47",
+      "revId": "5b4f415ed8d4cc9c722c34f9cc452755e0d76762",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
