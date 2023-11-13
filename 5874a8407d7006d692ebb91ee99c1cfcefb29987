@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a0cc0e9_cfd9380e",
+        "filename": "front_end/ui/visual_logging/LoggingState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-13T12:20:02Z",
+      "side": 1,
+      "message": "It was already problematic, if you have a custom parent provider returning a non-annotated element. We will call `getLoggingState` on it with the intention of getting the existing state, but it fact would trigger creating state for an element without a valid config, which will cause errors further down the line.\n\nIt becomes apparent now, when we made config an explicit parameter: in some context you simply don\u0027t have a config and you don\u0027t need to have one as you expect state to already exist.",
+      "parentUuid": "db1aab31_451b5abd",
+      "revId": "5874a8407d7006d692ebb91ee99c1cfcefb29987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ca1469a_a5a6c5c5",
         "filename": "test/unittests/front_end/ui/visual_logging/LoggingState_test.ts",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-13T12:10:53Z",
       "side": 1,
       "message": "(nit): Can we separate tests for `getOrCreateLoggingState` and `getLoggingState` since their behavior is different now?\n\nor we can also mention `getOrCreateLoggingState` name in the test itself.",
+      "revId": "5874a8407d7006d692ebb91ee99c1cfcefb29987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "324f3841_88c3dac7",
+        "filename": "test/unittests/front_end/ui/visual_logging/LoggingState_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-13T12:20:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ca1469a_a5a6c5c5",
       "revId": "5874a8407d7006d692ebb91ee99c1cfcefb29987",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
