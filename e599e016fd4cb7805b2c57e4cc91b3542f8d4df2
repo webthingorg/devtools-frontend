@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23adb952_93f15a99",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T12:24:26Z",
+      "side": 1,
+      "message": "I find this a bit confusing. It seems that the \"descriptors\" array and its items can be loggables.\n\nIn here, we\u0027re calling `registerLoggable` with an array of descriptors where, then I expect the `descriptors` array to be registered as a loggable however in here this method registers its items as loggables.\n\nCan we rename this function to `registerChildLoggables` or something?\n\nThat way, the line below while registering `menuObject` loggable becomes a bit more understandable: we register `menuObject` as loggable and then register its children as loggable as well. WDYT?",
+      "revId": "e599e016fd4cb7805b2c57e4cc91b3542f8d4df2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
