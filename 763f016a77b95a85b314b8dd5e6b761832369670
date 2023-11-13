@@ -16,6 +16,24 @@
       "message": "Could you fix description? (in a follow-up CL)",
       "revId": "763f016a77b95a85b314b8dd5e6b761832369670",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1e10c5f_4247b49e",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-13T12:27:36Z",
+      "side": 1,
+      "message": "Fixed it. Thank you for letting me know!",
+      "parentUuid": "fbcd002a_deb0365b",
+      "revId": "763f016a77b95a85b314b8dd5e6b761832369670",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
