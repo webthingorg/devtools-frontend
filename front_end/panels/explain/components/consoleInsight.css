@@ -40,7 +40,7 @@
 
 @keyframes collapse {
   from {
-    max-height: 500px;
+    max-height: 2000px;
     opacity: 100%;
   }
 
@@ -191,4 +191,14 @@ textarea {
   to {
     translate: -100% 0;
   }
+}
+
+ul {
+  padding-left: 1em;
+}
+
+ul .link {
+  color: var(--sys-color-primary);
+  display: inline-flex !important; /* stylelint-disable-line declaration-no-important */
+  align-items: center;
 }
