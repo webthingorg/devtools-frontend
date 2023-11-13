@@ -53,6 +53,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98289f9c_da78e5bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-11-13T22:40:37Z",
+      "side": 1,
+      "message": "Addressed the feedback. PTAL",
+      "revId": "c3fa3e190e45ab63e74d54ab5bbe32a8a0201c8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9d1d452_996e655f",
@@ -66,6 +83,30 @@
       "writtenOn": "2023-11-08T09:21:49Z",
       "side": 1,
       "message": "I know we are not consistent here, but we are migrating DevTools to use actual JS private methods, so could you change this and others to #filterChanged() please?",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 33
+      },
+      "revId": "c3fa3e190e45ab63e74d54ab5bbe32a8a0201c8e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd5fd729_90d54027",
+        "filename": "front_end/panels/timeline/TimelineTreeView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-11-13T22:40:37Z",
+      "side": 1,
+      "message": "ahh yes, thanks for spotting this. Missed this during cleaning.",
+      "parentUuid": "e9d1d452_996e655f",
       "range": {
         "startLine": 482,
         "startChar": 0,
