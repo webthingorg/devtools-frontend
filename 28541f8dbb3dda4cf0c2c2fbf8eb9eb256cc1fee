@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3ba479e_b3e859d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610337
+      },
+      "writtenOn": "2023-11-13T14:51:12Z",
+      "side": 1,
+      "message": "androfantasticos",
+      "revId": "28541f8dbb3dda4cf0c2c2fbf8eb9eb256cc1fee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
