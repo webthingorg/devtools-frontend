@@ -7,12 +7,22 @@ import {describe, itScreenshot} from '../../../../shared/mocha-extensions.js';
 import {assertElementScreenshotUnchanged} from '../../../../shared/screenshots.js';
 import {loadComponentDocExample, preloadForCodeCoverage} from '../../../helpers/shared.js';
 
-// Flaky
-describe.skip('[crbug.com/1501755] Timeline History Manager tracks', function() {
-  preloadForCodeCoverage('performance_panel/timeline_history_manager.html');
-  itScreenshot('renders all the tracks correctly expanded', async () => {
-    await loadComponentDocExample('performance_panel/timeline_history_manager.html');
-    const dropDown = await waitFor('.drop-down');
-    await assertElementScreenshotUnchanged(dropDown, 'performance/history_dropdown.png', 1);
+for (const a of new Array(100)) {
+  if (a) {
+  }
+  // eslint-disable-next-line rulesdir/no_only
+  describe.only('Timeline History Manager tracks', function() {
+    preloadForCodeCoverage('performance_panel/timeline_history_manager.html');
+    itScreenshot('renders all the tracks correctly expanded', async () => {
+      // eslint-disable-next-line no-console
+      console.log('aa');
+      await loadComponentDocExample('performance_panel/timeline_history_manager.html');
+      // eslint-disable-next-line no-console
+      console.log('bb');
+      const dropDown = await waitFor('.drop-down');
+      // eslint-disable-next-line no-console
+      console.log('cc');
+      await assertElementScreenshotUnchanged(dropDown, 'performance/history_dropdown.png', 1);
+    });
   });
-});
+}
