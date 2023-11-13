@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c75fcbcd_79e020d0",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-13T07:45:46Z",
+      "side": 1,
+      "message": "I also believe OS names, and the \"display override\" should be used without translations.",
+      "parentUuid": "b631981c_63b7d51b",
+      "range": {
+        "startLine": 450,
+        "startChar": 1,
+        "endLine": 462,
+        "endChar": 38
+      },
+      "revId": "d9e43295807ed9567a2f00ed5ba08655d5a7c114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "688b20c7_70369226",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 3
