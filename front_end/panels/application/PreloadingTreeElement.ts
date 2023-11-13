@@ -25,7 +25,7 @@ const UIStrings = {
   /**
    *@description Text in Application Panel Sidebar of the Application panel
    */
-  thisPage: 'This page',
+  thisPage: 'This page -- test CI',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/PreloadingTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
