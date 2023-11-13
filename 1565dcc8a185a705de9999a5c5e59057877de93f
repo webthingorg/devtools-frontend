@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4deb2543_1229bd4a",
+        "filename": "front_end/models/trace/helpers/TreeHelpers.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-13T14:36:52Z",
+      "side": 1,
+      "message": "non-(necessarily)-actionable note: looking at this in hindsight, I feel we should have kept the tree building logic  unaware of any perf insight logic. I would support extracting the initiator building logic to a separate place.\n\nHowever, traversing all events is expensive and we want to avoid doing it multiple times, so I suggest we land this as-is and rethink how we can plug in extra logic to the initial tree building, keeping the tree helpers pure and w/o sacrificing performance.",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "1565dcc8a185a705de9999a5c5e59057877de93f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
