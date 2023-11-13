@@ -2556,6 +2556,7 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
   private contextMenu?: UI.ContextMenu.ContextMenu;
   private selectedTypesCount: HTMLElement;
   private typesCountAdorner: Adorners.Adorner.Adorner;
+  private unchanged = true;
 
   constructor(
       items: UI.FilterBar.Item[], filterChangedCallback: () => void,
@@ -2596,14 +2597,25 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
     this.contextMenu?.discard();
   }
 
+  emitUMA(): void {
+    if (!this.unchanged) {
+      Host.userMetrics.resourceTypeFilterNumberOfSelectedChanged(this.displayedTypes.size);
+      for (const displayedType of this.displayedTypes) {
+        Host.userMetrics.resourceTypeFilterItemSelected(displayedType);
+      }
+    }
+  }
+
   showContextMenu(event: Common.EventTarget.EventTargetEvent<Event>): void {
     const mouseEvent = event.data;
+    this.unchanged = true;
     this.contextMenu = new UI.ContextMenu.ContextMenu(mouseEvent, {
       useSoftMenu: true,
       keepOpen: true,
       x: this.dropDownButton.element.getBoundingClientRect().left,
       y: this.dropDownButton.element.getBoundingClientRect().top +
           (this.dropDownButton.element as HTMLElement).offsetHeight,
+      onSoftMenuClosed: this.emitUMA.bind(this),
     });
 
     this.addRequestType(this.contextMenu, DropDownTypesUI.ALL_TYPES, i18nString(UIStrings.allStrings));
@@ -2661,6 +2673,7 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
   }
 
   private settingChanged(): void {
+    this.unchanged = false;
     this.displayedTypes = new Set();
 
     for (const s in this.setting.get()) {
