@@ -1138,6 +1138,34 @@ const extraPropertyValues = {
   'contain-intrinsic-size': {values: ['auto none', 'auto 100px']},
   'contain-intrinsic-inline-size': {values: ['auto none', 'auto 100px']},
   'contain-intrinsic-block-size': {values: ['auto none', 'auto 100px']},
+  // white-space is a shorthand for `white-space-collapse`, `text-wrap`.
+  // crbug.com/1417543#c26
+  'white-space': {
+    values: [
+      'normal',
+      'pre',           // equal to: `preserve nowrap`
+      'pre-wrap',      // equal to: `preserve wrap`
+      'pre-line',      // equal to: `preserve-breaks wrap`
+      'nowrap',        // equal to: `collapse nowrap`
+      'break-spaces',  // equal to: `break-spaces wrap`, Chrome 76, crbug.com/767634#c28
+
+      // white-space-collapse
+      'collapse',
+      'preserve',
+      'preserve-breaks',
+
+      // text-wrap
+      'wrap',
+      'pretty',
+      'balance',
+
+      'preserve pretty',
+      'preserve balance',
+      'preserve-breaks nowrap',
+      'preserve-breaks pretty',
+      'preserve-breaks balance',
+    ],
+  },
 };
 
 // Weight of CSS properties based on their usage from https://www.chromestatus.com/metrics/css/popularity
