@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5801a947_936b5c22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T14:23:59Z",
+      "side": 1,
+      "message": "LGTM, it\u0027s cool that we\u0027re able to get rid of so many custom element creations :)",
+      "revId": "7a4ab77ae787d427a8a1d58387e93e1e1e0a3d77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
