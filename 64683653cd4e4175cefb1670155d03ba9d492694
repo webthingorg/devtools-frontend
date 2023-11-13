@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3445dcb_9f6d11a7",
+        "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
+        "patchSetId": 28
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1597023
+      },
+      "writtenOn": "2023-11-13T09:17:19Z",
+      "side": 1,
+      "message": "I think stating in an explicit way helps web developers to understand what the values are as Domenic mentioned, so I\u0027ll go with this.\nI can change it if you think \"Initial value\" and \"Activation value\" is better (maybe in another CL).",
+      "parentUuid": "d5bf9b7c_4ed68062",
+      "range": {
+        "startLine": 24,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 32
+      },
+      "revId": "64683653cd4e4175cefb1670155d03ba9d492694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "17afaa99_83acbb39",
         "filename": "front_end/panels/application/preloading/components/PreloadingMismatchedHeadersGrid.ts",
         "patchSetId": 28
