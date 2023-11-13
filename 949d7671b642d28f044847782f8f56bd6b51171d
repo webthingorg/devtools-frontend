@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea4d0ed_a5fa84f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T14:11:28Z",
+      "side": 1,
+      "message": "LGTM with mostly nits.\n\nI have tried the implementation and sporadically encountered an issue where the text from the previous selection is not removed when I searched for something new. Sadly, couldn\u0027t find a way to reliably reproduce this.",
+      "revId": "949d7671b642d28f044847782f8f56bd6b51171d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b876ae3_f091d48d",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1332,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T14:11:28Z",
+      "side": 1,
+      "message": "Suggestion: as far as I understand, `onlySearchQueryChanged` path is only ran via `highlightSearchResults` function.\n\nI wonder if we can inline that code path in `highlightSearchResults` and remove from here to make `updateTitle` only concerning itself with updating the title. WDYT?",
+      "revId": "949d7671b642d28f044847782f8f56bd6b51171d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d4c449f_a40792ed",
+        "filename": "front_end/ui/components/highlighting/HighlightManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T14:11:28Z",
+      "side": 1,
+      "message": "(nit): As far as I understand, this returns whether we\u0027ve reached the end of the tree.\n\nCan we negate the boolean condition here and return whether the move was successful or not?\n\nIt\u0027d be more similar to the `TreeWalker`s own API and I find it a bit more intuitive.",
+      "revId": "949d7671b642d28f044847782f8f56bd6b51171d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0bb14d9_47503835",
+        "filename": "front_end/ui/components/highlighting/HighlightManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T14:11:28Z",
+      "side": 1,
+      "message": "Instead of using type assertion, can we use a type predicate to say that we\u0027re returning `Range` as the result of filter\u0027s fn.\n\nSomething like this: `.filter((r): r is Range \u003d\u003e r !\u003d\u003d null \u0026\u0026 !r.collapsed)`.",
+      "revId": "949d7671b642d28f044847782f8f56bd6b51171d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deb6417c_f234ea1d",
+        "filename": "front_end/ui/components/highlighting/highlighting.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T14:11:28Z",
+      "side": 1,
+      "message": "Can we use `:root::highlight...` as the selector? Otherwise, this `::highlight` applies to all the elements (AFAIU) and is also inherited; so there becomes a spammy amount of rules for the `::highlight` pseudo element in the Styles pane :)\n\nLet\u0027s apply it only to `:root` and expect inheritance to do the trick.",
+      "revId": "949d7671b642d28f044847782f8f56bd6b51171d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57769f8d_e29d0d74",
+        "filename": "test/unittests/front_end/ui/components/highlighting/HighlightManager_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-13T14:11:28Z",
+      "side": 1,
+      "message": "Actually, do we care about the nodes inside the highlight ranges? As long as the correct contents are selected, this seems like an internal behavior; right?\n\n(not sure if it is a good idea or not but I wonder if hiding this detail might make sense in the tests. If so, we can use `cloneContents()` inside `toText` and assert the selected text directly. WDYT?",
+      "revId": "949d7671b642d28f044847782f8f56bd6b51171d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
