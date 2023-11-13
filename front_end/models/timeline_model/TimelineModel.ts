@@ -108,6 +108,7 @@ export class TimelineModelImpl {
   private mainFrameLayerTreeId?: any;
   #isFreshRecording = false;
   #isCpuProfile = false;
+  private postMessageEventHandlers!: Map<string, TraceEngine.Legacy.Event>|null;
 
   constructor() {
     this.minimumRecordTimeInternal = 0;
@@ -248,6 +249,10 @@ export class TimelineModelImpl {
   static isJsFrameEvent(event: TraceEngine.Legacy.CompatibleTraceEvent): boolean {
     return event.name === RecordType.JSFrame || event.name === RecordType.JSIdleFrame ||
         event.name === RecordType.JSSystemFrame;
+  }
+
+  static isPostMessageEvent(event: TraceEngine.Legacy.CompatibleTraceEvent): boolean {
+    return event.name === RecordType.PostMessageDispatch || event.name === RecordType.PostMessageHandler;
   }
 
   static globalEventId(event: TraceEngine.Legacy.Event, field: string): string {
@@ -557,6 +562,7 @@ export class TimelineModelImpl {
     this.browserFrameTracking = false;
     this.persistentIds = false;
     this.legacyCurrentPage = null;
+    this.postMessageEventHandlers = null;
   }
 
   private extractCpuProfileDataModel(tracingModel: TraceEngine.Legacy.TracingModel, thread: TraceEngine.Legacy.Thread):
@@ -877,6 +883,25 @@ export class TimelineModelImpl {
         this.lastRecalculateStylesEvent = event;
         if (this.currentScriptEvent) {
           this.currentTaskLayoutAndRecalcEvents.push(event);
+        }
+        break;
+      }
+
+      case RecordType.PostMessageHandler: {
+        if (!this.postMessageEventHandlers) {
+          this.postMessageEventHandlers = new Map<string, TraceEngine.Legacy.Event>();
+        }
+        this.postMessageEventHandlers?.set(event.args['data']['timestamp'], event);
+        break;
+      }
+
+      case RecordType.PostMessageDispatch: {
+        if (this.postMessageEventHandlers) {
+          const handler = this.postMessageEventHandlers.get(event.args['data']['timestamp']) ?? null;
+          if (handler) {
+            const handlerTimelineData = EventOnTimelineData.forEvent(handler);
+            handlerTimelineData.setInitiator(eventData);
+          }
         }
         break;
       }
@@ -1473,6 +1498,9 @@ export enum RecordType {
   Profile = 'Profile',
 
   AsyncTask = 'AsyncTask',
+
+  PostMessageDispatch = 'PostMessage.Dispatch',
+  PostMessageHandler = 'PostMessage.Handler',
 }
 
 export namespace TimelineModelImpl {
@@ -2003,6 +2031,8 @@ export class TimelineAsyncEventTracker {
       ],
       joinBy: 'identifier',
     });
+
+    events.set(RecordType.PostMessageDispatch, {causes: [RecordType.PostMessageHandler], joinBy: 'timestamp'});
 
     TimelineAsyncEventTracker.asyncEvents = events;
     TimelineAsyncEventTracker.typeToInitiator = new Map();

@@ -1572,4 +1572,7 @@ export const enum KnownEventName {
   InputLatencyMouseMove = 'InputLatency::MouseMove',
   InputLatencyMouseWheel = 'InputLatency::MouseWheel',
   ImplSideFling = 'InputHandlerProxy::HandleGestureFling::started',
+
+  PostMessageDispatch = 'PostMessage.Dispatch',
+  PostMessageHandler = 'PostMessage.Handler',
 }
