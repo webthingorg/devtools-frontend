@@ -34,9 +34,12 @@ require('esbuild')
       format: 'esm',
       platform: 'browser',
       plugins: [plugin],
+      allowOverwrite: true,
       sourcemap: useSourceMaps,
+      loader: Object.fromEntries(['map', 'svg', 'md', 'png', 'avif', 'd', 'html', 'd.ts', 'compressed', 'hash'].map(
+          (ext) => [`.${ext}`, 'empty'])),
     })
-    .catch(err => {
+    .catch((err) => {
       console.error('failed to run esbuild:', err);
       process.exit(1);
     });
