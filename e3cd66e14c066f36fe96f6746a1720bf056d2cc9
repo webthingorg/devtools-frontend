@@ -16,6 +16,24 @@
       "message": "no biggie, but i think this could be…\n\n```suggestion\n    return result?.length;\n```",
       "revId": "e3cd66e14c066f36fe96f6746a1720bf056d2cc9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb55c8ee_542005e1",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-11-14T20:38:11Z",
+      "side": 1,
+      "message": "I see the unconventionality of this line 😅 but I was aiming to keep the return type as boolean to avoid this change propagating to other classes outside of the scope of the CL.",
+      "parentUuid": "9e23fb6e_6182c8a5",
+      "revId": "e3cd66e14c066f36fe96f6746a1720bf056d2cc9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

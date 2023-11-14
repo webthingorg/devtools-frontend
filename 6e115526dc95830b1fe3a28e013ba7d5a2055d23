@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0e494a_6fd1e05a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2023-11-14T20:38:11Z",
+      "side": 1,
+      "message": "Thanks everyone for the feedback and for +1 so far.\n\nThis last revision introduces \"Match whole word\" button, this should address Connor\u0027s suggestion (thanks 😊) which echoes some early feedback I received on our side. The icon come from https://m3.material.io/, let me know if you prefer a different one. PTAL",
+      "revId": "6e115526dc95830b1fe3a28e013ba7d5a2055d23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
