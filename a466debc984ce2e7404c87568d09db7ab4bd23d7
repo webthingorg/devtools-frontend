@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e3826b7_9b9c33c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-14T13:26:30Z",
+      "side": 1,
+      "message": "Thank you for the advice!\nSetting the previous outputs to `outputs` isn\u0027t allowed. \n(`group` can\u0027t set outputs, so I changed it to dummy `action`.)\n\n```\n❯ gn gen out/linux-rel\nERROR at //build/config/BUILDCONFIG.gn:680:5: Duplicate output file.\n    action(\"${target_name}\") {\n    ^-------------------------\nTwo or more targets generate the same output:\n  gen/third_party/devtools-frontend/src/extension-api/ExtensionAPI.d.ts\n\nThis is can often be fixed by changing one of the target names, or by\nsetting an output_name on one of them.\n\nCollisions:\n  //third_party/devtools-frontend/src/extension-api:extension-api(//build/toolchain/linux:clang_x64)\n  //third_party/devtools-frontend/src/extension-api:extension-api-copy-gen-javascript(//build/toolchain/linux:clang_x64)\n\nSee //build/config/BUILDCONFIG.gn:680:5: Collision.\n    action(\"${target_name}\") {\n    ^-------------------------\n```\n\nI feel like the `group` in `devtools_pre_built` is redundant, which seems preventing to propagate the outputs to the dependents.\nI unified `copy_to_gen` and `group` to a single `node_action`, instead.\n\nI also need to fix `devtools_module` template. (and maybe others)\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/build/ninja/devtools_module.gni;l\u003d9;drc\u003d58df6650e172200254512b0bfb353c3a43d5dee7\n\nWDYT?",
+      "parentUuid": "e0c74320_ed1bdd6d",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0518f96b_cf167d1f",
         "filename": "front_end/core/platform/BUILD.gn",
         "patchSetId": 3
@@ -84,6 +102,42 @@
       "writtenOn": "2023-11-14T10:17:00Z",
       "side": 1,
       "message": "Is this one necessary?",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "250ab1db_f33ab4e8",
+        "filename": "front_end/core/platform/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-14T13:26:30Z",
+      "side": 1,
+      "message": "Yes, `devtools_module` also has a similar issue not to propagate outputs.",
+      "parentUuid": "0518f96b_cf167d1f",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7704a21e_14c77b4d",
+        "filename": "front_end/core/platform/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-14T13:26:30Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "0518f96b_cf167d1f",
       "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
