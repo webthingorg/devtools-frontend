@@ -120,7 +120,9 @@ You will follow these rules strictly:
 - if you don't have the answer, say "I don't know" and suggest looking for this information
   elsewhere
 - Start with the explanation immediately without repeating the given console message.
-- Always wrap code with three backticks (\`\`\`)`;
+- Always wrap code with three backticks (\`\`\`)
+- Respond only in the Markdown format
+- If there is a code fix, include the complete code block`;
 
     const fewShotExamples = [
       {
