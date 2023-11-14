@@ -33,6 +33,23 @@
       "message": "@Jeremy, to your question in bug 1501720, it looks like the code is using the actual result, but it\u0027s doing a lookup by URL.\n\nThis seems reasonable to me. I guess the alternative would be to have a special channel for the current page load\u0027s status?",
       "revId": "35eba931cd539e310f892143dcb15a86067aca97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "140f2433_3d895722",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1197619
+      },
+      "writtenOn": "2023-11-14T02:48:48Z",
+      "side": 1,
+      "message": "Adding Jeremy to the attention set in case that helps",
+      "revId": "35eba931cd539e310f892143dcb15a86067aca97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
