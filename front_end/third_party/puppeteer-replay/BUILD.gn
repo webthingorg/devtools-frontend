@@ -31,5 +31,7 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":puppeteer-replay" ]
 
+  inputs = get_target_outputs(":puppeteer-replay-copy-gen-javascript")
+
   visibility = [ "../../panels/recorder/*" ]
 }

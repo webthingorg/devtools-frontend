@@ -21,6 +21,8 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":intl-messageformat" ]
 
+  inputs = get_target_outputs(":intl-messageformat-copy-gen-javascript")
+
   visibility = [
     "../../core/i18n/*",
     "../i18n/*",

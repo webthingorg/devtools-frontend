@@ -23,6 +23,8 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":wasmparser" ]
 
+  inputs = get_target_outputs(":wasmparser-copy-gen-javascript")
+
   visibility = [ "../../entrypoints/wasmparser_worker/*" ]
 
   visibility += devtools_third_party_visibility

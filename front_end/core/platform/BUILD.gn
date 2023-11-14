@@ -63,5 +63,8 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":platform" ]
 
+  inputs = get_target_outputs(":platform-typescript") +
+           get_target_outputs(":dcheck-copy-gen-javascript")
+
   visibility = [ "*" ]
 }
