@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3246c12_e7fc0c3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-14T15:26:26Z",
+      "side": 1,
+      "message": "Hi Wolfgang, I remember there is some extra steps needed for merging devtools-frontend CLs, but the link https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/workflows.md#merges-and-cherry_picks no longer works. Could you remind me again? Thanks!",
+      "revId": "c28809869132e35c7bf5c7e7dfbe86749f3967db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
