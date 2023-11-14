@@ -215,6 +215,8 @@ const parameterToRemoteObject = (runtimeModel: SDK.RuntimeModel.RuntimeModel|nul
       return runtimeModel.createRemoteObjectFromPrimitiveValue(parameter);
     };
 
+const EXPLAIN_HOVER_ACTION_ID = 'explain.consoleMessage:hover';
+
 export class ConsoleViewMessage implements ConsoleViewportElement {
   protected message: SDK.ConsoleModel.ConsoleMessage;
   private readonly linkifier: Components.Linkifier.Linkifier;
@@ -296,6 +298,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     this.elementInternal?.querySelector('devtools-console-insight')?.remove();
     this.elementInternal?.append(insight);
     insight.addEventListener('close', () => {
+      Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightClosed);
       insight.addEventListener('animationend', () => {
         this.elementInternal?.removeChild(insight);
       }, {
@@ -1231,6 +1234,15 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     this.elementInternal.className = 'console-message-wrapper';
     this.elementInternal.removeChildren();
     this.consoleRowWrapper = this.elementInternal.createChild('div');
+    this.consoleRowWrapper.onmouseenter = (): void => {
+      // Tracks when the hover button is shown by tracking when the row wrapper
+      // gets hovered over.
+      const action = UI.ActionRegistry.ActionRegistry.instance().action(EXPLAIN_HOVER_ACTION_ID);
+      if (!action) {
+        return;
+      }
+      Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightHoverButtonShown);
+    };
     this.consoleRowWrapper.classList.add('console-row-wrapper');
     if (this.message.isGroupStartMessage()) {
       this.elementInternal.classList.add('console-group-title');
@@ -1276,8 +1288,9 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
 
     this.consoleRowWrapper.appendChild(this.contentElement());
 
-    const action = UI.ActionRegistry.ActionRegistry.instance().action('explain.consoleMessage');
+    const action = UI.ActionRegistry.ActionRegistry.instance().action(EXPLAIN_HOVER_ACTION_ID);
     if (action) {
+      Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightConsoleMessageShown);
       this.consoleRowWrapper.append(this.#createHoverButton());
     }
 
@@ -1299,7 +1312,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     button.onclick = (event: Event): void => {
       event.stopPropagation();
       UI.Context.Context.instance().setFlavor(ConsoleViewMessage, this);
-      const action = UI.ActionRegistry.ActionRegistry.instance().action('explain.consoleMessage');
+      const action = UI.ActionRegistry.ActionRegistry.instance().action(EXPLAIN_HOVER_ACTION_ID);
       if (!action) {
         return;
       }
