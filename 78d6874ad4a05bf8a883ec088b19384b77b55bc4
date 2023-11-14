@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab325768_4a9da7dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-14T14:36:04Z",
+      "side": 1,
+      "message": "TimelineModel.ts is what we are migrating away from; the work done in this stage to identify and associate these messages should be instead added to the new engine (front_end/models/trace). \n\nI\u0027d have a look at `WorkersHandler.ts` as I think that logic fits there nicely.",
+      "revId": "78d6874ad4a05bf8a883ec088b19384b77b55bc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
