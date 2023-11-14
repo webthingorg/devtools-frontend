@@ -68,6 +68,24 @@
       "parentUuid": "345c7691_dc28f114",
       "revId": "35eba931cd539e310f892143dcb15a86067aca97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e50a2093_96d6e40c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-14T07:19:21Z",
+      "side": 1,
+      "message": "Ah, I see. Right. Then, we shouldn\u0027t check URL and just rely on the preloadingStatus.",
+      "parentUuid": "bd34221d_8e393672",
+      "revId": "35eba931cd539e310f892143dcb15a86067aca97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
