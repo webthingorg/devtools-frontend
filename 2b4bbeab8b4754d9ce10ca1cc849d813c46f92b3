@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e4a2bd1_ad63cdb6",
+        "filename": "front_end/ui/visual_logging/Loggable.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-14T09:46:05Z",
+      "side": 1,
+      "message": "is this type open to changing in the future? For example, we would have clicks that are registered on a canvas element; but the actual information would probably include some information about what was being represented on the (x, y) that the user clicked. In that scenario, would we extend this type to allow us to represent that?\n\nOr would you expect us to use the canvas element as the Loggable entity, but then associate metadata with it to define info about the click?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 100
+      },
+      "revId": "2b4bbeab8b4754d9ce10ca1cc849d813c46f92b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
