@@ -50,6 +50,24 @@
       "message": "Adding Jeremy to the attention set in case that helps",
       "revId": "35eba931cd539e310f892143dcb15a86067aca97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd34221d_8e393672",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002854
+      },
+      "writtenOn": "2023-11-14T02:51:04Z",
+      "side": 1,
+      "message": "Without having dug more deeply yet, if we\u0027re trying to look up by URL, might we also fail in the case of No-Vary-Search, where the URL varies by some query parameters?",
+      "parentUuid": "345c7691_dc28f114",
+      "revId": "35eba931cd539e310f892143dcb15a86067aca97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
