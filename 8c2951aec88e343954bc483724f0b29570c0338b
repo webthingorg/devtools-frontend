@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c17cb3_769d2733",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-14T10:54:34Z",
+      "side": 1,
+      "message": "It seems sufficient to re-use the actions enum, WDYT?",
+      "revId": "8c2951aec88e343954bc483724f0b29570c0338b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
