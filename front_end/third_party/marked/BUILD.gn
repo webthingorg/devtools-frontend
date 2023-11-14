@@ -22,12 +22,14 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":marked" ]
 
+  inputs = get_target_outputs(":marked-copy-gen-javascript")
+
   visibility = [
     "../../../test/unittests/front_end/ui/components/*",
     "../../models/issues_manager/*",
     "../../panels/explain/*",
-    "../../ui/components/docs/markdown_view/*",
     "../../ui/components/docs/console_insight/*",
+    "../../ui/components/docs/markdown_view/*",
     "../../ui/components/markdown_view/*",
   ]
 
