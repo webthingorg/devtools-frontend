@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ff7089d_a4b6224e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-14T10:19:41Z",
+      "side": 1,
+      "message": "I\u0027m okay with landing as is, but if there\u0027s a way to bake this into devtools_pre_built that would certainly be more safe. Maybe devtools_pre_built isn\u0027t forwarding its outputs correctly?",
+      "parentUuid": "dac855db_ed19960d",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0518f96b_cf167d1f",
         "filename": "front_end/core/platform/BUILD.gn",
         "patchSetId": 3
