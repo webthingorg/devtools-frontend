@@ -46,6 +46,30 @@
       },
       "revId": "2b4bbeab8b4754d9ce10ca1cc849d813c46f92b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c76395ec_02c9b399",
+        "filename": "front_end/ui/visual_logging/Loggable.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-14T17:06:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1e16e2b0_708218f6",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 100
+      },
+      "revId": "2b4bbeab8b4754d9ce10ca1cc849d813c46f92b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
