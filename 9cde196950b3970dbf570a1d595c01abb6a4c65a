@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c18ece0_049b4913",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-14T15:49:20Z",
+      "side": 1,
+      "message": "I think",
+      "revId": "9cde196950b3970dbf570a1d595c01abb6a4c65a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
