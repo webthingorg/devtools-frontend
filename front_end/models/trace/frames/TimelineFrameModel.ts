@@ -1,0 +1,650 @@
+/*
+ * Copyright (C) 2013 Google Inc. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ *     * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *     * Neither the name of Google Inc. nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/* eslint-disable @typescript-eslint/naming-convention */
+
+import * as Platform from '../../../core/platform/platform.js';
+import * as SDK from '../../../core/sdk/sdk.js';
+import type * as Protocol from '../../../generated/protocol.js';
+import * as Helpers from '../helpers/helpers.js';
+import * as Types from '../types/types.js';
+
+// TODO: need to replace this
+// import {EventOnTimelineData} from './TimelineModel.js';
+import {type TracingLayerPayload, type TracingLayerTile, TracingLayerTree} from './TracingLayerTree.js';
+
+// TODO: do we need this? Probably once we start resolving the issues and
+// ts-expect-error calls.
+type FrameEvent = Types.TraceEvents.TraceEventBeginFrame|Types.TraceEvents.TraceEventDroppedFrame|
+                  Types.TraceEvents.TraceEventRequestMainThreadFrame|
+                  Types.TraceEvents.TraceEventBeginMainThreadFrame|Types.TraceEvents.TraceEventCommit|
+                  Types.TraceEvents.TraceEventCompositeLayers|Types.TraceEvents.TraceEventActivateLayerTree|
+                  Types.TraceEvents.TraceEventDrawFrame|Types.TraceEvents.TraceEventNeedsBeginFrameChanged;
+
+function isFrameEvent(event: Types.TraceEvents.TraceEventData): event is FrameEvent {
+  return (
+      Types.TraceEvents.isTraceEventSetLayerId(event) || Types.TraceEvents.isTraceEventBeginFrame(event) ||
+      Types.TraceEvents.isTraceEventDroppedFrame(event) ||
+      Types.TraceEvents.isTraceEventRequestMainThreadFrame(event) ||
+      Types.TraceEvents.isTraceEventBeginMainThreadFrame(event) ||
+      // Note that "Commit" is the replacement for "CompositeLayers" so in a trace
+      // we wouldn't expect to see a combination of these. All "new" trace
+      // recordings use "Commit", but we can easily support "CompositeLayers" too
+      // to not break older traces being imported.
+      Types.TraceEvents.isTraceEventCommit(event) || Types.TraceEvents.isTraceEventCompositeLayers(event) ||
+      Types.TraceEvents.isTraceEventActivateLayerTree(event) || Types.TraceEvents.isTraceEventDrawFrame(event));
+}
+
+function idForEntry(entry: Types.TraceEvents.TraceEventData): string|undefined {
+  const scope = Types.TraceEvents.isTraceEventInstant(entry) && entry.s || undefined;
+
+  if (Types.TraceEvents.isNestableAsyncPhase(entry.ph)) {
+    const id = Helpers.Trace.extractId(entry as Types.TraceEvents.TraceEventNestableAsync);
+    return scope ? `${scope}@${id}` : id;
+  }
+
+  return undefined;
+}
+
+function entryIsTopLevel(entry: Types.TraceEvents.TraceEventData): boolean {
+  // TODO: resolve this with the isTopLevelEvent helper in LegacyTracingModel.
+  const devtoolsTimelineCategory = 'disabled-by-default-devtools.timeline';
+  if (entry.name === Types.TraceEvents.KnownEventName.RunTask && entry.cat.includes(devtoolsTimelineCategory)) {
+    return true;
+  }
+  if (entry.name === Types.TraceEvents.KnownEventName.Program && entry.cat.includes(devtoolsTimelineCategory)) {
+    return true;
+  }
+  return false;
+}
+
+export class TimelineFrameModel {
+  private frames!: TimelineFrame[];
+  private frameById!: {
+    [x: number]: TimelineFrame,
+  };
+  private beginFrameQueue!: TimelineFrameBeginFrameQueue;
+  private minimumRecordTime!: Types.Timing.MicroSeconds;
+  private lastFrame!: TimelineFrame|null;
+  private mainFrameCommitted!: boolean;
+  private mainFrameRequested!: boolean;
+  private lastLayerTree!: TracingFrameLayerTree|null;
+  private framePendingActivation!: PendingFrame|null;
+  private currentTaskTimeByCategory!: {
+    [x: string]: number,
+  };
+  private target!: SDK.Target.Target|null;
+  private framePendingCommit?: PendingFrame|null;
+  private lastBeginFrame?: number|null;
+  private lastNeedsBeginFrame?: number|null;
+  private lastTaskBeginTime: Types.Timing.MicroSeconds|null = null;
+  private layerTreeId?: number|null;
+  private currentProcessMainThread: Types.TraceEvents.ThreadID|null = null;
+
+  constructor() {
+    this.reset();
+  }
+
+  getFrames(): TimelineFrame[] {
+    return this.frames;
+  }
+
+  getFramesWithinWindow(startTime: number, endTime: number): TimelineFrame[] {
+    const firstFrame =
+        Platform.ArrayUtilities.lowerBound(this.frames, startTime || 0, (time, frame) => time - frame.endTime);
+    const lastFrame =
+        Platform.ArrayUtilities.lowerBound(this.frames, endTime || Infinity, (time, frame) => time - frame.startTime);
+    return this.frames.slice(firstFrame, lastFrame);
+  }
+
+  hasRasterTile(rasterTask: Types.TraceEvents.TraceEventRasterTask): boolean {
+    const data = rasterTask.args['tileData'];
+    if (!data) {
+      return false;
+    }
+    const frameId = data['sourceFrameNumber'];
+    const frame = frameId && this.frameById[frameId];
+    if (!frame || !frame.layerTree) {
+      return false;
+    }
+    return true;
+  }
+
+  rasterTilePromise(rasterTask: Types.TraceEvents.TraceEventRasterTask): Promise<{
+    rect: Protocol.DOM.Rect,
+    snapshot: SDK.PaintProfiler.PaintProfilerSnapshot,
+  }|null> {
+    if (!this.target) {
+      return Promise.resolve(null);
+    }
+    const data = rasterTask.args['tileData'];
+    const frameId = (data['sourceFrameNumber'] as number);
+    const tileId = data['tileId'] && data['tileId']['id_ref'];
+    const frame = frameId && this.frameById[frameId];
+    if (!frame || !frame.layerTree || !tileId) {
+      return Promise.resolve(null);
+    }
+
+    return frame.layerTree.layerTreePromise().then(layerTree => layerTree && layerTree.pictureForRasterTile(tileId));
+  }
+
+  reset(): void {
+    this.minimumRecordTime = Types.Timing.MicroSeconds(Infinity);
+    this.frames = [];
+    this.frameById = {};
+    this.beginFrameQueue = new TimelineFrameBeginFrameQueue();
+    this.lastFrame = null;
+    this.lastLayerTree = null;
+    this.mainFrameCommitted = false;
+    this.mainFrameRequested = false;
+    this.framePendingCommit = null;
+    this.lastBeginFrame = null;
+    this.lastNeedsBeginFrame = null;
+    this.framePendingActivation = null;
+    this.lastTaskBeginTime = null;
+    this.target = null;
+    this.layerTreeId = null;
+    this.currentTaskTimeByCategory = {};
+  }
+
+  handleBeginFrame(startTime: number, seqId: number): void {
+    if (!this.lastFrame) {
+      this.startFrame(startTime);
+    }
+    this.lastBeginFrame = startTime;
+
+    this.beginFrameQueue.addFrameIfNotExists(seqId, startTime, false, false);
+  }
+
+  handleDroppedFrame(startTime: number, seqId: number, isPartial: boolean): void {
+    if (!this.lastFrame) {
+      this.startFrame(startTime);
+    }
+
+    // This line handles the case where no BeginFrame event is issued for
+    // the dropped frame. In this situation, add a BeginFrame to the queue
+    // as if it actually occurred.
+    this.beginFrameQueue.addFrameIfNotExists(seqId, startTime, true, isPartial);
+    this.beginFrameQueue.setDropped(seqId, true);
+    this.beginFrameQueue.setPartial(seqId, isPartial);
+  }
+
+  handleDrawFrame(startTime: number, seqId: number): void {
+    if (!this.lastFrame) {
+      this.startFrame(startTime);
+      return;
+    }
+
+    // - if it wasn't drawn, it didn't happen!
+    // - only show frames that either did not wait for the main thread frame or had one committed.
+    if (this.mainFrameCommitted || !this.mainFrameRequested) {
+      if (this.lastNeedsBeginFrame) {
+        const idleTimeEnd = this.framePendingActivation ? this.framePendingActivation.triggerTime :
+                                                          (this.lastBeginFrame || this.lastNeedsBeginFrame);
+        if (idleTimeEnd > this.lastFrame.startTime) {
+          this.lastFrame.idle = true;
+          this.lastBeginFrame = null;
+        }
+        this.lastNeedsBeginFrame = null;
+      }
+
+      const framesToVisualize = this.beginFrameQueue.processPendingBeginFramesOnDrawFrame(seqId);
+
+      // Visualize the current frame and all pending frames before it.
+      for (const frame of framesToVisualize) {
+        const isLastFrameIdle = this.lastFrame.idle;
+
+        // If |frame| is the first frame after an idle period, the CPU time
+        // will be logged ("committed") under |frame| if applicable.
+        this.startFrame(frame.startTime);
+        if (isLastFrameIdle && this.framePendingActivation) {
+          this.commitPendingFrame();
+        }
+        if (frame.isDropped) {
+          this.lastFrame.dropped = true;
+        }
+        if (frame.isPartial) {
+          this.lastFrame.isPartial = true;
+        }
+      }
+    }
+    this.mainFrameCommitted = false;
+  }
+
+  handleActivateLayerTree(): void {
+    if (!this.lastFrame) {
+      return;
+    }
+    if (this.framePendingActivation && !this.lastNeedsBeginFrame) {
+      this.commitPendingFrame();
+    }
+  }
+
+  handleRequestMainThreadFrame(): void {
+    if (!this.lastFrame) {
+      return;
+    }
+    this.mainFrameRequested = true;
+  }
+
+  handleCommit(): void {
+    if (!this.framePendingCommit) {
+      return;
+    }
+    this.framePendingActivation = this.framePendingCommit;
+    this.framePendingCommit = null;
+    this.mainFrameRequested = false;
+    this.mainFrameCommitted = true;
+  }
+
+  handleLayerTreeSnapshot(layerTree: TracingFrameLayerTree): void {
+    this.lastLayerTree = layerTree;
+  }
+
+  handleNeedFrameChanged(startTime: number, needsBeginFrame: boolean): void {
+    if (needsBeginFrame) {
+      this.lastNeedsBeginFrame = startTime;
+    }
+  }
+
+  private startFrame(startTime: number): void {
+    if (this.lastFrame) {
+      this.flushFrame(this.lastFrame, startTime);
+    }
+    this.lastFrame = new TimelineFrame(startTime, startTime - this.minimumRecordTime);
+  }
+
+  private flushFrame(frame: TimelineFrame, endTime: number): void {
+    frame.setLayerTree(this.lastLayerTree);
+    frame.setEndTime(endTime);
+    if (this.lastLayerTree) {
+      this.lastLayerTree.setPaints(frame.paints);
+    }
+    const lastFrame = this.frames[this.frames.length - 1];
+    if (this.frames.length && lastFrame && (frame.startTime !== lastFrame.endTime || frame.startTime > frame.endTime)) {
+      console.assert(
+          false, `Inconsistent frame time for frame ${this.frames.length} (${frame.startTime} - ${frame.endTime})`);
+    }
+    this.frames.push(frame);
+    if (typeof frame.mainFrameId === 'number') {
+      this.frameById[frame.mainFrameId] = frame;
+    }
+  }
+
+  private commitPendingFrame(): void {
+    if (!this.framePendingActivation || !this.lastFrame) {
+      return;
+    }
+
+    this.lastFrame.paints = this.framePendingActivation.paints;
+    this.lastFrame.mainFrameId = this.framePendingActivation.mainFrameId;
+    this.framePendingActivation = null;
+  }
+
+  addTraceEvents(target: SDK.Target.Target|null, events: Types.TraceEvents.TraceEventData[], threadData: {
+    thread: Types.TraceEvents.ThreadID,
+    time: number,
+  }[]): void {
+    this.target = target;
+    let j = 0;
+    this.currentProcessMainThread = threadData.length && threadData[0].thread || null;
+    for (let i = 0; i < events.length; ++i) {
+      while (j + 1 < threadData.length && threadData[j + 1].time <= events[i].ts) {
+        this.currentProcessMainThread = threadData[++j].thread;
+      }
+      this.addTraceEvent(events[i]);
+    }
+    this.currentProcessMainThread = null;
+  }
+
+  private addTraceEvent(event: Types.TraceEvents.TraceEventData): void {
+    if (event.ts && event.ts < this.minimumRecordTime) {
+      this.minimumRecordTime = event.ts;
+    }
+
+    const entryId = idForEntry(event);
+
+    if (Types.TraceEvents.isTraceEventSetLayerId(event)) {
+      this.layerTreeId = event.args.data.layerTreeId;
+    } else if (
+        entryId && event.ph === Types.TraceEvents.Phase.OBJECT_SNAPSHOT &&
+        event.name === Types.TraceEvents.KnownEventName.LayerTreeHostImplSnapshot &&
+        Number(entryId) === this.layerTreeId && this.target) {
+      const snapshot = event as Types.TraceEvents.TraceEventSnapshot;
+      this.handleLayerTreeSnapshot(new TracingFrameLayerTree(this.target, snapshot));
+    } else {
+      if (isFrameEvent(event)) {
+        this.processCompositorEvents(event);
+      }
+      if (event.tid === this.currentProcessMainThread) {
+        this.addMainThreadTraceEvent(event);
+      }
+    }
+  }
+
+  private processCompositorEvents(entry: FrameEvent): void {
+    if (entry.args['layerTreeId'] !== this.layerTreeId) {
+      return;
+    }
+    const timestamp = entry.ts;
+    if (Types.TraceEvents.isTraceEventBeginFrame(entry)) {
+      this.handleBeginFrame(timestamp, entry.args['frameSeqId']);
+    } else if (Types.TraceEvents.isTraceEventDrawFrame(entry)) {
+      this.handleDrawFrame(timestamp, entry.args['frameSeqId']);
+    } else if (Types.TraceEvents.isTraceEventActivateLayerTree(entry)) {
+      this.handleActivateLayerTree();
+    } else if (Types.TraceEvents.isTraceEventRequestMainThreadFrame(entry)) {
+      this.handleRequestMainThreadFrame();
+    } else if (Types.TraceEvents.isTraceEventNeedsBeginFrameChanged(entry)) {
+      // needsBeginFrame property will either be 0 or 1, which represents
+      // true/false in this case, hence the Boolean() wrapper.
+      this.handleNeedFrameChanged(timestamp, entry.args['data'] && Boolean(entry.args['data']['needsBeginFrame']));
+    } else if (Types.TraceEvents.isTraceEventDroppedFrame(entry)) {
+      this.handleDroppedFrame(timestamp, entry.args['frameSeqId'], Boolean(entry.args['hasPartialUpdate']));
+    }
+  }
+
+  private addMainThreadTraceEvent(entry: Types.TraceEvents.TraceEventData): void {
+    if (entryIsTopLevel(entry)) {
+      this.currentTaskTimeByCategory = {};
+      this.lastTaskBeginTime = entry.ts;
+    }
+    if (!this.framePendingCommit &&
+        TimelineFrameModel.mainFrameMarkers.indexOf(entry.name as Types.TraceEvents.KnownEventName) >= 0) {
+      this.framePendingCommit = new PendingFrame(this.lastTaskBeginTime || entry.ts, this.currentTaskTimeByCategory);
+    }
+    if (!this.framePendingCommit) {
+      return;
+    }
+
+    if (Types.TraceEvents.isTraceEventBeginMainThreadFrame(entry)) {
+      this.framePendingCommit.mainFrameId = entry.args['data']['frameId'];
+    }
+    if (Types.TraceEvents.isTraceEventPaint(entry) &&
+        // TODO: move EventOnTimelineData
+        // @ts-expect-error
+        EventOnTimelineData.forEvent(entry).picture && this.target) {
+      this.framePendingCommit.paints.push(new LayerPaintEvent(entry, this.target));
+    }
+    // Commit will be replacing CompositeLayers but CompositeLayers is kept
+    // around for backwards compatibility.
+    if ((Types.TraceEvents.isTraceEventCompositeLayers(entry) || Types.TraceEvents.isTraceEventCommit(entry)) &&
+        entry.args['layerTreeId'] === this.layerTreeId) {
+      this.handleCommit();
+    }
+  }
+
+  private static readonly mainFrameMarkers: Types.TraceEvents.KnownEventName[] = [
+    Types.TraceEvents.KnownEventName.ScheduleStyleRecalculation,
+    Types.TraceEvents.KnownEventName.InvalidateLayout,
+    Types.TraceEvents.KnownEventName.BeginMainThreadFrame,
+    Types.TraceEvents.KnownEventName.ScrollLayer,
+  ];
+}
+
+export class TracingFrameLayerTree {
+  private readonly target: SDK.Target.Target;
+  private readonly snapshot: Types.TraceEvents.TraceEventSnapshot;
+  private paintsInternal!: LayerPaintEvent[]|undefined;
+
+  constructor(target: SDK.Target.Target, snapshot: Types.TraceEvents.TraceEventSnapshot) {
+    this.target = target;
+    this.snapshot = snapshot;
+  }
+
+  async layerTreePromise(): Promise<TracingLayerTree|null> {
+    // TODO: find an example event that has all this data. Do we need advanced isntrumentation turned on perhaps?
+    // @ts-expect-error
+    const result = (this.snapshot.getSnapshot() as unknown as {
+      active_tiles: TracingLayerTile[],
+      device_viewport_size: {
+        width: number,
+        height: number,
+      },
+      active_tree: {
+        root_layer: TracingLayerPayload,
+        layers: TracingLayerPayload[],
+      },
+    });
+    if (!result) {
+      return null;
+    }
+    const viewport = result['device_viewport_size'];
+    const tiles = result['active_tiles'];
+    const rootLayer = result['active_tree']['root_layer'];
+    const layers = result['active_tree']['layers'];
+    const layerTree = new TracingLayerTree(this.target);
+    layerTree.setViewportSize(viewport);
+    layerTree.setTiles(tiles);
+
+    await layerTree.setLayers(rootLayer, layers, this.paintsInternal || []);
+    return layerTree;
+  }
+
+  paints(): LayerPaintEvent[] {
+    return this.paintsInternal || [];
+  }
+
+  setPaints(paints: LayerPaintEvent[]): void {
+    this.paintsInternal = paints;
+  }
+}
+
+export class TimelineFrame {
+  startTime: number;
+  startTimeOffset: number;
+  endTime: number;
+  duration: number;
+  idle: boolean;
+  dropped: boolean;
+  isPartial: boolean;
+  layerTree: TracingFrameLayerTree|null;
+  paints: LayerPaintEvent[];
+  mainFrameId: number|undefined;
+
+  constructor(startTime: number, startTimeOffset: number) {
+    this.startTime = startTime;
+    this.startTimeOffset = startTimeOffset;
+    this.endTime = this.startTime;
+    this.duration = 0;
+    this.idle = false;
+    this.dropped = false;
+    this.isPartial = false;
+    this.layerTree = null;
+    this.paints = [];
+    this.mainFrameId = undefined;
+  }
+
+  setEndTime(endTime: number): void {
+    this.endTime = endTime;
+    this.duration = this.endTime - this.startTime;
+  }
+
+  setLayerTree(layerTree: TracingFrameLayerTree|null): void {
+    this.layerTree = layerTree;
+  }
+}
+
+export class LayerPaintEvent {
+  private readonly eventInternal: Types.TraceEvents.TraceEventPaint;
+  private readonly target: SDK.Target.Target|null;
+
+  constructor(event: Types.TraceEvents.TraceEventPaint, target: SDK.Target.Target|null) {
+    this.eventInternal = event;
+    this.target = target;
+  }
+
+  layerId(): string {
+    // TODO: could make this function return a number?
+    return String(this.eventInternal.args['data']['layerId']);
+  }
+
+  event(): Types.TraceEvents.TraceEventPaint {
+    return this.eventInternal;
+  }
+
+  picturePromise(): Promise<{
+    rect: Array<number>,
+    serializedPicture: string,
+  }|null> {
+    // TODO(crbug.com/1453234): this function does not need to be async now
+    // @ts-expect-error need to move EventOnTimelineData
+    const picture = EventOnTimelineData.forEvent(this.eventInternal).picture;
+    if (!picture) {
+      return Promise.resolve(null);
+    }
+
+    const snapshot = picture.getSnapshot() as unknown as {
+      params?: {
+        layer_rect: [number, number, number, number],
+      },
+      skp64?: string,
+    };
+
+    const rect = snapshot['params'] && snapshot['params']['layer_rect'];
+    const pictureData = snapshot['skp64'];
+    return Promise.resolve(
+        rect && pictureData ? {rect: rect, serializedPicture: pictureData} : null,
+    );
+  }
+
+  async snapshotPromise(): Promise<{
+    rect: Array<number>,
+    snapshot: SDK.PaintProfiler.PaintProfilerSnapshot,
+  }|null> {
+    const paintProfilerModel = this.target && this.target.model(SDK.PaintProfiler.PaintProfilerModel);
+    const picture = await this.picturePromise();
+    if (!picture || !paintProfilerModel) {
+      return null;
+    }
+    const snapshot = await paintProfilerModel.loadSnapshot(picture.serializedPicture);
+    return snapshot ? {rect: picture.rect, snapshot: snapshot} : null;
+  }
+}
+
+export class PendingFrame {
+  timeByCategory: {
+    [x: string]: number,
+  };
+  paints: LayerPaintEvent[];
+  mainFrameId: number|undefined;
+  triggerTime: number;
+  constructor(triggerTime: number, timeByCategory: {
+    [x: string]: number,
+  }) {
+    this.timeByCategory = timeByCategory;
+    this.paints = [];
+    this.mainFrameId = undefined;
+    this.triggerTime = triggerTime;
+  }
+}
+
+// The parameters of an impl-side BeginFrame.
+class BeginFrameInfo {
+  seqId: number;
+  startTime: number;
+  isDropped: boolean;
+  isPartial: boolean;
+  constructor(seqId: number, startTime: number, isDropped: boolean, isPartial: boolean) {
+    this.seqId = seqId;
+    this.startTime = startTime;
+    this.isDropped = isDropped;
+    this.isPartial = isPartial;
+  }
+}
+
+// A queue of BeginFrames pending visualization.
+// BeginFrames are added into this queue as they occur; later when their
+// corresponding DrawFrames occur (or lack thereof), the BeginFrames are removed
+// from the queue and their timestamps are used for visualization.
+export class TimelineFrameBeginFrameQueue {
+  private queueFrames!: number[];
+
+  // Maps frameSeqId to BeginFrameInfo.
+  private mapFrames!: {
+    [x: number]: BeginFrameInfo,
+  };
+
+  constructor() {
+    this.queueFrames = [];
+    this.mapFrames = {};
+  }
+
+  // Add a BeginFrame to the queue, if it does not already exit.
+  addFrameIfNotExists(seqId: number, startTime: number, isDropped: boolean, isPartial: boolean): void {
+    if (!(seqId in this.mapFrames)) {
+      this.mapFrames[seqId] = new BeginFrameInfo(seqId, startTime, isDropped, isPartial);
+      this.queueFrames.push(seqId);
+    }
+  }
+
+  // Set a BeginFrame in queue as dropped.
+  setDropped(seqId: number, isDropped: boolean): void {
+    if (seqId in this.mapFrames) {
+      this.mapFrames[seqId].isDropped = isDropped;
+    }
+  }
+
+  setPartial(seqId: number, isPartial: boolean): void {
+    if (seqId in this.mapFrames) {
+      this.mapFrames[seqId].isPartial = isPartial;
+    }
+  }
+
+  processPendingBeginFramesOnDrawFrame(seqId: number): BeginFrameInfo[] {
+    const framesToVisualize: BeginFrameInfo[] = [];
+
+    // Do not visualize this frame in the rare case where the current DrawFrame
+    // does not have a corresponding BeginFrame.
+    if (seqId in this.mapFrames) {
+      // Pop all BeginFrames before the current frame, and add only the dropped
+      // ones in |frames_to_visualize|.
+      // Non-dropped frames popped here are BeginFrames that are never
+      // drawn (but not considered dropped either for some reason).
+      // Those frames do not require an proactive visualization effort and will
+      // be naturally presented as continuationss of other frames.
+      while (this.queueFrames[0] !== seqId) {
+        const currentSeqId = this.queueFrames[0];
+        if (this.mapFrames[currentSeqId].isDropped) {
+          framesToVisualize.push(this.mapFrames[currentSeqId]);
+        }
+
+        delete this.mapFrames[currentSeqId];
+        this.queueFrames.shift();
+      }
+
+      // Pop the BeginFrame associated with the current DrawFrame.
+      framesToVisualize.push(this.mapFrames[seqId]);
+      delete this.mapFrames[seqId];
+      this.queueFrames.shift();
+    }
+    return framesToVisualize;
+  }
+}

@@ -1054,6 +1054,162 @@ export function isRendererEvent(event: TraceEventData): event is TraceEntry {
   return isTraceEventRendererEvent(event) || isProfileCall(event);
 }
 
+// Events relating to frames.
+
+export interface TraceEventDrawFrame extends TraceEventInstant {
+  name: KnownEventName.DrawFrame;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+    frameSeqId: number,
+  };
+}
+
+export function isTraceEventDrawFrame(event: TraceEventData): event is TraceEventDrawFrame {
+  // The extra check for INSTANT here is because in the past DrawFrame events had an ASYNC_NESTABLE_START and ASYNC_NESTABLE_END pair. We don't want to support those old events, so we have to check we are dealing with an instant event.
+  return event.name === KnownEventName.DrawFrame && event.ph === Phase.INSTANT;
+}
+export interface TraceEventSetLayerTreeId extends TraceEventInstant {
+  name: KnownEventName.SetLayerTreeId;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      frame: string,
+      layerTreeId: number,
+    },
+  };
+}
+export function isTraceEventSetLayerId(event: TraceEventData): event is TraceEventSetLayerTreeId {
+  return event.name === KnownEventName.SetLayerTreeId;
+}
+
+export interface TraceEventBeginFrame extends TraceEventInstant {
+  name: KnownEventName.BeginFrame;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+    frameSeqId: number,
+  };
+}
+export function isTraceEventBeginFrame(event: TraceEventData): event is TraceEventBeginFrame {
+  // Old traces did not have frameSeqId; but we do not want to support these.
+  return Boolean(event.name === KnownEventName.BeginFrame && event.args && 'frameSeqId' in event.args);
+}
+
+export interface TraceEventDroppedFrame extends TraceEventInstant {
+  name: KnownEventName.DroppedFrame;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+    frameSeqId: number,
+    hasPartialUpdate?: boolean,
+  };
+}
+export function isTraceEventDroppedFrame(event: TraceEventData): event is TraceEventDroppedFrame {
+  // Old traces did not have frameSeqId; but we do not want to support these.
+  return Boolean(event.name === KnownEventName.DroppedFrame && event.args && 'frameSeqId' in event.args);
+}
+
+export interface TraceEventRequestMainThreadFrame extends TraceEventInstant {
+  name: KnownEventName.RequestMainThreadFrame;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+  };
+}
+export function isTraceEventRequestMainThreadFrame(event: TraceEventData): event is TraceEventRequestMainThreadFrame {
+  return event.name === KnownEventName.RequestMainThreadFrame;
+}
+
+export interface TraceEventBeginMainThreadFrame extends TraceEventInstant {
+  name: KnownEventName.BeginMainThreadFrame;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+    data: TraceEventArgsData&{
+      frameId: number,
+    },
+  };
+}
+export function isTraceEventBeginMainThreadFrame(event: TraceEventData): event is TraceEventBeginMainThreadFrame {
+  return event.name === KnownEventName.BeginMainThreadFrame;
+}
+
+export interface TraceEventNeedsBeginFrameChanged extends TraceEventInstant {
+  name: KnownEventName.NeedsBeginFrameChanged;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+    data: TraceEventArgsData&{
+      needsBeginFrame: number,
+    },
+  };
+}
+export function isTraceEventNeedsBeginFrameChanged(event: TraceEventData): event is TraceEventNeedsBeginFrameChanged {
+  return event.name === KnownEventName.NeedsBeginFrameChanged;
+}
+
+export interface TraceEventCommit extends TraceEventInstant {
+  name: KnownEventName.Commit;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+    frameSeqId: number,
+  };
+}
+export function isTraceEventCommit(event: TraceEventData): event is TraceEventCommit {
+  // Old traces did not have frameSeqId; but we do not want to support these.
+  return Boolean(event.name === KnownEventName.Commit && event.args && 'frameSeqId' in event.args);
+}
+
+export interface TraceEventRasterTask extends TraceEventComplete {
+  name: KnownEventName.RasterTask;
+  args: TraceEventArgs&{
+    tileData: {
+      layerId: number,
+      sourceFrameNumber: number,
+      tileId: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        id_ref: string,
+      },
+      tileResolution: string,
+    },
+  };
+}
+export function isTraceEventRasterTask(event: TraceEventData): event is TraceEventRasterTask {
+  return event.name === KnownEventName.RasterTask;
+}
+
+// CompositeLayers has been replaced by "Commit", but we support both to not break old traces being imported.
+export interface TraceEventCompositeLayers extends TraceEventInstant {
+  name: KnownEventName.CompositeLayers;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+  };
+}
+export function isTraceEventCompositeLayers(event: TraceEventData): event is TraceEventCompositeLayers {
+  return event.name === KnownEventName.CompositeLayers;
+}
+
+export interface TraceEventActivateLayerTree extends TraceEventInstant {
+  name: KnownEventName.ActivateLayerTree;
+  args: TraceEventArgs&{
+    layerTreeId: number,
+    frameId: number,
+  };
+}
+export function isTraceEventActivateLayerTree(event: TraceEventData): event is TraceEventActivateLayerTree {
+  return event.name === KnownEventName.ActivateLayerTree;
+}
+
+export interface TraceEventPaint extends TraceEventComplete {
+  name: KnownEventName.Paint;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      clip: number[],
+      frame: string,
+      layerId: number,
+      nodeId: number,
+    },
+  };
+}
+
+export function isTraceEventPaint(event: TraceEventData): event is TraceEventPaint {
+  return event.name === KnownEventName.Paint;
+}
+
 class ProfileIdTag {
   readonly #profileIdTag: (symbol|undefined);
 }

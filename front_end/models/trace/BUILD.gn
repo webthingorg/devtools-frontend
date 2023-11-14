@@ -21,6 +21,7 @@ devtools_module("trace") {
     "../../core/sdk:bundle",
     "extras:bundle",
     "handlers:bundle",
+    "frames:bundle",
     "helpers:bundle",
     "types:bundle",
   ]
