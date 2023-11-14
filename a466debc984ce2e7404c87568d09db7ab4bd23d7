@@ -16,6 +16,23 @@
       "message": "Hi DevTools folks, \n\nPlease help fixing GN dependencies for typescript actions. \nThey are problematic when doing remote execution.\n\nThanks,\nJunji",
       "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dac855db_ed19960d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-14T09:34:19Z",
+      "side": 1,
+      "message": "Hey, could we solve this on the \"devtools_pre_gen\" level? It looks like that rule is not declaring it\u0027s outputs correctly (or the \"entrypoint\" rule is not handling it\u0027s deps correctly).\n\nI\u0027m a bit hesitant to land this as-is since it\u0027ll be very easy to break again if any `devtools_entrypoint` rule will use another `devtools_pre_built` as it\u0027s deps without forwarding the outputs manually.",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
