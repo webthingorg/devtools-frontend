@@ -87,6 +87,9 @@ enum VisualElements {
   ToggleDeviceMode = 64,
   ToggleElementSearch = 65,
   PanelTabHeader = 66,
+  DeveloperResourcesPanel = 67,
+  TableHeader = 68,
+  TableCell = 69,
 }
 
 function resolveVe(ve: string): number {
