@@ -21,6 +21,8 @@ devtools_entrypoint("bundle") {
 
   deps = [ ":client-variations" ]
 
+  inputs = get_target_outputs(":client-variations-copy-gen-javascript")
+
   visibility = [
     "../../../../test/unittests/front_end/client_variations/*",
     "../../../panels/network/*",

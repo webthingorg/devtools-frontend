@@ -20,6 +20,9 @@ devtools_entrypoint("report") {
   entrypoint = "report.ts"
 
   deps = [ ":bundle" ]
+
+  inputs = get_target_outputs(":bundle-copy-gen-javascript")
+
   visibility = [
     "../*",
     "../../../panels/lighthouse/*",
