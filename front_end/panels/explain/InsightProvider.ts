@@ -29,12 +29,12 @@ export class InsightProvider {
                                        return result.textChunk.text;
                                      }
                                      if ('codeChunk' in result) {
-                                       return result.codeChunk.code;
+                                       return '`````\n' + result.codeChunk.code + '\n`````';
                                      }
                                      throw new Error('Unknown chunk result');
                                    },
                                    )
-                               .join(' ');
+                               .join('\n');
               resolve(text);
             } catch (err) {
               reject(err);
