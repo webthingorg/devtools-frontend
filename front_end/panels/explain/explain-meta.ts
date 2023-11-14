@@ -43,4 +43,21 @@ if (Root.Runtime.Runtime.queryParam('enableAida') === 'true') {
       return [Console.ConsoleViewMessage.ConsoleViewMessage];
     },
   });
+
+  void isAidaAvailable().then(async result => {
+    if (result) {
+      document.documentElement.classList.add('aida-available');
+    }
+  });
+}
+
+async function isAidaAvailable(): Promise<boolean> {
+  const Explain = await import('./explain.js');
+  const provider = new Explain.InsightProvider();
+  try {
+    await provider.getInsights('Hello world in JavaScript');
+    return true;
+  } catch (err) {
+    return false;
+  }
 }
