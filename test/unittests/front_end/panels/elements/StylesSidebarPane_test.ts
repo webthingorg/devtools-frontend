@@ -73,6 +73,7 @@ describeWithRealConnection('StylesSidebarPane', async () => {
         }],
         propertyRules: [],
         cssPropertyRegistrations: [],
+        fontPaletteValuesRule: undefined,
       });
 
       const sectionBlocks =

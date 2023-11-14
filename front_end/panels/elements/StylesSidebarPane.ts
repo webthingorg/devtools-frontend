@@ -61,6 +61,7 @@ import * as LayersWidget from './LayersWidget.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {
   BlankStylePropertiesSection,
+  FontPaletteValuesSection,
   HighlightPseudoStylePropertiesSection,
   KeyframePropertiesSection,
   RegisteredPropertiesSection,
@@ -1193,6 +1194,16 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       blocks.push(block);
     }
 
+    const fontPaletteValues = matchedStyles.fontPaletteValues();
+    if (fontPaletteValues) {
+      const block = SectionBlock.createFontPaletteValuesBlock(fontPaletteValues.name().text);
+      this.idleCallbackManager.schedule(() => {
+        block.sections.push(new FontPaletteValuesSection(this, matchedStyles, fontPaletteValues.style, sectionIdx));
+        sectionIdx++;
+      });
+      blocks.push(block);
+    }
+
     for (const positionFallbackRule of matchedStyles.positionFallbackRules()) {
       const block = SectionBlock.createPositionFallbackBlock(positionFallbackRule.name().text);
       for (const tryRule of positionFallbackRule.tryRules()) {
@@ -1712,6 +1723,13 @@ export class SectionBlock {
     return new SectionBlock(separatorElement);
   }
 
+  static createFontPaletteValuesBlock(name: string): SectionBlock {
+    const separatorElement = document.createElement('div');
+    separatorElement.className = 'sidebar-separator';
+    separatorElement.textContent = `@font-palette-values ${name}`;
+    return new SectionBlock(separatorElement);
+  }
+
   static createPositionFallbackBlock(positionFallbackName: string): SectionBlock {
     const separatorElement = document.createElement('div');
     separatorElement.className = 'sidebar-separator';
@@ -2205,6 +2223,7 @@ export class StylesSidebarPropertyRenderer {
   private animationNameHandler: ((data: string) => Node)|null;
   private animationHandler: ((data: string) => Node)|null;
   private positionFallbackHandler: ((data: string) => Node)|null;
+  private fontPaletteHandler: ((data: string) => Node)|null;
 
   constructor(rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string) {
     this.rule = rule;
@@ -2223,6 +2242,7 @@ export class StylesSidebarPropertyRenderer {
     this.lengthHandler = null;
     this.animationHandler = null;
     this.positionFallbackHandler = null;
+    this.fontPaletteHandler = null;
   }
 
   setColorHandler(handler: (arg0: string) => Node): void {
@@ -2271,6 +2291,10 @@ export class StylesSidebarPropertyRenderer {
 
   setPositionFallbackHandler(handler: (arg0: string) => Node): void {
     this.positionFallbackHandler = handler;
+  }
+
+  setFontPaletteHandler(handler: (arg0: string) => Node): void {
+    this.fontPaletteHandler = handler;
   }
 
   renderName(): Element {
@@ -2368,6 +2392,10 @@ export class StylesSidebarPropertyRenderer {
     if (this.propertyName === 'animation-name') {
       regexes.push(/^.*$/g);
       processors.push(this.animationNameHandler);
+    }
+    if (this.propertyName === 'font-palette') {
+      regexes.push(/^.*$/g);
+      processors.push(this.fontPaletteHandler);
     }
 
     if (this.positionFallbackHandler && this.propertyName === 'position-fallback') {
