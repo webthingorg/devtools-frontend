@@ -86,6 +86,24 @@
       "parentUuid": "bd34221d_8e393672",
       "revId": "35eba931cd539e310f892143dcb15a86067aca97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab7f1af_7379354e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-14T08:07:04Z",
+      "side": 1,
+      "message": "It looks that we need additional data or command to support No-Vary-Search.\n\nhttps://bugs.chromium.org/p/chromium/issues/detail?id\u003d1502057\n\nSplitted into a bug. I\u0027ll land this CL first.",
+      "parentUuid": "e50a2093_96d6e40c",
+      "revId": "35eba931cd539e310f892143dcb15a86067aca97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
