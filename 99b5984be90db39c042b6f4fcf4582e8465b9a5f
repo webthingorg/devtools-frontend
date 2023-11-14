@@ -34,6 +34,24 @@
       "parentUuid": "12631d63_33ecef44",
       "revId": "99b5984be90db39c042b6f4fcf4582e8465b9a5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e242349e_4e6c442b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-14T16:27:31Z",
+      "side": 1,
+      "message": "It does affect the results significantly: https://a646919031f90000000000000000001.proxy.googleprod.com/console_insights_eval/#grid\n\nThe scores are lower, but mostly due to code examples being added. Please check if this is what you want.",
+      "parentUuid": "e19f72a8_9c39e1ec",
+      "revId": "99b5984be90db39c042b6f4fcf4582e8465b9a5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
