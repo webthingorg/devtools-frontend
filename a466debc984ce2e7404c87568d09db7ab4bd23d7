@@ -33,6 +33,23 @@
       "message": "Hey, could we solve this on the \"devtools_pre_gen\" level? It looks like that rule is not declaring it\u0027s outputs correctly (or the \"entrypoint\" rule is not handling it\u0027s deps correctly).\n\nI\u0027m a bit hesitant to land this as-is since it\u0027ll be very easy to break again if any `devtools_entrypoint` rule will use another `devtools_pre_built` as it\u0027s deps without forwarding the outputs manually.",
       "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0518f96b_cf167d1f",
+        "filename": "front_end/core/platform/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-14T10:17:00Z",
+      "side": 1,
+      "message": "Is this one necessary?",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
