@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0c74320_ed1bdd6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-14T11:41:10Z",
+      "side": 1,
+      "message": "Having looked at this a little bit more I\u0027d actually prefer a different solution, too. If I\u0027m reading the gn docs[0] right, they\u0027re recommending listing the files as `outputs` in addition to `data`. Would that work here?\n\nhttps://gn.googlesource.com/gn/+/main/docs/reference.md#var_data",
+      "parentUuid": "5ff7089d_a4b6224e",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0518f96b_cf167d1f",
         "filename": "front_end/core/platform/BUILD.gn",
         "patchSetId": 3
