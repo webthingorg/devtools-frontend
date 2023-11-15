@@ -791,7 +791,6 @@ describeWithEnvironment('JSONEditor', () => {
 
          assert.deepStrictEqual(numberOfInputs, 2);
        });
-
   });
 
   describe('Reset to default values', () => {
