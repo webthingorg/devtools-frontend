@@ -39,6 +39,12 @@ describe('LoggingConfig', () => {
       assert.strictEqual(config.ve, 61);
     });
 
+    it('for Preview', () => {
+      element.setAttribute('jslog', 'Preview');
+      const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
+      assert.strictEqual(config.ve, 35);
+    });
+
     it('for DeveloperResourcesPanel', () => {
       element.setAttribute('jslog', 'DeveloperResourcesPanel');
       const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
@@ -79,6 +85,36 @@ describe('LoggingConfig', () => {
       element.setAttribute('jslog', 'ChangesPanel');
       const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
       assert.strictEqual(config.ve, 74);
+    });
+
+    it('for SensorsPanel', () => {
+      element.setAttribute('jslog', 'SensorsPanel');
+      const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
+      assert.strictEqual(config.ve, 75);
+    });
+
+    it('for SensorsLocationSection', () => {
+      element.setAttribute('jslog', 'SensorsLocationSection');
+      const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
+      assert.strictEqual(config.ve, 76);
+    });
+
+    it('for SensorsManageLocations', () => {
+      element.setAttribute('jslog', 'SensorsManageLocations');
+      const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
+      assert.strictEqual(config.ve, 77);
+    });
+
+    it('for SensorsOrientationSection', () => {
+      element.setAttribute('jslog', 'SensorsOrientationSection');
+      const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
+      assert.strictEqual(config.ve, 78);
+    });
+
+    it('for Reset', () => {
+      element.setAttribute('jslog', 'Reset');
+      const config = VisualLogging.LoggingConfig.getLoggingConfig(element);
+      assert.strictEqual(config.ve, 79);
     });
   });
 

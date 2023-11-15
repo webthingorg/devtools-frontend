@@ -55,7 +55,7 @@ enum VisualElements {
   BezierCurveEditor = 32,
   BezierEditor = 33,
   BezierPresetCategory = 34,
-  BezierPreview = 35,
+  Preview = 35,
   ColorCanvas = 36,
   ColorEyeDropper = 37,
   ColorPicker = 38,
@@ -95,6 +95,11 @@ enum VisualElements {
   Clear = 72,
   Revert = 73,
   ChangesPanel = 74,
+  SensorsPanel = 75,
+  SensorsLocationSection = 76,
+  SensorsManageLocations = 77,
+  SensorsOrientationSection = 78,
+  Reset = 79,
 }
 
 function resolveVe(ve: string): number {
