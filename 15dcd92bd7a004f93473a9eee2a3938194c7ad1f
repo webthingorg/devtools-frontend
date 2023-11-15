@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50d543e7_cfb460f0",
+        "filename": "scripts/build/ninja/devtools_pre_built.gni",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-15T05:25:58Z",
+      "side": 1,
+      "message": "\u0027source\u0027 is more consistent with sources?",
+      "range": {
+        "startLine": 27,
+        "startChar": 12,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "15dcd92bd7a004f93473a9eee2a3938194c7ad1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
