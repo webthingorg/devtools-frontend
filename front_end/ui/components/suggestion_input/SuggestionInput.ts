@@ -13,10 +13,7 @@ const mod = (a: number, n: number): number => {
   return ((a % n) + n) % n;
 };
 
-function assert<T>(
-    predicate: T,
-    message = 'Assertion failed!',
-    ): asserts predicate {
+function assert<T>(predicate: T, message = 'Assertion failed!'): asserts predicate {
   if (!predicate) {
     throw new Error(message);
   }
@@ -139,11 +136,11 @@ const defaultSuggestionFilter = (option: string, query: string): boolean =>
 class SuggestionBox extends LitElement {
   static override styles = [contentEditableStyles];
 
-  @property(jsonPropertyOptions) declare options: Readonly<string[]>;
-  @property() declare expression: string;
-  @property() declare suggestionFilter?: SuggestionFilter;
+  @property(jsonPropertyOptions) accessor options: Readonly<string[]>;
+  @property() accessor expression: string;
+  @property() accessor suggestionFilter: SuggestionFilter|undefined;
 
-  @state() private declare cursor: number;
+  @state() accessor #cursor: number;
 
   #suggestions: string[] = [];
 
@@ -153,7 +150,7 @@ class SuggestionBox extends LitElement {
     this.options = [];
     this.expression = '';
 
-    this.cursor = 0;
+    this.#cursor = 0;
   }
 
   #handleKeyDownEvent = (event: Event): void => {
@@ -176,8 +173,8 @@ class SuggestionBox extends LitElement {
 
     switch (event.key) {
       case 'Enter':
-        if (this.#suggestions[this.cursor]) {
-          this.#dispatchSuggestEvent(this.#suggestions[this.cursor]);
+        if (this.#suggestions[this.#cursor]) {
+          this.#dispatchSuggestEvent(this.#suggestions[this.#cursor]);
         }
         event.preventDefault();
         break;
@@ -185,7 +182,7 @@ class SuggestionBox extends LitElement {
   };
 
   #moveCursor(delta: number): void {
-    this.cursor = mod(this.cursor + delta, this.#suggestions.length);
+    this.#cursor = mod(this.#cursor + delta, this.#suggestions.length);
   }
 
   #dispatchSuggestEvent(suggestion: string): void {
@@ -195,9 +192,7 @@ class SuggestionBox extends LitElement {
   override connectedCallback(): void {
     super.connectedCallback();
 
-    this.dispatchEvent(
-        new SuggestionInitEvent([['keydown', this.#handleKeyDownEvent]]),
-    );
+    this.dispatchEvent(new SuggestionInitEvent([['keydown', this.#handleKeyDownEvent]]));
   }
 
   override willUpdate(changedProperties: LitHtml.PropertyValues<this>): void {
@@ -205,10 +200,9 @@ class SuggestionBox extends LitElement {
       this.options = Object.freeze([...this.options].sort());
     }
     if (changedProperties.has('expression') || changedProperties.has('options')) {
-      this.cursor = 0;
-      this.#suggestions = this.options.filter(
-          option => (this.suggestionFilter || defaultSuggestionFilter)(option, this.expression),
-      );
+      this.#cursor = 0;
+      this.#suggestions =
+          this.options.filter(option => (this.suggestionFilter || defaultSuggestionFilter)(option, this.expression));
     }
   }
 
@@ -221,7 +215,7 @@ class SuggestionBox extends LitElement {
       ${this.#suggestions.map((suggestion, index) => {
       return html`<li
           class=${classMap({
-        selected: index === this.cursor,
+        selected: index === this.#cursor,
       })}
           @mousedown=${this.#dispatchSuggestEvent.bind(this, suggestion)}
         >
@@ -244,25 +238,25 @@ export class SuggestionInput extends LitElement {
   /**
    * State passed to devtools-suggestion-box.
    */
-  @property(jsonPropertyOptions) declare options: Readonly<string[]>;
-  @property() declare autocomplete?: boolean;
-  @property() declare suggestionFilter?: SuggestionFilter;
-  @state() declare expression: string;
+  @property(jsonPropertyOptions) accessor options: Readonly<string[]>;
+  @property() accessor autocomplete: boolean|undefined;
+  @property() accessor suggestionFilter: SuggestionFilter|undefined;
+  @state() accessor #expression: string;
 
   /**
    * State passed to devtools-editable-content.
    */
-  @property() declare placeholder: string;
-  @property() declare value: string;
-  @property({type: Boolean}) declare disabled: boolean;
-  @property() declare strikethrough: boolean;
-  @property() declare mimeType: string;
+  @property() accessor placeholder: string;
+  @property() accessor value: string;
+  @property({type: Boolean}) accessor disabled: boolean;
+  @property() accessor strikethrough: boolean;
+  @property() accessor mimeType: string;
 
   constructor() {
     super();
 
     this.options = [];
-    this.expression = '';
+    this.#expression = '';
 
     this.placeholder = '';
     this.value = '';
@@ -289,7 +283,7 @@ export class SuggestionInput extends LitElement {
   #handleBlurEvent = (): void => {
     window.getSelection()?.removeAllRanges();
     this.value = this.#editableContent.value;
-    this.expression = this.#editableContent.value;
+    this.#expression = this.#editableContent.value;
   };
 
   #handleFocusEvent = (event: FocusEvent): void => {
@@ -309,7 +303,7 @@ export class SuggestionInput extends LitElement {
   };
 
   #handleInputEvent = (event: {target: EditableContent}): void => {
-    this.expression = event.target.value;
+    this.#expression = event.target.value;
   };
 
   #handleSuggestionInitEvent = (event: SuggestionInitEvent): void => {
@@ -325,11 +319,9 @@ export class SuggestionInput extends LitElement {
     setTimeout(this.blur.bind(this), 0);
   };
 
-  protected override willUpdate(
-      properties: LitHtml.PropertyValues<this>,
-      ): void {
+  protected override willUpdate(properties: LitHtml.PropertyValues<this>): void {
     if (properties.has('value')) {
-      this.expression = this.value;
+      this.#expression = this.value;
     }
   }
 
@@ -338,7 +330,7 @@ export class SuggestionInput extends LitElement {
     return html`<devtools-editable-content
         ?disabled=${this.disabled}
         class=${classMap({
-          'strikethrough': !this.strikethrough,
+          strikethrough: !this.strikethrough,
         })}
         .enterKeyHint=${'done'}
         .value=${this.value}
@@ -356,7 +348,7 @@ export class SuggestionInput extends LitElement {
         @suggest=${this.#handleSuggestEvent}
         .options=${this.options}
         .suggestionFilter=${this.suggestionFilter}
-        .expression=${this.autocomplete ? this.expression : ''}
+        .expression=${this.autocomplete ? this.#expression : ''}
       ></devtools-suggestion-box>`;
     // clang-format on
   }
