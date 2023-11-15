@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d20718b_c6dc3e9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-15T07:18:43Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "c039f0b62139a9b4db5052ec19329785b47355ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "751826b3_f5b38347",
+        "filename": "front_end/panels/developer_resources/DeveloperResourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-15T07:18:43Z",
+      "side": 1,
+      "message": "q: I\u0027m never sure whether it\u0027s `this.element` or `this.contentElement` for legacy widgets. Is `this.element` the right one here?",
+      "range": {
+        "startLine": 59,
+        "startChar": 9,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "c039f0b62139a9b4db5052ec19329785b47355ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
