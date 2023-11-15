@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38d43366_a6a3f28b",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-15T08:38:48Z",
+      "side": 1,
+      "message": "Is it not too late to set the height on animation end?\n\nWon\u0027t the animation timing be based on the 2000px max-width this way?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 51
+      },
+      "revId": "1bbffcaab938b01cb40783b5ba1e6b58eeee1c55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
