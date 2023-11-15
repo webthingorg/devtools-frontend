@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363b6e51_1a45e07b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-15T11:53:34Z",
+      "side": 1,
+      "message": "Sorry, one more question, missed it first time",
+      "revId": "16433d3ebda33f2a2ee9564a78f5ee13b03932b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee1e09f_37bcd576",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-15T11:53:34Z",
+      "side": 1,
+      "message": "Why is this needed? This is changing the default state text color?",
+      "revId": "16433d3ebda33f2a2ee9564a78f5ee13b03932b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
