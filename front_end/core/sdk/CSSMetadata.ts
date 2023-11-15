@@ -355,6 +355,58 @@ export const URLRegex = /url\(\s*('.+?'|".+?"|[^)]+)\s*\)/g;
  */
 export const GridAreaRowRegex = /((?:\[[\w\- ]+\]\s*)*(?:"[^"]+"|'[^']+'))[^'"\[]*\[?[^'"\[]*/;
 
+// The following regexes are used within in the StylesSidebarPropertyRenderer class
+// and will parse both invalid and valid values.
+// ^[^- ][a-zA-Z-]+ matches property key values (e.g. smaller, x-large, initial)
+// -?\+?(?:[0-9]+\.[0-9]+|\.[0-9]+|[0-9]+) matches numeric property values (e.g. -.23, 3.3, 55)
+// [a-zA-Z%]{0,4} matches the units of numeric property values (e.g. px, vmin, or blank units)
+export const FontPropertiesRegex: RegExp = /^[^- ][a-zA-Z-]+|-?\+?(?:[0-9]+\.[0-9]+|\.[0-9]+|[0-9]+)[a-zA-Z%]{0,4}/;
+
+// "[\w \,-]+",? ? matches double quoted values and the trailing comma/space (e.g. "Tahoma", )
+// ('[\w \,-]+',? ?) matches single quoted values and the trailing comma/space (e.g. 'Segoe UI', )
+// ([\w \,-]+,? ?) matches non quoted values and the trailing comma/space (e.g. Helvetica)
+// (?: ...)+ will match 1 or more of the groups above such that it would match a value with fallbacks (e.g. "Tahoma", 'Segoe UI', Helvetica)
+export const FontFamilyRegex: RegExp = /(?:"[\w \,-]+",? ?|'[\w \,-]+',? ?|[\w \,-]+,? ?)+/;
+
+export const CSSAngleRegex = /(?<value>[+-]?\d*\.?\d+)(?<unit>deg|grad|rad|turn)/;
+
+export const enum LengthUnit {
+  // absolute units
+  PIXEL = 'px',
+  CENTIMETER = 'cm',
+  MILLIMETER = 'mm',
+  INCH = 'in',
+  PICA = 'pc',
+  POINT = 'pt',
+
+  // relative units
+  CH = 'ch',
+  EM = 'em',
+  REM = 'rem',
+  VH = 'vh',
+  VW = 'vw',
+  VMIN = 'vmin',
+  VMAX = 'vmax',
+}
+
+export const LENGTH_UNITS = [
+  LengthUnit.PIXEL,
+  LengthUnit.CENTIMETER,
+  LengthUnit.MILLIMETER,
+  LengthUnit.INCH,
+  LengthUnit.PICA,
+  LengthUnit.POINT,
+  LengthUnit.CH,
+  LengthUnit.EM,
+  LengthUnit.REM,
+  LengthUnit.VH,
+  LengthUnit.VW,
+  LengthUnit.VMIN,
+  LengthUnit.VMAX,
+] as const;
+
+export const CSSLengthRegex = new RegExp(`(?<value>[+-]?\\d*\\.?\\d+)(?<unit>${LENGTH_UNITS.join('|')})`);
+
 let cssMetadataInstance: CSSMetadata|null = null;
 
 export function cssMetadata(): CSSMetadata {

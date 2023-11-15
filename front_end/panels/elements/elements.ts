@@ -20,6 +20,7 @@ import './NodeStackTraceWidget.js';
 import './StylePropertiesSection.js';
 import './StylePropertyHighlighter.js';
 import './StylesSidebarPane.js';
+import './StylesSidebarPropertyRenderer.js';
 import './StylePropertyTreeElement.js';
 import './ComputedStyleWidget.js';
 import './CSSRuleValidator.js';
@@ -59,6 +60,7 @@ import * as StylePropertyHighlighter from './StylePropertyHighlighter.js';
 import * as StylePropertyTreeElement from './StylePropertyTreeElement.js';
 import * as StylePropertyUtils from './StylePropertyUtils.js';
 import * as StylesSidebarPane from './StylesSidebarPane.js';
+import * as StylesSidebarPropertyRenderer from './StylesSidebarPropertyRenderer.js';
 import * as TopLayerContainer from './TopLayerContainer.js';
 import * as WebCustomData from './WebCustomData.js';
 
@@ -92,6 +94,7 @@ export {
   StylePropertyTreeElement,
   StylePropertyUtils,
   StylesSidebarPane,
+  StylesSidebarPropertyRenderer,
   TopLayerContainer,
   WebCustomData,
 };

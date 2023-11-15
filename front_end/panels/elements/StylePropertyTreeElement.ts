@@ -32,8 +32,9 @@ import {
   CSSPropertyPrompt,
   REGISTERED_PROPERTY_SECTION_NAME,
   StylesSidebarPane,
-  StylesSidebarPropertyRenderer,
 } from './StylesSidebarPane.js';
+import {StylesSidebarPropertyRenderer} from './StylesSidebarPropertyRenderer.js';
+import {UrlRenderer} from './UrlRenderer.js';
 
 const FlexboxEditor = ElementsComponents.StylePropertyEditor.FlexboxEditor;
 const GridEditor = ElementsComponents.StylePropertyEditor.GridEditor;
@@ -502,6 +503,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     return swatch;
   }
 
+  private processUrl(text: string): Node {
+    return UrlRenderer.renderUrl(this.style.parentRule, this.node(), text);
+  }
+
   private processVar(text: string): Node {
     // The regex that matches to variables in `StylesSidebarPropertyRenderer`
     // uses a lazy match. Because of this, when there are multiple right parantheses inside the
@@ -966,9 +971,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.expandElement.setAttribute('jslog', `${VisualLogging.treeItemExpand().track({click: true})}`);
     }
 
-    const propertyRenderer =
-        new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value);
+    const propertyRenderer = new StylesSidebarPropertyRenderer(this.name, this.value);
     if (this.property.parsedOk) {
+      propertyRenderer.setUrlHandler(this.processUrl.bind(this));
       propertyRenderer.setVarHandler(this.processVar.bind(this));
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
       propertyRenderer.setAnimationHandler(this.processAnimation.bind(this));

@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as SDK from '../../../../../../../front_end/core/sdk/sdk.js';
 import * as InlineEditor from '../../../../../../../front_end/ui/legacy/components/inline_editor/inline_editor.js';
 import {assertShadowRoot, renderElementIntoDOM} from '../../../../helpers/DOMHelpers.js';
 
@@ -79,10 +80,8 @@ describe('CSSLength', () => {
   describe('#CSSLengthUtils', () => {
     it('parses CSS properties with length correctly', () => {
       assert.deepEqual(
-          InlineEditor.CSSLengthUtils.parseText('42px'),
-          {value: 42, unit: InlineEditor.CSSLengthUtils.LengthUnit.PIXEL});
-      assert.deepEqual(
-          InlineEditor.CSSLengthUtils.parseText('-5vw'), {value: -5, unit: InlineEditor.CSSLengthUtils.LengthUnit.VW});
+          InlineEditor.CSSLengthUtils.parseText('42px'), {value: 42, unit: SDK.CSSMetadata.LengthUnit.PIXEL});
+      assert.deepEqual(InlineEditor.CSSLengthUtils.parseText('-5vw'), {value: -5, unit: SDK.CSSMetadata.LengthUnit.VW});
       assert.deepEqual(InlineEditor.CSSLengthUtils.parseText('42'), null);
       assert.deepEqual(InlineEditor.CSSLengthUtils.parseText(''), null);
     });

@@ -3,12 +3,13 @@
 // found in the LICENSE file.
 
 import * as Host from '../../../../core/host/host.js';
+import * as SDK from '../../../../core/sdk/sdk.js';
 import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
 import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 
 import cssLengthStyles from './cssLength.css.js';
-import {type Length, LENGTH_UNITS, LengthUnit, parseText} from './CSSLengthUtils.js';
+import {type Length, parseText} from './CSSLengthUtils.js';
 import {ValueChangedEvent} from './InlineEditorUtils.js';
 
 const {render, html, Directives: {classMap}} = LitHtml;
@@ -27,7 +28,7 @@ export interface CSSLengthData {
 
 const DefaultLength = {
   value: 0,
-  unit: LengthUnit.PIXEL,
+  unit: SDK.CSSMetadata.LengthUnit.PIXEL,
 };
 
 export class CSSLength extends HTMLElement {
@@ -57,7 +58,7 @@ export class CSSLength extends HTMLElement {
   }
 
   private onUnitChange(event: Event): void {
-    this.length.unit = (event.target as HTMLInputElement).value as LengthUnit;
+    this.length.unit = (event.target as HTMLInputElement).value as SDK.CSSMetadata.LengthUnit;
     this.dispatchEvent(new ValueChangedEvent(`${this.length.value}${this.length.unit}`));
     this.dispatchEvent(new DraggingFinishedEvent());
     this.render();
@@ -147,7 +148,7 @@ export class CSSLength extends HTMLElement {
     if (this.isEditingSlot) {
       return html`<slot></slot>`;
     }
-    const options = LENGTH_UNITS.map(unit => {
+    const options = SDK.CSSMetadata.LENGTH_UNITS.map(unit => {
       return html`
           <option value=${unit} .selected=${this.length.unit === unit}>${unit}</option>
         `;
