@@ -16,6 +16,57 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "83426a0dd6225c49ea659d9f596d889df8206535",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd1acf1_911cc98f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-15T11:17:27Z",
+      "side": 1,
+      "message": "Thanks for fixing this, Benedikt! LGTM % small fixes",
+      "revId": "83426a0dd6225c49ea659d9f596d889df8206535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca0e93c9_54a81a9c",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-15T11:17:27Z",
+      "side": 1,
+      "message": "text color of a selected element should be `--sys-color-on-tonal-container`, also above",
+      "revId": "83426a0dd6225c49ea659d9f596d889df8206535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b90b3d_8f368f0f",
+        "filename": "front_end/ui/components/linear_memory_inspector/valueInterpreterDisplay.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-15T11:17:27Z",
+      "side": 1,
+      "message": "Please use `--sys-color-cdt-base-container` for white background:)",
+      "revId": "83426a0dd6225c49ea659d9f596d889df8206535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
