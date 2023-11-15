@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "091ab464_3de4d595",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-15T06:22:56Z",
+      "side": 1,
+      "message": "No, this is fine.",
+      "parentUuid": "5555ac10_cf5f9101",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "e0f8a95c875c897329627c382e4cd245a2e81b1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e7933e8_fd8c48f1",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-11-15T06:13:04Z",
       "side": 1,
       "message": "I assume this is very generic that it would be ok to add data/metadata to all ts_library. \nBut, please let me know if it should control with a new flag. e.g. set_data_and_metadata\u003dtrue",
+      "revId": "e0f8a95c875c897329627c382e4cd245a2e81b1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21740702_3fcc69d9",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-15T06:22:56Z",
+      "side": 1,
+      "message": "I think it\u0027s fine, but just to make sure, could you double check the `devtools_resources.grd` output file and ensure that no unit/e2e test files are specified there? Otherwise we\u0027d ship test files with Chrome releases (which we don\u0027t wanna do).",
+      "parentUuid": "7e7933e8_fd8c48f1",
       "revId": "e0f8a95c875c897329627c382e4cd245a2e81b1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
