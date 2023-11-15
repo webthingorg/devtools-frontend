@@ -22,6 +22,30 @@
       },
       "revId": "1bbffcaab938b01cb40783b5ba1e6b58eeee1c55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "548e24ab_e72ad36c",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-15T08:41:30Z",
+      "side": 1,
+      "message": "I am currently only using this for the collapse animation that happens after the content is rendered and the expand animation is done. I think it might be too late in certain cases (if you collapse before the animations are done, for example). Do you know a more reliable way?",
+      "parentUuid": "38d43366_a6a3f28b",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 51
+      },
+      "revId": "1bbffcaab938b01cb40783b5ba1e6b58eeee1c55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
