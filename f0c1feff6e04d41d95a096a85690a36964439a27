@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8e8ce5e_24d6d6e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-15T11:41:28Z",
+      "side": 1,
+      "message": "LGTM with two comments :)\n\nCan we add a unit test to StylesSidebarPane_test for `@font-palette-values` section?",
+      "revId": "f0c1feff6e04d41d95a096a85690a36964439a27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "568d2830_3757c22c",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-15T11:41:28Z",
+      "side": 1,
+      "message": "(super nit): Can we rename this to `fontPaletteValuesRule`? Otherwise, it seems like this is an array with font palette values from the name 😅\n\nThis applies to other usages of `fontPaletteValues` as well :)",
+      "revId": "f0c1feff6e04d41d95a096a85690a36964439a27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
