@@ -81,6 +81,24 @@
       "parentUuid": "7e7933e8_fd8c48f1",
       "revId": "e0f8a95c875c897329627c382e4cd245a2e81b1e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34bfa401_ac973518",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-15T14:10:26Z",
+      "side": 1,
+      "message": "I confirmed that `gen/front_end/devtools_resources.grd` is identical with before. \n\nBut there are already some test files listed in the `devtools_resources.grd`, though.\n- Tests.js.compressed\n- integration_test_runner.html.compressed\n- legacy_test_runner/legacy_test_runner.js.compressed\n- legacy_test_runner/test_runner/test_runner.js.compressed",
+      "parentUuid": "21740702_3fcc69d9",
+      "revId": "e0f8a95c875c897329627c382e4cd245a2e81b1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
