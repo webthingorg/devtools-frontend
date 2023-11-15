@@ -88,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "971f513f_364e49a0",
+        "filename": "scripts/build/ninja/devtools_pre_built.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-15T05:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e6d2b3b_dfbe5ed7",
+      "range": {
+        "startLine": 5,
+        "startChar": 10,
+        "endLine": 5,
+        "endChar": 18
+      },
+      "revId": "94c3ebfe62cc5bf1fe269310e5faaf700eb131eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "792a221d_93ca9bd9",
@@ -101,6 +125,30 @@
       "writtenOn": "2023-11-15T05:22:43Z",
       "side": 1,
       "message": "I think this is not necessary as you have deps in forward_variables_from?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "94c3ebfe62cc5bf1fe269310e5faaf700eb131eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d204801c_25a662de",
+        "filename": "scripts/build/ninja/devtools_pre_built.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-15T05:38:05Z",
+      "side": 1,
+      "message": "I tried removing it. But it breaks debug build.\nhttps://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket/8764387039497814625/+/u/gn/stdout",
+      "parentUuid": "792a221d_93ca9bd9",
       "range": {
         "startLine": 31,
         "startChar": 4,
