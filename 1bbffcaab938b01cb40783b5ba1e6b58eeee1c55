@@ -46,6 +46,30 @@
       },
       "revId": "1bbffcaab938b01cb40783b5ba1e6b58eeee1c55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc79466_37eb59d6",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-15T08:54:36Z",
+      "side": 1,
+      "message": "I see. This is probably fine then.",
+      "parentUuid": "548e24ab_e72ad36c",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 51
+      },
+      "revId": "1bbffcaab938b01cb40783b5ba1e6b58eeee1c55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
