@@ -16,6 +16,23 @@
       "message": "Please take a look. Screenshots can be found here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1502390#c2",
       "revId": "5737ecb09c40cfe82541f2935ab241e3d5fbbbd3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccd7d0f9_a00df743",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-15T11:19:59Z",
+      "side": 1,
+      "message": "Thank you, Yang!",
+      "revId": "5737ecb09c40cfe82541f2935ab241e3d5fbbbd3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
