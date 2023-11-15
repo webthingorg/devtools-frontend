@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5555ac10_cf5f9101",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-15T06:13:04Z",
+      "side": 1,
+      "message": "Please let me know if I have to split CLs.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "e0f8a95c875c897329627c382e4cd245a2e81b1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e7933e8_fd8c48f1",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-15T06:13:04Z",
+      "side": 1,
+      "message": "I assume this is very generic that it would be ok to add data/metadata to all ts_library. \nBut, please let me know if it should control with a new flag. e.g. set_data_and_metadata\u003dtrue",
+      "revId": "e0f8a95c875c897329627c382e4cd245a2e81b1e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
