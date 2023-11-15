@@ -39,6 +39,52 @@
       "message": "thanks! lgtm % CL description",
       "revId": "94c3ebfe62cc5bf1fe269310e5faaf700eb131eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e6d2b3b_dfbe5ed7",
+        "filename": "scripts/build/ninja/devtools_pre_built.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-15T05:22:43Z",
+      "side": 1,
+      "message": "import\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/scripts/build/ninja/node.gni\ninstead?",
+      "range": {
+        "startLine": 5,
+        "startChar": 10,
+        "endLine": 5,
+        "endChar": 18
+      },
+      "revId": "94c3ebfe62cc5bf1fe269310e5faaf700eb131eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "792a221d_93ca9bd9",
+        "filename": "scripts/build/ninja/devtools_pre_built.gni",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-15T05:22:43Z",
+      "side": 1,
+      "message": "I think this is not necessary as you have deps in forward_variables_from?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "94c3ebfe62cc5bf1fe269310e5faaf700eb131eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
