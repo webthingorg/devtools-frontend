@@ -52,6 +52,24 @@
       "parentUuid": "d65073a4_13948176",
       "revId": "21a85f79c34a897c0e49c9e1079ec1077aaf42b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a43a946_f9912b53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-11-15T12:45:34Z",
+      "side": 1,
+      "message": "Oh I see, I guess other folks only roll browser_protocol because CSS properties usually don\u0027t concern them/gets updated by us.",
+      "parentUuid": "11aa7900_1242d4ee",
+      "revId": "21a85f79c34a897c0e49c9e1079ec1077aaf42b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
