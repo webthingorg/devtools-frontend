@@ -39,6 +39,30 @@
       },
       "revId": "c039f0b62139a9b4db5052ec19329785b47355ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74643267_c8be72a9",
+        "filename": "front_end/panels/developer_resources/DeveloperResourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-15T07:55:21Z",
+      "side": 1,
+      "message": "Me neither, that\u0027s why I just copied the line from the Elements panel 😊 (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/ElementsPanel.ts;l\u003d221;drc\u003da5651fc48b0a1fedb93779da685535c11100bd31)",
+      "parentUuid": "751826b3_f5b38347",
+      "range": {
+        "startLine": 59,
+        "startChar": 9,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "c039f0b62139a9b4db5052ec19329785b47355ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
