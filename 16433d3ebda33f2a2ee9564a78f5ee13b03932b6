@@ -33,6 +33,24 @@
       "message": "Why is this needed? This is changing the default state text color?",
       "revId": "16433d3ebda33f2a2ee9564a78f5ee13b03932b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8371ab10_76c8d8b3",
+        "filename": "front_end/ui/components/linear_memory_inspector/linearMemoryViewer.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-15T12:36:32Z",
+      "side": 1,
+      "message": "Discussed with Peter that this should be `--sys-color-on-surface-subtle`. Will send a follow up CL.",
+      "parentUuid": "2ee1e09f_37bcd576",
+      "revId": "16433d3ebda33f2a2ee9564a78f5ee13b03932b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
