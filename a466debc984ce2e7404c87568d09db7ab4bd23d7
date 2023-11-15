@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afcff633_87705133",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-15T05:22:45Z",
+      "side": 1,
+      "message": "Closing open thread.",
+      "parentUuid": "3e3826b7_9b9c33c7",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0518f96b_cf167d1f",
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "Yes",
       "parentUuid": "0518f96b_cf167d1f",
+      "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb61a3c2_b73f970f",
+        "filename": "front_end/core/platform/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-15T05:22:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7704a21e_14c77b4d",
       "revId": "a466debc984ce2e7404c87568d09db7ab4bd23d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
