@@ -16,6 +16,23 @@
       "message": "Example flake: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Linux%20Compile%20Debug/11906/overview",
       "revId": "a0c3afcb22023fc36aa48933a9691b48bc6c45c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc09143a_0083ca7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-15T13:32:39Z",
+      "side": 1,
+      "message": "LGTM.\n\nQ: Do we want to do this for all interactions tests?",
+      "revId": "a0c3afcb22023fc36aa48933a9691b48bc6c45c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
