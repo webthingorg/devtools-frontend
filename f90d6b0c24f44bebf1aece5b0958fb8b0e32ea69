@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb89bd2e_66c721f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-15T20:46:32Z",
+      "side": 1,
+      "message": "PTAL the text. Hope it makes better sense to developers. Thanks!",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
