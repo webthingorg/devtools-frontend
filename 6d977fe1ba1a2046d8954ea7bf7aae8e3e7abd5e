@@ -16,6 +16,23 @@
       "message": "See here for example: https://chromium-review.googlesource.com/c/chromium/src/+/5034719",
       "revId": "6d977fe1ba1a2046d8954ea7bf7aae8e3e7abd5e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ad65c2_f14b76d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-15T19:45:07Z",
+      "side": 1,
+      "message": "dsv@ can you take a look? Looks like rubberstamper isn\u0027t good enough, OWNERS-wise.",
+      "revId": "6d977fe1ba1a2046d8954ea7bf7aae8e3e7abd5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
