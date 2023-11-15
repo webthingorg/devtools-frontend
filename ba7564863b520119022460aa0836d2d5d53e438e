@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d7d5093_448ac085",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-15T08:44:54Z",
+      "side": 1,
+      "message": "URL scheme change LGTM, but maybe consider splitting the prompt changes into their own CL?",
+      "revId": "ba7564863b520119022460aa0836d2d5d53e438e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66562809_eecf39e9",
+        "filename": "front_end/panels/explain/PromptBuilder.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-15T08:44:54Z",
+      "side": 1,
+      "message": "Should this be its own CL?",
+      "revId": "ba7564863b520119022460aa0836d2d5d53e438e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cac81b8_6978c311",
+        "filename": "test/unittests/front_end/panels/explain/PromptBuilder_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-15T08:44:54Z",
+      "side": 1,
+      "message": "Should this be in its own CL?",
+      "revId": "ba7564863b520119022460aa0836d2d5d53e438e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
