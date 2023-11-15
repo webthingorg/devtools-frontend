@@ -16,6 +16,29 @@
       "message": "Could you take a look please?",
       "revId": "b5e9a4ae8090b837d0c56f124b6d8e0ad8569e49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5d3ad00_45be4e0c",
+        "filename": "front_end/panels/sensors/SensorsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-15T14:18:19Z",
+      "side": 1,
+      "message": "Maybe just rename StylePropertiesSection to Section and use it here with \u0027location\u0027 as a context?",
+      "range": {
+        "startLine": 259,
+        "startChar": 52,
+        "endLine": 259,
+        "endChar": 74
+      },
+      "revId": "b5e9a4ae8090b837d0c56f124b6d8e0ad8569e49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
