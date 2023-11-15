@@ -6,6 +6,8 @@ import type * as Lit from '../../third_party/lit/lit.js';
 
 import * as Static from './static.js';
 
+(Symbol as {metadata: symbol}).metadata ??= Symbol('Symbol.metadata');
+
 export {
   render,
   svg,
