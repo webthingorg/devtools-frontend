@@ -108,6 +108,14 @@ main {
   line-height: 20px;
 }
 
+.loading > main {
+  margin-bottom: 0;
+}
+
+devtools-markdown-view {
+  margin-bottom: 12px;
+}
+
 footer {
   display: flex;
   flex-direction: row;
@@ -226,6 +234,7 @@ ul {
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 153.846% */
+  margin-top: 8px;
 }
 
 ul .link {
@@ -241,17 +250,16 @@ summary {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  padding-bottom: 8px;
 }
 
 details {
-  --collapsed-height: 28px;
+  --collapsed-height: 20px;
 
   overflow: hidden;
   height: var(--collapsed-height);
 }
 
 details[open] {
-  height: calc(var(--list-height) + var(--collapsed-height));
+  height: calc(var(--list-height) + var(--collapsed-height) + /* margin */ 8px);
   transition: height var(--sys-motion-duration-short4) var(--sys-motion-easing-emphasized);
 }
