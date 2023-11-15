@@ -88,6 +88,24 @@
       "parentUuid": "abe17089_24199539",
       "revId": "99b5984be90db39c042b6f4fcf4582e8465b9a5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4988f92_7ae75ab3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-15T07:20:17Z",
+      "side": 1,
+      "message": "Thanks, I have excluded that change from this CL. The rest of the CL can be reviewed.",
+      "parentUuid": "5bbd3c15_87946db3",
+      "revId": "99b5984be90db39c042b6f4fcf4582e8465b9a5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
