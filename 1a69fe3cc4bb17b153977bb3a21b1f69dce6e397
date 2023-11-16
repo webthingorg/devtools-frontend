@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd67e5b6_4ccc831e",
+        "filename": "buckets/try.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-11-16T12:53:29Z",
+      "side": 0,
+      "message": "This is just slow and wasted resources... beginning to deprecate that.",
+      "range": {
+        "startLine": 197,
+        "startChar": 8,
+        "endLine": 197,
+        "endChar": 36
+      },
+      "revId": "1a69fe3cc4bb17b153977bb3a21b1f69dce6e397",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
