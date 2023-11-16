@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "9ae839b2e2c181499419835f4d6b7fdbf457b949",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c69393_15a6db5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-16T10:37:11Z",
+      "side": 1,
+      "message": "LGTM % 2 questions",
+      "revId": "9ae839b2e2c181499419835f4d6b7fdbf457b949",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "692bdb10_8fca8635",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-16T10:37:11Z",
+      "side": 1,
+      "message": "Can number of displayed types be ever more than number of types available?",
+      "range": {
+        "startLine": 478,
+        "startChar": 36,
+        "endLine": 478,
+        "endChar": 82
+      },
+      "revId": "9ae839b2e2c181499419835f4d6b7fdbf457b949",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ecb1504_d32ffc5f",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-16T10:37:11Z",
+      "side": 1,
+      "message": "same as in the other CL, could we rename to not have double negation?:)",
+      "range": {
+        "startLine": 2601,
+        "startChar": 8,
+        "endLine": 2601,
+        "endChar": 23
+      },
+      "revId": "9ae839b2e2c181499419835f4d6b7fdbf457b949",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
