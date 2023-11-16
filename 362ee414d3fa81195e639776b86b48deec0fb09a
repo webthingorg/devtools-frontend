@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93de1741_d7cc23e1",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-16T12:48:09Z",
+      "side": 1,
+      "message": "Similar to the other CL, this will never be triggered in the current implementation, it\u0027s only here to prevent future regressions.",
+      "parentUuid": "c5d08c0f_85081b18",
+      "revId": "362ee414d3fa81195e639776b86b48deec0fb09a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddd38d5c_59503ba3",
@@ -65,6 +83,30 @@
       "writtenOn": "2023-11-16T10:24:33Z",
       "side": 1,
       "message": "Could we rename this variable so that we don\u0027t have double negation here?",
+      "range": {
+        "startLine": 2811,
+        "startChar": 8,
+        "endLine": 2811,
+        "endChar": 23
+      },
+      "revId": "362ee414d3fa81195e639776b86b48deec0fb09a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbc6b4e1_af6db7da",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 2811,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-16T12:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddd38d5c_59503ba3",
       "range": {
         "startLine": 2811,
         "startChar": 8,
