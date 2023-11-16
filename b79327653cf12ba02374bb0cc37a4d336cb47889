@@ -56,6 +56,30 @@
       },
       "revId": "b79327653cf12ba02374bb0cc37a4d336cb47889",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb27a2e1_8b65149f",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1341608
+      },
+      "writtenOn": "2023-11-16T10:42:58Z",
+      "side": 1,
+      "message": "Thank you for your reply @Eric.\n\nIs this code enough solution for the exception?\n\n```\n    const fields \u003d value.split(\u0027:\u0027);\n\n    let position \u003d fields[0];\n    let timezoneId \u003d fields[1];\n    let locale \u003d fields[2];\n    let accuracy \u003d fields.length \u003e 3 ? fields[3] : \"default_accuracy\";  \n```",
+      "parentUuid": "4148f994_4fd180c5",
+      "range": {
+        "startLine": 434,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 79
+      },
+      "revId": "b79327653cf12ba02374bb0cc37a4d336cb47889",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
