@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "687f0b9a_5fe1521e",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-11-16T12:39:36Z",
+      "side": 1,
+      "message": "If you think this check is really necessary, we can leave it as-is:) I was wondering if we can skip the check altogehter, as `itemCount` never has values \u003c1 or \u003e\u003dMaxValue",
+      "parentUuid": "8cf85bf5_5704500c",
+      "range": {
+        "startLine": 478,
+        "startChar": 36,
+        "endLine": 478,
+        "endChar": 82
+      },
+      "revId": "9ae839b2e2c181499419835f4d6b7fdbf457b949",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ecb1504_d32ffc5f",
