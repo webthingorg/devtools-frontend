@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adb4dff5_933ac1b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-16T11:31:41Z",
+      "side": 1,
+      "message": "We should find a way to integrate this with the action registrations. That would still says Explain this error currently.",
+      "revId": "f7e99de596301ee0461a62b626516227a68a79c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
