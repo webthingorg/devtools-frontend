@@ -50,6 +50,24 @@
       "message": "We could also add a test for the throw:\n\n```\nit(\u0027throws for unknown actions\u0027, () \u003d\u003e {\n  assert.throws(() \u003d\u003e UI.ActionRegisry.ActionRegistry.instance().getAction(\u0027foo\u0027));\n});\n```",
       "revId": "82671dc89ad9503266bf1602b1a5e1d99f2fd9f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e2677f_b2c0a0d6",
+        "filename": "test/unittests/front_end/entrypoints/meta/action_registration_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-16T07:59:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "651d68c0_ab5dfff8",
+      "revId": "82671dc89ad9503266bf1602b1a5e1d99f2fd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
