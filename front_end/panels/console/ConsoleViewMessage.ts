@@ -227,7 +227,7 @@ const parameterToRemoteObject = (runtimeModel: SDK.RuntimeModel.RuntimeModel|nul
       return runtimeModel.createRemoteObjectFromPrimitiveValue(parameter);
     };
 
-const EXPLAIN_HOVER_ACTION_ID = 'explain.consoleMessage:hover';
+const EXPLAIN_HOVER_ACTION_ID = 'explain.consoleMessage';
 
 const hoverButtonObserver = new IntersectionObserver(results => {
   for (const result of results) {
@@ -1330,6 +1330,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       event.stopPropagation();
       UI.Context.Context.instance().setFlavor(ConsoleViewMessage, this);
       const action = UI.ActionRegistry.ActionRegistry.instance().getAction(EXPLAIN_HOVER_ACTION_ID);
+      Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightRequestedViaHoverButton);
       void action.execute();
     };
     const text = document.createElement('span');

@@ -180,7 +180,7 @@ export class Section {
     return item;
   }
 
-  appendAction(actionId: string, label?: string, optional?: boolean): void {
+  appendAction(actionId: string, label?: string, optional?: boolean, onAction?: () => void): void {
     if (optional && !ActionRegistry.instance().hasAction(actionId)) {
       return;
     }
@@ -188,7 +188,10 @@ export class Section {
     if (!label) {
       label = action.title();
     }
-    const result = this.appendItem(label, action.execute.bind(action), {jslogContext: actionId});
+    const result = this.appendItem(label, () => {
+      onAction?.();
+      return action.execute();
+    }, {jslogContext: actionId});
     const shortcut = ShortcutRegistry.instance().shortcutTitleForAction(actionId);
     if (shortcut) {
       result.setShortcut(shortcut);
