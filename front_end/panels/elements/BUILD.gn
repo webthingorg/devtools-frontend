@@ -62,7 +62,9 @@ devtools_module("elements") {
     "StylePropertyTreeElement.ts",
     "StylePropertyUtils.ts",
     "StylesSidebarPane.ts",
+    "StylesSidebarPropertyRenderer.ts",
     "TopLayerContainer.ts",
+    "UrlRenderer.ts",
     "WebCustomData.ts",
   ]
 
