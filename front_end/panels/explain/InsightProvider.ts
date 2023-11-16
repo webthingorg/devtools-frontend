@@ -35,7 +35,7 @@ export class InsightProvider {
                                        // Sometimes we get and 'error' entry next
                                        // to a 'textChunk' in otherwise successful
                                        // response. Ignoring this.
-                                       return '';
+                                       throw new Error(`${result['error']}: ${result['detail']}`);
                                      }
                                      throw new Error('Unknown chunk result');
                                    },
