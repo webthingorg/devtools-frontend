@@ -11,6 +11,7 @@ type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.Trac
 export const enum TreeAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
+  COLLAPSE_RECURSION = 'COLLAPSE_RECURSION',
 }
 
 export interface UserTreeAction {
@@ -143,6 +144,18 @@ export class TreeManipulator {
           allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
           break;
         }
+
+        case TreeAction.COLLAPSE_RECURSION: {
+          console.log("recursion actions");
+          const entryNode = this.#entryToNode.get(action.entry);
+          if (!entryNode) {
+            // Invalid node was given, just ignore and move on.
+            continue;
+          }
+          const allAncestors = this.#findAllAncestorsOfNextRecursiveNode(entryNode);
+          allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
+          break;
+        }
         default:
           Platform.assertNever(action.type, `Unknown TreeManipulator action: ${action.type}`);
       }
@@ -173,5 +186,26 @@ export class TreeManipulator {
     }
 
     return ancestors;
+  }
+
+  #findAllAncestorsOfNextRecursiveNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEntry[] {
+    // Walk through all the ancestors, starting at the root node.
+    const children: Helpers.TreeHelpers.TraceEntryNode[] = [...root.children];
+    const sameFucntionCalls: Types.TraceEvents.TraceEntry[] = [];
+
+    while (children.length > 0) {
+      const childNode = children.shift();
+      if (childNode) {
+        const childNodeEntry = childNode.entry as Types.TraceEvents.TraceEventSyntheticProfileCall;
+        const rootNodeEntry = root.entry as Types.TraceEvents.TraceEventSyntheticProfileCall;
+        // check if we found a node with the same callFrame
+        if(JSON.stringify(childNodeEntry.callFrame) == JSON.stringify(rootNodeEntry.callFrame)) {
+          sameFucntionCalls.push(childNode.entry);
+        }
+        children.push(...childNode.children);
+      }
+    }
+
+    return sameFucntionCalls;
   }
 }
