@@ -35,6 +35,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69193ec4_b6a2c790",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "suggested edits",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489d2e57_ffb5e4e6",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "We should try to minimize the usage [passive voice](https://developers.google.com/style/voice). Who is the actor in this sentence?\nSuggestion:\n\"Cookies with the `SameSite\u003dNone; Secure` and not `Partitioned` attributes operate in cross-site contexts and are [considered?] third-party cookies.\"",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 150
+      },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "babe2066_22eea0ac",
@@ -60,6 +100,81 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9250a35_4329ca66",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "+1\n```suggestion\nChrome blocks third-party cookies to protect user data from cross-site tracking.\n```",
+      "parentUuid": "babe2066_22eea0ac",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 113
+      },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "383e2c3b_21826a58",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "Please minimize the usage of passive voice.",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11d9206_1237b0d7",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "```suggestion\nChrome blocks third-party cookies to protect user data from cross-site tracking.\n```",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c1f9c97_c6acc01b",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "Please minimize the usage of passive voice.",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecd1d0f3_e516340b",
         "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
         "patchSetId": 1
@@ -77,6 +192,57 @@
         "endLine": 4,
         "endChar": 34
       },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ed449bc_2420826e",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "```suggestion\nIn future Chrome versions, reading third-party cookies will be blocked.\n```",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9450e2b_6d0d3925",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "Please minimize the usage of passive voice.",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a42263fe_56a4c364",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-16T15:10:12Z",
+      "side": 1,
+      "message": "```suggestion\nIn future Chrome versions, setting third-party cookies will be blocked.\n```",
       "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
