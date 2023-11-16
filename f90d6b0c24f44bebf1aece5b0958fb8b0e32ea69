@@ -16,6 +16,69 @@
       "message": "PTAL the text. Hope it makes better sense to developers. Thanks!",
       "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e54eba7_63e40b54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-16T11:54:25Z",
+      "side": 1,
+      "message": "FYI, we have some writing guidelines at http://go/chrome-devtools/ux-writing.\n\nSofia, could you PTAL as well?",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "babe2066_22eea0ac",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-16T11:54:25Z",
+      "side": 1,
+      "message": "Would this be simpler?:\nChrome blocks third-party cookies to protect user data from cross-site tracking.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 113
+      },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecd1d0f3_e516340b",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-16T11:54:25Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to use `Chrome` instead.",
+      "range": {
+        "startLine": 4,
+        "startChar": 23,
+        "endLine": 4,
+        "endChar": 34
+      },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
