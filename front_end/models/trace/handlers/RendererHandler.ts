@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Platform from '../../../core/platform/platform.js';
+import {EventOnTimelineData} from '../../timeline_model/TimelineModel.js';
 import * as Helpers from '../helpers/helpers.js';
 import * as Types from '../types/types.js';
 
@@ -24,6 +25,10 @@ import {HandlerState, type TraceEventHandlerName} from './types.js';
  */
 
 const processes = new Map<Types.TraceEvents.ProcessID, RendererProcess>();
+
+// Tracking post message dispatch and handler events for creating initiator association
+const postMessageEventDispatchersIdToEventMap: Map<string, Types.TraceEvents.TraceEntry> = new Map();
+const postMessageHandlerEvents: Types.TraceEvents.TraceEventPostMessageHandler[] = [];
 
 // We track the compositor tile worker thread name events so that at the end we
 // can return these keyed by the process ID. These are used in the frontend to
@@ -68,6 +73,8 @@ export function handleUserConfig(userConfig: Types.Configuration.Configuration):
 export function reset(): void {
   processes.clear();
   entryToNode.clear();
+  postMessageEventDispatchersIdToEventMap.clear();
+  postMessageHandlerEvents.length = 0;
   allTraceEntries.length = 0;
   completeEventStack.length = 0;
   compositorTileWorkers.length = 0;
@@ -109,6 +116,15 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   if (Types.TraceEvents.isTraceEventInstant(event) || Types.TraceEvents.isTraceEventComplete(event)) {
     const process = getOrCreateRendererProcess(processes, event.pid);
     const thread = getOrCreateRendererThread(process, event.tid);
+    if (Types.TraceEvents.isTraceEventPostMessageDispatch(event)) {
+      const linkifier = event.args?.data?.timestamp;
+      if (linkifier) {
+        postMessageEventDispatchersIdToEventMap.set(linkifier, event);
+      }
+    } else if (Types.TraceEvents.isTraceEventPostMessageHandler(event)) {
+      postMessageHandlerEvents.push(event);
+    }
+
     thread.entries.push(event);
     allTraceEntries.push(event);
   }
@@ -124,6 +140,7 @@ export async function finalize(): Promise<void> {
   sanitizeProcesses(processes);
   buildHierarchy(processes);
   sanitizeThreads(processes);
+  buildInitiatorRelationship();
   Helpers.Trace.sortTraceEventsInPlace(allTraceEntries);
   handlerState = HandlerState.FINALIZED;
 }
@@ -139,6 +156,17 @@ export function data(): RendererHandlerData {
     entryToNode: new Map(entryToNode),
     allTraceEntries: [...allTraceEntries],
   };
+}
+
+function buildInitiatorRelationship(): void {
+  for (const handlerEvent of postMessageHandlerEvents) {
+    const linkifier = handlerEvent.args.data.timestamp;
+    const initiator = linkifier ? postMessageEventDispatchersIdToEventMap.get(linkifier) : null;
+    if (initiator) {
+      const handlerTimelineData = EventOnTimelineData.forEvent(handlerEvent);
+      handlerTimelineData.setInitiator(initiator);
+    }
+  }
 }
 
 function gatherCompositorThreads(): Map<Types.TraceEvents.ProcessID, Types.TraceEvents.ThreadID[]> {

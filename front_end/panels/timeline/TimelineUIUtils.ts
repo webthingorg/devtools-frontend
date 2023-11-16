@@ -1148,6 +1148,14 @@ const UIStrings = {
    *@description Text of a DOM element in Timeline UIUtils of the Performance panel
    */
   UnknownNode: '[ unknown node ]',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel for postmessage dispatch events
+   */
+  postMessageDispatch: 'PostMessage.Dispatch',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel for postmessage handler events
+   */
+  postMessageHandler: 'PostMessage.Handler',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelineUIUtils.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -1329,6 +1337,11 @@ export class TimelineUIUtils {
     eventStyles[type.LayoutShift] = new TimelineRecordStyle(i18nString(UIStrings.layoutShift), experience);
 
     eventStyles[type.EventTiming] = new TimelineRecordStyle(UIStrings.eventTiming, experience);
+
+    // For now use scripting category (sets default color to orange)
+    eventStyles[type.PostMessageDispatch] =
+        new TimelineRecordStyle(i18nString(UIStrings.postMessageDispatch), scripting);
+    eventStyles[type.PostMessageHandler] = new TimelineRecordStyle(i18nString(UIStrings.postMessageHandler), scripting);
 
     eventStylesMap = eventStyles;
     return eventStyles;
@@ -1747,7 +1760,8 @@ export class TimelineUIUtils {
       case recordType.FunctionCall:
       case recordType.JSIdleFrame:
       case recordType.JSSystemFrame:
-      case recordType.JSFrame: {
+      case recordType.JSFrame:
+      case recordType.PostMessageHandler: {
         details = document.createElement('span');
         UI.UIUtils.createTextChild(details, TimelineUIUtils.frameDisplayName(eventData));
         const location = this.linkifyLocation({
