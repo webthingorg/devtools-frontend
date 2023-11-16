@@ -49,7 +49,8 @@ import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {PlatformFontsWidget} from './PlatformFontsWidget.js';
 import {categorizePropertyName, type Category, DefaultCategoryOrder} from './PropertyNameCategories.js';
 import {StylePropertiesSection} from './StylePropertiesSection.js';
-import {StylesSidebarPropertyRenderer} from './StylesSidebarPane.js';
+import {StylesSidebarPropertyRenderer} from './StylesSidebarPropertyRenderer.js';
+import {UrlRenderer} from './UrlRenderer.js';
 
 const UIStrings = {
   /**
@@ -114,7 +115,8 @@ function renderPropertyContents(
   if (valueFromCache) {
     return valueFromCache;
   }
-  const renderer = new StylesSidebarPropertyRenderer(null, node, propertyName, propertyValue);
+  const renderer = new StylesSidebarPropertyRenderer(propertyName, propertyValue);
+  renderer.setUrlHandler(text => UrlRenderer.renderUrl(null, node, text));
   renderer.setColorHandler(processColor);
   const name = renderer.renderName();
   name.slot = 'name';
@@ -155,7 +157,8 @@ const createTraceElement =
      linkifier: Components.Linkifier.Linkifier): ElementsComponents.ComputedStyleTrace.ComputedStyleTrace => {
       const trace = new ElementsComponents.ComputedStyleTrace.ComputedStyleTrace();
 
-      const renderer = new StylesSidebarPropertyRenderer(null, node, property.name, (property.value as string));
+      const renderer = new StylesSidebarPropertyRenderer(property.name, (property.value as string));
+      renderer.setUrlHandler(text => UrlRenderer.renderUrl(null, node, text));
       renderer.setColorHandler(processColor);
       const valueElement = renderer.renderValue();
       valueElement.slot = 'trace-value';
