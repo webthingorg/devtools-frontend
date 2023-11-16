@@ -184,6 +184,28 @@ export interface TraceEventFireIdleCallback extends TraceEventComplete {
   };
 }
 
+export interface TraceEventPostMessageDispatch extends TraceEventComplete {
+  name: 'PostMessage.Dispatch';
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      type?: string,
+      timestamp?: string,
+      // todo: data fields
+    },
+  };
+}
+
+export interface TraceEventPostMessageHandler extends TraceEventComplete {
+  name: 'PostMessage.Handler';
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      type?: string,
+      timestamp?: string,
+      // todo: data fields
+    },
+  };
+}
+
 export interface TraceEventDispatch extends TraceEventComplete {
   name: 'EventDispatch';
   args: TraceEventArgs&{
@@ -1127,6 +1149,14 @@ export function isTraceEventFireIdleCallback(event: TraceEventData): event is Tr
   return event.name === 'FireIdleCallback';
 }
 
+export function isTraceEventPostMessageDispatch(event: TraceEventData): event is TraceEventPostMessageDispatch {
+  return event.name === 'PostMessage.Dispatch';
+}
+
+export function isTraceEventPostMessageHandler(event: TraceEventData): event is TraceEventPostMessageHandler {
+  return event.name === 'PostMessage.Handler';
+}
+
 export function isTraceEventUpdateCounters(event: TraceEventData): event is TraceEventUpdateCounters {
   return event.name === 'UpdateCounters';
 }
@@ -1572,4 +1602,7 @@ export const enum KnownEventName {
   InputLatencyMouseMove = 'InputLatency::MouseMove',
   InputLatencyMouseWheel = 'InputLatency::MouseWheel',
   ImplSideFling = 'InputHandlerProxy::HandleGestureFling::started',
+
+  PostMessageDispatch = 'PostMessage.Dispatch',
+  PostMessageHandler = 'PostMessage.Handler',
 }
