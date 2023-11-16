@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6badc0ef_aba3fd05",
+        "filename": "front_end/panels/explain/InsightProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-16T10:56:39Z",
+      "side": 1,
+      "message": "If you want this behavior, please remove the comment above.\n\nThe reason I added it was that we were getting chunks mixed with errors, while getting 200 HTTP status. Normally failed requests shouldn\u0027t have 200 status and should be handed in the catch clause.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 98
+      },
+      "revId": "e6d9d7e69098c1d5bf913800f62e2d16127e8271",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
