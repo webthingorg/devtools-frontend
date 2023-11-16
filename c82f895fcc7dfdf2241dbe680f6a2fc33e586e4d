@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71e80364_bef7c97b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-16T15:11:39Z",
+      "side": 1,
+      "message": "PTAL.",
+      "revId": "c82f895fcc7dfdf2241dbe680f6a2fc33e586e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d593b6b_5c806cf0",
+        "filename": "front_end/models/timeline_model/TimelineFrameModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-16T15:11:39Z",
+      "side": 1,
+      "message": "adding the sequence ID to frames made debugging easier: thought I might as well land this for future changes. This value isn\u0027t visible or relied upon at all.",
+      "range": {
+        "startLine": 135,
+        "startChar": 33,
+        "endLine": 135,
+        "endChar": 38
+      },
+      "revId": "c82f895fcc7dfdf2241dbe680f6a2fc33e586e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
