@@ -16,6 +16,24 @@
       "message": "Danil, WDYT? Do you have any specific tips on how instantiate console message with this data? current tests don\u0027t seem to include stacktraces.",
       "revId": "4d09f7e3f87479f3ab93c528de950d2e3dca0c6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aedd702e_c6502329",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-16T08:33:58Z",
+      "side": 1,
+      "message": "I will think about the test next.",
+      "parentUuid": "169c550c_be2f6cb5",
+      "revId": "4d09f7e3f87479f3ab93c528de950d2e3dca0c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
