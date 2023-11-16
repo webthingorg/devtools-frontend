@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "4ec7d7d729c408bf5bf5b9e444cc1171b50c1e16",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d36c4a5a_ad95edb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-16T09:39:35Z",
+      "side": 1,
+      "message": "Thanks!\n\nCould you also please change the VE type to Action for menu items in SoftContextMenu.createMenuItem and ContextMenu.registerLoggablesWithin?",
+      "revId": "4ec7d7d729c408bf5bf5b9e444cc1171b50c1e16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
