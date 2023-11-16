@@ -11,6 +11,7 @@ type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.Trac
 export const enum TreeAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
+  COLLAPSE_RECURSION = 'COLLAPSE_RECURSION',
 }
 
 export interface UserTreeAction {
@@ -123,12 +124,14 @@ export class TreeManipulator {
     const entriesToHide = new Set<Types.TraceEvents.TraceEntry>();
 
     for (const action of this.#activeActions) {
+      console.log("action is ", action);
       switch (action.type) {
         case TreeAction.MERGE_FUNCTION: {
           // The entry that was clicked on is merged into its parent. All its
           // children remain visible, so we just have to hide the entry that was
           // selected.
           entriesToHide.add(action.entry);
+          console.log("merge ", action.entry);
           break;
         }
 
@@ -140,6 +143,19 @@ export class TreeManipulator {
             continue;
           }
           const allAncestors = this.#findAllAncestorsOfNode(entryNode);
+          allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
+          console.log("collapse ", allAncestors);
+          break;
+        }
+
+        case TreeAction.COLLAPSE_RECURSION: {
+          console.log("case");
+          const entryNode = this.#entryToNode.get(action.entry);
+          if (!entryNode) {
+            // Invalid node was given, just ignore and move on.
+            continue;
+          }
+          const allAncestors = this.#findAllAncestorsOfNextRecursiveNode(entryNode);
           allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
           break;
         }
@@ -163,7 +179,7 @@ export class TreeManipulator {
     const ancestors: Types.TraceEvents.TraceEntry[] = [];
 
     // Walk through all the ancestors, starting at the root node.
-    const children: Helpers.TreeHelpers.TraceEntryNode[] = [...root.children];
+    const children: Helpers.TreeHelpers.TraceEntryNode[] = root.children;
     while (children.length > 0) {
       const childNode = children.shift();
       if (childNode) {
@@ -173,5 +189,26 @@ export class TreeManipulator {
     }
 
     return ancestors;
+  }
+
+  #findAllAncestorsOfNextRecursiveNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEntry[] {
+    // Walk through all the ancestors, starting at the root node.
+    const children: Helpers.TreeHelpers.TraceEntryNode[] = root.children;
+    const sameFucntionCalls: Types.TraceEvents.TraceEntry[] = [];
+
+    while (children.length > 0) {
+      const childNode = children.shift();
+      if (childNode) {
+        // check if we found a node with the same callFrame
+        if(JSON.stringify(childNode.entry.callFrame) == JSON.stringify(root.entry.callFrame)) {
+          sameFucntionCalls.push(childNode.entry);
+          console.log("added ", childNode.entry);
+          // return [childNode.entry,...this.#findAllAncestorsOfNode(childNode)];
+        }
+        children.push(...childNode.children);
+      }
+    }
+
+    return sameFucntionCalls;
   }
 }
