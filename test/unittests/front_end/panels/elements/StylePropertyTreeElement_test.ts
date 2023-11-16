@@ -455,8 +455,8 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       const cssCustomPropertyDef = new SDK.CSSProperty.CSSProperty(
           mockCssStyleDeclaration, 0, 'prop', 'var(--prop)', true, false, true, false, '', undefined);
       mockMatchedStyles.computeCSSVariable.returns('computedvalue');
-      const renderValueSpy =
-          sinon.spy(ElementsModule.StylesSidebarPane.StylesSidebarPropertyRenderer.prototype, 'renderValue');
+      const renderValueSpy = sinon.spy(
+          ElementsModule.StylesSidebarPropertyRenderer.StylesSidebarPropertyRenderer.prototype, 'renderValue');
       const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
         stylesPane: stylesSidebarPane,
         matchedStyles: mockMatchedStyles,

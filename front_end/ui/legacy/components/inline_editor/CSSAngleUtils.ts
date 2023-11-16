@@ -3,9 +3,8 @@
 // found in the LICENSE file.
 
 import * as Platform from '../../../../core/platform/platform.js';
+import * as SDK from '../../../../core/sdk/sdk.js';
 import * as UI from '../../legacy.js';
-
-export const CSSAngleRegex = /(?<value>[+-]?\d*\.?\d+)(?<unit>deg|grad|rad|turn)/;
 
 export const enum AngleUnit {
   Deg = 'deg',
@@ -20,7 +19,7 @@ export interface Angle {
 }
 
 export const parseText = (text: string): Angle|null => {
-  const result = text.match(CSSAngleRegex);
+  const result = text.match(SDK.CSSMetadata.CSSAngleRegex);
   if (!result || !result.groups) {
     return null;
   }
