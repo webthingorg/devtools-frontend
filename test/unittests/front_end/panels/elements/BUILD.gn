@@ -21,6 +21,7 @@ ts_library("elements") {
     "StylePropertyTreeElement_test.ts",
     "StylePropertyUtils_test.ts",
     "StylesSidebarPane_test.ts",
+    "StylesSidebarPropertyRenderer_test.ts",
     "TopLayerContainer_test.ts",
     "WebCustomData_test.ts",
   ]
