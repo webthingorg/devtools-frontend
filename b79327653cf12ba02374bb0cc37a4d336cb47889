@@ -80,6 +80,30 @@
       },
       "revId": "b79327653cf12ba02374bb0cc37a4d336cb47889",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b884f8c5_1a898452",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-11-16T16:16:38Z",
+      "side": 1,
+      "message": "It might be easier if you make accuracy the last field. Then do something like:\n\n```\nconst [position, timezoneId, locale, error, ...maybeAccuracy] \u003d value.split(\u0027:\u0027);\nconst accuracy \u003d maybeAccuracy.length ? maybeAccuracy[0] : \u0027150\u0027;\n```",
+      "parentUuid": "fb27a2e1_8b65149f",
+      "range": {
+        "startLine": 434,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 79
+      },
+      "revId": "b79327653cf12ba02374bb0cc37a4d336cb47889",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
