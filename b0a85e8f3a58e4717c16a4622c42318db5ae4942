@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bba10b1a_de520465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-16T11:49:31Z",
+      "side": 1,
+      "message": "Uhm, this looks pretty cumbersome. Is it really important to capture the difference between context menu activation vs. button click activation?",
+      "revId": "b0a85e8f3a58e4717c16a4622c42318db5ae4942",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
