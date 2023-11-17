@@ -16,6 +16,24 @@
       "message": "just a heads-up, we recently changed the archive format we use for this package from tbz2 to .tar.xz on Mac and Linux. The next time you update your emscripten version, this will need to change.",
       "revId": "431cb39d4e0b825c5720f79e8c83cbb350815247",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "525ec91f_ab9cefc0",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-11-17T16:03:22Z",
+      "side": 1,
+      "message": "Right, that already confused me when looking up objects in the bucket. Leaving this to Phillip. Don\u0027t know how frequently we update this, but I think the update is manual and the DEPS file with the tag value and this script can be updated in sync.",
+      "parentUuid": "edc9d644_5966585f",
+      "revId": "431cb39d4e0b825c5720f79e8c83cbb350815247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
