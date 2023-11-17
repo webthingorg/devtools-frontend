@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b6faed1_99c1efb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-17T08:43:24Z",
+      "side": 1,
+      "message": "s/I moved/this CL moves/",
+      "revId": "47798541b8c4b23d43a61556f305e1828cd6d838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf90159f_9344a4c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-11-17T08:43:24Z",
+      "side": 1,
+      "message": "LGTM if tests pass",
+      "revId": "47798541b8c4b23d43a61556f305e1828cd6d838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
