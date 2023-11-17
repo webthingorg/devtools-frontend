@@ -16,6 +16,29 @@
       "message": "PTAL at the latest revision to adapt to new trace engine and let me know what you think. Seems like `RendererHandler.ts` might fit better than `WorkerHandler.ts` since postMessages can happen on iframes and other non-worker contexts as well but open to thoughts on this.\n\nAre there any plans to migrate the `EventOnTimeline` class out of `TimelineModel.ts`? I currently import this class to create the relationship in the handler since this is being used elsewhere in the initiator logic.\n\nI also noticed there seems to be bug to support showing the arrow lines for events coming from the new engine? \n[crbug.com/1434596](`https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/front_end/panels/timeline/TimelineFlameChartDataProvider.ts#1424`)\n\nThe initiator info still shows up in the details page but not the arrow lines.",
       "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5683e652_0c6b6c2c",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-17T12:39:22Z",
+      "side": 1,
+      "message": "we should instead update the data() function so it returns the information we need to link these events - and we do not want to rely on EventOnTimelineData in the handlers.\n\nThe idea of models/trace that it is standalone and should eventually replace the old timeline_model, so we cannot rely on it in here.\n\nI appreciate this is frustrating give the current setup; I am working right now on the initiator support in the new engine, which I hope might make this easier, but it\u0027s not yet ready to land.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
