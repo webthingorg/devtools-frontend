@@ -6,6 +6,7 @@ import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
+import * as DataGrid from '../../ui/components/data_grid/data_grid.js';
 import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
@@ -44,6 +45,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
         </div>
       ` : LitHtml.nothing}
       ${this.#renderAddressUi()}
+      ${this.#renderFilledFields()}
     `, this.#shadow, {host: this});
     // clang-format on
   }
@@ -69,7 +71,92 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
                          .EventTargetEvent<SDK.AutofillModel.EventTypes[SDK.AutofillModel.Events.AddressFormFilled]>):
       void {
     ({addressUi: this.#addressUi, filledFields: this.#filledFields} = data.event);
+    console.log('filledFields', this.#filledFields);
     this.#render();
+  }
+
+  #renderFilledFields(): LitHtml.LitTemplate {
+    if (!this.#filledFields.length) {
+      return LitHtml.nothing;
+    }
+
+    const gridData: DataGrid.DataGridController.DataGridControllerData = {
+      columns: [
+        {
+          id: 'name',
+          title: 'name',
+          widthWeighting: 50,
+          hideable: false,
+          visible: true,
+          sortable: true,
+        },
+        {
+          id: 'id',
+          title: 'id',
+          widthWeighting: 50,
+          hideable: false,
+          visible: true,
+          sortable: true,
+        },
+        {
+          id: 'autofillType',
+          title: 'autofillType',
+          widthWeighting: 50,
+          hideable: false,
+          visible: true,
+          sortable: true,
+        },
+        {
+          id: 'value',
+          title: 'value',
+          widthWeighting: 50,
+          hideable: false,
+          visible: true,
+          sortable: true,
+        },
+        {
+          id: 'htmlType',
+          title: 'htmlType',
+          widthWeighting: 50,
+          hideable: false,
+          visible: true,
+          sortable: true,
+        },
+        {
+          id: 'fillingStrategy',
+          title: 'fillingStrategy',
+          widthWeighting: 50,
+          hideable: false,
+          visible: true,
+          sortable: true,
+        },
+      ],
+      rows: this.#buildReportRows(),
+      striped: true,
+    };
+
+    // clang-format off
+    return LitHtml.html`
+      <${DataGrid.DataGridController.DataGridController.litTagName} .data=${
+        gridData as DataGrid.DataGridController.DataGridControllerData}>
+      </${DataGrid.DataGridController.DataGridController.litTagName}>
+    `;
+    // clang-format on
+  }
+
+  #buildReportRows(): DataGrid.DataGridUtils.Row[] {
+    return this.#filledFields.map(
+        field => ({
+          cells: [
+            {columnId: 'name', value: field.name},
+            {columnId: 'id', value: field.id},
+            {columnId: 'autofillType', value: field.autofillType},
+            {columnId: 'value', value: field.value},
+            {columnId: 'htmlType', value: field.htmlType},
+            {columnId: 'fillingStrategy', value: field.fillingStrategy},
+          ],
+        }),
+    );
   }
 
   modelAdded(model: SDK.AutofillModel.AutofillModel): void {
