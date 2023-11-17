@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba5a207a_2c98fa41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-11-17T23:21:51Z",
+      "side": 1,
+      "message": "it cleared your +1 again. but..  i got you a test. i hope you like it :)",
+      "revId": "79c860b0c56e606c771226512949499b767ae9b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9691700a_143788a8",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-11-17T23:21:51Z",
+      "side": 1,
+      "message": "i doubt there are ids with 0 but.. just in case.",
+      "revId": "79c860b0c56e606c771226512949499b767ae9b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
