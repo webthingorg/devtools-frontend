@@ -402,6 +402,7 @@ export class SamplesIntegrator {
     return false;
   }
 
+  // use this
   static framesAreEqual(frame1: Protocol.Runtime.CallFrame, frame2: Protocol.Runtime.CallFrame): boolean {
     return frame1.scriptId === frame2.scriptId && frame1.functionName === frame2.functionName &&
         frame1.lineNumber === frame2.lineNumber;
