@@ -18,7 +18,7 @@ import zipfile
 
 BS = 8192
 STAMP_FILE = 'build-revision'
-DOWNLOAD_URL = "https://storage.googleapis.com/webassembly/emscripten-releases-builds/%s/%s/wasm-binaries.%s"
+DOWNLOAD_URL = "https://storage.googleapis.com/webassembly/emscripten-releases-builds/%s/%s/wasm-binaries%s.%s"
 
 
 def check_stamp_file(options):
@@ -58,8 +58,14 @@ def script_main(args):
         'Darwin': 'mac'
     }[platform.system()]
 
-    url = DOWNLOAD_URL % (os_name, options.tag,
-                          'zip' if os_name == 'win' else 'tbz2')
+    arch_suffix = ''
+    host_arch = platform.machine().lower()
+    if host_arch == 'arm64' or host_arch.startswith('aarch64'):
+      arch_suffix = '-arm64'
+
+    file_extension = 'zip' if os_name == 'win' else 'tbz2'
+
+    url = DOWNLOAD_URL % (os_name, options.tag, arch_suffix, file_extension)
 
     try:
         filename, _ = urllib.request.urlretrieve(url)
