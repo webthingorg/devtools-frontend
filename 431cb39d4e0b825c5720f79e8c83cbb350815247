@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc9d644_5966585f",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001135
+      },
+      "writtenOn": "2023-11-17T15:58:16Z",
+      "side": 1,
+      "message": "just a heads-up, we recently changed the archive format we use for this package from tbz2 to .tar.xz on Mac and Linux. The next time you update your emscripten version, this will need to change.",
+      "revId": "431cb39d4e0b825c5720f79e8c83cbb350815247",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
