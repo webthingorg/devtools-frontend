@@ -3,14 +3,15 @@
 // found in the LICENSE file.
 import * as Platform from '../../core/platform/platform.js';
 
-import type * as Helpers from './helpers/helpers.js';
-import type * as Types from './types/types.js';
+import * as Helpers from './helpers/helpers.js';
+import * as Types from './types/types.js';
 
 type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
 
 export const enum TreeAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
+  COLLAPSE_REPEATING_OCCURANCES = 'COLLAPSE_REPEATING_OCCURANCES',
 }
 
 export interface UserTreeAction {
@@ -143,6 +144,17 @@ export class TreeManipulator {
           allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
           break;
         }
+
+        case TreeAction.COLLAPSE_REPEATING_OCCURANCES: {
+          const entryNode = this.#entryToNode.get(action.entry);
+          if (!entryNode) {
+            // Invalid node was given, just ignore and move on.
+            continue;
+          }
+          const allAncestors = this.#findAllRepeatingAncestorsOfNext(entryNode);
+          allAncestors.forEach(ancestor => entriesToHide.add(ancestor));
+          break;
+        }
         default:
           Platform.assertNever(action.type, `Unknown TreeManipulator action: ${action.type}`);
       }
@@ -173,5 +185,35 @@ export class TreeManipulator {
     }
 
     return ancestors;
+  }
+
+  #findAllRepeatingAncestorsOfNext(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEntry[] {
+    // Walk through all the ancestors, starting at the root node.
+    const children: Helpers.TreeHelpers.TraceEntryNode[] = [...root.children];
+    const repeatingNodes: Types.TraceEvents.TraceEntry[] = [];
+    const isRootProfileCall = Types.TraceEvents.isProfileCall(root.entry);
+
+    while (children.length > 0) {
+      const childNode = children.shift();
+      if (childNode) {
+        const isChildProfileCall = Types.TraceEvents.isProfileCall(childNode.entry);
+        if (/* Handle TraceEventSyntheticProfileCalls */ isRootProfileCall && isChildProfileCall) {
+          const rootNodeEntry = root.entry as Types.TraceEvents.TraceEventSyntheticProfileCall;
+          const childNodeEntry = childNode.entry as Types.TraceEvents.TraceEventSyntheticProfileCall;
+
+          if (Helpers.SamplesIntegrator.SamplesIntegrator.framesAreEqual(
+                  rootNodeEntry.callFrame, childNodeEntry.callFrame)) {
+            repeatingNodes.push(childNode.entry);
+          }
+        } /* Handle SyntheticRendererEvents */ else if (!isRootProfileCall && !isChildProfileCall) {
+          if (root.entry.name === childNode.entry.name) {
+            repeatingNodes.push(childNode.entry);
+          }
+        }
+        children.push(...childNode.children);
+      }
+    }
+
+    return repeatingNodes;
   }
 }
