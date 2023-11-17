@@ -7,7 +7,7 @@ git_dependencies = 'SYNC'
 gclient_gn_args_file = 'build/config/gclient_args.gni'
 gclient_gn_args = [
 ]
-
+# Whitespace
 vars = {
   'build_with_chromium': False,
 
