@@ -37,6 +37,40 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d43b6c4d_a4020125",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-17T14:24:40Z",
+      "side": 1,
+      "message": "LGTM overall, one question.",
+      "revId": "0dfb8e637122f5778cddd5f17ba2c01905d49733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60ac706b_311ff5d3",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-17T14:24:40Z",
+      "side": 1,
+      "message": "Why is it better to store the full URL instead of just the tag?",
+      "revId": "0dfb8e637122f5778cddd5f17ba2c01905d49733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b1725515_6c181367",
         "filename": "scripts/deps/download_emscripten.py",
         "patchSetId": 13
