@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb9fd637_ceae3d45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T20:26:48Z",
+      "side": 1,
+      "message": "This CL follows the suggestion from https://docs.google.com/document/d/1QNHpkOniAXGDA20yAJLxlwyzg0mOeIKk4g-jhm-QTBk/edit?disco\u003dAAAA8U7UT2g. PTAL.\n\nI was trying to add a test case in user-metrics_test.ts but not sure how to setup the cross-site context. Do you know if anything similar has been done before?",
+      "revId": "8ea89698502d4013a72650ab764330721efd4f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
