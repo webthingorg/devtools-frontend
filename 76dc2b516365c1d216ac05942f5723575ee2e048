@@ -39,6 +39,30 @@
       },
       "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439ad0c0_c54dede6",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-11-17T17:32:33Z",
+      "side": 1,
+      "message": "Thanks. How should the information for linking the events look like/be structured? A map of handlerEvents -\u003e initiatorEvents? Do you have a draft CL for the initiator support I could take a look at?",
+      "parentUuid": "5683e652_0c6b6c2c",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
