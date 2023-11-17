@@ -28,6 +28,7 @@ describeWithLocale('ListWidget', () => {
     // Dispatch click events.
     cancelButton?.dispatchEvent(new MouseEvent('click'));
     assert.isTrue(cancelled);
+    editor.element.remove();
   });
 
   it('Commit buttton triggers on mouse click event', () => {
@@ -50,5 +51,6 @@ describeWithLocale('ListWidget', () => {
     // Dispatch click events.
     commitButton?.dispatchEvent(new MouseEvent('click'));
     assert.isTrue(committed);
+    editor.element.remove();
   });
 });
