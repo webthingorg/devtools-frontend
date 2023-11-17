@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a07dfeb_47e83e79",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-11-17T14:42:17Z",
+      "side": 1,
+      "message": "It doesn\u0027t really matter what we store as long as that thing stays stable once we have downloaded, which also the full URL does. Changing the content once will clobber all downloads once.\n\nI thought full URL is useful, as it fully defines everything, e.g. including the arch suffix. If that ever changes, we\u0027d want to re-download the binary from the correct new location.",
+      "parentUuid": "60ac706b_311ff5d3",
+      "revId": "0dfb8e637122f5778cddd5f17ba2c01905d49733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b1725515_6c181367",
