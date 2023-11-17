@@ -10,21 +10,16 @@ import sys
 import os
 
 
-def get_mac_architecture():
-    if platform.machine() == "x86_64":
-        is_translated = subprocess.run(
-            ["sysctl", "-n", "sysctl.proc_translated"],
-            capture_output=True,
-            text=True).stdout.strip() == "1"
-        return "arm64" if is_translated else "x86_64"
-    return platform.machine()
+def is_arm64():
+    host_arch = platform.machine().lower()
+    return host_arch == 'arm64' or host_arch.startswith('aarch64'):
 
 
 def GetBinaryPath():
     return os_path.join(
         os_path.dirname(__file__), *{
-            'Darwin': ('mac', 'node-darwin-arm64' if get_mac_architecture()
-                       == 'arm64' else 'node-darwin-x64', 'bin', 'node'),
+            'Darwin': ('mac', 'node-darwin-arm64' if is_arm64()
+                       else 'node-darwin-x64', 'bin', 'node'),
             'Linux': ('linux', 'node-linux-x64', 'bin', 'node'),
             'Windows': ('win', 'node.exe'),
         }[platform.system()])
