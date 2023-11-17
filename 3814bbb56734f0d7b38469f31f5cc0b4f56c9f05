@@ -16,6 +16,23 @@
       "message": "PTAL (backmerge)",
       "revId": "3814bbb56734f0d7b38469f31f5cc0b4f56c9f05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e9bd33_67f64ed8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-17T11:58:12Z",
+      "side": 1,
+      "message": "Kateryna, PTAL, thanks!",
+      "revId": "3814bbb56734f0d7b38469f31f5cc0b4f56c9f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
