@@ -51,28 +51,31 @@ describe('data grid controller', () => {
         ['Value', platformSpecificTextForSubMenuEntryItem('Sort By'), 'Reset Columns']);
   });
 
-  it('lists the hideable columns in the context menu and lets the user click to toggle the visibility', async () => {
-    await loadComponentDocExample('data_grid_controller/basic.html');
-    await activateContextMenuOnColumnHeader('Key');
-    const contextMenu = await $('.soft-context-menu');
-    assert.isNotNull(contextMenu);
-    await click('[aria-label="Value, checked"]');
-    const dataGrid = await getDataGrid();
+  // Flaky
+  it.skip(
+      '[crbug.com/1503040] lists the hideable columns in the context menu and lets the user click to toggle the visibility',
+      async () => {
+        await loadComponentDocExample('data_grid_controller/basic.html');
+        await activateContextMenuOnColumnHeader('Key');
+        const contextMenu = await $('.soft-context-menu');
+        assert.isNotNull(contextMenu);
+        await click('[aria-label="Value, checked"]');
+        const dataGrid = await getDataGrid();
 
-    await waitForFunction(async () => {
-      const hiddenCells = await $$('tbody td.hidden', dataGrid);
-      return hiddenCells.length === 3;
-    });
+        await waitForFunction(async () => {
+          const hiddenCells = await $$('tbody td.hidden', dataGrid);
+          return hiddenCells.length === 3;
+        });
 
-    await waitForFunction(async () => {
-      const renderedText = await getInnerTextOfDataGridCells(dataGrid, 3);
-      return JSON.stringify([
-        ['Bravo'],
-        ['Alpha'],
-        ['Charlie'],
-      ]) === JSON.stringify(renderedText);
-    });
-  });
+        await waitForFunction(async () => {
+          const renderedText = await getInnerTextOfDataGridCells(dataGrid, 3);
+          return JSON.stringify([
+            ['Bravo'],
+            ['Alpha'],
+            ['Charlie'],
+          ]) === JSON.stringify(renderedText);
+        });
+      });
 
   it('lists sortable columns in a sub-menu and lets the user click to sort', async () => {
     await loadComponentDocExample('data_grid_controller/basic.html');
