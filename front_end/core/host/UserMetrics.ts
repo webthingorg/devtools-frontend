@@ -1003,7 +1003,8 @@ export enum IssueExpanded {
   ContentSecurityPolicy = 4,
   Other = 5,
   Generic = 6,
-  MaxValue = 7,
+  TpcdCookie = 7,
+  MaxValue = 8,
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again

@@ -362,7 +362,15 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   override onexpand(): void {
-    Host.userMetrics.issuesPanelIssueExpanded(this.#issue.getCategory());
+    const category = this.#issue.getCategory();
+    Host.userMetrics.issuesPanelIssueExpanded(category);
+
+    // Handle the specific issue type for 3PCD cookie issues.
+    if (category === IssuesManager.Issue.IssueCategory.Cookie) {
+      if (this.#issue.code().includes('ThirdPartyPhaseout')) {
+        Host.userMetrics.issuesPanelIssueExpanded('TpcdCookie');
+      }
+    }
 
     if (this.#needsUpdateOnExpand) {
       this.#doUpdate();
