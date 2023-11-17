@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a292c4_3bf537ef",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "489d2e57_ffb5e4e6",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 150
+      },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "babe2066_22eea0ac",
@@ -122,6 +146,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20594542_5a32e94e",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9250a35_4329ca66",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 113
+      },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "383e2c3b_21826a58",
@@ -135,6 +183,24 @@
       "writtenOn": "2023-11-16T15:10:12Z",
       "side": 1,
       "message": "Please minimize the usage of passive voice.",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d3819f_1eb3d636",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "383e2c3b_21826a58",
       "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -156,6 +222,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8fe8637_e0645273",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b11d9206_1237b0d7",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c1f9c97_c6acc01b",
@@ -169,6 +253,24 @@
       "writtenOn": "2023-11-16T15:10:12Z",
       "side": 1,
       "message": "Please minimize the usage of passive voice.",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af9fb9b2_8f817cdd",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c1f9c97_c6acc01b",
       "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -213,6 +315,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a6eed67_a7547313",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecd1d0f3_e516340b",
+      "range": {
+        "startLine": 4,
+        "startChar": 23,
+        "endLine": 4,
+        "endChar": 34
+      },
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1932e099_bee624d2",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ed449bc_2420826e",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9450e2b_6d0d3925",
@@ -230,6 +374,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56ea2e1e_2fb0bdc8",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9450e2b_6d0d3925",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a42263fe_56a4c364",
@@ -243,6 +405,24 @@
       "writtenOn": "2023-11-16T15:10:12Z",
       "side": 1,
       "message": "```suggestion\nIn future Chrome versions, setting third-party cookies will be blocked.\n```",
+      "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae58407_ff94eef0",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutSet.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-17T19:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42263fe_56a4c364",
       "revId": "f90d6b0c24f44bebf1aece5b0958fb8b0e32ea69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
