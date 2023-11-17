@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8515e9ed_2c1a3655",
+        "filename": "docs/material3_guidelines.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-11-17T10:52:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84f5a37e_c9ca455f",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "289ef17cc70dade6d9d4f5a57a84bd51351c8e5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d566f8c_e10d7acb",
@@ -323,6 +347,30 @@
       "writtenOn": "2023-11-14T10:23:33Z",
       "side": 1,
       "message": "Sadly I think this doesn\u0027t work correctly because color-mix is working differently.\n\nThe above will result in a color that is almost 50% transparent: 100% currentcolor mixed with (6% * 6% \u003d 0.36%) hover color.\n\nWhat we actually need is an opaque hover color, so we can define the transparency like in your material guideline. I mocked this up really quickly:\n\nGlitch: https://glitch.com/edit/#!/peters-css-playground?path\u003dexperiments%2Fstate-layer.html%3A39%3A47\n\nPreview: https://peters-css-playground.glitch.me/experiments/state-layer.html\n\nI wonder how we should go with this -- it already created a bug in table headers (@bmeurer).",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 50,
+        "endChar": 82
+      },
+      "revId": "289ef17cc70dade6d9d4f5a57a84bd51351c8e5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b710fe_4e07d079",
+        "filename": "docs/material3_guidelines.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2023-11-17T10:52:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7a8b939_9d42cbb2",
       "range": {
         "startLine": 50,
         "startChar": 3,
