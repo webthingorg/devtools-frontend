@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0ca9e1_d7a355d1",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-17T06:55:09Z",
+      "side": 1,
+      "message": "Do we actually need to include this?",
+      "revId": "193cff459eab3c1a4b37b97c1d907551e3205337",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
