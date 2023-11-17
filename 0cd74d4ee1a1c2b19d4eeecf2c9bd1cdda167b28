@@ -16,6 +16,23 @@
       "message": "thanks everyone, this change has been merged 🥳",
       "revId": "0cd74d4ee1a1c2b19d4eeecf2c9bd1cdda167b28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a285d780_89f667b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-11-17T23:32:02Z",
+      "side": 1,
+      "message": "nice one 😎",
+      "revId": "0cd74d4ee1a1c2b19d4eeecf2c9bd1cdda167b28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
