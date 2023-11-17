@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c7881d2_59d432d5",
+        "filename": "third_party/node/node.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-11-17T10:44:42Z",
+      "side": 1,
+      "message": "This doesn\u0027t work on our mac-arm64 bots. I\u0027m running into this problem: https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_mac_arm64_rel/b8764189300668648001/overview\n\nThe cpu check in shared depot_tools is as follows:\nhttps://source.chromium.org/chromium/chromium/tools/depot_tools/+/main:detect_host_arch.py;l\u003d21?q\u003ddetect_host_arch\u0026ss\u003dchromium%2Fchromium%2Ftools%2Fdepot_tools\n\nShouldn\u0027t all arch checks align with this one? E.g. that one is used in DEPS file processing.",
+      "revId": "e2bc335ce7b928ed81ddb48bdeac08c43f7dab38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
