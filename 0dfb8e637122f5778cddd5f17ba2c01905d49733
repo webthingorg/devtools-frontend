@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80c70de2_5145389b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-11-17T13:26:05Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "0dfb8e637122f5778cddd5f17ba2c01905d49733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1725515_6c181367",
+        "filename": "scripts/deps/download_emscripten.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2023-11-17T13:26:05Z",
+      "side": 1,
+      "message": "This is inspired by https://source.chromium.org/chromium/chromium/tools/depot_tools/+/main:detect_host_arch.py;l\u003d21?q\u003ddetect_host_arch\u0026ss\u003dchromium%2Fchromium%2Ftools%2Fdepot_tools\n\nIt\u0027s harder to reference to this depot_tools method though than just copying this.",
+      "revId": "0dfb8e637122f5778cddd5f17ba2c01905d49733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
