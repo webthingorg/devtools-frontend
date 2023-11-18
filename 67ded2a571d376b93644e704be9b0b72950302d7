@@ -16,6 +16,97 @@
       "message": "Thank you!",
       "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cdb460d_43b38521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-18T12:57:56Z",
+      "side": 1,
+      "message": "Sorry, I must\u0027ve missed the conjunction in my suggestion",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ebb8928_13cc14ed",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutRead.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-18T12:57:56Z",
+      "side": 1,
+      "message": "```suggestion\nCookies with the `SameSite\u003dNone; Secure` and not `Partitioned` attributes operate in cross-site contexts and are third-party cookies.\n```",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 129
+      },
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10b37328_55211c18",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutSet.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-18T12:57:56Z",
+      "side": 1,
+      "message": "```suggestion\nCookies with the `SameSite\u003dNone; Secure` and not `Partitioned` attributes operate in cross-site contexts and are third-party cookies.\n```",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f961f681_a65654ad",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-18T12:57:56Z",
+      "side": 1,
+      "message": "```suggestion\nCookies with the `SameSite\u003dNone; Secure` and not `Partitioned` attributes operate in cross-site contexts and are third-party cookies.\n```",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15696ee3_5eda6b9e",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutSet.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-18T12:57:56Z",
+      "side": 1,
+      "message": "```suggestion\nCookies with the `SameSite\u003dNone; Secure` and not `Partitioned` attributes operate in cross-site contexts and are third-party cookies.\n```",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
