@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a5c861ad_76ebdb33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-20T11:52:59Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "79c860b0c56e606c771226512949499b767ae9b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9691700a_143788a8",
         "filename": "front_end/models/trace/helpers/Trace.ts",
         "patchSetId": 3
