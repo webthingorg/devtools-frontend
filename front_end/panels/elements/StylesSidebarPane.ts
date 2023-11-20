@@ -58,7 +58,7 @@ import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import * as LayersWidget from './LayersWidget.js';
-import {LegacyRegexMatcher, parsePropertyValue} from './PropertyParser.js';
+import {LegacyRegexMatcher, type Matcher, parsePropertyValue} from './PropertyParser.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {
   BlankStylePropertiesSection,
@@ -2229,7 +2229,9 @@ export class StylesSidebarPropertyRenderer {
   private positionFallbackHandler: ((data: string) => Node)|null;
   private fontPaletteHandler: ((data: string) => Node)|null;
 
-  constructor(rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string) {
+  constructor(
+      rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string,
+      private readonly matchers: Matcher[] = []) {
     this.rule = rule;
     this.node = node;
     this.propertyName = name;
@@ -2345,7 +2347,7 @@ export class StylesSidebarPropertyRenderer {
       UI.Tooltip.Tooltip.install(valueElement, unescapeCssString(this.propertyValue));
     }
 
-    const matchers: LegacyRegexMatcher[] = [];
+    const matchers: Matcher[] = [];
 
     // Push `color-mix` handler before pushing regex handler because
     // `color-mix` can contain variables inside and we want to handle
@@ -2356,9 +2358,7 @@ export class StylesSidebarPropertyRenderer {
       matchers.push(new LegacyRegexMatcher(Common.Color.ColorMixRegex, this.colorMixHandler));
     }
 
-    if (this.varHandler) {
-      matchers.push(new LegacyRegexMatcher(SDK.CSSMetadata.VariableRegex, this.varHandler));
-    }
+    matchers.push(...this.matchers);
     matchers.push(new LegacyRegexMatcher(SDK.CSSMetadata.URLRegex, this.processURL.bind(this)));
     // Handle `color` properties before handling other ones
     // because color Regex is fairly narrow to only select real colors.

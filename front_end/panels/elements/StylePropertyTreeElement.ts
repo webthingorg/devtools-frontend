@@ -25,6 +25,7 @@ import {
 import * as ElementsComponents from './components/components.js';
 import {cssRuleValidatorsMap, type Hint} from './CSSRuleValidator.js';
 import {ElementsPanel} from './ElementsPanel.js';
+import {VariableMatcher} from './PropertyParser.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {type StylePropertiesSection} from './StylePropertiesSection.js';
 import {getCssDeclarationAsJavascriptProperty} from './StylePropertyUtils.js';
@@ -535,11 +536,11 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const {computedValue, fromFallback} = computedSingleValue;
-    let fallbackHtml: Node|null = null;
+    let fallbackHtml: Node[]|null = null;
     if (fromFallback && fallback?.startsWith('var(')) {
-      fallbackHtml = this.processVar(fallback);
+      fallbackHtml = [this.processVar(fallback)];
     } else if (fallback) {
-      fallbackHtml = document.createTextNode(fallback);
+      fallbackHtml = [document.createTextNode(fallback)];
     }
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
@@ -984,10 +985,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.expandElement.setAttribute('jslog', `${VisualLogging.treeItemExpand().track({click: true})}`);
     }
 
-    const propertyRenderer =
-        new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value);
+    const propertyRenderer = new StylesSidebarPropertyRenderer(
+        this.style.parentRule, this.node(), this.name, this.value,
+        [new VariableMatcher(this.parentPaneInternal, this.style, this.matchedStylesInternal)]);
     if (this.property.parsedOk) {
-      propertyRenderer.setVarHandler(this.processVar.bind(this));
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
       propertyRenderer.setAnimationHandler(this.processAnimation.bind(this));
       propertyRenderer.setColorHandler(this.processColor.bind(this));

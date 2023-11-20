@@ -86,7 +86,7 @@ interface CSSVarSwatchRenderData {
   variableName: string;
   computedValue: string|null;
   fromFallback: boolean;
-  fallbackHtml: Node|null;
+  fallbackHtml: Node[]|null;
   onLinkActivate: (linkText: string) => void;
 }
 
@@ -136,7 +136,7 @@ export class CSSVarSwatch extends HTMLElement {
     render(
         html`<span data-title=${data.computedValue || ''}
           jslog=${VisualLogging.link().track({click: true, hover: true}).context('cssVar')}
-        >var(${this.#link}${data.fallbackHtml ? ', ' : ''}${data.fallbackHtml})</span>`,
+        >var(${this.#link}${data.fallbackHtml && data.fallbackHtml.length > 0 ? ', ' : ''}${data.fallbackHtml})</span>`,
         this.shadow, {host: this});
     // clang-format on
   }
