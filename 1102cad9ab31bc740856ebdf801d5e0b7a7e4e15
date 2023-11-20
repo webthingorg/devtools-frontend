@@ -22,6 +22,30 @@
       },
       "revId": "1102cad9ab31bc740856ebdf801d5e0b7a7e4e15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "398958e8_63b711ca",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-20T14:45:13Z",
+      "side": 1,
+      "message": "I have not set up localization for this component yet and don\u0027t want to send the strings for translation while the UX text is in flux. I can do that next though. WDYT?",
+      "parentUuid": "da7ced50_e33032ed",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 100
+      },
+      "revId": "1102cad9ab31bc740856ebdf801d5e0b7a7e4e15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
