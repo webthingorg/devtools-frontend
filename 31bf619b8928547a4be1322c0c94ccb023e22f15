@@ -63,6 +63,30 @@
       },
       "revId": "31bf619b8928547a4be1322c0c94ccb023e22f15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69f603b_5a0e9ba7",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T11:02:27Z",
+      "side": 1,
+      "message": "This much is clear from the code. I mean what does is do for the Settings panel?",
+      "parentUuid": "c88b66cf_110a732c",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 61
+      },
+      "revId": "31bf619b8928547a4be1322c0c94ccb023e22f15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
