@@ -67,6 +67,14 @@ function localizeType(sourceType: SourceType): string {
 const DOGFOODFEEDBACK_URL =
     'https://docs.google.com/forms/d/e/1FAIpQLSePjpPA0BUSbyG_xrsLR_HtrVixLqu5gAKOxgV-YfztVTf8Vg/viewform?usp=published_options';
 
+// TODO(crbug.com/1167717): Make this a const enum again
+// eslint-disable-next-line rulesdir/const_enum
+enum LoadingState {
+  NONE = 'none',
+  INITIAL_LOADING = 'initial_loading',
+  REFINING = 'refining',
+}
+
 export class ConsoleInsight extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-console-insight`;
   readonly #shadow = this.attachShadow({mode: 'open'});
@@ -81,9 +89,13 @@ export class ConsoleInsight extends HTMLElement {
   #context = {
     result: '',
   };
-  #loading = true;
-  #dogfood = true;
+  #loading = LoadingState.INITIAL_LOADING;
   #sources: Source[] = [];
+  /** Flip to false to enable non-dogfood branding. Note that rating is not
+   * implemented. */
+  #dogfood = true;
+  /** Flip to false to enable a refine button. */
+  #refined = true;
 
   constructor(promptBuilder: PublicPromptBuilder, insightProvider: PublicInsightProvider) {
     super();
@@ -111,24 +123,29 @@ export class ConsoleInsight extends HTMLElement {
     this.#render();
   }
 
-  #setLoading(loading: boolean): void {
+  #setLoading(loading: LoadingState): void {
+    const previousState = this.#loading;
     this.#loading = loading;
     this.#render();
-    if (loading) {
+    if (loading === LoadingState.INITIAL_LOADING) {
       this.style.setProperty('--actual-height', 'var(--loading-max-height)');
     }
-    this.classList.toggle('loaded', !loading);
+    if (loading === LoadingState.NONE && previousState === LoadingState.INITIAL_LOADING) {
+      this.classList.toggle('loaded', true);
+    }
   }
 
-  async update(): Promise<void> {
+  async update(loadingState = LoadingState.INITIAL_LOADING): Promise<void> {
     this.#sources = [];
-    this.#setLoading(true);
+    this.#setLoading(loadingState);
+    const requestedSources = this.#refined || loadingState === LoadingState.REFINING ? undefined : [SourceType.MESSAGE];
     try {
-      const {prompt, sources} = await this.#promptBuilder.buildPrompt();
+      const {prompt, sources} = await this.#promptBuilder.buildPrompt(requestedSources);
       const result = await this.#insightProvider.getInsights(prompt);
       this.#context = {
         result,
       };
+      this.#refined = this.#refined || loadingState === LoadingState.REFINING;
       this.#sources = sources;
       this.#renderMarkdown(result);
       this.addEventListener('animationend', () => {
@@ -138,7 +155,7 @@ export class ConsoleInsight extends HTMLElement {
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightErrored);
       this.#renderMarkdown(`loading failed: ${err.message}`);
     } finally {
-      this.#setLoading(false);
+      this.#setLoading(LoadingState.NONE);
     }
   }
 
@@ -200,6 +217,11 @@ export class ConsoleInsight extends HTMLElement {
     this.#render();
   }
 
+  #onRefine(): void {
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightRefined);
+    void this.update(LoadingState.REFINING);
+  }
+
   #render(): void {
     const topWrapper = Directives.classMap({
       wrapper: true,
@@ -225,7 +247,7 @@ export class ConsoleInsight extends HTMLElement {
               }>
             </${IconButton.Icon.Icon.litTagName}>
           </div>
-          <div class="filler">${this.#loading ? 'Generating…' : 'Insight'}</div>
+          <div class="filler">${this.#loading === LoadingState.INITIAL_LOADING ? 'Generating…' : 'Insight'}</div>
           <div>
             <${Buttons.Button.Button.litTagName}
               title=${'Close'}
@@ -240,7 +262,7 @@ export class ConsoleInsight extends HTMLElement {
             ></${Buttons.Button.Button.litTagName}>
           </div>
         </header>
-        ${this.#loading ? html`
+        ${this.#loading === LoadingState.INITIAL_LOADING ? html`
         <main>
           <div class="loader" style="clip-path: url('#clipPath');">
             <svg width="100%" height="64">
@@ -266,6 +288,19 @@ export class ConsoleInsight extends HTMLElement {
               })}
             </ul>
           </details>
+          ${!this.#refined ? html`<${Buttons.Button.Button.litTagName}
+              class="refine-button"
+              .data=${
+                {
+                  variant: Buttons.Button.Variant.PRIMARY,
+                  size: Buttons.Button.Size.MEDIUM,
+                  iconName: 'spark',
+                } as Buttons.Button.ButtonData
+              }
+              @click=${this.#onRefine}
+            >
+            ${this.#loading === LoadingState.REFINING ? 'Personalizing insight…' : 'Give context to personalize insight'}
+          </${Buttons.Button.Button.litTagName}>` : ''}
         </main>
         <footer>
           <div>

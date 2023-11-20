@@ -215,3 +215,8 @@ details[open] {
   height: calc(var(--list-height) + var(--collapsed-height) + /* margin */ 8px);
   transition: height var(--sys-motion-duration-short4) var(--sys-motion-easing-emphasized);
 }
+
+.refine-button {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
