@@ -56,6 +56,30 @@
       },
       "revId": "ce5f217ea2ad9e9abf48a93fe6a8e73f2d872a86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a04a449_7184ba10",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-20T13:05:53Z",
+      "side": 1,
+      "message": "Good catch, this was copy\u0026paste. It should be `textField` here of course.",
+      "parentUuid": "dab4d45d_8e16eda9",
+      "range": {
+        "startLine": 126,
+        "startChar": 34,
+        "endLine": 126,
+        "endChar": 42
+      },
+      "revId": "ce5f217ea2ad9e9abf48a93fe6a8e73f2d872a86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
