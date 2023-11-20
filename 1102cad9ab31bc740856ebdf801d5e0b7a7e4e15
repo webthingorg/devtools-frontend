@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7ced50_e33032ed",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T14:43:52Z",
+      "side": 1,
+      "message": "Why not make it a localized string right away?",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 100
+      },
+      "revId": "1102cad9ab31bc740856ebdf801d5e0b7a7e4e15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
