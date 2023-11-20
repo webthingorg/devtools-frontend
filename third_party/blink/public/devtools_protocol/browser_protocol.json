@@ -12263,6 +12263,17 @@
                     ]
                 },
                 {
+                    "id": "ServiceWorkerRouterInfo",
+                    "experimental": true,
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "ruleIdMatched",
+                            "type": "integer"
+                        }
+                    ]
+                },
+                {
                     "id": "Response",
                     "description": "HTTP response data.",
                     "type": "object",
@@ -12351,6 +12362,13 @@
                             "description": "Specifies that the request was served from the prefetch cache.",
                             "optional": true,
                             "type": "boolean"
+                        },
+                        {
+                            "name": "serviceWorkerRouterInfo",
+                            "description": "Infomation about how Service Worker Static Router was used.",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "ServiceWorkerRouterInfo"
                         },
                         {
                             "name": "encodedDataLength",
@@ -17995,6 +18013,13 @@
                         {
                             "name": "generateTaggedPDF",
                             "description": "Whether or not to generate tagged (accessible) PDF. Defaults to embedder choice.",
+                            "experimental": true,
+                            "optional": true,
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "generateDocumentOutline",
+                            "description": "Whether or not to embed the document outline into the PDF.",
                             "experimental": true,
                             "optional": true,
                             "type": "boolean"
