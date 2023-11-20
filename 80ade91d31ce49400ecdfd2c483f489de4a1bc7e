@@ -33,6 +33,24 @@
       "message": "Do you also want to instrument \"Group by\" and 3PC checkboxes?",
       "revId": "80ade91d31ce49400ecdfd2c483f489de4a1bc7e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8402a3_a1a533b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-20T13:33:05Z",
+      "side": 1,
+      "message": "They are instrumented (settings checkbox), but your visualizers doesn\u0027t show this. 😊",
+      "parentUuid": "8104e87d_362b5028",
+      "revId": "80ade91d31ce49400ecdfd2c483f489de4a1bc7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
