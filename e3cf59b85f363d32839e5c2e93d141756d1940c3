@@ -1,0 +1,1008 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d647cbed_34585618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "Sure. Made a pass and suggested edits. Didn\u0027t understand a couple of sentences. Please, take a look at the following guidelines:\n- Minimize the use of [passive voice](https://developers.google.com/style/voice).\n- Use [present tense](https://developers.google.com/style/tense).\n- Consider expanding [parentheses](https://developers.google.com/style/parentheses).\n- Use [second person](https://developers.google.com/style/person) to address the reader.",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58071217_2cb6e99c",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n# Visual logging\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4ba6f1_b6f33991",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nDevTools. The current UMA logging is unreliable and inconsistent. This can lead\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171c28df_067a1912",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nwhat they are interacting with, and how they are using different features.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e232aae2_d0168e1e",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n## General approach\n```",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75204ccb_5b9531d2",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nvalue. The context value provides more information about the\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea429163_2410b011",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nbehavior. Here are several rules of thumb:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa876302_89fad28a",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n1. Elements that get the most interactions should be logged.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5bf1d23_2ca8b1c6",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n1. Elements that only appear under certain conditions should be logged.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fcf47ee_ca446764",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n1. Container elements that help distinguish common UI elements should be logged.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2370c7b_61f2d18e",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nWe describe loggable elements as a combination of a visual element type and\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c286c216_7d5e1804",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nin `front_end/ui/visual_logging/LoggingConfig.ts`. Context could be an arbitrary\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3819b525_957c7bad",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nstring, its 32 bit hash is logged. No taxonomy is perfect and we are not\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70daf5db_6b596ef0",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n1. Visual element types try to describe functions, not appearances. For instance,\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5fd9cdf_b182dbb3",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n`Button`. This is important for keeping user actions trackable across longer time\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "345f4751_8df6572a",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nframes, even if the appearance of UI elements change.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34715bd3_349d0ebf",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n1. We also try to have visual element types describe classes of elements, and\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c32320b_0ce89fb9",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\ncontext describe a specific instance. For example, we log the Elements panel as\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59171200_3aa1edd2",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\na `Panel` visual element with `elements` as a context, not as `ElementsPanel`.\n```\nIs this meant as plural or singular? Doesn\u0027t read right to me...",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5cf3f8a_37f8edab",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nIn most cases, it is enough to put the `jslog` attribute on a corresponding HTML\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13d9a0e4_cdff6b66",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nto `front_end/ui/visual_logging/visual_logging.ts` to build the attribute value.\n```\nExported to?",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea348f7_fcc11b1e",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nused in the legacy UI as:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4377665d_61bd20f6",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nIn LitHTML, the usage is:\n```",
+      "range": {
+        "startLine": 65,
+        "startChar": 7,
+        "endLine": 65,
+        "endChar": 14
+      },
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3953be1_38b06f46",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n### `jslog` Builder API\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cbffd41_0db1c1a9",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nThe `track()` method generates a `track:` clause and specifies exactly what needs to\n```\nA method is any method, the `track()` method is a specific one.",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fed52c6_328b2fd5",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nbe logged for the visual elements. If the clause is absent, only impressions are logged for\n```\nWhat\u0027s absent exactly? Clause?",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752b01e9_c5a0ef72",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nthis element. An object is called with tracking options and with the following boolean properties:\n```\nAre the properties boolean? What type is `keydown`?",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d2cc2fe_9df293b9",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nThe `context()` method sets the context for the visual logging element. The context\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649109c6_dcc67ce9",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\ncan be a string or a number. If a string is given, it is first considered\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f053b927_11a1ee91",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nwith this name, SHA-1 hash is computed and the first 32 bits\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e658f2b_a29ae7ba",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n(little endian) are logged. Number is logged as is.\n```",
+      "range": {
+        "startLine": 89,
+        "startChar": 16,
+        "endLine": 89,
+        "endChar": 20
+      },
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49a98c8f_27bced1d",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nThe `parent()` method sets the custom parent provider for the visual logging element\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "138d5a81_6cf76964",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n(see below). If not invoked, the parent visual element will is taken from a DOM tree structure.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8da4426_d8177f39",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n### Context and parent providers\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de196e26_2e913bd0",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nreflected in the DOM, for example, when a pseudo-element is used to render a tree item\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b9d27da_04e691a1",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nimpressions, context may indicate if or how many elements are present (0 or 1 for\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4400c930_4b4ea133",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nhaving a disclosure triangle or not; number of tracks in the waterfall). When\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21fe2aee_10c39e7c",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nAs this only logs a single number, it\u0027s not enough for more complex cases,\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4da94e_5c8ca02e",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nFirst argument is a provider name that is later used as an argument in the\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "370806f3_3e633fd1",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n`jslog` builder `context()` method. Second is a function that takes an Element or Event\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cc95414_e6786216",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nand returns a number. For a disclosure triangle, this is as follows:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b5df8f_3c7a6a97",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nSimilarly, parent provides are used to specify parent visual elements in\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cf7b321_7282241a",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nruntime. This should be used rarely because, most of the time, DOM hierarchy is enough\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a482aef_f1d0f279",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nstructure, for example, when a legacy tree outline has children in an `\u003col\u003e` element, which is a\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a67dd34e_cc207810",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nsibling of `\u003cli\u003e` that specifies the parent. In this case, you can do the following:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b73bd4c1_a364aff6",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nSome DevTools UI is not represented in DOM, such as tracks in the Performance\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bbd5644_d1748049",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\npanel or native menus. To log these, the visual logging library provides an\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a2a3cb8_ee2b5c54",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nimperative API. Use it rarely and when no other options are\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b20fced_6142dee9",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\navailable because it requires manual orchestration and is subject to the same issues\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4c7e53c_41634ff4",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nFirst, identify the TypeScript type that corresponds to the element that\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3f4be98_ffffc28b",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nneeds to be logged. For example, `ContextMenuDescriptor` is used to log native\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c38108ee_5d3b0cd1",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\n`front_end/ui/visual_logging/Loggable.ts`.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ccdd529_5e2a0665",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nThen call `registerLoggable` with the corresponding JavaScript\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41540af3_10e29730",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nobject, config string in the same format as the `jslog` attribute would have,\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdcebba9_998427ab",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nand an optional parent JavaScript object. For a native menu item, this is:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dfd8d7a_3bfc17f0",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nThis registers only the element and doesn’t log anything yet. To log\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d2b9469_43c74e34",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nimpressions, explicitly call `VisualLogging.logImpressions`.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ccdc468_2eafd85d",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T13:27:52Z",
+      "side": 1,
+      "message": "```suggestion\nSimilarly to log click, call `VisualLogging.logClick`.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
