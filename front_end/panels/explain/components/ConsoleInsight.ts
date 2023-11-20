@@ -12,7 +12,11 @@ import * as MarkdownView from '../../../ui/components/markdown_view/markdown_vie
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import {type InsightProvider} from '../InsightProvider.js';
-import {type PromptBuilder, type Source, SourceType} from '../PromptBuilder.js';
+import {
+  type PromptBuilder,
+  type Source,
+  SourceType,
+} from '../PromptBuilder.js';
 
 import styles from './consoleInsight.css.js';
 import listStyles from './consoleInsightSourcesList.css.js';
@@ -40,13 +44,36 @@ const negativeRatingReasons = [
 ];
 
 function buildLink(
-    rating: 'Positive'|'Negative', comment: string, context: string, consoleMessage: string, stackTrace: string,
-    relatedCode: string, networkData: string): Platform.DevToolsPath.UrlString {
+    rating: 'Positive'|'Negative',
+    comment: string,
+    context: string,
+    consoleMessage: string,
+    stackTrace: string,
+    relatedCode: string,
+    networkData: string,
+    ): Platform.DevToolsPath.UrlString {
   return `https://docs.google.com/forms/d/e/1FAIpQLSen1K-Uli0CSvlsNkI-L0Wq5iJ0FO9zFv0_mjM-3m5I8AKQGg/viewform?usp=pp_url&entry.1465663861=${
-             encodeURIComponent(rating)}&entry.109342357=${encodeURIComponent(comment)}&entry.1805879004=${
-             encodeURIComponent(context)}&entry.623054399=${encodeURIComponent(consoleMessage)}&entry.720239045=${
-             encodeURIComponent(stackTrace)}&entry.1520357991=${encodeURIComponent(relatedCode)}&entry.1966708581=${
-             encodeURIComponent(networkData)}` as Platform.DevToolsPath.UrlString;
+             encodeURIComponent(
+                 rating,
+                 )}&entry.109342357=${
+             encodeURIComponent(
+                 comment,
+                 )}&entry.1805879004=${
+             encodeURIComponent(
+                 context,
+                 )}&entry.623054399=${
+             encodeURIComponent(
+                 consoleMessage,
+                 )}&entry.720239045=${
+             encodeURIComponent(
+                 stackTrace,
+                 )}&entry.1520357991=${
+             encodeURIComponent(
+                 relatedCode,
+                 )}&entry.1966708581=${
+             encodeURIComponent(
+                 networkData,
+                 )}` as Platform.DevToolsPath.UrlString;
 }
 
 function localizeType(sourceType: SourceType): string {
@@ -88,17 +115,36 @@ class ConsoleInsightSourcesList extends HTMLElement {
 
   #render(): void {
     // clang-format off
-     render(html`
-      <ul>
-        ${Directives.repeat(this.#sources, item => item.value, item => {
-          const icon = new IconButton.Icon.Icon();
-          icon.data = {iconName: 'open-externally', color: 'var(--sys-color-primary)', width: '14px', height: '14px'};
-          return html`<li><x-link class="link" href=${`data:text/plain,${encodeURIComponent(item.value)}`}>${localizeType(item.type)}${icon}</x-link></li>`;
-        })}
-      </ul>
-    `, this.#shadow, {
-      host: this,
-    });
+    render(
+      html`
+        <ul>
+          ${Directives.repeat(
+            this.#sources,
+            item => item.value,
+            item => {
+              const icon = new IconButton.Icon.Icon();
+              icon.data = {
+                iconName: 'open-externally',
+                color: 'var(--sys-color-primary)',
+                width: '14px',
+                height: '14px',
+              };
+              return html`<li>
+                <x-link
+                  class="link"
+                  href=${`data:text/plain,${encodeURIComponent(item.value)}`}
+                  >${localizeType(item.type)}${icon}</x-link
+                >
+              </li>`;
+            },
+          )}
+        </ul>
+      `,
+      this.#shadow,
+      {
+        host: this,
+      },
+    );
     // clang-format on
   }
 
@@ -132,7 +178,10 @@ export class ConsoleInsight extends HTMLElement {
 
   #popover: UI.PopoverHelper.PopoverHelper;
 
-  constructor(promptBuilder: PublicPromptBuilder, insightProvider: PublicInsightProvider) {
+  constructor(
+      promptBuilder: PublicPromptBuilder,
+      insightProvider: PublicInsightProvider,
+  ) {
     super();
     this.#promptBuilder = promptBuilder;
     this.#insightProvider = insightProvider;
@@ -155,7 +204,9 @@ export class ConsoleInsight extends HTMLElement {
           // TODO: localization.
           text.innerText = 'The following data is sent to an AI model to generate a more relevant response:';
           text.style.margin = '0';
-          const list = document.createElement('devtools-console-insight-sources-list');
+          const list = document.createElement(
+              'devtools-console-insight-sources-list',
+          );
           list.sources = sources;
           container.append(text);
           container.append(list);
@@ -205,7 +256,9 @@ export class ConsoleInsight extends HTMLElement {
     this.#setLoading(loadingState);
     const requestedSources = this.#refined || loadingState === LoadingState.REFINING ? undefined : [SourceType.MESSAGE];
     try {
-      const {prompt, sources} = await this.#promptBuilder.buildPrompt(requestedSources);
+      const {prompt, sources} = await this.#promptBuilder.buildPrompt(
+          requestedSources,
+      );
       const result = await this.#insightProvider.getInsights(prompt);
       this.#context = {
         result,
@@ -247,21 +300,27 @@ export class ConsoleInsight extends HTMLElement {
 
   #openFeedbackFrom(): void {
     const link = buildLink(
-        this.#selectedRating ? 'Positive' : 'Negative', this.#shadow.querySelector('textarea')?.value || '',
+        this.#selectedRating ? 'Positive' : 'Negative',
+        this.#shadow.querySelector('textarea')?.value || '',
         JSON.stringify(this.#context),
         this.#sources.filter(s => s.type === SourceType.MESSAGE).map(s => s.value).join('\n'),
         this.#sources.filter(s => s.type === SourceType.STACKTRACE).map(s => s.value).join('\n'),
         this.#sources.filter(s => s.type === SourceType.RELATED_CODE).map(s => s.value).join('\n'),
-        this.#sources.filter(s => s.type === SourceType.NETWORK_REQUEST).map(s => s.value).join('\n'));
+        this.#sources.filter(s => s.type === SourceType.NETWORK_REQUEST).map(s => s.value).join('\n'),
+    );
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(link);
   }
 
   #onRating(event: Event): void {
     this.#selectedRating = (event.target as HTMLElement).dataset.rating === 'true';
     if (this.#selectedRating) {
-      Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightRatedPositive);
+      Host.userMetrics.actionTaken(
+          Host.UserMetrics.Action.InsightRatedPositive,
+      );
     } else {
-      Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightRatedNegative);
+      Host.userMetrics.actionTaken(
+          Host.UserMetrics.Action.InsightRatedNegative,
+      );
     }
     if (this.#dogfood) {
       this.#openFeedbackFrom();
@@ -297,7 +356,8 @@ export class ConsoleInsight extends HTMLElement {
       bottom: this.#ratingFormOpened,
     });
     // clang-format off
-    render(html`
+    render(
+      html`
       <div class=${topWrapper}>
         <header>
           <div>
@@ -312,7 +372,11 @@ export class ConsoleInsight extends HTMLElement {
               }>
             </${IconButton.Icon.Icon.litTagName}>
           </div>
-          <div class="filler">${this.#loading === LoadingState.INITIAL_LOADING ? 'Generating…' : 'Insight'}</div>
+          <div class="filler">${
+            this.#loading === LoadingState.INITIAL_LOADING
+              ? 'Generating…'
+              : 'Insight'
+          }</div>
           <div>
             <${Buttons.Button.Button.litTagName}
               title=${'Close'}
@@ -327,28 +391,37 @@ export class ConsoleInsight extends HTMLElement {
             ></${Buttons.Button.Button.litTagName}>
           </div>
         </header>
-        ${this.#loading === LoadingState.INITIAL_LOADING ? html`
-        <main>
-          <div class="loader" style="clip-path: url('#clipPath');">
-            <svg width="100%" height="64">
-              <clipPath id="clipPath">
-                <rect x="0" y="0" width="100%" height="16" rx="8"></rect>
-                <rect x="0" y="24" width="100%" height="16" rx="8"></rect>
-                <rect x="0" y="48" width="100%" height="16" rx="8"></rect>
-              </clipPath>
-            </svg>
-          </div>
-        </main>` : html`
+        ${
+          this.#loading === LoadingState.INITIAL_LOADING
+            ? html` <main>
+                <div class="loader" style="clip-path: url('#clipPath');">
+                  <svg width="100%" height="64">
+                    <clipPath id="clipPath">
+                      <rect x="0" y="0" width="100%" height="16" rx="8"></rect>
+                      <rect x="0" y="24" width="100%" height="16" rx="8"></rect>
+                      <rect x="0" y="48" width="100%" height="16" rx="8"></rect>
+                    </clipPath>
+                  </svg>
+                </div>
+              </main>`
+            : html`
         <main>
           <${MarkdownView.MarkdownView.MarkdownView.litTagName}
-            .data=${{tokens: this.#tokens, renderer: this.#renderer} as MarkdownView.MarkdownView.MarkdownViewData}>
+            .data=${
+              {
+                tokens: this.#tokens,
+                renderer: this.#renderer,
+              } as MarkdownView.MarkdownView.MarkdownViewData
+            }>
           </${MarkdownView.MarkdownView.MarkdownView.litTagName}>
           <details style="--list-height: ${this.#sources.length * 20}px;">
             <summary>Sources</summary>
             <${ConsoleInsightSourcesList.litTagName} .sources=${this.#sources}>
             </${ConsoleInsightSourcesList.litTagName}>
           </details>
-          ${!this.#refined ? html`<div class="refine-container">
+          ${
+            !this.#refined
+              ? html`<div class="refine-container">
             <${Buttons.Button.Button.litTagName}
                 class="refine-button"
                 .data=${
@@ -360,7 +433,11 @@ export class ConsoleInsight extends HTMLElement {
                 }
                 @click=${this.#onRefine}
               >
-              ${this.#loading === LoadingState.REFINING ? 'Personalizing insight…' : 'Give context to personalize insight'}
+              ${
+                this.#loading === LoadingState.REFINING
+                  ? 'Personalizing insight…'
+                  : 'Give context to personalize insight'
+              }
             </${Buttons.Button.Button.litTagName}>
             <${IconButton.Icon.Icon.litTagName}
               class="info"
@@ -374,7 +451,9 @@ export class ConsoleInsight extends HTMLElement {
               }>
             </${IconButton.Icon.Icon.litTagName}>
           </div>
-          ` : ''}
+          `
+              : ''
+          }
         </main>
         <footer>
           <div>
@@ -399,14 +478,17 @@ export class ConsoleInsight extends HTMLElement {
                   variant: Buttons.Button.Variant.ROUND,
                   size: Buttons.Button.Size.SMALL,
                   iconName: 'thumb-down',
-                  active: this.#selectedRating !== undefined && !this.#selectedRating,
+                  active:
+                    this.#selectedRating !== undefined && !this.#selectedRating,
                 } as Buttons.Button.ButtonData
               }
               @click=${this.#onRating}
             ></${Buttons.Button.Button.litTagName}>
           </div>
           <div class="filler"></div>
-          ${this.#dogfood ? html`<div class="dogfood-feedback">
+          ${
+            this.#dogfood
+              ? html`<div class="dogfood-feedback">
               <${IconButton.Icon.Icon.litTagName}
                 .data=${
                   {
@@ -419,11 +501,16 @@ export class ConsoleInsight extends HTMLElement {
               </${IconButton.Icon.Icon.litTagName}>
               <span>Dogfood - </span>
               <x-link href=${DOGFOODFEEDBACK_URL} class="link">Submit feedback</x-link>
-          </div>`: ''}
+          </div>`
+              : ''
+          }
         </footer>
-        `}
+        `
+        }
       </div>
-      ${this.#ratingFormOpened ? html`
+      ${
+        this.#ratingFormOpened
+          ? html`
         <div class=${bottomWrapper}>
           <header>
             <div class="filler">Why did you choose this rating? (optional)</div>
@@ -442,10 +529,14 @@ export class ConsoleInsight extends HTMLElement {
             </div>
           </header>
           <main>
-            ${!this.#selectedRating ? html`
-                <div class="buttons">
-                  ${Directives.repeat(negativeRatingReasons, ([key, label]) => {
-                    return html`
+            ${
+              !this.#selectedRating
+                ? html`
+                    <div class="buttons">
+                      ${Directives.repeat(
+                        negativeRatingReasons,
+                        ([key, label]) => {
+                          return html`
                       <${Buttons.Button.Button.litTagName}
                         data-reason=${key}
                         @click=${this.#onReason}
@@ -460,9 +551,12 @@ export class ConsoleInsight extends HTMLElement {
                         ${label}
                       </${Buttons.Button.Button.litTagName}>
                     `;
-                  })}
-                </div>
-            ` : ''}
+                        },
+                      )}
+                    </div>
+                  `
+                : ''
+            }
             <textarea placeholder=${'Provide additional feedback (optional)'}></textarea>
           </main>
           <footer>
@@ -483,16 +577,27 @@ export class ConsoleInsight extends HTMLElement {
             </div>
           </footer>
         </div>
-      ` : ''}
-    `, this.#shadow, {
-      host: this,
-    });
+      `
+          : ''
+      }
+    `,
+      this.#shadow,
+      {
+        host: this,
+      },
+    );
     // clang-format on
   }
 }
 
-ComponentHelpers.CustomElements.defineComponent('devtools-console-insight', ConsoleInsight);
-ComponentHelpers.CustomElements.defineComponent('devtools-console-insight-sources-list', ConsoleInsightSourcesList);
+ComponentHelpers.CustomElements.defineComponent(
+    'devtools-console-insight',
+    ConsoleInsight,
+);
+ComponentHelpers.CustomElements.defineComponent(
+    'devtools-console-insight-sources-list',
+    ConsoleInsightSourcesList,
+);
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -512,7 +617,9 @@ export class MarkdownRenderer extends MarkdownView.MarkdownView.MarkdownLitRende
     return template;
   }
 
-  override templateForToken(token: Marked.Marked.Token): LitHtml.TemplateResult|null {
+  override templateForToken(
+      token: Marked.Marked.Token,
+      ): LitHtml.TemplateResult|null {
     switch (token.type) {
       case 'heading':
         return html`<strong>${this.renderText(token)}</strong>`;
