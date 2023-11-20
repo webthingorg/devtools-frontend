@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d665d0_0e9ead54",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-20T08:16:52Z",
+      "side": 1,
+      "message": "Ah, I think this is used to detect changes under node_modules dir even if we don\u0027t have all required files under node_modules dir in inputs.\n\nIdeally we want to have all required files in inputs explicitly to remove siso config related to that, but we also need to think how to manage them correctly.",
+      "parentUuid": "0f4b8cd6_a2ea4237",
+      "revId": "193cff459eab3c1a4b37b97c1d907551e3205337",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c0ca9e1_d7a355d1",
@@ -67,6 +85,24 @@
       "writtenOn": "2023-11-17T06:55:09Z",
       "side": 1,
       "message": "Do we actually need to include this?",
+      "revId": "193cff459eab3c1a4b37b97c1d907551e3205337",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efd2f511_5fd7d748",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-20T08:16:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5c0ca9e1_d7a355d1",
       "revId": "193cff459eab3c1a4b37b97c1d907551e3205337",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
