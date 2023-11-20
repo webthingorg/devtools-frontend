@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a62d7d40_1ed79224",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-20T10:51:12Z",
+      "side": 1,
+      "message": "love this! spotted one typo otherwise it\u0027s perfect, thank you",
+      "revId": "038b8d3d08b036c449392f40e70994f3dd831884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "970b2588_621e15ae",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-20T10:51:12Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 160,
+        "startChar": 37,
+        "endLine": 160,
+        "endChar": 43
+      },
+      "revId": "038b8d3d08b036c449392f40e70994f3dd831884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
