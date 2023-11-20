@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10e57266_c25538fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-20T16:12:33Z",
+      "side": 1,
+      "message": "nicee! LGTM with small comments :)",
+      "revId": "ab22965e4b4d04f77c235ab12249d64f31e4994d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e86ce76_11bfcf9d",
+        "filename": "front_end/models/trace/TreeManipulator.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-20T16:12:33Z",
+      "side": 1,
+      "message": "nit: since we are going down the tree into the root\u0027s children and down, wouldn\u0027t this look for repeating descendants (instead of ancestors)?",
+      "range": {
+        "startLine": 190,
+        "startChar": 3,
+        "endLine": 190,
+        "endChar": 34
+      },
+      "revId": "ab22965e4b4d04f77c235ab12249d64f31e4994d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a2ff8b4_9a40cd69",
+        "filename": "front_end/models/trace/TreeManipulator.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-20T16:12:33Z",
+      "side": 1,
+      "message": "I think we don\u0027t need this cast here per the check above (same for the one in the next line)",
+      "range": {
+        "startLine": 201,
+        "startChar": 43,
+        "endLine": 201,
+        "endChar": 94
+      },
+      "revId": "ab22965e4b4d04f77c235ab12249d64f31e4994d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
