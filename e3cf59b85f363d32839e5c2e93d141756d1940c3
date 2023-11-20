@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "919a4c6c_473915c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Wow, thanks! It looks so obvious once you see it.",
+      "parentUuid": "d647cbed_34585618",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58071217_2cb6e99c",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n# Visual logging\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d636064_a5c4d40a",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "58071217_2cb6e99c",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cede92b_65b725ba",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "5b4ba6f1_b6f33991",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "171c28df_067a1912",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nwhat they are interacting with, and how they are using different features.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbaf3cc2_458e4bd6",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "171c28df_067a1912",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +164,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a6a5a5_2cc91d40",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e232aae2_d0168e1e",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75204ccb_5b9531d2",
@@ -109,6 +205,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46cd65a2_08b0b2fe",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75204ccb_5b9531d2",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea429163_2410b011",
@@ -122,6 +236,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nbehavior. Here are several rules of thumb:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9610d55_cee905f8",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea429163_2410b011",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -145,6 +277,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1e34211_52654885",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "I meant something else, rewrote. Is it clear now?",
+      "parentUuid": "aa876302_89fad28a",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5bf1d23_2ca8b1c6",
         "filename": "docs/visual_logging.md",
         "patchSetId": 4
@@ -156,6 +306,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n1. Elements that only appear under certain conditions should be logged.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9192c49_468dea7e",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5bf1d23_2ca8b1c6",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -177,6 +345,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54947ffe_27ffca07",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fcf47ee_ca446764",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2370c7b_61f2d18e",
@@ -190,6 +376,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nWe describe loggable elements as a combination of a visual element type and\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb40333d_6a9e8eec",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2370c7b_61f2d18e",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -211,6 +415,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "416a6462_3a313a37",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c286c216_7d5e1804",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3819b525_957c7bad",
@@ -224,6 +446,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nstring, its 32 bit hash is logged. No taxonomy is perfect and we are not\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d556490_6332c479",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3819b525_957c7bad",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -245,6 +485,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "252d829e_6acd936b",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70daf5db_6b596ef0",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5fd9cdf_b182dbb3",
@@ -258,6 +516,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n`Button`. This is important for keeping user actions trackable across longer time\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feaa78db_d667096e",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5fd9cdf_b182dbb3",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -279,6 +555,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0609e3d_b00e1d0f",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "345f4751_8df6572a",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34715bd3_349d0ebf",
@@ -292,6 +586,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n1. We also try to have visual element types describe classes of elements, and\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "500d02bc_84411ac8",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34715bd3_349d0ebf",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -313,6 +625,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1818e18a_8af5f4db",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c32320b_0ce89fb9",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59171200_3aa1edd2",
@@ -326,6 +656,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\na `Panel` visual element with `elements` as a context, not as `ElementsPanel`.\n```\nIs this meant as plural or singular? Doesn\u0027t read right to me...",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7c37a6_88cb91d2",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "It was meant to be singular, thanks for spotting.",
+      "parentUuid": "59171200_3aa1edd2",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -347,6 +695,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad7d7264_1e960986",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5cf3f8a_37f8edab",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13d9a0e4_cdff6b66",
@@ -364,6 +730,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b803f23_4a7cc7b1",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13d9a0e4_cdff6b66",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ea348f7_fcc11b1e",
@@ -377,6 +761,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nused in the legacy UI as:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8cbf764_67e93148",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ea348f7_fcc11b1e",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -404,6 +806,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6091cb78_3af3a82d",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4377665d_61bd20f6",
+      "range": {
+        "startLine": 65,
+        "startChar": 7,
+        "endLine": 65,
+        "endChar": 14
+      },
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3953be1_38b06f46",
@@ -417,6 +843,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n### `jslog` Builder API\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26bb532b_488fdccd",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3953be1_38b06f46",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -438,6 +882,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f827fba_879f4790",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cbffd41_0db1c1a9",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fed52c6_328b2fd5",
@@ -451,6 +913,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nbe logged for the visual elements. If the clause is absent, only impressions are logged for\n```\nWhat\u0027s absent exactly? Clause?",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2371cbc8_9c24741d",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "The call to the method, and hence the clause. Rewrote.",
+      "parentUuid": "7fed52c6_328b2fd5",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -474,6 +954,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b92ec9ae_1ff20663",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "All are boolean, keydown is boolean or string. Not sure how to best specify that.",
+      "parentUuid": "752b01e9_c5a0ef72",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d2cc2fe_9df293b9",
         "filename": "docs/visual_logging.md",
         "patchSetId": 4
@@ -485,6 +983,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nThe `context()` method sets the context for the visual logging element. The context\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd46a35_394602c1",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d2cc2fe_9df293b9",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -506,6 +1022,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6d9d9f_ae75c930",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "649109c6_dcc67ce9",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f053b927_11a1ee91",
@@ -519,6 +1053,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nwith this name, SHA-1 hash is computed and the first 32 bits\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9039def9_1731d1a0",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f053b927_11a1ee91",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -546,6 +1098,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "208ea62b_0180d829",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e658f2b_a29ae7ba",
+      "range": {
+        "startLine": 89,
+        "startChar": 16,
+        "endLine": 89,
+        "endChar": 20
+      },
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49a98c8f_27bced1d",
@@ -559,6 +1135,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nThe `parent()` method sets the custom parent provider for the visual logging element\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da0107cf_6b5f457b",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49a98c8f_27bced1d",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -580,6 +1174,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f519face_dab5add4",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "138d5a81_6cf76964",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8da4426_d8177f39",
@@ -593,6 +1205,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n### Context and parent providers\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "387fb68b_dda5a287",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8da4426_d8177f39",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -614,6 +1244,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e63a4a_d30c63d7",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de196e26_2e913bd0",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b9d27da_04e691a1",
@@ -627,6 +1275,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nimpressions, context may indicate if or how many elements are present (0 or 1 for\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac49c94_cf2e59e7",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b9d27da_04e691a1",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -648,6 +1314,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaed2652_f7067be6",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4400c930_4b4ea133",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21fe2aee_10c39e7c",
@@ -661,6 +1345,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nAs this only logs a single number, it\u0027s not enough for more complex cases,\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b045fc6_daa337f7",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21fe2aee_10c39e7c",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -682,6 +1384,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b001fad_32bfff46",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d4da94e_5c8ca02e",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "370806f3_3e633fd1",
@@ -695,6 +1415,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n`jslog` builder `context()` method. Second is a function that takes an Element or Event\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea618f4_fefdf3dd",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "370806f3_3e633fd1",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -716,6 +1454,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df3a1a04_ab7e67f8",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cc95414_e6786216",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03b5df8f_3c7a6a97",
@@ -729,6 +1485,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nSimilarly, parent provides are used to specify parent visual elements in\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9adfb5b8_0ceb3521",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03b5df8f_3c7a6a97",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -750,6 +1524,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6117f94f_1fa5a368",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cf7b321_7282241a",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a482aef_f1d0f279",
@@ -763,6 +1555,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nstructure, for example, when a legacy tree outline has children in an `\u003col\u003e` element, which is a\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df81e1c2_b6362c8d",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a482aef_f1d0f279",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -784,6 +1594,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a347fc_1b5b0ef9",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a67dd34e_cc207810",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b73bd4c1_a364aff6",
@@ -797,6 +1625,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nSome DevTools UI is not represented in DOM, such as tracks in the Performance\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a21d2063_1c3da7f9",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b73bd4c1_a364aff6",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -818,6 +1664,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abee456a_a289eb31",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bbd5644_d1748049",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a2a3cb8_ee2b5c54",
@@ -831,6 +1695,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nimperative API. Use it rarely and when no other options are\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85d55ea4_772bfbf5",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a2a3cb8_ee2b5c54",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -852,6 +1734,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b63141_3f9ea14f",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b20fced_6142dee9",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4c7e53c_41634ff4",
@@ -865,6 +1765,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nFirst, identify the TypeScript type that corresponds to the element that\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78ca3dfd_6d733f9e",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c7e53c_41634ff4",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -886,6 +1804,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81d7d090_647b5694",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3f4be98_ffffc28b",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c38108ee_5d3b0cd1",
@@ -899,6 +1835,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\n`front_end/ui/visual_logging/Loggable.ts`.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d21b79e7_686ac110",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c38108ee_5d3b0cd1",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -920,6 +1874,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41db99e6_aeabe629",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ccdd529_5e2a0665",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41540af3_10e29730",
@@ -937,6 +1909,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d272ad9_9e672cc2",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41540af3_10e29730",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdcebba9_998427ab",
@@ -950,6 +1940,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nand an optional parent JavaScript object. For a native menu item, this is:\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef8f9f7b_c86218c8",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdcebba9_998427ab",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -973,6 +1981,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5766afcc_06418a87",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "I meant it only registers, not logs.",
+      "parentUuid": "2dfd8d7a_3bfc17f0",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d2b9469_43c74e34",
         "filename": "docs/visual_logging.md",
         "patchSetId": 4
@@ -984,6 +2010,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nimpressions, explicitly call `VisualLogging.logImpressions`.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1cd5731_b7b97848",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d2b9469_43c74e34",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -1001,6 +2045,24 @@
       "writtenOn": "2023-11-20T13:27:52Z",
       "side": 1,
       "message": "```suggestion\nSimilarly to log click, call `VisualLogging.logClick`.\n```",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65df8c11_4c73b96a",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ccdc468_2eafd85d",
       "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
