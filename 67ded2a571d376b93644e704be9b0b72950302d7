@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9a026ab_9b3a1a58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-20T17:58:59Z",
+      "side": 1,
+      "message": "Done. Thanks!",
+      "parentUuid": "3939f36f_b319ff08",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ebb8928_13cc14ed",
@@ -120,6 +138,30 @@
       "writtenOn": "2023-11-18T12:57:56Z",
       "side": 1,
       "message": "```suggestion\nCookies with the `SameSite\u003dNone; Secure` and not `Partitioned` attributes operate in cross-site contexts and are third-party cookies.\n```",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 129
+      },
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c203c3c4_59bdf3f7",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutRead.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-20T17:58:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5ebb8928_13cc14ed",
       "range": {
         "startLine": 3,
         "startChar": 0,
@@ -147,6 +189,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "914dafbd_819602ef",
+        "filename": "front_end/models/issues_manager/descriptions/cookieExcludeThirdPartyPhaseoutSet.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-20T17:58:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "10b37328_55211c18",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f961f681_a65654ad",
@@ -164,6 +224,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dcf6b58_103e621e",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutRead.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-20T17:58:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f961f681_a65654ad",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15696ee3_5eda6b9e",
@@ -177,6 +255,24 @@
       "writtenOn": "2023-11-18T12:57:56Z",
       "side": 1,
       "message": "```suggestion\nCookies with the `SameSite\u003dNone; Secure` and not `Partitioned` attributes operate in cross-site contexts and are third-party cookies.\n```",
+      "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "141c93cd_71b00a87",
+        "filename": "front_end/models/issues_manager/descriptions/cookieWarnThirdPartyPhaseoutSet.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-20T17:58:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "15696ee3_5eda6b9e",
       "revId": "67ded2a571d376b93644e704be9b0b72950302d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
