@@ -984,15 +984,17 @@ export class DebuggerPlugin extends Plugin {
     const line = doc.line(lineNumber + 1);
     const decorations: CodeMirror.Range<CodeMirror.Decoration>[] = [executionLineDeco.range(line.from)];
     const position = Math.min(line.to, line.from + columnNumber);
-    let syntaxNode = CodeMirror.syntaxTree(editorState).resolveInner(position, 1);
-    if (syntaxNode.to === syntaxNode.from - 1 && /[(.]/.test(doc.sliceString(syntaxNode.from, syntaxNode.to))) {
-      syntaxNode = syntaxNode.resolve(syntaxNode.to, 1);
+    const syntaxTree = CodeMirror.ensureSyntaxTree(editorState, position, /* timeout= */ 500);
+    if (syntaxTree) {
+      let syntaxNode = syntaxTree.resolveInner(position, 1);
+      if (syntaxNode.to === syntaxNode.from - 1 && /[(.]/.test(doc.sliceString(syntaxNode.from, syntaxNode.to))) {
+        syntaxNode = syntaxNode.resolve(syntaxNode.to, 1);
+      }
+      const tokenEnd = Math.min(line.to, syntaxNode.to);
+      if (tokenEnd > position) {
+        decorations.push(executionTokenDeco.range(position, tokenEnd));
+      }
     }
-    const tokenEnd = Math.min(line.to, syntaxNode.to);
-    if (tokenEnd > position) {
-      decorations.push(executionTokenDeco.range(position, tokenEnd));
-    }
-
     return CodeMirror.Decoration.set(decorations);
   }
 
