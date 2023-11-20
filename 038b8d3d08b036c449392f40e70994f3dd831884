@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f01beb41_0737e28e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T11:04:10Z",
+      "side": 1,
+      "message": "Sofia, could you please take a quick look? I\u0027d love to learn how to write these better.",
+      "revId": "038b8d3d08b036c449392f40e70994f3dd831884",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "970b2588_621e15ae",
