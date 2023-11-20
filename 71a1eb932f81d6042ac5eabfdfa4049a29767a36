@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f29bb464_061cb981",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-20T15:57:54Z",
+      "side": 1,
+      "message": "Agreed. Are you happy for me to explore that in a follow-up CL?",
+      "parentUuid": "cf398f3a_fa6f5fb5",
+      "range": {
+        "startLine": 27,
+        "startChar": 6,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "861dbcf5_23e19a4f",
         "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "writtenOn": "2023-11-20T13:10:29Z",
       "side": 1,
       "message": "typo: Styles",
+      "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1b3b2a3_8a0c8361",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-20T15:57:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "861dbcf5_23e19a4f",
       "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +113,30 @@
       "writtenOn": "2023-11-20T13:10:29Z",
       "side": 1,
       "message": "typo: event",
+      "range": {
+        "startLine": 61,
+        "startChar": 130,
+        "endLine": 61,
+        "endChar": 134
+      },
+      "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29f84868_aa8230d5",
+        "filename": "test/unittests/front_end/models/trace/handlers/InitiatorsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-20T15:57:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4e25331_d9255978",
       "range": {
         "startLine": 61,
         "startChar": 130,
