@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3640f096_0a6544ee",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:45:44Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "4d965be8_62ac91a4",
+      "revId": "62d8f698bf10cd25db9f234df750b518ad154d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd2b6fdf_970767ad",
