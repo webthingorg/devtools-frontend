@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf398f3a_fa6f5fb5",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-20T13:10:29Z",
+      "side": 1,
+      "message": "as of [1] we are also processing these initators in the LayoutShift root cause module. Let\u0027s consolidate the logic in a single place, I think it makes sense to keep this handler over the logic in the tree helpers\n\n[1] https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5013616/15/front_end/models/trace/helpers/TreeHelpers.ts",
+      "range": {
+        "startLine": 27,
+        "startChar": 6,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861dbcf5_23e19a4f",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-20T13:10:29Z",
+      "side": 1,
+      "message": "typo: Styles",
+      "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4e25331_d9255978",
+        "filename": "test/unittests/front_end/models/trace/handlers/InitiatorsHandler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-20T13:10:29Z",
+      "side": 1,
+      "message": "typo: event",
+      "range": {
+        "startLine": 61,
+        "startChar": 130,
+        "endLine": 61,
+        "endChar": 134
+      },
+      "revId": "71a1eb932f81d6042ac5eabfdfa4049a29767a36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
