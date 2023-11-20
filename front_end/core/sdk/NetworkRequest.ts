@@ -296,6 +296,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #fromDiskCache?: boolean;
   #fromPrefetchCacheInternal?: boolean;
   #fetchedViaServiceWorkerInternal?: boolean;
+  #serviceWorkerRouterInfo?: Protocol.Network.ServiceWorkerRouterInfo;
   #timingInternal?: Protocol.Network.ResourceTiming;
   #requestHeadersTextInternal?: string;
   #responseHeadersInternal?: NameValue[];
@@ -724,6 +725,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   set fetchedViaServiceWorker(x: boolean) {
     this.#fetchedViaServiceWorkerInternal = x;
+  }
+
+  get serviceWorkerRouterInfo(): Protocol.Network.ServiceWorkerRouterInfo|undefined {
+    return this.#serviceWorkerRouterInfo;
+  }
+
+  set serviceWorkerRouterInfo(x: Protocol.Network.ServiceWorkerRouterInfo) {
+    this.#serviceWorkerRouterInfo = x;
   }
 
   /**
