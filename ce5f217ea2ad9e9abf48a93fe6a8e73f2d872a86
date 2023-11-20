@@ -16,6 +16,46 @@
       "message": "Can you take a look please?",
       "revId": "ce5f217ea2ad9e9abf48a93fe6a8e73f2d872a86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59445018_ccebe836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-20T12:05:05Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "ce5f217ea2ad9e9abf48a93fe6a8e73f2d872a86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dab4d45d_8e16eda9",
+        "filename": "front_end/panels/network/NetworkConfigView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-20T12:05:05Z",
+      "side": 1,
+      "message": "I assume we wanna combine this text input field VE with the drop down from above?\n\nWould it make more sense to track `change` events here instead? (or how do we track text input otherwise?). We might miss events if users use the tab key to select the input.",
+      "range": {
+        "startLine": 126,
+        "startChar": 34,
+        "endLine": 126,
+        "endChar": 42
+      },
+      "revId": "ce5f217ea2ad9e9abf48a93fe6a8e73f2d872a86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
