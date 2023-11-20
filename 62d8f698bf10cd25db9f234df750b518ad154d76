@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d965be8_62ac91a4",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T15:44:06Z",
+      "side": 1,
+      "message": "```suggestion\nthis element. Called with tracking options, an object with the following boolean properties:\n```",
+      "revId": "62d8f698bf10cd25db9f234df750b518ad154d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd2b6fdf_970767ad",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2023-11-20T15:44:06Z",
+      "side": 1,
+      "message": "```suggestion\n* `keydown`: Whether to track keydown events. This property can be boolean or string. If a string is provided, it will\n```",
+      "revId": "62d8f698bf10cd25db9f234df750b518ad154d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
