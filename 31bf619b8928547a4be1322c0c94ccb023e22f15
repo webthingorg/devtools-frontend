@@ -87,6 +87,30 @@
       },
       "revId": "31bf619b8928547a4be1322c0c94ccb023e22f15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02edc617_47273500",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-20T11:06:50Z",
+      "side": 1,
+      "message": "The Workspace file system list, Ignore list patterns, Devices, Network Throttling Profiles, and Locations are all ListWidgets, so every row in those lists is annotated as `Item`.",
+      "parentUuid": "b69f603b_5a0e9ba7",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 61
+      },
+      "revId": "31bf619b8928547a4be1322c0c94ccb023e22f15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
