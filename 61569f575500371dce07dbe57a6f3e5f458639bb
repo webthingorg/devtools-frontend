@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e1a78c3_30a474a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1599693
+      },
+      "writtenOn": "2023-11-20T09:04:16Z",
+      "side": 1,
+      "message": "@dsv@chromium.org Could you please take a look at this CL?\n\nThough this is a WIP CL until the backend changes are merged, I think I finished the implementation and would like to be reviewed in advance.\nIn particular, I wonder how I add the tests to `test/unittests/front_end/panels/network/NetworkDataGridNode_test.ts` since it doesn\u0027t have any tests for the size column on the Network panel.",
+      "revId": "61569f575500371dce07dbe57a6f3e5f458639bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
