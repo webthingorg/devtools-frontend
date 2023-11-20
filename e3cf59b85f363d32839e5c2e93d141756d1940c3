@@ -988,6 +988,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "185a1773_04bd20d8",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92ec9ae_1ff20663",
+      "revId": "e3cf59b85f363d32839e5c2e93d141756d1940c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d2cc2fe_9df293b9",

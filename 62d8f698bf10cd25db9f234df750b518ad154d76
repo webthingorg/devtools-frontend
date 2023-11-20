@@ -51,6 +51,24 @@
       "message": "```suggestion\n* `keydown`: Whether to track keydown events. This property can be boolean or string. If a string is provided, it will\n```",
       "revId": "62d8f698bf10cd25db9f234df750b518ad154d76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cad025c_fbd635ef",
+        "filename": "docs/visual_logging.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-20T15:45:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd2b6fdf_970767ad",
+      "revId": "62d8f698bf10cd25db9f234df750b518ad154d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
