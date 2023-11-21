@@ -11,7 +11,7 @@ type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.Trac
 export const enum TreeAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
-  COLLAPSE_REPEATING_ANCESTORS = 'COLLAPSE_REPEATING_ANCESTORS',
+  COLLAPSE_REPEATING_DESCENDANTS = 'COLLAPSE_REPEATING_ANCESTORS',
 }
 
 export interface UserTreeAction {
@@ -145,7 +145,7 @@ export class TreeManipulator {
           break;
         }
 
-        case TreeAction.COLLAPSE_REPEATING_ANCESTORS: {
+        case TreeAction.COLLAPSE_REPEATING_DESCENDANTS: {
           const entryNode = this.#entryToNode.get(action.entry);
           if (!entryNode) {
             // Invalid node was given, just ignore and move on.

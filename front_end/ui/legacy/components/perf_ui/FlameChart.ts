@@ -783,7 +783,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     });
 
     contextMenu.headerSection().appendItem('Collapse repeating ancestors', () => {
-      dispatchTreeModifiedEvent(TraceEngine.TreeManipulator.TreeAction.COLLAPSE_REPEATING_ANCESTORS);
+      dispatchTreeModifiedEvent(TraceEngine.TreeManipulator.TreeAction.COLLAPSE_REPEATING_DESCENDANTS);
     });
 
     contextMenu.defaultSection().appendAction('timeline.load-from-file');
