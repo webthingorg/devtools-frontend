@@ -22,6 +22,30 @@
       },
       "revId": "2dac225e7058b0e19a53a054eb3ed5f6610baca4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5cebbbf_a0de7576",
+        "filename": "front_end/models/trace/frames/TimelineFrameModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-21T10:56:17Z",
+      "side": 0,
+      "message": "I will replace it when I come to migrating the UI to using this new model, yes.",
+      "parentUuid": "f22845fd_8fdcb21a",
+      "range": {
+        "startLine": 463,
+        "startChar": 8,
+        "endLine": 463,
+        "endChar": 23
+      },
+      "revId": "2dac225e7058b0e19a53a054eb3ed5f6610baca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
