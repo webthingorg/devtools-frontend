@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b13563c_0a29b98b",
+        "filename": "front_end/models/trace/TreeManipulator.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-11-21T01:34:10Z",
+      "side": 1,
+      "message": "nits: after read the code, I would suggest change to `rootIsProfileCall` and `childIsProfileCall`",
+      "range": {
+        "startLine": 200,
+        "startChar": 56,
+        "endLine": 200,
+        "endChar": 96
+      },
+      "revId": "ab22965e4b4d04f77c235ab12249d64f31e4994d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a2ff8b4_9a40cd69",
         "filename": "front_end/models/trace/TreeManipulator.ts",
         "patchSetId": 21
