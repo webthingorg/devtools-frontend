@@ -16,6 +16,29 @@
       "message": "This CL follows the suggestion from https://docs.google.com/document/d/1QNHpkOniAXGDA20yAJLxlwyzg0mOeIKk4g-jhm-QTBk/edit?disco\u003dAAAA8U7UT2g. PTAL.\n\nI was trying to add a test case in user-metrics_test.ts but not sure how to setup the cross-site context. Do you know if anything similar has been done before?",
       "revId": "8ea89698502d4013a72650ab764330721efd4f65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1050b06e_4c5f5027",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-21T10:58:07Z",
+      "side": 1,
+      "message": "This slightly changes an existing metric. 3PCD issues would be counted twice, which would make the overall count of expanded issues incorrect. I see 3 options:\n\n1) Your current implementation: no effect on number of cookie issues expanded, but total number of issues expanded would contain double-counted 3PCD issues.\n2) Only count 3PCD issue expansions once, don\u0027t count them as cookie issue expansions: no effect on overall count of expanded issues, but going forward the number of expanded cookie issues would be lower by the amount of expanded 3PCD issues.\n3) If you are only interested in measuring 3PCD issues being expanded, you could add a value to the `Action` enum (which already contains a lot of unrelated actions) and count via `actionTaken()` instead. This would keep the existing `IssueExpanded` count completely unchanged.\n\nWDYT? I\u0027m leaning towards 3 if that works for your use case.",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 5
+      },
+      "revId": "8ea89698502d4013a72650ab764330721efd4f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
