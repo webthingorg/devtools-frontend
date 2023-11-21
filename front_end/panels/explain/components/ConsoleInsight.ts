@@ -85,6 +85,10 @@ const UIStrings = {
    */
   close: 'Close',
   /**
+   * @description The title of the a button that closes the insight pane.
+   */
+  closeInsight: 'Close insight',
+  /**
    * @description The title of the list of source data that was used to generate the insight.
    */
   sources: 'Sources',
@@ -253,6 +257,17 @@ export class ConsoleInsight extends HTMLElement {
     this.#promptBuilder = promptBuilder;
     this.#insightProvider = insightProvider;
     this.#render();
+    // Stop keyboard event propagation to avoid Console acting on the events
+    // insight the insight.
+    this.addEventListener('keydown', e => {
+      e.stopPropagation();
+    });
+    this.addEventListener('keyup', e => {
+      e.stopPropagation();
+    });
+    this.addEventListener('keypress', e => {
+      e.stopPropagation();
+    });
     this.#popover = new UI.PopoverHelper.PopoverHelper(this, event => {
       const hoveredNode = event.composedPath()[0] as Element;
       if (!hoveredNode || !hoveredNode.parentElementOrShadowHost()?.matches('.info')) {
@@ -417,6 +432,8 @@ export class ConsoleInsight extends HTMLElement {
         <header>
           <div>
             <${IconButton.Icon.Icon.litTagName}
+              role="presentation"
+              alt=""
               .data=${
                 {
                   iconName: 'spark',
@@ -427,15 +444,19 @@ export class ConsoleInsight extends HTMLElement {
               }>
             </${IconButton.Icon.Icon.litTagName}>
           </div>
-          <div class="filler">${this.#loading === LoadingState.INITIAL_LOADING ? i18nString(UIStrings.generating) : i18nString(UIStrings.insight)}</div>
+          <div class="filler">
+            <h2>
+              ${this.#loading === LoadingState.INITIAL_LOADING ? i18nString(UIStrings.generating) : i18nString(UIStrings.insight)}
+            </h2>
+          </div>
           <div>
             <${Buttons.Button.Button.litTagName}
-              title=${i18nString(UIStrings.close)}
               .data=${
                 {
                   variant: Buttons.Button.Variant.ROUND,
                   size: Buttons.Button.Size.SMALL,
                   iconName: 'cross',
+                  title: i18nString(UIStrings.closeInsight),
                 } as Buttons.Button.ButtonData
               }
               @click=${this.#onClose}
@@ -444,7 +465,7 @@ export class ConsoleInsight extends HTMLElement {
         </header>
         ${this.#loading === LoadingState.INITIAL_LOADING ? html`
         <main>
-          <div class="loader" style="clip-path: url('#clipPath');">
+          <div role="presentation" class="loader" style="clip-path: url('#clipPath');">
             <svg width="100%" height="64">
               <clipPath id="clipPath">
                 <rect x="0" y="0" width="100%" height="16" rx="8"></rect>
@@ -479,6 +500,7 @@ export class ConsoleInsight extends HTMLElement {
             </${Buttons.Button.Button.litTagName}>
             <${IconButton.Icon.Icon.litTagName}
               class="info"
+              tabindex="0"
               .data=${
                 {
                   iconName: 'info',
@@ -523,6 +545,8 @@ export class ConsoleInsight extends HTMLElement {
           <div class="filler"></div>
           ${this.#dogfood ? html`<div class="dogfood-feedback">
               <${IconButton.Icon.Icon.litTagName}
+                role="presentation"
+                alt=""
                 .data=${
                   {
                     iconName: 'dog-paw',
@@ -544,12 +568,12 @@ export class ConsoleInsight extends HTMLElement {
             <div class="filler">${i18nString(UIStrings.reason)}</div>
             <div>
               <${Buttons.Button.Button.litTagName}
-                title=${i18nString(UIStrings.close)}
                 .data=${
                   {
                     variant: Buttons.Button.Variant.ROUND,
                     size: Buttons.Button.Size.SMALL,
                     iconName: 'cross',
+                    title: i18nString(UIStrings.close),
                   } as Buttons.Button.ButtonData
                 }
                 @click=${this.#onCloseRating}
