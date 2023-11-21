@@ -16,6 +16,24 @@
       "message": "Hi Wolfang, do you know how to make",
       "revId": "4e53387a2a66d7c045ae9ba7ce1e6a05512f855c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f8759a_3eed2fc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-21T11:33:18Z",
+      "side": 1,
+      "message": "...a clickable icon?\nYou\u0027ll probably want to use an x-link, similar to how it\u0027s done here https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/issues/IssueView.ts;l\u003d450 or here https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/settings/SettingsScreen.ts;l\u003d511",
+      "parentUuid": "620c9cd3_025f38cd",
+      "revId": "4e53387a2a66d7c045ae9ba7ce1e6a05512f855c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
