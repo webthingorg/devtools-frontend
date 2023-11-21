@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3da772e_5482d161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-21T14:59:03Z",
+      "side": 1,
+      "message": "I understood that screenshot tests are not widely used in the FE yet, so your call if we want to include these. I will update goldens after a few last minute changes I have in the pipeline",
+      "revId": "4c52e80f0f28055aded4af7271207a9f0aeb07d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
