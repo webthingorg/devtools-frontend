@@ -34,6 +34,24 @@
       "parentUuid": "620c9cd3_025f38cd",
       "revId": "4e53387a2a66d7c045ae9ba7ce1e6a05512f855c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "387a582a_e2bb7ecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-21T22:45:48Z",
+      "side": 1,
+      "message": "Thanks for guessing what I did not finish correctly lol!\n\nActually, I would like to have this CL reviewed as is - leaving the work to make the icon clickable in a followup CL, to be able to request a merge for this change into M120 in time.",
+      "parentUuid": "64f8759a_3eed2fc2",
+      "revId": "4e53387a2a66d7c045ae9ba7ce1e6a05512f855c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
