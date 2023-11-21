@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1b32ee_f40d4ba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-21T10:03:47Z",
+      "side": 1,
+      "message": "LGTM % missing zIndex",
+      "revId": "ba34b082523632756221c3b47a9972eeb491aa34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4732670c_31ad974b",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-21T10:03:47Z",
+      "side": 1,
+      "message": "I had to add `debugPopover.style.zIndex \u003d \u0027100000\u0027;` to make this work for the Settings panel.",
+      "revId": "ba34b082523632756221c3b47a9972eeb491aa34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
