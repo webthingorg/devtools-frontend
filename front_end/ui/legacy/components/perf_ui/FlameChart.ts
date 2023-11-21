@@ -765,7 +765,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
     const contextMenu = new UI.ContextMenu.ContextMenu(_event);
 
-    const dispatchTreeModifiedEvent = (treeAction: TraceEngine.EntriesFilter.FilterAction): void => {
+    const dispatchTreeModifiedEvent = (treeAction: TraceEngine.EntriesFilter.FilterApplyAction): void => {
       this.dispatchEventToListeners(Events.TreeModified, {
         group: group,
         node: this.selectedEntryIndex,
@@ -775,15 +775,19 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
     contextMenu.headerSection().appendItem('Merge function', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION);
+      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION);
     });
 
     contextMenu.headerSection().appendItem('Collapse function', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterAction.COLLAPSE_FUNCTION);
+      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION);
     });
 
-    contextMenu.headerSection().appendItem('Collapse repeating ancestors', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterAction.COLLAPSE_REPEATING_DESCENDANTS);
+    contextMenu.headerSection().appendItem('Collapse repeating descendants', () => {
+      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS);
+    });
+
+    contextMenu.headerSection().appendItem('Undo all actions', () => {
+      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.UNDO_ALL_ACTIONS);
     });
 
     contextMenu.defaultSection().appendAction('timeline.load-from-file');
@@ -2838,7 +2842,7 @@ export type EventTypes = {
   [Events.TreeModified]: {
     group: Group,
     node: number,
-    action: TraceEngine.EntriesFilter.FilterAction,
+    action: TraceEngine.EntriesFilter.FilterApplyAction,
   },
   [Events.EntriesModified]: void,
 };
