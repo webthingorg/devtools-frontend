@@ -1491,7 +1491,6 @@ export namespace TimelineModelImpl {
     IdleDeadlineExceeded = 'IdleDeadlineExceeded',
     LongHandler = 'LongHandler',
     LongRecurringHandler = 'LongRecurringHandler',
-    V8Deopt = 'V8Deopt',
   }
 
   export const WorkerThreadName = 'DedicatedWorker thread';

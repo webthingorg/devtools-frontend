@@ -1067,15 +1067,6 @@ const UIStrings = {
    */
   sTookS: '{PH1} took {PH2}.',
   /**
-   *@description Text that indicates something is not optimized
-   */
-  notOptimized: 'Not optimized',
-  /**
-   *@description Text that starts with a colon and includes a placeholder
-   *@example {3.0} PH1
-   */
-  emptyPlaceholderColon: ': {PH1}',
-  /**
    *@description Text in Timeline UIUtils of the Performance panel
    */
   unknownCause: 'Unknown cause',
@@ -2024,10 +2015,6 @@ export class TimelineUIUtils {
         contentHelper.appendElementRow(i18nString(UIStrings.warning), warning, true);
       }
     }
-    if (event.name === recordTypes.JSFrame && eventData['deoptReason']) {
-      contentHelper.appendWarningRow(event, TimelineModel.TimelineModel.TimelineModelImpl.WarningType.V8Deopt);
-    }
-
     if (detailed && !Number.isNaN(duration || 0)) {
       contentHelper.appendTextRow(
           i18nString(UIStrings.totalTime), i18n.TimeUtilities.millisToString(duration || 0, true));
@@ -3333,13 +3320,6 @@ export class TimelineUIUtils {
         span.appendChild(i18n.i18n.getFormatLocalizedString(
             str_, UIStrings.sTookS,
             {PH1: longTaskLink, PH2: i18n.TimeUtilities.millisToString((duration || 0), true)}));
-        break;
-      }
-
-      case warnings.V8Deopt: {
-        span.appendChild(UI.XLink.XLink.create(
-            'https://github.com/GoogleChrome/devtools-docs/issues/53', i18nString(UIStrings.notOptimized)));
-        UI.UIUtils.createTextChild(span, i18nString(UIStrings.emptyPlaceholderColon, {PH1: eventData['deoptReason']}));
         break;
       }
 
