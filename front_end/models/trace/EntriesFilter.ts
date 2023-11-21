@@ -12,6 +12,7 @@ export const enum FilterAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
   COLLAPSE_REPEATING_DESCENDANTS = 'COLLAPSE_REPEATING_DESCENDANTS',
+  UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
 }
 
 export interface UserFilterAction {
@@ -55,8 +56,11 @@ export class EntriesFilter {
       // If the action is already active there is no reason to apply it again.
       return;
     }
-
-    this.#activeActions.push(action);
+    if (action.type === FilterAction.UNDO_ALL_ACTIONS) {
+      this.#activeActions = [];
+    } else {
+      this.#activeActions.push(action);
+    }
     // Clear the last list of invisible entries - this invalidates the cache and
     // ensures that the invisible list will be recalculated, which we have to do
     // now we have changed the list of actions.
@@ -155,6 +159,11 @@ export class EntriesFilter {
           allRepeatingDescendants.forEach(ancestor => entriesToHide.add(ancestor));
           break;
         }
+
+        case FilterAction.UNDO_ALL_ACTIONS: {
+          continue;
+        }
+
         default:
           Platform.assertNever(action.type, `Unknown EntriesFilter action: ${action.type}`);
       }
