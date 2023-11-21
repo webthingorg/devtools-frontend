@@ -39,6 +39,30 @@
       },
       "revId": "8ea89698502d4013a72650ab764330721efd4f65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a780063_fb029a05",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-21T21:00:56Z",
+      "side": 1,
+      "message": "Using `DevTools.ActionTaken` metric could work technically but I wonder if it can provide useful information, considering user engagement with Issue panel is already pretty low compared to other features.\n\nI might prefer option 2) if that works for you. Cause right now the cookie issues are represented as `SameSiteCookie` in the metric anyways(according to tools/metrics/histograms/enums.xml).\n\nImplementation-wise, instead of using a string literal (\"ThirdPartyPhaseout\") for filtering/checking, I wonder if it\u0027s better/possible to create a sub-classification in the CookieIssue.ts for SameSite and ThirdPartyPhaseout cookie issues sub-type and map them with all the existing cookie issues. Then in `onexpand`, we cast `issue` to `CookieIssue` type if we see `IssueCategory.Cookie` to get the sub-type information.  Does that make sense to you?",
+      "parentUuid": "1050b06e_4c5f5027",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 5
+      },
+      "revId": "8ea89698502d4013a72650ab764330721efd4f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
