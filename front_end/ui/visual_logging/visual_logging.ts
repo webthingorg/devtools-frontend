@@ -59,6 +59,7 @@ const menu = LoggingConfig.makeConfigStringBuilder.bind(null, 'Menu');
 const metricsBox = LoggingConfig.makeConfigStringBuilder.bind(null, 'MetricsBox');
 const next = LoggingConfig.makeConfigStringBuilder.bind(null, 'Next');
 const paletteColorShades = LoggingConfig.makeConfigStringBuilder.bind(null, 'PaletteColorShades');
+const pane = LoggingConfig.makeConfigStringBuilder.bind(null, 'Pane');
 const panel = LoggingConfig.makeConfigStringBuilder.bind(null, 'Panel');
 const panelTabHeader = LoggingConfig.makeConfigStringBuilder.bind(null, 'PanelTabHeader');
 const preview = LoggingConfig.makeConfigStringBuilder.bind(null, 'Preview');
@@ -134,6 +135,7 @@ export {
   metricsBox,
   next,
   paletteColorShades,
+  pane,
   panel,
   panelTabHeader,
   preview,

@@ -19,9 +19,9 @@ import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wra
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
 import breakpointsViewStyles from './breakpointsView.css.js';
-
 import {findNextNodeForKeyboardNavigation, getDifferentiatingPathMap, type TitleInfo} from './BreakpointsViewUtils.js';
 
 const UIStrings = {
@@ -536,6 +536,7 @@ export class BreakpointsView extends LegacyWrapper.LegacyWrapper.WrappableCompon
   constructor() {
     super();
     this.#controller = BreakpointsSidebarController.instance();
+    this.setAttribute('jslog', `${VisualLogging.pane().context('debugger-breakpoints')}`);
     void this.#controller.update();
   }
 
