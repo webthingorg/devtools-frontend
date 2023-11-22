@@ -39,6 +39,30 @@
       },
       "revId": "8a85f4a791a24fec5973dc8b9b269bf4d8e6e213",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad3f835_f86e06a6",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-22T15:49:25Z",
+      "side": 1,
+      "message": "Yes, I think we probably should 😊",
+      "parentUuid": "b20bc592_2768df03",
+      "range": {
+        "startLine": 176,
+        "startChar": 8,
+        "endLine": 176,
+        "endChar": 22
+      },
+      "revId": "8a85f4a791a24fec5973dc8b9b269bf4d8e6e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
