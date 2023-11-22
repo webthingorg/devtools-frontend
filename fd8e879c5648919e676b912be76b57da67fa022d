@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f588abd5_27245097",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1599693
+      },
+      "writtenOn": "2023-11-22T08:17:30Z",
+      "side": 1,
+      "message": "Thanks. I Changed the existing one to `serviceWorker`.",
+      "parentUuid": "3409ee2f_c6a5a436",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 15
+      },
+      "revId": "fd8e879c5648919e676b912be76b57da67fa022d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "078b4b61_5ef8f0a3",
         "filename": "front_end/panels/network/NetworkDataGridNode.ts",
         "patchSetId": 6
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-22T08:02:32Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 225,
+        "startChar": 11,
+        "endLine": 225,
+        "endChar": 24
+      },
+      "revId": "fd8e879c5648919e676b912be76b57da67fa022d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9852f5_86a93ace",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1599693
+      },
+      "writtenOn": "2023-11-22T08:17:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "078b4b61_5ef8f0a3",
       "range": {
         "startLine": 225,
         "startChar": 11,
