@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "766b0d8d_5d7ed90f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-22T15:21:07Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "9712c7e3_8b85554c",
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee6ec63b_e44cc7a3",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-11-22T09:27:15Z",
       "side": 1,
       "message": "How about \"Learn more in the Issues tab\"? to make it more clear what \"issues\" refers to.",
+      "range": {
+        "startLine": 89,
+        "startChar": 83,
+        "endLine": 89,
+        "endChar": 105
+      },
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "966876ab_8faa5623",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-22T15:21:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee6ec63b_e44cc7a3",
       "range": {
         "startLine": 89,
         "startChar": 83,
@@ -82,6 +124,54 @@
         "startChar": 110,
         "endLine": 121,
         "endChar": 132
+      },
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3780d2e_21a0e207",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-22T15:21:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4427081_58c03c7f",
+      "range": {
+        "startLine": 121,
+        "startChar": 110,
+        "endLine": 121,
+        "endChar": 132
+      },
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07d0e4a3_c31b6ee2",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-11-22T15:21:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92599902_7a641ecc",
+      "range": {
+        "startLine": 121,
+        "startChar": 50,
+        "endLine": 121,
+        "endChar": 73
       },
       "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
