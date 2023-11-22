@@ -4,10 +4,12 @@
 
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Root from '../../core/root/root.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Persistence from '../../models/persistence/persistence.js';
-import * as Root from '../../core/root/root.js';
+import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as Highlighting from '../../ui/components/highlighting/highlighting.js';
 import * as QuickOpen from '../../ui/legacy/components/quick_open/quick_open.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -166,16 +168,16 @@ export class FilteredUISourceCodeListProvider extends QuickOpen.FilteredListWidg
 
     const ranges = [];
     for (let i = 0; i < indexes.length; ++i) {
-      ranges.push({offset: indexes[i], length: 1});
+      ranges.push(new TextUtils.TextRange.SourceRange(indexes[i], 1));
     }
 
     if (indexes[0] > fileNameIndex) {
       for (let i = 0; i < ranges.length; ++i) {
         ranges[i].offset -= fileNameIndex + 1;
       }
-      UI.UIUtils.highlightRangesWithStyleClass(titleElement, ranges, 'highlight');
+      Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(titleElement, ranges);
     } else {
-      UI.UIUtils.highlightRangesWithStyleClass(subtitleElement, ranges, 'highlight');
+      Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(subtitleElement, ranges);
     }
   }
 

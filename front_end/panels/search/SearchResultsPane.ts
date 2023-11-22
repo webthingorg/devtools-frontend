@@ -7,11 +7,11 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import type * as Workspace from '../../models/workspace/workspace.js';
+import * as Highlighting from '../../ui/components/highlighting/highlighting.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import searchResultsPaneStyles from './searchResultsPane.css.js';
-
 import {type SearchResult} from './SearchScope.js';
 
 const UIStrings = {
@@ -243,7 +243,7 @@ export class SearchResultsTreeElement extends UI.TreeOutline.TreeElement {
     contentSpan.className = 'search-match-content';
     contentSpan.textContent = lineContent;
     UI.ARIAUtils.setLabel(contentSpan, `${lineContent} line`);
-    UI.UIUtils.highlightRangesWithStyleClass(contentSpan, matchRanges, 'highlighted-search-result');
+    Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(contentSpan, matchRanges);
     return contentSpan;
   }
 

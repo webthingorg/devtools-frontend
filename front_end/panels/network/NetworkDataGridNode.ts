@@ -45,8 +45,10 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Logs from '../../models/logs/logs.js';
+import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
+import * as Highlighting from '../../ui/components/highlighting/highlighting.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -1039,12 +1041,12 @@ export class NetworkRequestNode extends NetworkNode {
     }
     // Ensure element is created.
     this.element();
-    const domChanges: UI.UIUtils.HighlightChange[] = [];
     const matchInfo = this.nameCell.textContent.match(regexp);
     if (matchInfo) {
-      UI.UIUtils.highlightSearchResult(this.nameCell, matchInfo.index || 0, matchInfo[0].length, domChanges);
+      return Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(
+          this.nameCell, [new TextUtils.TextRange.SourceRange(matchInfo.index || 0, matchInfo[0].length)]);
     }
-    return domChanges;
+    return [];
   }
 
   private openInNewTab(): void {

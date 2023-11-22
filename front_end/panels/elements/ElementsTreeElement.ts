@@ -1544,7 +1544,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         ++highlightIndex;
       }
       element.setTextContentTruncatedIfNeeded(value);
-      UI.UIUtils.highlightRangesWithStyleClass(element, result.entityRanges, 'webkit-html-entity-value');
+      // UI.UIUtils.highlightRangesWithStyleClass(element, result.entityRanges, 'webkit-html-entity-value');
     }
 
     const hasText = (forceValue || value.length > 0);
@@ -1783,7 +1783,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           }
           const result = this.convertWhitespaceToEntities(firstChild.nodeValue());
           textNodeElement.textContent = Platform.StringUtilities.collapseWhitespace(result.text);
-          UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
+          // UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
           UI.UIUtils.createTextChild(titleDOM, '\u200B');
           this.buildTagDOM(titleDOM, tagName, true, false, updateRecord);
           if (updateRecord && updateRecord.hasChangedChildren()) {
@@ -1817,7 +1817,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
           const textNodeElement = titleDOM.createChild('span', 'webkit-html-text-node');
           const result = this.convertWhitespaceToEntities(node.nodeValue());
           textNodeElement.textContent = Platform.StringUtilities.collapseWhitespace(result.text);
-          UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
+          // UI.UIUtils.highlightRangesWithStyleClass(textNodeElement, result.entityRanges, 'webkit-html-entity-value');
           UI.UIUtils.createTextChild(titleDOM, '"');
           if (updateRecord && updateRecord.isCharDataModified()) {
             UI.UIUtils.runCSSAnimationOnce(textNodeElement, 'dom-update-highlight');

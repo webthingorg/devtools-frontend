@@ -1516,7 +1516,7 @@ export class ConsoleView extends UI.Widget.VBox implements
       matchRange = this.regexMatchRanges[this.currentMatchRangeIndex];
       const message = this.visibleViewMessages[matchRange.messageIndex];
       message.searchHighlightNode(matchRange.matchIndex)
-          .classList.remove(UI.UIUtils.highlightedCurrentSearchResultClassName);
+          ?.classList.remove(UI.UIUtils.highlightedCurrentSearchResultClassName);
     }
 
     index = Platform.NumberUtilities.mod(index, this.regexMatchRanges.length);
@@ -1525,9 +1525,9 @@ export class ConsoleView extends UI.Widget.VBox implements
     matchRange = this.regexMatchRanges[index];
     const message = this.visibleViewMessages[matchRange.messageIndex];
     const highlightNode = message.searchHighlightNode(matchRange.matchIndex);
-    highlightNode.classList.add(UI.UIUtils.highlightedCurrentSearchResultClassName);
+    highlightNode?.classList.add(UI.UIUtils.highlightedCurrentSearchResultClassName);
     this.viewport.scrollItemIntoView(matchRange.messageIndex);
-    highlightNode.scrollIntoViewIfNeeded();
+    highlightNode?.scrollIntoViewIfNeeded();
   }
 
   private updateStickToBottomOnPointerDown(isRightClick?: boolean): void {

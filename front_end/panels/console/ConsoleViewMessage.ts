@@ -45,6 +45,7 @@ import * as Logs from '../../models/logs/logs.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as CodeHighlighter from '../../ui/components/code_highlighter/code_highlighter.js';
+import * as Highlighting from '../../ui/components/highlighting/highlighting.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as IssueCounter from '../../ui/components/issue_counter/issue_counter.js';
 import * as RequestLinkIcon from '../../ui/components/request_link_icon/request_link_icon.js';
@@ -263,8 +264,6 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   protected anchorElement: HTMLElement|null;
   protected contentElementInternal: HTMLElement|null;
   private nestingLevelMarkers: HTMLElement[]|null;
-  private searchHighlightNodes: Element[];
-  private searchHighlightNodeChanges: UI.UIUtils.HighlightChange[];
   private isVisibleInternal: boolean;
   private cachedHeight: number;
   private messagePrefix: string;
@@ -280,6 +279,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
 
   /** Formatting Error#stack is asynchronous. Allow tests to wait for the result */
   #formatErrorStackPromiseForTest = Promise.resolve();
+  #highlights: Range[] = [];
 
   constructor(
       consoleMessage: SDK.ConsoleModel.ConsoleMessage, linkifier: Components.Linkifier.Linkifier,
@@ -303,8 +303,6 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     this.anchorElement = null;
     this.contentElementInternal = null;
     this.nestingLevelMarkers = null;
-    this.searchHighlightNodes = [];
-    this.searchHighlightNodeChanges = [];
     this.isVisibleInternal = false;
     this.cachedHeight = 0;
     this.messagePrefix = '';
@@ -1509,12 +1507,8 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   setSearchRegex(regex: RegExp|null): void {
-    if (this.searchHighlightNodeChanges && this.searchHighlightNodeChanges.length) {
-      UI.UIUtils.revertDomChanges(this.searchHighlightNodeChanges);
-    }
+    Highlighting.HighlightManager.HighlightManager.instance().removeHighlights(this.#highlights);
     this.searchRegexInternal = regex;
-    this.searchHighlightNodes = [];
-    this.searchHighlightNodeChanges = [];
     if (!this.searchRegexInternal) {
       return;
     }
@@ -1528,8 +1522,8 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     }
 
     if (sourceRanges.length) {
-      this.searchHighlightNodes =
-          UI.UIUtils.highlightSearchResults(this.contentElement(), sourceRanges, this.searchHighlightNodeChanges);
+      this.#highlights = Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(
+          this.contentElement(), sourceRanges);
     }
   }
 
@@ -1538,11 +1532,11 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
   }
 
   searchCount(): number {
-    return this.searchHighlightNodes.length;
+    return this.#highlights.length;
   }
 
-  searchHighlightNode(index: number): Element {
-    return this.searchHighlightNodes[index];
+  searchHighlightNode(index: number): Element|undefined {
+    return this.#highlights[index]?.startContainer?.parentElement ?? undefined;
   }
 
   private async getInlineFrames(

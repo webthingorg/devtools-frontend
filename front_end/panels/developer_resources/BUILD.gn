@@ -27,6 +27,7 @@ devtools_module("developer_resources") {
     "../../core/platform:bundle",
     "../../core/sdk:bundle",
     "../../models/text_utils:bundle",
+    "../../ui/components/highlighting:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/data_grid:bundle",
   ]

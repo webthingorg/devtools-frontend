@@ -7,6 +7,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as Highlighting from '../../ui/components/highlighting/highlighting.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -491,7 +492,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       return;
     }
     const range = new TextUtils.TextRange.SourceRange(matches.index, matches[0].length);
-    UI.UIUtils.highlightRangesWithStyleClass(element, [range], 'filter-highlight');
+    Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(element, [range]);
   }
 
   static sortFunctionForColumn(columnId: string): ((arg0: GridNode, arg1: GridNode) => number)|null {

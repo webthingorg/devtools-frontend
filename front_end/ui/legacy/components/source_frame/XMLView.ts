@@ -5,6 +5,7 @@
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as Highlighting from '../../../../ui/components/highlighting/highlighting.js';
 import * as UI from '../../legacy.js';
 
 import xmlTreeStyles from './xmlTree.css.legacy.js';
@@ -205,15 +206,14 @@ export class XMLView extends UI.Widget.Widget implements UI.SearchableView.Searc
 export class XMLViewNode extends UI.TreeOutline.TreeElement {
   private readonly node: Node|ParentNode;
   private readonly closeTag: boolean;
-  private highlightChanges: UI.UIUtils.HighlightChange[];
   private readonly xmlView: XMLView;
+  #highlights: Range[] = [];
 
   constructor(node: Node|ParentNode, closeTag: boolean, xmlView: XMLView) {
     super('', !closeTag && 'childElementCount' in node && Boolean(node.childElementCount));
     this.node = node;
     this.closeTag = closeTag;
     this.selectable = true;
-    this.highlightChanges = [];
     this.xmlView = xmlView;
     this.updateTitle();
   }
@@ -240,7 +240,7 @@ export class XMLViewNode extends UI.TreeOutline.TreeElement {
     }
   }
 
-  setSearchRegex(regex: RegExp|null, additionalCssClassName?: string): boolean {
+  setSearchRegex(regex: RegExp|null, _additionalCssClassName?: string): boolean {
     this.revertHighlightChanges();
     if (!regex) {
       return false;
@@ -249,10 +249,6 @@ export class XMLViewNode extends UI.TreeOutline.TreeElement {
       return false;
     }
     regex.lastIndex = 0;
-    let cssClasses = UI.UIUtils.highlightedSearchResultClassName;
-    if (additionalCssClassName) {
-      cssClasses += ' ' + additionalCssClassName;
-    }
     if (!this.listItemElement.textContent) {
       return false;
     }
@@ -264,14 +260,15 @@ export class XMLViewNode extends UI.TreeOutline.TreeElement {
       match = regex.exec(content);
     }
     if (ranges.length) {
-      UI.UIUtils.highlightRangesWithStyleClass(this.listItemElement, ranges, cssClasses, this.highlightChanges);
+      this.#highlights = Highlighting.HighlightManager.HighlightManager.instance().highlightOrderedTextRanges(
+          this.listItemElement, ranges);
     }
-    return Boolean(this.highlightChanges.length);
+    return Boolean(this.#highlights.length);
   }
 
   revertHighlightChanges(): void {
-    UI.UIUtils.revertDomChanges(this.highlightChanges);
-    this.highlightChanges = [];
+    Highlighting.HighlightManager.HighlightManager.instance().removeHighlights(this.#highlights);
+    this.#highlights = [];
   }
 
   private updateTitle(): void {
