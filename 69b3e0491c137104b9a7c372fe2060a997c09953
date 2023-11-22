@@ -111,6 +111,30 @@
       },
       "revId": "69b3e0491c137104b9a7c372fe2060a997c09953",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c48ef9e0_1b8e2fa1",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-22T07:49:16Z",
+      "side": 1,
+      "message": "`(ServiceWorker router)` would be even better",
+      "parentUuid": "e8425fbb_d015774b",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 4
+      },
+      "revId": "69b3e0491c137104b9a7c372fe2060a997c09953",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
