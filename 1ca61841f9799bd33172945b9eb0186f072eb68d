@@ -51,6 +51,24 @@
       "parentUuid": "5859b920_6adc7489",
       "revId": "1ca61841f9799bd33172945b9eb0186f072eb68d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d9bb92_e3057f3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-22T09:34:43Z",
+      "side": 1,
+      "message": "While `pane` is going away for UI texts, I\u0027m not opposed to keeping it in code. I\u0027d even consider it a feature and not a bug that its so generic: It denotes a distinct, named subarea of the UI that groups other VE. It doesn\u0027t matter whether it ends up in a \"tab\" (e.g. \"Workspace\" in the navigator) or as an item in an accordion view (like \"Breakpoints\"). How a a pane is opened is tracked separately in any case (probably?).\n\nThat being said, it\u0027s not too strong of an opinion and I\u0027m happy to use whatever terminology you or Benedikt think is best.",
+      "parentUuid": "fbd9bcc1_d58468e9",
+      "revId": "1ca61841f9799bd33172945b9eb0186f072eb68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
