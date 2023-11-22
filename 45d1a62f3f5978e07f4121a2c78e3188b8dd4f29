@@ -87,6 +87,30 @@
       },
       "revId": "45d1a62f3f5978e07f4121a2c78e3188b8dd4f29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ba2420_d5dca0cd",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-22T16:40:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "74df1844_5401de51",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "45d1a62f3f5978e07f4121a2c78e3188b8dd4f29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
