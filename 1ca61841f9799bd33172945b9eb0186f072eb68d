@@ -33,6 +33,24 @@
       "message": "+bmeuerer on terminology\n\nI like the idea of having a single VE for these.\n\nHowever I think we are doing away with a term `pane` now (go/chrome-devtools:simplify-terms-proposal) \n\nI also think pane is very cryptic term and communicates neither appearance nor function. The proposal suggests `tab` as a replacement, which might be fine for UI text, but I believe would be confusing here. \n\nHow about `sidebar`? We already have it in the code and it is easy to imagine what it is when hear it.",
       "revId": "1ca61841f9799bd33172945b9eb0186f072eb68d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbd9bcc1_d58468e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-22T09:01:46Z",
+      "side": 1,
+      "message": "Whichever term we pick, we need to replace existing `*Pane` VEs with it and potentially update `toggleSubpane` name",
+      "parentUuid": "5859b920_6adc7489",
+      "revId": "1ca61841f9799bd33172945b9eb0186f072eb68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
