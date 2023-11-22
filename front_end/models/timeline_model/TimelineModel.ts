@@ -1473,6 +1473,9 @@ export enum RecordType {
   Profile = 'Profile',
 
   AsyncTask = 'AsyncTask',
+
+  PostMessageDispatch = 'PostMessage.Dispatch',
+  PostMessageHandler = 'PostMessage.Handler',
 }
 
 export namespace TimelineModelImpl {
