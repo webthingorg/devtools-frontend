@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9712c7e3_8b85554c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-22T09:27:15Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee6ec63b_e44cc7a3",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-22T09:27:15Z",
+      "side": 1,
+      "message": "How about \"Learn more in the Issues tab\"? to make it more clear what \"issues\" refers to.",
+      "range": {
+        "startLine": 89,
+        "startChar": 83,
+        "endLine": 89,
+        "endChar": 105
+      },
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92599902_7a641ecc",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-22T09:27:15Z",
+      "side": 1,
+      "message": "How about \"Setting this cookie was blocked...\" in order to be able to distinguish between the set/get cases?",
+      "range": {
+        "startLine": 121,
+        "startChar": 50,
+        "endLine": 121,
+        "endChar": 73
+      },
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4427081_58c03c7f",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-22T09:27:15Z",
+      "side": 1,
+      "message": "same a s above",
+      "range": {
+        "startLine": 121,
+        "startChar": 110,
+        "endLine": 121,
+        "endChar": 132
+      },
+      "revId": "077c994603112bfd60851fecc12b2c1d0743e023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
