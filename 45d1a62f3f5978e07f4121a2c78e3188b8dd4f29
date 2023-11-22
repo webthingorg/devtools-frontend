@@ -39,6 +39,30 @@
       },
       "revId": "45d1a62f3f5978e07f4121a2c78e3188b8dd4f29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa8ae2a6_5dfd39f1",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-22T16:37:53Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of the adorners containing non-obvious abbreviations. I\u0027m following the design-mock right now, but will re-evaluate together with Peter.",
+      "parentUuid": "bd679d6b_d9ab4bc9",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "45d1a62f3f5978e07f4121a2c78e3188b8dd4f29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
