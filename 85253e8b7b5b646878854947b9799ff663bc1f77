@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62525f30_b3a5b0e2",
+        "filename": "front_end/models/breakpoints/BreakpointManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-22T06:49:43Z",
+      "side": 1,
+      "message": "Motivated by an e2e timeout: The UI would show the breakpoint as already set, while the BreakpintManager was still busy handling the source mapped variables for the condition.",
+      "range": {
+        "startLine": 827,
+        "startChar": 0,
+        "endLine": 829,
+        "endChar": 28
+      },
+      "revId": "85253e8b7b5b646878854947b9799ff663bc1f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
