@@ -222,7 +222,7 @@ export class ThreadAppender implements TrackAppender {
   }
 
   modifyTree(
-      traceEvent: TraceEngine.Types.TraceEvents.TraceEntry, action: TraceEngine.EntriesFilter.FilterAction,
+      traceEvent: TraceEngine.Types.TraceEvents.TraceEntry, action: TraceEngine.EntriesFilter.FilterApplyAction,
       flameChartView: PerfUI.FlameChart.FlameChart): void {
     if (!this.#entriesFilter) {
       return;

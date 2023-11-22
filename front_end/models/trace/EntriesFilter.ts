@@ -8,14 +8,31 @@ import * as Types from './types/types.js';
 
 type EntryToNodeMap = Map<Types.TraceEvents.TraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
 
-export const enum FilterAction {
+type FilterAction = FilterApplyAction|FilterUndoAction;
+
+export enum FilterApplyAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
   COLLAPSE_REPEATING_DESCENDANTS = 'COLLAPSE_REPEATING_DESCENDANTS',
+  UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
 }
 
+const FILTER_APPLY_ACTIONS = new Set<FilterApplyAction>([
+  ...Object.values(FilterApplyAction),
+]);
+
+export const enum FilterUndoAction {
+  UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
+}
+
+// maybe make another structure for when it's deinitely filter action
 export interface UserFilterAction {
   type: FilterAction;
+  entry: Types.TraceEvents.TraceEntry;
+}
+
+export interface UserApplyFilterAction {
+  type: FilterApplyAction;
   entry: Types.TraceEvents.TraceEntry;
 }
 
@@ -39,11 +56,13 @@ export class EntriesFilter {
   // re-generating this if the set of actions that have been applied has not
   // changed.
   #lastInvisibleEntries: Types.TraceEvents.TraceEntry[]|null = null;
-  #activeActions: UserFilterAction[] = [];
+  #activeActions: UserApplyFilterAction[] = [];
 
   constructor(entryToNode: EntryToNodeMap) {
     this.#entryToNode = entryToNode;
   }
+
+  // export function isApplyAction()
 
   /**
    * Applies an action to the visible tree. This will also clear the cache of
@@ -55,13 +74,21 @@ export class EntriesFilter {
       // If the action is already active there is no reason to apply it again.
       return;
     }
-
-    this.#activeActions.push(action);
+    if (action.type === FilterApplyAction.UNDO_ALL_ACTIONS) {
+      this.#activeActions = [];
+    } else if (this.isUserApplyFilterAction(action)){
+      this.#activeActions.push(action);
+    }
     // Clear the last list of invisible entries - this invalidates the cache and
     // ensures that the invisible list will be recalculated, which we have to do
     // now we have changed the list of actions.
     this.#lastInvisibleEntries = null;
   }
+
+  isUserApplyFilterAction(action: UserFilterAction): action is UserApplyFilterAction {
+    return Object.values(FilterApplyAction).includes(action.type as FilterApplyAction);
+  }
+  
 
   /**
    * Removes a matching action, if one is found, from the active actions set.
@@ -125,7 +152,7 @@ export class EntriesFilter {
 
     for (const action of this.#activeActions) {
       switch (action.type) {
-        case FilterAction.MERGE_FUNCTION: {
+        case FilterApplyAction.MERGE_FUNCTION: {
           // The entry that was clicked on is merged into its parent. All its
           // children remain visible, so we just have to hide the entry that was
           // selected.
@@ -133,7 +160,7 @@ export class EntriesFilter {
           break;
         }
 
-        case FilterAction.COLLAPSE_FUNCTION: {
+        case FilterApplyAction.COLLAPSE_FUNCTION: {
           // The entry itself remains visible, but all of its ancestors are hidden.
           const entryNode = this.#entryToNode.get(action.entry);
           if (!entryNode) {
@@ -145,7 +172,7 @@ export class EntriesFilter {
           break;
         }
 
-        case FilterAction.COLLAPSE_REPEATING_DESCENDANTS: {
+        case FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS: {
           const entryNode = this.#entryToNode.get(action.entry);
           if (!entryNode) {
             // Invalid node was given, just ignore and move on.
@@ -155,6 +182,11 @@ export class EntriesFilter {
           allRepeatingDescendants.forEach(ancestor => entriesToHide.add(ancestor));
           break;
         }
+
+        case FilterApplyAction.UNDO_ALL_ACTIONS: {
+          continue;
+        }
+
         default:
           Platform.assertNever(action.type, `Unknown EntriesFilter action: ${action.type}`);
       }
