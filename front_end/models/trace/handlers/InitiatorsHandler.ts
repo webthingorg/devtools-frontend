@@ -24,6 +24,10 @@ const lastInvalidationEventForFrame = new Map<string, Types.TraceEvents.TraceEve
 // is called.
 const lastUpdateLayoutTreeByFrame = new Map<string, Types.TraceEvents.TraceEventUpdateLayoutTree>();
 
+// This tracks postmessage dispatch and handler events for creating initiator association
+const postMessageDispatchEventByTimestamp: Map<string, Types.TraceEvents.TraceEntry> = new Map();
+const postMessageHandlerEvents: Types.TraceEvents.TraceEventPostMessageHandler[] = [];
+
 const eventToInitiatorMap = new Map<Types.TraceEvents.TraceEventData, Types.TraceEvents.TraceEventData>();
 
 export function reset(): void {
@@ -31,6 +35,8 @@ export function reset(): void {
   lastInvalidationEventForFrame.clear();
   lastUpdateLayoutTreeByFrame.clear();
   eventToInitiatorMap.clear();
+  postMessageDispatchEventByTimestamp.clear();
+  postMessageHandlerEvents.length = 0;
 
   handlerState = HandlerState.UNINITIALIZED;
 }
@@ -94,6 +100,23 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     }
     // Now clear the last invalidation for the frame: the last invalidation has been linked to a Layout event, so it cannot be the initiator for any future layouts.
     lastInvalidationEventForFrame.delete(event.args.beginData.frame);
+  } else if (Types.TraceEvents.isTraceEventPostMessageDispatch(event)) {
+    const linkifier = event.args?.data?.timestamp;
+    if (linkifier) {
+      postMessageDispatchEventByTimestamp.set(linkifier, event);
+    }
+  } else if (Types.TraceEvents.isTraceEventPostMessageHandler(event)) {
+    postMessageHandlerEvents.push(event);
+  }
+}
+
+function finalizeInitiatorRelationship(): void {
+  for (const handlerEvent of postMessageHandlerEvents) {
+    const timestamp = handlerEvent.args.data.timestamp;
+    const initiator = postMessageDispatchEventByTimestamp.get(timestamp);
+    if (initiator) {
+      eventToInitiatorMap.set(handlerEvent, initiator);
+    }
   }
 }
 
@@ -101,6 +124,11 @@ export async function finalize(): Promise<void> {
   if (handlerState !== HandlerState.INITIALIZED) {
     throw new Error('InitiatorsHandler is not initialized');
   }
+
+  // During event processing, we may encounter initiators before the handler events themselves
+  // (e.g dispatch events on worker and handler events on the main thread)
+  // we don't want to miss out on events whose initiators haven't been processed yet
+  finalizeInitiatorRelationship();
 
   handlerState = HandlerState.FINALIZED;
 }
