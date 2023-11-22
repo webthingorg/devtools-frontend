@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b8e2593_66a63362",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2023-11-22T03:13:14Z",
+      "side": 1,
+      "message": "lgtm w/ nit.",
+      "revId": "69b3e0491c137104b9a7c372fe2060a997c09953",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2438c005_7c2e3e37",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2023-11-22T03:13:14Z",
+      "side": 1,
+      "message": "I assume you afraid of text overflow in the column, but people seem not abbreviate terms.",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 4
+      },
+      "revId": "69b3e0491c137104b9a7c372fe2060a997c09953",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
