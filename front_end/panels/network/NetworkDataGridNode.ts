@@ -214,6 +214,16 @@ const UIStrings = {
    */
   servedFromDiskCacheResourceSizeS: 'Served from disk cache, resource size: {PH1}',
   /**
+   *@description Text of a DOM element in Network Data Grid Node of the Network panel
+   */
+  swRouter: '(`SW Router`)',
+  /**
+   *@description Cell title in Network Data Grid Node of the Network panel
+   *@example {1} PH1
+   *@example {4 B} PH2
+   */
+  matchedToServiceworkerRouter: 'Matched to `ServiceWorker Router`#{PH1}, resource size: {PH2}',
+  /**
    *@description Text in Network Data Grid Node of the Network panel
    */
   pending: 'Pending',
@@ -1495,6 +1505,12 @@ export class NetworkRequestNode extends NetworkNode {
     if (this.requestInternal.cachedInMemory()) {
       UI.UIUtils.createTextChild(cell, i18nString(UIStrings.memoryCache));
       UI.Tooltip.Tooltip.install(cell, i18nString(UIStrings.servedFromMemoryCacheResource, {PH1: resourceSize}));
+      cell.classList.add('network-dim-cell');
+    } else if (this.requestInternal.serviceWorkerRouterInfo) {
+      const ruleIdMatched = this.requestInternal.serviceWorkerRouterInfo.ruleIdMatched;
+      UI.UIUtils.createTextChild(cell, i18nString(UIStrings.swRouter));
+      UI.Tooltip.Tooltip.install(
+          cell, i18nString(UIStrings.matchedToServiceworkerRouter, {PH1: ruleIdMatched, PH2: resourceSize}));
       cell.classList.add('network-dim-cell');
     } else if (this.requestInternal.fetchedViaServiceWorker) {
       UI.UIUtils.createTextChild(cell, i18nString(UIStrings.serviceworker));
