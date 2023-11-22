@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc5baec_27c73413",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-22T15:45:27Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "8a85f4a791a24fec5973dc8b9b269bf4d8e6e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b20bc592_2768df03",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-22T15:45:27Z",
+      "side": 1,
+      "message": "interesting, do you see this field in `TraceEventData` being typed as `KnownEventName` in the future? I was thinking it would be nice, we\u0027d have an exhaustive list of events we track",
+      "range": {
+        "startLine": 176,
+        "startChar": 8,
+        "endLine": 176,
+        "endChar": 22
+      },
+      "revId": "8a85f4a791a24fec5973dc8b9b269bf4d8e6e213",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
