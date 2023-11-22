@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "45d1a62f3f5978e07f4121a2c78e3188b8dd4f29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd679d6b_d9ab4bc9",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-22T15:32:51Z",
+      "side": 1,
+      "message": "Do we want this to be localized?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "45d1a62f3f5978e07f4121a2c78e3188b8dd4f29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
