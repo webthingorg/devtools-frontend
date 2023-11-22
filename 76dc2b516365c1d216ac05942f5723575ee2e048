@@ -87,6 +87,30 @@
       },
       "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "894b7709_ff690e17",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-11-22T20:45:11Z",
+      "side": 1,
+      "message": "Thanks, this helps a lot! I like the idea of extracting this into a separate handler. I\u0027ve updated the CL accordingly. \n\nI noticed, currently this data doesn\u0027t modify any UI for initiators. It\u0027s only used in tests at the moment. Are there any future plans to update the UI to leverage this data and what\u0027s the rough timeline for this?",
+      "parentUuid": "b9d10b73_f7adc425",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
