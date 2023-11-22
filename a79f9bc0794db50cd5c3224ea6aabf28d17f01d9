@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81f8e46f_55f252a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-22T10:31:47Z",
+      "side": 1,
+      "message": "I\u0027m not sure I follow, every `devtools_module`/`devtools_entrypoint` ends up in `gen`. And every third_party module thats not compiled is copied to `gen`.",
+      "revId": "a79f9bc0794db50cd5c3224ea6aabf28d17f01d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
