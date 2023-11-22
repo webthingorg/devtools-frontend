@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9261241_f1dc10b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-22T08:32:57Z",
+      "side": 1,
+      "message": "LGTM.\n\nDo we maybe want to switch to a whitelist mode? It feels a little bit like a game of whack-a-mole.",
+      "revId": "10e5fbd5d2367baa3a6a0ee9f183e7f3f64718d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
