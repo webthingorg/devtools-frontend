@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50f2ea4d_10d02a55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-11-22T18:35:24Z",
+      "side": 1,
+      "message": "LGTM pending merge approval.",
+      "revId": "6bcc2e982b32ac7429cd5e4a4e9356ba9e0f3be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
