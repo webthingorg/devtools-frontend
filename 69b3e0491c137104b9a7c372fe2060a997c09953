@@ -39,6 +39,30 @@
       },
       "revId": "69b3e0491c137104b9a7c372fe2060a997c09953",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50e11fb5_8fe32a3d",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1599693
+      },
+      "writtenOn": "2023-11-22T06:42:26Z",
+      "side": 1,
+      "message": "Yes. I initially implemented it as `(ServiceWorker Router)` but it involved text overflow. I want to hear DevTools team.\n@dsv@chromium.org What do you think? Should it be short or should it not be abbreviated?",
+      "parentUuid": "2438c005_7c2e3e37",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 4
+      },
+      "revId": "69b3e0491c137104b9a7c372fe2060a997c09953",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
