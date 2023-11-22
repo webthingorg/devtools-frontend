@@ -452,6 +452,18 @@ export class CompatibilityTracksAppender {
     return this.eventsForTreeView(track);
   }
 
+  treeForTreeView(group: PerfUI.FlameChart.Group) : TraceEngine.Helpers.TreeHelpers.TraceEntryTree|null{
+    const track = this.#trackForGroup.get(group);
+    if (!track) {
+      return null;
+    }
+
+    if(track instanceof ThreadAppender) {
+      return track.tree()
+    }
+    return null;
+  }
+
   /**
    * Caches the track appender that owns a level. An appender takes
    * ownership of a level when it appends data to it.

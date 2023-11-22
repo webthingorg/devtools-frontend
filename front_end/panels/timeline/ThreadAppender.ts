@@ -241,6 +241,10 @@ export class ThreadAppender implements TrackAppender {
     return this.#threadId;
   }
 
+  tree(): TraceEngine.Helpers.TreeHelpers.TraceEntryTree {
+    return this.#tree;
+  }
+
   /**
    * Appends into the flame chart data the data corresponding to the
    * this thread.

@@ -236,7 +236,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     this.selectedGroupName = group?.name || null;
     this.#selectedEvents = group ? this.mainDataProvider.groupTreeEvents(group) : null;
-    this.#updateDetailViews();
+    // console.log(this.#selectedEvents)
+    this.#updateDetailViews(group);
   }
 
   setModel(
@@ -280,10 +281,31 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateSearchResults(false, false);
   }
 
-  #updateDetailViews(): void {
+  #updateDetailViews(group: PerfUI.FlameChart.Group|null): void {
     this.countersView.setModel(this.model, this.#selectedEvents);
     // TODO(crbug.com/1459265):  Change to await after migration work.
-    void this.detailsView.setModel(this.model, this.#traceEngineData, this.#selectedEvents);
+    // console.log(group)
+
+    // console.log(group)
+    // console.log(this.compatibilityTracksAppender?.groupEventsForTreeView(group))
+    const tree = group? this.mainDataProvider.tree(group) : null;
+    // console.debug(group, tree, getAllNodes(tree?.roots?? new Set()))
+
+    function getAllNodes(roots: Set<TraceEngine.Helpers.TreeHelpers.TraceEntryNode>):
+        TraceEngine.Helpers.TreeHelpers.TraceEntryNode[] {
+      const allNodes: TraceEngine.Helpers.TreeHelpers.TraceEntryNode[] = [];
+
+      const children: TraceEngine.Helpers.TreeHelpers.TraceEntryNode[] = Array.from(roots);
+      while (children.length > 0) {
+        const childNode = children.shift();
+        if (childNode) {
+          allNodes.push(childNode);
+          children.push(...childNode.children);
+        }
+      }
+      return allNodes;
+    }
+    void this.detailsView.setModel(this.model, this.#traceEngineData, this.#selectedEvents, tree);
   }
 
   #updateFlameCharts(): void {

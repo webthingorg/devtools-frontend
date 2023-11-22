@@ -5,525 +5,541 @@
 import type * as Platform from '../../core/platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import { debug } from '../../third_party/puppeteer/package/src/puppeteer-core.js';
 
 import {TimelineJSProfileProcessor} from './TimelineJSProfile.js';
 import {EventOnTimelineData, RecordType, TimelineModelImpl} from './TimelineModel.js';
 import {type TimelineModelFilter} from './TimelineModelFilter.js';
 
-export class Node {
-  totalTime: number;
-  selfTime: number;
-  id: string|symbol;
-  event: TraceEngine.Legacy.CompatibleTraceEvent|null;
-  parent!: Node|null;
-  groupId: string;
-  isGroupNodeInternal: boolean;
-  depth: number;
+// export class Node {
+//   totalTime: number;
+//   selfTime: number;
+//   id: string|symbol;
+//   event: TraceEngine.Helpers.TreeHelpers.TraceEntryNode;
+//   parent!: Node|null;
+//   groupId: string;
+//   isGroupNodeInternal: boolean;
+//   depth: number;
 
-  constructor(id: string|symbol, event: TraceEngine.Legacy.CompatibleTraceEvent|null) {
-    this.totalTime = 0;
-    this.selfTime = 0;
-    this.id = id;
-    this.event = event;
+//   constructor(id: string|symbol, event: TraceEngine.Helpers.TreeHelpers.TraceEntryNode|null) {
+//     this.totalTime = 0;
+//     this.selfTime = 0;
+//     this.id = id;
+//     debugger;
+//     this.event = event;
 
-    this.groupId = '';
-    this.isGroupNodeInternal = false;
-    this.depth = 0;
-  }
+//     this.groupId = '';
+//     this.isGroupNodeInternal = false;
+//     this.depth = 0;
+//   }
 
-  isGroupNode(): boolean {
-    return this.isGroupNodeInternal;
-  }
+//   isGroupNode(): boolean {
+//     return this.isGroupNodeInternal;
+//   }
 
-  hasChildren(): boolean {
-    throw 'Not implemented';
-  }
+//   hasChildren(): boolean {
+//     throw 'Not implemented';
+//   }
 
-  setHasChildren(_value: boolean): void {
-    throw 'Not implemented';
-  }
-  /**
-   * Returns the direct descendants of this node.
-   * @returns a map with ordered <nodeId, Node> tuples.
-   */
-  children(): ChildrenCache {
-    throw 'Not implemented';
-  }
+//   setHasChildren(_value: boolean): void {
+//     throw 'Not implemented';
+//   }
+//   /**
+//    * Returns the direct descendants of this node.
+//    * @returns a map with ordered <nodeId, Node> tuples.
+//    */
+//   children(): ChildrenCache {
+//     throw 'Not implemented';
+//   }
 
-  searchTree(matchFunction: (arg0: TraceEngine.Legacy.CompatibleTraceEvent) => boolean, results?: Node[]): Node[] {
-    results = results || [];
-    if (this.event && matchFunction(this.event)) {
-      results.push(this);
-    }
-    for (const child of this.children().values()) {
-      child.searchTree(matchFunction, results);
-    }
-    return results;
-  }
-}
+//   searchTree(matchFunction: (arg0: TraceEngine.Helpers.TreeHelpers.TraceEntryNode) => boolean, results?: Node[]): Node[] {
+//     results = results || [];
+//     if (this.event && matchFunction(this.event)) {
+//       results.push(this);
+//     }
+//     for (const child of this.children().values()) {
+//       child.searchTree(matchFunction, results);
+//     }
+//     return results;
+//   }
+// }
 
-export class TopDownNode extends Node {
-  root: TopDownRootNode|null;
-  private hasChildrenInternal: boolean;
-  childrenInternal: ChildrenCache|null;
-  override parent: TopDownNode|null;
+// export class TopDownNode extends Node {
+//   root: TopDownRootNode|null;
+//   private hasChildrenInternal: boolean;
+//   childrenInternal: ChildrenCache|null;
+//   override parent: TopDownNode|null;
 
-  constructor(id: string|symbol, event: TraceEngine.Legacy.CompatibleTraceEvent|null, parent: TopDownNode|null) {
-    super(id, event);
-    this.root = parent && parent.root;
-    this.hasChildrenInternal = false;
-    this.childrenInternal = null;
-    this.parent = parent;
-  }
+//   constructor(id: string|symbol, event: TraceEngine.Helpers.TreeHelpers.TraceEntryNode|null, parent: TopDownNode|null) {
+//     super(id, event);
+//     this.root = parent && parent.root;
+//     this.hasChildrenInternal = false;
+//     this.childrenInternal = null;
+//     this.parent = parent;
+//   }
 
-  override hasChildren(): boolean {
-    return this.hasChildrenInternal;
-  }
+//   override hasChildren(): boolean {
+//     return this.hasChildrenInternal;
+//   }
 
-  override setHasChildren(value: boolean): void {
-    this.hasChildrenInternal = value;
-  }
+//   override setHasChildren(value: boolean): void {
+//     this.hasChildrenInternal = value;
+//   }
 
-  override children(): ChildrenCache {
-    return this.childrenInternal || this.buildChildren();
-  }
+//   override children(): ChildrenCache {
+//     // return this.event?.children;
 
-  private buildChildren(): ChildrenCache {
-    // Tracks the ancestor path of this node, includes the current node.
-    const path: TopDownNode[] = [];
-    for (let node: TopDownNode = (this as TopDownNode); node.parent && !node.isGroupNode(); node = node.parent) {
-      path.push((node as TopDownNode));
-    }
-    path.reverse();
-    const children: ChildrenCache = new Map();
-    const self = this;
-    const root = this.root;
-    if (!root) {
-      this.childrenInternal = children;
-      return this.childrenInternal;
-    }
-    const startTime = root.startTime;
-    const endTime = root.endTime;
-    const instantEventCallback = root.doNotAggregate ? onInstantEvent : undefined;
-    const eventIdCallback = root.doNotAggregate ? undefined : generateEventID;
-    const eventGroupIdCallback = root.getEventGroupIdCallback();
-    let depth = 0;
-    // The amount of ancestors found to match this node's ancestors
-    // during the event tree walk.
-    let matchedDepth = 0;
-    let currentDirectChild: Node|null = null;
+//     return this.childrenInternal || this.buildChildren();
+//   }
 
-    // Walk on the full event tree to find this node's children.
-    TimelineModelImpl.forEachEvent(
-        root.events, onStartEvent, onEndEvent, instantEventCallback, startTime, endTime, root.filter, false);
+//   private buildChildren(): ChildrenCache {
+//     // Tracks the ancestor path of this node, includes the current node.
+//     const path: TopDownNode[] = [];
+//     for (let node: TopDownNode = (this as TopDownNode); node.parent && !node.isGroupNode(); node = node.parent) {
+//       path.push((node as TopDownNode));
+//     }
+//     path.reverse();
+//     const children: ChildrenCache = new Map();
+//     const self = this;
+//     const root = this.root;
+//     if (!root) {
+//       this.childrenInternal = children;
+//       return this.childrenInternal;
+//     }
+//     const startTime = root.startTime;
+//     const endTime = root.endTime;
+//     const eventIdCallback = root.doNotAggregate ? undefined : generateEventID;
+//     const eventGroupIdCallback = root.getEventGroupIdCallback();
+//     let depth = 0;
+//     // The amount of ancestors found to match this node's ancestors
+//     // during the event tree walk.
+//     let matchedDepth = 0;
+//     let currentDirectChild: Node|null = null;
 
-    function onStartEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
-      const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
+//     // // Walk on the full event tree to find this node's children.
+//     // TimelineModelImpl.forEachEvent(
+//     // root.events, onStartEvent, onEndEvent, instantEventCallback, startTime, endTime, root.filter, false);
 
-      ++depth;
-      if (depth > path.length + 2) {
-        return;
-      }
-      if (!matchPath(e)) {
-        return;
-      }
-      const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
-      const duration = actualEndTime - Math.max(startTime, currentStartTime);
-      if (duration < 0) {
-        console.error('Negative event duration');
-      }
-      processEvent(e, duration);
-    }
+//     // function onStartEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
+//     //   const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
 
-    function onInstantEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
-      ++depth;
-      if (matchedDepth === path.length && depth <= path.length + 2) {
-        processEvent(e, 0);
-      }
-      --depth;
-    }
+//     //   ++depth;
+//     //   if (depth > path.length + 2) {
+//     //     return;
+//     //   }
+//     //   if (!matchPath(e)) {
+//     //     return;
+//     //   }
+//     //   const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
+//     //   const duration = actualEndTime - Math.max(startTime, currentStartTime);
+//     //   if (duration < 0) {
+//     //     console.error('Negative event duration');
+//     //   }
+//     //   processEvent(e, duration);
+//     // }
 
-    /**
-     * Creates a child node.
-     */
-    function processEvent(e: TraceEngine.Legacy.CompatibleTraceEvent, duration: number): void {
-      if (depth === path.length + 2) {
-        if (!currentDirectChild) {
-          return;
-        }
-        currentDirectChild.setHasChildren(true);
-        currentDirectChild.selfTime -= duration;
-        return;
-      }
-      let id;
-      let groupId = '';
-      if (!eventIdCallback) {
-        id = Symbol('uniqueId');
-      } else {
-        id = eventIdCallback(e);
-        groupId = eventGroupIdCallback ? eventGroupIdCallback(e) : '';
-        if (groupId) {
-          id += '/' + groupId;
-        }
-      }
-      let node = children.get(id);
-      if (!node) {
-        node = new TopDownNode(id, e, self);
-        node.groupId = groupId;
-        children.set(id, node);
-      }
-      node.selfTime += duration;
-      node.totalTime += duration;
-      currentDirectChild = node;
-    }
+//     function traverseAllNodes(root: TraceEngine.Helpers.TreeHelpers.TraceEntryNode):
+//         TraceEngine.Helpers.TreeHelpers.TraceEntryNode[] {
+//       const allNodes: TraceEngine.Helpers.TreeHelpers.TraceEntryNode[] = [];
 
-    /**
-     * Checks if the path of ancestors of an event matches the path of
-     * ancestors of the current node. In other words, checks if an event
-     * is a child of this node. As the check is done, the partial result
-     * is cached on `matchedDepth`, for future checks.
-     */
-    function matchPath(e: TraceEngine.Legacy.CompatibleTraceEvent): boolean {
-      const {endTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
-      if (matchedDepth === path.length) {
-        return true;
-      }
-      if (matchedDepth !== depth - 1) {
-        return false;
-      }
-      if (!endTime) {
-        return false;
-      }
-      if (!eventIdCallback) {
-        if (e === path[matchedDepth].event) {
-          ++matchedDepth;
-        }
-        return false;
-      }
-      let id = eventIdCallback(e);
-      const groupId = eventGroupIdCallback ? eventGroupIdCallback(e) : '';
-      if (groupId) {
-        id += '/' + groupId;
-      }
-      if (id === path[matchedDepth].id) {
-        ++matchedDepth;
-      }
-      return false;
-    }
+//       const children: TraceEngine.Helpers.TreeHelpers.TraceEntryNode[] = [root];
+//       while (children.length > 0) {
+//         const childNode = children.shift();
+//         if (childNode) {
+//           allNodes.push(childNode);
+//           children.push(...childNode.children);
+//         }
+//       }
+//       return allNodes;
+//     }
 
-    function onEndEvent(_e: TraceEngine.Legacy.CompatibleTraceEvent): void {
-      --depth;
-      if (matchedDepth > depth) {
-        matchedDepth = depth;
-      }
-    }
+//     const allNodes = traverseAllNodes(this.event!)
+//     allNodes.forEach(e => processEvent(e, e.entry.dur??0))
 
-    this.childrenInternal = children;
-    return children;
-  }
+//     /**
+//      * Creates a child node.
+//      */
+//     function processEvent(e: TraceEngine.Helpers.TreeHelpers.TraceEntryNode, duration: number): void {
+//       // if (depth === path.length + 2) {
+//       //   if (!currentDirectChild) {
+//       //     return;
+//       //   }
+//       //   currentDirectChild.setHasChildren(true);
+//       //   currentDirectChild.selfTime -= duration;
+//       //   return;
+//       // }
+//       let id;
+//       let groupId = '';
+//       if (!eventIdCallback) {
+//         id = Symbol('uniqueId');
+//       } else {
+//         id = eventIdCallback(e);
+//         groupId = eventGroupIdCallback ? eventGroupIdCallback(e) : '';
+//         if (groupId) {
+//           id += '/' + groupId;
+//         }
+//       }
+//       let node = children.get(id);
+//       if (!node) {
+//         node = new TopDownNode(id, e, self);
+//         node.groupId = groupId;
+//         children.set(id, node);
+//       }
+//       node.selfTime += duration;
+//       node.totalTime += duration;
+//       currentDirectChild = node;
+//     }
 
-  getRoot(): TopDownRootNode|null {
-    return this.root;
-  }
-}
+//     // /**
+//     //  * Checks if the path of ancestors of an event matches the path of
+//     //  * ancestors of the current node. In other words, checks if an event
+//     //  * is a child of this node. As the check is done, the partial result
+//     //  * is cached on `matchedDepth`, for future checks.
+//     //  */
+//     // function matchPath(e: TraceEngine.Legacy.CompatibleTraceEvent): boolean {
+//     //   const {endTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
+//     //   if (matchedDepth === path.length) {
+//     //     return true;
+//     //   }
+//     //   if (matchedDepth !== depth - 1) {
+//     //     return false;
+//     //   }
+//     //   if (!endTime) {
+//     //     return false;
+//     //   }
+//     //   if (!eventIdCallback) {
+//     //     if (e === path[matchedDepth].event) {
+//     //       ++matchedDepth;
+//     //     }
+//     //     return false;
+//     //   }
+//     //   let id = eventIdCallback(e);
+//     //   const groupId = eventGroupIdCallback ? eventGroupIdCallback(e) : '';
+//     //   if (groupId) {
+//     //     id += '/' + groupId;
+//     //   }
+//     //   if (id === path[matchedDepth].id) {
+//     //     ++matchedDepth;
+//     //   }
+//     //   return false;
+//     // }
 
-export class TopDownRootNode extends TopDownNode {
-  readonly filter: (e: TraceEngine.Legacy.CompatibleTraceEvent) => boolean;
-  readonly events: TraceEngine.Legacy.CompatibleTraceEvent[];
-  readonly startTime: number;
-  readonly endTime: number;
-  eventGroupIdCallback: ((arg0: TraceEngine.Legacy.CompatibleTraceEvent) => string)|null|undefined;
-  readonly doNotAggregate: boolean|undefined;
-  override totalTime: number;
-  override selfTime: number;
+//     // function onEndEvent(_e: TraceEngine.Legacy.CompatibleTraceEvent): void {
+//     //   --depth;
+//     //   if (matchedDepth > depth) {
+//     //     matchedDepth = depth;
+//     //   }
+//     // }
 
-  constructor(
-      events: TraceEngine.Legacy.CompatibleTraceEvent[], filters: TimelineModelFilter[], startTime: number,
-      endTime: number, doNotAggregate?: boolean,
-      eventGroupIdCallback?: ((arg0: TraceEngine.Legacy.CompatibleTraceEvent) => string)|null) {
-    super('', null, null);
-    this.root = this;
-    this.events = events;
-    this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean => filters.every(f => f.accept(e));
-    this.startTime = startTime;
-    this.endTime = endTime;
-    this.eventGroupIdCallback = eventGroupIdCallback;
-    this.doNotAggregate = doNotAggregate;
-    this.totalTime = endTime - startTime;
-    this.selfTime = this.totalTime;
-  }
+//     this.childrenInternal = children;
+//     return children;
+//   }
 
-  override children(): ChildrenCache {
-    return this.childrenInternal || this.grouppedTopNodes();
-  }
+//   getRoot(): TopDownRootNode|null {
+//     return this.root;
+//   }
+// }
 
-  private grouppedTopNodes(): ChildrenCache {
-    const flatNodes = super.children();
-    for (const node of flatNodes.values()) {
-      this.selfTime -= node.totalTime;
-    }
-    if (!this.eventGroupIdCallback) {
-      return flatNodes;
-    }
-    const groupNodes = new Map<string, GroupNode>();
-    for (const node of flatNodes.values()) {
-      const groupId = this.eventGroupIdCallback((node.event as TraceEngine.Legacy.Event));
-      let groupNode = groupNodes.get(groupId);
-      if (!groupNode) {
-        groupNode = new GroupNode(groupId, this, (node.event as TraceEngine.Legacy.Event));
-        groupNodes.set(groupId, groupNode);
-      }
-      groupNode.addChild(node as BottomUpNode, node.selfTime, node.totalTime);
-    }
-    this.childrenInternal = groupNodes;
-    return groupNodes;
-  }
+// export class TopDownRootNode extends TopDownNode {
+//   readonly filter: (e: TraceEngine.Legacy.CompatibleTraceEvent) => boolean;
+//   readonly tree: TraceEngine.Helpers.TreeHelpers.TraceEntryTree|null;
+//   readonly startTime: number;
+//   readonly endTime: number;
+//   eventGroupIdCallback: ((arg0: TraceEngine.Helpers.TreeHelpers.TraceEntryNode) => string)|null|undefined;
+//   readonly doNotAggregate: boolean|undefined;
+//   override totalTime: number;
+//   override selfTime: number;
 
-  getEventGroupIdCallback(): ((arg0: TraceEngine.Legacy.CompatibleTraceEvent) => string)|null|undefined {
-    return this.eventGroupIdCallback;
-  }
-}
+//   constructor(
+//       tree: TraceEngine.Helpers.TreeHelpers.TraceEntryTree|null, filters: TimelineModelFilter[], startTime: number,
+//       endTime: number, doNotAggregate?: boolean,
+//       eventGroupIdCallback?: ((arg0: TraceEngine.Helpers.TreeHelpers.TraceEntryNode) => string)|null) {
+//     super('', null, null);
+//     this.root = this;
+//     // this.events = events;
+//     this.tree = tree
+//     this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean => filters.every(f => f.accept(e));
+//     this.startTime = startTime;
+//     this.endTime = endTime;
+//     this.eventGroupIdCallback = eventGroupIdCallback;
+//     this.doNotAggregate = doNotAggregate;
+//     this.totalTime = endTime - startTime;
+//     this.selfTime = this.totalTime;
+//   }
 
-export class BottomUpRootNode extends Node {
-  private childrenInternal: ChildrenCache|null;
-  readonly events: TraceEngine.Legacy.CompatibleTraceEvent[];
-  private textFilter: TimelineModelFilter;
-  readonly filter: (e: TraceEngine.Legacy.CompatibleTraceEvent) => boolean;
-  readonly startTime: number;
-  readonly endTime: number;
-  private eventGroupIdCallback: ((arg0: TraceEngine.Legacy.Event) => string)|null;
-  override totalTime: number;
+//   override children(): ChildrenCache {
+//     return this.childrenInternal || this.grouppedTopNodes();
+//   }
 
-  constructor(
-      events: TraceEngine.Legacy.CompatibleTraceEvent[], textFilter: TimelineModelFilter,
-      filters: TimelineModelFilter[], startTime: number, endTime: number,
-      eventGroupIdCallback: ((arg0: TraceEngine.Legacy.Event) => string)|null) {
-    super('', null);
-    this.childrenInternal = null;
-    this.events = events;
-    this.textFilter = textFilter;
-    this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean => filters.every(f => f.accept(e));
-    this.startTime = startTime;
-    this.endTime = endTime;
-    this.eventGroupIdCallback = eventGroupIdCallback;
-    this.totalTime = endTime - startTime;
-  }
+//   private grouppedTopNodes(): ChildrenCache {
+//     const flatNodes = this.tree?.roots;
+//     for (const node of flatNodes!) {
+//       this.selfTime -= node.entry.dur??0;
+//     }
+//     if (!this.eventGroupIdCallback) {
+//       return flatNodes;
+//     }
+//     const groupNodes = new Map<string, GroupNode>();
+//     for (const node of flatNodes!) {
+//       const groupId = this.eventGroupIdCallback((node.entry!));
+//       let groupNode = groupNodes.get(groupId);
+//       if (!groupNode) {
+//         groupNode = new GroupNode(groupId, this, node.event!);
+//         groupNodes.set(groupId, groupNode);
+//       }
+//       groupNode.addChild(node as unknown as BottomUpNode, node.selfTime, node.totalTime);
+//     }
+//     this.childrenInternal = groupNodes;
+//     return groupNodes;
+//   }
 
-  override hasChildren(): boolean {
-    return true;
-  }
+//   getEventGroupIdCallback(): ((arg0: TraceEngine.Helpers.TreeHelpers.TraceEntryNode) => string)|null|undefined {
+//     return this.eventGroupIdCallback;
+//   }
+// }
 
-  filterChildren(children: ChildrenCache): ChildrenCache {
-    for (const [id, child] of children) {
-      // to provide better context to user only filter first (top) level.
-      if (child.event && child.depth <= 1 && !this.textFilter.accept(child.event)) {
-        children.delete((id as string | symbol));
-      }
-    }
-    return children;
-  }
+// export class BottomUpRootNode extends Node {
+//   private childrenInternal: ChildrenCache|null;
+//   readonly events: TraceEngine.Legacy.CompatibleTraceEvent[];
+//   private textFilter: TimelineModelFilter;
+//   readonly filter: (e: TraceEngine.Legacy.CompatibleTraceEvent) => boolean;
+//   readonly startTime: number;
+//   readonly endTime: number;
+//   private eventGroupIdCallback: ((arg0: TraceEngine.Legacy.Event) => string)|null;
+//   override totalTime: number;
 
-  override children(): ChildrenCache {
-    if (!this.childrenInternal) {
-      this.childrenInternal = this.filterChildren(this.grouppedTopNodes());
-    }
-    return this.childrenInternal;
-  }
+//   constructor(
+//       events: TraceEngine.Legacy.CompatibleTraceEvent[], textFilter: TimelineModelFilter,
+//       filters: TimelineModelFilter[], startTime: number, endTime: number,
+//       eventGroupIdCallback: ((arg0: TraceEngine.Legacy.Event) => string)|null) {
+//     super('', null);
+//     this.childrenInternal = null;
+//     this.events = events;
+//     this.textFilter = textFilter;
+//     this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean => filters.every(f => f.accept(e));
+//     this.startTime = startTime;
+//     this.endTime = endTime;
+//     this.eventGroupIdCallback = eventGroupIdCallback;
+//     this.totalTime = endTime - startTime;
+//   }
 
-  private ungrouppedTopNodes(): ChildrenCache {
-    const root = this;
-    const startTime = this.startTime;
-    const endTime = this.endTime;
-    const nodeById = new Map<string, Node>();
-    const selfTimeStack: number[] = [endTime - startTime];
-    const firstNodeStack: boolean[] = [];
-    const totalTimeById = new Map<string, number>();
-    TimelineModelImpl.forEachEvent(
-        this.events, onStartEvent, onEndEvent, undefined, startTime, endTime, this.filter, false);
+//   override hasChildren(): boolean {
+//     return true;
+//   }
 
-    function onStartEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
-      const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
-      const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
-      const duration = actualEndTime - Math.max(currentStartTime, startTime);
-      selfTimeStack[selfTimeStack.length - 1] -= duration;
-      selfTimeStack.push(duration);
-      const id = generateEventID(e);
-      const noNodeOnStack = !totalTimeById.has(id);
-      if (noNodeOnStack) {
-        totalTimeById.set(id, duration);
-      }
-      firstNodeStack.push(noNodeOnStack);
-    }
+//   filterChildren(children: ChildrenCache): ChildrenCache {
+//     for (const [id, child] of children) {
+//       // to provide better context to user only filter first (top) level.
+//       if (child.event && child.depth <= 1 && !this.textFilter.accept(child.event)) {
+//         children.delete((id as string | symbol));
+//       }
+//     }
+//     return children;
+//   }
 
-    function onEndEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
-      const id = generateEventID(e);
-      let node = nodeById.get(id);
-      if (!node) {
-        node = new BottomUpNode(root, id, e, false, root);
-        nodeById.set(id, node);
-      }
-      node.selfTime += selfTimeStack.pop() || 0;
-      if (firstNodeStack.pop()) {
-        node.totalTime += totalTimeById.get(id) || 0;
-        totalTimeById.delete(id);
-      }
-      if (firstNodeStack.length) {
-        node.setHasChildren(true);
-      }
-    }
+//   override children(): ChildrenCache {
+//     if (!this.childrenInternal) {
+//       this.childrenInternal = this.filterChildren(this.grouppedTopNodes());
+//     }
+//     return this.childrenInternal;
+//   }
 
-    this.selfTime = selfTimeStack.pop() || 0;
-    for (const pair of nodeById) {
-      if (pair[1].selfTime <= 0) {
-        nodeById.delete((pair[0] as string));
-      }
-    }
-    return nodeById;
-  }
+//   private ungrouppedTopNodes(): ChildrenCache {
+//     const root = this;
+//     const startTime = this.startTime;
+//     const endTime = this.endTime;
+//     const nodeById = new Map<string, Node>();
+//     const selfTimeStack: number[] = [endTime - startTime];
+//     const firstNodeStack: boolean[] = [];
+//     const totalTimeById = new Map<string, number>();
+//     // TimelineModelImpl.forEachEvent(
+//     //     this.events, onStartEvent, onEndEvent, undefined, startTime, endTime, this.filter, false);
 
-  private grouppedTopNodes(): ChildrenCache {
-    const flatNodes = this.ungrouppedTopNodes();
-    if (!this.eventGroupIdCallback) {
-      return flatNodes;
-    }
-    const groupNodes = new Map<string, GroupNode>();
-    for (const node of flatNodes.values()) {
-      const groupId = this.eventGroupIdCallback((node.event as TraceEngine.Legacy.Event));
-      let groupNode = groupNodes.get(groupId);
-      if (!groupNode) {
-        groupNode = new GroupNode(groupId, this, (node.event as TraceEngine.Legacy.Event));
-        groupNodes.set(groupId, groupNode);
-      }
-      groupNode.addChild(node as BottomUpNode, node.selfTime, node.selfTime);
-    }
-    return groupNodes;
-  }
-}
+//     // function onStartEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
+//     //   const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
+//     //   const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
+//     //   const duration = actualEndTime - Math.max(currentStartTime, startTime);
+//     //   selfTimeStack[selfTimeStack.length - 1] -= duration;
+//     //   selfTimeStack.push(duration);
+//     //   const id = generateEventID(e);
+//     //   const noNodeOnStack = !totalTimeById.has(id);
+//     //   if (noNodeOnStack) {
+//     //     totalTimeById.set(id, duration);
+//     //   }
+//     //   firstNodeStack.push(noNodeOnStack);
+//     // }
 
-export class GroupNode extends Node {
-  private readonly childrenInternal: ChildrenCache;
-  override isGroupNodeInternal: boolean;
+//     // function onEndEvent(e: TraceEngine.Helpers.TreeHelpers.TraceEntryNode): void {
+//     //   const id = generateEventID(e);
+//     //   let node = nodeById.get(id);
+//     //   if (!node) {
+//     //     node = new BottomUpNode(root, id, e, false, root);
+//     //     nodeById.set(id, node);
+//     //   }
+//     //   node.selfTime += selfTimeStack.pop() || 0;
+//     //   if (firstNodeStack.pop()) {
+//     //     node.totalTime += totalTimeById.get(id) || 0;
+//     //     totalTimeById.delete(id);
+//     //   }
+//     //   if (firstNodeStack.length) {
+//     //     node.setHasChildren(true);
+//     //   }
+//     // }
 
-  constructor(id: string, parent: BottomUpRootNode|TopDownRootNode, event: TraceEngine.Legacy.Event) {
-    super(id, event);
-    this.childrenInternal = new Map();
-    this.parent = parent;
-    this.isGroupNodeInternal = true;
-  }
+//     // this.selfTime = selfTimeStack.pop() || 0;
+//     // for (const pair of nodeById) {
+//     //   if (pair[1].selfTime <= 0) {
+//     //     nodeById.delete((pair[0] as string));
+//     //   }
+//     // }
+//     return nodeById;
+//   }
 
-  addChild(child: BottomUpNode, selfTime: number, totalTime: number): void {
-    this.childrenInternal.set(child.id, child);
-    this.selfTime += selfTime;
-    this.totalTime += totalTime;
-    child.parent = this;
-  }
+//   private grouppedTopNodes(): ChildrenCache {
+//     const flatNodes = this.ungrouppedTopNodes();
+//     if (!this.eventGroupIdCallback) {
+//       return flatNodes;
+//     }
+//     const groupNodes = new Map<string, GroupNode>();
+//     for (const node of flatNodes.values()) {
+//       const groupId = this.eventGroupIdCallback((node.event as unknown as TraceEngine.Legacy.Event));
+//       let groupNode = groupNodes.get(groupId);
+//       if (!groupNode) {
+//         groupNode = new GroupNode(groupId, this, (node.event!));
+//         groupNodes.set(groupId, groupNode);
+//       }
+//       groupNode.addChild(node as unknown as BottomUpNode, node.selfTime, node.selfTime);
+//     }
+//     return groupNodes;
+//   }
+// }
 
-  override hasChildren(): boolean {
-    return true;
-  }
+// export class GroupNode extends Node {
+//   private readonly childrenInternal: ChildrenCache;
+//   override isGroupNodeInternal: boolean;
 
-  override children(): ChildrenCache {
-    return this.childrenInternal;
-  }
-}
+//   constructor(id: string, parent: BottomUpRootNode|TopDownRootNode, event: TraceEngine.Helpers.TreeHelpers.TraceEntryNode) {
+//     super(id, event);
+//     this.childrenInternal = new Map();
+//     this.parent = parent;
+//     this.isGroupNodeInternal = true;
+//   }
 
-export class BottomUpNode extends Node {
-  override parent: Node;
-  private root: BottomUpRootNode;
-  override depth: number;
-  private cachedChildren: ChildrenCache|null;
-  private hasChildrenInternal: boolean;
+//   addChild(child: BottomUpNode, selfTime: number, totalTime: number): void {
+//     this.childrenInternal.set(child.id, child as unknown as Node);
+//     this.selfTime += selfTime;
+//     this.totalTime += totalTime;
+//     child.parent = this;
+//   }
 
-  constructor(
-      root: BottomUpRootNode, id: string, event: TraceEngine.Legacy.CompatibleTraceEvent, hasChildren: boolean,
-      parent: Node) {
-    super(id, event);
-    this.parent = parent;
-    this.root = root;
-    this.depth = (parent.depth || 0) + 1;
-    this.cachedChildren = null;
-    this.hasChildrenInternal = hasChildren;
-  }
+//   override hasChildren(): boolean {
+//     return true;
+//   }
 
-  override hasChildren(): boolean {
-    return this.hasChildrenInternal;
-  }
+//   override children(): ChildrenCache {
+//     return this.childrenInternal;
+//   }
+// }
 
-  override setHasChildren(value: boolean): void {
-    this.hasChildrenInternal = value;
-  }
+// export class BottomUpNode extends Node {
+//   override parent: Node;
+//   private root: BottomUpRootNode;
+//   override depth: number;
+//   private cachedChildren: ChildrenCache|null;
+//   private hasChildrenInternal: boolean;
+//   // event: TraceEngine.Helpers.TreeHelpers.TraceEntryNode|null
 
-  override children(): ChildrenCache {
-    if (this.cachedChildren) {
-      return this.cachedChildren;
-    }
-    const selfTimeStack: number[] = [0];
-    const eventIdStack: string[] = [];
-    const eventStack: TraceEngine.Legacy.CompatibleTraceEvent[] = [];
-    const nodeById = new Map<string, BottomUpNode>();
-    const startTime = this.root.startTime;
-    const endTime = this.root.endTime;
-    let lastTimeMarker: number = startTime;
-    const self = this;
-    TimelineModelImpl.forEachEvent(
-        this.root.events, onStartEvent, onEndEvent, undefined, startTime, endTime, this.root.filter, false);
+//   constructor(
+//       root: BottomUpRootNode, id: string, event: TraceEngine.Helpers.TreeHelpers.TraceEntryNode, hasChildren: boolean,
+//       parent: Node) {
+//     super(id, event);
+//     this.parent = parent;
+//     this.root = root;
+//     this.depth = (parent.depth || 0) + 1;
+//     this.cachedChildren = null;
+//     this.hasChildrenInternal = hasChildren;
+//   }
 
-    function onStartEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
-      const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
-      const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
-      const duration = actualEndTime - Math.max(currentStartTime, startTime);
-      if (duration < 0) {
-        console.assert(false, 'Negative duration of an event');
-      }
-      selfTimeStack[selfTimeStack.length - 1] -= duration;
-      selfTimeStack.push(duration);
-      const id = generateEventID(e);
-      eventIdStack.push(id);
-      eventStack.push(e);
-    }
+//   override hasChildren(): boolean {
+//     return this.hasChildrenInternal;
+//   }
 
-    function onEndEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
-      const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
-      const selfTime = selfTimeStack.pop();
-      const id = eventIdStack.pop();
-      eventStack.pop();
-      let node;
-      for (node = self; node.depth > 1; node = node.parent) {
-        if (node.id !== eventIdStack[eventIdStack.length + 1 - node.depth]) {
-          return;
-        }
-      }
-      if (node.id !== id || eventIdStack.length < self.depth) {
-        return;
-      }
-      const childId = eventIdStack[eventIdStack.length - self.depth];
-      node = nodeById.get(childId);
-      if (!node) {
-        const event = eventStack[eventStack.length - self.depth];
-        const hasChildren = eventStack.length > self.depth;
-        node = new BottomUpNode(self.root, childId, event, hasChildren, self);
-        nodeById.set(childId, node);
-      }
-      const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
-      const totalTime = actualEndTime - Math.max(currentStartTime, lastTimeMarker);
-      node.selfTime += selfTime || 0;
-      node.totalTime += totalTime;
-      lastTimeMarker = actualEndTime;
-    }
+//   override setHasChildren(value: boolean): void {
+//     this.hasChildrenInternal = value;
+//   }
 
-    this.cachedChildren = this.root.filterChildren(nodeById);
-    return this.cachedChildren;
-  }
+//   override children(): ChildrenCache {
+//     // if (this.cachedChildren) {
+//     //   return this.cachedChildren;
+//     // }
+//     // const selfTimeStack: number[] = [0];
+//     // const eventIdStack: string[] = [];
+//     // const eventStack: TraceEngine.Legacy.CompatibleTraceEvent[] = [];
+//     // const nodeById = new Map<string, BottomUpNode>();
+//     // const startTime = this.root.startTime;
+//     // const endTime = this.root.endTime;
+//     // let lastTimeMarker: number = startTime;
+//     // const self = this;
+//     // TimelineModelImpl.forEachEvent(
+//     //     this.root.events, onStartEvent, onEndEvent, undefined, startTime, endTime, this.root.filter, false);
 
-  override searchTree(matchFunction: (arg0: TraceEngine.Legacy.CompatibleTraceEvent) => boolean, results?: Node[]):
-      Node[] {
-    results = results || [];
-    if (this.event && matchFunction(this.event)) {
-      results.push(this);
-    }
-    return results;
-  }
-}
+//     // function onStartEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
+//     //   const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
+//     //   const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
+//     //   const duration = actualEndTime - Math.max(currentStartTime, startTime);
+//     //   if (duration < 0) {
+//     //     console.assert(false, 'Negative duration of an event');
+//     //   }
+//     //   selfTimeStack[selfTimeStack.length - 1] -= duration;
+//     //   selfTimeStack.push(duration);
+//     //   const id = generateEventID(e);
+//     //   eventIdStack.push(id);
+//     //   eventStack.push(e);
+//     // }
+
+//     // function onEndEvent(e: TraceEngine.Legacy.CompatibleTraceEvent): void {
+//     //   const {startTime: currentStartTime, endTime: currentEndTime} = TraceEngine.Legacy.timesForEventInMilliseconds(e);
+//     //   const selfTime = selfTimeStack.pop();
+//     //   const id = eventIdStack.pop();
+//     //   eventStack.pop();
+//     //   let node;
+//     //   for (node = self; node.depth > 1; node = node.parent) {
+//     //     if (node.id !== eventIdStack[eventIdStack.length + 1 - node.depth]) {
+//     //       return;
+//     //     }
+//     //   }
+//     //   if (node.id !== id || eventIdStack.length < self.depth) {
+//     //     return;
+//     //   }
+//     //   const childId = eventIdStack[eventIdStack.length - self.depth];
+//     //   node = nodeById.get(childId);
+//     //   if (!node) {
+//     //     const event = eventStack[eventStack.length - self.depth];
+//     //     const hasChildren = eventStack.length > self.depth;
+//     //     node = new BottomUpNode(self.root, childId, event, hasChildren, self);
+//     //     nodeById.set(childId, node);
+//     //   }
+//     //   const actualEndTime = currentEndTime !== undefined ? Math.min(currentEndTime, endTime) : endTime;
+//     //   const totalTime = actualEndTime - Math.max(currentStartTime, lastTimeMarker);
+//     //   node.selfTime += selfTime || 0;
+//     //   node.totalTime += totalTime;
+//     //   lastTimeMarker = actualEndTime;
+//     // }
+
+//     // this.cachedChildren = this.root.filterChildren(nodeById);
+//     return this.cachedChildren!;
+//   }
+
+//   override searchTree(matchFunction: (arg0: TraceEngine.Helpers.TreeHelpers.TraceEntryNode) => boolean, results?: Node[]):
+//       Node[] {
+//     // results = results || [];
+//     // if (this.event && matchFunction(this.event)) {
+//     //   results.push(this);
+//     // }
+//     // return results;
+//     return []
+//   }
+// }
 
 export function eventURL(event: TraceEngine.Legacy.Event|
                          TraceEngine.Types.TraceEvents.TraceEventData): Platform.DevToolsPath.UrlString|null {
@@ -562,29 +578,16 @@ export function eventStackFrame(event: TraceEngine.Legacy.Event|
   return EventOnTimelineData.forEvent(event).topFrame();
 }
 
-export function generateEventID(event: TraceEngine.Legacy.CompatibleTraceEvent): string {
-  if (TraceEngine.Legacy.eventIsFromNewEngine(event) && TraceEngine.Types.TraceEvents.isProfileCall(event)) {
-    const name = TimelineJSProfileProcessor.isNativeRuntimeFrame(event.callFrame) ?
-        TimelineJSProfileProcessor.nativeGroup(event.callFrame.functionName) :
-        event.callFrame.functionName;
-    const location = event.callFrame.scriptId || event.callFrame.url || '';
-    return `f:${name}@${location}`;
-  }
+// export function generateEventID(event: TraceEngine.Helpers.TreeHelpers.TraceEntryNode): string {
+//   if (TraceEngine.Legacy.eventIsFromNewEngine(event.entry) && TraceEngine.Types.TraceEvents.isProfileCall(event.entry)) {
+//     const name = TimelineJSProfileProcessor.isNativeRuntimeFrame(event.entry.callFrame) ?
+//         TimelineJSProfileProcessor.nativeGroup(event.entry.callFrame.functionName) :
+//         event.entry.callFrame.functionName;
+//     const location = event.entry.callFrame.scriptId || event.entry.callFrame.url || '';
+//     return `f:${name}@${location}`;
+//   }
+//   console.log('old engine???')
+//   return "random name" + Math.random()
+// }
 
-  if (event.name === RecordType.TimeStamp) {
-    return `${event.name}:${event.args.data.message}`;
-  }
-
-  if (!TimelineModelImpl.isJsFrameEvent(event)) {
-    return event.name;
-  }
-  const frame = event.args['data'];
-  const location = frame['scriptId'] || frame['url'] || '';
-  const functionName = frame['functionName'];
-  const name = TimelineJSProfileProcessor.isNativeRuntimeFrame(frame) ?
-      TimelineJSProfileProcessor.nativeGroup(functionName) || functionName :
-      `${functionName}:${frame['lineNumber']}:${frame['columnNumber']}`;
-  return `f:${name}@${location}`;
-}
-
-export type ChildrenCache = Map<string|symbol, Node>;
+// export type ChildrenCache = Map<string|symbol, Node>;

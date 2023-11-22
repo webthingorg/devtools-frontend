@@ -323,6 +323,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return eventsFromAppenderSystem || group.track?.eventsForTreeView() || null;
   }
 
+  tree(group: PerfUI.FlameChart.Group): TraceEngine.Helpers.TreeHelpers.TraceEntryTree | null{
+    return this.compatibilityTracksAppender?.treeForTreeView(group) || null;
+  }
+
   mainFrameNavigationStartEvents(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[] {
     if (!this.traceEngineData) {
       return [];

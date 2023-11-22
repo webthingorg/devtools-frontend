@@ -8,7 +8,7 @@ import {RecordType, TimelineModelImpl} from './TimelineModel.js';
 
 export abstract class TimelineModelFilter {
   abstract accept(
-      _event: TraceEngine.Legacy.CompatibleTraceEvent,
+      _event: TraceEngine.Legacy.CompatibleTraceEvent|TraceEngine.Helpers.TreeHelpers.TraceEntryNode,
       traceParsedData?: TraceEngine.Handlers.Types.TraceParseData): boolean;
 }
 

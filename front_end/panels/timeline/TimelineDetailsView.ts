@@ -10,7 +10,7 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import {EventsTimelineTreeView} from './EventsTimelineTreeView.js';
+// import {EventsTimelineTreeView} from './EventsTimelineTreeView.js';
 import {Events, type PerformanceModel} from './PerformanceModel.js';
 import {TimelineLayersView} from './TimelineLayersView.js';
 import {TimelinePaintProfilerView} from './TimelinePaintProfilerView.js';
@@ -61,6 +61,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   private rangeDetailViews: Map<string, TimelineTreeView>;
   private model!: PerformanceModel;
   #selectedEvents?: TraceEngine.Legacy.CompatibleTraceEvent[]|null;
+  #tree: TraceEngine.Helpers.TreeHelpers.TraceEntryTree | null = null;
   private lazyPaintProfilerView?: TimelinePaintProfilerView|null;
   private lazyLayersView?: TimelineLayersView|null;
   private preferredTabId?: string;
@@ -96,9 +97,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.appendTab(Tab.CallTree, i18nString(UIStrings.callTree), callTreeView);
     this.rangeDetailViews.set(Tab.CallTree, callTreeView);
 
-    const eventsView = new EventsTimelineTreeView(delegate);
-    this.appendTab(Tab.EventLog, i18nString(UIStrings.eventLog), eventsView);
-    this.rangeDetailViews.set(Tab.EventLog, eventsView);
+    // const eventsView = new EventsTimelineTreeView(delegate);
+    // this.appendTab(Tab.EventLog, i18nString(UIStrings.eventLog), eventsView);
+    // this.rangeDetailViews.set(Tab.EventLog, eventsView);
 
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this.tabSelected, this);
   }
@@ -109,7 +110,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
 
   async setModel(
       model: PerformanceModel|null, traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null,
-      selectedEvents: TraceEngine.Legacy.CompatibleTraceEvent[]|null): Promise<void> {
+      selectedEvents: TraceEngine.Legacy.CompatibleTraceEvent[]|null, tree: TraceEngine.Helpers.TreeHelpers.TraceEntryTree | null): Promise<void> {
     if (this.model !== model) {
       if (this.model) {
         this.model.removeEventListener(Events.WindowChanged, this.onWindowChanged, this);
@@ -124,9 +125,10 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       this.#filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceEngineData);
     }
     this.#selectedEvents = selectedEvents;
+    this.#tree = tree;
     this.tabbedPane.closeTabs([Tab.PaintProfiler, Tab.LayerViewer], false);
     for (const view of this.rangeDetailViews.values()) {
-      view.setModelWithEvents(model, selectedEvents, traceEngineData);
+      view.setModelWithEvents(model, selectedEvents, tree, traceEngineData);
     }
     this.lazyPaintProfilerView = null;
     this.lazyLayersView = null;
