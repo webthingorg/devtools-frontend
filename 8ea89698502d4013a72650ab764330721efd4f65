@@ -63,6 +63,30 @@
       },
       "revId": "8ea89698502d4013a72650ab764330721efd4f65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9392db6_27c1438c",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-22T09:16:51Z",
+      "side": 1,
+      "message": "Absolutely, SGTM!",
+      "parentUuid": "7a780063_fb029a05",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 5
+      },
+      "revId": "8ea89698502d4013a72650ab764330721efd4f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
