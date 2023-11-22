@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83a1680a_5c311071",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-22T08:48:11Z",
+      "side": 1,
+      "message": "PTAL, not sure if each of these should be their own VE or if \"Pane\" + context is ok.",
+      "revId": "1ca61841f9799bd33172945b9eb0186f072eb68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
