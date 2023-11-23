@@ -2,8 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Host from '../../core/host/host.js';
 import type * as Platform from '../../core/platform/platform.js';
+import type * as SDK from '../../core/sdk/sdk.js';
+import * as ElementsComponents from '../../panels/elements/components/components.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
+import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
+import * as UI from '../../ui/legacy/legacy.js';
+
+import {REGISTERED_PROPERTY_SECTION_NAME, type StylesSidebarPane} from './StylesSidebarPane.js';
 
 const cssParser = CodeMirror.css.cssLanguage.parser;
 
@@ -82,7 +89,7 @@ export class Printer extends TreeWalker {
   }
 }
 
-interface RenderingContext {
+export interface RenderingContext {
   ast: SyntaxTree;
   matchedResult: BottomUpTreeMatching;
 }
@@ -91,8 +98,18 @@ interface Match {
   render(context: RenderingContext): Node[];
 }
 
-interface Matcher {
+type Constructor = (abstract new (...args: any[]) => any)|(new (...args: any[]) => any);
+export type MatchFactory<MatchT extends Constructor> = (...args: ConstructorParameters<MatchT>) => InstanceType<MatchT>;
+
+export interface Matcher {
   matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null;
+}
+
+export abstract class MatcherBase<MatchT extends Constructor> implements Matcher {
+  constructor(readonly matchFactory: MatchFactory<MatchT>) {
+  }
+
+  abstract matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null;
 }
 
 type MatchKey = Platform.Brand.Brand<string, 'MatchKey'>;
@@ -187,6 +204,43 @@ function siblings(node: CodeMirror.SyntaxNode|null): CodeMirror.SyntaxNode[] {
 
 function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
   return siblings(node.firstChild);
+}
+
+export abstract class VariableMatch implements Match {
+  constructor(readonly text: string, readonly name: string, readonly fallback: CodeMirror.SyntaxNode|null) {
+  }
+
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class VariableMatcher extends MatcherBase<typeof VariableMatch> {
+  matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    const callee = node.getChild('Callee');
+    const args = node.getChild('ArgList');
+    if (node.name !== 'CallExpression' || !callee || (matching.ast.text(callee) !== 'var') || !args) {
+      return null;
+    }
+
+    const [lparenNode, nameNode, parenOrCommaNode, fallbackNode, rparenNode] = children(args);
+
+    if (lparenNode?.name !== '(' || nameNode?.name !== 'VariableName') {
+      return null;
+    }
+    if (parenOrCommaNode?.name === ',') {
+      if (!fallbackNode || rparenNode?.name !== ')') {
+        return null;
+      }
+    } else if (parenOrCommaNode?.name !== ')') {
+      return null;
+    }
+
+    const varName = matching.ast.text(nameNode);
+    if (!varName.startsWith('--')) {
+      return null;
+    }
+
+    return this.matchFactory(matching.ast.text(node), varName, fallbackNode);
+  }
 }
 
 class LegacyRegexMatch implements Match {

@@ -10,6 +10,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ColorPicker from '../../ui/legacy/components/color_picker/color_picker.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
@@ -25,6 +26,7 @@ import {
 import * as ElementsComponents from './components/components.js';
 import {cssRuleValidatorsMap, type Hint} from './CSSRuleValidator.js';
 import {ElementsPanel} from './ElementsPanel.js';
+import {MatchFactory, Renderer, RenderingContext, VariableMatch, VariableMatcher} from './PropertyParser.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {type StylePropertiesSection} from './StylePropertiesSection.js';
 import {getCssDeclarationAsJavascriptProperty} from './StylePropertyUtils.js';
@@ -115,6 +117,88 @@ interface StylePropertyTreeElementParams {
   inherited: boolean;
   overloaded: boolean;
   newProperty: boolean;
+}
+
+export class VariableRenderer extends VariableMatch {
+  constructor(
+      readonly pane: StylesSidebarPane, readonly matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles,
+      readonly style: SDK.CSSStyleDeclaration.CSSStyleDeclaration, text: string, name: string,
+      fallback: CodeMirror.SyntaxNode|null) {
+    super(text, name, fallback);
+  }
+
+  render(context: RenderingContext): Node[] {
+    const computedSingleValue = this.matchedStyles.computeSingleVariableValue(this.style, this.text);
+
+    const fallbackHtml = this.fallback ? Renderer.render(this.fallback, context) : [];
+    if (!computedSingleValue) {
+      const text = document.createTextNode(this.text);
+      return fallbackHtml.length === 0 ?
+          [text] :
+          [document.createTextNode(`var(${this.name}), `), ...fallbackHtml, document.createTextNode(')')];
+    }
+
+    const {computedValue, fromFallback} = computedSingleValue;
+
+    const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
+    UI.UIUtils.createTextChild(varSwatch, this.text);
+    varSwatch.data = {
+      computedValue,
+      variableName: this.name,
+      fromFallback,
+      fallbackHtml,
+      onLinkActivate: this.#handleVarDefinitionActivate.bind(this),
+    };
+
+    if (varSwatch.link?.linkElement) {
+      const {textContent} = varSwatch.link.linkElement;
+      if (textContent) {
+        const computedValueOfLink =
+            textContent ? this.matchedStyles.computeSingleVariableValue(this.style, `var(${textContent})`) : null;
+        this.pane.addPopover(
+            varSwatch.link,
+            () => this.#getVariablePopoverContents(textContent, computedValueOfLink?.computedValue ?? null));
+      }
+    }
+
+    return [varSwatch];
+
+    // FIXME if (!computedValue || !Common.Color.parse(computedValue)) {
+    //  return varSwatch;
+    // }
+
+    // return this.processColor(computedValue, varSwatch);
+  }
+
+
+  static factory(
+      pane: StylesSidebarPane, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles,
+      style: SDK.CSSStyleDeclaration.CSSStyleDeclaration): MatchFactory<typeof VariableMatch> {
+    return (text: string, name: string, fallback: CodeMirror.SyntaxNode|null) =>
+               new VariableRenderer(pane, matchedStyles, style, text, name, fallback);
+  }
+
+  #getRegisteredPropertyDetails(variableName: string): ElementsComponents.CSSVariableValueView.RegisteredPropertyDetails
+      |undefined {
+    const registration = this.matchedStyles.getRegisteredProperty(variableName);
+    const goToDefinition = (): void => this.pane.jumpToSection(variableName, REGISTERED_PROPERTY_SECTION_NAME);
+    return registration ? {registration, goToDefinition} : undefined;
+  }
+
+  #getVariablePopoverContents(variableName: string, computedValue: string|null): HTMLElement|undefined {
+    return new ElementsComponents.CSSVariableValueView.CSSVariableValueView({
+      variableName,
+      value: computedValue ?? undefined,
+      details: this.#getRegisteredPropertyDetails(variableName),
+    });
+  }
+
+  #handleVarDefinitionActivate(): void {
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.CustomPropertyLinkClicked);
+    Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.VarLink);
+    this.pane.jumpToProperty(this.name) ||
+        this.pane.jumpToProperty('initial-value', this.name, REGISTERED_PROPERTY_SECTION_NAME);
+  }
 }
 
 export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
@@ -535,11 +619,11 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const {computedValue, fromFallback} = computedSingleValue;
-    let fallbackHtml: Node|null = null;
+    let fallbackHtml: Node[]|null = null;
     if (fromFallback && fallback?.startsWith('var(')) {
-      fallbackHtml = this.processVar(fallback);
+      fallbackHtml = [this.processVar(fallback)];
     } else if (fallback) {
-      fallbackHtml = document.createTextNode(fallback);
+      fallbackHtml = [document.createTextNode(fallback)];
     }
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
@@ -985,9 +1069,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const propertyRenderer =
-        new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value);
+        new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value, [
+          new VariableMatcher(VariableRenderer.factory(this.parentPaneInternal, this.matchedStylesInternal, this.style))
+        ]);
     if (this.property.parsedOk) {
-      propertyRenderer.setVarHandler(this.processVar.bind(this));
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
       propertyRenderer.setAnimationHandler(this.processAnimation.bind(this));
       propertyRenderer.setColorHandler(this.processColor.bind(this));

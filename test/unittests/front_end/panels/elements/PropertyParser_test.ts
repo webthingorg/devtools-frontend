@@ -12,6 +12,7 @@ function textFragments(nodes: Node[]): Array<string|null> {
   return nodes.map(n => n.textContent);
 }
 
+
 describe('PropertyParser', () => {
   it('parses text', async () => {
     assert.deepStrictEqual(
