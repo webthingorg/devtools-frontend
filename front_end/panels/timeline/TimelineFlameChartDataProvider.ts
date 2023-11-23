@@ -42,6 +42,7 @@ import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import {CompatibilityTracksAppender, type TrackAppenderName} from './CompatibilityTracksAppender.js';
 import * as Components from './components/components.js';
 import {type TimelineCategory} from './EventUICategory.js';
+import {eventInitiatorPairsToDraw} from './Initiators.js';
 import {type PerformanceModel} from './PerformanceModel.js';
 import {ThreadAppender, ThreadType} from './ThreadAppender.js';
 import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js';
@@ -1402,54 +1403,55 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (this.lastInitiatorEntry === entryIndex) {
       return false;
     }
-    this.lastInitiatorEntry = entryIndex;
-    let event = this.eventByIndex(entryIndex);
-    if (TraceEngine.Legacy.eventIsFromNewEngine(event)) {
-      // TODO(crbug.com/1434596): Add support for this use case in the
-      // new engine.
+    if (!this.traceEngineData) {
       return false;
     }
-    const td = this.timelineDataInternal;
-    if (!td) {
+    if (!this.timelineDataInternal) {
       return false;
     }
-    td.flowStartTimes = [];
-    td.flowStartLevels = [];
-    td.flowEndTimes = [];
-    td.flowEndLevels = [];
-    while (event) {
-      // Find the closest ancestor with an initiator.
-      let initiator;
-      for (; event; event = this.eventParent(event)) {
-        initiator = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event).initiator();
-        if (initiator) {
-          break;
-        }
-      }
-      if (!initiator || !event) {
-        break;
-      }
-      const eventIndex = (this.#indexForEvent.get(event) as number);
-      const initiatorIndex = (this.#indexForEvent.get(initiator) as number);
-      const {startTime} = TraceEngine.Legacy.timesForEventInMilliseconds(event);
-      const {endTime: initiatorEndTime, startTime: initiatorStartTime} =
-          TraceEngine.Legacy.timesForEventInMilliseconds(initiator);
+    if (!this.compatibilityTracksAppender) {
+      return false;
+    }
 
+    const event = this.eventByIndex(entryIndex);
+    if (!TraceEngine.Legacy.eventIsFromNewEngine(event)) {
+      // TODO: as part of the old engine removal, we need to redefine the Event
+      // type to teach the code that only new engine events can be selected by
+      // the user.
+      return false;
+    }
+    // Reset to clear any previous arrows from the last event.
+    this.timelineDataInternal.flowStartTimes = [];
+    this.timelineDataInternal.flowStartLevels = [];
+    this.timelineDataInternal.flowEndTimes = [];
+    this.timelineDataInternal.flowEndLevels = [];
+
+    this.lastInitiatorEntry = entryIndex;
+
+    const initiatorPairs = eventInitiatorPairsToDraw(
+        this.traceEngineData,
+        event,
+    );
+    if (initiatorPairs.length === 0) {
+      return false;
+    }
+    for (const pair of initiatorPairs) {
+      const eventIndex = this.compatibilityTracksAppender.indexForEvent(pair.event);
+      const initiatorIndex = this.compatibilityTracksAppender.indexForEvent(pair.initiator);
+      if (eventIndex === null || initiatorIndex === null) {
+        continue;
+      }
+      const {startTime} = TraceEngine.Legacy.timesForEventInMilliseconds(pair.event);
+      const {endTime: initiatorEndTime, startTime: initiatorStartTime} =
+          TraceEngine.Legacy.timesForEventInMilliseconds(pair.initiator);
+
+      const td = this.timelineDataInternal;
       td.flowStartTimes.push(initiatorEndTime || initiatorStartTime);
       td.flowStartLevels.push(td.entryLevels[initiatorIndex]);
       td.flowEndTimes.push(startTime);
       td.flowEndLevels.push(td.entryLevels[eventIndex]);
-      event = initiator;
     }
     return true;
-  }
-
-  private eventParent(event: TraceEngine.Legacy.CompatibleTraceEvent): TraceEngine.Legacy.Event|null {
-    const eventIndex = this.#indexForEvent.get(event);
-    if (eventIndex === undefined) {
-      return null;
-    }
-    return this.entryParent[eventIndex] || null;
   }
 
   eventByIndex(entryIndex: number): TraceEngine.Legacy.CompatibleTraceEvent|null {
