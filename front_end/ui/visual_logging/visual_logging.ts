@@ -36,6 +36,7 @@ const cssFlexboxEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssFl
 const cssGridEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssGridEditor');
 const cssLayersPane = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssLayersPane');
 const cssShadowEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssShadowEditor');
+const deviceModeRuler = LoggingConfig.makeConfigStringBuilder.bind(null, 'DeviceModeRuler');
 const domBreakpoint = LoggingConfig.makeConfigStringBuilder.bind(null, 'DOMBreakpoint');
 const dropDown = LoggingConfig.makeConfigStringBuilder.bind(null, 'DropDown');
 const elementsBreadcrumbs = LoggingConfig.makeConfigStringBuilder.bind(null, 'ElementsBreadcrumbs');
@@ -54,6 +55,7 @@ const jumpToElement = LoggingConfig.makeConfigStringBuilder.bind(null, 'JumpToEl
 const jumpToSource = LoggingConfig.makeConfigStringBuilder.bind(null, 'JumpToSource');
 const key = LoggingConfig.makeConfigStringBuilder.bind(null, 'Key');
 const link = LoggingConfig.makeConfigStringBuilder.bind(null, 'Link');
+const mediaInspectorView = LoggingConfig.makeConfigStringBuilder.bind(null, 'MediaInspectorView');
 const menu = LoggingConfig.makeConfigStringBuilder.bind(null, 'Menu');
 const metricsBox = LoggingConfig.makeConfigStringBuilder.bind(null, 'MetricsBox');
 const next = LoggingConfig.makeConfigStringBuilder.bind(null, 'Next');
@@ -63,6 +65,7 @@ const panel = LoggingConfig.makeConfigStringBuilder.bind(null, 'Panel');
 const panelTabHeader = LoggingConfig.makeConfigStringBuilder.bind(null, 'PanelTabHeader');
 const preview = LoggingConfig.makeConfigStringBuilder.bind(null, 'Preview');
 const previous = LoggingConfig.makeConfigStringBuilder.bind(null, 'Previous');
+const responsivePresetsContainer = LoggingConfig.makeConfigStringBuilder.bind(null, 'ResponsivePresetsContainer');
 const showAllStyleProperties = LoggingConfig.makeConfigStringBuilder.bind(null, 'ShowAllStyleProperties');
 const showStyleEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'ShowStyleEditor');
 const slider = LoggingConfig.makeConfigStringBuilder.bind(null, 'Slider');
@@ -111,6 +114,7 @@ export {
   cssGridEditor,
   cssLayersPane,
   cssShadowEditor,
+  deviceModeRuler,
   domBreakpoint,
   dropDown,
   elementsBreadcrumbs,
@@ -129,6 +133,7 @@ export {
   jumpToSource,
   key,
   link,
+  mediaInspectorView,
   menu,
   metricsBox,
   next,
@@ -138,6 +143,7 @@ export {
   panelTabHeader,
   preview,
   previous,
+  responsivePresetsContainer,
   showAllStyleProperties,
   showStyleEditor,
   slider,
