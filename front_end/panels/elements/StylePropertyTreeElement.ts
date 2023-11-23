@@ -10,10 +10,11 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
-import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
+import type * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ColorPicker from '../../ui/legacy/components/color_picker/color_picker.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
+import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
@@ -26,7 +27,16 @@ import {
 import * as ElementsComponents from './components/components.js';
 import {cssRuleValidatorsMap, type Hint} from './CSSRuleValidator.js';
 import {ElementsPanel} from './ElementsPanel.js';
-import {MatchFactory, Renderer, RenderingContext, VariableMatch, VariableMatcher} from './PropertyParser.js';
+import {ImagePreviewPopover} from './ImagePreviewPopover.js';
+import {
+  type MatchFactory,
+  Renderer,
+  type RenderingContext,
+  URLMatch,
+  URLMatcher,
+  VariableMatch,
+  VariableMatcher,
+} from './PropertyParser.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {type StylePropertiesSection} from './StylePropertiesSection.js';
 import {getCssDeclarationAsJavascriptProperty} from './StylePropertyUtils.js';
@@ -170,7 +180,6 @@ export class VariableRenderer extends VariableMatch {
     // return this.processColor(computedValue, varSwatch);
   }
 
-
   static factory(
       pane: StylesSidebarPane, matchedStyles: SDK.CSSMatchedStyles.CSSMatchedStyles,
       style: SDK.CSSStyleDeclaration.CSSStyleDeclaration): MatchFactory<typeof VariableMatch> {
@@ -198,6 +207,44 @@ export class VariableRenderer extends VariableMatch {
     Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.VarLink);
     this.pane.jumpToProperty(this.name) ||
         this.pane.jumpToProperty('initial-value', this.name, REGISTERED_PROPERTY_SECTION_NAME);
+  }
+}
+
+export class URLRenderer extends URLMatch {
+  constructor(
+      private readonly rule: SDK.CSSRule.CSSRule|null, private readonly node: SDK.DOMModel.DOMNode|null,
+      url: Platform.DevToolsPath.UrlString) {
+    super(url);
+  }
+  override render(): Node[] {
+    const container = document.createDocumentFragment();
+    UI.UIUtils.createTextChild(container, 'url(');
+    let hrefUrl: Platform.DevToolsPath.UrlString|null = null;
+    if (this.rule && this.rule.resourceURL()) {
+      hrefUrl = Common.ParsedURL.ParsedURL.completeURL(this.rule.resourceURL(), this.url);
+    } else if (this.node) {
+      hrefUrl = this.node.resolveURL(this.url);
+    }
+    const link = ImagePreviewPopover.setImageUrl(
+        Components.Linkifier.Linkifier.linkifyURL(hrefUrl || this.url, {
+          text: this.url,
+          preventClick: false,
+          // crbug.com/1027168
+          // We rely on CSS text-overflow: ellipsis to hide long URLs in the Style panel,
+          // so that we don't have to keep two versions (original vs. trimmed) of URL
+          // at the same time, which complicates both StylesSidebarPane and StylePropertyTreeElement.
+          bypassURLTrimming: true,
+          showColumnNumber: false,
+          inlineFrameIndex: 0,
+        }),
+        hrefUrl || this.url);
+    container.appendChild(link);
+    UI.UIUtils.createTextChild(container, ')');
+    return [container];
+  }
+
+  static factory(rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null): MatchFactory<typeof URLMatch> {
+    return (url: Platform.DevToolsPath.UrlString) => new URLRenderer(rule, node, url);
   }
 }
 
@@ -1070,7 +1117,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     const propertyRenderer =
         new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value, [
-          new VariableMatcher(VariableRenderer.factory(this.parentPaneInternal, this.matchedStylesInternal, this.style))
+          new VariableMatcher(
+              VariableRenderer.factory(this.parentPaneInternal, this.matchedStylesInternal, this.style)),
+          new URLMatcher(URLRenderer.factory(this.style.parentRule, this.node())),
         ]);
     if (this.property.parsedOk) {
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
