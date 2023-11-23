@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52ce7054_6b36ddc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-23T11:26:37Z",
+      "side": 1,
+      "message": "Lost the +1 after rebase and removing domBreakpointsPane VE.",
+      "revId": "4bbb12d427993cae1b1e442a66e205ab3d3b2dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
