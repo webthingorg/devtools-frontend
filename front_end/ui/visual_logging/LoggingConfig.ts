@@ -45,7 +45,7 @@ enum VisualElements {
   JumpToSource = 22,
   MetricsBox = 23,
   MetricsBoxPart = 24,
-  DOMBreakpointsPane = 25,
+  /* 25 used to be DOMBreakpointsPane, but free to grab now */
   DOMBreakpoint = 26,
   ElementPropertiesPane = 27,
   EventListenersPane = 28,
@@ -91,6 +91,7 @@ enum VisualElements {
   /* 68 used to be DeveloperResourcesPanel, but free to grab now */
   TableHeader = 69,
   TableCell = 70,
+  Pane = 71,
 }
 
 function resolveVe(ve: string): number {
