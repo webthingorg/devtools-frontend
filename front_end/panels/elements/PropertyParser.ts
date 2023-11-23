@@ -2,15 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Host from '../../core/host/host.js';
 import type * as Platform from '../../core/platform/platform.js';
-import type * as SDK from '../../core/sdk/sdk.js';
-import * as ElementsComponents from '../../panels/elements/components/components.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
-import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
-import * as UI from '../../ui/legacy/legacy.js';
-
-import {REGISTERED_PROPERTY_SECTION_NAME, type StylesSidebarPane} from './StylesSidebarPane.js';
 
 const cssParser = CodeMirror.css.cssLanguage.parser;
 
@@ -94,11 +87,12 @@ export interface RenderingContext {
   matchedResult: BottomUpTreeMatching;
 }
 
-interface Match {
+export interface Match {
   render(context: RenderingContext): Node[];
 }
 
-type Constructor = (abstract new (...args: any[]) => any)|(new (...args: any[]) => any);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Constructor = abstract new (...args: any[]) => any;
 export type MatchFactory<MatchT extends Constructor> = (...args: ConstructorParameters<MatchT>) => InstanceType<MatchT>;
 
 export interface Matcher {
@@ -204,6 +198,35 @@ function siblings(node: CodeMirror.SyntaxNode|null): CodeMirror.SyntaxNode[] {
 
 function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
   return siblings(node.firstChild);
+}
+
+export abstract class URLMatch implements Match {
+  constructor(readonly url: Platform.DevToolsPath.UrlString) {
+  }
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class URLMatcher extends MatcherBase<typeof URLMatch> {
+  matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    if (node.name !== 'CallLiteral') {
+      return null;
+    }
+    const callee = node.getChild('CallTag');
+    if (!callee || matching.ast.text(callee) !== 'url') {
+      return null;
+    }
+    const [, lparenNode, urlNode, rparenNode] = siblings(callee);
+    if (matching.ast.text(lparenNode) !== '(' ||
+        (urlNode.name !== 'ParenthesizedContent' && urlNode.name !== 'StringLiteral') ||
+        matching.ast.text(rparenNode) !== ')') {
+      return null;
+    }
+
+    const text = matching.ast.text(urlNode);
+    const url =
+        (urlNode.name === 'StringLiteral' ? text.substr(1, text.length - 2) : text) as Platform.DevToolsPath.UrlString;
+    return this.matchFactory(url);
+  }
 }
 
 export abstract class VariableMatch implements Match {
