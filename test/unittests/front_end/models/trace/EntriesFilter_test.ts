@@ -153,4 +153,8 @@ describe('EntriesFilter', function() {
     });
     assert.isTrue(allFibonacciInStackAreHidden, 'Some fibonacci calls are still visible');
   });
+
+  it('supports collapsing all repeating entries among descendants', async function() {
+    
+  })
 });
