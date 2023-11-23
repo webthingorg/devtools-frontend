@@ -91,6 +91,9 @@ enum VisualElements {
   /* 68 used to be DeveloperResourcesPanel, but free to grab now */
   TableHeader = 69,
   TableCell = 70,
+  ResponsivePresetsContainer = 71,
+  DeviceModeRuler = 72,
+  MediaInspectorView = 73,
 }
 
 function resolveVe(ve: string): number {
