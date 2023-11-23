@@ -44,6 +44,7 @@ describe('FlameChart', function() {
     await loadComponentDocExample('performance_panel/basic.html?trace=simple-js-program');
     await waitFor('.timeline-flamechart');
     const {frontend} = getBrowserAndPages();
+    console.error('Screenshots saved to ""');
 
     // Add some margin to the coordinates so that we don't click right
     // in the entry's border.
