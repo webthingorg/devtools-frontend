@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88ac3e39_aca45526",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-23T16:35:01Z",
+      "side": 1,
+      "message": "We have this map already in the old engine - as part of this CL I can actually remove it (I forgot to before, but will do so now). I hope maybe that will even out the performance impact!\n\nI am definitely open to doing this a different way. If we could come up with some way of generating an event ID (maybe event name + timestamp + pid + tid?) then we could have a map of string to number which hopefully would be better as it would reduce the amount of hashing and collisions. wdyt?\n\nAn alternative would be to maintain an array of all events, and then the lookup could be allEvents.findIndex(e \u003d\u003e e \u003d\u003d\u003d eventWeWant). I would expect that to be slower than maps though!",
+      "parentUuid": "34354ad4_827cf79e",
+      "range": {
+        "startLine": 105,
+        "startChar": 3,
+        "endLine": 105,
+        "endChar": 15
+      },
+      "revId": "4526f720172f3a9f45a94d7b43a1d305d4de47fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbfe5e10_411d9ecc",
         "filename": "front_end/panels/timeline/Initiators.ts",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-23T16:17:52Z",
       "side": 1,
       "message": "do we want to continue from the initiator\u0027s parent or from the initiator itself from this point? In other words, should we add a break inside this if?",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 5
+      },
+      "revId": "4526f720172f3a9f45a94d7b43a1d305d4de47fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab5372ac_9865329a",
+        "filename": "front_end/panels/timeline/Initiators.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-23T16:35:01Z",
+      "side": 1,
+      "message": "Ah good catch - I think we need a continue here so we set the event to the initiator, and then start the loop again, because if the initiator has an initiator, we need to catch that.",
+      "parentUuid": "dbfe5e10_411d9ecc",
       "range": {
         "startLine": 36,
         "startChar": 3,
