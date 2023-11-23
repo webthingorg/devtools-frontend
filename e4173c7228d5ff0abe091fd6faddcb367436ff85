@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec596eb2_bb9fed7f",
+        "filename": "front_end/entrypoints/device_mode_emulation_frame/device_mode_emulation_frame.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-23T15:17:31Z",
+      "side": 1,
+      "message": "Hey @dsv@chromium.org, for the device mode, we\u0027re creating a new window with `device_mode_emulation_frame.html` (See [1] on where this window is opened).\n\nSo, we need to set up visual logging for this window as well, and this specific part does just that. I\u0027m not sure if there can be complications regarding this but seemed fine to me.\n\nPlease take a look :)\n\n[1]: https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/front_end/panels/emulation/AdvancedApp.ts#76",
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
