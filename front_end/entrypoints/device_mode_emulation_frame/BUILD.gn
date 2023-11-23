@@ -11,6 +11,8 @@ devtools_entrypoint("device_mode_emulation_frame") {
     "../../Images:optimize_images",
     "../../core/dom_extension:bundle",
     "../../core/platform:bundle",
+    "../../core/root:bundle",
+    "../../ui/visual_logging:bundle",
   ]
 
   visibility = [ "../../../front_end" ]
