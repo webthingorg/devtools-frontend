@@ -111,6 +111,30 @@
       },
       "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66dbe64f_97dbcd13",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-23T10:54:05Z",
+      "side": 1,
+      "message": "I am hoping to get to the UI side of this work either this week or most likely next week and have the arrows drawn based on data from the InitiatorHandler",
+      "parentUuid": "894b7709_ff690e17",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
