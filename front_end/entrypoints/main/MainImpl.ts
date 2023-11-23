@@ -417,6 +417,16 @@ export class MainImpl {
         'Enable Autofill view',
     );
 
+    if (Root.Runtime.Runtime.queryParam('enableAida') === 'true') {
+      Root.Runtime.experiments.register(
+          Root.Runtime.ExperimentName.CONSOLE_INSIGHTS,
+          'Enable Console Insights. This implies consent to collect and process data',
+          false,
+          'http://go/console-insights-experiment',
+          'https://docs.google.com/forms/d/e/1FAIpQLSePjpPA0BUSbyG_xrsLR_HtrVixLqu5gAKOxgV-YfztVTf8Vg/viewform',
+      );
+    }
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'sourceOrderViewer',
       'cssTypeComponentLength',
