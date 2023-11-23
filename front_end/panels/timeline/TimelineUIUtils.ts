@@ -1969,7 +1969,9 @@ export class TimelineUIUtils {
 
     const eventData = event.args['data'];
     const timelineData = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event);
-    const initiator = timelineData.initiator();
+    const initiator = TraceEngine.Legacy.eventIsFromNewEngine(event) ?
+        traceParseData?.Initiators.eventToInitiator.get(event) ?? null :
+        null;
     let url: Platform.DevToolsPath.UrlString|null = null;
 
     if (TraceEngine.Legacy.eventIsFromNewEngine(event) && traceParseData) {

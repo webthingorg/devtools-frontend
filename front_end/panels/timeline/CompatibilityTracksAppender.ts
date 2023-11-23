@@ -98,6 +98,12 @@ export class CompatibilityTracksAppender {
   #visibleTrackNames: Set<TrackAppenderName> = new Set([...TrackNames]);
   #isCpuProfile = false;
 
+  // Track the index of an event. This is useful because the timeline data
+  // represents events via a series of arrays, and if you have an event you
+  // need the index to be able to find information about the event such as
+  // which level of the timeline it is on.
+  #indexByEvent: WeakMap<TraceEngine.Types.TraceEvents.TraceEventData, number> = new WeakMap();
+
   // TODO(crbug.com/1416533)
   // These are used only for compatibility with the legacy flame chart
   // architecture of the panel. Once all tracks have been migrated to
@@ -465,6 +471,10 @@ export class CompatibilityTracksAppender {
     this.#trackForLevel.set(level, appender);
   }
 
+  indexForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): number|null {
+    return this.#indexByEvent.get(event) ?? null;
+  }
+
   /**
    * Adds an event to the flame chart data at a defined level.
    * @param event the event to be appended,
@@ -485,6 +495,7 @@ export class CompatibilityTracksAppender {
         TraceEngine.Helpers.Timing.millisecondsToMicroseconds(
             InstantEventVisibleDurationMs as TraceEngine.Types.Timing.MilliSeconds);
     this.#flameChartData.entryTotalTimes[index] = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(msDuration);
+    this.#indexByEvent.set(event, index);
     return index;
   }
 
