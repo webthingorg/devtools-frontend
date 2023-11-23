@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5731c9b_b1e99b77",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2023-11-23T09:23:23Z",
+      "side": 1,
+      "message": "nits: this can be moved beyond the function declaration.",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 10
+      },
+      "revId": "c3fb74b410b0cd346123863f643485dd3785cfbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
