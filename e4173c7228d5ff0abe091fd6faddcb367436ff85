@@ -16,6 +16,139 @@
       "message": "Hey @dsv@chromium.org, for the device mode, we\u0027re creating a new window with `device_mode_emulation_frame.html` (See [1] on where this window is opened).\n\nSo, we need to set up visual logging for this window as well, and this specific part does just that. I\u0027m not sure if there can be complications regarding this but seemed fine to me.\n\nPlease take a look :)\n\n[1]: https://chromium.googlesource.com/devtools/devtools-frontend/+/refs/heads/main/front_end/panels/emulation/AdvancedApp.ts#76",
       "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90981a22_8d002b1b",
+        "filename": "front_end/entrypoints/device_mode_emulation_frame/device_mode_emulation_frame.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-23T15:36:29Z",
+      "side": 1,
+      "message": "This is very timely. I think this is fine from the frontend perspective, but we would need adjust a backend a little bit to handle this properly.",
+      "parentUuid": "ec596eb2_bb9fed7f",
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a26ff20c_00a70366",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-23T15:36:29Z",
+      "side": 1,
+      "message": "just `width`",
+      "range": {
+        "startLine": 254,
+        "startChar": 53,
+        "endLine": 254,
+        "endChar": 67
+      },
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5c0712_6c73ac7e",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-23T15:36:29Z",
+      "side": 1,
+      "message": "just `height`",
+      "range": {
+        "startLine": 259,
+        "startChar": 71,
+        "endLine": 259,
+        "endChar": 86
+      },
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84005c64_05e5287d",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-23T15:36:29Z",
+      "side": 1,
+      "message": "just `device`\n\nAlso below",
+      "range": {
+        "startLine": 308,
+        "startChar": 92,
+        "endLine": 308,
+        "endChar": 104
+      },
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a854c6_6e11a0a7",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-23T15:36:29Z",
+      "side": 1,
+      "message": "nit: we could just have used `title` here as it is not localizable.",
+      "range": {
+        "startLine": 419,
+        "startChar": 84,
+        "endLine": 419,
+        "endChar": 96
+      },
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e84ad2dd_f81f6831",
+        "filename": "front_end/panels/emulation/DeviceModeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-23T15:36:29Z",
+      "side": 1,
+      "message": "Just `responsivePresets`",
+      "range": {
+        "startLine": 129,
+        "startChar": 75,
+        "endLine": 129,
+        "endChar": 101
+      },
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
