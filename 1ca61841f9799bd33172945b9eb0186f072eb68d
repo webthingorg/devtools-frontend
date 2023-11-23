@@ -69,6 +69,24 @@
       "parentUuid": "fbd9bcc1_d58468e9",
       "revId": "1ca61841f9799bd33172945b9eb0186f072eb68d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c1f6b6_592fa1a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-23T09:49:27Z",
+      "side": 1,
+      "message": "I\u0027m fine with `Pane` for anything that\u0027s part of a `Panel`.",
+      "parentUuid": "86d9bb92_e3057f3a",
+      "revId": "1ca61841f9799bd33172945b9eb0186f072eb68d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
