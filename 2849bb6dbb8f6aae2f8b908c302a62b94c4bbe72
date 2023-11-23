@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "345566b5_6845757b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-23T12:22:08Z",
+      "side": 1,
+      "message": "PTAL, the linter was a bit aggressive in reordering imports ...",
+      "revId": "2849bb6dbb8f6aae2f8b908c302a62b94c4bbe72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
