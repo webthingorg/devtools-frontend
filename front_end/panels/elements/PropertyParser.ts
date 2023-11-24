@@ -82,7 +82,7 @@ export class Printer extends TreeWalker {
   }
 }
 
-interface RenderingContext {
+export interface RenderingContext {
   ast: SyntaxTree;
   matchedResult: BottomUpTreeMatching;
 }
@@ -91,8 +91,19 @@ interface Match {
   render(context: RenderingContext): Node[];
 }
 
-interface Matcher {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Constructor = (abstract new (...args: any[]) => any)|(new (...args: any[]) => any);
+export type MatchFactory<MatchT extends Constructor> = (...args: ConstructorParameters<MatchT>) => InstanceType<MatchT>;
+
+export interface Matcher {
   matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null;
+}
+
+export abstract class MatcherBase<MatchT extends Constructor> implements Matcher {
+  constructor(readonly matchFactory: MatchFactory<MatchT>) {
+  }
+
+  abstract matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null;
 }
 
 type MatchKey = Platform.Brand.Brand<string, 'MatchKey'>;
@@ -187,6 +198,43 @@ function siblings(node: CodeMirror.SyntaxNode|null): CodeMirror.SyntaxNode[] {
 
 function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
   return siblings(node.firstChild);
+}
+
+export abstract class VariableMatch implements Match {
+  constructor(readonly text: string, readonly name: string, readonly fallback: CodeMirror.SyntaxNode|null) {
+  }
+
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class VariableMatcher extends MatcherBase<typeof VariableMatch> {
+  matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    const callee = node.getChild('Callee');
+    const args = node.getChild('ArgList');
+    if (node.name !== 'CallExpression' || !callee || (matching.ast.text(callee) !== 'var') || !args) {
+      return null;
+    }
+
+    const [lparenNode, nameNode, parenOrCommaNode, fallbackNode, rparenNode] = children(args);
+
+    if (lparenNode?.name !== '(' || nameNode?.name !== 'VariableName') {
+      return null;
+    }
+    if (parenOrCommaNode?.name === ',') {
+      if (!fallbackNode || rparenNode?.name !== ')') {
+        return null;
+      }
+    } else if (parenOrCommaNode?.name !== ')') {
+      return null;
+    }
+
+    const varName = matching.ast.text(nameNode);
+    if (!varName.startsWith('--')) {
+      return null;
+    }
+
+    return this.matchFactory(matching.ast.text(node), varName, fallbackNode);
+  }
 }
 
 class LegacyRegexMatch implements Match {
