@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da657fd_367e20f6",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-24T11:12:18Z",
+      "side": 1,
+      "message": "nit: since these blocks are all equal, let\u0027s group them into a single block for simplicity",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 174,
+        "endChar": 5
+      },
+      "revId": "9abd57f243c6dddd9cada468fd2d8ae3a6c30b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
