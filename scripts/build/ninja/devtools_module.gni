@@ -8,10 +8,11 @@ template("devtools_module") {
   ts_library(target_name) {
     forward_variables_from(invoker,
                            [
+                             "data",
                              "deps",
                              "public_deps",
+                             "rootdir",
                              "sources",
-                             "data",
                            ])
 
     # To make sure that this target can be depended upon by other TypeScript targets,

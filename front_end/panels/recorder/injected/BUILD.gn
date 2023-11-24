@@ -3,27 +3,37 @@
 # found in the LICENSE file.
 
 import("../../../../scripts/build/ninja/copy.gni")
-import(
-    "../../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../../../scripts/build/ninja/devtools_module.gni")
+import("../../../../scripts/build/ninja/devtools_pre_built.gni")
 import("../../../../scripts/build/ninja/node.gni")
 
+SOURCES = [
+  "Logger.ts",
+  "MonotonicArray.ts",
+  "RecordingClient.ts",
+  "SelectorComputer.ts",
+  "SelectorPicker.ts",
+  "Step.ts",
+  "selectors/ARIASelector.ts",
+  "selectors/CSSSelector.ts",
+  "selectors/PierceSelector.ts",
+  "selectors/Selector.ts",
+  "selectors/TextSelector.ts",
+  "selectors/XPath.ts",
+  "util.ts",
+]
+
+devtools_pre_built("prebuilt") {
+  sources = SOURCES
+}
+
 devtools_module("injected") {
-  sources = [
-    "Logger.ts",
-    "MonotonicArray.ts",
-    "RecordingClient.ts",
-    "SelectorComputer.ts",
-    "SelectorPicker.ts",
-    "Step.ts",
-    "selectors/ARIASelector.ts",
-    "selectors/CSSSelector.ts",
-    "selectors/PierceSelector.ts",
-    "selectors/Selector.ts",
-    "selectors/TextSelector.ts",
-    "selectors/XPath.ts",
-    "util.ts",
-  ]
+  sources = get_target_outputs(":prebuilt")
+
+  # All sources and deps are located in gen dir.
+  # The rootdir should be $target_gen_dir.
+  rootdir = target_gen_dir
 
   visibility = [
     ":*",
@@ -36,9 +46,13 @@ devtools_module("injected") {
   ]
 
   deps = [
-    "../../../third_party/puppeteer:puppeteer",
+    "../../../third_party/puppeteer",
+    "../../../third_party/puppeteer:bundle",
+    "../../../third_party/puppeteer-replay",
     "../../../third_party/puppeteer-replay:bundle",
   ]
+
+  public_deps = [ ":prebuilt" ]
 }
 
 devtools_entrypoint("bundle") {
