@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../core/common/common.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 
@@ -198,6 +199,31 @@ function siblings(node: CodeMirror.SyntaxNode|null): CodeMirror.SyntaxNode[] {
 
 function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
   return siblings(node.firstChild);
+}
+
+export abstract class ColorMatch implements Match {
+  constructor(readonly text: string) {
+  }
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class ColorMatcher extends MatcherBase<typeof ColorMatch> {
+  matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    const text = matching.ast.text(node);
+    if (node.name === 'ColorLiteral') {
+      return this.matchFactory(text);
+    }
+    if (node.name === 'ValueName' && Common.Color.Nicknames.has(text)) {
+      return this.matchFactory(text);
+    }
+    if (node.name === 'CallExpression') {
+      const callee = node.getChild('Callee');
+      if (callee && matching.ast.text(callee).match(/^(rgba?|hsla?|hwba?|lab|lch|oklab|oklch|color)$/)) {
+        return this.matchFactory(text);
+      }
+    }
+    return null;
+  }
 }
 
 export abstract class URLMatch implements Match {
