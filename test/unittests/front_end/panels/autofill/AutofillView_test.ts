@@ -25,19 +25,19 @@ describeWithMockConnection('AutofillView', () => {
     target = createTarget();
   });
 
-  it('renders autofilled address and filled fields', async () => {
+  it('renders autofilled address and filled fields and resets on navigation', async () => {
     SDK.TargetManager.TargetManager.instance().setScopeTarget(target);
-    const model = target.model(SDK.AutofillModel.AutofillModel);
-    assertNotNullOrUndefined(model);
+    const autofillModel = target.model(SDK.AutofillModel.AutofillModel);
+    assertNotNullOrUndefined(autofillModel);
 
     view = new Autofill.AutofillView.AutofillView();
     renderElementIntoDOM(view);
     await view.render();
     assertShadowRoot(view.shadowRoot);
-    const placeholderText = view.shadowRoot.querySelector('.placeholder')?.textContent?.trim();
+    let placeholderText = view.shadowRoot.querySelector('.placeholder')?.textContent?.trim();
     assert.strictEqual(placeholderText, 'No Autofill event detected');
 
-    model.addressFormFilled({
+    autofillModel.addressFormFilled({
       addressUi: {
         addressFields: [
           {
@@ -113,5 +113,16 @@ describeWithMockConnection('AutofillView', () => {
       ['#input4 (text)', 'Zip code \nattr', '"12345"'],
     ];
     assertGridContents(view, expectedHeaders, expectedRows);
+
+    const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+    assertNotNullOrUndefined(resourceTreeModel);
+    resourceTreeModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.PrimaryPageChanged, {
+      type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation,
+      frame: {} as SDK.ResourceTreeModel.ResourceTreeFrame,
+    });
+
+    await coordinator.done();
+    placeholderText = view.shadowRoot.querySelector('.placeholder')?.textContent?.trim();
+    assert.strictEqual(placeholderText, 'No Autofill event detected');
   });
 });
