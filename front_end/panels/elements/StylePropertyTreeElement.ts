@@ -574,8 +574,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private handleVarDefinitionActivate(variableName: string): void {
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.CustomPropertyLinkClicked);
     Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.VarLink);
-    this.parentPaneInternal.jumpToProperty(variableName) ||
-        this.parentPaneInternal.jumpToProperty('initial-value', variableName, REGISTERED_PROPERTY_SECTION_NAME);
+
+    this.parentPaneInternal.jumpToProperty(variableName, this.section() ?? undefined) ||
+        this.parentPaneInternal.jumpToProperty(
+            'initial-value', undefined, variableName, REGISTERED_PROPERTY_SECTION_NAME);
   }
 
   private async addColorContrastInfo(swatchIcon: ColorSwatchPopoverIcon): Promise<void> {

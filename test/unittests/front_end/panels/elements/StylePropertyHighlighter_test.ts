@@ -141,7 +141,7 @@ describeWithRealConnection('StylePropertyHighlighter', () => {
 
     const highlighter = new Elements.StylePropertyHighlighter.StylePropertyHighlighter(stylesSidebarPane);
     const highlightSpy = sinon.stub(PanelUtils.PanelUtils, 'highlightElement');
-    highlighter.findAndHighlightPropertyName('property', 'section2', 'block2');
+    highlighter.findAndHighlightPropertyName('property', undefined, 'section2', 'block2');
 
     assert.isFalse(block1ExpandSpy.called);
     assert.isTrue(block2ExpandSpy.called);
