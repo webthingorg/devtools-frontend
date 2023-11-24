@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eff5c2fd_ca4e22a9",
+        "filename": "test/unittests/front_end/panels/timeline/SourceMaps_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-24T14:59:46Z",
+      "side": 0,
+      "message": "don\u0027t we need this anymore?",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "35c0fb68fdc63aef78447b62a4e6ef79ca21142f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
