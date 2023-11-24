@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97938f48_012cc1b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T10:44:18Z",
+      "side": 1,
+      "message": "lgtm with a thought",
+      "revId": "dfc3b5dbf54efef9fdf79a0961de39fdd83da1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "601fbff3_4330bdcc",
+        "filename": "test/perf/panels/performance/trace-load_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T10:44:18Z",
+      "side": 1,
+      "message": "do you think between each run we should navigate away or close the page or anything? Only thinking if subsequent runs might be quicker if certain things are cached etc.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 66
+      },
+      "revId": "dfc3b5dbf54efef9fdf79a0961de39fdd83da1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
