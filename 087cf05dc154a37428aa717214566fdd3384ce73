@@ -39,6 +39,30 @@
       },
       "revId": "087cf05dc154a37428aa717214566fdd3384ce73",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe71c8a_d5163e4a",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-24T13:58:52Z",
+      "side": 1,
+      "message": "I thought it would make sense for the AutofillView to only need to observe the AutofillModel, but now that I\u0027m following your suggestion, this looks cleaner imo.\n\n(I\u0027ve kept the test for the AutofillModel in, even though it\u0027s not really related to the rest of the CL anymore)",
+      "parentUuid": "12ad5fd1_895de37d",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "087cf05dc154a37428aa717214566fdd3384ce73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
