@@ -10,30 +10,31 @@ import {SDKModel} from './SDKModel.js';
 import {Capability, type Target} from './Target.js';
 
 export class AutofillModel extends SDKModel<EventTypes> implements ProtocolProxyApi.AutofillDispatcher {
-  readonly agent: ProtocolProxyApi.AutofillApi;
-  private enabled?: boolean;
+  readonly #agent: ProtocolProxyApi.AutofillApi;
+  #enabled?: boolean;
+
   constructor(target: Target) {
     super(target);
 
-    this.agent = target.autofillAgent();
+    this.#agent = target.autofillAgent();
     target.registerAutofillDispatcher(this);
     this.enable();
   }
 
   enable(): void {
-    if (this.enabled || Host.InspectorFrontendHost.isUnderTest()) {
+    if (this.#enabled || Host.InspectorFrontendHost.isUnderTest()) {
       return;
     }
-    void this.agent.invoke_enable();
-    this.enabled = true;
+    void this.#agent.invoke_enable();
+    this.#enabled = true;
   }
 
   disable(): void {
-    if (!this.enabled || Host.InspectorFrontendHost.isUnderTest()) {
+    if (!this.#enabled || Host.InspectorFrontendHost.isUnderTest()) {
       return;
     }
-    this.enabled = false;
-    void this.agent.invoke_disable();
+    this.#enabled = false;
+    void this.#agent.invoke_disable();
   }
 
   addressFormFilled(addressFormFilledEvent: Protocol.Autofill.AddressFormFilledEvent): void {
