@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28ca29ab_4ff3e682",
+        "filename": "front_end/entrypoints/device_mode_emulation_frame/device_mode_emulation_frame.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-24T07:14:44Z",
+      "side": 1,
+      "message": "Alternatively, it might be simpler to have parent document do the logging. See crrev.com/c/5057772",
+      "parentUuid": "90981a22_8d002b1b",
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a26ff20c_00a70366",
         "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
         "patchSetId": 6
