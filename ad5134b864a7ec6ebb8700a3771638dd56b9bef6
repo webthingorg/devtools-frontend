@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abc4f061_f966faeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-24T06:36:50Z",
+      "side": 1,
+      "message": "Yeah, it seems not working depending on GN args.",
+      "parentUuid": "2da9777f_510bab55",
+      "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a72155bf_2d495af5",
         "filename": "front_end/panels/recorder/injected/BUILD.gn",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2023-11-24T06:06:09Z",
       "side": 1,
       "message": "This is unsed function call?",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91c5fc7_c1db2c0a",
+        "filename": "front_end/panels/recorder/injected/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-24T06:36:50Z",
+      "side": 1,
+      "message": "Ah, I messed up the CL while doing debug. \nIt should be set to `sources`.",
+      "parentUuid": "a72155bf_2d495af5",
       "range": {
         "startLine": 32,
         "startChar": 2,
@@ -54,6 +96,24 @@
       "writtenOn": "2023-11-24T06:06:09Z",
       "side": 1,
       "message": "Explain why this target needs to set this?",
+      "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8ab9684_cdb9e312",
+        "filename": "front_end/panels/recorder/injected/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-24T06:36:50Z",
+      "side": 1,
+      "message": "Done. \n\nBut,\nI started worrying that many `devtools_module` need `rootdir \u003d target_gen_dir`.\nIn that case, it\u0027s better to identify rootdir inside the template?",
+      "parentUuid": "7d29169c_56c932ed",
       "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
