@@ -198,15 +198,15 @@ UI.ViewManager.registerLocationResolver({
 Common.Revealer.registerRevealer({
   contextTypes() {
     return [
-      Common.Settings.Setting,
+      Common.Settings.Setting<string>,
       Root.Runtime.Experiment,
     ];
   },
+  destination: undefined,
   async loadRevealer() {
     const Settings = await loadSettingsModule();
     return Settings.SettingsScreen.Revealer.instance();
   },
-  destination: undefined,
 });
 
 UI.ContextMenu.registerItem({
