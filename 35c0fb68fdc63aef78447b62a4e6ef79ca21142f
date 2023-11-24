@@ -22,6 +22,30 @@
       },
       "revId": "35c0fb68fdc63aef78447b62a4e6ef79ca21142f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab101304_e25d9b69",
+        "filename": "test/unittests/front_end/panels/timeline/SourceMaps_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T15:01:26Z",
+      "side": 0,
+      "message": "No, we have SourceMapsResolver_test.ts which tests the one for the new engine. This was testing the old engine.\n\nAlthough I have just realised I think we might need to make sure the name resolving via a plugin still works - so perhaps I need to add that functionality in or at least make sure we still test for it.",
+      "parentUuid": "eff5c2fd_ca4e22a9",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "35c0fb68fdc63aef78447b62a4e6ef79ca21142f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
