@@ -12,13 +12,16 @@ function textFragments(nodes: Node[]): Array<string|null> {
   return nodes.map(n => n.textContent);
 }
 
-function matchSingleValue<T extends Elements.PropertyParser.Match, ArgTs>(
-    property: string, matchType: abstract new (...args: ArgTs[]) => T, matcher: Elements.PropertyParser.Matcher):
-    {ast: Elements.PropertyParser.SyntaxTree, match: T|undefined, text: string} {
+function
+matchSingleValue<MatchT extends Elements.PropertyParser.Match, MatcherT extends Elements.PropertyParser.Matcher, ArgTs>(
+    property: string, matchType: abstract new (...args: ArgTs[]) => MatchT,
+    matcherType: new (factory: Elements.PropertyParser.MatchFactory<typeof matchType>) => MatcherT):
+    {ast: Elements.PropertyParser.SyntaxTree, match: MatchT|undefined, text: string} {
   const ast = Elements.PropertyParser.tokenizePropertyValue(property);
   Platform.assertNotNullOrUndefined(ast);
 
-  const matchedResult = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, true, [matcher]);
+  const matchedResult =
+      Elements.PropertyParser.BottomUpTreeMatching.walk(ast, true, [new matcherType(nilRenderer(matchType))]);
   const match = matchedResult.getMatch(ast.tree);
 
   return {
@@ -107,18 +110,30 @@ describe('PropertyParser', () => {
   it('parses URLs', () => {
     const url = 'http://example.com';
     {
-      const {match, text} = matchSingleValue(
-          `url(${url})`, Elements.PropertyParser.URLMatch,
-          new Elements.PropertyParser.URLMatcher(nilRenderer(Elements.PropertyParser.URLMatch)));
+      const {match, text} =
+          matchSingleValue(`url(${url})`, Elements.PropertyParser.URLMatch, Elements.PropertyParser.URLMatcher);
       Platform.assertNotNullOrUndefined(match);
       assert.strictEqual(match.url, url, text);
     }
     {
-      const {match, text} = matchSingleValue(
-          `url("${url}")`, Elements.PropertyParser.URLMatch,
-          new Elements.PropertyParser.URLMatcher(nilRenderer(Elements.PropertyParser.URLMatch)));
+      const {match, text} =
+          matchSingleValue(`url("${url}")`, Elements.PropertyParser.URLMatch, Elements.PropertyParser.URLMatcher);
       Platform.assertNotNullOrUndefined(match);
       assert.strictEqual(match.url, url, text);
+    }
+  });
+
+  it('parses colors', () => {
+    for (const fail of ['red-blue', '#f', '#foobar', '', 'rgbz(1 2 2)', 'tan(45deg)']) {
+      const {match, text} =
+          matchSingleValue(fail, Elements.PropertyParser.ColorMatch, Elements.PropertyParser.ColorMatcher);
+      assert.isUndefined(match, text);
+    }
+    for (const succeed of ['red', 'rgb(0 0 0)', 'rgba(0 0 0)', '#fff', '#ffff', '#ffffff', '#ffffffff']) {
+      const {match, text} =
+          matchSingleValue(succeed, Elements.PropertyParser.ColorMatch, Elements.PropertyParser.ColorMatcher);
+      Platform.assertNotNullOrUndefined(match, text);
+      assert.strictEqual(match.text, succeed);
     }
   });
 });
