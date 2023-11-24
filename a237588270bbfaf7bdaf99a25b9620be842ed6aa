@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b86e81d8_4cdde428",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-24T07:09:37Z",
+      "side": 1,
+      "message": "When it fails without this CL?\nAnd why it doesn\u0027t fail for now?",
+      "range": {
+        "startLine": 12,
+        "startChar": 13,
+        "endLine": 12,
+        "endChar": 41
+      },
+      "revId": "a237588270bbfaf7bdaf99a25b9620be842ed6aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c55d825_adc1a894",
+        "filename": "front_end/panels/recorder/injected/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-24T07:09:37Z",
+      "side": 1,
+      "message": "No need to use variable if this is used only in one place?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "a237588270bbfaf7bdaf99a25b9620be842ed6aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

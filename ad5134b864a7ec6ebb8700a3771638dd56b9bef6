@@ -116,6 +116,24 @@
       "parentUuid": "7d29169c_56c932ed",
       "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d763b330_8f57c3f2",
+        "filename": "front_end/panels/recorder/injected/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2023-11-24T07:09:37Z",
+      "side": 1,
+      "message": "Hmm, I\u0027m still not sure when this needs to set `rootdir \u003d target_gen_dir` and when not.\nAlso is it difficult to set appropriate paths without copying tsc files so that tsc can find imported files correctly?\nhttps://www.typescriptlang.org/tsconfig#paths",
+      "parentUuid": "d8ab9684_cdb9e312",
+      "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
