@@ -220,12 +220,14 @@ export class ThreadAppender implements TrackAppender {
                                                      traceParsedData.Renderer.entryToNode);
   }
 
+  #modifiedEntries: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
   modifyTree(
       traceEvent: TraceEngine.Types.TraceEvents.TraceEntry, action: TraceEngine.EntriesFilter.FilterAction,
       flameChartView: PerfUI.FlameChart.FlameChart): void {
     if (!this.#entriesFilter) {
       return;
     }
+    this.#modifiedEntries.push(traceEvent);
     this.#entriesFilter.applyAction({type: action, entry: traceEvent});
     flameChartView.dispatchEventToListeners(PerfUI.FlameChart.Events.EntriesModified);
   }
@@ -543,6 +545,11 @@ export class ThreadAppender implements TrackAppender {
    * Gets the color an event added by this appender should be rendered with.
    */
   colorForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
+    if(this.#modifiedEntries.find((event2) => event2 == event)) {
+      console.log("found");
+      return "#EE4B2B"
+    }
+
     if (TraceEngine.Types.TraceEvents.isProfileCall(event)) {
       if (event.callFrame.functionName === '(idle)') {
         return getCategoryStyles().Idle.getComputedColorValue();
