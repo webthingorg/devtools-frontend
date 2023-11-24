@@ -39,6 +39,30 @@
       },
       "revId": "dfc3b5dbf54efef9fdf79a0961de39fdd83da1ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c7b26a8_50446d2b",
+        "filename": "test/perf/panels/performance/trace-load_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-24T11:15:44Z",
+      "side": 1,
+      "message": "good call!! I\u0027m going to add a call to `realoadDevTools` on a `beforeEach` to get a fresh version each time.",
+      "parentUuid": "601fbff3_4330bdcc",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 66
+      },
+      "revId": "dfc3b5dbf54efef9fdf79a0961de39fdd83da1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
