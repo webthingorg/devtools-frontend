@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12804bfd_b9c6ee39",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2228,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T15:55:55Z",
+      "side": 0,
+      "message": "I looked up where we emit this event in the backend; the field is just called url now. I think this is very outdated. Similarly there is no mention of a `message` field.",
+      "range": {
+        "startLine": 2228,
+        "startChar": 34,
+        "endLine": 2228,
+        "endChar": 46
+      },
+      "revId": "35c0fb68fdc63aef78447b62a4e6ef79ca21142f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
