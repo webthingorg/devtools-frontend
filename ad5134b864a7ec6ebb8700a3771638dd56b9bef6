@@ -134,6 +134,24 @@
       "parentUuid": "d8ab9684_cdb9e312",
       "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2286a68_cf173c81",
+        "filename": "front_end/panels/recorder/injected/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-24T07:20:39Z",
+      "side": 1,
+      "message": "I guess, if it has any deps, the deps are located in `gen`. So the root dir should be `target_gen_dir`. \n\nThank you for the reference. I\u0027m not really familiar with typescript compilation. But, there is probably a better tsconfig.",
+      "parentUuid": "d763b330_8f57c3f2",
+      "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
