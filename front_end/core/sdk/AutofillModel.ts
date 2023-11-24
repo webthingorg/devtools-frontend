@@ -6,6 +6,10 @@ import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as Host from '../host/host.js';
 
+import {
+  Events as ResourceTreeModelEvents,
+  ResourceTreeModel,
+} from './ResourceTreeModel.js';
 import {SDKModel} from './SDKModel.js';
 import {Capability, type Target} from './Target.js';
 
@@ -17,6 +21,11 @@ export class AutofillModel extends SDKModel<EventTypes> implements ProtocolProxy
 
     this.agent = target.autofillAgent();
     target.registerAutofillDispatcher(this);
+
+    const resourceTreeModel = target.model(ResourceTreeModel);
+    if (resourceTreeModel) {
+      resourceTreeModel.addEventListener(ResourceTreeModelEvents.PrimaryPageChanged, this.#onPrimaryPageChanged, this);
+    }
     this.enable();
   }
 
@@ -38,6 +47,11 @@ export class AutofillModel extends SDKModel<EventTypes> implements ProtocolProxy
 
   addressFormFilled(addressFormFilledEvent: Protocol.Autofill.AddressFormFilledEvent): void {
     this.dispatchEventToListeners(Events.AddressFormFilled, {autofillModel: this, event: addressFormFilledEvent});
+  }
+
+  #onPrimaryPageChanged(): void {
+    this.dispatchEventToListeners(
+        Events.AddressFormFilled, {autofillModel: this, event: {filledFields: [], addressUi: {addressFields: []}}});
   }
 }
 

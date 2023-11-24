@@ -63,7 +63,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
   static readonly litTagName = LitHtml.literal`devtools-autofill-view`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   readonly #renderBound = this.#render.bind(this);
-  #addressUi: Protocol.Autofill.AddressUI|null = null;
+  #addressUi: Protocol.Autofill.AddressUI = {addressFields: []};
   #filledFields: Protocol.Autofill.FilledField[] = [];
 
   connectedCallback(): void {
@@ -77,7 +77,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
       throw new Error('AutofillView render was not scheduled');
     }
 
-    if (!this.#addressUi && !this.#filledFields.length) {
+    if (!this.#addressUi.addressFields.length && !this.#filledFields.length) {
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       LitHtml.render(LitHtml.html`
@@ -101,7 +101,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
   }
 
   #renderAddressUi(): LitHtml.LitTemplate {
-    if (!this.#addressUi) {
+    if (!this.#addressUi.addressFields.length) {
       return LitHtml.nothing;
     }
     return LitHtml.html`
