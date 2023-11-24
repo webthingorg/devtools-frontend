@@ -12,6 +12,37 @@ function textFragments(nodes: Node[]): Array<string|null> {
   return nodes.map(n => n.textContent);
 }
 
+function matchSingleValue<T extends Elements.PropertyParser.Match, ArgTs>(
+    property: string, matchType: abstract new (...args: ArgTs[]) => T, matcher: Elements.PropertyParser.Matcher):
+    {ast: Elements.PropertyParser.SyntaxTree, match: T|undefined, text: string} {
+  const ast = Elements.PropertyParser.tokenizePropertyValue(property);
+  Platform.assertNotNullOrUndefined(ast);
+
+  const matchedResult = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, true, [matcher]);
+  const match = matchedResult.getMatch(ast.tree);
+
+  return {
+    ast,
+    match: match instanceof matchType ? match : undefined,
+    text: Elements.PropertyParser.Printer.walk(ast, true).get(),
+  };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Constructor = (new (...args: any[]) => any)|(abstract new (...args: any[]) => any);
+function nilRenderer<Base extends Constructor>(base: Base): Elements.PropertyParser.MatchFactory<Base> {
+  return (...args: unknown[]) => {
+    class Renderer extends base implements Elements.PropertyParser.Match {
+      constructor(...args: unknown[]) {
+        super(...args);
+      }
+      render(): Node[] {
+        return [];
+      }
+    }
+    return new Renderer(...args);
+  };
+}
 describe('PropertyParser', () => {
   it('parses text', async () => {
     assert.deepStrictEqual(
@@ -71,5 +102,23 @@ describe('PropertyParser', () => {
 ||| Comment: /* color: red */
 ||| ;
 ||| }`);
+  });
+
+  it('parses URLs', () => {
+    const url = 'http://example.com';
+    {
+      const {match, text} = matchSingleValue(
+          `url(${url})`, Elements.PropertyParser.URLMatch,
+          new Elements.PropertyParser.URLMatcher(nilRenderer(Elements.PropertyParser.URLMatch)));
+      Platform.assertNotNullOrUndefined(match);
+      assert.strictEqual(match.url, url, text);
+    }
+    {
+      const {match, text} = matchSingleValue(
+          `url("${url}")`, Elements.PropertyParser.URLMatch,
+          new Elements.PropertyParser.URLMatcher(nilRenderer(Elements.PropertyParser.URLMatch)));
+      Platform.assertNotNullOrUndefined(match);
+      assert.strictEqual(match.url, url, text);
+    }
   });
 });
