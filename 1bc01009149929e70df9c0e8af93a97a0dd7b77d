@@ -16,6 +16,52 @@
       "message": "Hey Jack wdyt about this approach to implement perf benchmarks. You can see an example of how it\u0027d be used in https://crrev.com/c/5055818",
       "revId": "1bc01009149929e70df9c0e8af93a97a0dd7b77d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a776f9b_5d7a556e",
+        "filename": "test/perf/report/report.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T09:41:48Z",
+      "side": 1,
+      "message": "might be worth a comment explaining what directory this is targeting - with all the `..` it is not immediately obvious\n\nCould we also use the helpers we have such as `devToolsRootPath()` (IIRC) to make this more obvious?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 85
+      },
+      "revId": "1bc01009149929e70df9c0e8af93a97a0dd7b77d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c614a52_ca76c1d9",
+        "filename": "test/perf/report/report.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T09:41:48Z",
+      "side": 1,
+      "message": "should we add this file to `.gitignore` ? or is it already?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 57
+      },
+      "revId": "1bc01009149929e70df9c0e8af93a97a0dd7b77d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
