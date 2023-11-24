@@ -46,6 +46,30 @@
       },
       "revId": "35c0fb68fdc63aef78447b62a4e6ef79ca21142f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ceb5f8b_d916baa2",
+        "filename": "test/unittests/front_end/panels/timeline/SourceMaps_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T15:14:06Z",
+      "side": 0,
+      "message": "Just checked and SourceMapsResolver_test.ts does include a test for the plugin resolution - so we have all this functionality tested in SourceMapsResolver_test.ts that this file covers and therefore this file is save to be deleted as it covers the old functionality.",
+      "parentUuid": "ab101304_e25d9b69",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "35c0fb68fdc63aef78447b62a4e6ef79ca21142f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
