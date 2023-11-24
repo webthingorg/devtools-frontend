@@ -8,7 +8,7 @@ import * as LoggingEvents from './LoggingEvents.js';
 import * as LoggingState from './LoggingState.js';
 
 type Loggable = LoggableModule.Loggable;
-const {startLogging, stopLogging} = LoggingDriver;
+const {startLogging, stopLogging, addDocument} = LoggingDriver;
 const {registerContextProvider, registerParentProvider} = LoggingState;
 const {logImpressions, logClick} = LoggingEvents;
 
@@ -88,6 +88,7 @@ export {
   logImpressions,
   startLogging,
   stopLogging,
+  addDocument,
   registerContextProvider,
   registerParentProvider,
   registerLoggable,
