@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f35d62e_8fbc0962",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T17:06:17Z",
+      "side": 0,
+      "message": "drive-by: this was left over unused in a previous CL, I removed it.",
+      "range": {
+        "startLine": 549,
+        "startChar": 10,
+        "endLine": 549,
+        "endChar": 36
+      },
+      "revId": "d01ebbb6a835b4b4edddb28ee326619991b53f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
