@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f74aba9_9ed4a516",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-24T14:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53462c8a_f8ef01c2",
+      "revId": "62fd535c42cf658b879a19ec34c043a1693418b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9970e28_6d54c5cc",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-11-24T13:34:43Z",
       "side": 1,
       "message": "Should we typecheck contentTypes against T as well?",
+      "revId": "62fd535c42cf658b879a19ec34c043a1693418b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58cdc782_a6eb5ef3",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-24T14:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9970e28_6d54c5cc",
       "revId": "62fd535c42cf658b879a19ec34c043a1693418b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
