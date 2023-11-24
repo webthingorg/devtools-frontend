@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cd8b334_68a34302",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-24T07:13:02Z",
+      "side": 1,
+      "message": "Can you guys think of a way to test it without messing up Karma?",
+      "revId": "ae6e29f677d508bcd403dda5da2b880f54465dcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
