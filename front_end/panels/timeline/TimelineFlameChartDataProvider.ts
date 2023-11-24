@@ -46,7 +46,6 @@ import {type PerformanceModel} from './PerformanceModel.js';
 import {ThreadAppender, ThreadType} from './ThreadAppender.js';
 import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js';
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
-import {ThreadTracksSource} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 
@@ -168,9 +167,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   #eventToDisallowRoot = new WeakMap<TraceEngine.Legacy.Event, boolean>();
   #indexForEvent = new WeakMap<TraceEngine.Legacy.CompatibleTraceEvent, number>();
   #font: string;
-  #threadTracksSource: ThreadTracksSource;
 
-  constructor(threadTracksSource: ThreadTracksSource = ThreadTracksSource.NEW_ENGINE) {
+  constructor() {
     super();
     this.reset();
     this.#font = `${PerfUI.Font.DEFAULT_FONT_SIZE} ${PerfUI.Font.getFontFamilyForCanvas()}`;
@@ -185,7 +183,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.traceEngineData = null;
     this.minimumBoundaryInternal = 0;
     this.timeSpan = 0;
-    this.#threadTracksSource = threadTracksSource;
 
     this.headerLevel1 = this.buildGroupStyle({shareHeaderLine: false});
     this.headerLevel2 = this.buildGroupStyle({padding: 2, nestingLevel: 1, collapsible: false});
@@ -516,46 +513,23 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const allTrackAppenders =
         this.compatibilityTracksAppender ? this.compatibilityTracksAppender.allVisibleTrackAppenders() : [];
 
-    const legacyTracks =
-        this.#threadTracksSource === ThreadTracksSource.NEW_ENGINE ? [] : this.legacyTimelineModel.tracks();
+    allTrackAppenders.sort((a, b) => weight(a) - weight(b));
 
-    const newTracks = allTrackAppenders.filter(trackAppender => {
-      if (trackAppender instanceof ThreadAppender) {
-        // We only include the ThreadAppender tracks if the source is NEW_ENGINE.
-        return this.#threadTracksSource === ThreadTracksSource.NEW_ENGINE;
-      }
-      // All other TrackAppenders are fully released and migrated, so we always include them.
-      return true;
-    });
-
-    // Due to tracks having a predefined order, we cannot render legacy
-    // and new tracks separately.
-    const tracksAndAppenders = [...legacyTracks, ...newTracks].slice();
-    tracksAndAppenders.sort((a, b) => weight(a) - weight(b));
-
-    // TODO(crbug.com/1386091) Remove interim state to use only new track
-    // appenders.
-    for (const trackOrAppender of tracksAndAppenders) {
-      if ('type' in trackOrAppender) {
-        // Legacy track
-        this.appendLegacyTrackData(trackOrAppender);
-        continue;
-      }
-      // Track rendered with new engine data.
+    for (const appender of allTrackAppenders) {
       if (!this.traceEngineData) {
         continue;
       }
-      this.currentLevel = trackOrAppender.appendTrackAtLevel(this.currentLevel);
+
+      this.currentLevel = appender.appendTrackAtLevel(this.currentLevel);
 
       // If there is not a selected group, we want to default to selecting the
       // main thread track. Therefore in this check we look to see if the
       // current appender is a ThreadAppender and represnets the Main Thread.
       // If it is, we mark the group as selected.
       if (this.timelineDataInternal && !this.timelineDataInternal.selectedGroup) {
-        if (trackOrAppender instanceof ThreadAppender &&
-            (trackOrAppender.threadType === ThreadType.MAIN_THREAD ||
-             trackOrAppender.threadType === ThreadType.CPU_PROFILE)) {
-          const group = this.compatibilityTracksAppender?.groupForAppender(trackOrAppender);
+        if (appender instanceof ThreadAppender &&
+            (appender.threadType === ThreadType.MAIN_THREAD || appender.threadType === ThreadType.CPU_PROFILE)) {
+          const group = this.compatibilityTracksAppender?.groupForAppender(appender);
           if (group) {
             this.timelineDataInternal.selectedGroup = group;
           }
