@@ -16,6 +16,57 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "62fd535c42cf658b879a19ec34c043a1693418b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b48f492_11e950ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-24T13:34:43Z",
+      "side": 1,
+      "message": "Nice! Two questions/suggetsions inline.",
+      "revId": "62fd535c42cf658b879a19ec34c043a1693418b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53462c8a_f8ef01c2",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-24T13:34:43Z",
+      "side": 1,
+      "message": "How about using `unknown` here too?",
+      "revId": "62fd535c42cf658b879a19ec34c043a1693418b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9970e28_6d54c5cc",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-24T13:34:43Z",
+      "side": 1,
+      "message": "Should we typecheck contentTypes against T as well?",
+      "revId": "62fd535c42cf658b879a19ec34c043a1693418b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
