@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45708f8a_6c6225e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-24T14:57:53Z",
+      "side": 1,
+      "message": "Have created crrev.com/c/5056918 to remove the layout test that is blocking this work.",
+      "revId": "93b2479d63bf57879c2bf9a5d423129ae89d13cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
