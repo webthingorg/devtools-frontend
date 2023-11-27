@@ -116,6 +116,7 @@ export const textField = LoggingConfig.makeConfigStringBuilder.bind(null, 'TextF
 export const toggle = LoggingConfig.makeConfigStringBuilder.bind(null, 'Toggle');
 
 export const toggleSubpane = LoggingConfig.makeConfigStringBuilder.bind(null, 'ToggleSubpane');
+export const tree = LoggingConfig.makeConfigStringBuilder.bind(null, 'Tree');
 export const treeItem = LoggingConfig.makeConfigStringBuilder.bind(null, 'TreeItem');
 export const treeItemExpand = LoggingConfig.makeConfigStringBuilder.bind(null, 'TreeItemExpand');
 export const value = LoggingConfig.makeConfigStringBuilder.bind(null, 'Value');

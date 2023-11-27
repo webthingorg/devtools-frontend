@@ -27,7 +27,7 @@ enum VisualElements {
   AccessibilityPane = 4,
   AccessibilitySourceOrder = 5,
   Toggle = 6,
-  /* 7 used to be AddStylesRule, but free to grab now */
+  Tree = 7,
   TextField = 8,
   ShowAllStyleProperties = 9,
   Section = 10,
