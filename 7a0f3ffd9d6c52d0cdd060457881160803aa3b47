@@ -39,6 +39,30 @@
       },
       "revId": "7a0f3ffd9d6c52d0cdd060457881160803aa3b47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49f0b7f2_668e66bb",
+        "filename": "front_end/panels/network/RequestInitiatorView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-27T15:03:26Z",
+      "side": 1,
+      "message": "* Yeah, our thinking has evolved. We should use unspecific tree everywhere, please also remove or rename the `ElementsTreeOutline` and `FullAccessibilityTree`\n * are you using the [new version](https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/visual_logging.md#debugging) of a debugging UI?",
+      "parentUuid": "23550eb8_ee13a1b0",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 106
+      },
+      "revId": "7a0f3ffd9d6c52d0cdd060457881160803aa3b47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
