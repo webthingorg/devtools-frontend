@@ -22,6 +22,30 @@
       },
       "revId": "6fa8f68509becbe7662be6cf6fba1b83a02634ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39987c3c_423dd425",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1375,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-27T11:36:16Z",
+      "side": 1,
+      "message": "By names you mean `jslogContext`s?",
+      "parentUuid": "2a1d214f_381d3328",
+      "range": {
+        "startLine": 1375,
+        "startChar": 2,
+        "endLine": 1375,
+        "endChar": 37
+      },
+      "revId": "6fa8f68509becbe7662be6cf6fba1b83a02634ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
