@@ -152,6 +152,24 @@
       "parentUuid": "d763b330_8f57c3f2",
       "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "599b3f27_9225f521",
+        "filename": "front_end/panels/recorder/injected/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-27T07:39:40Z",
+      "side": 1,
+      "message": "filed https://crbug.com/1505319",
+      "parentUuid": "c2286a68_cf173c81",
+      "revId": "ad5134b864a7ec6ebb8700a3771638dd56b9bef6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
