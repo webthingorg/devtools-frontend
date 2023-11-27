@@ -112,13 +112,13 @@ describeWithEnvironment('ContextMenu', () => {
     assert.isTrue(recordImpression.calledOnce);
     assert.sameDeepMembers(
         recordImpression.firstCall.firstArg.impressions,
-        [{id: 3, type: 29, parent: 2, context: 42}, {id: 4, type: 29, parent: 2, context: 44}]);
+        [{id: 1, type: 67}, {id: 2, type: 29, parent: 1, context: 42}, {id: 3, type: 29, parent: 1, context: 44}]);
 
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
         Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, 1);
 
     await new Promise(resolve => setTimeout(resolve, 0));
     assert.isTrue(recordClick.calledOnce);
-    assert.deepStrictEqual(recordClick.firstCall.firstArg, {veid: 4, mouseButton: 0, doubleClick: false, context: 44});
+    assert.deepStrictEqual(recordClick.firstCall.firstArg, {veid: 3, mouseButton: 0, doubleClick: false, context: 44});
   });
 });

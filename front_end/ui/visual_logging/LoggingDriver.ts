@@ -112,7 +112,6 @@ async function processDom(): Promise<void> {
     if (!loggingState.impressionLogged) {
       if (isVisible(element, viewportRect)) {
         visibleElements.push(element);
-        loggingState.impressionLogged = true;
       }
     }
     if (!loggingState.processed) {
