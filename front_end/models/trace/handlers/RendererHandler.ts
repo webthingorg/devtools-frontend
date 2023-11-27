@@ -109,6 +109,7 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   if (Types.TraceEvents.isTraceEventInstant(event) || Types.TraceEvents.isTraceEventComplete(event)) {
     const process = getOrCreateRendererProcess(processes, event.pid);
     const thread = getOrCreateRendererThread(process, event.tid);
+
     thread.entries.push(event);
     allTraceEntries.push(event);
   }

@@ -140,3 +140,7 @@ Contains a `setTimeout`, `requestAnimationFrame` and `requestIdleCallback` call.
 ### nested-initiators
 
 Contains a `setTimeout` triggered by a prior `setTimeout`, so there is a larger initiator chain.
+
+### postmessage-initiators
+
+Contains `postMessage.Handler`, and associating `postMessage.Dispatch` calls.
