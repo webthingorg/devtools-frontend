@@ -22,6 +22,30 @@
       },
       "revId": "67ba2a4c9c91f87cd922b68554737532601c2092",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3957292_7422d0db",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-27T09:42:22Z",
+      "side": 1,
+      "message": "As far as I see ConsoleViewMessage.tryFormatAsError only deals with the text nodes (except for the linked parts, which is optional) so there is no existing element to assign a class to to separate a stack trace from the message. I am bit hesitant to change the console message structure but I can give it a try.",
+      "parentUuid": "93491ead_90ddc345",
+      "range": {
+        "startLine": 1509,
+        "startChar": 0,
+        "endLine": 1509,
+        "endChar": 64
+      },
+      "revId": "67ba2a4c9c91f87cd922b68554737532601c2092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
