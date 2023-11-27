@@ -72,6 +72,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9112639a_59523fbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1366072
+      },
+      "writtenOn": "2023-11-27T07:19:03Z",
+      "side": 1,
+      "message": "There are too many similar issues, and it turned out that it\u0027s not possible to fix all of them by this approach.  \nI will abandon this CL.",
+      "revId": "a237588270bbfaf7bdaf99a25b9620be842ed6aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c55d825_adc1a894",
