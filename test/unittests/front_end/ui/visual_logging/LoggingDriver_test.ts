@@ -134,6 +134,22 @@ describe('LoggingDriver', () => {
     await assertImpressionRecordedDeferred();
   });
 
+  it('correctly determines visiblity in additional document', async () => {
+    const iframe = document.createElement('iframe') as HTMLIFrameElement;
+    iframe.width = '100';
+    iframe.height = '100';
+    renderElementIntoDOM(iframe);
+    const iframeDocument = iframe.contentDocument;
+    assertNotNullOrUndefined(iframeDocument);
+    iframeDocument.body.innerHTML =  // Second div should not be out of viewport and not logged
+        `<div style="width:150px;height:150px"></div>
+      <div jslog="TreeItem" style="width:150px;height:150px"></div>`;
+
+    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.addDocument(iframeDocument);
+    assert.isFalse(recordImpression.called);
+  });
+
   it('logs clicks', async () => {
     addLoggableElements();
     await VisualLoggingTesting.LoggingDriver.startLogging();
