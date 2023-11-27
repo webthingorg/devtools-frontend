@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2350d4b3_43faa9a6",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-27T09:44:21Z",
+      "side": 0,
+      "message": "because events come from the new engine we know that this is now always false, therefore I have removed it and dealt with the places it was used.",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 82
+      },
+      "revId": "9257224f620e2f649fd6e0e1cc631b81db4d67d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
