@@ -543,6 +543,11 @@ export class ThreadAppender implements TrackAppender {
    * Gets the color an event added by this appender should be rendered with.
    */
   colorForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
+    if(this.#entriesFilter?.modifiedVisibleEntries.find((event2) => event2 == event)) {
+      console.log("found");
+      return "#EE4B2B"
+    }
+
     if (TraceEngine.Types.TraceEvents.isProfileCall(event)) {
       if (event.callFrame.functionName === '(idle)') {
         return getCategoryStyles().Idle.getComputedColorValue();

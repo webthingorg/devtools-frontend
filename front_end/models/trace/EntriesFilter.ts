@@ -72,6 +72,9 @@ export class EntriesFilter {
   // changed.
   #lastInvisibleEntries: Types.TraceEvents.TraceEntry[]|null = null;
   #activeActions: UserApplyFilterAction[] = [];
+  // List of entries whose children are modified. This list is used to 
+  // keep track of entries that should be identified in the UI as modified.
+  modifiedVisibleEntries: Types.TraceEvents.TraceEventData[] = [];
 
   constructor(entryToNode: EntryToNodeMap) {
     this.#entryToNode = entryToNode;
@@ -82,6 +85,7 @@ export class EntriesFilter {
    * array depending on the type of action.
    **/
   applyAction(action: UserFilterAction): void {
+    this.modifiedVisibleEntries.push(action.entry);
     if (/* FilterApplyActions */ this.isUserApplyFilterAction(action)) {
       if (this.#actionIsActive(action)) {
         // If the action is already active there is no reason to apply it again.
