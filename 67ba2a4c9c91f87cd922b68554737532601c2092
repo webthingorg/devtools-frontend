@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93491ead_90ddc345",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-27T09:29:25Z",
+      "side": 1,
+      "message": "This doesn\u0027t smell very well, we shouldn\u0027t need to reconstruct data from HTML. \nI realize the logic in ConsolveViewMessage is quite convoluted and it would be hard to separate logic from presentation. But it seems that everything we are looking to do here is to skip stack trace produced in the `ConsoleViewMessage.tryFormatAsError`. Can we put a dedicated CSS class on it, take a `deepTextContent` of the whole thing, then a `deepTextContent` of a stack trace we want to skip, and replace this string with an empty string in the first string?",
+      "range": {
+        "startLine": 1509,
+        "startChar": 0,
+        "endLine": 1509,
+        "endChar": 64
+      },
+      "revId": "67ba2a4c9c91f87cd922b68554737532601c2092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
