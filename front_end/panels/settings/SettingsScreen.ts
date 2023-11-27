@@ -68,7 +68,7 @@ const UIStrings = {
    *@description Message shown in the experiments panel to warn users about any possible unstable features.
    */
   theseExperimentsCouldBeUnstable:
-      'These experiments could be unstable or unreliable and may require you to restart DevTools.',
+      'These experiments could be unstable or unreliable and may require you to restart DevTools.!!',
   /**
    *@description Message text content in Settings Screen of the Settings
    */
