@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffdae4aa_e83844ae",
+        "filename": "front_end/entrypoints/device_mode_emulation_frame/device_mode_emulation_frame.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T13:44:01Z",
+      "side": 1,
+      "message": "Need a +1 now though :)",
+      "parentUuid": "9881b919_6e3501c9",
+      "revId": "e4173c7228d5ff0abe091fd6faddcb367436ff85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a26ff20c_00a70366",
         "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
         "patchSetId": 6
