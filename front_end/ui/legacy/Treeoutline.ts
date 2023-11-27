@@ -439,6 +439,7 @@ export class TreeElement {
   titleInternal: string|Node;
   private childrenInternal: TreeElement[]|null;
   childrenListNode: HTMLOListElement;
+  private expandLoggable = {};
   private hiddenInternal: boolean;
   private selectableInternal: boolean;
   expanded: boolean;
@@ -473,8 +474,7 @@ export class TreeElement {
     this.listItemNode.addEventListener('click', (this.treeElementToggled.bind(this) as EventListener), false);
     this.listItemNode.addEventListener('dblclick', this.handleDoubleClick.bind(this), false);
     this.listItemNode.setAttribute(
-        'jslog',
-        `${VisualLogging.treeItem().track({click: true}).parent('parentTreeItem').context('disclosureTriangle')}`);
+        'jslog', `${VisualLogging.treeItem().track({click: true}).parent('parentTreeItem')}`);
     ARIAUtils.markAsTreeitem(this.listItemNode);
 
     this.childrenInternal = null;
@@ -847,7 +847,9 @@ export class TreeElement {
     if (!expandable) {
       this.collapse();
       ARIAUtils.unsetExpandable(this.listItemNode);
+      VisualLogging.unregisterLoggable(this.expandLoggable);
     } else {
+      VisualLogging.registerLoggable(this.expandLoggable, `${VisualLogging.treeItemExpand()}`, this.listItemNode);
       ARIAUtils.setExpanded(this.listItemNode, false);
     }
   }
@@ -944,6 +946,7 @@ export class TreeElement {
         this.expand();
       }
     }
+    void VisualLogging.logClick(this.expandable, event);
     event.consume();
   }
 
@@ -1402,23 +1405,9 @@ export class TreeElement {
   }
 }
 
-function disclosureTriangleLoggingContextProvider(e: VisualLogging.Loggable|Event): Promise<number|undefined> {
-  if (e instanceof Element) {
-    return Promise.resolve(e.classList.contains('parent') ? 1 : 0);
-  }
-  if (e instanceof MouseEvent && e.currentTarget instanceof Node) {
-    const treeElement = TreeElement.getTreeElementBylistItemNode(e.currentTarget);
-    if (treeElement) {
-      return Promise.resolve(treeElement.isEventWithinDisclosureTriangle(e) ? 1 : 0);
-    }
-  }
-  return Promise.resolve(undefined);
-}
-
 function loggingParentProvider(e: Element): Element|undefined {
   const treeElement = TreeElement.getTreeElementBylistItemNode(e);
   return treeElement?.parent?.listItemElement;
 }
 
-VisualLogging.registerContextProvider('disclosureTriangle', disclosureTriangleLoggingContextProvider);
 VisualLogging.registerParentProvider('parentTreeItem', loggingParentProvider);
