@@ -1506,6 +1506,43 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     return lines.join('\n');
   }
 
+  toMessageTextString(includeInlineStackTrace = false): string {
+    const root = this.contentElement();
+    const consoleText = root.querySelector('.console-message-text');
+    if (consoleText) {
+      const message = [];
+      for (const child of consoleText.childNodes) {
+        if (child.nodeType === Node.TEXT_NODE) {
+          message.push(child.textContent || '');
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          // Error object
+          if ((child as HTMLElement).matches('.object-value-error') && !includeInlineStackTrace) {
+            const firstSpan = (child as HTMLElement).querySelector('span');
+            if (!firstSpan) {
+              continue;
+            }
+            for (const child of firstSpan.childNodes) {
+              // Error message will usually be in the first text nodes.
+              // Subsequent nodes and non-text nodes are the part of the stack
+              // trace formatting.
+              if (child.nodeType === Node.TEXT_NODE) {
+                message.push(child.textContent || '');
+                break;
+              }
+            }
+          } else {
+            message.push(child.deepTextContent());
+          }
+        }
+      }
+
+      return message.join('').trim();
+    }
+
+    // Fallback to SDK's message text.
+    return this.consoleMessage().messageText;
+  }
+
   setSearchRegex(regex: RegExp|null): void {
     if (this.searchHighlightNodeChanges && this.searchHighlightNodeChanges.length) {
       UI.UIUtils.revertDomChanges(this.searchHighlightNodeChanges);

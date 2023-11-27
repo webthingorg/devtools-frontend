@@ -103,8 +103,8 @@ export class PromptBuilder {
 
     const relatedCode = sourceCode?.text ? formatRelatedCode(sourceCode) : '';
     const relatedRequest = request ? formatNetworkRequest(request) : '';
-    const message = formatConsoleMessage(this.#consoleMessage);
     const stacktrace = sourcesTypes.includes(SourceType.STACKTRACE) ? formatStackTrace(this.#consoleMessage) : '';
+    const message = formatConsoleMessage(this.#consoleMessage, !stacktrace);
 
     const prompt = this.formatPrompt({
       message: [message, stacktrace].join('\n').trim(),
@@ -363,19 +363,19 @@ ${request.responseHeaders.filter(allowHeader).map(header => `${header.name}: ${h
 Response status: ${request.statusCode} ${request.statusText}`;
 }
 
-export function formatConsoleMessage(message: Console.ConsoleViewMessage.ConsoleViewMessage): string {
-  return message.consoleMessage().messageText;
+export function formatConsoleMessage(
+    message: Console.ConsoleViewMessage.ConsoleViewMessage, includeInlineStackTrace = false): string {
+  return message.toMessageTextString(includeInlineStackTrace);
 }
 
 export function formatStackTrace(message: Console.ConsoleViewMessage.ConsoleViewMessage): string {
-  let preview = message.contentElement().querySelector('.stack-preview-container');
+  const previewContainer = message.contentElement().querySelector('.stack-preview-container');
 
-  if (!preview) {
-    // If there is no preview, we grab the entire raw message replacing the message text.
-    return message.toExportString().replace(message.consoleMessage().messageText, '').trim();
+  if (!previewContainer) {
+    return '';
   }
 
-  preview = preview.shadowRoot?.querySelector('.stack-preview-container') as HTMLElement;
+  const preview = previewContainer.shadowRoot?.querySelector('.stack-preview-container') as HTMLElement;
 
   const nodes = preview.childTextNodes();
   // Gets application-level source mapped stack trace taking the ignore list
