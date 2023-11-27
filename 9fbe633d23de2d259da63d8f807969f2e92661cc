@@ -33,6 +33,23 @@
       "message": "I have tried but sadly couldn\u0027t find a CSS only solution 😅",
       "revId": "9fbe633d23de2d259da63d8f807969f2e92661cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80f1e59_066ec9d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T14:06:14Z",
+      "side": 1,
+      "message": "Though I\u0027m seeing that the inheritance behavior of `::selection` pseudo is different between Canary and Stable (and a CSS only solution is possible in Stable)\n\nI\u0027ll look into why it is the case and whether the Canary introduced a bug in `::selection` implementation.",
+      "revId": "9fbe633d23de2d259da63d8f807969f2e92661cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
