@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a286049e_5ad9df42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "I have some comments regarding style, tests and comments for the first pass :)\n\nIn addition to those:\n* I feel the terminology a bit mixed up between parsing and rendering.\n-\u003e It feels a bit odd to me that a `Match` has a render method.\n-\u003e We\u0027re calling `parsePropertyValue` but at the end we\u0027re receiving some rendered nodes. WDYT of rethinking that as well?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28a1ae6_8a65ea55",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "(This is a nit, and might be a personal preference but still wanted to mention): I\u0027m not very much in favor of using \"parameter properties\" because:\n* It is not a JS construct (AFAIU)\n* It is harder to take a glimpse of the properties of the class (since we don\u0027t declare them before constructor)\n* We\u0027re not able to use an object as a constructor argument so that we can give named arguments in the call site.\n\nOverall, I feel like this practice is a bit non-JavaScripty that looks a bit out-of-place in a JS/TS codebase.\n\nSo, I\u0027d prefer:\n* to declare properties in the class before the constructor and set them explicitly in the constructor.\n* and even better, to use an object as a parameter to be able to give names to the individual parameters so that the order of the parameters doesn\u0027t matter. (Especially I like this when there are multiple same looking parameters in the same order: like `fn(string, string)`)\n\nWDYT?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12fcd812_2142c780",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "It seems like `String.prototype.substr` is getting deprecated(1), can we use `substring`? \n\n(1): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c25082_01d9dd18",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "Can we turn this to be an object parameter as well because of the boolean argument?\n\nIn the callsite, we\u0027re not able to understand what `walk(..., string, true)` means because the meaning of `true` is hidden. WDYT?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28cd7005_84365f6e",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "Can we add a test for the behavior we expect from the `iterate` method?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba1f407_42f01109",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "I wonder if we can implement this class in the tests so that we don\u0027t pollute the implementation here with a test related responsibility, WDYT?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d67354fd_f6fa22be",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "It seems like this might match more than texts if the other matches match to this `node`, right? If so, can we rename this method to reflect that (like `matchTrailing` to indicate its purpose)?\n\nor if it is not intended, can we update the logic:\n\n```\nconst matchers \u003d this.#matchers.splice(0);\nthis.#matchers \u003d [new TextMatcher()];\nthis.iterate...\nthis.#matchers \u003d matchers;\n```\n\nWDYT?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16f9967b_6da232bd",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "It seems like this is not used yet, so we can remove it :)",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3bd7a08_74f193e3",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "Haha this seems like a very nice heuristic for deciding on the space requirement, can we add tests in `PropertyParser_test` that validates the functionality of this function and adds some kind of documentation?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d06d276_1ca69dba",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "I think it would be better if `mergeWithSpacing` didn\u0027t alter the `this.#output` array but returned the merged nodes. (I wonder if there can be performance implications though)\n\nThis would be better to see that `this.#output` is changing.\n* `this.#output \u003d mergeWithSpacing(this.#output, match.render...)`\n\nWDYT?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28e2e357_e297368f",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "WDYT of removing `Legacy` prefix from here and keeping it as `RegexMatcher` in case for some cases it might really be a good idea to regex match :)",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d7b238_d6ca59fe",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "Can we write a test case for this specific matcher as well regarding this logic?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db02d6cc_6ba99bb6",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "Can we add tests for the functionality of this specific function and how the `null` cases would be reached?",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fedd080b_47cf1242",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "Can we add a comment on what we\u0027re doing here, regarding the logic for trailing nodes?\n\nWe can also try to replace the magic numbers 1, 2 with a named number and that might explain why we\u0027re doing this.",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e68632_14b0ed59",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "I think it might be tedious to write but I think it would be a great idea to write an explanation comment on how the whole thing works; it feels a bit complex for directly understanding from the code, WDYT?\n\nAFAIU we\u0027re doing something like:\n* Getting the AST for the property value.\n* Finding matches with a bottom up tree matching.\n* Then, going from left to right to render those matches.\n* Then, handling the spacing.\n\nIt\u0027d be cool to have this description and their description as a prelude of the module. Something like: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_diff.cc;l\u003d21?q\u003dmyers (It\u0027s not super 1-1 but it does a great job of explaining the logic there 😊)",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a748515a_07e2e07f",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 2401,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "Did this `// FIXME` get resolved in the follow up CLs? I think we can explain and add a TODO :)",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2c551ad_75145a6e",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 2402,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T10:58:46Z",
+      "side": 1,
+      "message": "API idea, WDYT of encapsulating the logic for adding matchers and calling `parsePropertyValue` for these matchers in a class?\n\nThat way the logic feels more in one place and we can test the whole logic.\n\nAaaand, the name `parsePropertyValue` feels a bit not on point now: why parsing a property value results in concrete nodes? :)",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
