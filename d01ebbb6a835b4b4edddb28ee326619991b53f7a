@@ -22,6 +22,76 @@
       },
       "revId": "d01ebbb6a835b4b4edddb28ee326619991b53f7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ebbd0b_0de69db3",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-27T16:13:58Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "7f35d62e_8fbc0962",
+      "range": {
+        "startLine": 549,
+        "startChar": 10,
+        "endLine": 549,
+        "endChar": 36
+      },
+      "revId": "d01ebbb6a835b4b4edddb28ee326619991b53f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9941a274_3a7a8f4b",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2036,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-27T16:13:58Z",
+      "side": 0,
+      "message": "IIUC we don\u0027t need this because for new network events we always go to `buildSyntheticNetworkRequestDetails` instead, right?",
+      "range": {
+        "startLine": 2036,
+        "startChar": 23,
+        "endLine": 2036,
+        "endChar": 46
+      },
+      "revId": "d01ebbb6a835b4b4edddb28ee326619991b53f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c196ab20_4c6bbdf9",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2648,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-27T16:13:58Z",
+      "side": 0,
+      "message": "here shouldn\u0027t we add an append an element using the data from the new engine?",
+      "range": {
+        "startLine": 2648,
+        "startChar": 26,
+        "endLine": 2648,
+        "endChar": 42
+      },
+      "revId": "d01ebbb6a835b4b4edddb28ee326619991b53f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
