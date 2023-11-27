@@ -76,10 +76,6 @@ const UIStrings = {
    */
   unattributed: '[unattributed]',
   /**
-   *@description Text in Timeline Tree View of the Performance panel
-   */
-  javascript: 'JavaScript',
-  /**
    *@description Text that refers to one or a group of webpages
    */
   page: 'Page',
@@ -202,10 +198,6 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
   }
 
   static eventNameForSorting(event: TraceEngine.Legacy.Event): string {
-    if (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(event)) {
-      const data = event.args['data'];
-      return data['functionName'] + '@' + (data['scriptId'] || data['url'] || '');
-    }
     return event.name + ':@' + TimelineModel.TimelineProfileTree.eventURL(event);
   }
 
@@ -856,14 +848,10 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
         if (!node.event) {
           throw new Error('Unable to find event for group by operation');
         }
-        const name = (TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(node.event)) ?
-            i18nString(UIStrings.javascript) :
-            TimelineUIUtils.eventTitle(node.event);
+        const name = TimelineUIUtils.eventTitle(node.event);
         return {
           name: name,
-          color: TimelineModel.TimelineModel.TimelineModelImpl.isJsFrameEvent(node.event) ?
-              TimelineUIUtils.eventStyle(node.event).category.color :
-              color,
+          color,
           icon: undefined,
         };
       }
