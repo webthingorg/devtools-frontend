@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eaadba7_e7611dc4",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-27T15:39:36Z",
+      "side": 1,
+      "message": "could we make sure we remove this commented out line in a future CL please? Thanks!",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 59
+      },
+      "revId": "27c21f55cd8f8c86c14e79fe50caeb58dcae366e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
