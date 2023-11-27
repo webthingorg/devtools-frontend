@@ -16,6 +16,23 @@
       "message": "Ergün, could you please take a look?\nI know it\u0027s hacky, will gladly try something else here, if you have better suggestions:)",
       "revId": "9fbe633d23de2d259da63d8f807969f2e92661cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bb0550c_27a344ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T13:36:45Z",
+      "side": 1,
+      "message": "I have tried but sadly couldn\u0027t find a CSS only solution 😅",
+      "revId": "9fbe633d23de2d259da63d8f807969f2e92661cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
