@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3101f20_bc8b92e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "I think I don\u0027t have any more style, test, comment comments; tomorrow I\u0027ll take a look from the edge cases perspective and try to break it :)\n\nIf everything is working correctly, I think we can take this in tomorrow! 🥳",
+      "revId": "3d1c529a00f016675b52ad2962984c6f47c1afbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3df017a_09016ecc",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "It seems like you\u0027ve decided to split the two functions and I think that\u0027s fine :)\n\nAs a different suggestion though, we can still keep them in the same function and instead of passing a boolean parameter we can pass a `IterationMode.INCLUDE_SUCCESSORS` kind of enum.",
+      "revId": "3d1c529a00f016675b52ad2962984c6f47c1afbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594c300c_56e363cf",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "haha it feels like separating these functions is a nuclear option for removing the lonely boolean usage.\n\nWDYT of using an enum like `INCLUDE_SUCCESSORS` vs or bringing the boolean back and adding a comment on the call sites like `.iterate(x, /* walkSuccessors /* true)`?",
+      "revId": "3d1c529a00f016675b52ad2962984c6f47c1afbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

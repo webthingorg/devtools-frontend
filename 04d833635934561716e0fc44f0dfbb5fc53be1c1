@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a42813_b37c2a86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "This is acked as well",
+      "parentUuid": "a286049e_5ad9df42",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d28a1ae6_8a65ea55",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "I left the parameter property in TextMatch untouched. That class is trivial, and I feel the syntax is appropriate in that case. WDYT?",
       "parentUuid": "d28a1ae6_8a65ea55",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f091b6_417d721b",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "SGTM! :)",
+      "parentUuid": "20b4712b_80e0a27b",
       "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -158,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f280e72_5f36e41c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "Makes sense",
+      "parentUuid": "17beec99_4b6249e1",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ba1f407_42f01109",
@@ -224,6 +278,24 @@
       "side": 1,
       "message": "No this is only supposed to match text (used to match trailing text, i.e., comments, after the declaration). I was using splice because I liked the constness, but don\u0027t have a strong opinion on that.",
       "parentUuid": "d67354fd_f6fa22be",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acbf1e7b_2d13c67a",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "Ah, to be fair, this is very much my mistake. Somehow I\u0027ve mistaken `splice` and `slice`, sorry 😅",
+      "parentUuid": "fadebc54_ec1aad31",
       "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -364,6 +436,24 @@
       "side": 1,
       "message": "We\u0027ll most likely remove this matcher once all the regex matchers are migrated, won\u0027t we? All in all, I\u0027d like to encourage writing explicit matchers for future features for consistency.",
       "parentUuid": "28e2e357_e297368f",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c0f2f9_adc4c2b6",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1241f7fa_395b6351",
       "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -574,6 +664,24 @@
       "side": 1,
       "message": "Can we punt this until later, when all of StylesSidebarPropertyRenderer is migrated? I fear making this change now doesn\u0027t fit super well with the current call hierarchy.",
       "parentUuid": "c2c551ad_75145a6e",
+      "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0840f99_f3d3e5f9",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 2402,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-27T16:03:31Z",
+      "side": 1,
+      "message": "SG! :)",
+      "parentUuid": "33bb006c_4e32fe3a",
       "revId": "04d833635934561716e0fc44f0dfbb5fc53be1c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
