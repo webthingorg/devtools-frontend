@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fc1e871_e73bc9e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-27T14:58:27Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "7a0f3ffd9d6c52d0cdd060457881160803aa3b47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23550eb8_ee13a1b0",
+        "filename": "front_end/panels/network/RequestInitiatorView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-27T14:58:27Z",
+      "side": 1,
+      "message": "- I did not see an existing visual element for an (unspecific) tree, so I created one.\n- The tree elements themselves already have annotations, but debugging mode does not display a context hierarchy for them (see screenshot). Is this WAI?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 106
+      },
+      "revId": "7a0f3ffd9d6c52d0cdd060457881160803aa3b47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
