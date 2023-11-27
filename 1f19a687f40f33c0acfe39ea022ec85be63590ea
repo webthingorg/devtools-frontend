@@ -22,6 +22,30 @@
       },
       "revId": "1f19a687f40f33c0acfe39ea022ec85be63590ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d5cae10_a5324cae",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-11-27T14:49:45Z",
+      "side": 1,
+      "message": "I see the point, let\u0027s try to optimize this as much as possible since we might potentially have many rerenders. Changed it to array.",
+      "parentUuid": "5c06e710_f35f13b9",
+      "range": {
+        "startLine": 77,
+        "startChar": 27,
+        "endLine": 77,
+        "endChar": 30
+      },
+      "revId": "1f19a687f40f33c0acfe39ea022ec85be63590ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
