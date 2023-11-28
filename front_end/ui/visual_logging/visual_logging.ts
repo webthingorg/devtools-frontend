@@ -2,8 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as DomState from './DomState.js';
 import type * as LoggableModule from './Loggable.js';
 import * as LoggingConfig from './LoggingConfig.js';
+import * as LoggingEvents from './LoggingEvents.js';
 import * as LoggingState from './LoggingState.js';
 
 export type Loggable = LoggableModule.Loggable;
@@ -13,6 +15,13 @@ export {registerContextProvider, registerParentProvider} from './LoggingState.js
 
 export function registerLoggable(loggable: Loggable, config: string, parent: Loggable|null): void {
   LoggingState.getOrCreateLoggingState(loggable, LoggingConfig.parseJsLog(config), parent || undefined);
+  if (parent instanceof Element && DomState.isVisible(parent)) {
+    void LoggingEvents.logImpressions([loggable]);
+  }
+}
+
+export function unregisterLoggable(loggable: Loggable): void {
+  LoggingState.deleteLoggingState(loggable);
 }
 
 export const accessibilityComputedProperties =
