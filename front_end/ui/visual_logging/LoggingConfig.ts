@@ -96,6 +96,7 @@ enum VisualElements {
   ResponsivePresets = 73,
   DeviceModeRuler = 74,
   MediaInspectorView = 75,
+  CallStackFrame = 76,
 }
 
 export type VisualElementName = keyof typeof VisualElements;
