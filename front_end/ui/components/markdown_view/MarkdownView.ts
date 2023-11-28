@@ -5,7 +5,7 @@
 import * as Host from '../../../core/host/host.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import type * as Marked from '../../../third_party/marked/marked.js';
-import * as Buttons from '../../../ui/components/buttons/buttons.js';
+import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as ComponentHelpers from '../../components/helpers/helpers.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
 
@@ -17,7 +17,11 @@ const UIStrings = {
   /**
    * @description The title of the button to copy the codeblock from a Markdown view.
    */
-  copy: 'Copy',
+  copy: 'Copy code',
+  /**
+   * @description The title of the button after it was pressed and the text was copied to clipboard.
+   */
+  copied: 'Copied to clipboard',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/components/markdown_view/MarkdownView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -131,23 +135,44 @@ export class MarkdownLitRenderer {
   }
 
   renderCodeBlock(token: Marked.Marked.Tokens.Code): LitHtml.TemplateResult {
+    let timer: ReturnType<typeof setTimeout>;
+    // clang-format off
     return html`<div class="codeblock">
       <div class="toolbar">
         <div class="lang">${token.lang}</div>
         <div class="copy">
-          <${Buttons.Button.Button.litTagName}
-            .title=${i18nString(UIStrings.copy)}
-            .size=${Buttons.Button.Size.SMALL}
-            .iconName=${'copy'}
-            .variant=${Buttons.Button.Variant.TOOLBAR}
-            @click=${(): void => {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(token.text);
-    }}
-          ></${Buttons.Button.Button.litTagName}>
+          <button class="copy-button"
+            title=${i18nString(UIStrings.copy)}
+            @click=${(event: Event): void => {
+              Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(token.text);
+              const copyButton = (event.target as HTMLElement)?.closest('.copy-button');
+              const span = copyButton?.querySelector('span');
+              if (span) {
+                span.innerText = i18nString(UIStrings.copied);
+                copyButton?.classList.add('copied');
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                  span.innerText = i18nString(UIStrings.copy);
+                  copyButton?.classList.remove('copied');
+                }, 1000);
+              }
+            }}>
+            <${IconButton.Icon.Icon.litTagName}
+              .data=${{
+                iconName: 'copy',
+                width: '16px',
+                height: '16px',
+                color: 'var(--copy-icon-color, var(--icon-default))',
+              } as IconButton.Icon.IconData}
+            >
+            </${IconButton.Icon.Icon.litTagName}>
+            <span>${i18nString(UIStrings.copy)}</span>
+          </button>
         </div>
       </div>
       <code>${this.unescape(token.text)}</code>
     </div>`;
+    // clang-format one
   }
 
   templateForToken(token: Marked.Marked.Token): LitHtml.TemplateResult|null {

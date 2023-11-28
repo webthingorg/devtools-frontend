@@ -80,6 +80,27 @@
 
 .codeblock .copy {
   padding: 4px 0;
+  align-items: center;
+  display: flex;
+}
+
+.codeblock .copy-button {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  line-height: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.codeblock .copy-button.copied {
+  color: var(--sys-color-primary);
+
+  --copy-icon-color: var(--sys-color-primary);
 }
 
 .devtools-link {
