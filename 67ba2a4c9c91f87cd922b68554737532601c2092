@@ -46,6 +46,30 @@
       },
       "revId": "67ba2a4c9c91f87cd922b68554737532601c2092",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c8504e_4fcb7e42",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-28T07:02:26Z",
+      "side": 1,
+      "message": "Updated to retrieve everything as discussed.",
+      "parentUuid": "b3957292_7422d0db",
+      "range": {
+        "startLine": 1509,
+        "startChar": 0,
+        "endLine": 1509,
+        "endChar": 64
+      },
+      "revId": "67ba2a4c9c91f87cd922b68554737532601c2092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
