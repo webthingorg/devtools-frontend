@@ -61,9 +61,11 @@ export class StylePropertyHighlighter {
   /**
    * Find the first non-overridden property that matches the provided name, scroll to it and highlight it.
    */
-  findAndHighlightPropertyName(propertyName: string, sectionName?: string, blockName?: string): boolean {
+  findAndHighlightPropertyName(
+      propertyName: string, inheritanceContext?: StylePropertiesSection, sectionName?: string,
+      blockName?: string): boolean {
     const block = blockName ? this.styleSidebarPane.getSectionBlockByName(blockName) : undefined;
-    const sections = block?.sections ?? this.styleSidebarPane.allSections();
+    const sections = block?.sections ?? this.styleSidebarPane.allSections(inheritanceContext);
     if (!sections) {
       return false;
     }
@@ -76,8 +78,8 @@ export class StylePropertyHighlighter {
       }
       block?.expand(true);
       section.showAllItems();
-      const treeElement = this.findTreeElementFromSection(
-          treeElement => treeElement.property.name === propertyName && !treeElement.overloaded(), section);
+      const treeElement =
+          this.findTreeElementFromSection(treeElement => treeElement.property.name === propertyName, section);
       if (treeElement) {
         this.scrollAndHighlightTreeElement(treeElement);
         section.element.focus();

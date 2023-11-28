@@ -7,6 +7,7 @@ import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import type * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithRealConnection} from '../../helpers/RealConnection.js';
+import {createBlockAndSection, createSection, setupStylesPane} from '../../helpers/StyleHelpers.js';
 
 const {assert} = chai;
 
@@ -120,6 +121,27 @@ describeWithRealConnection('StylesSidebarPane', async () => {
     assert.strictEqual(sectionBlocks[1].titleElement()?.textContent, '@font-palette-values --palette');
     assert.strictEqual(sectionBlocks[1].sections.length, 1);
     assert.instanceOf(sectionBlocks[1].sections[0], Elements.StylePropertiesSection.FontPaletteValuesRuleSection);
+  });
+
+  it('returns the correct sections for an inheritance context', async () => {
+    const {stylesSidebarPane, matchedStyles} = await setupStylesPane();
+
+    const blocks = [1, 2, 3].map(n => {
+      const block = createBlockAndSection(stylesSidebarPane, matchedStyles, `section${n}`, 'prop1');
+      block.sections.push(createSection(stylesSidebarPane, matchedStyles, `section${n}`, 'prop2'));
+      return block;
+    });
+
+    const sectionSubset = (startingBlock: number) => blocks.slice(startingBlock).map(b => b.sections).flat();
+
+    stylesSidebarPane.setSectionBlocksForTest(blocks);
+    assert.deepStrictEqual(stylesSidebarPane.allSections(), sectionSubset(0));
+    assert.deepStrictEqual(stylesSidebarPane.allSections(blocks[0].sections[0]), sectionSubset(0));
+    assert.deepStrictEqual(stylesSidebarPane.allSections(blocks[0].sections[1]), sectionSubset(0));
+    assert.deepStrictEqual(stylesSidebarPane.allSections(blocks[1].sections[0]), sectionSubset(1));
+    assert.deepStrictEqual(stylesSidebarPane.allSections(blocks[1].sections[1]), sectionSubset(1));
+    assert.deepStrictEqual(stylesSidebarPane.allSections(blocks[2].sections[0]), sectionSubset(2));
+    assert.deepStrictEqual(stylesSidebarPane.allSections(blocks[2].sections[1]), sectionSubset(2));
   });
 });
 
