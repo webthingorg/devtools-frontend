@@ -159,6 +159,30 @@
       },
       "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f00b00d2_c3646dbe",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-28T07:59:14Z",
+      "side": 1,
+      "message": "crrev.com/c/5054643 has this implemented with the new engine",
+      "parentUuid": "ccd41582_ab332a4c",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
