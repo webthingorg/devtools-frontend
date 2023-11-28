@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad8ce291_5c69f86c",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2036,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-28T08:00:54Z",
+      "side": 0,
+      "message": "Correct, yes. I don\u0027t think there is any way for a user to select or view just a part of a network request.",
+      "parentUuid": "9941a274_3a7a8f4b",
+      "range": {
+        "startLine": 2036,
+        "startChar": 23,
+        "endLine": 2036,
+        "endChar": 46
+      },
+      "revId": "d01ebbb6a835b4b4edddb28ee326619991b53f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c196ab20_4c6bbdf9",
         "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2023-11-27T16:13:58Z",
       "side": 0,
       "message": "here shouldn\u0027t we add an append an element using the data from the new engine?",
+      "range": {
+        "startLine": 2648,
+        "startChar": 26,
+        "endLine": 2648,
+        "endChar": 42
+      },
+      "revId": "d01ebbb6a835b4b4edddb28ee326619991b53f7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b58ce95_65105ef9",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2648,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-28T08:00:54Z",
+      "side": 0,
+      "message": "I removed this because we do not set initiators for synthetic network events; we would need to use CDP to get that information. So the `const initiator` line would always return `null`, and therefore this block is never executed.",
+      "parentUuid": "c196ab20_4c6bbdf9",
       "range": {
         "startLine": 2648,
         "startChar": 26,
