@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6beb6264_57588b10",
+        "filename": "test/e2e/coverage/coverage-with-source-map_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-28T01:21:18Z",
+      "side": 0,
+      "message": "(Note)Few things I\u0027ve tried: \n- Simulate a click on the first row would cause the file to be revealed in Source panel, making the test take even longer and more unreliable.   \n- Cannot select the expand arrow directly to click on, since it\u0027s a pseudo element.",
+      "revId": "0bf7012464f47b26b41349cc6f6aed750c21e54e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
