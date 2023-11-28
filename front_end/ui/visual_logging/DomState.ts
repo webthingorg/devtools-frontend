@@ -43,7 +43,11 @@ export function getDomState(documents: Document[]): {loggables: ElementWithParen
 
 const MIN_ELEMENT_SIZE_FOR_IMPRESSIONS = 10;
 
-export function isVisible(element: Element, viewportRect: DOMRect): boolean {
+export function isVisible(element: Element, viewportRect?: DOMRect): boolean {
+  if (!viewportRect) {
+    const view = element.ownerDocument.defaultView;
+    viewportRect = new DOMRect(0, 0, view?.innerWidth || 0, view?.innerHeight || 0);
+  }
   const elementRect = element.getBoundingClientRect();
   const overlap = intersection(viewportRect, elementRect);
 

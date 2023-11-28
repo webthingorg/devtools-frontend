@@ -31,6 +31,27 @@ describe('LoggingEvents', () => {
         recordImpression.firstCall.firstArg.impressions, [{id: 2, type: 1, context: 42, parent: 1}, {id: 1, type: 1}]);
   });
 
+  it('logs non-element children impression', async () => {
+    const recordImpression = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordImpression',
+    );
+    const nonElementChild1 = {};
+    const nonElementGrandchild = {};
+    const nonElementChild2 = {};
+    VisualLogging.LoggingState.getOrCreateLoggingState(nonElementChild1, {ve: 1, context: '1'}, element);
+    VisualLogging.LoggingState.getOrCreateLoggingState(nonElementChild2, {ve: 1, context: '2'}, element);
+    VisualLogging.LoggingState.getOrCreateLoggingState(nonElementGrandchild, {ve: 1, context: '11'}, nonElementChild1);
+    await VisualLogging.LoggingEvents.logImpressions([element]);
+    assert.isTrue(recordImpression.calledOnce);
+    assert.sameDeepMembers(recordImpression.firstCall.firstArg.impressions, [
+      {id: 2, type: 1, parent: 1, context: 42},
+      {id: 3, type: 1, parent: 2, context: 1},
+      {id: 4, type: 1, parent: 2, context: 2},
+      {id: 5, type: 1, parent: 3, context: 11},
+    ]);
+  });
+
   it('calls UI binding to log a click', async () => {
     const recordClick = sinon.stub(
         Host.InspectorFrontendHost.InspectorFrontendHostInstance,
