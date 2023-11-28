@@ -62,7 +62,7 @@ describe('LoggingDriver', () => {
   it('does not log impressions when hidden', async () => {
     addLoggableElements();
     sinon.stub(document, 'hidden').value(true);
-    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.startLogging({processingThrottler: throttler});
     assert.isFalse(recordImpression.called);
   });
 
@@ -70,7 +70,7 @@ describe('LoggingDriver', () => {
     let hidden = true;
     addLoggableElements();
     sinon.stub(document, 'hidden').get(() => hidden);
-    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.startLogging({processingThrottler: throttler});
 
     hidden = false;
     const event = document.createEvent('Event');
@@ -84,7 +84,7 @@ describe('LoggingDriver', () => {
     addLoggableElements();
     const parent = document.getElementById('parent') as HTMLElement;
     parent.style.marginTop = '2000px';
-    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.startLogging({processingThrottler: throttler});
 
     let scrollendPromise = new Promise(resolve => window.addEventListener('scrollend', resolve, {once: true}));
     window.scrollTo({
@@ -105,7 +105,7 @@ describe('LoggingDriver', () => {
   });
 
   it('logs impressions on mutation', async () => {
-    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.startLogging({processingThrottler: throttler});
     addLoggableElements();
     await assertImpressionRecordedDeferred();
   });
@@ -117,7 +117,7 @@ describe('LoggingDriver', () => {
     const shadowContent = document.createElement('div');
     shadow.appendChild(shadowContent);
 
-    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.startLogging({processingThrottler: throttler});
     shadowContent.innerHTML = '<div jslog="TreeItem" style="width:300px;height:300px"></div>';
     await assertImpressionRecordedDeferred();
   });
@@ -126,7 +126,7 @@ describe('LoggingDriver', () => {
     const iframe = document.createElement('iframe') as HTMLIFrameElement;
     renderElementIntoDOM(iframe);
 
-    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.startLogging({processingThrottler: throttler});
     const iframeDocument = iframe.contentDocument;
     assertNotNullOrUndefined(iframeDocument);
     await VisualLoggingTesting.LoggingDriver.addDocument(iframeDocument);
@@ -147,7 +147,7 @@ describe('LoggingDriver', () => {
         `<div style="width:150px;height:150px"></div>
          <div jslog="TreeItem" style="width:150px;height:150px"></div>`;
 
-    await VisualLoggingTesting.LoggingDriver.startLogging({domProcessingThrottler: throttler});
+    await VisualLoggingTesting.LoggingDriver.startLogging({processingThrottler: throttler});
     await VisualLoggingTesting.LoggingDriver.addDocument(iframeDocument);
     assert.isFalse(recordImpression.called);
   });
