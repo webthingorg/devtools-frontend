@@ -1245,17 +1245,23 @@ export class NavigatorFolderTreeElement extends UI.TreeOutline.TreeElement {
     this.isFromSourceMap = false;
 
     let iconType = 'folder';
+    this.jslogContext = 'folder';
 
     if (type === Types.Domain) {
       iconType = 'cloud';
+      this.jslogContext = 'domain';
     } else if (type === Types.Frame) {
       iconType = 'frame';
+      this.jslogContext = 'frame';
     } else if (type === Types.Worker) {
       iconType = 'gears';
+      this.jslogContext = 'worker';
     } else if (type === Types.Authored) {
       iconType = 'code';
+      this.jslogContext = 'authored';
     } else if (type === Types.Deployed) {
       iconType = 'deployed';
+      this.jslogContext = 'deployed';
     }
 
     const icon = new IconButton.Icon.Icon();
@@ -1359,6 +1365,7 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
     Common.EventTarget.fireEvent('source-tree-file-added', uiSourceCode.fullDisplayName());
     this.navigatorView = navigatorView;
     this.uiSourceCodeInternal = uiSourceCode;
+    this.jslogContext = uiSourceCode.contentType().name();
     this.updateIcon();
   }
 

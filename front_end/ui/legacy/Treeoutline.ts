@@ -1400,6 +1400,11 @@ export class TreeElement {
   setDisableSelectFocus(toggle: boolean): void {
     this.disableSelectFocus = toggle;
   }
+
+  set jslogContext(context: string|number) {
+    this.listItemNode.setAttribute(
+        'jslog', `${VisualLogging.treeItem().track({click: true}).parent('parentTreeItem').context(context)}`);
+  }
 }
 
 function disclosureTriangleLoggingContextProvider(e: VisualLogging.Loggable|Event): Promise<number|undefined> {
