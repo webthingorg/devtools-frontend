@@ -276,7 +276,8 @@ export class ConsoleInsight extends HTMLElement {
     this.focus();
     this.#popover = new UI.PopoverHelper.PopoverHelper(this, event => {
       const hoveredNode = event.composedPath()[0] as Element;
-      if (!hoveredNode || !hoveredNode.parentElementOrShadowHost()?.matches('.info')) {
+      if (!hoveredNode ||
+          (!hoveredNode?.matches('.info') && !hoveredNode.parentElementOrShadowHost()?.matches('.info'))) {
         return null;
       }
 
@@ -314,6 +315,10 @@ export class ConsoleInsight extends HTMLElement {
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [styles];
     this.classList.add('opening');
+  }
+
+  disonnectedCallback(): void {
+    this.#popover.dispose();
   }
 
   set dogfood(value: boolean) {
@@ -430,6 +435,26 @@ export class ConsoleInsight extends HTMLElement {
     void this.update(true);
   }
 
+  #onInfoKeyDown(event: Event): void {
+    if (event instanceof KeyboardEvent) {
+      switch (event.key) {
+        case 'Escape':
+          this.#popover.hidePopover();
+          break;
+        case 'Enter':
+        case ' ':
+          event.target?.dispatchEvent(new MouseEvent('mousedown', {
+            bubbles: true,
+            composed: true,
+            cancelable: true,
+            clientX: (event.target as HTMLElement).getBoundingClientRect().x,
+            clientY: (event.target as HTMLElement).getBoundingClientRect().y,
+          }));
+          break;
+      }
+    }
+  }
+
   #renderMain(): LitHtml.TemplateResult {
     // clang-format off
     switch (this.#state.type) {
@@ -474,6 +499,7 @@ export class ConsoleInsight extends HTMLElement {
             <${IconButton.Icon.Icon.litTagName}
               class="info"
               tabindex="0"
+              @keydown=${this.#onInfoKeyDown}
               .data=${
                 {
                   iconName: 'info',
