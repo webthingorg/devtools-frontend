@@ -39,11 +39,40 @@ export function getOrCreateLoggingState(loggable: Loggable, config: LoggingConfi
     parent: parent ? getLoggingState(parent) : null,
   };
   state.set(loggable, loggableState);
+  if (parent && !(loggable instanceof Element)) {
+    const childrenSet = nonElementChildren.get(parent) || new Set<Loggable>();
+    childrenSet.add(loggable);
+    nonElementChildren.set(parent, childrenSet);
+  }
   return loggableState;
+}
+
+export function deleteLoggingState(loggable: Loggable): void {
+  for (const child of getNonElementChildren(loggable)) {
+    deleteLoggingState(child);
+  }
+  state.delete(loggable);
+  nonElementChildren.delete(loggable);
 }
 
 export function getLoggingState(loggable: Loggable): LoggingState|null {
   return state.get(loggable) || null;
+}
+
+const nonElementChildren = new WeakMap<Loggable, Set<Loggable>>();
+
+export function getNonElementChildren(loggable: Loggable): Loggable[] {
+  const children = nonElementChildren.get(loggable);
+  if (!children) {
+    return [];
+  }
+  // Intentionally filtering the data in the map as a kind of lazy GC
+  for (const child of children) {
+    if (!state.has(child)) {
+      children.delete(child);
+    }
+  }
+  return [...children.values()];
 }
 
 export type ContextProvider = (e: Loggable|Event) => Promise<number|undefined>;
