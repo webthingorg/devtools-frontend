@@ -105,11 +105,16 @@ async function processDom(): Promise<void> {
   const startTime = performance.now();
   const {loggables, shadowRoots} = getDomState(documents);
   const visibleElements: Element[] = [];
-  const viewportRect = new DOMRect(0, 0, document.documentElement.clientWidth, document.documentElement.clientHeight);
+  const viewportRects = new Map<Document, DOMRect>();
   observeMutations(shadowRoots);
   for (const {element, parent} of loggables) {
     const loggingState = getOrCreateLoggingState(element, getLoggingConfig(element), parent);
     if (!loggingState.impressionLogged) {
+      const ownerDocument = element.ownerDocument;
+      const viewportRect = viewportRects.get(ownerDocument) ||
+          new DOMRect(0, 0, ownerDocument.defaultView?.innerWidth || 0, ownerDocument.defaultView?.innerHeight || 0);
+      console.error(viewportRect.width, viewportRect.height, ownerDocument.documentElement.innerHTML);
+      viewportRects.set(ownerDocument, viewportRect);
       if (isVisible(element, viewportRect)) {
         visibleElements.push(element);
         loggingState.impressionLogged = true;
