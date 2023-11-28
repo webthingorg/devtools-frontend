@@ -16,6 +16,40 @@
       "message": "Small update to the Coverage test, PTAL, thank you!",
       "revId": "f8bb73f62420f9551b84b03c882161466fd9933d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e3577b6_848739b4",
+        "filename": "test/e2e/coverage/coverage-with-source-map_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-28T05:39:37Z",
+      "side": 1,
+      "message": "Nit: The `describe` function doesn\u0027t need to be `async`.",
+      "revId": "f8bb73f62420f9551b84b03c882161466fd9933d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e9c28a_5d8b8504",
+        "filename": "test/e2e/coverage/coverage-with-source-map_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-11-28T05:39:37Z",
+      "side": 1,
+      "message": "I\u0027m not very much in favor of sprinkling `timeout`s. Experience tells us that they will just eventually start to flake on slower bots as we add more tests (e.g. the Mac bots are usually the first victims here). \n\nCan we just wait for the children to appear instead?",
+      "revId": "f8bb73f62420f9551b84b03c882161466fd9933d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
