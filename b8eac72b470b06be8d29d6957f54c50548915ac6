@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "137a2377_1dcfa1de",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-28T10:01:02Z",
+      "side": 1,
+      "message": "I\u0027m not really happy with this. Any suggestions?",
+      "range": {
+        "startLine": 1404,
+        "startChar": 0,
+        "endLine": 1407,
+        "endChar": 3
+      },
+      "revId": "b8eac72b470b06be8d29d6957f54c50548915ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
