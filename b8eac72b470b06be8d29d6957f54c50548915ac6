@@ -22,6 +22,30 @@
       },
       "revId": "b8eac72b470b06be8d29d6957f54c50548915ac6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68401732_06aeeacf",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-28T11:09:24Z",
+      "side": 1,
+      "message": "Yeah, VEs and hence `jslog` attribute aren\u0027t really meant to be mutable. \n\nI\u0027d make the `jslogContext` a constructor argument, and have a function like `jslogContextForFolderType(type)`",
+      "parentUuid": "137a2377_1dcfa1de",
+      "range": {
+        "startLine": 1404,
+        "startChar": 0,
+        "endLine": 1407,
+        "endChar": 3
+      },
+      "revId": "b8eac72b470b06be8d29d6957f54c50548915ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
