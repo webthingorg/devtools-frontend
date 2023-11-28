@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d496fb4c_b1bd2b33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2023-11-28T02:44:42Z",
+      "side": 1,
+      "message": "Thanks for bringing it to the M120.",
+      "revId": "31956f6ad31835a732e297d53a4b51491d4e8c0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
