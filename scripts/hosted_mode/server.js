@@ -122,6 +122,9 @@ async function requestHandler(request, response) {
     data = await readFile(absoluteFilePath, encoding);
     if (absoluteFilePath.endsWith('.rawresponse')) {
       ({statusCode, data, headers} = parseRawResponse(data));
+      if (headers.get('Content-Type') === 'text/event-stream') {
+        data = data.replace(/\\n/g, '\n');
+      }
     }
     sendResponse(statusCode || 200, data, encoding, headers);
   } catch (err) {
