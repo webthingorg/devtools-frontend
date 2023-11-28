@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff91678b_59f690d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-28T06:14:34Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "9a1d3bc8d73ba38ff45bf9aaef17c95b7777de89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e5a311a_16c5d015",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-28T06:14:34Z",
+      "side": 1,
+      "message": "Missing second `0` arg?",
+      "range": {
+        "startLine": 115,
+        "startChar": 22,
+        "endLine": 115,
+        "endChar": 25
+      },
+      "revId": "9a1d3bc8d73ba38ff45bf9aaef17c95b7777de89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
