@@ -36,27 +36,34 @@ import * as SDK from '../../core/sdk/sdk.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import {type ExperimentsSettingsTab} from '../settings/SettingsScreen.js';
 
 import heapProfilerStyles from './heapProfiler.css.js';
-import profilesPanelStyles from './profilesPanel.css.js';
-import profilesSidebarTreeStyles from './profilesSidebarTree.css.js';
-
 import {
-  ProfileEvents as ProfileTypeEvents,
   type DataDisplayDelegate,
+  ProfileEvents as ProfileTypeEvents,
   type ProfileHeader,
   type ProfileType,
 } from './ProfileHeader.js';
 import {Events as ProfileLauncherEvents, ProfileLauncherView} from './ProfileLauncherView.js';
 import {ProfileSidebarTreeElement, setSharedFileSelectorElement} from './ProfileSidebarTreeElement.js';
+import profilesPanelStyles from './profilesPanel.css.js';
+import profilesSidebarTreeStyles from './profilesSidebarTree.css.js';
 import {instance} from './ProfileTypeRegistry.js';
-import {type ExperimentsSettingsTab} from '../settings/SettingsScreen.js';
 
 const UIStrings = {
   /**
    *@description Tooltip text that appears when hovering over the largeicon clear button in the Profiles Panel of a profiler tool
    */
   clearAllProfiles: 'Clear all profiles',
+  /**
+   *@description Tooltip text that appears when hovering over the largeicon load button in the Profiles Panel of a profiler tool
+   */
+  loadProfile: 'Load profile…',
+  /**
+   *@description Tooltip text that appears when hovering over the largeicon download button in the Profiles Panel of a profiler tool
+   */
+  saveProfile: 'Save profile…',
   /**
    *@description Text in Profiles Panel of a profiler tool
    *@example {'.js', '.json'} PH1
@@ -117,6 +124,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
   toggleRecordAction: UI.ActionRegistration.Action;
   readonly toggleRecordButton: UI.Toolbar.ToolbarButton;
   clearResultsButton: UI.Toolbar.ToolbarButton;
+  readonly #saveButton: UI.Toolbar.ToolbarButton;
   readonly profileViewToolbar: UI.Toolbar.Toolbar;
   profileGroups: {};
   launcherView: ProfileLauncherView;
@@ -169,6 +177,14 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
     this.clearResultsButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.clearAllProfiles), 'clear');
     this.clearResultsButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.reset, this);
     toolbar.appendToolbarItem(this.clearResultsButton);
+    toolbar.appendSeparator();
+    const loadButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.loadProfile), 'import');
+    loadButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.showLoadFromFileDialog.bind(this));
+    toolbar.appendToolbarItem(loadButton);
+    this.#saveButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.saveProfile), 'download');
+    this.#saveButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.showSaveToFileDialog.bind(this));
+    this.#saveButton.setEnabled(false);
+    toolbar.appendToolbarItem(this.#saveButton);
     toolbar.appendSeparator();
     toolbar.appendToolbarItem(UI.Toolbar.Toolbar.createActionButtonForId('components.collect-garbage'));
 
@@ -334,7 +350,6 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
     this.profileViews.removeChildren();
     this.profileViewToolbar.removeToolbarItems();
 
-    this.clearResultsButton.element.classList.remove('hidden');
     this.profilesItemTreeElement.select();
     this.showLauncherView();
   }
@@ -345,6 +360,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
     this.launcherView.show(this.profileViews);
     this.visibleView = this.launcherView;
     this.toolbarElement.classList.add('hidden');
+    this.#saveButton.setEnabled(false);
   }
 
   registerProfileType(profileType: ProfileType): void {
@@ -392,6 +408,14 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
     this.fileSelectorElement.click();
   }
 
+  showSaveToFileDialog(): void {
+    const result = this.profileToView.find(({view}) => view === this.visibleView);
+    if (!result) {
+      return;
+    }
+    result.profile.saveToFile();
+  }
+
   addProfileHeader(profile: ProfileHeader): void {
     const profileType = profile.profileType();
     const typeId = profileType.id;
@@ -423,6 +447,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
   }
 
   showProfile(profile: ProfileHeader|null): UI.Widget.Widget|null {
+    this.#saveButton.setEnabled(profile !== null && profile.canSaveToFile());
     if (!profile ||
         (profile.profileType().profileBeingRecorded() === profile) && !profile.profileType().hasTemporaryView()) {
       return null;

@@ -7,17 +7,13 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {
-  Events as ProfileHeaderEvents,
   type DataDisplayDelegate,
+  Events as ProfileHeaderEvents,
   type ProfileHeader,
   type StatusUpdate,
 } from './ProfileHeader.js';
 
 const UIStrings = {
-  /**
-   *@description Text to save something
-   */
-  save: 'Save',
   /**
    *@description Text to save something (with ellipsis)
    */
@@ -30,10 +26,6 @@ const UIStrings = {
    *@description Text to delete something
    */
   delete: 'Delete',
-  /**
-   *@description Text for screen reader to announce when focusing on save element.
-   */
-  enterToSave: 'Save. Press enter to save file',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/profiler/ProfileSidebarTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -76,25 +68,13 @@ export class ProfileSidebarTreeElement extends UI.TreeOutline.TreeElement {
     this.dataDisplayDelegate = dataDisplayDelegate;
     this.profile = profile;
     profile.addEventListener(ProfileHeaderEvents.UpdateStatus, this.updateStatus, this);
-    if (profile.canSaveToFile()) {
-      this.createSaveLink();
-    } else {
-      profile.addEventListener(ProfileHeaderEvents.ProfileReceived, this.onProfileReceived, this);
-    }
-  }
-
-  createSaveLink(): void {
-    this.saveLinkElement = this.titleContainer.createChild('span', 'save-link');
-    this.saveLinkElement.role = 'link';
-    this.saveLinkElement.textContent = i18nString(UIStrings.save);
-    this.saveLinkElement.tabIndex = 0;
-    UI.ARIAUtils.setLabel(this.saveLinkElement, i18nString(UIStrings.enterToSave));
-    this.saveLinkElement.addEventListener('click', this.saveProfile.bind(this), false);
-    this.saveLinkElement.addEventListener('keydown', this.saveProfileKeyDown.bind(this), true);
+    profile.addEventListener(ProfileHeaderEvents.ProfileReceived, this.onProfileReceived, this);
   }
 
   onProfileReceived(): void {
-    this.createSaveLink();
+    if (this.selected) {
+      this.dataDisplayDelegate.showProfile(this.profile);
+    }
   }
 
   updateStatus(event: Common.EventTarget.EventTargetEvent<StatusUpdate>): void {
