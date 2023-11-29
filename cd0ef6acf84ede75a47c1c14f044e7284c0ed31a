@@ -51,6 +51,24 @@
       "parentUuid": "87b2095b_048b5d89",
       "revId": "cd0ef6acf84ede75a47c1c14f044e7284c0ed31a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c1d902_3de4215c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-29T15:45:05Z",
+      "side": 1,
+      "message": "Yes, I mean the UI provided by front_end/panels/console/ConsolePrompt.ts",
+      "parentUuid": "6b1b40cf_20dea4c6",
+      "revId": "cd0ef6acf84ede75a47c1c14f044e7284c0ed31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
