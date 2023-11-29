@@ -112,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90838143_36aef468",
+        "filename": "front_end/ui/visual_logging/NonDomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-29T09:51:39Z",
+      "side": 1,
+      "message": "Ah sorry, this should be fine. I confused it when using spread syntax for argument passing (e.g. `Array#push(...arr)`).",
+      "parentUuid": "c11fd473_2d3ddef3",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 33
+      },
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43193577_052f7d66",
