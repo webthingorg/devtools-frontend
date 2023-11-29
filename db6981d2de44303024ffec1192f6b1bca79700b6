@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4346d1d9_8343837f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-29T05:54:25Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "743528f8_1024ae69",
+        "filename": "front_end/ui/visual_logging/NonDomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-29T05:54:25Z",
+      "side": 1,
+      "message": "Is there a reason this is not a `Map` keyed on `Loggable` (e.g. multiple registrations for the same `Loggable`)? If yes we should leave a comment.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c33a496a_2de49fda",
+        "filename": "front_end/ui/visual_logging/NonDomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-29T05:54:25Z",
+      "side": 1,
+      "message": "If the size of `registry` can grow into the thousands we might wanna use `registry.slice()` here otherwise we could run into stack overflows.",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 33
+      },
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43193577_052f7d66",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-29T05:54:25Z",
+      "side": 1,
+      "message": "left-over?",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 67
+      },
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
