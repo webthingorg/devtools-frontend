@@ -1692,7 +1692,8 @@ export class TimelineUIUtils {
       case recordType.FunctionCall:
       case recordType.JSIdleFrame:
       case recordType.JSSystemFrame:
-      case recordType.JSFrame: {
+      case recordType.JSFrame:
+      case recordType.PostMessageHandler: {
         details = document.createElement('span');
         UI.UIUtils.createTextChild(details, TimelineUIUtils.frameDisplayName(eventData));
         const location = this.linkifyLocation({
