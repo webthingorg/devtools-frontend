@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22eb3866_0a104e05",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-29T09:46:17Z",
+      "side": 1,
+      "message": "What are possible values? Are they all known to us? Do they depend on the user input?",
+      "range": {
+        "startLine": 220,
+        "startChar": 19,
+        "endLine": 220,
+        "endChar": 23
+      },
+      "revId": "5be266fefe79bc06399c4a961254508956dffd0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
