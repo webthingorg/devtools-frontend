@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1bd0e6e_e5afef50",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-29T06:11:25Z",
+      "side": 1,
+      "message": "Was it enforced before? I know that we have components in both styles.",
+      "parentUuid": "2307351d_c77c31ad",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "3f10f935320b31e71714ba5346ac252e0cc3d4e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c58c518_6e0aeaa0",
         "filename": "test/unittests/front_end/ui/components/CodeBlock_test.ts",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-29T05:28:31Z",
       "side": 1,
       "message": "nit: 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "3f10f935320b31e71714ba5346ac252e0cc3d4e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "444944cd_458dfd08",
+        "filename": "test/unittests/front_end/ui/components/CodeBlock_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-29T06:11:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c58c518_6e0aeaa0",
       "range": {
         "startLine": 1,
         "startChar": 13,
