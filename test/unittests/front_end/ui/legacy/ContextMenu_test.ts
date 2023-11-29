@@ -117,6 +117,7 @@ describeWithEnvironment('ContextMenu', () => {
     assert.exists(throttler.process);
     await throttler.process?.();
     assert.isTrue(recordImpression.calledOnce);
+    console.error(JSON.stringify(recordImpression.firstCall.firstArg.impressions));
     assert.sameDeepMembers(
         stabilizeImpressions(recordImpression.firstCall.firstArg.impressions),
         [{id: 0, type: 67}, {id: 1, type: 29, parent: 0, context: 42}, {id: 2, type: 29, parent: 0, context: 44}]);

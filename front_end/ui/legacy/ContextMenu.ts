@@ -601,6 +601,7 @@ export class ContextMenu extends SubMenu {
   }
 
   private menuCleared(): void {
+    this.unregisterLoggable(this.openHostedMenu);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(
         Host.InspectorFrontendHostAPI.Events.ContextMenuCleared, this.menuCleared, this);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.removeEventListener(

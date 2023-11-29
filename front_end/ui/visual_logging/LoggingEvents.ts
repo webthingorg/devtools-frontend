@@ -7,12 +7,16 @@ import * as Host from '../../core/host/host.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 
 import {type Loggable} from './Loggable.js';
-import {getLoggingState} from './LoggingState.js';
+import {getLoggingState, getNonElementChildren} from './LoggingState.js';
 
 export async function logImpressions(loggables: Loggable[]): Promise<void> {
+  for (let i = 0; i < loggables.length; ++i) {
+    loggables.push(...getNonElementChildren(loggables[i]));
+  }
   const impressions = await Promise.all(loggables.map(async loggable => {
     const loggingState = getLoggingState(loggable);
     assertNotNullOrUndefined(loggingState);
+    loggingState.impressionLogged = true;
     const impression:
         Host.InspectorFrontendHostAPI.VisualElementImpression = {id: loggingState.veid, type: loggingState.config.ve};
     if (loggingState.parent) {
