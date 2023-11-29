@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7cc1807_ba3d6e4a",
+        "filename": "front_end/ui/visual_logging/NonDomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-29T09:41:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "743528f8_1024ae69",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c33a496a_2de49fda",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c11fd473_2d3ddef3",
+        "filename": "front_end/ui/visual_logging/NonDomState.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-29T09:41:18Z",
+      "side": 1,
+      "message": "Interesting, where can I learn more about the difference?",
+      "parentUuid": "c33a496a_2de49fda",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 33
+      },
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "43193577_052f7d66",
         "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
         "patchSetId": 3
@@ -77,6 +125,30 @@
       "writtenOn": "2023-11-29T05:54:25Z",
       "side": 1,
       "message": "left-over?",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 67
+      },
+      "revId": "db6981d2de44303024ffec1192f6b1bca79700b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe6897f_fd7824c4",
+        "filename": "test/unittests/front_end/ui/legacy/ContextMenu_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-29T09:41:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43193577_052f7d66",
       "range": {
         "startLine": 120,
         "startChar": 0,
