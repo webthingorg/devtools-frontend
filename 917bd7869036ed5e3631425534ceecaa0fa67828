@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0007d0_7aaf705b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-29T14:02:54Z",
+      "side": 1,
+      "message": "it seems per https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_linux_rel/b8763096525080036017/overview decorations for dropped frames aren\u0027t drawn now?",
+      "revId": "917bd7869036ed5e3631425534ceecaa0fa67828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8366e2fe_8a05edde",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-29T14:02:54Z",
+      "side": 1,
+      "message": "should we define an appender for this track? (if so, we can do so as follow ups)",
+      "range": {
+        "startLine": 846,
+        "startChar": 31,
+        "endLine": 846,
+        "endChar": 58
+      },
+      "revId": "917bd7869036ed5e3631425534ceecaa0fa67828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

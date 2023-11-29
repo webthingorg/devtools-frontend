@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d888c2c7_a447db02",
+        "filename": "front_end/models/timeline_model/TracingLayerTree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-29T14:02:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9db12b50_bc0bad61",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 36
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ae8768e_7ae54284",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-29T10:26:13Z",
       "side": 1,
       "message": "I had a bad implementation of calculating entryId - once I went back and looked again, it turns out for these events they have a hexadecimal id field which JS can parse as a number.",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 100
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f09553ca_daed120a",
+        "filename": "front_end/models/trace/handlers/FramesHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-29T14:02:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0ae8768e_7ae54284",
       "range": {
         "startLine": 318,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "479ea57f_fa7d89c6",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-29T14:02:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5cc8ed77_bdd35cdb",
+      "range": {
+        "startLine": 1662,
+        "startChar": 0,
+        "endLine": 1663,
+        "endChar": 15
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efb77ad2_0db766fd",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-11-29T10:26:13Z",
       "side": 1,
       "message": "in a follow-up I can rename this method",
+      "range": {
+        "startLine": 847,
+        "startChar": 0,
+        "endLine": 847,
+        "endChar": 40
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0bdec85_81ddb431",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-11-29T14:02:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "efb77ad2_0db766fd",
       "range": {
         "startLine": 847,
         "startChar": 0,
