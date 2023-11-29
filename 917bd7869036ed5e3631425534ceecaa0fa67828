@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fbdc0a9_985e4d15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T14:12:34Z",
+      "side": 1,
+      "message": "Thanks for the review! RE the dropped frame styling: I have confirmed locally it works, it is because I changed the trace file that the test uses and it so happens to not have a dropped frame that is not partially presented (partially presented are drawn with the yellow striping).",
+      "revId": "917bd7869036ed5e3631425534ceecaa0fa67828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8366e2fe_8a05edde",
