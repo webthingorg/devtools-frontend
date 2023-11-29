@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91377af1_858197c8",
+        "filename": "front_end/legacy_test_runner/performance_test_runner/TimelineTestRunner.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T10:26:13Z",
+      "side": 0,
+      "message": "this may cause layout test failures which is another reason I wanted to get this CL up and discover them 😄",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 55
+      },
+      "revId": "e8ed0c2d74645dc2e021ce6e7f7bccbae392c668",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61dc482d_e738a91e",
+        "filename": "front_end/models/trace/handlers/FramesHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T10:26:13Z",
+      "side": 0,
+      "message": "drive-by improvement: we can use the Meta bounds here, rather than calculate this again in this model",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 86
+      },
+      "revId": "e8ed0c2d74645dc2e021ce6e7f7bccbae392c668",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

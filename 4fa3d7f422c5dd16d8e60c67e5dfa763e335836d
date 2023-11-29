@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f0a0bba_18cfc80d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T10:26:13Z",
+      "side": 1,
+      "message": "PTAL.",
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9db12b50_bc0bad61",
+        "filename": "front_end/models/timeline_model/TracingLayerTree.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T10:26:13Z",
+      "side": 1,
+      "message": "this is not a new class - before it lived in TimelineFrameModel but I moved it here",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 36
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ae8768e_7ae54284",
+        "filename": "front_end/models/trace/handlers/FramesHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T10:26:13Z",
+      "side": 1,
+      "message": "I had a bad implementation of calculating entryId - once I went back and looked again, it turns out for these events they have a hexadecimal id field which JS can parse as a number.",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 100
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc8ed77_bdd35cdb",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T10:26:13Z",
+      "side": 1,
+      "message": "I incorrectly defined this type in a previous CL",
+      "range": {
+        "startLine": 1662,
+        "startChar": 0,
+        "endLine": 1663,
+        "endChar": 15
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efb77ad2_0db766fd",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T10:26:13Z",
+      "side": 1,
+      "message": "in a follow-up I can rename this method",
+      "range": {
+        "startLine": 847,
+        "startChar": 0,
+        "endLine": 847,
+        "endChar": 40
+      },
+      "revId": "4fa3d7f422c5dd16d8e60c67e5dfa763e335836d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
