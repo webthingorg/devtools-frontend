@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "2e9a79b3d1b960898b2215e204804bf2360e19c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c25b8984_037dde4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-11-29T13:50:42Z",
+      "side": 1,
+      "message": "LGTM, but did you run this by Peter? I can see that this is a disruption to some workflows, and I\u0027m curious whether it\u0027s intuitive enough that the new `Save` button applies to the selected snapshot only?",
+      "revId": "2e9a79b3d1b960898b2215e204804bf2360e19c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
