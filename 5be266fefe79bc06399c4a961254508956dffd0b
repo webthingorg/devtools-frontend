@@ -22,6 +22,30 @@
       },
       "revId": "5be266fefe79bc06399c4a961254508956dffd0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f8184de_6e173790",
+        "filename": "front_end/panels/browser_debugger/CategorizedBreakpointsSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-29T11:40:10Z",
+      "side": 1,
+      "message": "Yes. All of these are known at DevTools compile time. The categories are here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/CategorizedBreakpoint.ts;l\u003d5;drc\u003d596d27cd87873ad4f4808a37500bf4381f0d5fbe\n\nThe breakpoint names themselves are also known but spread out across some files. E.g.\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/DOMDebuggerModel.ts;l\u003d550;drc\u003ddfbcacb485076a830318b8626b7e4f0f2ca8b261\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/sdk/EventBreakpointsModel.ts;l\u003d13;drc\u003d596d27cd87873ad4f4808a37500bf4381f0d5fbe",
+      "parentUuid": "22eb3866_0a104e05",
+      "range": {
+        "startLine": 220,
+        "startChar": 19,
+        "endLine": 220,
+        "endChar": 23
+      },
+      "revId": "5be266fefe79bc06399c4a961254508956dffd0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
