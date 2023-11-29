@@ -116,6 +116,30 @@
       },
       "revId": "e8ed0c2d74645dc2e021ce6e7f7bccbae392c668",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af2d544d_bbe52b86",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineUIUtils_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T14:08:30Z",
+      "side": 0,
+      "message": "web-dev.json.gz is an odd trace regarding frames; I think it was recorded before all the relevant trace events had a frameSeqId number added to them which is what we use now when parsing out frames. I chatted with Paul and he was happy to not try to support old traces.\n\nThe frames shown when using this trace weren\u0027t really accurate or representative, because it was missing data that traces now have, so I have swapped it to a newer trace which does have the frameSeqId on all the right events.",
+      "parentUuid": "e4cf2d18_fe94b5e7",
+      "range": {
+        "startLine": 624,
+        "startChar": 53,
+        "endLine": 624,
+        "endChar": 67
+      },
+      "revId": "e8ed0c2d74645dc2e021ce6e7f7bccbae392c668",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

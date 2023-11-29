@@ -39,6 +39,30 @@
       },
       "revId": "917bd7869036ed5e3631425534ceecaa0fa67828",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f581ddeb_0dcf7a53",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-29T14:08:30Z",
+      "side": 1,
+      "message": "Ah yes sorry that was something else I forgot to mention - I think we should define it as an appender, but also yes I think it should be in a follow-up. I also think we should think about moving the screenshots into the appender, but that needs a bit of thought about how we allow appenders to add additional stuff beyond entries to the flamechart.",
+      "parentUuid": "8366e2fe_8a05edde",
+      "range": {
+        "startLine": 846,
+        "startChar": 31,
+        "endLine": 846,
+        "endChar": 58
+      },
+      "revId": "917bd7869036ed5e3631425534ceecaa0fa67828",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
