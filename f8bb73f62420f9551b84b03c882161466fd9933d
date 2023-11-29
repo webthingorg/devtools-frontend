@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cef27ff7_8a811fb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-29T01:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a07a543_51882191",
+      "revId": "f8bb73f62420f9551b84b03c882161466fd9933d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f9561c5a_617319ff",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1a0fc97_2b5b53d2",
+        "filename": "test/e2e/coverage/coverage-with-source-map_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-29T01:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e3577b6_848739b4",
+      "revId": "f8bb73f62420f9551b84b03c882161466fd9933d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6e9c28a_5d8b8504",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-11-28T05:39:37Z",
       "side": 1,
       "message": "I\u0027m not very much in favor of sprinkling `timeout`s. Experience tells us that they will just eventually start to flake on slower bots as we add more tests (e.g. the Mac bots are usually the first victims here). \n\nCan we just wait for the children to appear instead?",
+      "revId": "f8bb73f62420f9551b84b03c882161466fd9933d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b317648_3db20403",
+        "filename": "test/e2e/coverage/coverage-with-source-map_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2023-11-29T01:16:15Z",
+      "side": 1,
+      "message": "Got it. Added steps to wait for elements",
+      "parentUuid": "c6e9c28a_5d8b8504",
       "revId": "f8bb73f62420f9551b84b03c882161466fd9933d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
