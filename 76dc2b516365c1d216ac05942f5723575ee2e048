@@ -183,6 +183,30 @@
       },
       "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "297e2a7f_ddbd60d9",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-11-29T17:56:34Z",
+      "side": 1,
+      "message": "Awesome,thanks!",
+      "parentUuid": "f00b00d2_c3646dbe",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "76dc2b516365c1d216ac05942f5723575ee2e048",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
