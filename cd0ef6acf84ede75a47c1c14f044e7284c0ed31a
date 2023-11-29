@@ -69,6 +69,24 @@
       "parentUuid": "6b1b40cf_20dea4c6",
       "revId": "cd0ef6acf84ede75a47c1c14f044e7284c0ed31a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32fdff66_b30ee8fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-11-29T16:57:16Z",
+      "side": 1,
+      "message": "It seems that the actual text field and the \"Enter\" key are handled from CodeMirror\u0027s DOM elements. I dont think we\u0027re instrumenting third-party code, are we? Otherwise, should I try the imperative API for visual logging (which was suggested to be used rarely)?",
+      "parentUuid": "a9c1d902_3de4215c",
+      "revId": "cd0ef6acf84ede75a47c1c14f044e7284c0ed31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
