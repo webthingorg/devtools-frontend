@@ -16,6 +16,24 @@
       "message": "Is this truly fixed?",
       "revId": "682317c0939f19e91372208d350fcfae6289deac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "835fb1b8_0600af55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-29T13:45:34Z",
+      "side": 1,
+      "message": "yep, except for the case `var(--a, var(--b, red))` when `--a` is not resolved to a variable, we don\u0027t show a color swatch (because of the regex based stuff in `resolveVariable` kind of method in CSSMatchedStyles)",
+      "parentUuid": "731680c2_5301359b",
+      "revId": "682317c0939f19e91372208d350fcfae6289deac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
