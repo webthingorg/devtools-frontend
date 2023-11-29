@@ -15,6 +15,10 @@ export function registerLoggable(loggable: Loggable, config: string, parent: Log
   LoggingState.getOrCreateLoggingState(loggable, LoggingConfig.parseJsLog(config), parent || undefined);
 }
 
+export function unregisterLoggable(loggable: Loggable): void {
+  LoggingState.deleteLoggingState(loggable);
+}
+
 export const accessibilityComputedProperties =
     LoggingConfig.makeConfigStringBuilder.bind(null, 'AccessibilityComputedProperties');
 export const accessibilityPane = LoggingConfig.makeConfigStringBuilder.bind(null, 'AccessibilityPane');

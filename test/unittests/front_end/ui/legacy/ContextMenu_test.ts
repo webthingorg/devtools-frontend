@@ -111,9 +111,10 @@ describeWithEnvironment('ContextMenu', () => {
     await contextMenu.show();
     await new Promise(resolve => setTimeout(resolve, 0));
     assert.isTrue(recordImpression.calledOnce);
+    console.error(JSON.stringify(recordImpression.firstCall.firstArg.impressions));
     assert.sameDeepMembers(
         stabilizeImpressions(recordImpression.firstCall.firstArg.impressions),
-        [{id: 0, type: 29, parent: -1, context: 42}, {id: 1, type: 29, parent: -1, context: 44}]);
+        [{id: 0, type: 67}, {id: 1, type: 29, parent: 0, context: 42}, {id: 2, type: 29, parent: 1, context: 44}]);
 
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
         Host.InspectorFrontendHostAPI.Events.ContextMenuItemSelected, 1);

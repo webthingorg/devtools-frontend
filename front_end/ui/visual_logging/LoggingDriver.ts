@@ -116,7 +116,6 @@ async function processDom(): Promise<void> {
       viewportRects.set(ownerDocument, viewportRect);
       if (isVisible(element, viewportRect)) {
         visibleElements.push(element);
-        loggingState.impressionLogged = true;
       }
     }
     if (!loggingState.processed) {
