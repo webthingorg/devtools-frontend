@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dad7cee_fa88bbc0",
+        "filename": "front_end/panels/recorder/recorder-actions/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-11-29T07:58:13Z",
+      "side": 1,
+      "message": "Convention would be to call this `bundle`.",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "6cb9cf54ae08e9a6eb9cdccb03bb0586d3687a63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
