@@ -102,6 +102,7 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     this.focusable = true;
     this.setFocusable(true);
     this.element = this.contentElement;
+    this.element.setAttribute('jslog', `${VisualLogging.tree()}`);
     ARIAUtils.markAsTree(this.element);
     this.useLightSelectionColor = false;
     this.treeElementToScrollIntoView = null;
@@ -1421,7 +1422,7 @@ function disclosureTriangleLoggingContextProvider(e: VisualLogging.Loggable|Even
 
 function loggingParentProvider(e: Element): Element|undefined {
   const treeElement = TreeElement.getTreeElementBylistItemNode(e);
-  return treeElement?.parent?.listItemElement;
+  return treeElement?.parent?.listItemElement || treeElement?.treeOutline?.element;
 }
 
 VisualLogging.registerContextProvider('disclosureTriangle', disclosureTriangleLoggingContextProvider);
