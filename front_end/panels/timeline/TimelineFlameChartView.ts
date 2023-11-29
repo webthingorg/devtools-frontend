@@ -191,6 +191,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       this.mainFlameChart.setTotalAndMinimumBreadcrumbValues(minMilliseconds, maxMilliseconds);
       this.networkFlameChart.setTotalAndMinimumBreadcrumbValues(minMilliseconds, maxMilliseconds);
       this.mainFlameChart.update();
+    } else {
+      this.#currentBreadcrumbTimeWindow = undefined;
     }
 
     // If breadcrumbs are not activated, update window times at all times,

@@ -1177,6 +1177,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
             TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(left, right),
         );
       }
+      // this.#minimapComponent.addInitialBreadcrumb()
+      console.log("here");
     }
 
     this.updateOverviewControls();
