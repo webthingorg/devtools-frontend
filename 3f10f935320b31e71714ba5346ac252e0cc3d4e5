@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf6c6308_50de6ad8",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-11-29T06:42:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3e9d1bd3_32e43014",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "3f10f935320b31e71714ba5346ac252e0cc3d4e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c58c518_6e0aeaa0",
