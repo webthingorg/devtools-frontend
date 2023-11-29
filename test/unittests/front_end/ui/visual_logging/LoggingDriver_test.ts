@@ -46,6 +46,7 @@ describe('LoggingDriver', () => {
     addLoggableElements();
     await VisualLoggingTesting.LoggingDriver.startLogging();
     assert.isTrue(recordImpression.calledOnce);
+    console.error(stabilizeImpressions(recordImpression.firstCall.firstArg.impressions));
     assert.sameDeepMembers(
         stabilizeImpressions(recordImpression.firstCall.firstArg.impressions),
         [{id: 1, type: 1, context: 42, parent: 0}, {id: 0, type: 1}]);
