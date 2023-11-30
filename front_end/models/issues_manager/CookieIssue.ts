@@ -50,6 +50,13 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('models/issues_manager/CookieIssue.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
+// The enum string values need to match the IssueExpanded enum values in UserMetrics.ts.
+export const enum CookieIssueSubCategory {
+  GenericCookie = 'GenericCookie',
+  SameSiteCookie = 'SameSiteCookie',
+  ThirdPartyPhaseoutCookie = 'ThirdPartyPhaseoutCookie',
+}
+
 export class CookieIssue extends Issue {
   #issueDetails: Protocol.Audits.CookieIssueDetails;
 
@@ -202,6 +209,16 @@ export class CookieIssue extends Issue {
 
   getCategory(): IssueCategory {
     return IssueCategory.Cookie;
+  }
+
+  getSubCategory(code: string): CookieIssueSubCategory {
+    if (code.includes('SameSite') || code.includes('Downgrade')) {
+      return CookieIssueSubCategory.SameSiteCookie;
+    }
+    if (code.includes('ThirdPartyPhaseout')) {
+      return CookieIssueSubCategory.ThirdPartyPhaseoutCookie;
+    }
+    return CookieIssueSubCategory.GenericCookie;
   }
 
   getDescription(): MarkdownIssueDescription|null {

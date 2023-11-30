@@ -29,4 +29,22 @@ describeWithRealConnection('IssueView', () => {
         Host.UserMetrics.IssueExpanded.Other));
     view.clear();
   });
+
+  it('records metrics when a Cookie issue is expanded', () => {
+    const aggregationKey = 'key' as unknown as Issues.IssueAggregator.AggregationKey;
+    const issue = StubIssue.createCookieIssue('SameSite');
+    const aggregatedIssue = new Issues.IssueAggregator.AggregatedIssue('SameSite', aggregationKey);
+    aggregatedIssue.addInstance(issue);
+    const view = new Issues.IssueView.IssueView(aggregatedIssue, {title: 'Mock Cookie Issue', links: [], markdown: []});
+    const treeOutline =
+        new UI.TreeOutline.TreeOutline();  // TreeElements need to be part of a TreeOutline to be expandable.
+    treeOutline.appendChild(view);
+
+    view.expand();
+
+    assert.isTrue(recordedMetricsContain(
+        Host.InspectorFrontendHostAPI.EnumeratedHistogram.IssuesPanelIssueExpanded,
+        Host.UserMetrics.IssueExpanded.SameSiteCookie));
+    view.clear();
+  });
 });

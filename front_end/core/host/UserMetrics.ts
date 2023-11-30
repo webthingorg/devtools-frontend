@@ -1058,12 +1058,14 @@ export const enum BreakpointsRestoredFromStorageCount {
 export enum IssueExpanded {
   CrossOriginEmbedderPolicy = 0,
   MixedContent = 1,
-  Cookie = 2,
+  SameSiteCookie = 2,
   HeavyAd = 3,
   ContentSecurityPolicy = 4,
   Other = 5,
   Generic = 6,
-  MaxValue = 7,
+  ThirdPartyPhaseoutCookie = 7,
+  GenericCookie = 8,
+  MaxValue = 9,
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again

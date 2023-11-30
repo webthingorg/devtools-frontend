@@ -363,7 +363,16 @@ export class IssueView extends UI.TreeOutline.TreeElement {
   }
 
   override onexpand(): void {
-    Host.userMetrics.issuesPanelIssueExpanded(this.#issue.getCategory());
+    const category = this.#issue.getCategory();
+
+    // Handle sub type for cookie issues.
+    if (category === IssuesManager.Issue.IssueCategory.Cookie) {
+      const cookieIssue = this.#issue as unknown as IssuesManager.CookieIssue.CookieIssue;
+      const cookieIssueSubCatagory = cookieIssue.getSubCategory(cookieIssue.code());
+      Host.userMetrics.issuesPanelIssueExpanded(cookieIssueSubCatagory);
+    } else {
+      Host.userMetrics.issuesPanelIssueExpanded(category);
+    }
 
     if (this.#needsUpdateOnExpand) {
       this.#doUpdate();
