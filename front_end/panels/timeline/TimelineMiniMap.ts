@@ -101,6 +101,7 @@ export class TimelineMiniMap extends
   }
 
   addBreadcrumb({startTime, endTime}: PerfUI.TimelineOverviewPane.BreadcrumbAddedEvent): void {
+    console.log("adding crumb");
     const startWithoutMin = startTime - this.#minTime;
     const endWithoutMin = endTime - this.#minTime;
 
@@ -147,6 +148,7 @@ export class TimelineMiniMap extends
 
   reset(): void {
     this.#data = null;
+    // this.addInitialBreadcrumb()
     this.#overviewComponent.reset();
   }
 
@@ -220,6 +222,10 @@ export class TimelineMiniMap extends
   addInitialBreadcrumb(): void {
     // Create first breadcrumb from the initial full window
     this.breadcrumbs = null;
+    // this.addBreadcrumb({
+    //   startTime: TraceEngine.Types.Timing.MilliSeconds(0),
+    //   endTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.maximumBoundary() - this.#overviewComponent.overviewCalculator.minimumBoundary()),
+    // })
     this.addBreadcrumb(this.breadcrumbWindowBounds({
       startTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.minimumBoundary()),
       endTime: TraceEngine.Types.Timing.MilliSeconds(this.#overviewComponent.overviewCalculator.maximumBoundary()),
