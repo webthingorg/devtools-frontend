@@ -16,6 +16,23 @@
       "message": "I just submitted a patch that improves the way the web server handles newlines found in .rawresponse files. Newlines are significant to the EventSource API. PTAL",
       "revId": "0fb2a4ecf2183cb1c3cda038b9f8c6f3f71457b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d170492_3878a52f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-30T13:32:03Z",
+      "side": 1,
+      "message": "Thanks, this looks great!",
+      "revId": "0fb2a4ecf2183cb1c3cda038b9f8c6f3f71457b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
