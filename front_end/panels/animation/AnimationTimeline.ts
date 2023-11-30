@@ -160,7 +160,8 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     this.element.style.setProperty('--timeline-controls-width', `${this.#timelineControlsWidth}px`);
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.NodeRemoved, this.nodeRemoved, this, {scoped: true});
+        SDK.DOMModel.DOMModel, SDK.DOMModel.Events.NodeRemoved, ev => this.markNodeAsRemoved(ev.data.node), this,
+        {scoped: true});
     SDK.TargetManager.TargetManager.instance().observeModels(AnimationModel, this, {scoped: true});
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.nodeChanged, this);
 
@@ -724,13 +725,19 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     this.#animationsMap.set(animation.id(), animation);
   }
 
-  private nodeRemoved(
-      event: Common.EventTarget.EventTargetEvent<{node: SDK.DOMModel.DOMNode, parent: SDK.DOMModel.DOMNode}>): void {
-    const {node} = event.data;
-    const nodeUI = nodeUIsByNode.get(node);
-    if (nodeUI) {
-      nodeUI.nodeRemoved();
+  private markNodeAsRemoved(node: SDK.DOMModel.DOMNode): void {
+    nodeUIsByNode.get(node)?.nodeRemoved();
+
+    // Mark nodeUIs of pseudo elements of the node as removed.
+    // For example, for view transitions.
+    for (const pseudoElements of node.pseudoElements().values()) {
+      pseudoElements.forEach(pseudoElement => this.markNodeAsRemoved(pseudoElement));
     }
+
+    // Mark nodeUIs of children as node removed.
+    node.children()?.forEach(child => {
+      this.markNodeAsRemoved(child);
+    });
   }
 
   private renderGrid(): void {
