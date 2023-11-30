@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5330a2_1a4fef2a",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-30T15:01:27Z",
+      "side": 1,
+      "message": "Maybe we can add a comment here that actually it should have been `MATCH 1px solid` and say it will be fixed in the future, WDYT?\n\nThis applies to other such tests as well such as \"var() with fallback\" case.",
+      "revId": "248737429bf04ec046ea7203a168072163ffe8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dedfb47f_45f86c2c",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-11-30T15:01:27Z",
+      "side": 1,
+      "message": "Should we remove backlashes for the comments?",
+      "revId": "248737429bf04ec046ea7203a168072163ffe8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
