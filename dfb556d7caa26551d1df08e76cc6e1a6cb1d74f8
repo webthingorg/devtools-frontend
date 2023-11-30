@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f8cc8a_313818eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-30T11:14:05Z",
+      "side": 1,
+      "message": "PTAL. A future CL will use this in the panel and remove the old implementation.",
+      "revId": "dfb556d7caa26551d1df08e76cc6e1a6cb1d74f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
