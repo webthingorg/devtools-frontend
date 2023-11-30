@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbcb2e66_03639562",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-11-30T14:10:26Z",
+      "side": 0,
+      "message": "I have never seen this logged, so I don\u0027t think we need to worry about this or adding this to the new engine.",
+      "range": {
+        "startLine": 607,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 3
+      },
+      "revId": "ed2ce2618e11a4c2f11cd986aba1a0bfa60342da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
