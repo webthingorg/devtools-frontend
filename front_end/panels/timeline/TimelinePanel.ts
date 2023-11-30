@@ -1171,11 +1171,16 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
             TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(left, right),
         );
       }
+      // this.#minimapComponent.addInitialBreadcrumb()
+      console.log("here");
     }
 
     this.updateOverviewControls();
     if (this.flameChart) {
       this.flameChart.resizeToPreferredHeights();
+      if (this.#minimapComponent.breadcrumbsActivated) {
+        this.#minimapComponent.addInitialBreadcrumb();
+      }
     }
     this.updateTimelineControls();
   }
@@ -1391,9 +1396,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         filmStripForPreview: TraceEngine.Extras.FilmStrip.fromTraceData(traceData),
         traceParsedData: traceData,
       });
-      if (this.#minimapComponent.breadcrumbsActivated) {
-        this.#minimapComponent.addInitialBreadcrumb();
-      }
+      console.log("adding initial");
+      // if (this.#minimapComponent.breadcrumbsActivated) {
+      //   this.#minimapComponent.addInitialBreadcrumb();
+      // }
     } catch (error) {
       // Try to get the raw events: if we errored during the parsing stage, it
       // is useful to get access to the raw events to download the trace. This
@@ -1411,6 +1417,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     } finally {
       this.recordTraceLoadMetric();
     }
+
+    console.log("loading complete");
   }
 
   recordTraceLoadMetric(): void {

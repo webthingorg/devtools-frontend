@@ -191,6 +191,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       this.mainFlameChart.setTotalAndMinimumBreadcrumbValues(minMilliseconds, maxMilliseconds);
       this.networkFlameChart.setTotalAndMinimumBreadcrumbValues(minMilliseconds, maxMilliseconds);
       this.mainFlameChart.update();
+    } else {
+      this.#currentBreadcrumbTimeWindow = undefined;
     }
 
     // If breadcrumbs are not activated, update window times at all times,
@@ -368,6 +370,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       // TODO(crbug.com/1459265):  Change to await after migration work.
       void this.detailsView.setSelection(selection);
     }
+    console.log("changed trace");
   }
 
   private onEntrySelected(
