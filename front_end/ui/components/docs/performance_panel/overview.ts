@@ -26,8 +26,6 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
     throw new Error('could not find container');
   }
   const models = await TraceLoader.TraceLoader.allModels(null, fileName);
-  const {left, right} = models.performanceModel.calculateWindowForMainThreadActivity();
-  models.performanceModel.setWindow({left, right});
 
   const minimap = new Timeline.TimelineMiniMap.TimelineMiniMap();
   minimap.activateBreadcrumbs();
