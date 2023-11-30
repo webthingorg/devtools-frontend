@@ -22,6 +22,30 @@
       },
       "revId": "6155d90019cd802333e38b31bca87cde10cbe091",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4fd5216_f5d22032",
+        "filename": "test/unittests/front_end/ui/visual_logging/LoggingDriver_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-30T07:24:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3218419_0f17603a",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 89
+      },
+      "revId": "6155d90019cd802333e38b31bca87cde10cbe091",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
