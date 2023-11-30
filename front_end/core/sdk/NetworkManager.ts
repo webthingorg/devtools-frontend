@@ -1569,6 +1569,7 @@ export namespace MultitargetNetworkManager {
   // eslint-disable-next-line rulesdir/const_enum
   export enum Events {
     BlockedPatternsChanged = 'BlockedPatternsChanged',
+    CacheDisabled = 'CacheDisabled',
     ConditionsChanged = 'ConditionsChanged',
     UserAgentChanged = 'UserAgentChanged',
     InterceptorsChanged = 'InterceptorsChanged',
