@@ -35,8 +35,8 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
   minimap.show(container);
 
   minimap.setBounds(
-      TraceEngine.Types.Timing.MilliSeconds(models.timelineModel.minimumRecordTime()),
-      TraceEngine.Types.Timing.MilliSeconds(models.timelineModel.maximumRecordTime()),
+      TraceEngine.Types.Timing.MilliSeconds(models.traceParsedData.Meta.traceBounds.min),
+      TraceEngine.Types.Timing.MilliSeconds(models.traceParsedData.Meta.traceBounds.max),
   );
 
   minimap.setData({
