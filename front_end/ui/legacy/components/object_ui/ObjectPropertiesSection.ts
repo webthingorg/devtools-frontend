@@ -444,6 +444,7 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       value: SDK.RemoteObject.RemoteObject, wasThrown: boolean, showPreview: boolean, parentElement?: Element,
       linkifier?: Components.Linkifier.Linkifier, isSyntheticProperty = false,
       variableName?: string): ObjectPropertyValue {
+    console.log(arguments);
     let propertyValue;
     const type = value.type;
     const subtype = value.subtype;
@@ -464,6 +465,8 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       propertyValue = new ObjectPropertyValue(ObjectPropertiesSection.valueElementForFunctionDescription(description));
     } else if (type === 'object' && subtype === 'node' && description) {
       propertyValue = new ObjectPropertyValue(createNodeElement());
+    } else if (type === 'number' && variableName === 'usage') {
+      propertyValue = new ObjectPropertyValue(createGPUBufferUsageElement());
     } else {
       const valueElement = document.createElement('span');
       valueElement.classList.add('object-value-' + (subtype || type));
@@ -546,6 +549,19 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       valueElement.addEventListener(
           'mousemove', () => SDK.OverlayModel.OverlayModel.highlightObjectAsDOMNode(value), false);
       valueElement.addEventListener('mouseleave', () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight(), false);
+      return valueElement;
+    }
+
+    function createGPUBufferUsageElement(): Element {
+      const valueElement = document.createElement('span');
+      const usageflags = [];
+      for (const [ k, v ] of Object.entries(GPUBufferUsage)) {
+        if (description && v) {
+          usageflags.push(k);
+        }
+      }
+      valueElement.textContent = description + usageflags.join(' | ');
+      UI.Tooltip.Tooltip.install(valueElement, description || '');
       return valueElement;
     }
   }
