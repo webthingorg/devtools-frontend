@@ -87,6 +87,24 @@
       "parentUuid": "a9c1d902_3de4215c",
       "revId": "cd0ef6acf84ede75a47c1c14f044e7284c0ed31a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d572892_92dd53d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-11-30T06:01:57Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter where it is handled. With VE we take a different approach: we know that pressing Enter in some area of a DOM is important for us, so we annotate this area (in this case `console-prompt-editor-container`). The framework would listen to events on the annotated element in the capturing phase and do the logging, independent of what CodeMirror does.",
+      "parentUuid": "32fdff66_b30ee8fb",
+      "revId": "cd0ef6acf84ede75a47c1c14f044e7284c0ed31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
