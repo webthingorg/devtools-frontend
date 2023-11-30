@@ -16,6 +16,29 @@
       "message": "PTAL!",
       "revId": "4b066387d0756f25411e1c9c6365fdba839ac04d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b1537a_9762a870",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-11-30T09:12:53Z",
+      "side": 1,
+      "message": "It would be great if you could add a test for this logic. IssueView_test.ts already has a test which you can use as a starting point. I suggest you add an optional `issueCategory` parameter to the constructor for `StubIssue` and add a mock for the issue\u0027s `getSubCategory()` method.",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 5
+      },
+      "revId": "4b066387d0756f25411e1c9c6365fdba839ac04d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
