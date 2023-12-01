@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "443a1502_23f19a14",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-01T09:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5330a2_1a4fef2a",
+      "revId": "248737429bf04ec046ea7203a168072163ffe8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dedfb47f_45f86c2c",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-30T15:01:27Z",
       "side": 1,
       "message": "Should we remove backlashes for the comments?",
+      "revId": "248737429bf04ec046ea7203a168072163ffe8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a63f3b_50a0a5e5",
+        "filename": "test/unittests/front_end/panels/elements/StylesSidebarPane_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-01T09:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dedfb47f_45f86c2c",
       "revId": "248737429bf04ec046ea7203a168072163ffe8b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
