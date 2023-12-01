@@ -148,8 +148,9 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
     const nodeContents = `NAME: ${name}`;
     renderer.setAnimationNameHandler(() => document.createTextNode(nodeContents));
 
-    const node = renderer.renderValue();
-    assert.deepEqual(node.textContent, nodeContents);
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
+    assert.deepEqual(node.textContent, nodeContents, trace.toString());
   });
 
   it('parses color-mix correctly', () => {
@@ -159,8 +160,9 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
 
     const nodeContents = 'nodeContents';
 
-    const node = renderer.renderValue();
-    assert.deepEqual(node.textContent, nodeContents);
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
+    assert.deepEqual(node.textContent, nodeContents, trace.toString());
   });
 
   it('does not call bezier handler when color() value contains srgb-linear color space in a variable definition',
@@ -172,10 +174,11 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
        renderer.setColorHandler(colorHandler);
        renderer.setBezierHandler(bezierHandler);
 
-       renderer.renderValue();
+       const trace = new Elements.PropertyParser.RendererTrace();
+       renderer.renderValue(trace);
 
-       assert.isTrue(colorHandler.called);
-       assert.isFalse(bezierHandler.called);
+       assert.isTrue(colorHandler.called, trace.toString());
+       assert.isFalse(bezierHandler.called, trace.toString());
      });
 
   it('runs animation handler for animation property', () => {
@@ -185,8 +188,9 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
 
     const nodeContents = 'nodeContents';
 
-    const node = renderer.renderValue();
-    assert.deepEqual(node.textContent, nodeContents);
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
+    assert.deepEqual(node.textContent, nodeContents, trace.toString());
   });
 
   it('runs positionFallbackHandler for position-fallback property', () => {
@@ -195,9 +199,10 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
         new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'position-fallback', '--compass');
     renderer.setPositionFallbackHandler(() => document.createTextNode(nodeContents));
 
-    const node = renderer.renderValue();
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
 
-    assert.deepEqual(node.textContent, nodeContents);
+    assert.deepEqual(node.textContent, nodeContents, trace.toString());
   });
 
   it('parses colors correctly', () => {
@@ -205,10 +210,11 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
         null, null, 'border', 'rgb(.5 .5 .5 .5) 1px solid');
     renderer.setColorHandler(() => document.createTextNode('MATCH'));
 
-    const node = renderer.renderValue();
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
 
     // The MATCH on `solid` is bogus but expected with the color matcher.
-    assert.deepEqual(node.textContent, 'MATCH 1px MATCH');
+    assert.deepEqual(node.textContent, 'MATCH 1px MATCH', trace.toString());
   });
 
   it('parses colors with comments correctly', () => {
@@ -216,9 +222,10 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
         null, null, 'background-color', 'rgb(/* R */155, /* G */51, /* B */255)');
     renderer.setColorHandler(() => document.createTextNode('MATCH'));
 
-    const node = renderer.renderValue();
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
 
-    assert.deepEqual(node.textContent, 'MATCH');
+    assert.deepEqual(node.textContent, 'MATCH', trace.toString());
   });
 
   it('parses lengths correctly', () => {
@@ -227,9 +234,10 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
         new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'width', 'calc(6em + 7em)');
     renderer.setLengthHandler(() => document.createTextNode('MATCH'));
 
-    const node = renderer.renderValue();
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
 
-    assert.deepEqual(node.textContent, 'calc(MATCH + MATCH)');
+    assert.deepEqual(node.textContent, 'calc(MATCH + MATCH)', trace.toString());
   });
 
   it('parses vars correctly', () => {
@@ -237,50 +245,56 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
         null, null, 'width', 'calc(var(--a, var(--b)) + var(--b))');
     renderer.setVarHandler(() => document.createTextNode('MATCH'));
 
-    const node = renderer.renderValue();
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
 
     // Regex fails to match the closing parenthesis correctly for fallbacks.
-    assert.deepEqual(node.textContent, 'calc(MATCH) + MATCH)');
+    assert.deepEqual(node.textContent, 'calc(MATCH) + MATCH)', trace.toString());
   });
 
   it('parses font-family correctly', () => {
     const renderer = new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(
         null, null, 'font-family', '"Gill Sans", sans-serif');
     renderer.setFontHandler(() => document.createTextNode('MATCH'));
-    const node = renderer.renderValue();
-    assert.deepEqual(node.textContent, 'MATCH');
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
+    assert.deepEqual(node.textContent, 'MATCH, MATCH', trace.toString());
   });
 
   it('parses font-* correctly', () => {
     for (const fontSize of ['-.23', 'smaller', '17px']) {
       const renderer = new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'font-size', fontSize);
       renderer.setFontHandler(() => document.createTextNode('MATCH'));
-      const node = renderer.renderValue();
-      assert.deepEqual(node.textContent, 'MATCH');
+      const trace = new Elements.PropertyParser.RendererTrace();
+      const node = renderer.renderValue(trace);
+      assert.deepEqual(node.textContent, 'MATCH', trace.toString());
     }
     const renderer =
         new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'font-size', 'calc(17px + 17px)');
     renderer.setFontHandler(() => document.createTextNode('MATCH'));
-    const node = renderer.renderValue();
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
 
     // The bogus match on `calc` is expected.
-    assert.deepEqual(node.textContent, 'MATCH(MATCH + MATCH)');
+    assert.deepEqual(node.textContent, 'MATCH(MATCH + MATCH)', trace.toString());
   });
 
   it('parses font-family correctly', () => {
     const renderer = new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(
         null, null, 'font-family', '"Gill Sans", sans-serif');
     renderer.setFontHandler(() => document.createTextNode('MATCH'));
-    const node = renderer.renderValue();
-    assert.deepEqual(node.textContent, 'MATCH');
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
+    assert.deepEqual(node.textContent, 'MATCH, MATCH', trace.toString());
   });
 
   it('parses angles correctly', () => {
     const renderer = new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(
         null, null, 'transform', 'rotate(calc(45deg + 3.141rad))');
     renderer.setAngleHandler(() => document.createTextNode('MATCH'));
-    const node = renderer.renderValue();
-    assert.deepEqual(node.textContent, 'rotate(calc(MATCH + MATCH))');
+    const trace = new Elements.PropertyParser.RendererTrace();
+    const node = renderer.renderValue(trace);
+    assert.deepEqual(node.textContent, 'rotate(calc(MATCH + MATCH))', trace.toString());
   });
 
   it('parses cubic bezier correctly', () => {
@@ -288,8 +302,9 @@ describeWithEnvironment('StylesSidebarPropertyRenderer', () => {
       const renderer = new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(
           null, null, 'transition', `display 1s ${bezier} 1s`);
       renderer.setBezierHandler(() => document.createTextNode('MATCH'));
-      const node = renderer.renderValue();
-      assert.deepEqual(node.textContent, 'display 1s MATCH 1s');
+      const trace = new Elements.PropertyParser.RendererTrace();
+      const node = renderer.renderValue(trace);
+      assert.deepEqual(node.textContent, 'display 1s MATCH 1s', trace.toString());
     }
   });
 });
