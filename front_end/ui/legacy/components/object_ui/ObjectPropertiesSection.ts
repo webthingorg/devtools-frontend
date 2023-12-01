@@ -464,6 +464,8 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       propertyValue = new ObjectPropertyValue(ObjectPropertiesSection.valueElementForFunctionDescription(description));
     } else if (type === 'object' && subtype === 'node' && description) {
       propertyValue = new ObjectPropertyValue(createNodeElement());
+    } else if (type === 'number' && variableName === 'usage') {
+      propertyValue = new ObjectPropertyValue(createGPUBufferUsageElement());
     } else {
       const valueElement = document.createElement('span');
       valueElement.classList.add('object-value-' + (subtype || type));
@@ -546,6 +548,29 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       valueElement.addEventListener(
           'mousemove', () => SDK.OverlayModel.OverlayModel.highlightObjectAsDOMNode(value), false);
       valueElement.addEventListener('mouseleave', () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight(), false);
+      return valueElement;
+    }
+
+    function createGPUBufferUsageElement(): Element {
+      const valueElement = document.createElement('span');
+      valueElement.classList.add('object-value-number');
+
+      const usageFlags = [];
+      for (const [ k, v ] of Object.entries(GPUBufferUsage)) {
+        if ((parseInt(description, 10) & v as number) !== 0) {
+          usageFlags.push(`GPUBufferUsage.${k}`);
+        }
+      }
+
+      const propertyValue = new ObjectPropertyValue(valueElement);
+      propertyValue.element.textContent = description;
+      if (usageFlags) {
+        const usageFlagsString = createStringElement();
+        usageFlagsString.element.textContent = '';
+        UI.UIUtils.createTextChild(usageFlagsString.element, ` ${usageFlags.join(' | ')}`);
+        valueElement.appendChild(usageFlagsString.element);
+      }
+      UI.Tooltip.Tooltip.install(valueElement, description || '');
       return valueElement;
     }
   }
