@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec31a2f7_eeda7660",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-01T10:41:18Z",
+      "side": 1,
+      "message": "I think we need to keep overloaded check, for this case; it jumps to the wrong element:\n```\n--color-r: 100;\n    --color-g: 255;\n    --fsize-unmultiplied: 3rem;\n    --a: var(--color-r);\n    --color-r: 500;\n```",
+      "revId": "19397f8bbefaebe949c427c2957d5417f5336699",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
