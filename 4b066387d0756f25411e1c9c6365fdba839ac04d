@@ -87,6 +87,30 @@
       },
       "revId": "4b066387d0756f25411e1c9c6365fdba839ac04d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ebf21e8_03071a2e",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-01T16:41:07Z",
+      "side": 1,
+      "message": "Ah I see. I made the `getSubCategory()` a static function of `CookieIssue`, which fix the test. PTAL!",
+      "parentUuid": "43398d27_21efb4bf",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 5
+      },
+      "revId": "4b066387d0756f25411e1c9c6365fdba839ac04d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
