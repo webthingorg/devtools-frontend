@@ -16,6 +16,23 @@
       "message": "Please have a first look at this CL.",
       "revId": "6b1f2f4e1c1729469f14dafd13402d4e78a982ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03983260_77d84e5b",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-01T13:52:46Z",
+      "side": 1,
+      "message": "Could we fish it out of the `parentMap` inside of `createProperty`?",
+      "revId": "6b1f2f4e1c1729469f14dafd13402d4e78a982ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
