@@ -393,14 +393,14 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
   static createPropertyValueWithCustomSupport(
       value: SDK.RemoteObject.RemoteObject, wasThrown: boolean, showPreview: boolean, parentElement?: Element,
       linkifier?: Components.Linkifier.Linkifier, isSyntheticProperty?: boolean,
-      variableName?: string): ObjectPropertyValue {
+      variableName?: string, parentObject?: SDK.RemoteObject.RemoteObject): ObjectPropertyValue {
     if (value.customPreview()) {
       const result = (new CustomPreviewComponent(value)).element;
       result.classList.add('object-properties-section-custom-section');
       return new ObjectPropertyValue(result);
     }
     return ObjectPropertiesSection.createPropertyValue(
-        value, wasThrown, showPreview, parentElement, linkifier, isSyntheticProperty, variableName);
+        value, wasThrown, showPreview, parentElement, linkifier, isSyntheticProperty, variableName, parentObject);
   }
 
   static appendMemoryIcon(element: Element, obj: SDK.RemoteObject.RemoteObject, expression?: string): void {
@@ -443,7 +443,7 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
   static createPropertyValue(
       value: SDK.RemoteObject.RemoteObject, wasThrown: boolean, showPreview: boolean, parentElement?: Element,
       linkifier?: Components.Linkifier.Linkifier, isSyntheticProperty = false,
-      variableName?: string): ObjectPropertyValue {
+      variableName?: string, parentObject?: SDK.RemoteObject.RemoteObject): ObjectPropertyValue {
     let propertyValue;
     const type = value.type;
     const subtype = value.subtype;
@@ -464,6 +464,8 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       propertyValue = new ObjectPropertyValue(ObjectPropertiesSection.valueElementForFunctionDescription(description));
     } else if (type === 'object' && subtype === 'node' && description) {
       propertyValue = new ObjectPropertyValue(createNodeElement());
+    } else if (parentObject?.description === 'GPUBuffer' && type === 'number' && variableName === 'usage') {
+      propertyValue = new ObjectPropertyValue(createGPUBufferUsageElement());
     } else {
       const valueElement = document.createElement('span');
       valueElement.classList.add('object-value-' + (subtype || type));
@@ -546,6 +548,29 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       valueElement.addEventListener(
           'mousemove', () => SDK.OverlayModel.OverlayModel.highlightObjectAsDOMNode(value), false);
       valueElement.addEventListener('mouseleave', () => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight(), false);
+      return valueElement;
+    }
+
+    function createGPUBufferUsageElement(): Element {
+      const valueElement = document.createElement('span');
+      valueElement.classList.add('object-value-number');
+
+      const usageFlags = [];
+      for (const [ k, v ] of Object.entries(GPUBufferUsage)) {
+        if ((parseInt(description, 10) & v as number) !== 0) {
+          usageFlags.push(`GPUBufferUsage.${k}`);
+        }
+      }
+
+      const propertyValue = new ObjectPropertyValue(valueElement);
+      propertyValue.element.textContent = description;
+      if (usageFlags) {
+        const usageFlagsString = createStringElement();
+        usageFlagsString.element.textContent = '';
+        UI.UIUtils.createTextChild(usageFlagsString.element, ` ${usageFlags.join(' | ')}`);
+        valueElement.appendChild(usageFlagsString.element);
+      }
+      UI.Tooltip.Tooltip.install(valueElement, description || '');
       return valueElement;
     }
   }
@@ -1107,10 +1132,11 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.valueElement = document.createElement('span');
       this.valueElement.classList.add('value');
     } else if (this.property.value) {
+      const parentObject = (parentMap.get(this.property) as SDK.RemoteObject.RemoteObject);
       const showPreview = this.property.name !== '[[Prototype]]';
       this.propertyValue = ObjectPropertiesSection.createPropertyValueWithCustomSupport(
           this.property.value, this.property.wasThrown, showPreview, this.listItemElement, this.linkifier,
-          this.property.synthetic, this.path() /* variableName */);
+          this.property.synthetic, this.path() /* variableName */, parentObject);
       this.valueElement = (this.propertyValue.element as HTMLElement);
     } else if (this.property.getter) {
       this.valueElement = document.createElement('span');
