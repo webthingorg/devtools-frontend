@@ -33,6 +33,24 @@
       "message": "Could we fish it out of the `parentMap` inside of `createProperty`?",
       "revId": "6b1f2f4e1c1729469f14dafd13402d4e78a982ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a5e64aa_b6531539",
+        "filename": "front_end/ui/legacy/components/object_ui/ObjectPropertiesSection.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2023-12-01T14:52:22Z",
+      "side": 1,
+      "message": "`this.property` is not accessible in `static createPropertyValue()`. Here\u0027s the error raised by TS:\n```\nProperty \u0027property\u0027 does not exist on type \u0027typeof ObjectPropertiesSection\u0027.ts(2339)\n```",
+      "parentUuid": "03983260_77d84e5b",
+      "revId": "6b1f2f4e1c1729469f14dafd13402d4e78a982ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
