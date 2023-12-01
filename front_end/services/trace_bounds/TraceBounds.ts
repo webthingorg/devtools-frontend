@@ -2,26 +2,26 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as TraceEngine from '../../models/trace/trace.js';
+import * as TraceEngine from '../../models/trace/trace.js';
 
 let instance: BoundsManager|null = null;
 
-export class TimelineVisibleWindowChanged extends Event {
-  static readonly eventName = 'timelinevisiblewindowchanged';
-
-  constructor(public state: Readonly<TraceWindows>, public shouldAnimate: boolean) {
-    super(TimelineVisibleWindowChanged.eventName, {composed: true, bubbles: true});
+export class StateChangedEvent extends Event {
+  static readonly eventName = 'traceboundsstatechanged';
+  constructor(
+      public state: Readonly<State>,
+      public updateType: 'RESET'|'MINIMAP_BOUNDS'|'VISIBLE_WINDOW',
+      public options: {
+        shouldAnimate?: boolean,
+      } = {shouldAnimate: false},
+  ) {
+    super(StateChangedEvent.eventName, {composed: true, bubbles: true});
   }
 }
 
-export class MiniMapBoundsChanged extends Event {
-  static readonly eventName = 'minimapboundschanged';
-
-  constructor(
-      public state: Readonly<TraceWindows>,
-  ) {
-    super(MiniMapBoundsChanged.eventName, {composed: true, bubbles: true});
-  }
+export interface State {
+  readonly micro: Readonly<TraceWindows>;
+  readonly milli: Readonly<TraceWindowsMilliSeconds>;
 }
 
 export interface TraceWindows {
@@ -36,6 +36,8 @@ export interface TraceWindows {
    * example, when a user creates a breadcrumb, that breadcrumb becomes the
    * minimap trace bounds. By default, and when a trace is first loaded, the
    * minimapTraceBounds are equivalent to the entireTraceBounds.
+   * Note that this is NOT the active time window that the user has dragged
+   * the minimap handles to; this is the min/max being shown by the minimap.
    */
   minimapTraceBounds: TraceEngine.Types.Timing.TraceWindow;
   /**
@@ -50,17 +52,20 @@ export interface TraceWindows {
   timelineTraceWindow: TraceEngine.Types.Timing.TraceWindow;
 }
 
+// This interface contains the same data as the one above, but with all the timings in MilliSeconds to avoid callers having to repeatedly convert.
+export interface TraceWindowsMilliSeconds {
+  readonly entireTraceBounds: TraceEngine.Types.Timing.TraceWindowMilliSeconds;
+  minimapTraceBounds: TraceEngine.Types.Timing.TraceWindowMilliSeconds;
+  timelineTraceWindow: TraceEngine.Types.Timing.TraceWindowMilliSeconds;
+}
+
 export class BoundsManager extends EventTarget {
   static instance(opts: {
     forceNew: boolean|null,
-    initialBounds?: TraceEngine.Types.Timing.TraceWindow,
   } = {forceNew: null}): BoundsManager {
     const forceNew = Boolean(opts.forceNew);
     if (!instance || forceNew) {
-      if (!opts.initialBounds) {
-        throw new Error('Cannot construct a BoundsManager without providing the initial bounds');
-      }
-      instance = new BoundsManager(opts.initialBounds);
+      instance = new BoundsManager();
     }
     return instance;
   }
@@ -69,35 +74,62 @@ export class BoundsManager extends EventTarget {
     instance = null;
   }
 
-  #currentState: TraceWindows;
+  #currentState: TraceWindows|null = null;
 
-  private constructor(initialBounds: TraceEngine.Types.Timing.TraceWindow) {
+  private constructor() {
+    // Defined to enable us to mark it as Private.
     super();
+  }
+
+  resetWithNewBounds(initialBounds: TraceEngine.Types.Timing.TraceWindow): this {
     this.#currentState = {
       entireTraceBounds: initialBounds,
       minimapTraceBounds: initialBounds,
       timelineTraceWindow: initialBounds,
     };
+    this.dispatchEvent(new StateChangedEvent(this.state() as State, 'RESET'));
+    return this;
   }
 
-  get state(): Readonly<TraceWindows> {
-    return this.#currentState;
+  state(): Readonly<State>|null {
+    if (this.#currentState === null) {
+      return null;
+    }
+    const entireBoundsMilli = TraceEngine.Helpers.Timing.traceWindowMilliSeconds(this.#currentState.entireTraceBounds);
+    const minimapBoundsMilli =
+        TraceEngine.Helpers.Timing.traceWindowMilliSeconds(this.#currentState.minimapTraceBounds);
+    const timelineTraceWindowMilli =
+        TraceEngine.Helpers.Timing.traceWindowMilliSeconds(this.#currentState.timelineTraceWindow);
+
+    return {
+      micro: this.#currentState,
+      milli: {
+        entireTraceBounds: entireBoundsMilli,
+        minimapTraceBounds: minimapBoundsMilli,
+        timelineTraceWindow: timelineTraceWindowMilli,
+      },
+    };
   }
 
   setMiniMapBounds(newBounds: TraceEngine.Types.Timing.TraceWindow): void {
+    if (!this.#currentState) {
+      // If we don't have the existing state and know the trace bounds, we cannot set the minimap bounds.
+      return;
+    }
     const existingBounds = this.#currentState.minimapTraceBounds;
     if (newBounds.min === existingBounds.min && newBounds.max === existingBounds.max) {
       // New bounds are identical to the old ones so no action required.
       return;
     }
 
-    if (newBounds.range < 5_000) {
-      // Minimum minimap bounds range is 5 milliseconds.
+    if (newBounds.range < 1_000) {
+      // Minimum minimap bounds range is 1 millisecond.
       return;
     }
 
     this.#currentState.minimapTraceBounds = newBounds;
-    this.dispatchEvent(new MiniMapBoundsChanged(this.#currentState));
+    // this.state() cannot be null here.
+    this.dispatchEvent(new StateChangedEvent(this.state() as State, 'MINIMAP_BOUNDS'));
   }
 
   setTimelineVisibleWindow(newWindow: TraceEngine.Types.Timing.TraceWindow, options: {
@@ -105,6 +137,9 @@ export class BoundsManager extends EventTarget {
   } = {
     shouldAnimate: false,
   }): void {
+    if (!this.#currentState) {
+      return;
+    }
     const existingWindow = this.#currentState.timelineTraceWindow;
     if (newWindow.min === existingWindow.min && newWindow.max === existingWindow.max) {
       // New bounds are identical to the old ones so no action required.
@@ -117,7 +152,7 @@ export class BoundsManager extends EventTarget {
     }
 
     this.#currentState.timelineTraceWindow = newWindow;
-
-    this.dispatchEvent(new TimelineVisibleWindowChanged(this.#currentState, options.shouldAnimate));
+    this.dispatchEvent(
+        new StateChangedEvent(this.state() as State, 'VISIBLE_WINDOW', {shouldAnimate: options.shouldAnimate}));
   }
 }
