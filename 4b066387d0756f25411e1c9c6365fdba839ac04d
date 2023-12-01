@@ -63,6 +63,30 @@
       },
       "revId": "4b066387d0756f25411e1c9c6365fdba839ac04d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43398d27_21efb4bf",
+        "filename": "front_end/panels/issues/IssueView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-01T10:12:05Z",
+      "side": 1,
+      "message": "Oh, that\u0027s not a problem with the test, it\u0027s an actual bug. `this.#issue` is of type `AggregatedIssue`, so casting it to `CookieIssue` won\u0027t really work and there won\u0027t be a `getSubCategory()` method.\nSince the logic is only needed in this one place, I\u0027d propose removing the helpers from `CookieIssue` and just handle the different cases right here based on `this.#issue.code()`.",
+      "parentUuid": "29410d5b_4f36fa19",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 5
+      },
+      "revId": "4b066387d0756f25411e1c9c6365fdba839ac04d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
