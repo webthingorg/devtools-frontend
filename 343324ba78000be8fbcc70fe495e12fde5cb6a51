@@ -16,6 +16,29 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "343324ba78000be8fbcc70fe495e12fde5cb6a51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2522bde8_4e5dda41",
+        "filename": "front_end/ui/components/linear_memory_inspector/LinearMemoryInspectorPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-04T08:31:30Z",
+      "side": 1,
+      "message": "Drive-by: We could call this `getViewForTabIdForTest` and remove the comment.",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 17
+      },
+      "revId": "343324ba78000be8fbcc70fe495e12fde5cb6a51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
