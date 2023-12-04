@@ -33,7 +33,7 @@ let inspectorInstance: LinearMemoryInspectorPane;
 export class LinearMemoryInspectorPane extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(
     UI.Widget.VBox) {
   readonly #tabbedPane: UI.TabbedPane.TabbedPane;
-  readonly #tabIdToInspectorView: Map<string, LinearMemoryInspectorView>;
+
   constructor() {
     super(false);
     this.element.setAttribute('jslog', `${VisualLogging.panel().context('linear-memory-inspector')}`);
@@ -46,8 +46,6 @@ export class LinearMemoryInspectorPane extends Common.ObjectWrapper.eventMixin<E
     this.#tabbedPane.setAllowTabReorder(true, true);
     this.#tabbedPane.addEventListener(UI.TabbedPane.Events.TabClosed, this.#tabClosed, this);
     this.#tabbedPane.show(this.contentElement);
-
-    this.#tabIdToInspectorView = new Map();
   }
 
   static instance(): LinearMemoryInspectorPane {
@@ -59,16 +57,15 @@ export class LinearMemoryInspectorPane extends Common.ObjectWrapper.eventMixin<E
 
   // Introduced to access Views for testings.
   getViewForTabId(tabId: string): LinearMemoryInspectorView {
-    const view = this.#tabIdToInspectorView.get(tabId);
-    if (!view) {
+    const view = this.#tabbedPane.tabView(tabId);
+    if (view === null) {
       throw new Error(`No linear memory inspector view for the given tab id: ${tabId}`);
     }
-    return view;
+    return view as LinearMemoryInspectorView;
   }
 
   create(tabId: string, title: string, arrayWrapper: LazyUint8Array, address?: number): void {
     const inspectorView = new LinearMemoryInspectorView(arrayWrapper, address, tabId);
-    this.#tabIdToInspectorView.set(tabId, inspectorView);
     this.#tabbedPane.appendTab(tabId, title, inspectorView, undefined, false, true);
     this.#tabbedPane.selectTab(tabId);
   }
@@ -94,7 +91,6 @@ export class LinearMemoryInspectorPane extends Common.ObjectWrapper.eventMixin<E
 
   #tabClosed(event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData>): void {
     const {tabId} = event.data;
-    this.#tabIdToInspectorView.delete(tabId);
     this.dispatchEventToListeners(Events.ViewClosed, tabId);
   }
 }
