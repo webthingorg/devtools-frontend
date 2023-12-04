@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64803f1a_db7b0f78",
+        "filename": "front_end/panels/elements/AccessibilityTreeView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-04T14:11:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55f328ed_250488ff",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "b8ab3211cfa94f7cdf878f234b284df3a0954e86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5bb5b51_6302c4d5",
