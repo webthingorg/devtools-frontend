@@ -16,6 +16,24 @@
       "message": "Have we tried this in the eval tool? What difference does it make?",
       "revId": "aaf949278e3a5da576116318074d96287fbd64a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7438e388_3fabe20c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-12-04T14:20:06Z",
+      "side": 1,
+      "message": "We haven\u0027t tried it in the eval tool; I\u0027m not sure we have examples where it would make a difference and we\u0027d need to copy the formatter code. I can see what difference it makes in terms of what code gets sent to AIDA, but I don\u0027t know if it is affecting results; I have never reproduced the issue where it alerts the user to a syntax error that is just a truncation artifact, but that is what it\u0027s supposed to fix.",
+      "parentUuid": "708966e6_53efcca5",
+      "revId": "aaf949278e3a5da576116318074d96287fbd64a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
