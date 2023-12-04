@@ -160,6 +160,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private resizerParentOffsetLeft?: number;
   private breadcrumbsEnabled: boolean = false;
   #mouseOverGridFirstTime: boolean = false;
+  #mouseOverGrid: boolean = false;
   constructor(parentElement: Element, dividersLabelBarElement?: Element, calculator?: Calculator) {
     super();
     this.parentElement = parentElement;
@@ -209,6 +210,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
         (parentElement.createChild('div', 'create-breadcrumb-button-container') as HTMLElement);
     this.createBreadcrumbButton =
         (this.breadcrumbButtonContainerElement.createChild('div', 'create-breadcrumb-button') as HTMLElement);
+
     this.reset();
   }
 
@@ -239,16 +241,21 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
 
   changeBreadcrumbButtonVisibilityOnInteraction(element: Element): void {
     element.addEventListener('mouseover', () => {
+      console.log("over ", element);
       this.#mouseOverGridFirstTime = true;
       if ((this.windowLeft ?? 0) <= 0 && (this.windowRight ?? 1) >= 1) {
         this.breadcrumbButtonContainerElement.style.visibility = 'hidden';
+        this.#mouseOverGrid = false;
       } else {
         this.breadcrumbButtonContainerElement.style.visibility = 'visible';
+        this.#mouseOverGrid = true;
       }
     });
-
+    
     element.addEventListener('mouseout', () => {
+      console.log("out ", element);
       this.breadcrumbButtonContainerElement.style.visibility = 'hidden';
+      this.#mouseOverGrid = false;
     });
   }
 
@@ -411,6 +418,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   }
 
   private resizeWindowLeft(start: number): void {
+    console.log("resizin");
     // Glue to edge.
     if (start < OffsetFromWindowEnds) {
       start = 0;
@@ -419,8 +427,9 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     }
     this.setWindowPosition(start, null);
   }
-
+  
   private resizeWindowRight(end: number): void {
+    console.log("resizin");
     // Glue to edge.
     if (end > this.parentElement.clientWidth - OffsetFromWindowEnds) {
       end = this.parentElement.clientWidth;
@@ -495,14 +504,14 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
       this.dispatchEventToListeners(Events.WindowChangedWithPosition, this.calculateWindowPosition());
     }
     this.dispatchEventToListeners(Events.WindowChanged);
-    this.changeBreadcrumbButtonVisibility(windowLeft, windowRight);
   }
 
   // Add breadcrumb button is only visible when the window is set to something other than the full range
   private changeBreadcrumbButtonVisibility(windowLeft: number, windowRight: number): void {
     // this.#mouseOverOverviewFirstTime is checked to not show button the first time when trace is loaded and window is set without user interaction
+    console.log(this.#mouseOverGrid);
     this.breadcrumbButtonContainerElement.style.visibility =
-        ((windowRight >= 1 && windowLeft <= 0) || !this.#mouseOverGridFirstTime) ? 'hidden' : 'visible';
+        ((windowRight >= 1 && windowLeft <= 0) || !this.#mouseOverGridFirstTime || !this.#mouseOverGrid) ? 'hidden' : 'visible';
   }
 
   createBreadcrumb(): void {
@@ -557,6 +566,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     }
 
     this.toggleZoomButtonDisplay();
+    this.changeBreadcrumbButtonVisibility(windowLeft, windowRight);
   }
 
   private toggleZoomButtonDisplay(): void {
