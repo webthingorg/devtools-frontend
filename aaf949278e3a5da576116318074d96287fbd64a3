@@ -34,6 +34,24 @@
       "parentUuid": "708966e6_53efcca5",
       "revId": "aaf949278e3a5da576116318074d96287fbd64a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b2e6182_d7ab2893",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-04T15:25:54Z",
+      "side": 1,
+      "message": "I think it is important to have an example in the tools showing how this helps. Think of it as a kind of test, which will prevent use from accidentally undoing the effects of this change.",
+      "parentUuid": "7438e388_3fabe20c",
+      "revId": "aaf949278e3a5da576116318074d96287fbd64a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
