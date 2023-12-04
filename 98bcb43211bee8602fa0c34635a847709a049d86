@@ -16,6 +16,23 @@
       "message": "As shared offline, I fail to add unittests as navigator.gpu is exposed only on secure contexts and I fail to get one within third_party/devtools-frontend/src/test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts.",
       "revId": "98bcb43211bee8602fa0c34635a847709a049d86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91dea098_343e5ede",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-04T14:37:07Z",
+      "side": 1,
+      "message": "I just had a brief discussion with @dsv@chromium.org about this, and I think we\u0027re beyond the point where \"it\u0027s just a little harmless addition\". I think we now have a proof-of-concept that it\u0027s doable, and should go back to the drawing board and think through the UX but also how we can make this less hacky.\n\nHow about starting with a proposal document? Run this by Product and UX?",
+      "revId": "98bcb43211bee8602fa0c34635a847709a049d86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
