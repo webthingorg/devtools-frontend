@@ -145,6 +145,25 @@ export function waitForScrollLeft<T extends Element>(element: T, desiredScrollLe
   });
 }
 
+export function waitForCondition(conditionFn: Function): Promise<void> {
+  const timeBetweenPolls = 50;
+  let pollTimeout: number|null = null;
+  return new Promise(resolve => {
+    const pollForScrollLeft = () => {
+      if (conditionFn()) {
+        if (pollTimeout) {
+          window.clearTimeout(pollTimeout);
+        }
+        resolve();
+        return;
+      }
+      pollTimeout = window.setTimeout(pollForScrollLeft, timeBetweenPolls);
+    };
+
+    window.setTimeout(pollForScrollLeft, timeBetweenPolls);
+  });
+}
+
 /**
  * Dispatches a mouse click event.
  */
