@@ -496,6 +496,9 @@ export class MainImpl {
     highContrastMediaQuery.addEventListener('change', onThemeChange);
     themeSetting.addChangeListener(onThemeChange);
 
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
+        Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, this.refetchColors, this);
+
     UI.UIUtils.installComponentRootStyles((document.body as Element));
 
     this.#addMainEventListeners(document);
@@ -592,6 +595,36 @@ export class MainImpl {
       throw new Error('Unable to boot DevTools, as the appprovider is missing');
     }
     await this.#showAppUI(await appProvider.loadAppProvider());
+  }
+
+  async refetchColors(): Promise<boolean> {
+    const COLORS_CSS_SELECTOR = 'link[href*=\'//theme/colors.css\']';
+    const colorCssNode = document.querySelector(COLORS_CSS_SELECTOR);
+    if (!colorCssNode) {
+      return false;
+    }
+    const href = colorCssNode.getAttribute('href');
+    if (!href) {
+      return false;
+    }
+    const hrefURL = new URL(href, location.href);
+    const params = new URLSearchParams(hrefURL.search);
+    params.set('version', (new Date()).getTime().toString());
+    const newHref = `${hrefURL.origin}${hrefURL.pathname}?${params.toString()}`;
+    const newColorsCssLink = document.createElement('link');
+    newColorsCssLink.setAttribute('href', newHref);
+    newColorsCssLink.rel = 'stylesheet';
+    newColorsCssLink.type = 'text/css';
+    const newColorsLoaded = new Promise((resolve => {
+      newColorsCssLink.onload = resolve;
+    }));
+    document.getElementsByTagName('body')[0].appendChild(newColorsCssLink);
+    await newColorsLoaded;
+    const oldColorCssNode = document.querySelector(COLORS_CSS_SELECTOR);
+    if (oldColorCssNode) {
+      oldColorCssNode.remove();
+    }
+    return true;
   }
 
   async #showAppUI(appProvider: Object): Promise<void> {
