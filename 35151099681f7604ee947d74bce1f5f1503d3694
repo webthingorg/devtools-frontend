@@ -16,6 +16,23 @@
       "message": "PTAL. \n\n@François, please can you check this works and still detects the WebGPU types in your editor OK?",
       "revId": "35151099681f7604ee947d74bce1f5f1503d3694",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a351d410_f4bdab72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-04T11:37:00Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "35151099681f7604ee947d74bce1f5f1503d3694",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
