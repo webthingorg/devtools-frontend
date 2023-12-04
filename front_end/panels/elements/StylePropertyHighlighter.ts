@@ -61,9 +61,11 @@ export class StylePropertyHighlighter {
   /**
    * Find the first non-overridden property that matches the provided name, scroll to it and highlight it.
    */
-  findAndHighlightPropertyName(propertyName: string, sectionName?: string, blockName?: string): boolean {
+  findAndHighlightPropertyName(
+      propertyName: string, inheritanceContext?: StylePropertiesSection, sectionName?: string,
+      blockName?: string): boolean {
     const block = blockName ? this.styleSidebarPane.getSectionBlockByName(blockName) : undefined;
-    const sections = block?.sections ?? this.styleSidebarPane.allSections();
+    const sections = block?.sections ?? this.styleSidebarPane.allSections(inheritanceContext);
     if (!sections) {
       return false;
     }
@@ -76,8 +78,16 @@ export class StylePropertyHighlighter {
       }
       block?.expand(true);
       section.showAllItems();
-      const treeElement = this.findTreeElementFromSection(
-          treeElement => treeElement.property.name === propertyName && !treeElement.overloaded(), section);
+      const treeElements = Array.from(this.allTreeElements(section));
+      // This is an approximation of treeElement.overloaded(), which does not respect an inheritance context and only
+      // determines whether the property is overloaded in the fully cascaded style. If we're inside an inherited style,
+      // we're looking for a declaration higher up in the inheritance hierarchy, so we need to do the overload check
+      // manually.
+      const treeElement = treeElements.reduce(
+          (prev, current) =>
+              current.property.name === propertyName && (!prev.property.important || current.property.important) ?
+              current :
+              prev);
       if (treeElement) {
         this.scrollAndHighlightTreeElement(treeElement);
         section.element.focus();
@@ -96,7 +106,9 @@ export class StylePropertyHighlighter {
     section: StylePropertiesSection|null,
   } {
     for (const section of this.styleSidebarPane.allSections()) {
-      const treeElement = this.findTreeElementFromSection(compareCb, section);
+      // @ts-expect-error
+      const treeElement = this.allTreeElements(section).find(compareCb);
+
       if (treeElement) {
         return {treeElement, section};
       }
@@ -104,17 +116,12 @@ export class StylePropertyHighlighter {
     return {treeElement: null, section: null};
   }
 
-  private findTreeElementFromSection(
-      compareCb: (arg0: StylePropertyTreeElement) => boolean, section: StylePropertiesSection): StylePropertyTreeElement
-      |null {
+  private * allTreeElements(section: StylePropertiesSection): Generator<StylePropertyTreeElement, void> {
     let treeElement = section.propertiesTreeOutline.firstChild();
     while (treeElement && (treeElement instanceof StylePropertyTreeElement)) {
-      if (compareCb(treeElement)) {
-        return treeElement;
-      }
+      yield treeElement;
       treeElement = treeElement.traverseNextTreeElement(false, null, true);
     }
-    return null;
   }
 
   private scrollAndHighlightTreeElement(treeElement: StylePropertyTreeElement): void {

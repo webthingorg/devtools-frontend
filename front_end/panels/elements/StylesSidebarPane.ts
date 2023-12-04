@@ -536,8 +536,10 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.update();
   }
 
-  jumpToProperty(propertyName: string, sectionName?: string, blockName?: string): boolean {
-    return this.decorator.findAndHighlightPropertyName(propertyName, sectionName, blockName);
+  jumpToProperty(
+      propertyName: string, inheritanceContext?: StylePropertiesSection, sectionName?: string,
+      blockName?: string): boolean {
+    return this.decorator.findAndHighlightPropertyName(propertyName, inheritanceContext, sectionName, blockName);
   }
 
   jumpToSection(sectionName: string, blockName: string): void {
@@ -1350,9 +1352,21 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     return this.sectionBlocks.find(block => block.titleElement()?.textContent === name);
   }
 
-  allSections(): StylePropertiesSection[] {
+  setSectionBlocksForTest(sectionBlocks: SectionBlock[]): void {
+    this.sectionBlocks = sectionBlocks;
+  }
+
+  allSections(inheritanceContext?: StylePropertiesSection): StylePropertiesSection[] {
+    let withinInheritanceContext = !inheritanceContext;
     let sections: StylePropertiesSection[] = [];
     for (const block of this.sectionBlocks) {
+      if (!withinInheritanceContext) {
+        withinInheritanceContext = block.sections.includes(inheritanceContext as StylePropertiesSection);
+        if (!withinInheritanceContext) {
+          continue;
+        }
+      }
+
       sections = sections.concat(block.sections);
     }
     return sections;
