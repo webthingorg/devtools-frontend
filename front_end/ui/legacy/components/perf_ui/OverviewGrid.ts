@@ -245,10 +245,12 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
       } else {
         this.breadcrumbButtonContainerElement.style.visibility = 'visible';
       }
+      console.log("over");
     });
 
     element.addEventListener('mouseout', () => {
       this.breadcrumbButtonContainerElement.style.visibility = 'hidden';
+      console.log("out");
     });
   }
 
@@ -495,7 +497,6 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
       this.dispatchEventToListeners(Events.WindowChangedWithPosition, this.calculateWindowPosition());
     }
     this.dispatchEventToListeners(Events.WindowChanged);
-    this.changeBreadcrumbButtonVisibility(windowLeft, windowRight);
   }
 
   // Add breadcrumb button is only visible when the window is set to something other than the full range
@@ -557,6 +558,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     }
 
     this.toggleZoomButtonDisplay();
+    this.changeBreadcrumbButtonVisibility(windowLeft, windowRight);
   }
 
   private toggleZoomButtonDisplay(): void {
