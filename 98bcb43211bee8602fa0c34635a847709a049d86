@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe6a7d2d_7d902e6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2023-12-04T10:22:14Z",
+      "side": 1,
+      "message": "As shared offline, I fail to add unittests as navigator.gpu is exposed only on secure contexts and I fail to get one within third_party/devtools-frontend/src/test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts.",
+      "revId": "98bcb43211bee8602fa0c34635a847709a049d86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
