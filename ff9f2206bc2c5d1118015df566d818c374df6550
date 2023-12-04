@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d56ee4ef_1d2ce3d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2023-12-04T08:06:02Z",
+      "side": 1,
+      "message": "As suggested in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5076956/comments/1494639d_850c38a3, I\u0027ve split the CL.",
+      "revId": "ff9f2206bc2c5d1118015df566d818c374df6550",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
