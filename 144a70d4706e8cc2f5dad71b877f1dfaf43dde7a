@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd875bcd_7cb3fe3c",
+        "filename": "front_end/models/autofill_manager/AutofillManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-04T14:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a787bcae_f3183822",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 100
+      },
+      "revId": "144a70d4706e8cc2f5dad71b877f1dfaf43dde7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3d1a982_45001f13",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-04T09:04:09Z",
       "side": 1,
       "message": "`getLastFilledAddressForm` `(Info)`?",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "144a70d4706e8cc2f5dad71b877f1dfaf43dde7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0f2279_5795eec2",
+        "filename": "front_end/models/autofill_manager/AutofillManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-04T14:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3d1a982_45001f13",
       "range": {
         "startLine": 43,
         "startChar": 2,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a76d3780_185e1674",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-04T14:57:58Z",
+      "side": 1,
+      "message": "Your suggestion results in \"Property \u0027addressUi\u0027 does not exist on type \u0027AddressFormFilledEvent | {}\u0027\".",
+      "parentUuid": "1675c65c_9fe44f89",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 73,
+        "endChar": 23
+      },
+      "revId": "144a70d4706e8cc2f5dad71b877f1dfaf43dde7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78e2f9da_99ec1d33",
         "filename": "front_end/panels/autofill/AutofillView.ts",
         "patchSetId": 4
@@ -100,6 +172,30 @@
       "writtenOn": "2023-12-04T09:04:09Z",
       "side": 1,
       "message": "Common.EventTarget.EventTargetEvent\u003c\n      AutofillManager.AutofillManager.AddressFormFilledEvent\u003e",
+      "range": {
+        "startLine": 93,
+        "startChar": 14,
+        "endLine": 94,
+        "endChar": 112
+      },
+      "revId": "144a70d4706e8cc2f5dad71b877f1dfaf43dde7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db841753_bb0ea39b",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-04T14:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78e2f9da_99ec1d33",
       "range": {
         "startLine": 93,
         "startChar": 14,
