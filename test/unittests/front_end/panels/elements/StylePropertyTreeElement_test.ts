@@ -478,7 +478,7 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       const jumpToPropertySpy = sinon.spy(stylesSidebarPane, 'jumpToProperty');
       varSwatch.link?.linkElement?.dispatchEvent(new MouseEvent('mousedown'));
       assert.isTrue(jumpToPropertySpy.calledWith(
-          'initial-value', '--prop', Elements.StylesSidebarPane.REGISTERED_PROPERTY_SECTION_NAME));
+          'initial-value', undefined, '--prop', Elements.StylesSidebarPane.REGISTERED_PROPERTY_SECTION_NAME));
     });
   });
 
