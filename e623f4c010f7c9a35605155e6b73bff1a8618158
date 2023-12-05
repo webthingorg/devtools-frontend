@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2c77565_07660196",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-12-05T12:56:35Z",
+      "side": 1,
+      "message": "nit: I feel like this line is not a complete sentence. Maybe we want to add more to this, or merge this with the previous line?",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62df81d6_c2d177af",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-12-05T12:56:35Z",
+      "side": 1,
+      "message": "Does this mean that `node.pseudoElements().values()` returns a pseudoElement[][]? If so, could we improve the naming a little, maybe by changing the first `node.pseudoElements()` to `node.pseudoElementLists()`? Or maybe I misunderstood this?",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b63c5c55_9823dbfd",
         "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
         "patchSetId": 4
