@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e902cd4_e30aca48",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-05T12:20:23Z",
+      "side": 1,
+      "message": "Removed the usage, so no need :)",
+      "parentUuid": "b63c5c55_9823dbfd",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60427479_a4ec00e6",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59ae65d9_ee0860df",
+        "filename": "test/unittests/front_end/helpers/DOMHelpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-05T12:20:23Z",
+      "side": 1,
+      "message": "Hahaha from copy paste 😂",
+      "parentUuid": "60427479_a4ec00e6",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c7c4486_f01025ee",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-12-05T09:55:53Z",
       "side": 1,
       "message": "I\u0027m not enthusiastic about this testing style. In the e2e tests it\u0027s a major source of errors and slowness. Is there really no alternative to polling? Can we put hooks into the implementation that the test can await?",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d01e2176_2c1cfa0b",
+        "filename": "test/unittests/front_end/panels/animation/AnimationTimeline_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-05T12:20:23Z",
+      "side": 1,
+      "message": "That makes a lot of sense, updated it :)",
+      "parentUuid": "5c7c4486_f01025ee",
       "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
