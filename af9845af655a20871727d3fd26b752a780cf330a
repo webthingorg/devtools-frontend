@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks!",
       "revId": "af9845af655a20871727d3fd26b752a780cf330a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e66ffae6_44ad0694",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-05T15:36:11Z",
+      "side": 1,
+      "message": "Oh no, duplicate effort. I have a CL for that https://crrev.com/c/5068025, which also removes the legacy UI tabs, which won\u0027t be needed anymore.",
+      "revId": "af9845af655a20871727d3fd26b752a780cf330a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
