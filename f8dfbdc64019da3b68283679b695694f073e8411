@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8ca4106_9cdfd0a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108044
+      },
+      "writtenOn": "2023-12-05T18:56:26Z",
+      "side": 1,
+      "message": "Please note that right now it uses the same button as the \"dual-screen\" mode to emulate this device. I intend to send a follow patch to at least change the tooltip. Ideally a new icon would be great but I\u0027m not sure where to start/whom to ask.",
+      "revId": "f8dfbdc64019da3b68283679b695694f073e8411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
