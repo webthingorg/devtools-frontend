@@ -136,8 +136,8 @@ export class TimelineMiniMap extends
     }
 
     this.setBounds(startMSWithMin, endMSWithMin);
+    this.setWindowTimes(startMSWithMin, endMSWithMin);
     this.#overviewComponent.scheduleUpdate(startMSWithMin, endMSWithMin);
-    this.#overviewComponent.setWindowTimes(startMSWithMin, endMSWithMin);
   }
 
   override wasShown(): void {
@@ -155,7 +155,13 @@ export class TimelineMiniMap extends
   }
 
   setWindowTimes(left: number, right: number): void {
-    this.#overviewComponent.setWindowTimes(left, right);
+    // If breadcrumbs exist, make sure that selectected window is within timeline boundaries
+    if (!this.breadcrumbsActivated ||
+        (this.#overviewComponent.overviewCalculator.minimumBoundary() <= TraceEngine.Types.Timing.MilliSeconds(left) &&
+         this.#overviewComponent.overviewCalculator.maximumBoundary() >=
+             TraceEngine.Types.Timing.MilliSeconds(right))) {
+      this.#overviewComponent.setWindowTimes(left, right);
+    }
   }
 
   #setMarkers(traceParsedData: TraceEngine.Handlers.Types.TraceParseData): void {
