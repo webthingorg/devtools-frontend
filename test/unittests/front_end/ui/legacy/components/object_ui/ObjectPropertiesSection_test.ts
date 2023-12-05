@@ -4,12 +4,14 @@
 
 const {assert} = chai;
 
+import * as Common from '../../../../../../../front_end/core/common/common.js';
 import * as Root from '../../../../../../../front_end/core/root/root.js';
 import * as SDK from '../../../../../../../front_end/core/sdk/sdk.js';
 import * as ObjectUI from '../../../../../../../front_end/ui/legacy/components/object_ui/object_ui.js';
 import * as UI from '../../../../../../../front_end/ui/legacy/legacy.js';
 
 import {assertNotNullOrUndefined} from '../../../../../../../front_end/core/platform/platform.js';
+import {dispatchClickEvent} from '../../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../../helpers/EnvironmentHelpers.js';
 import {someMutations} from '../../../../helpers/MutationHelpers.js';
 import {describeWithRealConnection, getExecutionContext} from '../../../../helpers/RealConnection.js';
@@ -224,7 +226,7 @@ describeWithEnvironment('ObjectPropertiesSection', () => {
         assert.isFalse(div.hasChildNodes());
         ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.appendMemoryIcon(div, object);
         assert.isTrue(div.hasChildNodes());
-        const icon = div.getElementsByClassName('devtools-icon');
+        const icon = div.querySelector('devtools-icon');
         assert.isNotNull(icon);
       });
 
@@ -236,6 +238,35 @@ describeWithEnvironment('ObjectPropertiesSection', () => {
         assert.isFalse(div.hasChildNodes());
         ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.appendMemoryIcon(div, object);
         assert.isFalse(div.hasChildNodes());
+      });
+
+      it('triggers the correct revealer upon \'click\'', async () => {
+        const object = sinon.createStubInstance(SDK.RemoteObject.RemoteObject);
+        object.isLinearMemoryInspectable.returns(true);
+        const expression = 'foo';
+
+        const div = document.createElement('div');
+        ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.appendMemoryIcon(div, object, expression);
+        const icon = div.querySelector('devtools-icon');
+        assertNotNullOrUndefined(icon);
+        const revealablePromise = new Promise(resolve => {
+          Common.Revealer.registerRevealer({
+            contextTypes() {
+              return [SDK.RemoteObject.LinearMemoryInspectable];
+            },
+            async loadRevealer() {
+              return {
+                async reveal(revealable: SDK.RemoteObject.LinearMemoryInspectable): Promise<void> {
+                  resolve(revealable);
+                },
+              };
+            },
+          });
+        });
+        dispatchClickEvent(icon);
+
+        const revealable = await revealablePromise;
+        assert.deepStrictEqual(revealable, new SDK.RemoteObject.LinearMemoryInspectable(object, expression));
       });
     });
   });

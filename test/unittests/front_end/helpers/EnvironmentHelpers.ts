@@ -316,6 +316,7 @@ export async function deinitializeGlobalVars() {
   IssuesManager.IssuesManager.IssuesManager.removeInstance();
   Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.removeInstance();
 
+  Common.Revealer.resetRegisteredRevealers();
   Common.Settings.resetSettings();
 
   // Protect against the dynamic import not having happened.
