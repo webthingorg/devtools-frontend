@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3adcc481_fd8dd2fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-05T12:23:44Z",
+      "side": 1,
+      "message": "Nice! LGTM, one nit.",
+      "revId": "11e658bc55c340769838059b94ffed14be074d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f291fc_ac0dbf37",
+        "filename": "test/unittests/front_end/panels/animation/AnimationTimeline_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-05T12:23:44Z",
+      "side": 1,
+      "message": "Style nit: How about:\n```\nwaitForAnimationGroupSelected \u003d new Promise(r \u003d\u003e sinon.stub(view, \u0027animationGroupSelectedForTest\u0027).callsFake(r));\n```",
+      "range": {
+        "startLine": 121,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 0
+      },
+      "revId": "11e658bc55c340769838059b94ffed14be074d4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
