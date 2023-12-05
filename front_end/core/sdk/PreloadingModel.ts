@@ -255,7 +255,12 @@ export class PreloadingModel extends SDKModel<EventTypes> {
       prefetchStatus: event.prefetchStatus || null,
       requestId: event.requestId,
     };
-    this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
+    if (event.prefetchStatus &&
+        event.prefetchStatus === Protocol.Preload.PrefetchStatus.PrefetchEvictedAfterCandidateRemoved) {
+      this.documents.get(loaderId)?.preloadingAttempts.remove(attempt);
+    } else {
+      this.documents.get(loaderId)?.preloadingAttempts.upsert(attempt);
+    }
     this.dispatchEventToListeners(Events.ModelUpdated);
   }
 
@@ -535,6 +540,11 @@ class PreloadingAttemptRegistry {
     const id = makePreloadingAttemptId(attempt.key);
 
     this.map.set(id, attempt);
+  }
+
+  remove(attempt: PreloadingAttemptInternal): void {
+    const id = makePreloadingAttemptId(attempt.key);
+    this.map.delete(id);
   }
 
   // Speculation rules emits a CDP event Preload.preloadingAttemptSourcesUpdated
