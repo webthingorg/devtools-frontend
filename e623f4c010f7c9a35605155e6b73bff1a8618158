@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b9fa9e_a7661b2e",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-05T13:39:17Z",
+      "side": 1,
+      "message": "Merged it with previous line :)",
+      "parentUuid": "f2c77565_07660196",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62df81d6_c2d177af",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-12-05T12:56:35Z",
       "side": 1,
       "message": "Does this mean that `node.pseudoElements().values()` returns a pseudoElement[][]? If so, could we improve the naming a little, maybe by changing the first `node.pseudoElements()` to `node.pseudoElementLists()`? Or maybe I misunderstood this?",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "285bd683_16a2996d",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-05T13:39:17Z",
+      "side": 1,
+      "message": "`pseudoElements` were returning a map of pseudo elements by pseudo type. WDYT of refactoring it in a separate CL to:\n* Update `pseudoElements()` to be `pseudoElementsByPseudoType()`\n* Create a new function `pseudoElements()` to return all the pseudo elements of a node.\n\nI don\u0027t want to refactor it in this CL so that it won\u0027t contain changes not related to the purpose of the CL. WDYT?",
+      "parentUuid": "62df81d6_c2d177af",
       "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
