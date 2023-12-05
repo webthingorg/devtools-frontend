@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a842af30_eb57b19e",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-05T13:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c4aa9f3_f7a72e54",
+      "range": {
+        "startLine": 1312,
+        "startChar": 2,
+        "endLine": 1312,
+        "endChar": 70
+      },
+      "revId": "a4c8400da87013cef54bde13c0e069c6a487526a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7c442d3_656703ba",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-05T13:23:17Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "a4c8400da87013cef54bde13c0e069c6a487526a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6335b57_c81d4af3",
+        "filename": "front_end/panels/linear_memory_inspector/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-05T13:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c442d3_656703ba",
       "range": {
         "startLine": 1,
         "startChar": 12,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c747bfd3_8cc15add",
+        "filename": "front_end/panels/linear_memory_inspector/LinearMemoryInspectorController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-05T13:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13794ed4_588d33a4",
+      "range": {
+        "startLine": 343,
+        "startChar": 8,
+        "endLine": 343,
+        "endChar": 101
+      },
+      "revId": "a4c8400da87013cef54bde13c0e069c6a487526a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75a1730b_5662f3b7",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-12-05T13:23:17Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "a4c8400da87013cef54bde13c0e069c6a487526a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc929ce_c724a375",
+        "filename": "front_end/panels/linear_memory_inspector/linear_memory_inspector.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-05T13:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75a1730b_5662f3b7",
       "range": {
         "startLine": 1,
         "startChar": 13,
