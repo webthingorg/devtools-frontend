@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af007b89_b98bdb99",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2023-12-05T14:06:19Z",
+      "side": 1,
+      "message": "Sounds reasonable! Thanks for the explanation!",
+      "parentUuid": "285bd683_16a2996d",
+      "revId": "e623f4c010f7c9a35605155e6b73bff1a8618158",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b63c5c55_9823dbfd",
