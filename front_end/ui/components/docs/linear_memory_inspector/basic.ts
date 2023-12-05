@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import * as FrontendHelpers from '../../../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
+import * as LinearMemoryInspector from '../../../../panels/linear_memory_inspector/linear_memory_inspector.js';
 import * as ComponentHelpers from '../../helpers/helpers.js';
-import * as LinearMemoryInspector from '../../linear_memory_inspector/linear_memory_inspector.js';
 
 await ComponentHelpers.ComponentServerSetup.setup();
 await FrontendHelpers.initializeGlobalVars();
