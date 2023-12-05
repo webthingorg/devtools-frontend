@@ -4,17 +4,7 @@
 
 import {assert} from 'chai';
 
-import {
-  $$,
-  click,
-  enableExperiment,
-  goToResource,
-  step,
-  typeText,
-  waitFor,
-  waitForAria,
-  waitForNone,
-} from '../../shared/helper.js';
+import {$$, click, goToResource, step, typeText, waitFor, waitForAria, waitForNone} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   openNetworkTab,
@@ -419,7 +409,6 @@ describe('Overrides panel', () => {
 describe('Overrides panel > Delete context menus', () => {
   beforeEach(async () => {
     // set up 3 overriden files - .header, json, custom js
-    await enableExperiment('headerOverrides');
     await goToResource('network/fetch-json.html');
     await openSourcesPanel();
     await enableLocalOverrides();

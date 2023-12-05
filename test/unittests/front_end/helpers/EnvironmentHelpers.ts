@@ -121,7 +121,6 @@ const REGISTERED_EXPERIMENTS = [
   'stylesPaneCSSChanges',
   'timelineEventInitiators',
   'timelineAsConsoleProfileResultPanel',
-  'headerOverrides',
   'highlightErrorsElementsPanel',
   'setAllBreakpointsEagerly',
   'selfXssWarning',

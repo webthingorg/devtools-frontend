@@ -412,9 +412,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
         const request = resource.request;
         return renderIconLink(
             'arrow-up-down-circle', i18nString(UIStrings.clickToRevealInNetworkPanel), (): Promise<void> => {
-              const headersTab = Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES) ?
-                  NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent :
-                  NetworkForward.UIRequestLocation.UIRequestTabs.Headers;
+              const headersTab = NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent;
               const requestLocation = NetworkForward.UIRequestLocation.UIRequestLocation.tab(request, headersTab);
               return Common.Revealer.reveal(requestLocation);
             });

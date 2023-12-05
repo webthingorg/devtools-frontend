@@ -4,7 +4,7 @@
 
 import * as Common from '../../../../../../front_end/core/common/common.js';
 import * as Host from '../../../../../../front_end/core/host/host.js';
-import * as Root from '../../../../../../front_end/core/root/root.js';
+import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../../front_end/generated/protocol.js';
 import * as Persistence from '../../../../../../front_end/models/persistence/persistence.js';
@@ -23,10 +23,8 @@ import {
 } from '../../../helpers/DOMHelpers.js';
 import {deinitializeGlobalVars, describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../../helpers/MockConnection.js';
-
-import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
-import {createFileSystemUISourceCode} from '../../../helpers/UISourceCodeHelpers.js';
 import {createWorkspaceProject, setUpEnvironment} from '../../../helpers/OverridesHelpers.js';
+import {createFileSystemUISourceCode} from '../../../helpers/UISourceCodeHelpers.js';
 import {recordedMetricsContain, resetRecordedMetrics} from '../../../helpers/UserMetricsHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
@@ -108,7 +106,6 @@ describeWithMockConnection('RequestHeadersView', () => {
   let component: NetworkComponents.RequestHeadersView.RequestHeadersView|null|undefined = null;
 
   beforeEach(() => {
-    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
     setUpEnvironment();
     resetRecordedMetrics();
   });

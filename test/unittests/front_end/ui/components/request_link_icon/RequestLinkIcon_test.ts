@@ -2,20 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {assertNotNullOrUndefined} from '../../../../../../front_end/core/platform/platform.js';
-import type * as Logs from '../../../../../../front_end/models/logs/logs.js';
-import type * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import * as Common from '../../../../../../front_end/core/common/common.js';
 import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
-import * as RequestLinkIcon from '../../../../../../front_end/ui/components/request_link_icon/request_link_icon.js';
-import * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
-import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
-import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
-import * as UI from '../../../../../../front_end/ui/legacy/legacy.js';
+import {assertNotNullOrUndefined} from '../../../../../../front_end/core/platform/platform.js';
+import type * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
-import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
+import type * as Logs from '../../../../../../front_end/models/logs/logs.js';
 import * as NetworkForward from '../../../../../../front_end/panels/network/forward/forward.js';
-import * as Root from '../../../../../../front_end/core/root/root.js';
+import * as IconButton from '../../../../../../front_end/ui/components/icon_button/icon_button.js';
+import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
+import * as RequestLinkIcon from '../../../../../../front_end/ui/components/request_link_icon/request_link_icon.js';
+import * as UI from '../../../../../../front_end/ui/legacy/legacy.js';
+import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
+import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 
 const {assert} = chai;
 
@@ -351,7 +350,6 @@ describeWithEnvironment('RequestLinkIcon', () => {
     });
 
     it('if the icon is clicked', async () => {
-      Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
       const revealOverride = sinon.fake(Common.Revealer.reveal);
       const {shadowRoot} = await renderRequestLinkIcon({
         request: mockRequest as unknown as SDK.NetworkRequest.NetworkRequest,
@@ -366,24 +364,6 @@ describeWithEnvironment('RequestLinkIcon', () => {
       assert.isTrue(revealOverride.called);
       assert.isTrue(revealOverride.calledOnceWith(
           sinon.match({tab: NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent})));
-    });
-
-    it('if the container is clicked', async () => {
-      Root.Runtime.experiments.disableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
-      const revealOverride = sinon.fake(Common.Revealer.reveal);
-      const {shadowRoot} = await renderRequestLinkIcon({
-        request: mockRequest as unknown as SDK.NetworkRequest.NetworkRequest,
-        displayURL: true,
-        revealOverride,
-      });
-
-      const {container} = extractElements(shadowRoot);
-
-      container.click();
-
-      assert.isTrue(revealOverride.called);
-      assert.isTrue(
-          revealOverride.calledOnceWith(sinon.match({tab: NetworkForward.UIRequestLocation.UIRequestTabs.Headers})));
     });
 
     it('if the label is clicked', async () => {

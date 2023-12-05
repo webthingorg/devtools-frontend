@@ -295,7 +295,6 @@ export enum ExperimentName {
   FULL_ACCESSIBILITY_TREE = 'fullAccessibilityTree',
   PRECISE_CHANGES = 'preciseChanges',
   STYLES_PANE_CSS_CHANGES = 'stylesPaneCSSChanges',
-  HEADER_OVERRIDES = 'headerOverrides',
   EYEDROPPER_COLOR_PICKER = 'eyedropperColorPicker',
   INSTRUMENTATION_BREAKPOINTS = 'instrumentationBreakpoints',
   AUTHORED_DEPLOYED_GROUPING = 'authoredDeployedGrouping',

@@ -6,7 +6,6 @@ import * as Common from '../../../core/common/common.js';
 import * as Host from '../../../core/host/host.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as Platform from '../../../core/platform/platform.js';
-import * as Root from '../../../core/root/root.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Persistence from '../../../models/persistence/persistence.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
@@ -20,14 +19,13 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Sources from '../../sources/sources.js';
 
-import {type RequestHeaderSectionData, RequestHeaderSection} from './RequestHeaderSection.js';
-import {
-  type ResponseHeaderSectionData,
-  ResponseHeaderSection,
-  RESPONSE_HEADER_SECTION_DATA_KEY,
-} from './ResponseHeaderSection.js';
-
+import {RequestHeaderSection, type RequestHeaderSectionData} from './RequestHeaderSection.js';
 import requestHeadersViewStyles from './RequestHeadersView.css.js';
+import {
+  RESPONSE_HEADER_SECTION_DATA_KEY,
+  ResponseHeaderSection,
+  type ResponseHeaderSectionData,
+} from './ResponseHeaderSection.js';
 
 const RAW_HEADER_CUTOFF = 3000;
 const {render, html} = LitHtml;
@@ -233,8 +231,7 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
   }
 
   #renderHeaderOverridesLink(): LitHtml.LitTemplate {
-    const overrideable = Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
-    if (!overrideable || !this.#workspace.uiSourceCodeForURL(this.#getHeaderOverridesFileUrl())) {
+    if (!this.#workspace.uiSourceCodeForURL(this.#getHeaderOverridesFileUrl())) {
       return LitHtml.nothing;
     }
 

@@ -2,10 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../../../../front_end/core/common/common.js';
 import * as Host from '../../../../../../front_end/core/host/host.js';
+import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../../front_end/generated/protocol.js';
+import type * as Persistence from '../../../../../../front_end/models/persistence/persistence.js';
+import * as Workspace from '../../../../../../front_end/models/workspace/workspace.js';
 import * as NetworkComponents from '../../../../../../front_end/panels/network/components/components.js';
+import * as NetworkForward from '../../../../../../front_end/panels/network/forward/forward.js';
 import * as Coordinator from '../../../../../../front_end/ui/components/render_coordinator/render_coordinator.js';
 import {
   assertElement,
@@ -16,13 +21,6 @@ import {
 } from '../../../helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../helpers/EnvironmentHelpers.js';
 import {createWorkspaceProject, setUpEnvironment} from '../../../helpers/OverridesHelpers.js';
-
-import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
-import * as Workspace from '../../../../../../front_end/models/workspace/workspace.js';
-import type * as Persistence from '../../../../../../front_end/models/persistence/persistence.js';
-import * as Root from '../../../../../../front_end/core/root/root.js';
-import * as Common from '../../../../../../front_end/core/common/common.js';
-import * as NetworkForward from '../../../../../../front_end/panels/network/forward/forward.js';
 import {recordedMetricsContain, resetRecordedMetrics} from '../../../helpers/UserMetricsHelpers.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
@@ -173,10 +171,6 @@ function isRowFocused(
 }
 
 describeWithEnvironment('ResponseHeaderSection', () => {
-  before(() => {
-    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
-  });
-
   beforeEach(async () => {
     await setUpEnvironment();
     resetRecordedMetrics();

@@ -2,20 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
-import * as Network from '../../../../../front_end/panels/network/network.js';
-import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
-import {createTarget, deinitializeGlobalVars} from '../../helpers/EnvironmentHelpers.js';
 import type * as Platform from '../../../../../front_end/core/platform/platform.js';
-import * as Root from '../../../../../front_end/core/root/root.js';
-import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
-import * as Persistence from '../../../../../front_end/models/persistence/persistence.js';
+import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 import * as Bindings from '../../../../../front_end/models/bindings/bindings.js';
 import * as Breakpoints from '../../../../../front_end/models/breakpoints/breakpoints.js';
+import * as Persistence from '../../../../../front_end/models/persistence/persistence.js';
+import * as Workspace from '../../../../../front_end/models/workspace/workspace.js';
+import * as Network from '../../../../../front_end/panels/network/network.js';
 import {assertElement, renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
+import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
-import {createFileSystemUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
 import {setUpEnvironment} from '../../helpers/OverridesHelpers.js';
+import {createFileSystemUISourceCode} from '../../helpers/UISourceCodeHelpers.js';
 
 const {assert} = chai;
 
@@ -29,13 +28,6 @@ function renderHeadersView(request: SDK.NetworkRequest.NetworkRequest): Network.
 }
 
 describeWithMockConnection('RequestHeadersView', () => {
-  beforeEach(() => {
-    Root.Runtime.experiments.enableForTest(Root.Runtime.ExperimentName.HEADER_OVERRIDES);
-  });
-  afterEach(async () => {
-    await deinitializeGlobalVars();
-  });
-
   it('does not render a link to \'.headers\' if that file does not exist', () => {
     setUpEnvironment();
     const request = SDK.NetworkRequest.NetworkRequest.create(

@@ -2,16 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../core/common/common.js';
 import * as Host from '../../../core/host/host.js';
 import * as i18n from '../../../core/i18n/i18n.js';
+import * as Platform from '../../../core/platform/platform.js';
 import type * as SDK from '../../../core/sdk/sdk.js';
 import * as Protocol from '../../../generated/protocol.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
+import * as Persistence from '../../../models/persistence/persistence.js';
+import type * as Workspace from '../../../models/workspace/workspace.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
-import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
-import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Sources from '../../../panels/sources/sources.js';
+import * as Buttons from '../../../ui/components/buttons/buttons.js';
+import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as UI from '../../../ui/legacy/legacy.js';
+import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import {
   compareHeaders,
@@ -23,13 +28,6 @@ import {
   HeaderSectionRow,
   type HeaderSectionRowData,
 } from './HeaderSectionRow.js';
-import * as Persistence from '../../../models/persistence/persistence.js';
-import type * as Workspace from '../../../models/workspace/workspace.js';
-import * as Platform from '../../../core/platform/platform.js';
-import * as Common from '../../../core/common/common.js';
-import * as Buttons from '../../../ui/components/buttons/buttons.js';
-import * as Root from '../../../core/root/root.js';
-
 import responseHeaderSectionStyles from './ResponseHeaderSection.css.js';
 
 const {render, html} = LitHtml;
@@ -227,7 +225,7 @@ export class ResponseHeaderSection extends HTMLElement {
       if (!this.#overrides.every(Persistence.NetworkPersistenceManager.isHeaderOverride)) {
         throw 'Type mismatch after parsing';
       }
-      this.#headersAreOverrideable = Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.HEADER_OVERRIDES) &&
+      this.#headersAreOverrideable =
           Common.Settings.Settings.instance().moduleSetting('persistenceNetworkOverridesEnabled').get();
       for (const header of this.#headerEditors) {
         header.valueEditable = this.#headersAreOverrideable;

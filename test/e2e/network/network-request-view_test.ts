@@ -8,18 +8,17 @@ import {expectError} from '../../conductor/events.js';
 import {
   $,
   $$,
+  assertNotNullOrUndefined,
   click,
-  enableExperiment,
+  getBrowserAndPages,
+  getResourcesPath,
+  pasteText,
   step,
   typeText,
   waitFor,
   waitForAria,
   waitForElementWithTextContent,
   waitForFunction,
-  getBrowserAndPages,
-  getResourcesPath,
-  assertNotNullOrUndefined,
-  pasteText,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {CONSOLE_TAB_SELECTOR, focusConsolePrompt} from '../helpers/console-helpers.js';
@@ -504,7 +503,6 @@ describe('The Network Request view', async () => {
   });
 
   it('can create header overrides via request\'s context menu', async () => {
-    await enableExperiment('headerOverrides');
     await navigateToNetworkTab('hello.html');
     await selectRequestByName('hello.html', {button: 'right'});
 
@@ -514,7 +512,6 @@ describe('The Network Request view', async () => {
   });
 
   it('can create header overrides via header\'s pencil icon', async () => {
-    await enableExperiment('headerOverrides');
     await navigateToNetworkTab('hello.html');
     await selectRequestByName('hello.html');
 
