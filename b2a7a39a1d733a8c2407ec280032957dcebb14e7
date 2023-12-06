@@ -16,6 +16,40 @@
       "message": "PTAL. Sorry for the large CL, but I don\u0027t think landing a parser piecemeal makes it better 😞\n\n@Alex: For the overall CL review.\n@Mathias: Could you check the decoding from Base64 -\u003e Utf8 -\u003e JS string? I followed MDN here but a second set of eyes can\u0027t hurt.",
       "revId": "b2a7a39a1d733a8c2407ec280032957dcebb14e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "679d63a4_35bc9f85",
+        "filename": "test/unittests/front_end/core/sdk/ServerSentEventsProtocol_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-12-06T09:03:51Z",
+      "side": 1,
+      "message": "Perhaps simpler:\n\n```suggestion\n      await parser.addBase64Chunk(window.btoa(\u0027\\xEF\u0027));\n```\n\nand similar for the two lines below",
+      "revId": "b2a7a39a1d733a8c2407ec280032957dcebb14e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ea9983f_75dc94f2",
+        "filename": "test/unittests/front_end/core/sdk/ServerSentEventsProtocol_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2023-12-06T09:03:51Z",
+      "side": 1,
+      "message": "Currently we only test UTF-8 encoding/decoding via the BOM. Let’s add a test for non-ASCII Unicode symbols in the message content? E.g. the string \u0027Iñtërnâtiônàlizætiøn☃𝌆\u0027 [1]:\n\n\u003e A good test string for Unicode support in general is the following: `Iñtërnâtiônàlizætiøn☃𝌆`. Its first 20 symbols are in the range from U+0000 to U+00FF, then there’s a symbol in the range from U+0100 to U+FFFF, and finally there’s an astral symbol (from the range of U+010000 to U+10FFFF).\n\n[1]: https://mths.be/jsu",
+      "revId": "b2a7a39a1d733a8c2407ec280032957dcebb14e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
