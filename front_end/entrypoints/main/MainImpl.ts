@@ -308,9 +308,6 @@ export class MainImpl {
 
     // Debugging
     Root.Runtime.experiments.register(
-        'wasmDWARFDebugging', 'WebAssembly Debugging: Enable DWARF support', undefined,
-        'https://developer.chrome.com/blog/wasm-debugging-2020/');
-    Root.Runtime.experiments.register(
         'evaluateExpressionsWithSourceMaps', 'Resolve variable names in expressions using source maps', undefined,
         'https://goo.gle/evaluate-source-var-default', 'https://crbug.com/1504123');
     Root.Runtime.experiments.register('instrumentationBreakpoints', 'Enable instrumentation breakpoints', true);
@@ -424,7 +421,6 @@ export class MainImpl {
       ...('EyeDropper' in window ? [Root.Runtime.ExperimentName.EYEDROPPER_COLOR_PICKER] : []),
       'setAllBreakpointsEagerly',
       Root.Runtime.ExperimentName.TIMELINE_AS_CONSOLE_PROFILE_RESULT_PANEL,
-      Root.Runtime.ExperimentName.WASM_DWARF_DEBUGGING,
       Root.Runtime.ExperimentName.HEADER_OVERRIDES,
       Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
       Root.Runtime.ExperimentName.SELF_XSS_WARNING,
