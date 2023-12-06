@@ -16,10 +16,6 @@ const UIStrings = {
    * specific API name.
    */
   protocolMonitor: 'Protocol monitor',
-  /**
-   *@description Command for showing the 'Protocol monitor' tool in the bottom drawer
-   */
-  showProtocolMonitor: 'Show Protocol monitor',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/protocol_monitor-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -37,7 +33,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'protocol-monitor',
   title: i18nLazyString(UIStrings.protocolMonitor),
-  commandPrompt: i18nLazyString(UIStrings.showProtocolMonitor),
   order: 100,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {

@@ -16,10 +16,6 @@ const UIStrings = {
    *@description A tags of WebAudio tool that can be searched in the command menu
    */
   audio: 'audio',
-  /**
-   *@description Command for showing the WebAudio tool
-   */
-  showWebaudio: 'Show WebAudio',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/web_audio/web_audio-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -37,7 +33,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'web-audio',
   title: i18nLazyString(UIStrings.webaudio),
-  commandPrompt: i18nLazyString(UIStrings.showWebaudio),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 100,
   async loadView() {

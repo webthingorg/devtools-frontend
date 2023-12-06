@@ -15,17 +15,9 @@ const UIStrings = {
    */
   profiler: 'Profiler',
   /**
-   *@description Command for showing the Profiler tool
-   */
-  showProfiler: 'Show Profiler',
-  /**
    *@description Text for the performance of something
    */
   performance: 'Performance',
-  /**
-   *@description Command for showing the 'Performance' tool
-   */
-  showPerformance: 'Show Performance',
   /**
    *@description Text in the Shortcuts page to explain a keyboard shortcut (start/stop recording performance)
    */
@@ -86,7 +78,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'js_profiler',
   title: i18nLazyString(UIStrings.profiler),
-  commandPrompt: i18nLazyString(UIStrings.showProfiler),
   order: 65,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   experiment: Root.Runtime.ExperimentName.JS_PROFILER_TEMP_ENABLE,
@@ -100,7 +91,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'timeline',
   title: i18nLazyString(UIStrings.performance),
-  commandPrompt: i18nLazyString(UIStrings.showPerformance),
   order: 66,
   hasToolbar: false,
   isPreviewFeature: true,

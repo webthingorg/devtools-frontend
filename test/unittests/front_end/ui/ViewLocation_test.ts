@@ -18,7 +18,6 @@ describeWithEnvironment('ViewLocation', () => {
         location: 'mock-location',
         id: title,
         title: () => title as Platform.UIString.LocalizedString,
-        commandPrompt: () => title as Platform.UIString.LocalizedString,
         persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
         async loadView() {
           return new UI.Widget.Widget();

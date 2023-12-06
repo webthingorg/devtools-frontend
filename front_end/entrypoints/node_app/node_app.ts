@@ -24,17 +24,9 @@ const UIStrings = {
    */
   node: 'node',
   /**
-   *@description Command for showing the Connection tool
-   */
-  showConnection: 'Show Connection',
-  /**
    *@description Title of the 'Node' tool in the Network Navigator View, which is part of the Sources tool
    */
   networkTitle: 'Node',
-  /**
-   *@description Command for showing the 'Node' tool in the Network Navigator View, which is part of the Sources tool
-   */
-  showNode: 'Show Node',
 };
 
 const str_ = i18n.i18n.registerUIStrings('entrypoints/node_app/node_app.ts', UIStrings);
@@ -53,7 +45,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'node-connection',
   title: i18nLazyString(UIStrings.connection),
-  commandPrompt: i18nLazyString(UIStrings.showConnection),
   order: 0,
   async loadView() {
     return NodeConnectionsPanel.instance();
@@ -65,7 +56,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
   id: 'navigator-network',
   title: i18nLazyString(UIStrings.networkTitle),
-  commandPrompt: i18nLazyString(UIStrings.showNode),
   order: 2,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {

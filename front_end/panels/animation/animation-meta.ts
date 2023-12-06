@@ -14,10 +14,6 @@ const UIStrings = {
    * @description Title for the 'Animations' tool in the bottom drawer
    */
   animations: 'Animations',
-  /**
-   * @description Command for showing the 'Animations' tool in the bottom drawer
-   */
-  showAnimations: 'Show Animations',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/animation/animation-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -33,7 +29,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'animations',
   title: i18nLazyString(UIStrings.animations),
-  commandPrompt: i18nLazyString(UIStrings.showAnimations),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 0,
   async loadView() {

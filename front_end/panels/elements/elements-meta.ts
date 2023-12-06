@@ -13,46 +13,25 @@ import type * as Elements from './elements.js';
 
 const UIStrings = {
   /**
-   * @description Command for showing the 'Elements' panel. Elements refers to HTML elements.
-   */
-  showElements: 'Show Elements',
-  /**
    * @description Title of the Elements Panel. Elements refers to HTML elements.
    */
   elements: 'Elements',
-  /**
-   * @description Command for showing the 'Event Listeners' tool. Refers to DOM Event listeners.
-   */
-  showEventListeners: 'Show Event Listeners',
   /**
    * @description Title of the 'Event Listeners' tool in the sidebar of the elements panel. Refers to
    * DOM Event listeners.
    */
   eventListeners: 'Event Listeners',
   /**
-   * @description Command for showing the 'Properties' tool. Refers to HTML properties.
-   */
-  showProperties: 'Show Properties',
-  /**
    * @description Title of the 'Properties' tool in the sidebar of the elements tool. Refers to HTML
    * properties.
    */
   properties: 'Properties',
-  /**
-   * @description Command for showing the 'Stack Trace' tool. Stack trace refers to the location in
-   * the code where the program was at a point in time.
-   */
-  showStackTrace: 'Show Stack Trace',
   /**
    * @description Text for the execution stack trace tool, which shows the stack trace from when this
    * HTML element was created. Stack trace refers to the location in the code where the program was
    * at a point in time.
    */
   stackTrace: 'Stack Trace',
-  /**
-   * @description Command for showing the 'Layout' tool
-   */
-  showLayout: 'Show Layout',
   /**
    * @description The title of the 'Layout' tool in the sidebar of the elements panel.
    */
@@ -186,7 +165,6 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (elementsModul
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'elements',
-  commandPrompt: i18nLazyString(UIStrings.showElements),
   title: i18nLazyString(UIStrings.elements),
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -220,7 +198,6 @@ UI.ActionRegistration.registerActionExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.eventListeners',
-  commandPrompt: i18nLazyString(UIStrings.showEventListeners),
   title: i18nLazyString(UIStrings.eventListeners),
   order: 5,
   hasToolbar: true,
@@ -234,7 +211,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.domProperties',
-  commandPrompt: i18nLazyString(UIStrings.showProperties),
   title: i18nLazyString(UIStrings.properties),
   order: 7,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -248,7 +224,6 @@ UI.ViewManager.registerViewExtension({
   experiment: Root.Runtime.ExperimentName.CAPTURE_NODE_CREATION_STACKS,
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.domCreation',
-  commandPrompt: i18nLazyString(UIStrings.showStackTrace),
   title: i18nLazyString(UIStrings.stackTrace),
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -261,7 +236,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
   id: 'elements.layout',
-  commandPrompt: i18nLazyString(UIStrings.showLayout),
   title: i18nLazyString(UIStrings.layout),
   order: 4,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,

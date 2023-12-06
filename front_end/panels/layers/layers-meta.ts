@@ -12,10 +12,6 @@ const UIStrings = {
    *@description Title of the Layers tool
    */
   layers: 'Layers',
-  /**
-   *@description Command for showing the Layers tool
-   */
-  showLayers: 'Show Layers',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/layers/layers-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -33,7 +29,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'layers',
   title: i18nLazyString(UIStrings.layers),
-  commandPrompt: i18nLazyString(UIStrings.showLayers),
   order: 100,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {

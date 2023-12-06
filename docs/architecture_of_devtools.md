@@ -211,7 +211,6 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (loadedNetwork
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'network',
-  commandPrompt: i18nLazyString(UIStrings.showNetwork),
   title: i18nLazyString(UIStrings.network),
   order: 40,
   // This function is executed by the `ViewManager` (defined in `front_end/ui/ViewManager.js`)

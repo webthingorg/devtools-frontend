@@ -17,10 +17,6 @@ const UIStrings = {
    */
   changes: 'Changes',
   /**
-   * @description Command for showing the 'Changes' tool in the bottom drawer
-   */
-  showChanges: 'Show Changes',
-  /**
    *@description Title for action in the Changes tool that reverts all changes to the currently open file.
    */
   revertAllChangesToCurrentFile: 'Revert all changes to current file',
@@ -50,7 +46,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'changes.changes',
   title: i18nLazyString(UIStrings.changes),
-  commandPrompt: i18nLazyString(UIStrings.showChanges),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {
     const Changes = await loadChangesModule();

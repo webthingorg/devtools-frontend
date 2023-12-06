@@ -148,7 +148,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'console',
   title: i18nLazyString(UIStrings.console),
-  commandPrompt: i18nLazyString(UIStrings.showConsole),
   order: 20,
   async loadView() {
     const Console = await loadConsoleModule();
@@ -160,7 +159,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'console-view',
   title: i18nLazyString(UIStrings.console),
-  commandPrompt: i18nLazyString(UIStrings.showConsole),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   order: 0,
   async loadView() {

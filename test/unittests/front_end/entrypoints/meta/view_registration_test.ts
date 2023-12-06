@@ -15,14 +15,12 @@ class MockView extends UI.Widget.Widget implements UI.View.ViewLocationResolver 
 }
 const viewId = 'mockView';
 const viewTitle = 'Mock';
-const commandPrompt = 'Show Mock';
 const order = 10;
 describeWithEnvironment('View registration', () => {
   before(() => {
     UI.ViewManager.registerViewExtension({
       location: UI.ViewManager.ViewLocationValues.PANEL,
       id: viewId,
-      commandPrompt: i18n.i18n.lockedLazyString(commandPrompt),
       title: i18n.i18n.lockedLazyString(viewTitle),
       order,
       persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -47,14 +45,13 @@ describeWithEnvironment('View registration', () => {
     const mockWidget = await preRegisteredView.widget();
     assert.instanceOf(mockWidget, MockView, 'View did not load correctly');
     assert.strictEqual(preRegisteredView.title(), viewTitle, 'View title is not returned correctly');
-    assert.strictEqual(preRegisteredView.commandPrompt(), commandPrompt, 'Command for view is not returned correctly');
   });
 
   it('adds command for showing a pre registered view', () => {
     const allCommands = QuickOpen.CommandMenu.CommandMenu.instance({forceNew: true}).commands();
     const filteredCommands = allCommands.filter(
-        command =>
-            command.title === commandPrompt && command.isPanelOrDrawer === QuickOpen.CommandMenu.PanelOrDrawer.PANEL);
+        command => command.title === `Show ${viewTitle}` &&
+            command.isPanelOrDrawer === QuickOpen.CommandMenu.PanelOrDrawer.PANEL);
     assert.strictEqual(filteredCommands.length, 1, 'Command for showing a preregistered view was not added correctly');
   });
 
@@ -64,7 +61,6 @@ describeWithEnvironment('View registration', () => {
     assert.doesNotThrow(() => {
       UI.ViewManager.registerViewExtension({
         id: viewId,
-        commandPrompt: i18n.i18n.lockedLazyString(commandPrompt),
         title: i18n.i18n.lockedLazyString(viewTitle),
         async loadView() {
           return new MockView();

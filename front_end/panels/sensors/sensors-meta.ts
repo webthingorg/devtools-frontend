@@ -84,15 +84,6 @@ const UIStrings = {
    *@description Title of an option in Sensors tab idle emulation drop-down.
    */
   userIdleScreenLocked: 'User idle, screen locked',
-  /**
-   * @description Command that opens the Sensors view/tool. The sensors tool contains GPS,
-   * orientation sensors, touch settings, etc.
-   */
-  showSensors: 'Show Sensors',
-  /**
-   *@description Command that shows geographic locations.
-   */
-  showLocations: 'Show Locations',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/sensors/sensors-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -108,7 +99,6 @@ async function loadEmulationModule(): Promise<typeof Sensors> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  commandPrompt: i18nLazyString(UIStrings.showSensors),
   title: i18nLazyString(UIStrings.sensors),
   id: 'sensors',
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
@@ -130,7 +120,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'emulation-locations',
-  commandPrompt: i18nLazyString(UIStrings.showLocations),
   title: i18nLazyString(UIStrings.locations),
   order: 40,
   async loadView() {

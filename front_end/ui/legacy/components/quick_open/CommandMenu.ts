@@ -33,6 +33,11 @@ const UIStrings = {
    * @description Hint text to indicate that a selected command is deprecated
    */
   deprecated: '— deprecated',
+  /**
+   *@description Text for command opening a view from the Command Menu
+   *@example {Preferences} PH1
+   */
+  showS: 'Show {PH1}',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/quick_open/CommandMenu.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -187,8 +192,9 @@ export class CommandMenu {
         continue;
       }
 
+      const title = i18nString(UIStrings.showS, {PH1: view.title()});
       const options: RevealViewCommandOptions = {
-        title: view.commandPrompt(),
+        title,
         tags: view.tags() || '',
         category,
         userActionCode: undefined,

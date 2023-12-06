@@ -32,10 +32,6 @@ const UIStrings = {
    *@description A tag of Performance Monitor that can be searched in the command menu
    */
   metrics: 'metrics',
-  /**
-   *@description Command for showing the 'Performance monitor' tool in the bottom drawer
-   */
-  showPerformanceMonitor: 'Show Performance monitor',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/performance_monitor/performance_monitor-meta.ts', UIStrings);
@@ -54,7 +50,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'performance.monitor',
   title: i18nLazyString(UIStrings.performanceMonitor),
-  commandPrompt: i18nLazyString(UIStrings.showPerformanceMonitor),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 100,
   async loadView() {

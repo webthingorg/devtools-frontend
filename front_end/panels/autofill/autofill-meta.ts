@@ -14,10 +14,6 @@ const UIStrings = {
    *@description Label for the autofill pane
    */
   autofill: 'Autofill',
-  /**
-   *@description Command for showing the 'Autofill' pane
-   */
-  showAutofill: 'Show Autofill',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/autofill/autofill-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -36,7 +32,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'autofill-view',
   title: i18nLazyString(UIStrings.autofill),
-  commandPrompt: i18nLazyString(UIStrings.showAutofill),
   order: 100,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {

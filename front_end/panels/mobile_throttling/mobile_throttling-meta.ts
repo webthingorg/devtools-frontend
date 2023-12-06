@@ -14,10 +14,6 @@ const UIStrings = {
    */
   throttling: 'Throttling',
   /**
-   *@description Command for showing the Mobile Throttling tool.
-   */
-  showThrottling: 'Show Throttling',
-  /**
    *@description Title of an action in the network conditions tool to network offline
    */
   goOffline: 'Go offline',
@@ -60,7 +56,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'throttling-conditions',
   title: i18nLazyString(UIStrings.throttling),
-  commandPrompt: i18nLazyString(UIStrings.showThrottling),
   order: 35,
   async loadView() {
     const MobileThrottling = await loadMobileThrottlingModule();

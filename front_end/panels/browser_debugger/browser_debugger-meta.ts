@@ -11,41 +11,21 @@ import type * as BrowserDebugger from './browser_debugger.js';
 import * as i18n from '../../core/i18n/i18n.js';
 const UIStrings = {
   /**
-   *@description Command for showing the 'Event Listener Breakpoints' tool
-   */
-  showEventListenerBreakpoints: 'Show Event Listener Breakpoints',
-  /**
    *@description Title of the 'Event Listener Breakpoints' tool in the bottom sidebar of the Sources tool
    */
   eventListenerBreakpoints: 'Event Listener Breakpoints',
-  /**
-   *@description Title for showing the 'CSP Violation Breakpoints' tool in the Sources panel
-   */
-  showCspViolationBreakpoints: 'Show CSP Violation Breakpoints',
   /**
    *@description Title of the 'CSP Violation Breakpoints' tool in the bottom sidebar of the Sources tool
    */
   cspViolationBreakpoints: 'CSP Violation Breakpoints',
   /**
-   *@description Command for showing the 'XHR/fetch Breakpoints' in the sources panel
-   */
-  showXhrfetchBreakpoints: 'Show XHR/fetch Breakpoints',
-  /**
    *@description Title of the 'XHR/fetch Breakpoints' tool in the bottom sidebar of the Sources tool
    */
   xhrfetchBreakpoints: 'XHR/fetch Breakpoints',
   /**
-   *@description Command for showing the 'DOM Breakpoints' tool in the Elements panel
-   */
-  showDomBreakpoints: 'Show DOM Breakpoints',
-  /**
    *@description Title of the 'DOM Breakpoints' tool in the bottom sidebar of the Sources tool
    */
   domBreakpoints: 'DOM Breakpoints',
-  /**
-   *@description Command for showing the 'Gobal Listeners' tool in the sources panel
-   */
-  showGlobalListeners: 'Show Global Listeners',
   /**
    *@description Title of the 'Global Listeners' tool in the bottom sidebar of the Sources tool
    */
@@ -55,25 +35,13 @@ const UIStrings = {
    */
   page: 'Page',
   /**
-   *@description Command for showing the 'Page' tab in the Sources panel
-   */
-  showPage: 'Show Page',
-  /**
    *@description Title as part of a tool to override existing configurations
    */
   overrides: 'Overrides',
   /**
-   *@description Command for showing the 'Overrides' tool in the Sources panel
-   */
-  showOverrides: 'Show Overrides',
-  /**
    *@description Title for a type of source files
    */
   contentScripts: 'Content scripts',
-  /**
-   *@description Command for showing the 'Content scripts' tool in the sources panel
-   */
-  showContentScripts: 'Show Content scripts',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/browser_debugger/browser_debugger-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -107,7 +75,6 @@ UI.ViewManager.registerViewExtension({
   },
   id: 'sources.eventListenerBreakpoints',
   location: UI.ViewManager.ViewLocationValues.SOURCES_SIDEBAR_BOTTOM,
-  commandPrompt: i18nLazyString(UIStrings.showEventListenerBreakpoints),
   title: i18nLazyString(UIStrings.eventListenerBreakpoints),
   order: 9,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -120,7 +87,6 @@ UI.ViewManager.registerViewExtension({
   },
   id: 'sources.cspViolationBreakpoints',
   location: UI.ViewManager.ViewLocationValues.SOURCES_SIDEBAR_BOTTOM,
-  commandPrompt: i18nLazyString(UIStrings.showCspViolationBreakpoints),
   title: i18nLazyString(UIStrings.cspViolationBreakpoints),
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -133,7 +99,6 @@ UI.ViewManager.registerViewExtension({
   },
   id: 'sources.xhrBreakpoints',
   location: UI.ViewManager.ViewLocationValues.SOURCES_SIDEBAR_BOTTOM,
-  commandPrompt: i18nLazyString(UIStrings.showXhrfetchBreakpoints),
   title: i18nLazyString(UIStrings.xhrfetchBreakpoints),
   order: 5,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -147,7 +112,6 @@ UI.ViewManager.registerViewExtension({
   },
   id: 'sources.domBreakpoints',
   location: UI.ViewManager.ViewLocationValues.SOURCES_SIDEBAR_BOTTOM,
-  commandPrompt: i18nLazyString(UIStrings.showDomBreakpoints),
   title: i18nLazyString(UIStrings.domBreakpoints),
   order: 7,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -160,7 +124,6 @@ UI.ViewManager.registerViewExtension({
   },
   id: 'sources.globalListeners',
   location: UI.ViewManager.ViewLocationValues.SOURCES_SIDEBAR_BOTTOM,
-  commandPrompt: i18nLazyString(UIStrings.showGlobalListeners),
   title: i18nLazyString(UIStrings.globalListeners),
   order: 8,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -174,7 +137,6 @@ UI.ViewManager.registerViewExtension({
   },
   id: 'elements.domBreakpoints',
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
-  commandPrompt: i18nLazyString(UIStrings.showDomBreakpoints),
   title: i18nLazyString(UIStrings.domBreakpoints),
   order: 6,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -184,7 +146,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
   id: 'navigator-network',
   title: i18nLazyString(UIStrings.page),
-  commandPrompt: i18nLazyString(UIStrings.showPage),
   order: 2,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
@@ -197,7 +158,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
   id: 'navigator-overrides',
   title: i18nLazyString(UIStrings.overrides),
-  commandPrompt: i18nLazyString(UIStrings.showOverrides),
   order: 4,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
@@ -210,7 +170,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
   id: 'navigator-contentScripts',
   title: i18nLazyString(UIStrings.contentScripts),
-  commandPrompt: i18nLazyString(UIStrings.showContentScripts),
   order: 5,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {

@@ -37,14 +37,6 @@ const UIStrings = {
    */
   startStopRecording: 'Start/stop recording',
   /**
-   *@description Command for shwoing the profiler tab
-   */
-  showMemory: 'Show Memory',
-  /**
-   *@description Command for showing the 'Live Heap Profile' tool in the bottom drawer
-   */
-  showLiveHeapProfile: 'Show Live Heap Profile',
-  /**
    *@description Tooltip text that appears when hovering over the largeicon download button
    */
   saveProfile: 'Save profile…',
@@ -77,7 +69,6 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (profilerModul
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'heap_profiler',
-  commandPrompt: i18nLazyString(UIStrings.showMemory),
   title: i18nLazyString(UIStrings.memory),
   order: 60,
   async loadView() {
@@ -89,7 +80,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'live_heap_profile',
-  commandPrompt: i18nLazyString(UIStrings.showLiveHeapProfile),
   title: i18nLazyString(UIStrings.liveHeapProfile),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 100,

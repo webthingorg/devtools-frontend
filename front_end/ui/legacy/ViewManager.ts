@@ -56,9 +56,6 @@ export class PreRegisteredView implements View {
     return this.viewRegistration.title();
   }
 
-  commandPrompt(): Common.UIString.LocalizedString {
-    return this.viewRegistration.commandPrompt();
-  }
   isCloseable(): boolean {
     return this.viewRegistration.persistence === ViewPersistence.CLOSEABLE;
   }

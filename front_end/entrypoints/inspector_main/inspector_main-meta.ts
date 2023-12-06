@@ -18,10 +18,6 @@ const UIStrings = {
    */
   rendering: 'Rendering',
   /**
-   * @description Command for showing the 'Rendering' tool
-   */
-  showRendering: 'Show Rendering',
-  /**
    * @description Command Menu search query that points to the Rendering tool. This refers to the
    * process of drawing pixels onto the screen (called painting).
    */
@@ -122,7 +118,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'rendering',
   title: i18nLazyString(UIStrings.rendering),
-  commandPrompt: i18nLazyString(UIStrings.showRendering),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 50,
   async loadView() {

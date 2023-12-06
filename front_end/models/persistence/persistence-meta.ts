@@ -16,10 +16,6 @@ const UIStrings = {
    */
   workspace: 'Workspace',
   /**
-   *@description Command for showing the Workspace tool in Settings
-   */
-  showWorkspace: 'Show Workspace settings',
-  /**
    *@description Title of a setting under the Persistence category in Settings
    */
   enableLocalOverrides: 'Enable Local Overrides',
@@ -69,7 +65,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'workspace',
   title: i18nLazyString(UIStrings.workspace),
-  commandPrompt: i18nLazyString(UIStrings.showWorkspace),
   order: 1,
   async loadView() {
     const Persistence = await loadPersistenceModule();

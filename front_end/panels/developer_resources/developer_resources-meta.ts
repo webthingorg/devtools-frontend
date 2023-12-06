@@ -13,10 +13,6 @@ const UIStrings = {
    * @description Title for developer resources panel
    */
   developerResources: 'Developer Resources',
-  /**
-   * @description Command for showing the developer resources panel
-   */
-  showDeveloperResources: 'Show Developer Resources',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/developer_resources/developer_resources-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -34,7 +30,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'developer-resources',
   title: i18nLazyString(UIStrings.developerResources),
-  commandPrompt: i18nLazyString(UIStrings.showDeveloperResources),
   order: 100,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   experiment: Root.Runtime.ExperimentName.DEVELOPER_RESOURCES_VIEW,

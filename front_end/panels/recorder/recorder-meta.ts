@@ -14,10 +14,6 @@ const UIStrings = {
    */
   recorder: 'Recorder',
   /**
-   *@description Title of the Recorder Panel
-   */
-  showRecorder: 'Show Recorder',
-  /**
    *@description Title of start/stop recording action in command menu
    */
   startStopRecording: 'Start/Stop recording',
@@ -74,7 +70,6 @@ function maybeRetrieveContextTypes<T = unknown>(
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'chrome_recorder',
-  commandPrompt: i18nLazyString(UIStrings.showRecorder),
   title: i18nLazyString(UIStrings.recorder),
   order: 90,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,

@@ -12,10 +12,6 @@ const UIStrings = {
    *@description Title of the Devices tab/tool. Devices refers to e.g. phones/tablets.
    */
   devices: 'Devices',
-  /**
-   *@description Command that opens the device emulation view.
-   */
-  showDevices: 'Show Devices',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/settings/emulation/emulation-meta.ts', UIStrings);
@@ -32,7 +28,6 @@ async function loadEmulationModule(): Promise<typeof Emulation> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  commandPrompt: i18nLazyString(UIStrings.showDevices),
   title: i18nLazyString(UIStrings.devices),
   order: 30,
   async loadView() {

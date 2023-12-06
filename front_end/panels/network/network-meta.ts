@@ -13,25 +13,13 @@ import type * as Network from './network.js';
 
 const UIStrings = {
   /**
-   *@description Command for showing the 'Network' tool
-   */
-  showNetwork: 'Show Network',
-  /**
    *@description Title of the Network tool
    */
   network: 'Network',
   /**
-   *@description Command for showing the 'Network request blocking' tool
-   */
-  showNetworkRequestBlocking: 'Show Network request blocking',
-  /**
    *@description Title of the 'Network request blocking' tool in the bottom drawer
    */
   networkRequestBlocking: 'Network request blocking',
-  /**
-   *@description Command for showing the 'Network conditions' tool
-   */
-  showNetworkConditions: 'Show Network conditions',
   /**
    *@description Title of the 'Network conditions' tool in the bottom drawer
    */
@@ -44,10 +32,6 @@ const UIStrings = {
    *@description A tag of Network Conditions tool that can be searched in the command menu
    */
   networkThrottling: 'network throttling',
-  /**
-   *@description Command for showing the 'Search' tool
-   */
-  showSearch: 'Show Search',
   /**
    *@description Title of a search bar or tool
    */
@@ -142,7 +126,6 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (loadedNetwork
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'network',
-  commandPrompt: i18nLazyString(UIStrings.showNetwork),
   title: i18nLazyString(UIStrings.network),
   order: 40,
   async loadView() {
@@ -154,7 +137,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'network.blocked-urls',
-  commandPrompt: i18nLazyString(UIStrings.showNetworkRequestBlocking),
   title: i18nLazyString(UIStrings.networkRequestBlocking),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 60,
@@ -167,7 +149,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'network.config',
-  commandPrompt: i18nLazyString(UIStrings.showNetworkConditions),
   title: i18nLazyString(UIStrings.networkConditions),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 40,
@@ -187,7 +168,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NETWORK_SIDEBAR,
   id: 'network.search-network-tab',
-  commandPrompt: i18nLazyString(UIStrings.showSearch),
   title: i18nLazyString(UIStrings.search),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {

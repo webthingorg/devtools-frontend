@@ -18,73 +18,37 @@ import type * as SourcesComponents from './components/components.js';
 
 const UIStrings = {
   /**
-   *@description Command for showing the 'Sources' tool
-   */
-  showSources: 'Show Sources',
-  /**
    *@description Name of the Sources panel
    */
   sources: 'Sources',
-  /**
-   *@description Command for showing the 'Workspace' tool
-   */
-  showWorkspace: 'Show Workspace',
   /**
    *@description Title of the 'Filesystem' tool in the Files Navigator View, which is part of the Sources tool
    */
   workspace: 'Workspace',
   /**
-   *@description Command for showing the 'Snippets' tool
-   */
-  showSnippets: 'Show Snippets',
-  /**
    *@description Title of the 'Snippets' tool in the Snippets Navigator View, which is part of the Sources tool
    */
   snippets: 'Snippets',
-  /**
-   *@description Command for showing the 'Search' tool
-   */
-  showSearch: 'Show Search',
   /**
    *@description Title of a search bar or tool
    */
   search: 'Search',
   /**
-   *@description Command for showing the 'Quick source' tool
-   */
-  showQuickSource: 'Show Quick source',
-  /**
    *@description Title of the 'Quick source' tool in the bottom drawer
    */
   quickSource: 'Quick source',
-  /**
-   *@description Command for showing the 'Threads' tool
-   */
-  showThreads: 'Show Threads',
   /**
    *@description Title of the sources threads
    */
   threads: 'Threads',
   /**
-   *@description Command for showing the 'Scope' tool
-   */
-  showScope: 'Show Scope',
-  /**
    *@description Title of the sources scopeChain
    */
   scope: 'Scope',
   /**
-   *@description Command for showing the 'Watch' tool
-   */
-  showWatch: 'Show Watch',
-  /**
    *@description Title of the sources watch
    */
   watch: 'Watch',
-  /**
-   *@description Command for showing the 'Breakpoints' tool
-   */
-  showBreakpoints: 'Show Breakpoints',
   /**
    *@description Title of the sources jsBreakpoints
    */
@@ -443,7 +407,6 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (sourcesModule
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'sources',
-  commandPrompt: i18nLazyString(UIStrings.showSources),
   title: i18nLazyString(UIStrings.sources),
   order: 30,
   async loadView() {
@@ -455,7 +418,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
   id: 'navigator-files',
-  commandPrompt: i18nLazyString(UIStrings.showWorkspace),
   title: i18nLazyString(UIStrings.workspace),
   order: 3,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -468,7 +430,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
   id: 'navigator-snippets',
-  commandPrompt: i18nLazyString(UIStrings.showSnippets),
   title: i18nLazyString(UIStrings.snippets),
   order: 6,
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -481,7 +442,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'sources.search-sources-tab',
-  commandPrompt: i18nLazyString(UIStrings.showSearch),
   title: i18nLazyString(UIStrings.search),
   order: 7,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
@@ -494,7 +454,6 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'sources.quick',
-  commandPrompt: i18nLazyString(UIStrings.showQuickSource),
   title: i18nLazyString(UIStrings.quickSource),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 1000,
@@ -506,7 +465,6 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   id: 'sources.threads',
-  commandPrompt: i18nLazyString(UIStrings.showThreads),
   title: i18nLazyString(UIStrings.threads),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   condition: Root.Runtime.ConditionName.NOT_SOURCES_HIDE_ADD_FOLDER,
@@ -518,7 +476,6 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   id: 'sources.scopeChain',
-  commandPrompt: i18nLazyString(UIStrings.showScope),
   title: i18nLazyString(UIStrings.scope),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
@@ -529,7 +486,6 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   id: 'sources.watch',
-  commandPrompt: i18nLazyString(UIStrings.showWatch),
   title: i18nLazyString(UIStrings.watch),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {
@@ -541,7 +497,6 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   id: 'sources.jsBreakpoints',
-  commandPrompt: i18nLazyString(UIStrings.showBreakpoints),
   title: i18nLazyString(UIStrings.breakpoints),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
   async loadView() {

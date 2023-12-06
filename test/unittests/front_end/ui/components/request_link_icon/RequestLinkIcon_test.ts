@@ -337,7 +337,6 @@ describeWithEnvironment('RequestLinkIcon', () => {
         location: 'mock-location',
         id: 'network',
         title: () => 'Network' as Platform.UIString.LocalizedString,
-        commandPrompt: () => 'Network' as Platform.UIString.LocalizedString,
         persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
         async loadView() {
           return new UI.Widget.Widget();

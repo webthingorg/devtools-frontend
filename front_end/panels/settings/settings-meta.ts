@@ -28,22 +28,6 @@ const UIStrings = {
    */
   ignoreList: 'Ignore List',
   /**
-   *@description Command for showing the keyboard shortcuts in Settings
-   */
-  showShortcuts: 'Show Shortcuts',
-  /**
-   *@description Command for showing the preference tab in the Settings Screen
-   */
-  showPreferences: 'Show Preferences',
-  /**
-   *@description Command for showing the experiments tab in the Settings Screen
-   */
-  showExperiments: 'Show Experiments',
-  /**
-   *@description Command for showing the Ignore List settings
-   */
-  showIgnoreList: 'Show Ignore List',
-  /**
    *@description Name of the Settings view
    */
   settings: 'Settings',
@@ -69,7 +53,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'preferences',
   title: i18nLazyString(UIStrings.preferences),
-  commandPrompt: i18nLazyString(UIStrings.showPreferences),
   order: 0,
   async loadView() {
     const Settings = await loadSettingsModule();
@@ -81,7 +64,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'experiments',
   title: i18nLazyString(UIStrings.experiments),
-  commandPrompt: i18nLazyString(UIStrings.showExperiments),
   order: 3,
   experiment: Root.Runtime.ExperimentName.ALL,
   async loadView() {
@@ -94,7 +76,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'blackbox',
   title: i18nLazyString(UIStrings.ignoreList),
-  commandPrompt: i18nLazyString(UIStrings.showIgnoreList),
   order: 4,
   async loadView() {
     const Settings = await loadSettingsModule();
@@ -106,7 +87,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
   id: 'keybinds',
   title: i18nLazyString(UIStrings.shortcuts),
-  commandPrompt: i18nLazyString(UIStrings.showShortcuts),
   order: 100,
   async loadView() {
     const Settings = await loadSettingsModule();

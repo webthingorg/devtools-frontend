@@ -15,7 +15,6 @@ As an example, take the registration of the `Network conditions` pane, which is 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'network.config',
-  commandPrompt: 'Show Network conditions',
   title: ls`Network conditions`,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 40,

@@ -13,10 +13,6 @@ const UIStrings = {
    */
   coverage: 'Coverage',
   /**
-   *@description Command for showing the 'Coverage' tool in the bottom drawer
-   */
-  showCoverage: 'Show Coverage',
-  /**
    *@description Title of an action under the Performance category that can be invoked through the Command Menu
    */
   instrumentCoverage: 'Instrument coverage',
@@ -60,7 +56,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'coverage',
   title: i18nLazyString(UIStrings.coverage),
-  commandPrompt: i18nLazyString(UIStrings.showCoverage),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 100,
   async loadView() {

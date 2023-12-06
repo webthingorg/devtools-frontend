@@ -78,13 +78,6 @@ export interface ViewRegistration {
    * property and in that case the behaviour of the view's availability will be inverted.
    */
   condition?: Root.Runtime.ConditionName;
-  /**
-   * The command added to the command menu used to show the view. It usually follows the shape Show <title> as it must
-   * not be localized at declaration since it is localized internally when appending the commands to the command menu.
-   * The existing duplication of the declaration of the title is expected to be removed once the migration to the version
-   * 2 of the localization model has been completed (crbug.com/1136655).
-   */
-  commandPrompt: () => Platform.UIString.LocalizedString;
 
   /**
    * A UI string used as the title of the view.

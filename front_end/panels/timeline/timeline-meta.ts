@@ -16,17 +16,9 @@ const UIStrings = {
    */
   performance: 'Performance',
   /**
-   *@description Command for showing the 'Performance' tool
-   */
-  showPerformance: 'Show Performance',
-  /**
    *@description Title of the 'JavaScript Profiler' tool
    */
   javascriptProfiler: 'JavaScript Profiler',
-  /**
-   *@description Command for showing the 'JavaScript Profiler' tool
-   */
-  showJavascriptProfiler: 'Show JavaScript Profiler',
   /**
    *@description Text to record a series of actions for analysis
    */
@@ -123,7 +115,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'timeline',
   title: i18nLazyString(UIStrings.performance),
-  commandPrompt: i18nLazyString(UIStrings.showPerformance),
   order: 50,
   async loadView() {
     const Timeline = await loadTimelineModule();
@@ -135,7 +126,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'js_profiler',
   title: i18nLazyString(UIStrings.javascriptProfiler),
-  commandPrompt: i18nLazyString(UIStrings.showJavascriptProfiler),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 65,
   experiment: Root.Runtime.ExperimentName.JS_PROFILER_TEMP_ENABLE,

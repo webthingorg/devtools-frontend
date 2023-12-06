@@ -14,10 +14,6 @@ const UIStrings = {
    *@description Label for the issues pane
    */
   issues: 'Issues',
-  /**
-   *@description Command for showing the 'Issues' tool
-   */
-  showIssues: 'Show Issues',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/issues/issues-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -34,7 +30,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'issues-pane',
   title: i18nLazyString(UIStrings.issues),
-  commandPrompt: i18nLazyString(UIStrings.showIssues),
   order: 100,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {

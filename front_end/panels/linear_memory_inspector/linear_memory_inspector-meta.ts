@@ -15,10 +15,6 @@ const UIStrings = {
    *@description Title of the Linear Memory Inspector tool
    */
   memoryInspector: 'Memory Inspector',
-  /**
-   *@description Command for showing the 'Memory Inspector' tool
-   */
-  showMemoryInspector: 'Show Memory Inspector',
 };
 const str_ =
     i18n.i18n.registerUIStrings('panels/linear_memory_inspector/linear_memory_inspector-meta.ts', UIStrings);
@@ -37,7 +33,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'linear-memory-inspector',
   title: i18nLazyString(UIStrings.memoryInspector),
-  commandPrompt: i18nLazyString(UIStrings.showMemoryInspector),
   order: 100,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {

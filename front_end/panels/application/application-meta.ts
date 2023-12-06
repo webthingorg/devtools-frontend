@@ -16,10 +16,6 @@ const UIStrings = {
    */
   application: 'Application',
   /**
-   *@description Command for showing the 'Application' tool
-   */
-  showApplication: 'Show Application',
-  /**
    *@description A tag of Application Panel that can be searched in the command menu
    */
   pwa: 'pwa',
@@ -62,7 +58,6 @@ UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'resources',
   title: i18nLazyString(UIStrings.application),
-  commandPrompt: i18nLazyString(UIStrings.showApplication),
   order: 70,
   async loadView() {
     const Resources = await loadResourcesModule();
