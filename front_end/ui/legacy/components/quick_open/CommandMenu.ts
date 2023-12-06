@@ -269,9 +269,14 @@ export class CommandMenuProvider extends Provider {
     }
 
     for (const command of allCommands) {
-      if (command.available()) {
-        this.commands.push(command);
+      if (!command.available()) {
+        continue;
       }
+      if (this.commands.find(
+              otherCommand => otherCommand.title === command.title && otherCommand.category === command.category)) {
+        continue;
+      }
+      this.commands.push(command);
     }
 
     this.commands = this.commands.sort(commandComparator);
