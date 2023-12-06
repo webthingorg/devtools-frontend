@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09c57c86_224a6ebd",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2023-12-06T07:59:12Z",
+      "side": 1,
+      "message": "I think showing some information is slightly better in this situation. If a column disappears without notifying to a user, there is no way to get the info. We can describe why by improving the error message.\n\nThat said, the difference would be small. If you\u0027d like to remove the item for PrefetchEvictedAfterCandidateRemoved, I think it\u0027s good to also remove ones for PreloadingFinalStatus::kSpeculationRuleRemoved for consistency.",
+      "revId": "4c765e00de4862916b6e94efbadc2c6568d38114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
