@@ -34,6 +34,24 @@
       "parentUuid": "905b6de8_aa870850",
       "revId": "3bfded814b28c7d7a6281ac0ef367c6614137f38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f606b33_64fb0d8f",
+        "filename": "front_end/core/sdk/ServerSentEventsProtocol.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-12-06T09:31:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dc5a5328_e8ff62f5",
+      "revId": "3bfded814b28c7d7a6281ac0ef367c6614137f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
