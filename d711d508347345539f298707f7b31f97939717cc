@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff54c469_b0d9712e",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3464,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-06T11:19:24Z",
+      "side": 0,
+      "message": "we can output the URL just fine without a target, so no need to exit early.",
+      "range": {
+        "startLine": 3464,
+        "startChar": 33,
+        "endLine": 3464,
+        "endChar": 50
+      },
+      "revId": "d711d508347345539f298707f7b31f97939717cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
