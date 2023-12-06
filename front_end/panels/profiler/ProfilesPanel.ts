@@ -34,11 +34,11 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 // eslint-disable-next-line rulesdir/es_modules_import
-import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css.js';
+import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css' assert {type: 'css'};
 import * as UI from '../../ui/legacy/legacy.js';
 import {type ExperimentsSettingsTab} from '../settings/SettingsScreen.js';
 
-import heapProfilerStyles from './heapProfiler.css.js';
+import heapProfilerStyles from './heapProfiler.css' assert {type: 'css'};
 import {
   type DataDisplayDelegate,
   ProfileEvents as ProfileTypeEvents,
@@ -47,8 +47,8 @@ import {
 } from './ProfileHeader.js';
 import {Events as ProfileLauncherEvents, ProfileLauncherView} from './ProfileLauncherView.js';
 import {ProfileSidebarTreeElement} from './ProfileSidebarTreeElement.js';
-import profilesPanelStyles from './profilesPanel.css.js';
-import profilesSidebarTreeStyles from './profilesSidebarTree.css.js';
+import profilesPanelStyles from './profilesPanel.css' assert {type: 'css'};
+import profilesSidebarTreeStyles from './profilesSidebarTree.css' assert {type: 'css'};
 import {instance} from './ProfileTypeRegistry.js';
 
 const UIStrings = {

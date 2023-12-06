@@ -11,7 +11,7 @@ import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wra
 import * as ReportView from '../../../ui/components/report_view/report_view.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import requestTrustTokensViewStyles from './RequestTrustTokensView.css.js';
+import requestTrustTokensViewStyles from './RequestTrustTokensView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

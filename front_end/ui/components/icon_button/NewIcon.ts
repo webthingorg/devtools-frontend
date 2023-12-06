@@ -5,7 +5,7 @@
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 
-import iconStyles from './newIcon.css.js';
+import iconStyles from './newIcon.css' assert {type: 'css'};
 
 export class NewIcon extends LitHtml.LitElement {
   @LitHtml

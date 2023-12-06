@@ -6,7 +6,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 
-import cssHintDetailsViewStyles from './cssHintDetailsView.css.js';
+import cssHintDetailsViewStyles from './cssHintDetailsView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

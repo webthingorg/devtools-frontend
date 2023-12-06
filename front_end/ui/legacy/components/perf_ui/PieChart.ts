@@ -5,7 +5,7 @@
 import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
 
-import pieChartStyles from './pieChart.css.js';
+import pieChartStyles from './pieChart.css' assert {type: 'css'};
 
 const {render, html, svg} = LitHtml;
 

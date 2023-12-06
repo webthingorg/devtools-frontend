@@ -15,7 +15,7 @@ import {DatabaseTableView} from './DatabaseTableView.js';
 import {DOMStorageItemsView} from './DOMStorageItemsView.js';
 import {type DOMStorage} from './DOMStorageModel.js';
 import type * as PreloadingHelper from './preloading/helper/helper.js';
-import resourcesPanelStyles from './resourcesPanel.css.js';
+import resourcesPanelStyles from './resourcesPanel.css' assert {type: 'css'};
 import {StorageItemsView} from './StorageItemsView.js';
 
 const UIStrings = {

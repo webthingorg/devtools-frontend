@@ -12,7 +12,7 @@ import {
   type DialogVerticalPosition,
   type DialogHorizontalAlignment,
 } from './Dialog.js';
-import iconDialogStyles from './iconDialog.css.js';
+import iconDialogStyles from './iconDialog.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

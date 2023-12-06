@@ -6,7 +6,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
-import elementsPanelLinkStyles from './elementsPanelLink.css.js';
+import elementsPanelLinkStyles from './elementsPanelLink.css' assert {type: 'css'};
 
 export interface ElementsPanelLinkData {
   onElementRevealIconClick: (event?: Event) => void;

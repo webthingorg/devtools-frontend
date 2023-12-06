@@ -15,7 +15,7 @@ import * as ReportView from '../../../../ui/components/report_view/report_view.j
 import * as UI from '../../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
-import preloadingDisabledInfobarStyles from './preloadingDisabledInfobar.css.js';
+import preloadingDisabledInfobarStyles from './preloadingDisabledInfobar.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

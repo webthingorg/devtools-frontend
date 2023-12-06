@@ -27,7 +27,7 @@ import {
   RESPONSE_HEADER_SECTION_DATA_KEY,
 } from './ResponseHeaderSection.js';
 
-import requestHeadersViewStyles from './RequestHeadersView.css.js';
+import requestHeadersViewStyles from './RequestHeadersView.css' assert {type: 'css'};
 
 const RAW_HEADER_CUTOFF = 3000;
 const {render, html} = LitHtml;

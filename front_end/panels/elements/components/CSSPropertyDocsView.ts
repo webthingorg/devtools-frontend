@@ -8,7 +8,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Input from '../../../ui/components/input/input.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import CSSPropertyDocsViewStyles from './cssPropertyDocsView.css.js';
+import CSSPropertyDocsViewStyles from './cssPropertyDocsView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

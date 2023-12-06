@@ -34,7 +34,7 @@ import * as UI from '../../legacy.js';
 
 import {Events as OverviewGridEvents, OverviewGrid, type WindowChangedWithPositionEvent} from './OverviewGrid.js';
 import {TimelineOverviewCalculator} from './TimelineOverviewCalculator.js';
-import timelineOverviewInfoStyles from './timelineOverviewInfo.css.js';
+import timelineOverviewInfoStyles from './timelineOverviewInfo.css' assert {type: 'css'};
 
 export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(
     UI.Widget.VBox) {

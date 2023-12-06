@@ -7,7 +7,7 @@ import type * as SDK from '../../../core/sdk/sdk.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import cssVariableValueViewStyles from './cssVariableValueView.css.js';
+import cssVariableValueViewStyles from './cssVariableValueView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

@@ -36,7 +36,7 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as CookieTable from '../../ui/legacy/components/cookie_table/cookie_table.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import requestCookiesViewStyles from './requestCookiesView.css.js';
+import requestCookiesViewStyles from './requestCookiesView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

@@ -50,7 +50,7 @@ import {IssuesPane} from '../issues/IssuesPane.js';
 import * as ElementsComponents from './components/components.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsTreeElement, InitialChildrenLimit} from './ElementsTreeElement.js';
-import elementsTreeOutlineStyles from './elementsTreeOutline.css.js';
+import elementsTreeOutlineStyles from './elementsTreeOutline.css' assert {type: 'css'};
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {type MarkerDecoratorRegistration} from './MarkerDecorator.js';
 import {TopLayerContainer} from './TopLayerContainer.js';

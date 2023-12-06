@@ -8,7 +8,7 @@ import * as LitHtml from '../../lit-html/lit-html.js';
 import * as VisualLogging from '../../visual_logging/visual_logging.js';
 import * as Input from '../input/input.js';
 
-import settingCheckboxStyles from './settingCheckbox.css.js';
+import settingCheckboxStyles from './settingCheckbox.css' assert {type: 'css'};
 import {SettingDeprecationWarning} from './SettingDeprecationWarning.js';
 
 export interface SettingCheckboxData {

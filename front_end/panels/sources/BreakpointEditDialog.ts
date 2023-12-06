@@ -11,7 +11,7 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as TextEditor from '../../ui/components/text_editor/text_editor.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import breakpointEditDialogStyles from './breakpointEditDialog.css.js';
+import breakpointEditDialogStyles from './breakpointEditDialog.css' assert {type: 'css'};
 
 const {Direction} = TextEditor.TextEditorHistory;
 

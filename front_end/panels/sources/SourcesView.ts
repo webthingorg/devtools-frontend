@@ -17,7 +17,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import * as Components from './components/components.js';
 import {EditingLocationHistoryManager} from './EditingLocationHistoryManager.js';
-import sourcesViewStyles from './sourcesView.css.js';
+import sourcesViewStyles from './sourcesView.css' assert {type: 'css'};
 import {
   type EditorSelectedEvent,
   Events as TabbedEditorContainerEvents,

@@ -13,7 +13,7 @@ import * as Diff from '../../../../third_party/diff/diff.js';
 import * as TextPrompt from '../../../../ui/components/text_prompt/text_prompt.js';
 import * as UI from '../../legacy.js';
 
-import filteredListWidgetStyles from './filteredListWidget.css.js';
+import filteredListWidgetStyles from './filteredListWidget.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

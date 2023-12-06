@@ -4,10 +4,10 @@
 
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 // eslint-disable-next-line rulesdir/es_modules_import
-import inspectorCommonStyles from '../../../ui/legacy/inspectorCommon.css.js';
+import inspectorCommonStyles from '../../../ui/legacy/inspectorCommon.css' assert {type: 'css'};
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import cssQueryStyles from './cssQuery.css.js';
+import cssQueryStyles from './cssQuery.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 

@@ -49,7 +49,7 @@ import * as ElementsComponents from './components/components.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {type Context, StylePropertyTreeElement} from './StylePropertyTreeElement.js';
-import stylesSectionTreeStyles from './stylesSectionTree.css.js';
+import stylesSectionTreeStyles from './stylesSectionTree.css' assert {type: 'css'};
 import {StylesSidebarPane} from './StylesSidebarPane.js';
 
 const UIStrings = {

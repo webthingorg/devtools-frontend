@@ -10,7 +10,7 @@ import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import * as ApplicationComponents from './components/components.js';
-import serviceWorkerCacheViewsStyles from './serviceWorkerCacheViews.css.js';
+import serviceWorkerCacheViewsStyles from './serviceWorkerCacheViews.css' assert {type: 'css'};
 
 import type * as Protocol from '../../generated/protocol.js';
 import * as Network from '../network/network.js';

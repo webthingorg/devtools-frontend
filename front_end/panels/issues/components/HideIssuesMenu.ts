@@ -10,7 +10,7 @@ import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import hideIssuesMenuStyles from './hideIssuesMenu.css.js';
+import hideIssuesMenuStyles from './hideIssuesMenu.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

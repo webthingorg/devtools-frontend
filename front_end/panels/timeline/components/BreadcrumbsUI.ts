@@ -8,7 +8,7 @@ import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import {type Breadcrumb, flattenBreadcrumbs} from './Breadcrumbs.js';
-import breadcrumbsUIStyles from './breadcrumbsUI.css.js';
+import breadcrumbsUIStyles from './breadcrumbsUI.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 

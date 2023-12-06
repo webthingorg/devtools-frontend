@@ -8,7 +8,7 @@ import * as LitHtml from '../../lit-html/lit-html.js';
 import * as CodeHighlighter from '../code_highlighter/code_highlighter.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 
-import diffViewStyles from './diffView.css.js';
+import diffViewStyles from './diffView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

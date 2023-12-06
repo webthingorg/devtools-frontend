@@ -14,7 +14,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {DatabaseModel} from './DatabaseModel.js';
 import {DOMStorageModel} from './DOMStorageModel.js';
 import {IndexedDBModel} from './IndexedDBModel.js';
-import storageViewStyles from './storageView.css.js';
+import storageViewStyles from './storageView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

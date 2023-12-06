@@ -83,14 +83,14 @@ async function runMain() {
 
   for (const fileName of filenames) {
     const contents = fs.readFileSync(path.join(srcDir, fileName), {encoding: 'utf8', flag: 'r'});
-    const newContents =
-        await codeForFile({srcDir, fileName, isDebug, hotReloadEnabled, input: contents, isLegacy, buildTimestamp});
-    const generatedFileName = `${fileName}${isLegacy ? '.legacy' : ''}.js`;
-    const generatedFileLocation = path.join(targetGenDir, generatedFileName);
+    // const newContents =
+    //     await codeForFile({srcDir, fileName, isDebug, hotReloadEnabled, input: contents, isLegacy, buildTimestamp});
+    // const generatedFileName = `${fileName}${isLegacy ? '.legacy' : ''}.js`;
+    const generatedFileLocation = path.join(targetGenDir, fileName);
 
-    writeIfChanged(generatedFileLocation, newContents);
+    writeIfChanged(generatedFileLocation, contents);
 
-    configFiles.push(`\"${generatedFileName}\"`);
+    configFiles.push(`\"${fileName}\"`);
   }
 
   writeIfChanged(path.join(targetGenDir, `${targetName}-tsconfig.json`), `{

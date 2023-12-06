@@ -7,7 +7,7 @@ import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
 import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 
-import cssLengthStyles from './cssLength.css.js';
+import cssLengthStyles from './cssLength.css' assert {type: 'css'};
 import {type Length, LENGTH_UNITS, LengthUnit, parseText} from './CSSLengthUtils.js';
 import {ValueChangedEvent} from './InlineEditorUtils.js';
 

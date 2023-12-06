@@ -40,7 +40,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 import * as ApplicationComponents from './components/components.js';
-import indexedDBViewsStyles from './indexedDBViews.css.js';
+import indexedDBViewsStyles from './indexedDBViews.css' assert {type: 'css'};
 
 import {
   type Database,

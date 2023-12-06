@@ -13,7 +13,7 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {getLocalizedBreakpointName} from './CategorizedBreakpointL10n.js';
-import debuggerPausedMessageStyles from './debuggerPausedMessage.css.js';
+import debuggerPausedMessageStyles from './debuggerPausedMessage.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

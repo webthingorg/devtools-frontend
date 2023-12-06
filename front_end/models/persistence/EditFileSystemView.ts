@@ -34,7 +34,7 @@ import type * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
-import editFileSystemViewStyles from './editFileSystemView.css.js';
+import editFileSystemViewStyles from './editFileSystemView.css' assert {type: 'css'};
 import {Events, IsolatedFileSystemManager} from './IsolatedFileSystemManager.js';
 import {type PlatformFileSystem} from './PlatformFileSystem.js';
 

@@ -9,7 +9,7 @@ import * as SourceFrame from '../../ui/legacy/components/source_frame/source_fra
 import * as UI from '../../ui/legacy/legacy.js';
 
 import * as ApplicationComponents from './components/components.js';
-import interestGroupStorageViewStyles from './interestGroupStorageView.css.js';
+import interestGroupStorageViewStyles from './interestGroupStorageView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

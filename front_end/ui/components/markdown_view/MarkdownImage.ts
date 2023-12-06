@@ -5,7 +5,7 @@
 import * as ComponentHelpers from '../../components/helpers/helpers.js';
 import * as IconButton from '../../components/icon_button/icon_button.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
-import markdownImageStyles from './markdownImage.css.js';
+import markdownImageStyles from './markdownImage.css' assert {type: 'css'};
 
 import {getMarkdownImage, type ImageData} from './MarkdownImagesMap.js';
 

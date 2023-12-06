@@ -7,11 +7,11 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 /* eslint-disable rulesdir/es_modules_import */
-import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css.js';
+import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css' assert {type: 'css'};
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import eventListenersViewStyles from './eventListenersView.css.js';
+import eventListenersViewStyles from './eventListenersView.css' assert {type: 'css'};
 
 import type * as Protocol from '../../generated/protocol.js';
 

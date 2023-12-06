@@ -41,7 +41,7 @@ import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 import * as Snippets from '../snippets/snippets.js';
 
 import {type NavigatorUISourceCodeTreeNode, NavigatorView} from './NavigatorView.js';
-import sourcesNavigatorStyles from './sourcesNavigator.css.js';
+import sourcesNavigatorStyles from './sourcesNavigator.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

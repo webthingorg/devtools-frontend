@@ -33,7 +33,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
-import paintProfilerStyles from './paintProfiler.css.js';
+import paintProfilerStyles from './paintProfiler.css' assert {type: 'css'};
 
 import type * as Protocol from '../../generated/protocol.js';
 

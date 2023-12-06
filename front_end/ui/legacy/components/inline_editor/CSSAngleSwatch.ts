@@ -4,7 +4,7 @@
 
 import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
-import cssAngleSwatchStyles from './cssAngleSwatch.css.js';
+import cssAngleSwatchStyles from './cssAngleSwatch.css' assert {type: 'css'};
 
 import {AngleUnit, get2DTranslationsForAngle, type Angle} from './CSSAngleUtils.js';
 

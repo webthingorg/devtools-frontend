@@ -7,7 +7,7 @@ import * as VisualLogging from '../../visual_logging/visual_logging.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 import * as IconButton from '../icon_button/icon_button.js';
 
-import buttonStyles from './button.css.js';
+import buttonStyles from './button.css' assert {type: 'css'};
 
 declare global {
   interface HTMLElementTagNameMap {

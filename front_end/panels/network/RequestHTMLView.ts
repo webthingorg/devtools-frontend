@@ -30,7 +30,7 @@
 
 import * as UI from '../../ui/legacy/legacy.js';
 
-import requestHTMLViewStyles from './requestHTMLView.css.js';
+import requestHTMLViewStyles from './requestHTMLView.css' assert {type: 'css'};
 
 export class RequestHTMLView extends UI.Widget.VBox {
   private readonly dataURL: string;

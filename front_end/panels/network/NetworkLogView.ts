@@ -62,7 +62,7 @@ import {
   NetworkRequestNode,
 } from './NetworkDataGridNode.js';
 import {NetworkFrameGrouper} from './NetworkFrameGrouper.js';
-import networkLogViewStyles from './networkLogView.css.js';
+import networkLogViewStyles from './networkLogView.css' assert {type: 'css'};
 import {NetworkLogViewColumns} from './NetworkLogViewColumns.js';
 import {
   NetworkTimeBoundary,

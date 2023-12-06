@@ -19,8 +19,8 @@ import * as PreloadingComponents from './components/components.js';
 import type * as PreloadingHelper from './helper/helper.js';
 
 // eslint-disable-next-line rulesdir/es_modules_import
-import emptyWidgetStyles from '../../../ui/legacy/emptyWidget.css.js';
-import preloadingViewStyles from './preloadingView.css.js';
+import emptyWidgetStyles from '../../../ui/legacy/emptyWidget.css' assert {type: 'css'};
+import preloadingViewStyles from './preloadingView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**
