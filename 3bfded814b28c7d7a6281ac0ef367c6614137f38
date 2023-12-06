@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "905b6de8_aa870850",
+        "filename": "front_end/core/sdk/ServerSentEventsProtocol.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-12-06T09:23:10Z",
+      "side": 1,
+      "message": "nit: but would it be better to make it an event emitter instead of a custom callback?",
+      "revId": "3bfded814b28c7d7a6281ac0ef367c6614137f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
