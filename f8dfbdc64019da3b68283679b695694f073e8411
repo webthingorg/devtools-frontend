@@ -16,6 +16,24 @@
       "message": "Please note that right now it uses the same button as the \"dual-screen\" mode to emulate this device. I intend to send a follow patch to at least change the tooltip. Ideally a new icon would be great but I\u0027m not sure where to start/whom to ask.",
       "revId": "f8dfbdc64019da3b68283679b695694f073e8411",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0059003b_84af5dc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108044
+      },
+      "writtenOn": "2023-12-06T01:35:11Z",
+      "side": 1,
+      "message": "Alternatively we could also use a drop down menu to select the posture “continuous” or “folded” rather than an icon. I believe it’s easier to comprehend.",
+      "parentUuid": "d8ca4106_9cdfd0a7",
+      "revId": "f8dfbdc64019da3b68283679b695694f073e8411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
