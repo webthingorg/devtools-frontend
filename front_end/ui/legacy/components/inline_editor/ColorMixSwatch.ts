@@ -7,7 +7,7 @@ import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
 import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 
-import colorMixSwatchStyles from './colorMixSwatch.css.js';
+import colorMixSwatchStyles from './colorMixSwatch.css' assert {type: 'css'};
 
 export class ColorMixSwatch extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-color-mix-swatch`;

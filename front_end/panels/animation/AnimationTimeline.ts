@@ -10,7 +10,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {AnimationGroupPreviewUI} from './AnimationGroupPreviewUI.js';
-import animationTimelineStyles from './animationTimeline.css.js';
+import animationTimelineStyles from './animationTimeline.css' assert {type: 'css'};
 
 import {
   AnimationModel,

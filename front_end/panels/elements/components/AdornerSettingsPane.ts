@@ -6,7 +6,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Input from '../../../ui/components/input/input.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
-import adornerSettingsPaneStyles from './adornerSettingsPane.css.js';
+import adornerSettingsPaneStyles from './adornerSettingsPane.css' assert {type: 'css'};
 
 import {type AdornerSettingsMap} from './AdornerManager.js';
 

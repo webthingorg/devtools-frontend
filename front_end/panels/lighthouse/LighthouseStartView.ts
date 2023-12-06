@@ -9,7 +9,7 @@ import type * as Common from '../../core/common/common.js';
 
 import {Presets, RuntimeSettings, type LighthouseController, type Preset} from './LighthouseController.js';
 import {RadioSetting} from './RadioSetting.js';
-import lighthouseStartViewStyles from './lighthouseStartView.css.js';
+import lighthouseStartViewStyles from './lighthouseStartView.css' assert {type: 'css'};
 import {type LighthousePanel} from './LighthousePanel.js';
 
 const UIStrings = {

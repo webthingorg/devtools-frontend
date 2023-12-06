@@ -18,7 +18,7 @@ import type * as UI from '../../../../ui/legacy/legacy.js';
 
 import * as PreloadingHelper from '../helper/helper.js';
 
-import ruleSetGridStyles from './ruleSetGrid.css.js';
+import ruleSetGridStyles from './ruleSetGrid.css' assert {type: 'css'};
 import * as PreloadingString from './PreloadingString.js';
 
 const UIStrings = {

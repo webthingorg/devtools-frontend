@@ -4,7 +4,7 @@
 
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
-import computedStyleTraceStyles from './computedStyleTrace.css.js';
+import computedStyleTraceStyles from './computedStyleTrace.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 

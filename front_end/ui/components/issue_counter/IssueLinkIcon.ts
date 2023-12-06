@@ -11,7 +11,7 @@ import type * as Protocol from '../../../generated/protocol.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
-import IssueLinkIconStyles from './issueLinkIcon.css.js';
+import IssueLinkIconStyles from './issueLinkIcon.css' assert {type: 'css'};
 
 import {getIssueKindIconData} from './IssueCounter.js';
 

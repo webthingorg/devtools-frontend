@@ -18,7 +18,7 @@ import {
 
 import {type ContextMenuColumnSortClickEvent, type ColumnHeaderClickEvent} from './DataGridEvents.js';
 import {DataGrid, type DataGridData, type DataGridContextMenusConfiguration} from './DataGrid.js';
-import dataGridControllerStyles from './dataGridController.css.js';
+import dataGridControllerStyles from './dataGridController.css' assert {type: 'css'};
 import {alert} from '../../legacy/ARIAUtils.js';
 
 const UIStrings = {

@@ -10,7 +10,7 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Models from '../models/models.js';
 import type * as Actions from '../recorder-actions/recorder-actions.js';
 
-import selectButtonStyles from './selectButton.css.js';
+import selectButtonStyles from './selectButton.css' assert {type: 'css'};
 
 export const enum Variant {
   PRIMARY = 'primary',

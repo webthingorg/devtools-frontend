@@ -10,7 +10,7 @@ import * as VisualLogging from '../../visual_logging/visual_logging.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
 
-import dataGridStyles from './dataGrid.css.js';
+import dataGridStyles from './dataGrid.css' assert {type: 'css'};
 import {BodyCellFocusedEvent, ColumnHeaderClickEvent, ContextMenuHeaderResetClickEvent} from './DataGridEvents.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();

@@ -12,7 +12,7 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import type * as Protocol from '../../../generated/protocol.js';
 import * as Host from '../../../core/host/host.js';
 
-import HeadersViewStyles from './HeadersView.css.js';
+import HeadersViewStyles from './HeadersView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

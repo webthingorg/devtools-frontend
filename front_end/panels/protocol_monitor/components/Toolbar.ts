@@ -6,7 +6,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import toolbarStyles from './toolbar.css.js';
+import toolbarStyles from './toolbar.css' assert {type: 'css'};
 
 const {html, Decorators, LitElement} = LitHtml;
 const {customElement} = Decorators;

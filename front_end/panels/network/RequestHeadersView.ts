@@ -46,14 +46,14 @@ import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as ClientVariations from '../../third_party/chromium/client-variations/client-variations.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 // eslint-disable-next-line rulesdir/es_modules_import
-import objectPropertiesSectionStyles from '../../ui/legacy/components/object_ui/objectPropertiesSection.css.js';
+import objectPropertiesSectionStyles from '../../ui/legacy/components/object_ui/objectPropertiesSection.css' assert {type: 'css'};
 // eslint-disable-next-line rulesdir/es_modules_import
-import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css.js';
+import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css' assert {type: 'css'};
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Sources from '../sources/sources.js';
 
-import requestHeadersTreeStyles from './requestHeadersTree.css.js';
-import requestHeadersViewStyles from './requestHeadersView.css.js';
+import requestHeadersTreeStyles from './requestHeadersTree.css' assert {type: 'css'};
+import requestHeadersViewStyles from './requestHeadersView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

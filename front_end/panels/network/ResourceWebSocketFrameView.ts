@@ -31,7 +31,7 @@ import * as SourceFrame from '../../ui/legacy/components/source_frame/source_fra
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {BinaryResourceView} from './BinaryResourceView.js';
-import webSocketFrameViewStyles from './webSocketFrameView.css.js';
+import webSocketFrameViewStyles from './webSocketFrameView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

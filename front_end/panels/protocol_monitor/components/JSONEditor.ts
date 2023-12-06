@@ -13,7 +13,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as ElementsComponents from '../../elements/components/components.js';
 
-import editorWidgetStyles from './JSONEditor.css.js';
+import editorWidgetStyles from './JSONEditor.css' assert {type: 'css'};
 
 const {html, Decorators, LitElement, Directives, nothing} = LitHtml;
 const {customElement, property, state} = Decorators;

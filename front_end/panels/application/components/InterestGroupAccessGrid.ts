@@ -9,7 +9,7 @@ import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import type * as Protocol from '../../../generated/protocol.js';
 
-import interestGroupAccessGridStyles from './interestGroupAccessGrid.css.js';
+import interestGroupAccessGridStyles from './interestGroupAccessGrid.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

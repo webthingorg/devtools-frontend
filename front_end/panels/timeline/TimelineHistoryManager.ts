@@ -15,7 +15,7 @@ import {
   TimelineEventOverviewNetwork,
   TimelineEventOverviewResponsiveness,
 } from './TimelineEventOverview.js';
-import timelineHistoryManagerStyles from './timelineHistoryManager.css.js';
+import timelineHistoryManagerStyles from './timelineHistoryManager.css' assert {type: 'css'};
 import {type TimelineMiniMap} from './TimelineMiniMap.js';
 
 const UIStrings = {

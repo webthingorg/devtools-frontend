@@ -13,7 +13,7 @@ import {
   type PageAuditabilityChangedEvent,
   type PageWarningsChangedEvent,
 } from './LighthouseController.js';
-import lighthousePanelStyles from './lighthousePanel.css.js';
+import lighthousePanelStyles from './lighthousePanel.css' assert {type: 'css'};
 
 import {ProtocolService} from './LighthouseProtocolService.js';
 

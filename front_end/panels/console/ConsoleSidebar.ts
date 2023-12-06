@@ -12,7 +12,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import {ConsoleFilter, FilterType, type LevelsMask} from './ConsoleFilter.js';
 import {type ConsoleViewMessage} from './ConsoleViewMessage.js';
-import consoleSidebarStyles from './consoleSidebar.css.js';
+import consoleSidebarStyles from './consoleSidebar.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

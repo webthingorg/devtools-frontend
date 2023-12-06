@@ -15,7 +15,7 @@ import * as Platform from '../../../core/platform/platform.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 
 import {EditableSpan, type EditableSpanData} from './EditableSpan.js';
-import headerSectionRowStyles from './HeaderSectionRow.css.js';
+import headerSectionRowStyles from './HeaderSectionRow.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 

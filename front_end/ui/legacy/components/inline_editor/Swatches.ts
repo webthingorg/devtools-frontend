@@ -7,10 +7,10 @@ import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
-import bezierSwatchStyles from './bezierSwatch.css.js';
+import bezierSwatchStyles from './bezierSwatch.css' assert {type: 'css'};
 import {ColorChangedEvent, ColorSwatch} from './ColorSwatch.js';
 import {type CSSShadowModel} from './CSSShadowModel.js';
-import cssShadowSwatchStyles from './cssShadowSwatch.css.js';
+import cssShadowSwatchStyles from './cssShadowSwatch.css' assert {type: 'css'};
 
 export class BezierSwatch extends HTMLSpanElement {
   private readonly iconElementInternal: UI.Icon.Icon;

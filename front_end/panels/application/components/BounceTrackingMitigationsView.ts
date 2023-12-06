@@ -13,7 +13,7 @@ import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wra
 import * as ReportView from '../../../ui/components/report_view/report_view.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import bounceTrackingMitigationsViewStyles from './bounceTrackingMitigationsView.css.js';
+import bounceTrackingMitigationsViewStyles from './bounceTrackingMitigationsView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

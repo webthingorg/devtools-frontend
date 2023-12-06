@@ -10,7 +10,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as ApplicationComponents from './components/components.js';
 
-import reportingApiReportsViewStyles from './reportingApiReportsView.css.js';
+import reportingApiReportsViewStyles from './reportingApiReportsView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

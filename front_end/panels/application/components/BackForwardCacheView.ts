@@ -21,7 +21,7 @@ import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import {NotRestoredReasonDescription} from './BackForwardCacheStrings.js';
-import backForwardCacheViewStyles from './backForwardCacheView.css.js';
+import backForwardCacheViewStyles from './backForwardCacheView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

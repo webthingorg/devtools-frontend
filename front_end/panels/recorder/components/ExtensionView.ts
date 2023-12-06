@@ -13,7 +13,7 @@ import type * as PublicExtensions from '../../../models/extensions/extensions.js
 import * as Extensions from '../extensions/extensions.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 
-import extensionViewStyles from './extensionView.css.js';
+import extensionViewStyles from './extensionView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

@@ -12,7 +12,7 @@ import * as PanelFeedback from '../../../ui/components/panel_feedback/panel_feed
 import * as PanelIntroductionSteps from '../../../ui/components/panel_introduction_steps/panel_introduction_steps.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import startViewStyles from './startView.css.js';
+import startViewStyles from './startView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

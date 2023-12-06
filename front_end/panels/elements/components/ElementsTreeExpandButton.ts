@@ -5,7 +5,7 @@
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import elementsTreeExpandButtonStyles from './elementsTreeExpandButton.css.js';
+import elementsTreeExpandButtonStyles from './elementsTreeExpandButton.css' assert {type: 'css'};
 
 export interface ElementsTreeExpandButtonData {
   clickHandler: (event?: Event) => void;

@@ -5,6 +5,7 @@
 import("//build/timestamp.gni")
 import("./node.gni")
 import("./vars.gni")
+import("./copy.gni")
 
 declare_args() {
   # Whether to enable CSS hot reloading with `watch` script or not.
@@ -51,6 +52,10 @@ template("generate_css") {
       }
     }
   }
+
+  # copy_to_gen(target_name + "_zasdfa") {
+  #   sources = invoker.sources
+  # }
 }
 
 set_defaults("generate_css") {

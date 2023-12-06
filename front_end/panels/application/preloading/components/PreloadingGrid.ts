@@ -18,7 +18,7 @@ import type * as Protocol from '../../../../generated/protocol.js';
 
 import * as PreloadingString from './PreloadingString.js';
 
-import preloadingGridStyles from './preloadingGrid.css.js';
+import preloadingGridStyles from './preloadingGrid.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

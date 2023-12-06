@@ -9,7 +9,7 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import type * as Protocol from '../../../generated/protocol.js';
 
-import reportingApiGridStyles from './reportingApiGrid.css.js';
+import reportingApiGridStyles from './reportingApiGrid.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

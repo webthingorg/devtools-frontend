@@ -8,7 +8,7 @@ import * as ComponentHelpers from '../../../components/helpers/helpers.js';
 import * as LitHtml from '../../../lit-html/lit-html.js';
 import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 
-import linkSwatchStyles from './linkSwatch.css.js';
+import linkSwatchStyles from './linkSwatch.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

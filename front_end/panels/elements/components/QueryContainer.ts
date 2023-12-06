@@ -9,7 +9,7 @@ import * as NodeText from '../../../ui/components/node_text/node_text.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import {type DOMNode} from './Helper.js';
-import queryContainerStyles from './queryContainer.css.js';
+import queryContainerStyles from './queryContainer.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 const {PhysicalAxis, QueryAxis} = SDK.CSSContainerQuery;

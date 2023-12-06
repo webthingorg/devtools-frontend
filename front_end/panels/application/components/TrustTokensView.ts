@@ -11,8 +11,8 @@ import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wra
 import * as RenderCoordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import trustTokensViewStyles from './trustTokensView.css.js';
-import trustTokensViewDeleteButtonStyles from './trustTokensViewDeleteButton.css.js';
+import trustTokensViewStyles from './trustTokensView.css' assert {type: 'css'};
+import trustTokensViewDeleteButtonStyles from './trustTokensViewDeleteButton.css' assert {type: 'css'};
 
 import type * as Protocol from '../../../generated/protocol.js';
 

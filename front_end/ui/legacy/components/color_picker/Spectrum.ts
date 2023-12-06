@@ -46,7 +46,7 @@ import {ContrastDetails, Events as ContrastDetailsEvents} from './ContrastDetail
 import {type ContrastInfo} from './ContrastInfo.js';
 import {ContrastOverlay} from './ContrastOverlay.js';
 import {FormatPickerContextMenu} from './FormatPickerContextMenu.js';
-import spectrumStyles from './spectrum.css.js';
+import spectrumStyles from './spectrum.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

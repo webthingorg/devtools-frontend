@@ -14,7 +14,7 @@ import {
   DialogHorizontalAlignment,
   type ClickOutsideDialogEvent,
 } from './Dialog.js';
-import shortcutDialogStyles from './shortcutDialog.css.js';
+import shortcutDialogStyles from './shortcutDialog.css' assert {type: 'css'};
 
 const UIStrings = {
 

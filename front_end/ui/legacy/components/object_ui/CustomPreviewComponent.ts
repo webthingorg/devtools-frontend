@@ -9,7 +9,7 @@ import * as UI from '../../legacy.js';
 import type * as Protocol from '../../../../generated/protocol.js';
 
 import {ObjectPropertiesSection} from './ObjectPropertiesSection.js';
-import customPreviewComponentStyles from './customPreviewComponent.css.js';
+import customPreviewComponentStyles from './customPreviewComponent.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

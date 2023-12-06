@@ -9,7 +9,7 @@ import * as SDK from '../../../../core/sdk/sdk.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as UI from '../../legacy.js';
 
-import fontEditorStyles from './fontEditor.css.js';
+import fontEditorStyles from './fontEditor.css' assert {type: 'css'};
 import * as FontEditorUnitConverter from './FontEditorUnitConverter.js';
 import * as FontEditorUtils from './FontEditorUtils.js';
 

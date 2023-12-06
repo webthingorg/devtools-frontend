@@ -7,7 +7,7 @@ import * as Platform from '../../../../core/platform/platform.js';
 import * as UI from '../../legacy.js';
 
 import {ColorSwatch} from './ColorSwatch.js';
-import swatchPopoverStyles from './swatchPopover.css.js';
+import swatchPopoverStyles from './swatchPopover.css' assert {type: 'css'};
 
 export class SwatchPopoverHelper extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private readonly popover: UI.GlassPane.GlassPane;

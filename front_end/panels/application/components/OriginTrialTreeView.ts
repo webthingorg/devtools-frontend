@@ -9,8 +9,8 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as TreeOutline from '../../../ui/components/tree_outline/tree_outline.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
-import badgeStyles from './badge.css.js';
-import originTrialTokenRowsStyles from './originTrialTokenRows.css.js';
+import badgeStyles from './badge.css' assert {type: 'css'};
+import originTrialTokenRowsStyles from './originTrialTokenRows.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

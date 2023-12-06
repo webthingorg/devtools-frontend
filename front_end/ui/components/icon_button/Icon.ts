@@ -5,7 +5,7 @@
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
-import iconStyles from './icon.css.js';
+import iconStyles from './icon.css' assert {type: 'css'};
 
 export interface IconWithPath {
   iconPath: string;

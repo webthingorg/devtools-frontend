@@ -38,7 +38,7 @@ import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as CookieTable from '../../ui/legacy/components/cookie_table/cookie_table.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import cookieItemsViewStyles from './cookieItemsView.css.js';
+import cookieItemsViewStyles from './cookieItemsView.css' assert {type: 'css'};
 import {StorageItemsView} from './StorageItemsView.js';
 
 const UIStrings = {

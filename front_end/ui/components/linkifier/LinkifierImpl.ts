@@ -7,7 +7,7 @@ import * as LitHtml from '../../lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
 
-import linkifierImplStyles from './linkifierImpl.css.js';
+import linkifierImplStyles from './linkifierImpl.css' assert {type: 'css'};
 import * as LinkifierUtils from './LinkifierUtils.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();

@@ -16,7 +16,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 import * as Components from './components/components.js';
-import protocolMonitorStyles from './protocolMonitor.css.js';
+import protocolMonitorStyles from './protocolMonitor.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

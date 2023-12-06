@@ -11,10 +11,10 @@ import * as Protocol from '../../generated/protocol.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import lockIconStyles from './lockIcon.css.js';
-import mainViewStyles from './mainView.css.js';
-import originViewStyles from './originView.css.js';
-import sidebarStyles from './sidebar.css.js';
+import lockIconStyles from './lockIcon.css' assert {type: 'css'};
+import mainViewStyles from './mainView.css' assert {type: 'css'};
+import originViewStyles from './originView.css' assert {type: 'css'};
+import sidebarStyles from './sidebar.css' assert {type: 'css'};
 
 import {
   Events,

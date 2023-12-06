@@ -8,7 +8,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
 import * as EmulationComponents from './components/components.js';
-import devicesSettingsTabStyles from './devicesSettingsTab.css.js';
+import devicesSettingsTabStyles from './devicesSettingsTab.css' assert {type: 'css'};
 
 let devicesSettingsTabInstance: DevicesSettingsTab;
 

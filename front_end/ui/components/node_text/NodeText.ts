@@ -5,7 +5,7 @@
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as ComponentHelpers from '../helpers/helpers.js';
 
-import nodeTextStyles from './nodeText.css.js';
+import nodeTextStyles from './nodeText.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 

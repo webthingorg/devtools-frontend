@@ -10,7 +10,7 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Models from '../models/models.js';
 import * as Actions from '../recorder-actions/recorder-actions.js';
 
-import recordingListViewStyles from './recordingListView.css.js';
+import recordingListViewStyles from './recordingListView.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

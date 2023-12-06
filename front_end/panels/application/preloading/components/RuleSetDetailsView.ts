@@ -16,7 +16,7 @@ import * as SDK from '../../../../core/sdk/sdk.js';
 
 import type * as UI from '../../../../ui/legacy/legacy.js';
 
-import ruleSetDetailsViewStyles from './RuleSetDetailsView.css.js';
+import ruleSetDetailsViewStyles from './RuleSetDetailsView.css' assert {type: 'css'};
 
 type RuleSet = Protocol.Preload.RuleSet;
 

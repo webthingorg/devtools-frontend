@@ -11,7 +11,7 @@ import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Snippets from '../snippets/snippets.js';
 
-import changesSidebarStyles from './changesSidebar.css.js';
+import changesSidebarStyles from './changesSidebar.css' assert {type: 'css'};
 
 const UIStrings = {
   /**

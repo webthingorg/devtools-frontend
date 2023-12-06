@@ -6,7 +6,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
-import computedStylePropertyStyles from './computedStyleProperty.css.js';
+import computedStylePropertyStyles from './computedStyleProperty.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 

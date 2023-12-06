@@ -12,7 +12,7 @@ import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Platform from '../../../core/platform/platform.js';
 import {type HeaderDescriptor, HeaderSectionRow, type HeaderSectionRowData} from './HeaderSectionRow.js';
 
-import requestHeaderSectionStyles from './RequestHeaderSection.css.js';
+import requestHeaderSectionStyles from './RequestHeaderSection.css' assert {type: 'css'};
 
 const {render, html} = LitHtml;
 

@@ -13,7 +13,7 @@ import * as Menus from '../../../ui/components/menus/menus.js';
 import type * as Converters from '../converters/converters.js';
 import * as Models from '../models/models.js';
 
-import stepViewStyles from './stepView.css.js';
+import stepViewStyles from './stepView.css' assert {type: 'css'};
 
 import {type StepEditedEvent} from './StepEditor.js';
 
