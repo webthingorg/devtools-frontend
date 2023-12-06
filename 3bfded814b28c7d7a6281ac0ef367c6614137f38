@@ -16,6 +16,24 @@
       "message": "nit: but would it be better to make it an event emitter instead of a custom callback?",
       "revId": "3bfded814b28c7d7a6281ac0ef367c6614137f38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc5a5328_e8ff62f5",
+        "filename": "front_end/core/sdk/ServerSentEventsProtocol.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-06T09:27:32Z",
+      "side": 1,
+      "message": "I slightly prefer a callback for the following reasons:\n\n1) It\u0027s self contained. Code that uses the parser can still turn it into an event emitter if required.\n2) Using events means you can miss events if you start feeding the bytes before you add the listener. This way you make that scenario impossible.\n\nwdyt?",
+      "parentUuid": "905b6de8_aa870850",
+      "revId": "3bfded814b28c7d7a6281ac0ef367c6614137f38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
