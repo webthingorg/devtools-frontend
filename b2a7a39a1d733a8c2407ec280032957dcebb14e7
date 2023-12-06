@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10fc2d7a_e9ed8354",
+        "filename": "test/unittests/front_end/core/sdk/ServerSentEventsProtocol_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-06T09:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "679d63a4_35bc9f85",
+      "revId": "b2a7a39a1d733a8c2407ec280032957dcebb14e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ea9983f_75dc94f2",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-12-06T09:03:51Z",
       "side": 1,
       "message": "Currently we only test UTF-8 encoding/decoding via the BOM. Let’s add a test for non-ASCII Unicode symbols in the message content? E.g. the string \u0027Iñtërnâtiônàlizætiøn☃𝌆\u0027 [1]:\n\n\u003e A good test string for Unicode support in general is the following: `Iñtërnâtiônàlizætiøn☃𝌆`. Its first 20 symbols are in the range from U+0000 to U+00FF, then there’s a symbol in the range from U+0100 to U+FFFF, and finally there’s an astral symbol (from the range of U+010000 to U+10FFFF).\n\n[1]: https://mths.be/jsu",
+      "revId": "b2a7a39a1d733a8c2407ec280032957dcebb14e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d87f6820_4105cd7d",
+        "filename": "test/unittests/front_end/core/sdk/ServerSentEventsProtocol_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-06T09:19:07Z",
+      "side": 1,
+      "message": "Great suggestion, thanks!",
+      "parentUuid": "1ea9983f_75dc94f2",
       "revId": "b2a7a39a1d733a8c2407ec280032957dcebb14e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
