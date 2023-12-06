@@ -33,6 +33,24 @@
       "message": "From a L10n perspective it\u0027s a big no-no to concatenate two separate translated strings.\n\nIn this case the verb \"Show\" might have to be declined differently depending on the gender of the noun that comes after. Even if the view nouns have consistently the same gender, translators won\u0027t be able to tell from just \"Show {PH1}\".",
       "revId": "8b316eccfdb5b3ccbb645ffcf8cc0e30f8817aa1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2579467a_4683b827",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-06T10:25:36Z",
+      "side": 1,
+      "message": "One possibility would be to separate the phrase with punctuation. E.g. `Show: Preferences`. It might still be weird in some languages though.",
+      "parentUuid": "32b55a88_f3a10820",
+      "revId": "8b316eccfdb5b3ccbb645ffcf8cc0e30f8817aa1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
