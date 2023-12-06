@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5843e47b_5a6a83c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-06T08:44:23Z",
+      "side": 1,
+      "message": "PTAL. Sorry for the large CL, but I don\u0027t think landing a parser piecemeal makes it better 😞\n\n@Alex: For the overall CL review.\n@Mathias: Could you check the decoding from Base64 -\u003e Utf8 -\u003e JS string? I followed MDN here but a second set of eyes can\u0027t hurt.",
+      "revId": "b2a7a39a1d733a8c2407ec280032957dcebb14e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
