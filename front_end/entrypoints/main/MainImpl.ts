@@ -278,7 +278,6 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'sourceOrderViewer', 'Source order viewer', undefined,
         'https://developer.chrome.com/blog/new-in-devtools-92/#source-order');
-    Root.Runtime.experiments.register('webauthnPane', 'WebAuthn Pane');
 
     // Back/forward cache
     Root.Runtime.experiments.register(
@@ -444,7 +443,6 @@ export class MainImpl {
     }
     Root.Runtime.experiments.enableExperimentsTransiently([
       'bfcacheDisplayTree',
-      'webauthnPane',
       'developerResourcesView',
     ]);
 
