@@ -16,6 +16,24 @@
       "message": "I think showing some information is slightly better in this situation. If a column disappears without notifying to a user, there is no way to get the info. We can describe why by improving the error message.\n\nThat said, the difference would be small. If you\u0027d like to remove the item for PrefetchEvictedAfterCandidateRemoved, I think it\u0027s good to also remove ones for PreloadingFinalStatus::kSpeculationRuleRemoved for consistency.",
       "revId": "4c765e00de4862916b6e94efbadc2c6568d38114",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68fe65b3_7a01f5f4",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1175471
+      },
+      "writtenOn": "2023-12-06T15:58:29Z",
+      "side": 1,
+      "message": "Ah interesting, that\u0027s a good point. I think in that case I\u0027ll just do what prerender does and display a message. Thanks for flagging!",
+      "parentUuid": "09c57c86_224a6ebd",
+      "revId": "4c765e00de4862916b6e94efbadc2c6568d38114",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
