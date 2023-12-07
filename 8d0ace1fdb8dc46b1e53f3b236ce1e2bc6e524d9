@@ -16,6 +16,23 @@
       "message": "PTAL. As you can see the exact logic has changed a little to include a bit more of what happens in the trace - IMO this is an OK change (and I am not entirely sure why as I think I ported the logic correctly), but wdyt?",
       "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eccc4d1_5b84f6a6",
+        "filename": "test/interactions/goldens/linux/performance/main-thread-long-task-candy-stripe.png",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-07T10:26:48Z",
+      "side": 1,
+      "message": "hmm it seems there\u0027s a different result for the window between old and new engine. Do we need to resolve this difference?",
+      "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
