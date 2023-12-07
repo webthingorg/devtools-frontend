@@ -33,6 +33,24 @@
       "message": "hmm it seems there\u0027s a different result for the window between old and new engine. Do we need to resolve this difference?",
       "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46e4f87_009013e0",
+        "filename": "test/interactions/goldens/linux/performance/main-thread-long-task-candy-stripe.png",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T10:43:35Z",
+      "side": 1,
+      "message": "Yes - see my previous comment 😊\n\nTo me this difference is OK and seems like a bit of an improvement (although that is subjective). Certainly I\u0027m not sure how much it is worth investigating, but wdyt?",
+      "parentUuid": "2eccc4d1_5b84f6a6",
+      "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
