@@ -69,6 +69,24 @@
       "parentUuid": "a46e4f87_009013e0",
       "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb584db2_2738bd01",
+        "filename": "test/interactions/goldens/linux/performance/main-thread-long-task-candy-stripe.png",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T11:52:08Z",
+      "side": 1,
+      "message": "Ah good thought! IMO looking at the diff I think it is slightly better now, but we could always change it in the future.\n\nIf you are happy I am going to land this as is.",
+      "parentUuid": "fc8daf8d_6d69e6f8",
+      "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
