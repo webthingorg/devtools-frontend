@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c508c769_a81bb34a",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T09:01:33Z",
+      "side": 1,
+      "message": "typically we don\u0027t mutate the trace events that come from the engine (in this case, if the user saved this trace to disk, we would have mutated the timestamp and that could be confusing).\n\nWe could either make a `SyntheticScreenshot` event, or expose some `correctTimestampForSnapshot: Map\u003cSnapshot, MicroSeconds\u003e`.\n\nOr perhaps this is OK? But the fact that when you export the trace the events are now different sits a little uneasy with me. WDYT?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "d6bdd857f40b9b989c602ab60c8a92c8bdebb8c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
