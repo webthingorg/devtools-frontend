@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb6271d_ed5df0de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T10:01:55Z",
+      "side": 1,
+      "message": "PTAL. As you can see the exact logic has changed a little to include a bit more of what happens in the trace - IMO this is an OK change (and I am not entirely sure why as I think I ported the logic correctly), but wdyt?",
+      "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
