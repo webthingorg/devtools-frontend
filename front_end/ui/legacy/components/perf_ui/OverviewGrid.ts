@@ -58,7 +58,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class OverviewGrid {
   element: HTMLDivElement;
   private readonly grid: TimelineGrid;
-  private readonly window: Window;
+  readonly window: Window;
   constructor(prefix: string, calculator?: Calculator) {
     this.element = document.createElement('div');
     this.element.id = prefix + '-overview-container';
@@ -158,7 +158,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private enabled?: boolean;
   private clickHandler?: ((arg0: Event) => boolean)|null;
   private resizerParentOffsetLeft?: number;
-  private breadcrumbsEnabled: boolean = false;
+  breadcrumbsEnabled: boolean = false;
   #mouseOverGridOverview: boolean = false;
   constructor(parentElement: Element, dividersLabelBarElement?: Element, calculator?: Calculator) {
     super();
