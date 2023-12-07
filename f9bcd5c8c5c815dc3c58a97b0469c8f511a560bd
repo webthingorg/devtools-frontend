@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71212329_a152512c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-07T13:04:48Z",
+      "side": 1,
+      "message": "Even though stressor passed, I\u0027m still seeing some flakes; will adjust the animation and make sure that clicks will always go through :/",
+      "revId": "f9bcd5c8c5c815dc3c58a97b0469c8f511a560bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
