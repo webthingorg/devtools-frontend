@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "59c0ae2326f0fd95b3b2e9377d8b67098a3aa15b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "188f1bde_c2c5759b",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T12:22:52Z",
+      "side": 1,
+      "message": "I think this is the best solution here, but I could also see another one where for the active selection we look for counter events via the MemoryHandler and use the given timespan.\n\nBut this is a bit cleaner I think and maintains the use of the user\u0027s visible selection as the source of truth for all selected events. Opinions welcome though if you disagree on this as I wasn\u0027t 100% sure.",
+      "range": {
+        "startLine": 537,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 18
+      },
+      "revId": "59c0ae2326f0fd95b3b2e9377d8b67098a3aa15b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
