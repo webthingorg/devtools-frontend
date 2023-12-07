@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d016547f_832bb7a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T09:48:23Z",
+      "side": 1,
+      "message": "two small notes, otherwise this is looking good. Thanks!",
+      "revId": "37782424c707cae817a57cbd51ea2a711404ea7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb29bd85_cd8b7a0c",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T09:48:23Z",
+      "side": 1,
+      "message": "this comment is for the map that is now defined on line 34 - can you put it next to the definition again please?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 91
+      },
+      "revId": "37782424c707cae817a57cbd51ea2a711404ea7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef03da89_bfbf725c",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T09:48:23Z",
+      "side": 1,
+      "message": "if this is by timestamp, should the key be a number? Or even better Types.Timing.MicroSeconds?",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "37782424c707cae817a57cbd51ea2a711404ea7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
