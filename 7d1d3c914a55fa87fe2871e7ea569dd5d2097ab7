@@ -16,6 +16,24 @@
       "message": "is the disappearance of the spans in the frames track expected?",
       "revId": "7d1d3c914a55fa87fe2871e7ea569dd5d2097ab7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f75c50c2_76161447",
+        "filename": "test/interactions/goldens/linux/performance/timeline-expand-network-panel-and-select-event.png",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T12:21:22Z",
+      "side": 1,
+      "message": "Ah yes - this should have been updated when we migrated the frames track to the new engine but I guess it was below the threshold.\n\nThis \"fixed\" a situation where although the panel showed frames, we didn\u0027t actually have accurate sequence IDs so the frames it showed were not accurate. That is why they are removed.",
+      "parentUuid": "56a6559e_98ffe647",
+      "revId": "7d1d3c914a55fa87fe2871e7ea569dd5d2097ab7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
