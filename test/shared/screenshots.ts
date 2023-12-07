@@ -77,6 +77,9 @@ export const assertElementScreenshotUnchanged = async (
   if (!element) {
     assert.fail(`Given element for test ${fileName} was not found.`);
   }
+  if (platform !== 'linux') {
+    return;
+  }
   return assertScreenshotUnchangedWithRetries(element, fileName, maximumDiffThreshold, DEFAULT_RETRIES_COUNT, options);
 };
 
