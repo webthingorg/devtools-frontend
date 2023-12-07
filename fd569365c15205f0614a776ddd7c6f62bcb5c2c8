@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b676cbf_d58c3dfa",
+        "filename": "front_end/ui/legacy/components/perf_ui/OverviewGrid.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T12:25:52Z",
+      "side": 1,
+      "message": "it might be cleaner to change this to toggle a class:\n\nthis.breadcrumbButtonContainerElement.classList.toggle(\u0027is-hidden\u0027, true)\n\nAnd then define the visibility and opacity in CSS, rather than inline styles here.\n\nhttps://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/toggle\n\nwdyt?",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 74
+      },
+      "revId": "fd569365c15205f0614a776ddd7c6f62bcb5c2c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
