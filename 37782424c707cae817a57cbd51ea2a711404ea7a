@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65e10e20_1ef90151",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-12-07T20:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb29bd85_cd8b7a0c",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 91
+      },
+      "revId": "37782424c707cae817a57cbd51ea2a711404ea7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef03da89_bfbf725c",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-07T09:48:23Z",
       "side": 1,
       "message": "if this is by timestamp, should the key be a number? Or even better Types.Timing.MicroSeconds?",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "37782424c707cae817a57cbd51ea2a711404ea7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a47c24c_a7ae84b9",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-12-07T20:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef03da89_bfbf725c",
       "range": {
         "startLine": 31,
         "startChar": 6,
