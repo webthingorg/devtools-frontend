@@ -51,6 +51,24 @@
       "parentUuid": "2eccc4d1_5b84f6a6",
       "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc8daf8d_6d69e6f8",
+        "filename": "test/interactions/goldens/linux/performance/main-thread-long-task-candy-stripe.png",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-07T10:58:31Z",
+      "side": 1,
+      "message": "oh sorry for missing it. I just realized the difference might be caused by the fact that the old engine only used top level tasks whereas the new engine uses all events in a thread. Changing this might give us the same results as before, but I\u0027m happy to land this as is if the diff is not significant or maybe fix as follow up later",
+      "parentUuid": "a46e4f87_009013e0",
+      "revId": "8d0ace1fdb8dc46b1e53f3b236ce1e2bc6e524d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
