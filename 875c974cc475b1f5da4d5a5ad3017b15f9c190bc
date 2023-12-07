@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d168b88f_dc933d2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-07T06:04:14Z",
+      "side": 1,
+      "message": "This will also need some tests, at least something similar to test/e2e/emulation/dual-screen_test.ts",
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f32881f_51e00ec2",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-07T06:04:14Z",
+      "side": 1,
+      "message": "for (const title of [\u0027Continuous\u0027, \u0027Folded\u0027]) {\n      contextMenu.defaultSection().appendCheckboxItem(\n          title, this.spanClicked.bind(this), title \u003d\u003d\u003d this.currentDevicePosture(),\n          false, undefined, undefined, title);\n    }",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 4
+      },
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "334aab68_d28c9f08",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-07T06:04:14Z",
+      "side": 1,
+      "message": "Don\u0027t we want to localize these strings?",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 41
+      },
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
