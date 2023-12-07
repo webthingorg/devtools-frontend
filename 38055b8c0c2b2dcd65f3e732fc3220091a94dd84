@@ -34,6 +34,24 @@
       "parentUuid": "360b59ef_7f08587e",
       "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "572b9db4_a9a70c46",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-12-07T09:28:53Z",
+      "side": 1,
+      "message": "I meant the error will be still thrown if you, for example, loop the test definition using the `for` loop and not only the iterations variable.",
+      "parentUuid": "efb9e4a0_7839e701",
+      "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
