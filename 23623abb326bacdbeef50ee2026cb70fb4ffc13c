@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67b2ebad_f32eca07",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1264475
+      },
+      "writtenOn": "2023-12-07T17:35:20Z",
+      "side": 1,
+      "message": "I propose this change to \"https?\", to denote the optional \"s\"",
+      "revId": "23623abb326bacdbeef50ee2026cb70fb4ffc13c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
