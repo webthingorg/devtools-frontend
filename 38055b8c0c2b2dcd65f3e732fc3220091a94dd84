@@ -70,6 +70,24 @@
       "parentUuid": "572b9db4_a9a70c46",
       "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eeec112_c5017cd6",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2023-12-07T09:32:39Z",
+      "side": 1,
+      "message": "I am not sure, but asserting this breaks mocha semantics a bit which assumes that things like this are per test. Not blocking though. Thanks for the fix!",
+      "parentUuid": "aa50e6a9_fab0f7a9",
+      "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
