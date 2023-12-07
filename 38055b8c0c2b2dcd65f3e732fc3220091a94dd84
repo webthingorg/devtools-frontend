@@ -52,6 +52,24 @@
       "parentUuid": "efb9e4a0_7839e701",
       "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa50e6a9_fab0f7a9",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T09:31:19Z",
+      "side": 1,
+      "message": "Is that a use case we want to support? I\u0027m not sure we should encourage manual iterations and should only allow this really via the ITERATIONS flag.",
+      "parentUuid": "572b9db4_a9a70c46",
+      "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
