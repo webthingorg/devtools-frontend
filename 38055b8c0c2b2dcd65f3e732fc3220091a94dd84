@@ -16,6 +16,24 @@
       "message": "would it be more reliable to clear the screenshot in before each?",
       "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efb9e4a0_7839e701",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-07T09:26:55Z",
+      "side": 1,
+      "message": "I don\u0027t know if it makes a difference - Puppeteer will write the new file over the old one anyway AFAIU.",
+      "parentUuid": "360b59ef_7f08587e",
+      "revId": "38055b8c0c2b2dcd65f3e732fc3220091a94dd84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
