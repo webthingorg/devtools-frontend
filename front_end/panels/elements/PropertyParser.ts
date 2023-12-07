@@ -74,15 +74,27 @@ export abstract class TreeWalker {
   }
 }
 
-interface RenderingContext {
-  ast: SyntaxTree;
-  matchedResult: BottomUpTreeMatching;
+export class RenderingContext {
+  constructor(
+      readonly ast: SyntaxTree, readonly matchedResult: BottomUpTreeMatching, readonly cssControls?: CSSControlMap) {
+  }
+  addControl(cssType: string, control: HTMLElement): void {
+    if (this.cssControls) {
+      const controls = this.cssControls.get(cssType);
+      if (!controls) {
+        this.cssControls.set(cssType, [control]);
+      } else {
+        controls.push(control);
+      }
+    }
+  }
 }
 
 export interface Match {
   readonly text: string;
   readonly type: string;
   render(context: RenderingContext): Node[];
+  computedText?(): string;
 }
 
 interface Matcher {
@@ -93,6 +105,7 @@ type MatchKey = Platform.Brand.Brand<string, 'MatchKey'>;
 export class BottomUpTreeMatching extends TreeWalker {
   #matchers: Matcher[] = [];
   #matchedNodes = new Map<MatchKey, Match>();
+  readonly computedText: ComputedText;
 
   #key(node: CodeMirror.SyntaxNode): MatchKey {
     return `${node.from}:${node.to}` as MatchKey;
@@ -100,6 +113,7 @@ export class BottomUpTreeMatching extends TreeWalker {
 
   constructor(ast: SyntaxTree, matchers: Matcher[]) {
     super(ast);
+    this.computedText = new ComputedText(ast.propertyValue);
     this.#matchers.push(...matchers);
     this.#matchers.push(new TextMatcher());
   }
@@ -108,6 +122,7 @@ export class BottomUpTreeMatching extends TreeWalker {
     for (const matcher of this.#matchers) {
       const match = matcher.matches(node, this);
       if (match) {
+        this.computedText.push(match, node.from - this.ast.tree.from);
         this.#matchedNodes.set(this.#key(node), match);
         break;
       }
@@ -123,6 +138,76 @@ export class BottomUpTreeMatching extends TreeWalker {
 
   getMatch(node: CodeMirror.SyntaxNode): Match|undefined {
     return this.#matchedNodes.get(this.#key(node));
+  }
+
+  getComputedText(node: CodeMirror.SyntaxNode): string {
+    return this.computedText.get(node.from - this.ast.tree.from, node.to - this.ast.tree.to);
+  }
+}
+
+class ComputedTextChunk {
+  #cachedComputedText: string|null = null;
+  constructor(readonly match: Required<Match>, readonly offset: number) {
+  }
+
+  get end(): number {
+    return this.offset + this.length;
+  }
+
+  get length(): number {
+    return this.match.text.length;
+  }
+
+  get computedText(): string {
+    if (this.#cachedComputedText === null) {
+      this.#cachedComputedText = this.match.computedText();
+    }
+    return this.#cachedComputedText;
+  }
+}
+
+export class ComputedText {
+  readonly #chunks: ComputedTextChunk[] = [];
+  constructor(readonly text: string) {
+  }
+
+  push(match: Match, offset: number): void {
+    if (!match.computedText || offset < 0 || offset >= this.text.length) {
+      return;
+    }
+    const chunk = new ComputedTextChunk(match as Required<Match>/* FIXME?*/, offset);
+    if (chunk.end > this.text.length) {
+      return;
+    }
+    if (this.#chunks.length === 0) {
+      this.#chunks.push(chunk);
+    }
+    const lastChunk = this.#chunks[this.#chunks.length - 1];
+    if (chunk.offset <= lastChunk.offset && lastChunk.end <= chunk.end) {
+      // The new chunk is more general than the last chunk, so replace the it.
+      this.#chunks[this.#chunks.length - 1] = chunk;
+    } else if (chunk.offset >= lastChunk.end) {
+      // The new chunk is to be inserted after the last chunk.
+      this.#chunks.push(chunk);
+    }
+  }
+
+  get(begin: number, end: number): string {
+    const pieces = [];
+
+    for (let currentChunk = this.#chunks.find(c => c.offset >= begin); begin < end && currentChunk;
+         currentChunk = this.#chunks.find(c => c.offset >= begin)) {
+      pieces.push(this.text.substring(begin, Math.min(currentChunk.offset, end)));
+      if (end >= currentChunk.end) {
+        pieces.push(currentChunk.computedText);
+      }
+
+      begin = currentChunk.end;
+    }
+    if (begin < end) {
+      pieces.push(this.text.substring(begin, end));
+    }
+    return pieces.join('');
   }
 }
 
@@ -150,26 +235,38 @@ function mergeWithSpacing(nodes: Node[], merge: Node[]): Node[] {
   return result;
 }
 
+export const CSSControlMap = Map<string, [HTMLElement]>;
+export type CSSControlMap = Map<string, [HTMLElement]>;
+
 export class Renderer extends TreeWalker {
   readonly #matchedResult: BottomUpTreeMatching;
   #output: Node[] = [];
+  readonly #context: RenderingContext;
 
-  constructor(ast: SyntaxTree, matchedResult: BottomUpTreeMatching) {
+  constructor(ast: SyntaxTree, matchedResult: BottomUpTreeMatching, cssControls: CSSControlMap) {
     super(ast);
     this.#matchedResult = matchedResult;
+    this.#context = new RenderingContext(this.ast, this.#matchedResult, cssControls);
   }
 
-  static render(nodes: CodeMirror.SyntaxNode|CodeMirror.SyntaxNode[], context: RenderingContext): Node[] {
-    if (!Array.isArray(nodes)) {
-      return this.render([nodes], context);
+  static render(nodeOrNodes: CodeMirror.SyntaxNode|CodeMirror.SyntaxNode[], context: RenderingContext):
+      {nodes: Node[], cssControls: CSSControlMap} {
+    if (!Array.isArray(nodeOrNodes)) {
+      return this.render([nodeOrNodes], context);
     }
-    return nodes.map(node => this.walkExcludingSuccessors(context.ast.subtree(node), context.matchedResult).#output)
-        .reduce(mergeWithSpacing);
+    const cssControls = new CSSControlMap();
+    const renderers = nodeOrNodes.map(
+        node => this.walkExcludingSuccessors(context.ast.subtree(node), context.matchedResult, cssControls));
+    const nodes = renderers.map(node => node.#output).reduce(mergeWithSpacing);
+    return {nodes, cssControls};
   }
 
-  static renderInto(nodes: CodeMirror.SyntaxNode|CodeMirror.SyntaxNode[], context: RenderingContext, parent: Node):
-      Node[] {
-    return this.render(nodes, context).map(n => parent.appendChild(n));
+  static renderInto(
+      nodeOrNodes: CodeMirror.SyntaxNode|CodeMirror.SyntaxNode[], context: RenderingContext,
+      parent: Node): {nodes: Node[], cssControls: CSSControlMap} {
+    const {nodes, cssControls} = this.render(nodeOrNodes, context);
+    nodes.map(n => parent.appendChild(n));
+    return {nodes, cssControls};
   }
 
   renderedMatchForTest(_nodes: Node[], _match: Match): void {
@@ -178,17 +275,13 @@ export class Renderer extends TreeWalker {
   protected override enter({node}: SyntaxNodeRef): boolean {
     const match = this.#matchedResult.getMatch(node);
     if (match) {
-      const output = match.render(this.#context());
+      const output = match.render(this.#context);
       this.renderedMatchForTest(output, match);
       this.#output = mergeWithSpacing(this.#output, output);
       return false;
     }
 
     return true;
-  }
-
-  #context(): RenderingContext {
-    return {ast: this.ast, matchedResult: this.#matchedResult};
   }
 }
 
@@ -250,7 +343,11 @@ export class LegacyRegexMatcher implements Matcher {
 
 export class TextMatch implements Match {
   readonly type = 'text';
-  constructor(readonly text: string) {
+  computedText?: () => string;
+  constructor(readonly text: string, readonly isComment: boolean) {
+    if (isComment) {
+      this.computedText = (): string => '';
+    }
   }
   render(): Node[] {
     return [document.createTextNode(this.text)];
@@ -263,7 +360,7 @@ class TextMatcher implements Matcher {
       // Leaf node, just emit text
       const text = matching.ast.text(node);
       if (text.length) {
-        return new TextMatch(text);
+        return new TextMatch(text, node.name === 'Comment');
       }
     }
     return null;
@@ -318,6 +415,6 @@ export function renderPropertyValue(value: string, matchers: Matcher[]): Node[] 
   }
   const matchedResult = BottomUpTreeMatching.walk(ast, matchers);
   ast.trailingNodes.forEach(n => matchedResult.matchText(n));
-  const context = {ast, matchedResult};
-  return Renderer.render([...siblings(ast.tree), ...ast.trailingNodes], context);
+  const context = new RenderingContext(ast, matchedResult);
+  return Renderer.render([...siblings(ast.tree), ...ast.trailingNodes], context).nodes;
 }
