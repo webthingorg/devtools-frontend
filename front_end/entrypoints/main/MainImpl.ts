@@ -271,14 +271,9 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'protocolMonitor', 'Protocol Monitor', undefined,
         'https://developer.chrome.com/blog/new-in-devtools-92/#protocol-monitor');
-    Root.Runtime.experiments.register('developerResourcesView', 'Show developer resources view');
     Root.Runtime.experiments.register('samplingHeapProfilerTimeline', 'Sampling heap profiler timeline', true);
     Root.Runtime.experiments.register(
         'showOptionToExposeInternalsInHeapSnapshot', 'Show option to expose internals in heap snapshots');
-    Root.Runtime.experiments.register(
-        'sourceOrderViewer', 'Source order viewer', undefined,
-        'https://developer.chrome.com/blog/new-in-devtools-92/#source-order');
-    Root.Runtime.experiments.register('webauthnPane', 'WebAuthn Pane');
 
     // Back/forward cache
     Root.Runtime.experiments.register(
@@ -307,9 +302,6 @@ export class MainImpl {
         'https://crbug.com/1479986');
 
     // Debugging
-    Root.Runtime.experiments.register(
-        'wasmDWARFDebugging', 'WebAssembly Debugging: Enable DWARF support', undefined,
-        'https://developer.chrome.com/blog/wasm-debugging-2020/');
     Root.Runtime.experiments.register(
         'evaluateExpressionsWithSourceMaps', 'Resolve variable names in expressions using source maps', undefined,
         'https://goo.gle/evaluate-source-var-default', 'https://crbug.com/1504123');
@@ -351,10 +343,6 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.HIGHLIGHT_ERRORS_ELEMENTS_PANEL,
         'Highlights a violating node or attribute in the Elements panel DOM tree');
-
-    // Local overrides
-    Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.HEADER_OVERRIDES, 'Local overrides for response headers');
 
     // Enable color picking outside the browser window (using Eyedropper API)
     Root.Runtime.experiments.register(
@@ -420,12 +408,9 @@ export class MainImpl {
     }
 
     Root.Runtime.experiments.enableExperimentsByDefault([
-      'sourceOrderViewer',
       ...('EyeDropper' in window ? [Root.Runtime.ExperimentName.EYEDROPPER_COLOR_PICKER] : []),
       'setAllBreakpointsEagerly',
       Root.Runtime.ExperimentName.TIMELINE_AS_CONSOLE_PROFILE_RESULT_PANEL,
-      Root.Runtime.ExperimentName.WASM_DWARF_DEBUGGING,
-      Root.Runtime.ExperimentName.HEADER_OVERRIDES,
       Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
       Root.Runtime.ExperimentName.SELF_XSS_WARNING,
       Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL,
@@ -444,8 +429,6 @@ export class MainImpl {
     }
     Root.Runtime.experiments.enableExperimentsTransiently([
       'bfcacheDisplayTree',
-      'webauthnPane',
-      'developerResourcesView',
     ]);
 
     if (Host.InspectorFrontendHost.isUnderTest()) {
