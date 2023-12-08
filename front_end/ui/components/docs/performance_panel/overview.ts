@@ -6,6 +6,7 @@ import * as EnvironmentHelpers from '../../../../../test/unittests/front_end/hel
 import * as TraceLoader from '../../../../../test/unittests/front_end/helpers/TraceLoader.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
 import * as Timeline from '../../../../panels/timeline/timeline.js';
+import * as TraceBounds from '../../../../services/trace_bounds/trace_bounds.js';
 import * as ComponentSetup from '../../helpers/helpers.js';
 
 await EnvironmentHelpers.initializeGlobalVars();
@@ -33,26 +34,17 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
   if (!mainThread) {
     throw new Error('Could not find main thread.');
   }
-  const zoomedWindow = TraceEngine.Extras.MainThreadActivity.calculateWindow(
-      models.traceParsedData.Meta.traceBounds,
-      mainThread.entries,
-  );
-  const zoomedWindowMilli = TraceEngine.Helpers.Timing.traceWindowMilliSeconds(zoomedWindow);
-  models.performanceModel.setWindow({
-    left: zoomedWindowMilli.min,
-    right: zoomedWindowMilli.max,
-  });
-
   const minimap = new Timeline.TimelineMiniMap.TimelineMiniMap();
   minimap.activateBreadcrumbs();
   minimap.markAsRoot();
   minimap.show(container);
+  TraceBounds.TraceBounds.BoundsManager.instance().resetWithNewBounds(models.traceParsedData.Meta.traceBounds);
 
-  const bounds = TraceEngine.Helpers.Timing.traceWindowMilliSeconds(models.traceParsedData.Meta.traceBounds);
-  minimap.setBounds(
-      TraceEngine.Types.Timing.MilliSeconds(bounds.min),
-      TraceEngine.Types.Timing.MilliSeconds(bounds.max),
+  const zoomedWindow = TraceEngine.Extras.MainThreadActivity.calculateWindow(
+      models.traceParsedData.Meta.traceBounds,
+      mainThread.entries,
   );
+  TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(zoomedWindow);
 
   minimap.setData({
     traceParsedData: models.traceParsedData,
@@ -62,11 +54,14 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
     },
   });
   if (customStartWindowTime && customEndWindowTime) {
-    minimap.setWindowTimes(Number(customStartWindowTime), Number(customEndWindowTime));
-  } else {
-    minimap.setWindowTimes(models.performanceModel.window().left, models.performanceModel.window().right);
+    TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
+        TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+            TraceEngine.Types.Timing.MicroSeconds(Number(customStartWindowTime)),
+            TraceEngine.Types.Timing.MicroSeconds(Number(customEndWindowTime)),
+            ),
+    );
   }
 }
 
 await renderMiniMap('.container', {showMemory: false});
-await renderMiniMap('.container-with-memory', {showMemory: true});
+// await renderMiniMap('.container-with-memory', {showMemory: true});
