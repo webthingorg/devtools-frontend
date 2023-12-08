@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44cbca2a_9eafaa67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:19:50Z",
+      "side": 1,
+      "message": "LGTM. I think there might be some docs (test/interactions/README.md) which need updating, now that people can self-update the screenshots via Linux.\n\nBut we should keep the bot option open for those who can\u0027t (I\u0027m thinking external contributors).",
+      "revId": "e779eaf38058de646ad0ea0bb7eb44ae82b094cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0009409_83797f03",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:19:50Z",
+      "side": 1,
+      "message": "nit: leave a comment here explaining why?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 29
+      },
+      "revId": "e779eaf38058de646ad0ea0bb7eb44ae82b094cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
