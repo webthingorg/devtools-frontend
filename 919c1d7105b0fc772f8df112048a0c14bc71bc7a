@@ -18,6 +18,47 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d71d3530_23d15f7e",
+        "filename": "front_end/models/trace/handlers/LayoutShiftsHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:42:23Z",
+      "side": 1,
+      "message": "Nah I like it 😊",
+      "parentUuid": "af85aec8_17bf1259",
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10c797ae_842fdf8e",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:42:23Z",
+      "side": 1,
+      "message": "I think we need to copy these into a new array, so that a subsequent import of another trace doesn\u0027t mess these up. IIRC that\u0027s why we always copy in the data() method",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7763231_73d10f88",
@@ -31,6 +72,93 @@
       "writtenOn": "2023-12-08T04:12:03Z",
       "side": 1,
       "message": "the presubmit checks will force these into path-alphabetical order (overwriting this change)\n\nbut if Handlers isn\u0027t imported first, then we get some errors about HandlerState being undefined and Handlers can\u0027t initialize correctly...\n\nI\u0027m not sure how to resolve this without either 1) changing the HandlerState setup completely or 2) renaming the `extras` file folder to `xtras`.  😋\n\nThoughts?",
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f55dee_31ddfcf8",
+        "filename": "front_end/models/trace/trace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:42:23Z",
+      "side": 1,
+      "message": "This is odd - importing these shouldn\u0027t cause any code to run that would throw an error. I will pull this CL down and see the error myself as I don\u0027t fully understand 😊",
+      "parentUuid": "f7763231_73d10f88",
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff806d1_a7096998",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:42:23Z",
+      "side": 1,
+      "message": "love it",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 90
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7938de34_fb1b6d3c",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:42:23Z",
+      "side": 1,
+      "message": "could we use a slightly more descriptive name for this?",
+      "range": {
+        "startLine": 1014,
+        "startChar": 11,
+        "endLine": 1014,
+        "endChar": 16
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e17898f_6daaa698",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:42:23Z",
+      "side": 1,
+      "message": "do we also need to update the type def for `this.entryData` ?",
+      "range": {
+        "startLine": 1090,
+        "startChar": 29,
+        "endLine": 1090,
+        "endChar": 38
+      },
       "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
