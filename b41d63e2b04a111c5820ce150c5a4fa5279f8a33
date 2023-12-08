@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ec50eb5_ac2fc463",
+        "filename": "test/e2e/resources/animations/animations-shown.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-08T08:20:29Z",
+      "side": 1,
+      "message": "Is this the right year?",
+      "revId": "b41d63e2b04a111c5820ce150c5a4fa5279f8a33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
