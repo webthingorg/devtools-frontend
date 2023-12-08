@@ -16,6 +16,24 @@
       "message": "I approved, but could you update the patch to put these changes behind a feature flag?",
       "revId": "1addcac9d6955a542f512f094c8b4a6fc4fa1b5e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e32d35d_020cf1a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2023-12-08T19:02:11Z",
+      "side": 1,
+      "message": "Yes, thanks for catching that. I\u0027ll update with a feature flag",
+      "parentUuid": "275586b6_42c2fb28",
+      "revId": "1addcac9d6955a542f512f094c8b4a6fc4fa1b5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
