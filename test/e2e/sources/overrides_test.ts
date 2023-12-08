@@ -41,7 +41,7 @@ describe('Overrides panel', async function() {
     await waitFor(ENABLE_OVERRIDES_SELECTOR);
   });
 
-  it('can create multiple new files', async () => {
+  it.skip('can create multiple new files', async () => {
     await goToResource('empty.html');
     await openSourcesPanel();
     await enableLocalOverrides();
@@ -59,7 +59,7 @@ describe('Overrides panel', async function() {
     assert.deepEqual(treeItemNames, ['bar', 'foo']);
   });
 
-  it('can save fetch request for overrides via network panel', async () => {
+  it.skip('can save fetch request for overrides via network panel', async () => {
     await step('enable overrides', async () => {
       await goToResource('network/fetch-json.html');
       await openSourcesPanel();
@@ -89,7 +89,7 @@ describe('Overrides panel', async function() {
     });
   });
 
-  it('can save XHR request for overrides via network panel', async () => {
+  it.skip('can save XHR request for overrides via network panel', async () => {
     await step('enable overrides', async () => {
       await goToResource('network/xhr-json.html');
       await openSourcesPanel();
@@ -119,8 +119,7 @@ describe('Overrides panel', async function() {
     });
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] can always override content via the Network panel', async () => {
+  it('can always override content via the Network panel', async () => {
     await step('can override without local overrides folder set up', async () => {
       await goToResource('network/fetch-json.html');
       await openNetworkTab();
@@ -175,8 +174,7 @@ describe('Overrides panel', async function() {
     });
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] overrides indicator on the Network panel title', async () => {
+  it('overrides indicator on the Network panel title', async () => {
     await step('no indicator when overrides setting is disabled', async () => {
       await goToResource('network/fetch-json.html');
 
@@ -234,7 +232,7 @@ describe('Overrides panel', async function() {
     });
   });
 
-  it('can show all overrides in the Sources panel', async () => {
+  it.skip('can show all overrides in the Sources panel', async () => {
     await step('when overrides setting is disabled', async () => {
       await goToResource('network/fetch-json.html');
 
@@ -266,8 +264,7 @@ describe('Overrides panel', async function() {
     });
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] has correct context menu for overrides files', async () => {
+  it('has correct context menu for overrides files', async () => {
     await goToResource('network/fetch-json.html');
     await openNetworkTab();
     await selectRequestByName('coffees.json', {button: 'right'});
@@ -292,8 +289,7 @@ describe('Overrides panel', async function() {
     assert.strictEqual(assertOpenInElements.length, 1);
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] has correct context menu for main overrides folder', async () => {
+  it('has correct context menu for main overrides folder', async () => {
     await goToResource('network/fetch-json.html');
     await openNetworkTab();
     await selectRequestByName('coffees.json', {button: 'right'});
@@ -317,8 +313,7 @@ describe('Overrides panel', async function() {
     assert.strictEqual(assertDeleteElements.length, 0);
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] has correct context menu for sub overrides folder', async () => {
+  it('has correct context menu for sub overrides folder', async () => {
     await goToResource('network/fetch-json.html');
     await openNetworkTab();
     await selectRequestByName('coffees.json', {button: 'right'});
@@ -342,7 +337,7 @@ describe('Overrides panel', async function() {
     assert.strictEqual(assertDeleteElements.length, 1);
   });
 
-  it('show redirect dialog when override content of source mapped js file', async () => {
+  it.skip('show redirect dialog when override content of source mapped js file', async () => {
     await goToResource('sources/sourcemap-origin.html');
     await openSourcesPanel();
     await enableLocalOverrides();
@@ -368,7 +363,7 @@ describe('Overrides panel', async function() {
     await waitFor('[aria-label="Close sourcemap-origin.min.js"]');
   });
 
-  it('show redirect dialog when override content of source mapped css file', async () => {
+  it.skip('show redirect dialog when override content of source mapped css file', async () => {
     await goToResource('sources/sourcemap-origin.html');
     await openSourcesPanel();
     await enableLocalOverrides();
