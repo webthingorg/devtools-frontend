@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba7ac608_32217612",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T09:16:16Z",
+      "side": 1,
+      "message": "can you check in with Ergun on this change please? I know the setting to 0/Infinity is important I think for some of the network panel behaviour.\n\nI know right now this wouldn\u0027t break because breadcrumbs are not turned on, but when they get turned on for everyone I think this CL might cause the network panel to break. But I am not sure of the details, but Ergun is 😊",
+      "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
