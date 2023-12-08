@@ -79,8 +79,8 @@ enum VisualElements {
   FlexboxOverlays = 56,
   GridOverlays = 57,
   JumpToElement = 58,
-  /* 59 used to be ElementsPanel, but free to grab now */
-  /* 60 used to be ElementsTreeOutline, but free to grab now */
+  PieChart = 59,
+  PieChartSlice = 60,
   /* 61 used to be RenderingPanel, but free to grab now */
   ElementsBreadcrumbs = 62,
   /* 63 used to be FullAccessibilityTree, but free to grab now */
