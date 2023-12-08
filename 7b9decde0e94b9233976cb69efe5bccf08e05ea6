@@ -34,6 +34,24 @@
       "parentUuid": "ba7ac608_32217612",
       "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b48a0a43_05860bab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-08T14:12:49Z",
+      "side": 1,
+      "message": "I\u0027ve tested this and I think it breaks the behavior.\n\n* Open a new tab with your CL included, visit a website and inspect devtools\n* Paste this to the console `setInterval(() \u003d\u003e fetch(\u0027image.svg\u0027), 1000);`\n* Then, in the timeline, drag it to include only one request.\n* Then, double click in timeline to reset the bounds to the full\n\nWhat happens is:\n* When the new requests come, the selected area in timeline grid shrinks\n\nHowever,\n* We expect the selected area not to shrink.\n\nSadly I don\u0027t know what the exact dependency between Network panel\u0027s timeline grid usage and performance panel\u0027s; but this change is breaking the behavior 😅",
+      "parentUuid": "6c479263_b0102296",
+      "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
