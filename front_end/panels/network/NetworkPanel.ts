@@ -497,7 +497,7 @@ export class NetworkPanel extends UI.Panel.Panel implements
     }
     const timestamps = filmStrip.frames.map(frame => {
       // The network view works in seconds.
-      return TraceEngine.Helpers.Timing.microSecondsToSeconds(frame.screenshotEvent.ts);
+      return TraceEngine.Helpers.Timing.microSecondsToSeconds(frame.screenshotTs);
     });
 
     this.networkLogView.addFilmStripFrames(timestamps);

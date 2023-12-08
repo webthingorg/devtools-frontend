@@ -42,7 +42,7 @@ describeWithEnvironment('FilmStrip', function() {
     const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
     // Set a custom zero time after the first screenshot and ensure that we now only have four events.
-    const newCustomZeroTime = TraceEngine.Types.Timing.MicroSeconds(filmStrip.frames[0].screenshotEvent.ts + 1000);
+    const newCustomZeroTime = TraceEngine.Types.Timing.MicroSeconds(filmStrip.frames[0].screenshotTs + 1000);
     const newFilmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData, newCustomZeroTime);
     // Check that the new film strip is all the frames other than the first, now we have set a custom time.
     assert.deepEqual(newFilmStrip.frames.map(f => f.screenshotAsString), [
@@ -56,7 +56,7 @@ describeWithEnvironment('FilmStrip', function() {
   it('can return the frame closest to a given timestamp', async function() {
     const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
-    const frameTimestamps = filmStrip.frames.map(frame => frame.screenshotEvent.ts);
+    const frameTimestamps = filmStrip.frames.map(frame => frame.screenshotTs);
     assert.deepEqual(frameTimestamps, [1020034823345, 1020034961883, 1020035045298, 1020035061981, 1020035112030]);
 
     const timestampNearestFirstFrame = TraceEngine.Types.Timing.MicroSeconds(frameTimestamps[0] + 10);

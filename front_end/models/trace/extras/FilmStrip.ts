@@ -2,9 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 //
-import type * as Types from '../types/types.js';
-import type * as Handlers from '../handlers/handlers.js';
 import * as Platform from '../../../core/platform/platform.js';
+import type * as Handlers from '../handlers/handlers.js';
+import {getPresentationTimestamp} from '../handlers/ScreenshotsHandler.js';
+import type * as Types from '../types/types.js';
 
 export interface Data {
   zeroTime: Types.Timing.MicroSeconds;
@@ -13,8 +14,10 @@ export interface Data {
 }
 
 export interface Frame {
-  screenshotEvent: Types.TraceEvents.TraceEventSnapshot;
+  screenshotEvent: Types.TraceEvents.TraceEventScreenshotSnapshot;
   screenshotAsString: string;
+  /** The corrected timestamp. */
+  screenshotTs: Types.Timing.MicroSeconds;
   index: number;
 }
 
@@ -43,14 +46,16 @@ export function fromTraceData(traceData: HandlerDataWithScreenshots, customZeroT
     return fromCache;
   }
 
-  for (const screenshot of traceData.Screenshots) {
-    if (screenshot.ts < zeroTime) {
+  for (const screenshotEvent of traceData.Screenshots) {
+    const screenshotTs = getPresentationTimestamp(screenshotEvent);
+    if (screenshotTs < zeroTime) {
       continue;
     }
     const frame: Frame = {
       index: frames.length,
-      screenshotEvent: screenshot,
-      screenshotAsString: screenshot.args.snapshot,
+      screenshotEvent: screenshotEvent,
+      screenshotTs,
+      screenshotAsString: screenshotEvent.args.snapshot,
     };
     frames.push(frame);
   }
@@ -69,8 +74,8 @@ export function fromTraceData(traceData: HandlerDataWithScreenshots, customZeroT
 }
 
 export function frameClosestToTimestamp(filmStrip: Data, searchTimestamp: Types.Timing.MicroSeconds): Frame|null {
-  const closestFrameIndexBeforeTimestamp = Platform.ArrayUtilities.nearestIndexFromEnd(
-      filmStrip.frames, frame => frame.screenshotEvent.ts < searchTimestamp);
+  const closestFrameIndexBeforeTimestamp =
+      Platform.ArrayUtilities.nearestIndexFromEnd(filmStrip.frames, frame => frame.screenshotTs < searchTimestamp);
   if (closestFrameIndexBeforeTimestamp === null) {
     return null;
   }

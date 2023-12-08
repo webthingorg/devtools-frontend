@@ -218,8 +218,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     if (!filmStripFrame) {
       return null;
     }
-    const frameTimeMilliSeconds =
-        TraceEngine.Helpers.Timing.microSecondsToMilliseconds(filmStripFrame.screenshotEvent.ts);
+    const frameTimeMilliSeconds = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(filmStripFrame.screenshotTs);
     return frameTimeMilliSeconds - frame.endTime < 10 ? filmStripFrame : null;
   }
 

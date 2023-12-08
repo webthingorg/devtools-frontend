@@ -233,13 +233,16 @@ describe('LayoutShiftsHandler', function() {
           continue;
         }
         assert.isDefined(shift.parsedData.screenshotSource);
+        const {getPresentationTimestamp} = TraceModel.Handlers.ModelHandlers.Screenshots;
         // Make sure the screenshot came after the shift.
-        assert.isAtLeast(screenshots[screenshotIndex].ts, shift.ts);
+        const screenshotTs = getPresentationTimestamp((screenshots[screenshotIndex]));
+        assert.isAtLeast(screenshotTs, shift.ts);
         if (screenshotIndex > 0) {
           // Make sure the previous screenshot came before the shift, meaning
           // the index corresponds to the first screenshot after the shift.
           // (the screenshot data is ordered asc).
-          assert.isBelow(screenshots[screenshotIndex - 1].ts, shift.ts);
+          const previousScreenshotTs = getPresentationTimestamp((screenshots[screenshotIndex - 1]));
+          assert.isBelow(previousScreenshotTs, shift.ts);
         }
       }
     });
