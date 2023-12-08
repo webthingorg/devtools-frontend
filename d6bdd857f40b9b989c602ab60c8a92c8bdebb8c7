@@ -22,6 +22,30 @@
       },
       "revId": "d6bdd857f40b9b989c602ab60c8a92c8bdebb8c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba760edc_c494082c",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-08T04:12:03Z",
+      "side": 1,
+      "message": "Yeah I felt a little weird about it. Your suggestion gave me an idea so I made a lil utility method on the handler. I dig it.  you?",
+      "parentUuid": "c508c769_a81bb34a",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "d6bdd857f40b9b989c602ab60c8a92c8bdebb8c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
