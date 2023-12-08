@@ -16,6 +16,29 @@
       "message": "Hey both,\n\nPlease would you mind taking a look at this?\n\nI would also ask if possible please that you check this out locally and have a play with it - I have tested it fairly extensively but as this is a big change to window bounds I would love to get some extra eyes on it to see if I have missed any edge cases.\n\nI think this also fixes a couple of bugs where the handles can go off screen too.\n\nAnd finally, look how small the Performance Model is after this! We are really close to having that removed.",
       "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1f2a5ee_66069140",
+        "filename": "front_end/services/trace_bounds/TraceBounds.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T17:44:31Z",
+      "side": 1,
+      "message": "this fixes the bug with drag handles on the minimap going off screen 😊",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 0
+      },
+      "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
