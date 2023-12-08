@@ -70,6 +70,29 @@
       "parentUuid": "b48a0a43_05860bab",
       "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61cf856e_369b1c6e",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-08T14:16:47Z",
+      "side": 1,
+      "message": "let\u0027s make sure this is definitely always going to be false when this component is used in the network panel.\n\nIt may even make sense to add a flag to its constructor so you have to do something like:\n\nconst overview \u003d new TimelineOverviewPane(\u0027whatever\u0027, { usePerformanceBreadcrumbs: true})\n\nSo the TimelineMiniMap would set this to true, but the NetworkPanel would not.\n\nAnd then we can make sure if that is false we stick with the old behaviour that does not break the network panel, and if it is true we can go with the new behaviour.",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 244,
+        "endChar": 72
+      },
+      "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
