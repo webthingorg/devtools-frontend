@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4a4f266_3b72653a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108044
+      },
+      "writtenOn": "2023-12-08T15:40:26Z",
+      "side": 1,
+      "message": "I feel like I need some fresh eyes because I spent hours trying to make the tests work and they don\u0027t. I\u0027m feeling like I\u0027m hitting some bugs but I\u0027m not sure what and why.\n\nThe added test in patchet #3 works until:\n\n`await clickDevicePosture(\u0027Continuous\u0027);`\n\nit times out because the dropdown list of the posture values isn\u0027t shown the second time. If I run the tests npm run debug-e2etest I can see that the dropdown list for the posture isn\u0027t showing, clicking manually while the test is playing make the test pass. So definitively something fishy with the drop down not doing the right thing. Especially that the first time the Folded entry is correctly selected. As a matter of fact, I also played with changing the device type a second time (different dropdown) in the same test and it also fails. So, what am I doing wrong here?\n\nI came across https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1411196 but the bug is restricted.",
+      "parentUuid": "d168b88f_dc933d2f",
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f32881f_51e00ec2",
         "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
         "patchSetId": 2
