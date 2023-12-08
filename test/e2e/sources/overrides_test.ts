@@ -119,8 +119,7 @@ describe('Overrides panel', async function() {
     });
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] can always override content via the Network panel', async () => {
+  it('can always override content via the Network panel', async () => {
     await step('can override without local overrides folder set up', async () => {
       await goToResource('network/fetch-json.html');
       await openNetworkTab();
