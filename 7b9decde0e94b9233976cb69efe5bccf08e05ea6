@@ -93,6 +93,30 @@
       },
       "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a8f07f_0e2a2da3",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-08T14:18:04Z",
+      "side": 1,
+      "message": "This makes a lot of sense to me, also with this CL I\u0027m seeing that create breadcrumb button is included in the network panel\u0027s timeline too.",
+      "parentUuid": "61cf856e_369b1c6e",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 244,
+        "endChar": 72
+      },
+      "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
