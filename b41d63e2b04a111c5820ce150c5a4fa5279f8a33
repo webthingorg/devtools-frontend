@@ -16,6 +16,24 @@
       "message": "Is this the right year?",
       "revId": "b41d63e2b04a111c5820ce150c5a4fa5279f8a33",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a83e25a9_35312218",
+        "filename": "test/e2e/resources/animations/animations-shown.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-08T09:52:40Z",
+      "side": 1,
+      "message": "Ah good catch, thanks! :)",
+      "parentUuid": "6ec50eb5_ac2fc463",
+      "revId": "b41d63e2b04a111c5820ce150c5a4fa5279f8a33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
