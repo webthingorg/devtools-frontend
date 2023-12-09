@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a35daddf_c574ce42",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-09T00:40:02Z",
+      "side": 1,
+      "message": "seems funny but ok. :)",
+      "parentUuid": "10c797ae_842fdf8e",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7763231_73d10f88",
         "filename": "front_end/models/trace/trace.ts",
         "patchSetId": 4
@@ -90,6 +114,24 @@
       "side": 1,
       "message": "This is odd - importing these shouldn\u0027t cause any code to run that would throw an error. I will pull this CL down and see the error myself as I don\u0027t fully understand 😊",
       "parentUuid": "f7763231_73d10f88",
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7c55a6d_59f78b5d",
+        "filename": "front_end/models/trace/trace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-09T00:40:02Z",
+      "side": 1,
+      "message": "This CL has Extras/filmstrip import something from Handlers/ScreenshotHandler.\n\nI\u0027m assuming that previously Extras didnt depend on Handlers anything. \n\nBut.... even when I follow the path from `handlers.ts` to `HandlerState.UNINITIALIZED` in AnimationHandler.. I\u0027m not exactly sure why `HandlerState` is undefined. So yeah. Shrug.",
+      "parentUuid": "d4f55dee_31ddfcf8",
       "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -142,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "343f006a_bd49cf4b",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-09T00:40:02Z",
+      "side": 1,
+      "message": "yah i was just porting the official proto over. TBH we don\u0027t really need all these enums to be fully described... And I feel bad if it affects the bundle size. \n\nDo you want the full type even tho we\u0027ll likely never use it? or should i pare it down to something more reasonable? i\u0027m cool with whatever",
+      "parentUuid": "7938de34_fb1b6d3c",
+      "range": {
+        "startLine": 1014,
+        "startChar": 11,
+        "endLine": 1014,
+        "endChar": 16
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e17898f_6daaa698",
         "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
         "patchSetId": 4
@@ -153,6 +219,30 @@
       "writtenOn": "2023-12-08T09:42:23Z",
       "side": 1,
       "message": "do we also need to update the type def for `this.entryData` ?",
+      "range": {
+        "startLine": 1090,
+        "startChar": 29,
+        "endLine": 1090,
+        "endChar": 38
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "519a267e_69fe50f0",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-09T00:40:02Z",
+      "side": 1,
+      "message": "nope?   entryData is TraceEngine.Legacy.Event|TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame|\n     TraceEngine.Types.TraceEvents.TraceEventData\n     \n     and `TraceEngine.Types.TraceEvents.TraceEventScreenshotSnapshot` is a subtype of the third (`TraceEventData`)\n     \n  \nmaybe i\u0027m misunderstanding..",
+      "parentUuid": "4e17898f_6daaa698",
       "range": {
         "startLine": 1090,
         "startChar": 29,
