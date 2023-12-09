@@ -2,11 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Lighthouse from '../../../../../front_end/panels/lighthouse/lighthouse.js';
-import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import type * as Common from '../../../../../front_end/core/common/common.js';
-import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
+import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
+import type * as Protocol from '../../../../../front_end/generated/protocol.js';
+import type * as Lighthouse from '../../../../../front_end/panels/lighthouse/lighthouse.js';
 import {createTarget, stubNoopSettings} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../helpers/MockConnection.js';
 
@@ -63,8 +63,7 @@ describeWithMockConnection('LighthousePanel', async () => {
     });
 
     it('restores the original URL when done', async () => {
-      const instance =
-          LighthouseModule.LighthousePanel.LighthousePanel.instance({forceNew: true, protocolService, controller});
+      const instance = new LighthouseModule.LighthousePanel.LighthousePanel(controller);
       void instance.handleCompleteRun();
 
       await new Promise<void>(resolve => resourceTreeModelNavigate.withArgs(URL).callsFake(() => {
@@ -74,8 +73,7 @@ describeWithMockConnection('LighthousePanel', async () => {
     });
 
     it('waits for main taget to load before linkifying', async () => {
-      const instance =
-          LighthouseModule.LighthousePanel.LighthousePanel.instance({forceNew: true, protocolService, controller});
+      const instance = new LighthouseModule.LighthousePanel.LighthousePanel(controller);
       void instance.handleCompleteRun();
 
       await new Promise<void>(

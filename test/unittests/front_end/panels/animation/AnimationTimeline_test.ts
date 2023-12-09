@@ -29,7 +29,7 @@ describeWithMockConnection('AnimationTimeline', () => {
     const model = target.model(Animation.AnimationModel.AnimationModel);
     assertNotNullOrUndefined(model);
 
-    view = Animation.AnimationTimeline.AnimationTimeline.instance({forceNew: true});
+    view = new Animation.AnimationTimeline.AnimationTimeline();
     view.markAsRoot();
     view.show(document.body);
     await new Promise<void>(resolve => setTimeout(resolve, 0));
@@ -58,7 +58,7 @@ describeWithMockConnection('AnimationTimeline', () => {
 
   describe('resizing time controls', () => {
     it('updates --timeline-controls-width and calls onResize', async () => {
-      view = Animation.AnimationTimeline.AnimationTimeline.instance({forceNew: true});
+      view = new Animation.AnimationTimeline.AnimationTimeline();
       view.markAsRoot();
       view.show(document.body);
       const onResizeStub = sinon.stub(view, 'onResize');

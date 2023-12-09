@@ -38,6 +38,6 @@ UI.ViewManager.registerViewExtension({
   order: 0,
   async loadView() {
     const Animation = await loadAnimationModule();
-    return Animation.AnimationTimeline.AnimationTimeline.instance();
+    return new Animation.AnimationTimeline.AnimationTimeline();
   },
 });

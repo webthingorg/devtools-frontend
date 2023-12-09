@@ -93,8 +93,6 @@ const MIN_TIMELINE_CONTROLS_WIDTH = 120;
 const DEFAULT_TIMELINE_CONTROLS_WIDTH = 150;
 const MAX_TIMELINE_CONTROLS_WIDTH = 720;
 
-let animationTimelineInstance: AnimationTimeline;
-
 export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManager.SDKModelObserver<AnimationModel> {
   #gridWrapper: HTMLElement;
   #grid: Element;
@@ -131,7 +129,7 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
   #timelineControlsResizer: HTMLElement;
   #gridHeader!: HTMLElement;
 
-  private constructor() {
+  constructor() {
     super(true);
 
     this.element.classList.add('animations-timeline');
@@ -165,13 +163,6 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.nodeChanged, this);
 
     this.#setupTimelineControlsResizer();
-  }
-
-  static instance(opts?: {forceNew: boolean}): AnimationTimeline {
-    if (!animationTimelineInstance || opts?.forceNew) {
-      animationTimelineInstance = new AnimationTimeline();
-    }
-    return animationTimelineInstance;
   }
 
   #setupTimelineControlsResizer(): void {

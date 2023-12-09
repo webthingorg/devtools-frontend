@@ -7,16 +7,14 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {
+  type AuditProgressChangedEvent,
   Events,
   LighthouseController,
-  type AuditProgressChangedEvent,
   type PageAuditabilityChangedEvent,
   type PageWarningsChangedEvent,
 } from './LighthouseController.js';
 import lighthousePanelStyles from './lighthousePanel.css.js';
-
 import {ProtocolService} from './LighthouseProtocolService.js';
-
 import {type ReportJSON, type RunnerResultArtifacts} from './LighthouseReporterTypes.js';
 import {LighthouseReportRenderer} from './LighthouseReportRenderer.js';
 import {Item, ReportSelector} from './LighthouseReportSelector.js';
@@ -57,7 +55,6 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/lighthouse/LighthousePanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-let lighthousePanelInstace: LighthousePanel;
 type Nullable<T> = T|null;
 
 export class LighthousePanel extends UI.Panel.Panel {
@@ -77,9 +74,7 @@ export class LighthousePanel extends UI.Panel.Panel {
   private rightToolbar!: UI.Toolbar.Toolbar;
   private showSettingsPaneSetting!: Common.Settings.Setting<boolean>;
 
-  private constructor(
-      controller: LighthouseController,
-  ) {
+  constructor(controller: LighthouseController = new LighthouseController(new ProtocolService())) {
     super('lighthouse');
 
     this.controller = controller;
@@ -104,18 +99,6 @@ export class LighthousePanel extends UI.Panel.Panel {
     this.renderStartView();
 
     this.controller.recomputePageAuditability();
-  }
-
-  static instance(opts?: {forceNew: boolean, protocolService: ProtocolService, controller: LighthouseController}):
-      LighthousePanel {
-    if (!lighthousePanelInstace || opts?.forceNew) {
-      const protocolService = opts?.protocolService ?? new ProtocolService();
-      const controller = opts?.controller ?? new LighthouseController(protocolService);
-
-      lighthousePanelInstace = new LighthousePanel(controller);
-    }
-
-    return lighthousePanelInstace;
   }
 
   static getEvents(): typeof Events {
