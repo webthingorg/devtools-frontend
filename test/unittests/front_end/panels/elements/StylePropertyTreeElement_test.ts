@@ -44,12 +44,14 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       if (!mockVariableMap[param]) {
         return {
           computedValue: null,
+          declaration: null,
           fromFallback: true,
         };
       }
 
       return {
         computedValue: mockVariableMap[param],
+        declaration: null,
         fromFallback: false,
       };
     });
@@ -420,6 +422,41 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
   });
 
   describe('custom-properties', () => {
+    it('linkifies var functions to declarations', async () => {
+      const cssCustomPropertyUse = new SDK.CSSProperty.CSSProperty(
+          mockCssStyleDeclaration, 0, 'prop', 'var(--prop)', true, false, true, false, '', undefined);
+      const cssCustomPropertyDef = new SDK.CSSProperty.CSSProperty(
+          mockCssStyleDeclaration, 0, '--prop', 'value', true, false, true, false, '', undefined);
+      mockMatchedStyles.computeSingleVariableValue.callsFake(
+          (_, name) =>
+              (name === 'var(--prop)' ?
+                   {computedValue: 'computedvalue', declaration: cssCustomPropertyDef, fromFallback: false} :
+                   {computedValue: null, declaration: null, fromFallback: true}));
+      const renderValueSpy =
+          sinon.spy(ElementsModule.StylesSidebarPane.StylesSidebarPropertyRenderer.prototype, 'renderValue');
+      const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+        stylesPane: stylesSidebarPane,
+        matchedStyles: mockMatchedStyles,
+        property: cssCustomPropertyUse,
+        isShorthand: false,
+        inherited: false,
+        overloaded: false,
+        newProperty: true,
+      });
+
+      stylePropertyTreeElement.updateTitle();
+
+      const varSwatch =
+          renderValueSpy.returnValues.find(value => value.firstChild instanceof InlineEditor.LinkSwatch.CSSVarSwatch)
+                  ?.firstChild as InlineEditor.LinkSwatch.CSSVarSwatch |
+          undefined;
+      assertNotNullOrUndefined(varSwatch);
+      const revealPropertySpy = sinon.spy(stylesSidebarPane, 'revealProperty');
+      varSwatch.link?.linkElement?.dispatchEvent(new MouseEvent('mousedown'));
+      assert.isTrue(revealPropertySpy.calledWith(cssCustomPropertyDef));
+      await new Promise(r => setTimeout(r));
+    });
+
     it('linkifies property definition to registrations', async () => {
       const cssCustomPropertyDef = new SDK.CSSProperty.CSSProperty(
           mockCssStyleDeclaration, 0, '--prop', 'value', true, false, true, false, '', undefined);
