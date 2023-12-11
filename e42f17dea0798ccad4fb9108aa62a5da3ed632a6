@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87bda40a_dd7bb12e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-11T15:23:40Z",
+      "side": 1,
+      "message": "PTAL.\n\nI did not do anything to actually address the flakiness you encountered previously. I could not reproduce it locally and neither could the stressor bots. How about re-enabling the tests tentatively and keeping an eye on them?",
+      "revId": "e42f17dea0798ccad4fb9108aa62a5da3ed632a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
