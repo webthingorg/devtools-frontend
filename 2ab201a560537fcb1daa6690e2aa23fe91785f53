@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a21a508f_889e9ec2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-11T08:59:26Z",
+      "side": 1,
+      "message": "also tested locally and everything worked nicely! :D",
+      "parentUuid": "a4c47cb0_86d05cb0",
+      "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e39c2e77_b720c187",
