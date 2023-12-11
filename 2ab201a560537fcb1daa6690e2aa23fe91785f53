@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac65f3b1_7826699a",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T10:55:49Z",
+      "side": 1,
+      "message": "Good point! Removed",
+      "parentUuid": "e39c2e77_b720c187",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 72
+      },
+      "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfe891e4_47329cb9",
@@ -99,6 +123,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb7b041_0b343a79",
+        "filename": "front_end/panels/timeline/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T10:55:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe891e4_47329cb9",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 134
+      },
+      "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e87c7cc_99af93be",
@@ -112,6 +160,30 @@
       "writtenOn": "2023-12-11T08:58:49Z",
       "side": 1,
       "message": "nit: wouldn\u0027t it make sense to listen to the bounds manager instead? (that way we wouldn\u0027t have to dispatch this event in the minimap)",
+      "range": {
+        "startLine": 379,
+        "startChar": 43,
+        "endLine": 379,
+        "endChar": 68
+      },
+      "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aa69a43_4ab321a9",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T10:55:49Z",
+      "side": 1,
+      "message": "Yeah good idea - I moved the update logic into the TimelineMinimap and removed the listener from the TimelinePanel entirely.",
+      "parentUuid": "0e87c7cc_99af93be",
       "range": {
         "startLine": 379,
         "startChar": 43,
@@ -168,6 +240,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b894448a_def6c9ed",
+        "filename": "front_end/ui/components/docs/performance_panel/overview.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T10:55:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6e458c5_3c664c15",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 79
+      },
+      "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e09a6bfe_1ff002e9",
@@ -181,6 +277,30 @@
       "writtenOn": "2023-12-11T08:58:49Z",
       "side": 1,
       "message": "nit: re-enable",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 69
+      },
+      "revId": "2ab201a560537fcb1daa6690e2aa23fe91785f53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16b1744_810e33fa",
+        "filename": "front_end/ui/components/docs/performance_panel/overview.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T10:55:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e09a6bfe_1ff002e9",
       "range": {
         "startLine": 67,
         "startChar": 0,

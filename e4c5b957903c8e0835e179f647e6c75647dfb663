@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb49435a_f4539060",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T10:55:49Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "7d5e48ca_3a6486d3",
+      "range": {
+        "startLine": 775,
+        "startChar": 22,
+        "endLine": 775,
+        "endChar": 36
+      },
+      "revId": "e4c5b957903c8e0835e179f647e6c75647dfb663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d362a7b_2f7dce16",
