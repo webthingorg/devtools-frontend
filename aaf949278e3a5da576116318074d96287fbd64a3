@@ -88,6 +88,24 @@
       "parentUuid": "f918ddcc_d32b6713",
       "revId": "aaf949278e3a5da576116318074d96287fbd64a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bc39643_9f90f8b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-12-11T16:08:29Z",
+      "side": 1,
+      "message": "I\u0027ve updated the eval tool to have two examples using code prepared with and without this change. Details in linked bug.",
+      "parentUuid": "76af0e81_2ad11100",
+      "revId": "aaf949278e3a5da576116318074d96287fbd64a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
