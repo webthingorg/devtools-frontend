@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e85a8341_68039cfe",
+        "filename": "front_end/models/trace/extras/FilmStrip.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T16:19:03Z",
+      "side": 1,
+      "message": "This might help with the weird error you are seeing - I have to run but will look tomorrow AM my time",
+      "parentUuid": "1eebdadd_a9cc33cf",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 75
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af85aec8_17bf1259",
         "filename": "front_end/models/trace/handlers/LayoutShiftsHandler.ts",
         "patchSetId": 4
