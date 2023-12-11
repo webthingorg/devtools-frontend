@@ -136,6 +136,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e224d9cc_cb8d3561",
+        "filename": "front_end/models/trace/trace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T16:15:52Z",
+      "side": 1,
+      "message": "Sorry for the delay - I will clone this CL down tomorrow and look. Not sure what is going on here and usually this is indicative of a wider problem or something waiting to go wrong 😄",
+      "parentUuid": "d7c55a6d_59f78b5d",
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1ff806d1_a7096998",
@@ -208,6 +226,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd32f516_21ab6558",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T16:15:52Z",
+      "side": 1,
+      "message": "We tend to pare it down to whatever we need / is reasonable but I don\u0027t feel super strongly here.",
+      "parentUuid": "343f006a_bd49cf4b",
+      "range": {
+        "startLine": 1014,
+        "startChar": 11,
+        "endLine": 1014,
+        "endChar": 16
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e17898f_6daaa698",
         "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
         "patchSetId": 4
@@ -243,6 +285,30 @@
       "side": 1,
       "message": "nope?   entryData is TraceEngine.Legacy.Event|TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame|\n     TraceEngine.Types.TraceEvents.TraceEventData\n     \n     and `TraceEngine.Types.TraceEvents.TraceEventScreenshotSnapshot` is a subtype of the third (`TraceEventData`)\n     \n  \nmaybe i\u0027m misunderstanding..",
       "parentUuid": "4e17898f_6daaa698",
+      "range": {
+        "startLine": 1090,
+        "startChar": 29,
+        "endLine": 1090,
+        "endChar": 38
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de1ac456_cc8d0123",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T16:15:52Z",
+      "side": 1,
+      "message": "Nope, I misread the code. Pls ignore 😄",
+      "parentUuid": "519a267e_69fe50f0",
       "range": {
         "startLine": 1090,
         "startChar": 29,
