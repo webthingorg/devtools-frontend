@@ -17,6 +17,7 @@ export const enum FilterApplyAction {
 }
 
 export const enum FilterUndoAction {
+  RESET_CHILDREN = 'RESET_CHILDREN',
   UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
 }
 
@@ -27,6 +28,7 @@ const filterApplyActionSet: Set<FilterApplyAction> = new Set([
 ]);
 
 const filterUndoActionSet: Set<FilterUndoAction> = new Set([
+  FilterUndoAction.RESET_CHILDREN,
   FilterUndoAction.UNDO_ALL_ACTIONS,
 ]);
 
@@ -58,7 +60,7 @@ export class EntriesFilter {
   #entryToNode: EntryToNodeMap;
 
   // Track the set of invisible entries.
-  #invisibleEntries: Types.TraceEvents.TraceEntry[] = [];
+  #invisibleEntries: Types.TraceEvents.TraceEventData[] = [];
   // List of entries whose children are modified. This list is used to
   // keep track of entries that should be identified in the UI as modified.
   #modifiedVisibleEntries: Types.TraceEvents.TraceEventData[] = [];
@@ -79,7 +81,7 @@ export class EntriesFilter {
     } else if (/* FilterUndoActions */ this.isFilterUndoAction(action.type)) {
       const entryIndex = this.#modifiedVisibleEntries.indexOf(action.entry);
       this.#modifiedVisibleEntries.splice(entryIndex);
-      this.#applyUndoAction(action.type);
+      this.#applyUndoAction(action);
     }
   }
 
@@ -87,11 +89,15 @@ export class EntriesFilter {
    * If undo action is UNDO_ALL_ACTIONS, assign invisibleEntries array to an empty one.
    * **/
   // TODO(crbug.com/1469887): Implement RESET_CHILDREN function to show all hidden children of a node.
-  #applyUndoAction(action: FilterUndoAction): void {
-    switch (action) {
+  #applyUndoAction(action: UserFilterAction): void {
+    switch (action.type) {
       case FilterUndoAction.UNDO_ALL_ACTIONS: {
         this.#invisibleEntries = [];
         this.#modifiedVisibleEntries = [];
+        break;
+      }
+      case FilterUndoAction.RESET_CHILDREN: {
+        this.#makeEntryChildrenVisible(action.entry);
         break;
       }
     }
@@ -110,7 +116,7 @@ export class EntriesFilter {
     // Another approach would be to use splice() to remove items from the
     // array, but doing this would be a mutation of the arry for every hidden
     // event. Instead, we add entries to this set and return it as an array at the end.
-    const entriesToHide = new Set<Types.TraceEvents.TraceEntry>();
+    const entriesToHide = new Set<Types.TraceEvents.TraceEventData>();
 
     switch (action.type) {
       case FilterApplyAction.MERGE_FUNCTION: {
@@ -152,7 +158,7 @@ export class EntriesFilter {
     return this.#invisibleEntries;
   }
 
-  #findAllAncestorsOfNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEntry[] {
+  #findAllAncestorsOfNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEventData[] {
     const ancestors: Types.TraceEvents.TraceEntry[] = [];
 
     // Walk through all the ancestors, starting at the root node.
@@ -196,6 +202,41 @@ export class EntriesFilter {
     }
 
     return repeatingNodes;
+  }
+
+  /**
+   * Removes all of the entry children from the
+   * invisible entries array to make them visible.
+   **/
+  #makeEntryChildrenVisible(entry: Types.TraceEvents.TraceEntry): void {
+    const entryNode = this.#entryToNode.get(entry);
+    if (!entryNode) {
+      // Invalid node was given, just ignore and move on.
+      return;
+    }
+    const ancestors = this.#findAllAncestorsOfNode(entryNode);
+
+    /**
+     * Filter out all ancestors of the node
+     * from the invisible entries list.
+     **/
+    this.#invisibleEntries = this.#invisibleEntries.filter(entry => {
+      if (ancestors.includes(entry)) {
+        return false;
+      }
+      return true;
+    });
+
+    /**
+     * Filter out all ancestors from modified entries
+     * list to not show that some entries below those are hidden.
+     **/
+    this.#modifiedVisibleEntries = this.#modifiedVisibleEntries.filter(entry => {
+      if (ancestors.includes(entry)) {
+        return false;
+      }
+      return true;
+    });
   }
 
   isEntryModified(event: Types.TraceEvents.TraceEventData): boolean {
