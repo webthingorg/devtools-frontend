@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba42ddc6_0e760a6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108044
+      },
+      "writtenOn": "2023-12-11T13:34:06Z",
+      "side": 1,
+      "message": "`click(DEVICE_POSTURE_DROPDOWN_SELECTOR)` didn\u0027t work either on the second click. That\u0027s what I originally did.",
+      "parentUuid": "61731cbf_f742caa3",
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f32881f_51e00ec2",
         "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
         "patchSetId": 2
