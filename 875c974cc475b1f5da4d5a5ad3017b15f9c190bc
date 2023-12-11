@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61731cbf_f742caa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-11T07:30:29Z",
+      "side": 1,
+      "message": "I\u0027ve cc\u0027d you on the bug. You could try `click(DEVICE_POSTURE_DROPDOWN_SELECTOR)` as suggested there, but given that it doesn\u0027t work the second time, I assume it is throttling in the https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/SoftDropDown.ts;l\u003d92\n\nTo work this around, send Enter key instead of a click.",
+      "parentUuid": "e4a4f266_3b72653a",
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f32881f_51e00ec2",
         "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
         "patchSetId": 2
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "They are the available posture types of the W3C Device Posture API. Do we localize API names?",
       "parentUuid": "334aab68_d28c9f08",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 41
+      },
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe3c7152_2f31f34f",
+        "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-11T07:30:29Z",
+      "side": 1,
+      "message": "No, we don\u0027t",
+      "parentUuid": "2d08aacb_10a08f40",
       "range": {
         "startLine": 420,
         "startChar": 0,
