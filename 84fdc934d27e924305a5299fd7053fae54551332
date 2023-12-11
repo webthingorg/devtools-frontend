@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68e5c856_64254eae",
+        "filename": "front_end/panels/timeline/PerformanceModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-11T08:58:49Z",
+      "side": 0,
+      "message": "🔥",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 16
+      },
+      "revId": "84fdc934d27e924305a5299fd7053fae54551332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
