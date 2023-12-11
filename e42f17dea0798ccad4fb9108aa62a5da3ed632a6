@@ -16,6 +16,24 @@
       "message": "PTAL.\n\nI did not do anything to actually address the flakiness you encountered previously. I could not reproduce it locally and neither could the stressor bots. How about re-enabling the tests tentatively and keeping an eye on them?",
       "revId": "e42f17dea0798ccad4fb9108aa62a5da3ed632a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac64d78_ee1a6ffa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-11T16:02:14Z",
+      "side": 1,
+      "message": "have you tried reproducing them on the commit where they were skipped? Maybe something changed in the meantime? I don\u0027t have a good feeling reenabling them without a fix.",
+      "parentUuid": "87bda40a_dd7bb12e",
+      "revId": "e42f17dea0798ccad4fb9108aa62a5da3ed632a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
