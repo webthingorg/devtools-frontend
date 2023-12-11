@@ -33,6 +33,24 @@
       "message": "Not sure if I\u0027m happy with this change, for 2 reasons:\n  1) You still have module level state (or a singleton). It\u0027s just implicit now and harder to spot.\n  2) The test now works for a very subtle reason: We re-create the script before each test, but the state of the weak map leaks from one test into the others (it also leaks into every other unit test)\n\nMiddle ground alternative: Keep the class (with the simplification) but put it as a module constant into NameResolver. Wdyt?",
       "revId": "bf2a5b8c32859c622b3fa56d65d74d16005ca444",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5207dd89_79cc893a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-11T07:18:03Z",
+      "side": 1,
+      "message": "As per offline discussion: The `WeakMap` is a way to attach the scopeTree cache as a property to the script, and is not state in itself.",
+      "parentUuid": "1fef1196_8b01aff3",
+      "revId": "bf2a5b8c32859c622b3fa56d65d74d16005ca444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
