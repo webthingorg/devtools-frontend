@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35d96fbd_5a80c62b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-11T14:27:22Z",
+      "side": 1,
+      "message": "No need to add a timeout, just use `.press(\u0027Enter\u0027)` instead of `.click()`",
+      "parentUuid": "60489933_092a3b26",
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f32881f_51e00ec2",
         "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
         "patchSetId": 2
