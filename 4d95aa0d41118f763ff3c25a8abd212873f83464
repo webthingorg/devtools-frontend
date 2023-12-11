@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb2c21e_b9720824",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-11T15:01:37Z",
+      "side": 1,
+      "message": "`obsolete view singletons`?",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "4d95aa0d41118f763ff3c25a8abd212873f83464",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e9d8c401_06bc8604",
@@ -14,6 +37,23 @@
       "writtenOn": "2023-12-11T14:57:01Z",
       "side": 1,
       "message": "Can you take a look please? Thanks! 🙏",
+      "revId": "4d95aa0d41118f763ff3c25a8abd212873f83464",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e14d45e_2900c9b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-11T15:01:37Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
       "revId": "4d95aa0d41118f763ff3c25a8abd212873f83464",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
