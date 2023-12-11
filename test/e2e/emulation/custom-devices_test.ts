@@ -181,42 +181,44 @@ describe('Custom devices', async () => {
     assert.strictEqual(await targetTextContent('#res-ua-full-version'), '1.1.5');
   });
 
-  it('can add and properly display a device with a custom resolution', async () => {
-    await selectEdit();
-    await click(ADD_DEVICE_BUTTON_SELECTOR);
-    await waitFor(FOCUSED_DEVICE_NAME_FIELD_SELECTOR);
-    await typeText('Prime numbers');
+  // Flaky test
+  it.skipOnPlatforms(
+      ['mac'], '[crbug.com/1510402]: can add and properly display a device with a custom resolution', async () => {
+        await selectEdit();
+        await click(ADD_DEVICE_BUTTON_SELECTOR);
+        await waitFor(FOCUSED_DEVICE_NAME_FIELD_SELECTOR);
+        await typeText('Prime numbers');
 
-    await tabForward();  // Focus width.
-    await typeText('863');
-    await tabForward();  // Focus height.
-    await typeText('1223');
-    await tabForward();  // Focus DPR.
-    await typeText('1.0');
-    await tabForward();  // Focus UA string.
-    await typeText('Test device browser 1.0');
+        await tabForward();  // Focus width.
+        await typeText('863');
+        await tabForward();  // Focus height.
+        await typeText('1223');
+        await tabForward();  // Focus DPR.
+        await typeText('1.0');
+        await tabForward();  // Focus UA string.
+        await typeText('Test device browser 1.0');
 
-    const finishAdd = await waitFor(EDITOR_ADD_BUTTON_SELECTOR);
-    const finishAddText = await elementTextContent(finishAdd);
-    assert.strictEqual(finishAddText, 'Add');
-    await clickElement(finishAdd);
+        const finishAdd = await waitFor(EDITOR_ADD_BUTTON_SELECTOR);
+        const finishAddText = await elementTextContent(finishAdd);
+        assert.strictEqual(finishAddText, 'Add');
+        await clickElement(finishAdd);
 
-    // Select the device in the menu.
-    await selectDevice('Prime numbers');
+        // Select the device in the menu.
+        await selectDevice('Prime numbers');
 
-    const zoomButton = await waitForAria('Zoom');
-    assert.strictEqual(await elementTextContent(zoomButton), '51%');
+        const zoomButton = await waitForAria('Zoom');
+        assert.strictEqual(await elementTextContent(zoomButton), '51%');
 
-    // Check fit-to-window text.
-    await clickZoomDropDown();
+        // Check fit-to-window text.
+        await clickZoomDropDown();
 
-    const fitButton = await waitFor('[aria-label*="Fit to window"]');
-    assert.strictEqual(await elementTextContent(fitButton), 'Fit to window (51%)');
-    assert.strictEqual(await elementTextContent(zoomButton), '51%');
+        const fitButton = await waitFor('[aria-label*="Fit to window"]');
+        assert.strictEqual(await elementTextContent(fitButton), 'Fit to window (51%)');
+        assert.strictEqual(await elementTextContent(zoomButton), '51%');
 
-    const zoomTo100Button = await waitFor('[aria-label*="100%"]');
-    await clickElement(zoomTo100Button);
-    assert.strictEqual(await elementTextContent(fitButton), 'Fit to window (51%)');
-    assert.strictEqual(await elementTextContent(zoomButton), '100%');
-  });
+        const zoomTo100Button = await waitFor('[aria-label*="100%"]');
+        await clickElement(zoomTo100Button);
+        assert.strictEqual(await elementTextContent(fitButton), 'Fit to window (51%)');
+        assert.strictEqual(await elementTextContent(zoomButton), '100%');
+      });
 });
