@@ -72,6 +72,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68d046e0_28a417cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-11T11:28:25Z",
+      "side": 1,
+      "message": "We ended up fixing this a different way via a larger refactor in crrev.com/c/5106049, I have checked and that CL did not break the network panel. Will mark this CL as abandoned.",
+      "revId": "7b9decde0e94b9233976cb69efe5bccf08e05ea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61cf856e_369b1c6e",
