@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a37c91ab_110cce04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108044
+      },
+      "writtenOn": "2023-12-11T14:31:07Z",
+      "side": 1,
+      "message": "That didn\u0027t work either, the first time \"Folded\" gets selected then it times out again on trying to select \"Continuous\" because the menu doesn\u0027t show up.",
+      "parentUuid": "35d96fbd_5a80c62b",
+      "revId": "875c974cc475b1f5da4d5a5ad3017b15f9c190bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f32881f_51e00ec2",
         "filename": "front_end/panels/emulation/DeviceModeToolbar.ts",
         "patchSetId": 2
