@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "507c386a_99b1366e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-12T18:07:28Z",
+      "side": 1,
+      "message": "The mapping strategy in tests is quite smart! :)",
+      "revId": "03c4284a1a700f70b0abed41587b6e3a51bbe2eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
