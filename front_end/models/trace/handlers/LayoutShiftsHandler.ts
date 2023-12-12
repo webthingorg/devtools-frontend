@@ -9,7 +9,7 @@ import * as Types from '../types/types.js';
 
 import {data as metaHandlerData} from './MetaHandler.js';
 import {ScoreClassification} from './PageLoadMetricsHandler.js';
-import {data as screenshotsHandlerData} from './ScreenshotsHandler.js';
+import {data as screenshotsHandlerData, getPresentationTimestamp} from './ScreenshotsHandler.js';
 import {HandlerState, type TraceEventHandlerName} from './types.js';
 
 // We start with a score of zero and step through all Layout Shift records from
@@ -164,8 +164,9 @@ function findNextScreenshotSource(timestamp: Types.Timing.MicroSeconds): string|
 }
 
 export function findNextScreenshotEventIndex(
-    screenshots: Types.TraceEvents.TraceEventSnapshot[], timestamp: Types.Timing.MicroSeconds): number|null {
-  return Platform.ArrayUtilities.nearestIndexFromBeginning(screenshots, frame => frame.ts > timestamp);
+    screenshots: ReturnType<typeof screenshotsHandlerData>, timestamp: Types.Timing.MicroSeconds): number|null {
+  return Platform.ArrayUtilities.nearestIndexFromBeginning(
+      screenshots, screenshot => getPresentationTimestamp(screenshot) > timestamp);
 }
 
 function buildScoreRecords(): void {

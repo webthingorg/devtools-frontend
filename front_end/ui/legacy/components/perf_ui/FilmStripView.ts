@@ -66,7 +66,7 @@ export class FilmStripView extends Common.ObjectWrapper.eventMixin<EventTypes, t
   }
 
   createFrameElement(frame: TraceEngine.Extras.FilmStrip.Frame): HTMLDivElement {
-    const time = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(frame.screenshotEvent.ts);
+    const time = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(frame.screenshotTs);
     const frameTime = i18n.TimeUtilities.millisToString(time - this.zeroTime);
     const element = document.createElement('div');
     element.classList.add('frame');
@@ -277,7 +277,7 @@ export class Dialog {
     const frame = this.#data.frames[this.index];
     return {
       snapshot: frame.screenshotAsString,
-      timestamp: TraceEngine.Helpers.Timing.microSecondsToMilliseconds(frame.screenshotEvent.ts),
+      timestamp: TraceEngine.Helpers.Timing.microSecondsToMilliseconds(frame.screenshotTs),
     };
   }
 
