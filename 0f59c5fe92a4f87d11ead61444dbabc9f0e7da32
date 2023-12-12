@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bd04892_c70c7f2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-12T11:49:01Z",
+      "side": 1,
+      "message": "LGTM with one nit :)",
+      "revId": "0f59c5fe92a4f87d11ead61444dbabc9f0e7da32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "082b35cf_98214e5e",
@@ -31,6 +48,23 @@
       "writtenOn": "2023-12-12T09:48:39Z",
       "side": 1,
       "message": "Maybe it would be more intuitive to change it to this?\n\nTry adding `display:grid` or `display:flex`.",
+      "revId": "0f59c5fe92a4f87d11ead61444dbabc9f0e7da32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ac4f254_30a86934",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-12T11:49:01Z",
+      "side": 1,
+      "message": "It seems like as a convention we\u0027ve always used bold for `flex` and `grid` keywords, can we do the same here too?",
       "revId": "0f59c5fe92a4f87d11ead61444dbabc9f0e7da32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
