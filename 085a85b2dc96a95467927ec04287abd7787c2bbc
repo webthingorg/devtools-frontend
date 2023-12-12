@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c1b232_53208e39",
+        "filename": "test/unittests/front_end/entrypoints/heap_snapshot_worker/AllocationProfile_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1384634
+      },
+      "writtenOn": "2023-12-12T16:17:17Z",
+      "side": 1,
+      "message": "Is there a better way to import? importing `AllocationProfile` raises an error in the presubmit",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 96
+      },
+      "revId": "085a85b2dc96a95467927ec04287abd7787c2bbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
