@@ -88,8 +88,10 @@ export class RequestPreviewView extends RequestResponseView {
       return jsonView;
     }
 
+    const charset = contentData.encoded ? this.request.charset() :
+                                          null;  // Only pass a charset if the content is still base64 encoded.
     const dataURL = TextUtils.ContentProvider.contentAsDataURL(
-        contentData.content, this.request.mimeType, contentData.encoded, this.request.charset());
+        contentData.content, this.request.mimeType, contentData.encoded, charset);
     return dataURL ? new RequestHTMLView(dataURL) : null;
   }
 
