@@ -56,6 +56,30 @@
       },
       "revId": "a33711b2d286de4d50f74a3976421ada36d6b4b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0b8bea2_8a967245",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-12T07:58:36Z",
+      "side": 1,
+      "message": "That\u0027s what I had initially, but I explicitly changed it to this, to make it obvious when reading the code that the settings tab can indeed be gone meanwhile (e.g. racing with a keyboard shortcut to close the settings panel).",
+      "parentUuid": "0cca5d90_28390eda",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 7
+      },
+      "revId": "a33711b2d286de4d50f74a3976421ada36d6b4b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
