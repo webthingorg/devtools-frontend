@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9f55983_7cd94abb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T09:35:12Z",
+      "side": 1,
+      "message": "This change looks good but please could you add some tests ?",
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "011568a3_2e67621f",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T09:35:12Z",
+      "side": 1,
+      "message": "(drive-by comment) does this method need to be public? (same with `ifFilterUndoAction`)",
+      "range": {
+        "startLine": 77,
+        "startChar": 38,
+        "endLine": 77,
+        "endChar": 61
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a4837a_0723b489",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T09:35:12Z",
+      "side": 1,
+      "message": "remove this now? 😊",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 102
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d34aa864_94465c7a",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T09:35:12Z",
+      "side": 1,
+      "message": "I wonder if we should cache the result of `findAllAncestorsOfNode()` - once we have looked it up for a given node, it will never change.\n\nMaybe one for a follow-up CL. WDYT?",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 62
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c354702_cd04aa40",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T09:35:12Z",
+      "side": 1,
+      "message": "do we also need to remove the top level entry (the one passed into this function) from this array? So that once I take an entry and make its children visible again, that entry is no longer marked as modified?",
+      "range": {
+        "startLine": 234,
+        "startChar": 10,
+        "endLine": 234,
+        "endChar": 32
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
