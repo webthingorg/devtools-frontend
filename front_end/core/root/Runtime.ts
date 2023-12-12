@@ -301,6 +301,7 @@ export enum ExperimentName {
   AUTOFILL_VIEW = 'autofillView',
   INDENTATION_MARKERS_TEMP_DISABLE = 'sourcesFrameIndentationMarkersTemporarilyDisable',
   CONSOLE_INSIGHTS = 'consoleInsights',
+  TIMELINE_SHOW_POST_MESSAGE_EVENTS = 'timelineShowPostMessageEvents',
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
