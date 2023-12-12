@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5684d5e8_b69af0a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-12T11:56:32Z",
+      "side": 1,
+      "message": "So here\u0027s a version that defers declaration tracking to CSSMatchedStyles, PTAL!",
+      "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

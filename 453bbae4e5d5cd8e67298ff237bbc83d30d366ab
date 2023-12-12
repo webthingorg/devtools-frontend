@@ -16,6 +16,24 @@
       "message": "How do you feel about this? ts doesn\u0027t understand this yet, but I personally don\u0027t mind using shipped-but-experimental features.",
       "revId": "453bbae4e5d5cd8e67298ff237bbc83d30d366ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68757e54_16a898d9",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-12T11:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbf55cf3_3c55596a",
+      "revId": "453bbae4e5d5cd8e67298ff237bbc83d30d366ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
