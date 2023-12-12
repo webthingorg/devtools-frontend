@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37bc0151_cb100bf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T14:13:40Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "c7b4a638416bcd654653e8ca0d8b2678708f659e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad0f7d7e_d95bc48c",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T14:13:40Z",
+      "side": 1,
+      "message": "oh nice! I would not have thought to use the cache here but that makes total sense.",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 82
+      },
+      "revId": "c7b4a638416bcd654653e8ca0d8b2678708f659e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
