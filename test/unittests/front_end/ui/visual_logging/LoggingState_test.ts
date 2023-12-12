@@ -20,6 +20,7 @@ describe('LoggingState', () => {
   it('getOrCreateLoggingState creates state entry on demand', () => {
     VisualLogging.LoggingState.getOrCreateLoggingState(parent, {ve: 1});
     const state = VisualLogging.LoggingState.getOrCreateLoggingState(element, {ve: 1, context: '42'}, parent);
+
     assert.deepEqual(stabilizeState(state), {
       impressionLogged: false,
       config: {ve: 1, context: '42'},
@@ -29,7 +30,7 @@ describe('LoggingState', () => {
       parent: {
         impressionLogged: false,
         config: {ve: 1},
-        veid: -1,
+        veid: 1,
         processed: false,
         context: state.parent?.context as VisualLogging.LoggingState.ContextProvider,
         parent: null,
