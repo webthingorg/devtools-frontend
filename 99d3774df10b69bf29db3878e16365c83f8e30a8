@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee6665c_4db60b51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-12T13:02:21Z",
+      "side": 1,
+      "message": "Thanks for the review! added the test",
+      "parentUuid": "d9f55983_7cd94abb",
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "011568a3_2e67621f",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-12T09:35:12Z",
       "side": 1,
       "message": "(drive-by comment) does this method need to be public? (same with `ifFilterUndoAction`)",
+      "range": {
+        "startLine": 77,
+        "startChar": 38,
+        "endLine": 77,
+        "endChar": 61
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecfe245c_8f49e4a6",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-12T13:02:21Z",
+      "side": 1,
+      "message": "you\u0027re right, it doesn\u0027t. Changed to private",
+      "parentUuid": "011568a3_2e67621f",
       "range": {
         "startLine": 77,
         "startChar": 38,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca933cf7_eaa08230",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-12T13:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19a4837a_0723b489",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 102
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d34aa864_94465c7a",
@@ -87,6 +153,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a38e7c_cdf6b3d3",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-12T13:02:21Z",
+      "side": 1,
+      "message": "Great idea! I\u0027ll do it in the next CL",
+      "parentUuid": "d34aa864_94465c7a",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 62
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c354702_cd04aa40",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-12-12T09:35:12Z",
       "side": 1,
       "message": "do we also need to remove the top level entry (the one passed into this function) from this array? So that once I take an entry and make its children visible again, that entry is no longer marked as modified?",
+      "range": {
+        "startLine": 234,
+        "startChar": 10,
+        "endLine": 234,
+        "endChar": 32
+      },
+      "revId": "99d3774df10b69bf29db3878e16365c83f8e30a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "660b1bf7_48c027d8",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-12T13:02:21Z",
+      "side": 1,
+      "message": "It was done in applyAction method, but I like the idea of moving it here to not filter this array in different places. Added current entry to the filter condition",
+      "parentUuid": "6c354702_cd04aa40",
       "range": {
         "startLine": 234,
         "startChar": 10,
