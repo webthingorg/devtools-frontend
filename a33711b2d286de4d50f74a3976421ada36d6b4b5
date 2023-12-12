@@ -16,6 +16,46 @@
       "message": "Can you take a look please? Thanks 🙏",
       "revId": "a33711b2d286de4d50f74a3976421ada36d6b4b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c44b11a0_574782a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-12T07:23:43Z",
+      "side": 1,
+      "message": "lgtm with suggestion",
+      "revId": "a33711b2d286de4d50f74a3976421ada36d6b4b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cca5d90_28390eda",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-12T07:23:43Z",
+      "side": 1,
+      "message": "suggestion: `context.flavor(ExperimentsSettingsTab)?.highlightObject(object)`\n\nhere and similar below.",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 7
+      },
+      "revId": "a33711b2d286de4d50f74a3976421ada36d6b4b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
