@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "969ff7da_fa1acbe1",
+        "filename": "front_end/models/trace/extras/FilmStrip.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-12T09:25:04Z",
+      "side": 1,
+      "message": "I think this is the issue and I have fixed it locally.\n\nI also filed crbug.com/1510822 as I think tooling should have helped you here.",
+      "parentUuid": "e85a8341_68039cfe",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 75
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af85aec8_17bf1259",
         "filename": "front_end/models/trace/handlers/LayoutShiftsHandler.ts",
         "patchSetId": 4
