@@ -16,6 +16,24 @@
       "message": "Instead of omitting the charset, shouldn’t we pass `charset\u003dutf-8` (unconditionally) for all already-decoded content?\n\nCompare\n\n```\ndata:text/html,Iñtërnâtiônàlizætiøn☃𝌆\n```\n\nvs.\n\n```\ndata:text/html;charset\u003dutf-8,Iñtërnâtiônàlizætiøn☃𝌆\n```",
       "revId": "0586bc51335ba0e24a91310e2cde12f639a0cd85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdffa065_32fcbb85",
+        "filename": "front_end/panels/network/RequestPreviewView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-12T10:52:00Z",
+      "side": 1,
+      "message": "Done, and added a second test so we can remove the corresponding web test.",
+      "parentUuid": "8ee9be04_0df0ced9",
+      "revId": "0586bc51335ba0e24a91310e2cde12f639a0cd85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
