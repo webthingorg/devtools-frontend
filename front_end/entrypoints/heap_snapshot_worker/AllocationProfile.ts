@@ -57,13 +57,13 @@ export class AllocationProfile {
 
     this.#traceTops = null;
 
-    this.#buildFunctionAllocationInfos(profile);
-    this.#buildAllocationTree(profile, liveObjectStats);
+    this.buildFunctionAllocationInfos(profile);
+    this.buildAllocationTree(profile, liveObjectStats);
   }
 
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  #buildFunctionAllocationInfos(profile: any): void {
+  protected buildFunctionAllocationInfos(profile: any): void {
     const strings = this.#strings;
 
     const functionInfoFields = profile.snapshot.meta.trace_function_info_fields;
@@ -87,7 +87,7 @@ export class AllocationProfile {
 
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  #buildAllocationTree(profile: any, liveObjectStats: any): TopDownAllocationNode {
+  protected buildAllocationTree(profile: any, liveObjectStats: any): TopDownAllocationNode {
     const traceTreeRaw = profile.trace_tree;
     const functionInfos = this.#functionInfos;
     const idToTopDownNode = this.#idToTopDownNode;

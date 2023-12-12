@@ -30,6 +30,7 @@ devtools_entrypoint("bundle") {
 
   visibility = [
     ":*",
+    "../../../test/unittests/front_end/entrypoints/heap_snapshot_worker/*",
     "../../../test/unittests/front_end/entrypoints/missing_entrypoints/*",
   ]
 
