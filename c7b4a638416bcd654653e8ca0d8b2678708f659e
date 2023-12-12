@@ -39,6 +39,30 @@
       },
       "revId": "c7b4a638416bcd654653e8ca0d8b2678708f659e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c988c7_d04de45b",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-12T14:48:37Z",
+      "side": 1,
+      "message": "Thanks! if we need to optimize it more in the future, we can possibly rewrite this method to also cache children of nodes in this while loop search",
+      "parentUuid": "ad0f7d7e_d95bc48c",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 82
+      },
+      "revId": "c7b4a638416bcd654653e8ca0d8b2678708f659e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
