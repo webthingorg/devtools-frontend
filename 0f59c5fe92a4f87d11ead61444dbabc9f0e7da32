@@ -67,6 +67,42 @@
       "message": "It seems like as a convention we\u0027ve always used bold for `flex` and `grid` keywords, can we do the same here too?",
       "revId": "0f59c5fe92a4f87d11ead61444dbabc9f0e7da32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69ce6b46_f2df676a",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-12T11:55:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ac4f254_30a86934",
+      "revId": "0f59c5fe92a4f87d11ead61444dbabc9f0e7da32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51e166f7_8c425b37",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-12T11:55:56Z",
+      "side": 1,
+      "message": "@ergunsh@chromium.org I decided to use a combination of both suggestions. 😊",
+      "parentUuid": "082b35cf_98214e5e",
+      "revId": "0f59c5fe92a4f87d11ead61444dbabc9f0e7da32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
