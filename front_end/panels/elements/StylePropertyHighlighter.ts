@@ -21,6 +21,7 @@ export class StylePropertyHighlighter {
   highlightProperty(cssProperty: SDK.CSSProperty.CSSProperty): void {
     // Expand all shorthands.
     for (const section of this.styleSidebarPane.allSections()) {
+      section.showAllItems();
       for (let treeElement = section.propertiesTreeOutline.firstChild(); treeElement;
            treeElement = treeElement.nextSibling) {
         void treeElement.onpopulate();
