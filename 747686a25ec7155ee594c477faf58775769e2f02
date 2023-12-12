@@ -39,6 +39,30 @@
       },
       "revId": "747686a25ec7155ee594c477faf58775769e2f02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdc905b4_7cbfa3f4",
+        "filename": "front_end/models/trace/root-causes/LayoutShift.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-12T13:11:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "44e4f9a7_1ec96aa5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "747686a25ec7155ee594c477faf58775769e2f02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
