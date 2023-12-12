@@ -50,6 +50,23 @@
       "message": "Thanks Kent! I\u0027m just about to land https://crrev.com/c/5114920 which improves the hint to make it less obscure. Can you rebase your CL on top of that?",
       "revId": "cd82f84088c0fc55218de939bebfe28ad9a8a34b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf96be3_cb51ea7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-12T14:06:12Z",
+      "side": 1,
+      "message": "Can we add a test in CSSRuleValidator_test.ts for the new cases introduced?",
+      "revId": "cd82f84088c0fc55218de939bebfe28ad9a8a34b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
