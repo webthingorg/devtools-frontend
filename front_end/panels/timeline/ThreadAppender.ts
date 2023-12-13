@@ -480,7 +480,7 @@ export class ThreadAppender implements TrackAppender {
       // stack.
       const skipEventDueToIgnoreListing = entryIsIgnoreListed && parentIsIgnoredListed;
       if (entryIsVisible && !skipEventDueToIgnoreListing) {
-        this.#appendEntryAtLevel(entry, startingLevel);
+        this.#appendEntryAtLevel(entry, startingLevel, this.#entriesFilter?.isEntryModified(entry));
         nextLevel++;
       }
 
@@ -490,18 +490,21 @@ export class ThreadAppender implements TrackAppender {
     return maxDepthInTree;
   }
 
-  #appendEntryAtLevel(entry: TraceEngine.Types.TraceEvents.TraceEventData, level: number): void {
+  #appendEntryAtLevel(entry: TraceEngine.Types.TraceEvents.TraceEventData, level: number, childrenCollapsed?: boolean): void {
     this.#ensureTrackHeaderAppended(level);
     const index = this.#compatibilityBuilder.appendEventAtLevel(entry, level, this);
-    this.#addDecorationsToEntry(entry, index);
+    this.#addDecorationsToEntry(entry, index, childrenCollapsed);
   }
 
-  #addDecorationsToEntry(entry: TraceEngine.Types.TraceEvents.TraceEventData, index: number): void {
+  #addDecorationsToEntry(entry: TraceEngine.Types.TraceEvents.TraceEventData, index: number, childrenCollapsed?: boolean): void {
+    const flameChartData = this.#compatibilityBuilder.getFlameChartTimelineData();
+    if(childrenCollapsed) {
+      addDecorationToEvent(flameChartData, index, {type: 'WARNING_TRIANGLE'});  
+    }
     const warnings = this.#traceParsedData.Warnings.perEvent.get(entry);
     if (!warnings) {
       return;
     }
-    const flameChartData = this.#compatibilityBuilder.getFlameChartTimelineData();
     addDecorationToEvent(flameChartData, index, {type: 'WARNING_TRIANGLE'});
     if (!warnings.includes('LONG_TASK')) {
       return;
