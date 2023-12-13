@@ -68,6 +68,24 @@
       "parentUuid": "594c300c_56e363cf",
       "revId": "3d1c529a00f016675b52ad2962984c6f47c1afbf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff6e35f6_5e5bcea9",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-13T14:18:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "685c0569_2da9e71c",
+      "revId": "3d1c529a00f016675b52ad2962984c6f47c1afbf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

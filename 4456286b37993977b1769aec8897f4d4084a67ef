@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5facfed7_32f4064a",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-13T14:18:20Z",
+      "side": 1,
+      "message": "I wonder if we can have a better type safety here if we were to create an enum for this `type`; WDYT?",
+      "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb660028_0630afa0",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-13T14:18:20Z",
+      "side": 1,
+      "message": "Can we add a comment in here for which case this additional suffix check is needed?",
+      "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43b6e623_4e4e27a7",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-13T14:18:20Z",
+      "side": 1,
+      "message": "I think this place needs a comment too on for which case we need this function :)",
+      "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
