@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b361fc3_62a17fcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-13T14:05:22Z",
+      "side": 1,
+      "message": "(marking it unresolved)",
+      "parentUuid": "12211baa_a2c9245f",
+      "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba1501c7_339ac8c1",
         "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
         "patchSetId": 8
