@@ -20,6 +20,7 @@ export class AdvancedApp implements Common.App.App {
   private toolboxWindow?: Window|null;
   private toolboxRootView?: UI.RootView.RootView;
   private changingDockSide?: boolean;
+  private toolboxDocument?: Document;
 
   constructor() {
     UI.DockController.DockController.instance().addEventListener(
@@ -73,8 +74,44 @@ export class AdvancedApp implements Common.App.App {
       return;
     }
 
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
+        Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, this.refetchToolboxWindowColors, this);
+
     const url = window.location.href.replace('devtools_app.html', 'device_mode_emulation_frame.html');
     this.toolboxWindow = window.open(url, undefined);
+  }
+
+  async refetchToolboxWindowColors(): Promise<boolean> {
+    if (!this.toolboxDocument) {
+      return false;
+    }
+    const COLORS_CSS_SELECTOR = 'link[href*=\'//theme/colors.css\']';
+    const colorCssNode = this.toolboxDocument?.querySelector(COLORS_CSS_SELECTOR);
+    if (!colorCssNode) {
+      return false;
+    }
+    const href = colorCssNode.getAttribute('href');
+    if (!href) {
+      return false;
+    }
+    const hrefURL = new URL(href, location.href);
+    const params = new URLSearchParams(hrefURL.search);
+    params.set('version', (new Date()).getTime().toString());
+    const newHref = `${hrefURL.origin}${hrefURL.pathname}?${params.toString()}`;
+    const newColorsCssLink = this.toolboxDocument.createElement('link');
+    newColorsCssLink.setAttribute('href', newHref);
+    newColorsCssLink.rel = 'stylesheet';
+    newColorsCssLink.type = 'text/css';
+    const newColorsLoaded = new Promise((resolve => {
+      newColorsCssLink.onload = resolve;
+    }));
+    this.toolboxDocument.getElementsByTagName('body')[0].appendChild(newColorsCssLink);
+    await newColorsLoaded;
+    const oldColorCssNode = this.toolboxDocument.querySelector(COLORS_CSS_SELECTOR);
+    if (oldColorCssNode) {
+      oldColorCssNode.remove();
+    }
+    return true;
   }
 
   deviceModeEmulationFrameLoaded(toolboxDocument: Document): void {
@@ -88,6 +125,8 @@ export class AdvancedApp implements Common.App.App {
 
     this.toolboxRootView = new UI.RootView.RootView();
     this.toolboxRootView.attachToDocument(toolboxDocument);
+
+    this.toolboxDocument = toolboxDocument;
 
     this.updateDeviceModeView();
   }
