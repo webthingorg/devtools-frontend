@@ -9,14 +9,12 @@ import type * as TraceEngine from '../../models/trace/trace.js';
 export class PerformanceModel {
   private mainTargetInternal: SDK.Target.Target|null;
   private tracingModelInternal: TraceEngine.Legacy.TracingModel|null;
-  private filtersInternal: TimelineModel.TimelineModelFilter.TimelineModelFilter[];
   private readonly timelineModelInternal: TimelineModel.TimelineModel.TimelineModelImpl;
   private recordStartTimeInternal?: number;
 
   constructor() {
     this.mainTargetInternal = null;
     this.tracingModelInternal = null;
-    this.filtersInternal = [];
 
     this.timelineModelInternal = new TimelineModel.TimelineModel.TimelineModelImpl();
 
@@ -37,18 +35,6 @@ export class PerformanceModel {
 
   recordStartTime(): number|undefined {
     return this.recordStartTimeInternal;
-  }
-
-  setFilters(filters: TimelineModel.TimelineModelFilter.TimelineModelFilter[]): void {
-    this.filtersInternal = filters;
-  }
-
-  filters(): TimelineModel.TimelineModelFilter.TimelineModelFilter[] {
-    return this.filtersInternal;
-  }
-
-  isVisible(event: TraceEngine.Legacy.CompatibleTraceEvent): boolean {
-    return this.filtersInternal.every(f => f.accept(event));
   }
 
   async setTracingModel(model: TraceEngine.Legacy.TracingModel, isFreshRecording = false): Promise<void> {
