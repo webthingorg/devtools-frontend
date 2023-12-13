@@ -67,6 +67,42 @@
       "message": "Can we add a test in CSSRuleValidator_test.ts for the new cases introduced?",
       "revId": "cd82f84088c0fc55218de939bebfe28ad9a8a34b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd5deb3_ea63be7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116047
+      },
+      "writtenOn": "2023-12-13T02:21:43Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "bdf96be3_cb51ea7b",
+      "revId": "cd82f84088c0fc55218de939bebfe28ad9a8a34b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ce43ba1_4967d068",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1116047
+      },
+      "writtenOn": "2023-12-13T02:21:43Z",
+      "side": 1,
+      "message": "Thank you for the information!\nI have checked 5114920, and updated this one",
+      "parentUuid": "60237260_ec26077a",
+      "revId": "cd82f84088c0fc55218de939bebfe28ad9a8a34b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
