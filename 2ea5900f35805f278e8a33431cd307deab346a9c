@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54acdc8b_3bd6fb4c",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-13T16:03:40Z",
+      "side": 1,
+      "message": "let\u0027s just move this into a constant at the top of the file\n\n```\nconst HIDDEN_ANCESTOR_ARROW \u003d \u0027...\u0027\n```",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 269
+      },
+      "revId": "2ea5900f35805f278e8a33431cd307deab346a9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
