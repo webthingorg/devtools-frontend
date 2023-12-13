@@ -34,6 +34,24 @@
       "parentUuid": "9d7b017b_2d485f4b",
       "revId": "909435fc64b1dbd9d13d18bcf9379f39d92a931d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103aef20_50d0a605",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-13T07:08:39Z",
+      "side": 1,
+      "message": "Ah, sorry, I misread the code. I guess in that case, let\u0027s go with the current solution and see what developers think.",
+      "parentUuid": "61eeaad9_0bb35394",
+      "revId": "909435fc64b1dbd9d13d18bcf9379f39d92a931d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
