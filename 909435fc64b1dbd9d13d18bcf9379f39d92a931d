@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7b017b_2d485f4b",
+        "filename": "front_end/panels/elements/CSSRuleValidator.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-13T06:04:25Z",
+      "side": 1,
+      "message": "With this change we lose the improved hint added in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5114920 for `align-content: xxx` (see https://i.imgur.com/ywW0TZO.png for how this currently behaves). Please keep the more actionable hint here.",
+      "revId": "909435fc64b1dbd9d13d18bcf9379f39d92a931d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
