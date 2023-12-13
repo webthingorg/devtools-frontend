@@ -238,6 +238,8 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   // Track all navigation events. Note that there can be navigation start events
   // but where the documentLoaderURL is empty. As far as the trace rendering is
   // concerned, these events are noise so we filter them out here.
+  // (The filtering of empty URLs is done in the
+  // isTraceEventNavigationStartWithURL check)
   if (Types.TraceEvents.isTraceEventNavigationStartWithURL(event) && event.args.data) {
     const navigationId = event.args.data.navigationId;
     if (navigationsByNavigationId.has(navigationId)) {
@@ -316,6 +318,18 @@ export async function finalize(): Promise<void> {
       }
       navigationsByNavigationId.delete(navigation.args.data.navigationId);
     }
+  }
+
+  // Sometimes in traces the TracingStartedInBrowser event can give us an
+  // incorrect initial URL for the main frame's URL - about:blank or the URL of
+  // the previous page. This doesn't matter too much except we often use this
+  // URL as the visual name of the trace shown to the user (e.g. in the history
+  // dropdown). We can be more accurate by finding the first main frame
+  // navigaton, and using its URL, if we have it.
+  const firstMainFrameNav = mainFrameNavigations.at(0);
+  if (firstMainFrameNav && firstMainFrameNav.args.data?.isOutermostMainFrame &&
+      firstMainFrameNav.args.data?.documentLoaderURL) {
+    mainFrameURL = firstMainFrameNav.args.data.documentLoaderURL;
   }
 
   handlerState = HandlerState.FINALIZED;

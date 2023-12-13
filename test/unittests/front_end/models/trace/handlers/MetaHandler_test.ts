@@ -535,4 +535,27 @@ describe('MetaHandler', function() {
       }
     });
   });
+
+  it('sets the main frame URL from the TracingStartedInBrowser event', async function() {
+    // This trace has the right URL in TracingStartedInBrowser
+    const events = await TraceLoader.rawEvents(this, 'web-dev-with-commit.json.gz');
+    for (const event of events) {
+      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+    }
+    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    assert.strictEqual(data.mainFrameURL, 'https://web.dev/');
+  });
+
+  it('will alter the main frame URL based on the first main frame navigation', async function() {
+    // This trace has the wrong URL in TracingStartedInBrowser - but it will be
+    // corrected by looking at the first main frame navigation.
+    const events = await TraceLoader.rawEvents(this, 'web-dev-initial-url.json.gz');
+    for (const event of events) {
+      TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
+    }
+    await TraceModel.Handlers.ModelHandlers.Meta.finalize();
+    const data = TraceModel.Handlers.ModelHandlers.Meta.data();
+    assert.strictEqual(data.mainFrameURL, 'https://web.dev/articles/inp');
+  });
 });
