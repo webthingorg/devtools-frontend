@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "d69b613b4393ff56f7cc15475ac5cb19d221c74e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1342147c_c80565d3",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-13T13:16:22Z",
+      "side": 1,
+      "message": "could this be prone to false positives by using the second URL in cases where we want the first? or maybe it\u0027s the risk worth the return?",
+      "range": {
+        "startLine": 329,
+        "startChar": 28,
+        "endLine": 329,
+        "endChar": 48
+      },
+      "revId": "d69b613b4393ff56f7cc15475ac5cb19d221c74e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
