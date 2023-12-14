@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7a11ee3_c8220d4d",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-14T11:48:56Z",
+      "side": 1,
+      "message": "I tried that, but without showing all items the tree isn\u0027t fully wired up, so that the find call below comes back empty :(",
+      "parentUuid": "ba1501c7_339ac8c1",
+      "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4966b81b_c2a8ec5b",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 8
@@ -83,6 +101,24 @@
       "writtenOn": "2023-12-13T14:05:02Z",
       "side": 1,
       "message": "For which case the part after `||` is useful here?\n\nI was thinking it is for registered properties and if we\u0027re jumping to a registered CSS property, the previous if block might handle that; WDYT?",
+      "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90f90cc4_5e7fd5f6",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-14T11:48:56Z",
+      "side": 1,
+      "message": "The last case here is there in order to keep the name-only case working. We probably don\u0027t need the entire branch, but I didn\u0027t dare to remove it :)",
+      "parentUuid": "4966b81b_c2a8ec5b",
       "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
