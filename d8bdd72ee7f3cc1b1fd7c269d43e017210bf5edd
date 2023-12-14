@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4e8197b_79a640e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-14T10:15:44Z",
+      "side": 1,
+      "message": "PTAL.\n\nThis will be used in the Autofill panel for highlighting other UI elements outside of the data grid, when hovering over data grid rows.",
+      "revId": "d8bdd72ee7f3cc1b1fd7c269d43e017210bf5edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
