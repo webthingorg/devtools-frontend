@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e04af5_c86f0a8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-14T13:27:46Z",
+      "side": 1,
+      "message": "In discussing with @kprokopenko@chromium.org I just realized that we don\u0027t consistently use `pane` for tabs in the Settings panel.",
+      "revId": "a39024dc4f631acd8af60aedfc7d7d9008f07ae5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
