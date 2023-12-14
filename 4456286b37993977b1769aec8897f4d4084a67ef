@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d30fda49_e2934f12",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-14T11:26:56Z",
+      "side": 1,
+      "message": "This is mostly informational, so I\u0027d prefer keeping it as a string as to not dictating client\u0027s implementation.",
+      "parentUuid": "5facfed7_32f4064a",
+      "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb660028_0630afa0",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 14
@@ -31,6 +49,24 @@
       "writtenOn": "2023-12-13T14:18:20Z",
       "side": 1,
       "message": "Can we add a comment in here for which case this additional suffix check is needed?",
+      "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14bbd63a_1ad12dcc",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-14T11:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb660028_0630afa0",
       "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2023-12-13T14:18:20Z",
       "side": 1,
       "message": "I think this place needs a comment too on for which case we need this function :)",
+      "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a648026_f37558b3",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-14T11:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b6e623_4e4e27a7",
       "revId": "4456286b37993977b1769aec8897f4d4084a67ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
