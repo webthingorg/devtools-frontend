@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "179d23ea_fa5edf23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-14T08:53:05Z",
+      "side": 1,
+      "message": "Hey Danil and Wolfgang,\n\nI was playing around with this idea that we should pass around raw bytes together with a descriptor (resourceType, mime type, charset) of what does bytes actually are.\n\nThis class was the result, let me know what you think.\n\nI also added some conversion methods so we don\u0027t have to migrate everything in one CL. See the follow-up for an example of how we could start pushing the new type up the various call stacks.",
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
