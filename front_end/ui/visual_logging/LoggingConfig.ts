@@ -36,8 +36,8 @@ enum VisualElements {
   StylesSelector = 13,
   TreeItemExpand = 14,
   ToggleSubpane = 15,
-  ElementClassesPane = 16,
-  AddElementClassPrompt = 17,
+  /* 16 used to be ElementClassesPane, but free to grab now */
+  /* 17 used to be AddElementClassPrompt, but free to grab now */
   ElementStatesPan = 18,
   CssLayersPane = 19,
   DropDown = 20,
