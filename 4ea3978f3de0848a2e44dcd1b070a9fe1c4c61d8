@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddef74f1_07414245",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-14T09:29:31Z",
+      "side": 1,
+      "message": "Do we have a generic version of this? If not, we should. I think I wrote this myself like three times already?",
+      "revId": "4ea3978f3de0848a2e44dcd1b070a9fe1c4c61d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
