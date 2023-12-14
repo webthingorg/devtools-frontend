@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ebb2a03_bbfd1d51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-14T19:03:28Z",
+      "side": 1,
+      "message": "sg done.",
+      "parentUuid": "44cbca2a_9eafaa67",
+      "revId": "e779eaf38058de646ad0ea0bb7eb44ae82b094cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0009409_83797f03",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-08T09:19:50Z",
       "side": 1,
       "message": "nit: leave a comment here explaining why?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 29
+      },
+      "revId": "e779eaf38058de646ad0ea0bb7eb44ae82b094cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4afbbfc_93f4c3f0",
+        "filename": "test/shared/screenshots.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-14T19:03:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0009409_83797f03",
       "range": {
         "startLine": 80,
         "startChar": 0,
