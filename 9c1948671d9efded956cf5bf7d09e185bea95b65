@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2c6680_d56dea58",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-14T09:49:26Z",
+      "side": 0,
+      "message": "Is this an intended behavior change for empty strings?",
+      "range": {
+        "startLine": 210,
+        "startChar": 3,
+        "endLine": 210,
+        "endChar": 25
+      },
+      "revId": "9c1948671d9efded956cf5bf7d09e185bea95b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

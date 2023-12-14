@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a768cda3_94c4257f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-14T09:49:26Z",
+      "side": 1,
+      "message": "lgtm % questions",
+      "revId": "ded83e5bb395402293b2d0459e57720a9d8309a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "849ad652_a3d75869",
+        "filename": "front_end/panels/sources/SearchSourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-14T09:49:26Z",
+      "side": 1,
+      "message": "I guess our views don\u0027t cross iframes where the local window is different from the view window?",
+      "range": {
+        "startLine": 32,
+        "startChar": 26,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "ded83e5bb395402293b2d0459e57720a9d8309a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
