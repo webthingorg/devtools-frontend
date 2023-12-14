@@ -22,6 +22,30 @@
       },
       "revId": "9c1948671d9efded956cf5bf7d09e185bea95b65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47f4866a_d30f9a3b",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-14T09:54:54Z",
+      "side": 0,
+      "message": "Yes. It\u0027s very confusing otherwise, since it re-opens with the last query. I added a test for this.",
+      "parentUuid": "bb2c6680_d56dea58",
+      "range": {
+        "startLine": 210,
+        "startChar": 3,
+        "endLine": 210,
+        "endChar": 25
+      },
+      "revId": "9c1948671d9efded956cf5bf7d09e185bea95b65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

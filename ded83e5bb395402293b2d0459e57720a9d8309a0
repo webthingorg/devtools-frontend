@@ -39,6 +39,30 @@
       },
       "revId": "ded83e5bb395402293b2d0459e57720a9d8309a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad124fa_ae274ba2",
+        "filename": "front_end/panels/sources/SearchSourcesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-14T09:54:54Z",
+      "side": 1,
+      "message": "Good point. I\u0027m not sure about that. Changed it back to `UI.InspectorView.InspectorView.instance().element.window().getSelection()` as before.",
+      "parentUuid": "849ad652_a3d75869",
+      "range": {
+        "startLine": 32,
+        "startChar": 26,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "ded83e5bb395402293b2d0459e57720a9d8309a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
