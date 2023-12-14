@@ -16,6 +16,121 @@
       "message": "Hey Danil and Wolfgang,\n\nI was playing around with this idea that we should pass around raw bytes together with a descriptor (resourceType, mime type, charset) of what does bytes actually are.\n\nThis class was the result, let me know what you think.\n\nI also added some conversion methods so we don\u0027t have to migrate everything in one CL. See the follow-up for an example of how we could start pushing the new type up the various call stacks.",
       "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1b76ed_0402cdf3",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-14T11:55:21Z",
+      "side": 1,
+      "message": "typo, \u0027e\u0027 is missing in \u0027Base\u0027",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe6609b_b1b0417c",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-14T11:55:21Z",
+      "side": 1,
+      "message": "No exclamation mark please",
+      "range": {
+        "startLine": 55,
+        "startChar": 62,
+        "endLine": 55,
+        "endChar": 71
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e5806a_f17d0cd7",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-14T11:55:21Z",
+      "side": 1,
+      "message": "Please make it say *what* is wrong, e.g. \"Cannot interpret binary data as text\"",
+      "range": {
+        "startLine": 72,
+        "startChar": 23,
+        "endLine": 72,
+        "endChar": 33
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f886f2_0bd59427",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-14T11:55:21Z",
+      "side": 1,
+      "message": "`?? \u0027utf-8\u0027` for consistency with the code below",
+      "range": {
+        "startLine": 75,
+        "startChar": 34,
+        "endLine": 75,
+        "endChar": 35
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed9016e2_600c8122",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-14T11:55:21Z",
+      "side": 1,
+      "message": "`binaryString` as per https://google.github.io/styleguide/cppguide.html#General_Naming_Rules",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
