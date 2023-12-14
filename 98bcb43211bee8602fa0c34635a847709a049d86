@@ -33,6 +33,24 @@
       "message": "I just had a brief discussion with @dsv@chromium.org about this, and I think we\u0027re beyond the point where \"it\u0027s just a little harmless addition\". I think we now have a proof-of-concept that it\u0027s doable, and should go back to the drawing board and think through the UX but also how we can make this less hacky.\n\nHow about starting with a proposal document? Run this by Product and UX?",
       "revId": "98bcb43211bee8602fa0c34635a847709a049d86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a94e6c4_96963245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2023-12-14T15:41:28Z",
+      "side": 1,
+      "message": "I\u0027ve just started a proposal doc at https://docs.google.com/document/d/1UiuD0b7gwoQI6nI7hwmLS7wRvZLNQ2GV09y8Eq4UaUE/edit?resourcekey\u003d0-2CP9-9Azo6ajLeTZD0kQzg\u0026tab\u003dt.0#heading\u003dh.v58gxfxp1u16",
+      "parentUuid": "91dea098_343e5ede",
+      "revId": "98bcb43211bee8602fa0c34635a847709a049d86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
