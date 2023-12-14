@@ -130,27 +130,25 @@ describe('The Performance panel', async function() {
   });
 
   // Flaky test
-  it.skipOnPlatforms(
-      ['mac'], '[crbug.com/1510890]: is able to inspect the call stack for a wasm function from the bottom up',
-      async () => {
-        const {frontend} = getBrowserAndPages();
-        const expectedActivities = ['mainWasm', 'js-to-wasm::i', '(anonymous)', 'Run Microtasks'];
+  it('is able to inspect the call stack for a wasm function from the bottom up', async () => {
+    const {frontend} = getBrowserAndPages();
+    const expectedActivities = ['mainWasm', 'js-to-wasm::i', '(anonymous)', 'Run Microtasks'];
 
-        await step('navigate to the Bottom Up tab', async () => {
-          await navigateToBottomUpTab();
+    await step('navigate to the Bottom Up tab', async () => {
+      await navigateToBottomUpTab();
+    });
+
+    await step(
+        'expand the tree for the "mainWasm" activity and check that it displays the correct values', async () => {
+          const timelineTree = await $('.timeline-tree-view') as puppeteer.ElementHandle<HTMLSelectElement>;
+          const rootActivity = await waitForElementWithTextContent(expectedActivities[0], timelineTree);
+          if (!rootActivity) {
+            assert.fail(`Could not find ${expectedActivities[0]} in frontend.`);
+          }
+          await rootActivity.click();
+          await expandAndCheckActivityTree(frontend, expectedActivities);
         });
-
-        await step(
-            'expand the tree for the "mainWasm" activity and check that it displays the correct values', async () => {
-              const timelineTree = await $('.timeline-tree-view') as puppeteer.ElementHandle<HTMLSelectElement>;
-              const rootActivity = await waitForElementWithTextContent(expectedActivities[0], timelineTree);
-              if (!rootActivity) {
-                assert.fail(`Could not find ${expectedActivities[0]} in frontend.`);
-              }
-              await rootActivity.click();
-              await expandAndCheckActivityTree(frontend, expectedActivities);
-            });
-      });
+  });
 
   it('is able to inspect the call stack for a wasm function from the call tree', async () => {
     const {frontend} = getBrowserAndPages();
