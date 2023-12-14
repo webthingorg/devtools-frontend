@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
@@ -127,22 +128,61 @@ describe('CSSMatchedStyles', () => {
         fontPaletteValuesRule: undefined,
       });
 
-      const val = matchedStyles.computeCSSVariable(matchedStyles.nodeStyles()[0], text);
+      const val = matchedStyles.computeCSSVariable(matchedStyles.nodeStyles()[0], text)?.value;
       assert.strictEqual(val, value);
     };
 
     it('should correctly compute the value of an expression that uses a variable', async () => {
       await testCssValueEquals('--foo', 'active-foo');
       await testCssValueEquals('--baz', 'active-baz !important');
-      await testCssValueEquals('--does-not-exist', null);
+      await testCssValueEquals('--does-not-exist', undefined);
       await testCssValueEquals('--dark', 'darkgrey');
       await testCssValueEquals('--light', 'lightgrey');
       await testCssValueEquals('--theme', 'darkgrey');
       await testCssValueEquals('--shadow', '1px darkgrey');
       await testCssValueEquals('--width', '1px');
-      await testCssValueEquals('--cycle-a', null);
-      await testCssValueEquals('--cycle-b', null);
-      await testCssValueEquals('--cycle-c', null);
+      await testCssValueEquals('--cycle-a', undefined);
+      await testCssValueEquals('--cycle-b', undefined);
+      await testCssValueEquals('--cycle-c', undefined);
+    });
+
+    it('correctly resolves the declaration', async () => {
+      const node = sinon.createStubInstance(SDK.DOMModel.DOMNode);
+      node.id = 1 as Protocol.DOM.NodeId;
+
+      const matchedStyles = await SDK.CSSMatchedStyles.CSSMatchedStyles.create({
+        cssModel: sinon.createStubInstance(SDK.CSSModel.CSSModel),
+        node,
+        inlinePayload: null,
+        attributesPayload: null,
+        matchedPayload: [{
+          rule: {
+            selectorList: {selectors: [{text: 'div'}], text: 'div'},
+            origin: Protocol.CSS.StyleSheetOrigin.Regular,
+            style: {
+              cssProperties: [
+                {name: '--foo', value: 'foo'},
+              ],
+              shorthandEntries: [],
+            },
+          },
+          matchingSelectors: [0],
+        }],
+        pseudoPayload: [],
+        inheritedPayload: [],
+        inheritedPseudoPayload: [],
+        animationsPayload: [],
+        parentLayoutNodeId: undefined,
+        positionFallbackRules: [],
+        propertyRules: [],
+        cssPropertyRegistrations: [],
+        fontPaletteValuesRule: undefined,
+      });
+      const result = matchedStyles.computeCSSVariable(matchedStyles.nodeStyles()[0], '--foo');
+      Platform.assertNotNullOrUndefined(result);
+      assert.strictEqual(result.value, 'foo');
+      Platform.assertNotNullOrUndefined(result.declaration);
+      assert.strictEqual(result.declaration, matchedStyles.nodeStyles()[0].allProperties()[0]);
     });
   });
 
