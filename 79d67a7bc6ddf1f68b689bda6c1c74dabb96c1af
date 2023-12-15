@@ -16,6 +16,24 @@
       "message": "Is the existing step function insufficient for this use case? Is it unable to annotate the timeouts?",
       "revId": "79d67a7bc6ddf1f68b689bda6c1c74dabb96c1af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac62e226_a44d2235",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2023-12-15T14:09:44Z",
+      "side": 1,
+      "message": "The existing step function is in shared/helper, which this can\u0027t depend on, and more importantly the code that hooks timeouts to report things like steps and pending async scopes can\u0027t easily be moved to hook timeouts in this beforeEach. This approach gets us around needing to hook timeouts, which I have not figured out a way to do.",
+      "parentUuid": "0128e0a6_9e99e91e",
+      "revId": "79d67a7bc6ddf1f68b689bda6c1c74dabb96c1af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
