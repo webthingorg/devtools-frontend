@@ -152,8 +152,6 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
   private backgroundCanvas: HTMLCanvasElement;
   #traceParsedData: TraceEngine.Handlers.Types.TraceParseData;
   #drawn = false;
-  #start?: TraceEngine.Types.Timing.MilliSeconds;
-  #end?: TraceEngine.Types.Timing.MilliSeconds;
 
   constructor(traceParsedData: TraceEngine.Handlers.Types.TraceParseData) {
     // During the sync tracks migration this component can use either legacy
@@ -323,7 +321,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
   }
 
   override update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
-    if (this.#start === start && this.#end === end && this.#drawn) {
+    if (this.#drawn) {
       return;
     }
     // Order matters here, resetCanvas will set this.#drawn to false.
