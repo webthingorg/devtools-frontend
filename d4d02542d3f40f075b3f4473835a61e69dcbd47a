@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f2b2fee_d46d2578",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2023-12-15T14:31:14Z",
+      "side": 1,
+      "message": "Hey Paul, hopefully this change will also fix the high CPU usage in watch script. Can you take a look? :)",
+      "revId": "d4d02542d3f40f075b3f4473835a61e69dcbd47a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
