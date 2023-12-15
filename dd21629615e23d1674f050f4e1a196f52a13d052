@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ca00e2_df3d7c09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-15T11:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b361fc3_62a17fcb",
+      "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba1501c7_339ac8c1",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Oh understood, alright then :)\n\nI wonder if it has risky implications from UX perspective; WDYT? (like I\u0027m jumping to a property and all the other rule sections are suddenly fully shown)",
       "parentUuid": "f7a11ee3_c8220d4d",
+      "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cad14be1_52bbbeb0",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-15T11:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eb48842_3387ae7c",
       "revId": "dd21629615e23d1674f050f4e1a196f52a13d052",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
