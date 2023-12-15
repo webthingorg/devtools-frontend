@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d58f9d36_7825821a",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-15T14:11:22Z",
+      "side": 0,
+      "message": "This update is also triggered when a Breadcrumb is created. We need to redraw the minimap to zoom into the new selection.\nStart and End here are the new bounds of breadcrumb and we need to redraw when they change 😊",
+      "revId": "7a6e8018eab1ef8c3b0c75b5fc7ea24e1a63ecf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
