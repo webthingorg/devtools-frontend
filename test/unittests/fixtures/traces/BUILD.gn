@@ -6,9 +6,11 @@ import("../../../../scripts/build/ninja/copy.gni")
 
 copy_to_gen("traces") {
   sources = [
+    "000.cpuprofile.gz",
     "about-blank-first.json.gz",
     "animation.json.gz",
     "basic-stack.json.gz",
+    "basic.cpuprofile.gz",
     "basic.json.gz",
     "changing-priority.json.gz",
     "cls-cluster-max-duration.json.gz",
