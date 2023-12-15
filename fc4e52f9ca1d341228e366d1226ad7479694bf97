@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d698244a_30ecaffe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-15T12:33:20Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "fc4e52f9ca1d341228e366d1226ad7479694bf97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f49337e5_fdecae27",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-12-15T12:30:39Z",
       "side": 1,
       "message": "did this before realizing it would be hard to test this fix with unit tests, but decided to leave it because it\u0027s convenient when neeeding to load the engine from a cpu profile.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 5
+      },
+      "revId": "fc4e52f9ca1d341228e366d1226ad7479694bf97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42868f32_b669afa7",
+        "filename": "test/unittests/front_end/helpers/TraceLoader.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-15T12:33:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f49337e5_fdecae27",
       "range": {
         "startLine": 170,
         "startChar": 0,
