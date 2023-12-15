@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ecc36bd_7153c044",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-15T06:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db1b76ed_0402cdf3",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbe6609b_b1b0417c",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-12-14T11:55:21Z",
       "side": 1,
       "message": "No exclamation mark please",
+      "range": {
+        "startLine": 55,
+        "startChar": 62,
+        "endLine": 55,
+        "endChar": 71
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c6ff9a9_921e89f4",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-15T06:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbe6609b_b1b0417c",
       "range": {
         "startLine": 55,
         "startChar": 62,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25690fbc_2f5b4887",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-15T06:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e5806a_f17d0cd7",
+      "range": {
+        "startLine": 72,
+        "startChar": 23,
+        "endLine": 72,
+        "endChar": 33
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7f886f2_0bd59427",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-12-14T11:55:21Z",
       "side": 1,
       "message": "`?? \u0027utf-8\u0027` for consistency with the code below",
+      "range": {
+        "startLine": 75,
+        "startChar": 34,
+        "endLine": 75,
+        "endChar": 35
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c385964a_bcf0fe98",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-15T06:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7f886f2_0bd59427",
       "range": {
         "startLine": 75,
         "startChar": 34,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "433eaf57_6772ee91",
+        "filename": "front_end/core/sdk/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-15T06:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed9016e2_600c8122",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daa0868d_89890f73",
@@ -163,6 +283,30 @@
       "writtenOn": "2023-12-14T12:28:15Z",
       "side": 1,
       "message": "nit: typo? DeferredContent.error?",
+      "range": {
+        "startLine": 90,
+        "startChar": 55,
+        "endLine": 90,
+        "endChar": 56
+      },
+      "revId": "4e0758c3e019a0ab1d02580d848b2375efe05a55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7725f1d_2afe3584",
+        "filename": "test/unittests/front_end/core/sdk/ContentData_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-15T06:29:56Z",
+      "side": 1,
+      "message": "It\u0027s normally the syntax of DeferredContent.prototype.error, but probably not widely known. Changed.",
+      "parentUuid": "daa0868d_89890f73",
       "range": {
         "startLine": 90,
         "startChar": 55,
