@@ -16,6 +16,24 @@
       "message": "This update is also triggered when a Breadcrumb is created. We need to redraw the minimap to zoom into the new selection.\nStart and End here are the new bounds of breadcrumb and we need to redraw when they change 😊",
       "revId": "7a6e8018eab1ef8c3b0c75b5fc7ea24e1a63ecf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3828fcf_00d826ce",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-15T14:16:00Z",
+      "side": 0,
+      "message": "You\u0027re right that they\u0027re never set. Maybe we can set and reassign them in this method if they\u0027ve changed.\nSomething like\n\n```\n    if (this.#start \u003d\u003d\u003d start \u0026\u0026 this.#end \u003d\u003d\u003d end \u0026\u0026 this.#drawn) {\n      return;\n    }\n    this.#start \u003d start;\n    this.#end \u003d end;\n```",
+      "parentUuid": "d58f9d36_7825821a",
+      "revId": "7a6e8018eab1ef8c3b0c75b5fc7ea24e1a63ecf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
