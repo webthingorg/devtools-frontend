@@ -6,6 +6,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 const UIStrings = {
   /**
@@ -184,6 +185,8 @@ export class ServiceWorkerUpdateCycleView {
       timingBarVersionElement.addEventListener('focus', (event: Event) => {
         this.onFocus(event);
       });
+      timingBarVersionElement.setAttribute(
+          'jslog', `${VisualLogging.action().track({click: true}).context('expand-timing-info')}`);
       UI.ARIAUtils.setChecked(timingBarVersionElement, false);
       const timingBarTitleElement = tr.createChild('td');
       UI.UIUtils.createTextChild(timingBarTitleElement, phaseName);
