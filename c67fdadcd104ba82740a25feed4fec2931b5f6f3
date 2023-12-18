@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff56733c_68e63894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T08:19:14Z",
+      "side": 1,
+      "message": "Is `primary` in the dark mode lighter than `primary-bright`? Otherwise LGTM",
+      "revId": "c67fdadcd104ba82740a25feed4fec2931b5f6f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
