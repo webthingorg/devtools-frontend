@@ -1121,6 +1121,54 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return -1;
   }
 
+  isEntryArrowClicked(x: number, y: number , index: number): boolean {
+    const timelineData = this.timelineData();
+    if (!timelineData) {
+      return false;
+    }
+
+    const entryStartTimes = timelineData.entryStartTimes;
+
+    function checkEntryArrowHit(this: FlameChart, entryIndex: number): boolean {
+      if (!timelineData) {
+        return false;
+      }
+
+      const startTime = entryStartTimes[entryIndex];
+      const duration = timelineData.entryTotalTimes[entryIndex];
+      const endX = this.chartViewport.timeToPosition(startTime + duration);
+      const barThresholdPx = 3;
+
+      const data = this.timelineData();
+      if (data) {
+        const group = data.groups.at(this.selectedGroupIndex);
+
+
+        if (group) {
+          const dispatchTreeModifiedEvent = (treeAction: TraceEngine.EntriesFilter.FilterAction): void => {
+            this.dispatchEventToListeners(Events.TreeModified, {
+              group: group,
+              node: this.selectedEntryIndex,
+              action: treeAction,
+            });
+          };
+
+          if (endX - 17 - barThresholdPx < x && x < endX + barThresholdPx) {
+            dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN);
+            console.log('clicky edge');
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+    
+    if (checkEntryArrowHit.call(this, index)) {
+      return true;
+    }
+    return false;
+  }
+
   /**
    * Given an entry's index, returns its coordinates relative to the
    * viewport.
@@ -2488,6 +2536,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   setSelectedEntry(entryIndex: number): void {
+    console.log('is arrow click ', this.isEntryArrowClicked(this.lastMouseOffsetX, this.lastMouseOffsetY, entryIndex));
+
     if (this.selectedEntryIndex === entryIndex) {
       return;
     }
