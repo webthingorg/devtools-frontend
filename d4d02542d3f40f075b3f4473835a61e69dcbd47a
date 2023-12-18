@@ -16,6 +16,40 @@
       "message": "Hey Paul, hopefully this change will also fix the high CPU usage in watch script. Can you take a look? :)",
       "revId": "d4d02542d3f40f075b3f4473835a61e69dcbd47a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86755dcc_9daca015",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-18T17:20:36Z",
+      "side": 1,
+      "message": "works for me",
+      "revId": "d4d02542d3f40f075b3f4473835a61e69dcbd47a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ce6fbb9_664ee838",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2023-12-18T17:20:36Z",
+      "side": 1,
+      "message": "the docs indicate this is already the default (on Macos only). \nbut.. I didn\u0027t debug this deeply to figure out what\u0027s going on. \nRegardless, I\u0027m okay with this.",
+      "revId": "d4d02542d3f40f075b3f4473835a61e69dcbd47a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
