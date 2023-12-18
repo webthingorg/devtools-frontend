@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fea27097_0c2119cc",
+        "filename": "front_end/panels/application/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T11:43:50Z",
+      "side": 1,
+      "message": "Please take a look if that looks correct now",
+      "parentUuid": "d281c8f2_e640de42",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 43
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9b879da_175cc1e9",
         "filename": "front_end/panels/application/ServiceWorkersView.ts",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-18T11:13:41Z",
       "side": 1,
       "message": "Yes",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 29
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fbc357a_120373ea",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T11:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9b879da_175cc1e9",
       "range": {
         "startLine": 235,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b35ad037_4448d90b",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T11:43:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5a2b0e0d_7a366a58",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 77
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b71bb78f_8fdb9968",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-12-18T11:13:41Z",
       "side": 1,
       "message": "Action is probably fine, let\u0027s call it `show-network-requests` though",
+      "range": {
+        "startLine": 529,
+        "startChar": 0,
+        "endLine": 529,
+        "endChar": 136
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae8e5ce_9d456dce",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T11:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b71bb78f_8fdb9968",
       "range": {
         "startLine": 529,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6243f04_1d64cf88",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T11:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10b75e59_b0f23207",
+      "range": {
+        "startLine": 568,
+        "startChar": 6,
+        "endLine": 568,
+        "endChar": 13
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a823d6d_6ed60af2",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-12-18T11:13:41Z",
       "side": 1,
       "message": "this should be `jslogContext`. Otherwise we won\u0027t be able to identify which button is clicked. We do log parents, but not siblings, and even if we did, it would have been brittle to rely upon.",
+      "range": {
+        "startLine": 576,
+        "startChar": 89,
+        "endLine": 576,
+        "endChar": 95
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c86b21fb_8efe8374",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T11:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a823d6d_6ed60af2",
       "range": {
         "startLine": 576,
         "startChar": 89,
