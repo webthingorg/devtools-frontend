@@ -16,6 +16,144 @@
       "message": "PTAL",
       "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d281c8f2_e640de42",
+        "filename": "front_end/panels/application/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T11:13:41Z",
+      "side": 1,
+      "message": "This behaves like a tree outline, even though it is not implemented as such. Let\u0027s log it as \n\n\n    Tree\n     TreeItem\n       TreeItemExpand",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 43
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b879da_175cc1e9",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T11:13:41Z",
+      "side": 1,
+      "message": "Yes",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 29
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a2b0e0d_7a366a58",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T11:13:41Z",
+      "side": 1,
+      "message": "I\u0027d say no unless, we think this tooltip is particularly important",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 77
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b71bb78f_8fdb9968",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T11:13:41Z",
+      "side": 1,
+      "message": "Action is probably fine, let\u0027s call it `show-network-requests` though",
+      "range": {
+        "startLine": 529,
+        "startChar": 0,
+        "endLine": 529,
+        "endChar": 136
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10b75e59_b0f23207",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T11:13:41Z",
+      "side": 1,
+      "message": "`jslogContext`",
+      "range": {
+        "startLine": 568,
+        "startChar": 6,
+        "endLine": 568,
+        "endChar": 13
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a823d6d_6ed60af2",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T11:13:41Z",
+      "side": 1,
+      "message": "this should be `jslogContext`. Otherwise we won\u0027t be able to identify which button is clicked. We do log parents, but not siblings, and even if we did, it would have been brittle to rely upon.",
+      "range": {
+        "startLine": 576,
+        "startChar": 89,
+        "endLine": 576,
+        "endChar": 95
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
