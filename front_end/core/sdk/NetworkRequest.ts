@@ -38,12 +38,13 @@ import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
 import * as Platform from '../platform/platform.js';
 
-import * as HttpReasonPhraseStrings from './HttpReasonPhraseStrings.js';
 import {Attributes, type Cookie} from './Cookie.js';
 import {CookieParser} from './CookieParser.js';
-import {NetworkManager, Events as NetworkManagerEvents} from './NetworkManager.js';
-import {Type} from './Target.js';
+import * as HttpReasonPhraseStrings from './HttpReasonPhraseStrings.js';
+import {parseContentType} from './MimeType.js';
+import {Events as NetworkManagerEvents, NetworkManager} from './NetworkManager.js';
 import {ServerTiming} from './ServerTiming.js';
+import {Type} from './Target.js';
 
 // clang-format off
 const UIStrings = {
@@ -196,19 +197,6 @@ const UIStrings = {
 
 const str_ = i18n.i18n.registerUIStrings('core/sdk/NetworkRequest.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-
-export const enum MimeType {
-  HTML = 'text/html',
-  XML = 'text/xml',
-  PLAIN = 'text/plain',
-  XHTML = 'application/xhtml+xml',
-  SVG = 'image/svg+xml',
-  CSS = 'text/css',
-  XSL = 'text/xsl',
-  VTT = 'text/vtt',
-  PDF = 'application/pdf',
-  EVENTSTREAM = 'text/event-stream',
-}
 
 export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventTypes> implements
     TextUtils.ContentProvider.ContentProvider {
@@ -1489,15 +1477,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       return null;
     }
 
-    const responseCharsets = contentTypeHeader.replace(/ /g, '')
-                                 .split(';')
-                                 .filter(parameter => parameter.toLowerCase().startsWith('charset='))
-                                 .map(parameter => parameter.slice('charset='.length));
-    if (responseCharsets.length) {
-      return responseCharsets[0];
-    }
-
-    return null;
+    return parseContentType(contentTypeHeader)?.charset;
   }
 
   addExtraRequestInfo(extraRequestInfo: ExtraRequestInfo): void {
