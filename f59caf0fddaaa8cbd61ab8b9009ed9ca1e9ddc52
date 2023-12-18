@@ -39,6 +39,30 @@
       },
       "revId": "f59caf0fddaaa8cbd61ab8b9009ed9ca1e9ddc52",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb37d96_a00dbe24",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T09:22:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e14094_5ec1cf52",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 75
+      },
+      "revId": "f59caf0fddaaa8cbd61ab8b9009ed9ca1e9ddc52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
