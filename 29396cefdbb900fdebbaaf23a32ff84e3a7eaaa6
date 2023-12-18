@@ -16,6 +16,46 @@
       "message": "Can you take a look please? Thanks 🙏",
       "revId": "29396cefdbb900fdebbaaf23a32ff84e3a7eaaa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d37b8a6_f4502d3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T08:59:04Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "29396cefdbb900fdebbaaf23a32ff84e3a7eaaa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5a7ebb6_12e89d24",
+        "filename": "front_end/panels/protocol_monitor/components/JSONEditor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T08:59:04Z",
+      "side": 1,
+      "message": "Just `targets`?",
+      "range": {
+        "startLine": 829,
+        "startChar": 75,
+        "endLine": 829,
+        "endChar": 81
+      },
+      "revId": "29396cefdbb900fdebbaaf23a32ff84e3a7eaaa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
