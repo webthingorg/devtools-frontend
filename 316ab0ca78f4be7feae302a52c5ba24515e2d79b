@@ -16,6 +16,23 @@
       "message": "I\u0027ll send a couple CLs similar to this one that attempt to propagate the new ContentData class up the various call-chains. I\u0027m hoping we\u0027ll be able to fully replace the existing `ContentData` and `DeferredContent` interfaces.",
       "revId": "316ab0ca78f4be7feae302a52c5ba24515e2d79b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1073de8_a62e50cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-18T08:43:17Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "316ab0ca78f4be7feae302a52c5ba24515e2d79b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
