@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1c0161b_9fdf3d19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-18T12:18:05Z",
+      "side": 1,
+      "message": "added a usage of the trace bounds manager to render when the minimap bounds are changed. PTAL",
+      "revId": "d84fb254fa0db515e72592c1b7ae54449df0060d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
