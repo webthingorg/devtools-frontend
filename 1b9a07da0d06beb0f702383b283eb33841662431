@@ -33,6 +33,24 @@
       "message": "Let\u0027s provide more contextual information here to make Plx queries easier in the future: `refresh` \u003d\u003e `storage-items-view.refresh`.\n\nAlso below for the delete and clear buttons.",
       "revId": "1b9a07da0d06beb0f702383b283eb33841662431",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "427510fc_e4c6c344",
+        "filename": "front_end/panels/application/StorageItemsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T14:39:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7028ab49_e9161c4b",
+      "revId": "1b9a07da0d06beb0f702383b283eb33841662431",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
