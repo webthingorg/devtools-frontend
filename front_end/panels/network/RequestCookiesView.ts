@@ -173,6 +173,8 @@ export class RequestCookiesView extends UI.Widget.Widget {
     const requestCookieToBlockedReasons = new Map<SDK.Cookie.Cookie, SDK.CookieModel.BlockedReason[]>();
     const requestCookies = this.request.includedRequestCookies().slice();
 
+    const networkManager = SDK.NetworkManager.NetworkManager.forRequest(this.request);
+
     if (this.showFilteredOutCookiesSetting.get()) {
       for (const blockedCookie of this.request.blockedRequestCookies()) {
         requestCookieToBlockedReasons.set(blockedCookie.cookie, blockedCookie.blockedReasons.map(blockedReason => {
@@ -182,6 +184,12 @@ export class RequestCookiesView extends UI.Widget.Widget {
           };
         }));
         requestCookies.push(blockedCookie.cookie);
+
+        if (blockedCookie.blockedReasons.includes(Protocol.Network.CookieBlockedReason.ThirdPartyPhaseout)) {
+          networkManager?.target()
+              .model(SDK.CookieModel.CookieModel)
+              ?.addBlockedCookie(blockedCookie.cookie, requestCookieToBlockedReasons.get(blockedCookie.cookie));
+        }
       }
     }
 

@@ -278,6 +278,8 @@ export class CookieItemsView extends StorageItemsView {
       this.setDeleteAllTitle(i18nString(UIStrings.clearAllCookies));
       this.setDeleteAllGlyph('clear-list');
     }
+
+    // this.model.getCookieToBlockedReasonsMap().size() is 0.
     this.cookiesTable.setCookies(this.shownCookies, this.model.getCookieToBlockedReasonsMap());
     UI.ARIAUtils.alert(i18nString(UIStrings.numberOfCookiesShownInTableS, {PH1: this.shownCookies.length}));
     this.setCanFilter(true);

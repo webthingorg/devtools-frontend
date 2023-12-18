@@ -23,7 +23,7 @@ export class CookieModel extends SDKModel<void> {
     this.#cookieToBlockedReasons = new Map();
   }
 
-  addBlockedCookie(cookie: Cookie, blockedReasons: BlockedReason[]|null): void {
+  addBlockedCookie(cookie: Cookie, blockedReasons: BlockedReason[]|undefined): void {
     const key = cookie.key();
     const previousCookie = this.#blockedCookies.get(key);
     this.#blockedCookies.set(key, cookie);
