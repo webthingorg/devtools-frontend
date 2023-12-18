@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e8d7cc8_3d4b30cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-18T12:23:25Z",
+      "side": 1,
+      "message": "PTAL, looks like we don\u0027t get around Content-Type parsing in the frontend, so lets do it right.",
+      "revId": "7be3ddf6da6efbe02727d2e74087153c1118fe65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
