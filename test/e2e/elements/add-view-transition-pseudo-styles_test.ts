@@ -14,7 +14,7 @@ import {
   waitForExactStyleRule,
 } from '../helpers/elements-helpers.js';
 
-describe('View transition pseudo styles on inspector stylesheet', async () => {
+describe.only('View transition pseudo styles on inspector stylesheet', async () => {
   it('should add view transition pseudo styles on inspector stylesheet when a view transition pseudo is added',
      async () => {
        const {frontend, target} = getBrowserAndPages();
@@ -33,7 +33,7 @@ describe('View transition pseudo styles on inspector stylesheet', async () => {
      });
 
   // Flaking on multiple bots on CQ.
-  it.skip(
+  it(
       '[crbug.com/1512610] should not add view transition pseudo styles if inspector stylesheet already has view transition pseudo styles',
       async () => {
         const {frontend, target} = getBrowserAndPages();
@@ -41,17 +41,23 @@ describe('View transition pseudo styles on inspector stylesheet', async () => {
 
         await target.bringToFront();
         await target.evaluate('startFirstViewTransition()');
+        console.log('started first vt');
 
         await frontend.bringToFront();
         await waitForAndClickTreeElementWithPartialText('::view-transition');
+        console.log('inspected ::view-transition for first vt');
         await waitForExactStyleRule('::view-transition');
+        console.log('found the ::view-transition rule for first vt');
 
         await target.bringToFront();
         await target.evaluate('startNextViewTransition()');
+        console.log('started next vt');
 
         await frontend.bringToFront();
         await waitForAndClickTreeElementWithPartialText('::view-transition');
+        console.log('inspected the ::view-transition rule for next vt');
         await waitForExactStyleRule('::view-transition');
+        console.log('found the ::view-transition rule for next vt');
 
         const displayedRules = await getDisplayedStyleRules();
         assert.strictEqual(displayedRules.filter(rule => rule.selectorText === '::view-transition').length, 1);
