@@ -34,6 +34,24 @@
       "parentUuid": "d58f9d36_7825821a",
       "revId": "7a6e8018eab1ef8c3b0c75b5fc7ea24e1a63ecf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "598e59a2_89692209",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-18T09:00:18Z",
+      "side": 0,
+      "message": "ah I forgot consider breadcrumbs! For the sake of preventing an unnecessary redraw we don\u0027t need to track the start and end of the minimap here, since we know when to draw based on the state of `this.#drawn`. Do we need to track them here to enable any breadcrumb functionality?",
+      "parentUuid": "f3828fcf_00d826ce",
+      "revId": "7a6e8018eab1ef8c3b0c75b5fc7ea24e1a63ecf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
