@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b6151b3_282f9286",
+        "filename": "front_end/panels/application/ServiceWorkerUpdateCycleView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T12:57:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea27097_0c2119cc",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 43
+      },
+      "revId": "82835dc42193291c136e6b8c8e7f3f46321a280b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9b879da_175cc1e9",
