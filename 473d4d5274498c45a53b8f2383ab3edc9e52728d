@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b7db04e_444a3afc",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-18T16:56:00Z",
+      "side": 1,
+      "message": "Is there a reason you implement the experiment check here vs in the UI layer? I suppose it saves on a bit of work - but we don\u0027t usually gate the handlers based on experiments and would rather do that in the UI.",
+      "range": {
+        "startLine": 189,
+        "startChar": 1,
+        "endLine": 199,
+        "endChar": 3
+      },
+      "revId": "473d4d5274498c45a53b8f2383ab3edc9e52728d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
