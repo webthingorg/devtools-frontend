@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "892cdeef_38628f3d",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T08:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4f31801_2bb003bb",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 524,
+        "endChar": 120
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "197e25be_38c4559d",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-18T07:13:05Z",
       "side": 1,
       "message": "Not sure if logging hover here is useful",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 732,
+        "endChar": 120
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9adbd628_416517bc",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T08:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "197e25be_38c4559d",
       "range": {
         "startLine": 732,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb022290_7be66a2f",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T08:43:46Z",
+      "side": 1,
+      "message": "I think in a sense it is, there can be multiple these sections (one for each available shortcut), whereas all the other sections here exist only in a single copy",
+      "parentUuid": "84d845d2_487a6d68",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 870,
+        "endChar": 32
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d17f8bef_5ed96371",
         "filename": "front_end/panels/application/AppManifestView.ts",
         "patchSetId": 1
@@ -100,6 +172,30 @@
       "writtenOn": "2023-12-18T07:13:05Z",
       "side": 1,
       "message": "just `shortcut`?",
+      "range": {
+        "startLine": 885,
+        "startChar": 87,
+        "endLine": 885,
+        "endChar": 95
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "132f15cd_2de41a96",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-18T08:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d17f8bef_5ed96371",
       "range": {
         "startLine": 885,
         "startChar": 87,
