@@ -953,6 +953,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (this.selectedEntryIndex === -1) {
       return false;
     }
+    console.log("actully alicked");
     const timelineData = this.timelineData();
     if (!timelineData) {
       return false;
@@ -1107,6 +1108,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const startX = this.chartViewport.timeToPosition(startTime);
       const endX = this.chartViewport.timeToPosition(startTime + duration);
       const barThresholdPx = 3;
+      if (endX - 17 - barThresholdPx < x && x < endX + barThresholdPx) {
+        // console.log("start x  ", startX);
+        console.log("clicky edge");
+      }
       return startX - barThresholdPx < x && x < endX + barThresholdPx;
     }
 
@@ -2494,6 +2499,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (entryIndex !== -1) {
       this.chartViewport.hideRangeSelection();
     }
+    console.log("actully clicked");
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
