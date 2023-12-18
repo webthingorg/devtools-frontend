@@ -1564,6 +1564,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   select(selection: TimelineSelection|null): void {
     this.selection = selection;
+    console.log('here?');
     this.flameChart.setSelection(selection);
   }
 

@@ -413,6 +413,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   private updateHighlight(): void {
+    // console.log("update hightlight");
     const entryIndex = this.coordinatesToEntryIndex(this.lastMouseOffsetX, this.lastMouseOffsetY);
     if (entryIndex === -1) {
       this.hideHighlight();
@@ -1107,6 +1108,26 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const startX = this.chartViewport.timeToPosition(startTime);
       const endX = this.chartViewport.timeToPosition(startTime + duration);
       const barThresholdPx = 3;
+
+      const data = this.timelineData();
+      if (data) {
+        const group = data.groups.at(this.selectedGroupIndex);
+
+        if (group && !group.expanded && group.showStackContextMenu) {
+          const dispatchTreeModifiedEvent = (treeAction: TraceEngine.EntriesFilter.FilterAction): void => {
+            this.dispatchEventToListeners(Events.TreeModified, {
+              group: group,
+              node: this.selectedEntryIndex,
+              action: treeAction,
+            });
+          };
+
+          if (endX - 17 - barThresholdPx < x && x < endX + barThresholdPx) {
+            dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN);
+            console.log('clicky edge');
+          }
+        }
+      }
       return startX - barThresholdPx < x && x < endX + barThresholdPx;
     }
 
@@ -1119,6 +1140,106 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return entryIndex;
     }
     return -1;
+  }
+
+  isEntryArrowClicked(x: number, y: number): boolean {
+    if (x < 0 || y < 0) {
+      return false;
+    }
+    const timelineData = this.timelineData();
+    if (!timelineData) {
+      return false;
+    }
+    y += this.chartViewport.scrollOffset();
+    if (!this.visibleLevelOffsets || !this.visibleLevelHeights || !this.visibleLevels) {
+      throw new Error('No visible level offsets or heights');
+    }
+
+    // The real order of the levels might be changed.
+    // So we just check each level, and check if the y is between the start and the end of this level. If yes, this is
+    // the level we want to find.
+    let cursorLevel = -1;
+    for (let i = 0; i < this.dataProvider.maxStackDepth(); i++) {
+      if (y >= this.visibleLevelOffsets[i] &&
+          y < this.visibleLevelOffsets[i] + (this.visibleLevels[i] ? this.visibleLevelHeights[i] : 0)) {
+        cursorLevel = i;
+        break;
+      }
+    }
+
+    if (cursorLevel < 0 || !this.visibleLevels[cursorLevel]) {
+      return false;
+    }
+    const offsetFromLevel = y - this.visibleLevelOffsets[cursorLevel];
+    if (offsetFromLevel > this.levelHeight(cursorLevel)) {
+      return false;
+    }
+
+    // Check regular entries.
+    const entryStartTimes = timelineData.entryStartTimes;
+    const entriesOnLevel: number[] = this.timelineLevels ? this.timelineLevels[cursorLevel] : [];
+    if (!entriesOnLevel || !entriesOnLevel.length) {
+      return false;
+    }
+
+    const cursorTime = this.chartViewport.pixelToTime(x);
+    const indexOnLevel = Math.max(
+        Platform.ArrayUtilities.upperBound(
+            entriesOnLevel, cursorTime, (time, entryIndex) => time - entryStartTimes[entryIndex]) -
+            1,
+        0);
+
+    function checkEntryHit(this: FlameChart, entryIndex: number|undefined): boolean {
+      if (entryIndex === undefined) {
+        return false;
+      }
+
+      if (!timelineData) {
+        return false;
+      }
+
+      const startTime = entryStartTimes[entryIndex];
+      const duration = timelineData.entryTotalTimes[entryIndex];
+      const startX = this.chartViewport.timeToPosition(startTime);
+      const endX = this.chartViewport.timeToPosition(startTime + duration);
+      const barThresholdPx = 3;
+
+      const data = this.timelineData();
+      if (data) {
+        const group = data.groups.at(this.selectedGroupIndex);
+
+        // if (group && !group.expanded && group.showStackContextMenu) {
+        if (group) {
+          const dispatchTreeModifiedEvent = (treeAction: TraceEngine.EntriesFilter.FilterAction): void => {
+            this.dispatchEventToListeners(Events.TreeModified, {
+              group: group,
+              node: this.selectedEntryIndex,
+              action: treeAction,
+            });
+          };
+
+          console.log('here right before');
+          if (endX - 17 - barThresholdPx < x && x < endX + barThresholdPx) {
+            dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN);
+            console.log('clicky edge');
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    console.log('got here');
+
+    let entryIndex: number = entriesOnLevel[indexOnLevel];
+    if (checkEntryHit.call(this, entryIndex)) {
+      return true;
+    }
+    entryIndex = entriesOnLevel[indexOnLevel + 1];
+    if (checkEntryHit.call(this, entryIndex)) {
+      return true;
+    }
+    return false;
   }
 
   /**
@@ -2488,6 +2609,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   setSelectedEntry(entryIndex: number): void {
+    // console.log("actully clicked entry in ", checkEnt);
+    // check here if it is clicked on the arrow position
+    console.log('is side click ', this.isEntryArrowClicked(this.lastMouseOffsetX, this.lastMouseOffsetY));
+
     if (this.selectedEntryIndex === entryIndex) {
       return;
     }
