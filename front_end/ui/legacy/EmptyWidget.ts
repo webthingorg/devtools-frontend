@@ -80,6 +80,7 @@ export class EmptyWidget extends VBox {
       highlight: true,
       delegate: openLink,
       dismiss: false,
+      jsLogContext: 'learn-more',
     }] :
                                     undefined;
 
