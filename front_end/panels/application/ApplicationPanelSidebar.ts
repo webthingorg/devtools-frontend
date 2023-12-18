@@ -42,6 +42,7 @@ import * as Protocol from '../../generated/protocol.js';
 import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {ApplicationPanelTreeElement, ExpandableApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 import {AppManifestView, Events as AppManifestViewEvents} from './AppManifestView.js';
@@ -1487,6 +1488,7 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
       this.view =
           LegacyWrapper.LegacyWrapper.legacyWrapper(UI.Widget.VBox, new IDBDatabaseView(this.model, this.database));
     }
+    this.view.element.setAttribute('jslog', `${VisualLogging.pane().context('indexeddb')}`);
 
     this.showView(this.view);
     Host.userMetrics.panelShown(Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes.indexed_db]);
