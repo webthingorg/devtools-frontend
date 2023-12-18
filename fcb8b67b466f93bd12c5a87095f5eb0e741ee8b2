@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2b34dfa_0a5e2f1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-18T12:20:04Z",
+      "side": 1,
+      "message": "PTAL. Screenshot updates I believe are valid as the presentation, colours and names of some events have been fixed since these tests were disabled.",
+      "revId": "fcb8b67b466f93bd12c5a87095f5eb0e741ee8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
