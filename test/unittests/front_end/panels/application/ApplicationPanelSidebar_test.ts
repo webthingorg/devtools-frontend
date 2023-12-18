@@ -113,8 +113,7 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
       setMockConnectionResponseHandler('Storage.setSharedStorageTracking', () => ({}));
     });
 
-    // Flaking on multiple bots on CQ.
-    it.skip('[crbug.com/1472237] shows cookies for all frames', async () => {
+    it('shows cookies for all frames', async () => {
       Application.ResourcesPanel.ResourcesPanel.instance({forceNew: true});
       const sidebar = await Application.ResourcesPanel.ResourcesPanel.showAndGetSidebar();
       const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
