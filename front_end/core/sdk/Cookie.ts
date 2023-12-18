@@ -60,7 +60,7 @@ export class Cookie {
   }
 
   key(): string {
-    return (this.domain() || '-') + ' ' + this.name() + ' ' + (this.path() || '-');
+    return (this.domain() || '-') + ' ' + this.name() + ' ' + (this.path() || '-') + ' ' + (this.partitionKey() || '-');
   }
 
   name(): string {
@@ -90,7 +90,7 @@ export class Cookie {
   }
 
   partitionKey(): string {
-    return this.#attributes['partitionkey'] as string;
+    return this.#attributes['partitionKey'] as string;
   }
 
   setPartitionKey(key: string): void {
@@ -98,7 +98,7 @@ export class Cookie {
   }
 
   partitionKeyOpaque(): boolean {
-    return (this.#attributes['partitionkey'] === OPAQUE_PARTITION_KEY);
+    return (this.#attributes['partitionKey'] === OPAQUE_PARTITION_KEY);
   }
 
   setPartitionKeyOpaque(): void {
