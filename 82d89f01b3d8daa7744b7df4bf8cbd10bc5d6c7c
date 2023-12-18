@@ -159,6 +159,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56bf885f_9ba8347b",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T08:46:54Z",
+      "side": 1,
+      "message": "That\u0027s ok. As long as it is the only difference, this should be section.",
+      "parentUuid": "cb022290_7be66a2f",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 870,
+        "endChar": 32
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d17f8bef_5ed96371",
