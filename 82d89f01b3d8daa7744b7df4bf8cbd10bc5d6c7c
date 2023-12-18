@@ -16,6 +16,98 @@
       "message": "Danil, please kindly take a look?:)",
       "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4f31801_2bb003bb",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T07:13:05Z",
+      "side": 1,
+      "message": "If we use localized strings as context, we would log different values for different languages, which would be a nightmare to analyze. Please use regular strings.",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 524,
+        "endChar": 120
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "197e25be_38c4559d",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T07:13:05Z",
+      "side": 1,
+      "message": "Not sure if logging hover here is useful",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 732,
+        "endChar": 120
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84d845d2_487a6d68",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T07:13:05Z",
+      "side": 1,
+      "message": "Is this different from the rest?",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 870,
+        "endChar": 32
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d17f8bef_5ed96371",
+        "filename": "front_end/panels/application/AppManifestView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2023-12-18T07:13:05Z",
+      "side": 1,
+      "message": "just `shortcut`?",
+      "range": {
+        "startLine": 885,
+        "startChar": 87,
+        "endLine": 885,
+        "endChar": 95
+      },
+      "revId": "82d89f01b3d8daa7744b7df4bf8cbd10bc5d6c7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
