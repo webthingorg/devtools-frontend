@@ -16,6 +16,23 @@
       "message": "PTAL, looks like we don\u0027t get around Content-Type parsing in the frontend, so lets do it right.",
       "revId": "7be3ddf6da6efbe02727d2e74087153c1118fe65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b13ec16b_de13df78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-18T13:57:50Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7be3ddf6da6efbe02727d2e74087153c1118fe65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
