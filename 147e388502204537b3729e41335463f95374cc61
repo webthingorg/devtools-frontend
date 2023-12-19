@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4719baf_43f0656a",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T17:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79ca9e25_1685849b",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 43
+      },
+      "revId": "147e388502204537b3729e41335463f95374cc61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e134f615_690e5ed0",
@@ -88,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c2f17b_58f55519",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T17:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e134f615_690e5ed0",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "147e388502204537b3729e41335463f95374cc61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce24d558_43a1d1d9",
@@ -101,6 +149,30 @@
       "writtenOn": "2023-12-19T16:37:43Z",
       "side": 1,
       "message": "The partition key will be opaque as long as this key exists.",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 32
+      },
+      "revId": "147e388502204537b3729e41335463f95374cc61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb166422_6105228d",
+        "filename": "test/unittests/front_end/core/sdk/Cookie_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T17:31:46Z",
+      "side": 1,
+      "message": "Ah, I feel dumb - completely overlooked how this could affect partitionKey field. Thank you!",
+      "parentUuid": "ce24d558_43a1d1d9",
       "range": {
         "startLine": 53,
         "startChar": 6,
