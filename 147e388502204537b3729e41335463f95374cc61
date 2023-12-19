@@ -16,6 +16,29 @@
       "message": "I couldn\u0027t figure out why the tests failed. Could you help take a look? Thanks in advance!",
       "revId": "147e388502204537b3729e41335463f95374cc61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45abdfc6_cdd7a117",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T15:36:12Z",
+      "side": 1,
+      "message": "I don\u0027t get how come this is undefined after explicitly set a value.",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 43
+      },
+      "revId": "147e388502204537b3729e41335463f95374cc61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
