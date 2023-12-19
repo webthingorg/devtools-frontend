@@ -53,14 +53,16 @@ export class Cookie {
       cookie.addAttribute('partitionKey', protocolCookie.partitionKey);
     }
     if ('partitionKeyOpaque' in protocolCookie) {
-      cookie.addAttribute('partitionKey', OPAQUE_PARTITION_KEY);
+      if (protocolCookie.partitionKeyOpaque?.valueOf()) {
+        cookie.addAttribute('partitionKey', OPAQUE_PARTITION_KEY);
+      }
     }
     cookie.setSize(protocolCookie['size']);
     return cookie;
   }
 
   key(): string {
-    return (this.domain() || '-') + ' ' + this.name() + ' ' + (this.path() || '-');
+    return (this.domain() || '-') + ' ' + this.name() + ' ' + (this.path() || '-') + ' ' + (this.partitionKey() || '-');
   }
 
   name(): string {
