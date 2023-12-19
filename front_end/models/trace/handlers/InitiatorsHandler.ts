@@ -24,8 +24,12 @@ const lastInvalidationEventForFrame = new Map<string, Types.TraceEvents.TraceEve
 // is called.
 const lastUpdateLayoutTreeByFrame = new Map<string, Types.TraceEvents.TraceEventUpdateLayoutTree>();
 
+// This tracks postmessage dispatch and handler events for creating initiator association
+const postMessageDispatchEventByTimestamp:
+    Map<Types.Timing.MicroSeconds, Types.TraceEvents.TraceEventPostMessageDispatch> = new Map();
+const postMessageHandlerEvents: Types.TraceEvents.TraceEventPostMessageHandler[] = [];
+
 // These two maps store the same data but in different directions.
-//
 // For a given event, tell me what its initiator was. An event can only have one initiator.
 const eventToInitiatorMap = new Map<Types.TraceEvents.TraceEventData, Types.TraceEvents.TraceEventData>();
 // For a given event, tell me what events it initiated. An event can initiate
@@ -47,6 +51,8 @@ export function reset(): void {
   requestAnimationFrameEventsById.clear();
   requestIdleCallbackEventsById.clear();
   webSocketCreateEventsById.clear();
+  postMessageDispatchEventByTimestamp.clear();
+  postMessageHandlerEvents.length = 0;
 
   handlerState = HandlerState.UNINITIALIZED;
 }
@@ -175,6 +181,23 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
         initiator: matchingCreateEvent,
       });
     }
+  } else if (Types.TraceEvents.isTraceEventPostMessageDispatch(event)) {
+    const linkifier = event.args?.data?.timestamp;
+    if (linkifier) {
+      postMessageDispatchEventByTimestamp.set(linkifier, event);
+    }
+  } else if (Types.TraceEvents.isTraceEventPostMessageHandler(event)) {
+    postMessageHandlerEvents.push(event);
+  }
+}
+
+function finalizeInitiatorRelationship(): void {
+  for (const handlerEvent of postMessageHandlerEvents) {
+    const timestamp = handlerEvent.args.data.timestamp;
+    const matchingDispatchEvent = postMessageDispatchEventByTimestamp.get(timestamp);
+    if (matchingDispatchEvent) {
+      storeInitiator({event: handlerEvent, initiator: matchingDispatchEvent});
+    }
   }
 }
 
@@ -183,6 +206,11 @@ export async function finalize(): Promise<void> {
     throw new Error('InitiatorsHandler is not initialized');
   }
 
+  // During event processing, we may encounter initiators before the handler events themselves
+  // (e.g dispatch events on worker and handler events on the main thread)
+  // we don't want to miss out on events whose initiators haven't been processed yet
+  finalizeInitiatorRelationship();
+
   handlerState = HandlerState.FINALIZED;
 }
 
@@ -190,6 +218,7 @@ export interface InitiatorsData {
   eventToInitiator: Map<Types.TraceEvents.TraceEventData, Types.TraceEvents.TraceEventData>;
   initiatorToEvents: Map<Types.TraceEvents.TraceEventData, Types.TraceEvents.TraceEventData[]>;
 }
+
 export function data(): InitiatorsData {
   return {
     eventToInitiator: new Map(eventToInitiatorMap),
