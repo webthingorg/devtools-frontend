@@ -33,6 +33,24 @@
       "message": "Let\u0027s add a `jslogContext: string` parameter to `legacyWrapper()` instead and pass the pane context that way. Otherwise we will need to manually go around all the call sites of the `legacyWrapper` and annotate those individually.",
       "revId": "e9cd0119403992698755107d28b7d4dcfbdc7660",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a15f98e_446f1305",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-19T09:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "864ada7b_76aea8de",
+      "revId": "e9cd0119403992698755107d28b7d4dcfbdc7660",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
