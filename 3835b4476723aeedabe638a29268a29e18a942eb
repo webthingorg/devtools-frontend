@@ -16,6 +16,46 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "3835b4476723aeedabe638a29268a29e18a942eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "343914b9_d0da3abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-19T14:15:18Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "3835b4476723aeedabe638a29268a29e18a942eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7baccac0_a51a81fd",
+        "filename": "front_end/ui/components/chrome_link/ChromeLink.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-19T14:15:18Z",
+      "side": 1,
+      "message": "Would `MouseEvent` work too?",
+      "range": {
+        "startLine": 44,
+        "startChar": 22,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "3835b4476723aeedabe638a29268a29e18a942eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
