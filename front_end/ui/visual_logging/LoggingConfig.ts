@@ -22,7 +22,7 @@ export function getLoggingConfig(element: Element): LoggingConfig {
 // eslint-disable-next-line rulesdir/const_enum
 enum VisualElements {
   TreeItem = 1,
-  /* 2 used to be AriaAttributes, but free to grab now */
+  ContextMenu = 2,
   /* 3 used to be AccessibilityComputedProperties, but free to grab now */
   /* 4 used to be AccessibilityPane, but free to grab now */
   /* 5 used to be AccessibilitySourceOrder, but free to grab now */

@@ -35,6 +35,7 @@ export const bezierPresetCategory = LoggingConfig.makeConfigStringBuilder.bind(n
 export const colorCanvas = LoggingConfig.makeConfigStringBuilder.bind(null, 'ColorCanvas');
 export const colorEyeDropper = LoggingConfig.makeConfigStringBuilder.bind(null, 'ColorEyeDropper');
 export const colorPicker = LoggingConfig.makeConfigStringBuilder.bind(null, 'ColorPicker');
+export const contextMenu = LoggingConfig.makeConfigStringBuilder.bind(null, 'ContextMenu');
 export const copyColor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CopyColor');
 export const cssAngleEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssAngleEditor');
 export const cssColorMix = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssColorMix');

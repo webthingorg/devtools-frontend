@@ -41,6 +41,7 @@ import * as Protocol from '../../../../generated/protocol.js';
 import * as IssuesManager from '../../../../models/issues_manager/issues_manager.js';
 import * as NetworkForward from '../../../../panels/network/forward/forward.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 import * as DataGrid from '../data_grid/data_grid.js';
 
@@ -270,6 +271,7 @@ export class CookiesTable extends UI.Widget.VBox {
     this.dataGrid.setStriped(true);
     this.dataGrid.setName('cookiesTable');
     this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SortingChanged, this.rebuildTable, this);
+    this.element.setAttribute('jslog', `${VisualLogging.contextMenu()}`);
     this.dataGrid.setRowContextMenuCallback(this.populateContextMenu.bind(this));
     if (renderInline) {
       this.dataGrid.renderInline();

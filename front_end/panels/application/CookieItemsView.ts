@@ -37,6 +37,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as CookieTable from '../../ui/legacy/components/cookie_table/cookie_table.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import cookieItemsViewStyles from './cookieItemsView.css.js';
 import {StorageItemsView} from './StorageItemsView.js';
@@ -99,6 +100,7 @@ class CookiePreviewWidget extends UI.Widget.VBox {
     this.contentElement.appendChild(header);
 
     const toggle = UI.UIUtils.CheckboxLabel.create(i18nString(UIStrings.showUrlDecoded), this.showDecodedSetting.get());
+    toggle.setAttribute('jslog', `${VisualLogging.toggle().track({change: true}).context('show-url-decoded')}`);
     toggle.classList.add('cookie-preview-widget-toggle');
     toggle.checkboxElement.addEventListener('click', () => this.showDecoded(!this.showDecodedSetting.get()));
     header.appendChild(toggle);
@@ -111,6 +113,7 @@ class CookiePreviewWidget extends UI.Widget.VBox {
     this.value = value;
 
     this.contentElement.classList.add('cookie-preview-widget');
+    this.contentElement.setAttribute('jslog', `${VisualLogging.section().context('cookie-preview')}`);
     this.contentElement.appendChild(value);
   }
 
@@ -172,6 +175,7 @@ export class CookieItemsView extends StorageItemsView {
     super(i18nString(UIStrings.cookies), 'cookiesPanel');
 
     this.element.classList.add('storage-view');
+    this.element.setAttribute('jslog', `${VisualLogging.pane().context('cookies')}`);
 
     this.model = model;
     this.cookieDomain = cookieDomain;
@@ -202,6 +206,8 @@ export class CookieItemsView extends StorageItemsView {
         i18nString(UIStrings.onlyShowCookiesWithAnIssue), i18nString(UIStrings.onlyShowCookiesWhichHaveAn), () => {
           this.updateWithCookies(this.allCookies);
         });
+    this.onlyIssuesFilterUI.element.setAttribute(
+        'jslog', `${VisualLogging.toggle().track({change: true}).context('only-show-cookies-with-issues')}`);
     this.appendToolbarItem(this.onlyIssuesFilterUI);
 
     this.refreshThrottler = new Common.Throttler.Throttler(300);
