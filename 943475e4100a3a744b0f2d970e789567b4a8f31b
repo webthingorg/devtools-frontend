@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea303d3_7da22d72",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1848,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-19T14:30:02Z",
+      "side": 1,
+      "message": "Somehow rebasing is failing me today😅",
+      "parentUuid": "4e04c61e_dcd89482",
+      "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66ac1c55_68184da8",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42f92750_be8c2d3c",
+        "filename": "front_end/panels/application/CookieItemsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-19T14:30:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66ac1c55_68184da8",
+      "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c546200_3a3fd2ab",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-12-19T13:17:50Z",
       "side": 1,
       "message": "You can pass the `jslogContext` to the `ToolbarCheckbox` constructor above.",
+      "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad6d96d_33984cd3",
+        "filename": "front_end/panels/application/CookieItemsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-19T14:30:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c546200_3a3fd2ab",
       "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
