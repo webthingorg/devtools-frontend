@@ -1845,6 +1845,7 @@ export class StorageCategoryView extends UI.Widget.VBox {
     if (message && this.warningBar) {
       this.warningBar.element.classList.remove('hidden');
     }
+    this.warningBar?.element.setAttribute('jslog', `${VisualLogging.infoBar().context(jsLogContext)}`);
   }
 }
 
