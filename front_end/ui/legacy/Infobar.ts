@@ -4,13 +4,14 @@
 
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Utils from './utils/utils.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
+import infobarStyles from './infobar.css.legacy.js';
 import {Keys} from './KeyboardShortcut.js';
 import {createTextButton} from './UIUtils.js';
+import * as Utils from './utils/utils.js';
 import {type Widget} from './Widget.js';
-import infobarStyles from './infobar.css.legacy.js';
 
 const UIStrings = {
   /**
@@ -91,6 +92,9 @@ export class Infobar {
         }
 
         const button = createTextButton(action.text, actionCallback, buttonClass);
+        if (action.jsLogContext) {
+          button.setAttribute('jslog', `${VisualLogging.action().track({click: true}).context(action.jsLogContext)}`);
+        }
         if (action.highlight && !this.#firstFocusableElement) {
           this.#firstFocusableElement = button;
         }
@@ -115,6 +119,7 @@ export class Infobar {
     // @ts-ignore This is a custom element defined in UIUitls.js that has a `setTabbable` that TS doesn't
     //            know about.
     this.closeButton.setTabbable(true);
+    this.closeButton.setAttribute('jslog', `${VisualLogging.action().track({click: true}).context('close')}`);
     ARIAUtils.setDescription(this.closeButton, i18nString(UIStrings.close));
     self.onInvokeElement(this.closeButton, this.dispose.bind(this));
 
@@ -236,6 +241,7 @@ export interface InfobarAction {
   highlight: boolean;
   delegate: (() => void)|null;
   dismiss: boolean;
+  jsLogContext?: string;
 }
 
 // TODO(crbug.com/1167717): Make this a const enum again
