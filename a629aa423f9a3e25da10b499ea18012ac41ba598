@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1204ef40_a77258e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-12-19T14:03:45Z",
+      "side": 1,
+      "message": "Please take another look.\n\nI reverted part of this change that affects the markdown component. We continue to render markdown at 14px. The reason is that we share this component with Console Insights. And it\u0027s probably a good idea, just like in Console Insights, to render this content that the user has explicitly requested, slightly larger.",
+      "revId": "a629aa423f9a3e25da10b499ea18012ac41ba598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
