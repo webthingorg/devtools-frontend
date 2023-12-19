@@ -257,6 +257,10 @@ module.exports = function(config) {
        */
       targetDir,
 
+      chai: {
+        truncateThreshold: 0,
+      },
+
       mocha: {
         grep: MOCHA_FGREP,
         // Up the default Mocha timeout to give the bots some space!
