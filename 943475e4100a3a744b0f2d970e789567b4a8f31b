@@ -16,6 +16,57 @@
       "message": "Benedikt, please kindly take a look?",
       "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e04c61e_dcd89482",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1848,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-19T13:17:50Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary now that you pass it to `appendWarning` above?",
+      "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66ac1c55_68184da8",
+        "filename": "front_end/panels/application/CookieItemsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-19T13:17:50Z",
+      "side": 1,
+      "message": "You can pass the `jslogContext` to the `CheckboxLabel.create` call above.",
+      "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c546200_3a3fd2ab",
+        "filename": "front_end/panels/application/CookieItemsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-19T13:17:50Z",
+      "side": 1,
+      "message": "You can pass the `jslogContext` to the `ToolbarCheckbox` constructor above.",
+      "revId": "943475e4100a3a744b0f2d970e789567b4a8f31b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
