@@ -67,6 +67,24 @@
       "message": "(nit, let\u0027s not block on this): I think I\u0027m having a hard time understanding which test cases this test covers.\n\nNow, there is a setup for multiple cases (own variable, inherited variable, registered variable) and multiple assertions based on this setup. I think I\u0027d prefer to have a single setup and single assertion in a test so that we can understand for exactly which case we had a concern and how that concern is resolved at the end.\n\nI\u0027d prefer to abstract setting the test and writing multiple test cases for `correctly resolves the declaration` like maybe in a `correctly resolves the declaration` block and continues with `when the variable is a registered one with initial value` etc. WDYT?",
       "revId": "2ac330786f2253a0b04227435935520a31d14f8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8e12809_4390a1cf",
+        "filename": "test/unittests/front_end/core/sdk/CSSMatchedStyles_test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2023-12-19T09:52:49Z",
+      "side": 1,
+      "message": "The thing is the setup will be nearly identical for all of these since I think it equally important to verify that the search does _not_ find one of the other overloaded names (e.g., that searching for --foo neither returns the incorrect inherited value nor the registered one). As such we might leave out styleBaz in one or two cases, but that\u0027s about it.",
+      "parentUuid": "4e381b11_2223db77",
+      "revId": "2ac330786f2253a0b04227435935520a31d14f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
