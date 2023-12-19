@@ -42,6 +42,7 @@ import * as Protocol from '../../generated/protocol.js';
 import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {ApplicationPanelTreeElement, ExpandableApplicationPanelTreeElement} from './ApplicationPanelTreeElement.js';
 import {AppManifestView, Events as AppManifestViewEvents} from './AppManifestView.js';
@@ -1484,9 +1485,10 @@ export class IDBDatabaseTreeElement extends ApplicationPanelTreeElement {
       return false;
     }
     if (!this.view) {
-      this.view =
-          LegacyWrapper.LegacyWrapper.legacyWrapper(UI.Widget.VBox, new IDBDatabaseView(this.model, this.database));
+      this.view = LegacyWrapper.LegacyWrapper.legacyWrapper(
+          UI.Widget.VBox, new IDBDatabaseView(this.model, this.database), 'indexeddb');
     }
+    this.view.element.setAttribute('jslog', `${VisualLogging.pane().context('indexeddb')}`);
 
     this.showView(this.view);
     Host.userMetrics.panelShown(Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes.indexed_db]);
@@ -1835,7 +1837,7 @@ export class StorageCategoryView extends UI.Widget.VBox {
     }
   }
 
-  setWarning(message: string|null, learnMoreLink: Platform.DevToolsPath.UrlString): void {
+  setWarning(message: string|null, learnMoreLink: Platform.DevToolsPath.UrlString, jsLogContext?: string): void {
     if (message && !this.warningBar) {
       this.warningBar = this.emptyWidget.appendWarning(message, learnMoreLink);
     }
@@ -1845,6 +1847,7 @@ export class StorageCategoryView extends UI.Widget.VBox {
     if (message && this.warningBar) {
       this.warningBar.element.classList.remove('hidden');
     }
+    this.warningBar?.element.setAttribute('jslog', `${VisualLogging.infoBar().context(jsLogContext)}`);
   }
 }
 
