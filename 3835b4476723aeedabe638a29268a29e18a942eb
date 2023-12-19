@@ -56,6 +56,30 @@
       },
       "revId": "3835b4476723aeedabe638a29268a29e18a942eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f717cb6b_1df368bc",
+        "filename": "front_end/ui/components/chrome_link/ChromeLink.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-19T17:01:06Z",
+      "side": 1,
+      "message": "Much better even 😊",
+      "parentUuid": "7baccac0_a51a81fd",
+      "range": {
+        "startLine": 44,
+        "startChar": 22,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "3835b4476723aeedabe638a29268a29e18a942eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
