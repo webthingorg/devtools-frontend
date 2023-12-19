@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd1c618_b559b98d",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-19T12:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51adb885_43ccd52e",
+      "revId": "ab495c80ed77d7883217acd724283594a27a02b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e850f0af_9eb1942f",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-12-19T10:12:43Z",
       "side": 1,
       "message": "You added this, but forgot to use it for `Infobar` I suppose?",
+      "revId": "ab495c80ed77d7883217acd724283594a27a02b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f8af518_a8aad725",
+        "filename": "front_end/ui/visual_logging/visual_logging.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-19T12:41:21Z",
+      "side": 1,
+      "message": "Used it in ApplicationPanelSidebar:1850? Or do you mean something else?",
+      "parentUuid": "e850f0af_9eb1942f",
       "revId": "ab495c80ed77d7883217acd724283594a27a02b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
