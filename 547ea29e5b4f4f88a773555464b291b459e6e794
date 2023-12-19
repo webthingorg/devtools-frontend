@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1397c158_82024af7",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T23:28:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aabf0217_bb4f76cb",
+      "range": {
+        "startLine": 307,
+        "startChar": 7,
+        "endLine": 307,
+        "endChar": 39
+      },
+      "revId": "547ea29e5b4f4f88a773555464b291b459e6e794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1021eade_aee44727",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c570cf_26005063",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T23:28:04Z",
+      "side": 1,
+      "message": "Ah, that\u0027s right! Done",
+      "parentUuid": "1021eade_aee44727",
+      "range": {
+        "startLine": 1176,
+        "startChar": 53,
+        "endLine": 1176,
+        "endChar": 65
+      },
+      "revId": "547ea29e5b4f4f88a773555464b291b459e6e794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53f8b806_9dbe4524",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-19T17:12:54Z",
       "side": 1,
       "message": "`icon.title \u003d ...` is probably enough.\n\n(DevTools is not consistent in how tooltips are created, but we prefer to use the simple title attribute when possible)",
+      "range": {
+        "startLine": 287,
+        "startChar": 5,
+        "endLine": 287,
+        "endChar": 69
+      },
+      "revId": "547ea29e5b4f4f88a773555464b291b459e6e794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "146c264f_a24db3fb",
+        "filename": "front_end/panels/network/NetworkItemView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T23:28:04Z",
+      "side": 1,
+      "message": "Got it! Done.",
+      "parentUuid": "53f8b806_9dbe4524",
       "range": {
         "startLine": 287,
         "startChar": 5,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05f06497_ecbef073",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T23:28:04Z",
+      "side": 1,
+      "message": "I tried with IconButton, it\u0027s nice to have the visual to be clickable, but it takes quite some space: https://screenshot.googleplex.com/5zrtNffaLDsKQfz.png. WDYT?",
+      "parentUuid": "c2e7a62c_3416c520",
+      "range": {
+        "startLine": 781,
+        "startChar": 30,
+        "endLine": 781,
+        "endChar": 52
+      },
+      "revId": "547ea29e5b4f4f88a773555464b291b459e6e794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5aedc4af_4098e322",
         "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
         "patchSetId": 5
@@ -106,6 +202,30 @@
       "writtenOn": "2023-12-19T17:12:54Z",
       "side": 1,
       "message": "This wouldn\u0027t be fully translatable. You can create a UIString with a placeholder for `blockedReasonString`",
+      "range": {
+        "startLine": 784,
+        "startChar": 31,
+        "endLine": 784,
+        "endChar": 88
+      },
+      "revId": "547ea29e5b4f4f88a773555464b291b459e6e794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb9f194_e9f93cfd",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T23:28:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5aedc4af_4098e322",
       "range": {
         "startLine": 784,
         "startChar": 31,
@@ -129,6 +249,30 @@
       "writtenOn": "2023-12-19T17:12:54Z",
       "side": 1,
       "message": "similar to above: using title attribute might be enough",
+      "range": {
+        "startLine": 785,
+        "startChar": 8,
+        "endLine": 785,
+        "endChar": 64
+      },
+      "revId": "547ea29e5b4f4f88a773555464b291b459e6e794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1531a9d6_587ea026",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-19T23:28:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6b30b7f_0a85f027",
       "range": {
         "startLine": 785,
         "startChar": 8,
