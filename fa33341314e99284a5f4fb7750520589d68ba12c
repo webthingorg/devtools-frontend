@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c13377ed_3054f6e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2023-12-19T13:08:43Z",
+      "side": 1,
+      "message": "Wolfgang, please take a look!\n\nPeter had a look at the screenshots and is ok with this change: https://crbug.com/1468226#c4",
+      "revId": "fa33341314e99284a5f4fb7750520589d68ba12c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
