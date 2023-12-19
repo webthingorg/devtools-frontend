@@ -39,6 +39,76 @@
       },
       "revId": "147e388502204537b3729e41335463f95374cc61",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79ca9e25_1685849b",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-19T16:37:43Z",
+      "side": 1,
+      "message": "Because `addAttribute` transforms the key with `toLowerCase()`, it won\u0027t find it with an uppercase letter.",
+      "parentUuid": "45abdfc6_cdd7a117",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 43
+      },
+      "revId": "147e388502204537b3729e41335463f95374cc61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e134f615_690e5ed0",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-19T16:37:43Z",
+      "side": 1,
+      "message": "keep in lower case: see above",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "147e388502204537b3729e41335463f95374cc61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce24d558_43a1d1d9",
+        "filename": "test/unittests/front_end/core/sdk/Cookie_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-19T16:37:43Z",
+      "side": 1,
+      "message": "The partition key will be opaque as long as this key exists.",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 32
+      },
+      "revId": "147e388502204537b3729e41335463f95374cc61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
