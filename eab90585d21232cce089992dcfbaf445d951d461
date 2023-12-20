@@ -104,6 +104,24 @@
       "parentUuid": "9175474b_edbaebd0",
       "revId": "eab90585d21232cce089992dcfbaf445d951d461",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459784b3_a2bf7760",
+        "filename": "front_end/panels/application/SharedStorageItemsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-20T12:10:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "993faf86_d0a6a230",
+      "revId": "eab90585d21232cce089992dcfbaf445d951d461",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
