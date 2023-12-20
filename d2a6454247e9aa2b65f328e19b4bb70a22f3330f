@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d2a6454247e9aa2b65f328e19b4bb70a22f3330f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c36908f3_ad000fda",
+        "filename": "front_end/panels/network/RequestPayloadView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-20T15:15:26Z",
+      "side": 1,
+      "message": "How about passing the `jslogContext` to the `Category` constructor instead? And even though it\u0027s technically a tree, I\u0027d suggest to use `section` here instead.",
+      "revId": "d2a6454247e9aa2b65f328e19b4bb70a22f3330f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
