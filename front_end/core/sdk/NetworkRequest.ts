@@ -318,6 +318,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #wasIntercepted: boolean;
   #associatedData = new Map<string, object>();
   #hasOverriddenContent: boolean;
+  #hasThirdPartyCookiePhaseoutIssue: boolean;
 
   constructor(
       requestId: string, backendRequestId: Protocol.Network.RequestId|undefined, url: Platform.DevToolsPath.UrlString,
@@ -401,6 +402,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
     this.#wasIntercepted = false;
     this.#hasOverriddenContent = false;
+    this.#hasThirdPartyCookiePhaseoutIssue = false;
   }
 
   static create(
@@ -1511,6 +1513,13 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#clientSecurityStateInternal = extraRequestInfo.clientSecurityState;
     this.setConnectTimingFromExtraInfo(extraRequestInfo.connectTiming);
     this.#siteHasCookieInOtherPartition = extraRequestInfo.siteHasCookieInOtherPartition ?? false;
+
+    for (const item of this.#blockedRequestCookiesInternal) {
+      if (item.blockedReasons.includes(Protocol.Network.CookieBlockedReason.ThirdPartyPhaseout)) {
+        this.#hasThirdPartyCookiePhaseoutIssue = true;
+        break;
+      }
+    }
   }
 
   hasExtraRequestInfo(): boolean {
@@ -1579,16 +1588,35 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
     // TODO(crbug.com/1252463) Explore replacing this with a DevTools Issue.
     const networkManager = NetworkManager.forRequest(this);
-    if (networkManager) {
-      for (const blockedCookie of this.#blockedResponseCookiesInternal) {
-        if (blockedCookie.blockedReasons.includes(
-                Protocol.Network.SetCookieBlockedReason.NameValuePairExceedsMaxSize)) {
-          const message = i18nString(UIStrings.setcookieHeaderIsIgnoredIn, {PH1: this.url()});
-          networkManager.dispatchEventToListeners(
-              NetworkManagerEvents.MessageGenerated,
-              {message: message, requestId: this.#requestIdInternal, warning: true});
-        }
+    if (!networkManager) {
+      return;
+    }
+    for (const blockedCookie of this.#blockedResponseCookiesInternal) {
+      if (blockedCookie.blockedReasons.includes(Protocol.Network.SetCookieBlockedReason.NameValuePairExceedsMaxSize)) {
+        const message = i18nString(UIStrings.setcookieHeaderIsIgnoredIn, {PH1: this.url()});
+        networkManager.dispatchEventToListeners(
+            NetworkManagerEvents.MessageGenerated,
+            {message: message, requestId: this.#requestIdInternal, warning: true});
       }
+    }
+
+    const cookieModel = networkManager.target().model(CookieModel);
+    if (!cookieModel) {
+      return;
+    }
+    for (const blockedCookie of this.#blockedResponseCookiesInternal) {
+      const cookie = blockedCookie.cookie;
+      if (!cookie) {
+        continue;
+      }
+      if (blockedCookie.blockedReasons.includes(Protocol.Network.SetCookieBlockedReason.ThirdPartyPhaseout)) {
+        this.#hasThirdPartyCookiePhaseoutIssue = true;
+      }
+      cookieModel.addBlockedCookie(
+          cookie, blockedCookie.blockedReasons.map(blockedReason => ({
+                                                     attribute: setCookieBlockedReasonToAttribute(blockedReason),
+                                                     uiString: setCookieBlockedReasonToUiString(blockedReason),
+                                                   })));
     }
   }
 
@@ -1669,6 +1697,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   deleteAssociatedData(key: string): void {
     this.#associatedData.delete(key);
+  }
+
+  hasThirdPartyCookiePhaseoutIssue(): boolean {
+    return this.#hasThirdPartyCookiePhaseoutIssue;
   }
 }
 
