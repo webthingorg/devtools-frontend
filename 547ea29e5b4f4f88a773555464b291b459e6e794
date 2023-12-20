@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9bdeb60_d3130a7e",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-20T10:33:19Z",
+      "side": 1,
+      "message": "You\u0027re right, let\u0027s keep it an icon then. Just add `cursor: pointer` via CSS then.",
+      "parentUuid": "05f06497_ecbef073",
+      "range": {
+        "startLine": 781,
+        "startChar": 30,
+        "endLine": 781,
+        "endChar": 52
+      },
+      "revId": "547ea29e5b4f4f88a773555464b291b459e6e794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5aedc4af_4098e322",
         "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
         "patchSetId": 5
