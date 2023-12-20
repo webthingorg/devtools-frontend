@@ -73,6 +73,30 @@
       },
       "revId": "b7dc4e89cda26967e15690fcca5bdd29b477a47f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b34fe565_c9a1b98b",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-20T08:45:20Z",
+      "side": 1,
+      "message": "When hovering over a grid row, parts of the address shown (outside of the grid) are being highlighted.",
+      "parentUuid": "23bb8465_453a83b0",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 82
+      },
+      "revId": "b7dc4e89cda26967e15690fcca5bdd29b477a47f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
