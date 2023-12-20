@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c550ef64_39cdda47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341608
+      },
+      "writtenOn": "2023-12-20T05:06:20Z",
+      "side": 1,
+      "message": "Sorry for the late, because of long vacation :)\nI will update the patch maybe at the start of 2024.",
+      "revId": "c652dcc5600ec0ac99c0e0fa679e5e595d0c8de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
