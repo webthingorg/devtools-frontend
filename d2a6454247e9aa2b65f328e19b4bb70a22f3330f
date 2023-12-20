@@ -33,6 +33,24 @@
       "message": "How about passing the `jslogContext` to the `Category` constructor instead? And even though it\u0027s technically a tree, I\u0027d suggest to use `section` here instead.",
       "revId": "d2a6454247e9aa2b65f328e19b4bb70a22f3330f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6088b37_b95f7046",
+        "filename": "front_end/panels/network/RequestPayloadView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-20T16:04:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c36908f3_ad000fda",
+      "revId": "d2a6454247e9aa2b65f328e19b4bb70a22f3330f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
