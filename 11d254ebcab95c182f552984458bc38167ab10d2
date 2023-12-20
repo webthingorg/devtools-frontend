@@ -16,6 +16,57 @@
       "message": "Benedikt, could you please take a look?",
       "revId": "11d254ebcab95c182f552984458bc38167ab10d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64ea052b_0cb874f1",
+        "filename": "front_end/panels/application/ServiceWorkerCacheViews.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-20T13:30:33Z",
+      "side": 1,
+      "message": "`ToolbarButton` accepts a `jslogContext` parameter. Also please prefix this with `cache-storage` to make the action globally unique, e.g. `\u0027cache-storage.refresh\u0027`.",
+      "revId": "11d254ebcab95c182f552984458bc38167ab10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6c5a46_b94a6099",
+        "filename": "front_end/panels/application/ServiceWorkerCacheViews.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-20T13:30:33Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "11d254ebcab95c182f552984458bc38167ab10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94412e57_f5acfb13",
+        "filename": "front_end/panels/network/RequestPreviewView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-20T13:30:33Z",
+      "side": 1,
+      "message": "Let\u0027s not instrument toolbars (we opted against that early on), but instrument the panes in the tabbed container instead.",
+      "revId": "11d254ebcab95c182f552984458bc38167ab10d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
