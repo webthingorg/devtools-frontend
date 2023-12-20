@@ -16,6 +16,23 @@
       "message": "@andoli PTAL! I am also OOO after today, so could I be naughty and ask if you don\u0027t mind to take this on, fix up any concerns and land this?",
       "revId": "df3a9a0cf3ce35d4e3afa19b1c5acd4faea7c310",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2baff6fe_60cfdc5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-20T18:06:02Z",
+      "side": 1,
+      "message": "(After this CL lands we should be in a good spot to remove TracingModel.isGenericTrace too)",
+      "revId": "df3a9a0cf3ce35d4e3afa19b1c5acd4faea7c310",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
