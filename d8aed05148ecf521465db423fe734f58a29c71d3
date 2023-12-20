@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "704b6ad4_7b820561",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-20T17:59:38Z",
+      "side": 1,
+      "message": "lgtm because I am OOO and Paul and I discussed the plan forward",
+      "revId": "d8aed05148ecf521465db423fe734f58a29c71d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
