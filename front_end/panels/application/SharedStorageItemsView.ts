@@ -5,12 +5,13 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Protocol from '../../generated/protocol.js';
+import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
-import * as ApplicationComponents from './components/components.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
+import * as ApplicationComponents from './components/components.js';
 import {SharedStorageForOrigin} from './SharedStorageModel.js';
 import {StorageItemsView} from './StorageItemsView.js';
 
@@ -161,6 +162,7 @@ export class SharedStorageItemsView extends StorageItemsView {
 
     this.outerSplitWidget = new UI.SplitWidget.SplitWidget(
         /* isVertical: */ false, /* secondIsSidebar: */ true, 'sharedStorageOuterSplitViewState');
+    this.outerSplitWidget.contentElement.setAttribute('jslog', `${VisualLogging.pane().context('shared-storage')}`);
     this.outerSplitWidget.show(this.element);
     this.outerSplitWidget.setMainWidget(this.innerSplitWidget);
     this.outerSplitWidget.setSidebarWidget(this.#noDisplayView);
