@@ -16,6 +16,23 @@
       "message": "Hi Jack,\n\nNice to meet you! I\u0027m a new member on Edge devtools team and currently working on a devtool accessibility bug. Could you help me review this CL to fix this issue where screen reader is not announcing the state of breakpoint checkbox correctly? Hopefully it will be a quick review 😊\n\nThanks,\nJayson",
       "revId": "d03c909dcdd003e97a6bed3442b23e36948e6fc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36bfe57c_40806cd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2023-12-20T18:08:15Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "d03c909dcdd003e97a6bed3442b23e36948e6fc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
