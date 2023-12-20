@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e42a8ecf_745cb4b5",
+        "filename": "front_end/panels/application/components/BackForwardCacheView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-20T14:46:03Z",
+      "side": 1,
+      "message": "Please use a globally unique action like `\u0027back-forward-cache.run-test\u0027`",
+      "revId": "04e385a555ad82707e6b8a9a59e9dd55fa6ab696",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
