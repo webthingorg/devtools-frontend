@@ -33,6 +33,46 @@
       "message": "Simon, PTAL",
       "revId": "b7dc4e89cda26967e15690fcca5bdd29b477a47f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "100f3e41_05828d07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-20T08:41:16Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "b7dc4e89cda26967e15690fcca5bdd29b477a47f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23bb8465_453a83b0",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-20T08:41:16Z",
+      "side": 1,
+      "message": "question: Why does a mouse enter trigger a re-render?",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 82
+      },
+      "revId": "b7dc4e89cda26967e15690fcca5bdd29b477a47f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
