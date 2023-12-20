@@ -39,6 +39,30 @@
       },
       "revId": "b6a81509cf5914e44454764804f2797fecb5931e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bef47e96_33ba9538",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-20T10:56:22Z",
+      "side": 1,
+      "message": "Hm, I\u0027m not sure whether that\u0027s necessary. IIUC Application-\u003ecookies shows the cookies stored in the browser. Does it make sense to annotate blocked request cookies there?",
+      "parentUuid": "45cafe5e_af3928bb",
+      "range": {
+        "startLine": 1584,
+        "startChar": 18,
+        "endLine": 1584,
+        "endChar": 34
+      },
+      "revId": "b6a81509cf5914e44454764804f2797fecb5931e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
