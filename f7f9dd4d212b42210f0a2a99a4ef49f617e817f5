@@ -33,6 +33,24 @@
       "message": "```suggestion\n    if (\u0027partitionKeyOpaque\u0027 in protocolCookie \u0026\u0026 protocolCookie.partitionKeyOpaque) {\n```",
       "revId": "f7f9dd4d212b42210f0a2a99a4ef49f617e817f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "527c8060_5b979296",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-20T14:13:14Z",
+      "side": 1,
+      "message": "Done. Somehow that was the suggestion of the VSC..",
+      "parentUuid": "d0be3248_ac4efa6d",
+      "revId": "f7f9dd4d212b42210f0a2a99a4ef49f617e817f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
