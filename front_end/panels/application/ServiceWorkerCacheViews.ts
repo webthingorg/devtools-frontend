@@ -10,6 +10,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 import * as NetworkComponents from '../network/components/components.js';
 import * as Network from '../network/network.js';
 
@@ -102,6 +103,7 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
 
     this.element.classList.add('service-worker-cache-data-view');
     this.element.classList.add('storage-view');
+    this.element.setAttribute('jslog', `${VisualLogging.pane().context('cache-storage-data')}`);
 
     const editorToolbar = new UI.Toolbar.Toolbar('data-view-toolbar', this.element);
     this.element.appendChild(this.metadataView);
@@ -128,12 +130,16 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
     this.refreshThrottler = new Common.Throttler.Throttler(300);
     this.refreshButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'refresh');
     this.refreshButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, this.refreshButtonClicked, this);
+    this.refreshButton.element.setAttribute(
+        'jslog', `${VisualLogging.action().track({click: true}).context('refresh')}`);
     editorToolbar.appendToolbarItem(this.refreshButton);
 
     this.deleteSelectedButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.deleteSelected), 'cross');
     this.deleteSelectedButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, _event => {
       void this.deleteButtonClicked(null);
     });
+    this.deleteSelectedButton.element.setAttribute(
+        'jslog', `${VisualLogging.action().track({click: true}).context('delete-selected')}`);
     editorToolbar.appendToolbarItem(this.deleteSelectedButton);
 
     const entryPathFilterBox = new UI.Toolbar.ToolbarInput(i18nString(UIStrings.filterByPath), '', 1);
@@ -290,6 +296,7 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
       this.summaryBarElement = this.element.createChild('div', 'cache-storage-summary-bar');
     }
     this.summaryBarElement.removeChildren();
+    this.summaryBarElement.setAttribute('jslog', `${VisualLogging.section().context('storage-summary-bar')}`);
 
     const span = this.summaryBarElement.createChild('span');
     if (this.entryPathFilter) {
