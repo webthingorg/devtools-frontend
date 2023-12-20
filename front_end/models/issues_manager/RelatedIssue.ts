@@ -22,10 +22,10 @@ function issuesAssociatedWithNetworkRequest(issues: Issue[], request: SDK.Networ
   });
 }
 
-function issuesAssociatedWithCookie(issues: Issue[], domain: string, name: string, path: string): Issue[] {
+function issuesAssociatedWithCookie(issues: Issue[], domain: string, name: string|null, path: string|null): Issue[] {
   return issues.filter(issue => {
     for (const cookie of issue.cookies()) {
-      if (cookie.domain === domain && cookie.name === name && cookie.path === path) {
+      if (cookie.domain === domain && (name ? cookie.name === name : true) && (path ? cookie.path === path : true)) {
         return true;
       }
     }
@@ -59,6 +59,12 @@ export function hasIssueOfCategory(obj: IssuesAssociatable, category: IssueCateg
 export function hasThirdPartyPhaseoutCookieIssue(obj: IssuesAssociatable): boolean {
   const issues = Array.from(IssuesManager.instance().issues());
   return issuesAssociatedWith(issues, obj)
+      .some(issue => CookieIssue.getSubCategory(issue.code()) === CookieIssueSubCategory.ThirdPartyPhaseoutCookie);
+}
+
+export function hasThirdPartyPhaseoutCookieIssueForDomain(domain: string): boolean {
+  const issues = Array.from(IssuesManager.instance().issues());
+  return issuesAssociatedWithCookie(issues, domain, null, null)
       .some(issue => CookieIssue.getSubCategory(issue.code()) === CookieIssueSubCategory.ThirdPartyPhaseoutCookie);
 }
 

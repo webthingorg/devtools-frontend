@@ -776,11 +776,12 @@ export class DataGridNode extends DataGrid.DataGrid.DataGridNode<DataGridNode> {
         }
       }
     }
-
-    if (blockedReasonString) {
+    // When CookiesTable gets created in Application panel instead of Network Panel, `this.blockedReasons` only contains reasons for blocked cookies in reponses.
+    // We want to show the warning icon for blocked cookies in requests as well.
+    const hasThirdPartyPhaseoutCookieIssue = IssuesManager.RelatedIssue.hasThirdPartyPhaseoutCookieIssue(this.cookie);
+    if (blockedReasonString || hasThirdPartyPhaseoutCookieIssue) {
       const infoElement = new IconButton.Icon.Icon();
-      if (columnId === SDK.Cookie.Attributes.Name &&
-          IssuesManager.RelatedIssue.hasThirdPartyPhaseoutCookieIssue(this.cookie)) {
+      if (columnId === SDK.Cookie.Attributes.Name && hasThirdPartyPhaseoutCookieIssue) {
         infoElement.data = {iconName: 'warning-filled', color: 'var(--icon-warning)', width: '14px', height: '14px'};
         infoElement.onclick = (): Promise<void> => IssuesManager.RelatedIssue.reveal(this.cookie);
         infoElement.style.cursor = 'pointer';

@@ -1495,12 +1495,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.setConnectTimingFromExtraInfo(extraRequestInfo.connectTiming);
     this.#siteHasCookieInOtherPartition = extraRequestInfo.siteHasCookieInOtherPartition ?? false;
 
-    for (const item of this.#blockedRequestCookiesInternal) {
-      if (item.blockedReasons.includes(Protocol.Network.CookieBlockedReason.ThirdPartyPhaseout)) {
-        this.#hasThirdPartyCookiePhaseoutIssue = true;
-        break;
-      }
-    }
+    this.#hasThirdPartyCookiePhaseoutIssue =
+        this.#blockedRequestCookiesInternal
+            ?.filter(item => item.blockedReasons.includes(Protocol.Network.CookieBlockedReason.ThirdPartyPhaseout))
+            .length > 0;
   }
 
   hasExtraRequestInfo(): boolean {

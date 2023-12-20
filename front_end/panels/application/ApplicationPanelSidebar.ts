@@ -39,6 +39,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -210,6 +211,11 @@ const UIStrings = {
    * @description Application sidebar panel
    */
   applicationSidebarPanel: 'Application panel sidebar',
+  /**
+   *@description Tooltip in Application Panel Sidebar of the Application panel
+   *@example {https://example.com} PH1
+   */
+  thirdPartyPhaseout: 'Cookies from {PH1} may have been blocked due to third-party cookie phaseout.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/ApplicationPanelSidebar.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -1773,6 +1779,10 @@ export class CookieTreeElement extends ApplicationPanelTreeElement {
     this.cookieDomainInternal = cookieDomain;
     this.tooltip = i18nString(UIStrings.cookiesUsedByFramesFromS, {PH1: cookieDomain});
     const icon = UI.Icon.Icon.create('cookie', 'resource-tree-item');
+    if (IssuesManager.RelatedIssue.hasThirdPartyPhaseoutCookieIssueForDomain(cookieDomain)) {
+      icon.setIconColor('var(--icon-warning)');
+      this.tooltip = i18nString(UIStrings.thirdPartyPhaseout, {PH1: cookieDomain});
+    }
     this.setLeadingIcons([icon]);
   }
 
