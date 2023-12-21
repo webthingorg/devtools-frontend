@@ -50,6 +50,24 @@
       "message": "Use `link()` instead of `action()`.",
       "revId": "afa339f2f528057884b06d47a623aa7edfa74350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c1ef385_af5b0934",
+        "filename": "front_end/panels/application/BackgroundServiceView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-21T10:19:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0afe7e9d_b94de1cb",
+      "revId": "afa339f2f528057884b06d47a623aa7edfa74350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
