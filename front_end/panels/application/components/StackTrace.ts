@@ -4,14 +4,15 @@
 
 import * as i18n from '../../../core/i18n/i18n.js';
 import type * as SDK from '../../../core/sdk/sdk.js';
+import type * as Protocol from '../../../generated/protocol.js';
 import * as ExpandableList from '../../../ui/components/expandable_list/expandable_list.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
-import type * as Protocol from '../../../generated/protocol.js';
+import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
-import stackTraceRowStyles from './stackTraceRow.css.js';
 import stackTraceLinkButtonStyles from './stackTraceLinkButton.css.js';
+import stackTraceRowStyles from './stackTraceRow.css.js';
 
 const UIStrings = {
   /**
@@ -166,7 +167,8 @@ export class StackTrace extends HTMLElement {
           expandableRows.push(LitHtml.html`
           <${StackTraceRow.litTagName} data-stack-trace-row .data=${{
             stackTraceRowItem: item,
-          } as StackTraceRowData}></${StackTraceRow.litTagName}>`);
+          } as StackTraceRowData}
+          jslog=${VisualLogging.treeItem()}></${StackTraceRow.litTagName}>`);
         }
         if ('asyncDescription' in item) {
           expandableRows.push(LitHtml.html`
@@ -206,7 +208,8 @@ export class StackTrace extends HTMLElement {
       LitHtml.html`
         <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${{
           rows: expandableRows,
-        } as ExpandableList.ExpandableList.ExpandableListData}>
+        } as ExpandableList.ExpandableList.ExpandableListData}
+        jslog=${VisualLogging.tree()}>
         </${ExpandableList.ExpandableList.ExpandableList.litTagName}>
       `,
       this.#shadow, {host: this});

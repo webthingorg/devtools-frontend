@@ -20,6 +20,7 @@ import * as Coordinator from '../../../ui/components/render_coordinator/render_c
 import * as ReportView from '../../../ui/components/report_view/report_view.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
 import frameDetailsReportViewStyles from './frameDetailsReportView.css.js';
 import {OriginTrialTreeView, type OriginTrialTreeViewData} from './OriginTrialTreeView.js';
@@ -307,7 +308,8 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
       // Disabled until https://crbug.com/1079231 is fixed.
       // clang-format off
       LitHtml.render(LitHtml.html`
-        <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.#frame.displayName()} as ReportView.ReportView.ReportData}>
+        <${ReportView.ReportView.Report.litTagName} .data=${{reportTitle: this.#frame.displayName()} as ReportView.ReportView.ReportData}
+        jslog=${VisualLogging.pane().context('frames')}>
           ${this.#renderDocumentSection()}
           ${this.#renderIsolationSection()}
           ${this.#renderApiAvailabilitySection()}
@@ -357,7 +359,8 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
           iconHeight: '14px',
         } as IconButton.IconButton.IconWithTextData,
       ],
-    } as IconButton.IconButton.IconButtonData}>
+    } as IconButton.IconButton.IconButtonData}
+    jslog=${VisualLogging.action().track({click: true}).context('refresh.origin-trials')}>
       </${IconButton.IconButton.IconButton.litTagName}>
     </${ReportView.ReportView.ReportSectionHeader.litTagName}>
     ${this.#originTrialTreeView}
@@ -402,6 +405,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
         'breakpoint-circle',
         i18nString(UIStrings.clickToRevealInSourcesPanel),
         (): Promise<void> => Common.Revealer.reveal(sourceCode),
+        'reveal-in-sources',
     );
   }
 
@@ -415,7 +419,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
               const requestLocation = NetworkForward.UIRequestLocation.UIRequestLocation.tab(
                   request, NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent);
               return Common.Revealer.reveal(requestLocation);
-            });
+            }, 'reveal-in-network');
       }
     }
     return LitHtml.nothing;
@@ -470,6 +474,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
                     },
                   ]));
                 },
+            'reveal-in-network',
         );
       }
     }
@@ -504,6 +509,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
                 @mouseleave=${(): void => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight()}
                 @click=${(): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode)}
                 title=${i18nString(UIStrings.clickToRevealInElementsPanel)}
+                jslog=${VisualLogging.action().track({click: true}).context('reveal-in-elements')}
               >
                 <${IconButton.Icon.Icon.litTagName} .data=${{
                   iconName: 'code-circle',
@@ -517,6 +523,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
                 @mouseenter=${(): Promise<void>|undefined => this.#frame?.highlight()}
                 @mouseleave=${(): void => SDK.OverlayModel.OverlayModel.hideDOMNodeHighlight()}
                 @click=${(): Promise<void> => Common.Revealer.reveal(linkTargetDOMNode)}
+                jslog=${VisualLogging.link().track({click: true}).context('reveal-in-elements')}
               >
                 &lt;${linkTargetDOMNode.nodeName().toLocaleLowerCase()}&gt;
               </button>
@@ -537,7 +544,9 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
       return LitHtml.html`
         <${ReportView.ReportView.ReportKey.litTagName} title=${i18nString(UIStrings.creationStackTraceExplanation)}>${
           i18nString(UIStrings.creationStackTrace)}</${ReportView.ReportView.ReportKey.litTagName}>
-        <${ReportView.ReportView.ReportValue.litTagName}>
+        <${ReportView.ReportView.ReportValue.litTagName}
+        jslog=${VisualLogging.section().context('frame-creation-stack-trace')}
+        >
           <${StackTrace.litTagName} .data=${{
             frame: this.#frame,
             buildStackTraceRows: Components.JSPresentationUtils.buildStackTraceRows,
@@ -595,14 +604,16 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
     return LitHtml.html`
       <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.adStatus)}</${
         ReportView.ReportView.ReportKey.litTagName}>
-      <${ReportView.ReportView.ReportValue.litTagName}>
+      <${ReportView.ReportView.ReportValue.litTagName}
+      jslog=${VisualLogging.section().context('ad-status')}>
         <${ExpandableList.ExpandableList.ExpandableList.litTagName} .data=${
           {rows} as ExpandableList.ExpandableList.ExpandableListData}></${
         ExpandableList.ExpandableList.ExpandableList.litTagName}></${ReportView.ReportView.ReportValue.litTagName}>
       ${this.#target ? LitHtml.html`
         <${ReportView.ReportView.ReportKey.litTagName}>${i18nString(UIStrings.creatorAdScript)}</${
           ReportView.ReportView.ReportKey.litTagName}>
-        <${ReportView.ReportView.ReportValue.litTagName} class="ad-script-link">${adScriptLinkElement}</${
+        <${ReportView.ReportView.ReportValue.litTagName} class="ad-script-link"
+        jslog=${VisualLogging.link().track({click: true}).context('ad-script')}>${adScriptLinkElement}</${
           ReportView.ReportView.ReportValue.litTagName}>
       ` : LitHtml.nothing}
     `;
@@ -720,6 +731,7 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
           }<x-link
             class="link"
             href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only"
+            jslog=${VisualLogging.link().track({click: true}).context('learn-more.csp-report-only')}
           ><${
             IconButton.Icon.Icon.litTagName} .data=${{
               iconName: 'help',
@@ -776,7 +788,9 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
         ReportView.ReportView.ReportSectionHeader.litTagName}>
       <div class="span-cols">
         ${i18nString(UIStrings.availabilityOfCertainApisDepends)}
-        <x-link href="https://web.dev/why-coop-coep/" class="link">${i18nString(UIStrings.learnMore)}</x-link>
+        <x-link href="https://web.dev/why-coop-coep/" class="link" jslog=${
+        VisualLogging.link().track({click: true}).context('learn-more.coop-coep')}>${
+        i18nString(UIStrings.learnMore)}</x-link>
       </div>
       ${this.#renderSharedArrayBufferAvailability()}
       ${this.#renderMeasureMemoryAvailability()}
@@ -847,7 +861,8 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
           ReportView.ReportView.ReportKey.litTagName}>
         <${ReportView.ReportView.ReportValue.litTagName}>
           <span title=${tooltipText}>${
-          availabilityText}</span>\xA0<x-link class="link" href="https://web.dev/monitor-total-page-memory-usage/">${
+          availabilityText}</span>\xA0<x-link class="link" href="https://web.dev/monitor-total-page-memory-usage/" jslog=${
+          VisualLogging.link().track({click: true}).context('learn-more.monitor-memory-usage')}>${
           i18nString(UIStrings.learnMore)}</x-link>
         </${ReportView.ReportView.ReportValue.litTagName}>
       `;
