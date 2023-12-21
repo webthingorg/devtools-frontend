@@ -22,6 +22,30 @@
       },
       "revId": "8b6ba8c32158cb0fed263acefeecf2c2f27aaa1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2b8fae_78783d2b",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-21T10:52:26Z",
+      "side": 0,
+      "message": "The experiment only gates the usage of the WebIDL bit in the TreeOutline, so we don\u0027t need that to test the actual logic to put the bit on the properties.",
+      "parentUuid": "eb13b292_84319a4b",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 97
+      },
+      "revId": "8b6ba8c32158cb0fed263acefeecf2c2f27aaa1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
