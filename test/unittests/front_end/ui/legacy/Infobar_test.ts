@@ -47,7 +47,7 @@ describe('Infobar', () => {
   it('shows details message containing HTML element(s)', () => {
     const component = new UI.Infobar.Infobar(UI.Infobar.Type.Warning, 'This is a warning');
     const linkText = 'example-link';
-    const link = UI.XLink.XLink.create('https://www.example.com', linkText);
+    const link = UI.XLink.XLink.create('https://www.example.com', linkText, undefined, undefined, 'example');
     component.createDetailsRowMessage(link);
     checkDetailsMessage(component, linkText);
   });
