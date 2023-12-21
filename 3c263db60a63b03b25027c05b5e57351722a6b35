@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c313d8b7_8b0cfaf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2023-12-21T13:50:57Z",
+      "side": 1,
+      "message": "Thanks Wolfgang! Could you please renew the +1?",
+      "revId": "3c263db60a63b03b25027c05b5e57351722a6b35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
