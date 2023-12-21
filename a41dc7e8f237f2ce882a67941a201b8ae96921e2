@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc85744_5e940dfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-21T21:48:26Z",
+      "side": 1,
+      "message": "This cherry-pick merge conflict was due to change in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5134971. I manually removed the conflict. PTAL.",
+      "revId": "a41dc7e8f237f2ce882a67941a201b8ae96921e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
