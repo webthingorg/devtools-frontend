@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb13b292_84319a4b",
+        "filename": "test/unittests/front_end/ui/legacy/components/object_ui/ObjectPropertiesSection_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-21T10:49:07Z",
+      "side": 0,
+      "message": "The old tests seem to enable an experiment. Does the experiment work only on the UI level or are we removing the experiment?",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 97
+      },
+      "revId": "8b6ba8c32158cb0fed263acefeecf2c2f27aaa1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
