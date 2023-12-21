@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d38569e_9a055d3f",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-21T04:27:52Z",
+      "side": 1,
+      "message": "@wolfi@chromium.org\nSomehow this always return `false`. Is that because the elements get created before the issues are received?",
+      "range": {
+        "startLine": 1782,
+        "startChar": 8,
+        "endLine": 1782,
+        "endChar": 90
+      },
+      "revId": "d13bd315bd9a937a30827a374f0c89d539aa6991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
