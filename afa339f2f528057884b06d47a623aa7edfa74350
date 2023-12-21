@@ -16,6 +16,40 @@
       "message": "Benedikt, please kindly take a look?:)",
       "revId": "afa339f2f528057884b06d47a623aa7edfa74350",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a6aa619_d353009e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-21T10:05:37Z",
+      "side": 1,
+      "message": "LGTM modulo comment.",
+      "revId": "afa339f2f528057884b06d47a623aa7edfa74350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0afe7e9d_b94de1cb",
+        "filename": "front_end/panels/application/BackgroundServiceView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2023-12-21T10:05:37Z",
+      "side": 1,
+      "message": "Use `link()` instead of `action()`.",
+      "revId": "afa339f2f528057884b06d47a623aa7edfa74350",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
