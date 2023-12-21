@@ -438,7 +438,7 @@ export class BackgroundServiceView extends UI.Widget.VBox {
         break;
     }
 
-    return UI.XLink.XLink.create(url, i18nString(UIStrings.learnMore));
+    return UI.XLink.XLink.create(url, i18nString(UIStrings.learnMore), undefined, undefined, 'learn-more');
   }
 
   private showPreview(dataNode: EventDataNode|null): void {
