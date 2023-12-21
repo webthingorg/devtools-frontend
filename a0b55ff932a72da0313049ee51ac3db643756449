@@ -16,6 +16,46 @@
       "message": "Wolfgang, could you please take a look?",
       "revId": "a0b55ff932a72da0313049ee51ac3db643756449",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a303b62d_fb12f3fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-21T13:47:49Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a0b55ff932a72da0313049ee51ac3db643756449",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5b8886_a81f072c",
+        "filename": "test/unittests/front_end/ui/legacy/Infobar_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-21T13:47:49Z",
+      "side": 1,
+      "message": "nit: probably not necessary to do add this for a test",
+      "range": {
+        "startLine": 50,
+        "startChar": 76,
+        "endLine": 50,
+        "endChar": 109
+      },
+      "revId": "a0b55ff932a72da0313049ee51ac3db643756449",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
