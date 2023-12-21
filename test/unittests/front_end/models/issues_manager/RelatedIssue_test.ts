@@ -63,4 +63,19 @@ describe('issuesAssociatedWith', () => {
     assert.deepStrictEqual(IssuesManager.RelatedIssue.issuesAssociatedWith(issues, cookie2), [issue1]);
     assert.deepStrictEqual(IssuesManager.RelatedIssue.issuesAssociatedWith(issues, cookie3), [issue2]);
   });
+
+  it('should correctly filter issues associated with a domain', () => {
+    const c1 = {name: 'c1', domain: 'domain1'};
+    const c2 = {name: 'c2', domain: 'domain1'};
+    const c3 = {name: 'c3', domain: 'domain2'};
+    const issue1 = StubIssue.createCookieIssue('CookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie', [c1]);
+    const issue2 = StubIssue.createCookieIssue('CookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::SetCookie', [c2]);
+    const issue3 = StubIssue.createCookieIssue('CookieIssue::ExcludeThirdPartyPhaseout::SetCookie', [c3]);
+    const issues = [issue1, issue2, issue3];
+
+    assert.deepStrictEqual(
+        IssuesManager.RelatedIssue.issuesAssociatedWithCookie(issues, 'domain1', null, null), [issue1, issue2]);
+    assert.deepStrictEqual(
+        IssuesManager.RelatedIssue.issuesAssociatedWithCookie(issues, 'domain2', null, null), [issue3]);
+  });
 });

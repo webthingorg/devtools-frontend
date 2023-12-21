@@ -10,18 +10,23 @@ import {
   IssueKind,
 } from '../../../../../front_end/models/issues_manager/Issue.js';
 
+export interface StubCookie {
+  name: string;
+  domain: string;
+}
+
 export class StubIssue extends Issue {
   private requestIds: string[];
-  private cookieNames: string[];
+  private stubCookies: StubCookie[];
   private issueKind: IssueKind;
   private locations: Protocol.Audits.SourceCodeLocation[] = [];
   private mockIssueId?: Protocol.Audits.IssueId;
   private mockIssueCategory?: IssueCategory;
 
-  constructor(code: string, requestIds: string[], cookieNames: string[], issueKind = IssueKind.Improvement) {
+  constructor(code: string, requestIds: string[], cookies: StubCookie[], issueKind = IssueKind.Improvement) {
     super(code);
     this.requestIds = requestIds;
-    this.cookieNames = cookieNames;
+    this.stubCookies = cookies;
     this.issueKind = issueKind;
   }
 
@@ -31,7 +36,7 @@ export class StubIssue extends Issue {
   }
 
   primaryKey(): string {
-    return `${this.code()}-(${this.cookieNames.join(';')})-(${this.requestIds.join(';')})`;
+    return `${this.code()}-(${this.stubCookies.join(';')})-(${this.requestIds.join(';')})`;
   }
 
   override requests() {
@@ -53,8 +58,8 @@ export class StubIssue extends Issue {
   }
 
   override cookies() {
-    return this.cookieNames.map(name => {
-      return {name, domain: '', path: ''};
+    return this.stubCookies.map(cookie => {
+      return {name: cookie.name, domain: cookie.domain, path: ''};
     });
   }
 
@@ -67,7 +72,9 @@ export class StubIssue extends Issue {
   }
 
   static createFromCookieNames(cookieNames: string[]) {
-    return new StubIssue('StubIssue', [], cookieNames);
+    return new StubIssue('StubIssue', [], cookieNames.map(name => {
+      return {name, domain: '', path: ''};
+    }));
   }
 
   static createFromIssueKinds(issueKinds: IssueKind[]) {
@@ -86,8 +93,8 @@ export class StubIssue extends Issue {
     return issue;
   }
 
-  static createCookieIssue(code: string) {
-    const issue = new StubIssue(code, [], []);
+  static createCookieIssue(code: string, cookies: StubCookie[]) {
+    const issue = new StubIssue(code, [], cookies);
     issue.mockIssueCategory = IssueCategory.Cookie;
     return issue;
   }
