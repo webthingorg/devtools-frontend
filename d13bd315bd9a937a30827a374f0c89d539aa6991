@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9a27d4f_011d7cfb",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-21T17:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4402c9a7_d0f46082",
+      "range": {
+        "startLine": 1500,
+        "startChar": 14,
+        "endLine": 1500,
+        "endChar": 20
+      },
+      "revId": "d13bd315bd9a937a30827a374f0c89d539aa6991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d38569e_9a055d3f",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "No, it\u0027s because the domain comparison in `hasThirdPartyPhaseoutCookieIssueForDomain` never returns true. You\u0027re comparing a domain with scheme to a domain without scheme.\n\nMy suggestion would be to change the parameter for the `CookieTreeElement` constructor from `string` to `ParsedURL`. And then use `parsedUrl.domain()` in the call to `hasThirdPartyPhaseoutCookieIssueForDomain`, and `const cookieDomain \u003d parsedUrl.securityOrigin()` as before elsewhere.",
       "parentUuid": "4d38569e_9a055d3f",
+      "range": {
+        "startLine": 1782,
+        "startChar": 8,
+        "endLine": 1782,
+        "endChar": 90
+      },
+      "revId": "d13bd315bd9a937a30827a374f0c89d539aa6991",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95381227_aa5ddee5",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2023-12-21T17:00:32Z",
+      "side": 1,
+      "message": "I see, thanks!",
+      "parentUuid": "236e1f4b_912c27ef",
       "range": {
         "startLine": 1782,
         "startChar": 8,
