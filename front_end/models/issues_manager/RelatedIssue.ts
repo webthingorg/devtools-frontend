@@ -21,8 +21,11 @@ function issuesAssociatedWithNetworkRequest(issues: Issue[], request: SDK.Networ
     return false;
   });
 }
-
-function issuesAssociatedWithCookie(issues: Issue[], domain: string, name: string|null, path: string|null): Issue[] {
+/**
+ * Exported for test purposes.
+ */
+export function issuesAssociatedWithCookie(
+    issues: Issue[], domain: string, name: string|null, path: string|null): Issue[] {
   return issues.filter(issue => {
     for (const cookie of issue.cookies()) {
       if (cookie.domain === domain && (name ? cookie.name === name : true) && (path ? cookie.path === path : true)) {

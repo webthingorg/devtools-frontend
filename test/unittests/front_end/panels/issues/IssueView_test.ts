@@ -32,7 +32,7 @@ describeWithRealConnection('IssueView', () => {
 
   it('records metrics when a SameSite Cookie issue is expanded', () => {
     const aggregationKey = 'key' as unknown as Issues.IssueAggregator.AggregationKey;
-    const issue = StubIssue.createCookieIssue('CookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie');
+    const issue = StubIssue.createCookieIssue('CookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie', []);
     const aggregatedIssue = new Issues.IssueAggregator.AggregatedIssue(
         'CookieIssue::WarnSameSiteUnspecifiedLaxAllowUnsafe::ReadCookie', aggregationKey);
     aggregatedIssue.addInstance(issue);
@@ -54,7 +54,7 @@ describeWithRealConnection('IssueView', () => {
 
   it('records metrics when a ThirdPartyPhaseout Cookie issue is expanded', () => {
     const aggregationKey = 'key' as unknown as Issues.IssueAggregator.AggregationKey;
-    const issue = StubIssue.createCookieIssue('CookieIssue::WarnThirdPartyPhaseout::ReadCookie');
+    const issue = StubIssue.createCookieIssue('CookieIssue::WarnThirdPartyPhaseout::ReadCookie', []);
     const aggregatedIssue =
         new Issues.IssueAggregator.AggregatedIssue('CookieIssue::WarnThirdPartyPhaseout::ReadCookie', aggregationKey);
     aggregatedIssue.addInstance(issue);
