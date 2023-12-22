@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "fc77fc305707f092ec036eb86bd968bef7f0acab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fbe510_28c7e7ba",
+        "filename": "front_end/core/host/InspectorFrontendHost.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2023-12-22T08:34:10Z",
+      "side": 1,
+      "message": "typo: when",
+      "range": {
+        "startLine": 83,
+        "startChar": 57,
+        "endLine": 83,
+        "endChar": 58
+      },
+      "revId": "fc77fc305707f092ec036eb86bd968bef7f0acab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
