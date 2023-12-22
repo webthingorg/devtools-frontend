@@ -16,6 +16,138 @@
       "message": "Wolfgang, could you please take a look?",
       "revId": "871ea35ab79a7c3a9d4875d5ef081c0784fdb161",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19af4ffd_2f1dd0d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T09:08:42Z",
+      "side": 1,
+      "message": "Added some questions",
+      "revId": "871ea35ab79a7c3a9d4875d5ef081c0784fdb161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b60b09c_48e9678d",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T09:08:42Z",
+      "side": 1,
+      "message": "Will we be able to distinguish between this \u0027reveal-in-network\u0027 and the previous one or do they have the same parent elements?",
+      "range": {
+        "startLine": 477,
+        "startChar": 12,
+        "endLine": 477,
+        "endChar": 32
+      },
+      "revId": "871ea35ab79a7c3a9d4875d5ef081c0784fdb161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ead552_5164eb15",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T09:08:42Z",
+      "side": 1,
+      "message": "When do we use `VisualLogging.action()` vs `VisualLogging.link()`? If we use `link` for links within DevTools as well, then shouldn\u0027t this be a `link()`?",
+      "range": {
+        "startLine": 512,
+        "startChar": 38,
+        "endLine": 512,
+        "endChar": 46
+      },
+      "revId": "871ea35ab79a7c3a9d4875d5ef081c0784fdb161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608b41a5_b5661bc5",
+        "filename": "front_end/panels/application/components/FrameDetailsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T09:08:42Z",
+      "side": 1,
+      "message": "nit: Would applying this directly to the `adScriptLinkElement` be a better fit?",
+      "range": {
+        "startLine": 616,
+        "startChar": 8,
+        "endLine": 616,
+        "endChar": 79
+      },
+      "revId": "871ea35ab79a7c3a9d4875d5ef081c0784fdb161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7fb5b5e_b79a1be8",
+        "filename": "front_end/panels/application/components/PermissionsPolicySection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T09:08:42Z",
+      "side": 1,
+      "message": "`link()`?",
+      "range": {
+        "startLine": 78,
+        "startChar": 26,
+        "endLine": 78,
+        "endChar": 32
+      },
+      "revId": "871ea35ab79a7c3a9d4875d5ef081c0784fdb161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de204945_c6bd7643",
+        "filename": "front_end/panels/application/components/StackTrace.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T09:08:42Z",
+      "side": 1,
+      "message": "What is this tracking? The active elements in stack traces are the triangle for expanding, and the links in each stack element. Should these be tracked?",
+      "range": {
+        "startLine": 171,
+        "startChar": 10,
+        "endLine": 171,
+        "endChar": 43
+      },
+      "revId": "871ea35ab79a7c3a9d4875d5ef081c0784fdb161",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
