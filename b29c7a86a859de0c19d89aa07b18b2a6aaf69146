@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c492511_d74ca47e",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2630,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-22T11:17:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1553d87e_28f76d80",
+      "range": {
+        "startLine": 2630,
+        "startChar": 4,
+        "endLine": 2630,
+        "endChar": 64
+      },
+      "revId": "b29c7a86a859de0c19d89aa07b18b2a6aaf69146",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a7aad07_a25226cb",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "I don\u0027t think having jslog-sections for the toolbars are strictly required for disambiguation, but I thought it would be nice to add them to more clearly show the hierarchy.\n\nNo strong opinion, I can remove them if you prefer.",
       "parentUuid": "0a7aad07_a25226cb",
+      "range": {
+        "startLine": 217,
+        "startChar": 4,
+        "endLine": 217,
+        "endChar": 109
+      },
+      "revId": "b29c7a86a859de0c19d89aa07b18b2a6aaf69146",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "543551d4_e63ab97a",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2023-12-22T11:17:28Z",
+      "side": 1,
+      "message": "We can leave them.",
+      "parentUuid": "e65972e5_90efda57",
       "range": {
         "startLine": 217,
         "startChar": 4,
