@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1553d87e_28f76d80",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2630,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T11:14:35Z",
+      "side": 1,
+      "message": "We do this dynamically in a bunch of other places as well, e.g. https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/elements/components/LayoutPane.ts;l\u003d499 (reviewed by Danil)",
+      "parentUuid": "e7fc4c1d_6f1db7bd",
+      "range": {
+        "startLine": 2630,
+        "startChar": 4,
+        "endLine": 2630,
+        "endChar": 64
+      },
+      "revId": "b29c7a86a859de0c19d89aa07b18b2a6aaf69146",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a7aad07_a25226cb",
         "filename": "front_end/panels/network/NetworkPanel.ts",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-22T10:51:39Z",
       "side": 1,
       "message": "Do we need a section here at all? Or are the toolbar actions ambiguous otherwise?",
+      "range": {
+        "startLine": 217,
+        "startChar": 4,
+        "endLine": 217,
+        "endChar": 109
+      },
+      "revId": "b29c7a86a859de0c19d89aa07b18b2a6aaf69146",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e65972e5_90efda57",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2023-12-22T11:14:35Z",
+      "side": 1,
+      "message": "I don\u0027t think having jslog-sections for the toolbars are strictly required for disambiguation, but I thought it would be nice to add them to more clearly show the hierarchy.\n\nNo strong opinion, I can remove them if you prefer.",
+      "parentUuid": "0a7aad07_a25226cb",
       "range": {
         "startLine": 217,
         "startChar": 4,
