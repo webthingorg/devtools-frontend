@@ -112,6 +112,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private entryInfo: HTMLElement;
   private readonly markerHighlighElement: HTMLElement;
   readonly highlightElement: HTMLElement;
+  readonly revealArrowHighlightElement: HTMLElement;
   private readonly selectedElement: HTMLElement;
   private rulerEnabled: boolean;
   private barHeight: number;
@@ -199,6 +200,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.entryInfo = this.viewportElement.createChild('div', 'flame-chart-entry-info');
     this.markerHighlighElement = this.viewportElement.createChild('div', 'flame-chart-marker-highlight-element');
     this.highlightElement = this.viewportElement.createChild('div', 'flame-chart-highlight-element');
+    this.revealArrowHighlightElement = this.viewportElement.createChild('div', 'reveal-arrow-highlight-element');
     this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
     this.canvas.addEventListener('focus', () => {
       this.dispatchEventToListeners(Events.CanvasFocused);
@@ -2530,10 +2532,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+    // this.updateElementPosition(this.revealArrowHighlightElement, this.selectedEntryIndex);
   }
 
   private updateElementPosition(element: Element, entryIndex: number): void {
     const elementMinWidthPx = 2;
+    this.revealArrowHighlightElement.classList.add('hidden');
     element.classList.add('hidden');
     if (entryIndex === -1) {
       return;
@@ -2576,6 +2580,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     style.height = barHeight - 1 + 'px';
     element.classList.toggle('hidden', !visible);
     this.viewportElement.appendChild(element);
+
+    const arrowStyle = (this.revealArrowHighlightElement as HTMLElement).style;
+    arrowStyle.top = barY + 'px';
+    arrowStyle.width = 17 + 'px';
+    arrowStyle.height = barHeight - 1 + 'px';
+    arrowStyle.left = barX + barWidth - 17 + 'px';
+    this.revealArrowHighlightElement.classList.toggle('hidden');
+    this.viewportElement.appendChild(this.revealArrowHighlightElement);
   }
 
   private timeToPositionClipped(time: number): number {
