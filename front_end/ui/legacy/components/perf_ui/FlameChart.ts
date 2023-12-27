@@ -740,6 +740,23 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.draw();
   }
 
+  #dispatchTreeModifiedEvent(treeAction: TraceEngine.EntriesFilter.FilterAction, index?: number): void {
+    const nodeIndex = (index) ? index : this.selectedEntryIndex;
+    const data = this.timelineData();
+    if (!data) {
+      return;
+    }
+    const group = data.groups.at(this.selectedGroupIndex);
+    if (!group || !group.expanded || !group.showStackContextMenu) {
+      return;
+    }
+    this.dispatchEventToListeners(Events.TreeModified, {
+      group: group,
+      node: nodeIndex,
+      action: treeAction,
+    });
+  }
+
   #onContextMenu(_event: Event): void {
     // The context menu only applies if the user is hovering over an individual entry.
     if (this.highlightedEntryIndex === -1) {
@@ -758,8 +775,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (!group || !group.expanded || !group.showStackContextMenu) {
       return;
     }
-    // TODO(crbug.com/1469887): implement context menu actions that allow to modify flame chart trees.
-    // TODO(crbug.com/1469887): keep selectedTrack and Y scroll poisition when context menu action is applied.
 
     // Update the selected index to match the highlighted index, which
     // represents the entry under the cursor where the user has right clicked
@@ -767,33 +782,25 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
     const contextMenu = new UI.ContextMenu.ContextMenu(_event);
 
-    const dispatchTreeModifiedEvent = (treeAction: TraceEngine.EntriesFilter.FilterAction): void => {
-      this.dispatchEventToListeners(Events.TreeModified, {
-        group: group,
-        node: this.selectedEntryIndex,
-        action: treeAction,
-      });
-    };
-
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
     contextMenu.headerSection().appendItem('Merge function', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION);
+      this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION);
     });
 
     contextMenu.headerSection().appendItem('Collapse function', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION);
+      this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION);
     });
 
     contextMenu.headerSection().appendItem('Collapse repeating descendants', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS);
+      this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS);
     });
 
     contextMenu.headerSection().appendItem('Reset children', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN);
+      this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN);
     });
 
     contextMenu.headerSection().appendItem('Reset trace', () => {
-      dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.UNDO_ALL_ACTIONS);
+      this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.UNDO_ALL_ACTIONS);
     });
 
     void contextMenu.show();
@@ -1119,6 +1126,25 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return entryIndex;
     }
     return -1;
+  }
+
+  isEntryArrowClicked(x: number, index: number): boolean {
+    const timelineData = this.timelineData();
+    if (!timelineData) {
+      return false;
+    }
+
+    const entryStartTimes = timelineData.entryStartTimes;
+    const startTime = entryStartTimes[index];
+    const duration = timelineData.entryTotalTimes[index];
+    const endX = this.chartViewport.timeToPosition(startTime + duration);
+    const barThresholdPx = 3;
+    if (timelineData) {
+      if (endX - 17 - barThresholdPx < x && x < endX + barThresholdPx) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /**
@@ -2488,6 +2514,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   setSelectedEntry(entryIndex: number): void {
+    if (this.isEntryArrowClicked(this.lastMouseOffsetX, entryIndex)) {
+      this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, entryIndex);
+    }
     if (this.selectedEntryIndex === entryIndex) {
       return;
     }
