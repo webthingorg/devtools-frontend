@@ -192,11 +192,11 @@ export class CSSProperty {
     const endIndentation = this.ownerStyle.cssText ? indentation.substring(0, this.ownerStyle.range.endColumn) : '';
     const text = new TextUtils.Text.Text(this.ownerStyle.cssText || '');
     const newStyleText = text.replaceRange(range, Platform.StringUtilities.sprintf(';%s;', propertyText));
-    const styleText = await CSSProperty.formatStyle(newStyleText, indentation, endIndentation);
-    return this.ownerStyle.setText(styleText, majorChange);
+    const styleText = CSSProperty.formatStyle(newStyleText, indentation, endIndentation);
+    return await this.ownerStyle.setText(styleText, majorChange);
   }
 
-  static async formatStyle(styleText: string, indentation: string, endIndentation: string): Promise<string> {
+  static formatStyle(styleText: string, indentation: string, endIndentation: string): string {
     const doubleIndent = indentation.substring(endIndentation.length) + indentation;
     if (indentation) {
       indentation = '\n' + indentation;
@@ -208,7 +208,7 @@ export class CSSProperty {
     let needsSemi = false;
     const tokenize = TextUtils.CodeMirrorUtils.createCssTokenizer();
 
-    await tokenize('*{' + styleText + '}', processToken);
+    tokenize('*{' + styleText + '}', processToken);
     if (insideProperty) {
       result += propertyText;
     }
