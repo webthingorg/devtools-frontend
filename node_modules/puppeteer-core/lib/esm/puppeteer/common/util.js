@@ -16,7 +16,6 @@
 import { map, NEVER, timer, firstValueFrom, fromEvent, filterAsync, from, raceWith, } from '../../third_party/rxjs/rxjs.js';
 import { isNode } from '../environment.js';
 import { assert } from '../util/assert.js';
-import { Deferred } from '../util/Deferred.js';
 import { isErrorLike } from '../util/ErrorLike.js';
 import { debug } from './Debug.js';
 import { TimeoutError } from './Errors.js';
@@ -24,6 +23,10 @@ import { TimeoutError } from './Errors.js';
  * @internal
  */
 export const debugError = debug('puppeteer:error');
+/**
+ * @internal
+ */
+export const DEFAULT_VIEWPORT = Object.freeze({ width: 800, height: 600 });
 /**
  * @internal
  */
@@ -314,16 +317,6 @@ export function pageBindingInitString(type, name) {
 /**
  * @internal
  */
-export async function waitWithTimeout(promise, taskName, timeout) {
-    const deferred = Deferred.create({
-        message: `waiting for ${taskName} failed: timeout ${timeout}ms exceeded`,
-        timeout,
-    });
-    return await Deferred.race([promise, deferred]);
-}
-/**
- * @internal
- */
 let fs = null;
 /**
  * @internal
@@ -410,18 +403,6 @@ export async function getReadableFromProtocolStream(client, handle) {
 /**
  * @internal
  */
-export async function setPageContent(page, content) {
-    // We rely upon the fact that document.open() will reset frame lifecycle with "init"
-    // lifecycle event. @see https://crrev.com/608658
-    return await page.evaluate(html => {
-        document.open();
-        document.write(html);
-        document.close();
-    }, content);
-}
-/**
- * @internal
- */
 export function getPageContent() {
     let content = '';
     for (const node of document.childNodes) {
@@ -493,4 +474,8 @@ ms, cancelation) {
         return false;
     }), raceWith(timeout(ms), from(cancelation.valueOrThrow()))));
 }
+/**
+ * @internal
+ */
+export const NETWORK_IDLE_TIME = 500;
 //# sourceMappingURL=util.js.map
