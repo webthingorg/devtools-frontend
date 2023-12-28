@@ -6,8 +6,12 @@
 
 .widget {
   padding: 20px;
+  box-sizing: border-box;
+  max-width: 400px;
+  overflow: hidden;
 }
 
+/* Center-align text in the message class */
 .message {
   text-align: center;
 }
@@ -16,18 +20,34 @@
 .button {
   font-size: larger;
   white-space: pre;
-  margin: 5px;
+  margin: 10px 0;
 }
 
+/* Center-align text and add margin to the button class */
 .button {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px; /* Increase top margin for better spacing */
 }
 
+/* Ensure the button has a minimum width */
 .button button {
-  min-width: 80px;
+  min-width: 100px; /* Increase minimum width for better appearance */
 }
 
+/* Change the color of the reason class */
 .reason {
   color: var(--sys-color-error);
+  margin-top: 10px; /* Add top margin for better spacing */
+}
+
+/* Add white-space property to handle text overflow */
+.message span {
+  white-space: normal;
+  word-wrap: break-word; /* Allow long words to break and wrap to the next line */
+  max-width: 100%; /* Adjust the percentage based on your layout */
+  display: inline-block; /* Ensure max-width works on inline elements */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px; /* Adjust the padding as needed */
+  margin: 0; /* Adjust the margin as needed */
 }
