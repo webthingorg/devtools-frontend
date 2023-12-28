@@ -338,7 +338,7 @@ describeWithEnvironment('ThreadAppender', function() {
     const decorationsForEntry = flameChartData.entryDecorations[entryIndex];
     assert.deepEqual(
         decorationsForEntry,
-        [{type: 'WARNING_TRIANGLE'}, {type: 'CANDY', 'startAtTime': TraceModel.Types.Timing.MicroSeconds(50_000)}]);
+        [{type: PerfUI.FlameChart.FlameChartDecorationType.WARNING_TRIANGLE}, {type: PerfUI.FlameChart.FlameChartDecorationType.CANDY, 'startAtTime': TraceModel.Types.Timing.MicroSeconds(50_000)}]);
   });
 
   it('does not candy-stripe tasks below the long task threshold', async function() {

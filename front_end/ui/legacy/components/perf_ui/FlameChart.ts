@@ -1415,75 +1415,81 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
       for (const decoration of decorationsForEvent) {
         const duration = entryTotalTimes[entryIndex];
-        if (decoration.type === 'CANDY') {
-          const candyStripeStartTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.startAtTime);
-          if (duration < candyStripeStartTime) {
-            // If the duration of the event is less than the start time to draw the candy stripes, then we have no stripes to draw.
-            continue;
+        switch(decoration.type) {
+          case FlameChartDecorationType.CANDY: {
+            const candyStripeStartTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.startAtTime);
+            if (duration < candyStripeStartTime) {
+              // If the duration of the event is less than the start time to draw the candy stripes, then we have no stripes to draw.
+              continue;
+            }
+            if (!this.candyStripePattern) {
+              this.candyStripePattern = this.createCandyStripePattern();
+            }
+  
+            context.save();
+            context.beginPath();
+            // Draw a rectangle over the event, starting at the X value of the
+            // event's start time + the startDuration of the candy striping.
+            const barXStart = this.timeToPositionClipped(entryStartTime + candyStripeStartTime);
+  
+            // If a custom end time was passed in, that is when we stop striping, else we stripe until the very end of the entry.
+            const stripingEndTime = decoration.endAtTime ?
+                TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.endAtTime) :
+                entryStartTime + duration;
+            const barXEnd = this.timeToPositionClipped(stripingEndTime);
+            this.#drawEventRect(context, timelineData, entryIndex, {
+              startX: barXStart,
+              width: barXEnd - barXStart,
+            });
+            context.fillStyle = this.candyStripePattern;
+            context.fill();
+            context.restore();
+            break;
           }
-          if (!this.candyStripePattern) {
-            this.candyStripePattern = this.createCandyStripePattern();
+          case FlameChartDecorationType.WARNING_TRIANGLE: {
+            const barX = this.timeToPositionClipped(entryStartTime);
+            const barLevel = entryLevels[entryIndex];
+            const barHeight = this.#eventBarHeight(timelineData, entryIndex);
+            const barY = this.levelToOffset(barLevel);
+            let barWidth = this.#eventBarWidth(timelineData, entryIndex);
+            if (typeof decoration.customEndTime !== 'undefined') {
+              // The user can pass a customEndTime to tell us where the event's box ends and therefore where we should draw the triangle. So therefore we calculate the width by taking the end time off the start time.
+              const endTimeMilli = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.customEndTime);
+              const endTimePixels = this.timeToPositionClipped(endTimeMilli);
+              barWidth = endTimePixels - barX;
+            }
+            const triangleSize = 8;
+            context.save();
+            context.beginPath();
+            context.rect(barX, barY, barWidth, barHeight);
+            context.clip();
+            context.beginPath();
+            context.fillStyle = 'red';
+            context.moveTo(barX + barWidth - triangleSize, barY);
+            context.lineTo(barX + barWidth, barY);
+            context.lineTo(barX + barWidth, barY + triangleSize);
+            context.fill();
+            context.restore();
+            break;
           }
-
-          context.save();
-          context.beginPath();
-          // Draw a rectangle over the event, starting at the X value of the
-          // event's start time + the startDuration of the candy striping.
-          const barXStart = this.timeToPositionClipped(entryStartTime + candyStripeStartTime);
-
-          // If a custom end time was passed in, that is when we stop striping, else we stripe until the very end of the entry.
-          const stripingEndTime = decoration.endAtTime ?
-              TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.endAtTime) :
-              entryStartTime + duration;
-          const barXEnd = this.timeToPositionClipped(stripingEndTime);
-          this.#drawEventRect(context, timelineData, entryIndex, {
-            startX: barXStart,
-            width: barXEnd - barXStart,
-          });
-          context.fillStyle = this.candyStripePattern;
-          context.fill();
-          context.restore();
-
-        } else if (decoration.type === 'WARNING_TRIANGLE') {
-          const barX = this.timeToPositionClipped(entryStartTime);
-          const barLevel = entryLevels[entryIndex];
-          const barHeight = this.#eventBarHeight(timelineData, entryIndex);
-          const barY = this.levelToOffset(barLevel);
-          let barWidth = this.#eventBarWidth(timelineData, entryIndex);
-          if (typeof decoration.customEndTime !== 'undefined') {
-            // The user can pass a customEndTime to tell us where the event's box ends and therefore where we should draw the triangle. So therefore we calculate the width by taking the end time off the start time.
-            const endTimeMilli = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.customEndTime);
-            const endTimePixels = this.timeToPositionClipped(endTimeMilli);
-            barWidth = endTimePixels - barX;
+          case FlameChartDecorationType.HIDDEN_ANCESTORS_ARROW: {
+            const barX = this.timeToPositionClipped(entryStartTime);
+            const barLevel = entryLevels[entryIndex];
+            const barHeight = this.#eventBarHeight(timelineData, entryIndex);
+            const barY = this.levelToOffset(barLevel);
+            const barWidth = this.#eventBarWidth(timelineData, entryIndex);
+            context.save();
+            context.beginPath();
+            context.rect(barX, barY, barWidth, barHeight);
+            const arrowSize = barHeight;
+            if (barWidth > arrowSize * 2) {
+              const image = new Image();
+              image.src = HIDDEN_ANCESTOR_ARROW;
+              context.drawImage(image, barX + barWidth - arrowSize, barY, arrowSize, arrowSize);
+            }
+            context.restore();
+            break;
           }
-          const triangleSize = 8;
-          context.save();
-          context.beginPath();
-          context.rect(barX, barY, barWidth, barHeight);
-          context.clip();
-          context.beginPath();
-          context.fillStyle = 'red';
-          context.moveTo(barX + barWidth - triangleSize, barY);
-          context.lineTo(barX + barWidth, barY);
-          context.lineTo(barX + barWidth, barY + triangleSize);
-          context.fill();
-          context.restore();
-        } else if (decoration.type === 'HIDDEN_ANCESTORS_ARROW') {
-          const barX = this.timeToPositionClipped(entryStartTime);
-          const barLevel = entryLevels[entryIndex];
-          const barHeight = this.#eventBarHeight(timelineData, entryIndex);
-          const barY = this.levelToOffset(barLevel);
-          const barWidth = this.#eventBarWidth(timelineData, entryIndex);
-          context.save();
-          context.beginPath();
-          context.rect(barX, barY, barWidth, barHeight);
-          const arrowSize = barHeight;
-          if (barWidth > arrowSize * 2) {
-            const image = new Image();
-            image.src = HIDDEN_ANCESTOR_ARROW;
-            context.drawImage(image, barX + barWidth - arrowSize, barY, arrowSize, arrowSize);
-          }
-          context.restore();
         }
       }
     }
@@ -2528,7 +2534,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return;
     }
 
-    if (this.entryHasDecoration(entryIndex, 'HIDDEN_ANCESTORS_ARROW') && this.isRevealChildrenArrowClicked(this.lastMouseOffsetX, entryIndex)) {
+    if (this.entryHasDecoration(entryIndex, FlameChartDecorationType.HIDDEN_ANCESTORS_ARROW) && this.isRevealChildrenArrowClicked(this.lastMouseOffsetX, entryIndex)) {
       this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, entryIndex);
     }
 
@@ -2543,7 +2549,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
   }
 
-  private entryHasDecoration(entryIndex: number, decorationType: string): boolean {
+  private entryHasDecoration(entryIndex: number, decorationType: FlameChartDecorationType): boolean {
     const timelineData = this.timelineData();
     if (!timelineData) {
       return false;
@@ -2610,7 +2616,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
     
     const timelineData = this.timelineData();
-    if(!timelineData || !this.entryHasDecoration(this.highlightedEntryIndex, 'HIDDEN_ANCESTORS_ARROW')) {
+    if(!timelineData || !this.entryHasDecoration(this.highlightedEntryIndex, FlameChartDecorationType.HIDDEN_ANCESTORS_ARROW)) {
       return;
     }
 
@@ -2778,7 +2784,7 @@ export const enum FlameChartDecorationType {
  * This work is being tracked in crbug.com/1434297.
  **/
 export type FlameChartDecoration = {
-  type: 'CANDY',
+  type: FlameChartDecorationType.CANDY,
   // We often only want to highlight problem parts of events, so this time sets
   // the minimum time at which the candystriping will start. If you want to
   // candystripe the entire event, set this to 0.
@@ -2786,15 +2792,15 @@ export type FlameChartDecoration = {
   // Optionally set the end time for the striping. If this is not provided, the entire entry will be striped.
   endAtTime?: TraceEngine.Types.Timing.MicroSeconds,
 }|{
-  type: 'WARNING_TRIANGLE',
+  type: FlameChartDecorationType.WARNING_TRIANGLE,
   customEndTime?: TraceEngine.Types.Timing.MicroSeconds,
 }|{
-  type: 'HIDDEN_ANCESTORS_ARROW',
+  type: FlameChartDecorationType.HIDDEN_ANCESTORS_ARROW,
 };
 
 // We have to ensure we draw the decorations in a particular order; warning
 // triangles always go on top of any candy stripes.
-const decorationDrawOrder: Record<FlameChartDecoration['type'], number> = {
+const decorationDrawOrder: Record<FlameChartDecorationType, number> = {
   CANDY: 1,
   WARNING_TRIANGLE: 2,
   HIDDEN_ANCESTORS_ARROW: 3,
