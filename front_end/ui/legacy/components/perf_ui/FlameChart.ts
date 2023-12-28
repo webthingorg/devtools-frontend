@@ -112,6 +112,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private entryInfo: HTMLElement;
   private readonly markerHighlighElement: HTMLElement;
   readonly highlightElement: HTMLElement;
+  readonly revealAncestorsArrowHighlightElement: HTMLElement;
   private readonly selectedElement: HTMLElement;
   private rulerEnabled: boolean;
   private barHeight: number;
@@ -201,6 +202,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.entryInfo = this.viewportElement.createChild('div', 'flame-chart-entry-info');
     this.markerHighlighElement = this.viewportElement.createChild('div', 'flame-chart-marker-highlight-element');
     this.highlightElement = this.viewportElement.createChild('div', 'flame-chart-highlight-element');
+    this.revealAncestorsArrowHighlightElement =
+        this.viewportElement.createChild('div', 'reveal-ancestors-arrow-highlight-element');
     this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
     this.canvas.addEventListener('focus', () => {
       this.dispatchEventToListeners(Events.CanvasFocused);
@@ -418,6 +421,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
   private updateHighlight(): void {
     const entryIndex = this.coordinatesToEntryIndex(this.lastMouseOffsetX, this.lastMouseOffsetY);
+    // Each time the highlight is updated, we need to check if the mouse is hovering over a
+    // button that indicates hidden elements and if so, update the buttons' highlight
+    this.updateArrowHighlighPosition(entryIndex);
     if (entryIndex === -1) {
       this.hideHighlight();
       const group = this.coordinatesToGroupIndex(this.lastMouseOffsetX, this.lastMouseOffsetY, false /* headerOnly */);
@@ -1132,9 +1138,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
   /**
    * Given an entry's index and an X coordinate of a mouse click, returns
-   * whether the button to reveal hidden children of an antry was clicked
+   * whether the mouse is hovering over the arrow button that reveals hidden children
    */
-  isRevealChildrenArrowClicked(x: number, index: number): boolean {
+  isMouseOverRevealChildrenArrow(x: number, index: number): boolean {
     const timelineData = this.timelineData();
     if (!timelineData) {
       return false;
@@ -2520,9 +2526,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   setSelectedEntry(entryIndex: number): void {
     // Check if the button that resets entries' children is clicked even if the entry clicked
     // is not selected to avoid needing to double clicking to reveal children
-    if (this.isRevealChildrenArrowClicked(this.lastMouseOffsetX, entryIndex)) {
+    if (this.entryHasDecoration(entryIndex, 'HIDDEN_ANCESTORS_ARROW') &&
+        this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
       this.#dispatchTreeModifiedEvent(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, entryIndex);
     }
+
     if (this.selectedEntryIndex === entryIndex) {
       return;
     }
@@ -2532,6 +2540,20 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+  }
+
+  private entryHasDecoration(entryIndex: number, decorationType: string): boolean {
+    const timelineData = this.timelineData();
+    if (!timelineData) {
+      return false;
+    }
+
+    const decorationsForEvent = timelineData.entryDecorations.at(entryIndex);
+    if (decorationsForEvent && decorationsForEvent.length >= 1) {
+      return decorationsForEvent.some(decoration => decoration.type === decorationType);
+    }
+
+    return false;
   }
 
   private updateElementPosition(element: Element, entryIndex: number): void {
@@ -2578,6 +2600,49 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     style.height = barHeight - 1 + 'px';
     element.classList.toggle('hidden', !visible);
     this.viewportElement.appendChild(element);
+  }
+
+  // Updates the highlight of an Arrow button that is shown on an entry if it has hidden child entries
+  private updateArrowHighlighPosition(entryIndex: number): void {
+    this.revealAncestorsArrowHighlightElement.classList.add('hidden');
+    /**
+     * No need to update the hidden ancestors arrow highlight if
+     * 1. No entry is highlighted
+     * 2. Entry highlighed does not have a decoration
+     * 3. Mouse is not hovering over the arrow button
+     */
+    if (entryIndex === -1 || !this.entryHasDecoration(entryIndex, 'HIDDEN_ANCESTORS_ARROW') ||
+        !this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
+      return;
+    }
+
+    const timelineData = this.timelineData();
+    if (!timelineData) {
+      return;
+    }
+
+    const startTime = timelineData.entryStartTimes[entryIndex];
+    const duration = timelineData.entryTotalTimes[entryIndex];
+    const barX = this.chartViewport.timeToPosition(startTime);
+    const barWidth = duration * this.chartViewport.timeToPixel();
+
+    const entryLevel = timelineData.entryLevels[entryIndex];
+    const barY = this.levelToOffset(entryLevel) - this.chartViewport.scrollOffset();
+    const barHeight = this.levelHeight(entryLevel);
+
+    // Only show highlight if bar width is over twice larger than the arrow icon.
+    // The arrow icon is a square, therefore its' width == barHeight.
+    if (barWidth < barHeight * 2 || barX >= this.offsetWidth) {
+      return;
+    }
+
+    const arrowStyle = (this.revealAncestorsArrowHighlightElement as HTMLElement).style;
+    arrowStyle.top = barY + 'px';
+    arrowStyle.width = barHeight + 'px';
+    arrowStyle.height = barHeight + 'px';
+    arrowStyle.left = barX + barWidth - barHeight + 'px';
+    this.revealAncestorsArrowHighlightElement.classList.toggle('hidden');
+    this.viewportElement.appendChild(this.revealAncestorsArrowHighlightElement);
   }
 
   private timeToPositionClipped(time: number): number {
@@ -2705,6 +2770,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
 export const RulerHeight = 15;
 export const MinimalTimeWindowMs = 0.5;
+
+export const enum FlameChartDecorationType {
+  CANDY = 'CANDY',
+  WARNING_TRIANGLE = 'WARNING_TRIANGLE',
+  HIDDEN_ANCESTORS_ARROW = 'HIDDEN_ANCESTORS_ARROW',
+}
 
 /**
  * Represents a decoration that can be added to event. Each event can have as
