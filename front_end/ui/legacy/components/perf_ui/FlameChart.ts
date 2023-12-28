@@ -112,6 +112,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private entryInfo: HTMLElement;
   private readonly markerHighlighElement: HTMLElement;
   readonly highlightElement: HTMLElement;
+  readonly revealArrowHighlightElement: HTMLElement;
   private readonly selectedElement: HTMLElement;
   private rulerEnabled: boolean;
   private barHeight: number;
@@ -201,6 +202,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.entryInfo = this.viewportElement.createChild('div', 'flame-chart-entry-info');
     this.markerHighlighElement = this.viewportElement.createChild('div', 'flame-chart-marker-highlight-element');
     this.highlightElement = this.viewportElement.createChild('div', 'flame-chart-highlight-element');
+    this.revealArrowHighlightElement = this.viewportElement.createChild('div', 'reveal-arrow-highlight-element');
     this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
     this.canvas.addEventListener('focus', () => {
       this.dispatchEventToListeners(Events.CanvasFocused);
@@ -418,6 +420,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
   private updateHighlight(): void {
     const entryIndex = this.coordinatesToEntryIndex(this.lastMouseOffsetX, this.lastMouseOffsetY);
+    this.updateArrowHighlighPosition();
     if (entryIndex === -1) {
       this.hideHighlight();
       const group = this.coordinatesToGroupIndex(this.lastMouseOffsetX, this.lastMouseOffsetY, false /* headerOnly */);
@@ -2532,6 +2535,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+    // this.updateElementPosition(this.revealArrowHighlightElement, this.selectedEntryIndex);
   }
 
   private updateElementPosition(element: Element, entryIndex: number): void {
@@ -2578,6 +2582,39 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     style.height = barHeight - 1 + 'px';
     element.classList.toggle('hidden', !visible);
     this.viewportElement.appendChild(element);
+  }
+
+  private updateArrowHighlighPosition(): void {
+    this.revealArrowHighlightElement.classList.add('hidden');
+    if(!this.isRevealChildrenArrowClicked(this.lastMouseOffsetX, this.highlightedEntryIndex)) {
+      return;
+    }
+    
+    const timelineData = this.timelineData();
+    if (!timelineData) {
+      return;
+    }
+
+    const startTime = timelineData.entryStartTimes[this.highlightedEntryIndex];
+    const duration = timelineData.entryTotalTimes[this.highlightedEntryIndex];
+    let barX = this.chartViewport.timeToPosition(startTime);
+    let barWidth = duration * this.chartViewport.timeToPixel();
+
+    if (barWidth < 17 * 2 || barX >= this.offsetWidth) {
+      return;
+    }
+
+    const entryLevel = timelineData.entryLevels[this.highlightedEntryIndex];
+    const barY = this.levelToOffset(entryLevel) - this.chartViewport.scrollOffset();
+    const barHeight = this.levelHeight(entryLevel);
+
+    const arrowStyle = (this.revealArrowHighlightElement as HTMLElement).style;
+    arrowStyle.top = barY + 'px';
+    arrowStyle.width = barHeight + 'px';
+    arrowStyle.height = barHeight + 'px';
+    arrowStyle.left = barX + barWidth - barHeight + 'px';
+    this.revealArrowHighlightElement.classList.toggle('hidden');
+    this.viewportElement.appendChild(this.revealArrowHighlightElement);
   }
 
   private timeToPositionClipped(time: number): number {
