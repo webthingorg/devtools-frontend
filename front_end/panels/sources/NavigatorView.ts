@@ -1243,8 +1243,8 @@ export class NavigatorFolderTreeElement extends UI.TreeOutline.TreeElement {
       iconType = 'deployed';
     }
 
-    const icon = new IconButton.Icon.Icon();
-    icon.data = {iconName: iconType, color: 'var(--override-folder-tree-item-color)', width: '20px', height: '20px'};
+    const icon = new IconButton.NewIcon.NewIcon();
+    icon.name = iconType;
     this.setLeadingIcons([icon]);
   }
 
@@ -1381,8 +1381,8 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
       }
     }
 
-    const icon = new IconButton.Icon.Icon();
-    icon.data = {iconName: iconType, color: 'var(--override-file-tree-item-color)', width: '20px', height: '20px'};
+    const icon = new IconButton.NewIcon.NewIcon();
+    icon.name = iconType;
     for (const style of iconStyles) {
       icon.classList.add(style);
     }

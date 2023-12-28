@@ -191,11 +191,12 @@ export class SourcesPanelIndicator {
     javaScriptDisabledChanged();
 
     function javaScriptDisabledChanged(): void {
-      let icon: IconButton.Icon.Icon|null = null;
+      let icon: IconButton.NewIcon.NewIcon|null = null;
       const javaScriptDisabled = Common.Settings.Settings.instance().moduleSetting('javaScriptDisabled').get();
       if (javaScriptDisabled) {
-        icon = new IconButton.Icon.Icon();
-        icon.data = {iconName: 'warning-filled', color: 'var(--icon-warning)', width: '14px', height: '14px'};
+        icon = new IconButton.NewIcon.NewIcon();
+        icon.name = 'warning-filled';
+        icon.style.color = 'var(--icon-warning)';
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.javascriptIsDisabled));
       }
       UI.InspectorView.InspectorView.instance().setPanelIcon('sources', icon);

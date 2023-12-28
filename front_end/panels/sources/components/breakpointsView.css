@@ -124,10 +124,15 @@ button {
   width: 13px;
   height: 13px;
   border: none;
-  background-color: transparent;
+  background: transparent;
   display: none;
   align-items: center;
   justify-content: center;
+
+  & > devtools-new-icon {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 button + span {
@@ -140,10 +145,6 @@ button + button {
 
 summary:hover button {
   display: flex;
-}
-
-button:hover devtools-icon {
-  --icon-color: var(--icon-default-hover);
 }
 
 .type-indicator {
@@ -194,24 +195,30 @@ button:hover devtools-icon {
 .checkbox-label {
   display: flex;
   align-items: center;
+
+  & > input {
+    margin-left: 16px;
+    margin-right: 6px;
+  }
 }
 
-.checkbox-label > input {
-  margin-left: 16px;
-  margin-right: 6px;
-}
+devtools-new-icon[name="file-script"] {
+  color: var(--icon-file-script);
+  width: 18px;
+  height: 18px;
 
-summary:hover .file-icon {
-  display: none;
+  summary:hover & {
+    display: none;
+  }
 }
 
 .group-checkbox {
   margin: 0;
   display: none;
-}
 
-summary:hover .group-checkbox {
-  display: flex;
+  summary:hover & {
+    display: flex;
+  }
 }
 
 .location {

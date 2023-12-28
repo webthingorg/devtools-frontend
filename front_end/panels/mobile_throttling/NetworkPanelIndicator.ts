@@ -68,10 +68,13 @@ export class NetworkPanelIndicator {
       if (manager.isAcceptedEncodingOverrideSet()) {
         warnings.push(i18nString(UIStrings.acceptedEncodingOverrideSet));
       }
-      let icon: IconButton.Icon.Icon|null = null;
+      let icon: IconButton.NewIcon.NewIcon|null = null;
       if (warnings.length) {
-        icon = new IconButton.Icon.Icon();
-        icon.data = {iconName: 'warning-filled', color: 'var(--icon-warning)', width: '14px', height: '14px'};
+        icon = new IconButton.NewIcon.NewIcon();
+        icon.name = 'warning-filled';
+        icon.style.color = 'var(--icon-warning)';
+        icon.style.width = '14px';
+        icon.style.height = '14px';
         const tooltipContent = warnings.length === 1 ? warnings[0] : '· ' + warnings.join('\n· ');
         UI.Tooltip.Tooltip.install(icon, tooltipContent);
       }

@@ -32,16 +32,16 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Bindings from '../../models/bindings/bindings.js';
 import * as Extensions from '../../models/extensions/extensions.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import type * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
-import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Snippets from '../snippets/snippets.js';
-import * as Bindings from '../../models/bindings/bindings.js';
 
 import {SourcesView} from './SourcesView.js';
 import {UISourceCodeFrame} from './UISourceCodeFrame.js';
@@ -547,8 +547,11 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
   }
 
   private addLoadErrorIcon(tabId: string): void {
-    const icon = new IconButton.Icon.Icon();
-    icon.data = {iconName: 'cross-circle-filled', color: 'var(--icon-error)', width: '14px', height: '14px'};
+    const icon = new IconButton.NewIcon.NewIcon();
+    icon.name = 'cross-circle-filled';
+    icon.style.color = 'var(--icon-error)';
+    icon.style.width = '14px';
+    icon.style.height = '14px';
     UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.unableToLoadThisContent));
     if (this.tabbedPane.tabView(tabId)) {
       this.tabbedPane.setTabIcon(tabId, icon);
@@ -627,14 +630,20 @@ export class TabbedEditorContainer extends Common.ObjectWrapper.ObjectWrapper<Ev
       const title = this.titleForFile(uiSourceCode);
       const tooltip = this.tooltipForFile(uiSourceCode);
       this.tabbedPane.changeTabTitle(tabId, title, tooltip);
-      let icon: IconButton.Icon.Icon|UI.Icon.Icon|null = null;
+      let icon: IconButton.NewIcon.NewIcon|null = null;
       if (uiSourceCode.loadError()) {
-        icon = new IconButton.Icon.Icon();
-        icon.data = {iconName: 'cross-circle-filled', color: 'var(--icon-error)', width: '14px', height: '14px'};
+        icon = new IconButton.NewIcon.NewIcon();
+        icon.name = 'cross-circle-filled';
+        icon.style.color = 'var(--icon-error)';
+        icon.style.width = '14px';
+        icon.style.height = '14px';
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.unableToLoadThisContent));
       } else if (Persistence.Persistence.PersistenceImpl.instance().hasUnsavedCommittedChanges(uiSourceCode)) {
-        icon = new IconButton.Icon.Icon();
-        icon.data = {iconName: 'warning-filled', color: 'var(--icon-warning)', width: '14px', height: '14px'};
+        icon = new IconButton.NewIcon.NewIcon();
+        icon.name = 'warning-filled';
+        icon.style.color = 'var(--icon-warning)';
+        icon.style.width = '14px';
+        icon.style.height = '14px';
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.changesToThisFileWereNotSavedTo));
       } else {
         icon = Persistence.PersistenceUtils.PersistenceUtils.iconForUISourceCode(uiSourceCode);

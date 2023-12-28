@@ -48,7 +48,7 @@ import treeoutlineStyles from './treeoutline.css.legacy.js';
 import {deepElementFromPoint, enclosingNodeOrSelfWithNodeNameInArray, isEditing} from './UIUtils.js';
 import * as Utils from './utils/utils.js';
 
-type AnyIcon = Icon|IconButton.Icon.Icon;
+type AnyIcon = Icon|IconButton.Icon.Icon|IconButton.NewIcon.NewIcon;
 
 const nodeToParentTreeElementMap = new WeakMap<Node, TreeElement>();
 

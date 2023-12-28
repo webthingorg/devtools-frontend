@@ -820,7 +820,7 @@ export class Linkifier extends Common.ObjectWrapper.ObjectWrapper<EventTypes> im
 }
 
 export interface LinkDecorator extends Common.EventTarget.EventTarget<LinkDecorator.EventTypes> {
-  linkIcon(uiSourceCode: Workspace.UISourceCode.UISourceCode): IconButton.Icon.Icon|null;
+  linkIcon(uiSourceCode: Workspace.UISourceCode.UISourceCode): IconButton.NewIcon.NewIcon|null;
 }
 
 export namespace LinkDecorator {
@@ -976,7 +976,7 @@ export class ContentProviderContextMenuProvider implements
 // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export interface _LinkInfo {
-  icon: IconButton.Icon.Icon|null;
+  icon: IconButton.Icon.Icon|IconButton.NewIcon.NewIcon|null;
   enableDecorator: boolean;
   uiLocation: Workspace.UISourceCode.UILocation|null;
   liveLocation: Bindings.LiveLocation.LiveLocation|null;

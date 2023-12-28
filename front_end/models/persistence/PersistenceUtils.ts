@@ -44,14 +44,17 @@ export class PersistenceUtils {
     return i18nString(UIStrings.linkedToS, {PH1: Platform.StringUtilities.trimMiddle(binding.network.url(), 150)});
   }
 
-  static iconForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): IconButton.Icon.Icon|null {
+  static iconForUISourceCode(uiSourceCode: Workspace.UISourceCode.UISourceCode): IconButton.NewIcon.NewIcon|null {
+    const icon = new IconButton.NewIcon.NewIcon();
+    icon.name = 'document';
+    icon.style.width = '16px';
+    icon.style.height = '16px';
+
     const binding = PersistenceImpl.instance().binding(uiSourceCode);
     if (binding) {
       if (!Common.ParsedURL.schemeIs(binding.fileSystem.url(), 'file:')) {
         return null;
       }
-      const icon = new IconButton.Icon.Icon();
-      icon.data = {iconName: 'document', color: 'var(--icon-default)', width: '16px', height: '16px'};
       UI.Tooltip.Tooltip.install(icon, PersistenceUtils.tooltipForUISourceCode(binding.network));
       if (NetworkPersistenceManager.instance().project() === binding.fileSystem.project()) {
         icon.classList.add('dot', 'purple');
@@ -67,14 +70,10 @@ export class PersistenceUtils {
     }
 
     if (NetworkPersistenceManager.instance().isActiveHeaderOverrides(uiSourceCode)) {
-      const icon = new IconButton.Icon.Icon();
-      icon.data = {iconName: 'document', color: 'var(--icon-default)', width: '16px', height: '16px'};
       icon.classList.add('dot', 'purple');
       return icon;
     }
 
-    const icon = new IconButton.Icon.Icon();
-    icon.data = {iconName: 'document', color: 'var(--icon-default)', width: '16px', height: '16px'};
     UI.Tooltip.Tooltip.install(icon, PersistenceUtils.tooltipForUISourceCode(uiSourceCode));
     return icon;
   }
@@ -93,7 +92,7 @@ export class LinkDecorator extends Common.ObjectWrapper.ObjectWrapper<Components
     this.dispatchEventToListeners(Components.Linkifier.LinkDecorator.Events.LinkIconChanged, binding.network);
   }
 
-  linkIcon(uiSourceCode: Workspace.UISourceCode.UISourceCode): IconButton.Icon.Icon|null {
+  linkIcon(uiSourceCode: Workspace.UISourceCode.UISourceCode): IconButton.NewIcon.NewIcon|null {
     return PersistenceUtils.iconForUISourceCode(uiSourceCode);
   }
 }

@@ -470,13 +470,12 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
       <label @keyup=${onColorLabelKeyUp} @keydown=${onColorLabelKeyDown} class="color-picker-label" style="background: ${element.color};" jslog=${VisualLogging.showStyleEditor().track({click: true}).context('color')}>
         <input @change=${onColorChange} @input=${onColorChange} title=${i18nString(UIStrings.chooseElementOverlayColor)} tabindex="0" class="color-picker" type="color" value=${element.color} />
       </label>
-      <${IconButton.Icon.Icon.litTagName} .data=${{
-        iconName: 'select-element',
-        color: 'var(--icon-show-element)',
-        width: '16px',
-      } as IconButton.Icon.IconData} tabindex="0", @click=${onElementClick} title=${i18nString(UIStrings.showElementInTheElementsPanel)} class="show-element" jslog=${VisualLogging.jumpToElement().track({click:true})}>
-      ()
-      </${IconButton.Icon.Icon.litTagName}>
+      <button
+        @click=${onElementClick}
+        title=${i18nString(UIStrings.showElementInTheElementsPanel)}
+        jslog=${VisualLogging.jumpToElement().track({click:true})}>
+        <${IconButton.NewIcon.NewIcon.litTagName} name="select-element"></${IconButton.NewIcon.NewIcon.litTagName}>
+      </button>
     </div>`;
     // clang-format on
   }

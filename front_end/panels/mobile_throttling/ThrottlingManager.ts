@@ -276,8 +276,11 @@ export class ThrottlingManager {
       UI.InspectorView.InspectorView.instance().setPanelIcon('timeline', null);
       return;
     }
-    const icon = new IconButton.Icon.Icon();
-    icon.data = {iconName: 'warning-filled', color: 'var(--icon-warning)', width: '14px', height: '14px'};
+    const icon = new IconButton.NewIcon.NewIcon();
+    icon.name = 'warning-filled';
+    icon.style.color = 'var(--icon-warning)';
+    icon.style.width = '14px';
+    icon.style.height = '14px';
     const tooltips: string[] = [];
     if (cpuRate !== SDK.CPUThrottlingManager.CPUThrottlingRates.NoThrottling) {
       tooltips.push(i18nString(UIStrings.cpuThrottlingIsEnabled));

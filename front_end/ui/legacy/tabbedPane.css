@@ -115,7 +115,7 @@
   margin-right: 2px;
 }
 
-.tabbed-pane-header-tab-icon devtools-icon {
+.tabbed-pane-header-tab-icon devtools-new-icon {
   margin-left: -1px;
 }
 
@@ -139,11 +139,11 @@
   padding-right: 5px;
 }
 
-.tabbed-pane-header-tab devtools-icon.dot::before {
+.tabbed-pane-header-tab devtools-new-icon.dot::before {
   outline-color: var(--icon-gap-toolbar);
 }
 
-.tabbed-pane-header-tab:hover devtools-icon.dot::before {
+.tabbed-pane-header-tab:hover devtools-new-icon.dot::before {
   outline-color: var(--icon-gap-toolbar-hover);
 }
 

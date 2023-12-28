@@ -167,9 +167,11 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
         i18nString(UIStrings.headers));
 
     if (this.requestInternal.hasOverriddenHeaders()) {
-      const icon = new IconButton.Icon.Icon();
-      icon.data =
-          {iconName: 'small-status-dot', color: 'var(--sys-color-purple-bright)', width: '16px', height: '16px'};
+      const icon = new IconButton.NewIcon.NewIcon();
+      icon.name = 'small-status-dot';
+      icon.style.color = 'var(--sys-color-purple-bright)';
+      icon.style.width = '16px';
+      icon.style.height = '16px';
       icon.title = i18nString(UIStrings.containsOverriddenHeaders);
       this.setTabIcon(NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent, icon);
     }
@@ -196,8 +198,11 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
           i18nString(UIStrings.responsePreview));
       const signedExchangeInfo = request.signedExchangeInfo();
       if (signedExchangeInfo && signedExchangeInfo.errors && signedExchangeInfo.errors.length) {
-        const icon = new IconButton.Icon.Icon();
-        icon.data = {iconName: 'cross-circle-filled', color: 'var(--icon-error)', width: '14px', height: '14px'};
+        const icon = new IconButton.NewIcon.NewIcon();
+        icon.name = 'cross-circle-filled';
+        icon.style.color = 'var(--icon-error)';
+        icon.style.width = '14px';
+        icon.style.height = '14px';
         UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.signedexchangeError));
         this.setTabIcon(NetworkForward.UIRequestLocation.UIRequestTabs.Preview, icon);
       }
@@ -206,10 +211,12 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
           i18nString(UIStrings.rawResponseData));
 
       if (this.requestInternal.hasOverriddenContent) {
-        const icon = new IconButton.Icon.Icon();
+        const icon = new IconButton.NewIcon.NewIcon();
+        icon.name = 'small-status-dot';
+        icon.style.color = 'var(--sys-color-purple-bright)';
+        icon.style.width = '16px';
+        icon.style.height = '16px';
         icon.title = i18nString(UIStrings.responseIsOverridden);
-        icon.data =
-            {iconName: 'small-status-dot', color: 'var(--sys-color-purple-bright)', width: '16px', height: '16px'};
         this.setTabIcon(NetworkForward.UIRequestLocation.UIRequestTabs.Response, icon);
       }
     }
@@ -282,8 +289,11 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
           i18nString(UIStrings.requestAndResponseCookies));
     }
     if (this.requestInternal.hasThirdPartyCookiePhaseoutIssue()) {
-      const icon = new IconButton.Icon.Icon();
-      icon.data = {iconName: 'warning-filled', color: 'var(--icon-warning)', width: '14px', height: '14px'};
+      const icon = new IconButton.NewIcon.NewIcon();
+      icon.name = 'warning-filled';
+      icon.style.color = 'var(--icon-warning)';
+      icon.style.width = '14px';
+      icon.style.height = '14px';
       icon.title = i18nString(UIStrings.thirdPartyPhaseout);
       this.setTabIcon(NetworkForward.UIRequestLocation.UIRequestTabs.Cookies, icon);
     }
@@ -306,8 +316,11 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     const trustTokenResult = this.requestInternal.trustTokenOperationDoneEvent();
     if (trustTokenResult &&
         !NetworkComponents.RequestTrustTokensView.statusConsideredSuccess(trustTokenResult.status)) {
-      const icon = new IconButton.Icon.Icon();
-      icon.data = {iconName: 'cross-circle-filled', color: 'var(--icon-error)', width: '14px', height: '14px'};
+      const icon = new IconButton.NewIcon.NewIcon();
+      icon.name = 'cross-circle-filled';
+      icon.style.color = 'var(--icon-error)';
+      icon.style.width = '14px';
+      icon.style.height = '14px';
       this.setTabIcon(NetworkForward.UIRequestLocation.UIRequestTabs.TrustTokens, icon);
     }
   }

@@ -394,7 +394,7 @@ export class TabbedPane extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return this.tabsHistory.slice(0, tabsCount).map(tabToTabId);
   }
 
-  setTabIcon(id: string, icon: Icon|IconButton.Icon.Icon|null): void {
+  setTabIcon(id: string, icon: IconButton.NewIcon.NewIcon|null): void {
     const tab = this.tabsById.get(id);
     if (!tab) {
       return;
@@ -996,7 +996,7 @@ export class TabbedPaneTab {
   measuredWidth!: number|undefined;
   private tabElementInternal!: HTMLElement|undefined;
   private readonly iconContainer: Element|null;
-  private icon?: Icon|IconButton.Icon.Icon|null;
+  private icon?: IconButton.NewIcon.NewIcon|null;
   private widthInternal?: number;
   private delegate?: TabbedPaneTabDelegate;
   private titleElement?: HTMLElement;
@@ -1041,7 +1041,7 @@ export class TabbedPaneTab {
     return this.closeable;
   }
 
-  setIcon(icon: Icon|IconButton.Icon.Icon|null): void {
+  setIcon(icon: IconButton.NewIcon.NewIcon|null): void {
     this.icon = icon;
     if (this.tabElementInternal && this.titleElement) {
       this.createIconElement(this.tabElementInternal, this.titleElement, false);
@@ -1118,17 +1118,14 @@ export class TabbedPaneTab {
     tabIcons.set(tabElement, iconContainer);
   }
 
-  private createMeasureClone(original: Icon|IconButton.Icon.Icon): Node {
-    if ('data' in original && original.data.width && original.data.height) {
-      // Cloning doesn't work for the icon component because the shadow
-      // root isn't copied, but it is sufficient to create a div styled
-      // to be the same size.
-      const fakeClone = document.createElement('div');
-      fakeClone.style.width = original.data.width;
-      fakeClone.style.height = original.data.height;
-      return fakeClone;
-    }
-    return original.cloneNode(true);
+  private createMeasureClone(original: IconButton.NewIcon.NewIcon): Node {
+    // Cloning doesn't work for the icon component because the shadow
+    // root isn't copied, but it is sufficient to create a div styled
+    // to be the same size.
+    const fakeClone = document.createElement('div');
+    fakeClone.style.width = original.style.width;
+    fakeClone.style.height = original.style.height;
+    return fakeClone;
   }
 
   createTabElement(measuring: boolean): HTMLElement {

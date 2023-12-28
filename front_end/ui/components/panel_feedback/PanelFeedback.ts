@@ -68,13 +68,9 @@ export class PanelFeedback extends HTMLElement {
     // clang-format off
     LitHtml.render(LitHtml.html`
       <div class="preview">
-        <h2 class="flex">
-          <${IconButton.Icon.Icon.litTagName} .data=${{
-            iconName: 'experiment',
-            width: '20px',
-            height: '20px',
-            color: 'var(--icon-primary)',
-          } as IconButton.Icon.IconData}></${IconButton.Icon.Icon.litTagName}> ${i18nString(UIStrings.previewFeature)}
+        <h2>
+          <${IconButton.NewIcon.NewIcon.litTagName} name="experiment"></${IconButton.NewIcon.NewIcon.litTagName}>
+          ${i18nString(UIStrings.previewFeature)}
         </h2>
         <p>${i18nString(UIStrings.previewText)} <x-link href=${this.#props.feedbackUrl} jslog=${VisualLogging.link().track({click: true}).context('feedback')}>${i18nString(UIStrings.previewTextFeedbackLink)}</x-link></p>
         <div class="video">

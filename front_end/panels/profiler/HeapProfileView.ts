@@ -290,8 +290,11 @@ export class SamplingHeapProfileTypeBase extends
     this.addProfile(profileHeader);
     profileHeader.updateStatus(i18nString(UIStrings.recording));
 
-    const icon = new IconButton.Icon.Icon();
-    icon.data = {iconName: 'warning-filled', color: 'var(--icon-warning)', width: '14px', height: '14px'};
+    const icon = new IconButton.NewIcon.NewIcon();
+    icon.name = 'warning-filled';
+    icon.style.color = 'var(--icon-warning)';
+    icon.style.width = '14px';
+    icon.style.height = '14px';
     UI.Tooltip.Tooltip.install(icon, i18nString(UIStrings.heapProfilerIsRecording));
     UI.InspectorView.InspectorView.instance().setPanelIcon('heap_profiler', icon);
 

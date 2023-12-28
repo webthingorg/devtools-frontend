@@ -33,6 +33,10 @@ h2 {
   align-items: center;
   gap: 5px;
   font-weight: normal;
+
+  & > devtools-new-icon {
+    color: var(--icon-primary);
+  }
 }
 
 h3 {

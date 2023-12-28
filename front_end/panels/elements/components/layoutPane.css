@@ -109,21 +109,24 @@
   align-items: center;
 }
 
-.show-element {
-  margin: 0 0 0 8px;
+button {
   cursor: pointer;
-  flex: none;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: 0 0 0 8px;
 
-  --icon-show-element: var(--icon-default);
-}
+  & > devtools-new-icon {
+    width: inherit;
+    height: inherit;
+  }
 
-.show-element:hover {
-  --icon-show-element: var(--icon-default-hover);
-}
-
-.show-element:focus {
-  outline: 2px solid var(--sys-color-state-focus-ring);
-  border-radius: 2px;
+  &:focus {
+    outline: 2px solid var(--sys-color-state-focus-ring);
+    border-radius: 2px;
+  }
 }
 
 .chrome-select {
