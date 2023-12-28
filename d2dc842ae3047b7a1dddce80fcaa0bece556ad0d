@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c65d342_1044c156",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-28T10:00:25Z",
+      "side": 1,
+      "message": "Thanks for review!",
+      "revId": "d2dc842ae3047b7a1dddce80fcaa0bece556ad0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab7a91cf_fc505d3d",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-12-27T13:19:20Z",
       "side": 1,
       "message": "nit: I found it a bit hard to understand what this does based on its name. wdyt of  `hitMarginPx` and/or maybe let\u0027s add a comment",
+      "range": {
+        "startLine": 213,
+        "startChar": 9,
+        "endLine": 213,
+        "endChar": 23
+      },
+      "revId": "d2dc842ae3047b7a1dddce80fcaa0bece556ad0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c3cfa0e_6f002f36",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-28T10:00:25Z",
+      "side": 1,
+      "message": "Agree, `hitMarginPx` is better. Added a comment too.",
+      "parentUuid": "ab7a91cf_fc505d3d",
       "range": {
         "startLine": 213,
         "startChar": 9,
@@ -64,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39181d68_b157cfdd",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-28T10:00:25Z",
+      "side": 1,
+      "message": "In this specific case selected and highlighted should always be the same because you cannot highlight another entry while a context menu in opened on one. \nI changed it to highlighted here just in case because we check `if (this.highlightedEntryIndex \u003d\u003d\u003d -1) {` at the beginning of this method.",
+      "parentUuid": "6401267d_1d0cc43f",
+      "range": {
+        "startLine": 789,
+        "startChar": 75,
+        "endLine": 789,
+        "endChar": 96
+      },
+      "revId": "d2dc842ae3047b7a1dddce80fcaa0bece556ad0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af2b2466_25af4c20",
@@ -77,6 +142,30 @@
       "writtenOn": "2023-12-27T13:19:20Z",
       "side": 1,
       "message": "should we return right after to prevent the default behavior when the arrow is clicked?",
+      "range": {
+        "startLine": 2522,
+        "startChar": 6,
+        "endLine": 2522,
+        "endChar": 10
+      },
+      "revId": "d2dc842ae3047b7a1dddce80fcaa0bece556ad0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f9a47b_0ec8e11d",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 2522,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-28T10:00:25Z",
+      "side": 1,
+      "message": "Good point. I played around and it feels like it seems natural right now that the entry also gets selected after children are reset. We can choose to change it later on if it makes sense.",
+      "parentUuid": "af2b2466_25af4c20",
       "range": {
         "startLine": 2522,
         "startChar": 6,
