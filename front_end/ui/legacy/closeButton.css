@@ -23,6 +23,9 @@
 
 .close-button:focus {
   outline: 2px solid var(--sys-color-state-focus-ring);
+
+  /* Add a left border with the same color */
+  border-left: 2px solid var(--sys-color-state-focus-ring);
 }
 
 @media (forced-colors: active) and (prefers-color-scheme: dark) {
