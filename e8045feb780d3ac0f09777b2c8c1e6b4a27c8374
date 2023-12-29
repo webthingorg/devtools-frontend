@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "872716eb_d988bbc4",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-29T10:26:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd54f92_2640d765",
+      "range": {
+        "startLine": 424,
+        "startChar": 21,
+        "endLine": 424,
+        "endChar": 27
+      },
+      "revId": "e8045feb780d3ac0f09777b2c8c1e6b4a27c8374",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b7971e6_56a406f6",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfa5f544_e052c498",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-29T10:26:06Z",
+      "side": 1,
+      "message": "Good point! I added a test that dispatches RESET_CHILDREN event on an entry and removes the decoration. We already had a test that adds this decoration.",
+      "parentUuid": "9b7971e6_56a406f6",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 89
+      },
+      "revId": "e8045feb780d3ac0f09777b2c8c1e6b4a27c8374",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8188b577_588a9211",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-12-29T06:57:25Z",
       "side": 1,
       "message": "could we reuse `updateElementPosition` with `revealAncestorsArrowHighlightElement` to avoid duplication?",
+      "range": {
+        "startLine": 2606,
+        "startChar": 10,
+        "endLine": 2606,
+        "endChar": 51
+      },
+      "revId": "e8045feb780d3ac0f09777b2c8c1e6b4a27c8374",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f1445e_a07b826f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2023-12-29T10:26:06Z",
+      "side": 1,
+      "message": "Good idea. Changed `revealAncestorsArrowHighlightElement` to call `updateElementPosition` after checking if the element has decoration.  \nAlso had to change `updateElementPosition` to check if the element passed is a decoration because by default this method adjust the element size to the whole entry.",
+      "parentUuid": "8188b577_588a9211",
       "range": {
         "startLine": 2606,
         "startChar": 10,
