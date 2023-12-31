@@ -143,7 +143,7 @@ describe('NetworkRequest', () => {
         cookieLine: 'foo=duplicate; Path=/',
       }],
       resourceIPAddressSpace: Protocol.Network.IPAddressSpace.Public,
-      statusCode: undefined,
+      statusCode: null,
       cookiePartitionKey: undefined,
       cookiePartitionKeyOpaque: undefined,
     });

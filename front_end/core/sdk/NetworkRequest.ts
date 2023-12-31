@@ -229,7 +229,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #endTimeInternal: number;
   #blockedReasonInternal: Protocol.Network.BlockedReason|undefined;
   #corsErrorStatusInternal: Protocol.Network.CorsErrorStatus|undefined;
-  statusCode: number;
+  statusCode: number|null;
   statusText: string;
   requestMethod: string;
   requestTime: number;
@@ -342,7 +342,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#blockedReasonInternal = undefined;
     this.#corsErrorStatusInternal = undefined;
 
-    this.statusCode = 0;
+    this.statusCode = null;
     this.statusText = '';
     this.requestMethod = '';
     this.requestTime = 0;
@@ -871,7 +871,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   }
 
   getInferredStatusText(): string {
-    return this.statusText || HttpReasonPhraseStrings.getStatusText(this.statusCode);
+    return this.statusText || (this.statusCode !== null ? HttpReasonPhraseStrings.getStatusText(this.statusCode) : '');
   }
 
   redirectSource(): NetworkRequest|null {
@@ -1369,7 +1369,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   }
 
   hasErrorStatusCode(): boolean {
-    return this.statusCode >= 400;
+    if (this.statusCode === null) {
+      return false;
+    }
+    return this.statusCode >= 400 || this.statusCode < 100;
   }
 
   setInitialPriority(priority: Protocol.Network.ResourcePriority): void {
@@ -1914,7 +1917,7 @@ export interface ExtraResponseInfo {
   responseHeaders: NameValue[];
   responseHeadersText?: string;
   resourceIPAddressSpace: Protocol.Network.IPAddressSpace;
-  statusCode: number|undefined;
+  statusCode: number|null;
   cookiePartitionKey: string|undefined;
   cookiePartitionKeyOpaque: boolean|undefined;
 }

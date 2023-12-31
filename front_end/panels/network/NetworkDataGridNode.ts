@@ -1062,10 +1062,11 @@ export class NetworkRequestNode extends NetworkNode {
   }
 
   override isFailed(): boolean {
-    if (this.requestInternal.failed && !this.requestInternal.statusCode) {
+    if (this.requestInternal.failed) {
       return true;
     }
-    if (this.requestInternal.statusCode >= 400) {
+    if (this.requestInternal.statusCode !== null &&
+        (this.requestInternal.statusCode >= 400 || this.requestInternal.statusCode < 100)) {
       return true;
     }
     const signedExchangeInfo = this.requestInternal.signedExchangeInfo();
@@ -1331,7 +1332,7 @@ export class NetworkRequestNode extends NetworkNode {
       this.setTextAndTitle(
           cell, i18nString(UIStrings.corsError),
           i18nString(UIStrings.crossoriginResourceSharingErrorS, {PH1: corsErrorStatus.corsError}));
-    } else if (this.requestInternal.statusCode) {
+    } else if (this.requestInternal.statusCode !== null) {
       UI.UIUtils.createTextChild(cell, String(this.requestInternal.statusCode));
       const statusText = this.requestInternal.getInferredStatusText();
       this.appendSubtitle(cell, statusText);
