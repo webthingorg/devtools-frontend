@@ -104,6 +104,30 @@
       },
       "revId": "b79327653cf12ba02374bb0cc37a4d336cb47889",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ebf56f5_9ae809d8",
+        "filename": "front_end/core/sdk/EmulationModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1341608
+      },
+      "writtenOn": "2024-01-01T04:31:28Z",
+      "side": 1,
+      "message": "It\u0027s done @Eric! Could you review it again :) Thank you for your review.",
+      "parentUuid": "b884f8c5_1a898452",
+      "range": {
+        "startLine": 434,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 79
+      },
+      "revId": "b79327653cf12ba02374bb0cc37a4d336cb47889",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
