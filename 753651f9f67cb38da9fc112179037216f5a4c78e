@@ -22,6 +22,30 @@
       },
       "revId": "753651f9f67cb38da9fc112179037216f5a4c78e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07c1698e_f68d4928",
+        "filename": "front_end/panels/application/TrustTokensTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-02T16:03:47Z",
+      "side": 0,
+      "message": "It\u0027s unused, I removed most of the occurrences with https://crrev.com/c/5154252 already.",
+      "parentUuid": "b9f5d36f_94f91297",
+      "range": {
+        "startLine": 31,
+        "startChar": 49,
+        "endLine": 31,
+        "endChar": 69
+      },
+      "revId": "753651f9f67cb38da9fc112179037216f5a4c78e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
