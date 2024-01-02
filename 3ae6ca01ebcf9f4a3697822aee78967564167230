@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks 🙏",
       "revId": "3ae6ca01ebcf9f4a3697822aee78967564167230",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec0abd7_d20b64d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-02T15:36:15Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "3ae6ca01ebcf9f4a3697822aee78967564167230",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

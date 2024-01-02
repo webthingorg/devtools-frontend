@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f5d36f_94f91297",
+        "filename": "front_end/panels/application/TrustTokensTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-02T15:36:15Z",
+      "side": 0,
+      "message": "Do you know the purpose of this class? Is it a leftover which can be removed in other places as well?",
+      "range": {
+        "startLine": 31,
+        "startChar": 49,
+        "endLine": 31,
+        "endChar": 69
+      },
+      "revId": "753651f9f67cb38da9fc112179037216f5a4c78e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
