@@ -15,18 +15,18 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Input from '../../../ui/components/input/input.js';
 import * as LegacyWrapper from '../../../ui/components/legacy_wrapper/legacy_wrapper.js';
+import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as Sources from '../../sources/sources.js';
 
-import {type RequestHeaderSectionData, RequestHeaderSection} from './RequestHeaderSection.js';
-import {
-  type ResponseHeaderSectionData,
-  ResponseHeaderSection,
-  RESPONSE_HEADER_SECTION_DATA_KEY,
-} from './ResponseHeaderSection.js';
-
+import {RequestHeaderSection, type RequestHeaderSectionData} from './RequestHeaderSection.js';
 import requestHeadersViewStyles from './RequestHeadersView.css.js';
+import {
+  RESPONSE_HEADER_SECTION_DATA_KEY,
+  ResponseHeaderSection,
+  type ResponseHeaderSectionData,
+} from './ResponseHeaderSection.js';
 
 const RAW_HEADER_CUTOFF = 3000;
 const {render, html} = LitHtml;
@@ -103,6 +103,8 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('panels/network/components/RequestHeadersView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableComponent {
   #request: Readonly<SDK.NetworkRequest.NetworkRequest>;
@@ -184,14 +186,16 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
       return;
     }
 
-    // Disabled until https://crbug.com/1079231 is fixed.
-    // clang-format off
-    render(html`
-      ${this.#renderGeneralSection()}
-      ${this.#renderResponseHeaders()}
-      ${this.#renderRequestHeaders()}
-    `, this.#shadow, {host: this});
-    // clang-format on
+    return coordinator.write(() => {
+      // Disabled until https://crbug.com/1079231 is fixed.
+      // clang-format off
+      render(html`
+        ${this.#renderGeneralSection()}
+        ${this.#renderResponseHeaders()}
+        ${this.#renderRequestHeaders()}
+      `, this.#shadow, {host: this});
+      // clang-format on
+    });
   }
 
   #renderResponseHeaders(): LitHtml.LitTemplate {
