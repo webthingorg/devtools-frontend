@@ -437,7 +437,7 @@ describeWithEnvironment('NetworkLogView', () => {
         cookieLine: 'bad=456; Path=/; SameSite=None',
       }],
       resourceIPAddressSpace: Protocol.Network.IPAddressSpace.Public,
-      statusCode: undefined,
+      statusCode: null,
       cookiePartitionKey: undefined,
       cookiePartitionKeyOpaque: undefined,
     });

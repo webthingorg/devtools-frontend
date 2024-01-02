@@ -275,7 +275,7 @@ export class Resource implements TextUtils.ContentProvider.ContentProvider {
     return this.#frameIdInternal ? this.#resourceTreeModel.frameForId(this.#frameIdInternal) : null;
   }
 
-  statusCode(): number {
-    return this.#requestInternal ? this.#requestInternal.statusCode : 0;
+  statusCode(): number|null {
+    return this.#requestInternal ? this.#requestInternal.statusCode : null;
   }
 }
