@@ -110,8 +110,6 @@ export class EntriesFilter {
   }
 
   #applyFilterAction(action: UserApplyFilterAction): Types.TraceEvents.TraceEventData[] {
-    // Identify in the UI that children of the entry are modified.
-    this.#modifiedVisibleEntries.push(action.entry);
     // We apply new user action to the set of all entries, and mark
     // any that should be hidden by adding them to this set.
     // Another approach would be to use splice() to remove items from the
@@ -154,7 +152,11 @@ export class EntriesFilter {
         Platform.assertNever(action.type, `Unknown EntriesFilter action: ${action.type}`);
     }
 
-    this.#invisibleEntries.push(...entriesToHide);
+    // If there are any children to hide, identify in the UI that children of the selected entry are modified and add them to the invisible entries array.
+    if(entriesToHide.size > 0) {
+      this.#invisibleEntries.push(...entriesToHide);
+      this.#modifiedVisibleEntries.push(action.entry);
+    }
 
     return this.#invisibleEntries;
   }
