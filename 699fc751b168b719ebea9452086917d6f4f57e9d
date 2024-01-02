@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5062f519_496c4d9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-02T11:23:31Z",
+      "side": 1,
+      "message": "Please limit this CL to just fixing crbug.com/1514412 (and put up a separate CL for the confirm dialog). Also please add yourself to `AUTHORS` with this CL.",
+      "revId": "699fc751b168b719ebea9452086917d6f4f57e9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68357c3a_aa0e8e28",
+        "filename": "front_end/ui/legacy/closeButton.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-02T11:23:31Z",
+      "side": 1,
+      "message": "Wouldn\u0027t `margin-left` be simpler here?",
+      "revId": "699fc751b168b719ebea9452086917d6f4f57e9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
