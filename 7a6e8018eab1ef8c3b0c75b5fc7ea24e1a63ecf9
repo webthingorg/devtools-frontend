@@ -52,6 +52,24 @@
       "parentUuid": "f3828fcf_00d826ce",
       "revId": "7a6e8018eab1ef8c3b0c75b5fc7ea24e1a63ecf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef02f97_03807cad",
+        "filename": "front_end/panels/timeline/TimelineEventOverview.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-02T08:24:02Z",
+      "side": 0,
+      "message": "ended up using the trace bounds service to check if the times changed",
+      "parentUuid": "598e59a2_89692209",
+      "revId": "7a6e8018eab1ef8c3b0c75b5fc7ea24e1a63ecf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
