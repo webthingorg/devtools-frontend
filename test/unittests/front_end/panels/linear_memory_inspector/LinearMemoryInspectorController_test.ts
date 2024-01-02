@@ -204,4 +204,46 @@ describe('RemoteArrayBufferWrapper', () => {
       assert.deepEqual(array[i], extractedArray[i]);
     }
   });
+
+  it('Characterization', async () => {
+    const array = new Uint8Array([2, 4, 6, 2, 4]);
+    const wrapper = createWrapper(array);
+    const result = await wrapper.getRange(1, 2);
+    assert.deepEqual(result, new Uint8Array([4]));
+  });
+
+  it('Characterization', async () => {
+    const array = new Uint8Array([2, 4, 6, 2, 4]);
+    const wrapper = createWrapper(array);
+    const result = await wrapper.getRange(-1, -2);
+    assert.deepEqual(result, new Uint8Array([]));
+  });
+
+  it('Characterization', async () => {
+    const array = new Uint8Array([2, 4, 6, 2, 4]);
+    const wrapper = createWrapper(array);
+    const result = await wrapper.getRange(2, 1);
+    assert.deepEqual(result, new Uint8Array([]));
+  });
+
+  it('Check if range is valid when start is bigger than end', async () => {
+    const array = new Uint8Array([2, 4, 6, 2, 4]);
+    const wrapper = createWrapper(array);
+    const result = await wrapper.isRangeValid(2, 1);
+    assert.isFalse(result);
+  });
+
+  it('Check if range is valid when end is bigger than start', async () => {
+    const array = new Uint8Array([2, 4, 6, 2, 4]);
+    const wrapper = createWrapper(array);
+    const result = await wrapper.isRangeValid(1, 2);
+    assert.isTrue(result);
+  });
+
+  it('Check if range is valid when start is negative', async () => {
+    const array = new Uint8Array([2, 4, 6, 2, 4]);
+    const wrapper = createWrapper(array);
+    const result = await wrapper.isRangeValid(-1, 2);
+    assert.isFalse(result);
+  });
 });
