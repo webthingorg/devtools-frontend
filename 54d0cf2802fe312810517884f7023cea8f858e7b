@@ -16,6 +16,24 @@
       "message": "it looks like this fallback and the use of the --icon-color variable would not work anymore? I see several usages of icon-color.",
       "revId": "54d0cf2802fe312810517884f7023cea8f858e7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb78282_c76d5737",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-02T10:13:45Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "836a4985_960cbc96",
+      "revId": "54d0cf2802fe312810517884f7023cea8f858e7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
