@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c1e7626_05dc8157",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-02T10:20:49Z",
+      "side": 1,
+      "message": "it would be nice to get rid of sizing via JS (not sure at what point it got added, I guess there some button styles that do not fit the existing variants)",
+      "revId": "a0951547c4af5d327dd0f3fadee521f407773454",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
