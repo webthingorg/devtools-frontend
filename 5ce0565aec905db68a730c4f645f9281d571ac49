@@ -34,6 +34,24 @@
       "parentUuid": "a9ab4dcc_ccb49048",
       "revId": "5ce0565aec905db68a730c4f645f9281d571ac49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "822ef5f1_2c74aef4",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-03T06:33:36Z",
+      "side": 0,
+      "message": "I don\u0027t see the color change in the same way as it does in canary. Maybe it\u0027s not because of this rule but it looks like styles from the file fail to take precedence over the inline styles. I can see it on the \"more network conditions\" icon although the behavior for each toolbar seems to be a bit different.",
+      "parentUuid": "dc54c953_498849cd",
+      "revId": "5ce0565aec905db68a730c4f645f9281d571ac49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
