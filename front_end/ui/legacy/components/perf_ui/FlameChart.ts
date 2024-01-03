@@ -162,6 +162,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private forceDecorationCache?: Int8Array|null;
   private entryColorsCache?: string[]|null;
   private totalTime?: number;
+  private contextMenu?: UI.ContextMenu.ContextMenu;
   #font: string;
   #groupTreeRoot?: GroupTreeNode|null;
 
@@ -766,6 +767,41 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     });
   }
 
+  
+
+  startMenu(possActions: TraceEngine.EntriesFilter.PossibleFilterActions): void {
+    if(!this.contextMenu) {
+      return;
+    }
+
+    // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
+    this.contextMenu.headerSection().appendItem('Merge function', () => {
+      this.#dispatchTreeModifiedEvent(
+          TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
+    });
+
+    if(possActions[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION]) {
+      this.contextMenu.headerSection().appendItem('Collapse function', () => {
+        this.#dispatchTreeModifiedEvent(
+            TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
+      });
+    }
+
+    if(possActions[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]) {
+      this.contextMenu.headerSection().appendItem('Collapse repeating descendants', () => {
+        this.#dispatchTreeModifiedEvent(
+            TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
+      });
+    }
+
+    this.contextMenu.headerSection().appendItem('Reset trace', () => {
+      this.#dispatchTreeModifiedEvent(
+          TraceEngine.EntriesFilter.FilterUndoAction.UNDO_ALL_ACTIONS, this.highlightedEntryIndex);
+    });
+
+    void this.contextMenu.show();
+  }
+
   #onContextMenu(_event: Event): void {
     // The context menu only applies if the user is hovering over an individual entry.
     if (this.highlightedEntryIndex === -1) {
@@ -789,30 +825,13 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // represents the entry under the cursor where the user has right clicked
     // to trigger a context menu.
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
-    const contextMenu = new UI.ContextMenu.ContextMenu(_event);
-
-    // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
-    contextMenu.headerSection().appendItem('Merge function', () => {
-      this.#dispatchTreeModifiedEvent(
-          TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
+    
+    this.contextMenu = new UI.ContextMenu.ContextMenu(_event);
+    // check which actions are possible
+    this.dispatchEventToListeners(Events.CheckActionsAvailability, {
+      group: group,
+      node: this.highlightedEntryIndex,
     });
-
-    contextMenu.headerSection().appendItem('Collapse function', () => {
-      this.#dispatchTreeModifiedEvent(
-          TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
-    });
-
-    contextMenu.headerSection().appendItem('Collapse repeating descendants', () => {
-      this.#dispatchTreeModifiedEvent(
-          TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
-    });
-
-    contextMenu.headerSection().appendItem('Reset trace', () => {
-      this.#dispatchTreeModifiedEvent(
-          TraceEngine.EntriesFilter.FilterUndoAction.UNDO_ALL_ACTIONS, this.highlightedEntryIndex);
-    });
-
-    void contextMenu.show();
   }
 
   private onKeyDown(e: KeyboardEvent): void {
@@ -2949,6 +2968,8 @@ export enum Events {
    * chosen from the flame chart context  menu
    */
   EntriesModified = 'EntriesModified',
+  PossibleActionCalculated = 'PossibleActionCalculated',
+  CheckActionsAvailability = 'CheckActionsAvailability',
 }
 
 export type EventTypes = {
@@ -2961,7 +2982,13 @@ export type EventTypes = {
     node: number,
     action: TraceEngine.EntriesFilter.FilterAction,
   },
+  [Events.CheckActionsAvailability]: {
+    group: Group,
+    node: number
+  },
   [Events.EntriesModified]: void,
+  [Events.PossibleActionCalculated]: TraceEngine.EntriesFilter.PossibleFilterActions
+  
 };
 
 export interface Group {
