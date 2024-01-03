@@ -149,11 +149,8 @@ export class Icon extends HTMLElement {
         if (newValue === null) {
           this.#icon.style.removeProperty('--icon-url');
         } else {
-          if (!newValue.endsWith('.svg')) {
-            newValue = `${newValue}.svg`;
-          }
-          const url = new URL(newValue, IMAGES_URL);
-          this.#icon.style.setProperty('--icon-url', `url(${url})`);
+          const url = newValue.includes('.') ? `url(${new URL(newValue, IMAGES_URL)}` : `var(--image-file-${newValue})`;
+          this.#icon.style.setProperty('--icon-url', url);
         }
         break;
       }
