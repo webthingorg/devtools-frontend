@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a4878a6_6c5a56c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-01-03T18:01:09Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ll update our LH rolling script to also update this version field.",
+      "revId": "c42a69ffbe6d98da0950dbb4fd53cd54a5376ba5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
