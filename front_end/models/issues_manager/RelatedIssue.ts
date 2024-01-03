@@ -21,7 +21,6 @@ function issuesAssociatedWithNetworkRequest(issues: Issue[], request: SDK.Networ
     return false;
   });
 }
-
 function issuesAssociatedWithCookie(issues: Issue[], domain: string, name: string, path: string): Issue[] {
   return issues.filter(issue => {
     for (const cookie of issue.cookies()) {
@@ -60,6 +59,13 @@ export function hasThirdPartyPhaseoutCookieIssue(obj: IssuesAssociatable): boole
   const issues = Array.from(IssuesManager.instance().issues());
   return issuesAssociatedWith(issues, obj)
       .some(issue => CookieIssue.getSubCategory(issue.code()) === CookieIssueSubCategory.ThirdPartyPhaseoutCookie);
+}
+
+export function hasThirdPartyPhaseoutCookieIssueForDomain(domain: string): boolean {
+  const issues = Array.from(IssuesManager.instance().issues());
+  const issuesForDomain = issues.filter(issue => Array.from(issue.cookies()).some(cookie => cookie.domain === domain));
+  return issuesForDomain.some(
+      issue => CookieIssue.getSubCategory(issue.code()) === CookieIssueSubCategory.ThirdPartyPhaseoutCookie);
 }
 
 export async function reveal(obj: IssuesAssociatable, category?: IssueCategory): Promise<void|undefined> {

@@ -17,7 +17,6 @@ export class StubIssue extends Issue {
   private locations: Protocol.Audits.SourceCodeLocation[] = [];
   private mockIssueId?: Protocol.Audits.IssueId;
   private mockIssueCategory?: IssueCategory;
-
   constructor(code: string, requestIds: string[], cookieNames: string[], issueKind = IssueKind.Improvement) {
     super(code);
     this.requestIds = requestIds;
