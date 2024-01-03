@@ -190,6 +190,15 @@ export class CompatibilityTracksAppender {
     }
   }
 
+  findPossibleContextMenuActions(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.TraceEntry, flameChartView: PerfUI.FlameChart.FlameChart): void{
+    const threadTrackAppender = this.#trackForGroup.get(group);
+    if (threadTrackAppender instanceof ThreadAppender) {
+      threadTrackAppender.findPossibleContextMenuActions(node, flameChartView);
+    } else {
+      console.warn('Could not modify tree in not thread track');
+    }
+  }
+
   #addThreadAppenders(): void {
     const weight = (appender: ThreadAppender): number => {
       switch (appender.threadType) {
