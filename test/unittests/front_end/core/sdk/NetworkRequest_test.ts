@@ -145,7 +145,7 @@ describe('NetworkRequest', () => {
         cookieLine: 'foo=duplicate; Path=/',
       }],
       resourceIPAddressSpace: Protocol.Network.IPAddressSpace.Public,
-      statusCode: undefined,
+      statusCode: null,
       cookiePartitionKey: undefined,
       cookiePartitionKeyOpaque: undefined,
     });
@@ -205,7 +205,7 @@ describeWithMockConnection('NetworkRequest', () => {
         cookieLine: 'name=value; Path=/',
       }],
       resourceIPAddressSpace: Protocol.Network.IPAddressSpace.Public,
-      statusCode: undefined,
+      statusCode: null,
       cookiePartitionKey: undefined,
       cookiePartitionKeyOpaque: undefined,
     });

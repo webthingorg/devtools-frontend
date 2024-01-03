@@ -394,12 +394,13 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     }
 
     const statusClasses = ['status'];
-    if (this.#request.statusCode < 300 || this.#request.statusCode === 304) {
-      statusClasses.push('green-circle');
-    } else if (this.#request.statusCode < 400) {
-      statusClasses.push('yellow-circle');
-    } else {
+    if (this.#request.statusCode === null) {
+    } else if (this.#request.statusCode < 100 || this.#request.statusCode >= 400) {
       statusClasses.push('red-circle');
+    } else if (this.#request.statusCode < 300 || this.#request.statusCode === 304) {
+      statusClasses.push('green-circle');
+    } else {
+      statusClasses.push('yellow-circle');
     }
 
     let comment = '';
@@ -435,8 +436,8 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
         aria-label=${i18nString(UIStrings.general)}
       >
         ${this.#renderGeneralRow(i18nString(UIStrings.requestUrl), this.#request.url())}
-        ${this.#request.statusCode? this.#renderGeneralRow(i18nString(UIStrings.requestMethod), this.#request.requestMethod) : LitHtml.nothing}
-        ${this.#request.statusCode? this.#renderGeneralRow(i18nString(UIStrings.statusCode), statusText, statusClasses) : LitHtml.nothing}
+        ${this.#request.statusCode !== null ? this.#renderGeneralRow(i18nString(UIStrings.requestMethod), this.#request.requestMethod) : LitHtml.nothing}
+        ${this.#request.statusCode !== null ? this.#renderGeneralRow(i18nString(UIStrings.statusCode), statusText, statusClasses) : LitHtml.nothing}
         ${this.#request.remoteAddress()? this.#renderGeneralRow(i18nString(UIStrings.remoteAddress), this.#request.remoteAddress()) : LitHtml.nothing}
         ${this.#request.referrerPolicy()? this.#renderGeneralRow(i18nString(UIStrings.referrerPolicy), String(this.#request.referrerPolicy())) : LitHtml.nothing}
       </${Category.litTagName}>

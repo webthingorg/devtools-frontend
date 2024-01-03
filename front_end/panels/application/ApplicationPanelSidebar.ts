@@ -2195,7 +2195,7 @@ export class FrameTreeElement extends ApplicationPanelTreeElement {
 
   appendResource(resource: SDK.Resource.Resource): void {
     const statusCode = resource.statusCode();
-    if (statusCode >= 301 && statusCode <= 303) {
+    if (statusCode !== null && (statusCode >= 301 && statusCode <= 303)) {
       return;
     }
 

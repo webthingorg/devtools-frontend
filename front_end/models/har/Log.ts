@@ -453,7 +453,7 @@ export interface Request {
 }
 
 export interface Response {
-  status: number;
+  status: number|null;
   statusText: string;
   httpVersion: string;
   headers: Object;
