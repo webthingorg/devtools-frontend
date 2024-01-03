@@ -4,11 +4,12 @@
 
 import type * as Protocol from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as Common from '../common/common.js';
 import * as HostModule from '../host/host.js';
 import * as Platform from '../platform/platform.js';
 
-import {cssMetadata, GridAreaRowRegex} from './CSSMetadata.js';
+import {cssMetadata} from './CSSMetadata.js';
 import {type Edit} from './CSSModel.js';
 import {stripComments} from './CSSPropertyParser.js';
 import {type CSSStyleDeclaration} from './CSSStyleDeclaration.js';
@@ -196,82 +197,105 @@ export class CSSProperty {
     return this.ownerStyle.setText(styleText, majorChange);
   }
 
-  static async formatStyle(styleText: string, indentation: string, endIndentation: string): Promise<string> {
-    const doubleIndent = indentation.substring(endIndentation.length) + indentation;
-    if (indentation) {
-      indentation = '\n' + indentation;
-    }
-    let result = '';
-    let propertyName = '';
-    let propertyText = '';
-    let insideProperty = false;
-    let needsSemi = false;
-    const tokenize = TextUtils.CodeMirrorUtils.createCssTokenizer();
+  /**
+   * Formats the contents of a RuleSet with the following rules:
+   * 1. We want all the declarations to start in a new line with indentation if indentation is given.
+   * 2. We want comments to be in the same line as the declaration.
+   * 3. We want to remove semicolons that are not useful. (color: red;;; -> color: red;)
+   *
+   * One edge case we're handling is empty declarations (`:;`), for this; we're just
+   * removing them from the styleText before parsing.
+   *
+   * For the indentation, if there is no indentation given; we're not indenting and
+   * not adding new lines to the text.
+   *
+   * @param styleText
+   * @param indentation
+   * @param endIndentation
+   * @returns
+   */
+  static async formatStyle(styleText: string, indent: string, endIndentation: string): Promise<string> {
+    const textToParse = `*{${styleText.replaceAll(':;', '')}}`;
+    type State = {
+      readonly skipPreludeAndPostlude: boolean, prevIndentation: string, currentIndentation: string,
+      isSemicolonUseful: boolean,
+    };
 
-    await tokenize('*{' + styleText + '}', processToken);
-    if (insideProperty) {
-      result += propertyText;
-    }
-    result = result.substring(2, result.length - 1).trimEnd();
-    return result + (indentation ? '\n' + endIndentation : '');
+    const createState = (overrideState: Partial<State> = {}): State => ({
+      isSemicolonUseful: false,
+      // Whether to skip selector and block parentheses.
+      skipPreludeAndPostlude: false,
+      prevIndentation: indent ? `\n${indent}` : '',
+      currentIndentation: indent ? `\n${indent}` : '',
+      ...overrideState,
+    });
 
-    function processToken(token: string, tokenType: string|null): void {
-      if (!insideProperty) {
-        const disabledProperty = tokenType?.includes('comment') && isDisabledProperty(token);
-        const isPropertyStart =
-            (tokenType?.includes('string') || tokenType?.includes('meta') || tokenType?.includes('property') ||
-             (tokenType?.includes('variableName') && tokenType !== ('variableName.function')));
-        if (disabledProperty) {
-          result = result.trimEnd() + indentation + token;
-        } else if (isPropertyStart) {
-          insideProperty = true;
-          propertyText = token;
-        } else if (token !== ';' || needsSemi) {
-          result += token;
-          if (token.trim() && !(tokenType?.includes('comment'))) {
-            needsSemi = token !== ';';
+    const formatDeclaration = (declarationNode: CodeMirror.SyntaxNode):
+        string => {
+          return textToParse.substring(declarationNode.from, declarationNode.to);
+        };
+
+    const formatBlock = (blockNode: CodeMirror.SyntaxNode, state: State):
+        string => {
+          let result = '';
+          let itNode = blockNode.firstChild;
+          while (itNode) {
+            // Declaration from parser does not include semicolon,
+            // so if a semicolon follows a declaration it is deemed to be useful.
+            if (itNode.name === 'Declaration') {
+              state.isSemicolonUseful = true;
+              result += `${state.currentIndentation}${formatDeclaration(itNode)}`;
+            } else if (itNode.getChild('Block')) {
+              // Format nested CSS rule or nested @-rules.
+              result += formatNodeWithBlock(itNode, createState({
+                                              skipPreludeAndPostlude: false,
+                                              prevIndentation: state.currentIndentation,
+                                              currentIndentation: state.currentIndentation + indent,
+                                            }));
+            } else if (itNode.name === ';') {
+              if (state.isSemicolonUseful) {
+                state.isSemicolonUseful = false;
+                result += ';';
+              }
+            } else {
+              const nodeText = textToParse.substring(itNode.from, itNode.to);
+              const shouldSkip = state.skipPreludeAndPostlude && (nodeText === '}' || nodeText === '{');
+              if (!shouldSkip) {
+                result += nodeText === '}' ? `${state.prevIndentation}}` : nodeText;
+              }
+            }
+
+            itNode = itNode.nextSibling;
           }
-        }
-        if (token === '{' && !tokenType) {
-          needsSemi = false;
-        }
-        return;
-      }
 
-      if (token === '}' || token === ';') {
-        // While `propertyText` can generally be trimmed, doing so
-        // breaks valid CSS declarations such as `--foo:  ;` which would
-        // then produce invalid CSS of the form `--foo:;`. This
-        // implementation takes special care to restore a single
-        // whitespace token in this edge case. https://crbug.com/1071296
-        const trimmedPropertyText = propertyText.trim();
-        result = result.trimEnd() + indentation + trimmedPropertyText + (trimmedPropertyText.endsWith(':') ? ' ' : '') +
-            token;
-        needsSemi = false;
-        insideProperty = false;
-        propertyName = '';
-        return;
-      }
-      if (cssMetadata().isGridAreaDefiningProperty(propertyName)) {
-        const rowResult = GridAreaRowRegex.exec(token);
-        if (rowResult && rowResult.index === 0 && !propertyText.trimEnd().endsWith(']')) {
-          propertyText = propertyText.trimEnd() + '\n' + doubleIndent;
-        }
-      }
-      if (!propertyName && token === ':') {
-        propertyName = propertyText;
-      }
-      propertyText += token;
+          // If we're currently indenting the text; it means we're working on a multiline text.
+          // For the multiline text, if we're not including prelude and postlude (meaning, we skip `{` and `}`)
+          // we're adding the end indentation as we only skip the prelude and postlude from main RuleSet.
+          return state.skipPreludeAndPostlude ? `${result}${state.currentIndentation ? `\n${endIndentation}` : ''}` :
+                                                                                       result;
+        };
+
+    const formatNodeWithBlock = (nodeWithBlock: CodeMirror.SyntaxNode, state: State):
+        string => {
+          const blockNode = nodeWithBlock.getChild('Block');
+          if (!blockNode) {
+            return textToParse.substring(nodeWithBlock.from, nodeWithBlock.to);
+          }
+
+          const preludeBlock = !state.skipPreludeAndPostlude ?
+              `${state.prevIndentation}${textToParse.substring(nodeWithBlock.from, blockNode.from - 1)} ` :
+              '';
+          return `${preludeBlock}${formatBlock(blockNode, state)}`;
+        };
+
+    const cssParser = CodeMirror.css.cssLanguage.parser;
+    const {topNode} = cssParser.parse(textToParse);
+    const ruleSetNode = topNode.getChild('RuleSet');
+    if (!ruleSetNode) {
+      return styleText;
     }
 
-    function isDisabledProperty(text: string): boolean {
-      const colon = text.indexOf(':');
-      if (colon === -1) {
-        return false;
-      }
-      const propertyName = text.substring(2, colon).trim();
-      return cssMetadata().isCSSPropertyName(propertyName);
-    }
+    return formatNodeWithBlock(ruleSetNode, createState({skipPreludeAndPostlude: true}));
   }
 
   private detectIndentation(text: string): string {

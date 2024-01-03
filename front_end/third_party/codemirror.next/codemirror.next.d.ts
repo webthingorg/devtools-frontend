@@ -279,6 +279,18 @@ declare class NodeProp<T> {
     */
     static group: NodeProp<readonly string[]>;
     /**
+    Attached to nodes to indicate these should be
+    [displayed](https://codemirror.net/docs/ref/#language.syntaxTree)
+    in a bidirectional text isolate, so that direction-neutral
+    characters on their sides don't incorrectly get associated with
+    surrounding text. You'll generally want to set this for nodes
+    that contain arbitrary text, like strings and comments, and for
+    nodes that appear _inside_ arbitrary text, like HTML tags. When
+    not given a value, in a grammar declaration, defaults to
+    `"auto"`.
+    */
+    static isolate: NodeProp<"rtl" | "ltr" | "auto">;
+    /**
     The hash of the [context](#lr.ContextTracker.constructor)
     that the node was parsed in, if any. Used to limit reuse of
     contextual nodes.
@@ -1728,7 +1740,7 @@ declare class SelectionRange {
     /**
     Compare this range to another range.
     */
-    eq(other: SelectionRange): boolean;
+    eq(other: SelectionRange, includeAssoc?: boolean): boolean;
     /**
     Return a JSON-serializable object representing the range.
     */
@@ -1760,9 +1772,12 @@ declare class EditorSelection {
     */
     map(change: ChangeDesc, assoc?: number): EditorSelection;
     /**
-    Compare this selection to another selection.
+    Compare this selection to another selection. By default, ranges
+    are compared only by position. When `includeAssoc` is true,
+    cursor ranges must also have the same
+    [`assoc`](https://codemirror.net/6/docs/ref/#state.SelectionRange.assoc) value.
     */
-    eq(other: EditorSelection): boolean;
+    eq(other: EditorSelection, includeAssoc?: boolean): boolean;
     /**
     Get the primary selection range. Usually, you should make sure
     your code applies to _all_ ranges, by using methods like
@@ -2917,6 +2932,10 @@ declare class RangeSet<T extends RangeValue> {
     cause the method to sort them.
     */
     static of<T extends RangeValue>(ranges: readonly Range<T>[] | Range<T>, sort?: boolean): RangeSet<T>;
+    /**
+    Join an array of range sets into a single set.
+    */
+    static join<T extends RangeValue>(sets: readonly RangeSet<T>[]): RangeSet<T>;
     /**
     The empty set of ranges.
     */

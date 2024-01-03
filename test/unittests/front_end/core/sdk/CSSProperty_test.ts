@@ -6,6 +6,8 @@ import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../front_end/generated/protocol.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
 
+const NO_INDENTATION = '';
+
 describeWithEnvironment('CSSProperty', () => {
   describe('formatStyle', () => {
     const formatStyle = (styleText: string, indentation = ' ', endIndentation = '') => SDK.CSSProperty.CSSProperty.formatStyle(styleText, indentation, endIndentation);
@@ -20,41 +22,77 @@ describeWithEnvironment('CSSProperty', () => {
     });
     it('formats multiple style declarations correctly', async () => {
       assert.strictEqual(
-          await formatStyle('color: var(-);margin: 0;padding:0'), '\n color: var(-);margin: 0;padding:0\n');
+          await formatStyle('color: var(-);margin: 0;padding:0'), '\n color: var(-);\n margin: 0;\n padding:0\n');
     });
     it('formats style declarations with comments correctly', async () => {
       assert.strictEqual(
           await formatStyle('color: red;/* a comment */;color: blue'), '\n color: red;/* a comment */\n color: blue\n');
     });
-    it('formats an empty decalaration correctly', async () => {
-      assert.strictEqual(await formatStyle(':; color: red; color: blue'), ':;\n color: red;\n color: blue\n');
+    it('formats an empty declaration correctly', async () => {
+      assert.strictEqual(await formatStyle(':; color: red; color: blue'), '\n color: red;\n color: blue\n');
     });
-    it('formats an empty decalaration correctly and doesn\'t format comments', async () => {
+    it('formats an empty declaration correctly and doesn\'t format comments', async () => {
       assert.strictEqual(
           await formatStyle('color: red;/* a comment;;; */ :; color: blue;'),
-          '\n color: red;/* a comment;;; */ :;\n color: blue;\n');
+          '\n color: red;/* a comment;;; */\n color: blue;\n');
     });
-    it('formats a decalaration with line names correctly', async () => {
+    it('formats a declaration with line names correctly', async () => {
       assert.strictEqual(
           await formatStyle('grid: [first-row-start] "a a" 10px [first-row-end] [second-row-start] "b b" 20px / 100px'),
           '\n grid: [first-row-start] "a a" 10px [first-row-end] [second-row-start] "b b" 20px / 100px\n');
     });
     it('formats shorthand declaration with a variable correctly', async () => {
       assert.strictEqual(
-          await formatStyle('border: 1px solid var(--border-color);;', '', ''),
+          await formatStyle('border: 1px solid var(--border-color);;', NO_INDENTATION),
           'border: 1px solid var(--border-color);');
     });
     it('formats shorthand declaration with a function correctly', async () => {
-      assert.strictEqual(await formatStyle('border: 1px solid rgb(0,0,0);;', '', ''), 'border: 1px solid rgb(0,0,0);');
+      assert.strictEqual(
+          await formatStyle('border: 1px solid rgb(0,0,0);;', NO_INDENTATION), 'border: 1px solid rgb(0,0,0);');
     });
     it('formats declaration with unknown property that contains a function correctly', async () => {
-      assert.strictEqual(await formatStyle('unknownProperty: rgba(0,0,0,0);;', '', ''), 'unknownProperty: rgba(0,0,0,0);');
+      assert.strictEqual(
+          await formatStyle('unknownProperty: rgba(0,0,0,0);;', NO_INDENTATION), 'unknownProperty: rgba(0,0,0,0);');
     });
     // Regression test for crbug/1392813
     it('formats complex CSS variable declaration', async () => {
       assert.strictEqual(
-        await formatStyle('--_name: background var(--another-name)', '', ''),
-        '--_name: background var(--another-name)',
+          await formatStyle('--_name: background var(--another-name)', ''),
+          '--_name: background var(--another-name)',
+      );
+    });
+    it('formats CSS style with nesting correctly', async () => {
+      assert.strictEqual(
+          await formatStyle(
+              `
+          margin: 0;
+          color: red;
+          &:lang(ja) {
+            color:green;
+          }
+          color: blue;
+        `,
+              ),
+          '\n margin: 0;\n color: red;\n &:lang(ja) {\n  color:green;\n }\n color: blue;\n',
+      );
+    });
+
+    it('formats CSS style with nested @media rule correctly', async () => {
+      assert.strictEqual(
+          await formatStyle(
+              `
+          margin: 0;
+          color: red;
+          @media (min-width > 100px) {
+            color: green;
+            & span {
+              color: blue;
+            }
+          }
+          color: blue;
+        `,
+              ),
+          '\n margin: 0;\n color: red;\n @media (min-width > 100px) {\n  color: green;\n  & span {\n   color: blue;\n  }\n }\n color: blue;\n',
       );
     });
   });
