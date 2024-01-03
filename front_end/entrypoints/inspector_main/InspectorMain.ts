@@ -65,10 +65,10 @@ export class InspectorMainImpl implements Common.Runnable.Runnable {
           (Root.Runtime.Runtime.queryParam('targetType') === 'tab' ? SDK.Target.Type.Tab : SDK.Target.Type.Frame);
       // TODO(crbug.com/1348385): support waiting for debugger with tab target.
       const waitForDebuggerInPage =
-          type === SDK.Target.Type.Frame && Root.Runtime.Runtime.queryParam('panel') === 'sources';
+          type !== SDK.Target.Type.Node && Root.Runtime.Runtime.queryParam('panel') === 'sources';
       const name = type === SDK.Target.Type.Frame ? i18nString(UIStrings.main) : i18nString(UIStrings.tab);
       const target = SDK.TargetManager.TargetManager.instance().createTarget(
-          'main', name, type, null, undefined, waitForDebuggerInPage);
+          'main', name, type, null, undefined, type === SDK.Target.Type.Frame && waitForDebuggerInPage);
 
       const targetManager = SDK.TargetManager.TargetManager.instance();
       targetManager.observeTargets({
@@ -87,8 +87,24 @@ export class InspectorMainImpl implements Common.Runnable.Runnable {
       }
       firstCall = false;
 
+      const waitForPrimaryPageTarget = (): Promise<SDK.Target.Target> => {
+        return new Promise(resolve => {
+          const observer = {
+            targetAdded: (target: SDK.Target.Target): void => {
+              if (target === targetManager.primaryPageTarget()) {
+                targetManager.unobserveTargets(observer);
+                resolve(target);
+              }
+            },
+            targetRemoved: (_: unknown): void => {},
+          };
+          targetManager.observeTargets(observer);
+        });
+      };
+      const primaryTarget = await waitForPrimaryPageTarget();
+
       if (waitForDebuggerInPage) {
-        const debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel);
+        const debuggerModel = primaryTarget.model(SDK.DebuggerModel.DebuggerModel);
         if (debuggerModel) {
           if (!debuggerModel.isReadyToPause()) {
             await debuggerModel.once(SDK.DebuggerModel.Events.DebuggerIsReadyToPause);
