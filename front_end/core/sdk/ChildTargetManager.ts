@@ -8,6 +8,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import * as Common from '../common/common.js';
 import * as Host from '../host/host.js';
 import type * as ProtocolClient from '../protocol_client/protocol_client.js';
+import * as Root from '../root/root.js';
 
 import {ParallelConnection} from './Connections.js';
 import {PrimaryPageChangeType, ResourceTreeModel} from './ResourceTreeModel.js';
@@ -182,8 +183,10 @@ export class ChildTargetManager extends SDKModel<EventTypes> implements Protocol
     } else if (targetInfo.type === 'auction_worklet') {
       type = Type.AuctionWorklet;
     }
+    const waitForDebuggerInPage = Root.Runtime.Runtime.queryParam('panel') === 'sources';
     const target = this.#targetManager.createTarget(
-        targetInfo.targetId, targetName, type, this.#parentTarget, sessionId, undefined, undefined, targetInfo);
+        targetInfo.targetId, targetName, type, this.#parentTarget, sessionId, waitForDebuggerInPage, undefined,
+        targetInfo);
     this.#childTargetsBySessionId.set(sessionId, target);
     this.#childTargetsById.set(target.id(), target);
 
