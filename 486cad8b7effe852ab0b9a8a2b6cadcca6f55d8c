@@ -33,6 +33,24 @@
       "message": "Nit: Given that this is `HTMLElement` inherited behavior, I don\u0027t think we need this test.",
       "revId": "486cad8b7effe852ab0b9a8a2b6cadcca6f55d8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5bf82ef_5610946e",
+        "filename": "test/unittests/front_end/ui/components/icon_button/Icon_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-03T08:40:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31782b80_7b277842",
+      "revId": "486cad8b7effe852ab0b9a8a2b6cadcca6f55d8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
