@@ -80,6 +80,19 @@ describe('Icon', () => {
         assert.match(window.getComputedStyle(span).maskImage, /^url\("\S+\/front_end\/Images\/select-element\.svg"\)$/);
       });
     });
+
+    describe('role', () => {
+      it('is initially presentation', () => {
+        const icon = new Icon();
+        assert.strictEqual(icon.role, 'presentation');
+      });
+
+      it('reflects the "role" attribute', () => {
+        const icon = new Icon();
+        icon.setAttribute('role', 'button');
+        assert.strictEqual(icon.role, 'button');
+      });
+    });
   });
 
   describe('create', () => {
