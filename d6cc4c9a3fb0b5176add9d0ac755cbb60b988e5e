@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8226803_4d128c1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-03T07:26:49Z",
+      "side": 1,
+      "message": "Let\u0027s wait for feedback from Peter w.r.t to the cursor style.",
+      "revId": "d6cc4c9a3fb0b5176add9d0ac755cbb60b988e5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
