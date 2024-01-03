@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb626c7_ae5336f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-03T15:32:22Z",
+      "side": 1,
+      "message": "LGTM per adding tests",
+      "revId": "51e239d30e4c4245c657f2e8096fa360e3ed2c6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b01763f_a2c932a3",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-03T15:32:22Z",
+      "side": 1,
+      "message": "ultra-nit: we shouldn\u0027t need this",
+      "range": {
+        "startLine": 176,
+        "startChar": 59,
+        "endLine": 176,
+        "endChar": 60
+      },
+      "revId": "51e239d30e4c4245c657f2e8096fa360e3ed2c6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fae551_cd000711",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-03T15:32:22Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 177,
+        "startChar": 21,
+        "endLine": 177,
+        "endChar": 22
+      },
+      "revId": "51e239d30e4c4245c657f2e8096fa360e3ed2c6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

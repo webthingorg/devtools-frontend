@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b6c848a_351dcaa9",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-03T15:32:22Z",
+      "side": 0,
+      "message": "let\u0027s add some tests to ensure the arrow is added if and only if needed",
+      "range": {
+        "startLine": 114,
+        "startChar": 10,
+        "endLine": 114,
+        "endChar": 32
+      },
+      "revId": "73b2d7f9e4459d11b00ee7efc4d9dcebe2efe27d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
