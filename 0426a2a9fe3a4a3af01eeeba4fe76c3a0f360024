@@ -46,6 +46,30 @@
       },
       "revId": "0426a2a9fe3a4a3af01eeeba4fe76c3a0f360024",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f66abd5_32c2f452",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-03T12:33:13Z",
+      "side": 0,
+      "message": "According to Peter, it should be 16px here. I suggest that we land this for consistency and then update the general implementation.",
+      "parentUuid": "7f2df99b_f6180f9a",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 31
+      },
+      "revId": "0426a2a9fe3a4a3af01eeeba4fe76c3a0f360024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
