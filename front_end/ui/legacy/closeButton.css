@@ -23,6 +23,7 @@
 
 .close-button:focus {
   outline: 2px solid var(--sys-color-state-focus-ring);
+  margin-left: 2px; /* Adds 2 pixels of margin to the left of the element */
 }
 
 @media (forced-colors: active) and (prefers-color-scheme: dark) {
