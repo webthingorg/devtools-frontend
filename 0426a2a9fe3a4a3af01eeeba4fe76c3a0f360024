@@ -22,6 +22,30 @@
       },
       "revId": "0426a2a9fe3a4a3af01eeeba4fe76c3a0f360024",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f2df99b_f6180f9a",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-03T11:59:34Z",
+      "side": 0,
+      "message": "Let me confirm with Peter but IIRC the icon should be always 20px",
+      "parentUuid": "c64fe5bd_6eced1b8",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 31
+      },
+      "revId": "0426a2a9fe3a4a3af01eeeba4fe76c3a0f360024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
