@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "779f8177_e5b491c4",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1498,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-03T15:46:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "846ad616_9466e5ca",
+      "range": {
+        "startLine": 1498,
+        "startChar": 80,
+        "endLine": 1498,
+        "endChar": 81
+      },
+      "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a139670_ae2a09c7",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-22T10:29:42Z",
       "side": 1,
       "message": "Let\u0027s keep `issuesAssociatedWithCookie()` unchanged and move the relevant part of its logic here.\n```\nconst issuesForDomain \u003d issues.filter(issue \u003d\u003e \n    Array.from(issue.cookies()).some(cookie \u003d\u003e cookie.domain \u003d\u003d\u003d domain)\n  );\n\n  return issuesForDomain.some(issue \u003d\u003e CookieIssue.getSubCategory(issue.code()) \u003d\u003d\u003d CookieIssueSubCategory.ThirdPartyPhaseoutCookie);\n```",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 115
+      },
+      "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e46fab3_9acfa8d9",
+        "filename": "front_end/models/issues_manager/RelatedIssue.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-03T15:46:59Z",
+      "side": 1,
+      "message": "This is better, thanks!",
+      "parentUuid": "4a139670_ae2a09c7",
       "range": {
         "startLine": 70,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e0a5762_2df7e9d3",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-03T15:46:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f7f07aa_a2bd8732",
+      "range": {
+        "startLine": 1779,
+        "startChar": 24,
+        "endLine": 1779,
+        "endChar": 96
+      },
+      "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78aebaf0_d7f413e6",
@@ -83,6 +155,24 @@
       "writtenOn": "2023-12-22T10:29:42Z",
       "side": 1,
       "message": "Doesn\u0027t the proposed design replace the cookie icon with a warning icon, instead of only changing the icon\u0027s color?",
+      "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9f49c8f_0cdc8e1e",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1783,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-03T15:46:59Z",
+      "side": 1,
+      "message": "With all icons migrated to the `IconButton.Icon.Icon` component, do I need to create a ApplicationPanelSidebar.css file for adding the icon style?",
+      "parentUuid": "78aebaf0_d7f413e6",
       "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
