@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c64fe5bd_6eced1b8",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-03T11:47:00Z",
+      "side": 0,
+      "message": "This button changes from 12px to 20px (https://imgur.com/a/9V7Bpcr) which I think is too big.",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 31
+      },
+      "revId": "0426a2a9fe3a4a3af01eeeba4fe76c3a0f360024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
