@@ -33,6 +33,24 @@
       "message": "Oh - didn\u0027t notice this was the i18n portion of Lighthouse\u0027s library. I\u0027m not sure what version this was forked from (it was awhile ago), but we don\u0027t ever update this so nothing to change in our LH rolling script.",
       "revId": "c42a69ffbe6d98da0950dbb4fd53cd54a5376ba5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a52d27b6_64e848e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-01-03T18:03:51Z",
+      "side": 1,
+      "message": "aannnd I missed there\u0027s two files here. I\u0027ll make the changes to our rolling script :)",
+      "parentUuid": "4ff4ddd6_04bb4eb2",
+      "revId": "c42a69ffbe6d98da0950dbb4fd53cd54a5376ba5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
