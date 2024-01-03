@@ -16,6 +16,24 @@
       "message": "Looks like the icons in the toolbar no longer change colors on hover. Is it intended?",
       "revId": "5ce0565aec905db68a730c4f645f9281d571ac49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc54c953_498849cd",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-03T06:27:12Z",
+      "side": 0,
+      "message": "They still do. But this rule was bogus and always overridden by the element having `var(--icon-default)` as color.",
+      "parentUuid": "a9ab4dcc_ccb49048",
+      "revId": "5ce0565aec905db68a730c4f645f9281d571ac49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
