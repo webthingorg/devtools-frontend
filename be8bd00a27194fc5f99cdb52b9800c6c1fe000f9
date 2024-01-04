@@ -33,6 +33,24 @@
       "message": "maybe it needs more padding from the right? it looks worth with wrong domains, e.g., http://theofficialabsolutelongestdomainnameregisteredontheworldwideweb.international/",
       "revId": "be8bd00a27194fc5f99cdb52b9800c6c1fe000f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae75b0c_1e982028",
+        "filename": "front_end/panels/timeline/historyToolbarButton.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-04T08:47:12Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "6283beb2_c124c469",
+      "revId": "be8bd00a27194fc5f99cdb52b9800c6c1fe000f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
