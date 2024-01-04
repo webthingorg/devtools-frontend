@@ -38,6 +38,10 @@ li.storage-group-list-item::before {
   background-color: var(--icon-error);
 }
 
+.icons-container [is="ui-icon"].warn-icon {
+  color: var(--icon-warning);
+}
+
 [is="ui-icon"].navigator-file-tree-item {
   background-color: var(--icon-file-default);
 }
