@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58b894ae_f24784b0",
+        "filename": "front_end/models/issues_manager/RelatedIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-04T12:45:14Z",
+      "side": 0,
+      "message": "nit: add back the empty line",
+      "revId": "d5beca50ed6023c96f19586ff04a85db25ef1fdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d33c7b0_607f0251",
+        "filename": "test/unittests/front_end/models/issues_manager/StubIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-04T12:45:14Z",
+      "side": 0,
+      "message": "nit: keep this empty line",
+      "revId": "d5beca50ed6023c96f19586ff04a85db25ef1fdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

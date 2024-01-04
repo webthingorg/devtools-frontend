@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9187ba9_e4cde141",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-04T12:45:14Z",
+      "side": 1,
+      "message": "```suggestion\n    // When CookiesTable gets created in Application panel instead of Network Panel, `this.blockedReasons` only contains reasons for blocked cookies in responses.\n```",
+      "range": {
+        "startLine": 779,
+        "startChar": 152,
+        "endLine": 779,
+        "endChar": 160
+      },
+      "revId": "f59e76ca75f2b7b7d82b02ae41fa7c65d8d06ce2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

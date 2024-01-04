@@ -175,6 +175,24 @@
       "parentUuid": "78aebaf0_d7f413e6",
       "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "869e2851_22d12651",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1783,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-04T12:45:14Z",
+      "side": 1,
+      "message": "For some reason the css file is called `resourcesSidebar.css`. You can add the styles there.",
+      "parentUuid": "c9f49c8f_0cdc8e1e",
+      "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
