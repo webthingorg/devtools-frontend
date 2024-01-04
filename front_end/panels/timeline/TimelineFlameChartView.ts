@@ -102,6 +102,9 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.TreeModified, event => {
       this.mainDataProvider.modifyTree(event.data.group, event.data.node, event.data.action, this.mainFlameChart);
     });
+    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.FindPossibleContextMenuActions, event => {
+      this.mainDataProvider.findPossibleContextMenuActions(event.data.group, event.data.node, this.mainFlameChart);
+    });
 
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timelineFlamechartNetworkViewGroupExpansion', {});
@@ -142,6 +145,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntrySelected, this.onMainEntrySelected, this);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onMainEntrySelected, this);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntriesModified, this.onEntriesModified, this);
+    this.mainFlameChart.addEventListener(
+        PerfUI.FlameChart.Events.PossibleActionCalculated, this.onActionsCalculated, this);
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.EntrySelected, this.onNetworkEntrySelected, this);
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onNetworkEntrySelected, this);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryHighlighted, this.onEntryHighlighted, this);
@@ -184,6 +189,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       this.mainFlameChart.setWindowTimes(visibleWindow.min, visibleWindow.max);
     }
     this.mainFlameChart.update();
+  }
+
+  onActionsCalculated(actions: Common.EventTarget.EventTargetEvent<TraceEngine.EntriesFilter.PossibleFilterActions>):
+      void {
+    this.mainFlameChart.openContextMenu(actions.data);
   }
 
   isNetworkTrackShownForTests(): boolean {
