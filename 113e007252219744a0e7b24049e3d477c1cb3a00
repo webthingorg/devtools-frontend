@@ -39,6 +39,30 @@
       },
       "revId": "113e007252219744a0e7b24049e3d477c1cb3a00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b294ee8f_ef6dbbe6",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-04T07:54:18Z",
+      "side": 1,
+      "message": "Impressive that CSS recovers from that 😄",
+      "parentUuid": "2cd06e6d_e4e5d524",
+      "range": {
+        "startLine": 153,
+        "startChar": 47,
+        "endLine": 153,
+        "endChar": 64
+      },
+      "revId": "113e007252219744a0e7b24049e3d477c1cb3a00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
