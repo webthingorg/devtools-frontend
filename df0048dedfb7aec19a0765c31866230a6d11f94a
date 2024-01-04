@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ac9b99_90bec2ec",
+        "filename": "front_end/ui/legacy/closeButton.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-04T12:52:28Z",
+      "side": 1,
+      "message": "Now the button moves as it receives focus. I also don\u0027t think it\u0027s a good idea to put this into `closeButton.css`, since there are other uses of the component, which might not need the padding.\n\nHow about something like `left: 3px` for `.close-button` in the Console Pin CSS?",
+      "revId": "df0048dedfb7aec19a0765c31866230a6d11f94a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
