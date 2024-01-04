@@ -426,16 +426,16 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
     cell.appendChild(div);
 
-    if (column.sort) {
-      cell.classList.add(column.sort);
-      this.sortColumnCell = cell;
-    }
-
     if (column.sortable) {
       cell.addEventListener('click', this.clickInHeaderCell.bind(this), false);
       cell.classList.add('sortable');
       const icon = new IconButton.Icon.Icon();
       icon.className = 'sort-order-icon';
+      if (column.sort) {
+        cell.classList.add(column.sort);
+        this.sortColumnCell = cell;
+        icon.name = column.sort === Order.Ascending ? 'triangle-up' : 'triangle-down';
+      }
       cell.createChild('div', 'sort-order-icon-container').appendChild(icon);
       elementToSortIconMap.set(cell, icon);
     }
