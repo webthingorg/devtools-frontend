@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42320c30_d1541ecf",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-04T16:49:10Z",
+      "side": 1,
+      "message": "using events for the data flow makes me a bit anxious. Do you think we could call the data provider here for the possible actions for an entry instead?\n\n```js\nconst possibleActions \u003d this.dataProvider.findPossibleContextMenuActions(group, node);\n...\n```",
+      "range": {
+        "startLine": 796,
+        "startChar": 9,
+        "endLine": 796,
+        "endChar": 33
+      },
+      "revId": "12cdf5cc2b4df4ee6eb8a42bf563bdfaf59edf38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
