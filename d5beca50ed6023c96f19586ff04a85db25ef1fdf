@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8b7ed42_fc97b838",
+        "filename": "front_end/models/issues_manager/RelatedIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-04T14:31:14Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "58b894ae_f24784b0",
+      "revId": "d5beca50ed6023c96f19586ff04a85db25ef1fdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d33c7b0_607f0251",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-04T12:45:14Z",
       "side": 0,
       "message": "nit: keep this empty line",
+      "revId": "d5beca50ed6023c96f19586ff04a85db25ef1fdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd5c2b3e_cfb831aa",
+        "filename": "test/unittests/front_end/models/issues_manager/StubIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-04T14:31:14Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "3d33c7b0_607f0251",
       "revId": "d5beca50ed6023c96f19586ff04a85db25ef1fdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

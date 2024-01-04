@@ -193,6 +193,24 @@
       "parentUuid": "c9f49c8f_0cdc8e1e",
       "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98fafe9d_1a74b57e",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1783,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-04T14:31:14Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "869e2851_22d12651",
+      "revId": "20f140913ffa53e76d85b6de1a3de97529b2ef8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
