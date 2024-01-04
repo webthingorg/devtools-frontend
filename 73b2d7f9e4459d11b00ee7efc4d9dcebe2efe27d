@@ -22,6 +22,30 @@
       },
       "revId": "73b2d7f9e4459d11b00ee7efc4d9dcebe2efe27d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "955a397a_8d192433",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-04T16:14:20Z",
+      "side": 0,
+      "message": "true, definitely worth testing it. Added tests to EntriesFilter_test",
+      "parentUuid": "3b6c848a_351dcaa9",
+      "range": {
+        "startLine": 114,
+        "startChar": 10,
+        "endLine": 114,
+        "endChar": 32
+      },
+      "revId": "73b2d7f9e4459d11b00ee7efc4d9dcebe2efe27d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
