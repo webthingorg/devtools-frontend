@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "cb398b0d0fac462d3f4ca7196cf93ee4c62d7ffe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c65558e_2ee4aa92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-04T12:58:19Z",
+      "side": 1,
+      "message": "It\u0027s already fixed with https://crrev.com/c/5168486",
+      "revId": "cb398b0d0fac462d3f4ca7196cf93ee4c62d7ffe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
