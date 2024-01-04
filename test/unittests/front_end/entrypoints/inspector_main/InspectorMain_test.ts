@@ -43,6 +43,15 @@ describeWithMockConnection('FocusDebuggeeActionDelegate', () => {
 describeWithMockConnection('InspectorMainImpl', () => {
   const DEBUGGER_ID = 'debuggerId' as Protocol.Runtime.UniqueDebuggerId;
 
+  const runForTabTarget = async(): Promise<void> => {
+    const inspectorMain = InspectorMain.InspectorMain.InspectorMainImpl.instance({forceNew: true});
+    const runPromise = inspectorMain.run();
+    const rootTarget = SDK.TargetManager.TargetManager.instance().rootTarget();
+    SDK.TargetManager.TargetManager.instance().createTarget(
+        'someTargetID' as Protocol.Target.TargetID, 'someName', SDK.Target.Type.Frame, rootTarget, undefined);
+    await runPromise;
+  };
+
   beforeEach(() => {
     stubNoopSettings();
     sinon.stub(ProtocolClient.InspectorBackend.Connection, 'setFactory');
@@ -59,10 +68,9 @@ describeWithMockConnection('InspectorMainImpl', () => {
   });
 
   it('sets main target type to Tab if targetType=tab query param present', async () => {
-    const inspectorMain = InspectorMain.InspectorMain.InspectorMainImpl.instance({forceNew: true});
     Root.Runtime.Runtime.setQueryParamForTesting('targetType', 'tab');
     assert.notExists(SDK.TargetManager.TargetManager.instance().rootTarget());
-    await inspectorMain.run();
+    await runForTabTarget();
 
     assert.strictEqual(SDK.TargetManager.TargetManager.instance().rootTarget()?.type(), SDK.Target.Type.Tab);
     Root.Runtime.Runtime.setQueryParamForTesting('targetType', '');
@@ -136,10 +144,9 @@ describeWithMockConnection('InspectorMainImpl', () => {
 
   it('does not call Runtime.runIfWaitingForDebugger for Tab target', async () => {
     Root.Runtime.Runtime.setQueryParamForTesting('targetType', 'tab');
-    const inspectorMain = InspectorMain.InspectorMain.InspectorMainImpl.instance({forceNew: true});
     const runIfWaitingForDebugger = sinon.spy();
     setMockConnectionResponseHandler('Runtime.runIfWaitingForDebugger', runIfWaitingForDebugger);
-    await inspectorMain.run();
+    await runForTabTarget();
     assert.isFalse(runIfWaitingForDebugger.called);
     Root.Runtime.Runtime.setQueryParamForTesting('targetType', '');
   });
@@ -154,10 +161,9 @@ describeWithMockConnection('InspectorMainImpl', () => {
 
   it('sets tab target to "tab"', async () => {
     Root.Runtime.Runtime.setQueryParamForTesting('targetType', 'tab');
-    const inspectorMain = InspectorMain.InspectorMain.InspectorMainImpl.instance({forceNew: true});
     const runIfWaitingForDebugger = sinon.spy();
     setMockConnectionResponseHandler('Runtime.runIfWaitingForDebugger', runIfWaitingForDebugger);
-    await inspectorMain.run();
+    await runForTabTarget();
     assert.strictEqual(SDK.TargetManager.TargetManager.instance().rootTarget()?.name(), 'Tab');
     Root.Runtime.Runtime.setQueryParamForTesting('targetType', '');
   });
@@ -167,11 +173,12 @@ describeWithMockConnection('InspectorMainImpl', () => {
     const inspectorMain = InspectorMain.InspectorMain.InspectorMainImpl.instance({forceNew: true});
     const runIfWaitingForDebugger = sinon.spy();
     setMockConnectionResponseHandler('Runtime.runIfWaitingForDebugger', runIfWaitingForDebugger);
-    await inspectorMain.run();
+    const runPromise = inspectorMain.run();
     const prerenderTarget = createTarget(
         {parentTarget: SDK.TargetManager.TargetManager.instance().rootTarget() || undefined, subtype: 'prerender'});
     const mainFrameTarget =
         createTarget({parentTarget: SDK.TargetManager.TargetManager.instance().rootTarget() || undefined});
+    await runPromise;
     assert.notStrictEqual(prerenderTarget.name(), 'Main');
     assert.strictEqual(mainFrameTarget.name(), 'Main');
     Root.Runtime.Runtime.setQueryParamForTesting('targetType', '');
