@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc9cd07_bc94d8e7",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-01-05T10:54:19Z",
+      "side": 1,
+      "message": "Optional: Another option would be the premise that depot tools is on PATH when this script is called, and then call the option something more intuitive, like `--update-node`.\n\nAnd just fail in case depot_tools is not on PATH.\n\nJet another option: Isn\u0027t depot_tools pinned in chromium? The directory of it should be quite clear, right? Can we not just infer this directory from chromium_dir as well or from the devtools location? Also in this case, the option could be named more clearly.",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 44
+      },
+      "revId": "806a5c9d4f69de34bf146607bdcb179d98ea1948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abb70d8f_b8703797",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-01-05T10:54:19Z",
+      "side": 1,
+      "message": "Note that this is due to Chromium never changing to relative DEPS entries. But they could do that change at any time, which\u0027d cause a breakage here. Well, we can then just fix it...",
+      "range": {
+        "startLine": 106,
+        "startChar": 57,
+        "endLine": 106,
+        "endChar": 61
+      },
+      "revId": "806a5c9d4f69de34bf146607bdcb179d98ea1948",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
