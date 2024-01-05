@@ -108,33 +108,29 @@ export class InplaceFormatterEditorAction implements EditorAction {
   }
 
   private formatSourceInPlace(): void {
-    const uiSourceCode = this.sourcesView.currentUISourceCode();
-    if (!uiSourceCode || !this.isFormattable(uiSourceCode)) {
+    const sourcesFrame = this.sourcesView.currentSourceFrame();
+    if (!sourcesFrame) {
       return;
     }
+    const uiSourceCode = sourcesFrame.uiSourceCode();
+    if (!this.isFormattable(uiSourceCode)) {
+      return;
+    }
+    const contentType = sourcesFrame.contentType;
 
     if (uiSourceCode.isDirty()) {
-      void this.contentLoaded(uiSourceCode, uiSourceCode.workingCopy());
+      void this.contentLoaded(uiSourceCode, contentType, uiSourceCode.workingCopy());
     } else {
       void uiSourceCode.requestContent().then(deferredContent => {
-        void this.contentLoaded((uiSourceCode as Workspace.UISourceCode.UISourceCode), deferredContent.content || '');
+        void this.contentLoaded(uiSourceCode, contentType, deferredContent.content || '');
       });
     }
   }
 
-  private async contentLoaded(uiSourceCode: Workspace.UISourceCode.UISourceCode, content: string): Promise<void> {
-    const highlighterType = uiSourceCode.mimeType();
+  private async contentLoaded(uiSourceCode: Workspace.UISourceCode.UISourceCode, contentType: string, content: string):
+      Promise<void> {
     const {formattedContent, formattedMapping} =
-        await Formatter.ScriptFormatter.format(uiSourceCode.contentType(), highlighterType, content);
-    this.formattingComplete(uiSourceCode, formattedContent, formattedMapping);
-  }
-
-  /**
-   * Post-format callback
-   */
-  private formattingComplete(
-      uiSourceCode: Workspace.UISourceCode.UISourceCode, formattedContent: string,
-      formatterMapping: Formatter.ScriptFormatter.FormatterSourceMapping): void {
+        await Formatter.ScriptFormatter.format(uiSourceCode.contentType(), contentType, content);
     if (uiSourceCode.workingCopy() === formattedContent) {
       return;
     }
@@ -142,7 +138,7 @@ export class InplaceFormatterEditorAction implements EditorAction {
     let start: number[]|number[] = [0, 0];
     if (sourceFrame) {
       const selection = sourceFrame.textEditor.toLineColumn(sourceFrame.textEditor.state.selection.main.head);
-      start = formatterMapping.originalToFormatted(selection.lineNumber, selection.columnNumber);
+      start = formattedMapping.originalToFormatted(selection.lineNumber, selection.columnNumber);
     }
     uiSourceCode.setWorkingCopy(formattedContent);
 
