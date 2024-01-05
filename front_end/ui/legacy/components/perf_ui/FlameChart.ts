@@ -107,6 +107,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private chartViewport: ChartViewport;
   private dataProvider: FlameChartDataProvider;
   private candyStripePattern: CanvasPattern|null;
+  private contextMenu?: UI.ContextMenu.ContextMenu;
   private viewportElement: HTMLElement;
   private canvas: HTMLCanvasElement;
   private entryInfo: HTMLElement;
@@ -196,7 +197,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.canvas.addEventListener('click', this.onClick.bind(this), false);
     this.canvas.addEventListener('keydown', this.onKeyDown.bind(this), false);
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TRACK_CONTEXT_MENU)) {
-      this.canvas.addEventListener('contextmenu', this.#onContextMenu.bind(this), false);
+      this.canvas.addEventListener('contextmenu', this.onContextMenuRequested.bind(this), false);
     }
 
     this.entryInfo = this.viewportElement.createChild('div', 'flame-chart-entry-info');
@@ -766,7 +767,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     });
   }
 
-  #onContextMenu(_event: Event): void {
+  onContextMenuRequested(_event: Event): void {
     // The context menu only applies if the user is hovering over an individual entry.
     if (this.highlightedEntryIndex === -1) {
       return;
@@ -789,30 +790,42 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // represents the entry under the cursor where the user has right clicked
     // to trigger a context menu.
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
-    const contextMenu = new UI.ContextMenu.ContextMenu(_event);
 
+    this.contextMenu = new UI.ContextMenu.ContextMenu(_event);
+    // Before showing the context menu, check which actions are possible. When the possible actions will be calculated, an event will be dispatched that triggers the Context Menu to open.
+    this.dataProvider.findPossibleContextMenuActions?.(group, this.highlightedEntryIndex, this);
+  }
+
+  openContextMenu(possibleActions: TraceEngine.EntriesFilter.PossibleFilterActions): void {
+    if (!this.contextMenu) {
+      return;
+    }
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
-    contextMenu.headerSection().appendItem('Merge function', () => {
+    this.contextMenu.headerSection().appendItem('Merge function', () => {
       this.#dispatchTreeModifiedEvent(
           TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
     });
 
-    contextMenu.headerSection().appendItem('Collapse function', () => {
-      this.#dispatchTreeModifiedEvent(
-          TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
-    });
+    if (possibleActions[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION]) {
+      this.contextMenu.headerSection().appendItem('Collapse function', () => {
+        this.#dispatchTreeModifiedEvent(
+            TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
+      });
+    }
 
-    contextMenu.headerSection().appendItem('Collapse repeating descendants', () => {
-      this.#dispatchTreeModifiedEvent(
-          TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
-    });
+    if (possibleActions[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]) {
+      this.contextMenu.headerSection().appendItem('Collapse repeating descendants', () => {
+        this.#dispatchTreeModifiedEvent(
+            TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
+      });
+    }
 
-    contextMenu.headerSection().appendItem('Reset trace', () => {
+    this.contextMenu.headerSection().appendItem('Reset trace', () => {
       this.#dispatchTreeModifiedEvent(
           TraceEngine.EntriesFilter.FilterUndoAction.UNDO_ALL_ACTIONS, this.highlightedEntryIndex);
     });
 
-    void contextMenu.show();
+    void this.contextMenu.show();
   }
 
   private onKeyDown(e: KeyboardEvent): void {
@@ -1194,6 +1207,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    */
   getScrollOffset(): number {
     return this.chartViewport.scrollOffset();
+  }
+
+  getContextMenu(): UI.ContextMenu.ContextMenu|undefined {
+    return this.contextMenu;
   }
 
   /**
@@ -2897,6 +2914,8 @@ export interface FlameChartDataProvider {
   textColor(entryIndex: number): string;
 
   mainFrameNavigationStartEvents?(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[];
+
+  findPossibleContextMenuActions?(group: Group, node: number, flameChartView: FlameChart): void;
 }
 
 export interface FlameChartMarker {
@@ -2949,6 +2968,11 @@ export enum Events {
    * chosen from the flame chart context  menu
    */
   EntriesModified = 'EntriesModified',
+  /**
+   * Emitted when Context Menu actions that are possible to apply to the selected entry are calculated.
+   * Returned object is used to decide which actions to show in the Context Menu.
+   */
+  PossibleActionCalculated = 'PossibleActionCalculated',
 }
 
 export type EventTypes = {
@@ -2962,6 +2986,8 @@ export type EventTypes = {
     action: TraceEngine.EntriesFilter.FilterAction,
   },
   [Events.EntriesModified]: void,
+  [Events.PossibleActionCalculated]: TraceEngine.EntriesFilter.PossibleFilterActions,
+
 };
 
 export interface Group {
