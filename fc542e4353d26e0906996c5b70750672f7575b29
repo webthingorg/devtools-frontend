@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c1b23d_b6248cd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-05T09:41:14Z",
+      "side": 1,
+      "message": "Thanks a lot, patch looks good to me.\n\nErgun, can you also take a look please?",
+      "revId": "fc542e4353d26e0906996c5b70750672f7575b29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
