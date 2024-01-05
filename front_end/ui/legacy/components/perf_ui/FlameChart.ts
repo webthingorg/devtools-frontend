@@ -760,11 +760,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (!group || !group.expanded || !group.showStackContextMenu) {
       return;
     }
-    this.dispatchEventToListeners(Events.TreeModified, {
-      group: group,
-      node: index,
-      action: treeAction,
-    });
+    this.dataProvider.modifyTree?.(group, index, treeAction, this);
   }
 
   onContextMenu(_event: Event): void {
@@ -2911,6 +2907,9 @@ export interface FlameChartDataProvider {
 
   mainFrameNavigationStartEvents?(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[];
 
+  modifyTree?(group: Group, node: number, action: TraceEngine.EntriesFilter.FilterAction, flamechart: FlameChart):
+      TraceEngine.EntriesFilter.PossibleFilterActions|void;
+
   findPossibleContextMenuActions?(group: Group, node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
 }
 
@@ -2956,12 +2955,7 @@ export enum Events {
   EntryHighlighted = 'EntryHighlighted',
   /**
    * Emitted when a there is a modify actioned(ex. merge, collapse recursion)
-   * chosen from the flame chart context  menu
-   */
-  TreeModified = 'TreeModified',
-  /**
-   * Emitted when a there is a modify actioned(ex. merge, collapse recursion)
-   * chosen from the flame chart context  menu
+   * is applied and the entries have changed and the FlameChart needs to be rerendered
    */
   EntriesModified = 'EntriesModified',
 }
@@ -2971,11 +2965,6 @@ export type EventTypes = {
   [Events.EntryInvoked]: number,
   [Events.EntrySelected]: number,
   [Events.EntryHighlighted]: number,
-  [Events.TreeModified]: {
-    group: Group,
-    node: number,
-    action: TraceEngine.EntriesFilter.FilterAction,
-  },
   [Events.EntriesModified]: void,
 };
 

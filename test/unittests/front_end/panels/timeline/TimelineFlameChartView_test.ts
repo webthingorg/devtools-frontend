@@ -122,11 +122,9 @@ describeWithEnvironment('TimelineFlameChartView', function() {
 
     // Dispatch a TreeModified event that should apply COLLAPSE_FUNCTION action to the node.
     // This action will hide all the children of the passed node and add HIDDEN_ANCESTORS_ARROW decoration to it.
-    flameChartView.getMainFlameChart().dispatchEventToListeners(PerfUI.FlameChart.Events.TreeModified, {
-      group: mainTrack,
-      node: node?.id,
-      action: TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION,
-    });
+    flameChartView.getMainDataProvider().modifyTree(
+        mainTrack, node?.id, TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION,
+        flameChartView.getMainFlameChart());
 
     const decorationsForEntry = flameChartView.getMainFlameChart().timelineData()?.entryDecorations[node?.id];
     assert.deepEqual(decorationsForEntry, [
@@ -171,11 +169,9 @@ describeWithEnvironment('TimelineFlameChartView', function() {
 
        // Dispatch a TreeModified event that should apply COLLAPSE_FUNCTION action to the node.
        // This action will hide all the children of the passed node and add HIDDEN_ANCESTORS_ARROW decoration to it.
-       flameChartView.getMainFlameChart().dispatchEventToListeners(PerfUI.FlameChart.Events.TreeModified, {
-         group: mainTrack,
-         node: node?.id,
-         action: TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION,
-       });
+       flameChartView.getMainDataProvider().modifyTree(
+           mainTrack, node?.id, TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION,
+           flameChartView.getMainFlameChart());
 
        let decorationsForEntry = flameChartView.getMainFlameChart().timelineData()?.entryDecorations[node?.id];
        assert.deepEqual(decorationsForEntry, [
@@ -192,11 +188,9 @@ describeWithEnvironment('TimelineFlameChartView', function() {
        }
        // Dispatch a TreeModified event that should apply RESET_CHILDREN action to the node.
        // This action will eveal all of the hidden children of the passed node and remove HIDDEN_ANCESTORS_ARROW decoration from it.
-       flameChartView.getMainFlameChart().dispatchEventToListeners(PerfUI.FlameChart.Events.TreeModified, {
-         group: mainTrack,
-         node: node?.id,
-         action: TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN,
-       });
+       flameChartView.getMainDataProvider().modifyTree(
+           mainTrack, node?.id, TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN,
+           flameChartView.getMainFlameChart());
 
        // No decorations should exist on the node
        decorationsForEntry = flameChartView.getMainFlameChart().timelineData()?.entryDecorations[node?.id];
