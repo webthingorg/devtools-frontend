@@ -33,6 +33,24 @@
       "message": "I think masking might not be the best strategy here as the icon now shows the background and it looks a bit weird, can we find another solution to show icon?\n\nSee the screenshot: https://bugs.chromium.org/p/chromium/issues/attachment?aid\u003d624987\u0026signed_aid\u003dpipADDm4A_ub9m6PYLjwZQ\u003d\u003d\u0026inline\u003d1 and observe that there is a line going inside the `X`.",
       "revId": "9b8cf9121d3f6863b443fd841447098a7c99e254",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1b14cba_f657f406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-05T12:28:05Z",
+      "side": 1,
+      "message": "Marking the comment as unresolved.",
+      "parentUuid": "54eb231e_3af3c837",
+      "revId": "9b8cf9121d3f6863b443fd841447098a7c99e254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
