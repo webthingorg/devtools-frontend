@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b1d807_dbe72b00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-05T07:35:16Z",
+      "side": 1,
+      "message": "By waiting for the primary page target, this seems to fix the behaviour described in the bug.\n\nBut there are still problems with the `waitForDebuggerInPage` functionality. With the tab target experiment turned off, DevTools freezes code execution in the page and the debugger shows being paused in a certain line (and CDP receives a `Debugger.paused` event). With the tab target experiment, DevTools freezes code execution, but the debugger does not show execution being paused (CDP `Debugger.pause` is sent, but no `Debugger.paused` is received from the BE).",
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47188e92_1b13fe7e",
+        "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-05T07:35:16Z",
+      "side": 1,
+      "message": "Can there be cases where there is no primary page target and this awaits forever?",
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
