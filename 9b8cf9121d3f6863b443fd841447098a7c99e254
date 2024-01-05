@@ -51,6 +51,24 @@
       "parentUuid": "54eb231e_3af3c837",
       "revId": "9b8cf9121d3f6863b443fd841447098a7c99e254",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ac76161_477cbbb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-05T12:32:26Z",
+      "side": 1,
+      "message": "I mean that\u0027s how our icons generally work. What other solution do you have in mind?",
+      "parentUuid": "c1b14cba_f657f406",
+      "revId": "9b8cf9121d3f6863b443fd841447098a7c99e254",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
