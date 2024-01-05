@@ -33,6 +33,24 @@
       "message": "(nit): is this a typo? (instead of `sourceFrame`, it is `sourcesFrame`)",
       "revId": "a3a349186d2e272cf1a60a9fcc86a6170cf4a5a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "149e4b41_ac4c7678",
+        "filename": "front_end/panels/sources/InplaceFormatterEditorAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-05T12:32:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13a56fdf_f5657ef0",
+      "revId": "a3a349186d2e272cf1a60a9fcc86a6170cf4a5a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
