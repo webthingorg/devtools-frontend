@@ -44,6 +44,10 @@ const UIStrings = {
    */
   longitude: 'Longitude',
   /**
+   *@description Label for text input for the accuracy of a GPS position.
+   */
+  accuracy: 'Accuracy',
+  /**
    *@description Error message in the Locations settings pane that declares the location name input must not be empty
    */
   locationNameCannotBeEmpty: 'Location name cannot be empty',
@@ -89,6 +93,15 @@ const UIStrings = {
    */
   localeMustContainAlphabetic: 'Locale must contain alphabetic characters',
   /**
+   *@description Error message in the Locations settings pane that declares that the value for the accuracy input must be a number
+   */
+  accuracyMustBeANumber: 'Accuracy must be a number',
+  /**
+   *@description Error message in the Locations settings pane that declares the minimum value for the accuracy input
+   *@example {0} PH1
+   */
+  accuracyMustBeGreaterThanOrEqual: 'Accuracy must be greater than or equal to {PH1}',
+  /**
    *@description Text of add locations button in Locations Settings Tab of the Device Toolbar
    */
   addLocation: 'Add location...',
@@ -132,7 +145,8 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
       if (!location.title) {
         const replacement = defaultValues.find(
             defaultLocation => defaultLocation.lat === location.lat && defaultLocation.long === location.long &&
-                defaultLocation.timezoneId === location.timezoneId && defaultLocation.locale === location.locale);
+                defaultLocation.timezoneId === location.timezoneId && defaultLocation.locale === location.locale &&
+                defaultLocation.accuracy === location.accuracy);
         if (!replacement) {
           console.error('Could not determine a location setting title');
         } else {
@@ -167,7 +181,8 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
   }
 
   private addButtonClicked(): void {
-    this.list.addNewItem(this.customSetting.get().length, {title: '', lat: 0, long: 0, timezoneId: '', locale: ''});
+    this.list.addNewItem(
+        this.customSetting.get().length, {title: '', lat: 0, long: 0, timezoneId: '', locale: '', accuracy: 150});
   }
 
   renderItem(location: LocationDescription, _editable: boolean): Element {
@@ -185,6 +200,8 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
     element.createChild('div', 'locations-list-text').textContent = location.timezoneId;
     element.createChild('div', 'locations-list-separator');
     element.createChild('div', 'locations-list-text').textContent = location.locale;
+    element.createChild('div', 'locations-list-separator');
+    element.createChild('div', 'locations-list-text').textContent = String(location.accuracy);
     return element;
   }
 
@@ -204,6 +221,8 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
     location.timezoneId = timezoneId;
     const locale = editor.control('locale').value.trim();
     location.locale = locale;
+    const accuracy = editor.control('accuracy').value.trim();
+    location.accuracy = accuracy ? parseFloat(accuracy) : 150;
 
     const list = this.customSetting.get();
     if (isNew) {
@@ -219,6 +238,7 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
     editor.control('long').value = String(location.long);
     editor.control('timezoneId').value = location.timezoneId;
     editor.control('locale').value = location.locale;
+    editor.control('accuracy').value = String(location.accuracy);
     return editor;
   }
 
@@ -242,6 +262,8 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
     titles.createChild('div', 'locations-list-text').textContent = i18nString(UIStrings.timezoneId);
     titles.createChild('div', 'locations-list-separator locations-list-separator-invisible');
     titles.createChild('div', 'locations-list-text').textContent = i18nString(UIStrings.locale);
+    titles.createChild('div', 'locations-list-separator locations-list-separator-invisible');
+    titles.createChild('div', 'locations-list-text').textContent = i18nString(UIStrings.accuracy);
 
     const fields = content.createChild('div', 'locations-edit-row');
     fields.createChild('div', 'locations-list-text locations-list-title locations-input-container')
@@ -262,6 +284,10 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
 
     cell = fields.createChild('div', 'locations-list-text locations-input-container');
     cell.appendChild(editor.createInput('locale', 'text', i18nString(UIStrings.locale), localeValidator));
+    fields.createChild('div', 'locations-list-separator locations-list-separator-invisible');
+
+    cell = fields.createChild('div', 'locations-list-text locations-input-container');
+    cell.appendChild(editor.createInput('accuracy', 'text', i18nString(UIStrings.accuracy), accuracyValidator));
 
     return editor;
 
@@ -367,6 +393,29 @@ export class LocationsSettingsTab extends UI.Widget.VBox implements UI.ListWidge
       const errorMessage = i18nString(UIStrings.localeMustContainAlphabetic);
       return {valid: false, errorMessage};
     }
+
+    function accuracyValidator(
+        item: LocationDescription, index: number, input: UI.ListWidget.EditorControl): UI.ListWidget.ValidatorResult {
+      const minAccuracy = 0;
+      const value = input.value.trim();
+      const parsedValue = Number(value);
+
+      if (!value) {
+        return {valid: true, errorMessage: undefined};
+      }
+
+      let errorMessage;
+      if (Number.isNaN(parsedValue)) {
+        errorMessage = i18nString(UIStrings.accuracyMustBeANumber);
+      } else if (parseFloat(value) < minAccuracy) {
+        errorMessage = i18nString(UIStrings.accuracyMustBeGreaterThanOrEqual, {PH1: minAccuracy});
+      }
+
+      if (errorMessage) {
+        return {valid: false, errorMessage};
+      }
+      return {valid: true, errorMessage: undefined};
+    }
   }
 }
 export interface LocationDescription {
@@ -375,4 +424,5 @@ export interface LocationDescription {
   long: number;
   timezoneId: string;
   locale: string;
+  accuracy: number;
 }
