@@ -71,11 +71,20 @@ describe('A user can navigate across', async function() {
     await waitFor('.panel[aria-label="sources"]');
   });
 
-  // Skip until flake is fixed
-  it.skip('[crbug.com/1375161]: Performance -> Sources', async () => {
+  it('Performance -> Sources', async () => {
     await navigateToPerformanceTab();
 
     await startRecording();
+
+    // Wait for at least 1s worth of trace data to ensure that we find a
+    // tick with default.html in it below.
+    const statusDialog = await waitFor('.timeline-status-dialog');
+    await waitForFunction(async () => {
+      const time = await waitFor('.time > .content', statusDialog);
+      const timeValue = await time.evaluate(n => n.textContent);
+      return Number(timeValue) >= 1;
+    });
+
     await stopRecording();
 
     await navigateToPerformanceSidebarTab('Bottom-Up');
