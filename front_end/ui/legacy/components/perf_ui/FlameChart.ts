@@ -765,7 +765,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.update();
   }
 
-  onContextMenu(_event: Event): void {
+  getPossibleActions(): TraceEngine.EntriesFilter.PossibleFilterActions|void {
     // The context menu only applies if the user is hovering over an individual entry.
     if (this.highlightedEntryIndex === -1) {
       return;
@@ -791,7 +791,15 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     // Before showing the context menu, check which actions are possible on an entry.
     // If an action would not change the entries (for example it has no children to collapse), we do not need to show it.
-    const possibleActions = this.dataProvider.findPossibleContextMenuActions?.(group, this.highlightedEntryIndex);
+    return this.dataProvider.findPossibleContextMenuActions?.(group, this.highlightedEntryIndex);
+  }
+
+  onContextMenu(_event: Event): void {
+    const possibleActions = this.getPossibleActions();
+
+    if(!possibleActions) {
+      return;
+    }
 
     this.contextMenu = new UI.ContextMenu.ContextMenu(_event);
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
@@ -819,16 +827,48 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     void this.contextMenu.show();
   }
 
+  private handleFlameChartTransformEvent(event: Event): void {
+    const possibleActions = this.getPossibleActions();
+    if(!possibleActions) {
+      return;
+    }
+
+    const keyboardEvent = (event as KeyboardEvent);
+    let handled = false;
+
+    if (keyboardEvent.key === 'm') {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
+      handled = true;
+    } else if (keyboardEvent.key === 'c'  && possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION]) {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
+      handled = true;
+    } else if (keyboardEvent.key === 'r' && possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]) {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
+      handled = true;
+    } else if (keyboardEvent.key === 'u') {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, this.highlightedEntryIndex);
+      handled = true;
+    } 
+
+    if (handled) {
+      keyboardEvent.consume(true);
+    }
+  }
+
   private onKeyDown(e: KeyboardEvent): void {
     if (!UI.KeyboardShortcut.KeyboardShortcut.hasNoModifiers(e) || !this.timelineData()) {
       return;
     }
 
-    const eventHandled = this.handleSelectionNavigation(e);
+    let eventHandled = this.handleSelectionNavigation(e);
 
     // Handle keyboard navigation in groups
     if (!eventHandled && this.rawTimelineData && this.rawTimelineData.groups) {
-      this.handleKeyboardGroupNavigation(e);
+      eventHandled = this.handleKeyboardGroupNavigation(e);
+    }
+
+    if(!eventHandled) {
+      this.handleFlameChartTransformEvent(e);
     }
   }
 
@@ -836,7 +876,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.canvas.addEventListener(eventName, onEvent);
   }
 
-  private handleKeyboardGroupNavigation(event: Event): void {
+  private handleKeyboardGroupNavigation(event: Event): boolean {
     const keyboardEvent = (event as KeyboardEvent);
     let handled = false;
     let entrySelected = false;
@@ -856,10 +896,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         this.selectFirstChild();
         handled = true;
       }
-    } else if (keyboardEvent.key === 'Enter') {
       entrySelected = this.selectFirstEntryInCurrentGroup();
+    } else if (keyboardEvent.key === 'Enter') {
       handled = entrySelected;
-    }
+    } 
 
     if (handled && !entrySelected) {
       this.deselectAllEntries();
@@ -868,6 +908,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (handled) {
       keyboardEvent.consume(true);
     }
+
+    return handled;
   }
 
   private selectFirstEntryInCurrentGroup(): boolean {
@@ -1497,6 +1539,16 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
               const image = new Image();
               image.src = HIDDEN_ANCESTOR_ARROW;
               context.drawImage(image, barX + barWidth - arrowSize, barY, arrowSize, arrowSize);
+            } else {
+              const triangleSize = 5;
+              context.clip();
+              context.beginPath();
+              context.fillStyle = 'red';
+              context.moveTo(barX + barWidth - triangleSize, barY);
+              context.lineTo(barX + barWidth, barY);
+              context.lineTo(barX + barWidth, barY + barHeight);
+              context.lineTo(barX + barWidth - triangleSize, barY + barHeight);
+              context.fill();
             }
             context.restore();
             break;
