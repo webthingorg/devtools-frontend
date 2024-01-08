@@ -70,6 +70,24 @@
       "parentUuid": "01e3ebce_86a9c833",
       "revId": "df0048dedfb7aec19a0765c31866230a6d11f94a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f60d714e_3ccb489e",
+        "filename": "front_end/ui/legacy/closeButton.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-08T09:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2391b6e9_3bbbcc3c",
+      "revId": "df0048dedfb7aec19a0765c31866230a6d11f94a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
