@@ -50,6 +50,24 @@
       "message": "Could this have side-effects elsewhere?",
       "revId": "d07f1c40cdd68892d8bd1426b967f3ddff971354",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1ecb543_9b476b7c",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-08T17:05:43Z",
+      "side": 1,
+      "message": "Yes, the intended side-effect of aligning the text contained within it with the icon inside 😊",
+      "parentUuid": "1153fae6_db6f64d8",
+      "revId": "d07f1c40cdd68892d8bd1426b967f3ddff971354",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
