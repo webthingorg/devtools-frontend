@@ -824,11 +824,15 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return;
     }
 
-    const eventHandled = this.handleSelectionNavigation(e);
+    let eventHandled = this.handleSelectionNavigation(e);
 
     // Handle keyboard navigation in groups
     if (!eventHandled && this.rawTimelineData && this.rawTimelineData.groups) {
-      this.handleKeyboardGroupNavigation(e);
+      eventHandled = this.handleKeyboardGroupNavigation(e);
+    }
+
+    if(!eventHandled) {
+      this.handleFlameChartTransformEvent(e);
     }
   }
 
@@ -836,7 +840,51 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.canvas.addEventListener(eventName, onEvent);
   }
 
-  private handleKeyboardGroupNavigation(event: Event): void {
+  private handleFlameChartTransformEvent(event: Event): void {
+    if (this.highlightedEntryIndex === -1) {
+      return;
+    }
+
+    const data = this.timelineData();
+    if (!data) {
+      return;
+    }
+
+    const group = data.groups.at(this.selectedGroupIndex);
+    // Early exit here if there is no group or:
+    // 1. The group is not expanded: it needs to be expanded to allow the
+    //    context menu actions to occur.
+    // 2. The group does not have the showStackContextMenu flag which indicates
+    //    that it does not show entries that support the stack actions.
+    if (!group || !group.expanded || !group.showStackContextMenu) {
+      return;
+    }
+
+    const possibleActions = this.dataProvider.findPossibleContextMenuActions?.(group, this.highlightedEntryIndex);
+
+    const keyboardEvent = (event as KeyboardEvent);
+    let handled = false;
+
+    if (keyboardEvent.key === 'c' && possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION]) {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
+      handled = true;
+    } else if (keyboardEvent.key === 'm') {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
+      handled = true;
+    } else if (keyboardEvent.key === 'r' && possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]) {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
+      handled = true;
+    } else if (keyboardEvent.key === 'u') {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, this.highlightedEntryIndex);
+      handled = true;
+    } 
+
+    if (handled) {
+      keyboardEvent.consume(true);
+    }
+  }
+
+  private handleKeyboardGroupNavigation(event: Event): boolean {
     const keyboardEvent = (event as KeyboardEvent);
     let handled = false;
     let entrySelected = false;
@@ -856,10 +904,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         this.selectFirstChild();
         handled = true;
       }
-    } else if (keyboardEvent.key === 'Enter') {
       entrySelected = this.selectFirstEntryInCurrentGroup();
+    } else if (keyboardEvent.key === 'Enter') {
       handled = entrySelected;
-    }
+    } 
 
     if (handled && !entrySelected) {
       this.deselectAllEntries();
@@ -868,6 +916,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (handled) {
       keyboardEvent.consume(true);
     }
+
+    return handled;
   }
 
   private selectFirstEntryInCurrentGroup(): boolean {
@@ -1497,6 +1547,16 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
               const image = new Image();
               image.src = HIDDEN_ANCESTOR_ARROW;
               context.drawImage(image, barX + barWidth - arrowSize, barY, arrowSize, arrowSize);
+            } else {
+              const triangleSize = 5;
+              context.clip();
+              context.beginPath();
+              context.fillStyle = 'red';
+              context.moveTo(barX + barWidth - triangleSize, barY);
+              context.lineTo(barX + barWidth, barY);
+              context.lineTo(barX + barWidth, barY + barHeight);
+              context.lineTo(barX + barWidth - triangleSize, barY + barHeight);
+              context.fill();
             }
             context.restore();
             break;
