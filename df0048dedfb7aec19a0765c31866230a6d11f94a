@@ -34,6 +34,24 @@
       "parentUuid": "70ac9b99_90bec2ec",
       "revId": "df0048dedfb7aec19a0765c31866230a6d11f94a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01e3ebce_86a9c833",
+        "filename": "front_end/ui/legacy/closeButton.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-08T05:18:18Z",
+      "side": 1,
+      "message": "`front_end/panels/console/consolePinPane.css` overrides with `left: 0`. I think that\u0027s the correct place to change it.",
+      "parentUuid": "54a92e11_661237c6",
+      "revId": "df0048dedfb7aec19a0765c31866230a6d11f94a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
