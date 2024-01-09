@@ -282,7 +282,7 @@ export class CreateRecordingView extends HTMLElement {
           />
           <label class="row-label" for="selector-attribute">
             <span>${i18nString(UIStrings.selectorAttribute)}</span>
-            <x-link class="link" href="https://g.co/devtools/recorder#selector">
+            <x-link class="link" aria-label="Learn more" href="https://g.co/devtools/recorder#selector">
               <${IconButton.Icon.Icon.litTagName} name="help">
               </${IconButton.Icon.Icon.litTagName}>
             </x-link>
@@ -296,7 +296,7 @@ export class CreateRecordingView extends HTMLElement {
           />
           <label class="row-label">
             <span>${i18nString(UIStrings.selectorTypes)}</span>
-            <x-link class="link" href="https://g.co/devtools/recorder#selector">
+            <x-link class="link" aria-label="Learn more" href="https://g.co/devtools/recorder#selector">
               <${IconButton.Icon.Icon.litTagName} name="help">
               </${IconButton.Icon.Icon.litTagName}>
             </x-link>
