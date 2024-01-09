@@ -765,7 +765,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.update();
   }
 
-  onContextMenu(_event: Event): void {
+  getPossibleActions(): TraceEngine.EntriesFilter.PossibleFilterActions|void {
     // The context menu only applies if the user is hovering over an individual entry.
     if (this.highlightedEntryIndex === -1) {
       return;
@@ -791,22 +791,30 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     // Before showing the context menu, check which actions are possible on an entry.
     // If an action would not change the entries (for example it has no children to collapse), we do not need to show it.
-    const possibleActions = this.dataProvider.findPossibleContextMenuActions?.(group, this.highlightedEntryIndex);
+    return this.dataProvider.findPossibleContextMenuActions?.(group, this.highlightedEntryIndex);
+  }
+
+  onContextMenu(_event: Event): void {
+    const possibleActions = this.getPossibleActions();
+
+    if (!possibleActions) {
+      return;
+    }
 
     this.contextMenu = new UI.ContextMenu.ContextMenu(_event);
     // TODO(crbug.com/1469887): Change text/ui to the final designs when they are complete.
-    this.contextMenu.headerSection().appendItem('Merge function', () => {
+    this.contextMenu.headerSection().appendItem('Hide function', () => {
       this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
     });
 
     if (possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION]) {
-      this.contextMenu.headerSection().appendItem('Collapse function', () => {
+      this.contextMenu.headerSection().appendItem('Hide children', () => {
         this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
       });
     }
 
     if (possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]) {
-      this.contextMenu.headerSection().appendItem('Collapse repeating descendants', () => {
+      this.contextMenu.headerSection().appendItem('Hide repeating children', () => {
         this.modifyTree(
             TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
       });
@@ -819,16 +827,52 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     void this.contextMenu.show();
   }
 
+  private handleFlameChartTransformEvent(event: Event): void {
+    const possibleActions = this.getPossibleActions();
+    if (!possibleActions) {
+      return;
+    }
+
+    const keyboardEvent = (event as KeyboardEvent);
+    let handled = false;
+
+    if (keyboardEvent.key === 'h') {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
+      handled = true;
+    } else if (
+        keyboardEvent.key === 'c' && possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION]) {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_FUNCTION, this.highlightedEntryIndex);
+      handled = true;
+    } else if (
+        keyboardEvent.key === 'r' &&
+        possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]) {
+      this.modifyTree(
+          TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.highlightedEntryIndex);
+      handled = true;
+    } else if (keyboardEvent.key === 'u') {
+      this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, this.highlightedEntryIndex);
+      handled = true;
+    }
+
+    if (handled) {
+      keyboardEvent.consume(true);
+    }
+  }
+
   private onKeyDown(e: KeyboardEvent): void {
     if (!UI.KeyboardShortcut.KeyboardShortcut.hasNoModifiers(e) || !this.timelineData()) {
       return;
     }
 
-    const eventHandled = this.handleSelectionNavigation(e);
+    let eventHandled = this.handleSelectionNavigation(e);
 
     // Handle keyboard navigation in groups
     if (!eventHandled && this.rawTimelineData && this.rawTimelineData.groups) {
-      this.handleKeyboardGroupNavigation(e);
+      eventHandled = this.handleKeyboardGroupNavigation(e);
+    }
+
+    if (!eventHandled) {
+      this.handleFlameChartTransformEvent(e);
     }
   }
 
@@ -836,7 +880,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.canvas.addEventListener(eventName, onEvent);
   }
 
-  private handleKeyboardGroupNavigation(event: Event): void {
+  private handleKeyboardGroupNavigation(event: Event): boolean {
     const keyboardEvent = (event as KeyboardEvent);
     let handled = false;
     let entrySelected = false;
@@ -856,8 +900,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         this.selectFirstChild();
         handled = true;
       }
-    } else if (keyboardEvent.key === 'Enter') {
       entrySelected = this.selectFirstEntryInCurrentGroup();
+    } else if (keyboardEvent.key === 'Enter') {
       handled = entrySelected;
     }
 
@@ -868,6 +912,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (handled) {
       keyboardEvent.consume(true);
     }
+
+    return handled;
   }
 
   private selectFirstEntryInCurrentGroup(): boolean {
