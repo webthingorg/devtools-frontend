@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a2ba7b_d635ccfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-09T15:42:10Z",
+      "side": 1,
+      "message": "PTAL again. Just re-ran the stressor bots without any test failures.\n\nSummarizing offline discussion: Could not reproduce locally, even with the commit where the tests were initially skipped. Instead of trying to apply an unspecific fix (looping over the part which times out), let\u0027s tentatively re-enable without changes (CQ was particularly unstable when deactivating the tests).",
+      "revId": "6220f606701c92ff8270b35378a97f391bd51a84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
