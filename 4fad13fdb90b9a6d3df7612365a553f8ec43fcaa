@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb2d00d9_31851457",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-09T13:05:44Z",
+      "side": 1,
+      "message": "If duck tape doesn\u0027t cut it... you need stronger duck tape 😄",
+      "revId": "4fad13fdb90b9a6d3df7612365a553f8ec43fcaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
