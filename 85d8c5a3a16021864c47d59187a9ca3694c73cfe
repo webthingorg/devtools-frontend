@@ -16,6 +16,40 @@
       "message": "Wolfgang, please take another look?:)",
       "revId": "85d8c5a3a16021864c47d59187a9ca3694c73cfe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42044257_99bcde2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-09T17:49:41Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "85d8c5a3a16021864c47d59187a9ca3694c73cfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29012efb_9ff2a786",
+        "filename": "front_end/panels/application/components/StackTrace.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-09T17:49:41Z",
+      "side": 1,
+      "message": "```suggestion\n          } as StackTraceRowData}\u003e\u003c/${StackTraceRow.litTagName}\u003e`);\n```",
+      "revId": "85d8c5a3a16021864c47d59187a9ca3694c73cfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
