@@ -192,7 +192,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
        assert.isUndefined(decorationsForEntry);
      });
 
-  it('When an entry has no children, correctly show only Merge as a possible Context Menu action', async function() {
+  it('When an entry has no children, correctly show only Hide as a possible Context Menu action', async function() {
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'recursive-blocking-js.json.gz');
     const mockViewDelegate = new MockViewDelegate();
 
@@ -228,13 +228,13 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.headerSection().items.length, 2);
     assert.strictEqual(
         flameChartView.getMainFlameChart().getContextMenu()?.headerSection().items.at(0)?.buildDescriptor().label,
-        'Merge function');
+        'Hide function');
     assert.strictEqual(
         flameChartView.getMainFlameChart().getContextMenu()?.headerSection().items.at(1)?.buildDescriptor().label,
         'Reset trace');
   });
 
-  it('When an entry has children, correctly show only Merge and Collapse as a possible Context Menu actions',
+  it('When an entry has children, correctly show only Hide and Hide Children as possible Context Menu actions',
      async function() {
        const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'recursive-blocking-js.json.gz');
        const mockViewDelegate = new MockViewDelegate();
@@ -275,10 +275,10 @@ describeWithEnvironment('TimelineFlameChartView', function() {
        assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.headerSection().items.length, 3);
        assert.strictEqual(
            flameChartView.getMainFlameChart().getContextMenu()?.headerSection().items.at(0)?.buildDescriptor().label,
-           'Merge function');
+           'Hide function');
        assert.strictEqual(
            flameChartView.getMainFlameChart().getContextMenu()?.headerSection().items.at(1)?.buildDescriptor().label,
-           'Collapse function');
+           'Hide children');
        assert.strictEqual(
            flameChartView.getMainFlameChart().getContextMenu()?.headerSection().items.at(2)?.buildDescriptor().label,
            'Reset trace');
