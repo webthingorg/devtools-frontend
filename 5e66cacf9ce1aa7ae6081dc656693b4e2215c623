@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ed5c7e_ab2ac982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-01-09T23:28:56Z",
+      "side": 1,
+      "message": "Hey Wolfgang, PTAL at this small a11y fix. Thank you!",
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
