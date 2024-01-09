@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5219e352_b52706d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-01-09T23:27:25Z",
+      "side": 1,
+      "message": "Hey Mathias, PTAL at this small bug fix in the device setting. Thanks!",
+      "revId": "8c3c1cf6dc1d28043d39f66b851ccbaae1713e12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
