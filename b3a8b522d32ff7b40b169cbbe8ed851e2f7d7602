@@ -37,6 +37,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d44d17a_762371c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T13:45:52Z",
+      "side": 1,
+      "message": "unresolve",
+      "parentUuid": "41b1d807_dbe72b00",
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "475d3a6d_c3a184bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T13:45:52Z",
+      "side": 1,
+      "message": "PTAL again. Especially at the comment at https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5163973/comments/41b1d807_dbe72b00.",
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2423504_23eab133",
         "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
         "patchSetId": 3
@@ -48,6 +83,30 @@
       "writtenOn": "2024-01-10T08:06:20Z",
       "side": 1,
       "message": "Could we combine this with the observer above?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ed49780_d875ff85",
+        "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T13:45:52Z",
+      "side": 1,
+      "message": "Could you please elaborate a bit on how to do this?\nWould it be ok to simply add `target.setName(i18nString(UIStrings.main));` to this observer? The promise here would then resolve on each primary page change. Is resolving a promise multiple times fine?",
+      "parentUuid": "c2423504_23eab133",
       "range": {
         "startLine": 96,
         "startChar": 0,
