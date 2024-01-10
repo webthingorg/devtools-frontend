@@ -16,6 +16,23 @@
       "message": "PTAL!",
       "revId": "fc35ff8b85ea356a59eb62be76417895f00f95f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f64b5fcc_2de6e852",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-10T11:56:48Z",
+      "side": 1,
+      "message": "(nit): can we rename `property` parameter to be `propertyName`? :)",
+      "revId": "fc35ff8b85ea356a59eb62be76417895f00f95f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
