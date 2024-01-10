@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1d0905d_73ae68be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-10T12:50:14Z",
+      "side": 1,
+      "message": "Thanks for the review! I updated the interaction test with decorations to have all decorations combinations including the Hidden ancestors Arrow, and also a unit test to make sure keyboard shortcut works 😊",
+      "revId": "7d123cf36cb2c45e58e175c3beec82b26dfe16f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4446828_a96dbb2e",
@@ -41,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ffdd0c_6c28887a",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-10T12:50:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4446828_a96dbb2e",
+      "range": {
+        "startLine": 806,
+        "startChar": 49,
+        "endLine": 806,
+        "endChar": 64
+      },
+      "revId": "7d123cf36cb2c45e58e175c3beec82b26dfe16f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "682d71d0_213bd4c7",
@@ -54,6 +95,30 @@
       "writtenOn": "2024-01-09T15:44:12Z",
       "side": 1,
       "message": "mega-nit: we shouldn\u0027t need this",
+      "range": {
+        "startLine": 848,
+        "startChar": 52,
+        "endLine": 848,
+        "endChar": 53
+      },
+      "revId": "7d123cf36cb2c45e58e175c3beec82b26dfe16f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce70a78f_cc0df984",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-10T12:50:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "682d71d0_213bd4c7",
       "range": {
         "startLine": 848,
         "startChar": 52,
