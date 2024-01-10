@@ -199,6 +199,16 @@ export class CompatibilityTracksAppender {
     console.warn('Could not modify tree in not thread track');
   }
 
+  findHiddenEntriesAmount(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.TraceEntry):
+      number {
+    const threadTrackAppender = this.#trackForGroup.get(group);
+    if (threadTrackAppender instanceof ThreadAppender) {
+      return threadTrackAppender.findHiddenEntriesAmount(node);
+    }
+    console.warn('Could not find hidden entries because non thread tracks are not modifiable');
+    return 0;
+  }
+
   #addThreadAppenders(): void {
     const weight = (appender: ThreadAppender): number => {
       switch (appender.threadType) {

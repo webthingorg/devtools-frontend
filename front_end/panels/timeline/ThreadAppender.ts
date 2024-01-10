@@ -227,6 +227,12 @@ export class ThreadAppender implements TrackAppender {
       TraceEngine.EntriesFilter.PossibleFilterActions|void {
     return this.#entriesFilter?.findPossibleActions(traceEvent);
   }
+  
+  findHiddenEntriesAmount(traceEvent: TraceEngine.Types.TraceEvents.TraceEntry):
+      number {
+    return this.#entriesFilter?.findHiddenEntriesAmount(traceEvent);
+  }
+
 
   processId(): TraceEngine.Types.TraceEvents.ProcessID {
     return this.#processId;

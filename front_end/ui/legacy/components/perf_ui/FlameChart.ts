@@ -451,16 +451,18 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   private updatePopover(entryIndex: number): void {
-    if (entryIndex === this.highlightedEntryIndex) {
-      this.updatePopoverOffset();
+    this.entryInfo.removeChildren();
+    const data = this.timelineData();
+    if (!data) {
       return;
     }
-    this.entryInfo.removeChildren();
-    const popoverElement = this.dataProvider.prepareHighlightedEntryInfo(entryIndex);
-    if (popoverElement) {
-      this.entryInfo.appendChild(popoverElement);
-      this.updatePopoverOffset();
-    }
+    const group = data.groups.at(this.selectedGroupIndex);
+      // If the mouse is hovering over the hidden ancestors arrow, get an element that shows how many children are hidden, otherwise an element with the event name and length
+      const popoverElement = (this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex) && group) ? this.dataProvider.prepareHighlightedArrowInfo && this.dataProvider.prepareHighlightedArrowInfo(group, entryIndex): this.dataProvider.prepareHighlightedEntryInfo(entryIndex);
+      if (popoverElement) {
+        this.entryInfo.appendChild(popoverElement);
+        this.updatePopoverOffset();
+      }    
   }
 
   private updatePopoverOffset(): void {
@@ -1145,6 +1147,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    * whether the mouse is hovering over the arrow button that reveals hidden children
    */
   isMouseOverRevealChildrenArrow(x: number, index: number): boolean {
+    // Check if given entry has an arrow
+    if(!this.entryHasDecoration(index, FlameChartDecorationType.HIDDEN_ANCESTORS_ARROW)) {
+      return false;
+    }
     const timelineData = this.timelineData();
     if (!timelineData) {
       return false;
@@ -2542,11 +2548,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   setSelectedEntry(entryIndex: number): void {
-    // If the entry has HIDDEN_ANCESTORS_ARROW decoration, check if the button that
-    // resets children of the entry is clicked. We need to check it even if the entry
+    // Check if the button that resets children of the entry is clicked. We need to check it even if the entry
     // clicked is not selected to avoid needing to double click
-    if (this.entryHasDecoration(entryIndex, FlameChartDecorationType.HIDDEN_ANCESTORS_ARROW) &&
-        this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
+    if (this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
       this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, entryIndex);
     }
     if (this.selectedEntryIndex === entryIndex) {
@@ -2638,11 +2642,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     /**
      * No need to update the hidden ancestors arrow highlight if
      * 1. No entry is highlighted
-     * 2. Entry highlighed does not have a decoration
-     * 3. Mouse is not hovering over the arrow button
+     * 2. Mouse is not hovering over the arrow button
      */
-    if (entryIndex === -1 || !this.entryHasDecoration(entryIndex, FlameChartDecorationType.HIDDEN_ANCESTORS_ARROW) ||
-        !this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
+    if (entryIndex === -1 || !this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
       return;
     }
     this.updateElementPosition(this.revealAncestorsArrowHighlightElement, entryIndex, true);
@@ -2887,6 +2889,8 @@ export interface FlameChartDataProvider {
   timelineData(rebuild?: boolean): FlameChartTimelineData|null;
 
   prepareHighlightedEntryInfo(entryIndex: number): Element|null;
+  
+  prepareHighlightedArrowInfo?(group: Group, entryIndex: number): Element|null;
 
   canJumpToEntry(entryIndex: number): boolean;
 
