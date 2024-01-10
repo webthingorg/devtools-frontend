@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f65314_cb9eda9e",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-01-10T21:04:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d524b97b_ff08a86a",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2482089f_8f3c53ac",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "652bb961_ed675694",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-01-10T21:04:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2482089f_8f3c53ac",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 31
+      },
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03a9e0be_5fbbd468",
@@ -94,6 +142,30 @@
       "writtenOn": "2024-01-10T08:53:03Z",
       "side": 1,
       "message": "Would this be simpler?:\n```suggestion\n(this.elements[Math.min(index, this.elements.length -1)] as HTMLElement).focus();\n```",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 188,
+        "endChar": 102
+      },
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df5fe07e_1a01a7ff",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-01-10T21:04:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03a9e0be_5fbbd468",
       "range": {
         "startLine": 187,
         "startChar": 6,
