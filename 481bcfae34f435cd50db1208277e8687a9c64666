@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9436402e_7b1f419f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-10T14:19:13Z",
+      "side": 1,
+      "message": "Looks like I lost the +1 with my change, would you mind taking another look?",
+      "revId": "481bcfae34f435cd50db1208277e8687a9c64666",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
