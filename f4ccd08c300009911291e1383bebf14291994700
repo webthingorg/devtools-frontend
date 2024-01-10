@@ -104,6 +104,42 @@
       "parentUuid": "6c87a6b6_933c65bb",
       "revId": "f4ccd08c300009911291e1383bebf14291994700",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db0c3dfa_d470155c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-10T12:03:37Z",
+      "side": 1,
+      "message": "Ah now I see, thanks! Can you update the `/* FIXME */` comment to say that `computedText` is there?\n\nMaybe we can update the type to assert that only `computedText()` is asserted to be there instead of `Required\u003cMatch\u003e` in case add some other optional properties to the `Match` too -- something like this `Match \u0026 { computedText: NonNullable\u003cMatch[\"computedText\"]\u003e }`.",
+      "parentUuid": "e69514bd_e7336209",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9169cb52_4ee3f444",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-10T12:03:37Z",
+      "side": 1,
+      "message": "Ah yes, somehow `this.push` read like `this.#chunks.push` for me; thanks! (also I now realized that the test case shows this too)",
+      "parentUuid": "4a4e2503_7ccc560b",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
