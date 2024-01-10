@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de2ed54a_4e30a3f1",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-10T11:48:21Z",
+      "side": 1,
+      "message": "I added this in order to account for the fact that computing the text might be expensive. If there\u0027s a deep nesting of var()s and whatnot I don\u0027t want to actually compute the result again and again when computedText is called.",
+      "parentUuid": "5e0a1dc8_db4940ab",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69c470bb_42c5a080",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 5
@@ -48,6 +66,42 @@
       "writtenOn": "2024-01-10T11:39:51Z",
       "side": 1,
       "message": "In the comment we\u0027re saying that it might cause \"last matches\" to be substituted in the code I understand that it is only looking at the last chunk. So, it seemed like this doesn\u0027t handle the cases where two smaller chunks need to be replaced by a bigger chunk; does it make sense or do I miss something?",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69514bd_e7336209",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-10T11:48:21Z",
+      "side": 1,
+      "message": "That the assertion is necessary here is imo a tsc bug. I\u0027m checking whether `computedText` is undefined above. tsc should be able to understand that `match` satisfies `Required\u003cMatch\u003e`",
+      "parentUuid": "69c470bb_42c5a080",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4e2503_7ccc560b",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-10T11:48:21Z",
+      "side": 1,
+      "message": "No, it will keep replacing the tail chunk while that\u0027s encompassed by the new one. This happens in line 204 where we pop off the tail and recurse.",
+      "parentUuid": "6c87a6b6_933c65bb",
       "revId": "f4ccd08c300009911291e1383bebf14291994700",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
