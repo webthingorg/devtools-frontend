@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Platform from '../platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
+import type * as Platform from '../platform/platform.js';
 
 const OPAQUE_PARTITION_KEY = '<opaque>';
 
@@ -81,6 +81,10 @@ export class Cookie {
 
   secure(): boolean {
     return 'secure' in this.#attributes;
+  }
+
+  partitioned(): boolean {
+    return 'partitioned' in this.#attributes;
   }
 
   sameSite(): Protocol.Network.CookieSameSite {
