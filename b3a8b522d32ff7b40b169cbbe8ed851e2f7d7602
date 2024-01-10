@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2423504_23eab133",
+        "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-10T08:06:20Z",
+      "side": 1,
+      "message": "Could we combine this with the observer above?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47188e92_1b13fe7e",
         "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
         "patchSetId": 3
@@ -48,6 +71,24 @@
       "writtenOn": "2024-01-05T07:35:16Z",
       "side": 1,
       "message": "Can there be cases where there is no primary page target and this awaits forever?",
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f677b5f_17d0fc52",
+        "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-10T08:06:20Z",
+      "side": 1,
+      "message": "I don\u0027t think so.",
+      "parentUuid": "47188e92_1b13fe7e",
       "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
