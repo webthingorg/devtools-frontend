@@ -16,6 +16,92 @@
       "message": "Hey Wolfgang, PTAL at this small a11y fix. Thank you!",
       "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b2aa6d_90e5a02c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T08:53:03Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d524b97b_ff08a86a",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T08:53:03Z",
+      "side": 1,
+      "message": "nit: how about \u0027Changes to item have been saved\u0027?\n```suggestion\n  changesSaved: \u0027Changes to item have been saved\u0027,\n```",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2482089f_8f3c53ac",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T08:53:03Z",
+      "side": 1,
+      "message": "nit: How about \u0027Item has been removed\u0027?",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 31
+      },
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03a9e0be_5fbbd468",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T08:53:03Z",
+      "side": 1,
+      "message": "Would this be simpler?:\n```suggestion\n(this.elements[Math.min(index, this.elements.length -1)] as HTMLElement).focus();\n```",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 188,
+        "endChar": 102
+      },
+      "revId": "5e66cacf9ce1aa7ae6081dc656693b4e2215c623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
