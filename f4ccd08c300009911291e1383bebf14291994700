@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e0a1dc8_db4940ab",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-10T11:39:51Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand why we need this `cachedComputedText` logic; can you explain?",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69c470bb_42c5a080",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-10T11:39:51Z",
+      "side": 1,
+      "message": "It seems like there can be cases where `computedText()` is not implemented in a Match. So, I think, this assertion can cause issues because of this. Maybe can we make `computedText()` required in the Match (and maybe implement it as returning the in default). WDYT?",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c87a6b6_933c65bb",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-10T11:39:51Z",
+      "side": 1,
+      "message": "In the comment we\u0027re saying that it might cause \"last matches\" to be substituted in the code I understand that it is only looking at the last chunk. So, it seemed like this doesn\u0027t handle the cases where two smaller chunks need to be replaced by a bigger chunk; does it make sense or do I miss something?",
+      "revId": "f4ccd08c300009911291e1383bebf14291994700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
