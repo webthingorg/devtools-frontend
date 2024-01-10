@@ -464,8 +464,6 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/security/SecurityPanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-let securityPanelInstance: SecurityPanel;
-
 // See https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-signaturescheme
 // This contains signature schemes supported by Chrome.
 const SignatureSchemeStrings = new Map([
@@ -500,7 +498,7 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
   private eventListeners: Common.EventTarget.EventDescriptor[];
   private securityModel: SecurityModel|null;
 
-  private constructor() {
+  constructor() {
     super('security');
 
     this.mainView = new SecurityMainView(this);
@@ -528,15 +526,6 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.PrimaryPageChanged,
         this.onPrimaryPageChanged, this);
-  }
-
-  static instance(opts: {forceNew: boolean|null} = {forceNew: null}): SecurityPanel {
-    const {forceNew} = opts;
-    if (!securityPanelInstance || forceNew) {
-      securityPanelInstance = new SecurityPanel();
-    }
-
-    return securityPanelInstance;
   }
 
   static createCertificateViewerButtonForOrigin(text: string, origin: string): Element {
@@ -608,10 +597,16 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
   }
 
   override wasShown(): void {
+    UI.Context.Context.instance().setFlavor(SecurityPanel, this);
     super.wasShown();
     if (!this.visibleView) {
       this.selectAndSwitchToMainView();
     }
+  }
+
+  override willHide(): void {
+    super.willHide();
+    UI.Context.Context.instance().setFlavor(SecurityPanel, null);
   }
 
   override focus(): void {
@@ -944,8 +939,6 @@ export class SecurityPanelSidebarTree extends UI.TreeOutline.TreeOutlineInShadow
   clearOrigins(): void {
     this.clearOriginGroups();
     this.elementsByOrigin.clear();
-  }
-  wasShown(): void {
   }
 }
 

@@ -4,6 +4,7 @@
 
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Security from '../../panels/security/security.js';
+import * as UI from '../../ui/legacy/legacy.js';
 import {TestRunner} from '../test_runner/test_runner.js';
 
 /**
@@ -12,9 +13,10 @@ import {TestRunner} from '../test_runner/test_runner.js';
 export const SecurityTestRunner = {};
 
 SecurityTestRunner.dumpSecurityPanelSidebarOrigins = function() {
+  const securityPanel = UI.Context.Context.instance().flavor(Security.SecurityPanel.SecurityPanel);
   for (const key in Security.SecurityPanel.OriginGroup) {
     const originGroup = Security.SecurityPanel.OriginGroup[key];
-    const element = Security.SecurityPanel.SecurityPanel.instance().sidebarTree.originGroups.get(originGroup);
+    const element = securityPanel.sidebarTree.originGroups.get(originGroup);
 
     if (element.hidden) {
       continue;

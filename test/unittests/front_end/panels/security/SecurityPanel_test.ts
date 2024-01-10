@@ -19,7 +19,7 @@ describeWithMockConnection('SecurityPanel', () => {
     });
 
     it('updates when security state changes', async () => {
-      const securityPanel = Security.SecurityPanel.SecurityPanel.instance({forceNew: true});
+      const securityPanel = new Security.SecurityPanel.SecurityPanel();
       const securityModel = target.model(Security.SecurityModel.SecurityModel);
       assertNotNullOrUndefined(securityModel);
       const visibleSecurityState = {
@@ -56,7 +56,7 @@ describeWithMockConnection('SecurityPanel', () => {
     const mainTarget = createTarget({parentTarget: tabTarget});
     const mainSecurityModel = mainTarget.model(Security.SecurityModel.SecurityModel);
     assertNotNullOrUndefined(mainSecurityModel);
-    const securityPanel = Security.SecurityPanel.SecurityPanel.instance({forceNew: true});
+    const securityPanel = new Security.SecurityPanel.SecurityPanel();
 
     // Add the main target to the security panel.
     securityPanel.modelAdded(mainSecurityModel);
@@ -105,7 +105,7 @@ describeWithMockConnection('SecurityPanel', () => {
     const target = createTarget();
     const securityModel = target.model(Security.SecurityModel.SecurityModel);
     assertNotNullOrUndefined(securityModel);
-    const securityPanel = Security.SecurityPanel.SecurityPanel.instance({forceNew: true});
+    const securityPanel = new Security.SecurityPanel.SecurityPanel();
 
     // Check that reload message is visible initially.
     const reloadMessage = securityPanel.sidebarTree.shadowRoot.querySelector('.security-main-view-reload-message');

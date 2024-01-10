@@ -20,7 +20,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/security/security-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
-let loadedSecurityModule: (typeof Security|undefined);
+let loadedSecurityModule: typeof Security|undefined;
 
 async function loadSecurityModule(): Promise<typeof Security> {
   if (!loadedSecurityModule) {
@@ -38,6 +38,6 @@ UI.ViewManager.registerViewExtension({
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {
     const Security = await loadSecurityModule();
-    return Security.SecurityPanel.SecurityPanel.instance();
+    return new Security.SecurityPanel.SecurityPanel();
   },
 });
