@@ -70,6 +70,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00864391_77c3904e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-10T13:53:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "475d3a6d_c3a184bb",
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9518a9f_1c5e6c80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-10T13:53:32Z",
+      "side": 1,
+      "message": "I think we should land this anyway as it seems to be a net improvement. We can address the pause issue separately.",
+      "parentUuid": "4d44d17a_762371c0",
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2423504_23eab133",
@@ -107,6 +143,30 @@
       "side": 1,
       "message": "Could you please elaborate a bit on how to do this?\nWould it be ok to simply add `target.setName(i18nString(UIStrings.main));` to this observer? The promise here would then resolve on each primary page change. Is resolving a promise multiple times fine?",
       "parentUuid": "c2423504_23eab133",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e3076f_221caac1",
+        "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-10T13:53:32Z",
+      "side": 1,
+      "message": "Yes, something like this. Subsequent calls to resolve should have no effect.",
+      "parentUuid": "9ed49780_d875ff85",
       "range": {
         "startLine": 96,
         "startChar": 0,
