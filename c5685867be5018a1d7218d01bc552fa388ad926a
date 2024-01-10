@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b26ee02_1db0f92a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T17:01:31Z",
+      "side": 1,
+      "message": "I removed the attempt to fix/improve the `waitForDebuggerInPage` behavior, because it was causing a regression (open DevTools with pause immediately via chrome://inspect/#pages, then refreshing the inspected page would cause a perpetual spinner).",
+      "revId": "c5685867be5018a1d7218d01bc552fa388ad926a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

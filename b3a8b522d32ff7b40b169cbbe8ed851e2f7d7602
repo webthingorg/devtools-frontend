@@ -177,6 +177,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "495e41df_dcb43173",
+        "filename": "front_end/entrypoints/inspector_main/InspectorMain.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-10T17:01:31Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "c6e3076f_221caac1",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "b3a8b522d32ff7b40b169cbbe8ed851e2f7d7602",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47188e92_1b13fe7e",
