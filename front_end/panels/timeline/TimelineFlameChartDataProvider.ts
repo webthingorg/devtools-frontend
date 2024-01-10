@@ -938,6 +938,19 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return element;
   }
 
+  prepareHighlightedArrowInfo(entryIndex: number): Element|null {
+    
+    const element = document.createElement('div');
+    const root = UI.Utils.createShadowRootWithCoreStyles(element, {
+      cssFile: [timelineFlamechartPopoverStyles],
+      delegatesFocus: undefined,
+    });
+    const contents = root.createChild('div', 'timeline-flamechart-popover');
+    contents.createChild('span', 'timeline-info-title').textContent = "lala " + entryIndex;
+    
+    return element;
+  }
+
   entryColor(entryIndex: number): string {
     function patchColorAndCache<KEY>(cache: Map<KEY, string>, key: KEY, lookupColor: (arg0: KEY) => string): string {
       let color = cache.get(key);
