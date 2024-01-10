@@ -16,6 +16,23 @@
       "message": "Hey Mathias, PTAL at this small bug fix in the device setting. Thanks!",
       "revId": "8c3c1cf6dc1d28043d39f66b851ccbaae1713e12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db17ba34_b09b7c4c",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-01-10T07:34:38Z",
+      "side": 1,
+      "message": "This poses an XSS vulnerability if something goes wrong in the translation pipeline.\n\nLet’s avoid innerHTML here. We could do something like:\n\n    const br \u003d document.createElement(\u0027br\u0027);\n    this.errorMessageContainer.append(br); // 1\n    this.errorMessageContainer.append(errorMessage); // 2\n\nThe argument in 1 is an `HTMLElement` so it appends the \u003cbr\u003e element (no XSS issue here). But the argument in 2 is a string, so there it acts like appending a text node, avoiding any XSS risk.\n\n(An even nicer solution might be to turn this into an unordered list where each error message gets its own \u003cli\u003e.)",
+      "revId": "8c3c1cf6dc1d28043d39f66b851ccbaae1713e12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
