@@ -308,7 +308,7 @@ export class Editor<T> {
     this.cancelButton.setAttribute('jslog', `${VisualLogging.action().track({click: true}).context('cancel')}`);
     buttonsRow.appendChild(this.cancelButton);
 
-    this.errorMessageContainer = this.element.createChild('div', 'list-widget-input-validation-error');
+    this.errorMessageContainer = this.element.createChild('ul', 'list-widget-input-validation-error');
     ARIAUtils.markAsAlert(this.errorMessageContainer);
 
     function onKeyDown(predicate: (arg0: KeyboardEvent) => boolean, callback: () => void, event: KeyboardEvent): void {
@@ -389,7 +389,7 @@ export class Editor<T> {
 
   private validateControls(forceValid: boolean): void {
     let allValid = true;
-    this.errorMessageContainer.textContent = '';
+    this.errorMessageContainer.removeChildren();
     for (let index = 0; index < this.controls.length; ++index) {
       const input = this.controls[index];
       const {valid, errorMessage} = this.validators[index].call(null, (this.item as T), this.index, input);
@@ -401,8 +401,10 @@ export class Editor<T> {
         ARIAUtils.setInvalid(input, true);
       }
 
-      if (!forceValid && errorMessage && !this.errorMessageContainer.textContent) {
-        this.errorMessageContainer.textContent = errorMessage;
+      if (!forceValid && errorMessage) {
+        const listNode = this.errorMessageContainer.createChild('li');
+        listNode.textContent = errorMessage;
+        this.errorMessageContainer.appendChild(listNode);
       }
 
       allValid = allValid && valid;
