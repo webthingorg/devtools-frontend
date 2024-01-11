@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4f42d68_e83af667",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T13:14:10Z",
+      "side": 1,
+      "message": "Nice! :)",
+      "parentUuid": "b9a75b46_b55f1a84",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6a44398_dabc5dc7",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "That implies that we must pass a propertyName when we want to use the parser for other purposes than parsing declarations. Parsing color values or resolving vars are two examples. In the first case we could pass a color-related property name, but in the second case it\u0027s a little awkward. I kinda like having an explicit `dontcare` value.",
       "parentUuid": "a6a44398_dabc5dc7",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b8fd842_d04de994",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T13:14:10Z",
+      "side": 1,
+      "message": "Ah I see, makes sense.",
+      "parentUuid": "bae0b285_47cf508b",
       "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
