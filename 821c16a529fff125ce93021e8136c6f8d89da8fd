@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef4108f6_72e9810a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-11T15:24:18Z",
+      "side": 1,
+      "message": "LGTM modulo kebab case",
+      "revId": "821c16a529fff125ce93021e8136c6f8d89da8fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc434cb2_b57c898f",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-11T15:24:18Z",
+      "side": 1,
+      "message": "Let\u0027s stick to kebab case for the contexts, i.e. `grid-settings` here and also in the other cases.",
+      "revId": "821c16a529fff125ce93021e8136c6f8d89da8fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a60c50_ca37f420",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-11T15:24:18Z",
+      "side": 1,
+      "message": "`copy-color` instead of `copyColor`",
+      "revId": "821c16a529fff125ce93021e8136c6f8d89da8fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
