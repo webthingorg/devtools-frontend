@@ -22,6 +22,30 @@
       },
       "revId": "e91f5aa6c96647c111a17d517f6690df5a97ecd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "125831d6_18d9e8d9",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-11T13:24:30Z",
+      "side": 0,
+      "message": "Yeah, let\u0027s keep the zoom. There is no reason to remove it. I believe we removed it at the beginning while working on breadcrumbs to make setting window for the first breadcrumbs easier (just set the selected to full breadcrumb).",
+      "parentUuid": "4090705d_fa7cf7df",
+      "range": {
+        "startLine": 1155,
+        "startChar": 6,
+        "endLine": 1155,
+        "endChar": 10
+      },
+      "revId": "e91f5aa6c96647c111a17d517f6690df5a97ecd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

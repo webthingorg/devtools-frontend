@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40983581_63bc03c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-11T13:24:30Z",
+      "side": 1,
+      "message": "🎉🎉🎉",
+      "revId": "784a796904d3fe50833ac3a6c0081dcf0f8cd4c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a0bc939_1fd203a6",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-01-11T12:45:16Z",
       "side": 1,
       "message": "typo: breadcrumb",
+      "range": {
+        "startLine": 1150,
+        "startChar": 80,
+        "endLine": 1150,
+        "endChar": 89
+      },
+      "revId": "784a796904d3fe50833ac3a6c0081dcf0f8cd4c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92f97213_4a69a004",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-11T13:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a0bc939_1fd203a6",
       "range": {
         "startLine": 1150,
         "startChar": 80,
