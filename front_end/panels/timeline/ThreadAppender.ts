@@ -228,6 +228,10 @@ export class ThreadAppender implements TrackAppender {
     return this.#entriesFilter?.findPossibleActions(traceEvent);
   }
 
+  findHiddenAncestorsAmount(traceEvent: TraceEngine.Types.TraceEvents.TraceEntry): number {
+    return (this.#entriesFilter) ? this.#entriesFilter?.findHiddenAncestorsAmount(traceEvent) : 0;
+  }
+
   processId(): TraceEngine.Types.TraceEvents.ProcessID {
     return this.#processId;
   }
