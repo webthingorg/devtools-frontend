@@ -341,6 +341,44 @@ export function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
   return siblings(node.firstChild);
 }
 
+export abstract class VariableMatch implements Match {
+  readonly type: string = 'var';
+  constructor(readonly text: string, readonly name: string, readonly fallback: CodeMirror.SyntaxNode|null) {
+  }
+
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class VariableMatcher extends MatcherBase<typeof VariableMatch> {
+  matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    const callee = node.getChild('Callee');
+    const args = node.getChild('ArgList');
+    if (node.name !== 'CallExpression' || !callee || (matching.ast.text(callee) !== 'var') || !args) {
+      return null;
+    }
+
+    const [lparenNode, nameNode, parenOrCommaNode, fallbackNode, rparenNode] = children(args);
+
+    if (lparenNode?.name !== '(' || nameNode?.name !== 'VariableName') {
+      return null;
+    }
+    if (parenOrCommaNode?.name === ',') {
+      if (!fallbackNode || rparenNode?.name !== ')') {
+        return null;
+      }
+    } else if (parenOrCommaNode?.name !== ')') {
+      return null;
+    }
+
+    const varName = matching.ast.text(nameNode);
+    if (!varName.startsWith('--')) {
+      return null;
+    }
+
+    return this.matchFactory(matching.ast.text(node), varName, fallbackNode);
+  }
+}
+
 export abstract class ColorMatch implements Match {
   readonly text: string;
   get type(): string {
