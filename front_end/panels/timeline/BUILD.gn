@@ -33,6 +33,7 @@ devtools_module("timeline") {
     "GPUTrackAppender.ts",
     "Initiators.ts",
     "InteractionsTrackAppender.ts",
+    "IsolateSelector.ts",
     "LayoutShiftsTrackAppender.ts",
     "NetworkTrackAppender.ts",
     "PerformanceModel.ts",
