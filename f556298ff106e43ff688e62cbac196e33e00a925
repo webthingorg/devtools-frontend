@@ -16,6 +16,24 @@
       "message": "Would this ever returns `true`? It looks like `partitioned` attribute is never added to `this.#attributes` in `fromProtocolCookie()`.\n\nMight worth adding a test case in Cookie_test.ts.",
       "revId": "f556298ff106e43ff688e62cbac196e33e00a925",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875df947_a4f1e655",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1395755
+      },
+      "writtenOn": "2024-01-11T16:22:45Z",
+      "side": 1,
+      "message": "This returns true when the Set-Cookie line includes the `Partitioned` attribute. But I modified it to also work for cookies built with `fromProtocolCookie`.",
+      "parentUuid": "f63f3e2d_8a661e44",
+      "revId": "f556298ff106e43ff688e62cbac196e33e00a925",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
