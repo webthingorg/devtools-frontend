@@ -16,6 +16,24 @@
       "message": "I believe we need to path this through the i18nString string. Also, could it be a title instead?",
       "revId": "06f4ea9039ce9a31ce31c12bfae4dbda269ff988",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc6e47e_3efb5694",
+        "filename": "front_end/panels/recorder/components/CreateRecordingView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1546108
+      },
+      "writtenOn": "2024-01-11T18:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1df00642_3831cdfa",
+      "revId": "06f4ea9039ce9a31ce31c12bfae4dbda269ff988",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
