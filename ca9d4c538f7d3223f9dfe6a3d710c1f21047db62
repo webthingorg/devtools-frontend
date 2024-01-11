@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5338953a_a76b15f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T12:22:03Z",
+      "side": 1,
+      "message": "LGTM with 3 comments :)",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f500afb2_e6bc9d32",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T12:22:03Z",
+      "side": 1,
+      "message": "(nit): Can we rename `MatchFactory` to be `CreateMatch` to better reflect that calling it is going to create a match?\n\nI feel like `x.matchFactory()` might return a \"factory\" for the `x` that might be used to create more `x`es.",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98ee8ad1_b26cc988",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T12:22:03Z",
+      "side": 1,
+      "message": "Are we going to return back to this after creating `var` matcher and computed text resolution?\n\nSo that we can show color swatch for stuff like `color: rgb(var(--a) 0 0)` or if I understood it wrong, how are we going to handle that case in the new system?",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a44398_dabc5dc7",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T12:22:03Z",
+      "side": 1,
+      "message": "Since we kind of own the usage of the PropertyParser; can we make `propertyName` required as well and pass a property name wherever we use it?\n\nIt might make these checks more meaningful; as for the case that there isn\u0027t any `propertyName`, it feels like we can still match the color but from our use case, we don\u0027t want that.",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
