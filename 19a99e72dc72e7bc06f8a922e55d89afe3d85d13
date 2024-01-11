@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24744a32_4c89461b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-11T12:34:36Z",
+      "side": 1,
+      "message": "coool! LGTM with comment about an existing misnomer in our codebase",
+      "revId": "19a99e72dc72e7bc06f8a922e55d89afe3d85d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "605ad1c6_e52aa54b",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-11T12:34:36Z",
+      "side": 1,
+      "message": "I noticed this function actually gets the descendants and not the ancestors of a node, so it seems like a misnomer. Might be worth updating its name to reflect what it does, same with the new functions/variables (it can be a follow up).",
+      "range": {
+        "startLine": 125,
+        "startChar": 31,
+        "endLine": 125,
+        "endChar": 53
+      },
+      "revId": "19a99e72dc72e7bc06f8a922e55d89afe3d85d13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
