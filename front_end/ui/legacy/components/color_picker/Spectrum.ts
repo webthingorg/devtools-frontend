@@ -1619,7 +1619,7 @@ export class Swatch {
   private readonly swatchCopyIcon: IconButton.Icon.Icon;
   constructor(parentElement: HTMLElement) {
     const swatchElement = parentElement.createChild('span', 'swatch');
-    swatchElement.setAttribute('jslog', `${VisualLogging.copyColor().track({click: true})}`);
+    swatchElement.setAttribute('jslog', `${VisualLogging.action().context('copyColor').track({click: true})}`);
     this.swatchInnerElement = swatchElement.createChild('span', 'swatch-inner');
     this.swatchOverlayElement = swatchElement.createChild('span', 'swatch-overlay') as HTMLElement;
     UI.ARIAUtils.markAsButton(this.swatchOverlayElement);
