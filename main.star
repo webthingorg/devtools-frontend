@@ -34,6 +34,10 @@ def analysis_bindings():
             groups = "mdb/v8-infra",
         ),
         luci.binding(
+            roles = "role/analysis.queryUser",
+            groups = "all",
+        ),
+        luci.binding(
             roles = "role/analysis.editor",
             groups = "mdb/v8-infra",
         ),
