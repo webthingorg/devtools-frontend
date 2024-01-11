@@ -389,7 +389,8 @@ export class Editor<T> {
 
   private validateControls(forceValid: boolean): void {
     let allValid = true;
-    this.errorMessageContainer.textContent = '';
+    this.errorMessageContainer.removeChildren();
+    const listContainer = this.errorMessageContainer.createChild('ul');
     for (let index = 0; index < this.controls.length; ++index) {
       const input = this.controls[index];
       const {valid, errorMessage} = this.validators[index].call(null, (this.item as T), this.index, input);
@@ -401,8 +402,9 @@ export class Editor<T> {
         ARIAUtils.setInvalid(input, true);
       }
 
-      if (!forceValid && errorMessage && !this.errorMessageContainer.textContent) {
-        this.errorMessageContainer.textContent = errorMessage;
+      if (!forceValid && errorMessage) {
+        const listNode = listContainer.createChild('li');
+        listNode.textContent = errorMessage;
       }
 
       allValid = allValid && valid;
