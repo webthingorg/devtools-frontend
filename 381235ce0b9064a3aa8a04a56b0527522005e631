@@ -16,6 +16,40 @@
       "message": "I think failure of http/tests/devtools/elements/styles-4/styles-grid-template.js is something we need to look at. Maybe we need to keep special casing `grid` and friends in here as well 😅",
       "revId": "381235ce0b9064a3aa8a04a56b0527522005e631",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01b14fd3_84d30fdc",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T09:53:35Z",
+      "side": 1,
+      "message": "After asserting that `selectElement` is an `Element`, we don\u0027t need the if condition here.\n\n(and as a nit, can we rename `selectElement` to `selectedElement` while we\u0027re here.)",
+      "revId": "381235ce0b9064a3aa8a04a56b0527522005e631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9326912_0802f1f8",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1802,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-11T09:53:35Z",
+      "side": 1,
+      "message": "I feel like these two conditions might not match for the case:\n\n* isPropertySplitPaste \u003d true;\n* alreadyNew \u003d true;\n* blankInput \u003d true;\n* moveDirection \u003d \u0027backwards\u0027;\n\nThe removed one selects `valueElement`. First, `elementToEdit` is assigned as the `nameElement` and then it goes into the second if block and `elementToEdit` is assigned as the `valueElement`.\n\nThe new one selects the `nameElement` since `isPropertySplitPaste` is `true`.",
+      "revId": "381235ce0b9064a3aa8a04a56b0527522005e631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
