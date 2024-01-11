@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce84088e_2f8ee033",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-11T12:57:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f500afb2_e6bc9d32",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98ee8ad1_b26cc988",
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9a75b46_b55f1a84",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-11T12:57:08Z",
+      "side": 1,
+      "message": "Yes, they compose! Take a look at https://crrev.com/c/5046811 for an example",
+      "parentUuid": "98ee8ad1_b26cc988",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6a44398_dabc5dc7",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 7
@@ -65,6 +101,24 @@
       "writtenOn": "2024-01-11T12:22:03Z",
       "side": 1,
       "message": "Since we kind of own the usage of the PropertyParser; can we make `propertyName` required as well and pass a property name wherever we use it?\n\nIt might make these checks more meaningful; as for the case that there isn\u0027t any `propertyName`, it feels like we can still match the color but from our use case, we don\u0027t want that.",
+      "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae0b285_47cf508b",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-11T12:57:08Z",
+      "side": 1,
+      "message": "That implies that we must pass a propertyName when we want to use the parser for other purposes than parsing declarations. Parsing color values or resolving vars are two examples. In the first case we could pass a color-related property name, but in the second case it\u0027s a little awkward. I kinda like having an explicit `dontcare` value.",
+      "parentUuid": "a6a44398_dabc5dc7",
       "revId": "ca9d4c538f7d3223f9dfe6a3d710c1f21047db62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
