@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4090705d_fa7cf7df",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-11T12:45:16Z",
+      "side": 0,
+      "message": "just checking: now we always want to zoom in to the activity region regardless of if there are breadcumbs or not?",
+      "range": {
+        "startLine": 1155,
+        "startChar": 6,
+        "endLine": 1155,
+        "endChar": 10
+      },
+      "revId": "e91f5aa6c96647c111a17d517f6690df5a97ecd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
