@@ -16,6 +16,24 @@
       "message": "@wolfi@chromium.org could you please review?",
       "revId": "0558b505094af510f340231353ee349041c4f51b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d10a2f6_d54fc626",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1395755
+      },
+      "writtenOn": "2024-01-12T14:20:06Z",
+      "side": 1,
+      "message": "Seems he has :)",
+      "parentUuid": "b0b524dd_b53d39fa",
+      "revId": "0558b505094af510f340231353ee349041c4f51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
