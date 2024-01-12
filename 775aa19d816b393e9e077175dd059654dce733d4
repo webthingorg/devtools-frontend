@@ -33,6 +33,24 @@
       "message": "Do we need `Array.from` call here as `this.pendingTargets.map(...)` already returns an array?",
       "revId": "775aa19d816b393e9e077175dd059654dce733d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abdd508c_cdd9ad57",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-12T18:23:12Z",
+      "side": 1,
+      "message": "Hah! Good catch, thanks. I initially had the `pendingTargets` as `Set` and this was leftover.",
+      "parentUuid": "48774d89_16a4d922",
+      "revId": "775aa19d816b393e9e077175dd059654dce733d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
