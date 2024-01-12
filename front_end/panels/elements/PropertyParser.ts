@@ -465,11 +465,39 @@ export class VariableMatcher extends MatcherBase<typeof VariableMatch> {
   }
 }
 
-export abstract class ColorMatch implements Match {
-  readonly text: string;
-  get type(): string {
-    return 'color';
+export abstract class URLMatch implements Match {
+  readonly type = 'url';
+  constructor(readonly url: Platform.DevToolsPath.UrlString, readonly text: string) {
   }
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class URLMatcher extends MatcherBase<typeof URLMatch> {
+  matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    if (node.name !== 'CallLiteral') {
+      return null;
+    }
+    const callee = node.getChild('CallTag');
+    if (!callee || matching.ast.text(callee) !== 'url') {
+      return null;
+    }
+    const [, lparenNode, urlNode, rparenNode] = siblings(callee);
+    if (matching.ast.text(lparenNode) !== '(' ||
+        (urlNode.name !== 'ParenthesizedContent' && urlNode.name !== 'StringLiteral') ||
+        matching.ast.text(rparenNode) !== ')') {
+      return null;
+    }
+
+    const text = matching.ast.text(urlNode);
+    const url =
+        (urlNode.name === 'StringLiteral' ? text.substr(1, text.length - 2) : text) as Platform.DevToolsPath.UrlString;
+    return this.createMatch(url, matching.ast.text(node));
+  }
+}
+
+export abstract class ColorMatch implements Match {
+  readonly type = 'color';
+  readonly text: string;
   constructor(text: string) {
     this.text = text;
   }
