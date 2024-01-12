@@ -33,6 +33,23 @@
       "message": "Thanks Alex, Shuran, and Wolfgang",
       "revId": "53eaa266d800b321a1ef4539fbe9bfab84d912e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4477eca_5754e2ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1395755
+      },
+      "writtenOn": "2024-01-12T15:21:20Z",
+      "side": 1,
+      "message": "Whoops did not realize partitionKeyOpaque is a method not a property of Cookie.",
+      "revId": "53eaa266d800b321a1ef4539fbe9bfab84d912e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
