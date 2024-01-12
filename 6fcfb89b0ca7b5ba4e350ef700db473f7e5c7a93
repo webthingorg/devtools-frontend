@@ -16,6 +16,23 @@
       "message": "Wolfgang, please take a look. Screenshots are here: https://bugs.chromium.org/p/chromium/issues/detail?id\u003d1517636#c3",
       "revId": "6fcfb89b0ca7b5ba4e350ef700db473f7e5c7a93",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ffe07a4_99a4105b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-12T13:48:14Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "6fcfb89b0ca7b5ba4e350ef700db473f7e5c7a93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
