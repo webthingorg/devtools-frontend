@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4525849_73246efb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-12T10:29:04Z",
+      "side": 1,
+      "message": "LGTM % our discussion about updating the isolate manager code to the latest node debugging architecture and adding tests as follow ups :)",
+      "revId": "ceee80108f3a4e18ea57fb44c4b0553445cfd529",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
