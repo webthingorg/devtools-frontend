@@ -246,9 +246,9 @@ export class EntriesFilter {
       const childNode = children.shift();
       if (childNode) {
         const childIsProfileCall = Types.TraceEvents.isProfileCall(childNode.entry);
-        if (/* Handle TraceEventSyntheticProfileCalls */ rootIsProfileCall && childIsProfileCall) {
-          const rootNodeEntry = root.entry as Types.TraceEvents.TraceEventSyntheticProfileCall;
-          const childNodeEntry = childNode.entry as Types.TraceEvents.TraceEventSyntheticProfileCall;
+        if (/* Handle SyntheticProfileCalls */ rootIsProfileCall && childIsProfileCall) {
+          const rootNodeEntry = root.entry as Types.TraceEvents.SyntheticProfileCall;
+          const childNodeEntry = childNode.entry as Types.TraceEvents.SyntheticProfileCall;
 
           if (Helpers.SamplesIntegrator.SamplesIntegrator.framesAreEqual(
                   rootNodeEntry.callFrame, childNodeEntry.callFrame)) {

@@ -392,7 +392,7 @@ export function makeProfileCall(
     functionName: string, tsMs: number, durMs: number,
     pid: TraceEngine.Types.TraceEvents.ProcessID = TraceEngine.Types.TraceEvents.ProcessID(0),
     tid: TraceEngine.Types.TraceEvents.ThreadID = TraceEngine.Types.TraceEvents.ThreadID(0), nodeId: number = 0,
-    url: string = ''): TraceEngine.Types.TraceEvents.TraceEventSyntheticProfileCall {
+    url: string = ''): TraceEngine.Types.TraceEvents.SyntheticProfileCall {
   return {
     cat: '',
     name: 'ProfileCall',
@@ -537,8 +537,7 @@ export function makeMockRendererHandlerData(entries: TraceEngine.Types.TraceEven
  * Mocks an object compatible with the return type of the
  * SamplesHandler using only an array of ordered profile calls.
  */
-export function makeMockSamplesHandlerData(
-    profileCalls: TraceEngine.Types.TraceEvents.TraceEventSyntheticProfileCall[]):
+export function makeMockSamplesHandlerData(profileCalls: TraceEngine.Types.TraceEvents.SyntheticProfileCall[]):
     TraceEngine.Handlers.ModelHandlers.Samples.SamplesHandlerData {
   const {tree, entryToNode} = TraceEngine.Helpers.TreeHelpers.treify(profileCalls, {filter: {has: () => true}});
   const profile: Protocol.Profiler.Profile = {

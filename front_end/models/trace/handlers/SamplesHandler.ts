@@ -125,7 +125,7 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
    * A fake trace event created to support CDP.Profiler.Profiles in the
    * trace engine.
    */
-  if (Types.TraceEvents.isSyntheticTraceEventCpuProfile(event)) {
+  if (Types.TraceEvents.isSyntheticCpuProfile(event)) {
     // At the moment we are attaching to a single node target so we
     // should only get a single CPU profile. The values of the process
     // id and thread id are not really important, so we use the data
@@ -251,7 +251,7 @@ export type ProfileData = {
    * If you need the profile calls from a CPU profile obtained from a
    * web trace, use the data exported by the RendererHandler instead.
    */
-  profileCalls: Types.TraceEvents.TraceEventSyntheticProfileCall[],
+  profileCalls: Types.TraceEvents.SyntheticProfileCall[],
   /**
    * Contains the call tree built from the CPU profile samples.
    * Similar to the profileCalls field, this tree does not contain nor
@@ -275,7 +275,7 @@ type PreprocessedData = {
  * when parsing the profile's trace data.
  */
 export function getProfileCallFunctionName(
-    data: SamplesHandlerData, entry: Types.TraceEvents.TraceEventSyntheticProfileCall): string {
+    data: SamplesHandlerData, entry: Types.TraceEvents.SyntheticProfileCall): string {
   const profile = data.profilesInProcess.get(entry.pid)?.get(entry.tid);
   const node = profile?.parsedProfile.nodeById(entry.nodeId);
   if (node?.functionName) {
