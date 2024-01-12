@@ -630,7 +630,7 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       assert.strictEqual(cssVarSwatch.deepTextContent(), 'var(--not-existing, calc(15px + 20px))');
     });
 
-    it('should render a CSSVarSwatch inside CSSVarSwatch for variable usage with color but not render color swatch',
+    it('should render a CSSVarSwatch inside CSSVarSwatch for variable usage with color and also a color swatch',
        () => {
          const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
              mockCssStyleDeclaration, 0, 'color', 'var(--not-existing, var(--blue))', true, false, true, false, '',
@@ -652,15 +652,13 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
          assertNotNullOrUndefined(cssVarSwatch);
 
          const colorSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-color-swatch');
-         assert.notExists(colorSwatch);
+         assertNotNullOrUndefined(colorSwatch);
 
          const firstLinkSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-base-link-swatch');
 
          assert.strictEqual(stylePropertyTreeElement.valueElement.textContent, 'var(--not-existing, var(--blue))');
          assert.strictEqual(firstLinkSwatch?.shadowRoot?.textContent, '--not-existing');
-         // Yes, we're actually testing that the last parens doesn't exist in CSSVarSwatch.
-         // See the workaround explanation in CSSVarSwatch's render method.
-         assert.strictEqual(cssVarSwatch.deepTextContent(), 'var(--not-existing, var(--blue)');
+         assert.strictEqual(cssVarSwatch.deepTextContent(), 'var(--not-existing, var(--blue))');
        });
 
     it('should render CSSVarSwatches for multiple var() usages in the same property declaration', () => {
