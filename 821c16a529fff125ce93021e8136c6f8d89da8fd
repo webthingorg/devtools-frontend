@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d98df02_6d6d1fa7",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-12T07:22:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc434cb2_b57c898f",
+      "revId": "821c16a529fff125ce93021e8136c6f8d89da8fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33a60c50_ca37f420",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-01-11T15:24:18Z",
       "side": 1,
       "message": "`copy-color` instead of `copyColor`",
+      "revId": "821c16a529fff125ce93021e8136c6f8d89da8fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65225a12_91b24793",
+        "filename": "front_end/ui/legacy/components/color_picker/Spectrum.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-12T07:22:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33a60c50_ca37f420",
       "revId": "821c16a529fff125ce93021e8136c6f8d89da8fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
