@@ -4,6 +4,7 @@
 
 const {assert} = chai;
 
+import * as Host from '../../../../../front_end/core/host/host.js';
 import {assertNotNullOrUndefined} from '../../../../../front_end/core/platform/platform.js';
 import * as SDK from '../../../../../front_end/core/sdk/sdk.js';
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
@@ -13,6 +14,7 @@ import {createTarget, stubNoopSettings} from '../../helpers/EnvironmentHelpers.j
 import {
   describeWithMockConnection,
 } from '../../helpers/MockConnection.js';
+import {describeWithRealConnection} from '../../helpers/RealConnection.js';
 
 describeWithMockConnection('MainMenuItem', () => {
   const focusDebuggee = (targetFactory: () => SDK.Target.Target) => {
@@ -72,4 +74,33 @@ describeWithMockConnection('MainMenuItem', () => {
                                 createTarget({parentTarget: tabTaget, subtype: 'prerender'});
                                 return createTarget({parentTarget: tabTaget});
                               }));
+});
+
+describeWithRealConnection('MainImpl', () => {
+  const originalColorHref = 'devtools://theme/colors.css?sets=ui,chrome';
+
+  beforeEach(async () => {
+    const colorsLink = document.createElement('link');
+    colorsLink.href = originalColorHref;
+    colorsLink.rel = 'stylesheet';
+    document.head.appendChild(colorsLink);
+  });
+
+  it('updates colors node link on ColorThemeChanged', async () => {
+    const COLORS_CSS_SELECTOR = 'link[href*=\'//theme/colors.css\']';
+    assertNotNullOrUndefined(Main.MainImpl.MainImpl.instanceForTest);
+
+    let colorCssNode = document.querySelector(COLORS_CSS_SELECTOR);
+    assertNotNullOrUndefined(colorCssNode);
+    const href = colorCssNode.getAttribute('href');
+    assert.strictEqual(href, originalColorHref);
+
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.dispatchEventToListeners(
+        Host.InspectorFrontendHostAPI.Events.ColorThemeChanged);
+
+    colorCssNode = document.body.querySelector(COLORS_CSS_SELECTOR);
+    assertNotNullOrUndefined(colorCssNode);
+    const updatedHref = colorCssNode.getAttribute('href');
+    assert.notEqual(updatedHref, originalColorHref);
+  });
 });

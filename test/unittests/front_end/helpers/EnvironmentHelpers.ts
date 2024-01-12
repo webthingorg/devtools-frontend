@@ -126,6 +126,8 @@ const REGISTERED_EXPERIMENTS = [
   'networkPanelFilterBarRedesign',
   'trackContextMenu',
   'sourcesFrameIndentationMarkersTemporarilyDisable',
+  'APCA',
+  'liveHeapProfile',
 ];
 
 export async function initializeGlobalVars({reset = true} = {}) {
@@ -204,6 +206,8 @@ export async function initializeGlobalVars({reset = true} = {}) {
     createSettingValue(
         Common.Settings.SettingCategory.EMULATION, 'emulation.idleDetection', '', Common.Settings.SettingType.ENUM),
     createSettingValue(
+        Common.Settings.SettingCategory.EMULATION, 'emulation.showDeviceOutline', '', Common.Settings.SettingType.ENUM),
+    createSettingValue(
         Common.Settings.SettingCategory.GRID, 'showGridLineLabels', 'none', Common.Settings.SettingType.ENUM),
     createSettingValue(Common.Settings.SettingCategory.GRID, 'extendGridLines', true),
     createSettingValue(Common.Settings.SettingCategory.GRID, 'showGridAreas', true),
@@ -261,6 +265,8 @@ export async function initializeGlobalVars({reset = true} = {}) {
     createSettingValue(
         Common.Settings.SettingCategory.PERFORMANCE, 'flamechartMouseWheelAction', false,
         Common.Settings.SettingType.ENUM),
+    createSettingValue(
+        Common.Settings.SettingCategory.GLOBAL, 'currentDockState', 'right', Common.Settings.SettingType.ENUM),
   ];
 
   Common.Settings.registerSettingsForTest(settings, reset);
