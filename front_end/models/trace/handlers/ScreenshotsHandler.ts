@@ -52,7 +52,7 @@ export async function finalize(): Promise<void> {
       ts: getPresentationTimestamp(snapshotEvent),
       // Add by args by reference to avoid making another copy of the screenshot datauri strings.
       args: {
-        origArgs: snapshotEvent.args,
+        dataUri: `data:image/jpg;base64,${snapshotEvent.args.snapshot}`,
       },
     };
     syntheticScreenshotEvents.push(syntheticEvent);

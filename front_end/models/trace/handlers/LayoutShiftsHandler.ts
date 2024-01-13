@@ -167,7 +167,7 @@ function findNextScreenshotSource(timestamp: Types.Timing.MicroSeconds): string|
   if (!screenshotIndex) {
     return undefined;
   }
-  return `data:img/png;base64,${screenshots[screenshotIndex].args.origArgs.snapshot}`;
+  return screenshots[screenshotIndex].args.dataUri;
 }
 
 export function findNextScreenshotEventIndex(
