@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "472e0876_dae0a3ed",
+        "filename": "front_end/models/trace/extras/FilmStrip.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-13T00:08:59Z",
+      "side": 1,
+      "message": "this is sorted now.",
+      "parentUuid": "969ff7da_fa1acbe1",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 75
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af85aec8_17bf1259",
@@ -154,6 +178,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2a01e61_3e7c593f",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-13T00:08:59Z",
+      "side": 1,
+      "message": "ah yeah i tried not copying and it gave me 45 minutes of debugging hell. :) oof.",
+      "parentUuid": "a35daddf_c574ce42",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7763231_73d10f88",
@@ -221,6 +269,24 @@
       "side": 1,
       "message": "Sorry for the delay - I will clone this CL down tomorrow and look. Not sure what is going on here and usually this is indicative of a wider problem or something waiting to go wrong 😄",
       "parentUuid": "d7c55a6d_59f78b5d",
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb4a2add_d04c608e",
+        "filename": "front_end/models/trace/trace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-13T00:08:59Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "e224d9cc_cb8d3561",
       "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -309,6 +375,30 @@
       "side": 1,
       "message": "We tend to pare it down to whatever we need / is reasonable but I don\u0027t feel super strongly here.",
       "parentUuid": "343f006a_bd49cf4b",
+      "range": {
+        "startLine": 1014,
+        "startChar": 11,
+        "endLine": 1014,
+        "endChar": 16
+      },
+      "revId": "919c1d7105b0fc772f8df112048a0c14bc71bc7a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0510fa11_bdf2b908",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-13T00:08:59Z",
+      "side": 1,
+      "message": "i\u0027ll keep em.",
+      "parentUuid": "fd32f516_21ab6558",
       "range": {
         "startLine": 1014,
         "startChar": 11,

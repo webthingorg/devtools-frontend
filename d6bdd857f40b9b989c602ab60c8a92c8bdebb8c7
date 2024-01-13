@@ -46,6 +46,30 @@
       },
       "revId": "d6bdd857f40b9b989c602ab60c8a92c8bdebb8c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5579bc7a_3a10984f",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-13T00:08:59Z",
+      "side": 1,
+      "message": "SyntheticScreenshot ftw. based on tracemodel discussions i think its nicer to keep the exported data of the handlers canonical. so yeah! it\u0027s better now.",
+      "parentUuid": "ba760edc_c494082c",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "d6bdd857f40b9b989c602ab60c8a92c8bdebb8c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
