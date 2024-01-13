@@ -167,12 +167,12 @@ function findNextScreenshotSource(timestamp: Types.Timing.MicroSeconds): string|
   if (!screenshotIndex) {
     return undefined;
   }
-  return `data:img/png;base64,${screenshots[screenshotIndex].args.snapshot}`;
+  return `data:img/png;base64,${screenshots[screenshotIndex].args.origArgs.snapshot}`;
 }
 
 export function findNextScreenshotEventIndex(
-    screenshots: Types.TraceEvents.TraceEventSnapshot[], timestamp: Types.Timing.MicroSeconds): number|null {
-  return Platform.ArrayUtilities.nearestIndexFromBeginning(screenshots, frame => frame.ts > timestamp);
+    screenshots: ReturnType<typeof screenshotsHandlerData>, timestamp: Types.Timing.MicroSeconds): number|null {
+  return Platform.ArrayUtilities.nearestIndexFromBeginning(screenshots, screenshot => screenshot.ts > timestamp);
 }
 
 function buildScoreRecords(): void {
