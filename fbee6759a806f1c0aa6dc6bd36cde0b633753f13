@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b211f14_5c68ae33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-15T15:02:32Z",
+      "side": 1,
+      "message": "thank you!",
+      "revId": "fbee6759a806f1c0aa6dc6bd36cde0b633753f13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70bfa187_50367287",
@@ -48,6 +65,24 @@
       "writtenOn": "2024-01-15T09:37:31Z",
       "side": 1,
       "message": "preloadingView.css is for `Preloading*View`, and I guess it\u0027s nice to split the part for dropdown list into other file.",
+      "revId": "fbee6759a806f1c0aa6dc6bd36cde0b633753f13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "765e61d5_256d399d",
+        "filename": "front_end/panels/application/preloading/preloadingView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-15T15:02:32Z",
+      "side": 1,
+      "message": "In my understanding, I may prefer to move \n```\n.preloading-toolbar {\n  background-color: var(--sys-color-cdt-base-container);\n  border-bottom: 1px solid var(--sys-color-divider);\n}\n```\ninto preloadingViewCommon.css, and keep the css definition for  PreloadingView.ts here. WDYT?",
+      "parentUuid": "70bfa187_50367287",
       "revId": "fbee6759a806f1c0aa6dc6bd36cde0b633753f13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
