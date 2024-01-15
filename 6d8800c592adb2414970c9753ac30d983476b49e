@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd50e046_1b2c317d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T17:18:40Z",
+      "side": 1,
+      "message": "Nice catch, simplified it a bit! I believe this is effectively dead in practice since computedSingleValue is null if there\u0027s no node cascade for the given style or it hasn\u0027t been initialized. Is that path worthy of a test?",
+      "parentUuid": "0681b315_fe782780",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b277de8b_4c567b15",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 14
@@ -179,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc905afd_ef4bed23",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T17:18:40Z",
+      "side": 1,
+      "message": "Both are consequences of us not heaving dealt with fallbacks before.\na) We don\u0027t propagate color updates between color swatches like we do for color mix, there aren\u0027t any \"dependent\" swatches. Hence the var and fallback swatches are unrelated to each other. \nb) CSSMatchedStyles\u0027 value computation doesn\u0027t deal with fallbacks as you mentioned, so the outermost var doesn\u0027t see it\u0027s fallback value as \"red\".\n\nI should probably address a) as a followup, I think I can make b) work with the computed text machinery in the dependent CL, WDYT?",
+      "parentUuid": "65ff0969_064e2a8b",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6bef0ab_b8328c96",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 14
@@ -190,6 +226,24 @@
       "writtenOn": "2024-01-15T12:41:43Z",
       "side": 1,
       "message": "I think we\u0027re using `#getRegisteredPropertyDetails` in `innerUpdateTitle` too, so it doesn\u0027t seem like it will go away from `treeElement`. Instead of duplicating it here, can we use the one on the `treeElement`?\n\nThis applies to `getVariablePopoverContents` too.",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38eadc9_5b540edc",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T17:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6bef0ab_b8328c96",
       "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -207,6 +261,24 @@
       "writtenOn": "2024-01-15T12:41:43Z",
       "side": 1,
       "message": "Should we also assert on the other parts of the match like `name` and `fallback` as we use them in `VariableRenderer` itself?",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6976bb70_73c94e19",
+        "filename": "test/unittests/front_end/panels/elements/PropertyParser_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T17:18:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b17fc582_72e5fc27",
       "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
