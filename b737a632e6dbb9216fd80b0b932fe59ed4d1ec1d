@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52540f69_e49f5d94",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T14:01:53Z",
+      "side": 1,
+      "message": "Ah, nice catch!",
+      "revId": "b737a632e6dbb9216fd80b0b932fe59ed4d1ec1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59114ff5_137ab714",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T14:01:53Z",
+      "side": 1,
+      "message": "I\u0027m not exactly sure why, but it doesn\u0027t handle this case correctly:\n```\n--margin-vertical: 10px;\n--margin-horizontal: 20px;\n--margin: var(--non-existent, var(--margin-vertical) var(--margin-horizontal));\nmargin: var(--margin);\n```\n\nThe value of `var(--margin)` is read as `var(--margin-vertical 20px)`.\n\nIn addition to that, can we add a test case for this (where we have multiple `var()` references in the fallback part) too?",
+      "revId": "b737a632e6dbb9216fd80b0b932fe59ed4d1ec1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
