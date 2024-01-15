@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad02132f_7f474faf",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T13:02:47Z",
+      "side": 1,
+      "message": "See the followup CL https://crrev.com/c/5197852 for more detail, but the idea is to eventually use matcher logic to really compute variable values. As of now, that has to live here instead of in CSSMatchedStyles (very likely subject to change if we pursue using matcher logic for the general compuations we do in CSSMatchedStyles). NB: `computeValue` itself uses regex to match vars in the value.",
+      "parentUuid": "a9898c0e_cbad3e41",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0681b315_fe782780",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 14
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de516a09_a70794e4",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T13:02:47Z",
+      "side": 1,
+      "message": "The distinction is super subtle and the naming is not the most obvious.\n `computeCSSVariable` finds the definition of --a and computes its value.\n `computeSingleVariableValue` computes the value of a var() expression\n `computeValue` computes the value of a generic property value which may include var expressions.",
+      "parentUuid": "b277de8b_4c567b15",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a681eff_5f3e25d1",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 14
@@ -65,6 +101,24 @@
       "writtenOn": "2024-01-15T12:41:43Z",
       "side": 1,
       "message": "It seems like currently we don\u0027t handle the interaction between color swatch in fallback html and the var swatch as changing the value in the fallback\u0027s color swatch resets after the change is committed.\n\nEither we should not show the color swatch for the fallback or handle the interaction there.",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a4d277f_cb1b5019",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T13:02:47Z",
+      "side": 1,
+      "message": "Do you have a testcase/example?",
+      "parentUuid": "1a681eff_5f3e25d1",
       "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
