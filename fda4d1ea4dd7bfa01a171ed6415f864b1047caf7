@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "598efd4a_9496356b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-15T14:56:17Z",
+      "side": 1,
+      "message": "LGTM % small nits \u0026 unit test suggestion",
+      "revId": "fda4d1ea4dd7bfa01a171ed6415f864b1047caf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3ea2971_79b43a66",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-15T14:56:17Z",
+      "side": 1,
+      "message": "nit: we usually add a type guard helper like `isTraceEventScreenshot` to check if the event is what we want and avoid the casting below. I know this was here before but it\u0027s probably worth the update for consistency :)",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "fda4d1ea4dd7bfa01a171ed6415f864b1047caf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "544df0da_53acaa42",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-15T14:56:17Z",
+      "side": 1,
+      "message": "let\u0027s add a unit test to ensure the new ts is calculated correctly",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 8
+      },
+      "revId": "fda4d1ea4dd7bfa01a171ed6415f864b1047caf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ac9260_51470f42",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-15T14:56:17Z",
+      "side": 1,
+      "message": "nit: screenshot snapshot sounds a bit redundant, maybe consider `TraceEventScreenshot`?",
+      "range": {
+        "startLine": 425,
+        "startChar": 17,
+        "endLine": 425,
+        "endChar": 45
+      },
+      "revId": "fda4d1ea4dd7bfa01a171ed6415f864b1047caf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
