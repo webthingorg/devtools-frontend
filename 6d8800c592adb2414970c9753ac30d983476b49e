@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9898c0e_cbad3e41",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T12:41:43Z",
+      "side": 1,
+      "message": "(I know that this conflicts with the comment on \"too many ways to calculate a css variable value\")\n\nWDYT of moving the whole logic to `CSSMatchedStyles` as a function `computeCSSVariableFully` (or something along the lines), test it inside `CSSMatchedStyles_test` and use here?\n\nHaving the logic for computing a CSS variable inside this feels a bit out of place. WDYT?",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0681b315_fe782780",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T12:41:43Z",
+      "side": 1,
+      "message": "I wonder for which case this can happen; and just to make sure, for the case that `fallbackHtml` exists; are we returning the correct nodes as it reads like `var(--var-name), \u003cfallback-html\u003e)`. Maybe we need to remove the `)` at the end of the `document.createTextNode`.\n\nFor this case, it might also be okay to just return the text node with full text; WDYT?\n\n---\n\nIn addition to that, can we add a test case for this too?",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b277de8b_4c567b15",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T12:41:43Z",
+      "side": 1,
+      "message": "I\u0027m getting quite confused with these different ways of computing the CSS variable. We have 4 now:\n* `computeCSSVariable`\n* `computeSinglevariableValue`\n* `computeValue`\n* and the one in the `VariableRenderer`s `computedText()`.\n\nI wonder if we can consolidate them somehow. (you\u0027ve mentioned that replacing it with the machinery in matcher is in plans, still wanted to mention 😅)",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a681eff_5f3e25d1",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T12:41:43Z",
+      "side": 1,
+      "message": "It seems like currently we don\u0027t handle the interaction between color swatch in fallback html and the var swatch as changing the value in the fallback\u0027s color swatch resets after the change is committed.\n\nEither we should not show the color swatch for the fallback or handle the interaction there.",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6bef0ab_b8328c96",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T12:41:43Z",
+      "side": 1,
+      "message": "I think we\u0027re using `#getRegisteredPropertyDetails` in `innerUpdateTitle` too, so it doesn\u0027t seem like it will go away from `treeElement`. Instead of duplicating it here, can we use the one on the `treeElement`?\n\nThis applies to `getVariablePopoverContents` too.",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17fc582_72e5fc27",
+        "filename": "test/unittests/front_end/panels/elements/PropertyParser_test.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T12:41:43Z",
+      "side": 1,
+      "message": "Should we also assert on the other parts of the match like `name` and `fallback` as we use them in `VariableRenderer` itself?",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
