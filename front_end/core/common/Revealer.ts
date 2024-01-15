@@ -42,6 +42,9 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('core/common/Revealer.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type DevToolsAny = any;
+
 export interface Revealer<T> {
   reveal(revealable: T, omitFocus?: boolean): Promise<void>;
 }
@@ -88,8 +91,7 @@ function getApplicableRegisteredRevealers(revealable: unknown): RevealerRegistra
   });
 }
 export interface RevealerRegistration<T> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contextTypes: () => Array<abstract new(...any: any) => T>;
+  contextTypes: () => Array<abstract new(...any: DevToolsAny) => T>;
   loadRevealer: () => Promise<Revealer<T>>;
   destination?: RevealerDestination;
 }

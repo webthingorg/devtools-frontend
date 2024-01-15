@@ -298,9 +298,10 @@ describeWithMockConnection('BackForwardCacheView', () => {
       stub.onCall(4).returns({entries, currentIndex: 1});
       resourceTreeModel.navigationHistory = stub;
 
-      resourceTreeModel.navigate = (url: Platform.DevToolsPath.UrlString): Promise<void> => {
+      resourceTreeModel.navigate = (url: Platform.DevToolsPath.UrlString): Promise<Protocol.Page.NavigateResponse> => {
         resourceTreeModel.frameNavigated({url} as unknown as Protocol.Page.Frame, undefined);
-        return Promise.resolve();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return Promise.resolve() as any;
       };
       resourceTreeModel.navigateToHistoryEntry = (entry: Protocol.Page.NavigationEntry): void => {
         resourceTreeModel.frameNavigated({url: entry.url} as unknown as Protocol.Page.Frame, undefined);
