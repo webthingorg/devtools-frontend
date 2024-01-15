@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a465002_917f3c8a",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T13:19:12Z",
+      "side": 1,
+      "message": "Ah I see, I\u0027ll look into the followup CL and then if I have comments, I\u0027ll add to the followup CL :)",
+      "parentUuid": "ad02132f_7f474faf",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0681b315_fe782780",
@@ -88,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b601f1_5c3eefb9",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T13:19:12Z",
+      "side": 1,
+      "message": "Ah I see, thanks for the explanation! :)",
+      "parentUuid": "de516a09_a70794e4",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a681eff_5f3e25d1",
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "Do you have a testcase/example?",
       "parentUuid": "1a681eff_5f3e25d1",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ff0969_064e2a8b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T13:19:12Z",
+      "side": 1,
+      "message": "There are two things I think:\n\nFirst, edits are not reflected in the variable:\n`background-color: var(--non-existent, red)`. If you change the color red from the fallback\u0027s color swatch, nothing changes on the page.\n\nSecond, color swatch is not shown for the variable itself but only for the fallback (though not sure about the expected behavior here)\n`background-color: var(--non-existent, var(--non-existent, red))`",
+      "parentUuid": "7a4d277f_cb1b5019",
       "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
