@@ -34,6 +34,12 @@ import {
 
 const OVERRIDES_FILESYSTEM_SELECTOR = '[aria-label="overrides, fs"]';
 
+async function assertOverrideIsEnabledInContextMenu() {
+  const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
+  const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
+  assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+}
+
 describe('Overrides panel', async function() {
   afterEach(async () => {
     await openSourcesPanel();
@@ -70,9 +76,7 @@ describe('Overrides panel', async function() {
     await step('can create content overrides via request\'s context menu', async () => {
       await openNetworkTab();
       await selectRequestByName('coffees.json', {button: 'right'});
-      const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-      const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-      assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+      await assertOverrideIsEnabledInContextMenu();
       await click('aria/Override content');
       await waitFor('[aria-label="coffees.json, file"]');
     });
@@ -103,9 +107,7 @@ describe('Overrides panel', async function() {
     await step('can create content overrides via request\'s context menu', async () => {
       await openNetworkTab();
       await selectRequestByName('coffees.json', {button: 'right'});
-      const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-      const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-      assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+      await assertOverrideIsEnabledInContextMenu();
       await click('aria/Override content');
       await waitFor('[aria-label="coffees.json, file"]');
     });
@@ -131,9 +133,7 @@ describe('Overrides panel', async function() {
       await goToResource('network/fetch-json.html');
       await openNetworkTab();
       await selectRequestByName('coffees.json', {button: 'right'});
-      const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-      const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-      assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+      await assertOverrideIsEnabledInContextMenu();
       await click('aria/Override content');
 
       // File permission pop up
@@ -150,9 +150,7 @@ describe('Overrides panel', async function() {
     await step('can open the overridden file in the Sources panel if it exists', async () => {
       await openNetworkTab();
       await selectRequestByName('coffees.json', {button: 'right'});
-      const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-      const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-      assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+      await assertOverrideIsEnabledInContextMenu();
       await click('aria/Override content');
 
       // No file permission pop up
@@ -173,9 +171,7 @@ describe('Overrides panel', async function() {
       // Navigate to files
       await openNetworkTab();
       await selectRequestByName('coffees.json', {button: 'right'});
-      const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-      const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-      assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+      await assertOverrideIsEnabledInContextMenu();
       await click('aria/Override content');
 
       // No file permission pop up
@@ -204,9 +200,7 @@ describe('Overrides panel', async function() {
     await step('shows indicator when overrides setting is enabled', async () => {
       // Set up & enable overrides
       await selectRequestByName('coffees.json', {button: 'right'});
-      const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-      const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-      assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+      await assertOverrideIsEnabledInContextMenu();
       await click('aria/Override content');
 
       // File permission pop up
@@ -226,9 +220,7 @@ describe('Overrides panel', async function() {
 
     await step('no indicator after clearing overrides configuration', async () => {
       await selectRequestByName('coffees.json', {button: 'right'});
-      const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-      const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-      assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+      await assertOverrideIsEnabledInContextMenu();
       await click('aria/Override content');
       await click('aria/Clear configuration');
 
@@ -293,9 +285,7 @@ describe('Overrides panel', async function() {
     await goToResource('network/fetch-json.html');
     await openNetworkTab();
     await selectRequestByName('coffees.json', {button: 'right'});
-    const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-    const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-    assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+    await assertOverrideIsEnabledInContextMenu();
     await click('aria/Override content');
 
     // File permission pop up
@@ -321,9 +311,7 @@ describe('Overrides panel', async function() {
     await goToResource('network/fetch-json.html');
     await openNetworkTab();
     await selectRequestByName('coffees.json', {button: 'right'});
-    const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-    const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-    assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+    await assertOverrideIsEnabledInContextMenu();
     await click('aria/Override content');
 
     // File permission pop up
@@ -348,9 +336,7 @@ describe('Overrides panel', async function() {
     await goToResource('network/fetch-json.html');
     await openNetworkTab();
     await selectRequestByName('coffees.json', {button: 'right'});
-    const menuItem = await waitFor('Override content', undefined, undefined, 'aria');
-    const isDisabled = await menuItem.evaluate(el => el.classList.contains('soft-context-menu-disabled'));
-    assert.isFalse(isDisabled, '"Override content" menu item is disabled');
+    await assertOverrideIsEnabledInContextMenu();
     await click('aria/Override content');
 
     // File permission pop up
@@ -371,8 +357,7 @@ describe('Overrides panel', async function() {
     assert.strictEqual(assertDeleteElements.length, 1);
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] show redirect dialog when override content of source mapped js file', async () => {
+  it('show redirect dialog when override content of source mapped js file', async () => {
     await goToResource('sources/sourcemap-origin.html');
     await openSourcesPanel();
     await enableLocalOverrides();
@@ -380,6 +365,7 @@ describe('Overrides panel', async function() {
     await openNetworkTab();
     await waitForSomeRequestsToAppear(4);
     await selectRequestByName('sourcemap-origin.min.js', {button: 'right'});
+    await assertOverrideIsEnabledInContextMenu();
     await click('aria/Open in Sources panel');
 
     // Actual file > Has override content
@@ -398,8 +384,7 @@ describe('Overrides panel', async function() {
     await waitFor('[aria-label="Close sourcemap-origin.min.js"]');
   });
 
-  // Flaky
-  it.skip('[crbug.com/1502463] show redirect dialog when override content of source mapped css file', async () => {
+  it('show redirect dialog when override content of source mapped css file', async () => {
     await goToResource('sources/sourcemap-origin.html');
     await openSourcesPanel();
     await enableLocalOverrides();
@@ -407,6 +392,7 @@ describe('Overrides panel', async function() {
     await openNetworkTab();
     await waitForSomeRequestsToAppear(4);
     await selectRequestByName('sourcemap-origin.css', {button: 'right'});
+    await assertOverrideIsEnabledInContextMenu();
     await click('aria/Open in Sources panel');
 
     // // Actual file > Has override content
@@ -427,12 +413,12 @@ describe('Overrides panel', async function() {
 });
 
 describe('Overrides panel', () => {
-  // Context menu is flakily not populated yet with the "Open in Sources panel".
-  it.skip('[crbug.com/1509276] appends correct overrides context menu for Sources > Page file', async () => {
+  it('appends correct overrides context menu for Sources > Page file', async () => {
     await goToResource('elements/elements-panel-styles.html');
     await openNetworkTab();
     await waitForSomeRequestsToAppear(2);
     await selectRequestByName('elements-panel-styles.css', {button: 'right'});
+    await assertOverrideIsEnabledInContextMenu();
     await click('aria/Open in Sources panel');
 
     // Open the file in the Sources panel
