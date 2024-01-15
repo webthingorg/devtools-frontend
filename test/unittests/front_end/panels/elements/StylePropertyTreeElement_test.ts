@@ -56,6 +56,10 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
         fromFallback: false,
       };
     });
+    mockMatchedStyles.computeValue.callsFake(
+        (style, param) => param.startsWith('var(') ?
+            (mockMatchedStyles.computeSingleVariableValue(style, param)?.computedValue ?? null) :
+            param);
     mockCssStyleDeclaration.leadingProperties.returns([]);
     mockCssStyleDeclaration.styleSheetId = 'stylesheet-id' as Protocol.CSS.StyleSheetId;
     mockCssStyleDeclaration.range = new TextUtils.TextRange.TextRange(0, 0, 10, 10);
