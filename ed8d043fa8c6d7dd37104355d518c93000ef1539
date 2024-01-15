@@ -16,6 +16,125 @@
       "message": "Ergün, could you please take a look?",
       "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52ee92b8_95d37495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T09:51:59Z",
+      "side": 1,
+      "message": "I love that this works seamlessly and everything looks good both in light mode and dark mode! 🥳",
+      "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef2ba1b_03424fc4",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T09:51:59Z",
+      "side": 1,
+      "message": "(nit): I think we\u0027re not using the return value in any place; so we can make this a method that returns `Promise\u003cvoid\u003e`; WDYT?",
+      "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4c44efa_aad1abe2",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T09:51:59Z",
+      "side": 1,
+      "message": "I think we don\u0027t need to create a new params and construct the URL ourselves. We can do this for getting the new URL:\n```\nconst hrefUrl \u003d new URL(href, location.href);\nhrefUrl.searchParams.set(\u0027version\u0027, (new Date()).getTime().toString());\nnewColorsCssLink.setAttribute(\u0027href\u0027, hrefUrl.toString());\n```",
+      "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fad8a953_e5cd64c4",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T09:51:59Z",
+      "side": 1,
+      "message": "(nit): I think it might be good to set attributes in a consistent style; either using `setAttribute()` for all attributes or setting `href` with property assignment too.\n\nI think I\u0027d prefer calling `setAttribute` but don\u0027t have a heavy preference :)",
+      "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4c64057_85b53dc5",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T09:51:59Z",
+      "side": 1,
+      "message": "`body` element exists in the `document` directly as `document.body` so we can call `document.body.appendChild(newColorsCssLink)` here :)",
+      "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dec1effe_480ea592",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T09:51:59Z",
+      "side": 1,
+      "message": "I think we don\u0027t need to re-query the old `link` element; we can directly remove `colorCssNode` :)",
+      "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c83f93_b68a7757",
+        "filename": "front_end/panels/emulation/AdvancedApp.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-15T09:51:59Z",
+      "side": 1,
+      "message": "I wonder, instead of duplicating the code here; can we move the function to `ui/legacy/utils/dynamicTheming.ts` which would take a `document` parameter and execute the logic in the body.\n\nThen, we can write a test for the function itself inside for the module `dynamicTheming_test.ts` which would verifies that the logic for refetching colors work correctly.\n\nThen, at the end; we can write a test for MainImpl and AdvancedApp to check that when the `ColorThemeChanged` event comes; they call `dynamicTheming.refetchColors`. (Though for spying here, we would need to export a class instance from `dynamicTheming.ts` so that we can spy on its methods)\n\nThat way we can deduplicate the code for the refetching colors logic and update the testing strategy. WDYT? :)",
+      "revId": "ed8d043fa8c6d7dd37104355d518c93000ef1539",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
