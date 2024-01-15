@@ -33,6 +33,24 @@
       "message": "I\u0027m not exactly sure why, but it doesn\u0027t handle this case correctly:\n```\n--margin-vertical: 10px;\n--margin-horizontal: 20px;\n--margin: var(--non-existent, var(--margin-vertical) var(--margin-horizontal));\nmargin: var(--margin);\n```\n\nThe value of `var(--margin)` is read as `var(--margin-vertical 20px)`.\n\nIn addition to that, can we add a test case for this (where we have multiple `var()` references in the fallback part) too?",
       "revId": "b737a632e6dbb9216fd80b0b932fe59ed4d1ec1d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf7f749_a1ffe1e1",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-15T17:05:22Z",
+      "side": 1,
+      "message": "This is another case that\u0027ll go away once we\u0027re migrating value computation to use the matcher log.",
+      "parentUuid": "59114ff5_137ab714",
+      "revId": "b737a632e6dbb9216fd80b0b932fe59ed4d1ec1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
