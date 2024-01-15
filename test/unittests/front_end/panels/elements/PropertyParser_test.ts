@@ -491,7 +491,8 @@ describe('PropertyParser', () => {
 
   it('parses vars correctly', () => {
     for (const succeed
-             of ['var(--a)', 'var(--a, 123)', 'var(--a, calc(1+1))', 'var(--a, var(--b))', 'var(--a, var(--b, 123))']) {
+             of ['var(--a)', 'var(--a, 123)', 'var(--a, calc(1+1))', 'var(--a, var(--b))', 'var(--a, var(--b, 123))',
+                 'var(--a, a b c)']) {
       const {match, text} = matchSingleValue(
           'width', succeed, Elements.PropertyParser.VariableMatch,
           new Elements.PropertyParser.VariableMatcher(nilRenderer(Elements.PropertyParser.VariableMatch)));

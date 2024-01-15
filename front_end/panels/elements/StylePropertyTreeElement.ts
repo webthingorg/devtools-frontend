@@ -27,6 +27,7 @@ import * as ElementsComponents from './components/components.js';
 import {cssRuleValidatorsMap, type Hint} from './CSSRuleValidator.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {
+  type BottomUpTreeMatching,
   ColorMatch,
   ColorMatcher,
   Renderer,
@@ -131,28 +132,28 @@ export class VariableRenderer extends VariableMatch {
   readonly #style: SDK.CSSStyleDeclaration.CSSStyleDeclaration;
   constructor(
       treeElement: StylePropertyTreeElement, style: SDK.CSSStyleDeclaration.CSSStyleDeclaration, text: string,
-      name: string, fallback: CodeMirror.SyntaxNode|null) {
-    super(text, name, fallback);
+      name: string, fallback: CodeMirror.SyntaxNode[], matching: BottomUpTreeMatching) {
+    super(text, name, fallback, matching);
     this.#treeElement = treeElement;
     this.#style = style;
   }
 
   computedText(): string|null {
-    let value: string = this.text, nextValue: string|null = this.text;
-    do {
-      value = nextValue;
-      nextValue = this.#matchedStyles.computeValue(this.#style, value);
-      if (!nextValue) {
-        return null;
-      }
-    } while (value !== nextValue);
-    return value;
+    const value = this.#matchedStyles.computeCSSVariable(this.#style, this.name);
+    if (value || this.fallback.length === 0) {
+      return value?.value ?? null;
+    }
+
+    if (this.fallback.some(node => this.matching.hasUnresolvedVars(node))) {
+      return null;
+    }
+    return this.fallback.map(node => this.matching.getComputedText(node)).join(' ');
   }
 
   render(context: RenderingContext): Node[] {
     const computedSingleValue = this.#matchedStyles.computeSingleVariableValue(this.#style, this.text);
 
-    const fallbackHtml = this.fallback ? Renderer.render(this.fallback, context).nodes : [];
+    const fallbackHtml = this.fallback.length > 0 ? Renderer.render(this.fallback, context).nodes : [];
     if (!computedSingleValue) {
       const text = document.createTextNode(this.text);
       return fallbackHtml.length === 0 ?
@@ -196,7 +197,7 @@ export class VariableRenderer extends VariableMatch {
   static matcher(treeElement: StylePropertyTreeElement, style: SDK.CSSStyleDeclaration.CSSStyleDeclaration):
       VariableMatcher {
     return new VariableMatcher(
-        (text, name, fallback) => new VariableRenderer(treeElement, style, text, name, fallback));
+        (text, name, fallback, matching) => new VariableRenderer(treeElement, style, text, name, fallback, matching));
   }
 
   get #pane(): StylesSidebarPane {

@@ -386,7 +386,9 @@ export function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
 
 export abstract class VariableMatch implements Match {
   readonly type: string = 'var';
-  constructor(readonly text: string, readonly name: string, readonly fallback: CodeMirror.SyntaxNode|null) {
+  constructor(
+      readonly text: string, readonly name: string, readonly fallback: CodeMirror.SyntaxNode[],
+      protected readonly matching: BottomUpTreeMatching) {
   }
 
   abstract render(context: RenderingContext): Node[];
@@ -400,17 +402,31 @@ export class VariableMatcher extends MatcherBase<typeof VariableMatch> {
       return null;
     }
 
-    const [lparenNode, nameNode, parenOrCommaNode, fallbackNode, rparenNode] = children(args);
+    const [lparenNode, nameNode, ...fallbackOrRParenNodes] = children(args);
 
     if (lparenNode?.name !== '(' || nameNode?.name !== 'VariableName') {
       return null;
     }
-    if (parenOrCommaNode?.name === ',') {
-      if (!fallbackNode || rparenNode?.name !== ')') {
+
+    if (fallbackOrRParenNodes.length <= 1 && fallbackOrRParenNodes[0]?.name !== ')') {
+      return null;
+    }
+
+    let fallback: CodeMirror.SyntaxNode[] = [];
+    if (fallbackOrRParenNodes.length > 1) {
+      if (fallbackOrRParenNodes.shift()?.name !== ',') {
         return null;
       }
-    } else if (parenOrCommaNode?.name !== ')') {
-      return null;
+      if (fallbackOrRParenNodes.pop()?.name !== ')') {
+        return null;
+      }
+      fallback = fallbackOrRParenNodes;
+      if (fallback.length === 0) {
+        return null;
+      }
+      if (fallback.some(n => n.name === ',')) {
+        return null;
+      }
     }
 
     const varName = matching.ast.text(nameNode);
@@ -418,7 +434,7 @@ export class VariableMatcher extends MatcherBase<typeof VariableMatch> {
       return null;
     }
 
-    return this.createMatch(matching.ast.text(node), varName, fallbackNode);
+    return this.createMatch(matching.ast.text(node), varName, fallback, matching);
   }
 }
 

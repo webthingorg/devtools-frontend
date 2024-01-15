@@ -799,7 +799,8 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       assert.deepStrictEqual(
           await matchProperty('pre var(--no) post'), {hasUnresolvedVars: true, computedText: 'pre var(--no) post'});
       assert.deepStrictEqual(
-          await matchProperty('var(--no, var(--no))'), {hasUnresolvedVars: true, computedText: 'var(--no, var(--no))'});
+          await matchProperty('var(--no, var(--no2))'),
+          {hasUnresolvedVars: true, computedText: 'var(--no, var(--no2))'});
     });
   });
 });
