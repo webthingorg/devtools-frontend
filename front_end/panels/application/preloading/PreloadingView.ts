@@ -509,6 +509,9 @@ class PreloadingRuleSetSelector implements
   private readonly listModel: UI.ListModel.ListModel<Protocol.Preload.RuleSetId|typeof AllRuleSetRootId>;
   private readonly dropDown: UI.SoftDropDown.SoftDropDown<Protocol.Preload.RuleSetId|typeof AllRuleSetRootId>;
 
+  // Width set by `UI.SoftDropDown`.
+  private readonly defaultWidth = 315;
+
   constructor(onSelectionChanged: () => void) {
     const model = SDK.TargetManager.TargetManager.instance().scopeTarget()?.model(SDK.PreloadingModel.PreloadingModel);
     assertNotNullOrUndefined(model);
@@ -554,6 +557,15 @@ class PreloadingRuleSetSelector implements
     } else {
       this.dropDown.selectItem(selected);
     }
+    this.updateWidth(items);
+  }
+
+  // Updates the width for the DropDown element.
+  private updateWidth(items: (Protocol.Preload.RuleSetId|typeof AllRuleSetRootId)[]): void {
+    const urlLengths = items.map(x => this.titleFor(x).length);
+    const maxLength = Math.max(...urlLengths);
+    const width = Math.min(maxLength * 6 + 16, this.defaultWidth);
+    this.dropDown.setWidth(width);
   }
 
   // AllRuleSetRootId is used within the selector to indicate the root item. When interacting with PreloadingModel,
