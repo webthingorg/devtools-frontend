@@ -215,7 +215,7 @@ export class ThreadAppender implements TrackAppender {
   }
 
   modifyTree(
-      traceEvent: TraceEngine.Types.TraceEvents.TraceEntry, action: TraceEngine.EntriesFilter.FilterAction,
+      traceEvent: TraceEngine.Types.TraceEvents.SyntheticTraceEntry, action: TraceEngine.EntriesFilter.FilterAction,
       flameChartView: PerfUI.FlameChart.FlameChart): void {
     if (!this.#entriesFilter) {
       return;
@@ -224,7 +224,7 @@ export class ThreadAppender implements TrackAppender {
     flameChartView.dispatchEventToListeners(PerfUI.FlameChart.Events.EntriesModified);
   }
 
-  findPossibleContextMenuActions(traceEvent: TraceEngine.Types.TraceEvents.TraceEntry):
+  findPossibleContextMenuActions(traceEvent: TraceEngine.Types.TraceEvents.SyntheticTraceEntry):
       TraceEngine.EntriesFilter.PossibleFilterActions|void {
     return this.#entriesFilter?.findPossibleActions(traceEvent);
   }
