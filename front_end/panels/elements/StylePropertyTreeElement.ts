@@ -10,6 +10,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import type * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as ColorPicker from '../../ui/legacy/components/color_picker/color_picker.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
@@ -28,7 +29,10 @@ import {ElementsPanel} from './ElementsPanel.js';
 import {
   ColorMatch,
   ColorMatcher,
+  Renderer,
   type RenderingContext,
+  VariableMatch,
+  VariableMatcher,
 } from './PropertyParser.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {type StylePropertiesSection} from './StylePropertiesSection.js';
@@ -120,6 +124,117 @@ interface StylePropertyTreeElementParams {
   inherited: boolean;
   overloaded: boolean;
   newProperty: boolean;
+}
+
+export class VariableRenderer extends VariableMatch {
+  readonly #treeElement: StylePropertyTreeElement;
+  readonly #style: SDK.CSSStyleDeclaration.CSSStyleDeclaration;
+  constructor(
+      treeElement: StylePropertyTreeElement, style: SDK.CSSStyleDeclaration.CSSStyleDeclaration, text: string,
+      name: string, fallback: CodeMirror.SyntaxNode|null) {
+    super(text, name, fallback);
+    this.#treeElement = treeElement;
+    this.#style = style;
+  }
+
+  computedText(): string|null {
+    let value: string = this.text, nextValue: string|null = this.text;
+    do {
+      value = nextValue;
+      nextValue = this.#matchedStyles.computeValue(this.#style, value);
+      if (!nextValue) {
+        return null;
+      }
+    } while (value !== nextValue);
+    return value;
+  }
+
+  render(context: RenderingContext): Node[] {
+    const computedSingleValue = this.#matchedStyles.computeSingleVariableValue(this.#style, this.text);
+
+    const fallbackHtml = this.fallback ? Renderer.render(this.fallback, context).nodes : [];
+    if (!computedSingleValue) {
+      const text = document.createTextNode(this.text);
+      return fallbackHtml.length === 0 ?
+          [text] :
+          [document.createTextNode(`var(${this.name}), `), ...fallbackHtml, document.createTextNode(')')];
+    }
+
+    const {declaration} = this.#treeElement.matchedStyles().computeCSSVariable(this.#style, this.name) ?? {};
+    const {computedValue, fromFallback} = computedSingleValue;
+
+    const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
+    UI.UIUtils.createTextChild(varSwatch, this.text);
+    varSwatch.data = {
+      computedValue,
+      variableName: this.name,
+      fromFallback,
+      fallbackHtml,
+      onLinkActivate: name => this.#handleVarDefinitionActivate(declaration ?? name),
+    };
+
+    if (varSwatch.link?.linkElement) {
+      const {textContent} = varSwatch.link.linkElement;
+      if (textContent) {
+        const computedValueOfLink =
+            textContent ? this.#matchedStyles.computeSingleVariableValue(this.#style, `var(${textContent})`) : null;
+        this.#pane.addPopover(
+            varSwatch.link,
+            () => this.#getVariablePopoverContents(textContent, computedValueOfLink?.computedValue ?? null));
+      }
+    }
+
+    if (!computedValue || !Common.Color.parse(computedValue)) {
+      return [varSwatch];
+    }
+
+    const colorSwatch = new ColorRenderer(this.#treeElement, computedValue).renderColorSwatch(varSwatch);
+    context.addControl('color', colorSwatch);
+    return [colorSwatch];
+  }
+
+  static matcher(treeElement: StylePropertyTreeElement, style: SDK.CSSStyleDeclaration.CSSStyleDeclaration):
+      VariableMatcher {
+    return new VariableMatcher(
+        (text, name, fallback) => new VariableRenderer(treeElement, style, text, name, fallback));
+  }
+
+  get #pane(): StylesSidebarPane {
+    return this.#treeElement.parentPane();
+  }
+
+  get #matchedStyles(): SDK.CSSMatchedStyles.CSSMatchedStyles {
+    return this.#treeElement.matchedStyles();
+  }
+
+  #getRegisteredPropertyDetails(variableName: string): ElementsComponents.CSSVariableValueView.RegisteredPropertyDetails
+      |undefined {
+    const registration = this.#matchedStyles.getRegisteredProperty(variableName);
+    const goToDefinition = (): void => this.#pane.jumpToSection(variableName, REGISTERED_PROPERTY_SECTION_NAME);
+    return registration ? {registration, goToDefinition} : undefined;
+  }
+
+  #getVariablePopoverContents(variableName: string, computedValue: string|null): HTMLElement|undefined {
+    return new ElementsComponents.CSSVariableValueView.CSSVariableValueView({
+      variableName,
+      value: computedValue ?? undefined,
+      details: this.#getRegisteredPropertyDetails(variableName),
+    });
+  }
+
+  #handleVarDefinitionActivate(variable: string|SDK.CSSProperty.CSSProperty|
+                               SDK.CSSMatchedStyles.CSSRegisteredProperty): void {
+    Host.userMetrics.actionTaken(Host.UserMetrics.Action.CustomPropertyLinkClicked);
+    Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.VarLink);
+    if (variable instanceof SDK.CSSProperty.CSSProperty) {
+      this.#pane.revealProperty(variable);
+    } else if (variable instanceof SDK.CSSMatchedStyles.CSSRegisteredProperty) {
+      this.#pane.jumpToProperty('initial-value', variable.propertyName(), REGISTERED_PROPERTY_SECTION_NAME);
+    } else {
+      this.#pane.jumpToProperty(variable) ||
+          this.#pane.jumpToProperty('initial-value', variable, REGISTERED_PROPERTY_SECTION_NAME);
+    }
+  }
 }
 
 export class ColorRenderer extends ColorMatch {
@@ -548,6 +663,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     return swatch;
   }
 
+  // TODO(chromium:1504820) Delete once callers are migrated
   private processVar(text: string, {shouldShowColorSwatch = true}: {shouldShowColorSwatch?: boolean} = {}): Node {
     // The regex that matches to variables in `StylesSidebarPropertyRenderer`
     // uses a lazy match. Because of this, when there are multiple right parantheses inside the
@@ -564,11 +680,11 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     const {declaration} = this.matchedStylesInternal.computeCSSVariable(this.style, variableName) ?? {};
     const {computedValue, fromFallback} = computedSingleValue;
-    let fallbackHtml: Node|null = null;
+    let fallbackHtml: Node[]|null = null;
     if (fromFallback && fallback?.startsWith('var(')) {
-      fallbackHtml = this.processVar(fallback, {shouldShowColorSwatch: false});
+      fallbackHtml = [this.processVar(fallback, {shouldShowColorSwatch: false})];
     } else if (fallback) {
-      fallbackHtml = document.createTextNode(fallback);
+      fallbackHtml = [document.createTextNode(fallback)];
     }
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
@@ -1011,10 +1127,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
     const propertyRenderer =
         new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value, [
+          VariableRenderer.matcher(this, this.style),
           ColorRenderer.matcher(this),
         ]);
     if (this.property.parsedOk) {
-      propertyRenderer.setVarHandler(this.processVar.bind(this));
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
       propertyRenderer.setAnimationHandler(this.processAnimation.bind(this));
       propertyRenderer.setColorMixHandler(this.processColorMix.bind(this));

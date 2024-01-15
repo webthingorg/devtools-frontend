@@ -100,7 +100,7 @@ export interface Match {
   readonly text: string;
   readonly type: string;
   render(context: RenderingContext): Node[];
-  computedText?(): string;
+  computedText?(): string|null;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -157,6 +157,10 @@ export class BottomUpTreeMatching extends TreeWalker {
     return this.#matchedNodes.get(this.#key(node));
   }
 
+  hasUnresolvedVars(node: CodeMirror.SyntaxNode): boolean {
+    return this.computedText.hasUnresolvedVars(node.from - this.ast.tree.from, node.to - this.ast.tree.from);
+  }
+
   getComputedText(node: CodeMirror.SyntaxNode): string {
     return this.computedText.get(node.from - this.ast.tree.from, node.to - this.ast.tree.from);
   }
@@ -176,7 +180,7 @@ class ComputedTextChunk {
     return this.match.text.length;
   }
 
-  get computedText(): string {
+  get computedText(): string|null {
     if (this.#cachedComputedText === null) {
       this.#cachedComputedText = this.match.computedText();
     }
@@ -229,20 +233,36 @@ export class ComputedText {
     }
   }
 
+  * #range(begin: number, end: number): Generator<ComputedTextChunk> {
+    for (let i = this.#chunks.findIndex(c => c.offset >= begin);
+         i >= 0 && i < this.#chunks.length && this.#chunks[i].offset >= begin && begin < end;
+         begin = this.#chunks[i].end, i++) {
+      yield this.#chunks[i];
+    }
+  }
+
+  hasUnresolvedVars(begin: number, end: number): boolean {
+    for (const chunk of this.#range(begin, end)) {
+      if (chunk.computedText === null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   // Get a slice of the computed text corresponding to the property text in the range [begin, end). The slice may not
   // start within a substitution chunk, e.g., it's invalid to request the computed text for the property value text
   // slice "1px var(--".
   get(begin: number, end: number): string {
-    const pieces = [];
+    const pieces: string[] = [];
 
-    for (let currentChunk = this.#chunks.find(c => c.offset >= begin); begin < end && currentChunk;
-         currentChunk = this.#chunks.find(c => c.offset >= begin)) {
-      pieces.push(this.text.substring(begin, Math.min(currentChunk.offset, end)));
-      if (end >= currentChunk.end) {
-        pieces.push(currentChunk.computedText);
+    for (const chunk of this.#range(begin, end)) {
+      pieces.push(this.text.substring(begin, Math.min(chunk.offset, end)));
+      if (end >= chunk.end) {
+        pieces.push(chunk.computedText ?? chunk.match.text);
       }
 
-      begin = currentChunk.end;
+      begin = chunk.end;
     }
     if (begin < end) {
       pieces.push(this.text.substring(begin, end));
@@ -339,6 +359,44 @@ function siblings(node: CodeMirror.SyntaxNode|null): CodeMirror.SyntaxNode[] {
 
 export function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
   return siblings(node.firstChild);
+}
+
+export abstract class VariableMatch implements Match {
+  readonly type: string = 'var';
+  constructor(readonly text: string, readonly name: string, readonly fallback: CodeMirror.SyntaxNode|null) {
+  }
+
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class VariableMatcher extends MatcherBase<typeof VariableMatch> {
+  matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    const callee = node.getChild('Callee');
+    const args = node.getChild('ArgList');
+    if (node.name !== 'CallExpression' || !callee || (matching.ast.text(callee) !== 'var') || !args) {
+      return null;
+    }
+
+    const [lparenNode, nameNode, parenOrCommaNode, fallbackNode, rparenNode] = children(args);
+
+    if (lparenNode?.name !== '(' || nameNode?.name !== 'VariableName') {
+      return null;
+    }
+    if (parenOrCommaNode?.name === ',') {
+      if (!fallbackNode || rparenNode?.name !== ')') {
+        return null;
+      }
+    } else if (parenOrCommaNode?.name !== ')') {
+      return null;
+    }
+
+    const varName = matching.ast.text(nameNode);
+    if (!varName.startsWith('--')) {
+      return null;
+    }
+
+    return this.createMatch(matching.ast.text(node), varName, fallbackNode);
+  }
 }
 
 export abstract class ColorMatch implements Match {
