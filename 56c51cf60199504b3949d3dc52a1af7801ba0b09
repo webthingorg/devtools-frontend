@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb9a1ad6_2a701e8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-15T11:02:02Z",
+      "side": 1,
+      "message": "PTAL 😊 thank you!",
+      "revId": "56c51cf60199504b3949d3dc52a1af7801ba0b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2675d8c_6d752584",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-15T11:02:02Z",
+      "side": 1,
+      "message": "I was trying to use UI.UIUtils.measureTextWidth, but the value I got was too small for the texts..\n\ni\u0027d appreciate it if you could help check the reason why https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5198306/1 was wrong  😞...",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 66
+      },
+      "revId": "56c51cf60199504b3949d3dc52a1af7801ba0b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
