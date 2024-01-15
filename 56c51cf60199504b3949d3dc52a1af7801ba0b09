@@ -63,6 +63,30 @@
       },
       "revId": "56c51cf60199504b3949d3dc52a1af7801ba0b09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cd23d7a_5a927af5",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-15T15:21:42Z",
+      "side": 1,
+      "message": "🙏thank you!! I tried to append the element but it did not help.\n\nI guess a better solution might be to replace \"SoftDropDown\" with a new component that is used by network message level filter etc.",
+      "parentUuid": "f86cfe48_bb01e32e",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 66
+      },
+      "revId": "56c51cf60199504b3949d3dc52a1af7801ba0b09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

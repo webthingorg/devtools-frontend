@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2edc9796_b718bfe9",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-15T15:21:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c38e16a8_29f27677",
+      "range": {
+        "startLine": 513,
+        "startChar": 2,
+        "endLine": 513,
+        "endChar": 9
+      },
+      "revId": "4893586da7fd70343729eac324933d66bc7ec589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be816778_6ddad97e",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-15T11:33:01Z",
       "side": 1,
       "message": "This is not used elsewhere and doesn\u0027t seem to aid readability. Let\u0027s inline this var please.",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 63
+      },
+      "revId": "4893586da7fd70343729eac324933d66bc7ec589",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18ff132a_f79558bc",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-15T15:21:42Z",
+      "side": 1,
+      "message": "thank you! indeed.!",
+      "parentUuid": "be816778_6ddad97e",
       "range": {
         "startLine": 565,
         "startChar": 0,
