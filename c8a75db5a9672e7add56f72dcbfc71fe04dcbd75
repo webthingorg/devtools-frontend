@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "761cdf5d_ace8b58e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-15T14:57:26Z",
+      "side": 1,
+      "message": "this is great!! 💯",
+      "revId": "c8a75db5a9672e7add56f72dcbfc71fe04dcbd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad539257_7b115467",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-15T14:57:26Z",
+      "side": 1,
+      "message": "probably also worth renaming to `SyntheticTraceEntry`",
+      "range": {
+        "startLine": 1106,
+        "startChar": 12,
+        "endLine": 1106,
+        "endChar": 22
+      },
+      "revId": "c8a75db5a9672e7add56f72dcbfc71fe04dcbd75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
