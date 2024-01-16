@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67b4f023_87c08e84",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-16T00:05:50Z",
+      "side": 1,
+      "message": "ah cool. sg. done.",
+      "parentUuid": "c3ea2971_79b43a66",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "fda4d1ea4dd7bfa01a171ed6415f864b1047caf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "544df0da_53acaa42",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63b0611d_0dcad902",
+        "filename": "front_end/models/trace/handlers/ScreenshotsHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-16T00:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "544df0da_53acaa42",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 8
+      },
+      "revId": "fda4d1ea4dd7bfa01a171ed6415f864b1047caf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91ac9260_51470f42",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-01-15T14:56:17Z",
       "side": 1,
       "message": "nit: screenshot snapshot sounds a bit redundant, maybe consider `TraceEventScreenshot`?",
+      "range": {
+        "startLine": 425,
+        "startChar": 17,
+        "endLine": 425,
+        "endChar": 45
+      },
+      "revId": "fda4d1ea4dd7bfa01a171ed6415f864b1047caf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "560d1589_f347a07c",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-01-16T00:05:50Z",
+      "side": 1,
+      "message": "works for me.",
+      "parentUuid": "91ac9260_51470f42",
       "range": {
         "startLine": 425,
         "startChar": 17,
