@@ -242,6 +242,9 @@ Event.prototype.consume = function(preventDefault?: boolean): void {
 };
 
 Node.prototype.deepTextContent = function(): string {
+  if (this.nodeType === Node.TEXT_NODE) {
+    return this.textContent;
+  }
   return this.childTextNodes()
       .map(function(node) {
         return node.textContent;
