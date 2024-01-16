@@ -33,6 +33,24 @@
       "message": "I\u0027m feeling a bit worried because of this change:\n* This assumes that all the stuff that is rendered under value element belongs to the property value. Though there is nothing that enforces this, so one might render something that has a textContent (for example, an `x` button that has `x` as the content).\n\nThough I\u0027ve tested this a bit and didn\u0027t see any broken cases.",
       "revId": "be9cefa1de625be7b9dc3d8dd0f7bdef4b386e6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eabacb3_1a7e5cc6",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-16T17:04:56Z",
+      "side": 1,
+      "message": "I share your concerns, but to some extent that was a problem before, wasn\u0027t it (to some extent prevented by shadow roots, but not every swatch has them)?\n\nAlternative solutions are a lot more involved though, since we have no mechanism to propagate property value changes from swatches to the tree element. Did you happen to have some other approach in mind already?",
+      "parentUuid": "0bbf950f_ca0ab62f",
+      "revId": "be9cefa1de625be7b9dc3d8dd0f7bdef4b386e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
