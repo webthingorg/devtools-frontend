@@ -16,6 +16,91 @@
       "message": "PTAL",
       "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "569e4a39_8688c5cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-16T08:03:30Z",
+      "side": 1,
+      "message": "I\u0027d like to understand why this fixes the flakiness. It basically only adds a `waitForAria` to the mix.",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de893ecc_c70f985d",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-16T08:03:30Z",
+      "side": 1,
+      "message": "Nit: Let\u0027s be explicit in naming this `assertOverrideContentMenuItemIsEnabled()`, WDYT?",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3d667e3_fe3ab284",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-16T08:03:30Z",
+      "side": 1,
+      "message": "Nit: Use `waitForAria` helper here.",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2156013_cd5ceeb0",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-16T08:03:30Z",
+      "side": 1,
+      "message": "Nit: Just use the `hasClass` helper here.",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "085c1cbf_be63b2d0",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-16T08:03:30Z",
+      "side": 1,
+      "message": "I\u0027m very puzzled that this fixes the flakiness. 😕 Is this a timing issue?",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
