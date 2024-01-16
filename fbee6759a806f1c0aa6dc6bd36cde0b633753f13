@@ -85,6 +85,24 @@
       "parentUuid": "70bfa187_50367287",
       "revId": "fbee6759a806f1c0aa6dc6bd36cde0b633753f13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41893d07_e0ec9d8e",
+        "filename": "front_end/panels/application/preloading/preloadingView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-16T06:41:07Z",
+      "side": 1,
+      "message": "I seemed to misunderstand your intention.. split it. ptal 😊",
+      "parentUuid": "765e61d5_256d399d",
+      "revId": "fbee6759a806f1c0aa6dc6bd36cde0b633753f13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
