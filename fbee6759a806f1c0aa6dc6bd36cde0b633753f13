@@ -103,6 +103,24 @@
       "parentUuid": "765e61d5_256d399d",
       "revId": "fbee6759a806f1c0aa6dc6bd36cde0b633753f13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4904c0c0_ec570675",
+        "filename": "front_end/panels/application/preloading/preloadingView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2024-01-16T07:58:43Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "41893d07_e0ec9d8e",
+      "revId": "fbee6759a806f1c0aa6dc6bd36cde0b633753f13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
