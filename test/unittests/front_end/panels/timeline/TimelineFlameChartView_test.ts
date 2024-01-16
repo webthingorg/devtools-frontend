@@ -254,21 +254,28 @@ describeWithEnvironment('TimelineFlameChartView', function() {
       throw new Error('Could not find main track');
     }
 
-    // Find the first node that has no children and is visible in the timeline
-    const nodeOfGroup = flameChartView.getMainDataProvider().groupTreeEvents(mainTrack);
-    const firstNodeWithoutChildren = nodeOfGroup?.find(node => {
-      const childrenAmount =
-          traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.TraceEntry)?.children.length;
-      return childrenAmount === 0 && node.cat === 'devtools.timeline';
-    });
-    const node =
-        traceParsedData.Renderer.entryToNode.get(firstNodeWithoutChildren as TraceEngine.Types.TraceEvents.TraceEntry);
-    if (!node) {
-      throw new Error('Could not find a visible node without children');
-    }
+    /** Part of this stack looks roughly like so (with some events omitted):
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * == now ==      == updateCounters ==  <-- ID=245
+     *
+     * In this test we want to test that the Context Menu option available
+     * for an entry with no children is to hide given entry only.
+     * Since there are no children to hide, we don't want to show 'hide children' option.
+     *
+     * To chieve that, we will dispatch the context menu on the 'updateCounters' function that does not have children.
+     * The ID of 'updateCounters' is 245.
+     **/
 
+    const iDOfNodeWithNoChildren = 245;
     // Highlight the node to make the Context Menu dispatch on this node
-    flameChartView.getMainFlameChart().highlightEntry(node?.id);
+    flameChartView.getMainFlameChart().highlightEntry(iDOfNodeWithNoChildren);
+
     // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
     flameChartView.getMainFlameChart().onContextMenu(new Event(''));
 
@@ -297,25 +304,29 @@ describeWithEnvironment('TimelineFlameChartView', function() {
          throw new Error('Could not find main track');
        }
 
-       // Find the first node that has some children to collapse and is visible in the timeline
-       const nodeOfGroup = flameChartView.getMainDataProvider().groupTreeEvents(mainTrack);
-       const firstNodeWithChildren = nodeOfGroup?.find(node => {
-         const childrenAmount =
-             traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.TraceEntry)
-                 ?.children.length;
-         if (!childrenAmount) {
-           return false;
-         }
-         return childrenAmount > 0 && node.cat === 'devtools.timeline';
-       });
-       const node =
-           traceParsedData.Renderer.entryToNode.get(firstNodeWithChildren as TraceEngine.Types.TraceEvents.TraceEntry);
-       if (!node) {
-         throw new Error('Could not find a visible node with children');
-       }
+       /** Part of this stack looks roughly like so (with some events omitted):
+        * =============== foo ===============
+        * =============== foo ===============
+        * =============== foo ===============
+        * =============== foo ===============
+        * =============== foo ===============
+        * =============== foo ===============
+        * =============== foo ===============
+        * ===== wait =====   ===== wait =====  <-- ID=204
+        * = now =  = now =   = now =  = now =
+        *
+        * In this test we want to test that the Context Menu option available
+        * for an entry with children is to hide given entry, and hide children only.
+        * Since there are no repeating children to hide, we don't want to show 'hide repeating children' option.
+        *
+        * To chieve that, we will dispatch the context menu on the 'wait' function that has only non-repeating children.
+        * The ID of the first 'wait' is 204.
+        **/
 
+       const iDOfNodeWithNoChildren = 204;
        // Highlight the node to make the Context Menu dispatch on this node
-       flameChartView.getMainFlameChart().highlightEntry(node?.id);
+       flameChartView.getMainFlameChart().highlightEntry(iDOfNodeWithNoChildren);
+
        // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
        flameChartView.getMainFlameChart().onContextMenu(new Event(''));
 
