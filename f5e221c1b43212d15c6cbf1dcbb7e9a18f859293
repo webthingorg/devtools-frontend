@@ -33,6 +33,24 @@
       "message": "(nit): I found the assignment in `this.#shadowRoot.appendChild(this.#icon \u003d document.createElement(\u0027span\u0027))` quite obscure and easy to miss while reading the code (for example, while reviewing the CL 😂)\n\nIs this a pattern we\u0027re okay with? I\u0027d prefer the old version to this one for readability.",
       "revId": "f5e221c1b43212d15c6cbf1dcbb7e9a18f859293",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7e42550_63aece02",
+        "filename": "front_end/ui/components/icon_button/Icon.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-16T11:49:53Z",
+      "side": 1,
+      "message": "You\u0027re right, I dunno why I changed it 😊",
+      "parentUuid": "7eaa651c_6bf2f9b5",
+      "revId": "f5e221c1b43212d15c6cbf1dcbb7e9a18f859293",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
