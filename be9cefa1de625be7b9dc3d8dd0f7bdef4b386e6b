@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97494196_eca77d53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-16T16:03:33Z",
+      "side": 1,
+      "message": "I think tests are failing now because we were asserting on the `textContent` of the var swatch as well; it should be fine after tests are updated.",
+      "revId": "be9cefa1de625be7b9dc3d8dd0f7bdef4b386e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bbf950f_ca0ab62f",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-16T16:03:33Z",
+      "side": 1,
+      "message": "I\u0027m feeling a bit worried because of this change:\n* This assumes that all the stuff that is rendered under value element belongs to the property value. Though there is nothing that enforces this, so one might render something that has a textContent (for example, an `x` button that has `x` as the content).\n\nThough I\u0027ve tested this a bit and didn\u0027t see any broken cases.",
+      "revId": "be9cefa1de625be7b9dc3d8dd0f7bdef4b386e6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
