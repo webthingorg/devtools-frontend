@@ -356,7 +356,7 @@ export class IDBDataView extends UI.View.SimpleView {
     if (this.isIndex) {
       columns.push(({
         ...columnDefaults,
-        id: 'primaryKey',
+        id: 'primary-key',
         titleDOMFragment: this.keyColumnHeaderFragment(i18nString(UIStrings.primaryKey), this.objectStore.keyPath),
         sortable: false,
       } as DataGrid.DataGrid.ColumnDescriptor));
@@ -533,7 +533,7 @@ export class IDBDataView extends UI.View.SimpleView {
         const data: any = {};
         data['number'] = i + skipCount;
         data['key'] = entries[i].key;
-        data['primaryKey'] = entries[i].primaryKey;
+        data['primary-key'] = entries[i].primaryKey;
         data['value'] = entries[i].value;
 
         const node = new IDBDataGridNode(data);
@@ -686,7 +686,7 @@ export class IDBDataGridNode extends DataGrid.DataGrid.DataGridNode<unknown> {
         break;
       }
       case 'key':
-      case 'primaryKey': {
+      case 'primary-key': {
         cell.removeChildren();
         const objectElement = ObjectUI.ObjectPropertiesSection.ObjectPropertiesSection.defaultObjectPresentation(
             value, undefined /* linkifier */, true /* skipProto */, true /* readOnly */);

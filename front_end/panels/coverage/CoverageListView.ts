@@ -159,7 +159,7 @@ export class CoverageListView extends UI.Widget.VBox {
         weight: 1,
       },
       {
-        id: 'unusedSize',
+        id: 'unused-size',
         title: i18nString(UIStrings.unusedBytes),
         width: '100px',
         fixedWidth: true,
