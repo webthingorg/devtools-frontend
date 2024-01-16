@@ -83,7 +83,7 @@ describe('The Application Tab', async () => {
     await doubleClickSourceTreeItem(COOKIES_SELECTOR);
     await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
 
-    const dataGridRowValues1 = await getStorageItemsData(['partitionKey'], 4);
+    const dataGridRowValues1 = await getStorageItemsData(['partition-key'], 4);
     assert.deepEqual(dataGridRowValues1, [
       {
         partitionKey: 'https://localhost',
