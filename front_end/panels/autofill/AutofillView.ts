@@ -243,7 +243,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
           sortable: true,
         },
         {
-          id: 'autofillType',
+          id: 'autofill-type',
           title: i18nString(UIStrings.predictedAutofillValue),
           widthWeighting: 50,
           hideable: false,
@@ -259,7 +259,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
           sortable: true,
         },
         {
-          id: 'filledFieldIndex',
+          id: 'filled-field-index',
           title: 'filledFieldIndex',
           widthWeighting: 50,
           hideable: true,
@@ -324,12 +324,12 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
             cells: [
               {columnId: 'name', value: `${fieldName} (${field.htmlType})`},
               {
-                columnId: 'autofillType',
+                columnId: 'autofill-type',
                 value: field.autofillType,
                 renderer: () => this.#autofillTypeRenderer(field.autofillType, field.fillingStrategy),
               },
               {columnId: 'value', value: `"${field.value}"`},
-              {columnId: 'filledFieldIndex', value: index},
+              {columnId: 'filled-field-index', value: index},
             ],
             styles: {
               'font-family': 'var(--monospace-font-family)',

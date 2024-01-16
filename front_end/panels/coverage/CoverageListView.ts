@@ -159,7 +159,7 @@ export class CoverageListView extends UI.Widget.VBox {
         weight: 1,
       },
       {
-        id: 'unusedSize',
+        id: 'unused-size',
         title: i18nString(UIStrings.unusedBytes),
         width: '100px',
         fixedWidth: true,
@@ -428,7 +428,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
         this.setCellAccessibleName(sizeAccessibleName, cell, columnId);
         break;
       }
-      case 'unusedSize': {
+      case 'unused-size': {
         const unusedSize = this.coverageInfo.unusedSize() || 0;
         const unusedSizeSpan = cell.createChild('span');
         const unusedPercentsSpan = cell.createChild('span', 'percent-value');
@@ -509,7 +509,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       case 'size':
         return (a: GridNode, b: GridNode): number => a.coverageInfo.size() - b.coverageInfo.size() || compareURL(a, b);
       case 'bars':
-      case 'unusedSize':
+      case 'unused-size':
         return (a: GridNode, b: GridNode): number =>
                    a.coverageInfo.unusedSize() - b.coverageInfo.unusedSize() || compareURL(a, b);
       default:

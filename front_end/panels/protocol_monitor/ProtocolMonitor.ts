@@ -257,7 +257,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
           hideable: true,
         },
         {
-          id: 'elapsedTime',
+          id: 'elapsed-time',
           title: i18nString(UIStrings.elapsedTime),
           sortable: true,
           widthWeighting: 2,
@@ -532,7 +532,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
             };
           }
 
-          if (cell.columnId === 'elapsedTime') {
+          if (cell.columnId === 'elapsed-time') {
             const requestTime = this.requestTimeForId.get(message.id as number);
             if (requestTime) {
               return {
@@ -576,7 +576,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
           value: Date.now() - this.startTime,
           renderer: timeRenderer,
         },
-        {columnId: 'elapsedTime', value: ''},
+        {columnId: 'elapsed-time', value: ''},
         {columnId: 'type', value: responseIcon, title: 'received', renderer: DataGrid.DataGridRenderers.iconRenderer},
         {columnId: 'target', value: this.targetToString(sdkTarget)},
         {columnId: 'session', value: message.sessionId || ''},
@@ -614,7 +614,7 @@ export class ProtocolMonitorDataGrid extends Common.ObjectWrapper.eventMixin<Eve
           value: Date.now() - this.startTime,
           renderer: timeRenderer,
         },
-        {columnId: 'elapsedTime', value: '(pending)'},
+        {columnId: 'elapsed-time', value: '(pending)'},
         {
           columnId: 'type',
           value: requestResponseIcon,

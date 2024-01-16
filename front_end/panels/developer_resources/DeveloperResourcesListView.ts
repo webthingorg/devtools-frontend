@@ -90,7 +90,7 @@ export class DeveloperResourcesListView extends UI.Widget.VBox {
         align: DataGrid.DataGrid.Align.Right,
       },
       {
-        id: 'errorMessage',
+        id: 'error-message',
         title: i18nString(UIStrings.error),
         width: '200px',
         fixedWidth: false,
@@ -275,7 +275,7 @@ class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<GridNode> 
         }
         break;
       }
-      case 'errorMessage': {
+      case 'error-message': {
         cell.classList.add('error-message');
         if (this.item.errorMessage) {
           cell.textContent = this.item.errorMessage;
@@ -315,7 +315,7 @@ class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<GridNode> 
       case 'initiator':
         return (a: GridNode, b: GridNode): number =>
                    (a.item.initiator.initiatorUrl || '').localeCompare(b.item.initiator.initiatorUrl || '');
-      case 'errorMessage':
+      case 'error-message':
         return (a: GridNode, b: GridNode): number =>
                    (a.item.errorMessage || '').localeCompare(b.item.errorMessage || '');
       default:
