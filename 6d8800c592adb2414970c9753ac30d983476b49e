@@ -213,6 +213,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd7ee1bb_27685be8",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-16T13:24:07Z",
+      "side": 1,
+      "message": "Fixed both now. a) is with the caveat that parent swatches aren\u0027t updated while the color picker is open, but they refresh once the color is actually updated.",
+      "parentUuid": "cc905afd_ef4bed23",
+      "revId": "6d8800c592adb2414970c9753ac30d983476b49e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6bef0ab_b8328c96",
