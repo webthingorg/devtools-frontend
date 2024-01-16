@@ -773,6 +773,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   modifyTree(treeAction: TraceEngine.EntriesFilter.FilterAction, index: number): void {
+console.log("called with action ", treeAction);
+index = this.highlightedEntryIndex
+console.log("called with id ", index);
     const data = this.timelineData();
     if (!data) {
       return;
@@ -816,6 +819,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // represents the entry under the cursor where the user has right clicked
     // to trigger a context menu.
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
+    console.log("set selected ", this.highlightedEntryIndex);
     this.setSelectedEntry(this.highlightedEntryIndex);
 
     const possibleActions = this.getPossibleActions();
@@ -823,8 +827,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return;
     }
 
-    this.contextMenu = new UI.ContextMenu.ContextMenu(_event);
+    this.contextMenu = new UI.ContextMenu.ContextMenu(_event, {useSoftMenu: true, keepOpen: false});
+    // this.contextMenu = new UI.ContextMenu.ContextMenu(_event);
     this.contextMenu.headerSection().appendItem(i18nString(UIStrings.hideFunction), () => {
+      console.log("here is it ", this.highlightedEntryIndex);
       this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, this.highlightedEntryIndex);
     });
 
