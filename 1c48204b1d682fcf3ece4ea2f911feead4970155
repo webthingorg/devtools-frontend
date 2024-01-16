@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ab33309_f8e14995",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-16T13:54:39Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "1c48204b1d682fcf3ece4ea2f911feead4970155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28c4cab9_17a8c5ab",
+        "filename": "front_end/core/common/ResourceType.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-16T13:54:39Z",
+      "side": 1,
+      "message": "nit: you could potentially also rename this to \u0027fetchAndXHR`\n```suggestion\n  fetchAndXHR: \u0027`Fetch` and `XHR`\u0027,\n```",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "1c48204b1d682fcf3ece4ea2f911feead4970155",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
