@@ -179,8 +179,8 @@ export class HeapSnapshotSortableDataGrid extends
     this.dataDisplayDelegateInternal = dataDisplayDelegate;
     const tooltips = [
       ['distance', i18nString(UIStrings.distanceFromWindowObject)],
-      ['shallowSize', i18nString(UIStrings.sizeOfTheObjectItselfInBytes)],
-      ['retainedSize', i18nString(UIStrings.sizeOfTheObjectPlusTheGraphIt)],
+      ['shallow-size', i18nString(UIStrings.sizeOfTheObjectItselfInBytes)],
+      ['retained-size', i18nString(UIStrings.sizeOfTheObjectPlusTheGraphIt)],
     ];
     for (const info of tooltips) {
       const headerCell = this.headerTableHeader(info[0]);
@@ -656,14 +656,14 @@ export class HeapSnapshotContainmentDataGrid extends HeapSnapshotSortableDataGri
           {id: 'object', title: i18nString(UIStrings.object), disclosure: true, sortable: true},
           {id: 'distance', title: i18nString(UIStrings.distance), width: '70px', sortable: true, fixedWidth: true},
           {
-            id: 'shallowSize',
+            id: 'shallow-size',
             title: i18nString(UIStrings.shallowSize),
             width: '110px',
             sortable: true,
             fixedWidth: true,
           },
           {
-            id: 'retainedSize',
+            id: 'retained-size',
             title: i18nString(UIStrings.retainedSize),
             width: '110px',
             sortable: true,
@@ -709,8 +709,14 @@ export class HeapSnapshotRetainmentDataGrid extends HeapSnapshotContainmentDataG
         fixedWidth: true,
         sort: DataGrid.DataGrid.Order.Ascending,
       },
-      {id: 'shallowSize', title: i18nString(UIStrings.shallowSize), width: '110px', sortable: true, fixedWidth: true},
-      {id: 'retainedSize', title: i18nString(UIStrings.retainedSize), width: '110px', sortable: true, fixedWidth: true},
+      {id: 'shallow-size', title: i18nString(UIStrings.shallowSize), width: '110px', sortable: true, fixedWidth: true},
+      {
+        id: 'retained-size',
+        title: i18nString(UIStrings.retainedSize),
+        width: '110px',
+        sortable: true,
+        fixedWidth: true,
+      },
     ] as DataGrid.DataGrid.ColumnDescriptor[]);
     super(heapProfilerModel, dataDisplayDelegate, i18nString(UIStrings.heapSnapshotRetainment), columns);
   }
@@ -728,9 +734,9 @@ export class HeapSnapshotRetainmentDataGrid extends HeapSnapshotContainmentDataG
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('name', sortAscending, 'count', false);
       case 'count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('count', sortAscending, 'name', true);
-      case 'shallowSize':
+      case 'shallow-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('shallowSize', sortAscending, 'name', true);
-      case 'retainedSize':
+      case 'retained-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('retainedSize', sortAscending, 'name', true);
       case 'distance':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('distance', sortAscending, 'name', true);
@@ -769,9 +775,9 @@ export class HeapSnapshotConstructorsDataGrid extends HeapSnapshotViewportDataGr
     const columns = ([
       {id: 'object', title: i18nString(UIStrings.constructorString), disclosure: true, sortable: true},
       {id: 'distance', title: i18nString(UIStrings.distance), width: '70px', sortable: true, fixedWidth: true},
-      {id: 'shallowSize', title: i18nString(UIStrings.shallowSize), width: '110px', sortable: true, fixedWidth: true},
+      {id: 'shallow-size', title: i18nString(UIStrings.shallowSize), width: '110px', sortable: true, fixedWidth: true},
       {
-        id: 'retainedSize',
+        id: 'retained-size',
         title: i18nString(UIStrings.retainedSize),
         width: '110px',
         sort: DataGrid.DataGrid.Order.Descending,
@@ -798,9 +804,9 @@ export class HeapSnapshotConstructorsDataGrid extends HeapSnapshotViewportDataGr
       case 'distance':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
             'distance', sortAscending, 'retainedSize', false);
-      case 'shallowSize':
+      case 'shallow-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('shallowSize', sortAscending, 'name', true);
-      case 'retainedSize':
+      case 'retained-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('retainedSize', sortAscending, 'name', true);
       default:
         throw new Error(`Unknown column ${sortColumn}`);
@@ -915,19 +921,19 @@ export class HeapSnapshotDiffDataGrid extends HeapSnapshotViewportDataGrid {
       heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel|null, dataDisplayDelegate: DataDisplayDelegate) {
     const columns = ([
       {id: 'object', title: i18nString(UIStrings.constructorString), disclosure: true, sortable: true},
-      {id: 'addedCount', title: i18nString(UIStrings.New), width: '75px', sortable: true, fixedWidth: true},
-      {id: 'removedCount', title: i18nString(UIStrings.Deleted), width: '75px', sortable: true, fixedWidth: true},
-      {id: 'countDelta', title: i18nString(UIStrings.Delta), width: '65px', sortable: true, fixedWidth: true},
+      {id: 'added-count', title: i18nString(UIStrings.New), width: '75px', sortable: true, fixedWidth: true},
+      {id: 'removed-count', title: i18nString(UIStrings.Deleted), width: '75px', sortable: true, fixedWidth: true},
+      {id: 'count-delta', title: i18nString(UIStrings.Delta), width: '65px', sortable: true, fixedWidth: true},
       {
-        id: 'addedSize',
+        id: 'added-size',
         title: i18nString(UIStrings.allocSize),
         width: '75px',
         sortable: true,
         fixedWidth: true,
         sort: DataGrid.DataGrid.Order.Descending,
       },
-      {id: 'removedSize', title: i18nString(UIStrings.freedSize), width: '75px', sortable: true, fixedWidth: true},
-      {id: 'sizeDelta', title: i18nString(UIStrings.sizeDelta), width: '75px', sortable: true, fixedWidth: true},
+      {id: 'removed-size', title: i18nString(UIStrings.freedSize), width: '75px', sortable: true, fixedWidth: true},
+      {id: 'size-delta', title: i18nString(UIStrings.sizeDelta), width: '75px', sortable: true, fixedWidth: true},
     ] as DataGrid.DataGrid.ColumnDescriptor[]);
     super(
         heapProfilerModel, dataDisplayDelegate,
@@ -943,17 +949,17 @@ export class HeapSnapshotDiffDataGrid extends HeapSnapshotViewportDataGrid {
     switch (sortColumn) {
       case 'object':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('name', sortAscending, 'count', false);
-      case 'addedCount':
+      case 'added-count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('addedCount', sortAscending, 'name', true);
-      case 'removedCount':
+      case 'removed-count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('removedCount', sortAscending, 'name', true);
-      case 'countDelta':
+      case 'count-delta':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('countDelta', sortAscending, 'name', true);
-      case 'addedSize':
+      case 'added-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('addedSize', sortAscending, 'name', true);
-      case 'removedSize':
+      case 'removed-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('removedSize', sortAscending, 'name', true);
-      case 'sizeDelta':
+      case 'size-delta':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('sizeDelta', sortAscending, 'name', true);
       default:
         throw new Error(`Unknown column ${sortColumn}`);
@@ -1000,9 +1006,9 @@ export class AllocationDataGrid extends HeapSnapshotViewportDataGrid {
   constructor(
       heapProfilerModel: SDK.HeapProfilerModel.HeapProfilerModel|null, dataDisplayDelegate: DataDisplayDelegate) {
     const columns = ([
-      {id: 'liveCount', title: i18nString(UIStrings.liveCount), width: '75px', sortable: true, fixedWidth: true},
+      {id: 'live-count', title: i18nString(UIStrings.liveCount), width: '75px', sortable: true, fixedWidth: true},
       {id: 'count', title: i18nString(UIStrings.count), width: '65px', sortable: true, fixedWidth: true},
-      {id: 'liveSize', title: i18nString(UIStrings.liveSize), width: '75px', sortable: true, fixedWidth: true},
+      {id: 'live-size', title: i18nString(UIStrings.liveSize), width: '75px', sortable: true, fixedWidth: true},
       {
         id: 'size',
         title: i18nString(UIStrings.size),

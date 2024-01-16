@@ -529,10 +529,10 @@ export abstract class HeapSnapshotGenericObjectNode extends HeapSnapshotGridNode
     const retainedSizePercent = this.retainedSize / snapshot.totalSize * 100.0;
     this.data = {
       'distance': this.toUIDistance(this.distance),
-      'shallowSize': Platform.NumberUtilities.withThousandsSeparator(this.shallowSize),
-      'retainedSize': Platform.NumberUtilities.withThousandsSeparator(this.retainedSize),
-      'shallowSize-percent': this.toPercentString(shallowSizePercent),
-      'retainedSize-percent': this.toPercentString(retainedSizePercent),
+      'shallow-size': Platform.NumberUtilities.withThousandsSeparator(this.shallowSize),
+      'retained-size': Platform.NumberUtilities.withThousandsSeparator(this.retainedSize),
+      'shallow-size-percent': this.toPercentString(shallowSizePercent),
+      'retained-size-percent': this.toPercentString(retainedSizePercent),
     };
   }
 
@@ -730,12 +730,12 @@ export class HeapSnapshotObjectNode extends HeapSnapshotGenericObjectNode {
 
     const data = this.data;
     data['count'] = '';
-    data['addedCount'] = '';
-    data['removedCount'] = '';
-    data['countDelta'] = '';
-    data['addedSize'] = '';
-    data['removedSize'] = '';
-    data['sizeDelta'] = '';
+    data['added-count'] = '';
+    data['removed-count'] = '';
+    data['count-delta'] = '';
+    data['added-size'] = '';
+    data['removed-size'] = '';
+    data['size-delta'] = '';
   }
 
   override retainersDataSource(): {
@@ -783,9 +783,9 @@ export class HeapSnapshotObjectNode extends HeapSnapshotGenericObjectNode {
             '!edgeName', sortAscending, 'retainedSize', false);
       case 'count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('!edgeName', true, 'retainedSize', false);
-      case 'shallowSize':
+      case 'shallow-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, '!edgeName', true);
-      case 'retainedSize':
+      case 'retained-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
             'retainedSize', sortAscending, '!edgeName', true);
       case 'distance':
@@ -884,18 +884,18 @@ export class HeapSnapshotInstanceNode extends HeapSnapshotGenericObjectNode {
 
     const data = this.data;
     data['count'] = '';
-    data['countDelta'] = '';
-    data['sizeDelta'] = '';
+    data['count-delta'] = '';
+    data['size-delta'] = '';
     if (this.isDeletedNode) {
-      data['addedCount'] = '';
-      data['addedSize'] = '';
-      data['removedCount'] = '\u2022';
-      data['removedSize'] = Platform.NumberUtilities.withThousandsSeparator(this.shallowSize || 0);
+      data['added-count'] = '';
+      data['added-size'] = '';
+      data['removed-count'] = '\u2022';
+      data['removed-size'] = Platform.NumberUtilities.withThousandsSeparator(this.shallowSize || 0);
     } else {
-      data['addedCount'] = '\u2022';
-      data['addedSize'] = Platform.NumberUtilities.withThousandsSeparator(this.shallowSize || 0);
-      data['removedCount'] = '';
-      data['removedSize'] = '';
+      data['added-count'] = '\u2022';
+      data['added-size'] = Platform.NumberUtilities.withThousandsSeparator(this.shallowSize || 0);
+      data['removed-count'] = '';
+      data['removed-size'] = '';
     }
   }
 
@@ -940,13 +940,13 @@ export class HeapSnapshotInstanceNode extends HeapSnapshotGenericObjectNode {
             'distance', sortAscending, 'retainedSize', false);
       case 'count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('!edgeName', true, 'retainedSize', false);
-      case 'addedSize':
+      case 'added-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, '!edgeName', true);
-      case 'removedSize':
+      case 'removed-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, '!edgeName', true);
-      case 'shallowSize':
+      case 'shallow-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, '!edgeName', true);
-      case 'retainedSize':
+      case 'retained-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
             'retainedSize', sortAscending, '!edgeName', true);
       default:
@@ -982,10 +982,10 @@ export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
       'object': className,
       'count': Platform.NumberUtilities.withThousandsSeparator(this.count),
       'distance': this.toUIDistance(this.distance),
-      'shallowSize': Platform.NumberUtilities.withThousandsSeparator(this.shallowSize),
-      'retainedSize': Platform.NumberUtilities.withThousandsSeparator(this.retainedSize),
-      'shallowSize-percent': this.toPercentString(shallowSizePercent),
-      'retainedSize-percent': this.toPercentString(retainedSizePercent),
+      'shallow-size': Platform.NumberUtilities.withThousandsSeparator(this.shallowSize),
+      'retained-size': Platform.NumberUtilities.withThousandsSeparator(this.retainedSize),
+      'shallow-size-percent': this.toPercentString(shallowSizePercent),
+      'retained-size-percent': this.toPercentString(retainedSizePercent),
     };
   }
 
@@ -1042,9 +1042,9 @@ export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
       case 'distance':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig(
             'distance', sortAscending, 'retainedSize', false);
-      case 'shallowSize':
+      case 'shallow-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, 'id', true);
-      case 'retainedSize':
+      case 'retained-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('retainedSize', sortAscending, 'id', true);
       default:
         throw new Error(`Invalid sort column id ${sortColumnId}`);
@@ -1145,12 +1145,12 @@ export class HeapSnapshotDiffNode extends HeapSnapshotGridNode {
     this.deletedIndexes = diffForClass.deletedIndexes;
     this.data = {
       'object': className,
-      'addedCount': Platform.NumberUtilities.withThousandsSeparator(this.addedCount),
-      'removedCount': Platform.NumberUtilities.withThousandsSeparator(this.removedCount),
-      'countDelta': this.signForDelta(this.countDelta) +
+      'added-count': Platform.NumberUtilities.withThousandsSeparator(this.addedCount),
+      'removed-count': Platform.NumberUtilities.withThousandsSeparator(this.removedCount),
+      'count-delta': this.signForDelta(this.countDelta) +
           Platform.NumberUtilities.withThousandsSeparator(Math.abs(this.countDelta)),
-      'addedSize': Platform.NumberUtilities.withThousandsSeparator(this.addedSize),
-      'removedSize': Platform.NumberUtilities.withThousandsSeparator(this.removedSize),
+      'added-size': Platform.NumberUtilities.withThousandsSeparator(this.addedSize),
+      'removed-size': Platform.NumberUtilities.withThousandsSeparator(this.removedSize),
       'sizeDelta':
           this.signForDelta(this.sizeDelta) + Platform.NumberUtilities.withThousandsSeparator(Math.abs(this.sizeDelta)),
     };
@@ -1205,17 +1205,17 @@ export class HeapSnapshotDiffNode extends HeapSnapshotGridNode {
     switch (sortColumnId) {
       case 'object':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('name', sortAscending, 'id', true);
-      case 'addedCount':
+      case 'added-count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('name', true, 'id', true);
-      case 'removedCount':
+      case 'removed-count':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('name', true, 'id', true);
-      case 'countDelta':
+      case 'count-delta':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('name', true, 'id', true);
-      case 'addedSize':
+      case 'added-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, 'id', true);
-      case 'removedSize':
+      case 'removed-size':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, 'id', true);
-      case 'sizeDelta':
+      case 'size-delta':
         return new HeapSnapshotModel.HeapSnapshotModel.ComparatorConfig('selfSize', sortAscending, 'id', true);
       default:
         throw new Error(`Invalid sort column ${sortColumnId}`);
