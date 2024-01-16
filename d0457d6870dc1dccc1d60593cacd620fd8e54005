@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8656eb79_86977220",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-16T13:48:20Z",
+      "side": 1,
+      "message": "Renamed to `waitForOverrideContentMenuItemIsEnabled()` now that I\u0027ve changed its functionality",
+      "parentUuid": "de893ecc_c70f985d",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3d667e3_fe3ab284",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-01-16T08:03:30Z",
       "side": 1,
       "message": "Nit: Use `waitForAria` helper here.",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58d60361_39006de9",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-16T13:48:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d667e3_fe3ab284",
       "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41e60a20_fd70f5f0",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-16T13:48:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2156013_cd5ceeb0",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "085c1cbf_be63b2d0",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-01-16T08:03:30Z",
       "side": 1,
       "message": "I\u0027m very puzzled that this fixes the flakiness. 😕 Is this a timing issue?",
+      "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfd9650a_4011d12c",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-16T13:48:20Z",
+      "side": 1,
+      "message": "Turns out it actually didn\u0027t. There was no visible flakiness on the bots for a few days, but since yesterday there have been a few flakes again.\nI re-wrote the CL, such that it closes and re-opens the context menu if the \"override content\" menu option is disabled (which probably happens flakily due to uiSourceCode sometimes not being available yet (https://crsrc.org/c/third_party/devtools-frontend/src/front_end/models/persistence/PersistenceActions.ts;l\u003d91)).",
+      "parentUuid": "085c1cbf_be63b2d0",
       "revId": "d0457d6870dc1dccc1d60593cacd620fd8e54005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
