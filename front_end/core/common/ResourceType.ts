@@ -38,9 +38,9 @@ import {ParsedURL} from './ParsedURL.js';
 
 const UIStrings = {
   /**
-   *@description Text that appears in a tooltip the xhr and fetch resource types filter.
+   *@description Text that appears in a tooltip the fetch and xhr resource types filter.
    */
-  xhrAndFetch: '`XHR` and `Fetch`',
+  xhrAndFetch: '`Fetch` and `XHR`',
   /**
    *@description Text that appears in a tooltip for the JavaScript types filter.
    */
