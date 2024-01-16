@@ -85,7 +85,7 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
     const reportsGridData: DataGrid.DataGridController.DataGridControllerData = {
       columns: [
         {
-          id: 'ruleSet',
+          id: 'rule-set',
           title: i18nString(UIStrings.ruleSet),
           widthWeighting: 20,
           hideable: false,
@@ -127,7 +127,7 @@ export class RuleSetGrid extends LegacyWrapper.LegacyWrapper.WrappableComponent<
           cells: [
             {columnId: 'id', value: row.ruleSet.id},
             {
-              columnId: 'ruleSet',
+              columnId: 'rule-set',
               value: '',
               renderer: () => ruleSetRenderer(row.ruleSet, pageURL),
             },

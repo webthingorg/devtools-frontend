@@ -91,7 +91,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
           sortable: true,
         },
         {
-          id: 'ruleSet',
+          id: 'rule-set',
           title: i18nString(UIStrings.ruleSet),
           widthWeighting: 20,
           hideable: false,
@@ -170,7 +170,7 @@ export class PreloadingGrid extends LegacyWrapper.LegacyWrapper.WrappableCompone
             },
             {columnId: 'action', value: PreloadingString.capitalizedAction(row.attempt.action)},
             {
-              columnId: 'ruleSet',
+              columnId: 'rule-set',
               value: row.ruleSets.length === 0 ? '' : PreloadingString.ruleSetLocationShort(row.ruleSets[0], pageURL),
             },
             {
