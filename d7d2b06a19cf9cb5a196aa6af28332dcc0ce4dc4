@@ -16,6 +16,24 @@
       "message": "Isn\u0027t this a significant change? Is this on purpose?",
       "revId": "d7d2b06a19cf9cb5a196aa6af28332dcc0ce4dc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f0d3c8_662bc844",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-17T10:57:23Z",
+      "side": 1,
+      "message": "Which change exactly: rendering it readonly in ComputedStyleWidget or the style changes? :)",
+      "parentUuid": "ae3aeb52_f248a5f6",
+      "revId": "d7d2b06a19cf9cb5a196aa6af28332dcc0ce4dc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
