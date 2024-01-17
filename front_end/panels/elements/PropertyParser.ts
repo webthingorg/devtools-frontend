@@ -29,7 +29,10 @@ export class SyntaxTree {
     this.trailingNodes = trailingNodes;
   }
 
-  text(node?: CodeMirror.SyntaxNode): string {
+  text(node?: CodeMirror.SyntaxNode|null): string {
+    if (node === null) {
+      return '';
+    }
     return nodeText(node ?? this.tree, this.rule);
   }
 
@@ -382,8 +385,71 @@ function siblings(node: CodeMirror.SyntaxNode|null): CodeMirror.SyntaxNode[] {
   return result;
 }
 
-export function children(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[] {
-  return siblings(node.firstChild);
+export function children(node: CodeMirror.SyntaxNode|null): CodeMirror.SyntaxNode[] {
+  return siblings(node?.firstChild ?? null);
+}
+
+function split(nodes: CodeMirror.SyntaxNode[]): CodeMirror.SyntaxNode[][] {
+  const result = [];
+  let current = [];
+  for (const node of nodes) {
+    if (node.name === ',') {
+      result.push(current);
+      current = [];
+    } else if (node.name !== 'Comment') {
+      current.push(node);
+    }
+  }
+  result.push(current);
+  return result;
+}
+
+function callArgs(node: CodeMirror.SyntaxNode): CodeMirror.SyntaxNode[][] {
+  const args = children(node.getChild('ArgList'));
+  const openParen = args.splice(0, 1)[0];
+  const closingParen = args.pop();
+
+  if (openParen?.name !== '(' || closingParen?.name !== ')') {
+    return [];
+  }
+
+  return split(args);
+}
+
+interface MixColor {
+  color: CodeMirror.SyntaxNode;
+  percentage?: CodeMirror.SyntaxNode;
+}
+export abstract class ColorMixMatch implements Match {
+  readonly type = 'color-mix';
+  constructor(
+      readonly text: string, readonly space: CodeMirror.SyntaxNode[], readonly color1: MixColor,
+      readonly color2: MixColor) {
+    this.text = text;
+  }
+  abstract render(context: RenderingContext): Node[];
+}
+
+export class ColorMixMatcher extends MatcherBase<typeof ColorMixMatch> {
+  override matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    if (matching.ast.propertyName && !SDK.CSSMetadata.cssMetadata().isColorAwareProperty(matching.ast.propertyName)) {
+      return null;
+    }
+    if (node.name !== 'CallExpression' || matching.ast.text(node.getChild('Callee')) !== 'color-mix') {
+      return null;
+    }
+    const args = callArgs(node);
+    if (args.length !== 3) {
+      return null;
+    }
+    const [space, [color1, p1], [color2, p2]] = args;
+    if (!space || !color1 || !color2) {
+      return null;
+    }
+
+    return this.createMatch(
+        matching.ast.text(node), space, {color: color1, percentage: p1}, {color: color2, percentage: p2});
+  }
 }
 
 export abstract class VariableMatch implements Match {
