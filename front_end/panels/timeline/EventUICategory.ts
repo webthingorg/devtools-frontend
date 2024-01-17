@@ -407,6 +407,10 @@ const UIStrings = {
    */
   domGc: 'DOM GC',
   /**
+   *@description Event category in the Performance panel for time spent to perform Garbage Collection for C++: https://chromium.googlesource.com/v8/v8/+/main/include/cppgc/README.md
+   */
+  cppGc: 'CPP GC',
+  /**
    *@description Event category in the Performance panel for time spent to perform encryption
    */
   encrypt: 'Encrypt',
@@ -943,6 +947,14 @@ function maybeInitSylesMap(): EventStylesMap {
     [
       TraceEngine.Types.TraceEvents.KnownEventName.MinorGC,
       new TimelineRecordStyle(i18nString(UIStrings.minorGc), defaultCategoryStyles.Scripting),
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.IncrementalGCMarking,
+      new TimelineRecordStyle(i18nString(UIStrings.gcEvent), defaultCategoryStyles.Scripting),
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.CPPGCSweep,
+      new TimelineRecordStyle(i18nString(UIStrings.cppGc), defaultCategoryStyles.Scripting),
     ],
     [
       TraceEngine.Types.TraceEvents.KnownEventName.RequestAnimationFrame,
