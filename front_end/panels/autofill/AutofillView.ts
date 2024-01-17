@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as AutofillManager from '../../models/autofill_manager/autofill_manager.js';
@@ -232,10 +233,11 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
       return LitHtml.nothing;
     }
 
+    const k = Platform.StringUtilities.kebab;
     const gridData: DataGrid.DataGridController.DataGridControllerData = {
       columns: [
         {
-          id: 'name',
+          id: k('name'),
           title: i18nString(UIStrings.formField),
           widthWeighting: 50,
           hideable: false,
@@ -243,7 +245,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
           sortable: true,
         },
         {
-          id: 'autofillType',
+          id: k('autofill-type'),
           title: i18nString(UIStrings.predictedAutofillValue),
           widthWeighting: 50,
           hideable: false,
@@ -251,7 +253,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
           sortable: true,
         },
         {
-          id: 'value',
+          id: k('value'),
           title: i18nString(UIStrings.value),
           widthWeighting: 50,
           hideable: false,
@@ -259,7 +261,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
           sortable: true,
         },
         {
-          id: 'filledFieldIndex',
+          id: k('filled-field-index'),
           title: 'filledFieldIndex',
           widthWeighting: 50,
           hideable: true,
@@ -324,12 +326,12 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
             cells: [
               {columnId: 'name', value: `${fieldName} (${field.htmlType})`},
               {
-                columnId: 'autofillType',
+                columnId: 'autofill-type',
                 value: field.autofillType,
                 renderer: () => this.#autofillTypeRenderer(field.autofillType, field.fillingStrategy),
               },
               {columnId: 'value', value: `"${field.value}"`},
-              {columnId: 'filledFieldIndex', value: index},
+              {columnId: 'filled-field-index', value: index},
             ],
             styles: {
               'font-family': 'var(--monospace-font-family)',
