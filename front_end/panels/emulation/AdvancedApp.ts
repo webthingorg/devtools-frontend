@@ -20,6 +20,7 @@ export class AdvancedApp implements Common.App.App {
   private toolboxWindow?: Window|null;
   private toolboxRootView?: UI.RootView.RootView;
   private changingDockSide?: boolean;
+  private toolboxDocument?: Document;
 
   constructor() {
     UI.DockController.DockController.instance().addEventListener(
@@ -73,6 +74,11 @@ export class AdvancedApp implements Common.App.App {
       return;
     }
 
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
+        Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, async () => {
+          await UI.Utils.DynamicTheming.refetchColors(this.toolboxDocument);
+        }, this);
+
     const url = window.location.href.replace('devtools_app.html', 'device_mode_emulation_frame.html');
     this.toolboxWindow = window.open(url, undefined);
   }
@@ -88,6 +94,8 @@ export class AdvancedApp implements Common.App.App {
 
     this.toolboxRootView = new UI.RootView.RootView();
     this.toolboxRootView.attachToDocument(toolboxDocument);
+
+    this.toolboxDocument = toolboxDocument;
 
     this.updateDeviceModeView();
   }
