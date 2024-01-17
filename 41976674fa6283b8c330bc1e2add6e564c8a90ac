@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4645200a_e53dbbc2",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-17T11:32:05Z",
+      "side": 1,
+      "message": "Refactored. Is this easier to read?",
+      "parentUuid": "f7cd5fee_89210482",
+      "revId": "41976674fa6283b8c330bc1e2add6e564c8a90ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97d3bb02_7f693ece",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 21
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-17T10:19:38Z",
       "side": 1,
       "message": "I think we should mark all inner color swatches as readonly regardless whether it is effective or not. See this case:\n```\n--color: red;\n--bg-color: var(--color, blue);\n```\n\nthe color swatch for `blue` should be readonly too since changing the color there has no effect.",
+      "revId": "41976674fa6283b8c330bc1e2add6e564c8a90ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8efe480_6e9d6768",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-17T11:32:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97d3bb02_7f693ece",
       "revId": "41976674fa6283b8c330bc1e2add6e564c8a90ac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
