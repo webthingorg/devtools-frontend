@@ -2127,6 +2127,7 @@ export const enum KnownEventName {
   MajorGC = 'MajorGC',
   MinorGC = 'MinorGC',
   GCCollectGarbage = 'BlinkGC.AtomicPhase',
+  CPPGCSweep = 'CppGC.IncrementalSweep',
 
   /* Layout */
   ScheduleStyleRecalculation = 'ScheduleStyleRecalculation',
