@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7cd5fee_89210482",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-17T10:19:38Z",
+      "side": 1,
+      "message": "I think the situation here is a bit confusing:\n\nWe already have `computedText()` above though we\u0027re computing it here again, and as a surprise; we sometimes use `computedValue` from `computedText()` and sometimes use `value` from `computeCSSVariable` in `render` block.\n\nCan we simplify this or otherwise add a comment explaining why we do this way?\n\nI can understand that in some cases we want the immediate computation[1] and whether it succeeds or not and in some cases we want the full computation[2].\n\n\nSay for:\n```\n--a: red;\ncolor: var(--non-existent, var(--a));\n```\n\n[1]: `immediateResolve(\u0027var(--non-existent, var(--a))\u0027)` resolves to be `undefined` or `var(--a)`.\n[2]: `fullyResolve(\u0027var(--non-existent, var(--a))\u0027)` resolves to be `red`.",
+      "revId": "41976674fa6283b8c330bc1e2add6e564c8a90ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d3bb02_7f693ece",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-17T10:19:38Z",
+      "side": 1,
+      "message": "I think we should mark all inner color swatches as readonly regardless whether it is effective or not. See this case:\n```\n--color: red;\n--bg-color: var(--color, blue);\n```\n\nthe color swatch for `blue` should be readonly too since changing the color there has no effect.",
+      "revId": "41976674fa6283b8c330bc1e2add6e564c8a90ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
