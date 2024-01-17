@@ -52,7 +52,7 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     this.filtersControl.addEventListener(Events.FilterChanged, this.onFilterChanged, this);
     this.init();
     this.delegate = delegate;
-    this.dataGrid.markColumnAsSortedBy('startTime', DataGrid.DataGrid.Order.Ascending);
+    this.dataGrid.markColumnAsSortedBy('start-time', DataGrid.DataGrid.Order.Ascending);
     this.splitWidget.showBoth();
   }
 
@@ -123,7 +123,7 @@ export class EventsTimelineTreeView extends TimelineTreeView {
 
   override populateColumns(columns: DataGrid.DataGrid.ColumnDescriptor[]): void {
     columns.push(({
-      id: 'startTime',
+      id: 'start-time',
       title: i18nString(UIStrings.startTime),
       width: '80px',
       fixedWidth: true,
