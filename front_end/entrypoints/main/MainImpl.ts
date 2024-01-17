@@ -456,6 +456,11 @@ export class MainImpl {
     highContrastMediaQuery.addEventListener('change', onThemeChange);
     themeSetting.addChangeListener(onThemeChange);
 
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
+        Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, async () => {
+          await UI.Utils.DynamicTheming.refetchColors(document);
+        }, this);
+
     UI.UIUtils.installComponentRootStyles((document.body as Element));
 
     this.#addMainEventListeners(document);
@@ -586,6 +591,8 @@ export class MainImpl {
     // Initialize ARIAUtils.alert Element
     UI.ARIAUtils.alertElementInstance();
     UI.DockController.DockController.instance().announceDockLocation();
+
+    await UI.Utils.DynamicTheming.refetchColors(document);
 
     // Allow UI cycles to repaint prior to creating connection.
     window.setTimeout(this.#initializeTarget.bind(this), 0);
