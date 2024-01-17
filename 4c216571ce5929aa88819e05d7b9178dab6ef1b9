@@ -16,6 +16,23 @@
       "message": "LGTM on the change. But does this need a settings migration (i.e. do we store the column names to memorize order somewhere)?",
       "revId": "4c216571ce5929aa88819e05d7b9178dab6ef1b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a43fad8e_22e547e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-17T12:56:52Z",
+      "side": 1,
+      "message": "lgtm, what about changing the DataGrid \"id\" type to `Lowercase\u003cstring\u003e`? Then we enforce this (somewhat) even via TS.",
+      "revId": "4c216571ce5929aa88819e05d7b9178dab6ef1b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
