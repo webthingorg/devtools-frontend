@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as MobileThrottling from './mobile_throttling.js';
@@ -58,7 +59,7 @@ async function loadMobileThrottlingModule(): Promise<typeof MobileThrottling> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  id: 'throttling-conditions',
+  id: Platform.StringUtilities.kebab('throttling-conditions'),
   title: i18nLazyString(UIStrings.throttling),
   commandPrompt: i18nLazyString(UIStrings.showThrottling),
   order: 35,

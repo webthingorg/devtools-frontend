@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -34,7 +35,7 @@ async function loadAutofillModule(): Promise<typeof Autofill> {
 UI.ViewManager.registerViewExtension({
   experiment: Root.Runtime.ExperimentName.AUTOFILL_VIEW,
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'autofill-view',
+  id: Platform.StringUtilities.kebab('autofill-view'),
   title: i18nLazyString(UIStrings.autofill),
   commandPrompt: i18nLazyString(UIStrings.showAutofill),
   order: 100,

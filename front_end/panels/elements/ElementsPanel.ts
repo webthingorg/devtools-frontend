@@ -153,10 +153,8 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
  * These strings need to match the `SidebarPaneCodes` in UserMetrics.ts. DevTools
  * collects usage metrics for the different sidebar tabs.
  */
-export const enum SidebarPaneTabId {
-  Computed = 'Computed',
-  Styles = 'Styles',
-}
+export const ComputedSidebarPaneTabId = 'Computed' as Platform.StringUtilities.KebabString;
+export const StylesSidebarPaneTabId = 'Styles' as Platform.StringUtilities.KebabString;
 
 const createAccessibilityTreeToggleButton = (isActive: boolean): HTMLElement => {
   const button = new Buttons.Button.Button();
@@ -835,7 +833,7 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     }
   }
 
-  selectAndShowSidebarTab(tabId: SidebarPaneTabId): void {
+  selectAndShowSidebarTab(tabId: string): void {
     if (!this.sidebarPaneView) {
       return;
     }
@@ -1052,10 +1050,10 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
 
     const tabSelected = (event: Common.EventTarget.EventTargetEvent<UI.TabbedPane.EventData>): void => {
       const {tabId} = event.data;
-      if (tabId === SidebarPaneTabId.Computed) {
+      if (tabId === ComputedSidebarPaneTabId) {
         computedStylePanesWrapper.show(computedView.element);
         showMetricsWidgetInComputedPane();
-      } else if (tabId === SidebarPaneTabId.Styles) {
+      } else if (tabId === StylesSidebarPaneTabId) {
         stylesSplitWidget.setSidebarWidget(computedStylePanesWrapper);
         showMetricsWidgetInStylesPane();
       }
@@ -1085,13 +1083,13 @@ export class ElementsPanel extends UI.Panel.Panel implements UI.SearchableView.S
     UI.ARIAUtils.setLabel(contentElement, i18nString(UIStrings.sidePanelContent));
 
     const stylesView =
-        new UI.View.SimpleView(i18nString(UIStrings.styles), /* isWebComponent */ undefined, SidebarPaneTabId.Styles);
+        new UI.View.SimpleView(i18nString(UIStrings.styles), /* isWebComponent */ undefined, StylesSidebarPaneTabId);
     this.sidebarPaneView.appendView(stylesView);
     stylesView.element.classList.add('flex-auto');
     stylesSplitWidget.show(stylesView.element);
 
     const computedView = new UI.View.SimpleView(
-        i18nString(UIStrings.computed), /* isWebComponent */ undefined, SidebarPaneTabId.Computed);
+        i18nString(UIStrings.computed), /* isWebComponent */ undefined, ComputedSidebarPaneTabId);
     computedView.element.classList.add('composite', 'fill');
 
     tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, tabSelected, this);
@@ -1428,10 +1426,10 @@ export class ElementsActionDelegate implements UI.ActionRegistration.ActionDeleg
         ElementsPanel.instance().stylesWidget.forceUpdate();
         return true;
       case 'elements.show-styles':
-        ElementsPanel.instance().selectAndShowSidebarTab(SidebarPaneTabId.Styles);
+        ElementsPanel.instance().selectAndShowSidebarTab(StylesSidebarPaneTabId);
         return true;
       case 'elements.show-computed':
-        ElementsPanel.instance().selectAndShowSidebarTab(SidebarPaneTabId.Computed);
+        ElementsPanel.instance().selectAndShowSidebarTab(ComputedSidebarPaneTabId);
         return true;
       case 'elements.toggle-eye-dropper': {
         const colorSwatchPopoverIcon = UI.Context.Context.instance().flavor(ColorSwatchPopoverIcon);

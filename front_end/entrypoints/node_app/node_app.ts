@@ -4,15 +4,17 @@
 import '../shell/shell.js';
 import '../../panels/mobile_throttling/mobile_throttling-meta.js';
 import '../../panels/js_profiler/js_profiler-meta.js';
-import type * as Sources from '../../panels/sources/sources.js';
-import * as i18n from '../../core/i18n/i18n.js';
-import * as UI from '../../ui/legacy/legacy.js';
+
 import * as Common from '../../core/common/common.js';
+import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
+import type * as Sources from '../../panels/sources/sources.js';
+import * as UI from '../../ui/legacy/legacy.js';
 import * as Main from '../main/main.js';
 
-import {NodeMainImpl} from './NodeMain.js';                      // eslint-disable-line rulesdir/es_modules_import
 import {NodeConnectionsPanel} from './NodeConnectionsPanel.js';  // eslint-disable-line rulesdir/es_modules_import
+import {NodeMainImpl} from './NodeMain.js';                      // eslint-disable-line rulesdir/es_modules_import
 
 const UIStrings = {
   /**
@@ -49,9 +51,11 @@ async function loadSourcesModule(): Promise<typeof Sources> {
   return loadedSourcesModule;
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'node-connection',
+  id: k('node-connection'),
   title: i18nLazyString(UIStrings.connection),
   commandPrompt: i18nLazyString(UIStrings.showConnection),
   order: 0,
@@ -63,7 +67,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
-  id: 'navigator-network',
+  id: k('navigator-network'),
   title: i18nLazyString(UIStrings.networkTitle),
   commandPrompt: i18nLazyString(UIStrings.showNode),
   order: 2,

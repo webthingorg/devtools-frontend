@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../core/i18n/i18n.js';
+import * as Platform from '../../../core/platform/platform.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 
 import type * as Emulation from './emulation.js';
@@ -39,7 +40,7 @@ UI.ViewManager.registerViewExtension({
     const Emulation = await loadEmulationModule();
     return new Emulation.DevicesSettingsTab.DevicesSettingsTab();
   },
-  id: 'devices',
+  id: Platform.StringUtilities.kebab('devices'),
   settings: [
     'standardEmulatedDeviceList',
     'customEmulatedDeviceList',

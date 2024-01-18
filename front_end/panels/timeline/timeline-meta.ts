@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import type * as Profiler from '../profiler/profiler.js';
@@ -119,9 +120,11 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (timelineModul
   return getClassCallBack(loadedTimelineModule);
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'timeline',
+  id: k('timeline'),
   title: i18nLazyString(UIStrings.performance),
   commandPrompt: i18nLazyString(UIStrings.showPerformance),
   order: 50,
@@ -133,7 +136,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'js_profiler',
+  id: k('js-profiler'),
   title: i18nLazyString(UIStrings.javascriptProfiler),
   commandPrompt: i18nLazyString(UIStrings.showJavascriptProfiler),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,

@@ -3,9 +3,9 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as UI from '../../ui/legacy/legacy.js';
-
 import type * as Profiler from '../profiler/profiler.js';
 import type * as Timeline from '../timeline/timeline.js';
 
@@ -82,9 +82,11 @@ function maybeRetrieveTimelineContextTypes<T = unknown>(getClassCallBack: (timel
   return getClassCallBack(loadedTimelineModule);
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'js_profiler',
+  id: k('js-profiler'),
   title: i18nLazyString(UIStrings.profiler),
   commandPrompt: i18nLazyString(UIStrings.showProfiler),
   order: 65,
@@ -98,7 +100,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'timeline',
+  id: k('timeline'),
   title: i18nLazyString(UIStrings.performance),
   commandPrompt: i18nLazyString(UIStrings.showPerformance),
   order: 66,
