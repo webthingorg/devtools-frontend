@@ -10,7 +10,7 @@ load(
 )
 load("//definitions.star", "versions")
 
-defaults.build_numbers.set(True)
+DEFAULT_PRIORITY = 30
 
 def branch_section(name):
     return config_section(
@@ -28,7 +28,7 @@ generate_ci_configs(
             view = "Main",
             name_suffix = "",
             notifiers = ["devtools tree closer"],
-            priority = 30,  # default
+            priority = DEFAULT_PRIORITY,
         ),
         config_section(
             name = "chromium",
@@ -37,14 +37,14 @@ generate_ci_configs(
             name_suffix = " (chromium)",
             builder_group = "chromium.devtools-frontend",
             notifiers = ["devtools tree closer"],
-            priority = 30,  # default
+            priority = DEFAULT_PRIORITY,
         ),
         config_section(
             name = "shuffled",
             branch = "refs/heads/main",
             view = "Shuffled",
             name_suffix = "",
-            priority = 60,
+            priority = DEFAULT_PRIORITY + 30,
         ),
         branch_section("beta"),
         branch_section("stable"),
