@@ -16,6 +16,57 @@
       "message": "Please kindly take another look:)",
       "revId": "487e566d876e3eab12ccad637715f13ddf7aa962",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6e5e178_8bf4f2b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-18T09:29:54Z",
+      "side": 1,
+      "message": "It seems like we might need some changes from `EnvironmentHelpers.ts` back for the AdvancedApp_test.ts :)",
+      "revId": "487e566d876e3eab12ccad637715f13ddf7aa962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68b04411_b34c2333",
+        "filename": "front_end/ui/legacy/utils/DynamicTheming.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-18T09:29:54Z",
+      "side": 1,
+      "message": "(nit): Can we add a comment here why we\u0027re exporting this as a class instead of a function? We can mention `sinon` not being able to mock ES modules :)",
+      "revId": "487e566d876e3eab12ccad637715f13ddf7aa962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c21c1f4_a48eb832",
+        "filename": "front_end/ui/legacy/utils/DynamicTheming.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-18T09:29:54Z",
+      "side": 1,
+      "message": "(nit): I think we don\u0027t need the last return here :)",
+      "revId": "487e566d876e3eab12ccad637715f13ddf7aa962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
