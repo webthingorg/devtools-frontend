@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdfa71ba_4f56e456",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/AllocationProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-01-18T19:34:01Z",
+      "side": 1,
+      "message": "If I remember correctly we don\u0027t care about import cycles as long as they are types only.",
+      "revId": "554259148fa8bf4076cd8b64d93dd7ce845d9430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
