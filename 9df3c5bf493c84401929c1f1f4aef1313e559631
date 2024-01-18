@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49fac293_d5293dd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-18T09:44:03Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9df3c5bf493c84401929c1f1f4aef1313e559631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c79b549d_9a307547",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "I looked at the \"commonly used list\" as well as our \"file ending to mime type\" mappings. Note that these would otherwise also use \"resourceType.Other\" which is also not text content so we\u0027d be somewhat backwards compatible.\n\nIMO we might wanna extend `ADDITIONAL_TEXT_MIME_TYPES` as needed and even re-wire the `ResourceType#isTextType` to use the new helper as well to be consistent everywhere. Wdyt?",
       "parentUuid": "c79b549d_9a307547",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "9df3c5bf493c84401929c1f1f4aef1313e559631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a7c11c8_84ba4573",
+        "filename": "front_end/core/sdk/MimeType.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-18T09:44:03Z",
+      "side": 1,
+      "message": "So this matches existing behavior, I see. SGTM.",
+      "parentUuid": "a13b5cdb_565c9f44",
       "range": {
         "startLine": 21,
         "startChar": 0,
