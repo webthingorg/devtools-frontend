@@ -61,7 +61,7 @@ describe('The Console Tab', async () => {
       it('which yields the correct event listeners for an empty element', async () => {
         await checkCommandResult('getEventListeners(document.getElementById("empty"));', '{}');
       });
-
+      // eslint-disable-next-line rulesdir/no_only
       it('which yields the correct event listeners for an invalid element', async () => {
         await checkCommandResult('getEventListeners(document.getElementById("invalid"));', '{}');
       });
