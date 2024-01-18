@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../../front_end/core/i18n/i18n.js';
+import * as Platform from '../../../../../front_end/core/platform/platform.js';
 import * as QuickOpen from '../../../../../front_end/ui/legacy/components/quick_open/quick_open.js';
 import * as UI from '../../../../../front_end/ui/legacy/legacy.js';
 import {describeWithEnvironment} from '../../helpers/EnvironmentHelpers.js';
@@ -13,7 +14,7 @@ class MockView extends UI.Widget.Widget implements UI.View.ViewLocationResolver 
     return UI.ViewManager.ViewManager.instance().createStackLocation();
   }
 }
-const viewId = 'mockView';
+const viewId = Platform.StringUtilities.kebab('mock-view');
 const viewTitle = 'Mock';
 const commandPrompt = 'Show Mock';
 const order = 10;

@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
@@ -139,9 +140,11 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (loadedNetwork
   return getClassCallBack(loadedNetworkModule);
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'network',
+  id: k('network'),
   commandPrompt: i18nLazyString(UIStrings.showNetwork),
   title: i18nLazyString(UIStrings.network),
   order: 40,
@@ -153,7 +156,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'network.blocked-urls',
+  id: k('network.blocked-urls'),
   commandPrompt: i18nLazyString(UIStrings.showNetworkRequestBlocking),
   title: i18nLazyString(UIStrings.networkRequestBlocking),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
@@ -166,7 +169,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'network.config',
+  id: k('network.config'),
   commandPrompt: i18nLazyString(UIStrings.showNetworkConditions),
   title: i18nLazyString(UIStrings.networkConditions),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
@@ -186,7 +189,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NETWORK_SIDEBAR,
-  id: 'network.search-network-tab',
+  id: k('network.search-network-tab'),
   commandPrompt: i18nLazyString(UIStrings.showSearch),
   title: i18nLazyString(UIStrings.search),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,

@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -118,9 +119,11 @@ async function loadInspectorMainModule(): Promise<typeof InspectorMain> {
   return loadedInspectorMainModule;
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'rendering',
+  id: k('rendering'),
   title: i18nLazyString(UIStrings.rendering),
   commandPrompt: i18nLazyString(UIStrings.showRendering),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,

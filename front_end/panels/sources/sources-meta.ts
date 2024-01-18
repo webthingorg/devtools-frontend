@@ -5,6 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Breakpoints from '../../models/breakpoints/breakpoints.js';
@@ -444,9 +445,11 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (sourcesModule
   return getClassCallBack(loadedSourcesModule);
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'sources',
+  id: k('sources'),
   commandPrompt: i18nLazyString(UIStrings.showSources),
   title: i18nLazyString(UIStrings.sources),
   order: 30,
@@ -458,7 +461,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
-  id: 'navigator-files',
+  id: k('navigator-files'),
   commandPrompt: i18nLazyString(UIStrings.showWorkspace),
   title: i18nLazyString(UIStrings.workspace),
   order: 3,
@@ -471,7 +474,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.NAVIGATOR_VIEW,
-  id: 'navigator-snippets',
+  id: k('navigator-snippets'),
   commandPrompt: i18nLazyString(UIStrings.showSnippets),
   title: i18nLazyString(UIStrings.snippets),
   order: 6,
@@ -484,7 +487,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'sources.search-sources-tab',
+  id: k('sources.search-sources-tab'),
   commandPrompt: i18nLazyString(UIStrings.showSearch),
   title: i18nLazyString(UIStrings.search),
   order: 7,
@@ -497,7 +500,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'sources.quick',
+  id: k('sources.quick'),
   commandPrompt: i18nLazyString(UIStrings.showQuickSource),
   title: i18nLazyString(UIStrings.quickSource),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
@@ -509,7 +512,7 @@ UI.ViewManager.registerViewExtension({
 });
 
 UI.ViewManager.registerViewExtension({
-  id: 'sources.threads',
+  id: k('sources.threads'),
   commandPrompt: i18nLazyString(UIStrings.showThreads),
   title: i18nLazyString(UIStrings.threads),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -521,7 +524,7 @@ UI.ViewManager.registerViewExtension({
 });
 
 UI.ViewManager.registerViewExtension({
-  id: 'sources.scopeChain',
+  id: k('sources.scope-chain'),
   commandPrompt: i18nLazyString(UIStrings.showScope),
   title: i18nLazyString(UIStrings.scope),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -532,7 +535,7 @@ UI.ViewManager.registerViewExtension({
 });
 
 UI.ViewManager.registerViewExtension({
-  id: 'sources.watch',
+  id: k('sources.watch'),
   commandPrompt: i18nLazyString(UIStrings.showWatch),
   title: i18nLazyString(UIStrings.watch),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -544,7 +547,7 @@ UI.ViewManager.registerViewExtension({
 });
 
 UI.ViewManager.registerViewExtension({
-  id: 'sources.jsBreakpoints',
+  id: k('sources.js-breakpoints'),
   commandPrompt: i18nLazyString(UIStrings.showBreakpoints),
   title: i18nLazyString(UIStrings.breakpoints),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,
@@ -556,7 +559,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ActionRegistration.registerActionExtension({
   category: UI.ActionRegistration.ActionCategory.DEBUGGER,
-  actionId: 'debugger.toggle-pause',
+  actionId: k('debugger.toggle-pause'),
   iconClass: UI.ActionRegistration.IconClass.LARGEICON_PAUSE,
   toggleable: true,
   toggledIconClass: UI.ActionRegistration.IconClass.LARGEICON_RESUME,

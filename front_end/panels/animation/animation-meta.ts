@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Animation from './animation.js';
@@ -31,7 +32,7 @@ async function loadAnimationModule(): Promise<typeof Animation> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'animations',
+  id: Platform.StringUtilities.kebab('animations'),
   title: i18nLazyString(UIStrings.animations),
   commandPrompt: i18nLazyString(UIStrings.showAnimations),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
