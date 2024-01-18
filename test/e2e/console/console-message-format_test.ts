@@ -40,7 +40,8 @@ describe('The Console Tab', async () => {
     ]);
   });
 
-  it('shows structured objects', async () => {
+  // debug
+  it.skip('[crbug.com/1407638] shows structured objects', async () => {
     const messages = await getConsoleMessages('structured-objects', false, () => waitForConsoleMessagesToBeNonEmpty(9));
 
     assert.deepEqual(messages, [

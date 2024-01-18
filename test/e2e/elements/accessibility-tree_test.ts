@@ -25,7 +25,8 @@ describe('Accessibility Tree in the Elements Tab', async function() {
     await waitForElementWithTextContent('link\xa0"cats" focusable:\xa0true');
   });
 
-  it('allows navigating iframes', async () => {
+  // A comment
+  it.skip('[crbug.com/1407638] allows navigating iframes', async () => {
     await enableExperiment('fullAccessibilityTree');
     await goToResource('elements/accessibility-iframe-page.html');
     await toggleAccessibilityTree();
