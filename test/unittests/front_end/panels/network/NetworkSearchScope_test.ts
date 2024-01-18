@@ -23,8 +23,7 @@ describeWithLocale('NetworkSearchScope', () => {
     fakeRequest1.setResourceType(Common.ResourceType.resourceTypes.Script);
     fakeRequest1.setContentDataProvider(
         async () => new SDK.ContentData.ContentData(
-            'This is the response body of request 1.\nAnd a second line.\n', false, fakeRequest1.resourceType(),
-            fakeRequest1.mimeType));
+            'This is the response body of request 1.\nAnd a second line.\n', false, fakeRequest1.mimeType));
 
     const fakeRequest2 = SDK.NetworkRequest.NetworkRequest.createWithoutBackendRequest(
         'fakeId1', 'http://example.com/bundle.min.js' as Platform.DevToolsPath.UrlString,
@@ -35,7 +34,7 @@ describeWithLocale('NetworkSearchScope', () => {
     fakeRequest2.setContentDataProvider(
         async () => new SDK.ContentData.ContentData(
             'This is the first line.\nAnd another line in the response body of request 2.\n', false,
-            fakeRequest2.resourceType(), fakeRequest2.mimeType));
+            fakeRequest2.mimeType));
 
     const fakeLog = sinon.createStubInstance(Logs.NetworkLog.NetworkLog, {requests: [fakeRequest1, fakeRequest2]});
     scope = new Network.NetworkSearchScope.NetworkSearchScope(fakeLog);

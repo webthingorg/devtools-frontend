@@ -16,6 +16,28 @@ export const enum MimeType {
 }
 
 /**
+ * MIME types other than the ones with the "text" type that have text content.
+ */
+const ADDITIONAL_TEXT_MIME_TYPES = new Set([
+  'application/json',
+  'application/manifest+json',
+  'application/vnd.dart',
+  'application/xml',
+  'application/xhtml+xml',
+  'application/x-aspx',
+  'application/x-jsp',
+  'application/x-httpd-php',
+  'image/svg+xml',
+]);
+
+/**
+ * @param mimeType Returns true iff `mimeType` starts with "text/" or it has text content.
+ */
+export function isTextType(mimeType: string): boolean {
+  return mimeType.startsWith('text/') || ADDITIONAL_TEXT_MIME_TYPES.has(mimeType);
+}
+
+/**
  * Port of net::HttpUtils::ParseContentType to extract mimeType and charset from
  * the 'Content-Type' header.
  */
