@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7fa0f5c_ad9938b4",
+        "filename": "buckets/ci.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-01-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "377b16f2_8a412fcd",
+      "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c76e3ab1_0d02348f",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e8a993c_99a6a47c",
+        "filename": "generators.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-01-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c76e3ab1_0d02348f",
+      "range": {
+        "startLine": 1,
+        "startChar": 21,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29f8bca3_7b7bc6e7",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-01-18T09:14:07Z",
       "side": 1,
       "message": "Sheriff-O-Matic",
+      "range": {
+        "startLine": 8,
+        "startChar": 32,
+        "endLine": 8,
+        "endChar": 46
+      },
+      "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e49415d7_4d41b71a",
+        "filename": "generators.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-01-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29f8bca3_7b7bc6e7",
       "range": {
         "startLine": 8,
         "startChar": 32,
