@@ -507,6 +507,10 @@ export class UserMetrics {
 }
 
 /**
+ * Codes below are used to collect UMA histograms in the Chromium port.
+ * Do not change the values below, additional actions are needed on the Chromium side
+ * in order to add more codes.
+ *
  * The numeric enum values are not necessarily continuous! It is possible that
  * values have been removed, which results in gaps in the sequence of values.
  * When adding a new value:
@@ -517,13 +521,7 @@ export class UserMetrics {
  * 1. Delete the line with the unneeded value
  * 2. Do not update any 'MaxValue' or any other value.
  */
-
-// Codes below are used to collect UMA histograms in the Chromium port.
-// Do not change the values below, additional actions are needed on the Chromium side
-// in order to add more codes.
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum Action {
+export const enum Action {
   WindowDocked = 1,
   WindowUndocked = 2,
   ScriptsBreakpointSet = 3,
@@ -935,9 +933,7 @@ export enum KeyboardShortcutAction {
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum IssueOpener {
+export const enum IssueOpener {
   ConsoleInfoBar = 0,
   LearnMoreLinkCOEP = 1,
   StatusBarIssuesCounter = 2,
@@ -1171,9 +1167,7 @@ export enum IssueCreated {
   MaxValue = 86,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum DeveloperResourceLoaded {
+export const enum DeveloperResourceLoaded {
   LoadThroughPageViaTarget = 0,
   LoadThroughPageViaFrame = 1,
   LoadThroughPageFailure = 2,
@@ -1185,9 +1179,7 @@ export enum DeveloperResourceLoaded {
   MaxValue = 8,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum DeveloperResourceScheme {
+export const enum DeveloperResourceScheme {
   SchemeOther = 0,
   SchemeUnknown = 1,
   SchemeHttp = 2,
@@ -1233,17 +1225,13 @@ export enum NetworkPanelMoreFilters {
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum LinearMemoryInspectorRevealedFrom {
+export const enum LinearMemoryInspectorRevealedFrom {
   ContextMenu = 0,
   MemoryIcon = 1,
   MaxValue = 2,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum LinearMemoryInspectorTarget {
+export const enum LinearMemoryInspectorTarget {
   DWARFInspectableAddress = 0,
   ArrayBuffer = 1,
   DataView = 2,
@@ -1348,9 +1336,7 @@ export enum Language {
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum SyncSetting {
+export const enum SyncSetting {
   ChromeSyncDisabled = 1,
   ChromeSyncSettingsDisabled = 2,
   DevToolsSyncSettingDisabled = 3,
@@ -1358,26 +1344,20 @@ export enum SyncSetting {
   MaxValue = 5,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingToggled {
+export const enum RecordingToggled {
   RecordingStarted = 1,
   RecordingFinished = 2,
   MaxValue = 3,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingAssertion {
+export const enum RecordingAssertion {
   AssertionAdded = 1,
   PropertyAssertionEdited = 2,
   AttributeAssertionEdited = 3,
   MaxValue = 4,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingReplayFinished {
+export const enum RecordingReplayFinished {
   Success = 1,
   TimeoutErrorSelectors = 2,
   TimeoutErrorTarget = 3,
@@ -1385,9 +1365,7 @@ export enum RecordingReplayFinished {
   MaxValue = 5,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingReplaySpeed {
+export const enum RecordingReplaySpeed {
   Normal = 1,
   Slow = 2,
   VerySlow = 3,
@@ -1395,18 +1373,14 @@ export enum RecordingReplaySpeed {
   MaxValue = 5,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingReplayStarted {
+export const enum RecordingReplayStarted {
   ReplayOnly = 1,
   ReplayWithPerformanceTracing = 2,
   ReplayViaExtension = 3,
   MaxValue = 4,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingEdited {
+export const enum RecordingEdited {
   SelectorPickerUsed = 1,
   StepAdded = 2,
   StepRemoved = 3,
@@ -1420,9 +1394,7 @@ export enum RecordingEdited {
   MaxValue = 11,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingExported {
+export const enum RecordingExported {
   ToPuppeteer = 1,
   ToJSON = 2,
   ToPuppeteerReplay = 3,
@@ -1431,17 +1403,13 @@ export enum RecordingExported {
   MaxValue = 6,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingCodeToggled {
+export const enum RecordingCodeToggled {
   CodeShown = 1,
   CodeHidden = 2,
   MaxValue = 3,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum RecordingCopiedToClipboard {
+export const enum RecordingCopiedToClipboard {
   CopiedRecordingWithPuppeteer = 1,
   CopiedRecordingWithJSON = 2,
   CopiedRecordingWithReplay = 3,
@@ -1453,18 +1421,7 @@ export enum RecordingCopiedToClipboard {
   MaxValue = 9,
 }
 
-/* eslint-disable @typescript-eslint/naming-convention */
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum ConsoleShowsCorsErrors {
-  'false' = 0,
-  'true' = 1,
-  MaxValue = 2,
-}
-
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum StyleTextCopied {
+export const enum StyleTextCopied {
   DeclarationViaChangedLine = 1,
   AllChangesViaStylesPane = 2,
   DeclarationViaContextMenu = 3,
@@ -1490,10 +1447,10 @@ export enum ManifestSectionCodes {
   MaxValue = 6,
 }
 
+/* eslint-enable @typescript-eslint/naming-convention */
+
 // The names here match the CSSRuleValidator names in CSSRuleValidator.ts.
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum CSSHintType {
+export const enum CSSHintType {
   Other = 0,
   AlignContent = 1,
   FlexItem = 2,
@@ -1511,9 +1468,7 @@ export enum CSSHintType {
   MaxValue = 14,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum LighthouseModeRun {
+export const enum LighthouseModeRun {
   Navigation = 0,
   Timespan = 1,
   Snapshot = 2,
@@ -1521,9 +1476,7 @@ export enum LighthouseModeRun {
   MaxValue = 4,
 }
 
-// TODO(crbug.com/1167717): Make this a const enum again
-// eslint-disable-next-line rulesdir/const_enum
-export enum LighthouseCategoryUsed {
+export const enum LighthouseCategoryUsed {
   Performance = 0,
   Accessibility = 1,
   BestPractices = 2,
@@ -1533,7 +1486,6 @@ export enum LighthouseCategoryUsed {
   MaxValue = 6,
 }
 
-/* eslint-enable @typescript-eslint/naming-convention */
 export const enum SwatchType {
   VarLink = 0,
   AnimationNameLink = 1,
@@ -1548,7 +1500,6 @@ export const enum SwatchType {
   MaxValue = 10,
 }
 
-/* eslint-enable @typescript-eslint/naming-convention */
 export const enum BadgeType {
   GRID = 0,
   SUBGRID = 1,
@@ -1562,7 +1513,6 @@ export const enum BadgeType {
   MaxValue = 9,
 }
 
-/* eslint-enable @typescript-eslint/naming-convention */
 export const enum AnimationsPlaybackRate {
   Percent100 = 0,
   Percent25 = 1,
@@ -1571,7 +1521,6 @@ export const enum AnimationsPlaybackRate {
   MaxValue = 4,
 }
 
-/* eslint-enable @typescript-eslint/naming-convention */
 export const enum AnimationPointDragType {
   // Animation is dragged as a whole in the Animations panel.
   AnimationDrag = 0,
