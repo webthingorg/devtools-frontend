@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "9df3c5bf493c84401929c1f1f4aef1313e559631",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79b549d_9a307547",
+        "filename": "front_end/core/sdk/MimeType.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-18T09:25:01Z",
+      "side": 1,
+      "message": "How can we know that this list is complete? While working on JSON subtypes previously - e.g. `application/ld+json` would not be classified as a text-type here - I came across this huge list of media types (https://www.iana.org/assignments/media-types/media-types.xhtml)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "9df3c5bf493c84401929c1f1f4aef1313e559631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
