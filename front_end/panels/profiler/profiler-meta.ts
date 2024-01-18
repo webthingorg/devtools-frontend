@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -78,9 +79,11 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (profilerModul
   return getClassCallBack(loadedProfilerModule);
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'heap_profiler',
+  id: k('heap-profiler'),
   commandPrompt: i18nLazyString(UIStrings.showMemory),
   title: i18nLazyString(UIStrings.memory),
   order: 60,
@@ -92,7 +95,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'live_heap_profile',
+  id: k('live-heap-profile'),
   commandPrompt: i18nLazyString(UIStrings.showLiveHeapProfile),
   title: i18nLazyString(UIStrings.liveHeapProfile),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,

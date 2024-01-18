@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Accessibility from './accessibility.js';
@@ -31,7 +32,7 @@ async function loadAccessibilityModule(): Promise<typeof Accessibility> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
-  id: 'accessibility.view',
+  id: Platform.StringUtilities.kebab('accessibility.view'),
   title: i18nLazyString(UIStrings.accessibility),
   commandPrompt: i18nLazyString(UIStrings.shoAccessibility),
   order: 10,

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as WebAudio from './web_audio.js';
@@ -35,7 +36,7 @@ async function loadWebAudioModule(): Promise<typeof WebAudio> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'web-audio',
+  id: Platform.StringUtilities.kebab('web-audio'),
   title: i18nLazyString(UIStrings.webaudio),
   commandPrompt: i18nLazyString(UIStrings.showWebaudio),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,

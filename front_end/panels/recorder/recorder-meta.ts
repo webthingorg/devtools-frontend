@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import * as Actions from './recorder-actions/recorder-actions.js';
@@ -73,7 +74,7 @@ function maybeRetrieveContextTypes<T = unknown>(
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'chrome_recorder',
+  id: Platform.StringUtilities.kebab('chrome-recorder'),
   commandPrompt: i18nLazyString(UIStrings.showRecorder),
   title: i18nLazyString(UIStrings.recorder),
   order: 90,

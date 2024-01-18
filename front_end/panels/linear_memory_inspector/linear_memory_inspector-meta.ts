@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -35,7 +36,7 @@ async function loadLinearMemoryInspectorModule(): Promise<typeof LinearMemoryIns
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'linear-memory-inspector',
+  id: Platform.StringUtilities.kebab('linear-memory-inspector'),
   title: i18nLazyString(UIStrings.memoryInspector),
   commandPrompt: i18nLazyString(UIStrings.showMemoryInspector),
   order: 100,

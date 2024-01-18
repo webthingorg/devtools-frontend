@@ -56,9 +56,9 @@ describeWithMockConnection('ElementsPanel', () => {
     assertNotNullOrUndefined(panel.sidebarPaneView);
     const tabbedPane = panel.sidebarPaneView.tabbedPane();
     // The first event is not recorded
-    tabbedPane.selectTab(Elements.ElementsPanel.SidebarPaneTabId.Styles);
+    tabbedPane.selectTab(Elements.ElementsPanel.StylesSidebarPaneTabId);
 
-    tabbedPane.selectTab(Elements.ElementsPanel.SidebarPaneTabId.Computed);
+    tabbedPane.selectTab(Elements.ElementsPanel.ComputedSidebarPaneTabId);
     assert.isTrue(
         recordedMetricsContain(
             Host.InspectorFrontendHostAPI.EnumeratedHistogram.ElementsSidebarTabShown,
@@ -70,7 +70,7 @@ describeWithMockConnection('ElementsPanel', () => {
             Host.UserMetrics.ElementsSidebarTabCodes.Styles),
         'Expected "Styles" tab to not show up in metrics');
 
-    tabbedPane.selectTab(Elements.ElementsPanel.SidebarPaneTabId.Styles);
+    tabbedPane.selectTab(Elements.ElementsPanel.StylesSidebarPaneTabId);
     assert.isTrue(
         recordedMetricsContain(
             Host.InspectorFrontendHostAPI.EnumeratedHistogram.ElementsSidebarTabShown,

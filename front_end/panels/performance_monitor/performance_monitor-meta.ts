@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as PerformanceMonitor from './performance_monitor.js';
@@ -52,7 +53,7 @@ async function loadPerformanceMonitorModule(): Promise<typeof PerformanceMonitor
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'performance.monitor',
+  id: Platform.StringUtilities.kebab('performance.monitor'),
   title: i18nLazyString(UIStrings.performanceMonitor),
   commandPrompt: i18nLazyString(UIStrings.showPerformanceMonitor),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
