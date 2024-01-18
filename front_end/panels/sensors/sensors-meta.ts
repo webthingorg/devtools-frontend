@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Sensors from './sensors.js';
@@ -106,11 +107,13 @@ async function loadEmulationModule(): Promise<typeof Sensors> {
   return loadedSensorsModule;
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   commandPrompt: i18nLazyString(UIStrings.showSensors),
   title: i18nLazyString(UIStrings.sensors),
-  id: 'sensors',
+  id: k('sensors'),
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   order: 100,
   async loadView() {
@@ -129,7 +132,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  id: 'emulation-locations',
+  id: k('emulation-locations'),
   commandPrompt: i18nLazyString(UIStrings.showLocations),
   title: i18nLazyString(UIStrings.locations),
   order: 40,

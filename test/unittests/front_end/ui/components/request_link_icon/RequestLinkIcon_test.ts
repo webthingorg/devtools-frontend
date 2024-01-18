@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../../../../../front_end/core/common/common.js';
-import type * as Platform from '../../../../../../front_end/core/platform/platform.js';
+import * as Platform from '../../../../../../front_end/core/platform/platform.js';
 import type * as SDK from '../../../../../../front_end/core/sdk/sdk.js';
 import type * as Protocol from '../../../../../../front_end/generated/protocol.js';
 import type * as Logs from '../../../../../../front_end/models/logs/logs.js';
@@ -269,7 +269,7 @@ describeWithEnvironment('RequestLinkIcon', () => {
       UI.ViewManager.registerViewExtension({
         // @ts-ignore
         location: 'mock-location',
-        id: 'network',
+        id: Platform.StringUtilities.kebab('network'),
         title: () => 'Network' as Platform.UIString.LocalizedString,
         commandPrompt: () => 'Network' as Platform.UIString.LocalizedString,
         persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,

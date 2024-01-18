@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Security from './security.js';
@@ -31,7 +32,7 @@ async function loadSecurityModule(): Promise<typeof Security> {
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'security',
+  id: Platform.StringUtilities.kebab('security'),
   title: i18nLazyString(UIStrings.security),
   commandPrompt: i18nLazyString(UIStrings.showSecurity),
   order: 80,

@@ -3,11 +3,12 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Console from './console.js';
 
-import * as i18n from '../../core/i18n/i18n.js';
 const UIStrings = {
   /**
    *@description Title of the Console tool
@@ -147,10 +148,11 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (consoleModule
   }
   return getClassCallBack(loadedConsoleModule);
 }
+const k = Platform.StringUtilities.kebab;
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'console',
+  id: k('console'),
   title: i18nLazyString(UIStrings.console),
   commandPrompt: i18nLazyString(UIStrings.showConsole),
   order: 20,
@@ -162,7 +164,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
-  id: 'console-view',
+  id: k('console-view'),
   title: i18nLazyString(UIStrings.console),
   commandPrompt: i18nLazyString(UIStrings.showConsole),
   persistence: UI.ViewManager.ViewPersistence.PERMANENT,

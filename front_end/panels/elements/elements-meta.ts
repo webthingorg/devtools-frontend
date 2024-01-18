@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -183,9 +184,11 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (elementsModul
   return getClassCallBack(loadedElementsModule);
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'elements',
+  id: k('elements'),
   commandPrompt: i18nLazyString(UIStrings.showElements),
   title: i18nLazyString(UIStrings.elements),
   order: 10,
@@ -219,7 +222,7 @@ UI.ActionRegistration.registerActionExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
-  id: 'elements.eventListeners',
+  id: k('elements.event-listeners'),
   commandPrompt: i18nLazyString(UIStrings.showEventListeners),
   title: i18nLazyString(UIStrings.eventListeners),
   order: 5,
@@ -233,7 +236,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
-  id: 'elements.domProperties',
+  id: k('elements.dom-properties'),
   commandPrompt: i18nLazyString(UIStrings.showProperties),
   title: i18nLazyString(UIStrings.properties),
   order: 7,
@@ -247,7 +250,7 @@ UI.ViewManager.registerViewExtension({
 UI.ViewManager.registerViewExtension({
   experiment: Root.Runtime.ExperimentName.CAPTURE_NODE_CREATION_STACKS,
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
-  id: 'elements.domCreation',
+  id: k('elements.dom-creation'),
   commandPrompt: i18nLazyString(UIStrings.showStackTrace),
   title: i18nLazyString(UIStrings.stackTrace),
   order: 10,
@@ -260,7 +263,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.ELEMENTS_SIDEBAR,
-  id: 'elements.layout',
+  id: k('elements.layout'),
   commandPrompt: i18nLazyString(UIStrings.showLayout),
   title: i18nLazyString(UIStrings.layout),
   order: 4,

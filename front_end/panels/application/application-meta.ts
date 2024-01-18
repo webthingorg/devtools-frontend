@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -60,7 +61,7 @@ function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (elementsModul
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'resources',
+  id: Platform.StringUtilities.kebab('resources'),
   title: i18nLazyString(UIStrings.application),
   commandPrompt: i18nLazyString(UIStrings.showApplication),
   order: 70,

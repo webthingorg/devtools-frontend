@@ -5,6 +5,7 @@ import './emulation/emulation-meta.js';
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -65,9 +66,11 @@ async function loadSettingsModule(): Promise<typeof Settings> {
   return loadedSettingsModule;
 }
 
+const k = Platform.StringUtilities.kebab;
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  id: 'preferences',
+  id: k('preferences'),
   title: i18nLazyString(UIStrings.preferences),
   commandPrompt: i18nLazyString(UIStrings.showPreferences),
   order: 0,
@@ -79,7 +82,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  id: 'experiments',
+  id: k('experiments'),
   title: i18nLazyString(UIStrings.experiments),
   commandPrompt: i18nLazyString(UIStrings.showExperiments),
   order: 3,
@@ -92,7 +95,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  id: 'blackbox',
+  id: k('blackbox'),
   title: i18nLazyString(UIStrings.ignoreList),
   commandPrompt: i18nLazyString(UIStrings.showIgnoreList),
   order: 4,
@@ -104,7 +107,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.SETTINGS_VIEW,
-  id: 'keybinds',
+  id: k('keybinds'),
   title: i18nLazyString(UIStrings.shortcuts),
   commandPrompt: i18nLazyString(UIStrings.showShortcuts),
   order: 100,
