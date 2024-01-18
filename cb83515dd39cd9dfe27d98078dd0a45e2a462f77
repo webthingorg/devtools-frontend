@@ -128,6 +128,30 @@
       },
       "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93d6e866_cfa5332c",
+        "filename": "generators.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-01-18T11:47:15Z",
+      "side": 1,
+      "message": "nit: A small detail was very subtle ;)\n\ns/0/O\n\nI.e. it\u0027s an ooh not a zero.",
+      "parentUuid": "e49415d7_4d41b71a",
+      "range": {
+        "startLine": 8,
+        "startChar": 32,
+        "endLine": 8,
+        "endChar": 46
+      },
+      "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
