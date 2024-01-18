@@ -250,6 +250,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7646e1d4_594ce209",
+        "filename": "front_end/panels/network/EventSourceMessagesView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1264475
+      },
+      "writtenOn": "2024-01-18T18:10:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a24db6a7_4e2e16d7",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 100
+      },
+      "revId": "bf3b404175eb715e521abd8748e3fb9d429209fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f16674f9_f0344620",
