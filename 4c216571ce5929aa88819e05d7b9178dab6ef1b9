@@ -33,6 +33,42 @@
       "message": "lgtm, what about changing the DataGrid \"id\" type to `Lowercase\u003cstring\u003e`? Then we enforce this (somewhat) even via TS.",
       "revId": "4c216571ce5929aa88819e05d7b9178dab6ef1b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad47992b_e9187672",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-18T08:50:19Z",
+      "side": 1,
+      "message": "Done. On the reading side for now, to have this change self-contained. Will do the settings version bump once for everything at once later.",
+      "parentUuid": "55e738ea_e4a15c33",
+      "revId": "4c216571ce5929aa88819e05d7b9178dab6ef1b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8aa8935_9beb34aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-18T08:50:19Z",
+      "side": 1,
+      "message": "I went for a branded type and a recursive template instead.",
+      "parentUuid": "a43fad8e_22e547e8",
+      "revId": "4c216571ce5929aa88819e05d7b9178dab6ef1b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
