@@ -16,6 +16,24 @@
       "message": "Please kindly take another look?:)",
       "revId": "9edd188d1dd963f3040c29db5cf39d33727a1d28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d028ad17_506dc2a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-18T16:37:14Z",
+      "side": 1,
+      "message": "Nice, thanks! :)",
+      "parentUuid": "9458844e_5897ea06",
+      "revId": "9edd188d1dd963f3040c29db5cf39d33727a1d28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
