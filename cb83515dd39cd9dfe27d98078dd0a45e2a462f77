@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "377b16f2_8a412fcd",
+        "filename": "buckets/ci.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-01-18T09:14:07Z",
+      "side": 1,
+      "message": "nit: All files seem to lack copyright headers.",
+      "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c76e3ab1_0d02348f",
+        "filename": "generators.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-01-18T09:14:07Z",
+      "side": 1,
+      "message": "nit: Use DevTools header",
+      "range": {
+        "startLine": 1,
+        "startChar": 21,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f8bca3_7b7bc6e7",
+        "filename": "generators.star",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-01-18T09:14:07Z",
+      "side": 1,
+      "message": "Sheriff-O-Matic",
+      "range": {
+        "startLine": 8,
+        "startChar": 32,
+        "endLine": 8,
+        "endChar": 46
+      },
+      "revId": "cb83515dd39cd9dfe27d98078dd0a45e2a462f77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
