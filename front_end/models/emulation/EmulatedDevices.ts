@@ -10,7 +10,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 
-import {MaxDeviceSize, MinDeviceSize, Insets} from './DeviceModeModel.js';
+import {Insets, MaxDeviceSize, MinDeviceSize} from './DeviceModeModel.js';
 
 const UIStrings = {
   /**
@@ -324,7 +324,7 @@ export class EmulatedDevice {
       horizontal: this.orientationToJSON(this.horizontal),
       'vertical-spanned': undefined,
       'horizontal-spanned': undefined,
-    } as {
+    } satisfies{
       'device-pixel-ratio': number,
       vertical: object,
       horizontal: object,
