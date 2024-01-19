@@ -16,6 +16,24 @@
       "message": "If I remember correctly we don\u0027t care about import cycles as long as they are types only.",
       "revId": "554259148fa8bf4076cd8b64d93dd7ce845d9430",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96656d77_c9f25695",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/AllocationProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-19T09:48:21Z",
+      "side": 1,
+      "message": "@szuend@chromium.org",
+      "parentUuid": "bdfa71ba_4f56e456",
+      "revId": "554259148fa8bf4076cd8b64d93dd7ce845d9430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
