@@ -306,3 +306,10 @@ export class Location {
     this.columnNumber = columnNumber;
   }
 }
+
+export class HeapSnapshotOptions {
+  heapSnapshotTreatBackingStoreAsContainingObject: boolean;
+  constructor(heapSnapshotTreatBackingStoreAsContainingObject: boolean) {
+    this.heapSnapshotTreatBackingStoreAsContainingObject = heapSnapshotTreatBackingStoreAsContainingObject;
+  }
+}
