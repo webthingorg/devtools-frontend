@@ -3,18 +3,19 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
-
 import type * as puppeteer from 'puppeteer-core';
 
 import {
-  $$,
   $,
+  $$,
   assertNotNullOrUndefined,
+  clickElement,
+  disableExperiment,
+  enableExperiment,
   getBrowserAndPages,
   goToResource,
   step,
   waitFor,
-  clickElement,
   waitForElementsWithTextContent,
   waitForElementWithTextContent,
   waitForFunction,
@@ -24,8 +25,11 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   changeAllocationSampleViewViaDropdown,
   changeViewViaDropdown,
+  expandFocusedRow,
   findSearchResult,
+  focusTableRow,
   getDataGridRows,
+  getSizesFromSelectedRow,
   navigateToMemoryTab,
   setClassFilter,
   setSearchFilter,
@@ -398,5 +402,47 @@ describe('The Memory Panel', async function() {
           await waitForFunction(async () => element?.evaluate(e => e.querySelector('.devtools-link')?.textContent));
       assert.strictEqual(linkText, entry.link);
     }
+  });
+
+  it('Includes backing store size in the shallow size of a JS Set', async () => {
+    await goToResource('memory/set.html');
+
+    async function run() {
+      await navigateToMemoryTab();
+      await takeHeapSnapshot();
+      await waitForNonEmptyHeapSnapshotData();
+      await setSearchFilter('Retainer');
+      await waitForSearchResultNumber(4);
+      await findSearchResult('Retainer()');
+      await focusTableRow('Retainer()');
+      await expandFocusedRow();
+      await focusTableRow('customProperty');
+      const sizesForSet = await getSizesFromSelectedRow();
+      await expandFocusedRow();
+      await focusTableRow('(internal array)[]');
+      const sizesForBackingStorage = await getSizesFromSelectedRow();
+      return {sizesForSet, sizesForBackingStorage};
+    }
+
+    await disableExperiment('heapSnapshotTreatBackingStoreAsContainingObject');
+    const originalSizes = await run();
+    assert.isTrue(originalSizes.sizesForSet.shallowSize <= 100);
+    assert.isTrue(originalSizes.sizesForBackingStorage.shallowSize >= 400);
+
+    await enableExperiment('heapSnapshotTreatBackingStoreAsContainingObject', {
+      selectedPanel: {
+        name: 'heap_profiler',
+        selector: '#profile-views',
+      },
+    });
+    const newSizes = await run();
+    assert.strictEqual(
+        newSizes.sizesForSet.shallowSize,
+        originalSizes.sizesForSet.shallowSize + originalSizes.sizesForBackingStorage.shallowSize);
+    assert.strictEqual(newSizes.sizesForSet.retainedSize, originalSizes.sizesForSet.retainedSize);
+    assert.strictEqual(newSizes.sizesForBackingStorage.shallowSize, 0);
+    assert.strictEqual(
+        newSizes.sizesForBackingStorage.retainedSize,
+        originalSizes.sizesForBackingStorage.retainedSize - originalSizes.sizesForBackingStorage.shallowSize);
   });
 });
