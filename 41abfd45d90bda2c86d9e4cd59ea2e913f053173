@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94b83c77_be4f2124",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-19T13:06:45Z",
+      "side": 1,
+      "message": "Hey Benedikt, can you take a look? I\u0027m not sure if it is the best way but it was the most straightforward way.\n\nLMK if you have other suggestions too!",
+      "revId": "41abfd45d90bda2c86d9e4cd59ea2e913f053173",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
