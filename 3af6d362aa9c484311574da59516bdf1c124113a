@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5130bb7c_f298ae7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-19T11:46:08Z",
+      "side": 1,
+      "message": "PTAL, as discussed I removed the branded type.",
+      "revId": "3af6d362aa9c484311574da59516bdf1c124113a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
