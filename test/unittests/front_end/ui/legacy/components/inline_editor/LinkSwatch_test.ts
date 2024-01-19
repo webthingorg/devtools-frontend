@@ -50,7 +50,6 @@ describeWithLocale('CSSVarSwatch', () => {
       variableName: '--test',
       computedValue: '2px',
       fromFallback: false,
-      fallbackHtml: null,
       onLinkActivate: () => {},
     };
 
@@ -69,7 +68,6 @@ describeWithLocale('CSSVarSwatch', () => {
       variableName: '--undefined',
       computedValue: null,
       fromFallback: false,
-      fallbackHtml: null,
       onLinkActivate: () => {},
     };
 
@@ -88,7 +86,7 @@ describeWithLocale('CSSVarSwatch', () => {
       variableName: '--undefined',
       computedValue: '3px 40px',
       fromFallback: true,
-      fallbackHtml: [document.createTextNode('3px'), document.createTextNode('40px')],
+      // fallbackHtml: [document.createTextNode('3px'), document.createTextNode('40px')],
       onLinkActivate: () => {},
     };
 

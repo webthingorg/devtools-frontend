@@ -162,15 +162,22 @@ export class VariableRenderer extends VariableMatch {
     const computedValue = variableValue ?? this.fallbackValue();
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
-    UI.UIUtils.createTextChild(varSwatch, this.text);
     varSwatch.data = {
       computedValue,
       variableName: this.name,
       fromFallback,
-      fallbackHtml: renderedFallback?.nodes ?? [],
       onLinkActivate: name => this.#handleVarDefinitionActivate(declaration ?? name),
     };
-
+    if (renderedFallback?.nodes.length) {
+      varSwatch.appendChild(document.createTextNode(`var(${this.name}`));
+      const span = varSwatch.appendChild(document.createElement('span'));
+      span.appendChild(document.createTextNode(', '));
+      span.slot = 'fallback';
+      renderedFallback.nodes.forEach(n => span.appendChild(n));
+      varSwatch.appendChild(document.createTextNode(')'));
+    } else {
+      UI.UIUtils.createTextChild(varSwatch, this.text);
+    }
     if (varSwatch.link) {
       this.#pane.addPopover(
           varSwatch.link, () => this.#treeElement.getVariablePopoverContents(this.name, variableValue ?? null));
@@ -680,14 +687,21 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
-    UI.UIUtils.createTextChild(varSwatch, text);
     varSwatch.data = {
       computedValue,
       variableName,
       fromFallback,
-      fallbackHtml,
       onLinkActivate: name => this.handleVarDefinitionActivate(declaration ?? name),
     };
+    if (fallbackHtml?.length) {
+      varSwatch.appendChild(document.createTextNode(`var(${variableName}`));
+      const span = varSwatch.appendChild(document.createElement('span'));
+      span.slot = 'fallback';
+      fallbackHtml.forEach(n => span.appendChild(n));
+      varSwatch.appendChild(document.createTextNode(')'));
+    } else {
+      UI.UIUtils.createTextChild(varSwatch, text);
+    }
 
     if (varSwatch.link?.linkElement) {
       const {textContent} = varSwatch.link.linkElement;
