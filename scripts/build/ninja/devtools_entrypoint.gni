@@ -117,7 +117,16 @@ template("devtools_entrypoint") {
       inputs = invoker.inputs
       deps = invoker.deps
 
-      public_deps = [ ":$_copy_target_name" ]
+      # Since bundles both the entrypoint and the files it imports,
+      # we have to make sure that, when you change a file it imports, we
+      # retrigger Rollup. Since the `invoker.deps` is a reference to the
+      # `ts_library` that compiles all of the files it imports, we have to
+      # explicitly add it here. If you don't, then the file change will
+      # retrigger the copy action above, but "the output of the copy action"
+      # is the same. So Ninja will detect that no output has changed for
+      # "_typescript_target_name" and bail out. This would then *also* skip
+      # the Rollup action.
+      public_deps = [ ":$_copy_target_name" ] + invoker.deps
 
       is_web_worker = _is_web_worker
 
@@ -132,16 +141,7 @@ template("devtools_entrypoint") {
 
       output_file_location = _entrypoint_gen_file_location
 
-      # Since bundles both the entrypoint and the files it imports,
-      # we have to make sure that, when you change a file it imports, we
-      # retrigger Rollup. Since the `invoker.deps` is a reference to the
-      # `ts_library` that compiles all of the files it imports, we have to
-      # explicitly add it here. If you don't, then the file change will
-      # retrigger the copy action above, but "the output of the copy action"
-      # is the same. So Ninja will detect that no output has changed for
-      # "_typescript_target_name" and bail out. This would then *also* skip
-      # the Rollup action.
-      public_deps = [ ":$_prebundle_target_name" ] + invoker.deps
+      public_deps = [ ":$_prebundle_target_name" ]
     }
 
     if (!devtools_skip_typecheck) {
