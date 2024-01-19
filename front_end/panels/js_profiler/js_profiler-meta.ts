@@ -84,7 +84,7 @@ function maybeRetrieveTimelineContextTypes<T = unknown>(getClassCallBack: (timel
 
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
-  id: 'js_profiler',
+  id: 'js-profiler',
   title: i18nLazyString(UIStrings.profiler),
   commandPrompt: i18nLazyString(UIStrings.showProfiler),
   order: 65,
