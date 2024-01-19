@@ -16,6 +16,24 @@
       "message": "PTAL",
       "revId": "05ed94e6166bd55e15514d42df8bb09b42b94401",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deaba973_20c04bef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-19T11:32:56Z",
+      "side": 1,
+      "message": "Or maybe hold off with the review, I\u0027ll add a regression test for the bug on Monday to this CL.",
+      "parentUuid": "18166a9f_67fe651b",
+      "revId": "05ed94e6166bd55e15514d42df8bb09b42b94401",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
