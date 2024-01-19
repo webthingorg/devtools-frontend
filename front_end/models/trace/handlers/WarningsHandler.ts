@@ -17,7 +17,7 @@ export interface WarningsData {
   perWarning: Map<Warning, Types.TraceEvents.TraceEventData[]>;
 }
 
-export type Warning = 'LONG_TASK'|'IDLE_CALLBACK_OVER_TIME'|'FORCED_LAYOUT'|'FORCED_STYLE'|'LONG_INTERACTION';
+export type Warning = 'LONG_TASK'|'IDLE_CALLBACK_OVER_TIME'|'FORCED_LAYOUT'|'FORCED_REFLOW'|'FORCED_STYLE'|'LONG_INTERACTION';
 
 const warningsPerEvent: WarningsData['perEvent'] = new Map();
 const eventsPerWarning: WarningsData['perWarning'] = new Map();
@@ -59,17 +59,12 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     return;
   }
 
-  if (event.name === Types.TraceEvents.KnownEventName.Layout) {
-    if (event.dur && event.dur >= FORCED_LAYOUT_AND_STYLES_THRESHOLD) {
-      storeWarning(event, 'FORCED_LAYOUT');
-    }
-    return;
-  }
-
-  if (event.name === Types.TraceEvents.KnownEventName.RecalculateStyles ||
+  if (event.name === Types.TraceEvents.KnownEventName.Layout ||
+      event.name === Types.TraceEvents.KnownEventName.RecalculateStyles ||
       event.name === Types.TraceEvents.KnownEventName.UpdateLayoutTree) {
-    if (event.dur && event.dur >= FORCED_LAYOUT_AND_STYLES_THRESHOLD) {
-      storeWarning(event, 'FORCED_STYLE');
+    if ((event.dur && event.dur >= FORCED_LAYOUT_AND_STYLES_THRESHOLD) &&
+        event.args?.beginData?.stackTrace) {
+      storeWarning(event, 'FORCED_REFLOW');
     }
     return;
   }

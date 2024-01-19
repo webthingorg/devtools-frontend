@@ -512,15 +512,51 @@ export class ThreadAppender implements TrackAppender {
     return maxDepthInTree;
   }
 
-  #appendEntryAtLevel(entry: TraceEngine.Types.TraceEvents.TraceEventData, level: number, childrenCollapsed?: boolean):
+  #appendEntryAtLevel(entry: TraceEngine.Types.TraceEvents.TraceEntry, level: number, childrenCollapsed?: boolean):
       void {
     this.#ensureTrackHeaderAppended(level);
     const index = this.#compatibilityBuilder.appendEventAtLevel(entry, level, this);
     this.#addDecorationsToEntry(entry, index, childrenCollapsed);
   }
 
-  #addDecorationsToEntry(
-      entry: TraceEngine.Types.TraceEvents.TraceEventData, index: number, childrenCollapsed?: boolean): void {
+  // FORCED_LAYOUT and FORCED_STYLE should only be applied if a parent/ancestor of the Layout/Style is JavaScript.
+  // As that can't be checked during WarningsHandler, it's checked now and warnings potentially removed.
+  #maybeRemoveForcedWarnings(
+      entry: TraceEngine.Types.TraceEvents.TraceEntry,
+      warnings: TraceEngine.Handlers.ModelHandlers.Warnings.Warning[]): void {
+    warnings.forEach((warningType, i) => {
+      if (!['FORCED_LAYOUT', 'FORCED_STYLE'].includes(warningType)) {
+        return;
+      }
+
+      const treeNode = this.#traceParsedData.Renderer.entryToNode.get(entry);
+      let parentNode = treeNode?.parent;
+      let isWithinJsInvocation = false;
+      while (parentNode) {
+        if (parentNode.entry.name === TraceEngine.Types.TraceEvents.KnownEventName.ProfileCall) {
+          isWithinJsInvocation = true;
+          break;
+        }
+        parentNode = parentNode.parent;
+      }
+      if (isWithinJsInvocation) {
+        return;
+      }
+
+      // Clear forced layout/style decorations if it wasn't fored
+      const events = this.#traceParsedData.Warnings.perWarning.get(warningType);
+      const index = events?.findIndex(e => e === entry);
+      // Remove from from the Warning Handler's perWarning data
+      if (typeof index === 'number' && index !== -1) {
+        events?.splice(index, 1);
+      }
+      // Remove from Warning Handler's perEntry data;
+      warnings.splice(i, 1);
+    });
+  }
+
+  #addDecorationsToEntry(entry: TraceEngine.Types.TraceEvents.TraceEntry, index: number, childrenCollapsed?: boolean):
+      void {
     const flameChartData = this.#compatibilityBuilder.getFlameChartTimelineData();
     if (childrenCollapsed) {
       addDecorationToEvent(
@@ -530,6 +566,12 @@ export class ThreadAppender implements TrackAppender {
     if (!warnings) {
       return;
     }
+
+    // this.#maybeRemoveForcedWarnings(entry, warnings);
+    // if (!warnings.length) {
+    //   return;
+    // }
+
     addDecorationToEvent(flameChartData, index, {type: PerfUI.FlameChart.FlameChartDecorationType.WARNING_TRIANGLE});
     if (!warnings.includes('LONG_TASK')) {
       return;
