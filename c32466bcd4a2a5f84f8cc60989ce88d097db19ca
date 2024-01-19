@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09e8e5a2_0cc58cd0",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-19T08:39:21Z",
+      "side": 1,
+      "message": "This overrides the assignment in 102.",
+      "revId": "c32466bcd4a2a5f84f8cc60989ce88d097db19ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
