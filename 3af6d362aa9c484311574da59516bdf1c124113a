@@ -16,6 +16,23 @@
       "message": "PTAL, as discussed I removed the branded type.",
       "revId": "3af6d362aa9c484311574da59516bdf1c124113a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b88296a8_ebc1359e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-19T11:54:36Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "3af6d362aa9c484311574da59516bdf1c124113a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
