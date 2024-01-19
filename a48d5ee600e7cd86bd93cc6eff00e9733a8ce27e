@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10f91d9e_248d6135",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-19T06:01:23Z",
+      "side": 1,
+      "message": "Do we need to update the PanelsCodes enum in UserMetrics?",
+      "revId": "a48d5ee600e7cd86bd93cc6eff00e9733a8ce27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d3b9dfa_47cc4171",
+        "filename": "front_end/panels/elements/ElementsPanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-19T06:01:23Z",
+      "side": 1,
+      "message": "maybe we should explicitly spell it out why we are intentionally lying to the type system here.",
+      "range": {
+        "startLine": 156,
+        "startChar": 50,
+        "endLine": 156,
+        "endChar": 90
+      },
+      "revId": "a48d5ee600e7cd86bd93cc6eff00e9733a8ce27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
