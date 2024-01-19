@@ -329,7 +329,7 @@ describeWithMockConnection('InterceptedRequest', () => {
         fetchAgent, request, Protocol.Network.ResourceType.Document, requestId, networkRequest, responseStatusCode,
         filteredResponseHeaders);
     interceptedRequest.responseBody = async () => {
-      return {error: null, content: responseBody, encoded: false};
+      return new SDK.ContentData.ContentData(responseBody, false, 'text/html');
     };
 
     assert.isTrue(fulfillRequestSpy.notCalled);
@@ -563,7 +563,7 @@ describeWithMockConnection('InterceptedRequest', () => {
     const interceptedRequest = new SDK.NetworkManager.InterceptedRequest(
         fetchAgent, request, Protocol.Network.ResourceType.Document, requestId, networkRequest);
     interceptedRequest.responseBody = async () => {
-      return {error: null, content: 'interceptedRequest content', encoded: false};
+      return new SDK.ContentData.ContentData('interceptedRequest content', false, 'text/html');
     };
 
     assert.isTrue(continueRequestSpy.notCalled);
