@@ -34,6 +34,24 @@
       "parentUuid": "bdfa71ba_4f56e456",
       "revId": "554259148fa8bf4076cd8b64d93dd7ce845d9430",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcd5793f_3f089bc9",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/AllocationProfile.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-19T10:00:20Z",
+      "side": 1,
+      "message": "Even non-type-only import cycles might not be a problem as long as we don\u0027t have cyclic dependencies between DevTools modules. Types inside a module should be more than fine.",
+      "parentUuid": "96656d77_c9f25695",
+      "revId": "554259148fa8bf4076cd8b64d93dd7ce845d9430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

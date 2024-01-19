@@ -33,6 +33,23 @@
       "message": "Nice, LGTM from my side.\n\nSimon to answer the cycle question.",
       "revId": "3da00897a380254cefa21ed628674dd3091e2696",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a010dda_6461d343",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-19T10:00:20Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "3da00897a380254cefa21ed628674dd3091e2696",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
