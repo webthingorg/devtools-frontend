@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4538ca7b_ed0d9be2",
+        "filename": "front_end/panels/application/components/BackForwardCacheStrings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2024-01-22T16:06:01Z",
+      "side": 1,
+      "message": "This one is a little weird since there are also events specific to frame/main page, so maybe something should be skipping it?",
+      "revId": "094a62f6aac34183b8d9c190d9ac9b738156b438",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
