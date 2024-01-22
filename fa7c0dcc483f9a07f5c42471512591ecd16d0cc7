@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50f6eaa3_056845bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-22T09:58:04Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "fa7c0dcc483f9a07f5c42471512591ecd16d0cc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb16961_2c927ab8",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-22T09:58:04Z",
+      "side": 1,
+      "message": "I believe that tracking clicks means that clicks on child elements (even if they are tracked as well) will trigger logging. In the screenshot (https://i.imgur.com/hFk3S6M.png), clicking on the question mark icon or the \u0027.headers\u0027 link will trigger a 2 click-logs (for both child and parent), even though the tracked action of the parent (expand/collapse) does not happen.\nIs this WAI?",
+      "range": {
+        "startLine": 518,
+        "startChar": 41,
+        "endLine": 518,
+        "endChar": 61
+      },
+      "revId": "fa7c0dcc483f9a07f5c42471512591ecd16d0cc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
