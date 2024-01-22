@@ -162,7 +162,6 @@ export class VariableRenderer extends VariableMatch {
     const computedValue = variableValue ?? this.fallbackValue();
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
-    UI.UIUtils.createTextChild(varSwatch, this.text);
     varSwatch.data = {
       computedValue,
       variableName: this.name,
@@ -680,7 +679,6 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
-    UI.UIUtils.createTextChild(varSwatch, text);
     varSwatch.data = {
       computedValue,
       variableName,

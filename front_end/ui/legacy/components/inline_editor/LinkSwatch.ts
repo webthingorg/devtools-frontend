@@ -136,9 +136,20 @@ export class CSSVarSwatch extends HTMLElement {
     render(
         html`<span data-title=${data.computedValue || ''}
           jslog=${VisualLogging.link().track({click: true, hover: true}).context('css-var')}
-        >var(${this.#link}${data.fallbackHtml && data.fallbackHtml.length > 0 ? ', ' : ''}${data.fallbackHtml})</span>`,
+        >var(${this.#link}<slot name="fallback"></slot>)</span>`,
         this.shadow, {host: this});
     // clang-format on
+
+    if (data.fallbackHtml?.length) {
+      this.appendChild(document.createTextNode(`var(${data.variableName}`));
+      const span = this.appendChild(document.createElement('span'));
+      span.appendChild(document.createTextNode(', '));
+      span.slot = 'fallback';
+      data.fallbackHtml.forEach(n => span.appendChild(n));
+      this.appendChild(document.createTextNode(')'));
+    } else {
+      this.appendChild(document.createTextNode(`var(${data.variableName})`));
+    }
   }
 }
 
