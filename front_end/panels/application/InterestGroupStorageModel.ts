@@ -62,6 +62,9 @@ export class InterestGroupStorageModel extends SDK.SDKModel.SDKModel<EventTypes>
     this.dispatchEventToListeners(Events.InterestGroupAccess, event);
   }
 
+  interestGroupAuctionEventOccurred(_event: Protocol.Storage.InterestGroupAuctionEventOccurredEvent): void {
+  }
+
   indexedDBListUpdated(_event: Protocol.Storage.IndexedDBListUpdatedEvent): void {
   }
 
@@ -84,6 +87,9 @@ export class InterestGroupStorageModel extends SDK.SDKModel.SDKModel<EventTypes>
   }
 
   attributionReportingSourceRegistered(_event: Protocol.Storage.AttributionReportingSourceRegisteredEvent): void {
+  }
+
+  attributionReportingTriggerRegistered(_event: Protocol.Storage.AttributionReportingTriggerRegisteredEvent): void {
   }
 }
 

@@ -453,6 +453,9 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   interestGroupAccessed(_event: Protocol.Storage.InterestGroupAccessedEvent): void {
   }
 
+  interestGroupAuctionEventOccurred(_event: Protocol.Storage.InterestGroupAuctionEventOccurredEvent): void {
+  }
+
   sharedStorageAccessed(_event: Protocol.Storage.SharedStorageAccessedEvent): void {
   }
 
@@ -463,6 +466,9 @@ export class IndexedDBModel extends SDK.SDKModel.SDKModel<EventTypes> implements
   }
 
   attributionReportingSourceRegistered(_event: Protocol.Storage.AttributionReportingSourceRegisteredEvent): void {
+  }
+
+  attributionReportingTriggerRegistered(_event: Protocol.Storage.AttributionReportingTriggerRegisteredEvent): void {
   }
 }
 

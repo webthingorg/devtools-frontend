@@ -275,6 +275,9 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
   interestGroupAccessed(_event: Protocol.Storage.InterestGroupAccessedEvent): void {
   }
 
+  interestGroupAuctionEventOccurred(_event: Protocol.Storage.InterestGroupAuctionEventOccurredEvent): void {
+  }
+
   sharedStorageAccessed(_event: Protocol.Storage.SharedStorageAccessedEvent): void {
   }
 
@@ -289,6 +292,9 @@ export class ServiceWorkerCacheModel extends SDKModel<EventTypes> implements Pro
   }
 
   attributionReportingSourceRegistered(_event: Protocol.Storage.AttributionReportingSourceRegisteredEvent): void {
+  }
+
+  attributionReportingTriggerRegistered(_event: Protocol.Storage.AttributionReportingTriggerRegisteredEvent): void {
   }
 }
 

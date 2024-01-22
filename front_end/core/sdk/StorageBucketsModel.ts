@@ -170,6 +170,9 @@ export class StorageBucketsModel extends SDKModel<EventTypes> implements Protoco
   interestGroupAccessed(_event: Protocol.Storage.InterestGroupAccessedEvent): void {
   }
 
+  interestGroupAuctionEventOccurred(_event: Protocol.Storage.InterestGroupAuctionEventOccurredEvent): void {
+  }
+
   indexedDBListUpdated(_event: Protocol.Storage.IndexedDBListUpdatedEvent): void {
   }
 
@@ -186,6 +189,9 @@ export class StorageBucketsModel extends SDKModel<EventTypes> implements Protoco
   }
 
   attributionReportingSourceRegistered(_event: Protocol.Storage.AttributionReportingSourceRegisteredEvent): void {
+  }
+
+  attributionReportingTriggerRegistered(_event: Protocol.Storage.AttributionReportingTriggerRegisteredEvent): void {
   }
 }
 

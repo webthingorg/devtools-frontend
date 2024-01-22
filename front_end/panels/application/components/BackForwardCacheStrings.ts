@@ -550,6 +550,18 @@ const UIStrings = {
    * @description Undefined.
    */
   CookieFlushed: 'Undefined',
+  /**
+   * @description Description text for page not restored from back/forward cache reason being Web Smart Card API in use.
+   */
+  smartCard: 'Back/forward cache is disabled because Web Smart Card API has been used.',
+  /**
+   * @description Description text for page not restored from back/forward cache reason being a Media Stream Track that's live/playing.
+   */
+  liveMediaStreamTrack: 'Back/forward cache is disabled because there is a live Media Stream Track.',
+  /**
+   * @description Description text for page not restored from back/forward cache reason being presence of an unload handler.
+   */
+  unloadHandler: 'Back/forward cache is disabled because the page has an unload handler.',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/application/components/BackForwardCacheStrings.ts', UIStrings);
@@ -698,4 +710,7 @@ export const NotRestoredReasonDescription = {
   'WebSocketSticky': {name: i18nLazyString(UIStrings.webSocketSticky)},
   'HTTPAuthRequired': {name: i18nLazyString(UIStrings.HTTPAuthRequired)},
   'CookieFlushed': {name: i18nLazyString(UIStrings.CookieFlushed)},
+  'SmartCard': {name: i18nLazyString(UIStrings.smartCard)},
+  'LiveMediaStreamTrack': {name: i18nLazyString(UIStrings.liveMediaStreamTrack)},
+  'UnloadHandler': {name: i18nLazyString(UIStrings.unloadHandler)},
 };
