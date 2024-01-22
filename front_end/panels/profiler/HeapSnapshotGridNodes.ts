@@ -34,6 +34,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as HeapSnapshotModel from '../../models/heap_snapshot_model/heap_snapshot_model.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
@@ -68,6 +69,10 @@ const UIStrings = {
    *@description Text in Heap Snapshot Grid Nodes of a profiler tool
    */
   detachedFromDomTree: 'Detached from DOM tree',
+  /**
+   *@description Text that is usually a hyperlink to more documentation
+   */
+  learnMore: 'Learn more',
   /**
    *@description Text in Heap Snapshot Grid Nodes of a profiler tool
    */
@@ -1020,8 +1025,56 @@ export class HeapSnapshotConstructorNode extends HeapSnapshotGridNode {
 
   override createCell(columnId: string): HTMLElement {
     const cell = columnId === 'object' ? super.createCell(columnId) : this.createValueCell(columnId);
-    if (columnId === 'object' && this.count > 1) {
-      cell.appendChild(UI.Fragment.html`<span class="objects-count">×${this.count}</span>`);
+    if (columnId === 'object') {
+      let learnMoreLinkSuffix = undefined;
+      const learnMoreLinkBase =
+          'https://github.com/sethbrenith/sethbrenith.github.io/blob/main/heap-snapshot-names.md#';
+      switch (this.data[columnId]) {
+        case '(array)':
+          learnMoreLinkSuffix = 'array';
+          break;
+        case '(compiled code)':
+          learnMoreLinkSuffix = 'compiled-code';
+          break;
+        case '(concatenated string)':
+          learnMoreLinkSuffix = 'concatenated-string';
+          break;
+        case 'InternalNode':
+          learnMoreLinkSuffix = 'internalnode';
+          break;
+        case '(object shape)':
+          learnMoreLinkSuffix = 'object-shape';
+          break;
+        case '(sliced string)':
+          learnMoreLinkSuffix = 'sliced-string';
+          break;
+        case 'system / Context':
+          learnMoreLinkSuffix = 'system--context';
+          break;
+        case '(system)':
+          learnMoreLinkSuffix = 'system';
+          break;
+        default:
+          break;
+      }
+      if (learnMoreLinkSuffix) {
+        // The following is copied from SettingsScreen.ts. TODO: deduplicate.
+        const link = UI.XLink.XLink.create(
+            learnMoreLinkBase + learnMoreLinkSuffix, undefined, undefined, undefined,
+            `${this.data[columnId]}:documentation`);
+        link.textContent = '';
+        link.setAttribute('aria-label', i18nString(UIStrings.learnMore));
+
+        const linkIcon = new IconButton.Icon.Icon();
+        linkIcon.data = {iconName: 'help', color: 'var(--icon-default)', width: '16px', height: '16px'};
+        linkIcon.classList.add('link-icon');
+        link.prepend(linkIcon);
+
+        cell.appendChild(link);
+      }
+      if (this.count > 1) {
+        cell.appendChild(UI.Fragment.html`<span class="objects-count">×${this.count}</span>`);
+      }
     }
     return cell;
   }
