@@ -39,6 +39,30 @@
       },
       "revId": "fa7c0dcc483f9a07f5c42471512591ecd16d0cc7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "751ba496_d0928a41",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-22T16:42:16Z",
+      "side": 1,
+      "message": "This might be a bug, I will double check. The annotation is correct though.",
+      "parentUuid": "0fb16961_2c927ab8",
+      "range": {
+        "startLine": 518,
+        "startChar": 41,
+        "endLine": 518,
+        "endChar": 61
+      },
+      "revId": "fa7c0dcc483f9a07f5c42471512591ecd16d0cc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

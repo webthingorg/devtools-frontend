@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbdcf53_ebb32594",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-22T16:42:16Z",
+      "side": 1,
+      "message": "Where does the title come from? What values could it have?",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 90
+      },
+      "revId": "f41ee2c545ca19a4a2e57d9cf3e38642d090af26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
