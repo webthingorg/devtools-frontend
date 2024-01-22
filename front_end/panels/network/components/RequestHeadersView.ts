@@ -507,11 +507,16 @@ export class Category extends HTMLElement {
 
   #render(): void {
     const isOpen = (this.#expandedSetting ? this.#expandedSetting.get() : true) || this.#forceOpen;
+    const loggingContext = `details-${Platform.StringUtilities.toKebabCase(this.#title)}`;
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     render(html`
       <details ?open=${isOpen} @toggle=${this.#onToggle}>
-        <summary class="header" @keydown=${this.#onSummaryKeyDown}>
+        <summary
+          class="header"
+          @keydown=${this.#onSummaryKeyDown}
+          jslog=${VisualLogging.action().track({click: true}).context(loggingContext)}
+        >
           <div class="header-grid-container">
             <div>
               ${this.#title}${this.#headerCount !== undefined ?
