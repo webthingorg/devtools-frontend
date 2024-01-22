@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "499d3b54_fe028e65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2024-01-22T16:07:17Z",
+      "side": 1,
+      "message": "...Though this probably isn\u0027t making it either given a scary roll dependency + timezones, even if this change itself is pretty backportable.",
+      "revId": "68ce01084a4f8bb5fa44d827a56114f8512b85ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
