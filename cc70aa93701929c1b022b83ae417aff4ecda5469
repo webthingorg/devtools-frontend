@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adc504ca_e54a88fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-22T09:29:45Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "cc70aa93701929c1b022b83ae417aff4ecda5469",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76445874_3fdb0f9e",
+        "filename": "front_end/panels/network/components/RequestHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-22T09:29:45Z",
+      "side": 1,
+      "message": "I thought `value` was the best match here, but open to using something else as well.",
+      "range": {
+        "startLine": 87,
+        "startChar": 32,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "cc70aa93701929c1b022b83ae417aff4ecda5469",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
