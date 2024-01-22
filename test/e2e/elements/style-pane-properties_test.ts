@@ -156,7 +156,7 @@ describe('The Styles pane', async () => {
     const propertyValue = await waitFor(FIRST_PROPERTY_VALUE_SELECTOR, propertiesSection);
     const propertyValueText = await propertyValue.evaluate(node => node.textContent);
     assert.strictEqual(
-        propertyValueText, 'var( --move-final-width)', 'CSS variable in @keyframes rule is not correctly rendered');
+        propertyValueText, 'var(--move-final-width)', 'CSS variable in @keyframes rule is not correctly rendered');
   });
 
   it('can remove a CSS property when its name or value is deleted', async () => {
