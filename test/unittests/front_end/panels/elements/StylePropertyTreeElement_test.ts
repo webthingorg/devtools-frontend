@@ -599,7 +599,7 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       assertNotNullOrUndefined(cssVarSwatch);
 
       const firstLinkSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-base-link-swatch');
-      const insideCssVarSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-css-var-swatch');
+      const insideCssVarSwatch = cssVarSwatch.querySelector('devtools-css-var-swatch');
       const secondLinkSwatch = insideCssVarSwatch?.shadowRoot?.querySelector('devtools-base-link-swatch');
       assert.strictEqual(stylePropertyTreeElement.valueElement.textContent, 'var(--not-existing, var(--a))');
       assert.strictEqual(firstLinkSwatch?.shadowRoot?.textContent, '--not-existing');
@@ -656,7 +656,7 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
         const cssVarSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-css-var-swatch');
         assertNotNullOrUndefined(cssVarSwatch);
 
-        const colorSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-color-swatch');
+        const colorSwatch = cssVarSwatch.querySelector('devtools-color-swatch');
         assertNotNullOrUndefined(colorSwatch);
         assert.isTrue(InlineEditor.ColorSwatch.ColorSwatch.isColorSwatch(colorSwatch) && colorSwatch.getReadonly());
 
@@ -709,7 +709,7 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       const linkSwatch = cssVarSwatch.shadowRoot?.querySelector('devtools-base-link-swatch');
       assert.strictEqual(linkSwatch?.shadowRoot?.textContent, '--test');
       assert.strictEqual(cssVarSwatch.deepTextContent(), 'var(--test)');
-      assert.strictEqual(stylePropertyTreeElement.valueElement.textContent, 'var( --test    )');
+      assert.strictEqual(stylePropertyTreeElement.valueElement.textContent, 'var(--test)');
     });
   });
 
