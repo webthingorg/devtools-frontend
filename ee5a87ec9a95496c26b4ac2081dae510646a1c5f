@@ -16,6 +16,23 @@
       "message": "Alright, let\u0027s try again. Please take a look, thanks! 🙏",
       "revId": "ee5a87ec9a95496c26b4ac2081dae510646a1c5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e900e3e5_38eb5fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-22T09:48:42Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "ee5a87ec9a95496c26b4ac2081dae510646a1c5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
