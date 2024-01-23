@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70fd102c_ff9ee562",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-23T10:30:16Z",
+      "side": 1,
+      "message": "Benedikt, please kindly take a look? Seems to work without js, but with additional css vars",
+      "revId": "b18a67aaa0ae4ea638b4636a7bfdc0a0b0d3dc45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
