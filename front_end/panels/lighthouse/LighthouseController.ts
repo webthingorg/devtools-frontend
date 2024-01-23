@@ -220,7 +220,7 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
       runtimeSetting.setting.addChangeListener(this.recomputePageAuditability.bind(this));
     }
 
-    const javaScriptDisabledSetting = Common.Settings.Settings.instance().moduleSetting('javaScriptDisabled');
+    const javaScriptDisabledSetting = Common.Settings.Settings.instance().moduleSetting('java-script-disabled');
     javaScriptDisabledSetting.addChangeListener(this.recomputePageAuditability.bind(this));
 
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.ServiceWorkerManager.ServiceWorkerManager, this);
@@ -329,12 +329,12 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
   }
 
   private javaScriptDisabled(): boolean {
-    return Common.Settings.Settings.instance().moduleSetting('javaScriptDisabled').get();
+    return Common.Settings.Settings.instance().moduleSetting('java-script-disabled').get();
   }
 
   private async hasImportantResourcesNotCleared(): Promise<string> {
     const clearStorageSetting =
-        RuntimeSettings.find(runtimeSetting => runtimeSetting.setting.name === 'lighthouse.clear_storage');
+        RuntimeSettings.find(runtimeSetting => runtimeSetting.setting.name === 'lighthouse.clear-storage');
     if (clearStorageSetting && !clearStorageSetting.setting.get()) {
       return '';
     }
@@ -628,7 +628,7 @@ export const Presets: Preset[] = [
   // configID maps to Lighthouse's Object.keys(config.categories)[0] value
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.cat_perf', true, Common.Settings.SettingStorageType.Synced),
+        'lighthouse.cat-perf', true, Common.Settings.SettingStorageType.Synced),
     configID: 'performance',
     title: i18nLazyString(UIStrings.performance),
     description: i18nLazyString(UIStrings.howLongDoesThisAppTakeToShow),
@@ -638,7 +638,7 @@ export const Presets: Preset[] = [
   },
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.cat_a11y', true, Common.Settings.SettingStorageType.Synced),
+        'lighthouse.cat-a11-y', true, Common.Settings.SettingStorageType.Synced),
     configID: 'accessibility',
     title: i18nLazyString(UIStrings.accessibility),
     description: i18nLazyString(UIStrings.isThisPageUsableByPeopleWith),
@@ -648,7 +648,7 @@ export const Presets: Preset[] = [
   },
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.cat_best_practices', true, Common.Settings.SettingStorageType.Synced),
+        'lighthouse.cat-best-practices', true, Common.Settings.SettingStorageType.Synced),
     configID: 'best-practices',
     title: i18nLazyString(UIStrings.bestPractices),
     description: i18nLazyString(UIStrings.doesThisPageFollowBestPractices),
@@ -658,7 +658,7 @@ export const Presets: Preset[] = [
   },
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.cat_seo', true, Common.Settings.SettingStorageType.Synced),
+        'lighthouse.cat-seo', true, Common.Settings.SettingStorageType.Synced),
     configID: 'seo',
     title: i18nLazyString(UIStrings.seo),
     description: i18nLazyString(UIStrings.isThisPageOptimizedForSearch),
@@ -668,7 +668,7 @@ export const Presets: Preset[] = [
   },
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.cat_pwa', true, Common.Settings.SettingStorageType.Synced),
+        'lighthouse.cat-pwa', true, Common.Settings.SettingStorageType.Synced),
     configID: 'pwa',
     title: i18nLazyString(UIStrings.progressiveWebApp),
     description: i18nLazyString(UIStrings.doesThisPageMeetTheStandardOfA),
@@ -678,7 +678,7 @@ export const Presets: Preset[] = [
   },
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.cat_pubads', false, Common.Settings.SettingStorageType.Synced),
+        'lighthouse.cat-pubads', false, Common.Settings.SettingStorageType.Synced),
     plugin: true,
     configID: 'lighthouse-plugin-publisher-ads',
     title: i18nLazyString(UIStrings.publisherAds),
@@ -695,7 +695,7 @@ export type Flags = {
 export const RuntimeSettings: RuntimeSetting[] = [
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.device_type', 'mobile', Common.Settings.SettingStorageType.Synced),
+        'lighthouse.device-type', 'mobile', Common.Settings.SettingStorageType.Synced),
     title: i18nLazyString(UIStrings.applyMobileEmulation),
     description: i18nLazyString(UIStrings.applyMobileEmulationDuring),
     setFlags: (flags: Flags, value: string|boolean): void => {
@@ -760,7 +760,7 @@ export const RuntimeSettings: RuntimeSetting[] = [
   },
   {
     setting: Common.Settings.Settings.instance().createSetting(
-        'lighthouse.clear_storage', true, Common.Settings.SettingStorageType.Synced),
+        'lighthouse.clear-storage', true, Common.Settings.SettingStorageType.Synced),
     title: i18nLazyString(UIStrings.clearStorage),
     description: i18nLazyString(UIStrings.resetStorageLocalstorage),
     setFlags: (flags: Flags, value: string|boolean): void => {

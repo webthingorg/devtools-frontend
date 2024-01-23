@@ -258,7 +258,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     super(true /* delegatesFocus */);
     this.setMinimumSize(96, 26);
     this.registerCSSFiles([stylesSidebarPaneStyles]);
-    Common.Settings.Settings.instance().moduleSetting('textEditorIndent').addChangeListener(this.update.bind(this));
+    Common.Settings.Settings.instance().moduleSetting('text-editor-indent').addChangeListener(this.update.bind(this));
 
     this.currentToolbarPane = null;
     this.animatedToolbarPane = null;
@@ -316,7 +316,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.activeCSSAngle = null;
 
     const showDocumentationSetting =
-        Common.Settings.Settings.instance().moduleSetting('showCSSPropertyDocumentationOnHover');
+        Common.Settings.Settings.instance().moduleSetting('show-css-property-documentation-on-hover');
     showDocumentationSetting.addChangeListener(event => {
       const metricType = Boolean(event.data) ? Host.UserMetrics.CSSPropertyDocumentation.ToggledOn :
                                                Host.UserMetrics.CSSPropertyDocumentation.ToggledOff;
@@ -497,7 +497,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     ruleText: string,
   } {
     const selectorText = section.headerText();
-    const indent = Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
+    const indent = Common.Settings.Settings.instance().moduleSetting('text-editor-indent').get();
 
     const style = section.style();
     const lines: string[] = [];
@@ -1546,8 +1546,8 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
 
   private createRenderingShortcuts(): UI.Toolbar.ToolbarButton {
     const prefersColorSchemeSetting =
-        Common.Settings.Settings.instance().moduleSetting<string>('emulatedCSSMediaFeaturePrefersColorScheme');
-    const autoDarkModeSetting = Common.Settings.Settings.instance().moduleSetting('emulateAutoDarkMode');
+        Common.Settings.Settings.instance().moduleSetting<string>('emulated-css-media-feature-prefers-color-scheme');
+    const autoDarkModeSetting = Common.Settings.Settings.instance().moduleSetting('emulate-auto-dark-mode');
     const decorateStatus = (condition: boolean, title: string): string => `${condition ? '✓ ' : ''}${title}`;
 
     const button =

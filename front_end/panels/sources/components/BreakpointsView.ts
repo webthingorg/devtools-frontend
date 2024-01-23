@@ -158,18 +158,18 @@ export class BreakpointsSidebarController implements UI.ContextFlavorListener.Co
 
   private constructor(
       breakpointManager: Breakpoints.BreakpointManager.BreakpointManager, settings: Common.Settings.Settings) {
-    this.#collapsedFilesSettings = Common.Settings.Settings.instance().createSetting('collapsedFiles', []);
+    this.#collapsedFilesSettings = Common.Settings.Settings.instance().createSetting('collapsed-files', []);
     this.#collapsedFiles = new Set(this.#collapsedFilesSettings.get());
     this.#breakpointManager = breakpointManager;
     this.#breakpointManager.addEventListener(
         Breakpoints.BreakpointManager.Events.BreakpointAdded, this.#onBreakpointAdded, this);
     this.#breakpointManager.addEventListener(
         Breakpoints.BreakpointManager.Events.BreakpointRemoved, this.#onBreakpointRemoved, this);
-    this.#breakpointsActiveSetting = settings.moduleSetting('breakpointsActive');
+    this.#breakpointsActiveSetting = settings.moduleSetting('breakpoints-active');
     this.#breakpointsActiveSetting.addChangeListener(this.update, this);
-    this.#pauseOnUncaughtExceptionSetting = settings.moduleSetting('pauseOnUncaughtException');
+    this.#pauseOnUncaughtExceptionSetting = settings.moduleSetting('pause-on-uncaught-exception');
     this.#pauseOnUncaughtExceptionSetting.addChangeListener(this.update, this);
-    this.#pauseOnCaughtExceptionSetting = settings.moduleSetting('pauseOnCaughtException');
+    this.#pauseOnCaughtExceptionSetting = settings.moduleSetting('pause-on-caught-exception');
     this.#pauseOnCaughtExceptionSetting.addChangeListener(this.update, this);
   }
 

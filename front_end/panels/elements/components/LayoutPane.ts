@@ -176,7 +176,7 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
   constructor() {
     super();
     this.#settings = this.#makeSettings();
-    this.#uaShadowDOMSetting = Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM');
+    this.#uaShadowDOMSetting = Common.Settings.Settings.instance().moduleSetting('show-ua-shadow-dom');
     this.#domModels = [];
     this.#shadow.adoptedStyleSheets = [
       Input.checkboxStyles,
@@ -246,7 +246,8 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
 
   #makeSettings(): Setting[] {
     const settings = [];
-    for (const settingName of ['showGridLineLabels', 'showGridTrackSizes', 'showGridAreas', 'extendGridLines']) {
+    for (const settingName
+             of ['show-grid-line-labels', 'show-grid-track-sizes', 'show-grid-areas', 'extend-grid-lines']) {
       const setting = Common.Settings.Settings.instance().moduleSetting(settingName);
       const settingValue = setting.get();
       const settingType = setting.type();

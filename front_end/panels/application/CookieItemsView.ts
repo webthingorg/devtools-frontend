@@ -89,7 +89,7 @@ class CookiePreviewWidget extends UI.Widget.VBox {
     super();
     this.setMinimumSize(230, 45);
     this.cookie = null;
-    this.showDecodedSetting = Common.Settings.Settings.instance().createSetting('cookieViewShowDecoded', false);
+    this.showDecodedSetting = Common.Settings.Settings.instance().createSetting('cookie-view-show-decoded', false);
 
     const header = document.createElement('div');
     header.classList.add('cookie-preview-widget-header');
@@ -188,7 +188,7 @@ export class CookieItemsView extends StorageItemsView {
     this.cookiesTable.setMinimumSize(0, 50);
 
     this.splitWidget = new UI.SplitWidget.SplitWidget(
-        /* isVertical: */ false, /* secondIsSidebar: */ true, 'cookieItemsSplitViewState');
+        /* isVertical: */ false, /* secondIsSidebar: */ true, 'cookie-items-split-view-state');
     this.splitWidget.show(this.element);
 
     this.previewPanel = new UI.Widget.VBox();

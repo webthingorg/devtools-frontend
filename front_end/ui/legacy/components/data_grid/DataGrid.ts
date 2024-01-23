@@ -928,7 +928,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
   setName(name: string): void {
     this.columnWeightsSetting =
-        Common.Settings.Settings.instance().createSetting('dataGrid-' + name + '-columnWeights', {});
+        Common.Settings.Settings.instance().createSetting('data-grid-' + name + '-column-weights', {});
     this.loadColumnWeights();
   }
 

@@ -43,7 +43,8 @@ export class BounceTrackingMitigationsTreeElement extends ApplicationPanelTreeEl
           UI.Widget.Widget, new ApplicationComponents.BounceTrackingMitigationsView.BounceTrackingMitigationsView());
     }
     this.showView(this.view);
-    Host.userMetrics.panelShown(Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes.bounce_tracking_mitigations]);
+    Host.userMetrics.panelShown(
+        Host.UserMetrics.PanelCodes[Host.UserMetrics.PanelCodes['bounce-tracking-mitigations']]);
     return false;
   }
 }

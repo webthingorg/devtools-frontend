@@ -158,7 +158,7 @@ export class ResourceWebSocketFrameView extends UI.Widget.VBox {
   private currentSelectedNode?: ResourceWebSocketFrameNode|null;
 
   private messageFilterSetting: Common.Settings.Setting<string> =
-      Common.Settings.Settings.instance().createSetting('networkWebSocketMessageFilter', '');
+      Common.Settings.Settings.instance().createSetting('network-web-socket-message-filter', '');
 
   constructor(request: SDK.NetworkRequest.NetworkRequest) {
     super();
@@ -167,7 +167,7 @@ export class ResourceWebSocketFrameView extends UI.Widget.VBox {
     this.element.setAttribute('jslog', `${VisualLogging.pane().context('web-socket-messages')}`);
     this.request = request;
 
-    this.splitWidget = new UI.SplitWidget.SplitWidget(false, true, 'resourceWebSocketFrameSplitViewState');
+    this.splitWidget = new UI.SplitWidget.SplitWidget(false, true, 'resource-web-socket-frame-split-view-state');
     this.splitWidget.show(this.element);
 
     const columns = ([
@@ -200,7 +200,7 @@ export class ResourceWebSocketFrameView extends UI.Widget.VBox {
     this.dataGrid.markColumnAsSortedBy('time', DataGrid.DataGrid.Order.Ascending);
     this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SortingChanged, this.sortItems, this);
 
-    this.dataGrid.setName('ResourceWebSocketFrameView');
+    this.dataGrid.setName('resource-web-socket-frame-view');
     this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SelectedNode, event => {
       void this.onFrameSelected(event);
     }, this);

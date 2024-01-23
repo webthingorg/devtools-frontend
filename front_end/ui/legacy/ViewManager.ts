@@ -145,7 +145,7 @@ export class ViewManager {
     this.locationNameByViewId = new Map();
 
     // Read override setting for location
-    this.locationOverrideSetting = Common.Settings.Settings.instance().createSetting('viewsLocationOverride', {});
+    this.locationOverrideSetting = Common.Settings.Settings.instance().createSetting('views-location-override', {});
     const preferredExtensionLocations = Platform.StringUtilities.toKebabCaseKeys(this.locationOverrideSetting.get());
 
     // Views may define their initial ordering within a location. When the user has not reordered, we use the
@@ -594,15 +594,15 @@ class TabbedLocation extends Location implements TabbedViewLocation {
     this.tabbedPaneInternal.addEventListener(TabbedPaneEvents.TabSelected, this.tabSelected, this);
     this.tabbedPaneInternal.addEventListener(TabbedPaneEvents.TabClosed, this.tabClosed, this);
 
-    this.closeableTabSetting = Common.Settings.Settings.instance().createSetting('closeableTabs', {});
+    this.closeableTabSetting = Common.Settings.Settings.instance().createSetting('closeable-tabs', {});
     // As we give tabs the capability to be closed we also need to add them to the setting so they are still open
     // until the user decide to close them
     this.setOrUpdateCloseableTabsSetting();
 
-    this.tabOrderSetting = Common.Settings.Settings.instance().createSetting(location + '-tabOrder', {});
+    this.tabOrderSetting = Common.Settings.Settings.instance().createSetting(location + '-tab-order', {});
     this.tabbedPaneInternal.addEventListener(TabbedPaneEvents.TabOrderChanged, this.persistTabOrder, this);
     if (restoreSelection) {
-      this.lastSelectedTabSetting = Common.Settings.Settings.instance().createSetting(location + '-selectedTab', '');
+      this.lastSelectedTabSetting = Common.Settings.Settings.instance().createSetting(location + '-selected-tab', '');
     }
     this.defaultTab = defaultTab;
 

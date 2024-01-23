@@ -331,7 +331,7 @@ export class HeapSnapshotView extends UI.View.SimpleView implements DataDisplayD
     this.searchableViewInternal.setPlaceholder(i18nString(UIStrings.find), i18nString(UIStrings.find));
     this.searchableViewInternal.show(this.element);
 
-    this.splitWidget = new UI.SplitWidget.SplitWidget(false, true, 'heapSnapshotSplitViewState', 200, 200);
+    this.splitWidget = new UI.SplitWidget.SplitWidget(false, true, 'heap-snapshot-split-view-state', 200, 200);
     this.splitWidget.show(this.searchableViewInternal.element);
 
     const heapProfilerModel = profile.heapProfilerModel();
@@ -1129,7 +1129,7 @@ export class AllocationPerspective extends Perspective {
   constructor() {
     super(i18nString(UIStrings.allocation));
     this.allocationSplitWidget =
-        new UI.SplitWidget.SplitWidget(false, true, 'heapSnapshotAllocationSplitViewState', 200, 200);
+        new UI.SplitWidget.SplitWidget(false, true, 'heap-snapshot-allocation-split-view-state', 200, 200);
     this.allocationSplitWidget.setSidebarWidget(new UI.Widget.VBox());
   }
 
@@ -1204,8 +1204,8 @@ export class HeapSnapshotProfileType extends
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.HeapProfilerModel.HeapProfilerModel, SDK.HeapProfilerModel.Events.ReportHeapSnapshotProgress,
         this.reportHeapSnapshotProgress, this);
-    this.exposeInternals = Common.Settings.Settings.instance().createSetting('exposeInternals', false);
-    this.captureNumericValue = Common.Settings.Settings.instance().createSetting('captureNumericValue', false);
+    this.exposeInternals = Common.Settings.Settings.instance().createSetting('expose-internals', false);
+    this.captureNumericValue = Common.Settings.Settings.instance().createSetting('capture-numeric-value', false);
     this.customContentInternal = null;
   }
 
@@ -1367,7 +1367,7 @@ export class TrackingHeapSnapshotProfileType extends
   constructor() {
     super(TrackingHeapSnapshotProfileType.TypeId, i18nString(UIStrings.allocationInstrumentationOn));
     this.recordAllocationStacksSettingInternal =
-        Common.Settings.Settings.instance().createSetting('recordAllocationStacks', false);
+        Common.Settings.Settings.instance().createSetting('record-allocation-stacks', false);
     this.customContentInternal = null;
     this.recording = false;
   }

@@ -163,7 +163,7 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     this.#workspace.addEventListener(
         Workspace.Workspace.Events.UISourceCodeRemoved, this.#uiSourceCodeAddedOrRemoved, this);
     Common.Settings.Settings.instance()
-        .moduleSetting('persistenceNetworkOverridesEnabled')
+        .moduleSetting('persistence-network-overrides-enabled')
         .addChangeListener(this.render, this);
   }
 
@@ -173,7 +173,7 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     this.#workspace.removeEventListener(
         Workspace.Workspace.Events.UISourceCodeRemoved, this.#uiSourceCodeAddedOrRemoved, this);
     Common.Settings.Settings.instance()
-        .moduleSetting('persistenceNetworkOverridesEnabled')
+        .moduleSetting('persistence-network-overrides-enabled')
         .removeChangeListener(this.render, this);
   }
 
@@ -216,7 +216,7 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
       <${Category.litTagName}
         @togglerawevent=${toggleShowRaw}
         .data=${{
-          name: 'responseHeaders',
+          name: 'response-headers',
           title: i18nString(UIStrings.responseHeaders),
           headerCount: this.#request.sortedResponseHeaders.length,
           checked: this.#request.responseHeadersText ? this.#showResponseHeadersText : undefined,
@@ -243,7 +243,7 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
     }
 
     const overridesSetting: Common.Settings.Setting<boolean> =
-        Common.Settings.Settings.instance().moduleSetting('persistenceNetworkOverridesEnabled');
+        Common.Settings.Settings.instance().moduleSetting('persistence-network-overrides-enabled');
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
     const fileIcon = html`
@@ -320,7 +320,7 @@ export class RequestHeadersView extends LegacyWrapper.LegacyWrapper.WrappableCom
       <${Category.litTagName}
         @togglerawevent=${toggleShowRaw}
         .data=${{
-          name: 'requestHeaders',
+          name: 'request-headers',
           title: i18nString(UIStrings.requestHeaders),
           headerCount: this.#request.requestHeaders().length,
           checked: requestHeadersText? this.#showRequestHeadersText : undefined,

@@ -28,11 +28,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import type * as Platform from '../platform/platform.js';
+import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {Console} from './Console.js';
-import {type GenericEvents, type EventDescriptor, type EventTargetEvent} from './EventTarget.js';
+import {type EventDescriptor, type EventTargetEvent, type GenericEvents} from './EventTarget.js';
 import {ObjectWrapper} from './Object.js';
 import {
   getLocalizedSettingsCategory,
@@ -59,8 +59,8 @@ export class Settings {
   readonly moduleSettings: Map<string, Setting<unknown>>;
 
   private constructor(
-      private readonly syncedStorage: SettingsStorage, readonly globalStorage: SettingsStorage,
-      private readonly localStorage: SettingsStorage) {
+      readonly syncedStorage: SettingsStorage, readonly globalStorage: SettingsStorage,
+      readonly localStorage: SettingsStorage) {
     this.#sessionStorage = new SettingsStorage({});
 
     this.settingNameSet = new Set();
@@ -270,6 +270,10 @@ export class SettingsStorage {
     this.backingStore.clear();
   }
 
+  keys(): string[] {
+    return Object.keys(this.object);
+  }
+
   dumpSizes(): void {
     Console.instance().log('Ten largest settings: ');
 
@@ -294,7 +298,7 @@ export class SettingsStorage {
   }
 }
 
-function removeSetting(setting: Setting<unknown>): void {
+function removeSetting(setting: {name: string, storage: SettingsStorage}): void {
   const name = setting.name;
   const settings = Settings.instance();
 
@@ -336,6 +340,10 @@ export class Setting<V> {
   constructor(
       readonly name: string, readonly defaultValue: V, private readonly eventSupport: ObjectWrapper<GenericEvents>,
       readonly storage: SettingsStorage) {
+    if (!Platform.StringUtilities.isExtendedKebabCase(name) &&
+        !['localInspectorVersion', 'syncedInspectorVersion', 'inspectorVersion', 'isUnderTest'].includes(name)) {
+      console.error('Wrong case: ' + name);
+    }
     storage.register(name);
   }
 
@@ -583,7 +591,7 @@ export class VersionController {
   static readonly SYNCED_VERSION_SETTING_NAME = 'syncedInspectorVersion';
   static readonly LOCAL_VERSION_SETTING_NAME = 'localInspectorVersion';
 
-  static readonly CURRENT_VERSION = 36;
+  static readonly CURRENT_VERSION = 37;
 
   readonly #globalVersionSetting: Setting<number>;
   readonly #syncedVersionSetting: Setting<number>;
@@ -784,7 +792,7 @@ export class VersionController {
   }
 
   private updateVersionFrom8To9(): void {
-    const settingNames = ['skipStackFramesPattern', 'workspaceFolderExcludePattern'];
+    const settingNames = ['skip-stack-frames-pattern', 'workspace-folder-exclude-pattern'];
 
     for (let i = 0; i < settingNames.length; ++i) {
       const setting = Settings.instance().createSetting<string|unknown[]>(settingNames[i], '');
@@ -1001,7 +1009,7 @@ export class VersionController {
 
   private updateVersionFrom23To24(): void {
     const oldSetting = Settings.instance().createSetting('searchInContentScripts', false);
-    const newSetting = Settings.instance().createSetting('searchInAnonymousAndContentScripts', false);
+    const newSetting = Settings.instance().createSetting('search-in-anonymous-and-content-scripts', false);
     newSetting.set(oldSetting.get());
     removeSetting(oldSetting);
   }
@@ -1057,7 +1065,7 @@ export class VersionController {
   }
 
   private updateVersionFrom27To28(): void {
-    const setting = Settings.instance().createSetting('uiTheme', 'systemPreferred');
+    const setting = Settings.instance().createSetting('ui-theme', 'systemPreferred');
     if (setting.get() === 'default') {
       setting.set('systemPreferred');
     }
@@ -1199,6 +1207,18 @@ export class VersionController {
   updateVersionFrom35To36(): void {
     // We have changed the default from 'false' to 'true' and this updates the existing setting just for once.
     Settings.instance().createSetting('showThirdPartyIssues', true).set(true);
+  }
+
+  updateVersionFrom36To37(): void {
+    const updateStorage = (storage: SettingsStorage): void => {
+      for (const key of storage.keys()) {
+        storage.set(Platform.StringUtilities.toKebapCase(key), storage.get(key));
+        removeSetting({name: key, storage});
+      }
+    };
+    updateStorage(Settings.instance().globalStorage);
+    updateStorage(Settings.instance().syncedStorage);
+    updateStorage(Settings.instance().localStorage);
   }
 
   /*

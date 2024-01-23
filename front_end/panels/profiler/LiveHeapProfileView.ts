@@ -68,7 +68,7 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
     super(true);
     this.gridNodeByUrl = new Map();
 
-    this.setting = Common.Settings.Settings.instance().moduleSetting('memoryLiveHeapProfile');
+    this.setting = Common.Settings.Settings.instance().moduleSetting('memory-live-heap-profile');
     const toolbar = new UI.Toolbar.Toolbar('live-heap-profile-toolbar', this.contentElement);
     this.toggleRecordAction =
         UI.ActionRegistry.ActionRegistry.instance().getAction('live-heap-profile.toggle-recording');
@@ -390,7 +390,7 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<unk
 export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
   handleAction(_context: UI.Context.Context, actionId: string): boolean {
     void (async(): Promise<void> => {
-      const profileViewId = 'live_heap_profile';
+      const profileViewId = 'live-heap-profile';
       await UI.ViewManager.ViewManager.instance().showView(profileViewId);
       const view = UI.ViewManager.ViewManager.instance().view(profileViewId);
       if (view) {
