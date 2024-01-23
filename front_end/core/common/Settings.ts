@@ -28,11 +28,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import type * as Platform from '../platform/platform.js';
+import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {Console} from './Console.js';
-import {type GenericEvents, type EventDescriptor, type EventTargetEvent} from './EventTarget.js';
+import {type EventDescriptor, type EventTargetEvent, type GenericEvents} from './EventTarget.js';
 import {ObjectWrapper} from './Object.js';
 import {
   getLocalizedSettingsCategory,
@@ -59,8 +59,8 @@ export class Settings {
   readonly moduleSettings: Map<string, Setting<unknown>>;
 
   private constructor(
-      private readonly syncedStorage: SettingsStorage, readonly globalStorage: SettingsStorage,
-      private readonly localStorage: SettingsStorage) {
+      readonly syncedStorage: SettingsStorage, readonly globalStorage: SettingsStorage,
+      readonly localStorage: SettingsStorage) {
     this.#sessionStorage = new SettingsStorage({});
 
     this.settingNameSet = new Set();
@@ -270,6 +270,10 @@ export class SettingsStorage {
     this.backingStore.clear();
   }
 
+  keys(): string[] {
+    return Object.keys(this.object);
+  }
+
   dumpSizes(): void {
     Console.instance().log('Ten largest settings: ');
 
@@ -294,7 +298,7 @@ export class SettingsStorage {
   }
 }
 
-function removeSetting(setting: Setting<unknown>): void {
+function removeSetting(setting: {name: string, storage: SettingsStorage}): void {
   const name = setting.name;
   const settings = Settings.instance();
 
@@ -332,11 +336,13 @@ export class Setting<V> {
   #hadUserAction?: boolean;
   #disabled?: boolean;
   #deprecation: Deprecation|null = null;
+  readonly name: string;
 
   constructor(
-      readonly name: string, readonly defaultValue: V, private readonly eventSupport: ObjectWrapper<GenericEvents>,
+      name: string, readonly defaultValue: V, private readonly eventSupport: ObjectWrapper<GenericEvents>,
       readonly storage: SettingsStorage) {
-    storage.register(name);
+    this.name = Platform.StringUtilities.toKebabCase(name);
+    storage.register(this.name);
   }
 
   setSerializer(serializer: Serializer<unknown, V>): void {
@@ -583,7 +589,7 @@ export class VersionController {
   static readonly SYNCED_VERSION_SETTING_NAME = 'syncedInspectorVersion';
   static readonly LOCAL_VERSION_SETTING_NAME = 'localInspectorVersion';
 
-  static readonly CURRENT_VERSION = 36;
+  static readonly CURRENT_VERSION = 37;
 
   readonly #globalVersionSetting: Setting<number>;
   readonly #syncedVersionSetting: Setting<number>;
@@ -1199,6 +1205,30 @@ export class VersionController {
   updateVersionFrom35To36(): void {
     // We have changed the default from 'false' to 'true' and this updates the existing setting just for once.
     Settings.instance().createSetting('showThirdPartyIssues', true).set(true);
+  }
+
+  updateVersionFrom36To37(): void {
+    const updateStorage = (storage: SettingsStorage): void => {
+      for (const key of storage.keys()) {
+        storage.set(Platform.StringUtilities.toKebabCase(key), storage.get(key));
+        removeSetting({name: key, storage});
+      }
+    };
+    updateStorage(Settings.instance().globalStorage);
+    updateStorage(Settings.instance().syncedStorage);
+    updateStorage(Settings.instance().localStorage);
+
+    for (const key of Settings.instance().globalStorage.keys()) {
+      if ((key.startsWith('data-grid-') && key.endsWith('-column-weights')) || key.endsWith('-tab-order') ||
+          key === 'views-location-override' || key === 'closeable-tabs') {
+        const setting = Settings.instance().createSetting(key, {});
+        setting.set(Platform.StringUtilities.toKebabCaseKeys(setting.get()));
+      }
+      if (key.endsWith('-column-weights')) {
+        const setting = Settings.instance().createSetting(location + '-selected-tab', '');
+        setting.set(Platform.StringUtilities.toKebabCase(setting.get()));
+      }
+    }
   }
 
   /*
