@@ -70,6 +70,30 @@
       },
       "revId": "f41ee2c545ca19a4a2e57d9cf3e38642d090af26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "704ea207_f5825357",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-23T07:33:46Z",
+      "side": 1,
+      "message": "Oh, yes they are! Switched to hard-coding the log context instead.",
+      "parentUuid": "9f1a3350_b45eaeee",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 90
+      },
+      "revId": "f41ee2c545ca19a4a2e57d9cf3e38642d090af26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
