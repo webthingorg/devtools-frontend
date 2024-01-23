@@ -16,6 +16,161 @@
       "message": "Hello Simon, would you please review this change? Thanks!",
       "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fc96df_2c7e2c53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-23T09:53:09Z",
+      "side": 1,
+      "message": "lgtm with some comments, thanks!",
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a0fb02_c82e4e7d",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-23T09:53:09Z",
+      "side": 1,
+      "message": "Not sure if you are aware, but just in case, this needs a mirrored entry on the blink side in enums.xml: https://source.chromium.org/chromium/chromium/src/+/main:tools/metrics/histograms/enums.xml;l\u003d6713;drc\u003d16848faad4d0c6adf57fb6b0851b5c423b7375e2",
+      "range": {
+        "startLine": 1141,
+        "startChar": 2,
+        "endLine": 1141,
+        "endChar": 57
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e046bfb7_6ea64e9e",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2393,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-23T09:53:09Z",
+      "side": 1,
+      "message": "style-nit:\n\n```suggestion\n    const {nodeCount, nodes, nodeFieldCount, nodeSelfSizeOffset} \u003d this;\n```",
+      "range": {
+        "startLine": 2389,
+        "startChar": 0,
+        "endLine": 2393,
+        "endChar": 55
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd247283_3b0621dd",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2479,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-23T09:53:09Z",
+      "side": 1,
+      "message": "Isn\u0027t this dead code since the `default` branch updates `node.nodeIndex` itself and there is no other access to `node`?",
+      "range": {
+        "startLine": 2479,
+        "startChar": 6,
+        "endLine": 2479,
+        "endChar": 44
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3616d9a1_f3374f22",
+        "filename": "front_end/models/heap_snapshot_model/HeapSnapshotModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-23T09:53:09Z",
+      "side": 1,
+      "message": "Any reason why this is a full class? I\u0027d assume a simple `interface` would suffice (aka an options bag).",
+      "range": {
+        "startLine": 310,
+        "startChar": 13,
+        "endLine": 310,
+        "endChar": 32
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8864b6ba_5485fe1d",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-23T09:53:09Z",
+      "side": 1,
+      "message": "We could extend this helper to wait for the focused row to be expanded before returning.",
+      "range": {
+        "startLine": 293,
+        "startChar": 22,
+        "endLine": 293,
+        "endChar": 38
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fad341e_6bfd8cbd",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-23T09:53:09Z",
+      "side": 1,
+      "message": "We might wanna split this test into 2 since it probably takes quiet some time to run (enabling/disabling experiments reloads the DevTools window IIRC).\n\nWe can still put both tests into a describe block and share the `run` function between them.",
+      "range": {
+        "startLine": 407,
+        "startChar": 2,
+        "endLine": 407,
+        "endChar": 81
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
