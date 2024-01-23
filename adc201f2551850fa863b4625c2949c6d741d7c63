@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b6af983_d2089433",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-23T19:05:52Z",
+      "side": 1,
+      "message": "Good to know, thanks! What is the correct order to land the two changes?",
+      "parentUuid": "83a0fb02_c82e4e7d",
+      "range": {
+        "startLine": 1141,
+        "startChar": 2,
+        "endLine": 1141,
+        "endChar": 57
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e046bfb7_6ea64e9e",
         "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
         "patchSetId": 3
@@ -71,6 +95,30 @@
       "writtenOn": "2024-01-23T09:53:09Z",
       "side": 1,
       "message": "style-nit:\n\n```suggestion\n    const {nodeCount, nodes, nodeFieldCount, nodeSelfSizeOffset} \u003d this;\n```",
+      "range": {
+        "startLine": 2389,
+        "startChar": 0,
+        "endLine": 2393,
+        "endChar": 55
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56fb62fc_e08a16e9",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2393,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-23T19:05:52Z",
+      "side": 1,
+      "message": "Neat, thanks!",
+      "parentUuid": "e046bfb7_6ea64e9e",
       "range": {
         "startLine": 2389,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29dda825_1f4d684a",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2479,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-23T19:05:52Z",
+      "side": 1,
+      "message": "Great catch! Yes, this is left over from a previous iteration.",
+      "parentUuid": "cd247283_3b0621dd",
+      "range": {
+        "startLine": 2479,
+        "startChar": 6,
+        "endLine": 2479,
+        "endChar": 44
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3616d9a1_f3374f22",
@@ -117,6 +189,30 @@
       "writtenOn": "2024-01-23T09:53:09Z",
       "side": 1,
       "message": "Any reason why this is a full class? I\u0027d assume a simple `interface` would suffice (aka an options bag).",
+      "range": {
+        "startLine": 310,
+        "startChar": 13,
+        "endLine": 310,
+        "endChar": 32
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e8f8a3_ea3abc8a",
+        "filename": "front_end/models/heap_snapshot_model/HeapSnapshotModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-23T19:05:52Z",
+      "side": 1,
+      "message": "Good point, thanks. I was trying to match the style of other things in this file, but I agree an interface would be simpler.",
+      "parentUuid": "3616d9a1_f3374f22",
       "range": {
         "startLine": 310,
         "startChar": 13,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9921734b_f81eb5af",
+        "filename": "test/e2e/helpers/memory-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-23T19:05:52Z",
+      "side": 1,
+      "message": "Good point, thanks.",
+      "parentUuid": "8864b6ba_5485fe1d",
+      "range": {
+        "startLine": 293,
+        "startChar": 22,
+        "endLine": 293,
+        "endChar": 38
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fad341e_6bfd8cbd",
@@ -163,6 +283,30 @@
       "writtenOn": "2024-01-23T09:53:09Z",
       "side": 1,
       "message": "We might wanna split this test into 2 since it probably takes quiet some time to run (enabling/disabling experiments reloads the DevTools window IIRC).\n\nWe can still put both tests into a describe block and share the `run` function between them.",
+      "range": {
+        "startLine": 407,
+        "startChar": 2,
+        "endLine": 407,
+        "endChar": 81
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75cf4ebf_97f21723",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-23T19:05:52Z",
+      "side": 1,
+      "message": "My goal here was to check that the shallow size of the Set in the second case is exactly equal to the sum of the two shallow sizes in the first case, and that the retained sizes are the same in either configuration. However, a less precise test is a lot better than a test that ends up skipped due to timeouts. Updated accordingly.",
+      "parentUuid": "9fad341e_6bfd8cbd",
       "range": {
         "startLine": 407,
         "startChar": 2,
