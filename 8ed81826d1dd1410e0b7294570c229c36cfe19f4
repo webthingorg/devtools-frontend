@@ -33,6 +33,29 @@
       "message": "PTAL",
       "revId": "8ed81826d1dd1410e0b7294570c229c36cfe19f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a829e0f6_4c261553",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-23T07:10:53Z",
+      "side": 1,
+      "message": "Also click",
+      "range": {
+        "startLine": 239,
+        "startChar": 58,
+        "endLine": 239,
+        "endChar": 59
+      },
+      "revId": "8ed81826d1dd1410e0b7294570c229c36cfe19f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
