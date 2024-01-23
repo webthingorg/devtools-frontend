@@ -911,7 +911,7 @@ export class MainMenuItem implements UI.Toolbar.Provider {
         moreTools.defaultSection().appendItem(title, () => {
           Host.userMetrics.issuesPanelOpenedFrom(Host.UserMetrics.IssueOpener.HamburgerMenu);
           void UI.ViewManager.ViewManager.instance().showView('issues-pane', /* userGesture */ true);
-        }, {jslogContext: id});
+        }, {jslogContext: Platform.StringUtilities.toKebapCase(id)});
         continue;
       }
 
@@ -926,13 +926,13 @@ export class MainMenuItem implements UI.Toolbar.Provider {
         const additionalElement = IconButton.Icon.create('experiment');
         moreTools.defaultSection().appendItem(title, () => {
           void UI.ViewManager.ViewManager.instance().showView(id, true, false);
-        }, {disabled: false, additionalElement, jslogContext: id});
+        }, {disabled: false, additionalElement, jslogContext: Platform.StringUtilities.toKebapCase(id)});
         continue;
       }
 
       moreTools.defaultSection().appendItem(title, () => {
         void UI.ViewManager.ViewManager.instance().showView(id, true, false);
-      }, {jslogContext: id});
+      }, {jslogContext: Platform.StringUtilities.toKebapCase(id)});
     }
 
     const helpSubMenu = contextMenu.footerSection().appendSubMenuItem(i18nString(UIStrings.help), false, 'help');

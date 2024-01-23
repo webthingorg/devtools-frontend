@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import type * as Common from '../../../core/common/common.js';
+import * as Platform from '../../../core/platform/platform.js';
 import * as ComponentHelpers from '../../components/helpers/helpers.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as VisualLogging from '../../visual_logging/visual_logging.js';
@@ -73,7 +74,10 @@ export class SettingCheckbox extends HTMLElement {
             .checked=${this.#setting.get()}
             ?disabled=${this.#disabled || this.#setting.disabled()}
             @change=${this.#checkboxChanged}
-            jslog=${VisualLogging.toggle().track({click: true}).context(this.#setting.name)}
+            jslog=${
+            VisualLogging.toggle()
+                .track({click: true})
+                .context(Platform.StringUtilities.toKebapCase(this.#setting.name))}
             aria-label=${this.#setting.title()}/>
           ${this.#setting.title()}${icon}
         </label>

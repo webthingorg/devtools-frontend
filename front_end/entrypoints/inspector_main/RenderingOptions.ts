@@ -30,6 +30,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
@@ -301,7 +302,8 @@ export class RenderingOptionsView extends UI.Widget.VBox {
 
   #appendCheckbox(label: string, subtitle: string, setting: Common.Settings.Setting<boolean>):
       UI.UIUtils.CheckboxLabel {
-    const checkbox = UI.UIUtils.CheckboxLabel.create(label, false, subtitle, setting.name);
+    const checkbox =
+        UI.UIUtils.CheckboxLabel.create(label, false, subtitle, Platform.StringUtilities.toKebapCase(setting.name));
     UI.SettingsUI.bindCheckbox(checkbox.checkboxElement, setting);
     this.contentElement.appendChild(checkbox);
     return checkbox;

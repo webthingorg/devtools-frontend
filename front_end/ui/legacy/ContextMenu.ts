@@ -30,7 +30,7 @@
 
 import type * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
-import type * as Platform from '../../core/platform/platform.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as VisualLogging from '../visual_logging/visual_logging.js';
 
@@ -65,6 +65,9 @@ export class Item {
       this.idInternal = contextMenu ? contextMenu.nextId() : 0;
     }
     this.#jslogContext = jslogContext;
+    if (jslogContext && Platform.StringUtilities.toKebapCase(jslogContext) !== jslogContext.replaceAll('.', '-')) {
+      console.error('Wrong case: ' + jslogContext);
+    }
   }
 
   id(): number {
@@ -191,7 +194,7 @@ export class Section {
     }
     const result = this.appendItem(label, action.execute.bind(action), {
       disabled: !action.enabled(),
-      jslogContext: actionId,
+      jslogContext: Platform.StringUtilities.toKebapCase(actionId),
     });
     const shortcut = ShortcutRegistry.instance().shortcutTitleForAction(actionId);
     if (shortcut) {

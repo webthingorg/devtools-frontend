@@ -308,7 +308,8 @@ export class ShortcutListItem {
     this.settingsTab = settingsTab;
     this.item = item;
     this.element = document.createElement('div');
-    this.element.setAttribute('jslog', `${VisualLogging.item().context(item.id())}`);
+    this.element.setAttribute(
+        'jslog', `${VisualLogging.item().context(Platform.StringUtilities.toKebapCase(item.id()))}`);
     this.editedShortcuts = new Map();
     this.shortcutInputs = new Map();
     this.shortcuts = UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutsForAction(item.id());

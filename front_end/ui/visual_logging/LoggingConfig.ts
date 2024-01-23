@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../core/platform/platform.js';
+
 const LOGGING_ATTRIBUTE = 'jslog';
 
 export interface LoggingConfig {
@@ -191,6 +193,11 @@ export function makeConfigStringBuilder(veName: VisualElementName): ConfigString
   return {
     context: function(value: string|number|undefined): ConfigStringBuilder {
       if (typeof value !== 'undefined') {
+        if (typeof value === 'string') {
+          if (!Platform.StringUtilities.isExtendedKebabCase(value)) {
+            console.error('Wrong case: ' + value);
+          }
+        }
         components.push(`context: ${value}`);
       }
       return this;

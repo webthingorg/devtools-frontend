@@ -5,6 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -143,7 +144,7 @@ export class ThrottlingManager {
         `${
             VisualLogging.dropDown()
                 .track({change: true})
-                .context(this.currentNetworkThrottlingConditionsSetting.name)}`);
+                .context(Platform.StringUtilities.toKebapCase(this.currentNetworkThrottlingConditionsSetting.name))}`);
     selectElement.addEventListener('change', optionSelected, false);
     return selector;
 
@@ -220,7 +221,7 @@ export class ThrottlingManager {
   }
 
   createMobileThrottlingButton(): UI.Toolbar.ToolbarMenuButton {
-    const button = new UI.Toolbar.ToolbarMenuButton(appendItems, undefined, 'mobileThrottling');
+    const button = new UI.Toolbar.ToolbarMenuButton(appendItems, undefined, 'mobile-throttling');
     button.setTitle(i18nString(UIStrings.throttling));
     button.setGlyph('');
     button.turnIntoSelect();

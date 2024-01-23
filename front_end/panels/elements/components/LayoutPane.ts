@@ -4,6 +4,7 @@
 
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
+import * as Platform from '../../../core/platform/platform.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
@@ -484,7 +485,7 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
   #renderBooleanSetting(setting: BooleanSetting): LitHtml.TemplateResult {
     const onBooleanSettingChange = this.#onBooleanSettingChange.bind(this, setting);
     return html`<label data-boolean-setting="true" class="checkbox-label" title=${setting.title} jslog=${
-        VisualLogging.toggle().track({click: true}).context(setting.name)}>
+        VisualLogging.toggle().track({click: true}).context(Platform.StringUtilities.toKebapCase(setting.name))}>
       <input data-input="true" type="checkbox" .checked=${setting.value} @change=${onBooleanSettingChange} />
       <span data-label="true">${setting.title}</span>
     </label>`;
@@ -496,7 +497,8 @@ export class LayoutPane extends LegacyWrapper.LegacyWrapper.WrappableComponent {
       <select
         class="chrome-select"
         data-input="true"
-        jslog=${VisualLogging.dropDown().track({change: true}).context(setting.name)}
+        jslog=${
+        VisualLogging.dropDown().track({change: true}).context(Platform.StringUtilities.toKebapCase(setting.name))}
         @change=${onEnumSettingChange}>
         ${
         setting.options.map(

@@ -244,7 +244,8 @@ export class Toolbar {
     return button;
 
     function makeButton(): ToolbarButton {
-      const button = new ToolbarButton(action.title(), action.icon(), undefined, action.id());
+      const button = new ToolbarButton(
+          action.title(), action.icon(), undefined, Platform.StringUtilities.toKebapCase(action.id()));
       if (action.title()) {
         Tooltip.installWithActionBinding(button.element, action.title(), action.id());
       }
@@ -252,7 +253,8 @@ export class Toolbar {
     }
 
     function makeToggle(): ToolbarToggle {
-      const toggleButton = new ToolbarToggle(action.title(), action.icon(), action.toggledIcon(), action.id());
+      const toggleButton = new ToolbarToggle(
+          action.title(), action.icon(), action.toggledIcon(), Platform.StringUtilities.toKebapCase(action.id()));
       toggleButton.setToggleWithRedColor(action.toggleWithRedColor());
       action.addEventListener(ActionEvents.Toggled, toggled);
       toggled();
@@ -1105,7 +1107,9 @@ export class ToolbarCheckbox extends ToolbarItem<void> {
 
 export class ToolbarSettingCheckbox extends ToolbarCheckbox {
   constructor(setting: Common.Settings.Setting<boolean>, tooltip?: string, alternateTitle?: string) {
-    super(alternateTitle || setting.title() || '', tooltip, undefined, setting.name);
+    super(
+        alternateTitle || setting.title() || '', tooltip, undefined,
+        Platform.StringUtilities.toKebapCase(setting.name));
     bindCheckbox(this.inputElement, setting);
   }
 }

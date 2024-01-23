@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -103,7 +104,11 @@ export class NetworkConfigView extends UI.Widget.VBox {
             'customUserAgentMetadata', null);
     const userAgentSelectElement = document.createElement('select');
     userAgentSelectElement.setAttribute(
-        'jslog', `${VisualLogging.dropDown().track({change: true}).context(userAgentSetting.name)}`);
+        'jslog',
+        `${
+            VisualLogging.dropDown()
+                .track({change: true})
+                .context(Platform.StringUtilities.toKebapCase(userAgentSetting.name))}`);
     UI.ARIAUtils.setLabel(userAgentSelectElement, title);
 
     const customOverride = {title: i18nString(UIStrings.custom), value: 'custom'};
@@ -123,7 +128,11 @@ export class NetworkConfigView extends UI.Widget.VBox {
 
     const otherUserAgentElement = UI.UIUtils.createInput('', 'text');
     otherUserAgentElement.setAttribute(
-        'jslog', `${VisualLogging.textField().track({keydown: true}).context(userAgentSetting.name)}`);
+        'jslog',
+        `${
+            VisualLogging.textField()
+                .track({keydown: true})
+                .context(Platform.StringUtilities.toKebapCase(userAgentSetting.name))}`);
     otherUserAgentElement.value = userAgentSetting.get();
     UI.Tooltip.Tooltip.install(otherUserAgentElement, userAgentSetting.get());
     otherUserAgentElement.placeholder = i18nString(UIStrings.enterACustomUserAgent);
@@ -224,7 +233,8 @@ export class NetworkConfigView extends UI.Widget.VBox {
     const title = i18nString(UIStrings.userAgent);
     const section = this.createSection(title, 'network-config-ua');
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(
-        i18nString(UIStrings.selectAutomatically), true, undefined, customUserAgentSetting.name);
+        i18nString(UIStrings.selectAutomatically), true, undefined,
+        Platform.StringUtilities.toKebapCase(customUserAgentSetting.name));
     section.appendChild(checkboxLabel);
     const autoCheckbox = checkboxLabel.checkboxElement;
 
@@ -308,7 +318,8 @@ export class NetworkConfigView extends UI.Widget.VBox {
     const title = i18nString(UIStrings.acceptedEncoding);
     const section = this.createSection(title, 'network-config-accepted-encoding');
     const checkboxLabel = UI.UIUtils.CheckboxLabel.create(
-        i18nString(UIStrings.selectAutomatically), true, undefined, useCustomAcceptedEncodingSetting.name);
+        i18nString(UIStrings.selectAutomatically), true, undefined,
+        Platform.StringUtilities.toKebapCase(useCustomAcceptedEncodingSetting.name));
     section.appendChild(checkboxLabel);
     const autoCheckbox = checkboxLabel.checkboxElement;
 
@@ -327,7 +338,9 @@ export class NetworkConfigView extends UI.Widget.VBox {
     useCustomAcceptedEncodingSetting.addChangeListener(onSettingChange);
 
     const encodingsSection = section.createChild('div', 'network-config-accepted-encoding-custom');
-    encodingsSection.setAttribute('jslog', `${VisualLogging.section().context(customAcceptedEncodingSetting.name)}`);
+    encodingsSection.setAttribute(
+        'jslog',
+        `${VisualLogging.section().context(Platform.StringUtilities.toKebapCase(customAcceptedEncodingSetting.name))}`);
     autoCheckbox.checked = !useCustomAcceptedEncodingSetting.get();
     autoCheckbox.addEventListener('change', acceptedEncodingsChanged);
     const checkboxes = new Map<Protocol.Network.ContentEncoding, HTMLInputElement>();

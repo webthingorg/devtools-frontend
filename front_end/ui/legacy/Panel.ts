@@ -30,6 +30,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as Platform from '../../core/platform/platform.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {type SearchableView} from './SearchableView.js';
@@ -42,7 +43,7 @@ export class Panel extends VBox {
   constructor(name: string) {
     super();
 
-    this.element.setAttribute('jslog', `${VisualLogging.panel().context(name)}`);
+    this.element.setAttribute('jslog', `${VisualLogging.panel().context(Platform.StringUtilities.toKebapCase(name))}`);
     this.element.classList.add('panel');
     this.element.setAttribute('aria-label', name);
     this.element.classList.add(name);

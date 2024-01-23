@@ -30,6 +30,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Settings from '../components/settings/settings.js';
 import * as VisualLogging from '../visual_logging/visual_logging.js';
 
@@ -53,7 +54,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export const createSettingCheckbox = function(
     name: string, setting: Common.Settings.Setting<boolean>, omitParagraphElement?: boolean,
     tooltip?: string): Element {
-  const label = CheckboxLabel.create(name, undefined, undefined, setting.name);
+  const label = CheckboxLabel.create(name, undefined, undefined, Platform.StringUtilities.toKebapCase(setting.name));
   if (tooltip) {
     Tooltip.install(label, tooltip);
   }
@@ -84,7 +85,9 @@ const createSettingSelect = function(
     container.classList.add('chrome-select-label');
     label.createChild('p').textContent = subtitle;
   }
-  select.setAttribute('jslog', `${VisualLogging.dropDown().track({change: true}).context(setting.name)}`);
+  select.setAttribute(
+      'jslog',
+      `${VisualLogging.dropDown().track({change: true}).context(Platform.StringUtilities.toKebapCase(setting.name))}`);
   ARIAUtils.bindLabelToControl(label, select);
 
   for (const option of options) {

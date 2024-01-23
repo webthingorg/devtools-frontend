@@ -236,7 +236,11 @@ export class TabbedPane extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.tabsById.set(id, tab);
     tab.tabElement.tabIndex = -1;
     tab.tabElement.setAttribute(
-        'jslog', `${VisualLogging.panelTabHeader().track({click: true, drag: true}).context(id)}`);
+        'jslog',
+        `${
+            VisualLogging.panelTabHeader()
+                .track({click: true, drag: true})
+                .context(Platform.StringUtilities.toKebapCase(id))}`);
     if (index !== undefined) {
       this.tabs.splice(index, 0, tab);
     } else {
