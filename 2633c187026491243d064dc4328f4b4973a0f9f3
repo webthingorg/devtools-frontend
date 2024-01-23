@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f899dac_878ebeb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-23T19:30:44Z",
+      "side": 1,
+      "message": "I think this makes sense to me!\n\nI wonder if we can consolidate edit events into only one event. I can see why format changed might be an event of its own but I didn\u0027t exactly understand the difference between `ColorValueChanged` and `ColorEdited` events.",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eda7e5a_7f7ae942",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-23T19:30:44Z",
+      "side": 1,
+      "message": "I think this is an interesting workaround for the update issue, I\u0027d prefer to skip this workaround for this case and fix them altogether when we find a solution.\n\nFor the solution, I\u0027m not sure but maybe we can somehow pass \"effective\" flag to the color swatches based on whether their values affect the resolved value of the property declaration. Then, when an effective color swatch is updated, we can sync their values.",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c88574f_6b7c02a5",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-23T19:30:44Z",
+      "side": 1,
+      "message": "This seems like a leaky API, I wonder why we need to change the `setCanChangeFormat` to `true` on every edit? 🤔",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f66ce947_332963c8",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-23T19:30:44Z",
+      "side": 1,
+      "message": "(nit): I think we don\u0027t need the `false` at the end as the default value of `useCapture` is `false`.",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86db714e_b66e3975",
+        "filename": "front_end/panels/elements/elements-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-23T19:30:44Z",
+      "side": 1,
+      "message": "Currently the shortcut \"c\" doesn\u0027t work because we\u0027re not setting the flavor when the color popover is open. We need to `setFlavor` when the popover is open.",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ebafe7c_86b1de7f",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-23T19:30:44Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand why we\u0027re emitting this event on render, WDYT?",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
