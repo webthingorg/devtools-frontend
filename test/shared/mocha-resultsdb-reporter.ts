@@ -13,6 +13,7 @@ import * as ResultsDb from './resultsdb.js';
 const {
   EVENT_TEST_FAIL,
   EVENT_TEST_PASS,
+  EVENT_TEST_RETRY,
   EVENT_TEST_PENDING,
 } = Mocha.Runner.constants;
 
@@ -39,6 +40,10 @@ function getErrorMessage(error: Error|unknown): string {
   return sanitize(`${error}`);
 }
 
+interface TestRetry {
+  currentRetry(): number;
+}
+
 class ResultsDbReporter extends Mocha.reporters.Spec {
   // The max length of the summary is 4000, but we need to leave some room for
   // the rest of the HTML formatting (e.g. <pre> and </pre>).
@@ -53,6 +58,7 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
 
     runner.on(EVENT_TEST_PASS, this.onTestPass.bind(this));
     runner.on(EVENT_TEST_FAIL, this.onTestFail.bind(this));
+    runner.on(EVENT_TEST_RETRY, this.onTestRetry.bind(this));
     runner.on(EVENT_TEST_PENDING, this.onTestSkip.bind(this));
   }
 
@@ -74,6 +80,9 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
     }
     ResultsDb.sendTestResult(testResult);
   }
+  private onTestRetry(test: Mocha.Test, error: Error|ScreenshotError|unknown) {
+    this.onTestFail(test, error);
+  }
 
   private onTestSkip(test: Mocha.Test) {
     const testResult = this.buildDefaultTestResultFrom(test);
@@ -85,9 +94,11 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
   private buildDefaultTestResultFrom(test: Mocha.Test): ResultsDb.TestResult {
     let testId = this.suitePrefix ? this.suitePrefix + '/' : '';
     testId += test.titlePath().join('/');  // Chrome groups test by a path logic.
+    const testRetry = ((test as unknown) as TestRetry);
     return {
       testId: ResultsDb.sanitizedTestId(testId),
       duration: `${test.duration || 0}ms`,
+      tags: [{key: 'run', 'value': String(testRetry.currentRetry())}],
     };
   }
 }
