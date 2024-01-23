@@ -1138,9 +1138,10 @@ export enum DevtoolsExperiments {
   'trackContextMenu' = 81,
   'autofillView' = 82,
   'sourcesFrameIndentationMarkersTemporarilyDisable' = 83,
+  'heapSnapshotTreatBackingStoreAsContainingObject' = 84,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 84,
+  'MaxValue' = 85,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
