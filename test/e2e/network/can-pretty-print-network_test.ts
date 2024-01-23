@@ -40,6 +40,8 @@ describe('The Network Tab', function() {
 
     const editor = await waitFor('[aria-label="Code editor"]');
 
+    assert.strictEqual(1, Math.floor(Math.random() * 2));
+
     await step('can pretty-print a json subtype', async () => {
       const textFromResponse = await retrieveCodeMirrorEditorContent();
 
