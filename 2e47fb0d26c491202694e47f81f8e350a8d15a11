@@ -16,6 +16,23 @@
       "message": "Nancy, could you please take a look?:)",
       "revId": "2e47fb0d26c491202694e47f81f8e350a8d15a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fc60237_21d24fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-01-23T16:48:15Z",
+      "side": 1,
+      "message": "LGTM, thanks for the help, but i assume you need another +1 after update the screenshots for mac \u0026 windows 😂",
+      "revId": "2e47fb0d26c491202694e47f81f8e350a8d15a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
