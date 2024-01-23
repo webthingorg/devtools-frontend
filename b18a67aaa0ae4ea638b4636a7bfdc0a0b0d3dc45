@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "564b57c1_31593ad8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-23T11:53:06Z",
+      "side": 1,
+      "message": "Please file a dedicated crbug with a description of the current problem that we observe on M-122, and reference that here. Because I\u0027m sure this will come back, and a separate crbug makes it easier to back-merge.",
+      "revId": "b18a67aaa0ae4ea638b4636a7bfdc0a0b0d3dc45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "70fd102c_ff9ee562",
@@ -14,6 +31,40 @@
       "writtenOn": "2024-01-23T10:30:16Z",
       "side": 1,
       "message": "Benedikt, please kindly take a look? Seems to work without js, but with additional css vars",
+      "revId": "b18a67aaa0ae4ea638b4636a7bfdc0a0b0d3dc45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "369631f3_f4d8f208",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-23T11:53:06Z",
+      "side": 1,
+      "message": "I\u0027m far from an expert in this area, and will leave the details of the change to Ergun. I\u0027ve added my comments how to go about this issue.",
+      "revId": "b18a67aaa0ae4ea638b4636a7bfdc0a0b0d3dc45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0dd942_462735bf",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-23T11:53:06Z",
+      "side": 1,
+      "message": "Please add documentation here. This will be confusing to future selves and any breadcrumbs will help to make sense of it in two years time.\n\nAlso it\u0027ll help us understand when exactly we can stop using this work-around.",
       "revId": "b18a67aaa0ae4ea638b4636a7bfdc0a0b0d3dc45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
