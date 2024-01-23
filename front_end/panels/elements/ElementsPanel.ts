@@ -42,11 +42,11 @@ import * as Extensions from '../../models/extensions/extensions.js';
 import type * as Adorners from '../../ui/components/adorners/adorners.js';
 import * as Buttons from '../../ui/components/buttons/buttons.js';
 import * as TreeOutline from '../../ui/components/tree_outline/tree_outline.js';
+import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {type AXTreeNodeData} from './AccessibilityTreeUtils.js';
 import {AccessibilityTreeView} from './AccessibilityTreeView.js';
-import {ColorSwatchPopoverIcon} from './ColorSwatchPopoverIcon.js';
 import * as ElementsComponents from './components/components.js';
 import {ComputedStyleWidget} from './ComputedStyleWidget.js';
 import elementsPanelStyles from './elementsPanel.css.js';
@@ -1434,12 +1434,12 @@ export class ElementsActionDelegate implements UI.ActionRegistration.ActionDeleg
         ElementsPanel.instance().selectAndShowSidebarTab(SidebarPaneTabId.Computed);
         return true;
       case 'elements.toggle-eye-dropper': {
-        const colorSwatchPopoverIcon = UI.Context.Context.instance().flavor(ColorSwatchPopoverIcon);
-        if (!colorSwatchPopoverIcon) {
+        const colorSwatch = UI.Context.Context.instance().flavor(InlineEditor.ColorSwatch.ColorSwatch);
+        if (!colorSwatch) {
           return false;
         }
 
-        void colorSwatchPopoverIcon.toggleEyeDropper();
+        void colorSwatch.toggleEyeDropper();
       }
     }
     return false;

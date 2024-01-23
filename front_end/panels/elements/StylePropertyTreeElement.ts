@@ -19,8 +19,6 @@ import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {
   BezierPopoverIcon,
-  ColorSwatchPopoverIcon,
-  ColorSwatchPopoverIconEvents,
   ShadowSwatchPopoverHelper,
 } from './ColorSwatchPopoverIcon.js';
 import * as ElementsComponents from './components/components.js';
@@ -188,15 +186,21 @@ export class VariableRenderer extends VariableMatch {
           varSwatch.link, () => this.#treeElement.getVariablePopoverContents(this.name, variableValue ?? null));
     }
 
-    const innerSwatches =
-        renderedFallback?.cssControls?.get('color')?.filter(InlineEditor.ColorSwatch.ColorSwatch.isColorSwatch);
-    innerSwatches?.forEach(swatch => swatch.setReadonly(true));
-
     if (!computedValue || !Common.Color.parse(computedValue)) {
       return [varSwatch];
     }
 
     const colorSwatch = new ColorRenderer(this.#treeElement, computedValue).renderColorSwatch(varSwatch);
+
+    const innerSwatches =
+        renderedFallback?.cssControls?.get('color')?.filter(InlineEditor.ColorSwatch.ColorSwatch.isColorSwatch);
+    if (innerSwatches?.length === 1) {
+      const updateOuterColor = (): void => colorSwatch.renderColor(innerSwatches[0].getColor() ?? '');
+
+      innerSwatches[0].addEventListener(InlineEditor.ColorSwatch.ColorValueChangedEvent.eventName, updateOuterColor);
+      innerSwatches[0].addEventListener(InlineEditor.ColorSwatch.ColorEditedEvent.eventName, updateOuterColor);
+    }
+
     context.addControl('color', colorSwatch);
     return [colorSwatch];
   }
@@ -239,13 +243,12 @@ export class ColorRenderer extends ColorMatch {
     return new ColorMatcher(text => new ColorRenderer(treeElement, text));
   }
 
-  #getValueChild(node: CodeMirror.SyntaxNode, context: RenderingContext): HTMLSpanElement {
-    const valueChild = document.createElement('span');
+  #getValueChild(node: CodeMirror.SyntaxNode, context: RenderingContext): HTMLSpanElement|undefined {
     if (node.name === 'ColorLiteral' || (node.name === 'ValueName' && Common.Color.Nicknames.has(this.text))) {
-      valueChild.appendChild(document.createTextNode(this.text));
-    } else {
-      Renderer.renderInto(children(node), context, valueChild);
+      return undefined;
     }
+    const valueChild = document.createElement('span');
+    Renderer.renderInto(children(node), context, valueChild);
     return valueChild;
   }
 
@@ -262,55 +265,79 @@ export class ColorRenderer extends ColorMatch {
     const tooltip = editable ? i18nString(UIStrings.openColorPickerS, {PH1: shiftClickMessage}) : '';
 
     const swatch = new InlineEditor.ColorSwatch.ColorSwatch();
-    swatch.setReadonly(!editable);
+    swatch.setCanChangeFormat(editable && !valueChild);
     swatch.renderColor(text ?? this.text, editable, tooltip);
 
+    // If the swatch is rendered without a value child that means that it "owns" the color text that's attached to it.
+    // When the text changes, we also need to update the contents.
     if (!valueChild) {
-      valueChild = swatch.createChild('span');
-      const color = swatch.getColor();
-      valueChild.textContent =
-          color ? (color.getAuthoredText() ?? color.asString(swatch.getFormat() ?? undefined)) : this.text;
-    }
-    swatch.appendChild(valueChild);
+      const updateValueChild = (): void => {
+        const valueChild = swatch.createChild('span');
+        const color = swatch.getColor();
+        valueChild.textContent =
+            color ? (color.getAuthoredText() ?? color.asString(swatch.getFormat() ?? undefined)) : this.text;
+        swatch.firstElementChild?.remove();
+        swatch.appendChild(valueChild);
+      };
 
-    const onColorChanged = (event: InlineEditor.ColorSwatch.ColorChangedEvent): void => {
+      updateValueChild();
+      swatch.addEventListener(InlineEditor.ColorSwatch.ColorValueChangedEvent.eventName, updateValueChild);
+      swatch.addEventListener(InlineEditor.ColorSwatch.ColorFormatChangedEvent.eventName, updateValueChild);
+    } else {
+      swatch.appendChild(valueChild);
+    }
+    swatch.setPopoverContext({
+      swatchPopoverHelper: this.treeElement.parentPane().swatchPopoverHelper(),
+      palette: this.treeElement.generateCSSVariablesPalette(),
+    });
+
+    const onColorEdited = (event: InlineEditor.ColorSwatch.ColorEditedEvent): void => {
       const {data} = event;
       swatch.firstElementChild && swatch.firstElementChild.remove();
       swatch.createChild('span').textContent = data.text;
+      swatch.setCanChangeFormat(true);
       void this.treeElement.applyStyleText(this.treeElement.renderedPropertyText(), false);
     };
 
-    swatch.addEventListener(InlineEditor.ColorSwatch.ClickEvent.eventName, () => {
-      Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.Color);
-    });
-    swatch.addEventListener(InlineEditor.ColorSwatch.ColorChangedEvent.eventName, onColorChanged);
+    swatch.addEventListener(InlineEditor.ColorSwatch.ColorEditedEvent.eventName, onColorEdited);
+
+    let originalText: string|undefined = undefined;
+    const scrollerElement: Element|undefined = swatch.enclosingNodeOrSelfWithClass('style-panes-wrapper');
+    const onScroll = (): void => swatch.hidePopover();
+    const onPopover = (event: InlineEditor.ColorSwatch.PopoverEvent): void => {
+      if (event.data.state === 'shown') {
+        if (scrollerElement) {
+          scrollerElement.addEventListener('scroll', onScroll, false);
+        }
+        originalText = this.treeElement.renderedPropertyText();
+        this.treeElement.parentPane().setEditingStyle(true);
+        const uiLocation = Bindings.CSSWorkspaceBinding.CSSWorkspaceBinding.instance().propertyUILocation(
+            this.treeElement.property, false /* forName */);
+        if (uiLocation) {
+          void Common.Revealer.reveal(uiLocation, true /* omitFocus */);
+        }
+        return;
+      }
+
+      if (scrollerElement) {
+        scrollerElement.removeEventListener('scroll', onScroll, false);
+      }
+      const propertyText =
+          event.data.state === 'committed' ? this.treeElement.renderedPropertyText() : originalText ?? '';
+      void this.treeElement.applyStyleText(propertyText, true);
+      this.treeElement.parentPane().setEditingStyle(false);
+      originalText = undefined;
+    };
+    swatch.addEventListener(InlineEditor.ColorSwatch.PopoverEvent.eventName, onPopover);
 
     if (editable) {
-      const swatchIcon =
-          new ColorSwatchPopoverIcon(this.treeElement, this.treeElement.parentPane().swatchPopoverHelper(), swatch);
-      swatchIcon.addEventListener(ColorSwatchPopoverIconEvents.ColorChanged, ev => {
-        // TODO(crbug.com/1402233): Is it really okay to dispatch an event from `Swatch` here?
-        // This needs consideration as current structure feels a bit different:
-        // There are: ColorSwatch, ColorSwatchPopoverIcon, and Spectrum
-        // * Our entry into the Spectrum is `ColorSwatch` and `ColorSwatch` is able to
-        // update the color too. (its format at least, don't know the difference)
-        // * ColorSwatchPopoverIcon is a helper to show/hide the Spectrum popover
-        // * Spectrum is the color picker
-        //
-        // My idea is: merge `ColorSwatch` and `ColorSwatchPopoverIcon`
-        // and emit `ColorChanged` event whenever color is changed.
-        // Until then, this is a hack to kind of emulate the behavior described above
-        // `swatch` is dispatching its own ColorChangedEvent with the changed
-        // color text whenever the color changes.
-        swatch.dispatchEvent(new InlineEditor.ColorSwatch.ColorChangedEvent(ev.data));
-      });
-      void this.#addColorContrastInfo(swatchIcon);
+      void this.#addColorContrastInfo(swatch);
     }
 
     return swatch;
   }
 
-  async #addColorContrastInfo(swatchIcon: ColorSwatchPopoverIcon): Promise<void> {
+  async #addColorContrastInfo(swatchIcon: InlineEditor.ColorSwatch.ColorSwatch): Promise<void> {
     const cssModel = this.treeElement.parentPane().cssModel();
     const node = this.treeElement.node();
     if (this.treeElement.property.name !== 'color' || !cssModel || !node || typeof node.id === 'undefined') {
@@ -374,6 +401,30 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.lastComputedValue = null;
 
     this.#propertyTextFromSource = property.propertyText || '';
+  }
+
+  generateCSSVariablesPalette(): ColorPicker.Spectrum.Palette {
+    const matchedStyles = this.matchedStyles();
+    const style = this.property.ownerStyle;
+    const cssVariables = matchedStyles.availableCSSVariables(style);
+    const colors = [];
+    const colorNames = [];
+    for (const cssVariable of cssVariables) {
+      if (cssVariable === this.property.name) {
+        continue;
+      }
+      const value = matchedStyles.computeCSSVariable(style, cssVariable);
+      if (!value) {
+        continue;
+      }
+      const color = Common.Color.parse(value.value);
+      if (!color) {
+        continue;
+      }
+      colors.push(value.value);
+      colorNames.push(cssVariable);
+    }
+    return {title: 'CSS Variables', mutable: false, matchUserFormat: true, colors: colors, colorNames: colorNames};
   }
 
   matchedStyles(): SDK.CSSMatchedStyles.CSSMatchedStyles {
@@ -599,8 +650,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         const varSwatch = this.processVar(value);
         if (varSwatch instanceof InlineEditor.ColorSwatch.ColorSwatch) {
           varSwatch.addEventListener(
-              InlineEditor.ColorSwatch.ColorChangedEvent.eventName,
-              (ev: InlineEditor.ColorSwatch.ColorChangedEvent) => {
+              InlineEditor.ColorSwatch.ColorEditedEvent.eventName, (ev: InlineEditor.ColorSwatch.ColorEditedEvent) => {
                 onChange(ev.data.text);
               });
         }
@@ -614,8 +664,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         const colorSwatch = new ColorRenderer(this, value).renderColorSwatch();
         if (colorSwatch instanceof InlineEditor.ColorSwatch.ColorSwatch) {
           colorSwatch.addEventListener(
-              InlineEditor.ColorSwatch.ColorChangedEvent.eventName,
-              (ev: InlineEditor.ColorSwatch.ColorChangedEvent) => {
+              InlineEditor.ColorSwatch.ColorEditedEvent.eventName, (ev: InlineEditor.ColorSwatch.ColorEditedEvent) => {
                 onChange(ev.data.text);
               });
         }
@@ -807,15 +856,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       new ShadowSwatchPopoverHelper(this, swatchPopoverHelper, cssShadowSwatch);
       const colorSwatch = cssShadowSwatch.colorSwatch();
       if (colorSwatch) {
-        colorSwatch.addEventListener(InlineEditor.ColorSwatch.ClickEvent.eventName, () => {
-          Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.Color);
-        });
-        const swatchIcon = new ColorSwatchPopoverIcon(this, swatchPopoverHelper, colorSwatch);
-        swatchIcon.addEventListener(ColorSwatchPopoverIconEvents.ColorChanged, ev => {
-          // TODO(crbug.com/1402233): Is it really okay to dispatch an event from `Swatch` here?
-          colorSwatch.dispatchEvent(new InlineEditor.ColorSwatch.ColorChangedEvent(ev.data));
-        });
-        colorSwatch.addEventListener(InlineEditor.ColorSwatch.ColorChangedEvent.eventName, () => {
+        colorSwatch.setPopoverContext({swatchPopoverHelper, palette: this.generateCSSVariablesPalette()});
+        colorSwatch.addEventListener(InlineEditor.ColorSwatch.ColorEditedEvent.eventName, () => {
           void this.applyStyleText(this.renderedPropertyText(), false);
         });
       }

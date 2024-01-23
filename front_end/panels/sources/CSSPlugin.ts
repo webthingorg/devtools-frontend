@@ -164,25 +164,31 @@ class ColorSwatchWidget extends CodeMirror.WidgetType {
     const value = swatch.createChild('span');
     value.textContent = this.#text;
     value.setAttribute('hidden', 'true');
-    swatch.addEventListener(InlineEditor.ColorSwatch.ColorChangedEvent.eventName, event => {
+    const updateText = (text: string): void => {
       view.dispatch({
-        changes: {from: this.#from, to: this.#from + this.#text.length, insert: event.data.text},
+        changes: {from: this.#from, to: this.#from + this.#text.length, insert: text},
       });
-      this.#text = event.data.text;
+      this.#text = text;
       this.#color = swatch.getColor() as Common.Color.Color;
-    });
-    swatch.addEventListener(InlineEditor.ColorSwatch.ClickEvent.eventName, event => {
-      event.consume(true);
-      view.dispatch({
-        effects: setTooltip.of({
-          type: TooltipType.Color,
-          pos: view.posAtDOM(swatch),
-          text: this.#text,
-          swatch,
-          color: this.#color,
-        }),
-      });
-    });
+    };
+    swatch.addEventListener(
+        InlineEditor.ColorSwatch.ColorValueChangedEvent.eventName,
+        ({data}) => updateText(data.color?.getAuthoredText() ?? data.color?.asString() ?? ''));
+    swatch.addEventListener(
+        InlineEditor.ColorSwatch.ColorFormatChangedEvent.eventName, ({data}) => updateText(data.text));
+    swatch.addEventListener(InlineEditor.ColorSwatch.ColorEditedEvent.eventName, ({data}) => updateText(data.text));
+    // swatch.addEventListener(InlineEditor.ColorSwatch.ClickEvent.eventName, event => {
+    //  event.consume(true);
+    //  view.dispatch({
+    //    effects: setTooltip.of({
+    //      type: TooltipType.Color,
+    //      pos: view.posAtDOM(swatch),
+    //      text: this.#text,
+    //      swatch,
+    //      color: this.#color,
+    //    }),
+    //  });
+    // });
     return swatch;
   }
 

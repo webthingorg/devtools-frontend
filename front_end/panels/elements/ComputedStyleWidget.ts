@@ -180,17 +180,20 @@ const createTraceElement =
 class ColorRenderer extends ColorMatch {
   render(_node: unknown, context: RenderingContext): Node[] {
     const swatch = new InlineEditor.ColorSwatch.ColorSwatch();
-    swatch.setReadonly(true);
     swatch.renderColor(this.text, true);
     const valueElement = document.createElement('span');
     valueElement.textContent = swatch.getText();
     swatch.append(valueElement);
 
-    swatch.addEventListener(
-        InlineEditor.ColorSwatch.ColorChangedEvent.eventName, (event: InlineEditor.ColorSwatch.ColorChangedEvent) => {
-          const {data} = event;
-          valueElement.textContent = data.text;
-        });
+    swatch.addEventListener(InlineEditor.ColorSwatch.ColorValueChangedEvent.eventName, ({data}): void => {
+      valueElement.textContent = (data.color?.getAuthoredText() ?? data.color?.asString() ?? '');
+    });
+    swatch.addEventListener(InlineEditor.ColorSwatch.ColorFormatChangedEvent.eventName, ({data}): void => {
+      valueElement.textContent = data.text;
+    });
+    swatch.addEventListener(InlineEditor.ColorSwatch.ColorEditedEvent.eventName, ({data}): void => {
+      valueElement.textContent = data.text;
+    });
 
     context.addControl('color', swatch);
     return [swatch];

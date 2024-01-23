@@ -9,7 +9,7 @@ import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
 import bezierSwatchStyles from './bezierSwatch.css.js';
-import {ColorChangedEvent, ColorSwatch} from './ColorSwatch.js';
+import {ColorEditedEvent, ColorFormatChangedEvent, ColorSwatch, ColorValueChangedEvent} from './ColorSwatch.js';
 import {type CSSShadowModel} from './CSSShadowModel.js';
 import cssShadowSwatchStyles from './cssShadowSwatch.css.js';
 
@@ -102,8 +102,14 @@ export class CSSShadowSwatch extends HTMLSpanElement {
         if (!this.colorSwatchInternal) {
           this.colorSwatchInternal = new ColorSwatch();
           const value = this.colorSwatchInternal.createChild('span');
-          this.colorSwatchInternal.addEventListener(ColorChangedEvent.eventName, (event: ColorChangedEvent) => {
-            value.textContent = event.data.text;
+          this.colorSwatchInternal.addEventListener(ColorValueChangedEvent.eventName, ({data}): void => {
+            value.textContent = (data.color?.getAuthoredText() ?? data.color?.asString() ?? '');
+          });
+          this.colorSwatchInternal.addEventListener(ColorFormatChangedEvent.eventName, ({data}): void => {
+            value.textContent = data.text;
+          });
+          this.colorSwatchInternal.addEventListener(ColorEditedEvent.eventName, ({data}): void => {
+            value.textContent = data.text;
           });
         }
 

@@ -11,6 +11,7 @@ import * as LitHtml from '../../../lit-html/lit-html.js';
 import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 
 import colorSwatchStyles from './colorSwatch.css.js';
+import {type SwatchPopoverHelper} from './SwatchPopoverHelper.js';
 
 const UIStrings = {
   /**
@@ -21,22 +22,47 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/inline_editor/ColorSwatch.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export class ColorChangedEvent extends Event {
-  static readonly eventName = 'colorchanged';
+export class PopoverEvent extends Event {
+  static readonly eventName = 'popover';
 
-  data: {text: string};
+  data: {state: 'shown'|'committed'|'hidden'};
 
-  constructor(text: string) {
-    super(ColorChangedEvent.eventName, {});
-    this.data = {text};
+  constructor(state: 'shown'|'committed'|'hidden') {
+    super(PopoverEvent.eventName, {});
+    this.data = {state};
   }
 }
 
-export class ClickEvent extends Event {
-  static readonly eventName = 'swatchclick';
+export class ColorValueChangedEvent extends Event {
+  static readonly eventName = 'colorvaluechanged';
 
-  constructor() {
-    super(ClickEvent.eventName, {});
+  data: {color: Common.Color.Color|null};
+
+  constructor(color: Common.Color.Color|null) {
+    super(ColorValueChangedEvent.eventName, {});
+    this.data = {color};
+  }
+}
+
+export class ColorFormatChangedEvent extends Event {
+  static readonly eventName = 'colorformatchanged';
+
+  data: {text: string, format: Common.Color.Format};
+
+  constructor(text: string, format: Common.Color.Format) {
+    super(ColorFormatChangedEvent.eventName, {});
+    this.data = {text, format};
+  }
+}
+
+export class ColorEditedEvent extends Event {
+  static readonly eventName = 'coloredited';
+
+  data: {text: string, color: Common.Color.Color};
+
+  constructor(text: string, color: Common.Color.Color) {
+    super(ColorEditedEvent.eventName, {});
+    this.data = {text, color};
   }
 }
 
@@ -47,29 +73,115 @@ export class ColorSwatch extends HTMLElement {
   private text: string|null = null;
   private color: Common.Color.Color|null = null;
   private format: Common.Color.Format|null = null;
-  private readonly: boolean = false;
+
+  private canChangeFormat: boolean = false;
+  private canEdit: boolean = false;
+
+  private spectrum: ColorPicker.Spectrum.Spectrum|undefined;
+  private contrastInfo: ColorPicker.ContrastInfo.ContrastInfo|undefined;
+  private readonly boundSpectrumChanged: (event: Common.EventTarget.EventTargetEvent<string>) => void;
+  private swatchPopoverHelper: SwatchPopoverHelper|undefined;
+  palette: ColorPicker.Spectrum.Palette|undefined;
 
   constructor() {
     super();
     this.shadow.adoptedStyleSheets = [
       colorSwatchStyles,
     ];
+    this.boundSpectrumChanged = this.spectrumChanged.bind(this);
+  }
+
+  setContrastInfo(contrastInfo: ColorPicker.ContrastInfo.ContrastInfo): void {
+    this.contrastInfo = contrastInfo;
+  }
+
+  private iconClick(event: Event): void {
+    event.consume(true);
+    this.showPopover();
+  }
+
+  async toggleEyeDropper(): Promise<void> {
+    await this.spectrum?.toggleColorPicker();
+  }
+
+  setPopoverContext(context: {swatchPopoverHelper: SwatchPopoverHelper, palette: ColorPicker.Spectrum.Palette}|
+                    undefined): void {
+    this.swatchPopoverHelper = context?.swatchPopoverHelper;
+    this.palette = context?.palette;
+  }
+
+  override showPopover(): void {
+    if (!this.swatchPopoverHelper) {
+      return;
+    }
+
+    if (this.swatchPopoverHelper.isShowing()) {
+      this.swatchPopoverHelper.hide(true);
+      return;
+    }
+
+    const color = this.getColor();
+    const format = this.getFormat();
+    if (!color || !format) {
+      return;
+    }
+
+    this.spectrum = new ColorPicker.Spectrum.Spectrum(this.contrastInfo);
+    this.spectrum.setColor(color, format);
+    if (this.palette) {
+      this.spectrum.addPalette(this.palette);
+    }
+
+    this.spectrum.addEventListener(ColorPicker.Spectrum.Events.SizeChanged, this.spectrumResized, this);
+    this.spectrum.addEventListener(ColorPicker.Spectrum.Events.ColorChanged, this.boundSpectrumChanged);
+    this.swatchPopoverHelper.show(this.spectrum, this, this.onPopoverHidden.bind(this));
+    this.dispatchEvent(new PopoverEvent('shown'));
+
+    Host.userMetrics.colorPickerOpenedFrom(Host.UserMetrics.ColorPickerOpenedFrom.StylesPane);
+  }
+
+  private spectrumResized(): void {
+    this.swatchPopoverHelper?.reposition();
+  }
+
+  private async spectrumChanged(event: Common.EventTarget.EventTargetEvent<string>): Promise<void> {
+    const color = Common.Color.parse(event.data);
+    if (!color) {
+      return;
+    }
+
+    const colorName = this.spectrum ? this.spectrum.colorName() : undefined;
+    const text =
+        colorName && colorName.startsWith('--') ? `var(${colorName})` : (color.getAuthoredText() ?? color.asString());
+
+    this.renderColor(color);
+    if (text) {
+      this.dispatchEvent(new ColorEditedEvent(text, color));
+    }
+  }
+
+  override hidePopover(): void {
+    this.swatchPopoverHelper?.hide(true);
+  }
+
+  private onPopoverHidden(commitEdit: boolean): void {
+    if (this.spectrum) {
+      this.spectrum.removeEventListener(ColorPicker.Spectrum.Events.ColorChanged, this.boundSpectrumChanged);
+    }
+    this.spectrum = undefined;
+    this.dispatchEvent(new PopoverEvent(commitEdit ? 'committed' : 'hidden'));
   }
 
   static isColorSwatch(element: Element): element is ColorSwatch {
     return element.localName === 'devtools-color-swatch';
   }
 
-  getReadonly(): boolean {
-    return this.readonly;
-  }
-
-  setReadonly(readonly: boolean): void {
-    if (this.readonly === readonly) {
+  setCanChangeFormat(canChangeFormat: boolean): void {
+    if (this.canChangeFormat === canChangeFormat) {
       return;
     }
 
-    this.readonly = readonly;
+    this.canChangeFormat = canChangeFormat;
     this.render();
   }
 
@@ -120,6 +232,7 @@ export class ColorSwatch extends HTMLElement {
     }
 
     this.render();
+    this.dispatchEvent(new ColorValueChangedEvent(this.color));
   }
 
   private renderTextOnly(): void {
@@ -135,7 +248,7 @@ export class ColorSwatch extends HTMLElement {
 
     const colorSwatchClasses = LitHtml.Directives.classMap({
       'color-swatch': true,
-      'readonly': this.readonly,
+      'readonly': !this.canChangeFormat && !this.swatchPopoverHelper,
     });
 
     // Disabled until https://crbug.com/1079231 is fixed.
@@ -156,17 +269,15 @@ export class ColorSwatch extends HTMLElement {
   }
 
   private onClick(e: KeyboardEvent): void {
-    if (this.readonly) {
-      return;
-    }
-
-    if (e.shiftKey) {
+    // FIXME Is it okay to do this unconditionally?
+    Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.Color);
+    if (e.shiftKey && this.canChangeFormat) {
       e.stopPropagation();
       this.showFormatPicker(e);
       return;
     }
 
-    this.dispatchEvent(new ClickEvent());
+    this.showPopover();
   }
 
   private consume(e: Event): void {
@@ -174,6 +285,9 @@ export class ColorSwatch extends HTMLElement {
   }
 
   setFormat(format: Common.Color.Format): void {
+    if (!this.canChangeFormat) {
+      return;
+    }
     const newColor = this.color?.as(format);
     const text = newColor?.asString();
     if (!newColor || !text) {
@@ -183,7 +297,7 @@ export class ColorSwatch extends HTMLElement {
     this.format = this.color.format();
     this.text = text;
     this.render();
-    this.dispatchEvent(new ColorChangedEvent(this.text));
+    this.dispatchEvent(new ColorFormatChangedEvent(this.text, this.color.format()));
   }
 
   private showFormatPicker(e: Event): void {
@@ -207,7 +321,9 @@ declare global {
   }
 
   interface HTMLElementEventMap {
-    [ColorChangedEvent.eventName]: ColorChangedEvent;
-    [ClickEvent.eventName]: Event;
+    [ColorValueChangedEvent.eventName]: ColorValueChangedEvent;
+    [ColorFormatChangedEvent.eventName]: ColorFormatChangedEvent;
+    [ColorEditedEvent.eventName]: ColorEditedEvent;
+    [PopoverEvent.eventName]: PopoverEvent;
   }
 }
