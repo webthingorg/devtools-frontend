@@ -138,10 +138,10 @@ describe('Settings instance', () => {
     const staticSetting: Common.Settings.Setting<boolean> = settings.moduleSetting('staticSyncedSetting');
     staticSetting.set(true);
 
-    assert.isFalse(dummyStorage.has('dynamicSyncedSetting'));
-    assert.isFalse(dummyStorage.has('staticSyncedSetting'));
-    assert.strictEqual(syncedStorage.get('dynamicSyncedSetting'), '"foo value"');
-    assert.strictEqual(syncedStorage.get('staticSyncedSetting'), 'true');
+    assert.isFalse(dummyStorage.has('dynamic-synced-setting'));
+    assert.isFalse(dummyStorage.has('static-synced-setting'));
+    assert.strictEqual(syncedStorage.get('dynamic-synced-setting'), '"foo value"');
+    assert.strictEqual(syncedStorage.get('static-synced-setting'), 'true');
   });
 
   it('registers settings with the backing store when creating them', () => {
@@ -163,9 +163,9 @@ describe('Settings instance', () => {
     settings.createSetting('dynamicLocalSetting', 42, Common.Settings.SettingStorageType.Local);
     settings.createSetting('dynamicSyncedSetting', 'foo', Common.Settings.SettingStorageType.Synced);
 
-    assert.isTrue(registeredSettings.has('__prefix__.staticGlobalSetting'));
-    assert.isTrue(registeredSettings.has('__prefix__.dynamicLocalSetting'));
-    assert.isTrue(registeredSettings.has('__prefix__.dynamicSyncedSetting'));
+    assert.isTrue(registeredSettings.has('__prefix__.static-global-setting'));
+    assert.isTrue(registeredSettings.has('__prefix__.dynamic-local-setting'));
+    assert.isTrue(registeredSettings.has('__prefix__.dynamic-synced-setting'));
   });
 
   describe('forceGet', () => {
