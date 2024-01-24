@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6103d4e0_620c5486",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-24T13:34:36Z",
+      "side": 1,
+      "message": "Can you take a look please? Thanks! 🙏\n\n(presubmit insisted on formatting the whole .eslintrc.js 😕)",
+      "revId": "79ed91b442cdb332997c38b6bb1a9c3962a1c806",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
