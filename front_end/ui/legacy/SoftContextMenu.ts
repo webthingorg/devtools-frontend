@@ -225,11 +225,13 @@ export class SoftContextMenu {
     if (item.checked) {
       menuItemElement.setAttribute('checked', '');
     }
-    const checkMarkElement = IconButton.Icon.create('checkmark', 'checkmark');
     if (item.id !== undefined) {
       menuItemElement.setAttribute('data-action-id', item.id.toString());
     }
-    menuItemElement.appendChild(checkMarkElement);
+    if (item.type === 'checkbox') {
+      const checkMarkElement = IconButton.Icon.create('checkmark', 'checkmark');
+      menuItemElement.appendChild(checkMarkElement);
+    }
     if (item.tooltip) {
       Tooltip.install(menuItemElement, item.tooltip);
     }
