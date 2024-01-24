@@ -65,19 +65,31 @@ const envChromeBinary = getTestRunnerConfigSetting<string>('chrome-binary-path',
 const envChromeFeatures = getTestRunnerConfigSetting<string>('chrome-features', process.env['CHROME_FEATURES'] || '');
 
 export async function watchForHang<T>(stepFn: () => Promise<T>): Promise<T> {
+  const stepName = stepFn.name || stepFn.toString();
   const stackTrace = new Error().stack;
-  const timeout =
-      setTimeout(() => console.error(`Hung at step ${stepFn.name || stepFn.toString()}\nTrace: ${stackTrace}`), 10000);
-  let isException = true;
+  // @ts-expect-error not typed
+  const currentTest = watchForHang.currentTest;
+  function logTime(label: string) {
+    const end = performance.now();
+    console.error(`\n${stepName} ${label} ${end - start}ms\nTrace: ${stackTrace}\nTest: ${currentTest}\n`);
+  }
+  let tripped = false;
+  const timerId = setTimeout(() => {
+    logTime('takes at least');
+    tripped = true;
+  }, 10000);
+  const start = performance.now();
   try {
     const result = await stepFn();
-    isException = false;
-    return result;
-  } finally {
-    clearTimeout(timeout);
-    if (isException) {
-      console.error(`Exception thrown during step ${stepFn.name || stepFn.toString()}\nTrace: ${stackTrace}`);
+    if (tripped) {
+      logTime('succeded after');
     }
+    return result;
+  } catch (err) {
+    logTime('errored after');
+    throw err;
+  } finally {
+    clearTimeout(timerId);
   }
 }
 

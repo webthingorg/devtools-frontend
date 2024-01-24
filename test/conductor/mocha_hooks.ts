@@ -131,9 +131,11 @@ export const mochaHooks = {
     reports.create('json-summary').execute(context);
   },
   // In both modes, run before each test.
-  beforeEach: async function(this: Mocha.Suite) {
+  beforeEach: async function(this: Mocha.Context) {
     // Sets the timeout higher for this hook only.
     this.timeout(20000);
+    // @ts-expect-error dynamic variable
+    watchForHang.currentTest = this.currentTest?.fullTitle();
     await watchForHang(resetPages);
     await watchForHang(unregisterAllServiceWorkers);
 
