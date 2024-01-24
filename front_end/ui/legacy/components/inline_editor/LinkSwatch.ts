@@ -94,6 +94,7 @@ export class CSSVarSwatch extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-css-var-swatch`;
   protected readonly shadow = this.attachShadow({mode: 'open'});
   #link: BaseLinkSwatch|undefined;
+  #computedValue: string|null = null;
 
   constructor() {
     super();
@@ -117,12 +118,17 @@ export class CSSVarSwatch extends HTMLElement {
     return this.#link;
   }
 
+  get computedValue(): string|null {
+    return this.#computedValue;
+  }
+
   protected render(data: CSSVarSwatchRenderData): void {
     const {variableName, fromFallback, computedValue, onLinkActivate} = data;
 
     const isDefined = Boolean(computedValue) && !fromFallback;
     const title = isDefined ? computedValue ?? '' : i18nString(UIStrings.sIsNotDefined, {PH1: variableName});
 
+    this.#computedValue = computedValue;
     this.#link = new BaseLinkSwatch();
     this.#link.data = {
       title,
