@@ -178,21 +178,24 @@ export class Target extends ProtocolClient.InspectorBackend.TargetBase {
     }
   }
 
-  model<T extends SDKModel>(modelClass: new(arg1: Target) => T): T|null {
-    if (!this.#modelByConstructor.get(modelClass)) {
+  model<T extends SDKModel>(modelClass: new(arg1: Target) => T): T {
+    let model = this.#modelByConstructor.get(modelClass);
+    if (!model) {
       const info = SDKModel.registeredModels.get(modelClass);
       if (info === undefined) {
-        throw 'Model class is not registered @' + new Error().stack;
+        throw new Error(`Model class ${modelClass} is not registered`);
       }
-      if ((this.#capabilitiesMask & info.capabilities) === info.capabilities) {
-        const model = new modelClass(this);
-        this.#modelByConstructor.set(modelClass, model);
-        if (!this.#creatingModels) {
-          this.#targetManagerInternal.modelAdded(this, modelClass, model, this.#targetManagerInternal.isInScope(this));
-        }
+      if ((this.#capabilitiesMask & info.capabilities) !== info.capabilities) {
+        throw new Error(`Model class ${modelClass} does not have the necessary capabilities (${info.capabilities})`);
+      }
+
+      model = new modelClass(this);
+      this.#modelByConstructor.set(modelClass, model);
+      if (!this.#creatingModels) {
+        this.#targetManagerInternal.modelAdded(this, modelClass, model, this.#targetManagerInternal.isInScope(this));
       }
     }
-    return (this.#modelByConstructor.get(modelClass) as T) || null;
+    return model as T;
   }
 
   models(): Map<new(arg1: Target) => SDKModel, SDKModel> {
