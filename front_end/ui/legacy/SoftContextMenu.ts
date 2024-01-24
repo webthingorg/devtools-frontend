@@ -230,6 +230,7 @@ export class SoftContextMenu {
       menuItemElement.setAttribute('data-action-id', item.id.toString());
     }
     menuItemElement.appendChild(checkMarkElement);
+
     if (item.tooltip) {
       Tooltip.install(menuItemElement, item.tooltip);
     }
