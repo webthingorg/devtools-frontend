@@ -115,7 +115,6 @@ export function installPageErrorHandlers(page: puppeteer.Page): void {
         }
         if (isExpectedError(msg)) {
           expectedErrors.push(message);
-          console.log('(expected) ' + message);
         } else {
           fatalErrors.push(message);
           console.error(message);
