@@ -66,19 +66,15 @@ const envChromeFeatures = getTestRunnerConfigSetting<string>('chrome-features', 
 
 export async function watchForHang<T>(stepFn: () => Promise<T>): Promise<T> {
   const stackTrace = new Error().stack;
-  const timeout =
-      setTimeout(() => console.error(`Hung at step ${stepFn.name || stepFn.toString()}\nTrace: ${stackTrace}`), 10000);
-  let isException = true;
-  try {
-    const result = await stepFn();
-    isException = false;
-    return result;
-  } finally {
-    clearTimeout(timeout);
-    if (isException) {
-      console.error(`Exception thrown during step ${stepFn.name || stepFn.toString()}\nTrace: ${stackTrace}`);
-    }
-  }
+  let timerId: ReturnType<typeof setTimeout>;
+  const timeoutPromise = new Promise(resolve => {
+    timerId = setTimeout(resolve, 10000);
+  });
+  return Promise.race([
+    stepFn().finally(() => clearTimeout(timerId)),
+    timeoutPromise.then(
+        () => Promise.reject(new Error(`Hung at step ${stepFn.name || stepFn.toString()}\nTrace: ${stackTrace}`))),
+  ]) as T;
 }
 
 function launchChrome() {
