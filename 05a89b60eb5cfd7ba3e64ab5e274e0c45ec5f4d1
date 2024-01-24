@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91045dfc_e8e4e97a",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-24T18:49:27Z",
+      "side": 1,
+      "message": "should it be false by default and set to true in catch and log the actual exception instead of stackTrace?",
+      "revId": "05a89b60eb5cfd7ba3e64ab5e274e0c45ec5f4d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
