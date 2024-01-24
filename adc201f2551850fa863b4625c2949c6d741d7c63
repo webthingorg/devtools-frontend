@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5fb7698_0b3b7e35",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-24T05:50:34Z",
+      "side": 1,
+      "message": "IIRC the order doesn\u0027t really matter but until the backend CL lands the metrics dashboards will only show a unlabeled \"84\" for the experiment as the enums.xml provides the names.",
+      "parentUuid": "6b6af983_d2089433",
+      "range": {
+        "startLine": 1141,
+        "startChar": 2,
+        "endLine": 1141,
+        "endChar": 57
+      },
+      "revId": "adc201f2551850fa863b4625c2949c6d741d7c63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e046bfb7_6ea64e9e",
