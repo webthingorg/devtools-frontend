@@ -86,8 +86,6 @@ const UIStrings = {
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/perf_ui/FlameChart.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
-const HIDDEN_DESCENDANT_ARROW = 'data:image/jpg;base64,' +
-    'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABYSURBVHgB7c6xDYBACAVQIM5BWOUmM47iJK5CGATEhMKYK7TyinsV+YEfAKb/YS9k5pWI5J65u5rZ9txdegV5vEfEkaNUpJm11x9cJFUJIGLTBF9JgWlwJyvOFrGul+FpAAAAAElFTkSuQmCC';
 
 export class FlameChartDelegate {
   windowChanged(_startTime: number, _endTime: number, _animate: boolean): void {
@@ -1576,9 +1574,19 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             context.rect(barX, barY, barWidth, barHeight);
             const arrowSize = barHeight;
             if (barWidth > arrowSize * 2) {
-              const image = new Image();
-              image.src = HIDDEN_DESCENDANT_ARROW;
-              context.drawImage(image, barX + barWidth - arrowSize, barY, arrowSize, arrowSize);
+              const triangleSize = 7;
+              const triangleHorizontalPadding = 5;
+              const triangleVerrticalPadding = 6;
+              context.clip();
+              context.beginPath();
+              context.fillStyle = '#474747';
+              context.moveTo(
+                  barX + barWidth - triangleSize - triangleHorizontalPadding, barY + triangleVerrticalPadding);
+              context.lineTo(barX + barWidth - triangleHorizontalPadding, barY + triangleVerrticalPadding);
+              context.lineTo(
+                  barX + barWidth - triangleHorizontalPadding - triangleSize / 2,
+                  barY + barHeight - triangleVerrticalPadding);
+              context.fill();
             }
             context.restore();
             break;
