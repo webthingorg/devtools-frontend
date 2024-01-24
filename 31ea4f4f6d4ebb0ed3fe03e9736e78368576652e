@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17e39b69_26a6b677",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-01-24T10:51:05Z",
+      "side": 1,
+      "message": "How will the normal current UI treat a flake now? E.g. a FAIL, PASS. Will it now hide the flake and let the build look like it passed?",
+      "revId": "31ea4f4f6d4ebb0ed3fe03e9736e78368576652e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
