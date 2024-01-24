@@ -50,6 +50,23 @@
       "message": "friendly ping @dsv@chromium.org😊",
       "revId": "3fa546ac33561b1099a076e0cb7f0fb4d917a733",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f60cd1a9_d34654ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413245
+      },
+      "writtenOn": "2024-01-24T07:57:09Z",
+      "side": 1,
+      "message": "thank you!",
+      "revId": "3fa546ac33561b1099a076e0cb7f0fb4d917a733",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
