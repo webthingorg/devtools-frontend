@@ -16,6 +16,23 @@
       "message": "Benedikt, please kindly take a look?",
       "revId": "402d1f463650fbaebf7e489505017f02232e1b56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5078970_94051ad5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-24T13:40:52Z",
+      "side": 1,
+      "message": "LGTM, very nice, thank you.",
+      "revId": "402d1f463650fbaebf7e489505017f02232e1b56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
