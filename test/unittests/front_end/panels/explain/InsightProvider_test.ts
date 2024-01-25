@@ -7,6 +7,8 @@ import * as Explain from '../../../../../front_end/panels/explain/explain.js';
 
 const {assert} = chai;
 
+const TEST_MODEL_ID = 'codey_gemit_m_streaming_chrome';
+
 describe('InsightProvider', () => {
   it('adds no model temperature if there is no aidaTemperature query param', () => {
     const stub = sinon.stub(Root.Runtime.Runtime, 'queryParam');
@@ -15,6 +17,9 @@ describe('InsightProvider', () => {
     assert.deepStrictEqual(request, {
       input: 'foo',
       client: 'CHROME_DEVTOOLS',
+      options: {
+        model_id: TEST_MODEL_ID,
+      },
     });
     stub.restore();
   });
@@ -28,6 +33,7 @@ describe('InsightProvider', () => {
       client: 'CHROME_DEVTOOLS',
       options: {
         temperature: 0.5,
+        model_id: TEST_MODEL_ID,
       },
     });
     stub.restore();
@@ -42,6 +48,7 @@ describe('InsightProvider', () => {
       client: 'CHROME_DEVTOOLS',
       options: {
         temperature: 0,
+        model_id: TEST_MODEL_ID,
       },
     });
     stub.restore();
@@ -54,6 +61,9 @@ describe('InsightProvider', () => {
     assert.deepStrictEqual(request, {
       input: 'foo',
       client: 'CHROME_DEVTOOLS',
+      options: {
+        model_id: TEST_MODEL_ID,
+      },
     });
     stub.restore();
   });

@@ -8,8 +8,10 @@ import * as Root from '../../core/root/root.js';
 export interface AidaRequest {
   input: string;
   client: string;
-  options?: {
-    temperature: Number,
+  options: {
+    temperature?: Number,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    model_id?: string,
   };
 }
 
@@ -18,10 +20,14 @@ export class InsightProvider {
     const request: AidaRequest = {
       input,
       client: 'CHROME_DEVTOOLS',
+      options: {
+        // TODO: create a parameter similar to aidaTemperature.
+        model_id: 'codey_gemit_m_streaming_chrome',
+      },
     };
     const temperature = parseFloat(Root.Runtime.Runtime.queryParam('aidaTemperature') || '');
     if (!isNaN(temperature)) {
-      request.options = {temperature};
+      request.options.temperature = temperature;
     }
     return request;
   }
