@@ -80,6 +80,15 @@ const UIStrings = {
   /**
    *@description Title of a setting under the Appearance category that can be invoked through the Command Menu
    */
+  switchToChromePreferredColor: 'Switch to Chrome preferred color theme',
+  /**
+   *@description A drop-down menu option to switch to Chrome preferred color theme
+   */
+  chromePreference: 'Chrome preference',
+  /**
+  /**
+   *@description Title of a setting under the Appearance category that can be invoked through the Command Menu
+   */
   switchToLightTheme: 'Switch to light theme',
   /**
    *@description A drop-down menu option to switch to light theme
@@ -577,9 +586,14 @@ Common.Settings.registerSettingExtension({
   title: i18nLazyString(UIStrings.theme),
   settingName: 'uiTheme',
   settingType: Common.Settings.SettingType.ENUM,
-  defaultValue: 'systemPreferred',
+  defaultValue: 'chromePreferred',
   reloadRequired: false,
   options: [
+    {
+      title: i18nLazyString(UIStrings.switchToChromePreferredColor),
+      text: i18nLazyString(UIStrings.chromePreference),
+      value: 'chromePreferred',
+    },
     {
       title: i18nLazyString(UIStrings.switchToSystemPreferredColor),
       text: i18nLazyString(UIStrings.systemPreference),

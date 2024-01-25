@@ -432,7 +432,7 @@ export class MainImpl {
     // Request filesystems early, we won't create connections until callback is fired. Things will happen in parallel.
     Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.instance();
 
-    const defaultThemeSetting = 'systemPreferred';
+    const defaultThemeSetting = 'chromePreferred';
     const themeSetting = Common.Settings.Settings.instance().createSetting('uiTheme', defaultThemeSetting);
     UI.UIUtils.initializeUIUtils(document);
 

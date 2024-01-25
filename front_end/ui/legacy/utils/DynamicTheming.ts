@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as ThemeSupport from '../theme_support/theme_support.js';
+
 // export class instead of function to make sinon spying possible (it cannot mock ES modules)
 export class DynamicTheming {
   static async refetchColors(document: Document|undefined): Promise<void> {
@@ -30,6 +32,7 @@ export class DynamicTheming {
     document.body.appendChild(newColorsCssLink);
     if (await newColorsLoaded) {
       colorCssNode.remove();
+      ThemeSupport.ThemeSupport.instance().applyTheme(document);
     }
   }
 }
