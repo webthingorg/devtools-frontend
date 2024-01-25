@@ -16,6 +16,24 @@
       "message": "How does this work when a (sub)menu has both checkbox and non-checkbox items?",
       "revId": "198749c02777b42a6760b7504f3925112d6544c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebbfd735_55d2214f",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-01-25T12:11:27Z",
+      "side": 1,
+      "message": "Good point, there is a menu like that. \nI changed it to check if there is a checkbox item in the menu and if there is, the space is added to non-checkbox items to alight them.\nAlternatively, we can add additional option to an item to have/not have space in front  .\n\nThis Cl also changes this Issues panel menu that doesn\u0027t seem to need space in front of the label: https://screenshot.googleplex.com/9tDFWbnWTDQyPiy",
+      "parentUuid": "2a9dcc05_c0034eae",
+      "revId": "198749c02777b42a6760b7504f3925112d6544c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
