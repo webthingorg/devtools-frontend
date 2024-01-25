@@ -45,10 +45,10 @@ export async function takeScreenshots(testName: string): Promise<{target?: strin
         console.error(`Error saving to file "${screenshotFile}": `, err);
       }
     } else {
-      console.error('Target page screenshot (copy the next line and open in the browser):');
-      console.error(prefix + targetScreenshot);
-      console.error('Frontend screenshot (copy the next line and open in the browser):');
-      console.error(prefix + frontendScreenshot);
+      // console.error('Target page screenshot (copy the next line and open in the browser):');
+      // console.error(prefix + targetScreenshot);
+      // console.error('Frontend screenshot (copy the next line and open in the browser):');
+      // console.error(prefix + frontendScreenshot);
     }
     return {target: targetScreenshot, frontend: frontendScreenshot};
   } catch (err) {
