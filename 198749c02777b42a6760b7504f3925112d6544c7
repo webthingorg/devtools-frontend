@@ -34,6 +34,24 @@
       "parentUuid": "2a9dcc05_c0034eae",
       "revId": "198749c02777b42a6760b7504f3925112d6544c7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd00ccd7_107e5c21",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-25T13:44:54Z",
+      "side": 1,
+      "message": "Nice, so this will also fix https://crbug.com/1477848 then.\n\nI think I\u0027d intuitively prefer a pure CSS solution, but I\u0027m also happy with the TypeScript solution here, so let\u0027s just land it.",
+      "parentUuid": "ebbfd735_55d2214f",
+      "revId": "198749c02777b42a6760b7504f3925112d6544c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

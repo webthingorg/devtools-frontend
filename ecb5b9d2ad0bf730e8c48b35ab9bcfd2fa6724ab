@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc5b6e9e_29bcfa76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-25T13:44:54Z",
+      "side": 1,
+      "message": "Looks good. Thanks.\n\nI\u0027ve added the reference to fix https://crbug.com/1477848 as well. That however means you need a second +1 to land this CL 😊",
+      "revId": "ecb5b9d2ad0bf730e8c48b35ab9bcfd2fa6724ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
