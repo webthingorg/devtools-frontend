@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9dcc05_c0034eae",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-25T06:25:55Z",
+      "side": 1,
+      "message": "How does this work when a (sub)menu has both checkbox and non-checkbox items?",
+      "revId": "198749c02777b42a6760b7504f3925112d6544c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
