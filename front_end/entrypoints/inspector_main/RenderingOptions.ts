@@ -29,6 +29,7 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
@@ -123,7 +124,7 @@ const UIStrings = {
   /**
    * @description Explanation text for the 'Emulate a focused page' setting in the Rendering tool.
    */
-  emulatesAFocusedPage: 'Emulates a focused page.',
+  emulatesAFocusedPage: 'Keep page focused. Commonly used for debugging disappearing elements.',
   /**
    * @description The name of a checkbox setting in the Rendering tool. This setting enables auto dark mode emulation.
    */
@@ -243,7 +244,8 @@ export class RenderingOptionsView extends UI.Widget.VBox {
         Common.Settings.Settings.instance().moduleSetting('localFontsDisabled'));
     this.#appendCheckbox(
         i18nString(UIStrings.emulateAFocusedPage), i18nString(UIStrings.emulatesAFocusedPage),
-        Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'));
+        Common.Settings.Settings.instance().moduleSetting('emulatePageFocus'),
+        Host.UserMetrics.Action.ToggleKeepPageFocusedFromRenderingTab);
     this.#appendCheckbox(
         i18nString(UIStrings.emulateAutoDarkMode), i18nString(UIStrings.emulatesAutoDarkMode),
         Common.Settings.Settings.instance().moduleSetting('emulateAutoDarkMode'));
