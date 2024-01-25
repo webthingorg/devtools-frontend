@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f17fae91_351197e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-25T15:31:38Z",
+      "side": 1,
+      "message": "Hi, just to double check what this CL is doing - is it a bug fix or a feature? IIUC, what it does is highlighting all the cookies that were blocked for the domain, If so, it might be unrelated to the bug crbug.com/1506225 since that one is for 3PCD blocked cookies only. Also this makes the cookie table in the Application panel visually the same as the cookie table in the Network panel, is that intended for the Application panel?",
+      "revId": "59f53b87bbe9d9488f65e04703b2eafe22cbee6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
