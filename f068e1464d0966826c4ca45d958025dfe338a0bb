@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b68eef_5f317773",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-25T14:05:37Z",
+      "side": 1,
+      "message": "Added unit tests and changed the `remove` behavior on the backend in the crrev.com/c/5231511",
+      "parentUuid": "6b35c337_30c9c4ad",
+      "revId": "f068e1464d0966826c4ca45d958025dfe338a0bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e6b79da_b04ba7b5",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-25T06:19:58Z",
       "side": 1,
       "message": "Not sure if this is needed since `createSetting` also does the normalization.",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 89
+      },
+      "revId": "f068e1464d0966826c4ca45d958025dfe338a0bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c851f3_54ccfc0b",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-25T14:05:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e6b79da_b04ba7b5",
       "range": {
         "startLine": 76,
         "startChar": 6,
