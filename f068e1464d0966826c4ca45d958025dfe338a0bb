@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b35c337_30c9c4ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-25T06:19:58Z",
+      "side": 1,
+      "message": "Could we have some unit tests for the migration method itself?\n\nI think this CL does not work as expected. The host binding implementation of the \"Global\" and \"Synced\" bucket does not allow the removal step of the migration.\n\nThe problem is that we have the \"registerPreference\" host binding call that tells the backend whether a setting is synced or not. Everytime we call `get` or `set` preference, we look up in the registry to determine on which bucket to operate.\n\nNow we register all the setting names under the new kebab case name. Which means all the \"old\" names are treated as \"Unsynced\". Now when the migration wants to clear out the old setting, the backend looks into the wrong bucket.\n\n**I think** only removal of old settings is broken, but not retrieval of existing setting values. Retrieval happens via the `getPreferences` host binding, which merges both the synced and unsynced bucket and delivers them to the frontend.\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:chrome/browser/devtools/devtools_settings.cc;l\u003d115-116;drc\u003d70a6711e08e9f9e0d8e4c48e9ba5cab62eb010c2",
+      "revId": "f068e1464d0966826c4ca45d958025dfe338a0bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e6b79da_b04ba7b5",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-25T06:19:58Z",
+      "side": 1,
+      "message": "Not sure if this is needed since `createSetting` also does the normalization.",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 89
+      },
+      "revId": "f068e1464d0966826c4ca45d958025dfe338a0bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
