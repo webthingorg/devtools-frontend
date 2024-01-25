@@ -987,30 +987,23 @@ export interface TraceEventNestableAsyncEnd extends TraceEventData {
   id?: string;
 }
 
-export type TraceEventAsyncPerformanceMeasure = TraceEventPerformanceMeasureBegin|TraceEventPerformanceMeasureEnd;
+export type TraceEventPerformanceMeasure = TraceEventPerformanceMeasureBegin|TraceEventPerformanceMeasureEnd;
+export type TraceEventConsoleTime = TraceEventConsoleTimeBegin|TraceEventConsoleTimeEnd;
 
 export interface TraceEventPerformanceMeasureBegin extends TraceEventNestableAsyncBegin {
   cat: 'blink.user_timing';
-  id: string;
 }
 
 export interface TraceEventPerformanceMeasureEnd extends TraceEventNestableAsyncEnd {
   cat: 'blink.user_timing';
-  id: string;
 }
 
 export interface TraceEventConsoleTimeBegin extends TraceEventNestableAsyncBegin {
   cat: 'blink.console';
-  id2: {
-    local: string,
-  };
 }
 
 export interface TraceEventConsoleTimeEnd extends TraceEventNestableAsyncEnd {
   cat: 'blink.console';
-  id2: {
-    local: string,
-  };
 }
 
 export interface TraceEventTimeStamp extends TraceEventData {
@@ -1133,50 +1126,26 @@ export function isTraceEventPipelineReporter(event: TraceEventData): event is Tr
 // Nestable async events with a duration are made up of two distinct
 // events: the begin, and the end. We need both of them to be able to
 // display the right information, so we create these synthetic events.
-export interface SyntheticNestableAsyncEvent extends TraceEventData {
+export interface SyntheticNestableAsyncEvent<T extends TraceEventNestableAsync> extends TraceEventData {
+  cat: T['cat'];
   id?: string;
   id2?: {local?: string, global?: string};
   dur: MicroSeconds;
   args: TraceEventArgs&{
-    data: TraceEventArgsData & {
-      beginEvent: TraceEventNestableAsyncBegin,
-      endEvent: TraceEventNestableAsyncEnd,
+    data: {
+      beginEvent: T & TraceEventNestableAsyncBegin,
+      endEvent: T&TraceEventNestableAsyncEnd,
     },
   };
 }
 
-export interface SyntheticPipelineReporter extends SyntheticNestableAsyncEvent {
-  args: TraceEventArgs&{
-    data: SyntheticNestableAsyncEvent['args']['data'] & {
-      beginEvent: TraceEventPipelineReporter,
-      endEvent: TraceEventPipelineReporter,
-    },
-  };
-}
+export type SyntheticPipelineReporter = SyntheticNestableAsyncEvent<TraceEventPipelineReporter>;
 
-export interface SyntheticUserTiming extends SyntheticNestableAsyncEvent {
-  id: string;
-  dur: MicroSeconds;
-  args: TraceEventArgs&{
-    data: TraceEventArgsData & {
-      beginEvent: TraceEventPerformanceMeasureBegin,
-      endEvent: TraceEventPerformanceMeasureEnd,
-    },
-  };
-}
+export type SyntheticUserTiming = SyntheticNestableAsyncEvent<TraceEventPerformanceMeasure>;
 
-export interface SyntheticConsoleTiming extends SyntheticNestableAsyncEvent {
-  id2: {local: string};
-  dur: MicroSeconds;
-  args: TraceEventArgs&{
-    data: TraceEventArgsData & {
-      beginEvent: TraceEventConsoleTimeBegin,
-      endEvent: TraceEventConsoleTimeEnd,
-    },
-  };
-}
+export type SyntheticConsoleTiming = SyntheticNestableAsyncEvent<TraceEventConsoleTime>;
 
-export interface SyntheticInteractionEvent extends SyntheticNestableAsyncEvent {
+export interface SyntheticInteractionEvent extends SyntheticNestableAsyncEvent<TraceEventEventTiming> {
   // InteractionID and type are available within the beginEvent's data, but we
   // put them on the top level for ease of access.
   interactionId: number;
@@ -1199,12 +1168,6 @@ export interface SyntheticInteractionEvent extends SyntheticNestableAsyncEvent {
   mainThreadHandling: MicroSeconds;
   // 3. presentationDelay: delay between the event being processed and the frame being rendered
   presentationDelay: MicroSeconds;
-  args: TraceEventArgs&{
-    data: TraceEventArgsData & {
-      beginEvent: TraceEventEventTimingBegin,
-      endEvent: TraceEventEventTimingEnd,
-    },
-  };
 }
 
 /**
@@ -1724,7 +1687,7 @@ export function isSyntheticConsoleTiming(traceEventData: TraceEventData): traceE
 }
 
 export function isTraceEventPerformanceMeasure(traceEventData: TraceEventData):
-    traceEventData is TraceEventPerformanceMeasureBegin|TraceEventPerformanceMeasureEnd {
+    traceEventData is TraceEventPerformanceMeasure {
   return traceEventData.cat === 'blink.user_timing' && isTraceEventAsyncPhase(traceEventData);
 }
 
@@ -1734,8 +1697,7 @@ export function isTraceEventPerformanceMark(traceEventData: TraceEventData):
       (traceEventData.ph === Phase.MARK || traceEventData.ph === Phase.INSTANT);
 }
 
-export function isTraceEventConsoleTime(traceEventData: TraceEventData): traceEventData is TraceEventConsoleTimeBegin|
-    TraceEventConsoleTimeEnd {
+export function isTraceEventConsoleTime(traceEventData: TraceEventData): traceEventData is TraceEventConsoleTime {
   return traceEventData.cat === 'blink.console' && isTraceEventAsyncPhase(traceEventData);
 }
 
