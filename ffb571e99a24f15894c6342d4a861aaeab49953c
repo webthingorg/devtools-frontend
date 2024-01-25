@@ -16,6 +16,23 @@
       "message": "Lost the +1. One final time please.",
       "revId": "ffb571e99a24f15894c6342d4a861aaeab49953c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ea0cee0_d10909b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-25T07:41:11Z",
+      "side": 1,
+      "message": "friendly ping",
+      "revId": "ffb571e99a24f15894c6342d4a861aaeab49953c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
