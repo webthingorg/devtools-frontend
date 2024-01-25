@@ -15,6 +15,9 @@ describe('InsightProvider', () => {
     assert.deepStrictEqual(request, {
       input: 'foo',
       client: 'CHROME_DEVTOOLS',
+      options: {
+        model_id: 'codey_gemit_m_streaming_chrome',
+      },
     });
     stub.restore();
   });
@@ -42,6 +45,7 @@ describe('InsightProvider', () => {
       client: 'CHROME_DEVTOOLS',
       options: {
         temperature: 0,
+        model_id: 'codey_gemit_m_streaming_chrome',
       },
     });
     stub.restore();
@@ -54,6 +58,9 @@ describe('InsightProvider', () => {
     assert.deepStrictEqual(request, {
       input: 'foo',
       client: 'CHROME_DEVTOOLS',
+      options: {
+        model_id: 'codey_gemit_m_streaming_chrome',
+      },
     });
     stub.restore();
   });
