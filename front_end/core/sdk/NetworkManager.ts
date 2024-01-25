@@ -471,6 +471,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       networkRequest.setUrl(response.url as Platform.DevToolsPath.UrlString);
     }
     networkRequest.mimeType = response.mimeType;
+    networkRequest.setCharset(response.charset);
     if (!networkRequest.statusCode || networkRequest.wasIntercepted()) {
       networkRequest.statusCode = response.status;
     }
