@@ -16,6 +16,29 @@
       "message": "Danil, PTAL\nShuran, this is adding what you suggested in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5134971/comment/45cafe5e_af3928bb/",
       "revId": "671421528a015f2468f4595133f71b2624bbbd71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ed0fc1_5659e3ff",
+        "filename": "test/unittests/front_end/core/sdk/CookieModel_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-25T08:35:25Z",
+      "side": 1,
+      "message": "`PROTOCOL_COOKIE`",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "671421528a015f2468f4595133f71b2624bbbd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
