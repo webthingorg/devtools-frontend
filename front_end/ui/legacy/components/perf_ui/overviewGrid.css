@@ -96,6 +96,8 @@
   display: flex;
   position: absolute;
   top: 15px;
+  color: brown;
+  background-color: brown;
   justify-content: center;
   z-index: 600;
   left: 0;
