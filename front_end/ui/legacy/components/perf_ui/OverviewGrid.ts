@@ -72,6 +72,10 @@ export class OverviewGrid {
     this.window = new Window(this.element, this.grid.dividersLabelBarElement, calculator);
   }
 
+  getBreadcrumbsContainer2(): HTMLElement {
+    return this.window.getBreadcrumbsContainer();
+  }
+
   enableCreateBreadcrumbsButton(): void {
     this.window.enableCreateBreadcrumbsButton();
   }
@@ -210,6 +214,10 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.createBreadcrumbButton =
         (this.breadcrumbButtonContainerElement.createChild('div', 'create-breadcrumb-button') as HTMLElement);
     this.reset();
+  }
+
+  getBreadcrumbsContainer(): HTMLElement {
+    return this.breadcrumbButtonContainerElement;
   }
 
   enableCreateBreadcrumbsButton(): void {

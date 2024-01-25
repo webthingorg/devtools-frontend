@@ -64,7 +64,6 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
     this.cursorElement = this.overviewGrid.element.createChild('div', 'overview-grid-cursor-position');
     this.cursorArea.addEventListener('mousemove', this.onMouseMove.bind(this), true);
     this.cursorArea.addEventListener('mouseleave', this.hideCursor.bind(this), true);
-
     this.overviewGrid.setResizeEnabled(false);
     this.overviewGrid.addEventListener(OverviewGridEvents.WindowChangedWithPosition, this.onWindowChanged, this);
     this.overviewGrid.addEventListener(OverviewGridEvents.BreadcrumbAdded, this.onBreadcrumbAdded, this);
@@ -86,6 +85,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
 
   enableCreateBreadcrumbsButton(): void {
     this.overviewGrid.enableCreateBreadcrumbsButton();
+    this.overviewGrid.getBreadcrumbsContainer2().addEventListener('mousemove', this.onMouseMove.bind(this), true);
   }
 
   private onMouseMove(event: Event): void {
