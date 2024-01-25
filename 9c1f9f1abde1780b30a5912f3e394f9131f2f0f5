@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bb233f7_4ee4ddf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-25T14:09:39Z",
+      "side": 1,
+      "message": "Thanks! We can also remove the api key plumbing.",
+      "revId": "9c1f9f1abde1780b30a5912f3e394f9131f2f0f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
