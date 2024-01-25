@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d733a66_9139fd40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-25T07:43:22Z",
+      "side": 1,
+      "message": "Danil, PTAL\nShuran, this is adding what you suggested in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5134971/comment/45cafe5e_af3928bb/",
+      "revId": "671421528a015f2468f4595133f71b2624bbbd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
