@@ -7,6 +7,7 @@ import * as Platform from '../../../core/platform/platform.js';
 import type * as CPUProfile from '../../cpu_profile/cpu_profile.js';
 import * as Types from '../types/types.js';
 
+type MatchedPairType<T extends Types.TraceEvents.TraceEventNestableAsync> = Types.TraceEvents.SyntheticEventPair<T>;
 export function stackTraceForEvent(event: Types.TraceEvents.TraceEventData): Types.TraceEvents.TraceEventCallFrame[]|
     null {
   if (Types.TraceEvents.isSyntheticInvalidation(event)) {
@@ -146,7 +147,7 @@ export function getNavigationForTraceEvent(
 }
 
 export function extractId(event: Types.TraceEvents.TraceEventNestableAsync|
-                          Types.TraceEvents.SyntheticNestableAsyncEvent): string|undefined {
+                          MatchedPairType<Types.TraceEvents.TraceEventNestableAsync>): string|undefined {
   return event.id ?? event.id2?.global ?? event.id2?.local;
 }
 
@@ -201,14 +202,13 @@ export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.Tra
 
   // looking for start and end
   for (const event of unpairedEvents) {
-    const id = extractId(event);
-    if (id === undefined) {
+    const syntheticId = getSyntheticId(event);
+    if (syntheticId === undefined) {
       continue;
     }
     // Create a synthetic id to prevent collisions across categories.
     // Console timings can be dispatched with the same id, so use the
     // event name as well to generate unique ids.
-    const syntheticId = `${event.cat}:${id}:${event.name}`;
     const otherEventsWithID = Platform.MapUtilities.getWithDefault(matchedPairs, syntheticId, () => {
       return {begin: null, end: null};
     });
@@ -226,35 +226,50 @@ export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.Tra
   return matchedPairs;
 }
 
-export function createSortedSyntheticEvents(matchedPairs: Map<string, {
-  begin: Types.TraceEvents.TraceEventNestableAsyncBegin | null,
-  end: Types.TraceEvents.TraceEventNestableAsyncEnd | null,
-}>): Types.TraceEvents.SyntheticNestableAsyncEvent[] {
-  const syntheticEvents: Types.TraceEvents.SyntheticNestableAsyncEvent[] = [];
+function getSyntheticId(event: Types.TraceEvents.TraceEventNestableAsync): string|undefined {
+  const id = extractId(event);
+  return id && `${event.cat}:${id}:${event.name}`;
+}
+
+export function createSortedSyntheticEvents<T extends Types.TraceEvents.TraceEventNestableAsync>(
+    matchedPairs: Map<string, {
+      begin: Types.TraceEvents.TraceEventNestableAsyncBegin | null,
+      end: Types.TraceEvents.TraceEventNestableAsyncEnd | null,
+    }>): MatchedPairType<T>[] {
+  const syntheticEvents: MatchedPairType<T>[] = [];
   for (const [id, eventsPair] of matchedPairs.entries()) {
-    if (!eventsPair.begin || !eventsPair.end) {
+    const beginEvent = eventsPair.begin;
+    const endEvent = eventsPair.end;
+    if (!beginEvent || !endEvent) {
       // This should never happen, the backend only creates the events once it
       // has them both, so we should never get into this state.
       // If we do, something is very wrong, so let's just drop that problematic event.
       continue;
     }
-
-    const event: Types.TraceEvents.SyntheticNestableAsyncEvent = {
-      cat: eventsPair.end.cat,
-      ph: eventsPair.end.ph,
-      pid: eventsPair.end.pid,
-      tid: eventsPair.end.tid,
+    const pair = {beginEvent, endEvent};
+    function eventsArePairable(data: {
+      beginEvent: Types.TraceEvents.TraceEventNestableAsyncBegin,
+      endEvent: Types.TraceEvents.TraceEventNestableAsyncEnd,
+    }): data is MatchedPairType<T>['args']['data'] {
+      return Boolean(getSyntheticId(data.beginEvent)) &&
+          getSyntheticId(data.beginEvent) === getSyntheticId(data.endEvent);
+    }
+    if (!eventsArePairable(pair)) {
+      continue;
+    }
+    const event: MatchedPairType<T> = {
+      cat: endEvent.cat,
+      ph: endEvent.ph,
+      pid: endEvent.pid,
+      tid: endEvent.tid,
       id,
       // Both events have the same name, so it doesn't matter which we pick to
       // use as the description
-      name: eventsPair.begin.name,
-      dur: Types.Timing.MicroSeconds(eventsPair.end.ts - eventsPair.begin.ts),
-      ts: eventsPair.begin.ts,
+      name: beginEvent.name,
+      dur: Types.Timing.MicroSeconds(endEvent.ts - beginEvent.ts),
+      ts: beginEvent.ts,
       args: {
-        data: {
-          beginEvent: eventsPair.begin,
-          endEvent: eventsPair.end,
-        },
+        data: pair,
       },
     };
 
@@ -270,9 +285,9 @@ export function createSortedSyntheticEvents(matchedPairs: Map<string, {
   return syntheticEvents.sort((a, b) => a.ts - b.ts);
 }
 
-export function createMatchedSortedSyntheticEvents(unpairedAsyncEvents: Types.TraceEvents.TraceEventNestableAsync[]):
-    Types.TraceEvents.SyntheticNestableAsyncEvent[] {
+export function createMatchedSortedSyntheticEvents<T extends Types.TraceEvents.TraceEventNestableAsync>(
+    unpairedAsyncEvents: T[]): MatchedPairType<T>[] {
   const matchedPairs = matchBeginningAndEndEvents(unpairedAsyncEvents);
-  const syntheticEvents = createSortedSyntheticEvents(matchedPairs);
+  const syntheticEvents = createSortedSyntheticEvents<T>(matchedPairs);
   return syntheticEvents;
 }
