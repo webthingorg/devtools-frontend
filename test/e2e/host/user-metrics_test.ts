@@ -365,7 +365,7 @@ describe('User Metrics', () => {
     await assertHistogramEventsInclude([
       {
         actionName: 'DevTools.ExperimentEnabledAtLaunch',
-        actionCode: 20,  // Enabled by default: sourceOrderViewer
+        actionCode: 52,  // Enabled by default: cssTypeComponentLength
       },
       {
         actionName: 'DevTools.ExperimentDisabledAtLaunch',

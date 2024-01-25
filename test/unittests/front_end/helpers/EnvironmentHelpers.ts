@@ -116,6 +116,7 @@ const REGISTERED_EXPERIMENTS = [
   'timelineInvalidationTracking',
   'ignoreListJSFramesOnTimeline',
   'instrumentationBreakpoints',
+  'cssTypeComponentLength',
   'stylesPaneCSSChanges',
   'timelineEventInitiators',
   'timelineAsConsoleProfileResultPanel',
