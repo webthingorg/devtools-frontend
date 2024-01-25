@@ -319,6 +319,30 @@
       },
       "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b73407_0848881b",
+        "filename": "front_end/core/sdk/OverlayModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1419317
+      },
+      "writtenOn": "2024-01-25T14:04:02Z",
+      "side": 1,
+      "message": "I know this has shipped already, but one problem I see with this approach is that we\u0027re modifying the webpage\u0027s stylesheet. If I inspect the element that uses the env() function in CSS, I\u0027m no longer seeing my original code. And if I toggle the WCO simulation tool while looking at the styles, I can see it change at the same time.\n\nIn general (actually, I think, always), DevTools doesn\u0027t change the authored CSS in any way. This way, there\u0027s no user confusion when they see something different in the Styles pane than what they wrote.\n\nIs it possible that a backend-only solution would exist? A rendering engine change that would actually set the value of the title-area-* variables?",
+      "parentUuid": "0833ebaf_029801a0",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 30
+      },
+      "revId": "8154a4c76850ba1f59740152c62a71921926d54d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
