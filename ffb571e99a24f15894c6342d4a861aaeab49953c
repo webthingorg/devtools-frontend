@@ -33,6 +33,23 @@
       "message": "friendly ping",
       "revId": "ffb571e99a24f15894c6342d4a861aaeab49953c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f41d5f4_503fb723",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-25T08:29:31Z",
+      "side": 1,
+      "message": "Sorry, I though I have +1\u0027ed already",
+      "revId": "ffb571e99a24f15894c6342d4a861aaeab49953c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
