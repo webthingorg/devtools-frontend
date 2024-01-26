@@ -29,31 +29,31 @@ export class Cookie {
 
   static fromProtocolCookie(protocolCookie: Protocol.Network.Cookie): Cookie {
     const cookie = new Cookie(protocolCookie.name, protocolCookie.value, null, protocolCookie.priority);
-    cookie.addAttribute('domain', protocolCookie['domain']);
-    cookie.addAttribute('path', protocolCookie['path']);
+    cookie.addAttribute(Attributes.Domain, protocolCookie['domain']);
+    cookie.addAttribute(Attributes.Path, protocolCookie['path']);
     if (protocolCookie['expires']) {
-      cookie.addAttribute('expires', protocolCookie['expires'] * 1000);
+      cookie.addAttribute(Attributes.Expires, protocolCookie['expires'] * 1000);
     }
     if (protocolCookie['httpOnly']) {
-      cookie.addAttribute('httpOnly');
+      cookie.addAttribute(Attributes.HttpOnly);
     }
     if (protocolCookie['secure']) {
-      cookie.addAttribute('secure');
+      cookie.addAttribute(Attributes.Secure);
     }
     if (protocolCookie['sameSite']) {
-      cookie.addAttribute('sameSite', protocolCookie['sameSite']);
+      cookie.addAttribute(Attributes.SameSite, protocolCookie['sameSite']);
     }
     if ('sourcePort' in protocolCookie) {
-      cookie.addAttribute('sourcePort', protocolCookie.sourcePort);
+      cookie.addAttribute(Attributes.SourcePort, protocolCookie.sourcePort);
     }
     if ('sourceScheme' in protocolCookie) {
-      cookie.addAttribute('sourceScheme', protocolCookie.sourceScheme);
+      cookie.addAttribute(Attributes.SourceScheme, protocolCookie.sourceScheme);
     }
     if ('partitionKey' in protocolCookie) {
-      cookie.addAttribute('partitionKey', protocolCookie.partitionKey);
+      cookie.addAttribute(Attributes.PartitionKey, protocolCookie.partitionKey);
     }
     if ('partitionKeyOpaque' in protocolCookie && protocolCookie.partitionKeyOpaque) {
-      cookie.addAttribute('partitionKey', OPAQUE_PARTITION_KEY);
+      cookie.addAttribute(Attributes.PartitionKey, OPAQUE_PARTITION_KEY);
     }
     cookie.setSize(protocolCookie['size']);
     return cookie;
@@ -86,11 +86,11 @@ export class Cookie {
   }
 
   httpOnly(): boolean {
-    return 'httponly' in this.#attributes;
+    return Attributes.HttpOnly in this.#attributes;
   }
 
   secure(): boolean {
-    return 'secure' in this.#attributes;
+    return Attributes.Secure in this.#attributes;
   }
 
   partitioned(): boolean {
@@ -100,23 +100,23 @@ export class Cookie {
   sameSite(): Protocol.Network.CookieSameSite {
     // TODO(allada) This should not rely on #attributes and instead store them individually.
     // when #attributes get added via addAttribute() they are lowercased, hence the lowercasing of samesite here
-    return this.#attributes['samesite'] as Protocol.Network.CookieSameSite;
+    return this.#attributes[Attributes.SameSite] as Protocol.Network.CookieSameSite;
   }
 
   partitionKey(): string {
-    return this.#attributes['partitionkey'] as string;
+    return this.#attributes[Attributes.PartitionKey] as string;
   }
 
   setPartitionKey(key: string): void {
-    this.addAttribute('partitionKey', key);
+    this.addAttribute(Attributes.PartitionKey, key);
   }
 
   partitionKeyOpaque(): boolean {
-    return (this.#attributes['partitionkey'] === OPAQUE_PARTITION_KEY);
+    return (this.#attributes[Attributes.PartitionKey] === OPAQUE_PARTITION_KEY);
   }
 
   setPartitionKeyOpaque(): void {
-    this.addAttribute('partitionKey', OPAQUE_PARTITION_KEY);
+    this.addAttribute(Attributes.PartitionKey, OPAQUE_PARTITION_KEY);
   }
 
   priority(): Protocol.Network.CookiePriority {
@@ -126,19 +126,19 @@ export class Cookie {
   session(): boolean {
     // RFC 2965 suggests using Discard attribute to mark session cookies, but this does not seem to be widely used.
     // Check for absence of explicitly max-age or expiry date instead.
-    return !('expires' in this.#attributes || 'max-age' in this.#attributes);
+    return !(Attributes.Expires in this.#attributes || 'max-age' in this.#attributes);
   }
 
   path(): string {
-    return this.#attributes['path'] as string;
+    return this.#attributes[Attributes.Path] as string;
   }
 
   domain(): string {
-    return this.#attributes['domain'] as string;
+    return this.#attributes[Attributes.Domain] as string;
   }
 
   expires(): number {
-    return this.#attributes['expires'] as number;
+    return this.#attributes[Attributes.Expires] as number;
   }
 
   maxAge(): number {
@@ -146,11 +146,11 @@ export class Cookie {
   }
 
   sourcePort(): number {
-    return this.#attributes['sourceport'] as number;
+    return this.#attributes[Attributes.SourcePort] as number;
   }
 
   sourceScheme(): Protocol.Network.CookieSourceScheme {
-    return this.#attributes['sourcescheme'] as Protocol.Network.CookieSourceScheme;
+    return this.#attributes[Attributes.SourceScheme] as Protocol.Network.CookieSourceScheme;
   }
 
   size(): number {
@@ -193,8 +193,9 @@ export class Cookie {
     return null;
   }
 
+  // TODO: It would be better to make `key` type of Attributes, but this change breaks parseSetCookie in CookieParser.ts
   addAttribute(key: string, value?: string|number|boolean): void {
-    const normalizedKey = key.toLowerCase();
+    const normalizedKey = key.toLocaleLowerCase();
     switch (normalizedKey) {
       case 'priority':
         this.#priorityInternal = (value as Protocol.Network.CookiePriority);
