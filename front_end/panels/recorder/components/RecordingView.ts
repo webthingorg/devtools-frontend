@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as VisualLogging from '../../../../front_end/ui/visual_logging/visual_logging.js';
 import * as Host from '../../../core/host/host.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as Platform from '../../../core/platform/platform.js';
@@ -334,6 +335,11 @@ export class RecordingView extends HTMLElement {
   #extensionDescriptor?: PublicExtensions.RecorderPluginManager.ViewDescriptor;
 
   #onCopyBound = this.#onCopy.bind(this);
+
+  constructor() {
+    super();
+    this.setAttribute('jslog', `${VisualLogging.section().context('recording-list-view')}`);
+  }
 
   set data(data: RecordingViewData) {
     this.#isRecording = data.isRecording;
