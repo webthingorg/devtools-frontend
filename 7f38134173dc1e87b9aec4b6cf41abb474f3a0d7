@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1068c059_ceee003b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-26T10:18:59Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7f38134173dc1e87b9aec4b6cf41abb474f3a0d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a821a5_15e77f24",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-26T10:18:59Z",
+      "side": 1,
+      "message": "Could this logic be part of `ServerSentEvents` constructor itself? Or does it make more sense to keep it here outside?",
+      "range": {
+        "startLine": 783,
+        "startChar": 6,
+        "endLine": 783,
+        "endChar": 106
+      },
+      "revId": "7f38134173dc1e87b9aec4b6cf41abb474f3a0d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
