@@ -27,6 +27,8 @@ import * as ElementsComponents from './components/components.js';
 import {cssRuleValidatorsMap, type Hint} from './CSSRuleValidator.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {
+  AngleMatch,
+  AngleMatcher,
   type BottomUpTreeMatching,
   children,
   ColorMatch,
@@ -369,6 +371,69 @@ export class ColorMixRenderer extends ColorMixMatch {
 
   static matcher(): ColorMixMatcher {
     return new ColorMixMatcher((text, space, color1, color2) => new ColorMixRenderer(text, space, color1, color2));
+  }
+}
+
+export class AngleRenderer extends AngleMatch {
+  #treeElement: StylePropertyTreeElement;
+  constructor(text: string, treeElement: StylePropertyTreeElement) {
+    super(text);
+    this.#treeElement = treeElement;
+  }
+
+  override render(): Node[] {
+    const angleText = this.text;
+    if (!this.#treeElement.editable()) {
+      return [document.createTextNode(angleText)];
+    }
+    const cssAngle = new InlineEditor.CSSAngle.CSSAngle();
+    cssAngle.setAttribute('jslog', `${VisualLogging.showStyleEditor().track({click: true}).context('css-angle')}`);
+    const valueElement = document.createElement('span');
+    valueElement.textContent = angleText;
+    const computedPropertyValue = this.#treeElement.matchedStyles().computeValue(
+                                      this.#treeElement.property.ownerStyle, this.#treeElement.property.value) ||
+        '';
+    cssAngle.data = {
+      propertyName: this.#treeElement.property.name,
+      propertyValue: computedPropertyValue,
+      angleText,
+      containingPane:
+          (this.#treeElement.parentPane().element.enclosingNodeOrSelfWithClass('style-panes-wrapper') as HTMLElement),
+    };
+    cssAngle.append(valueElement);
+
+    cssAngle.addEventListener('popovertoggled', ({data}) => {
+      const section = this.#treeElement.section();
+      if (!section) {
+        return;
+      }
+
+      if (data.open) {
+        this.#treeElement.parentPane().hideAllPopovers();
+        this.#treeElement.parentPane().activeCSSAngle = cssAngle;
+        Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.Angle);
+      }
+
+      section.element.classList.toggle('has-open-popover', data.open);
+      this.#treeElement.parentPane().setEditingStyle(data.open);
+    });
+    cssAngle.addEventListener('valuechanged', async ({data}) => {
+      valueElement.textContent = data.value;
+      await this.#treeElement.applyStyleText(this.#treeElement.renderedPropertyText(), false);
+      const computedPropertyValue = this.#treeElement.matchedStyles().computeValue(
+                                        this.#treeElement.property.ownerStyle, this.#treeElement.property.value) ||
+          '';
+      cssAngle.updateProperty(this.#treeElement.property.name, computedPropertyValue);
+    });
+    cssAngle.addEventListener('unitchanged', ({data}) => {
+      valueElement.textContent = data.value;
+    });
+
+    return [cssAngle];
+  }
+
+  static matcher(treeElement: StylePropertyTreeElement): AngleMatcher {
+    return new AngleMatcher(text => new AngleRenderer(text, treeElement));
   }
 }
 
@@ -775,54 +840,6 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     return container;
   }
 
-  private processAngle(angleText: string): Text|InlineEditor.CSSAngle.CSSAngle {
-    if (!this.editable()) {
-      return document.createTextNode(angleText);
-    }
-    const cssAngle = new InlineEditor.CSSAngle.CSSAngle();
-    cssAngle.setAttribute('jslog', `${VisualLogging.showStyleEditor().track({click: true}).context('css-angle')}`);
-    const valueElement = document.createElement('span');
-    valueElement.textContent = angleText;
-    const computedPropertyValue =
-        this.matchedStylesInternal.computeValue(this.property.ownerStyle, this.property.value) || '';
-    cssAngle.data = {
-      propertyName: this.property.name,
-      propertyValue: computedPropertyValue,
-      angleText,
-      containingPane:
-          (this.parentPaneInternal.element.enclosingNodeOrSelfWithClass('style-panes-wrapper') as HTMLElement),
-    };
-    cssAngle.append(valueElement);
-
-    cssAngle.addEventListener('popovertoggled', ({data}) => {
-      const section = this.section();
-      if (!section) {
-        return;
-      }
-
-      if (data.open) {
-        this.parentPaneInternal.hideAllPopovers();
-        this.parentPaneInternal.activeCSSAngle = cssAngle;
-        Host.userMetrics.swatchActivated(Host.UserMetrics.SwatchType.Angle);
-      }
-
-      section.element.classList.toggle('has-open-popover', data.open);
-      this.parentPaneInternal.setEditingStyle(data.open);
-    });
-    cssAngle.addEventListener('valuechanged', async ({data}) => {
-      valueElement.textContent = data.value;
-      await this.applyStyleText(this.renderedPropertyText(), false);
-      const computedPropertyValue =
-          this.matchedStylesInternal.computeValue(this.property.ownerStyle, this.property.value) || '';
-      cssAngle.updateProperty(this.property.name, computedPropertyValue);
-    });
-    cssAngle.addEventListener('unitchanged', ({data}) => {
-      valueElement.textContent = data.value;
-    });
-
-    return cssAngle;
-  }
-
   private processLength(lengthText: string): Text|InlineEditor.CSSLength.CSSLength {
     if (!this.editable()) {
       return document.createTextNode(lengthText);
@@ -1069,6 +1086,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
           VariableRenderer.matcher(this, this.style),
           ColorRenderer.matcher(this),
           ColorMixRenderer.matcher(),
+          AngleRenderer.matcher(this),
         ]);
     if (this.property.parsedOk) {
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
@@ -1077,7 +1095,6 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       propertyRenderer.setFontHandler(this.processFont.bind(this));
       propertyRenderer.setShadowHandler(this.processShadow.bind(this));
       propertyRenderer.setGridHandler(this.processGrid.bind(this));
-      propertyRenderer.setAngleHandler(this.processAngle.bind(this));
       propertyRenderer.setLengthHandler(this.processLength.bind(this));
       propertyRenderer.setPositionFallbackHandler(this.processPositionFallback.bind(this));
       propertyRenderer.setFontPaletteHandler(this.processFontPalette.bind(this));
