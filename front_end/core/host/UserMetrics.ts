@@ -637,7 +637,10 @@ export enum Action {
   SelfXssWarningDialogShown = 123,
   SelfXssAllowPastingInConsole = 124,
   SelfXssAllowPastingInDialog = 125,
-  MaxValue = 126,
+  ToggleEmulateFocusedPageFromStylesPane = 126,
+  ToggleEmulateFocusedPageFromRenderingTab = 127,
+  ToggleEmulateFocusedPageFromCommandMenu = 128,
+  MaxValue = 129,
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
