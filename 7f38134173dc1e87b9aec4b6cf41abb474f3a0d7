@@ -39,6 +39,30 @@
       },
       "revId": "7f38134173dc1e87b9aec4b6cf41abb474f3a0d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4773010a_af26ad3e",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-26T10:51:03Z",
+      "side": 1,
+      "message": "I had it there initially but it makes reasoning about the code harder: Resource type and mime type are only set on the responseReceived event and the `ServerSentEvents` class shouldn\u0027t have to worry about that.",
+      "parentUuid": "43a821a5_15e77f24",
+      "range": {
+        "startLine": 783,
+        "startChar": 6,
+        "endLine": 783,
+        "endChar": 106
+      },
+      "revId": "7f38134173dc1e87b9aec4b6cf41abb474f3a0d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
