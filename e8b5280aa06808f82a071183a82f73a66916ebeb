@@ -16,6 +16,24 @@
       "message": "Is removing readonly intended, if so; why?\n\nalso, I think we\u0027re expecting ColorSwatch in Computed pane to be readonly; why are there event listeners on it here? 🤔",
       "revId": "e8b5280aa06808f82a071183a82f73a66916ebeb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e1fe08_b700c47b",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-26T08:54:22Z",
+      "side": 0,
+      "message": "The swatch now defaults to readonly.\n\nGood question about the listeners, I didn\u0027t stop to think about it :D",
+      "parentUuid": "54d1645f_9589909a",
+      "revId": "e8b5280aa06808f82a071183a82f73a66916ebeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26cd6cf5_f9ddd6d2",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-26T08:54:22Z",
+      "side": 1,
+      "message": "Alternatively, isn\u0027t it good enough if I just check if the computed value came from the fallback instead of the var? Only then should the swatches be connected, and since the computed value is a color there can really only be one swatch in the fallback (the controls map doesn\u0027t automatically propagate across recursive rendering calls).",
+      "parentUuid": "0eda7e5a_7f7ae942",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c88574f_6b7c02a5",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2024-01-23T19:30:44Z",
       "side": 1,
       "message": "This seems like a leaky API, I wonder why we need to change the `setCanChangeFormat` to `true` on every edit? 🤔",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c77f22_621a39bd",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-26T08:54:22Z",
+      "side": 1,
+      "message": "That\u0027s due to a behavior change I\u0027m sneaking in, where we\u0027d only allow the format if the color doesn\u0027t come from a var. My thinking is that it makes little sense to change the format if the color value isn\u0027t shown in the first place. But maybe that\u0027s worth discussing more?",
+      "parentUuid": "2c88574f_6b7c02a5",
       "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -99,6 +135,24 @@
       "writtenOn": "2024-01-23T19:30:44Z",
       "side": 1,
       "message": "I didn\u0027t exactly understand why we\u0027re emitting this event on render, WDYT?",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e16689b9_4fb6ce63",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-26T08:54:22Z",
+      "side": 1,
+      "message": "renderColor() is the API that\u0027s changing the displayed color of the swatch, that seemed like the natural place to put it?  Would you prefer not sending the event if the renderColor call is rendering the exact same color as before?",
+      "parentUuid": "6ebafe7c_86b1de7f",
       "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
