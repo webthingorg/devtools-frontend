@@ -22,6 +22,30 @@
       },
       "revId": "3c4cb1033d86ad49051e1e831823c78f8da381c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0337c638_50b4c34b",
+        "filename": "front_end/panels/explain/InsightProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-01-26T07:35:01Z",
+      "side": 1,
+      "message": "eslint still complains about it not being camelCase",
+      "parentUuid": "813b0010_016d0b06",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "3c4cb1033d86ad49051e1e831823c78f8da381c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
