@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c5ce3a_b1b73077",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-01-26T10:49:18Z",
+      "side": 1,
+      "message": "Fun fact: this is the only such case (currently).",
+      "revId": "b153231ea9c77c7d27b98a269e1204a58a7e4a94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d63a11_7eb90787",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-01-26T10:49:18Z",
+      "side": 1,
+      "message": "Love it!",
+      "revId": "b153231ea9c77c7d27b98a269e1204a58a7e4a94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
