@@ -837,5 +837,29 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
       assertNotNullOrUndefined(varSwatches);
       assert.lengthOf(varSwatches, 2);
     });
+
+    it('connects correctly with an inner angle swatch', () => {
+      const property = new SDK.CSSProperty.CSSProperty(
+          mockCssStyleDeclaration, 0, 'color', 'hsl(120deg, 50%, 25%))', true, false, true, false, '', undefined);
+      const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+        stylesPane: stylesSidebarPane,
+        matchedStyles: mockMatchedStyles,
+        property,
+        isShorthand: false,
+        inherited: false,
+        overloaded: false,
+        newProperty: true,
+      });
+
+      stylePropertyTreeElement.updateTitle();
+      const colorSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-color-swatch');
+      assertNotNullOrUndefined(colorSwatch);
+      assert.strictEqual(colorSwatch.getColor()?.asString(Common.Color.Format.HSL), 'hsl(120deg 50% 25%)');
+
+      const angleSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-css-angle');
+      assertNotNullOrUndefined(angleSwatch);
+      angleSwatch.updateAngle({value: 130, unit: InlineEditor.CSSAngleUtils.AngleUnit.Deg});
+      assert.strictEqual(colorSwatch.getColor()?.asString(Common.Color.Format.HSL), 'hsl(130deg 50% 25%)');
+    });
   });
 });

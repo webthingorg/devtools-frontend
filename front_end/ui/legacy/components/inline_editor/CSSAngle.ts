@@ -167,7 +167,7 @@ export class CSSAngle extends HTMLElement {
     this.render();
   }
 
-  private updateAngle(angle: Angle): void {
+  updateAngle(angle: Angle): void {
     this.displayedAngle = roundAngleByUnit(convertAngleUnit(angle, this.displayedAngle.unit));
     this.angle = this.displayedAngle;
     this.dispatchEvent(new ValueChangedEvent(`${this.angle.value}${this.angle.unit}`));
