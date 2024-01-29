@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5015ab9_2e252e52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-29T06:30:34Z",
+      "side": 1,
+      "message": "Use `chromium:1522657` to make sure this will continue to work in the future.",
+      "revId": "8cedbc24dad1a22321c3142eecc3b4941bf4e7ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc10ac9_aebea6c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-29T06:30:34Z",
+      "side": 1,
+      "message": "LGTM modulo the `chromium:` prefix.",
+      "revId": "8cedbc24dad1a22321c3142eecc3b4941bf4e7ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
