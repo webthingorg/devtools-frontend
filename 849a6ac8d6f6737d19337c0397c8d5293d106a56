@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a1c2452_d43dd56b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-29T07:46:19Z",
+      "side": 1,
+      "message": "Since the CL is flipping the meaning of the setting, do we maybe want to assign it a new histogram value? Otherwise analyzing that metric could become a bit confusing.",
+      "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
