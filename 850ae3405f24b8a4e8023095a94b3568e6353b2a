@@ -51,6 +51,24 @@
       "parentUuid": "1eaa9617_804bea0b",
       "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fac443e8_6a3babe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-29T09:48:09Z",
+      "side": 1,
+      "message": "Ok, so if we change it so that \u0027allow pasting\u0027 has to be typed immediately after the warning, should typing JS immediately after the warning still work or not? And if so, shouldn\u0027t Autocomplete still work?\nAlternatively, if the self-XSS warning should rather disrupt the current workflow, such that the only allowed answers are \u0027allow pasting\u0027 and abort (by typing anything else), then the modal dialog we use in code editor windows would be a more appropriate UX imo.",
+      "parentUuid": "ecdefdfb_f0c802f8",
+      "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
