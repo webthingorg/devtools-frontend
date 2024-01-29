@@ -680,7 +680,7 @@ Common.Settings.registerSettingExtension({
   settingName: 'emulatePageFocus',
   settingType: Common.Settings.SettingType.BOOLEAN,
   storageType: Common.Settings.SettingStorageType.Session,
-  defaultValue: false,
+  defaultValue: true,
   options: [
     {
       value: true,
