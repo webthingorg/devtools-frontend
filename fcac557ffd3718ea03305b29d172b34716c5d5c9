@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0dcf23e_739164c3",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-29T08:50:32Z",
+      "side": 0,
+      "message": "Why can we remove the experiment check here?",
+      "range": {
+        "startLine": 2372,
+        "startChar": 8,
+        "endLine": 2372,
+        "endChar": 69
+      },
+      "revId": "fcac557ffd3718ea03305b29d172b34716c5d5c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
