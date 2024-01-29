@@ -69,6 +69,24 @@
       "parentUuid": "ecdefdfb_f0c802f8",
       "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7080952_ba2fea6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-29T10:00:40Z",
+      "side": 1,
+      "message": "I personally don\u0027t think we need to enforce typing `allow pasting`, but I think we need to recognize that that\u0027s the most likely next step for a developer, and so our workflow should be optimized for that. Does that make sense?",
+      "parentUuid": "fac443e8_6a3babe5",
+      "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
