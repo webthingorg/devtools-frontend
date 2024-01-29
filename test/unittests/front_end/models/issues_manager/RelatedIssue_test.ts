@@ -44,8 +44,8 @@ describe('issuesAssociatedWith', () => {
 
   function createTestCookie(name: string): SDK.Cookie.Cookie {
     const cookie = new SDK.Cookie.Cookie(name, '');
-    cookie.addAttribute('domain', '');
-    cookie.addAttribute('path', '');
+    cookie.addAttribute(SDK.Cookie.Attributes.Domain, '');
+    cookie.addAttribute(SDK.Cookie.Attributes.Path, '');
     return cookie;
   }
 
