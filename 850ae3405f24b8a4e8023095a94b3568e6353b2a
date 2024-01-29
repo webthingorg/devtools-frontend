@@ -87,6 +87,24 @@
       "parentUuid": "fac443e8_6a3babe5",
       "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "481189ef_dc853eb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-29T10:10:52Z",
+      "side": 1,
+      "message": "Sounds good, but what does that mean for autocomplete? The CL in its current state disables autocomplete until the user types \u0027allow pasting\u0027 which they might never do.",
+      "parentUuid": "b7080952_ba2fea6b",
+      "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
