@@ -105,6 +105,24 @@
       "parentUuid": "b7080952_ba2fea6b",
       "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea252904_0cf1127b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-29T11:35:43Z",
+      "side": 1,
+      "message": "With the CL as-is, autocomplete is enabled and working normally, until the user tries to paste something into the Console, at which point we show the banner and disable autocomplete until `allow pasting` is typed (and Enter is pressed). Afterwards we re-enable autocomplete as usual.",
+      "parentUuid": "481189ef_dc853eb6",
+      "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
