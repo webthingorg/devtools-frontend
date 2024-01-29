@@ -16,6 +16,57 @@
       "message": "Ergün, could you please take a look? We want to backmerge this",
       "revId": "491375328b5d4a58564b037a4892dbc6c8b85652",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57caef12_22ea2b0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-29T11:09:56Z",
+      "side": 1,
+      "message": "LGTM with 2 comments :)",
+      "revId": "491375328b5d4a58564b037a4892dbc6c8b85652",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df1f3bd_0f7b366d",
+        "filename": "front_end/panels/emulation/AdvancedApp.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-29T11:09:56Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand why we needed to make this an async function, is it intended? :)",
+      "revId": "491375328b5d4a58564b037a4892dbc6c8b85652",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fe5f8c3_21d689f7",
+        "filename": "front_end/ui/legacy/utils/DynamicTheming.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-29T11:09:56Z",
+      "side": 1,
+      "message": "WDYT of always setting it by hand without the if/else block above? We can directly create the string while setting the href attribute:\n```\nnewColorsCssLink.setAttribute(\u0027href\u0027, `devtools://theme/colors.css?sets\u003dui,chrome\u0026version\u003d${(new Date()).getTime().toString()});\n```",
+      "revId": "491375328b5d4a58564b037a4892dbc6c8b85652",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
