@@ -16,6 +16,24 @@
       "message": "should it be false by default and set to true in catch and log the actual exception instead of stackTrace?",
       "revId": "05a89b60eb5cfd7ba3e64ab5e274e0c45ec5f4d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ade196d_7dc807c3",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-01-29T10:00:46Z",
+      "side": 1,
+      "message": "I didn\u0027t use a catch in implementing this, just finally, which is why the default is true and I didn\u0027t get the exception. I assumed at the time I wrote this that we\u0027d be unlikely to see exceptions, and that if they were happening they would be printed elsewhere.",
+      "parentUuid": "91045dfc_e8e4e97a",
+      "revId": "05a89b60eb5cfd7ba3e64ab5e274e0c45ec5f4d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
