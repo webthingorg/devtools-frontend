@@ -169,7 +169,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
        flameChartView.getMainFlameChart().setSelectedEntry(node?.id);
 
        // Dispatch a shortcut keydown event that applies 'Hide Children' Context menu action
-       const event = new KeyboardEvent('keydown', {key: 'c'});
+       const event = new KeyboardEvent('keydown', {code: 'KeyC'});
        flameChartView.getMainFlameChart().getCanvas().dispatchEvent(event);
 
        const decorationsForEntry = flameChartView.getMainFlameChart().timelineData()?.entryDecorations[node?.id];
@@ -449,4 +449,62 @@ describeWithEnvironment('TimelineFlameChartView', function() {
            flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(1)?.buildDescriptor().label,
            'Reset trace');
      });
+
+  it('Reset Trace Context Menu action is disabled before some action has been applied', async function() {
+    const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'recursive-blocking-js.json.gz');
+    const mockViewDelegate = new MockViewDelegate();
+
+    const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
+    flameChartView.setModel(performanceModel, traceParsedData);
+
+    // Find the Main track to later collapse entries of
+    const mainTrack = flameChartView.getMainFlameChart().timelineData()?.groups.find(group => {
+      return group.name === 'Main — http://127.0.0.1:8080/';
+    });
+    if (!mainTrack) {
+      throw new Error('Could not find main track');
+    }
+
+    /** Part of this stack looks roughly like so (with some events omitted):
+     * =============== Task ============== <-- ID=62
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * =============== foo ===============
+     * ===== wait =====   ===== wait =====
+     * = now =  = now =   = now =  = now =
+     *
+     * In this test we want to test that the Reset Trace Context Menu option is disabled by default and enabled after some action has been applied.
+     *
+     * To chieve that, we will first check if Reset Trace is disabled and then dispatch a Context Menu action on "Task" entry and then check if Reset Trace is enabled.
+     * The ID of the a matching 'Task' is 62.
+     **/
+
+    const iDOfNode = 62;
+    // Highlight the node to make the Context Menu dispatch on this node
+    flameChartView.getMainFlameChart().highlightEntry(iDOfNode);
+
+    // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
+    flameChartView.getMainFlameChart().onContextMenu(new Event(''));
+
+    assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 2);
+    assert.strictEqual(
+        flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(1)?.buildDescriptor().label,
+        'Reset trace');
+    // Check that Reset Trace is disabled
+    assert.strictEqual(
+        flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(1)?.buildDescriptor().enabled,
+        false);
+
+    flameChartView.getMainFlameChart().modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.MERGE_FUNCTION, iDOfNode);
+    flameChartView.getMainFlameChart().highlightEntry(iDOfNode);
+    flameChartView.getMainFlameChart().onContextMenu(new Event(''));
+
+    // Check that Reset Trace is enabled
+    assert.strictEqual(
+        flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(1)?.buildDescriptor().enabled,
+        true);
+  });
 });
