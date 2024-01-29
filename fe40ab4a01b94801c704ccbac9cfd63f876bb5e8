@@ -16,6 +16,24 @@
       "message": "I think the current UI is confusing, because the rest of the settings are per element, whereas \"Emulate focused page\" is a global setting. Let\u0027s chat in person when you\u0027re in the office.",
       "revId": "fe40ab4a01b94801c704ccbac9cfd63f876bb5e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a242ea9b_9ed4a9ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-29T06:53:46Z",
+      "side": 1,
+      "message": "Okay, resolved via offline discussion: Let\u0027s split this into two CLs, one to flip the default, and one to add the checkbox. Please also link to the internal proposal doc in the CL description to make it easier for future selves to understand the reasoning behind these changes. Thanks!",
+      "parentUuid": "7d7d9a08_b908e7e9",
+      "revId": "fe40ab4a01b94801c704ccbac9cfd63f876bb5e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
