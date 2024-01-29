@@ -33,6 +33,24 @@
       "message": "I don\u0027t think disabling autocomplete would work well with the existing UX. \n\nCurrently, you can just ignore the self-XSS warning and keep on typing as if nothing had happened. You want autocomplete to work in this case.\n\nIn addition, if you want to allow pasing, you don\u0027t have to type \u0027allow pasting\u0027 immediately after the warning. It still works even if there are other console commands in between. `#selfXssWarningShown` stays true the whole time, which together with your code would mean that autocomplete would be turned off the whole time I believe.",
       "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdefdfb_f0c802f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-29T09:17:13Z",
+      "side": 1,
+      "message": "I know you can use it despite the warning showing up, but I don\u0027t think that\u0027s a workflow that we want to encourage. Assuming that the developer did indeed intentionally tried to paste something into the Console, the next logic step that we want the developer to take is to type `allow pasting`.",
+      "parentUuid": "1eaa9617_804bea0b",
+      "revId": "850ae3405f24b8a4e8023095a94b3568e6353b2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
