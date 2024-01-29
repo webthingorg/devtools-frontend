@@ -580,7 +580,7 @@ export class DebuggerPlugin extends Plugin {
     }
 
     if (this.uiSourceCode.project().type() === Workspace.Workspace.projectTypes.Network &&
-        Common.Settings.Settings.instance().moduleSetting('jsSourceMapsEnabled').get() &&
+        Common.Settings.Settings.instance().moduleSetting('js-source-maps-enabled').get() &&
         !Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(this.uiSourceCode.url())) {
       if (this.scriptFileForDebuggerModel.size) {
         const scriptFile: Bindings.ResourceScriptMapping.ResourceScriptFile =
@@ -1015,7 +1015,7 @@ export class DebuggerPlugin extends Plugin {
     if (!this.editor) {
       return null;
     }
-    if (!Common.Settings.Settings.instance().moduleSetting('inlineVariableValues').get()) {
+    if (!Common.Settings.Settings.instance().moduleSetting('inline-variable-values').get()) {
       return null;
     }
     const executionContext = UI.Context.Context.instance().flavor(SDK.RuntimeModel.ExecutionContext);
@@ -1524,7 +1524,7 @@ export class DebuggerPlugin extends Plugin {
     if (this.sourceMapInfobar) {
       return;
     }
-    if (!Common.Settings.Settings.instance().moduleSetting('jsSourceMapsEnabled').get()) {
+    if (!Common.Settings.Settings.instance().moduleSetting('js-source-maps-enabled').get()) {
       return;
     }
     if (!this.scriptHasSourceMap()) {
@@ -1540,7 +1540,7 @@ export class DebuggerPlugin extends Plugin {
     if (!resource) {
       this.sourceMapInfobar = UI.Infobar.Infobar.create(
           UI.Infobar.Type.Info, i18nString(UIStrings.sourceMapSkipped), [],
-          Common.Settings.Settings.instance().createSetting('sourceMapSkippedInfobarDisabled', false));
+          Common.Settings.Settings.instance().createSetting('source-map-skipped-infobar-disabled', false));
       if (!this.sourceMapInfobar) {
         return;
       }
@@ -1549,7 +1549,7 @@ export class DebuggerPlugin extends Plugin {
     } else if (resource.success) {
       this.sourceMapInfobar = UI.Infobar.Infobar.create(
           UI.Infobar.Type.Info, i18nString(UIStrings.sourceMapLoaded), [],
-          Common.Settings.Settings.instance().createSetting('sourceMapInfobarDisabled', false));
+          Common.Settings.Settings.instance().createSetting('source-map-infobar-disabled', false));
       if (!this.sourceMapInfobar) {
         return;
       }
@@ -1643,7 +1643,7 @@ export class DebuggerPlugin extends Plugin {
   private async setBreakpoint(
       lineNumber: number, columnNumber: number|undefined, condition: Breakpoints.BreakpointManager.UserCondition,
       enabled: boolean, isLogpoint: boolean): Promise<Breakpoints.BreakpointManager.Breakpoint|undefined> {
-    Common.Settings.Settings.instance().moduleSetting('breakpointsActive').set(true);
+    Common.Settings.Settings.instance().moduleSetting('breakpoints-active').set(true);
     const bp = await this.breakpointManager.setBreakpoint(
         this.uiSourceCode, lineNumber, columnNumber, condition, enabled, isLogpoint,
         Breakpoints.BreakpointManager.BreakpointOrigin.USER_ACTION);
