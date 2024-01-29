@@ -28,7 +28,7 @@ export class AdvancedApp implements Common.App.App {
 
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
         Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, async () => {
-          await UI.Utils.DynamicTheming.refetchColors(this.toolboxDocument);
+          await UI.Utils.DynamicTheming.fetchColors(this.toolboxDocument);
         }, this);
   }
 
@@ -83,7 +83,7 @@ export class AdvancedApp implements Common.App.App {
     this.toolboxWindow = window.open(url, undefined);
   }
 
-  deviceModeEmulationFrameLoaded(toolboxDocument: Document): void {
+  async deviceModeEmulationFrameLoaded(toolboxDocument: Document): Promise<void> {
     ThemeSupport.ThemeSupport.instance().applyTheme(toolboxDocument);
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       ThemeSupport.ThemeSupport.instance().applyTheme(toolboxDocument);
