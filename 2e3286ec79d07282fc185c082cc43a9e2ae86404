@@ -33,6 +33,24 @@
       "message": "(nit): WDYT of having an object as a parameter for having named parameters? :)\n\nI think having a boolean parameter in a parameter list makes it very hard to understand what it means in the use side.",
       "revId": "2e3286ec79d07282fc185c082cc43a9e2ae86404",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29c33730_660d4ead",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-29T15:22:31Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer just having the `readonly` argument in the options object. The alternative becomes really verbose in a lot of places :/ Does that work for you?",
+      "parentUuid": "993f59c3_a63e319f",
+      "revId": "2e3286ec79d07282fc185c082cc43a9e2ae86404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

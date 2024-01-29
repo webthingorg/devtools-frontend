@@ -16,6 +16,24 @@
       "message": "LGTM with a nit. I think in a later CL (after backmerging this), it\u0027d be cool to fix this :)",
       "revId": "37a97d7229e61721aa7b2ef897652cb569a692df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5494318_251b9615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-29T15:22:31Z",
+      "side": 1,
+      "message": "Fix what exactly? that the angle swatch can\u0027t update the color swatch? I agree, that\u0027s already included in https://crrev.com/c/5238548, but that CL is a bit heavyweight for a backmerge :)",
+      "parentUuid": "ec45ebad_e3af4aa1",
+      "revId": "37a97d7229e61721aa7b2ef897652cb569a692df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
