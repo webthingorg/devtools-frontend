@@ -16,6 +16,24 @@
       "message": "This is unnecessarily generic. Since sample size is 1, let\u0027s just write `if (setting.name \u003d\u003d\u003d \u0027emulatePageFocus\u0027) { ... }` here.",
       "revId": "56b3e75b0678ece482500df451c5580a2ab375e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dcaafdf_fe59ba81",
+        "filename": "front_end/ui/legacy/components/quick_open/CommandMenu.ts",
+        "patchSetId": 30
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-01-29T07:02:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b439b61c_e504c330",
+      "revId": "56b3e75b0678ece482500df451c5580a2ab375e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
