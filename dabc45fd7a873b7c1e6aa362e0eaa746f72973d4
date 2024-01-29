@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a809de91_063d88f7",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-29T14:15:40Z",
+      "side": 1,
+      "message": "out of curiousity, why do we make this switch?",
+      "range": {
+        "startLine": 879,
+        "startChar": 22,
+        "endLine": 879,
+        "endChar": 26
+      },
+      "revId": "dabc45fd7a873b7c1e6aa362e0eaa746f72973d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52e72e7d_eebeccf3",
+        "filename": "test/unittests/front_end/panels/timeline/TimelineFlameChartView_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-01-29T14:15:40Z",
+      "side": 1,
+      "message": "feels like we should extract the set up bits that are the same for multiple tests into a single `beforeEach` to avoid duplication",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 45
+      },
+      "revId": "dabc45fd7a873b7c1e6aa362e0eaa746f72973d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
