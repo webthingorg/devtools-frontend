@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd79dce_cb413ad3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-29T15:01:37Z",
+      "side": 1,
+      "message": "LGTM thouh",
+      "revId": "2e3286ec79d07282fc185c082cc43a9e2ae86404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "993f59c3_a63e319f",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-29T15:01:37Z",
+      "side": 1,
+      "message": "(nit): WDYT of having an object as a parameter for having named parameters? :)\n\nI think having a boolean parameter in a parameter list makes it very hard to understand what it means in the use side.",
+      "revId": "2e3286ec79d07282fc185c082cc43a9e2ae86404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
