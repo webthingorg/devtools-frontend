@@ -33,6 +33,24 @@
       "message": "What exactly do we mean by `Deprecate` here? Disable?",
       "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae53f1ea_c08485f5",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-01-29T09:03:04Z",
+      "side": 1,
+      "message": "We are disabling it now, but this is the beginning of deprecating it. \n\n- For the context, we launch the feature in M95. It is behind the experiment flag but enabled by default.\n- It is never an experiment, it is always communicate to public as a new feature. We gated it behind an experiment flag because of some issues we after launch.\n- So now that we are removing the feature, it is a deprecation.",
+      "parentUuid": "891cae92_d781f2fd",
+      "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
