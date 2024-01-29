@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef8d4be_b63bcfaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-29T13:57:08Z",
+      "side": 1,
+      "message": "Thanks for noticing, Ergün! PTAL?:)",
+      "revId": "ecd1ae2febf719832ee4d0af95261c00f2b5b3a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "850f5680_a440794e",
@@ -31,6 +48,24 @@
       "writtenOn": "2024-01-29T13:52:23Z",
       "side": 1,
       "message": "(Sorry for the vote reset, I think this might cause the feature not to work 😅)\n\nI think this might cause the newly added `link` element to be deleted, so we need to grab a reference to the previous one before appending the new one to the DOM.",
+      "revId": "ecd1ae2febf719832ee4d0af95261c00f2b5b3a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d578cd1_e4eabb0a",
+        "filename": "front_end/ui/legacy/utils/DynamicTheming.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-29T13:57:08Z",
+      "side": 1,
+      "message": "oh yes, how did I miss that, thanks for catching it!",
+      "parentUuid": "850f5680_a440794e",
       "revId": "ecd1ae2febf719832ee4d0af95261c00f2b5b3a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
