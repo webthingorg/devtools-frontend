@@ -105,6 +105,24 @@
       "parentUuid": "d1823a0a_03b7031e",
       "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07615f9d_ca1dbb93",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-01-29T10:17:16Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "d1823a0a_03b7031e",
+      "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
