@@ -311,7 +311,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
   static visibleShadowRoots(node: SDK.DOMModel.DOMNode): SDK.DOMModel.DOMNode[] {
     let roots = node.shadowRoots();
-    if (roots.length && !Common.Settings.Settings.instance().moduleSetting('showUAShadowDOM').get()) {
+    if (roots.length && !Common.Settings.Settings.instance().moduleSetting('show-ua-shadow-dom').get()) {
       roots = roots.filter(filter);
     }
 
@@ -1967,7 +1967,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    const indent = Common.Settings.Settings.instance().moduleSetting('textEditorIndent').get();
+    const indent = Common.Settings.Settings.instance().moduleSetting('text-editor-indent').get();
     const lines: string[] = [];
     for (const style of cascade.nodeStyles().reverse()) {
       for (const property of style.leadingProperties()) {
