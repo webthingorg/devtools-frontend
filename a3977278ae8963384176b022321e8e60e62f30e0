@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f4cfa1e_14a5f618",
+        "filename": "front_end/ui/legacy/SettingsUI.ts",
+        "patchSetId": 34
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-01-29T10:52:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0cd9c87_e34ad9de",
+      "revId": "a3977278ae8963384176b022321e8e60e62f30e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "958aa06d_56db0c03",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-29T10:39:18Z",
       "side": 1,
       "message": "nit: let\u0027s end comments with `.` as a sentence 😊",
+      "revId": "a3977278ae8963384176b022321e8e60e62f30e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "730742f2_d29a277e",
+        "filename": "front_end/ui/legacy/SettingsUI.ts",
+        "patchSetId": 34
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-01-29T10:52:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "958aa06d_56db0c03",
       "revId": "a3977278ae8963384176b022321e8e60e62f30e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
