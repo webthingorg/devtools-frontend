@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f279fd89_d011be8d",
+        "filename": "front_end/panels/emulation/AdvancedApp.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-29T13:41:46Z",
+      "side": 1,
+      "message": "yes, sorry, was trying smth out:D",
+      "parentUuid": "0df1f3bd_0f7b366d",
+      "revId": "491375328b5d4a58564b037a4892dbc6c8b85652",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fe5f8c3_21d689f7",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-01-29T11:09:56Z",
       "side": 1,
       "message": "WDYT of always setting it by hand without the if/else block above? We can directly create the string while setting the href attribute:\n```\nnewColorsCssLink.setAttribute(\u0027href\u0027, `devtools://theme/colors.css?sets\u003dui,chrome\u0026version\u003d${(new Date()).getTime().toString()});\n```",
+      "revId": "491375328b5d4a58564b037a4892dbc6c8b85652",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a829c7_d1fbe212",
+        "filename": "front_end/ui/legacy/utils/DynamicTheming.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-29T13:41:46Z",
+      "side": 1,
+      "message": "Makes sense, sure! Thanks",
+      "parentUuid": "7fe5f8c3_21d689f7",
       "revId": "491375328b5d4a58564b037a4892dbc6c8b85652",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
