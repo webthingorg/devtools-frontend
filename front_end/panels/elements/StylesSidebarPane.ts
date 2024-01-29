@@ -316,7 +316,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.activeCSSAngle = null;
 
     const showDocumentationSetting =
-        Common.Settings.Settings.instance().moduleSetting('showCSSPropertyDocumentationOnHover');
+        Common.Settings.Settings.instance().moduleSetting('show-css-property-documentation-on-hover');
     showDocumentationSetting.addChangeListener(event => {
       const metricType = Boolean(event.data) ? Host.UserMetrics.CSSPropertyDocumentation.ToggledOn :
                                                Host.UserMetrics.CSSPropertyDocumentation.ToggledOff;
@@ -2369,7 +2369,7 @@ export class StylesSidebarPropertyRenderer {
                                                 InlineEditor.FontEditorUtils.FontPropertiesRegex,
           this.fontHandler));
     }
-    if (Root.Runtime.experiments.isEnabled('cssTypeComponentLength') && this.lengthHandler) {
+    if (this.lengthHandler) {
       // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
       matchers.push(
           new LegacyRegexMatcher(asLineMatch(InlineEditor.CSSLengthUtils.CSSLengthRegex), this.lengthHandler));
