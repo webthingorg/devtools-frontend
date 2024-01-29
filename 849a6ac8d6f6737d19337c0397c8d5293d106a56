@@ -16,6 +16,23 @@
       "message": "Since the CL is flipping the meaning of the setting, do we maybe want to assign it a new histogram value? Otherwise analyzing that metric could become a bit confusing.",
       "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "891cae92_d781f2fd",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-29T07:47:15Z",
+      "side": 1,
+      "message": "What exactly do we mean by `Deprecate` here? Disable?",
+      "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
