@@ -11,9 +11,10 @@ export class Cookie {
   readonly #nameInternal: string;
   readonly #valueInternal: string;
   readonly #typeInternal: Type|null|undefined;
-  #attributes: {
-    [x: string]: string|number|boolean|undefined,
-  };
+  // #attributes: {
+  //   [x: string]: string|number|boolean|undefined,
+  // };
+  #attributes: Map<Attributes, string|number|boolean|undefined>;
   #sizeInternal: number;
   #priorityInternal: Protocol.Network.CookiePriority;
   #cookieLine: string|null;
@@ -21,7 +22,7 @@ export class Cookie {
     this.#nameInternal = name;
     this.#valueInternal = value;
     this.#typeInternal = type;
-    this.#attributes = {};
+    this.#attributes = new Map();
     this.#sizeInternal = 0;
     this.#priorityInternal = (priority || 'Medium' as Protocol.Network.CookiePriority);
     this.#cookieLine = null;
@@ -29,31 +30,31 @@ export class Cookie {
 
   static fromProtocolCookie(protocolCookie: Protocol.Network.Cookie): Cookie {
     const cookie = new Cookie(protocolCookie.name, protocolCookie.value, null, protocolCookie.priority);
-    cookie.addAttribute('domain', protocolCookie['domain']);
-    cookie.addAttribute('path', protocolCookie['path']);
+    cookie.addAttribute(Attributes.Domain, protocolCookie['domain']);
+    cookie.addAttribute(Attributes.Path, protocolCookie['path']);
     if (protocolCookie['expires']) {
-      cookie.addAttribute('expires', protocolCookie['expires'] * 1000);
+      cookie.addAttribute(Attributes.Expires, protocolCookie['expires'] * 1000);
     }
     if (protocolCookie['httpOnly']) {
-      cookie.addAttribute('httpOnly');
+      cookie.addAttribute(Attributes.HttpOnly);
     }
     if (protocolCookie['secure']) {
-      cookie.addAttribute('secure');
+      cookie.addAttribute(Attributes.Secure);
     }
     if (protocolCookie['sameSite']) {
-      cookie.addAttribute('sameSite', protocolCookie['sameSite']);
+      cookie.addAttribute(Attributes.SameSite, protocolCookie['sameSite']);
     }
     if ('sourcePort' in protocolCookie) {
-      cookie.addAttribute('sourcePort', protocolCookie.sourcePort);
+      cookie.addAttribute(Attributes.SourcePort, protocolCookie.sourcePort);
     }
     if ('sourceScheme' in protocolCookie) {
-      cookie.addAttribute('sourceScheme', protocolCookie.sourceScheme);
+      cookie.addAttribute(Attributes.SourceScheme, protocolCookie.sourceScheme);
     }
     if ('partitionKey' in protocolCookie) {
-      cookie.addAttribute('partitionKey', protocolCookie.partitionKey);
+      cookie.addAttribute(Attributes.PartitionKey, protocolCookie.partitionKey);
     }
     if ('partitionKeyOpaque' in protocolCookie && protocolCookie.partitionKeyOpaque) {
-      cookie.addAttribute('partitionKey', OPAQUE_PARTITION_KEY);
+      cookie.addAttribute(Attributes.PartitionKey, OPAQUE_PARTITION_KEY);
     }
     cookie.setSize(protocolCookie['size']);
     return cookie;
@@ -86,37 +87,37 @@ export class Cookie {
   }
 
   httpOnly(): boolean {
-    return 'httponly' in this.#attributes;
+    return this.#attributes.has(Attributes.HttpOnly);
   }
 
   secure(): boolean {
-    return 'secure' in this.#attributes;
+    return this.#attributes.has(Attributes.Secure);
   }
 
   partitioned(): boolean {
-    return 'partitioned' in this.#attributes || Boolean(this.partitionKey()) || this.partitionKeyOpaque();
+    return this.#attributes.has(Attributes.Partitioned) || Boolean(this.partitionKey()) || this.partitionKeyOpaque();
   }
 
   sameSite(): Protocol.Network.CookieSameSite {
     // TODO(allada) This should not rely on #attributes and instead store them individually.
     // when #attributes get added via addAttribute() they are lowercased, hence the lowercasing of samesite here
-    return this.#attributes['samesite'] as Protocol.Network.CookieSameSite;
+    return this.#attributes.get(Attributes.SameSite) as Protocol.Network.CookieSameSite;
   }
 
   partitionKey(): string {
-    return this.#attributes['partitionkey'] as string;
+    return this.#attributes.get(Attributes.PartitionKey) as string;
   }
 
   setPartitionKey(key: string): void {
-    this.addAttribute('partitionKey', key);
+    this.addAttribute(Attributes.PartitionKey, key);
   }
 
   partitionKeyOpaque(): boolean {
-    return (this.#attributes['partitionkey'] === OPAQUE_PARTITION_KEY);
+    return (this.#attributes.get(Attributes.PartitionKey) === OPAQUE_PARTITION_KEY);
   }
 
   setPartitionKeyOpaque(): void {
-    this.addAttribute('partitionKey', OPAQUE_PARTITION_KEY);
+    this.addAttribute(Attributes.PartitionKey, OPAQUE_PARTITION_KEY);
   }
 
   priority(): Protocol.Network.CookiePriority {
@@ -126,31 +127,31 @@ export class Cookie {
   session(): boolean {
     // RFC 2965 suggests using Discard attribute to mark session cookies, but this does not seem to be widely used.
     // Check for absence of explicitly max-age or expiry date instead.
-    return !('expires' in this.#attributes || 'max-age' in this.#attributes);
+    return !(this.#attributes.has(Attributes.Expires) || this.#attributes.has(Attributes.MaxAge));
   }
 
   path(): string {
-    return this.#attributes['path'] as string;
+    return this.#attributes.get(Attributes.Path) as string;
   }
 
   domain(): string {
-    return this.#attributes['domain'] as string;
+    return this.#attributes.get(Attributes.Domain) as string;
   }
 
   expires(): number {
-    return this.#attributes['expires'] as number;
+    return this.#attributes.get(Attributes.Expires) as number;
   }
 
   maxAge(): number {
-    return this.#attributes['max-age'] as number;
+    return this.#attributes.get(Attributes.MaxAge) as number;
   }
 
   sourcePort(): number {
-    return this.#attributes['sourceport'] as number;
+    return this.#attributes.get(Attributes.SourcePort) as number;
   }
 
   sourceScheme(): Protocol.Network.CookieSourceScheme {
-    return this.#attributes['sourcescheme'] as Protocol.Network.CookieSourceScheme;
+    return this.#attributes.get(Attributes.SourceScheme) as Protocol.Network.CookieSourceScheme;
   }
 
   size(): number {
@@ -193,14 +194,16 @@ export class Cookie {
     return null;
   }
 
-  addAttribute(key: string, value?: string|number|boolean): void {
-    const normalizedKey = key.toLowerCase();
-    switch (normalizedKey) {
-      case 'priority':
+  addAttribute(key: Attributes|null, value?: string|number|boolean): void {
+    if (!key) {
+      return;
+    }
+    switch (key) {
+      case Attributes.Priority:
         this.#priorityInternal = (value as Protocol.Network.CookiePriority);
         break;
       default:
-        this.#attributes[normalizedKey] = value;
+        this.#attributes.set(key, value);
     }
   }
 
@@ -267,11 +270,13 @@ export const enum Attributes {
   Domain = 'domain',
   Path = 'path',
   Expires = 'expires',
+  MaxAge = 'max-age',
   HttpOnly = 'http-only',
   Secure = 'secure',
   SameSite = 'same-site',
   SourceScheme = 'source-scheme',
   SourcePort = 'source-port',
   Priority = 'priority',
+  Partitioned = 'partitioned',
   PartitionKey = 'partition-key',
 }
