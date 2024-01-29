@@ -69,6 +69,24 @@
       "parentUuid": "891cae92_d781f2fd",
       "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1823a0a_03b7031e",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-01-29T09:08:25Z",
+      "side": 1,
+      "message": "This is the user visible description of the experiment, right? Maybe Sofia has some thoughts on this?",
+      "parentUuid": "ae53f1ea_c08485f5",
+      "revId": "849a6ac8d6f6737d19337c0397c8d5293d106a56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
