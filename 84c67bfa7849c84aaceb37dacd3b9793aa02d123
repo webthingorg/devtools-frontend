@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "feac52c8_bab86880",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-30T17:00:03Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "bc7aff9a_c833b98e",
+      "range": {
+        "startLine": 2484,
+        "startChar": 4,
+        "endLine": 2484,
+        "endChar": 57
+      },
+      "revId": "84c67bfa7849c84aaceb37dacd3b9793aa02d123",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5dd79aee_5352df7a",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f08dbedf_5855b2f6",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2491,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-30T17:00:03Z",
+      "side": 1,
+      "message": "Yes, this was a necessary part of the change, because the table object for the WeakMap is of array type, and those nodes need to be considered by the subsequent code rather than returning true early. I tried to restructure the existing filters here so they check for something specific rather than an entire category of nodes.",
+      "parentUuid": "5dd79aee_5352df7a",
+      "range": {
+        "startLine": 2491,
+        "startChar": 6,
+        "endLine": 2491,
+        "endChar": 69
+      },
+      "revId": "84c67bfa7849c84aaceb37dacd3b9793aa02d123",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0948598b_cd8c917f",
@@ -94,6 +142,30 @@
       "writtenOn": "2024-01-30T06:15:46Z",
       "side": 1,
       "message": "```suggestion\n            const {keyId, tableId} \u003d match.groups as {keyId: string, tableId: string};\n```",
+      "range": {
+        "startLine": 2521,
+        "startChar": 0,
+        "endLine": 2523,
+        "endChar": 46
+      },
+      "revId": "84c67bfa7849c84aaceb37dacd3b9793aa02d123",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3028ca85_fec3409c",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2523,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-01-30T17:00:03Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "0948598b_cd8c917f",
       "range": {
         "startLine": 2521,
         "startChar": 0,
