@@ -39,7 +39,7 @@ describe('ContentData', () => {
 
   it('converts to a data URL', () => {
     const textContent = new ContentData('a simple text', false, MimeType.HTML);
-    assert.strictEqual(textContent.asDataUrl(), 'data:text/html,a simple text');
+    assert.strictEqual(textContent.asDataUrl(), 'data:text/html,a%20simple%20text');
 
     const binaryData = new ContentData('AQIDBA==', true, 'application/wasm');
     assert.strictEqual(binaryData.asDataUrl(), 'data:application/wasm;base64,AQIDBA==');
@@ -54,7 +54,7 @@ describe('ContentData', () => {
 
   it('does not include charset for already decoded text in the data URL', () => {
     const textWithCharsetContent = new ContentData('a simple text', false, MimeType.HTML, 'utf-16');
-    assert.strictEqual(textWithCharsetContent.asDataUrl(), 'data:text/html,a simple text');
+    assert.strictEqual(textWithCharsetContent.asDataUrl(), 'data:text/html,a%20simple%20text');
   });
 
   it('converts to DeferredContent', () => {
@@ -69,6 +69,14 @@ describe('ContentData', () => {
 
     assert.isTrue(deferredBinaryData.isEncoded);
     assert.strictEqual(deferredBinaryData.content, 'AQIDBA==');
+
+    const binaryTextData = new ContentData(
+        'PCFET0NUWVBFIGh0bWw+CjxwPknDsXTDq3Juw6J0acO0bsOgbGl6w6Z0acO4buKYg/CdjIY8L3A+Cg==', true, MimeType.HTML,
+        'utf-8');
+    const deferredBinaryTextData = binaryTextData.asDeferedContent();
+
+    assert.isFalse(deferredBinaryTextData.isEncoded);
+    assert.strictEqual(deferredBinaryTextData.content, '<!DOCTYPE html>\n<p>Iñtërnâtiônàlizætiøn☃𝌆</p>\n');
   });
 
   it('converts ContentDataOrError to DeferredContent', () => {
