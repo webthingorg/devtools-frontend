@@ -62,6 +62,30 @@
       },
       "revId": "fbe244a29fa8182ac427f769dddce4037794c77b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bddd4cc_2bfef2fe",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T07:48:11Z",
+      "side": 1,
+      "message": "Thanks, fixed in the crrev.com/c/5246531",
+      "parentUuid": "849db2a3_0c35db6f",
+      "range": {
+        "startLine": 234,
+        "startChar": 83,
+        "endLine": 234,
+        "endChar": 98
+      },
+      "revId": "fbe244a29fa8182ac427f769dddce4037794c77b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
