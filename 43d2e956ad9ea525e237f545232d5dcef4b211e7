@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b00a2c39_e27ef820",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-01-30T06:57:33Z",
+      "side": 1,
+      "message": "Thanks for the fix. Can you please add a unit test to `NetworkLogView_test.ts` (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/network/NetworkLogView_test.ts;l\u003d98-137;drc\u003d6b3ebf25af16e9636b4c3b64828caa419a22b3ca) for this?",
+      "revId": "43d2e956ad9ea525e237f545232d5dcef4b211e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
