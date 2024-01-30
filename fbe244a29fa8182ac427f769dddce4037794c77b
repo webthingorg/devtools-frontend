@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5106e7_9c0edeca",
+        "filename": "front_end/panels/accessibility/AccessibilityNodeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-30T05:39:46Z",
+      "side": 1,
+      "message": "Drive-by comment:\n\nThis seems a very common pattern by now. We could add a short cut so we could write this as `VisualLogging.section(\u0027computed-properties\u0027)`.\n\nImplementation-wise all we\u0027d have to do is extend `makeConfigStringBuilder` to take a second (optional) `context` argument instead of only the `veName`.",
+      "range": {
+        "startLine": 132,
+        "startChar": 49,
+        "endLine": 132,
+        "endChar": 103
+      },
+      "revId": "fbe244a29fa8182ac427f769dddce4037794c77b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
