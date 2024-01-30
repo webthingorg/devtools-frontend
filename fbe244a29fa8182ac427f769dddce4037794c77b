@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d076b033_265d9715",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-30T07:15:16Z",
+      "side": 1,
+      "message": "LGTM with 1 suggestion",
+      "revId": "fbe244a29fa8182ac427f769dddce4037794c77b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb5106e7_9c0edeca",
@@ -19,6 +36,29 @@
         "startChar": 49,
         "endLine": 132,
         "endChar": 103
+      },
+      "revId": "fbe244a29fa8182ac427f769dddce4037794c77b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "849db2a3_0c35db6f",
+        "filename": "front_end/panels/network/components/RequestHeadersView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-30T07:15:16Z",
+      "side": 1,
+      "message": "```suggestion\n          } as ResponseHeaderSectionData} jslog\u003d${VisualLogging.section().context(\u0027response-headers\u0027)}\u003e\u003c/${ResponseHeaderSection.litTagName}\u003e\n```",
+      "range": {
+        "startLine": 234,
+        "startChar": 83,
+        "endLine": 234,
+        "endChar": 98
       },
       "revId": "fbe244a29fa8182ac427f769dddce4037794c77b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
