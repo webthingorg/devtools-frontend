@@ -298,6 +298,7 @@ export const enum ExperimentName {
   AUTOFILL_VIEW = 'autofillView',
   INDENTATION_MARKERS_TEMP_DISABLE = 'sourcesFrameIndentationMarkersTemporarilyDisable',
   CONSOLE_INSIGHTS = 'consoleInsights',
+  TIMELINE_SHOW_POST_MESSAGE_EVENTS = 'timelineShowPostMessageEvents',
 }
 
 export const enum ConditionName {
