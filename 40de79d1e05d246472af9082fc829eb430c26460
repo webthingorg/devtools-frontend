@@ -16,6 +16,23 @@
       "message": "PTAL. Unfortunately this means no metrics have been collected so far. Since I\u0027m not the first one bitten by this, I\u0027ll look into adding a presubmit check for this.",
       "revId": "40de79d1e05d246472af9082fc829eb430c26460",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df5991cd_80c14e9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-30T12:20:03Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "40de79d1e05d246472af9082fc829eb430c26460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
