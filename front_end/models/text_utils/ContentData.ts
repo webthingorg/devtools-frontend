@@ -96,12 +96,14 @@ export class ContentData {
    * @deprecated Used during migration from `DeferredContent` to `ContentData`.
    */
   asDeferedContent(): DeferredContent {
-    // To keep with existing behavior we prefer to return the content
-    // encoded if that is how this ContentData was constructed with.
-    if (this.#contentAsBase64 !== undefined) {
-      return {content: this.#contentAsBase64, isEncoded: true};
+    // To prevent encoding mistakes, we'll return text content already decoded.
+    if (this.isTextContent) {
+      return {content: this.text, isEncoded: false};
     }
-    return {content: this.text, isEncoded: false};
+    if (this.#contentAsBase64 === undefined) {
+      throw new Error('Unreachable');
+    }
+    return {content: this.#contentAsBase64, isEncoded: true};
   }
 
   static isError(contentDataOrError: ContentDataOrError): contentDataOrError is {error: string} {
