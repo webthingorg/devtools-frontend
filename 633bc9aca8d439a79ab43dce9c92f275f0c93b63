@@ -16,6 +16,40 @@
       "message": "This is backwards-compatible thanks to crrev.com/c/5224229",
       "revId": "633bc9aca8d439a79ab43dce9c92f275f0c93b63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed570039_1d02f360",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-01-30T20:37:26Z",
+      "side": 1,
+      "message": "Will this reset the setting values for users?",
+      "revId": "633bc9aca8d439a79ab43dce9c92f275f0c93b63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fe08bf8_a0f9a5ae",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-01-30T20:37:26Z",
+      "side": 1,
+      "message": "```suggestion\n        \u0027lighthouse.cat-a11y\u0027, true, Common.Settings.SettingStorageType.Synced),\n```",
+      "revId": "633bc9aca8d439a79ab43dce9c92f275f0c93b63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
