@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af189b73_07f05c6f",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T16:16:38Z",
+      "side": 1,
+      "message": "Item is not a catch-all VE, it is meant to represent an element of some flat list. \n\nWe didn\u0027t log resizers before but we probably should. Please introduce a new VE for the resizer in the LoggingConfig.ts and visual_logging.ts and use it here.",
+      "range": {
+        "startLine": 142,
+        "startChar": 34,
+        "endLine": 142,
+        "endChar": 38
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a1887b3_f1fb3773",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T16:16:38Z",
+      "side": 1,
+      "message": "Do you know why this is a toggle?",
+      "range": {
+        "startLine": 321,
+        "startChar": 41,
+        "endLine": 321,
+        "endChar": 54
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1560d03c_3de79bcc",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T16:16:38Z",
+      "side": 1,
+      "message": "This is also not an Item, we probably want to have a dedicated VE for this, something like a `Timeline` which we can also use in the network and performance panels",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 111
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42aee11e_e2da3577",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T16:16:38Z",
+      "side": 1,
+      "message": "Also here. I am not quite sure about the semantics of it, but this probably needs to be more specific then an Item.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 108
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de21dea0_10934af7",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T16:16:38Z",
+      "side": 1,
+      "message": "This could be something like a Knob which we could also use in the Bezier editor",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 118
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
