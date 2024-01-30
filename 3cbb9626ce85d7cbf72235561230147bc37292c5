@@ -16,6 +16,52 @@
       "message": "PTAL, thanks!",
       "revId": "3cbb9626ce85d7cbf72235561230147bc37292c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f2eda03_45a3d2d6",
+        "filename": "front_end/core/sdk/Cookie.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T06:31:51Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "3cbb9626ce85d7cbf72235561230147bc37292c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "938e2568_a0c221e0",
+        "filename": "front_end/core/sdk/CookieParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T06:31:51Z",
+      "side": 1,
+      "message": "This coming straight from the network, so malformed data is expected. Returning null is fine.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 29
+      },
+      "revId": "3cbb9626ce85d7cbf72235561230147bc37292c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
