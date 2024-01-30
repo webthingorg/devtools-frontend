@@ -33,6 +33,24 @@
       "message": "To double check: Do we have machinery to correctly load the old settings from local storage despite the name change? Or does that just work?",
       "revId": "1ef59855514cc87e47647b884d1e8e43dcef9b53",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47beaf4d_e09d7b04",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-30T15:29:18Z",
+      "side": 1,
+      "message": "Yes, we do, see crrev.com/c/5224229",
+      "parentUuid": "f6f834af_a23b64e1",
+      "revId": "1ef59855514cc87e47647b884d1e8e43dcef9b53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
