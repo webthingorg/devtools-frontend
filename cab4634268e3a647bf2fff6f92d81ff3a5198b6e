@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a809e98_cc53781d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-30T15:59:26Z",
+      "side": 1,
+      "message": "Oh, looks like I added this camelCase there, my bas, sorry, tried to follow kebab case!",
+      "revId": "cab4634268e3a647bf2fff6f92d81ff3a5198b6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
