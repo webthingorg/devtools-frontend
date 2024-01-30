@@ -106,4 +106,8 @@ export class SearchableContainer extends UI.Widget.VBox {
   async revealPosition(position: RevealPosition): Promise<void> {
     this.sourceFrame.revealPosition(position, true);
   }
+
+  get sourceFrameForTest(): ResourceSourceFrame {
+    return this.sourceFrame;
+  }
 }

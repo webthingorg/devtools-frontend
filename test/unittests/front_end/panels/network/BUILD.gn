@@ -17,6 +17,7 @@ ts_library("network") {
     "RequestCookiesView_test.ts",
     "RequestPayloadView_test.ts",
     "RequestPreviewView_test.ts",
+    "RequestResponseView_test.ts",
   ]
 
   deps = [
@@ -24,6 +25,7 @@ ts_library("network") {
     "../../../../../front_end/models/text_utils:bundle",
     "../../../../../front_end/panels/network:bundle",
     "../../../../../front_end/panels/network:meta",
+    "../../../../../front_end/ui/legacy/components/source_frame:bundle",
     "../../helpers",
   ]
 }
