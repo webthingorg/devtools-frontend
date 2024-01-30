@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5063e04b_a83b94b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-30T11:34:30Z",
+      "side": 1,
+      "message": "PTAL. Unfortunately this means no metrics have been collected so far. Since I\u0027m not the first one bitten by this, I\u0027ll look into adding a presubmit check for this.",
+      "revId": "40de79d1e05d246472af9082fc829eb430c26460",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
