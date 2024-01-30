@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f19dad1_5883425c",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-30T09:20:09Z",
+      "side": 0,
+      "message": "This method was a bit weird. Awaiting `ensureContentLoaded` does not actually guarantee `setDeferredContent` is done. So this CL changes that as a drive-by. Existing use-sites didn\u0027t await the result anyway so this should be fine.",
+      "range": {
+        "startLine": 520,
+        "startChar": 16,
+        "endLine": 520,
+        "endChar": 35
+      },
+      "revId": "d3806b467899faf2a3d72fb067c91880319387a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
