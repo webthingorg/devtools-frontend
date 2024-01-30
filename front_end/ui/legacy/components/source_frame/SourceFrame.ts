@@ -163,7 +163,7 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   private lineToScrollTo: number|null;
   private selectionToSet: TextUtils.TextRange.TextRange|null;
   private loadedInternal: boolean;
-  private contentRequested: boolean;
+  private contentRequested: Promise<void>|null = null;
   private wasmDisassemblyInternal: Common.WasmDisassembly.WasmDisassembly|null;
   contentSet: boolean;
   private selfXssWarningDisabledSetting: Common.Settings.Setting<boolean>;
@@ -216,7 +216,6 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
     this.lineToScrollTo = null;
     this.selectionToSet = null;
     this.loadedInternal = false;
-    this.contentRequested = false;
 
     this.wasmDisassemblyInternal = null;
     this.contentSet = false;
@@ -519,11 +518,15 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
 
   private async ensureContentLoaded(): Promise<void> {
     if (!this.contentRequested) {
-      this.contentRequested = true;
-      await this.setDeferredContent(this.lazyContent());
-
-      this.contentSet = true;
+      this.contentRequested = this.setDeferredContent(this.lazyContent()).then(() => {
+        this.contentSet = true;
+      });
     }
+    return this.contentRequested;
+  }
+
+  get ensureContentLoadedForTest(): Promise<void> {
+    return this.ensureContentLoaded();
   }
 
   protected async setDeferredContent(deferredContentPromise: Promise<TextUtils.ContentProvider.DeferredContent>):
