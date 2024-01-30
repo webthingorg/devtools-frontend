@@ -1101,9 +1101,10 @@ export enum DevtoolsExperiments {
   'autofillView' = 82,
   'sourcesFrameIndentationMarkersTemporarilyDisable' = 83,
   'heapSnapshotTreatBackingStoreAsContainingObject' = 84,
+  'timelineShowPostMessageEvents' = 85,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 85,
+  'MaxValue' = 86,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
