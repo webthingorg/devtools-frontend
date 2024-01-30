@@ -16,6 +16,24 @@
       "message": "Thanks for the fix. Can you please add a unit test to `NetworkLogView_test.ts` (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/panels/network/NetworkLogView_test.ts;l\u003d98-137;drc\u003d6b3ebf25af16e9636b4c3b64828caa419a22b3ca) for this?",
       "revId": "43d2e956ad9ea525e237f545232d5dcef4b211e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a61504_828d73a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2024-01-30T07:50:16Z",
+      "side": 1,
+      "message": "This is a bit of a weird one in that it\u0027s an internal header when using HTTP/2 or HTTP/3 so not sure exactly how to replicate this.\n\nI mean I could do this:\n\n```\n    it(\u0027generates a valid curl command while stripping internal headers\u0027, async () \u003d\u003e {\n      const request \u003d createNetworkRequest(\u0027http://localhost\u0027 as Platform.DevToolsPath.UrlString, {\n        requestHeaders: [\n          {name: \u0027authority\u0027, value: \u0027www.example.com\u0027},\n        ],\n      });\n      const actual \u003d await Network.NetworkLogView.NetworkLogView.generateCurlCommand(request, \u0027unix\u0027);\n      const expected \u003d\n          \u0027curl \\\u0027http://localhost\\\u0027\u0027;\n      assert.strictEqual(actual, expected);\n    });\n```\n\nBut that\u0027s basically faking it and setting an `authority` header manually when it really should be an `:authority` header which is added automatically, and then stripped down by DevTools somewhere to `authority`. Same with `:protocol` -\u003e `protocol`.\n\nSo for that reason, and because the other examples in this list also didn\u0027t have tests (perhaps for the same reason), I didn\u0027t add a test.\n\nWDYT? Should we add the above basic on even though it is a bit of a fake to at least test the code changed here?",
+      "parentUuid": "b00a2c39_e27ef820",
+      "revId": "43d2e956ad9ea525e237f545232d5dcef4b211e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
