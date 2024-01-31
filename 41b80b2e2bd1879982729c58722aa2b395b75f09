@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "744ed34c_d758d5c6",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-31T10:12:18Z",
+      "side": 1,
+      "message": "Makes sense, done! :)",
+      "parentUuid": "af189b73_07f05c6f",
+      "range": {
+        "startLine": 142,
+        "startChar": 34,
+        "endLine": 142,
+        "endChar": 38
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a1887b3_f1fb3773",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-30T16:16:38Z",
       "side": 1,
       "message": "Do you know why this is a toggle?",
+      "range": {
+        "startLine": 321,
+        "startChar": 41,
+        "endLine": 321,
+        "endChar": 54
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7b29b0_3b14fe26",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-31T10:12:18Z",
+      "side": 1,
+      "message": "Ah good catch, it might have remained there maybe because it had two controls before or maybe just for convenience of being able to call `setToggled` to set color.\n\nI have updated it to be a button and manually toggled the `on` state on the element.",
+      "parentUuid": "2a1887b3_f1fb3773",
       "range": {
         "startLine": 321,
         "startChar": 41,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f847f3f_2402f229",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-31T10:12:18Z",
+      "side": 1,
+      "message": "Makes sense, updated it.",
+      "parentUuid": "1560d03c_3de79bcc",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 111
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42aee11e_e2da3577",
@@ -93,6 +165,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d86ded7_ad156c51",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-31T10:12:18Z",
+      "side": 1,
+      "message": "Makes sense, updated it to be `AnimationClip`.",
+      "parentUuid": "42aee11e_e2da3577",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 108
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de21dea0_10934af7",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-01-30T16:16:38Z",
       "side": 1,
       "message": "This could be something like a Knob which we could also use in the Bezier editor",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 118
+      },
+      "revId": "41b80b2e2bd1879982729c58722aa2b395b75f09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08fd83dc_2e337517",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-31T10:12:18Z",
+      "side": 1,
+      "message": "Makes sense! Updated it to be \"ControlPoint\".",
+      "parentUuid": "de21dea0_10934af7",
       "range": {
         "startLine": 186,
         "startChar": 0,

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe44124f_2b05b87f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-01-31T10:12:18Z",
+      "side": 1,
+      "message": "Hey Danil,\n* Updated the CL to use more specialized names for specialized visual parts.\n* As a drive by: added instrumentation for control points in bezier editor.\n\nPlease take a look again :)",
+      "revId": "0eb1b9e9efe3f7cfc354f0cfdb7748d92f3f20b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
