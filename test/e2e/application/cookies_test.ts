@@ -73,6 +73,7 @@ describe('The Application Tab', async () => {
       const previewValue = await previewValueNode.evaluate(e => e.textContent);
       return previewValue === 'bar';
     });
+    assert.isDefined(process.env['MOCHA_FGREP']);
   });
 
   it('shows cookie partition key', async () => {
