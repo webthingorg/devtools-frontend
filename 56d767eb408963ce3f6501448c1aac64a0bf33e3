@@ -70,6 +70,30 @@
       },
       "revId": "56d767eb408963ce3f6501448c1aac64a0bf33e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35710bd4_7f6f41f5",
+        "filename": "test/unittests/front_end/panels/network/RequestResponseView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-31T06:03:49Z",
+      "side": 1,
+      "message": "Oh, I typically do something like\n\n\n    await new Promise(resolve \u003d\u003e sinon.stub(...).callsFake(resolve));\n    \n See e.g. https://crsrc.org/third_party/devtools-frontend/src/test/unittests/front_end/entrypoints/inspector_main/InspectorMain_test.ts;l\u003d131",
+      "parentUuid": "b8acbafc_d296a8d2",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 49
+      },
+      "revId": "56d767eb408963ce3f6501448c1aac64a0bf33e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
