@@ -45,6 +45,7 @@ describeWithEnvironment('CreateRecordingView', () => {
     button.dispatchEvent(new Event('click'));
     const event = await onceClicked;
     assert.deepEqual(event.name, 'Test');
+    assert.isDefined(process.env['MOCHA_FGREP']);
   });
 
   it('should dispatch recordingcancelled event on the close button click', async () => {
@@ -72,6 +73,7 @@ describeWithEnvironment('CreateRecordingView', () => {
                       '#user-flow-name',
                       ) as HTMLInputElement;
     assert.isAtLeast(input.value.length, 'Recording'.length);
+    assert.isDefined(process.env['MOCHA_FGREP']);
   });
 
   it('should remember the most recent selector attribute', async () => {

@@ -260,6 +260,7 @@ describe('The Application Tab', async () => {
       'Web Worker',
       'None',
     ];
+    assert.isDefined(process.env['MOCHA_FGREP']);
     assert.deepEqual(fieldValuesTextContent, expected);
   });
 
