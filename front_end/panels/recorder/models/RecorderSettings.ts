@@ -29,20 +29,20 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class RecorderSettings {
   #selectorAttribute = Common.Settings.Settings.instance().createSetting(
-      'recorder-selector-attribute',
+      'recorderSelectorAttribute',
       '',
   );
   #speed = Common.Settings.Settings.instance().createSetting(
-      'recorder-panel-replay-speed',
+      'recorderPanelReplaySpeed',
       PlayRecordingSpeed.Normal,
   );
   #replayExtension = Common.Settings.Settings.instance().createSetting(
-      'recorder-panel-replay-extension',
+      'recorderPanelReplayExtension',
       '',
   );
   #selectorTypes = new Map<SelectorType, Common.Settings.Setting<boolean>>();
   #preferredCopyFormat = Common.Settings.Settings.instance().createSetting<string>(
-      'recorder-preferred-copy-format',
+      'recorder_preferred_copy_format',
       ConverterIds.JSON,
   );
 
@@ -51,7 +51,7 @@ export class RecorderSettings {
       this.#selectorTypes.set(
           selectorType,
           Common.Settings.Settings.instance().createSetting(
-              `recorder-${selectorType}-selector-enabled`,
+              `recorder${selectorType}SelectorEnabled`,
               true,
               ),
       );
