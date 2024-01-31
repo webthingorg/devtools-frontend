@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9660dbb_e9d43440",
+        "filename": "front_end/panels/accessibility/AccessibilityNodeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-31T06:19:16Z",
+      "side": 1,
+      "message": "Good idea! Done in crrev.com/c/5250267",
+      "parentUuid": "bb5106e7_9c0edeca",
+      "range": {
+        "startLine": 132,
+        "startChar": 49,
+        "endLine": 132,
+        "endChar": 103
+      },
+      "revId": "fbe244a29fa8182ac427f769dddce4037794c77b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "849db2a3_0c35db6f",
