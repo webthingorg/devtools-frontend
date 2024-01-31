@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7504d5b_e78daf63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-31T07:20:50Z",
+      "side": 1,
+      "message": "This is backwards-compatible thanks to crrev.com/c/5224229",
+      "revId": "4da7faad5c52ffaa05f9c2e7a813f0761245ecc8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
