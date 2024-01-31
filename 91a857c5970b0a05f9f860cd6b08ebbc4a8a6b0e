@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a8efb1_c34e367b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-31T08:48:48Z",
+      "side": 1,
+      "message": "Thanks, LGTM",
+      "revId": "91a857c5970b0a05f9f860cd6b08ebbc4a8a6b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f16858cf_974faae7",
+        "filename": "front_end/ui/legacy/components/cookie_table/CookiesTable.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-31T08:48:48Z",
+      "side": 1,
+      "message": "nit: I slightly prefer this version, but up to you.\n```suggestion\n      const infoElement \u003d new IconButton.Icon.Icon();\n      if (columnId \u003d\u003d\u003d SDK.Cookie.Attributes.Name \u0026\u0026\n          IssuesManager.RelatedIssue.hasThirdPartyPhaseoutCookieIssue(this.cookie)) {\n        infoElement.data \u003d {iconName: \u0027warning-filled\u0027, color: \u0027var(--icon-warning)\u0027, width: \u002714px\u0027, height: \u002714px\u0027};\n        infoElement.onclick \u003d (): Promise\u003cvoid\u003e \u003d\u003e IssuesManager.RelatedIssue.reveal(this.cookie);\n        infoElement.style.cursor \u003d \u0027pointer\u0027;\n      } else {\n        infoElement.data \u003d {iconName: \u0027info\u0027, color: \u0027var(--icon-info)\u0027, width: \u002714px\u0027, height: \u002714px\u0027};\n        cell.classList.add(\u0027flagged-cookie-attribute-cell\u0027);\n      }\n      infoElement.title \u003d blockedReasonString;\n      cell.insertBefore(infoElement, cell.firstChild);\n```",
+      "range": {
+        "startLine": 780,
+        "startChar": 0,
+        "endLine": 794,
+        "endChar": 7
+      },
+      "revId": "91a857c5970b0a05f9f860cd6b08ebbc4a8a6b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
