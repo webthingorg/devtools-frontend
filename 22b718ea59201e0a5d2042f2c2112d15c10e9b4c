@@ -16,6 +16,23 @@
       "message": "Wolfgang, please kindly take a look? this is the M122 back merge",
       "revId": "22b718ea59201e0a5d2042f2c2112d15c10e9b4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d33453_f3d3ce29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-31T15:14:49Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "22b718ea59201e0a5d2042f2c2112d15c10e9b4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
