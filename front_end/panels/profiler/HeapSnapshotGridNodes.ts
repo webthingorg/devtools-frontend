@@ -34,6 +34,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as HeapSnapshotModel from '../../models/heap_snapshot_model/heap_snapshot_model.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
@@ -599,8 +600,11 @@ export abstract class HeapSnapshotGenericObjectNode extends HeapSnapshotGridNode
     const div = fragment.$('container');
     this.prefixObjectCell(div);
     if (this.reachableFromWindow) {
-      div.appendChild(UI.Fragment.html`<span class="heap-object-tag" title="${
-          i18nString(UIStrings.userObjectReachableFromWindow)}">🗖</span>`);
+      const frameIcon = new IconButton.Icon.Icon();
+      frameIcon.name = 'frame';
+      frameIcon.classList.add('heap-object-tag');
+      frameIcon.setAttribute('title', i18nString(UIStrings.userObjectReachableFromWindow));
+      div.appendChild(frameIcon);
     }
     if (this.detachedDOMTreeNode) {
       div.appendChild(UI.Fragment.html`<span class="heap-object-tag" title="${
