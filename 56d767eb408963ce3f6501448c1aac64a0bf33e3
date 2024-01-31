@@ -118,6 +118,30 @@
       },
       "revId": "56d767eb408963ce3f6501448c1aac64a0bf33e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c86cfc_e908f5eb",
+        "filename": "test/unittests/front_end/panels/network/RequestResponseView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-31T10:45:30Z",
+      "side": 1,
+      "message": "I removed the test. Just checking if SourceFrame takes the `content` of the `DeferredContent` and passes it through to the `textEditor.state` setter doesn\u0027t make a lot of sense.",
+      "parentUuid": "59ed1265_89f8d3b4",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 49
+      },
+      "revId": "56d767eb408963ce3f6501448c1aac64a0bf33e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
