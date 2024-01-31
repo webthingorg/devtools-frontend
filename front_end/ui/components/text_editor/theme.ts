@@ -19,6 +19,10 @@ export const editorTheme = CM.EditorView.theme({
     fontSize: 'var(--source-code-font-size)',
   },
 
+  '.cm-content': {
+    lineHeight: '1.4em',
+  },
+
   '.cm-panels': {
     backgroundColor: 'var(--sys-color-cdt-base-container)',
   },
