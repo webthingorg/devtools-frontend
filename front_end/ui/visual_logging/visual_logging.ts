@@ -28,6 +28,7 @@ export function registerLoggable(loggable: Loggable, config: string, parent: Log
  * Ideally the `action`s context should match the ID of an `UI.ActionRegistration.Action`.
  */
 export const action = LoggingConfig.makeConfigStringBuilder.bind(null, 'Action');
+export const animationClip = LoggingConfig.makeConfigStringBuilder.bind(null, 'AnimationClip');
 export const bezierCurveEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'BezierCurveEditor');
 export const bezierEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'BezierEditor');
 export const bezierPresetCategory = LoggingConfig.makeConfigStringBuilder.bind(null, 'BezierPresetCategory');
@@ -35,6 +36,11 @@ export const canvas = LoggingConfig.makeConfigStringBuilder.bind(null, 'Canvas')
 export const close = LoggingConfig.makeConfigStringBuilder.bind(null, 'Close');
 export const colorEyeDropper = LoggingConfig.makeConfigStringBuilder.bind(null, 'ColorEyeDropper');
 export const colorPicker = LoggingConfig.makeConfigStringBuilder.bind(null, 'ColorPicker');
+/**
+ * Visual element to denote a moveable control point such as the ones exist in BezierEditor
+ * for bezier control points or keyframes in AnimationUI.
+ */
+export const controlPoint = LoggingConfig.makeConfigStringBuilder.bind(null, 'ControlPoint');
 export const cssAngleEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssAngleEditor');
 export const cssColorMix = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssColorMix');
 export const cssFlexboxEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssFlexboxEditor');
@@ -73,6 +79,7 @@ export const pieChart = LoggingConfig.makeConfigStringBuilder.bind(null, 'PieCha
 export const pieChartSlice = LoggingConfig.makeConfigStringBuilder.bind(null, 'PieChartSlice');
 export const pieChartTotal = LoggingConfig.makeConfigStringBuilder.bind(null, 'PieChartTotal');
 export const preview = LoggingConfig.makeConfigStringBuilder.bind(null, 'Preview');
+export const resizer = LoggingConfig.makeConfigStringBuilder.bind(null, 'Resizer');
 export const responsivePresets = LoggingConfig.makeConfigStringBuilder.bind(null, 'ResponsivePresets');
 export const showStyleEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'ShowStyleEditor');
 export const slider = LoggingConfig.makeConfigStringBuilder.bind(null, 'Slider');
@@ -90,6 +97,7 @@ export const tableHeader = LoggingConfig.makeConfigStringBuilder.bind(null, 'Tab
  * setting as the visual elements' context.
  */
 export const textField = LoggingConfig.makeConfigStringBuilder.bind(null, 'TextField');
+export const timeline = LoggingConfig.makeConfigStringBuilder.bind(null, 'Timeline');
 
 /**
  * Togglable visual elements are checkboxes, radio buttons, or (binary) combo boxes. Use the

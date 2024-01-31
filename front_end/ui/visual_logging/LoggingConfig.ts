@@ -22,13 +22,13 @@ export function getLoggingConfig(element: Element): LoggingConfig {
 enum VisualElements {
   TreeItem = 1,
   Close = 2,
-  /* 3 used to be AccessibilityComputedProperties, but free to grab now */
-  /* 4 used to be AccessibilityPane, but free to grab now */
-  /* 5 used to be AccessibilitySourceOrder, but free to grab now */
+  Resizer = 3,
+  Timeline = 4,
+  ControlPoint = 5,
   Toggle = 6,
   Tree = 7,
   TextField = 8,
-  /* 9 used to be ShowAllStyleProperties, but free to grab now */
+  AnimationClip = 9,
   Section = 10,
   SectionHeader = 11,
   /* 12 used to be StylesPane, but free to grab now */
