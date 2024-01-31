@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "232d3de7_7fac7b7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-31T17:09:04Z",
+      "side": 1,
+      "message": "Benedikt, please kindly take a look:) this fixes part of the problem, there\u0027s still another unicode character used here, but we don\u0027t have an icon we can use straight away; asked Peter for one",
+      "revId": "a8160387d84a56cc393456f96fde19a90360a38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
