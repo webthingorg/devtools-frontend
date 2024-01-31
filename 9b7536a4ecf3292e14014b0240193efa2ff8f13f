@@ -34,6 +34,24 @@
       "parentUuid": "8d6dc80c_c3f8e454",
       "revId": "9b7536a4ecf3292e14014b0240193efa2ff8f13f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8457d29f_962eb82a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-01-31T15:22:09Z",
+      "side": 1,
+      "message": "Thanks! PTAL crrev.com/c/5249881",
+      "parentUuid": "fb19f9ac_13958ab9",
+      "revId": "9b7536a4ecf3292e14014b0240193efa2ff8f13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
