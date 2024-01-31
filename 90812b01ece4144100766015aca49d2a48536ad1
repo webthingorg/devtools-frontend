@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebe81111_2824cfd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-31T05:57:37Z",
+      "side": 1,
+      "message": "PT(anotherL for the diff between PS1..PS6. I had to make it a bit more robust for the tests.",
+      "revId": "90812b01ece4144100766015aca49d2a48536ad1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

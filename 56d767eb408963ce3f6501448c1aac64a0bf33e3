@@ -46,6 +46,30 @@
       },
       "revId": "56d767eb408963ce3f6501448c1aac64a0bf33e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8acbafc_d296a8d2",
+        "filename": "test/unittests/front_end/panels/network/RequestResponseView_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-31T05:57:37Z",
+      "side": 1,
+      "message": "Thats my question, how can I `await` for a sinon.spy to be called? The problem is the asynchronicity between calling `component.showPreview()` and the `textEditor.state` setter being called.",
+      "parentUuid": "79a11354_61aee099",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 49
+      },
+      "revId": "56d767eb408963ce3f6501448c1aac64a0bf33e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
