@@ -24,7 +24,7 @@ enum VisualElements {
   Close = 2,
   Counter = 3,
   Drawer = 4,
-  /* 5 used to be AccessibilitySourceOrder, but free to grab now */
+  Toolbar = 5,
   Toggle = 6,
   Tree = 7,
   TextField = 8,

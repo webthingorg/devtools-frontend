@@ -8,18 +8,18 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {AnimationGroupPreviewUI} from './AnimationGroupPreviewUI.js';
-import animationTimelineStyles from './animationTimeline.css.js';
-
 import {
-  AnimationModel,
-  Events,
   type AnimationEffect,
   type AnimationGroup,
   type AnimationImpl,
+  AnimationModel,
+  Events,
 } from './AnimationModel.js';
 import {AnimationScreenshotPopover} from './AnimationScreenshotPopover.js';
+import animationTimelineStyles from './animationTimeline.css.js';
 import {AnimationUI} from './AnimationUI.js';
 
 const UIStrings = {
@@ -266,6 +266,7 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
 
   private createHeader(): HTMLElement {
     const toolbarContainer = this.contentElement.createChild('div', 'animation-timeline-toolbar-container');
+    toolbarContainer.setAttribute('jslog', `${VisualLogging.toolbar()}`);
     const topToolbar = new UI.Toolbar.Toolbar('animation-timeline-toolbar', toolbarContainer);
     this.#clearButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.clearAll), 'clear');
     this.#clearButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
