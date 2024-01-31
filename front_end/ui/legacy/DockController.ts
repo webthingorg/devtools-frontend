@@ -95,8 +95,8 @@ export class DockController extends Common.ObjectWrapper.ObjectWrapper<EventType
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.closeWindow.bind(
             Host.InspectorFrontendHost.InspectorFrontendHostInstance));
 
-    this.currentDockStateSetting = Common.Settings.Settings.instance().moduleSetting('currentDockState');
-    this.lastDockStateSetting = Common.Settings.Settings.instance().createSetting('lastDockState', DockState.BOTTOM);
+    this.currentDockStateSetting = Common.Settings.Settings.instance().moduleSetting('current-dock-state');
+    this.lastDockStateSetting = Common.Settings.Settings.instance().createSetting('last-dock-state', DockState.BOTTOM);
 
     if (!canDock) {
       this.dockSideInternal = DockState.UNDOCKED;
