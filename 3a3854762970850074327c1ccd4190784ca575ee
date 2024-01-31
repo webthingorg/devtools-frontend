@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3319d070_e3c6a4a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-31T15:14:22Z",
+      "side": 1,
+      "message": "Benedikt, PTAL. This partially reverts https://crrev.com/c/5233806, maybe I missed a reason why `width: 100%` might still be needed.",
+      "revId": "3a3854762970850074327c1ccd4190784ca575ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
