@@ -16,6 +16,24 @@
       "message": "I believe this is not worth splitting, as it is less then 400 LOCs and all changes are trivial. Let me know if you disagree",
       "revId": "14c00a58f900ba82145211f9340a5d0dcb28c1e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec621dbb_4322b6d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-01-31T06:05:22Z",
+      "side": 1,
+      "message": "No, this is perfectly fine. I checked the `LoggingConfig.ts` change more closely and the other ones sporadically. lgtm",
+      "parentUuid": "6a1076cf_123fa07a",
+      "revId": "14c00a58f900ba82145211f9340a5d0dcb28c1e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
