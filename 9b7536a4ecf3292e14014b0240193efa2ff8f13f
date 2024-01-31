@@ -16,6 +16,24 @@
       "message": "Danil, is there a way to fix the failed test in this CL, considering I am developing on devtools-frontend repo separately from the chromium repo?\n\nIf not then I would just remove the console error log.",
       "revId": "9b7536a4ecf3292e14014b0240193efa2ff8f13f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb19f9ac_13958ab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-31T05:55:37Z",
+      "side": 1,
+      "message": "Yes, you need to disable the test first (like in crrev.com/c/5217296), land this CL, wait for it to be rolled to the chromium repo and then update and re-enable test (like in crrev.com/c/5217055)",
+      "parentUuid": "8d6dc80c_c3f8e454",
+      "revId": "9b7536a4ecf3292e14014b0240193efa2ff8f13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
