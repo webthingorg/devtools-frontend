@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "385424ba_e39cb8e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-01-31T11:00:42Z",
+      "side": 1,
+      "message": "Benedikt, Peter, please kindly take a look (3):)",
+      "revId": "1059c4aeb1a1fec3d292747f52952a5889dcb7ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
