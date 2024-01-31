@@ -16,6 +16,23 @@
       "message": "Wolfgang, please kindly take a look? This is the backmerge for stable",
       "revId": "66603760eeac0a531ea46b39b5e3c062161cd7e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dfa80ea_35bc2e87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-01-31T15:51:43Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "66603760eeac0a531ea46b39b5e3c062161cd7e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
