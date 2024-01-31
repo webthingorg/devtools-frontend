@@ -68,6 +68,24 @@
       "message": "```suggestion\n        \u0027lighthouse.cat-a11y\u0027, true, Common.Settings.SettingStorageType.Synced),\n```",
       "revId": "633bc9aca8d439a79ab43dce9c92f275f0c93b63",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7fde5e5_3f9fe219",
+        "filename": "front_end/panels/lighthouse/LighthouseController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-01-31T05:51:01Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "0fe08bf8_a0f9a5ae",
+      "revId": "633bc9aca8d439a79ab43dce9c92f275f0c93b63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
