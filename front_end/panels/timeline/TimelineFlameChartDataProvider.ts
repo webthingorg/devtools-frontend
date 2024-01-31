@@ -1413,9 +1413,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         this.traceEngineData,
         event,
     );
-    if (initiatorPairs.length === 0) {
-      return false;
-    }
     for (const pair of initiatorPairs) {
       const eventIndex = this.getIndexForEvent(pair.event);
       const initiatorIndex = this.getIndexForEvent(pair.initiator);
