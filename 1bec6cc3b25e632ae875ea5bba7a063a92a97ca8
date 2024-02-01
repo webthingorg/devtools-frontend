@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c26578d_bc17719a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-01T09:25:40Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "1bec6cc3b25e632ae875ea5bba7a063a92a97ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ba965c_9d282a06",
+        "filename": "front_end/models/text_utils/StreamingContentData.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-01T09:25:40Z",
+      "side": 1,
+      "message": "This is a bit awkward. But the `TextEncoder` limitation to UTF-8 prevents us from going back to base64.\n\nIn reality this code path is not used since network streaming is always done with base64.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 5
+      },
+      "revId": "1bec6cc3b25e632ae875ea5bba7a063a92a97ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
