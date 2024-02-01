@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "388ab885_4723b5b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-01T08:42:59Z",
+      "side": 1,
+      "message": "nice one!!",
+      "revId": "a6ea48e9ea82f5428bab03c8fb27fad9de1e0d10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0cf24fc_224c685d",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-01T08:42:59Z",
+      "side": 1,
+      "message": "nit: wdyt about extracting these to a `resetFlowData()`funciton in the data provider and calling that instead of doing these multiple times?",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 578,
+        "endChar": 47
+      },
+      "revId": "a6ea48e9ea82f5428bab03c8fb27fad9de1e0d10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
