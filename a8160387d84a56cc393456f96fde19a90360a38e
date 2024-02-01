@@ -16,6 +16,40 @@
       "message": "Benedikt, please kindly take a look:) this fixes part of the problem, there\u0027s still another unicode character used here, but we don\u0027t have an icon we can use straight away; asked Peter for one",
       "revId": "a8160387d84a56cc393456f96fde19a90360a38e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f8e0b2_03efe8e3",
+        "filename": "front_end/panels/profiler/HeapSnapshotGridNodes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-01T06:09:38Z",
+      "side": 1,
+      "message": "Let\u0027s use short-form: `const frameIcon \u003d IconButton.Icon.create(\u0027frame\u0027, \u0027heap-object-tag\u0027);` instead.",
+      "revId": "a8160387d84a56cc393456f96fde19a90360a38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d502a0ac_c4bc4a76",
+        "filename": "front_end/panels/profiler/HeapSnapshotGridNodes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-01T06:09:38Z",
+      "side": 1,
+      "message": "Also for consistency, let\u0027s stick to the usual `UI.Tooltip` approach.",
+      "revId": "a8160387d84a56cc393456f96fde19a90360a38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
