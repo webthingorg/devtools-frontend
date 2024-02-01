@@ -468,7 +468,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.hideHighlight();
   }
 
-  private updatePopover(entryIndex: number): void {
+  updatePopover(entryIndex: number, fromSearch: boolean = false): void {
     this.entryInfo.removeChildren();
     const data = this.timelineData();
     if (!data) {
@@ -482,13 +482,17 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         this.dataProvider.prepareHighlightedEntryInfo(entryIndex);
     if (popoverElement) {
       this.entryInfo.appendChild(popoverElement);
-      this.updatePopoverOffset();
+      this.updatePopoverOffset(entryIndex, fromSearch);
     }
   }
 
-  private updatePopoverOffset(): void {
-    const mouseX = this.lastMouseOffsetX;
-    const mouseY = this.lastMouseOffsetY;
+  private updatePopoverOffset(entryIndex: number, fromSearch: boolean): void {
+    const coordinate = this.entryIndexToCoordinates(entryIndex);
+    const {x: canvasViewportOffsetX, y: canvasViewportOffsetY} = this.canvas.getBoundingClientRect();
+    // If the popover is being updated from a search, the mouse coordinates are not available, so we calculate the coordinates manually
+    const mouseX = fromSearch && coordinate?.x ? coordinate.x - canvasViewportOffsetX : this.lastMouseOffsetX;
+    const mouseY = fromSearch && coordinate?.y ? coordinate.y - canvasViewportOffsetY : this.lastMouseOffsetY;
+
     const parentWidth = this.entryInfo.parentElement ? this.entryInfo.parentElement.clientWidth : 0;
     const parentHeight = this.entryInfo.parentElement ? this.entryInfo.parentElement.clientHeight : 0;
     const infoWidth = this.entryInfo.clientWidth;
