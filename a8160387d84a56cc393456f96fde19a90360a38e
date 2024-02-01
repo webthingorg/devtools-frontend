@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14539d44_8f5ed345",
+        "filename": "front_end/panels/profiler/HeapSnapshotGridNodes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-01T14:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58f8e0b2_03efe8e3",
+      "revId": "a8160387d84a56cc393456f96fde19a90360a38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d502a0ac_c4bc4a76",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-01T06:09:38Z",
       "side": 1,
       "message": "Also for consistency, let\u0027s stick to the usual `UI.Tooltip` approach.",
+      "revId": "a8160387d84a56cc393456f96fde19a90360a38e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01dc947b_fd2f8fc9",
+        "filename": "front_end/panels/profiler/HeapSnapshotGridNodes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-01T14:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d502a0ac_c4bc4a76",
       "revId": "a8160387d84a56cc393456f96fde19a90360a38e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

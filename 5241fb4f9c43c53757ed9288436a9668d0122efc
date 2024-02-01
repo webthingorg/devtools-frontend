@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e964e9e_6b8f2157",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-01T14:01:08Z",
+      "side": 1,
+      "message": "Fixed and updated another icon too, please take a another look?:)",
+      "revId": "5241fb4f9c43c53757ed9288436a9668d0122efc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
