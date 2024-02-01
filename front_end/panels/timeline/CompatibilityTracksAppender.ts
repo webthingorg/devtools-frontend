@@ -12,6 +12,8 @@ import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
 import {getEventLevel} from './AppenderUtils.js';
 import * as TimelineComponents from './components/components.js';
 import {getEventStyle} from './EventUICategory.js';
+import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
+import {ExtensionTrackAppender} from './ExtensionTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
@@ -77,10 +79,17 @@ export interface TrackAppender {
    * Returns the info shown when an event in the timeline is hovered.
    */
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
+
+  /**
+   * The EntriesFilter instance that used to modify the trees in a track based on user actions,
+   * e.g collapsing functions, etc.
+   */
+  entriesFilter?(): TraceEngine.EntriesFilter.EntriesFilter;
 }
 
 export const TrackNames =
-    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet'] as const;
+    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet', 'Extension'] as
+    const;
 // Network track will use TrackAppender interface, but it won't be shown in Main flamechart.
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
@@ -110,6 +119,7 @@ export class CompatibilityTracksAppender {
   #gpuTrackAppender: GPUTrackAppender;
   #layoutShiftsTrackAppender: LayoutShiftsTrackAppender;
   #threadAppenders: ThreadAppender[] = [];
+  #extensionDataGatherer: ExtensionDataGatherer;
 
   /**
    * @param flameChartData the data used by the flame chart renderer on
@@ -130,6 +140,8 @@ export class CompatibilityTracksAppender {
       legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl) {
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
+    this.#extensionDataGatherer = new ExtensionDataGatherer(traceParsedData);
+
     this.#entryData = entryData;
     this.#colorGenerator = new Common.Color.Generator(
         /* hueSpace= */ {min: 30, max: 55, count: undefined},
@@ -154,8 +166,8 @@ export class CompatibilityTracksAppender {
     // all it shows are layout shifts.
     this.#layoutShiftsTrackAppender = new LayoutShiftsTrackAppender(this, this.#traceParsedData);
     this.#allTrackAppenders.push(this.#layoutShiftsTrackAppender);
-
     this.#addThreadAppenders();
+    this.#addExtensionAppenders();
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       for (const group of this.#flameChartData.groups) {
         // We only need to update the color here, because FlameChart will call `scheduleUpdate()` when theme is changed.
@@ -180,11 +192,11 @@ export class CompatibilityTracksAppender {
   }
 
   modifyTree(
-      group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
-      action: TraceEngine.EntriesFilter.FilterAction): void {
+      group: PerfUI.FlameChart.Group, entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
+      type: TraceEngine.EntriesFilter.FilterAction): void {
     const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      threadTrackAppender.modifyTree(node, action);
+    if (threadTrackAppender && threadTrackAppender.entriesFilter) {
+      threadTrackAppender.entriesFilter().applyAction({entry, type});
     } else {
       console.warn('Could not modify tree in not thread track');
     }
@@ -194,8 +206,8 @@ export class CompatibilityTracksAppender {
       group: PerfUI.FlameChart.Group,
       node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): TraceEngine.EntriesFilter.PossibleFilterActions|void {
     const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      return threadTrackAppender.findPossibleContextMenuActions(node);
+    if (threadTrackAppender && threadTrackAppender.entriesFilter) {
+      return threadTrackAppender.entriesFilter().findPossibleActions(node);
     }
     console.warn('Could not modify tree in not thread track');
   }
@@ -203,10 +215,17 @@ export class CompatibilityTracksAppender {
   findHiddenDescendantsAmount(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry):
       number|void {
     const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      return threadTrackAppender.findHiddenDescendantsAmount(node);
+    if (threadTrackAppender && threadTrackAppender.entriesFilter) {
+      return threadTrackAppender.entriesFilter().findHiddenDescendantsAmount(node);
     }
     console.warn('Could not find hidden entries because non thread tracks are not modifiable');
+  }
+
+  #addExtensionAppenders(): void {
+    const tracks = this.#extensionDataGatherer.getExtensionFlameChartData();
+    for (const trackData of tracks) {
+      this.#allTrackAppenders.push(new ExtensionTrackAppender(this, trackData));
+    }
   }
 
   #addThreadAppenders(): void {
@@ -563,6 +582,10 @@ export class CompatibilityTracksAppender {
       // period.
       // Therefore we mark them as visible so they are appended onto the Thread
       // track, and hence accessible by the CountersGraph view.
+      return true;
+    }
+
+    if (TraceEngine.Types.TraceEvents.isTraceEventSyntheticExtensionEntry(entry)) {
       return true;
     }
 
