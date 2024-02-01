@@ -50,6 +50,24 @@
       "message": "what about the . here, is that in scope?",
       "revId": "3c1a944416735735fcdcc35e02ab4926ca0b0b59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b57ad9fa_06b70e78",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-01T12:38:19Z",
+      "side": 1,
+      "message": "No, we explicitly allow downs and call it \"extended kebab case\"",
+      "parentUuid": "9b5b5012_4a58d1f2",
+      "revId": "3c1a944416735735fcdcc35e02ab4926ca0b0b59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

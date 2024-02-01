@@ -16,6 +16,24 @@
       "message": "Had to do a double-take here. Couldn\u0027t we just pass \u0027web-sql\u0027?",
       "revId": "46bfff3d28e9de2eea876b7fecac20d8f836cc02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "867d3370_0f56b19a",
+        "filename": "front_end/panels/application/ApplicationPanelSidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-01T12:38:19Z",
+      "side": 0,
+      "message": "I guess you\u0027re right, changed.",
+      "parentUuid": "6ba52fb4_043b33fe",
+      "revId": "46bfff3d28e9de2eea876b7fecac20d8f836cc02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
