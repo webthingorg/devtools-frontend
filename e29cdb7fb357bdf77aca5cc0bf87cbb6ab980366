@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22f856f9_9428d100",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-01T14:35:52Z",
+      "side": 1,
+      "message": "Monorail refused to handle screenshot upload so sending via the screenshot tool.",
+      "revId": "e29cdb7fb357bdf77aca5cc0bf87cbb6ab980366",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
