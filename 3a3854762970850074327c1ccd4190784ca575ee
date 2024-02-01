@@ -16,6 +16,41 @@
       "message": "Benedikt, PTAL. This partially reverts https://crrev.com/c/5233806, maybe I missed a reason why `width: 100%` might still be needed.",
       "revId": "3a3854762970850074327c1ccd4190784ca575ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f46de38_83196a7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-01T06:13:05Z",
+      "side": 1,
+      "message": "The reason for `width: 100%` was to ensure that `overflow: auto` does the right thing when not enough horizontal space is available. Can you check with the original bug report?",
+      "parentUuid": "3319d070_e3c6a4a7",
+      "revId": "3a3854762970850074327c1ccd4190784ca575ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4ac0005_f8ff6336",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-01T06:13:05Z",
+      "side": 1,
+      "message": "LGTM if this still works correctly with overflow",
+      "revId": "3a3854762970850074327c1ccd4190784ca575ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
