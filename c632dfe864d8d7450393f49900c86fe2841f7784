@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8a1e7fa_b6e7aa4c",
+        "filename": "front_end/ui/components/text_editor/theme.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-01T06:10:59Z",
+      "side": 1,
+      "message": "We still have a lot of mentions of `1.2em`, e.g. four lines above. Are you sure this does the right thing? And can we remove the `1.2em`s then to avoid potential future confusion?",
+      "revId": "c632dfe864d8d7450393f49900c86fe2841f7784",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
