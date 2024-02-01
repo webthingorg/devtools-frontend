@@ -16,6 +16,23 @@
       "message": "Just notified some other case and modified the code a bit, PTAL again 😊",
       "revId": "6aaf69ac110ca06267d8288683f78492406acb7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aa14586_fdb0198e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-01T11:59:16Z",
+      "side": 1,
+      "message": "still LGTM :)",
+      "revId": "6aaf69ac110ca06267d8288683f78492406acb7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
