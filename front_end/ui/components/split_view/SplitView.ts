@@ -183,7 +183,7 @@ export class SplitView extends HTMLElement {
         <div class="wrapper ${this.#mainAxisIdx === 1 ? 'horizontal' : ''}">
           <div class="container">
             <slot name="main"></slot>
-            <div id="resizer" @mousedown=${this.#onMouseDown}></div>
+            <div id="resizer" @mousedown=${this.#onMouseDown} jslog=${VisualLogging.resize('split-view')}></div>
             <slot name="sidebar"></slot>
           </div>
         </div>
