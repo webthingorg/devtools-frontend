@@ -181,7 +181,7 @@ export class CompatibilityTracksAppender {
 
   modifyTree(
       group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
-      action: TraceEngine.EntriesFilter.FilterAction): void {
+      action: TraceEngine.EntriesFilter.FilterApplyAction): void {
     const threadTrackAppender = this.#trackForGroup.get(group);
     if (threadTrackAppender instanceof ThreadAppender) {
       threadTrackAppender.modifyTree(node, action);

@@ -777,7 +777,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.draw();
   }
 
-  modifyTree(treeAction: TraceEngine.EntriesFilter.FilterAction, index: number): void {
+  modifyTree(treeAction: TraceEngine.EntriesFilter.FilterApplyAction, index: number): void {
     const data = this.timelineData();
     if (!data) {
       return;
@@ -853,14 +853,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     if (this.entryHasDecoration(this.selectedEntryIndex, FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW)) {
       const item = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.resetChildren), () => {
-        this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, this.selectedEntryIndex);
+        this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.RESET_CHILDREN, this.selectedEntryIndex);
       });
       item.setShortcut('U');
     }
 
     this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.resetTrace), () => {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.UNDO_ALL_ACTIONS, this.selectedEntryIndex);
-    }, {disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterUndoAction.UNDO_ALL_ACTIONS]});
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.UNDO_ALL_ACTIONS, this.selectedEntryIndex);
+    }, {disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterApplyAction.UNDO_ALL_ACTIONS]});
 
     void this.contextMenu.show();
   }
@@ -894,7 +894,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
           TraceEngine.EntriesFilter.FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS, this.selectedEntryIndex);
       handled = true;
     } else if (keyboardEvent.code === 'KeyU') {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, this.selectedEntryIndex);
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.RESET_CHILDREN, this.selectedEntryIndex);
       handled = true;
     }
 
@@ -2665,7 +2665,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // Check if the button that resets children of the entry is clicked. We need to check it even if the entry
     // clicked is not selected to avoid needing to double click
     if (this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterUndoAction.RESET_CHILDREN, entryIndex);
+      this.modifyTree(TraceEngine.EntriesFilter.FilterApplyAction.RESET_CHILDREN, entryIndex);
     }
     if (this.selectedEntryIndex === entryIndex) {
       return;
@@ -3035,7 +3035,7 @@ export interface FlameChartDataProvider {
 
   mainFrameNavigationStartEvents?(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[];
 
-  modifyTree?(group: Group, node: number, action: TraceEngine.EntriesFilter.FilterAction): void;
+  modifyTree?(group: Group, node: number, action: TraceEngine.EntriesFilter.FilterApplyAction): void;
 
   findPossibleContextMenuActions?(group: Group, node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
 }

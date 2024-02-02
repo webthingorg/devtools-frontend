@@ -209,7 +209,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     });
   }
 
-  modifyTree(group: PerfUI.FlameChart.Group, node: number, action: TraceEngine.EntriesFilter.FilterAction): void {
+  modifyTree(group: PerfUI.FlameChart.Group, node: number, action: TraceEngine.EntriesFilter.FilterApplyAction): void {
     const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
     this.compatibilityTracksAppender?.modifyTree(group, entry, action);
   }

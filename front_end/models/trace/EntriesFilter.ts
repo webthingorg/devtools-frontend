@@ -1,40 +1,21 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-import * as Platform from '../../core/platform/platform.js';
-
 import * as Helpers from './helpers/helpers.js';
 import * as Types from './types/types.js';
 
 type EntryToNodeMap = Map<Types.TraceEvents.SyntheticTraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
 
-export type FilterAction = FilterApplyAction|FilterUndoAction;
-
 export const enum FilterApplyAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
   COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
   COLLAPSE_REPEATING_DESCENDANTS = 'COLLAPSE_REPEATING_DESCENDANTS',
-}
-
-export const enum FilterUndoAction {
   RESET_CHILDREN = 'RESET_CHILDREN',
   UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
 }
 
-const filterApplyActionSet: Set<FilterApplyAction> = new Set([
-  FilterApplyAction.MERGE_FUNCTION,
-  FilterApplyAction.COLLAPSE_FUNCTION,
-  FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS,
-]);
-
-const filterUndoActionSet: Set<FilterUndoAction> = new Set([
-  FilterUndoAction.RESET_CHILDREN,
-  FilterUndoAction.UNDO_ALL_ACTIONS,
-]);
-
-// Object passed from the frontend that can be either Undo or Apply filter action.
 export interface UserFilterAction {
-  type: FilterAction;
+  type: FilterApplyAction;
   entry: Types.TraceEvents.SyntheticTraceEntry;
 }
 
@@ -48,7 +29,7 @@ export interface PossibleFilterActions {
   [FilterApplyAction.MERGE_FUNCTION]: boolean;
   [FilterApplyAction.COLLAPSE_FUNCTION]: boolean;
   [FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]: boolean;
-  [FilterUndoAction.UNDO_ALL_ACTIONS]: boolean;
+  [FilterApplyAction.UNDO_ALL_ACTIONS]: boolean;
 }
 
 /**
@@ -85,12 +66,12 @@ export class EntriesFilter {
    * from hidden entries array depending on the type of action.
    **/
   applyAction(action: UserFilterAction): void {
-    if (/* FilterApplyActions */ this.#isUserApplyFilterAction(action)) {
+    // if (/* FilterApplyActions */ this.#isUserApplyFilterAction(action)) {
       this.#applyFilterAction(action);
 
-    } else if (/* FilterUndoActions */ this.#isFilterUndoAction(action.type)) {
-      this.#applyUndoAction(action);
-    }
+    // } else if (/* FilterUndoActions */ this.#isFilterUndoAction(action.type)) {
+    //   this.#applyUndoAction(action);
+    // }
   }
 
   /**
@@ -105,7 +86,7 @@ export class EntriesFilter {
         [FilterApplyAction.MERGE_FUNCTION]: false,
         [FilterApplyAction.COLLAPSE_FUNCTION]: false,
         [FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]: false,
-        [FilterUndoAction.UNDO_ALL_ACTIONS]: false,
+        [FilterApplyAction.UNDO_ALL_ACTIONS]: false,
       };
     }
     const entryParent = entryNode.parent;
@@ -118,7 +99,7 @@ export class EntriesFilter {
       [FilterApplyAction.MERGE_FUNCTION]: entryParent !== null,
       [FilterApplyAction.COLLAPSE_FUNCTION]: allVisibleDescendants.length > 0,
       [FilterApplyAction.COLLAPSE_REPEATING_DESCENDANTS]: allVisibleRepeatingDescendants.length > 0,
-      [FilterUndoAction.UNDO_ALL_ACTIONS]: this.#invisibleEntries.length > 0,
+      [FilterApplyAction.UNDO_ALL_ACTIONS]: this.#invisibleEntries.length > 0,
     };
     return possibleActions;
   }
@@ -133,23 +114,6 @@ export class EntriesFilter {
     }
     const allDescendants = this.#findAllDescendantsOfNode(entryNode);
     return allDescendants.filter(descendant => this.invisibleEntries().includes(descendant)).length;
-  }
-
-  /**
-   * If undo action is UNDO_ALL_ACTIONS, assign invisibleEntries array to an empty one.
-   * **/
-  #applyUndoAction(action: UserFilterAction): void {
-    switch (action.type) {
-      case FilterUndoAction.UNDO_ALL_ACTIONS: {
-        this.#invisibleEntries = [];
-        this.#modifiedVisibleEntries = [];
-        break;
-      }
-      case FilterUndoAction.RESET_CHILDREN: {
-        this.#makeEntryChildrenVisible(action.entry);
-        break;
-      }
-    }
   }
 
   /**
@@ -211,8 +175,15 @@ export class EntriesFilter {
         }
         break;
       }
-      default:
-        Platform.assertNever(action.type, `Unknown EntriesFilter action: ${action.type}`);
+      case FilterApplyAction.UNDO_ALL_ACTIONS: {
+        this.#invisibleEntries = [];
+        this.#modifiedVisibleEntries = [];
+        break;
+      }
+      case FilterApplyAction.RESET_CHILDREN: {
+        this.#makeEntryChildrenVisible(action.entry);
+        break;
+      }
     }
 
     this.#invisibleEntries.push(...entriesToHide);
@@ -325,13 +296,5 @@ export class EntriesFilter {
 
   isEntryModified(event: Types.TraceEvents.TraceEventData): boolean {
     return this.#modifiedVisibleEntries.includes(event);
-  }
-
-  #isUserApplyFilterAction(action: UserFilterAction): action is UserApplyFilterAction {
-    return filterApplyActionSet.has(action.type as FilterApplyAction);
-  }
-
-  #isFilterUndoAction(action: FilterAction): action is FilterUndoAction {
-    return filterUndoActionSet.has(action as FilterUndoAction);
   }
 }

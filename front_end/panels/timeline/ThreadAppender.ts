@@ -216,7 +216,7 @@ export class ThreadAppender implements TrackAppender {
 
   modifyTree(
       traceEvent: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
-      action: TraceEngine.EntriesFilter.FilterAction): void {
+      action: TraceEngine.EntriesFilter.FilterApplyAction): void {
     if (this.#entriesFilter) {
       this.#entriesFilter.applyAction({type: action, entry: traceEvent});
     } else {
