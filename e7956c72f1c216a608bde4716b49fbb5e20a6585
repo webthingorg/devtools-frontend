@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ba6d328_6e5b854f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-02T08:45:31Z",
+      "side": 1,
+      "message": "I went ahead and landed a roll with the appropriate fixes ( https://crrev.com/c/5259298). Sorry for the hassle.",
+      "revId": "e7956c72f1c216a608bde4716b49fbb5e20a6585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71a42300_8e1f798f",
