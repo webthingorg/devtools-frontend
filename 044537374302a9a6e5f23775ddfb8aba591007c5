@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6efe7cd_42e6ce8b",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-02T10:05:10Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand why this change is needed, do we need it?",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d1c332a_c79e7667",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-02T10:05:10Z",
+      "side": 1,
+      "message": "It seems like after this change; we won\u0027t render comments for args in the Styles pane though up until now, we were showing them. What is the reason for this change?",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c12b6c2_369777f3",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-02T10:05:10Z",
+      "side": 1,
+      "message": "It\u0027s possible that the percentage is at the start of the argument like `50% red`; we\u0027re not handling that case here.",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f6637a_5fda410c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-02T10:05:10Z",
+      "side": 1,
+      "message": "I think we need to verify the syntax of the `space` part as well, particularly it starting with `in`. Otherwise, we still show a color-mix swatch when the syntax is wrong.",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ed9f732_d9f7842b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-02T10:05:10Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand this comment, when should we accept ColorMix swatches here?",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dcff458_9fa4df66",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-02T10:05:10Z",
+      "side": 1,
+      "message": "I didn\u0027t see where we have used this change exactly. Is it needed?",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
