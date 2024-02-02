@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fbcd4ee_6874b8d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-02T22:22:13Z",
+      "side": 1,
+      "message": "Hey Alina, this CL is for showing a popover on the selected search result. I added some gifs in the description. PTAL, thank you!",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
