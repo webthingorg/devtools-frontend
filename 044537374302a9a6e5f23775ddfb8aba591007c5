@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a64231b_f2524051",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T13:59:55Z",
+      "side": 1,
+      "message": "It\u0027s convenient, this let\u0027s us write ast.text(node.getChild(\u0027xx\u0027))",
+      "parentUuid": "e6efe7cd_42e6ce8b",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d1c332a_c79e7667",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 8
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-02T10:05:10Z",
       "side": 1,
       "message": "It seems like after this change; we won\u0027t render comments for args in the Styles pane though up until now, we were showing them. What is the reason for this change?",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "669bee54_4071beca",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T13:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d1c332a_c79e7667",
       "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a5f6078_ce2d4a65",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T13:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c12b6c2_369777f3",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34f6637a_5fda410c",
@@ -69,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9a86def_0af0dba3",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T13:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34f6637a_5fda410c",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ed9f732_d9f7842b",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-02-02T10:05:10Z",
       "side": 1,
       "message": "I didn\u0027t exactly understand this comment, when should we accept ColorMix swatches here?",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b6849c3_f5a0365c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T13:59:55Z",
+      "side": 1,
+      "message": "We could have a color-mix ininside of a color-mix and will want to propagate updates all the way.",
+      "parentUuid": "8ed9f732_d9f7842b",
       "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
