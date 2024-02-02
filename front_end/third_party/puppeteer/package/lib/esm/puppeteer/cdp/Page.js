@@ -803,7 +803,7 @@ export class CdpPage extends Page {
     }
     async createPDFStream(options = {}) {
         const { timeout: ms = this._timeoutSettings.timeout() } = options;
-        const { landscape, displayHeaderFooter, headerTemplate, footerTemplate, printBackground, scale, width: paperWidth, height: paperHeight, margin, pageRanges, preferCSSPageSize, omitBackground, tagged: generateTaggedPDF, } = parsePDFOptions(options);
+        const { landscape, displayHeaderFooter, headerTemplate, footerTemplate, printBackground, scale, width: paperWidth, height: paperHeight, margin, pageRanges, preferCSSPageSize, omitBackground, tagged: generateTaggedPDF, outline: generateDocumentOutline, } = parsePDFOptions(options);
         if (omitBackground) {
             await this.#emulationManager.setTransparentBackgroundColor();
         }
@@ -824,6 +824,7 @@ export class CdpPage extends Page {
             pageRanges,
             preferCSSPageSize,
             generateTaggedPDF,
+            generateDocumentOutline,
         });
         const result = await firstValueFrom(from(printCommandPromise).pipe(raceWith(timeout(ms))));
         if (omitBackground) {

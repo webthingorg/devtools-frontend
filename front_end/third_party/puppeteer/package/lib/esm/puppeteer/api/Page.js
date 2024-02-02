@@ -82,7 +82,7 @@ var __disposeResources = (this && this.__disposeResources) || (function (Suppres
     var e = new Error(message);
     return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 });
-import { concat, EMPTY, filter, filterAsync, first, firstValueFrom, from, map, merge, mergeMap, of, race, raceWith, startWith, switchMap, takeUntil, timer, } from '../../third_party/rxjs/rxjs.js';
+import { concat, EMPTY, filter, filterAsync, first, firstValueFrom, from, map, merge, mergeMap, mergeScan, of, raceWith, ReplaySubject, startWith, switchMap, take, takeUntil, timer, } from '../../third_party/rxjs/rxjs.js';
 import { TargetCloseError } from '../common/Errors.js';
 import { EventEmitter, } from '../common/EventEmitter.js';
 import { TimeoutSettings } from '../common/TimeoutSettings.js';
@@ -170,27 +170,25 @@ let Page = (() => {
          */
         _timeoutSettings = new TimeoutSettings();
         #requestHandlers = new WeakMap();
-        #requestsInFlight = 0;
-        #inflight$;
+        #inflight$ = new ReplaySubject(1);
         /**
          * @internal
          */
         constructor() {
             super();
-            this.#inflight$ = fromEmitterEvent(this, "request" /* PageEvent.Request */).pipe(takeUntil(fromEmitterEvent(this, "close" /* PageEvent.Close */)), mergeMap(request => {
-                return concat(of(1), race(fromEmitterEvent(this, "response" /* PageEvent.Response */).pipe(filter(response => {
-                    return response.request()._requestId === request._requestId;
-                })), fromEmitterEvent(this, "requestfailed" /* PageEvent.RequestFailed */).pipe(filter(failure => {
-                    return failure._requestId === request._requestId;
-                })), fromEmitterEvent(this, "requestfinished" /* PageEvent.RequestFinished */).pipe(filter(success => {
-                    return success._requestId === request._requestId;
-                }))).pipe(map(() => {
+            fromEmitterEvent(this, "request" /* PageEvent.Request */)
+                .pipe(mergeMap(originalRequest => {
+                return concat(of(1), merge(fromEmitterEvent(this, "requestfailed" /* PageEvent.RequestFailed */), fromEmitterEvent(this, "requestfinished" /* PageEvent.RequestFinished */), fromEmitterEvent(this, "response" /* PageEvent.Response */).pipe(map(response => {
+                    return response.request();
+                }))).pipe(filter(request => {
+                    return request._requestId === originalRequest._requestId;
+                }), take(1), map(() => {
                     return -1;
                 })));
-            }));
-            this.#inflight$.subscribe(count => {
-                this.#requestsInFlight += count;
-            });
+            }), mergeScan((acc, addend) => {
+                return of(acc + addend);
+            }, 0), takeUntil(fromEmitterEvent(this, "close" /* PageEvent.Close */)), startWith(0))
+                .subscribe(this.#inflight$);
         }
         /**
          * Listen to page events.
@@ -698,13 +696,11 @@ let Page = (() => {
          */
         waitForNetworkIdle$(options = {}) {
             const { timeout: ms = this._timeoutSettings.timeout(), idleTime = NETWORK_IDLE_TIME, concurrency = 0, } = options;
-            return this.#inflight$.pipe(startWith(this.#requestsInFlight), switchMap(() => {
-                if (this.#requestsInFlight > concurrency) {
+            return this.#inflight$.pipe(switchMap(inflight => {
+                if (inflight > concurrency) {
                     return EMPTY;
                 }
-                else {
-                    return timer(idleTime);
-                }
+                return timer(idleTime);
             }), map(() => { }), raceWith(timeout(ms), fromEmitterEvent(this, "close" /* PageEvent.Close */).pipe(map(() => {
                 throw new TargetCloseError('Page closed!');
             }))));
