@@ -89,13 +89,13 @@ describeWithEnvironment('CompatibilityTracksAppender', function() {
         assert.strictEqual(rasterTracks.length, 2);
 
         const raster1Events = tracksAppender.eventsInTrack(rasterTracks[0]);
-        assert.strictEqual(raster1Events.length, 6);
+        assert.strictEqual(raster1Events.length, 8);
         assert.isTrue(tracksAppender.canBuildTreesFromEvents(raster1Events));
         const raster1TreeEvents = tracksAppender.eventsForTreeView(rasterTracks[0]);
         assert.deepEqual(raster1TreeEvents, raster1Events);
 
         const raster2Events = tracksAppender.eventsInTrack(rasterTracks[1]);
-        assert.strictEqual(raster2Events.length, 1);
+        assert.strictEqual(raster2Events.length, 2);
         assert.isTrue(tracksAppender.canBuildTreesFromEvents(raster2Events));
         const raster2TreeEvents = tracksAppender.eventsForTreeView(rasterTracks[1]);
         assert.deepEqual(raster2TreeEvents, raster2Events);

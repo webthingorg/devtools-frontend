@@ -216,18 +216,6 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
     this.#selectedEvents = selectedEvents;
   }
 
-  /**
-   * This method is included only for preventing layout test failures.
-   * TODO(crbug.com/1433692): Port problematic layout tests to unit
-   * tests.
-   */
-  setModel(
-      model: PerformanceModel|null,
-      track: TimelineModel.TimelineModel.Track|null,
-      ): void {
-    this.setModelWithEvents(model, track?.eventsForTreeView() || null);
-  }
-
   getToolbarInputAccessiblePlaceHolder(): string {
     return '';
   }
@@ -781,18 +769,6 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
       traceParseData: TraceEngine.Handlers.Types.TraceParseData|null = null,
       ): void {
     super.setModelWithEvents(model, selectedEvents, traceParseData);
-  }
-
-  /**
-   * This method is included only for preventing layout test failures.
-   * TODO(crbug.com/1433692): Port problematic layout tests to unit
-   * tests.
-   */
-  override setModel(
-      model: PerformanceModel|null,
-      track: TimelineModel.TimelineModel.Track|null,
-      ): void {
-    super.setModel(model, track);
   }
 
   override updateContents(selection: TimelineSelection): void {

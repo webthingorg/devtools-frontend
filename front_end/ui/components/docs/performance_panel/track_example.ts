@@ -6,7 +6,6 @@ import * as EnvHelpers from '../../../../../test/unittests/front_end/helpers/Env
 import * as FrontendHelpers from '../../../../../test/unittests/front_end/helpers/TraceHelpers.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
-import * as TimelineModel from '../../../../models/timeline_model/timeline_model.js';
 import * as Workspace from '../../../../models/workspace/workspace.js';
 import * as Timeline from '../../../../panels/timeline/timeline.js';
 import type * as PerfUI from '../../../legacy/components/perf_ui/perf_ui.js';
@@ -75,9 +74,6 @@ async function renderContent(expanded: boolean) {
       const trackAppenderName = track as Timeline.CompatibilityTracksAppender.TrackAppenderName;
       flameChartData = await FrontendHelpers.getMainFlameChartWithTracks(
           file, new Set([trackAppenderName]), expanded, additionalTrackFilter);
-    } else if (track in TimelineModel.TimelineModel.TrackType) {
-      flameChartData = await FrontendHelpers.getMainFlameChartWithLegacyTrackTypes(
-          file, track as TimelineModel.TimelineModel.TrackType, expanded, additionalTrackFilter);
     } else if (track === 'Network') {
       flameChartData = await FrontendHelpers.getNetworkFlameChartWithLegacyTrack(file, expanded);
     } else {

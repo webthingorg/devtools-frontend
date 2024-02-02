@@ -462,6 +462,10 @@ const UIStrings = {
    */
   layoutShift: 'Layout Shift',
   /**
+   *@description Text in Timeline for Layout Shift records
+   */
+  decodeLazyPixelRef: 'Decode LazyPixelRef',
+  /**
    *@description Text in Timeline for an Event Timing record
    */
   eventTiming: 'Event Timing',
@@ -1085,6 +1089,14 @@ function maybeInitSylesMap(): EventStylesMap {
     [
       TraceEngine.Types.TraceEvents.KnownEventName.LayoutShift,
       new TimelineRecordStyle(i18nString(UIStrings.layoutShift), defaultCategoryStyles.Experience),
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.DrawLazyPixelRef,
+      new TimelineRecordStyle(i18nString(UIStrings.layoutShift), defaultCategoryStyles.Other),
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.DecodeLazyPixelRef,
+      new TimelineRecordStyle(i18nString(UIStrings.decodeLazyPixelRef), defaultCategoryStyles.Other),
     ],
     [
       TraceEngine.Types.TraceEvents.KnownEventName.EventTiming,
