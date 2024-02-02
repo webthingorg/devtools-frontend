@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a602d65a_0d16fef6",
+        "filename": "front_end/panels/network/RequestResponseView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T12:43:58Z",
+      "side": 1,
+      "message": "Since .content() will eagerly concatenate the chunks, should StreamingContentData have an isTextContent directly to save some eager work?",
+      "revId": "c1495b9b6ea14082f3d99adf6fc16145a7f8f995",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
