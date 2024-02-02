@@ -500,6 +500,54 @@ describe('PropertyParser', () => {
     assert.strictEqual(matching.computedText.get(0, ast.propertyValue.length), 'dark gray');
   });
 
+  it('parses color-mix with vars', () => {
+    const {ast, match, text} = matchSingleValue(
+        'color', 'color-mix(in srgb var(--interpolation) hue, red var(--percentage), rgb(var(--rgb)))',
+        Elements.PropertyParser.ColorMixMatch,
+        new Elements.PropertyParser.ColorMixMatcher(nilRenderer(Elements.PropertyParser.ColorMixMatch)));
+    Platform.assertNotNullOrUndefined(ast, text);
+    Platform.assertNotNullOrUndefined(match, text);
+    assert.deepStrictEqual(match.space.map(n => ast.text(n)), ['in', 'srgb', 'var(--interpolation)', 'hue']);
+    assert.strictEqual(match.color1.color.map(n => ast.text(n)).join(), 'red');
+    assert.strictEqual(match.color2.color.map(n => ast.text(n)).join(), 'rgb(var(--rgb))');
+    assert.strictEqual(ast.text(match.color1.percentage), 'var(--percentage)');
+    assert.strictEqual(match.color2.percentage, undefined);
+  });
+
+  it('parses color-mix', () => {
+    function check(space: string, color1: string, color2: string): void {
+      const {ast, match, text} = matchSingleValue(
+          'color', `color-mix(${space}, ${color1}, ${color2})`, Elements.PropertyParser.ColorMixMatch,
+          new Elements.PropertyParser.ColorMixMatcher(nilRenderer(Elements.PropertyParser.ColorMixMatch)));
+      Platform.assertNotNullOrUndefined(ast, text);
+      Platform.assertNotNullOrUndefined(match, text);
+
+      assert.deepStrictEqual(match.space.map(n => ast.text(n)).join(' '), space, text);
+      assert.strictEqual(match.color1.color.map(n => ast.text(n)).join(' '), color1, text);
+      assert.strictEqual(match.color2.color.map(n => ast.text(n)).join(' '), color2, text);
+      const [percentage1] = color1.match(/[\d.]+%/) ?? [];
+      assert.strictEqual(ast.text(match.color1.percentage ?? null), percentage1 ?? '', text);
+      const [percentage2] = color2.match(/[\d.]+%/) ?? [];
+      assert.strictEqual(ast.text(match.color2.percentage ?? null), percentage2 ?? '', text);
+    }
+
+    function checkFailure(space: string, color1: string, color2: string): void {
+      const {match, text} = matchSingleValue(
+          'color', `color-mix(${space}, ${color1}, ${color2})`, Elements.PropertyParser.ColorMixMatch,
+          new Elements.PropertyParser.ColorMixMatcher(nilRenderer(Elements.PropertyParser.ColorMixMatch)));
+      assert.isNull(match, text);
+    }
+
+    check('in srgb shorter hue', 'red 35%', 'blue');
+    check('in /*asd*/ srgb shorter hue', 'red 35%', 'blue');
+    check('in srgb', 'red 35%', 'blue');
+    check('in srgb', '35% red', 'blue 16%');
+    check('in srgb', '/*a*/ 35% /*b*/ red /*c*/', '/*a*/ blue /*b*/ 16% /*c*/');
+    checkFailure('insrgb shorter hue', 'red 35%', 'blue');
+    checkFailure('/*asd*/srgb in', 'red 35%', 'blue');
+    checkFailure('in srgb', '0% red', 'blue 0%');
+  });
+
   it('parses vars correctly', () => {
     for (const succeed
              of ['var(--a)', 'var(--a, 123)', 'var(--a, calc(1+1))', 'var(--a, var(--b))', 'var(--a, var(--b, 123))',
