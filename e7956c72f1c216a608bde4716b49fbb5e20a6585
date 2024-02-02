@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71a42300_8e1f798f",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 2
+      },
+      "lineNbr": 10024,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-02T05:35:57Z",
+      "side": 1,
+      "message": "This new event is the reason for the compilation failures. The code generation adds a new method to an interface that is currently not implemented (in `ServiceWorkerCacheModel.ts`). You can either add a no-op impl or I\u0027ll fix up a roll CL later.",
+      "range": {
+        "startLine": 10024,
+        "startChar": 8,
+        "endLine": 10024,
+        "endChar": 49
+      },
+      "revId": "e7956c72f1c216a608bde4716b49fbb5e20a6585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
