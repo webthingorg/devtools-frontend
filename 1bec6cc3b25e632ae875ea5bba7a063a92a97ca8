@@ -18,6 +18,57 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "370d7c3c_00e2a694",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T08:36:08Z",
+      "side": 1,
+      "message": "LveryGTM!",
+      "revId": "1bec6cc3b25e632ae875ea5bba7a063a92a97ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd4e076f_e2038be9",
+        "filename": "front_end/models/text_utils/StreamingContentData.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T08:36:08Z",
+      "side": 1,
+      "message": "```suggestion\n   * Calling `addChunk` on the resulting `StreamingContentData` is illegal if\n```",
+      "revId": "1bec6cc3b25e632ae875ea5bba7a063a92a97ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e8c1301_b2a44dc3",
+        "filename": "front_end/models/text_utils/StreamingContentData.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T08:36:08Z",
+      "side": 1,
+      "message": "Optional thought: Should we have a base64 branded type?",
+      "revId": "1bec6cc3b25e632ae875ea5bba7a063a92a97ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9ba965c_9d282a06",
@@ -37,6 +88,23 @@
         "endLine": 58,
         "endChar": 5
       },
+      "revId": "1bec6cc3b25e632ae875ea5bba7a063a92a97ca8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1c3ba6b_39172a6e",
+        "filename": "test/unittests/front_end/models/text_utils/StreamingContentData_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T08:36:08Z",
+      "side": 1,
+      "message": "```suggestion\n  it(\u0027returns the provided content when created from a ContentData\u0027, () \u003d\u003e {\n```",
       "revId": "1bec6cc3b25e632ae875ea5bba7a063a92a97ca8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
