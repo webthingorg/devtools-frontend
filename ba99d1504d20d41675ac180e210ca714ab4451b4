@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c6368e_df54b4b7",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T08:45:12Z",
+      "side": 1,
+      "message": "```suggestion\n      // Note that this is safe: \"streamResponseBody()\" always creates base64-based ContentData and\n```",
+      "revId": "ba99d1504d20d41675ac180e210ca714ab4451b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d12523f2_cbc3d5a7",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T08:45:12Z",
+      "side": 1,
+      "message": "can we ever run into the case that the first content was an error and additional content is coming? in other words, is it a problem if dataLength and streamingContentData diverge?",
+      "revId": "ba99d1504d20d41675ac180e210ca714ab4451b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
