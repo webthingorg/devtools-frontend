@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5b96fa4_5b82d734",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-02T12:19:29Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "e8c6368e_df54b4b7",
+      "revId": "ba99d1504d20d41675ac180e210ca714ab4451b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d12523f2_cbc3d5a7",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-02T08:45:12Z",
       "side": 1,
       "message": "can we ever run into the case that the first content was an error and additional content is coming? in other words, is it a problem if dataLength and streamingContentData diverge?",
+      "revId": "ba99d1504d20d41675ac180e210ca714ab4451b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb03552c_9d1dd02b",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-02T12:19:29Z",
+      "side": 1,
+      "message": "No that shouldn\u0027t be a problem if those 2 diverge. IMO the main thing that could happen is that a cross-origin iframe navigates and we loose the target. But it\u0027s also not clear if we would then still get dataReceived events.\n\nIn any case, `dataLength` is never compared to the actual size of the `streamingContentData` so it should be fine.",
+      "parentUuid": "d12523f2_cbc3d5a7",
       "revId": "ba99d1504d20d41675ac180e210ca714ab4451b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
