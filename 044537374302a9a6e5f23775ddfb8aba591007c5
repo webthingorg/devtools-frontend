@@ -191,6 +191,24 @@
       "message": "I didn\u0027t see where we have used this change exactly. Is it needed?",
       "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "789de8c2_5317d806",
+        "filename": "front_end/ui/legacy/components/inline_editor/LinkSwatch.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-02T14:37:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dcff458_9fa4df66",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
