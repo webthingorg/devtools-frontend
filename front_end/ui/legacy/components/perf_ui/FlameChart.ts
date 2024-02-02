@@ -183,6 +183,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private totalTime?: number;
   #font: string;
   #groupTreeRoot?: GroupTreeNode|null;
+  #showPopoverForSearch = false;
 
   constructor(
       dataProvider: FlameChartDataProvider, flameChartDelegate: FlameChartDelegate,
@@ -304,7 +305,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   hideHighlight(): void {
-    this.entryInfo.removeChildren();
+    if (!this.#showPopoverForSearch) {
+      this.entryInfo.removeChildren();
+    }
     if (this.highlightedEntryIndex === -1) {
       return;
     }
@@ -421,6 +424,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   private onMouseMove(event: Event): void {
+    this.#showPopoverForSearch = false;
     const mouseEvent = (event as MouseEvent);
     this.lastMouseOffsetX = mouseEvent.offsetX;
     this.lastMouseOffsetY = mouseEvent.offsetY;
@@ -468,6 +472,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.hideHighlight();
   }
 
+  showPopoverForSearchResult(selectedSearchResult: number): void {
+    this.#showPopoverForSearch = true;
+    this.updatePopover(selectedSearchResult);
+  }
+
   private updatePopover(entryIndex: number): void {
     this.entryInfo.removeChildren();
     const data = this.timelineData();
@@ -487,8 +496,17 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   private updatePopoverOffset(): void {
-    const mouseX = this.lastMouseOffsetX;
-    const mouseY = this.lastMouseOffsetY;
+    let mouseX = this.lastMouseOffsetX;
+    let mouseY = this.lastMouseOffsetY;
+
+    // If the popover is being updated from a search, we calculate the coordinates manually
+    if (this.#showPopoverForSearch) {
+      const coordinate = this.entryIndexToCoordinates(this.selectedEntryIndex);
+      const {x: canvasViewportOffsetX, y: canvasViewportOffsetY} = this.canvas.getBoundingClientRect();
+      mouseX = coordinate?.x ? coordinate.x - canvasViewportOffsetX : mouseX;
+      mouseY = coordinate?.y ? coordinate.y - canvasViewportOffsetY : mouseY;
+    }
+
     const parentWidth = this.entryInfo.parentElement ? this.entryInfo.parentElement.clientWidth : 0;
     const parentHeight = this.entryInfo.parentElement ? this.entryInfo.parentElement.clientHeight : 0;
     const infoWidth = this.entryInfo.clientWidth;
