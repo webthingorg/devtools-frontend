@@ -875,7 +875,13 @@ export declare interface Configuration {
      * See {@link PuppeteerNode.launch | puppeteer.launch} on how executable path
      * is inferred.
      *
-     * @defaultValue A compatible-revision of the browser.
+     * Use a specific browser version (e.g., 119.0.6045.105). If you use an alias
+     * such `stable` or `canary` it will only work during the installation of
+     * Puppeteer and it will fail when launching the browser.
+     *
+     * @example 119.0.6045.105
+     * @defaultValue The pinned browser version supported by the current Puppeteer
+     * version.
      */
     browserRevision?: string;
     /**
@@ -6402,6 +6408,18 @@ export declare interface PDFOptions {
      * @experimental
      */
     tagged?: boolean;
+    /**
+     * Generate document outline.
+     *
+     * @remarks
+     * If this is enabled the PDF will also be tagged (accessible)
+     * Currently only works in old Headless (headless = true)
+     * crbug/840455#c47
+     *
+     * @defaultValue `false`
+     * @experimental
+     */
+    outline?: boolean;
     /**
      * Timeout in milliseconds. Pass `0` to disable timeout.
      * @defaultValue `30_000`

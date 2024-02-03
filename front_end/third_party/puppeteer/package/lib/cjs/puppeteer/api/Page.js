@@ -197,27 +197,25 @@ let Page = (() => {
          */
         _timeoutSettings = new TimeoutSettings_js_1.TimeoutSettings();
         #requestHandlers = new WeakMap();
-        #requestsInFlight = 0;
-        #inflight$;
+        #inflight$ = new rxjs_js_1.ReplaySubject(1);
         /**
          * @internal
          */
         constructor() {
             super();
-            this.#inflight$ = (0, util_js_1.fromEmitterEvent)(this, "request" /* PageEvent.Request */).pipe((0, rxjs_js_1.takeUntil)((0, util_js_1.fromEmitterEvent)(this, "close" /* PageEvent.Close */)), (0, rxjs_js_1.mergeMap)(request => {
-                return (0, rxjs_js_1.concat)((0, rxjs_js_1.of)(1), (0, rxjs_js_1.race)((0, util_js_1.fromEmitterEvent)(this, "response" /* PageEvent.Response */).pipe((0, rxjs_js_1.filter)(response => {
-                    return response.request()._requestId === request._requestId;
-                })), (0, util_js_1.fromEmitterEvent)(this, "requestfailed" /* PageEvent.RequestFailed */).pipe((0, rxjs_js_1.filter)(failure => {
-                    return failure._requestId === request._requestId;
-                })), (0, util_js_1.fromEmitterEvent)(this, "requestfinished" /* PageEvent.RequestFinished */).pipe((0, rxjs_js_1.filter)(success => {
-                    return success._requestId === request._requestId;
-                }))).pipe((0, rxjs_js_1.map)(() => {
+            (0, util_js_1.fromEmitterEvent)(this, "request" /* PageEvent.Request */)
+                .pipe((0, rxjs_js_1.mergeMap)(originalRequest => {
+                return (0, rxjs_js_1.concat)((0, rxjs_js_1.of)(1), (0, rxjs_js_1.merge)((0, util_js_1.fromEmitterEvent)(this, "requestfailed" /* PageEvent.RequestFailed */), (0, util_js_1.fromEmitterEvent)(this, "requestfinished" /* PageEvent.RequestFinished */), (0, util_js_1.fromEmitterEvent)(this, "response" /* PageEvent.Response */).pipe((0, rxjs_js_1.map)(response => {
+                    return response.request();
+                }))).pipe((0, rxjs_js_1.filter)(request => {
+                    return request._requestId === originalRequest._requestId;
+                }), (0, rxjs_js_1.take)(1), (0, rxjs_js_1.map)(() => {
                     return -1;
                 })));
-            }));
-            this.#inflight$.subscribe(count => {
-                this.#requestsInFlight += count;
-            });
+            }), (0, rxjs_js_1.mergeScan)((acc, addend) => {
+                return (0, rxjs_js_1.of)(acc + addend);
+            }, 0), (0, rxjs_js_1.takeUntil)((0, util_js_1.fromEmitterEvent)(this, "close" /* PageEvent.Close */)), (0, rxjs_js_1.startWith)(0))
+                .subscribe(this.#inflight$);
         }
         /**
          * Listen to page events.
@@ -725,13 +723,11 @@ let Page = (() => {
          */
         waitForNetworkIdle$(options = {}) {
             const { timeout: ms = this._timeoutSettings.timeout(), idleTime = util_js_1.NETWORK_IDLE_TIME, concurrency = 0, } = options;
-            return this.#inflight$.pipe((0, rxjs_js_1.startWith)(this.#requestsInFlight), (0, rxjs_js_1.switchMap)(() => {
-                if (this.#requestsInFlight > concurrency) {
+            return this.#inflight$.pipe((0, rxjs_js_1.switchMap)(inflight => {
+                if (inflight > concurrency) {
                     return rxjs_js_1.EMPTY;
                 }
-                else {
-                    return (0, rxjs_js_1.timer)(idleTime);
-                }
+                return (0, rxjs_js_1.timer)(idleTime);
             }), (0, rxjs_js_1.map)(() => { }), (0, rxjs_js_1.raceWith)((0, util_js_1.timeout)(ms), (0, util_js_1.fromEmitterEvent)(this, "close" /* PageEvent.Close */).pipe((0, rxjs_js_1.map)(() => {
                 throw new Errors_js_1.TargetCloseError('Page closed!');
             }))));
