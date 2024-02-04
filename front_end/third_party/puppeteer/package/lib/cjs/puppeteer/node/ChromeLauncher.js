@@ -172,6 +172,7 @@ class ChromeLauncher extends ProductLauncher_js_1.ProductLauncher {
             '--disable-sync',
             '--enable-automation',
             '--export-tagged-pdf',
+            '--generate-pdf-document-outline',
             '--force-color-profile=srgb',
             '--metrics-recording-only',
             '--no-first-run',
