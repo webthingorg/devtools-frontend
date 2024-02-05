@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861a7b05_d2a0fc81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-05T09:51:46Z",
+      "side": 1,
+      "message": "I think we\u0027re also not showing swatch when the space argument is itself a variable:\n```\n--space: in hsl longer hue;\ncolor: color-mix(var(--space), 70% hsl(120 100% 50%), white);\n```\n\ncan we somehow use computed text for this case?\n\n---\n\nOther than that, LGTM with test addressed.",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd6d7f9_0833ad17",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-05T09:51:46Z",
+      "side": 1,
+      "message": "(nit): I think these utilities are really good for writing new matchers, WDYT of putting them under a `utils` object or something to give matcher writers a defined API?\n\nTotally not related to this CL, I liked how high level APIs for interacting with SyntaxNodes is coming along :)",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0627c66_ee4ff8be",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-05T09:51:46Z",
+      "side": 1,
+      "message": "(nit): I think it\u0027s getting harder to understand what and why we\u0027re doing here. Can you add comments to describe why we do this?\n\n---\nlike `// Check invalid syntax because of multiple percentages for the same color` etc. WDYT?",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63289b16_30f0f2bb",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-05T09:51:46Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand for which case we\u0027re discarding here. It read like we\u0027re discarding the property when the both percentages are zero, is that the case?",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
