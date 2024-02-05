@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f45a3eb8_4eb72c5b",
+        "filename": "test/unittests/front_end/core/sdk/CookieModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-05T07:47:30Z",
+      "side": 1,
+      "message": "Isn\u0027t this obvious from the code below?",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 75
+      },
+      "revId": "0b886a0376bd47d9712c945156ef7addc1982651",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73817963_60a3e14c",
+        "filename": "test/unittests/front_end/core/sdk/CookieModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-05T07:47:30Z",
+      "side": 1,
+      "message": "`cookies`",
+      "range": {
+        "startLine": 173,
+        "startChar": 10,
+        "endLine": 173,
+        "endChar": 20
+      },
+      "revId": "0b886a0376bd47d9712c945156ef7addc1982651",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d77fc29d_8827a977",
+        "filename": "test/unittests/front_end/core/sdk/CookieModel_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-05T07:47:30Z",
+      "side": 1,
+      "message": "`cookies2`",
+      "range": {
+        "startLine": 179,
+        "startChar": 10,
+        "endLine": 179,
+        "endChar": 21
+      },
+      "revId": "0b886a0376bd47d9712c945156ef7addc1982651",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
