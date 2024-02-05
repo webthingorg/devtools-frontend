@@ -16,6 +16,23 @@
       "message": "Friendly ping",
       "revId": "7f381fce3838e602f87dd427d9485aa024d1e38f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bd0761_14d3c27e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-05T08:39:10Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "7f381fce3838e602f87dd427d9485aa024d1e38f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
