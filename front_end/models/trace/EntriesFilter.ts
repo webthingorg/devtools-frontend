@@ -24,6 +24,7 @@ export interface PossibleFilterActions {
   [FilterAction.MERGE_FUNCTION]: boolean;
   [FilterAction.COLLAPSE_FUNCTION]: boolean;
   [FilterAction.COLLAPSE_REPEATING_DESCENDANTS]: boolean;
+  [FilterAction.RESET_CHILDREN]: boolean;
   [FilterAction.UNDO_ALL_ACTIONS]: boolean;
 }
 
@@ -68,6 +69,7 @@ export class EntriesFilter {
         [FilterAction.MERGE_FUNCTION]: false,
         [FilterAction.COLLAPSE_FUNCTION]: false,
         [FilterAction.COLLAPSE_REPEATING_DESCENDANTS]: false,
+        [FilterAction.RESET_CHILDREN]: false,
         [FilterAction.UNDO_ALL_ACTIONS]: false,
       };
     }
@@ -76,11 +78,15 @@ export class EntriesFilter {
         this.#findAllDescendantsOfNode(entryNode).filter(descendant => !this.#invisibleEntries.includes(descendant));
     const allVisibleRepeatingDescendants = this.#findAllRepeatingDescendantsOfNext(entryNode).filter(
         descendant => !this.#invisibleEntries.includes(descendant));
+    const allInVisibleDescendants =
+        this.#findAllDescendantsOfNode(entryNode).filter(descendant => this.#invisibleEntries.includes(descendant));
+
     // If there are children to hide, indicate action as possible
     const possibleActions: PossibleFilterActions = {
       [FilterAction.MERGE_FUNCTION]: entryParent !== null,
       [FilterAction.COLLAPSE_FUNCTION]: allVisibleDescendants.length > 0,
       [FilterAction.COLLAPSE_REPEATING_DESCENDANTS]: allVisibleRepeatingDescendants.length > 0,
+      [FilterAction.RESET_CHILDREN]: allInVisibleDescendants.length > 0,
       [FilterAction.UNDO_ALL_ACTIONS]: this.#invisibleEntries.length > 0,
     };
     return possibleActions;
