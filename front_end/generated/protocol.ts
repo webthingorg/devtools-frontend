@@ -1439,6 +1439,10 @@ export namespace Autofill {
      */
     fillingStrategy: FillingStrategy;
     /**
+     * The frame the field belongs to
+     */
+    frameToken: string;
+    /**
      * The form field's DOM node
      */
     fieldId: DOM.BackendNodeId;
