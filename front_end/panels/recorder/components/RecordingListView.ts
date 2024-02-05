@@ -95,7 +95,6 @@ export class RecordingListView extends HTMLElement {
 
   constructor() {
     super();
-    this.setAttribute('jslog', `${VisualLogging.section('recording-list-view')}`);
   }
 
   connectedCallback(): void {
@@ -178,9 +177,9 @@ export class RecordingListView extends HTMLElement {
                       this,
                       recording.storageName,
                     )}
-                    jslog=${VisualLogging.action()
-                      .track({ click: true, keydown: true })
-                      .context('open-recording')}>
+                    jslog=${VisualLogging.item()
+                      .track({ click: true })
+                      .context('recording')}>
                     <div class="icon">
                       <${IconButton.Icon.Icon.litTagName} name="flow">
                       </${IconButton.Icon.Icon.litTagName}>
@@ -192,11 +191,11 @@ export class RecordingListView extends HTMLElement {
                           ? LitHtml.html`
                               <${Buttons.Button.Button.litTagName}
                                 title=${i18nString(UIStrings.playRecording)}
-                                .jslogContext=${'play-recording'}
                                 .data=${
                                   {
                                     variant: Buttons.Button.Variant.ROUND,
                                     iconName: 'play',
+                                     jslogContext: 'play-recording',
                                   } as Buttons.Button.ButtonData
                                 }
                                 @click=${this.#onPlayRecordingClick.bind(
@@ -211,11 +210,11 @@ export class RecordingListView extends HTMLElement {
                       <${Buttons.Button.Button.litTagName}
                         class="delete-recording-button"
                         title=${i18nString(UIStrings.deleteRecording)}
-                        .jslogContext=${'delete-recording'}
                         .data=${
                           {
                             variant: Buttons.Button.Variant.ROUND,
                             iconName: 'bin',
+                            jslogContext: 'delete-recording',
                           } as Buttons.Button.ButtonData
                         }
                         @click=${this.#onDeleteClick.bind(
