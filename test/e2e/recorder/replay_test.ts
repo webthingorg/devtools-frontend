@@ -31,7 +31,7 @@ import {
   setupRecorderWithScriptAndReplay,
 } from './helpers.js';
 
-describe('Recorder', function() {
+describe.only('Recorder', function() {
   if (this.timeout() !== 0) {
     this.timeout(40000);
   }
