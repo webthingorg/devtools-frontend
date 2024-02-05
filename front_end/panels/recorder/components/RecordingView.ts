@@ -1091,7 +1091,7 @@ export class RecordingView extends HTMLElement {
               ),
             } as Buttons.Button.ButtonData
           }
-          .jslogContext=${'show-code'}
+          jslog=${VisualLogging.toggleSubpane(Actions.RecorderActions.ToggleCodeView).track({click: true})}
         >
           ${i18nString(UIStrings.showCode)}
         </${Buttons.Button.Button.litTagName}>
