@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7eba7b_e3a3f875",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-05T10:35:46Z",
+      "side": 0,
+      "message": "nit: it\u0027s still worth keeping the default handler",
+      "range": {
+        "startLine": 214,
+        "startChar": 6,
+        "endLine": 214,
+        "endChar": 13
+      },
+      "revId": "f39309a8f36c4ba403cd6458e1b386e621899bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
