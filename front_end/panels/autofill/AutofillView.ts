@@ -299,6 +299,18 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
     // clang-format on
   }
 
+  #getTarget(frameToken: string): SDK.Target.Target|undefined {
+    if (!frameToken || frameToken === this.#autofillModel?.target().id()) {
+      return this.#autofillModel?.target();
+    }
+    for (const frame of SDK.FrameManager.FrameManager.instance().getAllFrames()) {
+      if (frame.id === frameToken) {
+        return frame.resourceTreeModel().target();
+      }
+    }
+    return undefined;
+  }
+
   #onGridRowMouseEnter(event: DataGrid.DataGridEvents.RowMouseEnterEvent): void {
     const rowIndex = event.data.row.cells[3].value;
     if (typeof rowIndex !== 'number') {
@@ -308,16 +320,13 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
 
     const backendNodeId = this.#filledFields[rowIndex].fieldId;
-    if (!this.#autofillModel) {
-      return;
-    }
-    const domModel = this.#autofillModel.target().model(SDK.DOMModel.DOMModel);
-    if (!domModel) {
-      return;
-    }
-    const deferredNode = new SDK.DOMModel.DeferredDOMNode(this.#autofillModel.target(), backendNodeId);
-    if (deferredNode) {
-      domModel.overlayModel().highlightInOverlay({deferredNode}, 'all');
+    const target = this.#getTarget(this.#filledFields[rowIndex].frameToken);
+    if (target) {
+      const deferredNode = new SDK.DOMModel.DeferredDOMNode(target, backendNodeId);
+      const domModel = target.model(SDK.DOMModel.DOMModel);
+      if (deferredNode && domModel) {
+        domModel.overlayModel().highlightInOverlay({deferredNode}, 'all');
+      }
     }
   }
 
