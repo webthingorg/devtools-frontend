@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e890b2_eb6e0c40",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-05T13:14:40Z",
+      "side": 0,
+      "message": "😎",
+      "range": {
+        "startLine": 506,
+        "startChar": 55,
+        "endLine": 506,
+        "endChar": 98
+      },
+      "revId": "0ff76233cb85376fcf9e92c97c6854400814fb09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
