@@ -16,6 +16,74 @@
       "message": "Hey Alina, this CL is for showing a popover on the selected search result. I added some gifs in the description. PTAL, thank you!",
       "revId": "e75a33da40075905f6e842f62173dffb970a0880",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83433368_b6233a52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-05T17:16:43Z",
+      "side": 1,
+      "message": "Couple of suggestions, otherwise it\u0027s a great change!",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "912ac40e_0d589923",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-05T17:16:43Z",
+      "side": 1,
+      "message": "We store `highlightedEntryIndex` and `selectedEntryIndex` as numbers and set them to -1 if none are highlighted/selected, we can do the same with the search result entry for consistency and in case we want to update the popover from elsewhere in this class. That way we would always have the index available. WHDYT?\nWe can do something like this instead \n`#searchResultEntryIndex: number;`",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc8a076f_3cb33180",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-05T17:16:43Z",
+      "side": 1,
+      "message": "We could set it to -1 the same way `highlightedEntryIndex` is set and check if it equals to -1 instead of checking the boolean.\n`this.#searchResultEntryIndex \u003d -1;`",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ba7632d_ce5d7575",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-05T17:16:43Z",
+      "side": 1,
+      "message": "We need to update the popover position on draw(). If the scroll bar is dragged and the search result entry is set, the popoover will stay at the same place it was. It would happen if you drag the scroll bar without hovering over the flamechart area. \nIf we save the entry index, we should be able to do something like `this.showPopoverForSearchResult(this.#searchResultEntryIndex);`",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
