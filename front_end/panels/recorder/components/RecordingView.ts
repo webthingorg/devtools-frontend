@@ -1148,9 +1148,9 @@ export class RecordingView extends HTMLElement {
                       {
                         variant: Buttons.Button.Variant.SECONDARY,
                         title: i18nString(UIStrings.addAssertion),
+                        jslogContext: 'add-assertion',
                       } as Buttons.Button.ButtonData
                     }
-                    .jslogContext=${'add-assertion'}
                     @click=${this.#dispatchAddAssertionEvent}
                   >${i18nString(UIStrings.addAssertion)}</devtools-button>` : undefined}
                   ${
@@ -1199,9 +1199,9 @@ export class RecordingView extends HTMLElement {
                     variant: Buttons.Button.Variant.TOOLBAR,
                     iconName: 'edit',
                     title: i18nString(UIStrings.editTitle),
+                    jslogContext: 'edit-title',
                   } as Buttons.Button.ButtonData
                 }
-                .jslogContext=${'edit-title'}
               ></${Buttons.Button.Button.litTagName}>
             </div>
           </div>
@@ -1220,13 +1220,13 @@ export class RecordingView extends HTMLElement {
             ? LitHtml.html`<div class="actions">
                 <${Buttons.Button.Button.litTagName}
                   @click=${this.#handleMeasurePerformanceClickEvent}
-                  .jslogContext=${'measure-performance'}
                   .data=${
                     {
                       disabled: this.#replayState.isPlaying,
                       variant: Buttons.Button.Variant.SECONDARY,
                       iconName: 'performance',
                       title: i18nString(UIStrings.performancePanel),
+                      jslogContext: 'measure-performance',
                     } as Buttons.Button.ButtonData
                   }
                 >
