@@ -12,7 +12,7 @@ import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
 import {getEventLevel} from './AppenderUtils.js';
 import * as TimelineComponents from './components/components.js';
 import {getEventStyle} from './EventUICategory.js';
-import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
+import {ExtensionDataGatherer, type TrackData} from './ExtensionDataGatherer.js';
 import {ExtensionTrackAppender} from './ExtensionTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
@@ -119,7 +119,6 @@ export class CompatibilityTracksAppender {
   #gpuTrackAppender: GPUTrackAppender;
   #layoutShiftsTrackAppender: LayoutShiftsTrackAppender;
   #threadAppenders: ThreadAppender[] = [];
-  #extensionDataGatherer: ExtensionDataGatherer;
 
   /**
    * @param flameChartData the data used by the flame chart renderer on
@@ -140,7 +139,6 @@ export class CompatibilityTracksAppender {
       legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl) {
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
-    this.#extensionDataGatherer = new ExtensionDataGatherer(traceParsedData);
 
     this.#entryData = entryData;
     this.#colorGenerator = new Common.Color.Generator(
@@ -221,8 +219,12 @@ export class CompatibilityTracksAppender {
     console.warn('Could not find hidden entries because non thread tracks are not modifiable');
   }
 
+  addTrackForExtension(trackData: TrackData): void {
+    this.#allTrackAppenders.push(new ExtensionTrackAppender(this, trackData));
+  }
+
   #addExtensionAppenders(): void {
-    const tracks = this.#extensionDataGatherer.getExtensionFlameChartData();
+    const tracks = ExtensionDataGatherer.instace().getExtensionData();
     for (const trackData of tracks) {
       this.#allTrackAppenders.push(new ExtensionTrackAppender(this, trackData));
     }

@@ -995,6 +995,18 @@ export interface TraceEventUserTiming extends TraceEventData {
 
 export type TraceEventPairableUserTiming = TraceEventUserTiming&TraceEventPairableAsync;
 
+export const TRACE_ORIGIN_MARKER_NAME = 'trace-origin';
+
+export interface TraceEventTraceOriginMarker extends TraceEventPerformanceMeasureBegin {
+  args: TraceEventArgs&{
+    detail: string,
+    startTime: MilliSeconds,
+  };
+  cat: 'blink.user_timing';
+  id: string;
+  name: typeof TRACE_ORIGIN_MARKER_NAME;
+}
+
 export interface TraceEventPerformanceMeasureBegin extends TraceEventPairableUserTiming {
   args: TraceEventArgs&{
     detail?: string,
@@ -1009,7 +1021,7 @@ export interface TraceEventPerformanceMark extends TraceEventUserTiming {
   args: TraceEventArgs&{
     detail?: string,
   };
-  ph: Phase.INSTANT|Phase.MARK;
+  ph: Phase.INSTANT|Phase.MARK|Phase.ASYNC_NESTABLE_INSTANT;
 }
 
 export interface TraceEventConsoleTimeBegin extends TraceEventPairableAsyncBegin {
@@ -1260,10 +1272,6 @@ export interface ExtensionFlamechartEntryPayload {
 export interface SyntheticExtensionEntry extends SyntheticTraceEntry {
   args: TraceEventArgs&ExtensionFlamechartEntryPayload&{extensionName: string};
   cat: 'timeline-extension';
-}
-
-export function isTraceEventSyntheticExtensionEntry(event: TraceEventData): event is SyntheticExtensionEntry {
-  return event.cat === 'timeline-extension';
 }
 
 export function isTraceEventDrawFrame(event: TraceEventData): event is TraceEventDrawFrame {
@@ -1535,6 +1543,10 @@ export function isTraceEventUpdateCounters(event: TraceEventData): event is Trac
   return event.name === 'UpdateCounters';
 }
 
+export function isTraceEventSyntheticExtensionEntry(event: TraceEventData): event is SyntheticExtensionEntry {
+  return event.cat === 'timeline-extension';
+}
+
 export function isThreadName(
     traceEventData: TraceEventData,
     ): traceEventData is TraceEventThreadName {
@@ -1743,10 +1755,17 @@ export function isTraceEventPerformanceMeasure(traceEventData: TraceEventData):
   return traceEventData.cat === 'blink.user_timing' && isTraceEventAsyncPhase(traceEventData);
 }
 
+export function isTraceEventTraceOriginMarker(event: TraceEventData): event is TraceEventTraceOriginMarker {
+  return (isTraceEventPerformanceMeasure(event) || isTraceEventPerformanceMark(event)) &&
+      (event.ph === Phase.ASYNC_NESTABLE_START || event.ph === Phase.ASYNC_NESTABLE_INSTANT) &&
+      event.name === TRACE_ORIGIN_MARKER_NAME;
+}
+0;
 export function isTraceEventPerformanceMark(traceEventData: TraceEventData):
     traceEventData is TraceEventPerformanceMark {
   return traceEventData.cat === 'blink.user_timing' &&
-      (traceEventData.ph === Phase.MARK || traceEventData.ph === Phase.INSTANT);
+      (traceEventData.ph === Phase.MARK || traceEventData.ph === Phase.INSTANT ||
+       traceEventData.ph === Phase.ASYNC_NESTABLE_INSTANT);
 }
 
 export function isTraceEventExtensionPerformanceMark(traceEventData: TraceEventData):

@@ -14,6 +14,7 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {CountersGraph} from './CountersGraph.js';
+import {Events as ExtensionDataEvents, ExtensionDataGatherer} from './ExtensionDataGatherer.js';
 import {type PerformanceModel} from './PerformanceModel.js';
 import {TimelineDetailsView} from './TimelineDetailsView.js';
 import {TimelineRegExp} from './TimelineFilters.js';
@@ -75,6 +76,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
   #selectedGroupName: string|null = null;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
+  #onEntriesModifiedBound = this.onEntriesModified.bind(this);
   constructor(delegate: TimelineModeViewDelegate) {
     super();
     this.element.classList.add('timeline-flamechart');
@@ -152,6 +154,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateColorMapper();
 
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
+    ExtensionDataGatherer.instace().addEventListener(
+        ExtensionDataEvents.ExtensionDataAdded, this.#onEntriesModifiedBound);
   }
 
   #onTraceBoundsChange(event: TraceBounds.TraceBounds.StateChangedEvent): void {
@@ -167,6 +171,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.networkDataProvider.setWindowTimes(visibleWindow.min, visibleWindow.max);
     this.networkFlameChart.setWindowTimes(visibleWindow.min, visibleWindow.max, shouldAnimate);
     this.updateSearchResults(false, false);
+  }
+
+  onEntriesModified(): void {
+    this.mainFlameChart.update(true);
   }
 
   isNetworkTrackShownForTests(): boolean {
@@ -222,6 +230,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     this.#selectedGroupName = null;
     this.#traceEngineData = newTraceEngineData;
+    ExtensionDataGatherer.instace().modelChanged(newTraceEngineData);
     Common.EventTarget.removeEventListeners(this.eventListeners);
     this.model = model;
     this.#selectedEvents = null;

@@ -205,6 +205,23 @@ export function makeSyntheticTraceEntry(
     selfTime: Types.Timing.MicroSeconds(0),
   };
 }
+
+export function makeSyntheticEventWithSelfTime(
+    name: string, ts: Types.Timing.MicroSeconds, pid: Types.TraceEvents.ProcessID,
+    tid: Types.TraceEvents.ThreadID): Types.TraceEvents.SyntheticTraceEntry {
+  return {
+    cat: '',
+    name,
+    args: {},
+    ph: Types.TraceEvents.Phase.COMPLETE,
+    pid,
+    tid,
+    ts,
+    dur: Types.Timing.MicroSeconds(0),
+    selfTime: Types.Timing.MicroSeconds(0),
+  };
+}
+
 export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.TraceEventPairableAsync[]): Map<string, {
   begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
   end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,

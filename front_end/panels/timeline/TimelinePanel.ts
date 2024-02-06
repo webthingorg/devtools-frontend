@@ -40,6 +40,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
+import * as Extensions from '../../models/extensions/extensions.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as Workspace from '../../models/workspace/workspace.js';
@@ -929,6 +930,17 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       if (response.getError()) {
         throw new Error(response.getError());
       }
+
+      const evaluateMarksResult = await primaryPageTarget.runtimeAgent().invoke_evaluate({
+        expression: `performance.measure("${
+            TraceEngine.Types.TraceEvents
+                .TRACE_ORIGIN_MARKER_NAME}", {detail: {timeOrigin: performance.timeOrigin}, start: performance.now()})`,
+      });
+
+      if (evaluateMarksResult.getError()) {
+        throw new Error(response.getError());
+      }
+
       // Once we get here, we know tracing is active.
       // This is when, if the user has hit "Reload & Record" that we now need to navigate to the original URL.
       // If the user has just hit "record", we don't do any navigating.
@@ -1381,6 +1393,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       if (!traceData) {
         throw new Error(`Could not get trace data at index ${this.#traceEngineActiveTraceIndex}`);
       }
+      Extensions.ExtensionServer.ExtensionServer.instance().profileParsed(traceData);
 
       // Set up SourceMapsResolver to ensure we resolve any function names in
       // profile calls.
