@@ -190,6 +190,22 @@ export function makeProfileCall(
   };
 }
 
+export function makeSyntheticTraceEntry(
+    name: string, ts: Types.Timing.MicroSeconds, pid: Types.TraceEvents.ProcessID,
+    tid: Types.TraceEvents.ThreadID): Types.TraceEvents.SyntheticTraceEntry {
+  return {
+    cat: '',
+    name,
+    args: {},
+    ph: Types.TraceEvents.Phase.COMPLETE,
+    pid,
+    tid,
+    ts,
+    dur: Types.Timing.MicroSeconds(0),
+    selfTime: Types.Timing.MicroSeconds(0),
+  };
+}
+
 export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.TraceEventPairableAsync[]): Map<string, {
   begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
   end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
@@ -235,7 +251,9 @@ export function createSortedSyntheticEvents<T extends Types.TraceEvents.TraceEve
     matchedPairs: Map<string, {
       begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
       end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
-    }>): MatchedPairType<T>[] {
+    }>,
+    syntheticEventCallback?: (syntheticEvent: MatchedPairType<T>) => void,
+    ): MatchedPairType<T>[] {
   const syntheticEvents: MatchedPairType<T>[] = [];
   for (const [id, eventsPair] of matchedPairs.entries()) {
     const beginEvent = eventsPair.begin;
@@ -280,14 +298,16 @@ export function createSortedSyntheticEvents<T extends Types.TraceEvents.TraceEve
       // crbug.com/1472375
       continue;
     }
+    syntheticEventCallback?.(event);
     syntheticEvents.push(event);
   }
   return syntheticEvents.sort((a, b) => a.ts - b.ts);
 }
 
 export function createMatchedSortedSyntheticEvents<T extends Types.TraceEvents.TraceEventPairableAsync>(
-    unpairedAsyncEvents: T[]): MatchedPairType<T>[] {
+    unpairedAsyncEvents: T[],
+    syntheticEventCallback?: (syntheticEvent: MatchedPairType<T>) => void): MatchedPairType<T>[] {
   const matchedPairs = matchBeginningAndEndEvents(unpairedAsyncEvents);
-  const syntheticEvents = createSortedSyntheticEvents<T>(matchedPairs);
+  const syntheticEvents = createSortedSyntheticEvents<T>(matchedPairs, syntheticEventCallback);
   return syntheticEvents;
 }
