@@ -50,6 +50,9 @@ export namespace PrivateAPI {
     NetworkRequestFinished = 'network-request-finished',
     OpenResource = 'open-resource',
     PanelSearch = 'panel-search-',
+    ProfilingStarted = 'profiling-started-',
+    ProfilingStopped = 'profiling-stopped-',
+    ProfileParsed = 'profile-parsed-',
     ResourceAdded = 'resource-added',
     ResourceContentCommitted = 'resource-content-committed',
     ViewShown = 'view-shown-',
@@ -89,6 +92,7 @@ export namespace PrivateAPI {
     RegisterRecorderExtensionPlugin = 'registerRecorderExtensionPlugin',
     CreateRecorderView = 'createRecorderView',
     ShowRecorderView = 'showRecorderView',
+    RegisterPerformanceExtensionData = 'registerPerformanceExtensionData',
   }
 
   export const enum LanguageExtensionPluginCommands {
@@ -152,6 +156,14 @@ export namespace PrivateAPI {
     command: Commands.ShowRecorderView,
     id: string,
   };
+
+  type RegisterPerformanceExtensionDataRequest = {
+    command: Commands.RegisterPerformanceExtensionData,
+    extensionName: string,
+    id: string,
+    data: PublicAPI.Chrome.DevTools.PerformanceExtensionData,
+  };
+
   type SubscribeRequest = {command: Commands.Subscribe, type: string};
   type UnsubscribeRequest = {command: Commands.Unsubscribe, type: string};
   type AddRequestHeadersRequest = {
@@ -227,14 +239,14 @@ export namespace PrivateAPI {
   };
   type GetWasmOpRequest = {command: Commands.GetWasmOp, op: number, stopId: unknown};
 
-  export type ServerRequests = ShowRecorderViewRequest|CreateRecorderViewRequest|RegisterRecorderExtensionPluginRequest|
-      RegisterLanguageExtensionPluginRequest|SubscribeRequest|UnsubscribeRequest|AddRequestHeadersRequest|
-      ApplyStyleSheetRequest|CreatePanelRequest|ShowPanelRequest|CreateToolbarButtonRequest|UpdateButtonRequest|
-      CreateSidebarPaneRequest|SetSidebarHeightRequest|SetSidebarContentRequest|SetSidebarPageRequest|
-      OpenResourceRequest|SetOpenResourceHandlerRequest|SetThemeChangeHandlerRequest|ReloadRequest|
-      EvaluateOnInspectedPageRequest|GetRequestContentRequest|GetResourceContentRequest|SetResourceContentRequest|
-      ForwardKeyboardEventRequest|GetHARRequest|GetPageResourcesRequest|GetWasmLinearMemoryRequest|GetWasmLocalRequest|
-      GetWasmGlobalRequest|GetWasmOpRequest;
+  export type ServerRequests = RegisterPerformanceExtensionDataRequest|ShowRecorderViewRequest|
+      CreateRecorderViewRequest|RegisterRecorderExtensionPluginRequest|RegisterLanguageExtensionPluginRequest|
+      SubscribeRequest|UnsubscribeRequest|AddRequestHeadersRequest|ApplyStyleSheetRequest|CreatePanelRequest|
+      ShowPanelRequest|CreateToolbarButtonRequest|UpdateButtonRequest|CreateSidebarPaneRequest|SetSidebarHeightRequest|
+      SetSidebarContentRequest|SetSidebarPageRequest|OpenResourceRequest|SetOpenResourceHandlerRequest|
+      SetThemeChangeHandlerRequest|ReloadRequest|EvaluateOnInspectedPageRequest|GetRequestContentRequest|
+      GetResourceContentRequest|SetResourceContentRequest|ForwardKeyboardEventRequest|GetHARRequest|
+      GetPageResourcesRequest|GetWasmLinearMemoryRequest|GetWasmLocalRequest|GetWasmGlobalRequest|GetWasmOpRequest;
   export type ExtensionServerRequestMessage = PrivateAPI.ServerRequests&{requestId?: number};
 
   type AddRawModuleRequest = {
@@ -337,6 +349,7 @@ namespace APIImpl {
   export interface InspectorExtensionAPI {
     languageServices: PublicAPI.Chrome.DevTools.LanguageExtensions;
     recorder: PublicAPI.Chrome.DevTools.RecorderExtensions;
+    performance: PublicAPI.Chrome.DevTools.Performance;
     network: PublicAPI.Chrome.DevTools.Network;
     panels: PublicAPI.Chrome.DevTools.Panels;
     inspectedWindow: PublicAPI.Chrome.DevTools.InspectedWindow;
@@ -407,6 +420,10 @@ namespace APIImpl {
 
   export interface RecorderExtensions extends PublicAPI.Chrome.DevTools.RecorderExtensions {
     _plugins: Map<PublicAPI.Chrome.DevTools.RecorderExtensionPlugin, MessagePort>;
+  }
+
+  export interface PerformanceExtensions extends PublicAPI.Chrome.DevTools.Performance {
+    _plugins: Map<PublicAPI.Chrome.DevTools.PerformanceExtensionData, MessagePort>;
   }
 
   export interface ExtensionPanel extends ExtensionView, PublicAPI.Chrome.DevTools.ExtensionPanel {
@@ -513,6 +530,7 @@ self.injectedExtensionAPI = function(
     this.network = new (Constructor(Network))();
     this.languageServices = new (Constructor(LanguageServicesAPI))();
     this.recorder = new (Constructor(RecorderServicesAPI))();
+    this.performance = new (Constructor(Performance))();
     defineDeprecatedProperty(this, 'webInspector', 'resources', 'network');
   }
 
@@ -929,6 +947,52 @@ self.injectedExtensionAPI = function(
         },
   };
 
+  function PerformanceImpl(this: APIImpl.PerformanceExtensions): void {
+    this._plugins = new Map();
+
+    function dispatchProfilingStartedEvent(this: APIImpl.EventSink<() => unknown>): void {
+      this._fire();
+    }
+
+    function dispatchProfilingStoppedEvent(this: APIImpl.EventSink<() => unknown>): void {
+      this._fire();
+    }
+
+    function dispatchProfileParsedEvent(
+        this: APIImpl.EventSink<(events: unknown) => unknown>, message: {arguments: unknown[]}): void {
+      const profile = message.arguments[0];
+      this._fire(profile);
+    }
+
+    this.onProfilingStarted =
+        new (Constructor(EventSink))(PrivateAPI.Events.ProfilingStarted, dispatchProfilingStartedEvent);
+    this.onProfilingStopped =
+        new (Constructor(EventSink))(PrivateAPI.Events.ProfilingStopped, dispatchProfilingStoppedEvent);
+    this.onProfileParsed = new (Constructor(EventSink))(PrivateAPI.Events.ProfileParsed, dispatchProfileParsedEvent);
+  }
+
+  (PerformanceImpl.prototype as Pick<PublicAPI.Chrome.DevTools.Performance, 'registerPerformanceExtensionData'>) = {
+
+    registerPerformanceExtensionData: async function(
+        this: APIImpl.PerformanceExtensions, plugin: PublicAPI.Chrome.DevTools.PerformanceExtensionData,
+        pluginName: string): Promise<void> {
+      if (this._plugins.has(plugin)) {
+        throw new Error(`Tried to register plugin '${pluginName}' twice`);
+      }
+      const id = 'performance-extension-data-provider' + extensionServer.nextObjectId();
+      await new Promise<void>(resolve => {
+        extensionServer.sendRequest(
+            {
+              command: PrivateAPI.Commands.RegisterPerformanceExtensionData,
+              extensionName: pluginName,
+              id,
+              data: plugin,
+            },
+            () => resolve());
+      });
+    },
+  };
+
   function declareInterfaceClass<ImplT extends APIImpl.Callable>(implConstructor: ImplT): (
       this: ThisParameterType<ImplT>, ...args: Parameters<ImplT>) => void {
     return function(this: ThisParameterType<ImplT>, ...args: Parameters<ImplT>): void {
@@ -958,6 +1022,7 @@ self.injectedExtensionAPI = function(
 
   const LanguageServicesAPI = declareInterfaceClass(LanguageServicesAPIImpl);
   const RecorderServicesAPI = declareInterfaceClass(RecorderServicesAPIImpl);
+  const Performance = declareInterfaceClass(PerformanceImpl);
   const Button = declareInterfaceClass(ButtonImpl);
   const EventSink = declareInterfaceClass(EventSinkImpl);
   const ExtensionPanel = declareInterfaceClass(ExtensionPanelImpl);
@@ -1402,6 +1467,7 @@ self.injectedExtensionAPI = function(
   chrome.devtools!.panels.themeName = themeName;
   chrome.devtools!.languageServices = coreAPI.languageServices;
   chrome.devtools!.recorder = coreAPI.recorder;
+  chrome.devtools!.performance = coreAPI.performance;
 
   // default to expose experimental APIs for now.
   if (extensionInfo.exposeExperimentalAPIs !== false) {
