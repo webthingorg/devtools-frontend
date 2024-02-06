@@ -50,6 +50,24 @@
       "message": "lgtm, but what happened to the interaction goldens?",
       "revId": "be635431c113f1c7552ad525ba1a649f3374a483",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4939311d_fc86f4e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-06T12:07:20Z",
+      "side": 1,
+      "message": "See the comment for andoli@",
+      "parentUuid": "4fc49381_a560f276",
+      "revId": "be635431c113f1c7552ad525ba1a649f3374a483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
