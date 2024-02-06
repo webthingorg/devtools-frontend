@@ -205,7 +205,6 @@ export function makeSyntheticTraceEntry(
     selfTime: Types.Timing.MicroSeconds(0),
   };
 }
-
 export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.TraceEventPairableAsync[]): Map<string, {
   begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
   end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
