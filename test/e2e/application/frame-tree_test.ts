@@ -260,6 +260,7 @@ describe('The Application Tab', async () => {
       'Web Worker',
       'None',
     ];
+    assert.isDefined(process.env['YOU_SHALL_PASS']);
     assert.deepEqual(fieldValuesTextContent, expected);
   });
 
