@@ -305,6 +305,17 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.dispatchEventToListeners(Events.EntryHighlighted, entryIndex);
   }
 
+  highlightAllEntries(entries: number[]): void {
+    for (const entry of entries) {
+      if (entry === this.highlightedEntryIndex) {
+        continue;
+      }
+      const selectedElement = this.viewportElement.createChild('div', 'flame-chart-all-selected-element');
+      selectedElement.id = `selectedElement-${entry}`;
+      this.updateElementPosition(selectedElement, entry);
+    }
+  }
+
   hideHighlight(): void {
     if (this.#searchResultEntryIndex === -1) {
       this.entryInfo.removeChildren();
