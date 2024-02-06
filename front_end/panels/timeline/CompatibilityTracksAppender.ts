@@ -77,6 +77,11 @@ export interface TrackAppender {
    * Returns the info shown when an event in the timeline is hovered.
    */
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
+  /**
+   * The EntriesFilter instance that used to modify the trees in a track based on user actions,
+   * e.g collapsing functions, etc.
+   */
+  entriesFilter?(): TraceEngine.EntriesFilter.EntriesFilter;
 }
 
 export const TrackNames =
@@ -180,11 +185,11 @@ export class CompatibilityTracksAppender {
   }
 
   modifyTree(
-      group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
-      action: TraceEngine.EntriesFilter.FilterAction): void {
+      group: PerfUI.FlameChart.Group, entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
+      type: TraceEngine.EntriesFilter.FilterAction): void {
     const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      threadTrackAppender.modifyTree(node, action);
+    if (threadTrackAppender && threadTrackAppender.entriesFilter) {
+      threadTrackAppender.entriesFilter().applyFilterAction({entry, type});
     } else {
       console.warn('Could not modify tree in not thread track');
     }
@@ -194,8 +199,8 @@ export class CompatibilityTracksAppender {
       group: PerfUI.FlameChart.Group,
       node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): TraceEngine.EntriesFilter.PossibleFilterActions|void {
     const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      return threadTrackAppender.findPossibleContextMenuActions(node);
+    if (threadTrackAppender && threadTrackAppender.entriesFilter) {
+      return threadTrackAppender.entriesFilter().findPossibleActions(node);
     }
     console.warn('Could not modify tree in not thread track');
   }
@@ -203,8 +208,8 @@ export class CompatibilityTracksAppender {
   findHiddenDescendantsAmount(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry):
       number|void {
     const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      return threadTrackAppender.findHiddenDescendantsAmount(node);
+    if (threadTrackAppender && threadTrackAppender.entriesFilter) {
+      return threadTrackAppender.entriesFilter().findHiddenDescendantsAmount(node);
     }
     console.warn('Could not find hidden entries because non thread tracks are not modifiable');
   }
