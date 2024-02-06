@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1597326b_a9a8673a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-06T10:53:57Z",
+      "side": 1,
+      "message": "andoli@ PTAL at the screenshot test changes. The tests will need to be updated to resize the viewport. \n\npfaffe@ for the rest",
+      "revId": "be635431c113f1c7552ad525ba1a649f3374a483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
