@@ -14,6 +14,7 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {CountersGraph} from './CountersGraph.js';
+import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
 import {type PerformanceModel} from './PerformanceModel.js';
 import {TimelineDetailsView} from './TimelineDetailsView.js';
 import {TimelineRegExp} from './TimelineFilters.js';
@@ -222,6 +223,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     this.#selectedGroupName = null;
     this.#traceEngineData = newTraceEngineData;
+    ExtensionDataGatherer.instace().modelChanged(newTraceEngineData);
     Common.EventTarget.removeEventListeners(this.eventListeners);
     this.model = model;
     this.#selectedEvents = null;
