@@ -152,3 +152,7 @@ Contains a trace with two identical navigation events with matching IDs. See crb
 ### web-dev-initial-url
 
 This is a trace where we loaded web.dev/inp, but the initial URL reported by the TraceStartedInBrowser event states google.com (the previous page). In this situation the MetaHandler would produce google.com as the mainFrameURL which is incorrect. This trace was used to write a test to ensure in this instance if we can we try to calculate the actual domain by looking at the first navigation.
+
+### postmessage-initiators
+
+Contains a `postMessage.Handler`, and associating `postMessage.Dispatch` call.
