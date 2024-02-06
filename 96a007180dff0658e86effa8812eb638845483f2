@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7501a655_7c5c494d",
+        "filename": "test/unittests/front_end/panels/explain/components/ConsoleInsight_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-02-06T13:30:28Z",
+      "side": 1,
+      "message": "Drive-by question: is this a typo for `\u003c!DOCTYPE html\u003e` or is it intentionally different?",
+      "range": {
+        "startLine": 34,
+        "startChar": 46,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "96a007180dff0658e86effa8812eb638845483f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
