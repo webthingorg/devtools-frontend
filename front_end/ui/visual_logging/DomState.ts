@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {needsLogging} from './LoggingConfig.js';
+import {L} from '../../third_party/codemirror.next/chunk/codemirror.js';
+import {getLoggingConfig, hasParentProvider, needsLogging} from './LoggingConfig.js';
+import {parentProviders} from './LoggingState.js';
 
 interface ElementWithParent {
   element: Element;
@@ -36,7 +38,16 @@ export function getDomState(documents: Document[]): {loggables: ElementWithParen
       continue;
     }
     if (needsLogging(element)) {
-      loggables.push({element, parent});
+      if (hasParentProvider(element)) {
+        const parentConfig = getLoggingConfig(element).parent as string;
+        let semanticParent = parentProviders.get(parentConfig)?.(element);
+        while (semanticParent && !needsLogging(semanticParent)) {
+          semanticParent = semanticParent.parentElement ?? undefined;
+        }
+        loggables.push({element, parent: semanticParent});
+      } else {
+        loggables.push({element, parent});
+      }
       parent = element;
     }
     if (element.localName === 'slot' && (element as HTMLSlotElement).assignedElements().length) {

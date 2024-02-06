@@ -26,9 +26,9 @@ export function getOrCreateLoggingState(loggable: Loggable, config: LoggingConfi
   if (state.has(loggable)) {
     return state.get(loggable) as LoggingState;
   }
-  if (config.parent && parentProviders.has(config.parent) && loggable instanceof Element) {
-    parent = parentProviders.get(config.parent)?.(loggable);
-  }
+  // if (config.parent && parentProviders.has(config.parent) && loggable instanceof Element) {
+  //   parent = parentProviders.get(config.parent)?.(loggable);
+  // }
 
   const loggableState = {
     impressionLogged: false,
@@ -77,7 +77,7 @@ const resolveContext = (context?: string): ContextProvider => {
 };
 
 type ParentProvider = (e: Element) => Element|undefined;
-const parentProviders = new Map<string, ParentProvider>();
+export const parentProviders = new Map<string, ParentProvider>();
 
 export function registerParentProvider(name: string, provider: ParentProvider): void {
   if (parentProviders.has(name)) {

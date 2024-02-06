@@ -15,6 +15,10 @@ export function needsLogging(element: Element): boolean {
   return element.hasAttribute(LOGGING_ATTRIBUTE);
 }
 
+export function hasParentProvider(element: Element): boolean {
+  return Boolean(element.getAttribute(LOGGING_ATTRIBUTE)?.includes('parent:'));
+}
+
 export function getLoggingConfig(element: Element): LoggingConfig {
   return parseJsLog(element.getAttribute(LOGGING_ATTRIBUTE) || '');
 }
