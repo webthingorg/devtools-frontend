@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f22b601_07c83431",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-02-06T09:28:01Z",
+      "side": 1,
+      "message": "should this be \u0027chrome://settings/people\u0027?",
+      "range": {
+        "startLine": 369,
+        "startChar": 17,
+        "endLine": 369,
+        "endChar": 34
+      },
+      "revId": "8848ae2ab88a9ad6028891d6e0874f26aa3850ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
