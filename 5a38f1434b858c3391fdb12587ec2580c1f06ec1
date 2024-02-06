@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b36cf3af_e1740332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-06T18:00:44Z",
+      "side": 1,
+      "message": "Hey Alex, you\u0027ve previously approved the same change from Jimmy, but there were test issues in that CL and Jimmy is on leave so he couldn\u0027t get that fixed. Could you please take a look at this one instead? Thank you so much! \n\n(Previous CL by Jimmy - https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5180249 )",
+      "revId": "5a38f1434b858c3391fdb12587ec2580c1f06ec1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
