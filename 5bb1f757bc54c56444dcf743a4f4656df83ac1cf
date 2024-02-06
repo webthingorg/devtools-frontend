@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfae4c1c_83d457af",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-06T10:29:13Z",
+      "side": 1,
+      "message": "This is ugly but I though it was not worth plumbing a jslogContext override just for this one-off case",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 59
+      },
+      "revId": "5bb1f757bc54c56444dcf743a4f4656df83ac1cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
