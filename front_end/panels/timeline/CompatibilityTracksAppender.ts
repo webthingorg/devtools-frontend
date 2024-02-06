@@ -12,7 +12,7 @@ import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
 import {getEventLevel} from './AppenderUtils.js';
 import * as TimelineComponents from './components/components.js';
 import {getEventStyle} from './EventUICategory.js';
-import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
+import {ExtensionDataGatherer, type TrackData} from './ExtensionDataGatherer.js';
 import {ExtensionTrackAppender} from './ExtensionTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
@@ -216,6 +216,10 @@ export class CompatibilityTracksAppender {
       return appender.entriesFilter().findHiddenDescendantsAmount(node);
     }
     console.warn('Could not find hidden entries on a track.');
+  }
+
+  addTrackForExtension(trackData: TrackData): void {
+    this.#allTrackAppenders.push(new ExtensionTrackAppender(this, trackData));
   }
 
   #addExtensionAppenders(): void {
