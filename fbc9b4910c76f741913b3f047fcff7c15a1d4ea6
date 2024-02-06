@@ -16,6 +16,23 @@
       "message": "PTAL, also added two more tests to check that we can cross shadowroot boundaries.",
       "revId": "fbc9b4910c76f741913b3f047fcff7c15a1d4ea6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e79987_47c1b34a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-06T09:07:11Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "fbc9b4910c76f741913b3f047fcff7c15a1d4ea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
