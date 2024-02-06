@@ -77,10 +77,16 @@ export interface TrackAppender {
    * Returns the info shown when an event in the timeline is hovered.
    */
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
+  /**
+   * The EntriesFilter instance that used to modify the trees in a track based on user actions,
+   * e.g collapsing functions, etc.
+   */
+  entriesFilter?(): TraceEngine.EntriesFilter.EntriesFilter;
 }
 
 export const TrackNames =
-    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet'] as const;
+    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet', 'Extension'] as
+    const;
 // Network track will use TrackAppender interface, but it won't be shown in Main flamechart.
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
@@ -180,33 +186,33 @@ export class CompatibilityTracksAppender {
   }
 
   modifyTree(
-      group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
-      action: TraceEngine.EntriesFilter.FilterAction): void {
-    const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      threadTrackAppender.modifyTree(node, action);
+      group: PerfUI.FlameChart.Group, entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
+      type: TraceEngine.EntriesFilter.FilterAction): void {
+    const appender = this.#trackForGroup.get(group);
+    if (appender && appender.entriesFilter) {
+      appender.entriesFilter().applyFilterAction({entry, type});
     } else {
-      console.warn('Could not modify tree in not thread track');
+      console.warn('Could not modify tree on a track.');
     }
   }
 
   findPossibleContextMenuActions(
       group: PerfUI.FlameChart.Group,
       node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): TraceEngine.EntriesFilter.PossibleFilterActions|void {
-    const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      return threadTrackAppender.findPossibleContextMenuActions(node);
+    const appender = this.#trackForGroup.get(group);
+    if (appender && appender.entriesFilter) {
+      return appender.entriesFilter().findPossibleActions(node);
     }
-    console.warn('Could not modify tree in not thread track');
+    console.warn('Could not modify tree on a track.');
   }
 
   findHiddenDescendantsAmount(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry):
       number|void {
-    const threadTrackAppender = this.#trackForGroup.get(group);
-    if (threadTrackAppender instanceof ThreadAppender) {
-      return threadTrackAppender.findHiddenDescendantsAmount(node);
+    const appender = this.#trackForGroup.get(group);
+    if (appender && appender.entriesFilter) {
+      return appender.entriesFilter().findHiddenDescendantsAmount(node);
     }
-    console.warn('Could not find hidden entries because non thread tracks are not modifiable');
+    console.warn('Could not find hidden entries on a track.');
   }
 
   #addThreadAppenders(): void {
