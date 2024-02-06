@@ -100,6 +100,7 @@ export namespace Chrome {
       inspectedWindow: InspectedWindow;
       languageServices: LanguageExtensions;
       recorder: RecorderExtensions;
+      performance: Performance;
     }
 
     export interface ExperimentalDevToolsAPI {
@@ -157,6 +158,18 @@ export namespace Chrome {
       replay(recording: Record<string, any>): void;
     }
 
+    export interface PerformanceExtensionData {
+      timeOrigin: number;
+      flameChartData: FlameChartData;
+    }
+
+    export interface FlameChartData {
+      flameChartEntries: FlameChartEntry[]
+    }
+
+    export interface FlameChartEntry {
+      time: number, duration: number, name: string, color: string, group: string, description: string,
+    }
     export type RemoteObjectId = string;
     export type RemoteObjectType = 'object'|'undefined'|'string'|'number'|'boolean'|'bigint'|'array'|'null';
 
@@ -279,6 +292,13 @@ export namespace Chrome {
           Promise<void>;
       unregisterRecorderExtensionPlugin(plugin: RecorderExtensionPlugin): Promise<void>;
       createView(title: string, pagePath: string): Promise<RecorderView>;
+    }
+
+    export interface Performance {
+      onProfilingStarted: EventSink<() => unknown>;
+      onProfilingStopped: EventSink<() => unknown>;
+      onProfileParsed: EventSink<(events: any) => unknown>;
+      registerPerformanceExtensionData(plugin: PerformanceExtensionData, pluginName: string): Promise<void>;
     }
 
     export interface Chrome {

@@ -1,6 +1,8 @@
 // Copyright 2024 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import * as Common from '../../core/common/common.js';
+import * as Extensions from '../../models/extensions/extensions.js';
 import type * as TraceEngine from '../../models/trace/trace.js';
 
 type TrackData = TraceEngine.Helpers.Extensions.ExtensionTrackData;
@@ -9,8 +11,11 @@ export {TrackData};
 type ExtensionData = readonly TrackData[];
 
 let extensionDataGathererInstance: ExtensionDataGatherer|undefined;
-export class ExtensionDataGatherer {
+export class ExtensionDataGatherer extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   #traceParsedData: TraceEngine.Handlers.Types.TraceParseData|null = null;
+  #extensiondataProviders = new Set<Extensions.PerformanceExtensionDataProvider.PerformanceExtensionDataProvider>();
+  #extensionServer = Extensions.ExtensionServer.ExtensionServer.instance();
+  #onDataProviderAddedBound = this.#onDataProviderAdded.bind(this);
   #extensionDataByModel: Map<TraceEngine.Handlers.Types.TraceParseData, ExtensionData> = new Map();
   static instace(): ExtensionDataGatherer {
     if (extensionDataGathererInstance) {
@@ -24,6 +29,20 @@ export class ExtensionDataGatherer {
     extensionDataGathererInstance = undefined;
   }
   constructor() {
+    super();
+    this.#extensionServer.addEventListener(
+        Extensions.ExtensionServer.Events.PerformanceExtensionDataAdded, this.#onDataProviderAddedBound);
+  }
+
+  #onDataProviderAdded(event: Common.EventTarget.EventTargetEvent<
+                       Extensions.PerformanceExtensionDataProvider.PerformanceExtensionDataProvider,
+                       Extensions.ExtensionServer.EventTypes>): void {
+    this.#extensiondataProviders.add(event.data);
+    this.dispatchEventToListeners(Events.ExtensionDataAdded, event.data);
+  }
+
+  extensionDataProviders(): Extensions.PerformanceExtensionDataProvider.PerformanceExtensionDataProvider[] {
+    return Array.from(this.#extensiondataProviders.values());
   }
 
   getExtensionData(): ExtensionData {
@@ -34,7 +53,7 @@ export class ExtensionDataGatherer {
     if (maybeCachedData) {
       return maybeCachedData;
     }
-    return this.#traceParsedData.ExtensionTraceData.extensionFlameCharts;
+    return [...this.#traceParsedData.ExtensionTraceData.extensionFlameCharts, ...this.getPluginData()];
   }
 
   saveCurrentModelData(): void {
@@ -53,7 +72,27 @@ export class ExtensionDataGatherer {
       // extension data we have collected for the previous model and listen
       // for new data that applies to the new model.
       this.saveCurrentModelData();
+      this.reset();
     }
     this.#traceParsedData = traceParsedData;
   }
+
+  reset(): void {
+    this.#extensiondataProviders.clear();
+  }
+
+  getPluginData(): TrackData[] {
+    // Implemented in a follow up
+    throw new Error('Not implemented');
+  }
 }
+
+export const enum Events {
+  ExtensionDataAdded = 'extensionDataAdded',
+  ExtensionDataRemoved = 'extensionDataRemoved',
+}
+
+export type EventTypes = {
+  [Events.ExtensionDataAdded]: Extensions.PerformanceExtensionDataProvider.PerformanceExtensionDataProvider,
+  [Events.ExtensionDataRemoved]: Extensions.PerformanceExtensionDataProvider.PerformanceExtensionDataProvider,
+};
