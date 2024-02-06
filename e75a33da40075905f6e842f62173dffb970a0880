@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac7414f_ede99ec3",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-06T00:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "912ac40e_0d589923",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc8a076f_3cb33180",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0407cc6_3ce91139",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-06T00:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc8a076f_3cb33180",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ba7632d_ce5d7575",
@@ -82,6 +118,24 @@
       "writtenOn": "2024-02-05T17:16:43Z",
       "side": 1,
       "message": "We need to update the popover position on draw(). If the scroll bar is dragged and the search result entry is set, the popoover will stay at the same place it was. It would happen if you drag the scroll bar without hovering over the flamechart area. \nIf we save the entry index, we should be able to do something like `this.showPopoverForSearchResult(this.#searchResultEntryIndex);`",
+      "revId": "e75a33da40075905f6e842f62173dffb970a0880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e980675_fd33cd85",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-06T00:19:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ba7632d_ce5d7575",
       "revId": "e75a33da40075905f6e842f62173dffb970a0880",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
