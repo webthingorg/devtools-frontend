@@ -37,8 +37,7 @@ describeWithMockConnection('RequestCookiesView', () => {
     assert.isTrue(message.classList.contains('hidden'));
     request.addExtraRequestInfo({
       siteHasCookieInOtherPartition: true,
-      includedRequestCookies: [],
-      blockedRequestCookies: [],
+      associatedCookies: [],
       connectTiming: {requestTime: 0},
       requestHeaders: [],
     } as SDK.NetworkRequest.ExtraRequestInfo);

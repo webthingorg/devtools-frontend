@@ -240,9 +240,8 @@ describeWithMockConnection('NetworkRequest', () => {
     const request = networkDispatcher.requestForId('requestId');
     Platform.assertNotNullOrUndefined(request);
     request.addExtraRequestInfo({
-      blockedRequestCookies: [{blockedReasons: [Protocol.Network.CookieBlockedReason.SameSiteLax], cookie}],
+      associatedCookies: [{blockedReasons: [Protocol.Network.CookieBlockedReason.SameSiteLax], cookie}],
       requestHeaders: [],
-      includedRequestCookies: [],
       connectTiming: {requestTime: 42},
     });
 
