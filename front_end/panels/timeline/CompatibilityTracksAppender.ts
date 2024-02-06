@@ -12,6 +12,8 @@ import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
 import {getEventLevel} from './AppenderUtils.js';
 import * as TimelineComponents from './components/components.js';
 import {getEventStyle} from './EventUICategory.js';
+import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
+import {ExtensionTrackAppender} from './ExtensionTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
@@ -85,7 +87,8 @@ export interface TrackAppender {
 }
 
 export const TrackNames =
-    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet'] as const;
+    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet', 'Extension'] as
+    const;
 // Network track will use TrackAppender interface, but it won't be shown in Main flamechart.
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
@@ -115,6 +118,7 @@ export class CompatibilityTracksAppender {
   #gpuTrackAppender: GPUTrackAppender;
   #layoutShiftsTrackAppender: LayoutShiftsTrackAppender;
   #threadAppenders: ThreadAppender[] = [];
+  #extensionDataGatherer: ExtensionDataGatherer;
 
   /**
    * @param flameChartData the data used by the flame chart renderer on
@@ -135,6 +139,8 @@ export class CompatibilityTracksAppender {
       legacyEntryTypeByLevel: EntryType[], legacyTimelineModel: TimelineModel.TimelineModel.TimelineModelImpl) {
     this.#flameChartData = flameChartData;
     this.#traceParsedData = traceParsedData;
+    this.#extensionDataGatherer = new ExtensionDataGatherer(traceParsedData);
+
     this.#entryData = entryData;
     this.#colorGenerator = new Common.Color.Generator(
         /* hueSpace= */ {min: 30, max: 55, count: undefined},
@@ -159,8 +165,8 @@ export class CompatibilityTracksAppender {
     // all it shows are layout shifts.
     this.#layoutShiftsTrackAppender = new LayoutShiftsTrackAppender(this, this.#traceParsedData);
     this.#allTrackAppenders.push(this.#layoutShiftsTrackAppender);
-
     this.#addThreadAppenders();
+    this.#addExtensionAppenders();
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       for (const group of this.#flameChartData.groups) {
         // We only need to update the color here, because FlameChart will call `scheduleUpdate()` when theme is changed.
@@ -212,6 +218,13 @@ export class CompatibilityTracksAppender {
       return appender.entriesFilter().findHiddenDescendantsAmount(node);
     }
     console.warn('Could not find hidden entries on a track.');
+  }
+
+  #addExtensionAppenders(): void {
+    const tracks = this.#extensionDataGatherer.getExtensionFlameChartData();
+    for (const trackData of tracks) {
+      this.#allTrackAppenders.push(new ExtensionTrackAppender(this, trackData));
+    }
   }
 
   #addThreadAppenders(): void {
@@ -568,6 +581,10 @@ export class CompatibilityTracksAppender {
       // period.
       // Therefore we mark them as visible so they are appended onto the Thread
       // track, and hence accessible by the CountersGraph view.
+      return true;
+    }
+
+    if (TraceEngine.Types.TraceEvents.isTraceEventSyntheticExtensionEntry(entry)) {
       return true;
     }
 
