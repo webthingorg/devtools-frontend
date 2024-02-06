@@ -33,6 +33,23 @@
       "message": "szuend@ for ownership",
       "revId": "be635431c113f1c7552ad525ba1a649f3374a483",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fc49381_a560f276",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-06T12:06:31Z",
+      "side": 1,
+      "message": "lgtm, but what happened to the interaction goldens?",
+      "revId": "be635431c113f1c7552ad525ba1a649f3374a483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
