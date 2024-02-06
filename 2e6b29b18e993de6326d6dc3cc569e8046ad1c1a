@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13879563_5cb81009",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-06T12:36:01Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "2e6b29b18e993de6326d6dc3cc569e8046ad1c1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e99bab48_ea1d4906",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-02-06T12:29:55Z",
       "side": 1,
       "message": "There are other users for the GlassPane (e.g. the `SoftContextMenu`) so I didn\u0027t just wanna pass a `jslogContext` here but a full `jslog` string. Wdyt?",
+      "range": {
+        "startLine": 29,
+        "startChar": 14,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "2e6b29b18e993de6326d6dc3cc569e8046ad1c1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ca9d6a_5cafbb62",
+        "filename": "front_end/ui/legacy/GlassPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-06T12:36:01Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "e99bab48_ea1d4906",
       "range": {
         "startLine": 29,
         "startChar": 14,
