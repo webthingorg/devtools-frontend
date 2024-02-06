@@ -16,6 +16,24 @@
       "message": "Great idea. In the future we can also enable context menu for all tracks and specify the actions that are possible on each track in CompatibilityTracksAppender.\nIn some tracks hiding children in not relevant, but hiding a specific entry itself would make sense.",
       "revId": "bfbae6a56afb87e28a433cf8b2cca3a419bf8475",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca401282_b53980da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-06T12:28:29Z",
+      "side": 1,
+      "message": "agreed, let\u0027s explore that!",
+      "parentUuid": "247e7f2b_faab84fa",
+      "revId": "bfbae6a56afb87e28a433cf8b2cca3a419bf8475",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
