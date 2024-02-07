@@ -59,6 +59,7 @@ describe('The Application Tab', async () => {
       });
 
   it('shows a preview of the cookie value (crbug.com/462370)', async () => {
+    assert.isDefined(process.env['YOU_SHALL_PASS']);
     const {target} = getBrowserAndPages();
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');

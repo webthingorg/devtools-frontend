@@ -235,6 +235,7 @@ describe('The Application Tab', async () => {
   });
 
   it('shows dedicated workers in the frame tree', async () => {
+    assert.isDefined(process.env['YOU_SHALL_PASS']);
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     const {target} = getBrowserAndPages();
     await goToResource('application/frame-tree.html');
@@ -260,6 +261,7 @@ describe('The Application Tab', async () => {
       'Web Worker',
       'None',
     ];
+
     assert.deepEqual(fieldValuesTextContent, expected);
   });
 
