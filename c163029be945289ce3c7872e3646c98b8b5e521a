@@ -16,6 +16,23 @@
       "message": "PTAL again. The behavior is covered by existing tests which I updated (they were set up slightly incorrect previously, the body in CDP\u0027s `Fetch.fulfillRequest` should always be encoded)",
       "revId": "c163029be945289ce3c7872e3646c98b8b5e521a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1c0211e_7d6cdc39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-07T12:29:54Z",
+      "side": 1,
+      "message": "Thanks for fixing! Sorry for the mess.",
+      "revId": "c163029be945289ce3c7872e3646c98b8b5e521a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
