@@ -46,6 +46,7 @@ import type * as TextEditor from '../../ui/components/text_editor/text_editor.js
 import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import * as SourceFrame from '../../ui/legacy/components/source_frame/source_frame.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {AddDebugInfoURLDialog} from './AddSourceMapURLDialog.js';
 import {BreakpointEditDialog, type BreakpointEditDialogResult} from './BreakpointEditDialog.js';
@@ -1594,6 +1595,10 @@ export class DebuggerPlugin extends Plugin {
   private handleGutterClick(line: CodeMirror.Line, event: MouseEvent): boolean {
     if (this.muted || event.button !== 0 || event.altKey) {
       return false;
+    }
+    const sourceFrame = this.scriptsPanel.sourcesView().currentSourceFrame();
+    if (sourceFrame) {
+      void VisualLogging.logClick(sourceFrame.gutterLoggable, event);
     }
     if (event.metaKey || event.ctrlKey) {
       Host.userMetrics.breakpointEditDialogRevealedFrom(Host.UserMetrics.BreakpointEditDialogRevealedFrom.MouseClick);
