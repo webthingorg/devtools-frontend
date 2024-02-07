@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02948605_318556ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-07T10:34:59Z",
+      "side": 1,
+      "message": "It seems like Liviu needs to +1 from the Chromium account because of `Code-Owners` check.",
+      "revId": "4521934dad3833c622368698322db79866eee3fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
