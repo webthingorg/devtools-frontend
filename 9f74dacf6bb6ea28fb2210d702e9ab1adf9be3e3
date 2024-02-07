@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9a7eec8_9692ebae",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-07T10:54:09Z",
+      "side": 1,
+      "message": "@marijnh@gmail.com: What is the ideomatic way to invoke the current \"lineNumberConfig.formatNumber\"? We create custom ones for pretty-printed code and WASM disassembly. Do I have to stash that in a facet somewhere and get it here? \n\nThanks!",
+      "range": {
+        "startLine": 1936,
+        "startChar": 4,
+        "endLine": 1936,
+        "endChar": 72
+      },
+      "revId": "9f74dacf6bb6ea28fb2210d702e9ab1adf9be3e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
