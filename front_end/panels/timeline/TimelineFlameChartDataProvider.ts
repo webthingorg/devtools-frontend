@@ -403,7 +403,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
 
     if (rebuild) {
-      this.reset(/* resetCompatibilityTracksAppender= */ false);
+      this.reset(/* resetCompatibilityTracksAppender= */ true);
     }
 
     this.currentLevel = 0;
