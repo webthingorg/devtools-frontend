@@ -234,6 +234,7 @@ describe('SelectMenu', () => {
   });
 
   it('triggers a selectmenuselected event using the enter key', async () => {
+    assert.isDefined(process.env['YOU_SHALL_PASS']);
     const {frontend} = getBrowserAndPages();
     await openMenu();
     await frontend.keyboard.press('ArrowDown');
