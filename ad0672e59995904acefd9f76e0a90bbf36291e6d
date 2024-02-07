@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4a57c7_0c9123f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-07T08:32:09Z",
+      "side": 1,
+      "message": "PTAL, am I holding the API correctly? It\u0027s also kinda hacky, but IMO toggling breakpoints via the gutter is one of the most important workflows in the sources panel so we should cover it one way or another with VE logging.",
+      "revId": "ad0672e59995904acefd9f76e0a90bbf36291e6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
