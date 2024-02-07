@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87e4e424_79f51165",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-07T12:07:24Z",
+      "side": 0,
+      "message": "Do you think we need to put this `PropertyParser` to some place more common?",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

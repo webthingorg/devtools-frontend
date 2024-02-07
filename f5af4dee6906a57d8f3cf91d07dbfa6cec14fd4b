@@ -16,6 +16,40 @@
       "message": "Hey, Changhao, do you maybe want to take a look? To lighten the review load on ergunsh a little :)",
       "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f0c865_f1f1c334",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-07T12:07:24Z",
+      "side": 1,
+      "message": "Could this be lifted to the parent class? Seems like this has been repeated for quite a few cases here.",
+      "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d84f3e_ddf9c020",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-07T12:07:24Z",
+      "side": 1,
+      "message": "Maybe I didn\u0027t understand correctly about the `if angle` check here. Does this mean that we need to do this special check for all the other swatches to add an event listener to update their color swatches?",
+      "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
