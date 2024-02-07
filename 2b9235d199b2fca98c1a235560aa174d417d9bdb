@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa34f920_667dc588",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-07T03:26:48Z",
+      "side": 1,
+      "message": "Hi Wolfgang, this CL is WIP, but could you PTAL the change mainly in the NetworkRequest.ts and NetworkManager.ts before I proceed adding tests? Thanks!",
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
