@@ -16,6 +16,70 @@
       "message": "Hi Wolfgang, this CL is WIP, but could you PTAL the change mainly in the NetworkRequest.ts and NetworkManager.ts before I proceed adding tests? Thanks!",
       "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecd61f45_c1c069ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-07T15:10:27Z",
+      "side": 1,
+      "message": "Directional LGTM",
+      "parentUuid": "fa34f920_667dc588",
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c2ab937_307340f5",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-07T15:10:27Z",
+      "side": 1,
+      "message": "typo: Response\n```suggestion\n      exemptedResponseCookies: exemptedCookies?.map(exemptedCookie \u003d\u003e {\n```",
+      "range": {
+        "startLine": 929,
+        "startChar": 14,
+        "endLine": 929,
+        "endChar": 23
+      },
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c3464e9_4111b8e9",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2054,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-07T15:10:27Z",
+      "side": 1,
+      "message": "typo: Response\n```suggestion\n  exemptedResponseCookies: {\n```",
+      "range": {
+        "startLine": 2054,
+        "startChar": 10,
+        "endLine": 2054,
+        "endChar": 18
+      },
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
