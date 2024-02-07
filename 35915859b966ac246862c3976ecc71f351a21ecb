@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "346cb572_c900dc09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-07T10:25:04Z",
+      "side": 1,
+      "message": "PTAL whether this makes sense. I\u0027m currently adding a test for this.",
+      "revId": "35915859b966ac246862c3976ecc71f351a21ecb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
