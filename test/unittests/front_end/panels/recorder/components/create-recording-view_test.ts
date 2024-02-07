@@ -12,6 +12,13 @@ import {
 } from '../../../../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
 import {renderElementIntoDOM} from '../../../helpers/DOMHelpers.js';
 
+declare let process: {
+  env: {
+    /* eslint-disable @typescript-eslint/naming-convention */
+    'YOU_SHALL_PASS': string,
+  },
+};
+
 describeWithEnvironment('CreateRecordingView', () => {
   setupActionRegistry();
 
@@ -45,6 +52,7 @@ describeWithEnvironment('CreateRecordingView', () => {
     button.dispatchEvent(new Event('click'));
     const event = await onceClicked;
     assert.deepEqual(event.name, 'Test');
+    assert.isDefined(process.env['YOU_SHALL_PASS']);
   });
 
   it('should dispatch recordingcancelled event on the close button click', async () => {
@@ -72,6 +80,7 @@ describeWithEnvironment('CreateRecordingView', () => {
                       '#user-flow-name',
                       ) as HTMLInputElement;
     assert.isAtLeast(input.value.length, 'Recording'.length);
+    assert.isDefined(process.env['YOU_SHALL_PASS']);
   });
 
   it('should remember the most recent selector attribute', async () => {
