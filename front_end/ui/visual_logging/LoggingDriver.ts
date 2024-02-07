@@ -7,10 +7,10 @@ import * as Host from '../../core/host/host.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as Coordinator from '../components/render_coordinator/render_coordinator.js';
 
-import {getDomState, isVisible} from './DomState.js';
+import {getDomState, visibleOverlap} from './DomState.js';
 import {type Loggable} from './Loggable.js';
 import {debugString, getLoggingConfig} from './LoggingConfig.js';
-import {logChange, logClick, logDrag, logHover, logImpressions, logKeyDown} from './LoggingEvents.js';
+import {logChange, logClick, logDrag, logHover, logImpressions, logKeyDown, logResize} from './LoggingEvents.js';
 import {getOrCreateLoggingState} from './LoggingState.js';
 import {getNonDomState, unregisterAllLoggables, unregisterLoggable} from './NonDomState.js';
 
@@ -19,6 +19,7 @@ const KEYBOARD_LOG_INTERVAL = 3000;
 const HOVER_LOG_INTERVAL = 1000;
 const DRAG_LOG_INTERVAL = 500;
 const CLICK_LOG_INTERVAL = 500;
+const RESIZE_REPORT_THRESHOLD = 50;
 
 let processingThrottler: Common.Throttler.Throttler|null;
 let keyboardLogThrottler: Common.Throttler.Throttler;
@@ -140,7 +141,9 @@ async function process(): Promise<void> {
   for (const {element, parent} of loggables) {
     const loggingState = getOrCreateLoggingState(element, getLoggingConfig(element), parent);
     if (!loggingState.impressionLogged) {
-      if (isVisible(element, viewportRectFor(element))) {
+      const overlap = visibleOverlap(element, viewportRectFor(element));
+      if (overlap) {
+        loggingState.size = overlap;
         visibleLoggables.push(element);
         loggingState.impressionLogged = true;
       }
@@ -177,6 +180,19 @@ async function process(): Promise<void> {
       const codes = loggingState.config.track?.get('keydown')?.split(',') || [];
       if (trackKeyDown) {
         element.addEventListener('keydown', logKeyDown(codes, keyboardLogThrottler), {capture: true});
+      }
+      if (loggingState.config.track?.has('resize')) {
+        new ResizeObserver(_ => {
+          const overlap = visibleOverlap(element, viewportRectFor(element));
+          if (!loggingState.size || !overlap) {
+            return;
+          }
+          if (Math.abs(overlap.width - loggingState.size.width) >= RESIZE_REPORT_THRESHOLD ||
+              Math.abs(overlap.height - loggingState.size.height) >= RESIZE_REPORT_THRESHOLD) {
+            loggingState.size = overlap;
+            logResize(element);
+          }
+        }).observe(element);
       }
       loggingState.processed = true;
     }
