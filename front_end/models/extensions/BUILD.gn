@@ -15,6 +15,7 @@ devtools_module("extensions") {
     "ExtensionView.ts",
     "HostUrlPattern.ts",
     "LanguageExtensionEndpoint.ts",
+    "PerformanceExtensionDataProvider.ts",
     "RecorderExtensionEndpoint.ts",
     "RecorderPluginManager.ts",
   ]
