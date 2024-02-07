@@ -923,6 +923,11 @@ export class DOMNode {
     return node;
   }
 
+  async scrollInformation(axis: Protocol.DOM.ScrollAxis): Promise<Protocol.DOM.ScrollInformation> {
+    const {scrollInformation} = await this.#agent.invoke_getScrollInformation({nodeId: this.id, scrollAxis: axis});
+    return scrollInformation;
+  }
+
   async scrollIntoView(): Promise<void> {
     const node = this.enclosingElementOrSelf();
     if (!node) {

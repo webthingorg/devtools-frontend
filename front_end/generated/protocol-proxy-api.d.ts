@@ -843,6 +843,11 @@ declare namespace ProtocolProxyApi {
 
   export interface DOMApi {
     /**
+     * Returns the scroll information for the node in the given axis
+     */
+    invoke_getScrollInformation(params: Protocol.DOM.GetScrollInformationRequest): Promise<Protocol.DOM.GetScrollInformationResponse>;
+
+    /**
      * Collects class names for the node with given id and all of it's child nodes.
      */
     invoke_collectClassNamesFromSubtree(params: Protocol.DOM.CollectClassNamesFromSubtreeRequest): Promise<Protocol.DOM.CollectClassNamesFromSubtreeResponse>;

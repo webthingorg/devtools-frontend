@@ -322,6 +322,34 @@ experimental domain Animation
       # A unique ID for `Animation` representing the sources that triggered this CSS
       # animation/transition.
       optional string cssId
+      # View or scroll timeline
+      optional ViewOrScrollTimeline viewOrScrollTimeline
+
+  # Axis of the scroll for the scroll and view timelines
+  type ScrollAxis extends string
+    enum
+      block
+      inline
+      x
+      y
+
+  # Timeline instance
+  type ViewOrScrollTimeline extends object
+    properties
+      # Scroll container node
+      optional DOM.BackendNodeId sourceNodeId
+      # Represents the starting scroll position of the timeline
+      # as a length offset in pixels from scroll origin.
+      optional number startOffset
+      # Represents the ending scroll position of the timeline
+      # as a length offset in pixels from scroll origin.
+      optional number endOffset
+      # The element whose principal box's visibility in the
+      # scrollport defined the progress of the timeline.
+      # Does not exist for animations with ScrollTimeline
+      optional DOM.BackendNodeId subjectNodeId
+      # Axis of the scroll
+      ScrollAxis axis
 
   # AnimationEffect instance
   type AnimationEffect extends object
@@ -2690,6 +2718,32 @@ domain DOM
       string name
       # Computed style property value.
       string value
+
+  # Axis of the scroll
+  type ScrollAxis extends string
+    enum
+      block
+      inline
+      x
+      y
+
+  type ScrollInformation extends object
+    properties
+      # Current scroll offset
+      number offset
+      # Scroll range
+      number scrollRange
+  
+  # Returns the scroll information for the node in the given axis
+  experimental command getScrollInformation
+    parameters
+      # Id of the node
+      NodeId nodeId
+      # Scroll axis
+      ScrollAxis scrollAxis
+    returns
+      # Scroll information
+      ScrollInformation scrollInformation
 
   # Collects class names for the node with given id and all of it's child nodes.
   experimental command collectClassNamesFromSubtree

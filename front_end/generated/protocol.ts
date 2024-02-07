@@ -468,6 +468,50 @@ export namespace Animation {
      * animation/transition.
      */
     cssId?: string;
+    /**
+     * View or scroll timeline
+     */
+    viewOrScrollTimeline?: ViewOrScrollTimeline;
+  }
+
+  /**
+   * Axis of the scroll for the scroll and view timelines
+   */
+  export const enum ScrollAxis {
+    Block = 'block',
+    Inline = 'inline',
+    X = 'x',
+    Y = 'y',
+  }
+
+  /**
+   * Timeline instance
+   */
+  export interface ViewOrScrollTimeline {
+    /**
+     * Scroll container node
+     */
+    sourceNodeId?: DOM.BackendNodeId;
+    /**
+     * Represents the starting scroll position of the timeline
+     * as a length offset in pixels from scroll origin.
+     */
+    startOffset?: number;
+    /**
+     * Represents the ending scroll position of the timeline
+     * as a length offset in pixels from scroll origin.
+     */
+    endOffset?: number;
+    /**
+     * The element whose principal box's visibility in the
+     * scrollport defined the progress of the timeline.
+     * Does not exist for animations with ScrollTimeline
+     */
+    subjectNodeId?: DOM.BackendNodeId;
+    /**
+     * Axis of the scroll
+     */
+    axis: ScrollAxis;
   }
 
   /**
@@ -3842,6 +3886,45 @@ export namespace DOM {
      * Computed style property value.
      */
     value: string;
+  }
+
+  /**
+   * Axis of the scroll
+   */
+  export const enum ScrollAxis {
+    Block = 'block',
+    Inline = 'inline',
+    X = 'x',
+    Y = 'y',
+  }
+
+  export interface ScrollInformation {
+    /**
+     * Current scroll offset
+     */
+    offset: number;
+    /**
+     * Scroll range
+     */
+    scrollRange: number;
+  }
+
+  export interface GetScrollInformationRequest {
+    /**
+     * Id of the node
+     */
+    nodeId: NodeId;
+    /**
+     * Scroll axis
+     */
+    scrollAxis: ScrollAxis;
+  }
+
+  export interface GetScrollInformationResponse extends ProtocolResponseWithError {
+    /**
+     * Scroll information
+     */
+    scrollInformation: ScrollInformation;
   }
 
   export interface CollectClassNamesFromSubtreeRequest {

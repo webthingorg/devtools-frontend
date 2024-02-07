@@ -75,11 +75,14 @@ export class AnimationUI {
     this.#svg.addEventListener('contextmenu', this.onContextMenu.bind(this));
     this.#activeIntervalGroup = UI.UIUtils.createSVGChild(this.#svg, 'g');
     this.#activeIntervalGroup.setAttribute('jslog', `${VisualLogging.animationClip().track({drag: true})}`);
-    UI.UIUtils.installDragHandle(
-        this.#activeIntervalGroup, this.mouseDown.bind(this, Events.AnimationDrag, null), this.mouseMove.bind(this),
-        this.mouseUp.bind(this), '-webkit-grabbing', '-webkit-grab');
-    AnimationUI.installDragHandleKeyboard(
-        this.#activeIntervalGroup, this.keydownMove.bind(this, Events.AnimationDrag, null));
+
+    if (!this.#animationInternal.viewOrScrollTimeline()) {
+      UI.UIUtils.installDragHandle(
+          this.#activeIntervalGroup, this.mouseDown.bind(this, Events.AnimationDrag, null), this.mouseMove.bind(this),
+          this.mouseUp.bind(this), '-webkit-grabbing', '-webkit-grab');
+      AnimationUI.installDragHandleKeyboard(
+          this.#activeIntervalGroup, this.keydownMove.bind(this, Events.AnimationDrag, null));
+    }
 
     this.#cachedElements = [];
 
@@ -151,12 +154,14 @@ export class AnimationUI {
     this.#delayLine.classList.toggle('animation-fill', fill === 'backwards' || fill === 'both');
     const margin = Options.AnimationMargin;
     this.#delayLine.setAttribute('x1', margin.toString());
-    this.#delayLine.setAttribute('x2', (this.delay() * this.#timeline.pixelMsRatio() + margin).toFixed(2));
+    console.log('this.delay()', this.delayOrStartTime());
+    this.#delayLine.setAttribute('x2', (this.delayOrStartTime() * this.#timeline.pixelMsRatio() + margin).toFixed(2));
+
     const forwardsFill = fill === 'forwards' || fill === 'both';
     this.#endDelayLine.classList.toggle('animation-fill', forwardsFill);
     const leftMargin = Math.min(
         this.#timeline.width(),
-        (this.delay() + this.duration() * this.#animationInternal.source().iterations()) *
+        (this.delayOrStartTime() + this.duration() * this.#animationInternal.source().iterations()) *
             this.#timeline.pixelMsRatio());
     (this.#endDelayLine as HTMLElement).style.transform = 'translateX(' + leftMargin.toFixed(2) + 'px)';
     this.#endDelayLine.setAttribute('x1', margin.toString());
@@ -206,10 +211,13 @@ export class AnimationUI {
     } else {
       eventType = Events.KeyframeMove;
     }
-    UI.UIUtils.installDragHandle(
-        circle, this.mouseDown.bind(this, eventType, keyframeIndex), this.mouseMove.bind(this), this.mouseUp.bind(this),
-        'ew-resize');
-    AnimationUI.installDragHandleKeyboard(circle, this.keydownMove.bind(this, eventType, keyframeIndex));
+
+    if (!this.animation().viewOrScrollTimeline()) {
+      UI.UIUtils.installDragHandle(
+          circle, this.mouseDown.bind(this, eventType, keyframeIndex), this.mouseMove.bind(this),
+          this.mouseUp.bind(this), 'ew-resize');
+      AnimationUI.installDragHandleKeyboard(circle, this.keydownMove.bind(this, eventType, keyframeIndex));
+    }
   }
 
   private renderKeyframe(
@@ -262,10 +270,10 @@ export class AnimationUI {
 
     this.#svg.setAttribute('width', (maxWidth + 2 * Options.AnimationMargin).toFixed(2));
     (this.#activeIntervalGroup as HTMLElement).style.transform =
-        'translateX(' + (this.delay() * this.#timeline.pixelMsRatio()).toFixed(2) + 'px)';
+        'translateX(' + (this.delayOrStartTime() * this.#timeline.pixelMsRatio()).toFixed(2) + 'px)';
 
-    this.#nameElement.style.transform =
-        'translateX(' + (this.delay() * this.#timeline.pixelMsRatio() + Options.AnimationMargin).toFixed(2) + 'px)';
+    this.#nameElement.style.transform = 'translateX(' +
+        (this.delayOrStartTime() * this.#timeline.pixelMsRatio() + Options.AnimationMargin).toFixed(2) + 'px)';
     this.#nameElement.style.width = (this.duration() * this.#timeline.pixelMsRatio()).toFixed(2) + 'px';
     this.drawDelayLine((this.#svg as HTMLElement));
 
@@ -340,8 +348,9 @@ export class AnimationUI {
         iteration === 0);
   }
 
-  private delay(): number {
-    let delay = this.#animationInternal.source().delay();
+  private delayOrStartTime(): number {
+    let delay = this.#animationInternal.delayOrStartTime();
+    console.log('delay', delay);
     if (this.#mouseEventType === Events.AnimationDrag || this.#mouseEventType === Events.StartEndpointMove) {
       delay += this.#movementInMs;
     }
@@ -350,11 +359,11 @@ export class AnimationUI {
   }
 
   private duration(): number {
-    let duration = this.#animationInternal.source().duration();
+    let duration = this.#animationInternal.iterationDuration();
     if (this.#mouseEventType === Events.FinishEndpointMove) {
       duration += this.#movementInMs;
     } else if (this.#mouseEventType === Events.StartEndpointMove) {
-      duration -= Math.max(this.#movementInMs, -this.#animationInternal.source().delay());
+      duration -= Math.max(this.#movementInMs, -this.#animationInternal.delayOrStartTime());
       // Cannot have negative delay
     }
     return Math.max(0, duration);
@@ -368,7 +377,7 @@ export class AnimationUI {
     let offset = this.#keyframes[i].offsetAsNumber();
     if (this.#mouseEventType === Events.KeyframeMove && i === this.#keyframeMoved) {
       console.assert(i > 0 && i < this.#keyframes.length - 1, 'First and last keyframe cannot be moved');
-      offset += this.#movementInMs / this.#animationInternal.source().duration();
+      offset += this.#movementInMs / this.#animationInternal.iterationDuration();
       offset = Math.max(offset, this.#keyframes[i - 1].offsetAsNumber());
       offset = Math.min(offset, this.#keyframes[i + 1].offsetAsNumber());
     }
@@ -408,7 +417,7 @@ export class AnimationUI {
 
   private setMovementAndRedraw(movement: number): void {
     this.#movementInMs = movement;
-    if (this.delay() + this.duration() > this.#timeline.duration() * 0.8) {
+    if (this.delayOrStartTime() + this.duration() > this.#timeline.duration() * 0.8) {
       this.#timeline.setDuration(this.#timeline.duration() * 1.2);
     }
     this.redraw();
@@ -424,7 +433,7 @@ export class AnimationUI {
         this.#keyframes[this.#keyframeMoved].setOffset(this.offset(this.#keyframeMoved));
       }
     } else {
-      this.#animationInternal.setTiming(this.duration(), this.delay());
+      this.#animationInternal.setTiming(this.duration(), this.delayOrStartTime());
     }
 
     Host.userMetrics.animationPointDragged(
@@ -465,7 +474,7 @@ export class AnimationUI {
         this.#keyframes[this.#keyframeMoved].setOffset(this.offset(this.#keyframeMoved));
       }
     } else {
-      this.#animationInternal.setTiming(this.duration(), this.delay());
+      this.#animationInternal.setTiming(this.duration(), this.delayOrStartTime());
     }
     this.setMovementAndRedraw(0);
 

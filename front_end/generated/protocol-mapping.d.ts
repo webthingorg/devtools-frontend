@@ -1424,6 +1424,13 @@ export namespace ProtocolMapping {
       returnType: void;
     };
     /**
+     * Returns the scroll information for the node in the given axis
+     */
+    'DOM.getScrollInformation': {
+      paramsType: [Protocol.DOM.GetScrollInformationRequest];
+      returnType: Protocol.DOM.GetScrollInformationResponse;
+    };
+    /**
      * Collects class names for the node with given id and all of it's child nodes.
      */
     'DOM.collectClassNamesFromSubtree': {

@@ -118,12 +118,27 @@ export class AnimationModel extends SDK.SDKModel.SDKModel<EventTypes> {
     const groupedAnimations = [firstAnimation];
     const groupStartTime = firstAnimation.startTime();
     const remainingAnimations = new Set<string>();
-    for (const id of this.#pendingAnimations) {
-      const anim = (this.#animationsById.get(id) as AnimationImpl);
-      if (anim.startTime() === groupStartTime) {
-        groupedAnimations.push(anim);
-      } else {
-        remainingAnimations.add(id);
+
+    const firstAnimTimeline = firstAnimation.viewOrScrollTimeline();
+    if (firstAnimTimeline) {
+      for (const id of this.#pendingAnimations) {
+        const anim = (this.#animationsById.get(id) as AnimationImpl);
+        const animTimeline = anim.viewOrScrollTimeline();
+        if (animTimeline && firstAnimTimeline.sourceNodeId === animTimeline.sourceNodeId &&
+            firstAnimTimeline.axis === animTimeline.axis) {
+          groupedAnimations.push(anim);
+        } else {
+          remainingAnimations.add(id);
+        }
+      }
+    } else {
+      for (const id of this.#pendingAnimations) {
+        const anim = (this.#animationsById.get(id) as AnimationImpl);
+        if (anim.startTime() === groupStartTime) {
+          groupedAnimations.push(anim);
+        } else {
+          remainingAnimations.add(id);
+        }
       }
     }
     this.#pendingAnimations = remainingAnimations;
@@ -186,6 +201,25 @@ export class AnimationImpl {
     return new AnimationImpl(animationModel, payload);
   }
 
+  private percentageProgressToPixels(percentage: number): number {
+    console.log('this.#payloadInternal', this.#payloadInternal);
+    const viewOrScrollTimeline = this.#payloadInternal.viewOrScrollTimeline;
+    if (!viewOrScrollTimeline) {
+      return percentage;
+    }
+
+    const {startOffset, endOffset} = viewOrScrollTimeline;
+    if (startOffset === undefined || endOffset === undefined) {
+      return percentage;
+    }
+
+    return (endOffset - startOffset) * percentage + startOffset;
+  }
+
+  viewOrScrollTimeline(): Protocol.Animation.ViewOrScrollTimeline|undefined {
+    return this.#payloadInternal.viewOrScrollTimeline;
+  }
+
   payload(): Protocol.Animation.Animation {
     return this.#payloadInternal;
   }
@@ -215,23 +249,48 @@ export class AnimationImpl {
   }
 
   startTime(): number {
+    if (this.viewOrScrollTimeline()) {
+      return this.percentageProgressToPixels(this.#payloadInternal.startTime);
+    }
+
     return this.#payloadInternal.startTime;
+  }
+
+  iterationDuration(): number {
+    if (this.viewOrScrollTimeline()) {
+      return this.percentageProgressToPixels(this.source().duration());
+    }
+
+    return this.source().duration();
   }
 
   endTime(): number {
     if (!this.source().iterations) {
       return Infinity;
     }
+
+    if (this.viewOrScrollTimeline()) {
+      return this.percentageProgressToPixels(this.startTime() + this.source().duration() * this.source().iterations());
+    }
+
     return this.startTime() + this.source().delay() + this.source().duration() * this.source().iterations() +
         this.source().endDelay();
   }
 
   finiteDuration(): number {
     const iterations = Math.min(this.source().iterations(), 3);
+    if (this.viewOrScrollTimeline()) {
+      return this.percentageProgressToPixels(this.source().duration() * iterations);
+    }
+
     return this.source().delay() + this.source().duration() * iterations;
   }
 
   currentTime(): number {
+    if (this.viewOrScrollTimeline()) {
+      return this.percentageProgressToPixels(this.#payloadInternal.currentTime);
+    }
+
     return this.#payloadInternal.currentTime;
   }
 
@@ -252,6 +311,14 @@ export class AnimationImpl {
     const firstAnimation = this.startTime() < animation.startTime() ? this : animation;
     const secondAnimation = firstAnimation === this ? animation : this;
     return firstAnimation.endTime() >= secondAnimation.startTime();
+  }
+
+  delayOrStartTime(): number {
+    if (this.viewOrScrollTimeline()) {
+      return this.startTime();
+    }
+
+    return this.source().delay();
   }
 
   setTiming(duration: number, delay: number): void {
@@ -426,6 +493,7 @@ export class KeyframeStyle {
 export class AnimationGroup {
   readonly #animationModel: AnimationModel;
   readonly #idInternal: string;
+  #scrollNodeInternal: SDK.DOMModel.DeferredDOMNode|undefined;
   #animationsInternal: AnimationImpl[];
   #pausedInternal: boolean;
   screenshotsInternal: string[];
@@ -438,6 +506,10 @@ export class AnimationGroup {
     this.screenshotsInternal = [];
 
     this.#screenshotImages = [];
+  }
+
+  isScrollDriven(): boolean {
+    return Boolean(this.#animationsInternal[0]?.viewOrScrollTimeline());
   }
 
   id(): string {
@@ -465,12 +537,72 @@ export class AnimationGroup {
     return this.#animationsInternal[0].startTime();
   }
 
+  groupDuration(): number {
+    let duration = 0;
+    if (this.isScrollDriven()) {
+      for (const anim of this.#animationsInternal) {
+        const animDuration = anim.startTime() + anim.iterationDuration();
+        if (animDuration > duration) {
+          duration = animDuration;
+        }
+      }
+    } else {
+      for (const anim of this.#animationsInternal) {
+        const animDuration = anim.source().delay() + anim.iterationDuration();
+        if (animDuration > duration) {
+          duration = animDuration;
+        }
+      }
+    }
+    return duration;
+  }
+
   finiteDuration(): number {
     let maxDuration = 0;
     for (let i = 0; i < this.#animationsInternal.length; ++i) {
       maxDuration = Math.max(maxDuration, this.#animationsInternal[i].finiteDuration());
     }
     return maxDuration;
+  }
+
+  async scrollNode(): Promise<SDK.DOMModel.DOMNode|null> {
+    if (!this.isScrollDriven()) {
+      return null;
+    }
+
+    const sourceNodeId = this.#animationsInternal[0]?.viewOrScrollTimeline()?.sourceNodeId;
+    if (!sourceNodeId) {
+      return null;
+    }
+
+    if (!this.#scrollNodeInternal) {
+      this.#scrollNodeInternal = new SDK.DOMModel.DeferredDOMNode(this.#animationModel.target(), sourceNodeId);
+    }
+    return this.#scrollNodeInternal.resolvePromise();
+  }
+
+  async scrollRange(): Promise<number|null> {
+    if (!this.isScrollDriven()) {
+      return null;
+    }
+
+    const scrollNode = await this.scrollNode();
+    if (!scrollNode) {
+      return null;
+    }
+
+    const axis = this.#animationsInternal[0]?.viewOrScrollTimeline()?.axis;
+    if (!axis) {
+      return null;
+    }
+
+    const scrollInformation = await scrollNode.scrollInformation(
+        axis === Protocol.Animation.ScrollAxis.Block ? Protocol.DOM.ScrollAxis.Block : Protocol.DOM.ScrollAxis.Inline);
+    if (!scrollInformation) {
+      return null;
+    }
+
+    return scrollInformation.scrollRange;
   }
 
   seekTo(currentTime: number): void {

@@ -11,14 +11,16 @@ import {AnimationUI} from './AnimationUI.js';
 
 export class AnimationGroupPreviewUI {
   #model: AnimationGroup;
+  #scrollRange: number|undefined;
   element: HTMLDivElement;
   readonly #removeButtonInternal: HTMLElement;
   readonly #replayOverlayElement: HTMLElement;
   readonly #svg: Element;
   readonly #viewBoxHeight: number;
 
-  constructor(model: AnimationGroup) {
+  constructor(model: AnimationGroup, scrollRange: number|undefined) {
     this.#model = model;
+    this.#scrollRange = scrollRange;
     this.element = document.createElement('div');
     this.element.setAttribute('jslog', `${VisualLogging.item('animations.buffer-preview').track({click: true})}`);
     this.element.classList.add('animation-buffer-preview');
@@ -36,17 +38,6 @@ export class AnimationGroupPreviewUI {
     this.#svg.setAttribute('viewBox', '0 0 100 ' + this.#viewBoxHeight);
     this.#svg.setAttribute('shape-rendering', 'crispEdges');
     this.render();
-  }
-
-  private groupDuration(): number {
-    let duration = 0;
-    for (const anim of this.#model.animations()) {
-      const animDuration = anim.source().delay() + anim.source().duration();
-      if (animDuration > duration) {
-        duration = animDuration;
-      }
-    }
-    return duration;
   }
 
   removeButton(): Element {
@@ -67,12 +58,16 @@ export class AnimationGroupPreviewUI {
     this.#svg.removeChildren();
     const maxToShow = 10;
     const numberOfAnimations = Math.min(this.#model.animations().length, maxToShow);
-    const timeToPixelRatio = 100 / Math.max(this.groupDuration(), 750);
+    const timeToPixelRatio = 100 / Math.max(this.#scrollRange ?? this.#model.groupDuration(), 750);
     for (let i = 0; i < numberOfAnimations; i++) {
-      const effect = this.#model.animations()[i].source();
+      const animation = this.#model.animations()[i];
       const line = UI.UIUtils.createSVGChild(this.#svg, 'line') as SVGLineElement;
-      line.setAttribute('x1', String(effect.delay() * timeToPixelRatio));
-      line.setAttribute('x2', String((effect.delay() + effect.duration()) * timeToPixelRatio));
+
+      const startPoint = animation.viewOrScrollTimeline() ? animation.startTime() : animation.source().delay();
+      const endPoint = startPoint + animation.iterationDuration();
+
+      line.setAttribute('x1', String(startPoint * timeToPixelRatio));
+      line.setAttribute('x2', String(endPoint * timeToPixelRatio));
       const y = String(Math.floor(this.#viewBoxHeight / Math.max(6, numberOfAnimations) * i + 1));
       line.setAttribute('y1', y);
       line.setAttribute('y2', y);

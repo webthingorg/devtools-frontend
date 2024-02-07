@@ -648,6 +648,59 @@
                             "description": "A unique ID for `Animation` representing the sources that triggered this CSS\nanimation/transition.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "viewOrScrollTimeline",
+                            "description": "View or scroll timeline",
+                            "optional": true,
+                            "$ref": "ViewOrScrollTimeline"
+                        }
+                    ]
+                },
+                {
+                    "id": "ScrollAxis",
+                    "description": "Axis of the scroll for the scroll and view timelines",
+                    "type": "string",
+                    "enum": [
+                        "block",
+                        "inline",
+                        "x",
+                        "y"
+                    ]
+                },
+                {
+                    "id": "ViewOrScrollTimeline",
+                    "description": "Timeline instance",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "sourceNodeId",
+                            "description": "Scroll container node",
+                            "optional": true,
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "startOffset",
+                            "description": "Represents the starting scroll position of the timeline\nas a length offset in pixels from scroll origin.",
+                            "optional": true,
+                            "type": "number"
+                        },
+                        {
+                            "name": "endOffset",
+                            "description": "Represents the ending scroll position of the timeline\nas a length offset in pixels from scroll origin.",
+                            "optional": true,
+                            "type": "number"
+                        },
+                        {
+                            "name": "subjectNodeId",
+                            "description": "The element whose principal box's visibility in the\nscrollport defined the progress of the timeline.\nDoes not exist for animations with ScrollTimeline",
+                            "optional": true,
+                            "$ref": "DOM.BackendNodeId"
+                        },
+                        {
+                            "name": "axis",
+                            "description": "Axis of the scroll",
+                            "$ref": "ScrollAxis"
                         }
                     ]
                 },
@@ -5753,9 +5806,60 @@
                             "type": "string"
                         }
                     ]
+                },
+                {
+                    "id": "ScrollAxis",
+                    "description": "Axis of the scroll",
+                    "type": "string",
+                    "enum": [
+                        "block",
+                        "inline",
+                        "x",
+                        "y"
+                    ]
+                },
+                {
+                    "id": "ScrollInformation",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "offset",
+                            "description": "Current scroll offset",
+                            "type": "number"
+                        },
+                        {
+                            "name": "scrollRange",
+                            "description": "Scroll range",
+                            "type": "number"
+                        }
+                    ]
                 }
             ],
             "commands": [
+                {
+                    "name": "getScrollInformation",
+                    "description": "Returns the scroll information for the node in the given axis",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "nodeId",
+                            "description": "Id of the node",
+                            "$ref": "NodeId"
+                        },
+                        {
+                            "name": "scrollAxis",
+                            "description": "Scroll axis",
+                            "$ref": "ScrollAxis"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "name": "scrollInformation",
+                            "description": "Scroll information",
+                            "$ref": "ScrollInformation"
+                        }
+                    ]
+                },
                 {
                     "name": "collectClassNamesFromSubtree",
                     "description": "Collects class names for the node with given id and all of it's child nodes.",
