@@ -35,7 +35,7 @@ describe('LoggingDriver', () => {
     parent.style.height = '300px';
     const element = document.createElement('div') as HTMLElement;
     element.id = 'element';
-    element.setAttribute('jslog', 'TreeItem; context:42; track: click, keydown, hover, drag');
+    element.setAttribute('jslog', 'TreeItem; context:42; track: click, keydown, hover, drag, resize');
     element.style.width = '300px';
     element.style.height = '300px';
     parent.appendChild(element);
@@ -345,6 +345,40 @@ describe('LoggingDriver', () => {
 
     await dragLogThrottler.process?.();
     assert.isFalse(recordDrag.called);
+  });
+
+  it('logs resize', async () => {
+    const resizeLogThrottler = new Common.Throttler.Throttler(1000000000);
+    addLoggableElements();
+    await VisualLoggingTesting.LoggingDriver.startLogging({resizeLogThrottler});
+    const recordResize = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordResize',
+    );
+
+    const element = document.getElementById('element') as HTMLElement;
+    element.style.height = '400px';
+    await new Promise(resolve => setTimeout(resolve, 0));
+    assert.exists(resizeLogThrottler.process);
+    assert.isFalse(recordResize.called);
+
+    await resizeLogThrottler.process?.();
+    assert.isTrue(recordResize.calledOnce);
+  });
+
+  it('does not log resize if too small', async () => {
+    const resizeLogThrottler = new Common.Throttler.Throttler(1000000000);
+    addLoggableElements();
+    await VisualLoggingTesting.LoggingDriver.startLogging({resizeLogThrottler});
+    const recordResize = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordResize',
+    );
+
+    const element = document.getElementById('element') as HTMLElement;
+    element.style.height = '301px';
+    assert.isNull(resizeLogThrottler.process);
+    assert.isFalse(recordResize.called);
   });
 
   it('marks loggable elements for debugging', async () => {
