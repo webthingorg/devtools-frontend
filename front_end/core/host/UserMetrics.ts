@@ -1510,6 +1510,11 @@ export const enum RecordingCopiedToClipboard {
   MaxValue = 9,
 }
 
+export const enum PerformancePanelAction {
+  ViewSelectorStats = 0,
+  MaxValue = 1,
+}
+
 export const enum StyleTextCopied {
   DeclarationViaChangedLine = 1,
   AllChangesViaStylesPane = 2,

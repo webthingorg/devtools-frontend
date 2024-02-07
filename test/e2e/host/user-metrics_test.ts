@@ -31,6 +31,14 @@ import {
   waitForElementsStyleSection,
 } from '../helpers/elements-helpers.js';
 import {navigateToNetworkTab, openNetworkTab} from '../helpers/network-helpers.js';
+import {
+  enableAdvancedRenderingInstrumentation,
+  navigateToPerformanceTab,
+  navigateToSelectorStatsTab,
+  selectRecalculateStylesEvent,
+  startRecording,
+  stopRecording,
+} from '../helpers/performance-helpers.js';
 import {openCommandMenu} from '../helpers/quick_open-helpers.js';
 import {closeSecurityTab, navigateToSecurityTab} from '../helpers/security-helpers.js';
 import {openPanelViaMoreTools, openSettingsTab} from '../helpers/settings-helpers.js';
@@ -684,5 +692,23 @@ describe('User Metrics for clicking stylesheet request initiators', () => {
     await openNetworkTab();
     await clickOnInitiatorLink('missing3.css');
     await waitForHistogramEvent(expectedAction, 3);
+  });
+});
+
+describe('User Metrics for Performance Panel', function() {
+  it('dispatches an event when selector stats are viewed', async () => {
+    const {target} = getBrowserAndPages();
+    await navigateToPerformanceTab('empty');
+    await enableAdvancedRenderingInstrumentation();
+    await startRecording();
+    await target.reload();
+    await stopRecording();
+    await selectRecalculateStylesEvent();
+    await navigateToSelectorStatsTab();
+
+    await assertHistogramEventsInclude([{
+      actionName: 'DevTools.PerformancePanel',
+      actionCode: 0,  // ViewSelectorStats
+    }]);
   });
 });

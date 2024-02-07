@@ -73,7 +73,9 @@ const str_ = i18n.i18n.registerUIStrings('ui/components/data_grid/DataGrid.ts', 
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export interface DataGridContextMenusConfiguration {
   headerRow?: (menu: UI.ContextMenu.ContextMenu, columns: readonly Column[]) => void;
-  bodyRow?: (menu: UI.ContextMenu.ContextMenu, columns: readonly Column[], row: Readonly<Row>) => void;
+  // Edge-only: add argument "rows: readonly Row[]"
+  bodyRow?:
+      (menu: UI.ContextMenu.ContextMenu, columns: readonly Column[], row: Readonly<Row>, rows: readonly Row[]) => void;
 }
 
 export interface DataGridData {
@@ -638,7 +640,8 @@ export class DataGrid extends HTMLElement {
     });
 
     if (this.#contextMenus && this.#contextMenus.bodyRow) {
-      this.#contextMenus.bodyRow(menu, this.#columns, rowThatWasClicked);
+      // Edge-only: add argument this.#rows
+      this.#contextMenus.bodyRow(menu, this.#columns, rowThatWasClicked, this.#rows);
     }
     void menu.show();
   }
