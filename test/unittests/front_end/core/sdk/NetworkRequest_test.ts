@@ -152,6 +152,7 @@ describe('NetworkRequest', () => {
       statusCode: undefined,
       cookiePartitionKey: undefined,
       cookiePartitionKeyOpaque: undefined,
+      exemptedRespnoseCookies: undefined,
     });
 
     assert.deepEqual(
@@ -224,6 +225,7 @@ describeWithMockConnection('NetworkRequest', () => {
       statusCode: undefined,
       cookiePartitionKey: undefined,
       cookiePartitionKeyOpaque: undefined,
+      exemptedRespnoseCookies: undefined,
     });
     assert.isTrue(addBlockedCookieSpy.calledOnceWith(
         cookie, [{
