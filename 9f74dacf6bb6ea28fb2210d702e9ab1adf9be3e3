@@ -22,6 +22,30 @@
       },
       "revId": "9f74dacf6bb6ea28fb2210d702e9ab1adf9be3e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b85e83_ca26d65e",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2024-02-07T12:57:53Z",
+      "side": 1,
+      "message": "The line number extension stores it in a non-public configuration facet. So indeed, the way to keep that available would be to put it into some locally-defined facet and return it along with the line number extension.",
+      "parentUuid": "d9a7eec8_9692ebae",
+      "range": {
+        "startLine": 1936,
+        "startChar": 4,
+        "endLine": 1936,
+        "endChar": 72
+      },
+      "revId": "9f74dacf6bb6ea28fb2210d702e9ab1adf9be3e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
