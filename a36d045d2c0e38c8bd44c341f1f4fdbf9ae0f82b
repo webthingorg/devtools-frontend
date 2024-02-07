@@ -16,6 +16,24 @@
       "message": "or actually, after thinking more, let\u0027s remove the catch and add\n\n```\nprocess.on(\u0027uncaughtException\u0027, error \u003d\u003e {\n // log\n})\nprocess.on(\u0027unhandledRejection\u0027, error \u003d\u003e {\n   // log\n})\n```",
       "revId": "a36d045d2c0e38c8bd44c341f1f4fdbf9ae0f82b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "889c315d_de947dc0",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-07T07:21:49Z",
+      "side": 1,
+      "message": "You mean leave the `send500` but remove the last `catch`?",
+      "parentUuid": "d663e5db_72546415",
+      "revId": "a36d045d2c0e38c8bd44c341f1f4fdbf9ae0f82b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
