@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d2ae907_71cccb6b",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-08T14:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3858c0ae_647d84e1",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 46
+      },
+      "revId": "95434d868cc38548b38a11178030f60af722b2c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cd892f7_99a84cbd",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b64af0cf_0f89e7d4",
+        "filename": "front_end/ui/legacy/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-08T14:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd892f7_99a84cbd",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 5
+      },
+      "revId": "95434d868cc38548b38a11178030f60af722b2c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbe0e72b_cbc61613",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-02-08T14:30:36Z",
       "side": 1,
       "message": "also this one.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 5
+      },
+      "revId": "95434d868cc38548b38a11178030f60af722b2c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16859b0_84dae6ce",
+        "filename": "front_end/ui/legacy/ViewRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-08T14:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbe0e72b_cbc61613",
       "range": {
         "startLine": 75,
         "startChar": 0,
