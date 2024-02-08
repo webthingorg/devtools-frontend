@@ -277,7 +277,7 @@ export interface SettingRegistration {
    * of the setting. A condition can be negated by prepending a ‘!’ to the value of the condition
    * property and in that case the behaviour of the setting's availability will be inverted.
    */
-  condition?: Root.Runtime.ConditionName;
+  condition?: Root.Runtime.Condition;
 
   /**
    * If a setting is deprecated, define this notice to show an appropriate warning according to the `warning` propertiy.
