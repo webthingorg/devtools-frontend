@@ -4,7 +4,8 @@
 
 import type * as puppeteer from 'puppeteer-core';
 
-import {click, goToResource, platform, waitFor, waitForAria} from '../../shared/helper.js';
+import {getBrowserAndPages} from '../../conductor/puppeteer-state.js';
+import {$, click, goToResource, platform, waitFor, waitForAria, waitForFunction} from '../../shared/helper.js';
 
 export const FILTER_TEXTBOX_SELECTOR = '[aria-label="Filter bottom-up"]';
 export const RECORD_BUTTON_SELECTOR = '[aria-label="Record"]';
@@ -16,6 +17,9 @@ export const CALL_TREE_SELECTOR = '[aria-label="Call Tree"]';
 export const ACTIVITY_COLUMN_SELECTOR = '.activity-column.disclosure';
 export const TOTAL_TIME_SELECTOR =
     'div:nth-child(1) > div.vbox.timeline-details-chip-body > div:nth-child(1) > div.timeline-details-view-row-value';
+const RECALCULATE_STYLE_TITLE = 'Recalculate Style';
+const SELECTOR_STATS_SELECTOR = '[aria-label="Selector Stats"]';
+const ADVANCED_RENDERING_INSTRUMENTATION_TITLE = 'Enable advanced paint instrumentation (slow)';
 
 export async function navigateToPerformanceTab(testName?: string) {
   if (testName) {
@@ -121,4 +125,37 @@ export async function navigateToPerformanceSidebarTab(tabName: string) {
 
 export async function clickOnFunctionLink() {
   await click('.timeline-details.devtools-link');
+}
+
+export async function navigateToSelectorStatsTab() {
+  await click(SELECTOR_STATS_SELECTOR);
+}
+
+export async function selectRecalculateStylesEvent() {
+  const {frontend} = getBrowserAndPages();
+
+  await waitForFunction(async () => {
+    await searchForComponent(frontend, RECALCULATE_STYLE_TITLE);
+    const title = await $('.timeline-details-chip-title');
+    if (!title) {
+      return false;
+    }
+    const titleText = await title.evaluate(x => x.textContent);
+    return titleText === RECALCULATE_STYLE_TITLE;
+  });
+}
+
+export async function enableAdvancedRenderingInstrumentation() {
+  await openCaptureSettings('.timeline-settings-pane');
+
+  // Wait for the checkbox to load
+  const toggle =
+      await waitForAria(ADVANCED_RENDERING_INSTRUMENTATION_TITLE) as puppeteer.ElementHandle<HTMLInputElement>;
+  await waitForFunction(() => toggle.evaluate((e: HTMLInputElement) => {
+    if (e.disabled) {
+      return false;
+    }
+    e.click();
+    return true;
+  }));
 }
