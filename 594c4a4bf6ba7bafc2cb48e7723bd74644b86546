@@ -16,6 +16,92 @@
       "message": "Simon, PTAL",
       "revId": "594c4a4bf6ba7bafc2cb48e7723bd74644b86546",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feac3e1f_c0e40649",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T06:30:52Z",
+      "side": 1,
+      "message": "Thanks a ton, this is great!\n\nMostly lgtm with some suggestions for improvements.",
+      "revId": "594c4a4bf6ba7bafc2cb48e7723bd74644b86546",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e71903_782be3d4",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T06:30:52Z",
+      "side": 1,
+      "message": "This will run the PRESUBMIT check on every CL, but we really only need to run it if either `devtools_compatibility.js` or `InspectorFrontendHostAPI.ts` changed.\n\nSee `_CheckExperimentTelemetry` how to do this, basically create an array with the two file paths and pass it to `_getAffectedFiles`. If the result is empty, then those two files were not touched by the CL and we can bail early.",
+      "range": {
+        "startLine": 191,
+        "startChar": 4,
+        "endLine": 191,
+        "endChar": 30
+      },
+      "revId": "594c4a4bf6ba7bafc2cb48e7723bd74644b86546",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b10e0f_9601cb91",
+        "filename": "scripts/check_enumerated_histograms.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T06:30:52Z",
+      "side": 1,
+      "message": "You could call this function `findNode` and pass in a predicate so the call-site would look like:\n\n```\nconst hostApiEnumNode \u003d findNode(hostApiSourceFile,\n    n \u003d\u003e ts.isVariableDelcaration(n) \u0026\u0026 n.name.escapedText \u003d\u003d\u003d \u0027EnumeratedHistogram\u0027);\n```\n\nNot sure if its better though, just an idea to get rid of the magic `true`/`false` in `main`.",
+      "range": {
+        "startLine": 11,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "594c4a4bf6ba7bafc2cb48e7723bd74644b86546",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8dca90d_4dae2eba",
+        "filename": "scripts/check_enumerated_histograms.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T06:30:52Z",
+      "side": 1,
+      "message": "You could sort both histograms by `id` then they wouldn\u0027t have to be sorted the same in code.\n\nThere is one a different way we could do this that would yield a better error message. The most common case is indeed the first check, the dev forgot to add the enum to one place so the lengths differ. But the error doesn\u0027t say which one.\n\nWe could:\n  * Stash histogram as a `Map` instead\n  * Do a `for (const [id, value] of histogram1) { assert histogram2.get(id) \u003d\u003d\u003d value; }\n  * Do it the other way around\n  * Collect the errors along the way so we can print all the miss matches at once and the dev doesn\u0027t have to run the script repeatedly.\n  \nMight be overkill though since devs normally only add one new UMA per CL, so I\u0027ll leave it to you, but the sorting would be nice :)",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 44
+      },
+      "revId": "594c4a4bf6ba7bafc2cb48e7723bd74644b86546",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
