@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Common from '../../core/common/common.js';
+import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
@@ -17,6 +17,7 @@ import {TimelineLayersView} from './TimelineLayersView.js';
 import {TimelinePaintProfilerView} from './TimelinePaintProfilerView.js';
 import {type TimelineModeViewDelegate} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
+import {TimelineSelectorStatsView} from './TimelineSelectorStatsView.js';
 import {BottomUpTimelineTreeView, CallTreeTimelineTreeView, type TimelineTreeView} from './TimelineTreeView.js';
 import {TimelineDetailsContentHelper, TimelineUIUtils} from './TimelineUIUtils.js';
 
@@ -51,6 +52,10 @@ const UIStrings = {
    *@example {10ms} PH2
    */
   rangeSS: 'Range:  {PH1} – {PH2}',
+  /**
+   *@description Title of the selector stats tab
+   */
+  selectorStats: 'Selector Stats',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelineDetailsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -67,6 +72,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   private preferredTabId?: string;
   private selection?: TimelineSelection|null;
   private updateContentsScheduled: boolean;
+  private lazySelectorStatsView: TimelineSelectorStatsView|null;
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null = null;
   #filmStrip: TraceEngine.Extras.FilmStrip.Data|null = null;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
@@ -105,6 +111,17 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this.tabSelected, this);
 
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
+
+    this.lazySelectorStatsView = null;
+  }
+
+  private selectorStatsView(): TimelineSelectorStatsView {
+    if (this.lazySelectorStatsView) {
+      return this.lazySelectorStatsView;
+    }
+
+    this.lazySelectorStatsView = new TimelineSelectorStatsView();
+    return this.lazySelectorStatsView;
   }
 
   getDetailsContentElementForTest(): HTMLElement {
@@ -313,6 +330,36 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.tabbedPane.selectTab(Tab.PaintProfiler, true);
   }
 
+  private showSelectorStats(event: TraceEngine.Legacy.CompatibleTraceEvent): void {
+    const selectorStatsView = this.selectorStatsView();
+
+    const hasSelectorStats = selectorStatsView.setEvent(event);
+    if (!hasSelectorStats) {
+      return;
+    }
+
+    if (this.tabbedPane.hasTab(Tab.SelectorStats)) {
+      return;
+    }
+
+    this.appendTab(Tab.SelectorStats, i18nString(UIStrings.selectorStats), selectorStatsView);
+  }
+
+  private showAggregatedSelectorStats(events: TraceEngine.Legacy.Event[]): void {
+    const selectorStatsView = this.selectorStatsView();
+
+    const hasSelectorStats = selectorStatsView.setAggregatedEvent(events);
+    if (!hasSelectorStats) {
+      return;
+    }
+
+    if (this.tabbedPane.hasTab(Tab.SelectorStats)) {
+      return;
+    }
+
+    this.appendTab(Tab.SelectorStats, i18nString(UIStrings.selectorStats), selectorStatsView);
+  }
+
   private appendDetailsTabsForTraceEventAndShowDetails(event: TraceEngine.Legacy.CompatibleTraceEvent, content: Node):
       void {
     this.setContent(content);
@@ -323,6 +370,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
           TraceEngine.Types.TraceEvents.isTraceEventRasterTask(event)) {
         this.showEventInPaintProfiler(event);
       }
+    }
+
+    if (event.name === TimelineModel.TimelineModel.RecordType.RecalculateStyles ||
+        event.name === TimelineModel.TimelineModel.RecordType.UpdateLayoutTree) {
+      this.showSelectorStats(event);
     }
   }
 
@@ -361,6 +413,17 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     const pieChart = TimelineUIUtils.generatePieChart(aggregatedStats);
     contentHelper.appendElementRow('', pieChart);
     this.setContent(contentHelper.fragment);
+
+    // Find all recalculate style events data from range
+    const isEnabledAdvancedPaint =
+        Common.Settings.Settings.instance().createSetting('timelineCaptureLayersAndPictures', false).get();
+    if (this.#selectedEvents && isEnabledAdvancedPaint) {
+      const eventsInRange = TimelineModel.TimelineModel.TimelineModelImpl.findRecalculateStyleEvents(
+          this.#selectedEvents as unknown as TraceEngine.Legacy.Event[], startTime, endTime);
+      if (eventsInRange.length > 0) {
+        this.showAggregatedSelectorStats(eventsInRange);
+      }
+    }
   }
 }
 
@@ -371,4 +434,5 @@ export enum Tab {
   BottomUp = 'BottomUp',
   PaintProfiler = 'PaintProfiler',
   LayerViewer = 'LayerViewer',
+  SelectorStats = 'SelectorStats',
 }

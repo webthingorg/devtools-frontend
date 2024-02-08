@@ -93,6 +93,7 @@ export class TimelineModelImpl {
   private currentTaskLayoutAndRecalcEvents: TraceEngine.Legacy.Event[];
   private tracingModelInternal: TraceEngine.Legacy.TracingModel|null;
   private mainFrameLayerTreeId?: any;
+  private lastRecalculateStylesEvent!: TraceEngine.Legacy.Event|null;
   #isFreshRecording = false;
 
   constructor() {
@@ -863,6 +864,11 @@ export class TimelineModelImpl {
         }
         break;
       }
+
+      case RecordType.SelectorStats: {
+        this.lastRecalculateStylesEvent?.addArgs(event.args);
+        break;
+      }
     }
     return true;
   }
@@ -1022,6 +1028,31 @@ export class TimelineModelImpl {
 
   pageFrameById(frameId: Protocol.Page.FrameId): PageFrame|null {
     return frameId ? this.pageFrames.get(frameId) || null : null;
+  }
+
+  static findRecalculateStyleEvents(
+      events: TraceEngine.Legacy.Event[], startTime: number = 0,
+      endTime: number = Infinity): TraceEngine.Legacy.Event[] {
+    const stack: TraceEngine.Legacy.Event[] = [];
+    const startEvent = TimelineModelImpl.topLevelEventEndingAfter(events, startTime);
+    for (let i = startEvent; i < events.length; ++i) {
+      const e = events[i] as unknown as TraceEngine.Types.TraceEvents.TraceEventComplete;
+      if (e.name !== TraceEngine.Types.TraceEvents.KnownEventName.RecalculateStyles &&
+          e.name !== TraceEngine.Types.TraceEvents.KnownEventName.UpdateLayoutTree) {
+        continue;
+      }
+      if (!e.tdur || e.ts + e.tdur < startTime * 1000) {
+        continue;
+      }
+      if (e.ts >= endTime * 1000) {
+        break;
+      }
+      if (TraceEngine.Types.TraceEvents.isAsyncPhase(e.ph) || TraceEngine.Types.TraceEvents.isFlowPhase(e.ph)) {
+        continue;
+      }
+      stack.push(structuredClone(events[i]));
+    }
+    return stack;
   }
 }
 
@@ -1192,6 +1223,9 @@ export enum RecordType {
   Profile = 'Profile',
 
   AsyncTask = 'AsyncTask',
+
+  // EDGE
+  SelectorStats = 'SelectorStats',
 }
 
 export namespace TimelineModelImpl {
