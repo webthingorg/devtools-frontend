@@ -14,9 +14,13 @@ import {
 } from '../helpers/elements-helpers.js';
 
 describe('The Classes pane', async () => {
-  beforeEach(async function() {
+  beforeEach(async function(done) {
+    setTimeout(done, 9000);
+    console.log('before everything');
     await goToResource('elements/simple-styled-page.html');
+    console.log('after go to resource');
     await toggleClassesPane();
+    console.log('after toggle classes pane');
   });
 
   it('can add a class to the element', async () => {

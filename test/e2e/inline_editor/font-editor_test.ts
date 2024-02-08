@@ -31,10 +31,19 @@ async function openFontEditorForInlineStyle() {
 }
 
 describe('The font editor', async function() {
-  beforeEach(async function() {
+  beforeEach(async function(done) {
+    setTimeout(done, 9000);
+    // eslint-disable-line no-console
+    console.log('start');
     await enableExperiment('fontEditor');
+    // eslint-disable-line no-console
+    console.log('after experiment');
     await goToTestPageAndSelectTestElement();
+    // eslint-disable-line no-console
+    console.log('after test page');
     await waitForCSSPropertyValue('#inspected', 'color', 'red');
+    // eslint-disable-line no-console
+    console.log('after css; end');
   });
 
   it('icon is displayed for sections containing font properties', async () => {
