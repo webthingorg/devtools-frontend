@@ -223,7 +223,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     return this.actionRegistration.setting;
   }
 
-  condition(): string|undefined {
+  condition(): Root.Runtime.Condition|undefined {
     return this.actionRegistration.condition;
   }
 
@@ -542,7 +542,7 @@ export interface ActionRegistration {
    * of the setting. A condition can be negated by prepending a ‘!’ to the value of the condition
    * property and in that case the behaviour of the action's availability will be inverted.
    */
-  condition?: Root.Runtime.ConditionName;
+  condition?: Root.Runtime.Condition;
   /**
    * Used to sort actions when all registered actions are queried.
    */
