@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8d8178f_32d7336e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T14:30:36Z",
+      "side": 1,
+      "message": "lgtm % some cleanups",
+      "revId": "95434d868cc38548b38a11178030f60af722b2c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3858c0ae_647d84e1",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T14:30:36Z",
+      "side": 1,
+      "message": "not sure why we access it this way. We could use `const {condition} \u003d descriptor;` here and above.",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 46
+      },
+      "revId": "95434d868cc38548b38a11178030f60af722b2c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd892f7_99a84cbd",
+        "filename": "front_end/ui/legacy/ActionRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T14:30:36Z",
+      "side": 1,
+      "message": "This comment needs to be updated.",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 5
+      },
+      "revId": "95434d868cc38548b38a11178030f60af722b2c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe0e72b_cbc61613",
+        "filename": "front_end/ui/legacy/ViewRegistration.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-08T14:30:36Z",
+      "side": 1,
+      "message": "also this one.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 5
+      },
+      "revId": "95434d868cc38548b38a11178030f60af722b2c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
