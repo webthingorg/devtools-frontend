@@ -632,7 +632,7 @@ export class FakeFlameChartProvider implements PerfUI.FlameChart.FlameChartDataP
   }
 
   textColor(_entryIndex: number): string {
-    return 'black';
+    return 'default';
   }
 
   timelineData(): PerfUI.FlameChart.FlameChartTimelineData|null {

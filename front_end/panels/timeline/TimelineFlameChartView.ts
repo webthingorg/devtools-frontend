@@ -475,7 +475,7 @@ export class Selection {
 }
 
 export const FlameChartStyle = {
-  textColor: '#333',
+  textColor: 'default',
 };
 
 export class TimelineFlameChartMarker implements PerfUI.FlameChart.FlameChartMarker {

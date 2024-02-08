@@ -16,6 +16,7 @@ import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js'
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
 import {TimelineSelection} from './TimelineSelection.js';
 
+const kWaitingTimeFillColor = 'hsla(0, 100%, 100%, 0.8)';
 export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.FlameChartDataProvider {
   #minimumBoundaryInternal: number;
   #timeSpan: number;
@@ -196,14 +197,15 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
    */
   decorateEntry(
       index: number, context: CanvasRenderingContext2D, _text: string|null, barX: number, barY: number,
-      barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number): boolean {
+      barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number,
+      backgroundColor: string): boolean {
     const event = this.#events[index];
 
     const {sendStart, headersEnd, finish, start, end} =
         this.getDecorationPixels(event, unclippedBarX, timeToPixelRatio);
 
     // Draw waiting time.
-    context.fillStyle = 'hsla(0, 100%, 100%, 0.8)';
+    context.fillStyle = kWaitingTimeFillColor;
     context.fillRect(sendStart + 0.5, barY + 0.5, headersEnd - sendStart - 0.5, barHeight - 2);
     // Clear portions of initial rect to prepare for the ticks.
     context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
@@ -238,18 +240,36 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     // Draw request URL as text
     const textStart = Math.max(sendStart, 0);
     const textWidth = finish - textStart;
-    const /** @const */ minTextWidthPx = 20;
+    const minTextWidthPx = 20;
     if (textWidth >= minTextWidthPx) {
       let title = this.entryTitle(index) || '';
       if (event.args.data.fromServiceWorker) {
         title = '⚙ ' + title;
       }
       if (title) {
-        const /** @const */ textPadding = 4;
-        const /** @const */ textBaseline = 5;
+        const textPadding = 4;
+        const textBaseline = 5;
         const textBaseHeight = barHeight - textBaseline;
         const trimmedText = UI.UIUtils.trimTextEnd(context, title, textWidth - 2 * textPadding);
-        context.fillStyle = '#333';
+        context.fillStyle =
+            PerfUI.FlameChart.FlameChartColorHelper.colorForStyle(this.textColor(index), backgroundColor);
+        if (headersEnd - sendStart - 0.5 > 10) {
+          // If there is a wait time, the event color is lightened against the background
+          // by drawing a box with the lightening color at 80% opacity (see ~50 lines above, "Draw waiting time").
+          // For non-waiting time, the default color matching used previously works fine; but if we're going to
+          // draw text atop the "waiting" section, we probably need to recalculate the color, so here we calculate
+          // the merged color and then use it to calculate the text color.
+          const overlayColorParsed = Common.Color.parse(kWaitingTimeFillColor);
+          const overlayColorRgba = overlayColorParsed?.asLegacyColor().canonicalRGBA();
+          const backgroundColorParsed = Common.Color.parse(backgroundColor);
+          const backgroundColorRgba = backgroundColorParsed?.asLegacyColor().canonicalRGBA();
+          if (overlayColorRgba && backgroundColorRgba) {
+            const actualBackgroundColor4 = Common.ColorUtils.blendColors(overlayColorRgba, backgroundColorRgba);
+            const colorValue = new Common.Color.Legacy(actualBackgroundColor4, Common.Color.Format.RGBA);
+            context.fillStyle = PerfUI.FlameChart.FlameChartColorHelper.colorForStyle(
+                this.textColor(index), colorValue.asString() as string);
+          }
+        }
         context.fillText(trimmedText, textStart + textPadding, barY + textBaseHeight);
       }
     }
