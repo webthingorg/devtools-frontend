@@ -31,10 +31,15 @@ async function openFontEditorForInlineStyle() {
 }
 
 describe('The font editor', async function() {
-  beforeEach(async function() {
+  beforeEach(async function(done) {
+    setTimeout(done, 9000);
+    console.error('start');
     await enableExperiment('fontEditor');
+    console.error('after experiment');
     await goToTestPageAndSelectTestElement();
+    console.error('after test page');
     await waitForCSSPropertyValue('#inspected', 'color', 'red');
+    console.error('after css; end');
   });
 
   it('icon is displayed for sections containing font properties', async () => {
