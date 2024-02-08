@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cf56260_f59f1408",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-08T06:58:53Z",
+      "side": 1,
+      "message": "Hi Alex, please help review this change. The change is to render list widget as a table for A11y tools.\n\nThanks,\nGavin",
+      "revId": "0f5e193a54e01be7396a09f2d0f2bcacb7843202",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
