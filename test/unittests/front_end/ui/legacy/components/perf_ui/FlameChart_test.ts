@@ -939,3 +939,41 @@ describeWithEnvironment('FlameChart', () => {
     });
   });
 });
+
+describe('FlameChartColorHelper', () => {
+  const FCCH = PerfUI.FlameChart.FlameChartColorHelper;
+  describe('textColorForBackground', () => {
+    it('returns the correct text color for a given background color', () => {
+      assert.strictEqual(FCCH.textColorForBackground('black'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.textColorForBackground('white'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.textColorForBackground('red'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.textColorForBackground('blue'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.textColorForBackground('yellow'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.textColorForBackground('green'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.textColorForBackground('purple'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.textColorForBackground('pink'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.textColorForBackground('grey'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.textColorForBackground('lightgrey'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.textColorForBackground('darkgrey'), FCCH.defaultColorForLightText);
+    });
+  });
+
+  describe('colorForStyle', () => {
+    it('returns the correct color for a given style', () => {
+      assert.strictEqual(FCCH.colorForStyle('default', 'black'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'white'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'red'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'blue'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'yellow'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'green'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'purple'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'pink'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'grey'), FCCH.defaultColorForLightText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'lightgrey'), FCCH.defaultColorForDarkText);
+      assert.strictEqual(FCCH.colorForStyle('default', 'darkgrey'), FCCH.defaultColorForLightText);
+
+      assert.strictEqual(FCCH.colorForStyle('disabled', 'darkgrey'), FCCH.defaultColorForDisabledText);
+      assert.strictEqual(FCCH.colorForStyle('disabled', 'white'), FCCH.defaultColorForDisabledText);
+    });
+  });
+});
