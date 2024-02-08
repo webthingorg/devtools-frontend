@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c30ce9_09ecd799",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-08T07:34:40Z",
+      "side": 1,
+      "message": "Hi Jack, please help review this change to show CSS selector stats in the DevTools performance panel.\n\nThanks,\nGavin",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f2d383_da8d75f6",
+        "filename": "test/e2e/performance/selector-stats-tracing_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-08T07:34:40Z",
+      "side": 1,
+      "message": "this test depends on the backend change: https://chromium-review.googlesource.com/c/chromium/src/+/5100834",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 97
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
