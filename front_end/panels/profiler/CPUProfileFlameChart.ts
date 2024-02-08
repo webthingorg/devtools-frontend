@@ -123,7 +123,8 @@ export class ProfileFlameChartDataProvider implements PerfUI.FlameChart.FlameCha
 
   decorateEntry(
       _entryIndex: number, _context: CanvasRenderingContext2D, _text: string|null, _barX: number, _barY: number,
-      _barWidth: number, _barHeight: number): boolean {
+      _barWidth: number, _barHeight: number, _unclippedBarX: number, _timeToPixelRatio: number,
+      _backgroundColor: string): boolean {
     return false;
   }
 
@@ -132,7 +133,7 @@ export class ProfileFlameChartDataProvider implements PerfUI.FlameChart.FlameCha
   }
 
   textColor(_entryIndex: number): string {
-    return '#333';
+    return 'default';
   }
 
   entryNodesLength(): number {

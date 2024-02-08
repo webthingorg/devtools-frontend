@@ -32,15 +32,6 @@ const DefaultStyle: () => PerfUI.FlameChart.GroupStyle = () => ({
 export const HotColorScheme = ['#ffba08', '#faa307', '#f48c06', '#e85d04', '#dc2f02', '#d00000', '#9d0208'];
 export const ColdColorScheme = ['#7400b8', '#6930c3', '#5e60ce', '#5390d9', '#4ea8de', '#48bfe3', '#56cfe1', '#64dfdf'];
 
-function calculateFontColor(backgroundColor: string): string {
-  const parsedColor = Common.Color.parse(backgroundColor)?.as(Common.Color.Format.HSL);
-  // Dark background needs a light font.
-  if (parsedColor && parsedColor.l < 0.5) {
-    return '#eee';
-  }
-  return '#444';
-}
-
 interface EventHandlers {
   setLive: (arg0: number) => number;
   setComplete: (arg0: number) => void;
@@ -68,7 +59,6 @@ export class Event {
   private liveInternal: boolean;
   title: string;
   private colorInternal: string;
-  private fontColorInternal: string;
   private readonly hoverData: Object;
 
   constructor(
@@ -99,7 +89,6 @@ export class Event {
 
     this.title = eventProperties['name'] || '';
     this.colorInternal = eventProperties['color'] || HotColorScheme[0];
-    this.fontColorInternal = calculateFontColor(this.colorInternal);
     this.hoverData = eventProperties['hoverData'] || {};
   }
 
@@ -150,7 +139,6 @@ export class Event {
 
   set color(color: string) {
     this.colorInternal = color;
-    this.fontColorInternal = calculateFontColor(this.colorInternal);
   }
 
   get color(): string {
@@ -158,7 +146,7 @@ export class Event {
   }
 
   get fontColor(): string {
-    return this.fontColorInternal;
+    return 'default';
   }
 
   get startTime(): number {
@@ -481,7 +469,8 @@ class TickingFlameChartDataProvider implements PerfUI.FlameChart.FlameChartDataP
 
   decorateEntry(
       _index: number, _context: CanvasRenderingContext2D, _text: string|null, _barX: number, _barY: number,
-      _barWidth: number, _barHeight: number, _unclippedBarX: number, _timeToPixelRatio: number): boolean {
+      _barWidth: number, _barHeight: number, _unclippedBarX: number, _timeToPixelRatio: number,
+      _backgroundColor: string): boolean {
     return false;
   }
 

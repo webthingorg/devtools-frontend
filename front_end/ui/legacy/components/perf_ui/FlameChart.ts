@@ -2025,14 +2025,19 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         );
       }
       const unclippedBarX = this.chartViewport.timeToPosition(entryStartTime);
+
+      const textColor = this.dataProvider.textColor(entryIndex);
+      const backgroundColor = this.dataProvider.entryColor(entryIndex);
       if (this.dataProvider.decorateEntry(
-              entryIndex, context, text, barX, barY, barWidth, barHeight, unclippedBarX, timeToPixel)) {
+              entryIndex, context, text, barX, barY, barWidth, barHeight, unclippedBarX, timeToPixel,
+              backgroundColor)) {
         continue;
       }
       if (!text || !text.length) {
         continue;
       }
-      context.fillStyle = this.dataProvider.textColor(entryIndex);
+
+      context.fillStyle = FlameChartColorHelper.colorForStyle(textColor, backgroundColor);
       context.fillText(text, barX + textPadding, barY + barHeight - this.textBaseline);
     }
 
@@ -2157,7 +2162,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
           context.fillStyle = color;
           context.fillRect(barX, y, barWidth, groupBarHeight - 1);
           this.dataProvider.decorateEntry(
-              entryIndex, context, '', barX, y, barWidth, groupBarHeight, unclippedBarX, timeToPixel);
+              entryIndex, context, '', barX, y, barWidth, groupBarHeight, unclippedBarX, timeToPixel, color);
           continue;
         }
         range.append(new Common.SegmentedRange.Segment(barX, endBarX, color));
@@ -3046,17 +3051,64 @@ export interface FlameChartDataProvider {
 
   decorateEntry(
       entryIndex: number, context: CanvasRenderingContext2D, text: string|null, barX: number, barY: number,
-      barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number): boolean;
+      barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number, barColor: string): boolean;
 
   forceDecoration(entryIndex: number): boolean;
 
-  textColor(entryIndex: number): string;
+  /**
+   * The flame chart will be responsible for choosing an appropriate text color if this method returns
+   * 'default' or 'disabled'. Otherwise, the returned string will be used as the text color.
+   */
+  textColor(entryIndex: number): 'default'|'disabled'|string;
 
   mainFrameNavigationStartEvents?(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[];
 
   modifyTree?(group: Group, node: number, action: TraceEngine.EntriesFilter.FilterAction): void;
 
   findPossibleContextMenuActions?(group: Group, node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
+}
+
+export class FlameChartColorHelper {
+  static defaultColorForLightText = '#fff';
+  static defaultColorForDarkText = '#333';
+  static defaultColorForDisabledText = '#888';
+
+  // Based on the background having a luminance value of 140 of 256
+  static darkTextUsageThreshold = 0.546875;
+
+  static readonly #contrastingColorMap = new Map<string, string>();
+
+  static textColorForBackground(background: string): string {
+    const precomputedColor = this.#contrastingColorMap.get(background);
+    if (precomputedColor) {
+      return precomputedColor;
+    }
+
+    const parsed = Common.Color.parse(background);
+    if (parsed) {
+      const luminance = Common.ColorUtils.luminance(parsed.asLegacyColor().rgba());
+      if (luminance > this.darkTextUsageThreshold) {
+        this.#contrastingColorMap.set(background, this.defaultColorForDarkText);
+        return this.defaultColorForDarkText;
+      }
+      this.#contrastingColorMap.set(background, this.defaultColorForLightText);
+      return this.defaultColorForLightText;
+    }
+    // Matches old behavior
+    return this.defaultColorForDarkText;
+  }
+
+  static colorForStyle(style: 'default'|'disabled'|string, backgroundColor: string): string {
+    if (style === 'disabled') {
+      return this.defaultColorForDisabledText;
+    }
+
+    if (style === 'default') {
+      return this.textColorForBackground(backgroundColor);
+    }
+
+    return style;
+  }
 }
 
 export interface FlameChartMarker {
