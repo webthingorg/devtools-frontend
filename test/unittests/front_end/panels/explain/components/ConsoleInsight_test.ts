@@ -112,5 +112,27 @@ describeWithLocale('ConsoleInsight', () => {
       const content = component.shadowRoot!.querySelector('main')!.innerText.trim();
       assert.strictEqual(content, 'This feature is only available if have sync enabled for your Chrome account.');
     });
+
+    it('report if the navigator is offline', async () => {
+      const navigator = globalThis.navigator;
+      Object.defineProperty(globalThis, 'navigator', {
+        get() {
+          return {onLine: false};
+        },
+      });
+
+      try {
+        const component = new Explain.ConsoleInsight(getTestPromptBuilder(), getTestInsightProvider(), '', {
+          isSyncActive: false,
+          accountEmail: 'some-email',
+        });
+        renderElementIntoDOM(component);
+        await drainMicroTasks();
+        const content = component.shadowRoot!.querySelector('main')!.innerText.trim();
+        assert.strictEqual(content, 'Internet connection is currently not available.');
+      } finally {
+        Object.defineProperty(globalThis, 'navigator', navigator);
+      }
+    });
   });
 });
