@@ -79,7 +79,7 @@ export class Runtime {
 
   static isDescriptorEnabled(descriptor: {
     experiment: ((string | undefined)|null),
-    condition: ((string | undefined)|null),
+    condition?: Condition,
   }): boolean {
     const activatorExperiment = descriptor['experiment'];
     if (activatorExperiment === '*') {
@@ -93,13 +93,7 @@ export class Runtime {
       return false;
     }
     const condition = descriptor['condition'];
-    if (condition && !condition.startsWith('!') && !Runtime.queryParam(condition)) {
-      return false;
-    }
-    if (condition && condition.startsWith('!') && Runtime.queryParam(condition.substring(1))) {
-      return false;
-    }
-    return true;
+    return condition ? condition() : true;
   }
 
   loadLegacyModule(modulePath: string): Promise<void> {
@@ -299,6 +293,12 @@ export const enum ExperimentName {
   INDENTATION_MARKERS_TEMP_DISABLE = 'sourcesFrameIndentationMarkersTemporarilyDisable',
 }
 
-export const enum ConditionName {
-  CAN_DOCK = 'can_dock',
-}
+/**
+ * When defining conditions make sure that objects used by the function have
+ * been instantiated.
+ */
+export type Condition = () => boolean;
+
+export const conditions = {
+  canDock: (): boolean => Boolean(Runtime.queryParam('can_dock')),
+};
