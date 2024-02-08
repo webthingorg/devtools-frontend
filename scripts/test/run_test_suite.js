@@ -57,10 +57,15 @@ const yargsObject =
           desc:
               'Mocha\'s fgrep option [https://mochajs.org/#-fgrep-string-f-string] which only runs tests whose titles contain the provided string',
         })
+        .option('mocha-grep', {
+          type: 'string',
+          desc:
+              'Mocha\'s grep option [--grep <regexp>, -g <regexp>] which only runs tests whose titles matches the provided regular expression',
+        })
         .option('invert', {
           type: 'boolean',
           desc:
-              'Mocha\'s invert option [https://mochajs.org/#-invert] which inverts the match specified by mocha-fgrep',
+              'Mocha\'s invert option [https://mochajs.org/#-invert] which inverts the match specified by mocha-fgrep and mocha-grep',
           default: false,
         })
         .option('mocha-reporter', {
@@ -249,6 +254,7 @@ function executeTestSuite({
   if (jobs > 1) {
     argumentsForNode.push(`--jobs=${jobs}`);
   }
+
   const result = childProcess.spawnSync(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
 
   if (result.error) {
@@ -335,6 +341,7 @@ function main() {
       cwd: configurationFlags['cwd'],
       mochaOptions: {
         fgrep: configurationFlags['mocha-fgrep'],
+        grep: configurationFlags['mocha-grep'],
         invert: configurationFlags['invert'],
         reporter: configurationFlags['mocha-reporter'],
         'reporter-option': configurationFlags['mocha-reporter-option'],
