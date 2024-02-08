@@ -20,20 +20,30 @@ describe('Event listeners in the elements sidebar', async () => {
     await loadEventListenersAndSelectButtonNode();
   });
 
-  it('lists the active event listeners on the page', async () => {
+  it('lists the active event listeners on the page', async (done) => {
+    setTimeout(done, 9000);
+    console.log("before all");
     await openEventListenersPaneAndWaitForListeners();
+    console.log("after open pane, wait for listeners");
 
     const eventListenerNames = await getDisplayedEventListenerNames();
+    console.log("after get names");
     assert.deepEqual(eventListenerNames, ['click', 'custom event', 'hover']);
+    console.log("after assert");
   });
 
-  it('shows the event listener properties when expanding it', async () => {
+  it('shows the event listener properties when expanding it', async (done) => {
+    setTimeout(done, 9000);
+    console.log("start");
     const {frontend} = getBrowserAndPages();
+    console.log("after get browser and pages");
     await openEventListenersPaneAndWaitForListeners();
+    console.log("after pane and listeners");
     const {
       firstListenerText,
       listenerSelector,
     } = await getFirstNodeForEventListener('[aria-label="click, event listener"]');
+    console.log("after get node for listener");
 
     // check that we have the right event for the right element
     // we can't use assert.strictEqual() as the text also includes the "Remove" button
@@ -44,11 +54,15 @@ describe('Event listeners in the elements sidebar', async () => {
     // tree and double click triggers the "Remove" button on
     // some platforms.
     await frontend.keyboard.press('ArrowRight');  // select
+    console.log("after 1st arrow right");
     await frontend.keyboard.press('ArrowRight');  // expand
+    console.log("after 2nd arrow right");
     await waitFor(`${listenerSelector}[aria-expanded="true"]`);
+    console.log("after listener selection");
 
     const clickEventPropertiesSelector = `${listenerSelector} + ol .name-and-value`;
     const propertiesOutput = await getEventListenerProperties(clickEventPropertiesSelector);
+    console.log("after  listener properties");
 
     assert.deepEqual(propertiesOutput, [
       ['useCapture', 'false'],
@@ -56,15 +70,20 @@ describe('Event listeners in the elements sidebar', async () => {
       ['once', 'false'],
       ['handler', '() => {}'],
     ]);
+    console.log("end");
   });
 
-  it('shows custom event listeners and their properties correctly', async () => {
+  it('shows custom event listeners and their properties correctly', async (done) => {
+    setTimeout(done, 9000);
+    console.log("before all");
     const {frontend} = getBrowserAndPages();
     await openEventListenersPaneAndWaitForListeners();
+    console.log("after open pain, wait for listeners");
     const {
       firstListenerText,
       listenerSelector,
     } = await getFirstNodeForEventListener('[aria-label="custom event, event listener"]');
+    console.log("after get first node");
 
     // check that we have the right event for the right element
     // we can't use assert.strictEqual() as the text also includes the "Remove" button
@@ -75,11 +94,15 @@ describe('Event listeners in the elements sidebar', async () => {
     // tree and double click triggers the "Remove" button on
     // some platforms.
     await frontend.keyboard.press('ArrowRight');  // select
+    console.log("after right press");
     await frontend.keyboard.press('ArrowRight');  // expand
+    console.log("after another right press");
     await waitFor(`${listenerSelector}[aria-expanded="true"]`);
+    console.log("after listener select");
 
     const customEventProperties = `${listenerSelector} + ol .name-and-value`;
     const propertiesOutput = await getEventListenerProperties(customEventProperties);
+    console.log("after event listener properties");
 
     assert.deepEqual(propertiesOutput, [
       ['useCapture', 'true'],
@@ -87,5 +110,6 @@ describe('Event listeners in the elements sidebar', async () => {
       ['once', 'true'],
       ['handler', '() => console.log(\'test\')'],
     ]);
+    console.log("end");
   });
 });

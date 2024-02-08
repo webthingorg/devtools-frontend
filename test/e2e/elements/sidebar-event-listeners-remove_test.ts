@@ -18,23 +18,30 @@ describe('Removing event listeners in the elements sidebar', async () => {
     await loadEventListenersAndSelectButtonNode();
   });
 
-  it('shows "Remove" by each node for a given event', async () => {
+  it('shows "Remove" by each node for a given event', async (done) => {
+    setTimeout(done, 9000);
+    console.log("before all");
     await openEventListenersPaneAndWaitForListeners();
+    console.log("after open pane, wait for listeners");
     const {
       firstListenerText,
       listenerSelector,
     } = await getFirstNodeForEventListener('[aria-label="click, event listener"]');
+    console.log("after get first node for listener");
 
     // check that we have the right event for the right element
     // and that it has the "Remove" button within it
     assert.include(firstListenerText, 'button#test-button');
     assert.include(firstListenerText, 'Remove');
+    console.log("after asserts");
 
     const removeButtonSelector = `${listenerSelector} .event-listener-button`;
     await click(removeButtonSelector);
+    console.log("after click");
 
     // now we can check that the 'click' event is gone
     const eventListenerNames = await getDisplayedEventListenerNames();
+    console.log("after displayed listener names");
     assert.deepEqual(eventListenerNames, ['custom event', 'hover']);
   });
 });
