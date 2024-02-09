@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b18f28c_ebe096e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-09T01:30:50Z",
+      "side": 1,
+      "message": "Thanks! This CL is ready for review now. However I am not able to get a screenshot of \"after\" yet due to a backend bug which I am fixing (crrev.com/c/5279619). Since that fix also takes time to be reviewed - do you know how to run devtools_frontend changes with a local chromium instance?",
+      "parentUuid": "ecd61f45_c1c069ad",
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c2ab937_307340f5",
         "filename": "front_end/core/sdk/NetworkManager.ts",
         "patchSetId": 2
@@ -49,6 +67,30 @@
       "writtenOn": "2024-02-07T15:10:27Z",
       "side": 1,
       "message": "typo: Response\n```suggestion\n      exemptedResponseCookies: exemptedCookies?.map(exemptedCookie \u003d\u003e {\n```",
+      "range": {
+        "startLine": 929,
+        "startChar": 14,
+        "endLine": 929,
+        "endChar": 23
+      },
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9655de_75ddec8a",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-09T01:30:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c2ab937_307340f5",
       "range": {
         "startLine": 929,
         "startChar": 14,
@@ -72,6 +114,30 @@
       "writtenOn": "2024-02-07T15:10:27Z",
       "side": 1,
       "message": "typo: Response\n```suggestion\n  exemptedResponseCookies: {\n```",
+      "range": {
+        "startLine": 2054,
+        "startChar": 10,
+        "endLine": 2054,
+        "endChar": 18
+      },
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2f5be4_9fd636d2",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2054,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-09T01:30:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c3464e9_4111b8e9",
       "range": {
         "startLine": 2054,
         "startChar": 10,
