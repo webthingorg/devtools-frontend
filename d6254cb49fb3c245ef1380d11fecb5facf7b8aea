@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e64ffcc_4610cb95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-09T10:04:39Z",
+      "side": 1,
+      "message": "PTAL, I hope it makes sense. The existing logic is a bit hard to follow with the 4 state variables.",
+      "revId": "d6254cb49fb3c245ef1380d11fecb5facf7b8aea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
