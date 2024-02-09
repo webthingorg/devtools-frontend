@@ -47,6 +47,7 @@ import {
   Events as NetworkRequestEvents,
   type ExtraRequestInfo,
   type ExtraResponseInfo,
+  type IncludedCookieWithReason,
   type NameValue,
   NetworkRequest,
   type WebBundleInfo,
@@ -881,10 +882,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       {requestId, associatedCookies, headers, clientSecurityState, connectTiming, siteHasCookieInOtherPartition}:
           Protocol.Network.RequestWillBeSentExtraInfoEvent): void {
     const blockedRequestCookies: BlockedCookieWithReason[] = [];
-    const includedRequestCookies = [];
-    for (const {blockedReasons, cookie} of associatedCookies) {
+    const includedRequestCookies: IncludedCookieWithReason[] = [];
+    for (const {blockedReasons, exemptionReason, cookie} of associatedCookies) {
       if (blockedReasons.length === 0) {
-        includedRequestCookies.push(Cookie.fromProtocolCookie(cookie));
+        includedRequestCookies.push({exemptionReason, cookie: Cookie.fromProtocolCookie(cookie)});
       } else {
         blockedRequestCookies.push({blockedReasons, cookie: Cookie.fromProtocolCookie(cookie)});
       }
@@ -909,6 +910,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     statusCode,
     cookiePartitionKey,
     cookiePartitionKeyOpaque,
+    exemptedCookies,
   }: Protocol.Network.ResponseReceivedExtraInfoEvent): void {
     const extraResponseInfo: ExtraResponseInfo = {
       blockedResponseCookies: blockedCookies.map(blockedCookie => {
@@ -924,6 +926,12 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
       statusCode,
       cookiePartitionKey,
       cookiePartitionKeyOpaque,
+      exemptedResponseCookies: exemptedCookies?.map(exemptedCookie => {
+        return {
+          cookie: Cookie.fromProtocolCookie(exemptedCookie.cookie),
+          exemptionReason: exemptedCookie.exemptionReason,
+        };
+      }),
     };
     this.getExtraInfoBuilder(requestId).addResponseExtraInfo(extraResponseInfo);
   }
