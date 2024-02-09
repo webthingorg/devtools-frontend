@@ -99,9 +99,12 @@ async function performActionOnSelector(
     }
   }
   return waitForFunction(async () => {
+    console.error('[helper > helper] before first await in perform action on selector');
     const element = await waitFor(selector, options?.root, undefined, queryHandler);
     try {
+      console.error('[helper > helper] before action');
       await action(element);
+      console.error('[helper > helper] after action');
       return element;
     } catch (err) {
       // A bit of delay to not retry too often.

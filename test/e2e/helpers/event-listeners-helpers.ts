@@ -33,8 +33,11 @@ const EVENT_LISTENERS_PANEL_LINK = '[aria-label="Event Listeners"]';
 const EVENT_LISTENERS_SELECTOR = '[aria-label$="event listener"]:not(.hidden)';
 
 export const openEventListenersPaneAndWaitForListeners = async () => {
+  console.error('[helper] start');
   await click(EVENT_LISTENERS_PANEL_LINK);
+  console.error('[helper] after link click');
   await waitFor(EVENT_LISTENERS_SELECTOR);
+  console.error('[helper] after waiting for listeners selector');
 };
 
 export const getDisplayedEventListenerNames = async () => {
