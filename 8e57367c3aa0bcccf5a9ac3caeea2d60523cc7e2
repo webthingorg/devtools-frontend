@@ -116,6 +116,30 @@
       },
       "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a2351f1_c8a8c256",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-09T09:07:26Z",
+      "side": 1,
+      "message": "Right, I mean available in terms defined by the current \"condition\" implementation.",
+      "parentUuid": "784c4d1d_752b7e51",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
