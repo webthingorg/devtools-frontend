@@ -22,7 +22,7 @@ const renderIssueCounter = (data: IssueCounter.IssueCounter.IssueCounterData):
     };
 
 export const extractIconGroups =
-    (shadowRoot: ShadowRoot): {iconData: IconButton.Icon.IconData, label: string|null}[] => {
+    (shadowRoot: ShadowRoot) => {
       const iconButton = shadowRoot.querySelector('icon-button');
       assertElement(iconButton, IconButton.IconButton.IconButton);
       const iconButtonShadowRoot = iconButton.shadowRoot;
@@ -41,7 +41,7 @@ export const extractIconGroups =
       return iconGroups;
     };
 
-export const extractButton = (shadowRoot: ShadowRoot): HTMLButtonElement => {
+export const extractButton = (shadowRoot: ShadowRoot) => {
   const iconButton = shadowRoot.querySelector('icon-button');
   assertElement(iconButton, IconButton.IconButton.IconButton);
   const iconButtonShadowRoot = iconButton.shadowRoot;

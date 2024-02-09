@@ -137,7 +137,7 @@ export class FirefoxTargetManager
 
   #onTargetCreated = async (
     event: Protocol.Target.TargetCreatedEvent
-  ): Promise<void> => {
+  ) => {
     if (this.#discoveredTargetsByTargetId.has(event.targetInfo.targetId)) {
       return;
     }
@@ -166,7 +166,7 @@ export class FirefoxTargetManager
     this.#finishInitializationIfReady(target._targetId);
   };
 
-  #onTargetDestroyed = (event: Protocol.Target.TargetDestroyedEvent): void => {
+  #onTargetDestroyed = (event: Protocol.Target.TargetDestroyedEvent) => {
     this.#discoveredTargetsByTargetId.delete(event.targetId);
     this.#finishInitializationIfReady(event.targetId);
     const target = this.#availableTargetsByTargetId.get(event.targetId);

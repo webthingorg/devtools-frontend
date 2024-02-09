@@ -14,7 +14,7 @@
 export const querySelectorShadowTextOne = (
     element: Element|Document|ShadowRoot,
     text: string,
-    ): Element|null => {
+    ) => {
   let found: Element|null = null;
   const search = (root: Element|ShadowRoot) => {
     const iter = document.createTreeWalker(
@@ -44,7 +44,7 @@ export const querySelectorShadowTextOne = (
 export const querySelectorShadowTextAll = (
     element: Element|Document,
     selector: string,
-    ): Element[] => {
+    ) => {
   const result: Element[] = [];
   const collect = (root: Element|ShadowRoot) => {
     const iter = document.createTreeWalker(

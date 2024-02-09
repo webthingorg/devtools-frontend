@@ -193,7 +193,7 @@ export class IsolatedWorld extends Realm {
 
   #onBindingCalled = async (
     event: Protocol.Runtime.BindingCalledEvent
-  ): Promise<void> => {
+  ) => {
     let payload: BindingPayload;
     try {
       payload = JSON.parse(event.payload);

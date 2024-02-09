@@ -68,7 +68,7 @@ export class ExecutionContext {
           new Binding('__ariaQuerySelectorAll', (async (
             element: ElementHandle<Node>,
             selector: string
-          ): Promise<JSHandle<Node[]>> => {
+          ) => {
             const results = ARIAQueryHandler.queryAll(element, selector);
             return await element.realm.evaluateHandle(
               (...elements) => {
@@ -359,7 +359,7 @@ export class ExecutionContext {
   }
 }
 
-const rewriteError = (error: Error): Protocol.Runtime.EvaluateResponse => {
+const rewriteError = (error: Error) => {
   if (error.message.includes('Object reference chain is too long')) {
     return {result: {type: 'undefined'}};
   }

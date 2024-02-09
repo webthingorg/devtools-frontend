@@ -10,7 +10,7 @@
 export const pierceQuerySelector = (
   root: Node,
   selector: string
-): Element | null => {
+) => {
   let found: Node | null = null;
   const search = (root: Node) => {
     const iter = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
@@ -40,7 +40,7 @@ export const pierceQuerySelector = (
 export const pierceQuerySelectorAll = (
   element: Node,
   selector: string
-): Element[] => {
+) => {
   const result: Element[] = [];
   const collect = (root: Node) => {
     const iter = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);

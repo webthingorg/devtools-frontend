@@ -65,7 +65,7 @@ export async function importDebug(): Promise<typeof Debug> {
  *
  * @internal
  */
-export const debug = (prefix: string): ((...args: unknown[]) => void) => {
+export const debug = (prefix: string) => void) => {
   if (isNode) {
     return async (...logArgs: unknown[]) => {
       if (captureLogs) {
@@ -75,7 +75,7 @@ export const debug = (prefix: string): ((...args: unknown[]) => void) => {
     };
   }
 
-  return (...logArgs: unknown[]): void => {
+  return (...logArgs: unknown[]) => {
     const debugLevel = (globalThis as any).__PUPPETEER_DEBUG;
     if (!debugLevel) {
       return;

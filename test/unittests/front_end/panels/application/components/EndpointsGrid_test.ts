@@ -15,7 +15,7 @@ const {assert} = chai;
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 const renderEndpointsGrid =
-    async(data?: ApplicationComponents.EndpointsGrid.EndpointsGridData|null): Promise<HTMLElement> => {
+    async(data?: ApplicationComponents.EndpointsGrid.EndpointsGridData|null) => {
   const component = new ApplicationComponents.EndpointsGrid.EndpointsGrid();
   if (data) {
     component.data = data;

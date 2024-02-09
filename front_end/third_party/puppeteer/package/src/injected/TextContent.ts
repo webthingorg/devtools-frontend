@@ -15,7 +15,7 @@ const TRIVIAL_VALUE_INPUT_TYPES = new Set(['checkbox', 'image', 'radio']);
  *
  * @internal
  */
-const isNonTrivialValueNode = (node: Node): node is NonTrivialValueNode => {
+const isNonTrivialValueNode = (node: Node) => {
   if (node instanceof HTMLSelectElement) {
     return true;
   }
@@ -38,7 +38,7 @@ const UNSUITABLE_NODE_NAMES = new Set(['SCRIPT', 'STYLE']);
  *
  * @internal
  */
-export const isSuitableNodeForTextMatching = (node: Node): boolean => {
+export const isSuitableNodeForTextMatching = (node: Node) => {
   return (
     !UNSUITABLE_NODE_NAMES.has(node.nodeName) && !document.head?.contains(node)
   );
@@ -88,7 +88,7 @@ const textChangeObserver = new MutationObserver(mutations => {
  *
  * @internal
  */
-export const createTextContent = (root: Node): TextContent => {
+export const createTextContent = (root: Node) => {
   let value = textContentCache.get(root);
   if (value) {
     return value;

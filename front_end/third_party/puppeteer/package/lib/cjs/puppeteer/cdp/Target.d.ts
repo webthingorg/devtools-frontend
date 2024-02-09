@@ -37,7 +37,7 @@ export declare class CdpTarget extends Target {
     asPage(): Promise<Page>;
     _subtype(): string | undefined;
     _session(): CDPSession | undefined;
-    protected _sessionFactory(): (isAutoAttachEmulated: boolean) => Promise<CDPSession>;
+    protected _sessionFactory() => Promise<CDPSession>;
     createCDPSession(): Promise<CDPSession>;
     url(): string;
     type(): TargetType;

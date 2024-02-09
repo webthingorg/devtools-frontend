@@ -35,7 +35,7 @@ export const setBrowserAndPages = (newValues: BrowserAndPages) => {
   ({target, frontend, browser} = newValues);
 };
 
-export const getBrowserAndPages = (): BrowserAndPages => {
+export const getBrowserAndPages = () => {
   if (!target) {
     throw new Error('Unable to locate target page. Was it stored first?');
   }

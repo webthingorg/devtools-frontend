@@ -19,7 +19,7 @@ describeWithLocale('RequestTrustTokensView', () => {
   const mockId = 'mockId' as Protocol.Network.RequestId;
 
   const makeRequest = (params?: Protocol.Network.TrustTokenParams,
-                       result?: Protocol.Network.TrustTokenOperationDoneEvent): SDK.NetworkRequest.NetworkRequest => {
+                       result?: Protocol.Network.TrustTokenOperationDoneEvent) => {
     return {trustTokenParams: () => params, trustTokenOperationDoneEvent: () => result} as
         SDK.NetworkRequest.NetworkRequest;
   };

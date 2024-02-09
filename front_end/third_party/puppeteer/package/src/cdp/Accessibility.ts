@@ -459,7 +459,7 @@ class AXNode {
       'roledescription',
       'valuetext',
     ];
-    const getUserStringPropertyValue = (key: UserStringProperty): string => {
+    const getUserStringPropertyValue = (key: UserStringProperty) => {
       return properties.get(key) as string;
     };
 
@@ -492,7 +492,7 @@ class AXNode {
       'required',
       'selected',
     ];
-    const getBooleanPropertyValue = (key: BooleanProperty): boolean => {
+    const getBooleanPropertyValue = (key: BooleanProperty) => {
       return properties.get(key) as boolean;
     };
 
@@ -527,7 +527,7 @@ class AXNode {
       'valuemax',
       'valuemin',
     ];
-    const getNumericalPropertyValue = (key: NumbericalProperty): number => {
+    const getNumericalPropertyValue = (key: NumbericalProperty) => {
       return properties.get(key) as number;
     };
     for (const numericalProperty of numericalProperties) {
@@ -548,7 +548,7 @@ class AXNode {
       'invalid',
       'orientation',
     ];
-    const getTokenPropertyValue = (key: TokenProperty): string => {
+    const getTokenPropertyValue = (key: TokenProperty) => {
       return properties.get(key) as string;
     };
     for (const tokenProperty of tokenProperties) {

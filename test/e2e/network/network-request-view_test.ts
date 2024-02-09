@@ -234,7 +234,7 @@ describe('The Network Request view', async () => {
   }
 
   const waitForMessages =
-      async(messagesView: puppeteer.ElementHandle<Element>, count: number): Promise<EventSourceMessageRaw[]> => {
+      async(messagesView: puppeteer.ElementHandle<Element>, count: number) => {
     return waitForFunction(async () => {
       const messages = await $$('.data-grid-data-grid-node', messagesView);
       if (messages.length !== count) {
@@ -268,7 +268,7 @@ describe('The Network Request view', async () => {
     assert.deepEqual(actualMessage.type, expectedMessage.type);
     assert.deepEqual(actualMessage.data, expectedMessage.data);
   };
-  const assertBaseState = async(messagesView: puppeteer.ElementHandle<Element>): Promise<void> => {
+  const assertBaseState = async(messagesView: puppeteer.ElementHandle<Element>) => {
     const messages = await waitForMessages(messagesView, 3);
     assertMessage(messages[0], knownMessages[0]);
     assertMessage(messages[1], knownMessages[1]);

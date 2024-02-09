@@ -107,23 +107,23 @@ const nodeBelgraveHouse = {
 const nodeLondon = {
   treeNodeData: 'LON',
   id: 'LON',
-  children: async(): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> =>
+  children: async() =>
       [{treeNodeData: '6PS', id: '6PS'}, {treeNodeData: 'CSG', id: 'CSG'}, nodeBelgraveHouse],
 };
 
 const nodeUK = {
   treeNodeData: 'UK',
   id: 'UK',
-  children: async(): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [nodeLondon],
+  children: async() => [nodeLondon],
 };
 
 const nodeEurope = {
   treeNodeData: 'Europe',
   id: 'Europe',
-  children: async(): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [nodeUK, {
+  children: async() => [nodeUK, {
     treeNodeData: 'Germany',
     id: 'Germany',
-    children: async(): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> =>
+    children: async() =>
         [{treeNodeData: 'MUC', id: 'MUC'}, {treeNodeData: 'BER', id: 'BER'}],
   }],
 };
@@ -131,7 +131,7 @@ const nodeEurope = {
 const nodeOffices = {
   treeNodeData: 'Offices',
   id: 'Offices',
-  children: async(): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [nodeEurope],
+  children: async() => [nodeEurope],
 };
 
 const basicTreeData: TreeOutline.TreeOutlineUtils.TreeNode<string>[] = [
@@ -139,7 +139,7 @@ const basicTreeData: TreeOutline.TreeOutlineUtils.TreeNode<string>[] = [
   {
     treeNodeData: 'Products',
     id: '1',
-    children: async(): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> =>
+    children: async() =>
         [{
           treeNodeData: 'Chrome',
           id: '2',
@@ -177,15 +177,15 @@ The structure represented by nodeAustralia is:
 const nodeAustralia = {
   treeNodeData: 'Australia',
   id: 'australia',
-  children: async (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [
+  children: async () => [
     {
       treeNodeData: 'SA',
       id: 'sa',
-      children: async (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [
+      children: async () => [
         {
           treeNodeData: 'Adelaide',
           id: 'adelaide',
-          children: async (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [
+          children: async () => [
             {treeNodeData: 'Toorak Gardens', id: 'toorak'},
             {treeNodeData: 'Woodville South', id: 'woodville'},
             {treeNodeData: 'Gawler', id: 'gawler'},
@@ -196,7 +196,7 @@ const nodeAustralia = {
     {
       treeNodeData: 'NSW',
       id: 'nsw',
-      children: async (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [
+      children: async () => [
         {treeNodeData: 'Glebe', id: 'glebe'},
         {treeNodeData: 'Newtown', id: 'newtown'},
         {treeNodeData: 'Camperdown', id: 'camperdown'},
@@ -386,7 +386,7 @@ describe('TreeOutline', () => {
       treeNodeData: {property: 'name', value: 'jack'},
       id: '0',
       renderer: customRenderer,
-      children: async(): Promise<TreeOutline.TreeOutlineUtils.TreeNode<CustomTreeKeyType>[]> =>
+      children: async() =>
           [{
             renderer: customRenderer,
             id: '1',
@@ -1309,15 +1309,15 @@ describe('TreeOutline', () => {
       const newNodeAustralia = {
         treeNodeData: 'New Australia',
         id: 'australia',
-        children: async (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [
+        children: async () => [
           {
             treeNodeData: 'Different SA',
             id: 'sa',
-            children: async (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [
+            children: async () => [
               {
                 treeNodeData: 'Phantom Adelaide',
                 id: 'adelaide',
-                children: async (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> => [
+                children: async () => [
                   {treeNodeData: 'Totally not Gawler', id: 'gawler'},
                 ],
               },

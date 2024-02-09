@@ -12,7 +12,7 @@ const createdFunctions = new Map<string, (...args: unknown[]) => unknown>();
  */
 export const createFunction = (
   functionValue: string
-): ((...args: unknown[]) => unknown) => {
+) => unknown) => {
   let fn = createdFunctions.get(functionValue);
   if (fn) {
     return fn;
@@ -67,7 +67,7 @@ export function stringifyFunction(fn: (...args: never) => unknown): string {
 export const interpolateFunction = <T extends (...args: never[]) => unknown>(
   fn: T,
   replacements: Record<string, string>
-): T => {
+) => {
   let value = stringifyFunction(fn);
   for (const [name, jsValue] of Object.entries(replacements)) {
     value = value.replace(

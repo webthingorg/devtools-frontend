@@ -22,7 +22,7 @@ export type ComplexPSelectorList = ComplexPSelector[];
 TOKENS['combinator'] = /\s*(>>>>?|[\s>+~])\s*/g;
 
 const ESCAPE_REGEXP = /\\[\s\S]/g;
-const unquote = (text: string): string => {
+const unquote = (text: string) => {
   if (text.length <= 1) {
     return text;
   }

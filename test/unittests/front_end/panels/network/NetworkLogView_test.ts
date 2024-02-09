@@ -876,7 +876,7 @@ function setupRequestTypesDropdown() {
   const filterItems =
       Object.values(Common.ResourceType.resourceCategories).map(category => ({
                                                                   name: category.title(),
-                                                                  label: (): string => category.shortTitle(),
+                                                                  label: () => category.shortTitle(),
                                                                   title: category.title(),
                                                                 }));
 

@@ -162,7 +162,7 @@ export abstract class Locator<T> extends EventEmitter<LocatorEvents> {
     conditions: (
       conditions: Array<Action<T, never>>,
       signal?: AbortSignal
-    ): OperatorFunction<HandleFor<T>, HandleFor<T>> => {
+    ) => {
       return mergeMap((handle: HandleFor<T>) => {
         return merge(
           ...conditions.map(condition => {
@@ -173,7 +173,7 @@ export abstract class Locator<T> extends EventEmitter<LocatorEvents> {
     },
     retryAndRaceWithSignalAndTimer: <T>(
       signal?: AbortSignal
-    ): OperatorFunction<T, T> => {
+    ) => {
       const candidates = [];
       if (signal) {
         candidates.push(
@@ -258,7 +258,7 @@ export abstract class Locator<T> extends EventEmitter<LocatorEvents> {
   #waitForEnabledIfNeeded = <ElementType extends Node>(
     handle: HandleFor<ElementType>,
     signal?: AbortSignal
-  ): Observable<never> => {
+  ) => {
     if (!this.#waitForEnabled) {
       return EMPTY;
     }
@@ -293,7 +293,7 @@ export abstract class Locator<T> extends EventEmitter<LocatorEvents> {
    */
   #waitForStableBoundingBoxIfNeeded = <ElementType extends Element>(
     handle: HandleFor<ElementType>
-  ): Observable<never> => {
+  ) => {
     if (!this.#waitForStableBoundingBox) {
       return EMPTY;
     }
@@ -344,7 +344,7 @@ export abstract class Locator<T> extends EventEmitter<LocatorEvents> {
    */
   #ensureElementIsInTheViewportIfNeeded = <ElementType extends Element>(
     handle: HandleFor<ElementType>
-  ): Observable<never> => {
+  ) => {
     if (!this.#ensureElementIsInTheViewport) {
       return EMPTY;
     }
@@ -972,7 +972,7 @@ export class NodeLocator<T extends Node> extends Locator<T> {
    * than 'hidden' or 'collapse' and non-empty bounding box. visibility ===
    * 'hidden' means the opposite of that.
    */
-  #waitForVisibilityIfNeeded = (handle: HandleFor<T>): Observable<never> => {
+  #waitForVisibilityIfNeeded = (handle: HandleFor<T>) => {
     if (!this.visibility) {
       return EMPTY;
     }
@@ -1008,7 +1008,7 @@ export class NodeLocator<T extends Node> extends Locator<T> {
         }) as Promise<HandleFor<T> | null>
       );
     }).pipe(
-      filter((value): value is NonNullable<typeof value> => {
+      filter((value) => {
         return value !== null;
       }),
       throwIfEmpty(),

@@ -18,7 +18,7 @@ interface ExpectedMutation {
   type?: MutationType;
 }
 
-const nodeShouldBeIgnored = (node: Node): boolean => {
+const nodeShouldBeIgnored = (node: Node) => {
   const isCommentNode = node.nodeType === Node.COMMENT_NODE;
   const isTextNode = node.nodeType === Node.TEXT_NODE;
 
@@ -36,7 +36,7 @@ const nodeShouldBeIgnored = (node: Node): boolean => {
 };
 
 const observedMutationsThatMatchExpected =
-    (expectedMutation: ExpectedMutation, observedMutations: ObservedMutation[]): ObservedMutation[] => {
+    (expectedMutation: ExpectedMutation, observedMutations: ObservedMutation[]) => {
       const matching: ObservedMutation[] = [];
 
       for (const mutation of observedMutations) {
@@ -63,11 +63,11 @@ interface MutationCount {
   /* eslint-enable @typescript-eslint/naming-convention */
 }
 
-const getMutationsForTagName = (trackedMutations: Map<string, MutationCount>, tagName: string): MutationCount => {
+const getMutationsForTagName = (trackedMutations: Map<string, MutationCount>, tagName: string) => {
   return trackedMutations.get(tagName) || {ADD: 0, REMOVE: 0, TEXT_UPDATE: 0};
 };
 
-const getAllMutationCounts = (observedMutations: ObservedMutation[]): Map<string, MutationCount> => {
+const getAllMutationCounts = (observedMutations: ObservedMutation[]) => {
   const trackedMutations = new Map<string, MutationCount>();
 
   for (const mutation of observedMutations) {
@@ -126,7 +126,7 @@ const storeRelevantMutationEntries = (entries: MutationRecord[], storageArray: O
   }
 };
 
-const generateOutputForMutationList = (observedMutations: ObservedMutation[]): string => {
+const generateOutputForMutationList = (observedMutations: ObservedMutation[]) => {
   const debugOutput: string[] = [];
   const mutationCounts = getAllMutationCounts(observedMutations);
   const allMutations = Array.from(mutationCounts.entries());
@@ -168,7 +168,7 @@ const DEFAULT_MAX_MUTATIONS_LIMIT = 10;
  */
 export const withMutations = async<T extends Node>(
     expectedMutations: ExpectedMutation[], shadowRoot: T,
-    functionToObserve: (shadowRoot: T) => void): Promise<void> => {
+    functionToObserve: (shadowRoot: T) => void) => {
   const observedMutations: ObservedMutation[] = [];
   const mutationObserver = new MutationObserver(entries => {
     storeRelevantMutationEntries(entries, observedMutations);
@@ -238,11 +238,11 @@ export const withMutations = async<T extends Node>(
  * element and a callback, it will execute th e callback function and ensure
  * afterwards that a MutatonObserver saw no changes.
  */
-export const withNoMutations = async<T extends Node>(element: T, fn: (shadowRoot: T) => void): Promise<void> => {
+export const withNoMutations = async<T extends Node>(element: T, fn: (shadowRoot: T) => void) => {
   return await withMutations([], element, fn);
 };
 
-export const someMutations = async<T extends Node>(element: T): Promise<void> => {
+export const someMutations = async<T extends Node>(element: T) => {
   return new Promise<void>(resolve => {
     const observer = new MutationObserver(() => {
       resolve();

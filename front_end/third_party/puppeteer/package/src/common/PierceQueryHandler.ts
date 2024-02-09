@@ -16,14 +16,14 @@ export class PierceQueryHandler extends QueryHandler {
     element: Node,
     selector: string,
     {pierceQuerySelector}: PuppeteerUtil
-  ): Node | null => {
+  ) => {
     return pierceQuerySelector(element, selector);
   };
   static override querySelectorAll = (
     element: Node,
     selector: string,
     {pierceQuerySelectorAll}: PuppeteerUtil
-  ): Iterable<Node> => {
+  ) => {
     return pierceQuerySelectorAll(element, selector);
   };
 }

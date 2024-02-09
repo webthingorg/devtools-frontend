@@ -218,7 +218,7 @@ const enum MouseButtonFlag {
   Forward = 1 << 4,
 }
 
-const getFlag = (button: MouseButton): MouseButtonFlag => {
+const getFlag = (button: MouseButton) => {
   switch (button) {
     case MouseButton.Left:
       return MouseButtonFlag.Left;
@@ -239,7 +239,7 @@ const getFlag = (button: MouseButton): MouseButtonFlag => {
  */
 const getButtonFromPressedButtons = (
   buttons: number
-): Protocol.Input.MouseButton => {
+) => {
   if (buttons & MouseButtonFlag.Left) {
     return MouseButton.Left;
   } else if (buttons & MouseButtonFlag.Right) {

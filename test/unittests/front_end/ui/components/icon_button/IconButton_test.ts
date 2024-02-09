@@ -25,7 +25,7 @@ const defaultIcon: IconButton.IconButton.IconWithTextData = {
 };
 
 export const extractIconGroups =
-    (shadowRoot: ShadowRoot): {iconData: IconButton.Icon.IconData, label: string|null}[] => {
+    (shadowRoot: ShadowRoot) => {
       const icons = shadowRoot.querySelectorAll('.status-icon');
       assertElements(icons, IconButton.Icon.Icon);
       const labels = shadowRoot.querySelectorAll('.icon-button-title');
