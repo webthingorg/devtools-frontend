@@ -403,7 +403,7 @@ describe('The Sources Tab', async function() {
   });
 
   it('reliably hits breakpoints on worker with source map', async () => {
-    await enableExperiment('instrumentationBreakpoints');
+    await enableExperiment('instrumentation-breakpoints');
     const {target, frontend} = getBrowserAndPages();
     await openSourceCodeEditorForFile('sourcemap-stepping-source.js', 'sourcemap-breakpoint.html');
 
