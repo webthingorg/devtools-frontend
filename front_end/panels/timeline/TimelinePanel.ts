@@ -95,6 +95,10 @@ const UIStrings = {
    */
   clear: 'Clear',
   /**
+   *@description Text to fix performance
+   */
+  fixPerf: 'Fix Performance',
+  /**
    *@description Tooltip text that appears when hovering over the largeicon load button
    */
   loadProfile: 'Load profile…',
@@ -283,6 +287,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private controller!: TimelineController|null;
   private cpuProfiler!: SDK.CPUProfilerModel.CPUProfilerModel|null;
   private clearButton!: UI.Toolbar.ToolbarButton;
+  private fixPerfButton!: UI.Toolbar.ToolbarButton;
   private loadButton!: UI.Toolbar.ToolbarButton;
   private saveButton!: UI.Toolbar.ToolbarButton;
   private statusPane!: StatusPane|null;
@@ -529,6 +534,17 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (isNode) {
       this.panelToolbar.appendSeparator();
       this.panelToolbar.appendToolbarItem(isolateSelector);
+    }
+
+    // Fix perf
+    const dateObj = new Date();
+    const month = dateObj.getUTCMonth() + 1;
+    const day = dateObj.getUTCDate();
+    const isAprilFools = (month === 4 && day === 1) || true;  // TODO: show only on April fools
+    if (isAprilFools) {
+      this.fixPerfButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.fixPerf), 'wand');
+      this.fixPerfButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => this.onFixPerf());
+      this.panelToolbar.appendToolbarItem(this.fixPerfButton);
     }
 
     // Settings
@@ -1064,6 +1080,13 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private onClearButton(): void {
     this.#historyManager.clear();
     this.clear();
+  }
+
+  private onFixPerf(): void {
+    if (!this.performanceModel) {
+      return;
+    }
+    this.flameChart.fixPerf();
   }
 
   private clear(): void {
