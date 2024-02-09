@@ -231,6 +231,7 @@ devtools_svg_sources = [
   "triangle-right.svg",
   "triangle-up.svg",
   "undo.svg",
+  "wand.svg",
   "warning-filled.svg",
   "warning.svg",
   "watch.svg",
