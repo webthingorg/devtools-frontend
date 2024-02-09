@@ -92,6 +92,30 @@
       },
       "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "784c4d1d_752b7e51",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-09T09:00:21Z",
+      "side": 1,
+      "message": "Ah, I missunderstood. The meaning of \"available\" for me was \"visible but disabled\". But you treat \"unavailable\" as \"hidden in the settings screen\".",
+      "parentUuid": "19db2cd4_1e57fbf1",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
