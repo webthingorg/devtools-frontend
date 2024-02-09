@@ -117,7 +117,7 @@ export class BidiBrowserContext extends BrowserContext {
         return t.page();
       })
     );
-    return results.filter((p): p is BidiPage => {
+    return results.filter((p) => {
       return p !== null;
     });
   }

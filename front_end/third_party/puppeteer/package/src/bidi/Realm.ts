@@ -50,7 +50,7 @@ export class BidiRealm extends EventEmitter<Record<EventType, any>> {
 
   handleRealmDestroyed = async (
     params: Bidi.Script.RealmDestroyed['params']
-  ): Promise<void> => {
+  ) => {
     if (params.realm === this.#id) {
       // Note: The Realm is destroyed, so in theory the handle should be as
       // well.
@@ -59,7 +59,7 @@ export class BidiRealm extends EventEmitter<Record<EventType, any>> {
     }
   };
 
-  handleRealmCreated = (params: Bidi.Script.RealmCreated['params']): void => {
+  handleRealmCreated = (params: Bidi.Script.RealmCreated['params']) => {
     if (
       params.type === 'window' &&
       params.context === this.#sandbox.environment._id &&

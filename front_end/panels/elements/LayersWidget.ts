@@ -83,7 +83,7 @@ export class LayersWidget extends UI.Widget.Widget {
       return;
     }
     const makeTreeNode = (parentId: string) =>
-        (layer: Protocol.CSS.CSSLayerData): TreeOutline.TreeOutlineUtils.TreeNode<string> => {
+        (layer: Protocol.CSS.CSSLayerData) => {
           const subLayers = layer.subLayers;
           const name = SDK.CSSModel.CSSModel.readableLayerName(layer.name);
           const treeNodeData = layer.order + ': ' + name;
@@ -94,7 +94,7 @@ export class LayersWidget extends UI.Widget.Widget {
           return {
             treeNodeData,
             id,
-            children: (): Promise<TreeOutline.TreeOutlineUtils.TreeNode<string>[]> =>
+            children: () =>
                 Promise.resolve(subLayers.sort((layer1, layer2) => layer1.order - layer2.order).map(makeTreeNode(id))),
           };
         };

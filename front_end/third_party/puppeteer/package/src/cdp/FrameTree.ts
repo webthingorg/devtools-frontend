@@ -86,7 +86,7 @@ export class FrameTree<FrameType extends Frame> {
       .map(id => {
         return this.getById(id);
       })
-      .filter((frame): frame is FrameType => {
+      .filter((frame) => {
         return frame !== undefined;
       });
   }

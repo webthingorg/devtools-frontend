@@ -28,7 +28,7 @@ interface QueryableNode extends Node {
   querySelectorAll: typeof Document.prototype.querySelectorAll;
 }
 
-const isQueryableNode = (node: Node): node is QueryableNode => {
+const isQueryableNode = (node: Node) => {
   return 'querySelectorAll' in node;
 };
 
@@ -201,7 +201,7 @@ class DepthCalculator {
   }
 }
 
-const compareDepths = (a: number[], b: number[]): -1 | 0 | 1 => {
+const compareDepths = (a: number[], b: number[]) => {
   if (a.length + b.length === 0) {
     return 0;
   }

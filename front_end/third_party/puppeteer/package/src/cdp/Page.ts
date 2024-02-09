@@ -599,7 +599,7 @@ export class CdpPage extends Page {
     const unsupportedCookieAttributes = ['sourcePort'];
     const filterUnsupportedAttributes = (
       cookie: Protocol.Network.Cookie
-    ): Protocol.Network.Cookie => {
+    ) => {
       for (const attr of unsupportedCookieAttributes) {
         delete (cookie as unknown as Record<string, unknown>)[attr];
       }

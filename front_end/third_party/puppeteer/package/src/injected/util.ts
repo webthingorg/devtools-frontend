@@ -11,7 +11,7 @@ const HIDDEN_VISIBILITY_VALUES = ['hidden', 'collapse'];
 export const checkVisibility = (
   node: Node | null,
   visible?: boolean
-): Node | boolean => {
+) => {
   if (!node) {
     return visible === false;
   }
@@ -35,7 +35,7 @@ function isBoundingBoxEmpty(element: Element): boolean {
   return rect.width === 0 || rect.height === 0;
 }
 
-const hasShadowRoot = (node: Node): node is Node & {shadowRoot: ShadowRoot} => {
+const hasShadowRoot = (node: Node) => {
   return 'shadowRoot' in node && node.shadowRoot instanceof ShadowRoot;
 };
 

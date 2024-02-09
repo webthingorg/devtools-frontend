@@ -811,7 +811,7 @@ export abstract class ElementHandle<
       );
     }
 
-    return await this.evaluate((element, vals): string[] => {
+    return await this.evaluate((element, vals) => {
       const values = new Set(vals);
       if (!(element instanceof HTMLSelectElement)) {
         throw new Error('Element is not a <select> element.');
@@ -1351,7 +1351,7 @@ export abstract class ElementHandle<
   @ElementHandle.bindIsolatedHandle
   async scrollIntoView(this: ElementHandle<Element>): Promise<void> {
     await this.assertConnectedElement();
-    await this.evaluate(async (element): Promise<void> => {
+    await this.evaluate(async (element) => {
       element.scrollIntoView({
         block: 'center',
         inline: 'center',

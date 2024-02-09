@@ -166,7 +166,7 @@ export class Callback {
  */
 export function createIncrementalIdGenerator(): GetIdFn {
   let id = 0;
-  return (): number => {
+  return () => {
     return ++id;
   };
 }

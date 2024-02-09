@@ -51,7 +51,7 @@ export class PuppeteerURL {
     return url;
   }
 
-  static parse = (url: string): PuppeteerURL => {
+  static parse = (url: string) => {
     url = url.slice('pptr:'.length);
     const [functionName = '', siteString = ''] = url.split(';');
     const puppeteerUrl = new PuppeteerURL();
@@ -60,7 +60,7 @@ export class PuppeteerURL {
     return puppeteerUrl;
   };
 
-  static isPuppeteerURL = (url: string): boolean => {
+  static isPuppeteerURL = (url: string) => {
     return url.startsWith('pptr:');
   };
 
@@ -89,7 +89,7 @@ export class PuppeteerURL {
 export const withSourcePuppeteerURLIfNone = <T extends NonNullable<unknown>>(
   functionName: string,
   object: T
-): T => {
+) => {
   if (Object.prototype.hasOwnProperty.call(object, SOURCE_URL)) {
     return object;
   }
@@ -115,7 +115,7 @@ export const getSourcePuppeteerURLIfAvailable = <
   T extends NonNullable<unknown>,
 >(
   object: T
-): PuppeteerURL | undefined => {
+) => {
   if (Object.prototype.hasOwnProperty.call(object, SOURCE_URL)) {
     return object[SOURCE_URL as keyof T] as PuppeteerURL;
   }
@@ -125,35 +125,35 @@ export const getSourcePuppeteerURLIfAvailable = <
 /**
  * @internal
  */
-export const isString = (obj: unknown): obj is string => {
+export const isString = (obj: unknown) => {
   return typeof obj === 'string' || obj instanceof String;
 };
 
 /**
  * @internal
  */
-export const isNumber = (obj: unknown): obj is number => {
+export const isNumber = (obj: unknown) => {
   return typeof obj === 'number' || obj instanceof Number;
 };
 
 /**
  * @internal
  */
-export const isPlainObject = (obj: unknown): obj is Record<any, unknown> => {
+export const isPlainObject = (obj: unknown) => {
   return typeof obj === 'object' && obj?.constructor === Object;
 };
 
 /**
  * @internal
  */
-export const isRegExp = (obj: unknown): obj is RegExp => {
+export const isRegExp = (obj: unknown) => {
   return typeof obj === 'object' && obj?.constructor === RegExp;
 };
 
 /**
  * @internal
  */
-export const isDate = (obj: unknown): obj is Date => {
+export const isDate = (obj: unknown) => {
   return typeof obj === 'object' && obj?.constructor === Date;
 };
 

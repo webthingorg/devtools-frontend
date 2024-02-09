@@ -105,7 +105,7 @@ export class CdpBrowser extends BrowserBase {
     this.#closeCallback = closeCallback || function (): void {};
     this.#targetFilterCallback =
       targetFilterCallback ||
-      ((): boolean => {
+      (() => {
         return true;
       });
     this.#setIsPageTargetCallback(isPageTargetCallback);
@@ -188,7 +188,7 @@ export class CdpBrowser extends BrowserBase {
   #setIsPageTargetCallback(isPageTargetCallback?: IsPageTargetCallback): void {
     this.#isPageTargetCallback =
       isPageTargetCallback ||
-      ((target: Target): boolean => {
+      ((target: Target) => {
         return (
           target.type() === 'page' ||
           target.type() === 'background_page' ||
@@ -312,7 +312,7 @@ export class CdpBrowser extends BrowserBase {
     }
   };
 
-  #onDetachedFromTarget = async (target: CdpTarget): Promise<void> => {
+  #onDetachedFromTarget = async (target: CdpTarget) => {
     target._initializedDeferred.resolve(InitializationStatus.ABORTED);
     target._isClosedDeferred.resolve();
     if (
@@ -325,12 +325,12 @@ export class CdpBrowser extends BrowserBase {
     }
   };
 
-  #onTargetChanged = ({target}: {target: CdpTarget}): void => {
+  #onTargetChanged = ({target}: {target: CdpTarget}) => {
     this.emit(BrowserEvent.TargetChanged, target);
     target.browserContext().emit(BrowserContextEvent.TargetChanged, target);
   };
 
-  #onTargetDiscovered = (targetInfo: Protocol.Target.TargetInfo): void => {
+  #onTargetDiscovered = (targetInfo: Protocol.Target.TargetInfo) => {
     this.emit(BrowserEvent.TargetDiscovered, targetInfo);
   };
 
@@ -474,7 +474,7 @@ export class CdpBrowserContext extends BrowserContext {
           return target.page();
         })
     );
-    return pages.filter((page): page is Page => {
+    return pages.filter((page) => {
       return !!page;
     });
   }

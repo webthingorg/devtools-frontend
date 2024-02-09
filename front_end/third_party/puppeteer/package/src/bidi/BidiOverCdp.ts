@@ -16,7 +16,7 @@ import type {Handler} from '../common/EventEmitter.js';
 
 import {BidiConnection} from './Connection.js';
 
-const bidiServerLogger = (prefix: string, ...args: unknown[]): void => {
+const bidiServerLogger = (prefix: string, ...args: unknown[]) => {
   debug(`bidi:${prefix}`)(args);
 };
 
@@ -183,7 +183,7 @@ class NoOpTransport
   implements BidiMapper.BidiTransport
 {
   #onMessage: (message: Bidi.ChromiumBidi.Command) => Promise<void> | void =
-    async (_m: Bidi.ChromiumBidi.Command): Promise<void> => {
+    async (_m: Bidi.ChromiumBidi.Command) => {
       return;
     };
 
@@ -202,7 +202,7 @@ class NoOpTransport
   }
 
   close() {
-    this.#onMessage = async (_m: Bidi.ChromiumBidi.Command): Promise<void> => {
+    this.#onMessage = async (_m: Bidi.ChromiumBidi.Command) => {
       return;
     };
   }

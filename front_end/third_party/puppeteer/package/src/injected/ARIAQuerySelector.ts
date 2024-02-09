@@ -20,7 +20,7 @@ declare global {
 export const ariaQuerySelector = (
   root: Node,
   selector: string
-): Promise<Node | null> => {
+) => {
   return window.__ariaQuerySelector(root, selector);
 };
 export const ariaQuerySelectorAll = async function* (

@@ -124,7 +124,7 @@ export function guarded<T extends object>(
   return (
     target: (this: T, ...args: any[]) => Promise<any>,
     _: ClassMethodDecoratorContext<T>
-  ): typeof target => {
+  ) => {
     const mutexes = new WeakMap<object, Mutex>();
     return async function (...args) {
       const key = getKey.call(this);

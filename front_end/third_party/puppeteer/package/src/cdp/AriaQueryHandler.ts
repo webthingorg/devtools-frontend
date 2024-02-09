@@ -20,7 +20,7 @@ const queryAXTree = async (
   element: ElementHandle<Node>,
   accessibleName?: string,
   role?: string
-): Promise<Protocol.Accessibility.AXNode[]> => {
+) => {
   const {nodes} = await client.send('Accessibility.queryAXTree', {
     objectId: element.id,
     accessibleName,
@@ -38,11 +38,11 @@ interface ARIASelector {
 
 const isKnownAttribute = (
   attribute: string
-): attribute is keyof ARIASelector => {
+) => {
   return ['name', 'role'].includes(attribute);
 };
 
-const normalizeValue = (value: string): string => {
+const normalizeValue = (value: string) => {
   return value.replace(/ +/g, ' ').trim();
 };
 
@@ -59,7 +59,7 @@ const normalizeValue = (value: string): string => {
  */
 const ATTRIBUTE_REGEXP =
   /\[\s*(?<attribute>\w+)\s*=\s*(?<quote>"|')(?<value>\\.|.*?(?=\k<quote>))\k<quote>\s*\]/g;
-const parseARIASelector = (selector: string): ARIASelector => {
+const parseARIASelector = (selector: string) => {
   const queryOptions: ARIASelector = {};
   const defaultName = selector.replace(
     ATTRIBUTE_REGEXP,
@@ -112,7 +112,7 @@ export class ARIAQueryHandler extends QueryHandler {
   static override queryOne = async (
     element: ElementHandle<Node>,
     selector: string
-  ): Promise<ElementHandle<Node> | null> => {
+  ) => {
     return (
       (await AsyncIterableUtil.first(this.queryAll(element, selector))) ?? null
     );
