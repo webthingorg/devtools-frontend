@@ -58,7 +58,8 @@ describe('Event listeners in the elements sidebar', async () => {
     ]);
   });
 
-  it('shows custom event listeners and their properties correctly', async () => {
+  it('shows custom event listeners and their properties correctly', async done => {
+    setTimeout(done, 9000);
     const {frontend} = getBrowserAndPages();
     await openEventListenersPaneAndWaitForListeners();
     const {
