@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c38dc39e_5895cb5c",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-09T08:51:27Z",
+      "side": 1,
+      "message": "couldn\u0027t we write this as `import * as Console from \u0027../../console/console.js\u0027;` now?\n\nIf not we should leave a comment explaining why the dynamic import is required here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95e165cd_2df0bf7a",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-09T08:51:27Z",
+      "side": 1,
+      "message": "Will TS complain if you remove the `\u003d\u003d\u003d true` here? If not we should probably change the return type to `true|{error: string}` or something thats not implicitly coerced to `boolean`.",
+      "range": {
+        "startLine": 74,
+        "startChar": 26,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1cad3a6_0c4c2f6d",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-09T08:51:27Z",
+      "side": 1,
+      "message": "Maybe I miss-remember our offline discussion, why don\u0027t we wanna gate the setting availability on both, the locale and the query param?\n\nThen we could leave the actions gated on the setting.",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
