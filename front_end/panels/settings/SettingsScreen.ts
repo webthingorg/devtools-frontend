@@ -31,7 +31,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import type * as Platform from '../../core/platform/platform.js';
+import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -468,7 +468,8 @@ export class ExperimentsSettingsTab extends SettingsTab {
   }
 
   private createExperimentCheckbox(experiment: Root.Runtime.Experiment): HTMLParagraphElement {
-    const label = UI.UIUtils.CheckboxLabel.create(experiment.title, experiment.isEnabled(), undefined, experiment.name);
+    const label = UI.UIUtils.CheckboxLabel.create(
+        experiment.title, experiment.isEnabled(), undefined, Platform.StringUtilities.toKebabCase(experiment.name));
     label.classList.add('experiment-label');
     const input = label.checkboxElement;
     input.name = experiment.name;
@@ -490,7 +491,8 @@ export class ExperimentsSettingsTab extends SettingsTab {
 
     if (experiment.docLink) {
       const link = UI.XLink.XLink.create(
-          experiment.docLink, undefined, undefined, undefined, `${experiment.name}:documentation`);
+          experiment.docLink, undefined, undefined, undefined,
+          `${Platform.StringUtilities.toKebabCase(experiment.name)}-documentation`);
       link.textContent = '';
       link.setAttribute('aria-label', i18nString(UIStrings.learnMore));
 
@@ -504,7 +506,8 @@ export class ExperimentsSettingsTab extends SettingsTab {
 
     if (experiment.feedbackLink) {
       const link = UI.XLink.XLink.create(
-          experiment.feedbackLink, undefined, undefined, undefined, `${experiment.name}:feedback`);
+          experiment.feedbackLink, undefined, undefined, undefined,
+          `${Platform.StringUtilities.toKebabCase(experiment.name)}-feedback`);
       link.textContent = i18nString(UIStrings.sendFeedback);
       link.classList.add('feedback-link');
 
