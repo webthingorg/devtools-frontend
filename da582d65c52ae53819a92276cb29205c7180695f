@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e8062a_0e2df626",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-09T09:41:14Z",
+      "side": 1,
+      "message": "PTAL at the ActionRegistration changes. If the setting is not available ActionRegistration checks might also fail: I am thinking if we should fix it in the ActionRegistration like in the current PS or if it is better to only make actions dependent on the condition checks.",
+      "revId": "da582d65c52ae53819a92276cb29205c7180695f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be06c230_1b3ef2b5",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-09T09:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c38dc39e_5895cb5c",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95e165cd_2df0bf7a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-09T08:51:27Z",
       "side": 1,
       "message": "Will TS complain if you remove the `\u003d\u003d\u003d true` here? If not we should probably change the return type to `true|{error: string}` or something thats not implicitly coerced to `boolean`.",
+      "range": {
+        "startLine": 74,
+        "startChar": 26,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f5188f_69ad302c",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-09T09:41:14Z",
+      "side": 1,
+      "message": "Yes, it will says that `string|boolean` is not assignable to boolean.",
+      "parentUuid": "95e165cd_2df0bf7a",
       "range": {
         "startLine": 74,
         "startChar": 26,
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "Right, I mean available in terms defined by the current \"condition\" implementation.",
       "parentUuid": "784c4d1d_752b7e51",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "8e57367c3aa0bcccf5a9ac3caeea2d60523cc7e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d5ba0e_2c316558",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-09T09:41:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a2351f1_c8a8c256",
       "range": {
         "startLine": 78,
         "startChar": 9,
