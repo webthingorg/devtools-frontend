@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7563bafc_d96d89ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-09T13:58:25Z",
+      "side": 1,
+      "message": "This might depend on your local setup, but typically you just run your custom Chromium build and pass the DevTools path to it. For me it looks like this: `out/Default/chrome --custom-devtools-frontend\u003dfile:///usr/local/google/home/wolfi/dev/chromium/devtools-frontend/out/Default/gen/front_end`\nIf that doesn\u0027t work, maybe this doc has a suggestion: https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/get_the_code.md",
+      "parentUuid": "6b18f28c_ebe096e9",
+      "revId": "2b9235d199b2fca98c1a235560aa174d417d9bdb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c2ab937_307340f5",
         "filename": "front_end/core/sdk/NetworkManager.ts",
         "patchSetId": 2
