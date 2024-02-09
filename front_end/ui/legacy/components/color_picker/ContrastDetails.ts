@@ -41,7 +41,7 @@ const UIStrings = {
   /**
    *@description Label for the APCA contrast in Color Picker
    */
-  apca: 'APCA',
+  apca: 'apca',
   /**
    *@description Label aa text content in Contrast Details of the Color Picker
    */
@@ -191,7 +191,7 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return;
     }
 
-    if (threshold === 'APCA') {
+    if (threshold === 'apca') {
       const requiredContrast = this.contrastInfo.contrastRatioAPCAThreshold();
       if (requiredContrast === null) {
         return;
@@ -242,7 +242,7 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.setVisible(true);
     this.hideNoContrastInfoAvailableMessage();
 
-    const isAPCAEnabled = Root.Runtime.experiments.isEnabled('APCA');
+    const isAPCAEnabled = Root.Runtime.experiments.isEnabled('apca');
 
     const fgColor = this.contrastInfo.color();
     const bgColor = this.contrastInfo.bgColor();
@@ -283,10 +283,10 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper<EventTyp
         const iconNo = new IconButton.Icon.Icon();
         iconNo.data = {iconName: 'clear', color: 'var(--icon-error)', width: '14px', height: '14px'};
         this.contrastPassFailAPCA.appendChild(iconNo);
-        const suggestedColor = this.computeSuggestedColor('APCA');
+        const suggestedColor = this.computeSuggestedColor('apca');
         if (suggestedColor) {
           const fixAPCA = this.createFixColorButton(this.contrastPassFailAPCA, suggestedColor);
-          fixAPCA.addEventListener('click', () => this.onSuggestColor('APCA'));
+          fixAPCA.addEventListener('click', () => this.onSuggestColor('apca'));
         }
       }
       labelAPCA.addEventListener('click', (_event: Event) => ContrastDetails.showHelp());
