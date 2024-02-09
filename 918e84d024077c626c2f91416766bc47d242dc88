@@ -34,6 +34,24 @@
       "parentUuid": "88a4b357_f2ea45a3",
       "revId": "918e84d024077c626c2f91416766bc47d242dc88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4c009aa_bf443235",
+        "filename": "front_end/core/sdk/CompilerSourceMappingContentProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-09T08:47:33Z",
+      "side": 1,
+      "message": "Looks like all errors are caught properly but I slightly prefer the async function version (up to you)",
+      "parentUuid": "063663f9_c0a3cb0e",
+      "revId": "918e84d024077c626c2f91416766bc47d242dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
