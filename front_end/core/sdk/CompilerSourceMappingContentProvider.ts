@@ -47,7 +47,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('core/sdk/CompilerSourceMappingContentProvider.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export class CompilerSourceMappingContentProvider implements TextUtils.ContentProvider.ContentProvider {
+export class CompilerSourceMappingContentProvider implements TextUtils.ContentProvider.SafeContentProvider {
   readonly #sourceURL: Platform.DevToolsPath.UrlString;
   readonly #contentTypeInternal: Common.ResourceType.ResourceType;
   readonly #initiator: PageResourceLoadInitiator;
@@ -68,23 +68,25 @@ export class CompilerSourceMappingContentProvider implements TextUtils.ContentPr
     return this.#contentTypeInternal;
   }
 
-  async requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
+  requestContent(): Promise<TextUtils.ContentProvider.DeferredContent> {
+    return this.requestContentData().then(TextUtils.ContentData.ContentData.asDeferredContent.bind(undefined));
+  }
+
+  async requestContentData(): Promise<TextUtils.ContentData.ContentDataOrError> {
     try {
       const {content} = await PageResourceLoader.instance().loadResource(this.#sourceURL, this.#initiator);
-      return {content, isEncoded: false};
+      return new TextUtils.ContentData.ContentData(
+          content, /* isBase64=*/ false, this.#contentTypeInternal.canonicalMimeType());
     } catch (e) {
       const error = i18nString(UIStrings.couldNotLoadContentForSS, {PH1: this.#sourceURL, PH2: e.message});
       console.error(error);
-      return {content: null, error, isEncoded: false};
+      return {error};
     }
   }
 
   async searchInContent(query: string, caseSensitive: boolean, isRegex: boolean):
       Promise<TextUtils.ContentProvider.SearchMatch[]> {
-    const {content} = await this.requestContent();
-    if (typeof content !== 'string') {
-      return [];
-    }
-    return TextUtils.TextUtils.performSearchInContent(content, query, caseSensitive, isRegex);
+    const contentData = await this.requestContentData();
+    return TextUtils.TextUtils.performSearchInContentData(contentData, query, caseSensitive, isRegex);
   }
 }
