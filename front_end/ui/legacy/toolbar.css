@@ -51,6 +51,20 @@
   overflow: hidden;
 }
 
+:not(.toolbar-render-as-links) .toolbar-button:enabled:hover:not(:active) .toolbar-glyph[name="wand"] {
+  color: transparent;
+}
+
+/* stylelint-disable */
+devtools-icon[name="wand"] {
+  background: linear-gradient(90deg, rgb(255 0 0 / 100%) 0%, rgb(255 154 0 / 100%) 10%, rgb(208 222 33 / 100%) 20%, rgb(79 220 74 / 100%) 30%, rgb(63 218 216 / 100%) 40%, rgb(47 201 226 / 100%) 50%, rgb(28 127 238 / 100%) 60%, rgb(95 21 242 / 100%) 70%, rgb(186 12 248 / 100%) 80%, rgb(251 7 217 / 100%) 90%, rgb(255 0 0 / 100%) 100%);
+  color: transparent;
+  mask: var(--image-file-wand) center / contain no-repeat;
+  width: 16px;
+  height: 16px;
+  }
+  /* stylelint-enable */
+
 .toolbar-item,
 .toolbar-item .devtools-link {
   color: var(--icon-default);
