@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a591153_0c8997cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-09T09:57:00Z",
+      "side": 1,
+      "message": "lgtm % BUILD.gn",
+      "revId": "3b223dd21da2cd202f1937a78cf15047d719ea9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6aa876e_b71c4f83",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-09T09:57:00Z",
+      "side": 1,
+      "message": "Please also add a corresponding deps entry to the \"meta\" entrypoint in the BUILD.gn. Otherwise incremental rebuilds will be broken :)",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 59
+      },
+      "revId": "3b223dd21da2cd202f1937a78cf15047d719ea9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
