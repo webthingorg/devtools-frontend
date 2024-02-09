@@ -95,6 +95,10 @@ const UIStrings = {
    */
   clear: 'Clear',
   /**
+   *@description Text to fix performance
+   */
+  fixMe: 'Fix Performance',
+  /**
    *@description Tooltip text that appears when hovering over the largeicon load button
    */
   loadProfile: 'Load profile…',
@@ -283,6 +287,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private controller!: TimelineController|null;
   private cpuProfiler!: SDK.CPUProfilerModel.CPUProfilerModel|null;
   private clearButton!: UI.Toolbar.ToolbarButton;
+  private fixMeButton: UI.Toolbar.ToolbarButton;
+  private fixMeButtonAdded = false;
   private loadButton!: UI.Toolbar.ToolbarButton;
   private saveButton!: UI.Toolbar.ToolbarButton;
   private statusPane!: StatusPane|null;
@@ -306,10 +312,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   #traceEngineActiveTraceIndex = -1;
   #sourceMapsResolver: SourceMapsResolver|null = null;
   #onSourceMapsNodeNamesResolvedBound = this.#onSourceMapsNodeNamesResolved.bind(this);
-
+  readonly #onChartPlayableStateChangeBound: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   constructor() {
     super('timeline');
-
+    this.fixMeButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.fixMe), 'wand');
+    this.fixMeButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => this.onFixPerf());
     const config = TraceEngine.Types.Configuration.DEFAULT;
     config.experiments.timelineShowAllEvents = Root.Runtime.experiments.isEnabled('timelineShowAllEvents');
     config.experiments.timelineV8RuntimeCallStats = Root.Runtime.experiments.isEnabled('timelineV8RuntimeCallStats');
@@ -372,6 +379,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.Load, this.loadEventFired, this);
 
     this.flameChart = new TimelineFlameChartView(this);
+    this.#onChartPlayableStateChangeBound = this.#onChartPlayableStateChange.bind(this);
+
+    this.flameChart.getMainFlameChart().addEventListener(
+        PerfUI.FlameChart.Events.ChartPlayableStateChange, this.#onChartPlayableStateChangeBound, this);
+
     this.searchableViewInternal = new UI.SearchableView.SearchableView(this.flameChart, null);
     this.searchableViewInternal.setMinimumSize(0, 100);
     this.searchableViewInternal.element.classList.add('searchable-view');
@@ -459,6 +471,22 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   getFlameChart(): TimelineFlameChartView {
     return this.flameChart;
+  }
+
+  #onChartPlayableStateChange(event: Common.EventTarget.EventTargetEvent<number, unknown>): void {
+    if (event.data > 0) {
+      const dateObj = new Date();
+      const month = dateObj.getUTCMonth() + 1;
+      const day = dateObj.getUTCDate();
+      const isAprilFools = (month === 4 && day === 1) || true;  // TODO: show only on April fools
+      if (isAprilFools && !this.fixMeButtonAdded) {
+        this.fixMeButtonAdded = true;
+        this.panelToolbar.appendToolbarItem(this.fixMeButton);
+      }
+    } else {
+      this.fixMeButtonAdded = false;
+      this.panelToolbar.removeToolbarItem(this.fixMeButton);
+    }
   }
 
   private loadFromCpuProfile(profile: Protocol.Profiler.Profile|null, title?: string): void {
@@ -1066,6 +1094,13 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.clear();
   }
 
+  private onFixPerf(): void {
+    if (!this.performanceModel) {
+      return;
+    }
+    this.flameChart.fixMe();
+  }
+
   private clear(): void {
     if (this.statusPane) {
       this.statusPane.remove();
@@ -1137,6 +1172,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.searchableViewInternal.showWidget();
     } else {
       this.searchableViewInternal.hideWidget();
+      this.fixMeButtonAdded = false;
+      this.panelToolbar.removeToolbarItem(this.fixMeButton);
     }
     this.flameChart.setModel(model, traceParsedData, isCpuProfile);
     this.flameChart.setSelection(null);

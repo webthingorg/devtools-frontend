@@ -362,7 +362,7 @@ export class ChartViewport extends UI.Widget.VBox {
     switch (keyboardEvent.code) {
       case 'KeyA':
         this.handlePanGesture(-panOffset, /* animate */ true);
-        break;
+        return;
       case 'KeyD':
         this.handlePanGesture(panOffset, /* animate */ true);
         break;
