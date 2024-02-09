@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad62ed46_c76ace44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-09T22:27:54Z",
+      "side": 1,
+      "message": "Hey Alina, this is the second part of Cmd+F improvement. PTAL, thank you!",
+      "revId": "f63e784400eb0d302bda0f9e804a3f1816b7032b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "578000d3_397ef1e3",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-09T22:27:54Z",
+      "side": 1,
+      "message": "Open to feedback on how to deal with the case where the search matched too many results. \nI thought about maybe just highlighting a few of the results out of the many matches, but I\u0027m afraid that would cause some confusion. Also, when user only types in a very short term like \"a\" or \"e\", which would match majority of the functions, it probably doesn\u0027t make sense to highlight everything. \nAnyway, I\u0027d love to hear your thoughts on this!",
+      "range": {
+        "startLine": 434,
+        "startChar": 4,
+        "endLine": 436,
+        "endChar": 88
+      },
+      "revId": "f63e784400eb0d302bda0f9e804a3f1816b7032b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ae3a81_adc1904c",
+        "filename": "front_end/ui/legacy/components/perf_ui/flameChart.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-09T22:27:54Z",
+      "side": 1,
+      "message": "Not sure if there are guidelines for picking a different color. Open to suggestions here!",
+      "range": {
+        "startLine": 49,
+        "startChar": 21,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "f63e784400eb0d302bda0f9e804a3f1816b7032b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
