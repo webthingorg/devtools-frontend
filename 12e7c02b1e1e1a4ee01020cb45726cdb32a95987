@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7aa60c6_23852083",
+        "filename": "front_end/ui/legacy/components/perf_ui/BrickBreaker.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-11T22:57:59Z",
+      "side": 1,
+      "message": "good point. Clearing them before calling `this.#closeGame();`",
+      "parentUuid": "e1490bc1_8e5181f6",
+      "revId": "12e7c02b1e1e1a4ee01020cb45726cdb32a95987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d959780_090b466e",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a292f53a_b81c29cd",
+        "filename": "front_end/ui/legacy/components/perf_ui/ChartViewport.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-11T22:57:59Z",
+      "side": 1,
+      "message": "not intentional, changed it back",
+      "parentUuid": "4d959780_090b466e",
+      "revId": "12e7c02b1e1e1a4ee01020cb45726cdb32a95987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6293efa5_9dbe3986",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-02-09T14:52:09Z",
       "side": 1,
       "message": "Might be good to debounce this.",
+      "revId": "12e7c02b1e1e1a4ee01020cb45726cdb32a95987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e27ad1ed_a8202a2f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-11T22:57:59Z",
+      "side": 1,
+      "message": "As we discussed earlier, I changed it to check if there is some block that satisfies the condition we need to show the button. If there is, it will stop checking the rest of the indexes",
+      "parentUuid": "6293efa5_9dbe3986",
       "revId": "12e7c02b1e1e1a4ee01020cb45726cdb32a95987",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
