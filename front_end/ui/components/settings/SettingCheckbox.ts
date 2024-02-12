@@ -18,6 +18,11 @@ export interface SettingCheckboxData {
    * The checkbox will still reflect the current value of the setting (i.e. checked/unchecked).
    */
   disabled?: boolean;
+  /**
+   * If disabled is true, the disabled reason would be shown as an explanation
+   * of why the checkbox is disabled.
+   */
+  disabledReason?: string;
 }
 
 /**
@@ -29,6 +34,7 @@ export class SettingCheckbox extends HTMLElement {
 
   #setting?: Common.Settings.Setting<boolean>;
   #disabled: boolean = false;
+  #disabledReason?: string;
   #changeListenerDescriptor?: Common.EventTarget.EventDescriptor;
 
   connectedCallback(): void {
@@ -42,6 +48,7 @@ export class SettingCheckbox extends HTMLElement {
 
     this.#setting = data.setting;
     this.#disabled = Boolean(data.disabled);
+    this.#disabledReason = data.disabledReason;
 
     this.#changeListenerDescriptor = this.#setting.addChangeListener(() => {
       this.#render();
@@ -67,14 +74,15 @@ export class SettingCheckbox extends HTMLElement {
     LitHtml.render(
         LitHtml.html`
       <p>
-        <label>
+        <label title=${this.#disabledReason}>
           <input
             type="checkbox"
-            .checked=${this.#setting.get()}
+            .checked=${this.#disabledReason ? false : this.#setting.get()}
             ?disabled=${this.#disabled || this.#setting.disabled()}
             @change=${this.#checkboxChanged}
             jslog=${VisualLogging.toggle().track({click: true}).context(this.#setting.name)}
-            aria-label=${this.#setting.title()}/>
+            aria-label=${this.#setting.title()}
+          />
           ${this.#setting.title()}${icon}
         </label>
       </p>`,
