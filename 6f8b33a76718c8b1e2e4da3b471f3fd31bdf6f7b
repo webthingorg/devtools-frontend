@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "285ebdd3_81e5a121",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-12T10:19:18Z",
+      "side": 1,
+      "message": "These aren\u0027t yet re-exported in sdk.ts, do you want to include that in this CL for completeness maybe?",
+      "revId": "6f8b33a76718c8b1e2e4da3b471f3fd31bdf6f7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
