@@ -1839,6 +1839,9 @@ export class TimelineUIUtils {
     const initiator = TraceEngine.Legacy.eventIsFromNewEngine(event) ?
         traceParseData?.Initiators.eventToInitiator.get(event) ?? null :
         null;
+    const initiatorFor = TraceEngine.Legacy.eventIsFromNewEngine(event) ? traceParseData?.Initiators.initiatorToEvents.get(event)?? null :
+    null;
+
     let url: Platform.DevToolsPath.UrlString|null = null;
 
     if (TraceEngine.Legacy.eventIsFromNewEngine(event) && traceParseData) {
@@ -2239,7 +2242,7 @@ export class TimelineUIUtils {
 
     if (TraceEngine.Legacy.eventIsFromNewEngine(event) && traceParseData) {
       const stackTrace = TraceEngine.Helpers.Trace.stackTraceForEvent(event);
-      if (initiator || stackTrace || traceParseData?.Invalidations.invalidationsForEvent.get(event)) {
+      if (initiator || initiatorFor || stackTrace || traceParseData?.Invalidations.invalidationsForEvent.get(event)) {
         await TimelineUIUtils.generateCauses(event, contentHelper, traceParseData);
       }
     }
@@ -2539,6 +2542,7 @@ export class TimelineUIUtils {
     }
 
     const initiator = traceParseData.Initiators.eventToInitiator.get(event);
+    const initiatorFor = traceParseData.Initiators.initiatorToEvents.get(event);
     const invalidations = traceParseData.Invalidations.invalidationsForEvent.get(event);
 
     if (initiator) {
@@ -2575,7 +2579,45 @@ export class TimelineUIUtils {
               };
             })));
       }
+    } 
+    
+    if (initiatorFor) {
+      // If we have an initiator for the event, we can show information about
+      // its initiator and a link to reveal it.
+      const {startTime: initiatorStartTime} = TraceEngine.Legacy.timesForEventInMilliseconds(initiatorFor[0]);
+      const delay = startTime - initiatorStartTime;
+      contentHelper.appendTextRow(i18nString(UIStrings.pendingFor), i18n.TimeUtilities.preciseMillisToString(delay, 1));
+
+      const link = document.createElement('span');
+      link.classList.add('devtools-link');
+      UI.ARIAUtils.markAsLink(link);
+      link.tabIndex = 0;
+      link.textContent = i18nString(UIStrings.reveal);
+      link.addEventListener('click', () => {
+        TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((initiatorFor[0])));
+      });
+      link.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((initiatorFor[0])));
+          event.consume(true);
+        }
+      });
+      contentHelper.appendElementRow("Initiator for", link);
+
+      const stackTrace = TraceEngine.Helpers.Trace.stackTraceForEvent(initiatorFor[0]);
+      if (stackTrace) {
+        contentHelper.appendStackTrace(
+            callSiteStackLabel || i18nString(UIStrings.firstInvalidated),
+            TimelineUIUtils.stackTraceFromCallFrames(stackTrace.map(frame => {
+              return {
+                ...frame,
+                scriptId: String(frame.scriptId) as Protocol.Runtime.ScriptId,
+              };
+            })));
+      }
     }
+
+
     if (invalidations && invalidations.length) {
       contentHelper.addSection(i18nString(UIStrings.invalidations));
       await TimelineUIUtils.generateInvalidationsList(invalidations, contentHelper);
@@ -3162,6 +3204,7 @@ export class TimelineDetailsContentHelper {
   }
 
   appendElementRow(title: string, content: string|Node, isWarning?: boolean, isStacked?: boolean): void {
+    console.log(title);
     const rowElement = this.tableElement.createChild('div', 'timeline-details-view-row');
     rowElement.setAttribute('data-row-title', title);
     if (isWarning) {
