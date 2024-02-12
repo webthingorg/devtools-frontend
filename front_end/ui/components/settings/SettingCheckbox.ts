@@ -29,6 +29,7 @@ export class SettingCheckbox extends HTMLElement {
 
   #setting?: Common.Settings.Setting<boolean>;
   #disabled: boolean = false;
+  #disabledReason?: string;
   #changeListenerDescriptor?: Common.EventTarget.EventDescriptor;
 
   connectedCallback(): void {
@@ -58,6 +59,16 @@ export class SettingCheckbox extends HTMLElement {
         this.#setting.deprecation as Common.Settings.Deprecation}></${SettingDeprecationWarning.litTagName}>`;
   }
 
+  setEnabled(value: boolean, reason?: string): void {
+    this.#disabled = !value;
+    if (value) {
+      this.#disabledReason = undefined;
+    } else {
+      this.#disabledReason = reason;
+    }
+    this.#render();
+  }
+
   #render(): void {
     if (!this.#setting) {
       throw new Error('No "Setting" object provided for rendering');
@@ -67,14 +78,15 @@ export class SettingCheckbox extends HTMLElement {
     LitHtml.render(
         LitHtml.html`
       <p>
-        <label>
+        <label title=${this.#disabledReason}>
           <input
             type="checkbox"
             .checked=${this.#setting.get()}
             ?disabled=${this.#disabled || this.#setting.disabled()}
             @change=${this.#checkboxChanged}
             jslog=${VisualLogging.toggle().track({click: true}).context(this.#setting.name)}
-            aria-label=${this.#setting.title()}/>
+            aria-label=${this.#setting.title()}
+          />
           ${this.#setting.title()}${icon}
         </label>
       </p>`,
