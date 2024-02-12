@@ -1839,6 +1839,9 @@ export class TimelineUIUtils {
     const initiator = TraceEngine.Legacy.eventIsFromNewEngine(event) ?
         traceParseData?.Initiators.eventToInitiator.get(event) ?? null :
         null;
+    const initiatorFor = TraceEngine.Legacy.eventIsFromNewEngine(event) ? traceParseData?.Initiators.initiatorToEvents.get(event)?? null :
+    null;
+
     let url: Platform.DevToolsPath.UrlString|null = null;
 
     if (TraceEngine.Legacy.eventIsFromNewEngine(event) && traceParseData) {
@@ -1882,6 +1885,8 @@ export class TimelineUIUtils {
           isStreamed + (isStreamed ? '' : `: ${event.args.data?.notStreamedReason || ''}`));
       TimelineUIUtils.buildConsumeCacheDetails(eventData, contentHelper);
     }
+
+    contentHelper.appendTextRow("initiator for", "lol");
 
     switch (event.name) {
       case recordTypes.GCEvent:
@@ -3162,6 +3167,7 @@ export class TimelineDetailsContentHelper {
   }
 
   appendElementRow(title: string, content: string|Node, isWarning?: boolean, isStacked?: boolean): void {
+    console.log(title);
     const rowElement = this.tableElement.createChild('div', 'timeline-details-view-row');
     rowElement.setAttribute('data-row-title', title);
     if (isWarning) {
