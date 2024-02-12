@@ -66,5 +66,8 @@ devtools_entrypoint("meta") {
     "../../ui/legacy:bundle",
   ]
 
-  visibility = [ "../../entrypoints/*" ]
+  visibility = [
+    "../../entrypoints/*",
+    "../../panels/settings/*",
+  ]
 }

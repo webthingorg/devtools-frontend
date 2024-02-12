@@ -33,7 +33,10 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
+// eslint-disable-next-line rulesdir/es_modules_import
+import * as ExplainMeta from '../../panels/explain/explain-meta.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import type * as Settings from '../../ui/components/settings/settings.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
@@ -271,6 +274,7 @@ abstract class SettingsTab extends UI.Widget.VBox {
 export class GenericSettingsTab extends SettingsTab {
   private readonly syncSection = new PanelComponents.SyncSection.SyncSection();
   private readonly settingToControl = new Map<Common.Settings.Setting<unknown>, HTMLElement>();
+  #consoleInsightsCheckbox?: HTMLElement;
 
   constructor() {
     super(i18nString(UIStrings.preferences), 'preferences-tab-content');
@@ -297,16 +301,9 @@ export class GenericSettingsTab extends SettingsTab {
     // Some settings define their initial ordering.
     const preRegisteredSettings = Common.Settings.getRegisteredSettings().sort(
         (firstSetting, secondSetting) => {
-          if (firstSetting.order && secondSetting.order) {
-            return (firstSetting.order - secondSetting.order);
-          }
-          if (firstSetting.order) {
-            return -1;
-          }
-          if (secondSetting.order) {
-            return 1;
-          }
-          return 0;
+          const order1 = firstSetting.order ?? 0;
+          const order2 = secondSetting.order ?? 0;
+          return order1 - order2;
         },
     );
 
@@ -335,6 +332,7 @@ export class GenericSettingsTab extends SettingsTab {
     UI.Context.Context.instance().setFlavor(GenericSettingsTab, this);
     super.wasShown();
     this.updateSyncSection();
+    this.#updateConsoleInsights();
   }
 
   override willHide(): void {
@@ -349,6 +347,20 @@ export class GenericSettingsTab extends SettingsTab {
         syncSetting: Common.Settings.moduleSetting('sync-preferences') as Common.Settings.Setting<boolean>,
       };
     });
+  }
+
+  #updateConsoleInsights(): void {
+    const checkbox = this.#consoleInsightsCheckbox as Settings.SettingCheckbox.SettingCheckbox;
+    if (!checkbox) {
+      return;
+    }
+
+    const result = ExplainMeta.shouldEnableSetting();
+    if (result === true) {
+      checkbox.setEnabled(true);
+    } else {
+      checkbox.setEnabled(false, result);
+    }
   }
 
   private createExtensionSection(settings: Common.Settings.SettingRegistration[]): void {
@@ -383,6 +395,10 @@ export class GenericSettingsTab extends SettingsTab {
       if (settingControl) {
         this.settingToControl.set(setting, settingControl);
         sectionElement.appendChild(settingControl);
+
+        if (settingRegistration.settingName === 'console-insights-enabled') {
+          this.#consoleInsightsCheckbox = settingControl;
+        }
       }
     }
     return sectionElement;
