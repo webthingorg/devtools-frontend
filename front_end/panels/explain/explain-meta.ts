@@ -30,7 +30,7 @@ const UIStrings = {
    * @description Message shown to the user if the DevTools locale is not
    * supported.
    */
-  wrongLocale: 'Only English-US locale is currently supported.',
+  wrongLocale: 'Only English locales are currently supported.',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/explain/explain-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -84,12 +84,18 @@ function isSettingAvailable(): boolean {
  */
 export function isLocaleAllowed(): true|string {
   const devtoolsLocale = i18n.DevToolsLocale.DevToolsLocale.instance();
-  // TODO: implement the actual locale check once we can display it in the
-  // settings.
-  if (!devtoolsLocale.locale) {
+  if (devtoolsLocale.locale.startsWith('en-')) {
     return i18nString(UIStrings.wrongLocale);
   }
 
+  return true;
+}
+
+export function shouldEnableSetting(): true|string {
+  const localeCheck = isLocaleAllowed();
+  if (localeCheck !== true) {
+    return localeCheck;
+  }
   return true;
 }
 
@@ -105,6 +111,7 @@ Common.Settings.registerSettingExtension({
   defaultValue: true,
   reloadRequired: true,
   condition: isSettingAvailable,
+  order: 9999,
 });
 
 for (const action of actions) {
