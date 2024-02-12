@@ -317,6 +317,8 @@ export interface SyntheticNetworkRequest extends TraceEventComplete {
       requestId: string,
       requestingFrameUrl: string,
       statusCode: number,
+      resourceType: Protocol.Network.ResourceType,
+      responseHeaders: Array<{name: string, value: string}>,
       url: string,
       // Optional fields
       requestMethod?: string,
@@ -777,6 +779,7 @@ export interface TraceEventResourceSendRequest extends TraceEventInstant {
       // TODO(crbug.com/1457985): change requestMethod to enum when confirm in the backend code.
       requestMethod?: string,
       renderBlocking?: RenderBlocking,
+      resourceType: Protocol.Network.ResourceType,
     },
   };
 }
@@ -856,6 +859,7 @@ export interface TraceEventResourceReceiveResponse extends TraceEventInstant {
       responseTime: MilliSeconds,
       statusCode: number,
       timing: TraceEventResourceReceiveResponseTimingData,
+      headers: Array<{name: string, value: string}>
     },
   };
 }
