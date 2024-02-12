@@ -275,6 +275,12 @@ export interface SettingRegistration {
   condition?: Root.Runtime.Condition;
 
   /**
+   * A function that returns true if the session is editable and a string with a
+   * reason for why it is not editable.
+   */
+  editable?: () => string | true;
+
+  /**
    * If a setting is deprecated, define this notice to show an appropriate warning according to the `warning` propertiy.
    * If `disabled` is set, the setting will be disabled in the settings UI. In that case, `experiment` optionally can be
    * set to link to an experiment (by experiment name). The information icon in the settings UI can then be clicked to
