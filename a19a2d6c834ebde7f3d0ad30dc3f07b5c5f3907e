@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3816d12d_5eb64059",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-12T07:28:32Z",
+      "side": 1,
+      "message": "LGTM % comments (looks like doc components need an update too)",
+      "revId": "a19a2d6c834ebde7f3d0ad30dc3f07b5c5f3907e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee04b762_99749d43",
+        "filename": "front_end/panels/explain/InsightProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-12T07:28:32Z",
+      "side": 1,
+      "message": "let\u0027s remove or re-add the timeEnd? Probably we can remove now.",
+      "revId": "a19a2d6c834ebde7f3d0ad30dc3f07b5c5f3907e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3dbf99c_68abb451",
+        "filename": "front_end/panels/explain/InsightProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-12T07:28:32Z",
+      "side": 1,
+      "message": "let\u0027s stringify the details? otherwise, it would be [Object object].",
+      "revId": "a19a2d6c834ebde7f3d0ad30dc3f07b5c5f3907e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
