@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bae4d8bb_c049368f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-12T10:23:42Z",
+      "side": 1,
+      "message": "Both that suggestion and the test case failure have some interesting implications. They require double-parsing, i.e., while matching, also parse the computed text (vars replaced and comments strippd). I kinda like that!",
+      "parentUuid": "861a7b05_d2a0fc81",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bd6d7f9_0833ad17",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 11
