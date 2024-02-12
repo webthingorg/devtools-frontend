@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc51df51_1ac2ec5e",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-12T12:20:11Z",
+      "side": 1,
+      "message": "Should I do this here or in a followup?",
+      "parentUuid": "8bd6d7f9_0833ad17",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0627c66_ee4ff8be",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 11
@@ -66,6 +84,24 @@
       "writtenOn": "2024-02-05T09:51:46Z",
       "side": 1,
       "message": "(nit): I think it\u0027s getting harder to understand what and why we\u0027re doing here. Can you add comments to describe why we do this?\n\n---\nlike `// Check invalid syntax because of multiple percentages for the same color` etc. WDYT?",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c33a2a7_74376731",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-12T12:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0627c66_ee4ff8be",
       "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -83,6 +119,24 @@
       "writtenOn": "2024-02-05T09:51:46Z",
       "side": 1,
       "message": "I didn\u0027t exactly understand for which case we\u0027re discarding here. It read like we\u0027re discarding the property when the both percentages are zero, is that the case?",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d272ff04_2fef8b52",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-12T12:20:11Z",
+      "side": 1,
+      "message": "yes, exactly, both percentages 0 is an invalid property value.",
+      "parentUuid": "63289b16_30f0f2bb",
       "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
