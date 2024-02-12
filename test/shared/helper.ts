@@ -98,7 +98,9 @@ async function performActionOnSelector(
     }
   }
   return waitForFunction(async () => {
+    console.error('before waiting for element');
     const element = await waitFor(selector, options?.root, undefined, queryHandler);
+    console.error('after waiting for element');
     try {
       await action(element);
       return element;
