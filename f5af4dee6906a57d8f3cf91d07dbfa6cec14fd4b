@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a884dbf2_1dedf3cc",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-12T08:59:52Z",
+      "side": 1,
+      "message": "The parent is an interface. Do you think it should be an abstract class instead?",
+      "parentUuid": "20f0c865_f1f1c334",
+      "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83d84f3e_ddf9c020",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-07T12:07:24Z",
       "side": 1,
       "message": "Maybe I didn\u0027t understand correctly about the `if angle` check here. Does this mean that we need to do this special check for all the other swatches to add an event listener to update their color swatches?",
+      "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5863af3d_dad2b407",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-12T08:59:52Z",
+      "side": 1,
+      "message": "Yes, whenever there are nested swatches we\u0027ll need to hook up events to propagate updates. Alternatively, we could reparse and rerender values whenever we apply style edits, but that feels a little bit brittle and costly.\n\nNote that that\u0027s not new, we just never had the ability to have that sort of nesting in general. Some cases, like color-mix, manually implement nesting and also propagate update events.",
+      "parentUuid": "83d84f3e_ddf9c020",
       "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
