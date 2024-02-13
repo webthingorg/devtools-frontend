@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ebdf2ac_dbd81709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-13T08:14:50Z",
+      "side": 1,
+      "message": "lgtm % q",
+      "revId": "fa0dc05ea214b048edc423e7eb149c7e1c65a56e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7efecfa5_f0677bae",
+        "filename": "test/unittests/front_end/ui/components/settings/SettingCheckbox_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-13T08:14:50Z",
+      "side": 1,
+      "message": "Isn\u0027t it odd that we render the disabled reason even if the setting is enabled?",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 28
+      },
+      "revId": "fa0dc05ea214b048edc423e7eb149c7e1c65a56e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
