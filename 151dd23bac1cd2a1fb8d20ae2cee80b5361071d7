@@ -228,6 +228,30 @@
       },
       "revId": "151dd23bac1cd2a1fb8d20ae2cee80b5361071d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a4e8e3_d2c869a9",
+        "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T07:13:47Z",
+      "side": 1,
+      "message": "Yeah, looks like I will have to do that to unify the behavior with the Setting.disabled().",
+      "parentUuid": "e250e78a_a55f0153",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 95
+      },
+      "revId": "151dd23bac1cd2a1fb8d20ae2cee80b5361071d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
