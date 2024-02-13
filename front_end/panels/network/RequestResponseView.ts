@@ -67,8 +67,15 @@ export class RequestResponseView extends UI.Widget.VBox {
       return sourceView;
     }
 
+<<<<<<< HEAD   (e4d13b [network] Fix vertical alignment of preflight icon.)
     const contentData = await request.contentData();
     if (SDK.ContentData.ContentData.isError(contentData) || !contentData.isTextContent) {
+=======
+    const contentData = await request.requestStreamingContent();
+    // Note: Even though WASM is binary data, the source view will disassemble it and show a text representation.
+    if (TextUtils.StreamingContentData.isError(contentData) ||
+        !(contentData.isTextContent || contentData.mimeType === 'application/wasm')) {
+>>>>>>> CHANGE (8b5320 [network] Show disassembled WASM in the 'Response' tab)
       requestToSourceView.delete(request);
       return null;
     }
@@ -82,8 +89,15 @@ export class RequestResponseView extends UI.Widget.VBox {
       mimeType = request.resourceType().canonicalMimeType() || request.mimeType;
     }
 
+    const isMinified = contentData.mimeType === 'application/wasm' ?
+        false :
+        TextUtils.TextUtils.isMinified(contentData.content().text);
     const mediaType = Common.ResourceType.ResourceType.mediaTypeForMetrics(
+<<<<<<< HEAD   (e4d13b [network] Fix vertical alignment of preflight icon.)
         mimeType, request.resourceType().isFromSourceMap(), TextUtils.TextUtils.isMinified(contentData.text));
+=======
+        mimeType, request.resourceType().isFromSourceMap(), isMinified);
+>>>>>>> CHANGE (8b5320 [network] Show disassembled WASM in the 'Response' tab)
 
     Host.userMetrics.networkPanelResponsePreviewOpened(mediaType);
     sourceView = SourceFrame.ResourceSourceFrame.ResourceSourceFrame.createSearchableView(request, mimeType);

@@ -17,11 +17,21 @@ ts_library("network") {
     "RequestCookiesView_test.ts",
     "RequestPayloadView_test.ts",
     "RequestPreviewView_test.ts",
+    "RequestResponseView_test.ts",
   ]
 
   deps = [
+<<<<<<< HEAD   (e4d13b [network] Fix vertical alignment of preflight icon.)
+=======
+    "../../../../../front_end/core/platform:bundle",
+    "../../../../../front_end/core/sdk:bundle",
+    "../../../../../front_end/generated:protocol",
+    "../../../../../front_end/models/text_utils:bundle",
+>>>>>>> CHANGE (8b5320 [network] Show disassembled WASM in the 'Response' tab)
     "../../../../../front_end/panels/network:bundle",
     "../../../../../front_end/panels/network:meta",
+    "../../../../../front_end/ui/legacy:bundle",
+    "../../../../../front_end/ui/legacy/components/source_frame:bundle",
     "../../helpers",
   ]
 }
