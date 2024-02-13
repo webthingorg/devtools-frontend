@@ -16,6 +16,24 @@
       "message": "let\u0027s probably rename to `disabledCondition`",
       "revId": "62c00a34125e2c76ce655a3b8e18fcfb102d9879",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8905d347_4892e095",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T07:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce19e8ca_0026e917",
+      "revId": "62c00a34125e2c76ce655a3b8e18fcfb102d9879",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
