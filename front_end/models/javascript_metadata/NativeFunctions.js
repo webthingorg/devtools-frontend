@@ -5234,13 +5234,7 @@ export const NativeFunctions = [
   },
   {
     name: 'addModule',
-    signatures: [['moduleURL','?options']],
-    receivers: ['Worklet']
-  },
-  {
-    name: 'addModule',
-    signatures: [['moduleURL']],
-    receivers: ['SharedStorageWorklet']
+    signatures: [['moduleURL','?options']]
   },
   {
     name: 'getResponseHeader',
