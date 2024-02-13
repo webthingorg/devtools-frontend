@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16c89c5_3ea06ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557636
+      },
+      "writtenOn": "2024-02-13T10:38:37Z",
+      "side": 1,
+      "message": "moving @caseq@chromium.org to CC, to keep the complete picture of the questions discussed before",
+      "revId": "bcd97f861f81e6cdac79dba0750517d6fae4eb58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39292d2e_3bb6994f",
