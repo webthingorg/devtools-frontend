@@ -297,16 +297,9 @@ export class GenericSettingsTab extends SettingsTab {
     // Some settings define their initial ordering.
     const preRegisteredSettings = Common.Settings.getRegisteredSettings().sort(
         (firstSetting, secondSetting) => {
-          if (firstSetting.order && secondSetting.order) {
-            return (firstSetting.order - secondSetting.order);
-          }
-          if (firstSetting.order) {
-            return -1;
-          }
-          if (secondSetting.order) {
-            return 1;
-          }
-          return 0;
+          const order1 = firstSetting.order ?? 0;
+          const order2 = secondSetting.order ?? 0;
+          return order1 - order2;
         },
     );
 

@@ -403,7 +403,23 @@ export class Setting<V> {
   }
 
   disabled(): boolean {
+    if (this.#registration?.editable) {
+      const result = this.#registration.editable();
+      if (result.result === false) {
+        return true;
+      }
+    }
     return this.#disabled || false;
+  }
+
+  disabledReason(): string|undefined {
+    if (this.#registration?.editable) {
+      const result = this.#registration.editable();
+      if (result.result === false) {
+        return result.reason;
+      }
+    }
+    return undefined;
   }
 
   setDisabled(disabled: boolean): void {
