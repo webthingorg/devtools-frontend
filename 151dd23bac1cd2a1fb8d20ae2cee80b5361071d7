@@ -89,6 +89,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebb4b062_d4a97cbb",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T06:55:06Z",
+      "side": 1,
+      "message": "It might change but I think the previous implementation was wrong: it does not work if you set order for a single setting. I have not noticed major changes so far but I can compare again",
+      "parentUuid": "1c19ea1f_804d2aa9",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 33
+      },
+      "revId": "151dd23bac1cd2a1fb8d20ae2cee80b5361071d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "728b3ef2_111dd93c",
         "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
         "patchSetId": 5
