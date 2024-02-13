@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6718bd07_cc72d388",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-13T17:33:29Z",
+      "side": 1,
+      "message": "Temporarily disable test http/tests/devtools/resource-har-conversion.js to land this CL: https://chromium-review.googlesource.com/c/chromium/src/+/5292296, PTAL.",
+      "revId": "b55874e89959d1494545f510113eeb6ec71015f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
