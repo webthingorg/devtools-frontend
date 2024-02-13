@@ -39,6 +39,30 @@
       },
       "revId": "fa0dc05ea214b048edc423e7eb149c7e1c65a56e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1c178a1_c40d7bc1",
+        "filename": "test/unittests/front_end/ui/components/settings/SettingCheckbox_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T08:20:21Z",
+      "side": 1,
+      "message": "WDYT? result: true means it is disabled",
+      "parentUuid": "7efecfa5_f0677bae",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 28
+      },
+      "revId": "fa0dc05ea214b048edc423e7eb149c7e1c65a56e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
