@@ -44,6 +44,10 @@ export class RPCInterface implements WorkerInterface, HostInterface {
     this.resourceLoader = resourceLoader;
   }
 
+  reportResourceLoad(resourceUrl: string, status: {success?: boolean, errorMessage?: string, size?: number}): void {
+    return this.rpc.sendMessage('reportResourceLoad', resourceUrl, status);
+  }
+
   getWasmLinearMemory(offset: number, length: number, stopId: unknown): ArrayBuffer {
     return this.rpc.sendMessageSync(
         new SynchronousLinearMemoryMessage(length), 'getWasmLinearMemory', offset, length, stopId);

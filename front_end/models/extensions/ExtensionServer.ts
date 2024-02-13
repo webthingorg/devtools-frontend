@@ -203,6 +203,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.registerHandler(PrivateAPI.Commands.UpdateButton, this.onUpdateButton.bind(this));
     this.registerHandler(
         PrivateAPI.Commands.RegisterLanguageExtensionPlugin, this.registerLanguageExtensionEndpoint.bind(this));
+    this.registerHandler(PrivateAPI.Commands.ReportResourceLoad, this.onReportResourceLoad.bind(this));
     this.registerHandler(PrivateAPI.Commands.GetWasmLinearMemory, this.onGetWasmLinearMemory.bind(this));
     this.registerHandler(PrivateAPI.Commands.GetWasmGlobal, this.onGetWasmGlobal.bind(this));
     this.registerHandler(PrivateAPI.Commands.GetWasmLocal, this.onGetWasmLocal.bind(this));
@@ -301,6 +302,25 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return this.status.OK();
   }
 
+  private onReportResourceLoad(message: PrivateAPI.ExtensionServerRequestMessage): Record {
+    if (message.command !== PrivateAPI.Commands.ReportResourceLoad) {
+      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.ReportResourceLoad}`);
+    }
+    const {resourceUrl, extensionId, status} = message;
+    const url = resourceUrl as Platform.DevToolsPath.UrlString;
+    const initiator:
+        SDK.PageResourceLoader.ExtensionInitiator = {target: null, frameId: null, initiatorUrl: url, extensionId};
+
+    const pageResource: SDK.PageResourceLoader.PageResource = {
+      url,
+      initiator,
+      errorMessage: status.errorMessage,
+      success: status.success ?? null,
+      size: status.size ?? null,
+    };
+    PageResourceLoader.PageResourceLoader.instance().resourceLoadedThroughExtension(pageResource);
+    return this.status.OK();
+  }
   private async loadWasmValue<T>(expression: string, stopId: unknown): Promise<Record|T> {
     const {pluginManager} = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
     const callFrame = pluginManager.callFrameForStopId(stopId as Bindings.DebuggerLanguagePlugins.StopId);

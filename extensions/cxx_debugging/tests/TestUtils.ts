@@ -10,6 +10,12 @@ import {type HostInterface} from '../src/WorkerRPC.js';
 import {type Debugger} from './RealBackend.js';
 
 export class TestHostInterface implements HostInterface {
+  reportResourceLoad(
+      resourceUrl: string,
+      status: {success?: boolean|undefined; errorMessage?: string | undefined; size?: number | undefined;}): void {
+    throw new Error('Method not implemented');
+  }
+
   getWasmLinearMemory(_offset: number, _length: number, _stopId: unknown): ArrayBuffer {
     throw new Error('Method not implemented.');
   }

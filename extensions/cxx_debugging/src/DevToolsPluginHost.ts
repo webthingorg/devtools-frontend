@@ -16,6 +16,9 @@ export class WorkerPlugin implements Chrome.DevTools.LanguageExtensionPlugin, As
     this.worker = new Worker('DevToolsPluginWorkerMain.bundle.js', {type: 'module'});
     this.rpc = new WorkerRPC<AsyncHostInterface, WorkerInterface>(this.worker, this);
   }
+  reportResourceLoad(resourceUrl: string, status: {success?: boolean, errorMessage?: string, size?: number}): void {
+    return chrome.devtools.languageServices.reportResourceLoad(resourceUrl, status);
+  }
   getWasmLinearMemory(offset: number, length: number, stopId: unknown): Promise<ArrayBuffer> {
     return chrome.devtools.languageServices.getWasmLinearMemory(offset, length, stopId);
   }
