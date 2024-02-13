@@ -176,12 +176,17 @@ export const createCustomSetting = function(name: string, element: Element): Ele
 };
 
 export const createControlForSetting = function(
-    setting: Common.Settings.Setting<unknown>, subtitle?: string): HTMLElement|null {
+    setting: Common.Settings.Setting<unknown>, subtitle?: string,
+    editable?: Common.SettingRegistration.EditableResult): HTMLElement|null {
   const uiTitle = setting.title();
   switch (setting.type()) {
     case Common.Settings.SettingType.BOOLEAN: {
       const component = new Settings.SettingCheckbox.SettingCheckbox();
-      component.data = {setting: setting as Common.Settings.Setting<boolean>};
+      component.data = {
+        setting: setting as Common.Settings.Setting<boolean>,
+        disabled: editable && editable.result === false,
+        disabledReason: editable && editable.result === false ? editable?.reason : undefined,
+      };
       component.onchange = () => {
         InspectorView.instance().displayReloadRequiredWarning(i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
       };
