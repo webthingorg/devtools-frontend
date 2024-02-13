@@ -75,6 +75,12 @@ const UIStrings = {
    *@description Label for a button in the shortcut editor that resets all shortcuts for the current action.
    */
   ResetShortcutsForAction: 'Reset shortcuts for action',
+  /**
+   *@description Screen reader announcment for shortcut removed
+   *@example {Performance} PH1
+   *@example {Start/stop recording} PH2
+   */
+  shortCutRemoved: '{PH1} Shortcut: {PH2} removed',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/settings/KeybindsSettingsTab.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -438,6 +444,8 @@ export class ShortcutListItem {
             if (!shortcut.isDefault()) {
               this.shortcuts.splice(index, 1);
             }
+            UI.ARIAUtils.alert(
+                i18nString(UIStrings.shortCutRemoved, {'PH1': this.item.category(), 'PH2': this.item.title()}));
             this.editedShortcuts.set(shortcut, null);
             this.update();
             this.focus();
