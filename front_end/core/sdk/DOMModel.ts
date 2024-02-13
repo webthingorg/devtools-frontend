@@ -43,12 +43,15 @@ import * as Root from '../root/root.js';
 import {CSSModel} from './CSSModel.js';
 import {FrameManager} from './FrameManager.js';
 import {OverlayModel} from './OverlayModel.js';
-import {type RemoteObject} from './RemoteObject.js';
+import {RemoteObject} from './RemoteObject.js';
 import {ResourceTreeModel} from './ResourceTreeModel.js';
-import {RuntimeModel} from './RuntimeModel.js';
+import * as RuntimeModel from './RuntimeModel.js';
 import {SDKModel} from './SDKModel.js';
 import {Capability, type Target} from './Target.js';
 import {TargetManager} from './TargetManager.js';
+
+const REPORT_SCROLL_POSITION_BINDING_NAME = '__devtools_report_scroll_position__';
+const SCROLL_LISTENER_NAME_IN_PAGE = (id: string): string => `__devtools_scroll_listener_${id}__`;
 
 export class DOMNode {
   #domModelInternal: DOMModel;
@@ -76,6 +79,10 @@ export class DOMNode {
   #attributesInternal: Map<string, Attribute>;
   #markers: Map<string, unknown>;
   #subtreeMarkerCount: number;
+  #bindingListenersById:
+      Map<string,
+          (ev: Common.EventTarget.EventTargetEvent<Protocol.Runtime.BindingCalledEvent, RuntimeModel.EventTypes>) =>
+              void>;
   childNodeCountInternal!: number;
   childrenInternal: DOMNode[]|null;
   nextSibling: DOMNode|null;
@@ -104,6 +111,7 @@ export class DOMNode {
     this.shadowRootsInternal = [];
     this.#attributesInternal = new Map();
     this.#markers = new Map();
+    this.#bindingListenersById = new Map();
     this.#subtreeMarkerCount = 0;
     this.childrenInternal = null;
     this.nextSibling = null;
@@ -923,20 +931,30 @@ export class DOMNode {
     return node;
   }
 
+  private async callFunction<T, U extends string|number>(fn: (this: HTMLElement, ...args: U[]) => T, args: U[] = []):
+      Promise<T|null> {
+    const object = await this.resolveToObject();
+    if (!object) {
+      return null;
+    }
+
+    const result = await object.callFunction(fn, args.map(arg => RemoteObject.toCallArgument(arg)));
+    object.release();
+    if (result.wasThrown || !result.object) {
+      return null;
+    }
+    return result.object.value as T;
+  }
+
   async scrollIntoView(): Promise<void> {
     const node = this.enclosingElementOrSelf();
     if (!node) {
       return;
     }
-    const object = await node.resolveToObject();
-    if (!object) {
-      return;
-    }
-    await object.callFunction(scrollIntoView);
-    object.release();
-    node.highlightForTwoSeconds();
+    await node.callFunction(scrollIntoViewInPage);
+    this.enclosingElementOrSelf()?.highlightForTwoSeconds();
 
-    function scrollIntoView(this: Element): void {
+    function scrollIntoViewInPage(this: Element): void {
       this.scrollIntoViewIfNeeded(true);
     }
   }
@@ -946,17 +964,176 @@ export class DOMNode {
     if (!node) {
       throw new Error('DOMNode.focus expects node to not be null.');
     }
-    const object = await node.resolveToObject();
-    if (!object) {
-      return;
-    }
-    await object.callFunction(focusInPage);
-    object.release();
+    await node.callFunction(focusInPage);
     node.highlightForTwoSeconds();
     await this.#domModelInternal.target().pageAgent().invoke_bringToFront();
 
     function focusInPage(this: HTMLElement): void {
       this.focus();
+    }
+  }
+
+  async addScrollEventListener(onScroll: ({scrollLeft, scrollTop}: {scrollLeft: number, scrollTop: number}) => void):
+      Promise<string|null> {
+    const object = await this.resolveToObject();
+    if (!object) {
+      return null;
+    }
+
+    const id = String(Math.random()).slice(2);
+    const bindingListener =
+        (ev: Common.EventTarget.EventTargetEvent<Protocol.Runtime.BindingCalledEvent, RuntimeModel.EventTypes>):
+            void => {
+              const {name, payload} = ev.data;
+              if (name !== REPORT_SCROLL_POSITION_BINDING_NAME) {
+                return;
+              }
+
+              const {scrollTop, scrollLeft, id: reportedId} =
+                  JSON.parse(payload) as {scrollTop: number, scrollLeft: number, id: string};
+              if (id === reportedId) {
+                onScroll({scrollTop, scrollLeft});
+              }
+            };
+    this.#bindingListenersById.set(id, bindingListener);
+    object.runtimeModel().addEventListener(RuntimeModel.Events.BindingCalled, bindingListener);
+    await object.runtimeModel().addBinding({
+      name: REPORT_SCROLL_POSITION_BINDING_NAME,
+    });
+    object.release();
+
+    await this.callFunction(
+        scrollListenerInPage, [id, REPORT_SCROLL_POSITION_BINDING_NAME, SCROLL_LISTENER_NAME_IN_PAGE(id)]);
+    return id;
+
+    function scrollListenerInPage(
+        this: HTMLElement|Document, id: string, reportScrollPositionBindingName: string,
+        scrollListenerNameInPage: string): void {
+      if ('scrollingElement' in this && !this.scrollingElement) {
+        return;
+      }
+
+      const scrollingElement = ('scrollingElement' in this ? this.scrollingElement : this) as HTMLElement;
+      // @ts-ignore We're setting a custom field on `Element` or `Document` for retaining the function on the page.
+      this[scrollListenerNameInPage] = () => {
+        // @ts-ignore `reportScrollPosition` binding is injected to the page before calling the function.
+        globalThis[reportScrollPositionBindingName](
+            JSON.stringify({scrollTop: scrollingElement.scrollTop, scrollLeft: scrollingElement.scrollLeft, id}));
+      };
+
+      // @ts-ignore We've already defined the function used below.
+      this.addEventListener('scroll', this[scrollListenerNameInPage], true);
+    }
+  }
+
+  async removeScrollEventListener(id: string): Promise<void> {
+    await this.callFunction(removeScrollListenerInPage, [SCROLL_LISTENER_NAME_IN_PAGE(id)]);
+    const bindingListener = this.#bindingListenersById.get(id);
+    const object = await this.resolveToObject();
+    if (!object || !bindingListener) {
+      return;
+    }
+    object.runtimeModel().removeEventListener(RuntimeModel.Events.BindingCalled, bindingListener);
+
+    function removeScrollListenerInPage(this: HTMLElement|Document, scrollListenerNameInPage: string): void {
+      // @ts-ignore We've already set this custom field while adding scroll listener.
+      this.removeEventListener('scroll', scrollListenerNameInPage);
+      // @ts-ignore We've already set this custom field while adding scroll listener.
+      delete this[scrollListenerNameInPage];
+    }
+  }
+
+  async scrollTop(): Promise<number|null> {
+    return this.callFunction(scrollTopInPage);
+
+    function scrollTopInPage(this: Element|Document): number {
+      if ('scrollingElement' in this) {
+        if (!this.scrollingElement) {
+          return 0;
+        }
+
+        return this.scrollingElement.scrollTop;
+      }
+      return this.scrollTop;
+    }
+  }
+
+  async scrollLeft(): Promise<number|null> {
+    return this.callFunction(scrollLeftInPage);
+
+    function scrollLeftInPage(this: Element|Document): number {
+      if ('scrollingElement' in this) {
+        if (!this.scrollingElement) {
+          return 0;
+        }
+
+        return this.scrollingElement.scrollLeft;
+      }
+      return this.scrollLeft;
+    }
+  }
+
+  async setScrollTop(offset: number): Promise<void> {
+    await this.callFunction(setScrollTopInPage, [offset]);
+
+    function setScrollTopInPage(this: Element|Document, offsetInPage: number): void {
+      if ('scrollingElement' in this) {
+        if (!this.scrollingElement) {
+          return;
+        }
+
+        this.scrollingElement.scrollTop = offsetInPage;
+      } else {
+        this.scrollTop = offsetInPage;
+      }
+    }
+  }
+
+  async setScrollLeft(offset: number): Promise<void> {
+    await this.callFunction(setScrollLeftInPage, [offset]);
+
+    function setScrollLeftInPage(this: Element|Document, offsetInPage: number): void {
+      if ('scrollingElement' in this) {
+        if (!this.scrollingElement) {
+          return;
+        }
+
+        this.scrollingElement.scrollLeft = offsetInPage;
+      } else {
+        this.scrollLeft = offsetInPage;
+      }
+    }
+  }
+
+  async verticalScrollRange(): Promise<number|null> {
+    return this.callFunction(verticalScrollRangeInPage);
+
+    function verticalScrollRangeInPage(this: Element|Document): number {
+      if ('scrollingElement' in this) {
+        if (!this.scrollingElement) {
+          return 0;
+        }
+
+        return this.scrollingElement.scrollHeight - this.scrollingElement.clientHeight;
+      }
+
+      return this.scrollHeight - this.clientHeight;
+    }
+  }
+
+  async horizontalScrollRange(): Promise<number|null> {
+    return this.callFunction(horizontalScrollRangeInPage);
+
+    function horizontalScrollRangeInPage(this: Element|Document): number {
+      if ('scrollingElement' in this) {
+        if (!this.scrollingElement) {
+          return 0;
+        }
+
+        return this.scrollingElement.scrollWidth - this.scrollingElement.clientWidth;
+      }
+
+      return this.scrollWidth - this.clientWidth;
     }
   }
 
@@ -1057,7 +1234,7 @@ export class DOMModel extends SDKModel<EventTypes> {
   idToDOMNode: Map<Protocol.DOM.NodeId, DOMNode> = new Map();
   #document: DOMDocument|null;
   readonly #attributeLoadNodeIds: Set<Protocol.DOM.NodeId>;
-  readonly runtimeModelInternal: RuntimeModel;
+  readonly runtimeModelInternal: RuntimeModel.RuntimeModel;
   #lastMutationId!: number;
   #pendingDocumentRequestPromise: Promise<DOMDocument|null>|null;
   #frameOwnerNode?: DOMNode|null;
@@ -1071,7 +1248,7 @@ export class DOMModel extends SDKModel<EventTypes> {
     this.#document = null;
     this.#attributeLoadNodeIds = new Set();
     target.registerDOMDispatcher(new DOMDispatcher(this));
-    this.runtimeModelInternal = (target.model(RuntimeModel) as RuntimeModel);
+    this.runtimeModelInternal = (target.model(RuntimeModel.RuntimeModel) as RuntimeModel.RuntimeModel);
 
     this.#pendingDocumentRequestPromise = null;
 
@@ -1084,7 +1261,7 @@ export class DOMModel extends SDKModel<EventTypes> {
     }
   }
 
-  runtimeModel(): RuntimeModel {
+  runtimeModel(): RuntimeModel.RuntimeModel {
     return this.runtimeModelInternal;
   }
 
