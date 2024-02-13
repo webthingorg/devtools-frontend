@@ -1434,6 +1434,18 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         throw new Error(`Could not get trace data at index ${this.#traceEngineActiveTraceIndex}`);
       }
 
+      const mainFrameNavigations = traceData.Meta.mainFrameNavigations;
+      for (const nav of mainFrameNavigations) {
+        if (!nav.args.frame || !nav.args.data?.navigationId) {
+          continue;
+        }
+        const context = {
+          frameId: nav.args.frame,
+          navigationId: nav.args.data.navigationId,
+        }
+        console.log(TraceEngine.Insights.RenderBlockingRequests.generateInsight(traceData, context));
+      }
+
       // Set up SourceMapsResolver to ensure we resolve any function names in
       // profile calls.
       this.#sourceMapsResolver = new SourceMapsResolver(traceData);
