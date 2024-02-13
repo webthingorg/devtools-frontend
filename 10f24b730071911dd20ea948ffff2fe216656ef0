@@ -16,6 +16,23 @@
       "message": "Benedikt, please kindly take another look:)",
       "revId": "10f24b730071911dd20ea948ffff2fe216656ef0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b391366_0e55b1fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-13T06:40:30Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "10f24b730071911dd20ea948ffff2fe216656ef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

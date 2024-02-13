@@ -34,6 +34,24 @@
       "parentUuid": "a8a1e7fa_b6e7aa4c",
       "revId": "c632dfe864d8d7450393f49900c86fe2841f7784",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebdf58f2_fda1802f",
+        "filename": "front_end/ui/components/text_editor/theme.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-13T06:40:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "866c5a42_d9b713ca",
+      "revId": "c632dfe864d8d7450393f49900c86fe2841f7784",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
