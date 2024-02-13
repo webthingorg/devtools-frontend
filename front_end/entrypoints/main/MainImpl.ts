@@ -391,6 +391,11 @@ export class MainImpl {
         'Enable Autofill view',
     );
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.TIMELINE_SHOW_POST_MESSAGE_EVENTS,
+        'Show Post message dispatch and handling events on the Performance timeline',
+    );
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'cssTypeComponentLengthDeprecate',
       'setAllBreakpointsEagerly',

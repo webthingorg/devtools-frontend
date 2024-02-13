@@ -297,6 +297,7 @@ export const enum ExperimentName {
   TRACK_CONTEXT_MENU = 'trackContextMenu',
   AUTOFILL_VIEW = 'autofillView',
   INDENTATION_MARKERS_TEMP_DISABLE = 'sourcesFrameIndentationMarkersTemporarilyDisable',
+  TIMELINE_SHOW_POST_MESSAGE_EVENTS = 'timelineShowPostMessageEvents',
 }
 
 export const enum ConditionName {
