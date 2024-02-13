@@ -555,18 +555,18 @@ describeWithMockConnection('TimelineUIUtils', function() {
           value: '3',
         },
         {
-          title: 'Recalculation Forced',
-          // The Stack trace output would be here but the detailRow helper is
-          // unable to parse it, hence why this returns empty.
-          value: '',
-        },
-        {
           title: 'Pending for',
           value: '7.1 ms',
         },
         {
           title: 'Initiator',
           value: 'Reveal',
+        },
+        {
+          title: 'Recalculation Forced',
+          // The Stack trace output would be here but the detailRow helper is
+          // unable to parse it, hence why this returns empty.
+          value: '',
         },
         {
           title: 'PseudoClass:active',
