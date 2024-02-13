@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bab30e8_f97285db",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T07:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef6af633_e8c54694",
+      "range": {
+        "startLine": 278,
+        "startChar": 41,
+        "endLine": 278,
+        "endChar": 48
+      },
+      "revId": "151dd23bac1cd2a1fb8d20ae2cee80b5361071d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74eebebb_5ccbc693",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-13T05:34:22Z",
       "side": 1,
       "message": "can we name this `EditableResult`, just `Result` is rather vague.",
+      "range": {
+        "startLine": 281,
+        "startChar": 19,
+        "endLine": 281,
+        "endChar": 25
+      },
+      "revId": "151dd23bac1cd2a1fb8d20ae2cee80b5361071d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91142ac6_da42c5bb",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T07:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74eebebb_5ccbc693",
       "range": {
         "startLine": 281,
         "startChar": 19,
@@ -113,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "549a3758_23ffb980",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T07:11:31Z",
+      "side": 1,
+      "message": "Alright, there is a slight difference in the visual order but I\u0027d rather stick to the new version since the order was mostly determined by the order of meta files evaluations if a",
+      "parentUuid": "ebb4b062_d4a97cbb",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 33
+      },
+      "revId": "151dd23bac1cd2a1fb8d20ae2cee80b5361071d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "728b3ef2_111dd93c",
         "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
         "patchSetId": 5
@@ -124,6 +196,30 @@
       "writtenOn": "2024-02-13T05:34:22Z",
       "side": 1,
       "message": "This comment is lying now.\n\nq: Could we implement the other use of `disabled` here also with the `editable` flag? Then we\u0027d only need to pass in the setting to the component and the component would figure out the rest by calling `editable`.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 95
+      },
+      "revId": "151dd23bac1cd2a1fb8d20ae2cee80b5361071d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e250e78a_a55f0153",
+        "filename": "front_end/ui/components/settings/SettingCheckbox.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-13T07:11:31Z",
+      "side": 1,
+      "message": "Editable does not currently exist on the setting and only on the SettingRegistration. I could look into that.",
+      "parentUuid": "728b3ef2_111dd93c",
       "range": {
         "startLine": 17,
         "startChar": 0,
