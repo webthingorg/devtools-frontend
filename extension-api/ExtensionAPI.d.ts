@@ -271,6 +271,8 @@ export namespace Chrome {
       getWasmLocal(local: number, stopId: unknown): Promise<WasmValue>;
       getWasmGlobal(global: number, stopId: unknown): Promise<WasmValue>;
       getWasmOp(op: number, stopId: unknown): Promise<WasmValue>;
+
+      reportResourceLoad(resourceUrl: string, status: {success?: boolean, errorMessage?: string, size?: number}): void;
     }
 
 
