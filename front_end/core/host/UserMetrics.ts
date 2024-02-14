@@ -1108,9 +1108,10 @@ export enum DevtoolsExperiments {
   'sourcesFrameIndentationMarkersTemporarilyDisable' = 83,
   'heapSnapshotTreatBackingStoreAsContainingObject' = 84,
   'cssTypeComponentLengthDeprecate' = 85,
+  'timelineShowPostMessageEvents' = 86,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 86,
+  'MaxValue' = 87,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
