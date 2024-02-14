@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Handlers from './handlers/handlers.js';
+import * as Insights from './insights/insights.js';
 import * as Types from './types/types.js';
 
 const enum Status {
@@ -36,6 +37,7 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
   readonly #traceHandlers: Handlers.Types.HandlersWithMeta<EnabledModelHandlers>;
   #status = Status.IDLE;
   #modelConfiguration = Types.Configuration.DEFAULT;
+  #insights: Insights.Types.AllInsightData = new Map();
 
   static createWithAllHandlers(): TraceProcessor<typeof Handlers.ModelHandlers> {
     return new TraceProcessor(Handlers.ModelHandlers, Types.Configuration.DEFAULT);
@@ -182,6 +184,40 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
     }
 
     return data as Handlers.Types.EnabledHandlerDataWithMeta<EnabledModelHandlers>;
+  }
+
+  get insights(): Map<string, Insights.Types.InsightData>|null {
+    const data = this.data as Handlers.Types.EnabledHandlerDataWithMeta<typeof Handlers.ModelHandlers>|null;
+    if (!data) {
+      return null;
+    }
+
+    if (this.#insights.size) {
+      return this.#insights;
+    }
+
+    const mainFrameNavigations = data.Meta.mainFrameNavigations;
+    for (const nav of mainFrameNavigations) {
+      if (!nav.args.frame || !nav.args.data?.navigationId) {
+        continue;
+      }
+
+      const context = {
+        frameId: nav.args.frame,
+        navigationId: nav.args.data.navigationId,
+      }
+
+      const key = JSON.stringify(context);
+      const insights = {} as Insights.Types.InsightData;
+      for (const [name, insight] of Object.entries(Insights.InsightRunners)) {
+        Object.assign(insights, {[name]: insight.generateInsight(data, context)});
+      }
+
+      this.#insights.set(key, insights)
+    }
+
+
+    return this.#insights;
   }
 }
 

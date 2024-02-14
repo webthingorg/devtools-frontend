@@ -1434,6 +1434,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         throw new Error(`Could not get trace data at index ${this.#traceEngineActiveTraceIndex}`);
       }
 
+      const traceInsights = this.#traceEngineModel.traceInsights(this.#traceEngineActiveTraceIndex);
+      if (!traceInsights) {
+        throw new Error(`Could not get trace insights at index ${this.#traceEngineActiveTraceIndex}`);
+      }
+
+      for (const insights of traceInsights.values()) {
+        console.log(insights);
+      }
+
       // Set up SourceMapsResolver to ensure we resolve any function names in
       // profile calls.
       this.#sourceMapsResolver = new SourceMapsResolver(traceData);
