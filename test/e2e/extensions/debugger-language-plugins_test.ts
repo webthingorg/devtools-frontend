@@ -12,8 +12,11 @@ import {
   assertNotNullOrUndefined,
   click,
   disableExperiment,
+  getAllTextContents,
   getBrowserAndPages,
+  getDevToolsFrontendHostname,
   getResourcesPath,
+  getTestServerPort,
   goToResource,
   installEventListener,
   pasteText,
@@ -50,7 +53,11 @@ import {
   switchToCallFrame,
   WasmLocationLabels,
 } from '../helpers/sources-helpers.js';
+import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
+import {checkIfTabExistsInDrawer} from '../helpers/cross-tool-helper.js';
 
+const DEVELOPER_RESOURCES_VIEW_TITLE = 'Developer resources';
+const DEVELOPER_RESOURCES_TAB_SELECTOR = '#tab-developer-resources';
 declare global {
   let chrome: Chrome.DevTools.Chrome;
   interface Window {
@@ -1132,5 +1139,53 @@ describe('The Debugger Language Plugins', async () => {
     // We're paused at the right location, but let's also check that we're paused in wasm, not the source code:
     const pausedFrame = await retrieveTopCallFrameWithoutResuming();
     assert.deepEqual(pausedFrame, `stepping.wasm:0x${pausedLocation.moduleOffset.toString(16)}`);
+  });
+
+  it('reports loaded files to the developer resources panel', async () => {
+    const extension = await loadExtension(
+        'TestExtension', `${getResourcesPathWithDevToolsHostname()}/extensions/language_extensions.html`);
+    await extension.evaluate(() => {
+      class MissingInfoPlugin {
+        async addRawModule(rawModuleId: string, symbols: string, rawModule: Chrome.DevTools.RawModule) {
+          chrome.devtools.languageServices.reportResourceLoad(rawModule.url, {success: true, size: 20});
+          chrome.devtools.languageServices.reportResourceLoad('test.dwo', {success: false, errorMessage: '404'});
+          return {missingSymbolFiles: []};
+        }
+      }
+
+      RegisterExtension(new MissingInfoPlugin(), 'MissingInfo', {language: 'WebAssembly', symbol_types: ['None']});
+    });
+
+    await openSourcesPanel();
+    await click(PAUSE_ON_UNCAUGHT_EXCEPTION_SELECTOR);
+    await goToResource('sources/wasm/unreachable.html');
+    await waitFor(RESUME_BUTTON);
+
+    await openPanelViaMoreTools(DEVELOPER_RESOURCES_VIEW_TITLE);
+    await checkIfTabExistsInDrawer(DEVELOPER_RESOURCES_TAB_SELECTOR);
+
+    const resourcesGrid = await waitFor('.developer-resource-view-results');
+    const reportedResources = await waitForMany('.data-grid-data-grid-node', 2, resourcesGrid);
+    const allRequestContents = await Promise.all(reportedResources.map(r => getAllTextContents('td', r)));
+
+    const moduleUrl = `${getResourcesPath()}/sources/wasm/unreachable.wasm`;
+    const initiatorUrl = `https://${getDevToolsFrontendHostname()}:${getTestServerPort()}`;
+
+    const reportedModuleRequest = allRequestContents.find(row => row[1] === moduleUrl);
+    assert.deepEqual(reportedModuleRequest?.filter(c => Boolean(c)), [
+      'success',
+      moduleUrl,
+      initiatorUrl,
+      '20',
+    ]);
+
+    const missingDwoName = 'test.dwo';
+    const reportedDWORequest = allRequestContents.find(row => row[1] === missingDwoName);
+    assert.deepEqual(reportedDWORequest?.filter(c => Boolean(c)), [
+      'failure',
+      missingDwoName,
+      initiatorUrl,
+      '404',
+    ]);
   });
 });
