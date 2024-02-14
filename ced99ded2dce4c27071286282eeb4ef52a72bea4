@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6de4e336_f6cb4c95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1111977
+      },
+      "writtenOn": "2024-02-14T18:02:39Z",
+      "side": 1,
+      "message": "+alexrudenko for front_end/\n+szuend for tests/e2e/sensors",
+      "revId": "ced99ded2dce4c27071286282eeb4ef52a72bea4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
