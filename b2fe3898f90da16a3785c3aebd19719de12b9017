@@ -91,6 +91,30 @@
       },
       "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b28d34_99934067",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-14T16:11:36Z",
+      "side": 1,
+      "message": "The `responseCookies` contains all the non-blocked cookies so it should already contains the cookies from the `request.exemptedResponseCookies()`. If we blindly add the cookies from `request.exemptedResponseCookies()` again, there will be duplicated cookies in `responseCookies`, which IIUC would be wrong when building cookie table in the CookiesTable.ts::rebuildTable() based on `responseCookies`.",
+      "parentUuid": "92720c28_179ae9f1",
+      "range": {
+        "startLine": 244,
+        "startChar": 12,
+        "endLine": 244,
+        "endChar": 105
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
