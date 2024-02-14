@@ -13782,9 +13782,23 @@ export namespace Storage {
    * Details for an origin's shared storage.
    */
   export interface SharedStorageMetadata {
+    /**
+     * Time when the origin's shared storage was last created.
+     */
     creationTime: Network.TimeSinceEpoch;
+    /**
+     * Number of key-value pairs stored in origin's shared storage.
+     */
     length: integer;
+    /**
+     * Current amount of bits of entropy remaining in the navigation budget.
+     */
     remainingBudget: number;
+    /**
+     * Total number of bytes stored as key-value pairs in origin's shared
+     * storage.
+     */
+    bytesUsed: integer;
   }
 
   /**
@@ -16114,6 +16128,18 @@ export namespace WebAuthn {
      * See https://w3c.github.io/webauthn/#sctn-large-blob-extension
      */
     largeBlob?: binary;
+    /**
+     * Assertions returned by this credential will have the backup eligibility
+     * (BE) flag set to this value. Defaults to the authenticator's
+     * defaultBackupEligibility value.
+     */
+    backupEligibility?: boolean;
+    /**
+     * Assertions returned by this credential will have the backup state (BS)
+     * flag set to this value. Defaults to the authenticator's
+     * defaultBackupState value.
+     */
+    backupState?: boolean;
   }
 
   export interface EnableRequest {
@@ -16197,6 +16223,13 @@ export namespace WebAuthn {
   export interface SetAutomaticPresenceSimulationRequest {
     authenticatorId: AuthenticatorId;
     enabled: boolean;
+  }
+
+  export interface SetCredentialPropertiesRequest {
+    authenticatorId: AuthenticatorId;
+    credentialId: binary;
+    backupEligibility?: boolean;
+    backupState?: boolean;
   }
 
   /**
