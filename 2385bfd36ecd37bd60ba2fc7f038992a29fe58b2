@@ -52,6 +52,24 @@
       "parentUuid": "59161d28_288df6da",
       "revId": "2385bfd36ecd37bd60ba2fc7f038992a29fe58b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25af5056_47cbc092",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-14T14:01:27Z",
+      "side": 1,
+      "message": "DOMModel and DOMNode are already quite large. I think it is best to write a class for dealing with animations that takes a DOMNode as an input.",
+      "parentUuid": "422a9e2e_fa8f7400",
+      "revId": "2385bfd36ecd37bd60ba2fc7f038992a29fe58b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
