@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "234363e6_5cfaa91d",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-14T11:24:34Z",
+      "side": 1,
+      "message": "nit suggestion:\n```suggestion\n      exemptedResponseCookies: exemptedCookies?.map(exemptedCookie \u003d\u003e ({\n        cookie: Cookie.fromProtocolCookie(exemptedCookie.cookie),\n        exemptionReason: exemptedCookie.exemptionReason,\n      })),\n```",
+      "range": {
+        "startLine": 929,
+        "startChar": 52,
+        "endLine": 934,
+        "endChar": 7
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7af28c47_9e5c93a0",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-14T11:24:34Z",
+      "side": 1,
+      "message": "cookieLine",
+      "range": {
+        "startLine": 242,
+        "startChar": 59,
+        "endLine": 242,
+        "endChar": 69
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a8c5dc_fa0d7105",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-14T11:24:34Z",
+      "side": 1,
+      "message": "```suggestion\n        const matchedResponseCookie \u003d\n```",
+      "range": {
+        "startLine": 243,
+        "startChar": 14,
+        "endLine": 243,
+        "endChar": 34
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92720c28_179ae9f1",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-14T11:24:34Z",
+      "side": 1,
+      "message": "Could you please explain to me why the matching is necessary? What would happen if all of `this.request.exemptedResponseCookies()` were added blindly?",
+      "range": {
+        "startLine": 244,
+        "startChar": 12,
+        "endLine": 244,
+        "endChar": 105
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
