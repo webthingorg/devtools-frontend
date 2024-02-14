@@ -33,6 +33,24 @@
       "message": "plenty of handlers export their own types.  i think that\u0027d be fine.",
       "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "989d260d_ae9011d5",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-14T02:16:45Z",
+      "side": 1,
+      "message": "I expect this type to be reused by multiple different insights. Every nav related insight will need to know which part of the trace to look at.",
+      "parentUuid": "e3080957_14d4b049",
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
