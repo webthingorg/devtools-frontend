@@ -35,6 +35,69 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19c304f_f05d0b70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-14T12:11:22Z",
+      "side": 1,
+      "message": "this LGTM! The only doubt I have is how we\u0027re going to draw the line between what belongs to insights vs handlers vs root-causes vs extras etc. (this is applies to our current architecture in general, not to this change in particular). Do you see \"insights\" as something that\u0027s clearly different from the other modules?",
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f8641a_055f84ca",
+        "filename": "front_end/models/trace/insights/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-14T12:11:22Z",
+      "side": 1,
+      "message": "nit: 2024 :)",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aca06765_91b39c4c",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-14T12:11:22Z",
+      "side": 1,
+      "message": "maybe it\u0027s worth caching this for future calls?",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3080957_14d4b049",
