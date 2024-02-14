@@ -34,6 +34,24 @@
       "parentUuid": "702f42a1_5b8055e8",
       "revId": "2385bfd36ecd37bd60ba2fc7f038992a29fe58b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "422a9e2e_fa8f7400",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-14T11:00:37Z",
+      "side": 1,
+      "message": "Which parts of the implementation do you mean, why do you think so and where would be the best place to put it?\n\nSince it is related to the DOM node on the page, I found it natural that the implementation lives in the DOMModel.",
+      "parentUuid": "59161d28_288df6da",
+      "revId": "2385bfd36ecd37bd60ba2fc7f038992a29fe58b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
