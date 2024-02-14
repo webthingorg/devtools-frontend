@@ -2276,6 +2276,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     context.fillStyle = '#7f5050';
     context.strokeStyle = '#7f5050';
+    context.lineWidth = 0.5;
+
     const td = this.timelineData();
     if (!td) {
       return;
@@ -2284,7 +2286,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const endIndex = Platform.ArrayUtilities.lowerBound(
         td.flowStartTimes, this.chartViewport.windowRightTime(), Platform.ArrayUtilities.DEFAULT_COMPARATOR);
 
-    context.lineWidth = 0.5;
     for (let i = 0; i < endIndex; ++i) {
       if (!td.flowEndTimes[i] || td.flowEndTimes[i] < this.chartViewport.windowLeftTime()) {
         continue;
@@ -2296,34 +2297,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const startY = this.levelToOffset(startLevel) + this.levelHeight(startLevel) / 2;
       const endY = this.levelToOffset(endLevel) + this.levelHeight(endLevel) / 2;
 
-      const segment = Math.min((endX - startX) / 4, 40);
-      const distanceTime = td.flowEndTimes[i] - td.flowStartTimes[i];
-      const distanceY = (endY - startY) / 10;
-      const spread = 30;
-      const lineY = distanceTime < 1 ? startY : spread + Math.max(0, startY + distanceY * (i % spread));
-
-      const p: {x: number, y: number}[] = [];
-      p.push({x: startX, y: startY});
-      p.push({x: startX + arrowWidth, y: startY});
-      p.push({x: startX + segment + 2 * arrowWidth, y: startY});
-      p.push({x: startX + segment, y: lineY});
-      p.push({x: startX + segment * 2, y: lineY});
-      p.push({x: endX - segment * 2, y: lineY});
-      p.push({x: endX - segment, y: lineY});
-      p.push({x: endX - segment - 2 * arrowWidth, y: endY});
-      p.push({x: endX - arrowWidth, y: endY});
-
       context.beginPath();
-      context.moveTo(p[0].x, p[0].y);
-      context.lineTo(p[1].x, p[1].y);
-      context.bezierCurveTo(p[2].x, p[2].y, p[3].x, p[3].y, p[4].x, p[4].y);
-      context.lineTo(p[5].x, p[5].y);
-      context.bezierCurveTo(p[6].x, p[6].y, p[7].x, p[7].y, p[8].x, p[8].y);
+      context.moveTo(startX, startY);
+      context.lineTo(endX, endY);
       context.stroke();
-
-      context.beginPath();
-      context.arc(startX, startY, 2, -Math.PI / 2, Math.PI / 2, false);
-      context.fill();
 
       context.beginPath();
       context.moveTo(endX, endY);
