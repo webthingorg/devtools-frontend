@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9c0a25_a5db437f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-14T22:05:41Z",
+      "side": 1,
+      "message": "Yeah I think insights are different because they contain opinionated advice about things a user should address. I don\u0027t know everything that\u0027s in handlers/root/causes but they seem more like data sources than opinionated advice.",
+      "parentUuid": "b19c304f_f05d0b70",
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18f8641a_055f84ca",
@@ -88,6 +106,30 @@
       "writtenOn": "2024-02-14T12:11:22Z",
       "side": 1,
       "message": "maybe it\u0027s worth caching this for future calls?",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98484804_32cb0935",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-14T22:05:41Z",
+      "side": 1,
+      "message": "Yeah caching the result somehow seems good. Not sure if we would want the caching logic to be in this function but I will expand on that before this is done.",
+      "parentUuid": "aca06765_91b39c4c",
       "range": {
         "startLine": 32,
         "startChar": 4,
