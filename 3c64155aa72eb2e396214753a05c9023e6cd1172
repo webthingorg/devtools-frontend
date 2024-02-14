@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1c0fcf8_ea4ac48b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-14T10:48:37Z",
+      "side": 1,
+      "message": "Alex, PTAL at the manual changes.",
+      "revId": "3c64155aa72eb2e396214753a05c9023e6cd1172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
