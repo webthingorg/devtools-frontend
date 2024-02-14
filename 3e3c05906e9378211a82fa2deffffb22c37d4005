@@ -197,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53030e32_fc9f5528",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-14T07:41:42Z",
+      "side": 1,
+      "message": "The extra time is actually from `option.capturePictures` instead of `options.captureSelectorStats`. The selector stats feature reused the flag \u0027Enable advanced paint instrumentation (slow)\u0027 to save space. Please let us know if you prefer creating a new flag to enable/disable the selector stats feature. The elapsed timing could be large on web apps like office and Teams.",
+      "parentUuid": "1a4dff97_9299a758",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6
