@@ -54,6 +54,206 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7799a1b_7ca397a4",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "TimelineModel is legacy and we plan to delete it soon.   Almost everything is now using `this.#traceEngineData` which comes from `front_end/models/trace/**`\n\nso.. I propose that you move this fn over to TimelineDetailsView. And below, a few nits…",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e820619_3e197608",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "usually we check `dur`.  `tdur` is thread duration which we don\u0027t currently read.  But.. i\u0027m flexible here.",
+      "range": {
+        "startLine": 1044,
+        "startChar": 13,
+        "endLine": 1044,
+        "endChar": 17
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "321f0a14_a9d3140f",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "`Helpers.Timing.millisecondsToMicroseconds` might be useful.",
+      "range": {
+        "startLine": 1044,
+        "startChar": 47,
+        "endLine": 1044,
+        "endChar": 53
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0795705_c03de976",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "do we need this? it seems unlikely we\u0027d have async/flow here if we did the `e.name` match above.",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a621019_d13269f6",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "```suggestion\n      stack.push(structuredClone(e));\n```",
+      "range": {
+        "startLine": 1053,
+        "startChar": 33,
+        "endLine": 1053,
+        "endChar": 42
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0224e07_e0ccd370",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "```suggestion\n  SelectorStats \u003d \u0027SelectorStats\u0027,\n```",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1228,
+        "endChar": 34
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a4dff97_9299a758",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "I will offer that the original impl (https://crrev.com/c/3582806) still adds significant overhead. \n\nReloading a page from the chrome web store.. The first recalc is normally 9-15ms. But with this category on, it jumps up to ~220ms.\nAlso, if you sum up all the `elapsed` timings. They add up to about 1-2ms. I haven\u0027t yet found a case where this ElapsedSum is more than 20% of the original uninstrumented duration. \n\nSo this all makes me wary to expose these numbers to developers.  I don\u0027t intend to block the CL with this feedback, but.. I wouldn\u0027t mind if you have anything to offer that can set my mind at ease. :)",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3497dab5_f4b9efaf",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "i think this was removed?",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e07b45df_c9aa5d5d",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "i think this was renamed to `timeline-capture-layers-and-pictures` a few hours back.\n\nbut also.. don\u0027t we want to use a reference to the setting and call .get() on that? \ni\u0027m not used to seeing extra createSetting() calls only to get a reference to a previously-created setting..    But, I\u0027m flexible here. It\u0027s probably not a huge deal.",
+      "range": {
+        "startLine": 419,
+        "startChar": 59,
+        "endLine": 419,
+        "endChar": 91
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8ed2ad5_70ea7e0f",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "the name of this trace data arg is pretty unfortunate. But..  I guess the ship has already sailed? :/",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56f2d383_da8d75f6",
         "filename": "test/e2e/performance/selector-stats-tracing_test.ts",
         "patchSetId": 6

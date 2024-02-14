@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a0e08a_4d670e94",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "I don\u0027t see any instrumentation that emits selector_stats on UpdateLayoutTree. Maybe this (and the conditionals you added in InvalidationsHandler) are to handle some legacy case that doesn\u0027t exist anymore?",
+      "revId": "150eea0ff1ac5f798da90c851573a846ee01a056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "475c64ac_495c4de8",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-14T06:44:56Z",
+      "side": 1,
+      "message": "```suggestion\n      \u0027Select \"{PH1}\" to collect detailed CSS selector matching statistics.\u0027,\n```",
+      "range": {
+        "startLine": 1001,
+        "startChar": 7,
+        "endLine": 1001,
+        "endChar": 144
+      },
+      "revId": "150eea0ff1ac5f798da90c851573a846ee01a056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
