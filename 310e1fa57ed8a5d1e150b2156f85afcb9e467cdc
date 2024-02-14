@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50dd5879_b9db2713",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-14T15:34:32Z",
+      "side": 1,
+      "message": "I do not see where bindings are removed. Also, perhaps you might want to do that in the isolated world?",
+      "revId": "310e1fa57ed8a5d1e150b2156f85afcb9e467cdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82d896b3_847e4cac",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-14T15:34:32Z",
+      "side": 1,
+      "message": "Why does every listener add a binding? note that bindings are global and you probably only need one for all interactions",
+      "revId": "310e1fa57ed8a5d1e150b2156f85afcb9e467cdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
