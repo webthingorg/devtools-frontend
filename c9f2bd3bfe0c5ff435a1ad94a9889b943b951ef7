@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5523d73d_9fda0b3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-14T12:06:52Z",
+      "side": 1,
+      "message": "Benedikt, need a DEPS owner for this CL",
+      "revId": "c9f2bd3bfe0c5ff435a1ad94a9889b943b951ef7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
