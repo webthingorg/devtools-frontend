@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "085fe7d3_bd141c3c",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-14T12:32:31Z",
+      "side": 1,
+      "message": "I like this solution! \nLet\u0027s declare 200 as variable. Something like `#maxHighlighedSearchElements: number \u003d 200;`",
+      "parentUuid": "578000d3_397ef1e3",
+      "range": {
+        "startLine": 434,
+        "startChar": 4,
+        "endLine": 436,
+        "endChar": 88
+      },
+      "revId": "f63e784400eb0d302bda0f9e804a3f1816b7032b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99ae3a81_adc1904c",
         "filename": "front_end/ui/legacy/components/perf_ui/flameChart.css",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-09T22:27:54Z",
       "side": 1,
       "message": "Not sure if there are guidelines for picking a different color. Open to suggestions here!",
+      "range": {
+        "startLine": 49,
+        "startChar": 21,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "f63e784400eb0d302bda0f9e804a3f1816b7032b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a3a5169_01237a9f",
+        "filename": "front_end/ui/legacy/components/perf_ui/flameChart.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-14T12:32:31Z",
+      "side": 1,
+      "message": "Feel free to use any of the declared colors! What do you think about keeping the selected element the same color as it used to be and making the rest of the searchResultHighlightElements lighter?\nI checked it with a trace where a lot of elements that get selected from the search are next to each other and it feels a bit too busy when they are all selected. Also it would be nice if the selected element would stand out more.\n\nHere is a screenshot: https://imgur.com/H8nsblW",
+      "parentUuid": "99ae3a81_adc1904c",
       "range": {
         "startLine": 49,
         "startChar": 21,
