@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98d97208_af5f74af",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-15T22:27:44Z",
+      "side": 1,
+      "message": "Done, I made this a const.",
+      "parentUuid": "085fe7d3_bd141c3c",
+      "range": {
+        "startLine": 434,
+        "startChar": 4,
+        "endLine": 436,
+        "endChar": 88
+      },
+      "revId": "f63e784400eb0d302bda0f9e804a3f1816b7032b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99ae3a81_adc1904c",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Feel free to use any of the declared colors! What do you think about keeping the selected element the same color as it used to be and making the rest of the searchResultHighlightElements lighter?\nI checked it with a trace where a lot of elements that get selected from the search are next to each other and it feels a bit too busy when they are all selected. Also it would be nice if the selected element would stand out more.\n\nHere is a screenshot: https://imgur.com/H8nsblW",
       "parentUuid": "99ae3a81_adc1904c",
+      "range": {
+        "startLine": 49,
+        "startChar": 21,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "f63e784400eb0d302bda0f9e804a3f1816b7032b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "923cb0b7_722f7eff",
+        "filename": "front_end/ui/legacy/components/perf_ui/flameChart.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-02-15T22:27:44Z",
+      "side": 1,
+      "message": "Not sure if Im making this too subtle now... feel free to suggest something else.",
+      "parentUuid": "2a3a5169_01237a9f",
       "range": {
         "startLine": 49,
         "startChar": 21,
