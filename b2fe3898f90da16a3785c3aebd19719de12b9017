@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23ca989a_fbc82230",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-15T16:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "234363e6_5cfaa91d",
+      "range": {
+        "startLine": 929,
+        "startChar": 52,
+        "endLine": 934,
+        "endChar": 7
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7af28c47_9e5c93a0",
@@ -70,6 +94,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf75fa0_9fda1b36",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-15T16:31:03Z",
+      "side": 1,
+      "message": "Right, so I am considering making a CDP change to add CookieLine field into https://chromedevtools.github.io/devtools-protocol/tot/Network/#type-ExemptedSetCookieWithReason, similar to https://chromedevtools.github.io/devtools-protocol/tot/Network/#type-BlockedSetCookieWithReason.\n\nFor this CL we can use both key and value. Done",
+      "parentUuid": "cf9409fe_d4757bf4",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 116
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c193ece_f3806180",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-15T16:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7af28c47_9e5c93a0",
+      "range": {
+        "startLine": 242,
+        "startChar": 59,
+        "endLine": 242,
+        "endChar": 69
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19a8c5dc_fa0d7105",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-14T11:24:34Z",
       "side": 1,
       "message": "```suggestion\n        const matchedResponseCookie \u003d\n```",
+      "range": {
+        "startLine": 243,
+        "startChar": 14,
+        "endLine": 243,
+        "endChar": 34
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "976243d2_c6d70764",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-15T16:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19a8c5dc_fa0d7105",
       "range": {
         "startLine": 243,
         "startChar": 14,

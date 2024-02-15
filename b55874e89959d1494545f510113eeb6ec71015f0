@@ -16,6 +16,24 @@
       "message": "Temporarily disable test http/tests/devtools/resource-har-conversion.js to land this CL: https://chromium-review.googlesource.com/c/chromium/src/+/5292296, PTAL.",
       "revId": "b55874e89959d1494545f510113eeb6ec71015f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c1a4c2_7a808d50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-02-15T16:31:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6718bd07_cc72d388",
+      "revId": "b55874e89959d1494545f510113eeb6ec71015f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
