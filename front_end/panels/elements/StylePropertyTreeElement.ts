@@ -322,11 +322,23 @@ export class ColorRenderer extends ColorMatch {
 }
 
 export class ColorMixRenderer extends ColorMixMatch {
+  #pane: StylesSidebarPane;
+  constructor(
+      pane: StylesSidebarPane, text: string, space: CodeMirror.SyntaxNode[], color1: CodeMirror.SyntaxNode[],
+      color2: CodeMirror.SyntaxNode[]) {
+    super(text, space, color1, color2);
+    this.#pane = pane;
+  }
+
   override render(node: CodeMirror.SyntaxNode, context: RenderingContext): Node[] {
     const hookUpColorArg = (node: Node, onChange: (newColorText: string) => void): boolean => {
-      // TODO(chromium:1504820) Also accept ColorMix swatches?
-      if (node instanceof InlineEditor.ColorSwatch.ColorSwatch) {
-        node.addEventListener(InlineEditor.ColorSwatch.ColorChangedEvent.eventName, ev => onChange(ev.data.text));
+      if (node instanceof InlineEditor.ColorMixSwatch.ColorMixSwatch ||
+          node instanceof InlineEditor.ColorSwatch.ColorSwatch) {
+        if (node instanceof InlineEditor.ColorSwatch.ColorSwatch) {
+          node.addEventListener(InlineEditor.ColorSwatch.ColorChangedEvent.eventName, ev => onChange(ev.data.text));
+        } else {
+          node.addEventListener(InlineEditor.ColorMixSwatch.Events.ColorChanged, ev => onChange(ev.data.text));
+        }
         const color = node.getText();
         if (color) {
           onChange(color);
@@ -360,12 +372,28 @@ export class ColorMixRenderer extends ColorMixMatch {
     const color2Text = this.color2.map(color => context.matchedResult.getComputedText(color)).join(' ');
     swatch.appendChild(contentChild);
     swatch.setColorMixText(`color-mix(${space}, ${color1Text}, ${color2Text})`);
+    swatch.setRegisterPopoverCallback(swatch => {
+      if (swatch.icon) {
+        this.#pane.addPopover(swatch.icon, () => {
+          const color = swatch.mixedColor();
+          if (!color) {
+            return undefined;
+          }
+          const span = document.createElement('span');
+          span.style.padding = '11px 7px';
+          span.appendChild(document.createTextNode(color));
+          return span;
+        });
+      }
+    });
+
     context.addControl('color', swatch);
     return [swatch];
   }
 
-  static matcher(): ColorMixMatcher {
-    return new ColorMixMatcher((text, space, color1, color2) => new ColorMixRenderer(text, space, color1, color2));
+  static matcher(pane: StylesSidebarPane): ColorMixMatcher {
+    return new ColorMixMatcher(
+        (text, space, color1, color2) => new ColorMixRenderer(pane, text, space, color1, color2));
   }
 }
 
@@ -1064,7 +1092,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         new StylesSidebarPropertyRenderer(this.style.parentRule, this.node(), this.name, this.value, [
           VariableRenderer.matcher(this, this.style),
           ColorRenderer.matcher(this),
-          ColorMixRenderer.matcher(),
+          ColorMixRenderer.matcher(this.parentPaneInternal),
         ]);
     if (this.property.parsedOk) {
       propertyRenderer.setAnimationNameHandler(this.processAnimationName.bind(this));
