@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0426bf7_a6ced715",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 2570,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-15T18:21:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5cf0810_03e3e655",
+      "range": {
+        "startLine": 2570,
+        "startChar": 8,
+        "endLine": 2570,
+        "endChar": 86
+      },
+      "revId": "924fac18df66d455dbe59fd80b09d4036a6ca772",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58dfd251_09c1df2b",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-15T16:00:16Z",
       "side": 1,
       "message": "hmm showing \"Reveal\" multiple times can look weird. Maybe we can use the event\u0027s UI name instead? I\u0027m not sure what the best approach here tho",
+      "range": {
+        "startLine": 2600,
+        "startChar": 34,
+        "endLine": 2600,
+        "endChar": 50
+      },
+      "revId": "924fac18df66d455dbe59fd80b09d4036a6ca772",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9572dba3_beb26845",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 2600,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-15T18:21:47Z",
+      "side": 1,
+      "message": "Yes! I\u0027m planning to change all reveal links to the names, for one as well. I\u0027ll do it in another CL",
+      "parentUuid": "58dfd251_09c1df2b",
       "range": {
         "startLine": 2600,
         "startChar": 34,
