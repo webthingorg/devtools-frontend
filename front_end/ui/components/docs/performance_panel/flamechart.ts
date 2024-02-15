@@ -144,6 +144,10 @@ function renderExample2() {
           startLevel: 0,
           style: defaultGroupStyle,
         }],
+        flowStartTimes: [50],
+        flowStartLevels: [0],
+        flowEndTimes: [55],
+        flowEndLevels: [0],
       });
     }
   }
@@ -157,6 +161,7 @@ function renderExample2() {
   const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
 
   flameChart.markAsRoot();
+  flameChart.setSelectedEntry(1);
   flameChart.setWindowTimes(0, 100);
   flameChart.show(container);
   flameChart.update();
