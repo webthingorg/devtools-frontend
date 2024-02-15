@@ -888,10 +888,6 @@ const UIStrings = {
    */
   layoutForced: 'Layout Forced',
   /**
-   *@description Text in Timeline UIUtils of the Performance panel
-   */
-  callStacks: 'Call Stacks',
-  /**
    *@description Text for the execution stack trace
    */
   stackTrace: 'Stack Trace',
@@ -2533,20 +2529,26 @@ export class TimelineUIUtils {
 
     const stackTrace = TraceEngine.Helpers.Trace.stackTraceForEvent(event);
     if (stackTrace && stackTrace.length) {
-      contentHelper.addSection(i18nString(UIStrings.callStacks));
-      contentHelper.appendStackTrace(
-          stackLabel || i18nString(UIStrings.stackTrace), TimelineUIUtils.stackTraceFromCallFrames(stackTrace));
+      contentHelper.addSection(stackLabel ?? i18nString(UIStrings.stackTrace));
+      contentHelper.createChildStackTraceElement(TimelineUIUtils.stackTraceFromCallFrames(stackTrace));
     }
 
     const initiator = traceParseData.Initiators.eventToInitiator.get(event);
     const invalidations = traceParseData.Invalidations.invalidationsForEvent.get(event);
 
     if (initiator) {
-      // If we have an initiator for the event, we can show information about
-      // its initiator and a link to reveal it.
-      const {startTime: initiatorStartTime} = TraceEngine.Legacy.timesForEventInMilliseconds(initiator);
-      const delay = startTime - initiatorStartTime;
-      contentHelper.appendTextRow(i18nString(UIStrings.pendingFor), i18n.TimeUtilities.preciseMillisToString(delay, 1));
+      // If we have an initiator for the event, we can show its stack trace, a link to reveal the initiator,
+      // and the time since the initiator (Pending For).
+      const stackTrace = TraceEngine.Helpers.Trace.stackTraceForEvent(initiator);
+      if (stackTrace) {
+        contentHelper.addSection(callSiteStackLabel || i18nString(UIStrings.firstInvalidated));
+        contentHelper.createChildStackTraceElement(TimelineUIUtils.stackTraceFromCallFrames(stackTrace.map(frame => {
+          return {
+            ...frame,
+            scriptId: String(frame.scriptId) as Protocol.Runtime.ScriptId,
+          };
+        })));
+      }
 
       const link = document.createElement('span');
       link.classList.add('devtools-link');
@@ -2564,17 +2566,9 @@ export class TimelineUIUtils {
       });
       contentHelper.appendElementRow(i18nString(UIStrings.initiator), link);
 
-      const stackTrace = TraceEngine.Helpers.Trace.stackTraceForEvent(initiator);
-      if (stackTrace) {
-        contentHelper.appendStackTrace(
-            callSiteStackLabel || i18nString(UIStrings.firstInvalidated),
-            TimelineUIUtils.stackTraceFromCallFrames(stackTrace.map(frame => {
-              return {
-                ...frame,
-                scriptId: String(frame.scriptId) as Protocol.Runtime.ScriptId,
-              };
-            })));
-      }
+      const {startTime: initiatorStartTime} = TraceEngine.Legacy.timesForEventInMilliseconds(initiator);
+      const delay = startTime - initiatorStartTime;
+      contentHelper.appendTextRow(i18nString(UIStrings.pendingFor), i18n.TimeUtilities.preciseMillisToString(delay, 1));
     }
     if (invalidations && invalidations.length) {
       contentHelper.addSection(i18nString(UIStrings.invalidations));
@@ -3215,23 +3209,13 @@ export class TimelineDetailsContentHelper {
     this.appendElementRow(title, locationContent);
   }
 
-  appendStackTrace(title: string, stackTrace: Protocol.Runtime.StackTrace): void {
+  createChildStackTraceElement(stackTrace: Protocol.Runtime.StackTrace): void {
     if (!this.linkifierInternal) {
       return;
     }
 
-    const rowElement = this.tableElement.createChild('div', 'timeline-details-view-row');
-    rowElement.createChild('div', 'timeline-details-view-row-title').textContent = title;
-    this.createChildStackTraceElement(rowElement, stackTrace);
-  }
-
-  createChildStackTraceElement(parentElement: Element, stackTrace: Protocol.Runtime.StackTrace): void {
-    if (!this.linkifierInternal) {
-      return;
-    }
-    parentElement.classList.add('timeline-details-stack-values');
     const stackTraceElement =
-        parentElement.createChild('div', 'timeline-details-view-row-value timeline-details-view-row-stack-trace');
+        this.tableElement.createChild('div', 'timeline-details-view-row timeline-details-stack-values');
     const callFrameContents = LegacyComponents.JSPresentationUtils.buildStackTracePreviewContents(
         this.target, this.linkifierInternal, {stackTrace, tabStops: true});
     stackTraceElement.appendChild(callFrameContents.element);
