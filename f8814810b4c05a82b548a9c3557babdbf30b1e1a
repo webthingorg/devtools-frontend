@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8ee7494_ab03cc17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-15T08:30:38Z",
+      "side": 1,
+      "message": "makes sense, thanks for pointing that out!",
+      "parentUuid": "be9c0a25_a5db437f",
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18f8641a_055f84ca",
@@ -178,6 +196,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "98484804_32cb0935",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9324d12_8898a8c4",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-15T08:30:38Z",
+      "side": 1,
+      "message": "fwiw the approach in other similar helpers is to let the implementation itself own and handle caches. It might be nice if could do that here as well for consistency, but I guess it depends on how everything is assembled in the end so it\u0027s your call.",
+      "parentUuid": "e45fa8e4_30cd3ebf",
       "range": {
         "startLine": 32,
         "startChar": 4,
