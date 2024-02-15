@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf9409fe_d4757bf4",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-15T16:19:32Z",
+      "side": 1,
+      "message": "From what I can tell, for the exempted cookies CDP sends on object of type Cookie (https://chromedevtools.github.io/devtools-protocol/tot/Network/#type-Cookie). So the cookie line/header is not available.\nHow about comparing both key and value?",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 116
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19a8c5dc_fa0d7105",
         "filename": "front_end/panels/network/RequestCookiesView.ts",
         "patchSetId": 6
@@ -107,6 +130,30 @@
       "side": 1,
       "message": "The `responseCookies` contains all the non-blocked cookies so it should already contains the cookies from the `request.exemptedResponseCookies()`. If we blindly add the cookies from `request.exemptedResponseCookies()` again, there will be duplicated cookies in `responseCookies`, which IIUC would be wrong when building cookie table in the CookiesTable.ts::rebuildTable() based on `responseCookies`.",
       "parentUuid": "92720c28_179ae9f1",
+      "range": {
+        "startLine": 244,
+        "startChar": 12,
+        "endLine": 244,
+        "endChar": 105
+      },
+      "revId": "b2fe3898f90da16a3785c3aebd19719de12b9017",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "032b6fd4_e186c930",
+        "filename": "front_end/panels/network/RequestCookiesView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-15T16:19:32Z",
+      "side": 1,
+      "message": "Ah, thanks! DevTools creates `responseCookies` from the set-cookie header and receives the exempted cookies via CDP as objects of type cookie. Therefore they are different objects in DevTools and need to be matched here in order for the rendering logic to be able to lookup a potential exemption reason for a cookie.",
+      "parentUuid": "45b28d34_99934067",
       "range": {
         "startLine": 244,
         "startChar": 12,
