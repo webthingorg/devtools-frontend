@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9e4aace_1aceb582",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2024-02-15T14:33:16Z",
+      "side": 1,
+      "message": "Kateryna, WDYT about this?",
+      "revId": "d89b79a1e996bf323e729478cc8bdf770ffe7f39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
