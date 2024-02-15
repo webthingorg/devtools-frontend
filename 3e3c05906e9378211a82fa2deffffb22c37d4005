@@ -347,6 +347,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2e9937a_f010e8e4",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-15T22:08:51Z",
+      "side": 1,
+      "message": "\u003e The extra time is actually from option.capturePictures instead of options.captureSelectorStats. \n\nI commented out the trace categories behind `options.capturePictures` to ensure they\u0027re not being collected. I can still repro a 14ms to 390ms difference. \n\nAlso, coincidentally, today my colleague mentioned a recalc over 5 seconds when using this feature in Edge Canary.\n\nDo you see similar results? (When disabling the layers/pictures/etc trace categories)",
+      "parentUuid": "53030e32_fc9f5528",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6
