@@ -16,6 +16,69 @@
       "message": "Hi Philip, hi Wolfgang!\n\nThis CL extends the language extension API to include a resource loading report mechanism. This way, the extension can report resource loads that show up in the Developer Resource Panel. PTAL!",
       "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e422bb3b_18d7ca67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-15T09:56:51Z",
+      "side": 1,
+      "message": "I don\u0027t have much context on extensions, but the changes LGTM.",
+      "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b3e909_9d4b656e",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-15T09:56:51Z",
+      "side": 1,
+      "message": "`status` contains only optional attributes? Would it make sense to make `status` itself optional as well?",
+      "range": {
+        "startLine": 275,
+        "startChar": 46,
+        "endLine": 275,
+        "endChar": 52
+      },
+      "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95dd1258_ddd53d36",
+        "filename": "front_end/core/sdk/PageResourceLoader.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-15T09:56:51Z",
+      "side": 1,
+      "message": "Why do you choose for target/frameId to be null explicitly? Why is this better than them not being part of the interface?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 16
+      },
+      "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
