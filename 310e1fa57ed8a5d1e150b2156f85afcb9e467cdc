@@ -33,6 +33,42 @@
       "message": "Why does every listener add a binding? note that bindings are global and you probably only need one for all interactions",
       "revId": "310e1fa57ed8a5d1e150b2156f85afcb9e467cdc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aeb0abe_c4dd619e",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-15T10:56:54Z",
+      "side": 1,
+      "message": "Ah yes, instead of managing binding lifecycle in here; I had decided to made `addBinding` do that in the backend where it doesn\u0027t create a binding if there already exists one(1).\n\nThough it makes sense to manually handle it here as well:\n* Adding a binding only once when there is at least one scroll listener.\n* Removing the binding when all the scroll listeners are removed.\n\nThough one thing I have realized is `removeBinding` doesn\u0027t remove the binding from the global object. That\u0027s probably something we need to fix on the V8 side.\n\nUpdated the CL to make binding management by hand as described above.\n\n(1): https://source.chromium.org/chromium/chromium/src/+/main:v8/src/inspector/v8-runtime-agent-impl.cc;l\u003d946;bpv\u003d0;bpt\u003d1",
+      "parentUuid": "82d896b3_847e4cac",
+      "revId": "310e1fa57ed8a5d1e150b2156f85afcb9e467cdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be73378f_f69d7c98",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-15T10:56:54Z",
+      "side": 1,
+      "message": "I have added removing bindings (see the next comment) though for using isolated worlds, I didn\u0027t quite figure it out:\nI do not see how I can do it, can you help me in that regard? (thanks for your time and all the help so far, I\u0027m getting used to the Runtime domain only now 😅)\n\nThe issue I see is:\n* I\u0027m able to call `callFunctionOn` for the specific object, in this case, the dom node that we want to and the scroll listener with `objectId` parameter. However, I\u0027m not able to call a function on the object with `objectId` if I give execution context id. (as per documentation here(1)).\n\n* The bindings I add in a different world are not exposed to the global object that has the scroll listener added above with calling `callFunctionOn` with `objectId` parameter.\n\nI can try to not use `callFunctionOn` with `objectId` but use `evaluate` in a different world where I can try to query the object from the DOM. However, this didn\u0027t feel robust as now there is a point of failure regarding finding the object in that world.\n\n---\nam I missing something or is there a different way of achieving this functionality? (adding a scroll listener to a DOM node on the page in a different world)\n\n(1): https://chromedevtools.github.io/devtools-protocol/tot/Runtime/#method-callFunctionOn",
+      "parentUuid": "50dd5879_b9db2713",
+      "revId": "310e1fa57ed8a5d1e150b2156f85afcb9e467cdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
