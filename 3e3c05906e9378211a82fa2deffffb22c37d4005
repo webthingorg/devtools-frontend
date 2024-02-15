@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2f8e8fc_635f9e0c",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Updated to use the new event type. This function used a private static method `topLevelEventEndingAfter`. If we move the function over to TimelineDetailsView, we would need to make the static method `topLevelEventEndingAfter` public.",
+      "parentUuid": "e7799a1b_7ca397a4",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e820619_3e197608",
@@ -115,6 +133,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16f50f5_222803b2",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Updated as suggested. Thanks.",
+      "parentUuid": "6e820619_3e197608",
+      "range": {
+        "startLine": 1044,
+        "startChar": 13,
+        "endLine": 1044,
+        "endChar": 17
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a25944_072e802c",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Updated as suggested. Thanks.",
+      "parentUuid": "321f0a14_a9d3140f",
+      "range": {
+        "startLine": 1044,
+        "startChar": 47,
+        "endLine": 1044,
+        "endChar": 53
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0795705_c03de976",
@@ -128,6 +194,24 @@
       "writtenOn": "2024-02-14T06:44:56Z",
       "side": 1,
       "message": "do we need this? it seems unlikely we\u0027d have async/flow here if we did the `e.name` match above.",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "604f8b0d_d6b16ae3",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Removed the async/flow check as suggested. Thanks.",
+      "parentUuid": "e0795705_c03de976",
       "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -155,6 +239,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8408402a_6598122c",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Updated as suggested. Thanks.",
+      "parentUuid": "1a621019_d13269f6",
+      "range": {
+        "startLine": 1053,
+        "startChar": 33,
+        "endLine": 1053,
+        "endChar": 42
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0224e07_e0ccd370",
@@ -168,6 +276,30 @@
       "writtenOn": "2024-02-14T06:44:56Z",
       "side": 1,
       "message": "```suggestion\n  SelectorStats \u003d \u0027SelectorStats\u0027,\n```",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1228,
+        "endChar": 34
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee6fdf0e_64ceb371",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Updated as suggested. Thanks.",
+      "parentUuid": "c0224e07_e0ccd370",
       "range": {
         "startLine": 1227,
         "startChar": 0,
@@ -230,6 +362,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4abb08bd_248d5b36",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Removed as suggested. Thanks.",
+      "parentUuid": "3497dab5_f4b9efaf",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e07b45df_c9aa5d5d",
@@ -253,6 +403,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a880ad_e6711736",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Updated as suggested. Thanks. The createSetting does not always create a new setting. When a setting has been created before, it just reads the value from the `#registry`.",
+      "parentUuid": "e07b45df_c9aa5d5d",
+      "range": {
+        "startLine": 419,
+        "startChar": 59,
+        "endLine": 419,
+        "endChar": 91
+      },
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8ed2ad5_70ea7e0f",
@@ -266,6 +440,24 @@
       "writtenOn": "2024-02-14T06:44:56Z",
       "side": 1,
       "message": "the name of this trace data arg is pretty unfortunate. But..  I guess the ship has already sailed? :/",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa19e55_3ea7e511",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "These names are from an early CL: https://chromium-review.googlesource.com/c/chromium/src/+/3582806. We can update the names in the backend if kebab style is preferred here.",
+      "parentUuid": "f8ed2ad5_70ea7e0f",
       "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

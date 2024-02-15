@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfc11b8b_85009e7a",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "The selector stats event is emitted as a new kind of event with name `SelectorStats`. It was implemented in this change: https://chromium-review.googlesource.com/c/chromium/src/+/3582806. Since selector stats has extra information associated with recalc event and is not really an event, for better user experience, we merged the selector stats information into the recalc events based on event start/end time.",
+      "parentUuid": "f7a0e08a_4d670e94",
+      "revId": "150eea0ff1ac5f798da90c851573a846ee01a056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "475c64ac_495c4de8",
         "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
         "patchSetId": 7
@@ -31,6 +49,30 @@
       "writtenOn": "2024-02-14T06:44:56Z",
       "side": 1,
       "message": "```suggestion\n      \u0027Select \"{PH1}\" to collect detailed CSS selector matching statistics.\u0027,\n```",
+      "range": {
+        "startLine": 1001,
+        "startChar": 7,
+        "endLine": 1001,
+        "endChar": 144
+      },
+      "revId": "150eea0ff1ac5f798da90c851573a846ee01a056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1811f348_05816944",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-02-15T00:22:57Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "475c64ac_495c4de8",
       "range": {
         "startLine": 1001,
         "startChar": 7,
