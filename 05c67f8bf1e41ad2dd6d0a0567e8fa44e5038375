@@ -16,6 +16,23 @@
       "message": "Alex, please take a look. Peter already vetted this UI adjustment.",
       "revId": "05c67f8bf1e41ad2dd6d0a0567e8fa44e5038375",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c9c1bb8_f4a48754",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-15T12:02:58Z",
+      "side": 1,
+      "message": "Using .data is deprecated. Instead we use name and set the size and color via CSS.",
+      "revId": "05c67f8bf1e41ad2dd6d0a0567e8fa44e5038375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
