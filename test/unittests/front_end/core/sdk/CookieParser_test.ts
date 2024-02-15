@@ -46,10 +46,14 @@ describe('CookieParser', () => {
 
     it('handles multiple SetCookies separated by line breaks', () => {
       parseAndExpectSetCookies(
-          `a=b
-      c=d
+          `a=b; Secure
+      c=d; Secure
       f`,
-          [{name: 'a', value: 'b', size: 10}, {name: 'c', value: 'd', size: 10}, {name: '', value: 'f', size: 1}]);
+          [
+            {name: 'a', value: 'b', size: 10, secure: true},
+            {name: 'c', value: 'd', size: 10, secure: true},
+            {name: '', value: 'f', size: 1},
+          ]);
     });
 
     it('handles path and domain values ', () => {
