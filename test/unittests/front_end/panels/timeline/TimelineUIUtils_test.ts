@@ -555,18 +555,18 @@ describeWithMockConnection('TimelineUIUtils', function() {
           value: '3',
         },
         {
-          title: 'Recalculation Forced',
-          // The Stack trace output would be here but the detailRow helper is
-          // unable to parse it, hence why this returns empty.
-          value: '',
-        },
-        {
-          title: 'Pending for',
-          value: '7.1 ms',
+          // The "Recalculation forced" Stack trace output would be here but the detailRow helper is
+          // unable to parse it, hence why this returns undefined.
+          title: undefined,
+          value: undefined,
         },
         {
           title: 'Initiator',
           value: 'Reveal',
+        },
+        {
+          title: 'Pending for',
+          value: '7.1 ms',
         },
         {
           title: 'PseudoClass:active',
@@ -761,11 +761,14 @@ describeWithMockConnection('TimelineUIUtils', function() {
          const rowData = getRowDataForDetailsElement(details);
          const expectedRowData = [
            {title: 'URL', value: 'wss://socketsbay.com/wss/v2/1/demo/'},
-           {title: 'Pending for', value: '72.0 ms'},
+           {
+             // The 'First Invalidated' Stack trace output would be here but the detailRow helper is
+             // unable to parse it, hence why this returns undefined.
+             title: undefined,
+             value: undefined,
+           },
            {title: 'Initiator', 'value': 'Reveal'},
-           // This value looks odd, but it is because the stack trace UI cannot be
-           // easily represented as a string, so this is OK.
-           {title: 'First Invalidated', value: ''},
+           {title: 'Pending for', value: '72.0 ms'},
          ];
          assert.deepEqual(
              rowData,
