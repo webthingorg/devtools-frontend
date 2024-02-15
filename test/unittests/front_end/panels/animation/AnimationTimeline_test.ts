@@ -58,7 +58,7 @@ describeWithMockConnection('AnimationTimeline', () => {
 
     const previewContainer = (view.contentElement.querySelector('.animation-timeline-buffer') as HTMLElement);
 
-    model.animationStarted({
+    void model.animationStarted({
       id: 'id',
       name: 'name',
       pausedState: false,
@@ -145,7 +145,7 @@ describeWithMockConnection('AnimationTimeline', () => {
         nodeValue: '',
       }) as SDK.DOMModel.DOMDocument;
 
-      animationModel.animationStarted({
+      void animationModel.animationStarted({
         id: 'animation-id',
         name: 'animation-name',
         pausedState: false,
