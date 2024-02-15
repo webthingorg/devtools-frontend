@@ -33,6 +33,24 @@
       "message": "Using .data is deprecated. Instead we use name and set the size and color via CSS.",
       "revId": "05c67f8bf1e41ad2dd6d0a0567e8fa44e5038375",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900411ca_86ede428",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-15T12:14:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c9c1bb8_f4a48754",
+      "revId": "05c67f8bf1e41ad2dd6d0a0567e8fa44e5038375",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
