@@ -16,6 +16,23 @@
       "message": "Kateryna, WDYT about this?",
       "revId": "d89b79a1e996bf323e729478cc8bdf770ffe7f39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cf43fc3_f4d33e15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-02-15T15:02:56Z",
+      "side": 1,
+      "message": "I quickly checked the color contrast before and after, and it actually decreases? Am I doing something wrong?\n\n**Before:**\nBackground: #D190FF\nText: #333333\nContrast: 5.5:1\n\n**After (inverted):**\nBackgorund: #D190FF\nText: #FFFFFF\nContrast: 2.29:1",
+      "revId": "d89b79a1e996bf323e729478cc8bdf770ffe7f39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
