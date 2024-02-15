@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14d4b132_edd497bd",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-15T12:49:20Z",
+      "side": 1,
+      "message": "Good point! Yes, all is optional as it is for the `PageResource`. Thinking about it again, we should probably at least enforce `success` to be set, as the information is otherwise completely useless, although this is not required by `PageResource`s.",
+      "parentUuid": "d4b3e909_9d4b656e",
+      "range": {
+        "startLine": 275,
+        "startChar": 46,
+        "endLine": 275,
+        "endChar": 52
+      },
+      "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95dd1258_ddd53d36",
         "filename": "front_end/core/sdk/PageResourceLoader.ts",
         "patchSetId": 8
@@ -71,6 +95,30 @@
       "writtenOn": "2024-02-15T09:56:51Z",
       "side": 1,
       "message": "Why do you choose for target/frameId to be null explicitly? Why is this better than them not being part of the interface?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 16
+      },
+      "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3641101_0fabff3a",
+        "filename": "front_end/core/sdk/PageResourceLoader.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-15T12:49:20Z",
+      "side": 1,
+      "message": "The `PageResourceLoader` makes use of the `PageResourceLoadInitiator` and accesses target/frameId (checks if they are null). These accesses cannot be done if we remove the two fields here, as they are then undefined.",
+      "parentUuid": "95dd1258_ddd53d36",
       "range": {
         "startLine": 33,
         "startChar": 0,
