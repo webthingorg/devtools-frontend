@@ -69,6 +69,24 @@
       "parentUuid": "50dd5879_b9db2713",
       "revId": "310e1fa57ed8a5d1e150b2156f85afcb9e467cdc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e5a3f36_9b2127a1",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-15T13:12:09Z",
+      "side": 1,
+      "message": "For isolated worlds, you need DOM.resolveNode in the isolated contexts to get the objectid for that context. You need to create that world and map the DOMNode there and then add listeners though that world. In that way, your code won\u0027t be observable by the target page.",
+      "parentUuid": "be73378f_f69d7c98",
+      "revId": "310e1fa57ed8a5d1e150b2156f85afcb9e467cdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
