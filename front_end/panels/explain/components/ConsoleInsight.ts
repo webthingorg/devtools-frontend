@@ -629,9 +629,14 @@ class ConsoleInsightSourcesList extends HTMLElement {
       <ul>
         ${Directives.repeat(this.#sources, item => item.value, item => {
           return html`<li><x-link class="link" title="${localizeType(item.type)} ${i18nString(UIStrings.opensInNewTab)}" href=${`data:text/plain,${encodeURIComponent(item.value)}`}>
-            ${localizeType(item.type)}
-            <${IconButton.Icon.Icon.litTagName} name="open-externally">
+            <${IconButton.Icon.Icon.litTagName} .data=${{
+              iconName: 'open-externally',
+              color: 'var(--icon-link)',
+              width: '16px',
+              height: '16px',
+            } as IconButton.Icon.IconData}>
             </${IconButton.Icon.Icon.litTagName}>
+            ${localizeType(item.type)}
           </x-link></li>`;
         })}
       </ul>
