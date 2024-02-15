@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa66aa3c_70d9c5c2",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-15T09:19:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3a64231b_f2524051",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d1c332a_c79e7667",
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "We could have a color-mix ininside of a color-mix and will want to propagate updates all the way.",
       "parentUuid": "8ed9f732_d9f7842b",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19aa1743_164228cf",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-15T09:19:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5b6849c3_f5a0365c",
       "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dc1afb5_bd64ef52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-15T09:19:01Z",
+      "side": 1,
+      "message": "Yes, nice! :)",
+      "parentUuid": "bae4d8bb_c049368f",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bd6d7f9_0833ad17",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Should I do this here or in a followup?",
       "parentUuid": "8bd6d7f9_0833ad17",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7359a5c_fa1183b8",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-15T09:19:01Z",
+      "side": 1,
+      "message": "I think a later CL would be fine :)",
+      "parentUuid": "fc51df51_1ac2ec5e",
       "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -137,6 +173,24 @@
       "side": 1,
       "message": "yes, exactly, both percentages 0 is an invalid property value.",
       "parentUuid": "63289b16_30f0f2bb",
+      "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01d192d2_d9e03b8a",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-15T09:19:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d272ff04_2fef8b52",
       "revId": "9e44647e6b27f91c83a89bb10522cbf19d835dcd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
