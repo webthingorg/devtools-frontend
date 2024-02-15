@@ -93,6 +93,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "190abaf0_d6cf6302",
+        "filename": "front_end/models/trace/insights/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-15T00:09:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f8641a_055f84ca",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aca06765_91b39c4c",
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "Yeah caching the result somehow seems good. Not sure if we would want the caching logic to be in this function but I will expand on that before this is done.",
       "parentUuid": "aca06765_91b39c4c",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e45fa8e4_30cd3ebf",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-15T00:09:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98484804_32cb0935",
       "range": {
         "startLine": 32,
         "startChar": 4,
