@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e66640d_22225bfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-15T05:41:48Z",
+      "side": 1,
+      "message": "Hi Philip, hi Wolfgang!\n\nThis CL extends the language extension API to include a resource loading report mechanism. This way, the extension can report resource loads that show up in the Developer Resource Panel. PTAL!",
+      "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
