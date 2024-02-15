@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cf87c03_ddef9e0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-15T11:34:01Z",
+      "side": 1,
+      "message": "lgtm\n\nWhy don\u0027t we need to go up one directory? e.g. for a standalone checkout in `devtools/devtools-frontend`, the .gclient file is in `devtools/.gclient`, so do we also need a ` gclient_context` with the parent directory?",
+      "revId": "9a5d7e74c9a03ca418f8fc558cb71670238d58f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
