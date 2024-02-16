@@ -134,6 +134,9 @@ export class CodeBlock extends HTMLElement {
         language = CodeMirror.javascript.javascript({jsx: true});
         break;
     }
+    if (this.#code.trim().toLocaleLowerCase().startsWith('<!doctype html>')) {
+      language = CodeMirror.html.html();
+    }
     editor.dispatch({
       effects: this.#languageConf.reconfigure(language),
     });
