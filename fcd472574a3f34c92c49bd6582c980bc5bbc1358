@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2751e3fb_4834557f",
+        "filename": "front_end/ui/legacy/components/perf_ui/BrickBreaker.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-16T12:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c55b7f0_4350adda",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 26
+      },
+      "revId": "fcd472574a3f34c92c49bd6582c980bc5bbc1358",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29b5c851_258729f8",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-16T11:48:21Z",
       "side": 1,
       "message": "this will take the browser height if devtools is docked, so let\u0027s use `offsetHeight` and set the multiplier value after the element has been shown to make sure it contains the right value",
+      "range": {
+        "startLine": 148,
+        "startChar": 21,
+        "endLine": 148,
+        "endChar": 58
+      },
+      "revId": "fcd472574a3f34c92c49bd6582c980bc5bbc1358",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38f4b5d_9613d0cc",
+        "filename": "front_end/ui/legacy/components/perf_ui/BrickBreaker.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-16T12:28:39Z",
+      "side": 1,
+      "message": "good point, fixed it!",
+      "parentUuid": "29b5c851_258729f8",
       "range": {
         "startLine": 148,
         "startChar": 21,
