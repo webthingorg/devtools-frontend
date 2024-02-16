@@ -39,6 +39,30 @@
       },
       "revId": "45a8a242502483fb0e22567aaa8cd8c4ec7193d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a84122b6_eb6cfe7d",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1557636
+      },
+      "writtenOn": "2024-02-16T13:20:20Z",
+      "side": 1,
+      "message": "right, there was a reason, which I dont remember now:) but I checked in the code, `getFrame` takes a frame from the same map. Thanks for pointing!",
+      "parentUuid": "56fc6961_414d590a",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 5
+      },
+      "revId": "45a8a242502483fb0e22567aaa8cd8c4ec7193d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
