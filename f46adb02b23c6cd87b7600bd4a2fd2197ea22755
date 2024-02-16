@@ -22,6 +22,30 @@
       },
       "revId": "f46adb02b23c6cd87b7600bd4a2fd2197ea22755",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9c3fa7_debcd27d",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-16T13:57:35Z",
+      "side": 1,
+      "message": "The idea behind making it diagonal was to have less lines when it\u0027s zoomed out a lot to not abstract very small entries.\nHowever, I tested now and with thinner line it looks good with the elbow connector too. I\u0027ll make it elbow connector for all cases.",
+      "parentUuid": "6f35d42f_28bbfd7d",
+      "range": {
+        "startLine": 2307,
+        "startChar": 8,
+        "endLine": 2309,
+        "endChar": 7
+      },
+      "revId": "f46adb02b23c6cd87b7600bd4a2fd2197ea22755",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
