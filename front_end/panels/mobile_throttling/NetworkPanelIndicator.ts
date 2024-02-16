@@ -11,10 +11,6 @@ const UIStrings = {
   /**
    *@description Icon title in Network Panel Indicator of the Network panel
    */
-  browserCacheDisabled: 'Browser cache is disabled',
-  /**
-   *@description Icon title in Network Panel Indicator of the Network panel
-   */
   networkThrottlingIsEnabled: 'Network throttling is enabled',
   /**
    *@description Icon title in Network Panel Indicator of the Network panel
@@ -55,9 +51,12 @@ export class NetworkPanelIndicator {
       if (manager.isThrottling()) {
         warnings.push(i18nString(UIStrings.networkThrottlingIsEnabled));
       }
+<<<<<<< HEAD   (a15979 [network] Show disassembled WASM in the 'Response' tab)
       if (Common.Settings.Settings.instance().moduleSetting('cacheDisabled').get()) {
         warnings.push(i18nString(UIStrings.browserCacheDisabled));
       }
+=======
+>>>>>>> CHANGE (677ded Revert: Remove Indicate when cache is disabled)
       if (SDK.NetworkManager.MultitargetNetworkManager.instance().isIntercepting()) {
         warnings.push(i18nString(UIStrings.requestsMayBeOverridden));
       }
