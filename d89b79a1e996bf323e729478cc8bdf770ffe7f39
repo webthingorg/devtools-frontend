@@ -33,6 +33,69 @@
       "message": "I quickly checked the color contrast before and after, and it actually decreases? Am I doing something wrong?\n\n**Before:**\nBackground: #D190FF\nText: #333333\nContrast: 5.5:1\n\n**After (inverted):**\nBackgorund: #D190FF\nText: #FFFFFF\nContrast: 2.29:1",
       "revId": "d89b79a1e996bf323e729478cc8bdf770ffe7f39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92e1572_6e1dd382",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-16T10:21:06Z",
+      "side": 1,
+      "message": "Thanks, Victor! Left a couple of comments",
+      "revId": "d89b79a1e996bf323e729478cc8bdf770ffe7f39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbaef5d2_81ad9f4e",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-16T10:21:06Z",
+      "side": 1,
+      "message": "Could you also use a token for this? it looks like a `sys-color-disabled` to me\nit has some transparency though, right? then I think it could be okay to use a hsla color",
+      "range": {
+        "startLine": 19,
+        "startChar": 31,
+        "endLine": 19,
+        "endChar": 57
+      },
+      "revId": "d89b79a1e996bf323e729478cc8bdf770ffe7f39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1332ed1a_507ff77c",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 3074,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-16T10:21:06Z",
+      "side": 1,
+      "message": "Is it possible to use the color tokens mentioned here (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/material3_guidelines.md;l\u003d24) instead of hardcoded values? If they don\u0027t fit, please talk to Peter:)\n\nFor white you could introduce a new system token `sys-color-on-accent` in themeColors.css.",
+      "range": {
+        "startLine": 3072,
+        "startChar": 2,
+        "endLine": 3074,
+        "endChar": 46
+      },
+      "revId": "d89b79a1e996bf323e729478cc8bdf770ffe7f39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
