@@ -217,6 +217,7 @@ hooks = [
   },
 
   # Pull clang-format binaries using checked-in hashes.
+  # foobar
   {
     'name': 'clang_format_win',
     'pattern': '.',
