@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e083c32_3c564e4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-16T06:32:25Z",
+      "side": 1,
+      "message": "Alex, the roller finally creates CLs that are good on their own. I only had to update the tests.\n\nPlease note that the formatting changes are only for the first time and should not be this extensive in future roll CLs.",
+      "revId": "d816d63f03e7bd76ebb7f8eed821906ea206412d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
