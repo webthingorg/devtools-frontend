@@ -70,6 +70,22 @@ const UIStrings = {
   /**
    *@description Text in Timeline UIUtils of the Performance panel
    */
+  postMessageDispatch: 'Post Message',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel
+   */
+  postMessageHandler: 'On Message',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel
+   */
+  PostMessageScheduleTask: 'PostMessage.ScheduleTask',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel
+   */
+  messaging: 'Messaging',
+  /**
+   *@description Text in Timeline UIUtils of the Performance panel
+   */
   frameStartMainThread: 'Frame Start (main thread)',
   /**
    *@description Text in Timeline UIUtils of the Performance panel
@@ -471,8 +487,18 @@ const UIStrings = {
   jsFrame: 'JS Frame',
 };
 
-export const EventCategories =
-    ['Loading', 'Experience', 'Scripting', 'Rendering', 'Painting', 'GPU', 'Async', 'Other', 'Idle'] as const;
+export const EventCategories = [
+  'Loading',
+  'Experience',
+  'Scripting',
+  'Messaging',
+  'Rendering',
+  'Painting',
+  'GPU',
+  'Async',
+  'Other',
+  'Idle',
+] as const;
 export type EventCategory = typeof EventCategories[number];
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/EventUICategory.ts', UIStrings);
@@ -566,6 +592,8 @@ export function getCategoryStyles(): CategoryPalette {
     Experience: new TimelineCategory(
         'experience', i18nString(UIStrings.experience), false, '--app-color-rendering-children',
         '--app-color-rendering'),
+    Messaging: new TimelineCategory(
+        'messaging', i18nString(UIStrings.messaging), true, '--app-color-messaging-children', '--app-color-messaging'),
     Scripting: new TimelineCategory(
         'scripting', i18nString(UIStrings.scripting), true, '--app-color-scripting-children', '--app-color-scripting'),
     Rendering: new TimelineCategory(
@@ -1089,6 +1117,18 @@ function maybeInitSylesMap(): EventStylesMap {
     [
       TraceEngine.Types.TraceEvents.KnownEventName.EventTiming,
       new TimelineRecordStyle(i18nString(UIStrings.eventTiming), defaultCategoryStyles.Experience),
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.PostMessageDispatch,
+      new TimelineRecordStyle(i18nString(UIStrings.postMessageDispatch), defaultCategoryStyles.Messaging),
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.PostMessageHandler,
+      new TimelineRecordStyle(i18nString(UIStrings.postMessageHandler), defaultCategoryStyles.Messaging),
+    ],
+    [
+      TraceEngine.Types.TraceEvents.KnownEventName.PostMessageScheduleTask,
+      new TimelineRecordStyle(i18nString(UIStrings.PostMessageScheduleTask), defaultCategoryStyles.Messaging),
     ],
   ]);
   return eventStylesMap;
