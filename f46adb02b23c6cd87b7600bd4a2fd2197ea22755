@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f35d42f_28bbfd7d",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-16T08:09:07Z",
+      "side": 1,
+      "message": "do we want to draw diagonal arrows? Why can we not also draw elbow connectors? Also worth adding a test case for whatever behaviour we want on small spaces",
+      "range": {
+        "startLine": 2307,
+        "startChar": 8,
+        "endLine": 2309,
+        "endChar": 7
+      },
+      "revId": "f46adb02b23c6cd87b7600bd4a2fd2197ea22755",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
