@@ -33,6 +33,24 @@
       "message": "LGTM but we’re still blocked on the bucket migration being fully completed. I’ll mark this as -1 for now and will flip it once everything’s been completed. Feel free to mark it as autosubmittable.",
       "revId": "cc82106d94a188eed1227e9e3fc00189bdad051c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2e762e9_5ce42f37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-02-16T07:55:25Z",
+      "side": 1,
+      "message": "\u003e LGTM but we’re still blocked on the bucket migration being fully completed. I’ll mark this as -1 for now and will flip it once everything’s been completed. Feel free to mark it as autosubmittable.\n\nFollowing up on our breakfast discussion, I’ve confirmed that the current version in DEPS (123.0.6301.2) is fully available on the new public bucket. (bigstore/chrome-for-testing-public/123.0.6301.2)\n\nSo we can actually land this already, since the API endpoints for getting new version numbers is still frozen anyway. We’ll unfreeze it as soon as the migration is completed.",
+      "parentUuid": "749e5536_ba25ac50",
+      "revId": "cc82106d94a188eed1227e9e3fc00189bdad051c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
