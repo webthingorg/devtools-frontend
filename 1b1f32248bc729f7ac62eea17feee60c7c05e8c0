@@ -16,6 +16,23 @@
       "message": "Pushed a small update. PTAL, thank you!",
       "revId": "1b1f32248bc729f7ac62eea17feee60c7c05e8c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e858fb39_3b9abec8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-16T15:00:31Z",
+      "side": 1,
+      "message": "Thank you 😊",
+      "revId": "1b1f32248bc729f7ac62eea17feee60c7c05e8c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
