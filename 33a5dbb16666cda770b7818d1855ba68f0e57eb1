@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "903cac7c_8ecaeb5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-16T01:55:05Z",
+      "side": 1,
+      "message": "this is really nice stuff. Very excited for this.\n\nsome thoughts below, but broadly lgtm",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853fcf99_562822d1",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-16T01:55:05Z",
+      "side": 1,
+      "message": "```suggestion\n        \u0027Timeline: Show postMessage dispatch and handling flows\u0027,\n```",
+      "range": {
+        "startLine": 396,
+        "startChar": 7,
+        "endLine": 396,
+        "endChar": 85
+      },
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "560c2798_1d9d58cf",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-16T01:55:05Z",
+      "side": 1,
+      "message": "can you add some comments to help explain how we use 3 kinds of trace events to link up Handlers back to their Dispatches?",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecddd81c_4d51fe15",
+        "filename": "front_end/models/trace/handlers/InitiatorsHandler.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-16T01:55:05Z",
+      "side": 1,
+      "message": "fwiw in devtools a \"linkifier\" is a thing already. lets use a diff name for these?  :)",
+      "range": {
+        "startLine": 187,
+        "startChar": 8,
+        "endLine": 187,
+        "endChar": 17
+      },
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60bccc11_909f3f38",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-16T01:55:05Z",
+      "side": 1,
+      "message": "```suggestion\n  postMessageDispatch: \u0027Post Message\u0027,\n```",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0649aaec_141baaf4",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-16T01:55:05Z",
+      "side": 1,
+      "message": "```suggestion\n  postMessageHandler: \u0027On Message\u0027,\n```",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "988423fd_aafa072a",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-16T01:55:05Z",
+      "side": 1,
+      "message": "is this event shown in the UI? (sorry i didnt build with your two CLs just yet)",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
