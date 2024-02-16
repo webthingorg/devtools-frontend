@@ -23,6 +23,7 @@ export function eventInitiatorPairsToDraw(
 
   let currentEvent: TraceEngine.Types.TraceEvents.TraceEventData|null = selectedEvent;
 
+  // Get events backwards
   while (currentEvent) {
     const currentInitiator = traceEngineData.Initiators.eventToInitiator.get(currentEvent);
 
@@ -54,6 +55,8 @@ export function eventInitiatorPairsToDraw(
     // Go up to the parent, and loop again.
     currentEvent = nodeForCurrentEvent.parent?.entry || null;
   }
+
+  // Initiators forward
 
   return pairs;
 }
