@@ -28,8 +28,8 @@ type Brick = {
   width: number,
 };
 
-const MAX_DELTA = 5;
-const MIN_DELTA = 3;
+const MAX_DELTA = 17;
+const MIN_DELTA = 10;
 const MAX_PADDLE_LENGTH = 150;
 const MIN_PADDLE_LENGTH = 85;
 const PADDLE_HEIGHT = 15;
@@ -52,9 +52,9 @@ const colorPallettes: ColorPalette[] = [
   },
   // pinks
   {
-    light: 'rgb(223,213,225)',
-    mediumLighter: 'rgb(208,192,211)',
-    mediumDarker: 'rgb(177,150,182)',
+    light: 'rgb(252, 235, 255)',
+    mediumLighter: 'rgb(245, 194, 235)',
+    mediumDarker: 'rgb(224, 167, 255)',
     dark: 'rgb(253,77,246)',
   },
   // purples
@@ -133,7 +133,13 @@ export class BrickBreaker extends HTMLElement {
   #lives = 0;
   #blockCount = 0;
   #paddleLength = MAX_PADDLE_LENGTH;
-  #deltaVectorLength = MIN_DELTA;
+  #minScreenHeight = 200;
+  #maxScreenHeight = 1500;
+  #screenHeightDiff = this.#maxScreenHeight - this.#minScreenHeight;
+  // Value from 0.1 to 1 that multiplies speed depending on the screen height
+  #deltaMultiplier =
+      Math.max(0.1, (document.documentElement.clientHeight - this.#minScreenHeight) / this.#screenHeightDiff);
+  #deltaVectorLength = MIN_DELTA * this.#deltaMultiplier;
   #currentPalette: ColorPalette;
   constructor(private timelineFlameChart: FlameChart) {
     super();
@@ -393,7 +399,10 @@ export class BrickBreaker extends HTMLElement {
     this.#scorePanel.innerHTML = lives + blocks;
 
     this.#blockCount = this.#visibleEntries.size - this.#brokenBricks.size;
-    this.#deltaVectorLength = MIN_DELTA + (MAX_DELTA - MIN_DELTA) * this.#brokenBricks.size / this.#visibleEntries.size;
+    this.#deltaVectorLength =
+        (MIN_DELTA + (MAX_DELTA - MIN_DELTA) * this.#brokenBricks.size / this.#visibleEntries.size) *
+        this.#deltaMultiplier;
+
     this.#paddleLength = MAX_PADDLE_LENGTH -
         (MAX_PADDLE_LENGTH - MIN_PADDLE_LENGTH) * this.#brokenBricks.size / this.#visibleEntries.size;
 
