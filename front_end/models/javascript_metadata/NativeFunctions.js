@@ -7222,10 +7222,6 @@ export const NativeFunctions = [
     signatures: [["type","init"]]
   },
   {
-    name: "requestIdentity",
-    signatures: [["options"]]
-  },
-  {
     name: "FederatedCredential",
     signatures: [["data"]]
   },
