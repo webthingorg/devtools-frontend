@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8783633b_52a388d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-17T00:14:45Z",
+      "side": 1,
+      "message": "Yeah I think Insights will eventually absorb the rootcauses stuff.",
+      "parentUuid": "a8ee7494_ab03cc17",
+      "revId": "f8814810b4c05a82b548a9c3557babdbf30b1e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18f8641a_055f84ca",
