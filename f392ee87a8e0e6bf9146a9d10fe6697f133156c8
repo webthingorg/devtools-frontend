@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10f4ed41_0c6313f1",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-17T20:15:25Z",
+      "side": 1,
+      "message": "This new impl has the exact same behavior as the previous impl. It just uses less fancy javascript and saves ~7% based on that.  \n\nSince this is one of our hottest loops, we can afford to micro-optimize a bit. :)",
+      "revId": "f392ee87a8e0e6bf9146a9d10fe6697f133156c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1ddac2e_ac8c46c2",
+        "filename": "front_end/models/trace/types/Configuration.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-17T20:15:25Z",
+      "side": 1,
+      "message": "The diff between `setTimeout(fn,1)` and `setTimeout(fn,0)` isn\u0027t huge, but a 0 timeout is a sufficient yield to let rendering (aka beginMainFrame) proceed, if it wants.",
+      "revId": "f392ee87a8e0e6bf9146a9d10fe6697f133156c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd4ffaa3_0777b9ae",
+        "filename": "test/unittests/front_end/models/trace/ModelImpl_test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-17T20:15:25Z",
+      "side": 1,
+      "message": "This test could have remained unchanged, but I wanted to  make it a tad more robust. Swapping `basic.json.gz` to `web-dev-with-advanced-instrumentation.json.gz` is enough to make it break in a way thats very hard to debug.\n\nNow it\u0027ll be a lot more obvious if someone else runs into that.",
+      "revId": "f392ee87a8e0e6bf9146a9d10fe6697f133156c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
