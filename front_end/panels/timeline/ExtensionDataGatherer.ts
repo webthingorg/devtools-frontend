@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 import * as Common from '../../core/common/common.js';
 import * as Extensions from '../../models/extensions/extensions.js';
-import type * as TraceEngine from '../../models/trace/trace.js';
+import * as TraceEngine from '../../models/trace/trace.js';
 
 type TrackData = TraceEngine.Helpers.Extensions.ExtensionTrackData;
 export {TrackData};
@@ -98,8 +98,40 @@ export class ExtensionDataGatherer extends Common.ObjectWrapper.ObjectWrapper<Ev
    * API.
    */
   getDataFromDevToolsExtension(): TrackData[] {
-    // Implemented in a follow up
-    return [];
+    const traceData = this.#traceParsedData;
+    if (!traceData) {
+      return [];
+    }
+    let allSyntheticExtensionEntries: TraceEngine.Types.TraceEvents.SyntheticExtensionEntry[] = [];
+    for (const extensionDataProvider of this.#extensiondataProviders) {
+      const data = extensionDataProvider.getFlameChartData();
+      const timeOriginMillis = extensionDataProvider.getTimeOrigin() as TraceEngine.Types.Timing.MilliSeconds;
+      const originMicro = TraceEngine.Helpers.Timing.millisecondsToMicroseconds(timeOriginMillis);
+      const entriesFromPlugin =
+          data.flameChartEntries.map((entry): TraceEngine.Types.TraceEvents.SyntheticExtensionEntry => {
+            // Map the extension's measurement clock to the clock of the trace
+            const timeMicro = TraceEngine.Helpers.Timing.millisecondsToMicroseconds(
+                TraceEngine.Types.Timing.MilliSeconds(entry.time));
+            const timeInTracingClock = timeMicro + originMicro - traceData.Meta.tracingTimeOffset;
+
+            const syntheticEvent = TraceEngine.Helpers.Trace.makeSyntheticTraceEntry(
+                entry.name, TraceEngine.Types.Timing.MicroSeconds(timeInTracingClock),
+                TraceEngine.Types.TraceEvents.ProcessID(0), TraceEngine.Types.TraceEvents.ThreadID(0));
+            syntheticEvent.dur = TraceEngine.Helpers.Timing.millisecondsToMicroseconds(
+                TraceEngine.Types.Timing.MilliSeconds(entry.duration));
+            return {
+              ...syntheticEvent,
+              dur: TraceEngine.Helpers.Timing.millisecondsToMicroseconds(
+                  TraceEngine.Types.Timing.MilliSeconds(entry.duration)),
+              cat: 'timeline-extension',
+              args: {...entry, extensionName: extensionDataProvider.getName()},
+            };
+          });
+
+      allSyntheticExtensionEntries = [...allSyntheticExtensionEntries, ...entriesFromPlugin];
+    }
+
+    return TraceEngine.Helpers.Extensions.buildTrackDataFromExtensionEntries(allSyntheticExtensionEntries);
   }
 }
 
