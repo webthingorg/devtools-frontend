@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6819d56c_9e551afb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-19T16:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3816d12d_5eb64059",
+      "revId": "a19a2d6c834ebde7f3d0ad30dc3f07b5c5f3907e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee04b762_99749d43",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f856f5_fa1fd7aa",
+        "filename": "front_end/panels/explain/InsightProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-19T16:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee04b762_99749d43",
+      "revId": "a19a2d6c834ebde7f3d0ad30dc3f07b5c5f3907e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3dbf99c_68abb451",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-02-12T07:28:32Z",
       "side": 1,
       "message": "let\u0027s stringify the details? otherwise, it would be [Object object].",
+      "revId": "a19a2d6c834ebde7f3d0ad30dc3f07b5c5f3907e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "449d64cf_f54a8578",
+        "filename": "front_end/panels/explain/InsightProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-19T16:09:24Z",
+      "side": 1,
+      "message": "It is stringified by the backend.",
+      "parentUuid": "a3dbf99c_68abb451",
       "revId": "a19a2d6c834ebde7f3d0ad30dc3f07b5c5f3907e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
