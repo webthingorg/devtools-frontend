@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b5f39ad_7f84f772",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-19T17:50:22Z",
+      "side": 1,
+      "message": "LGTM but I have not reviewed the animation logic in great detail so leaving this to Philip or Changhao",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
