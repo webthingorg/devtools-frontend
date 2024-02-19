@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e92500_f3a239ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-19T16:13:11Z",
+      "side": 1,
+      "message": "I\u0027m not sure why, but after this CL I see lots of errors in DevTools on DevTools.\n\"Uncaught TypeError: Cannot read properties of undefined (reading \u0027set\u0027)\".\n\nI can reproduce this when opening the protocol monitor.\n\nScreenshot: https://i.imgur.com/NGXaLDG.png",
+      "revId": "591d0b11376eff37fd7a531688f5ebf6d94df931",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
