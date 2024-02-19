@@ -23,6 +23,7 @@ export function eventInitiatorPairsToDraw(
 
   let currentEvent: TraceEngine.Types.TraceEvents.TraceEventData|null = selectedEvent;
 
+  // Build event pairs up to the selected one
   while (currentEvent) {
     const currentInitiator = traceEngineData.Initiators.eventToInitiator.get(currentEvent);
 
@@ -53,6 +54,41 @@ export function eventInitiatorPairsToDraw(
 
     // Go up to the parent, and loop again.
     currentEvent = nodeForCurrentEvent.parent?.entry || null;
+  }
+
+  // To find all event initiators associated with the selected entry's predecessors, create a queue of entries to check for in the map that contains events for initiators.
+  // Because an entry can have multiple children, we keep adding them all to the queue. This method is similar to breadth-first search.
+  // Once an entry that is an initiator is found, add it to the queue and proceed to check its children.
+  // Start the queue with selected entry and loop until all predecessors are checked.
+  const eventsQueue: TraceEngine.Types.TraceEvents.TraceEventData[] = [selectedEvent];
+
+  while (eventsQueue.length > 0) {
+    const currEvent: TraceEngine.Types.TraceEvents.TraceEventData|undefined = eventsQueue.pop();
+    if (!currEvent) {
+      return pairs;
+    }
+
+    const nodeForCurrentEvent = traceEngineData.Renderer.entryToNode.get(currEvent);
+    if (!nodeForCurrentEvent) {
+      // Should not happen - if it does something odd is going
+      // on so let's give up.
+      break;
+    }
+
+    const currEventInitiators = traceEngineData.Initiators.initiatorToEvents.get(currEvent);
+    if (currEventInitiators) {
+      currEventInitiators.forEach(initiator => {
+        // Store the found pair of initiators and push the found initiator to the queue to later check it' children.
+        pairs.push({event: initiator, initiator: currEvent});
+        eventsQueue.push(initiator);
+      });
+      continue;
+    }
+
+    // Add the children of current entry to the queue to check if they are initiators for any events.
+    nodeForCurrentEvent.children.forEach(child => {
+      eventsQueue.push(child.entry);
+    });
   }
 
   return pairs;
