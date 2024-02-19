@@ -11,6 +11,8 @@
  * for details.
 */
 :root {
+  --selected-theme: var(--user-color-source);
+
   --color-primary-old: rgb(26 115 232);
   --color-primary-variant: rgb(66 133 244);
   --color-background: rgb(255 255 255);
@@ -414,6 +416,14 @@
   */
   --sys-color-gradient-primary: var(--ref-palette-primary90);
   --sys-color-gradient-tertiary: var(--ref-palette-tertiary95);
+}
+
+:root.baseline {
+  --sys-color-surface5: rgb(234 240 249 / 100%);
+  --sys-color-surface4: rgb(237 239 246 / 100%);
+  --sys-color-surface3: rgb(238 243 250 / 100%);
+  --sys-color-surface2: rgb(243 246 252 / 100%);
+  --sys-color-surface1: rgb(247 249 253 / 100%);
 }
 
 .-theme-with-dark-background {

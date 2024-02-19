@@ -143,6 +143,15 @@ export class ThemeSupport extends EventTarget {
     const wasDarkThemed = document.documentElement.classList.contains('-theme-with-dark-background');
     document.documentElement.classList.toggle('-theme-with-dark-background', this.themeNameInternal === 'dark');
 
+    console.log("THEME ABGELESEN VOM STYLESHEET: ", document.body.style.getPropertyValue('--user-color-source'));
+    console.log("STYLE:>>>>>>>>> ", document.body.style);
+    const COLORS_CSS_SELECTOR = 'link[href*=\'//theme/colors.css\']';
+    const colorCssNode = document.querySelector(COLORS_CSS_SELECTOR);
+    console.log("USER COLOR SRC:   ", document.body.style.getPropertyValue('--color-ref-primary0'));
+
+    const baselineThemeSelected = document.body.style.getPropertyValue('--user-color-source') === 'baseline';
+    document.documentElement.classList.toggle('baseline', baselineThemeSelected);
+
     const isDarkThemed = document.documentElement.classList.contains('-theme-with-dark-background');
 
     // In the event the theme changes we need to clear caches and notify subscribers.
