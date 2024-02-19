@@ -16,6 +16,24 @@
       "message": "WDYT of adding a VE for `SplitWidget`s `shadow-split-widget-contents` so that we track resize for all split widget sidebars?\n\nCurrently, with the current state of the CL, we don\u0027t track the resizing of the Styles sidebar when it is laid out vertically (in small screen sizes) -- because its header element\u0027s sizes don\u0027t change.",
       "revId": "5f5ee4533c6a9f47ff40b77c618009ff3d5a40db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5992001c_67664507",
+        "filename": "front_end/ui/legacy/SplitWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-19T15:28:07Z",
+      "side": 0,
+      "message": "I tried that, we have too many nested split many of which are not really interactive.\n\nWe had the same problem with the Toolbar VE, not every instance is \"semantical\" and needs annotation. I believe we need a targeted approach.\n\nI will add individual annotations to the elements panel and other widgets in the next CL.",
+      "parentUuid": "17c4e352_e072c991",
+      "revId": "5f5ee4533c6a9f47ff40b77c618009ff3d5a40db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
