@@ -22,6 +22,30 @@
       },
       "revId": "036e52000a564769b01658c2a3d74bc86d1f49d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0092c440_19d34753",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1543982
+      },
+      "writtenOn": "2024-02-19T01:09:29Z",
+      "side": 1,
+      "message": "Yeah that should be supported in a correct manner. Maybe we should make a doc and clarify which sources are supported and which are not in the near future.",
+      "parentUuid": "ecdba077_e53d9c18",
+      "range": {
+        "startLine": 23,
+        "startChar": 60,
+        "endLine": 23,
+        "endChar": 61
+      },
+      "revId": "036e52000a564769b01658c2a3d74bc86d1f49d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
