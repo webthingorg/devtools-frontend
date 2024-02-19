@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3594245_54b61b38",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-19T10:27:14Z",
+      "side": 0,
+      "message": "that\u0027s a lot of code that\u0027s gone 😎",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 1
+      },
+      "revId": "da5bcf949a773ebac0dec6772122a4b248727beb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

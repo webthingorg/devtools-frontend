@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2584a97e_66ec6d10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-19T10:27:14Z",
+      "side": 1,
+      "message": "this is awesome, LGTM!",
+      "revId": "f392ee87a8e0e6bf9146a9d10fe6697f133156c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "10f4ed41_0c6313f1",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 8
@@ -31,6 +48,29 @@
       "writtenOn": "2024-02-17T20:15:25Z",
       "side": 1,
       "message": "The diff between `setTimeout(fn,1)` and `setTimeout(fn,0)` isn\u0027t huge, but a 0 timeout is a sufficient yield to let rendering (aka beginMainFrame) proceed, if it wants.",
+      "revId": "f392ee87a8e0e6bf9146a9d10fe6697f133156c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e0509f7_ace84f91",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-19T10:27:14Z",
+      "side": 1,
+      "message": "I\u0027m curious about how you determined these values and why they are so different from each other (talking about the trace engine conf in the previous file). Not suggeting anything, just curious.",
+      "range": {
+        "startLine": 168,
+        "startChar": 27,
+        "endLine": 168,
+        "endChar": 34
+      },
       "revId": "f392ee87a8e0e6bf9146a9d10fe6697f133156c8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
