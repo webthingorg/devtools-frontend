@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77ef3548_55850e12",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-19T14:35:11Z",
+      "side": 1,
+      "message": "As far as I understand, `addPopover` is used to add arbitrary popovers to the Styles pane. Though, from the implementation in `StylesSidebarPane` it seems like this functionality is added only for CSS var swatch.\n\nCan we update the implementation (like naming and stuff) to reflect the arbitrary nature of this `addPopover` mechanism?\n\nIn addition to that, we need to be able to get `jslogContext` there dynamically since it says `elements.css-var` for all popovers now but it needs to be `elements.color-mix` now.",
+      "revId": "f8e3a4f17fa1d079c8f9e92eb755b3a29ba52e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a5dc568_d2881305",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-19T14:35:11Z",
+      "side": 1,
+      "message": "We can say `span.style.margin \u003d \u0027auto\u0027` for centering the span inside the popover :)",
+      "revId": "f8e3a4f17fa1d079c8f9e92eb755b3a29ba52e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fc4753f_2e1e3ce9",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-19T14:35:11Z",
+      "side": 1,
+      "message": "(nit, suggestion): I wonder if it might make sense to parse this color and render it in a different format like `rgb` if it is possible since it is the format most of the people use right now. WDYT?\n\nIf it is not possible, we can render it as `color` function too with some rounded values.",
+      "revId": "f8e3a4f17fa1d079c8f9e92eb755b3a29ba52e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
