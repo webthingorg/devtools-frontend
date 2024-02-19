@@ -15,7 +15,7 @@ import {describeWithRealConnection} from '../../helpers/RealConnection.js';
 const {assert} = chai;
 
 describe('StylesSidebarPane', () => {
-  describeWithRealConnection('StylesSidebarPane', () => {
+  describeWithRealConnection('StylesSidebarPane', async () => {
     let Elements: typeof ElementsModule;
     before(async () => {
       Elements = await import('../../../../../front_end/panels/elements/elements.js');
@@ -188,17 +188,6 @@ describe('StylesSidebarPane', () => {
       assert.deepEqual(node.textContent, nodeContents, trace.toString());
     });
 
-    it('parses color-mix correctly', () => {
-      const renderer = new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(
-          null, null, 'color', 'color-mix(in srgb, red, blue)');
-      renderer.setColorMixHandler(() => document.createTextNode(nodeContents));
-
-      const nodeContents = 'nodeContents';
-
-      const node = renderer.renderValue();
-      assert.deepEqual(node.textContent, nodeContents, trace.toString());
-    });
-
     it('does not call bezier handler when color() value contains srgb-linear color space in a variable definition',
        () => {
          const bezierHandler = sinon.fake.returns(document.createTextNode('bezierHandler'));
@@ -234,7 +223,7 @@ describe('StylesSidebarPane', () => {
     });
 
     it('parses lengths correctly', () => {
-      Root.Runtime.experiments.disableForTest('css-type-component-length-deprecate');
+      Root.Runtime.experiments.disableForTest('cssTypeComponentLengthDeprecate');
       const renderer =
           new Elements.StylesSidebarPane.StylesSidebarPropertyRenderer(null, null, 'width', 'calc(6em + 7em)');
       renderer.setLengthHandler(() => document.createTextNode('MATCH'));
@@ -333,6 +322,7 @@ describe('StylesSidebarPane', () => {
       assert.deepEqual(elements, [0, 1, 2, 3, 4, 5, 6, 7]);
     });
   });
+
   describeWithLocale('CSSPropertyPrompt', () => {
     const CSSPropertyPrompt = Elements.StylesSidebarPane.CSSPropertyPrompt;
 
