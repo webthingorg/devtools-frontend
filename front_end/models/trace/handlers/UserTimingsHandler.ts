@@ -107,11 +107,13 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     return;
   }
 
-  if (Types.TraceEvents.isTraceEventPerformanceMeasure(event)) {
+  if (Types.TraceEvents.isTraceEventPerformanceMeasure(event) &&
+      !Types.TraceEvents.isTraceEventExtensionMeasure(event)) {
     performanceMeasureEvents.push(event);
     return;
   }
-  if (Types.TraceEvents.isTraceEventPerformanceMark(event)) {
+  if (Types.TraceEvents.isTraceEventPerformanceMark(event) &&
+      !Types.TraceEvents.isTraceEventExtensionPerformanceMark(event)) {
     performanceMarkEvents.push(event);
   }
   if (Types.TraceEvents.isTraceEventConsoleTime(event)) {

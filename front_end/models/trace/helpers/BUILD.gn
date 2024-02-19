@@ -8,6 +8,7 @@ import("../../visibility.gni")
 
 devtools_module("helpers") {
   sources = [
+    "Extensions.ts",
     "SamplesIntegrator.ts",
     "Timing.ts",
     "Trace.ts",
