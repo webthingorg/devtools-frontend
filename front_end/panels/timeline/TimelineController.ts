@@ -6,6 +6,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
+import * as Extensions from '../../models/extensions/extensions.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 
@@ -168,6 +169,7 @@ export class TimelineController implements TraceEngine.TracingManager.TracingMan
     // caused by starting CPU profiler, that needs to traverse JS heap to collect
     // all the functions data.
     await SDK.TargetManager.TargetManager.instance().suspendAllTargets('performance-timeline');
+    Extensions.ExtensionServer.ExtensionServer.instance().profilingStarted();
     return this.tracingManager.start(this, categories, '');
   }
 
@@ -197,6 +199,7 @@ export class TimelineController implements TraceEngine.TracingManager.TracingMan
         this.#collectedEvents, this.tracingModel, /* exclusiveFilter= */ null, /* isCpuProfile= */ false,
         this.#recordingStartTime);
     this.client.loadingCompleteForTest();
+    Extensions.ExtensionServer.ExtensionServer.instance().profilingStopped();
   }
 
   tracingBufferUsage(usage: number): void {

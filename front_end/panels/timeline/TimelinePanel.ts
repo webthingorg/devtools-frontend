@@ -40,6 +40,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
+import * as Extensions from '../../models/extensions/extensions.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as Workspace from '../../models/workspace/workspace.js';
@@ -1435,6 +1436,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       if (!traceData) {
         throw new Error(`Could not get trace data at index ${this.#traceEngineActiveTraceIndex}`);
       }
+      Extensions.ExtensionServer.ExtensionServer.instance().profileParsed(traceData);
 
       // Set up SourceMapsResolver to ensure we resolve any function names in
       // profile calls.
