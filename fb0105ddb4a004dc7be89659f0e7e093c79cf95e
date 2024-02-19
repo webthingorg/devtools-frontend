@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08d3e015_f289e8e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-19T16:18:51Z",
+      "side": 1,
+      "message": "Just to double check, it should be different to light theme (pink70 vs pink60), otherwise LGTM",
+      "revId": "fb0105ddb4a004dc7be89659f0e7e093c79cf95e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
