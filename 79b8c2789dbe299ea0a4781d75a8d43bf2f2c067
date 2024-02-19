@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c2edc77_650823c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-19T10:53:12Z",
+      "side": 1,
+      "message": "Nice! LGTM with one suggestion.",
+      "revId": "79b8c2789dbe299ea0a4781d75a8d43bf2f2c067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "446d1bb2_b774cc2d",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-19T10:53:12Z",
+      "side": 1,
+      "message": "How about importing this from Common.Base64?",
+      "revId": "79b8c2789dbe299ea0a4781d75a8d43bf2f2c067",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
