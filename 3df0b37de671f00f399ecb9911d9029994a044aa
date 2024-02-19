@@ -51,6 +51,24 @@
       "parentUuid": "956786b5_b5fbf5f4",
       "revId": "3df0b37de671f00f399ecb9911d9029994a044aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6ea0a0e_5de44972",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-19T11:48:17Z",
+      "side": 1,
+      "message": "Either option works for me, I think. Up to you!",
+      "parentUuid": "06278a82_2f0b44a8",
+      "revId": "3df0b37de671f00f399ecb9911d9029994a044aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
