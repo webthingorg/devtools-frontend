@@ -238,7 +238,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
   private readonly imagePreviewPopover: ImagePreviewPopover;
   #webCustomData?: WebCustomData;
   #hintPopoverHelper: UI.PopoverHelper.PopoverHelper;
-  #evaluatedCSSVarPopoverHelper: UI.PopoverHelper.PopoverHelper;
+  #genericPopoverHelper: UI.PopoverHelper.PopoverHelper;
   #elementPopoverHooks = new WeakMap<Node, () => HTMLElement | undefined>();
 
   activeCSSAngle: InlineEditor.CSSAngle.CSSAngle|null;
@@ -395,8 +395,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     this.#hintPopoverHelper.setTimeout(300);
     this.#hintPopoverHelper.setHasPadding(true);
 
-    // Bind cssVarSwatch Popover.
-    this.#evaluatedCSSVarPopoverHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
+    this.#genericPopoverHelper = new UI.PopoverHelper.PopoverHelper(this.contentElement, event => {
       for (let e = event.composedPath().length - 1; e >= 0; --e) {
         const element = event.composedPath()[e] as Element;
         const hook = this.#elementPopoverHooks.get(element);
@@ -413,9 +412,9 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
         }
       }
       return null;
-    }, 'elements.css-var');
-    this.#evaluatedCSSVarPopoverHelper.setDisableOnClick(true);
-    this.#evaluatedCSSVarPopoverHelper.setTimeout(500, 200);
+    }, 'elements.generic-sidebar-popover');
+    this.#genericPopoverHelper.setDisableOnClick(true);
+    this.#genericPopoverHelper.setTimeout(500, 200);
   }
 
   addPopover(element: Node, contents: () => HTMLElement | undefined): void {
@@ -1334,7 +1333,7 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
     }
 
     this.#hintPopoverHelper?.hidePopover();
-    this.#evaluatedCSSVarPopoverHelper?.hidePopover();
+    this.#genericPopoverHelper?.hidePopover();
   }
 
   getSectionBlockByName(name: string): SectionBlock|undefined {
