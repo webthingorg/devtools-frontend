@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdba077_e53d9c18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2024-02-19T00:53:03Z",
+      "side": 1,
+      "message": "What shall we do for network fallback when the cache missed?\nIt is totally fine to be addressed in the other CL, though.\nWe may need a real source in addition to a matched source?",
+      "range": {
+        "startLine": 23,
+        "startChar": 60,
+        "endLine": 23,
+        "endChar": 61
+      },
+      "revId": "036e52000a564769b01658c2a3d74bc86d1f49d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
