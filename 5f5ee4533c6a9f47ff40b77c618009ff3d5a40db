@@ -34,6 +34,24 @@
       "parentUuid": "17c4e352_e072c991",
       "revId": "5f5ee4533c6a9f47ff40b77c618009ff3d5a40db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ef7344d_b7e08108",
+        "filename": "front_end/ui/legacy/SplitWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-19T15:33:29Z",
+      "side": 0,
+      "message": "SG!",
+      "parentUuid": "5992001c_67664507",
+      "revId": "5f5ee4533c6a9f47ff40b77c618009ff3d5a40db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
