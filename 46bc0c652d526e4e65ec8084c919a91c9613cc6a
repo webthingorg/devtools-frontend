@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff439369_9dd9b617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-19T10:58:05Z",
+      "side": 1,
+      "message": "LGTM with non-blocking thought. Thanks!",
+      "revId": "46bc0c652d526e4e65ec8084c919a91c9613cc6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13e5b990_7b0f4104",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 2517,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-19T10:58:05Z",
+      "side": 1,
+      "message": "this is a big improvement but I still find it confusing to understand what each section means. For example, what\u0027s the difference between the stack trace of a recalc styles vs the initiator\u0027s. I would have assumed they would be the same but apparently not. Also the \"First invalidated\" section has an \"initiated by\" field that points to a ScheduleStyleRecalc which suggests the invalidation was initiated by the schedule and not the other way around.\n\nMaybe the labels we use can help explain why better or do you think it\u0027s obvious enough already?",
+      "range": {
+        "startLine": 2517,
+        "startChar": 80,
+        "endLine": 2517,
+        "endChar": 81
+      },
+      "revId": "46bc0c652d526e4e65ec8084c919a91c9613cc6a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
