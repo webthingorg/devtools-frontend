@@ -11,6 +11,7 @@ import * as ElementsComponents from '../../../../../front_end/panels/elements/co
 import * as ElementsModule from '../../../../../front_end/panels/elements/elements.js';
 import * as InlineEditor from '../../../../../front_end/ui/legacy/components/inline_editor/inline_editor.js';
 import type * as LegacyUI from '../../../../../front_end/ui/legacy/legacy.js';
+import {renderElementIntoDOM} from '../../helpers/DOMHelpers.js';
 import {createTarget} from '../../helpers/EnvironmentHelpers.js';
 import {describeWithRealConnection} from '../../helpers/RealConnection.js';
 
@@ -246,6 +247,93 @@ describeWithRealConnection('StylePropertyTreeElement', async () => {
            const colorMixSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-color-mix-swatch');
            assert.isNull(colorMixSwatch);
          });
+
+      it('shows a popover with it\'s computed color as RGB if possible', () => {
+        const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
+            mockCssStyleDeclaration, 0, 'color', 'color-mix(in srgb, red 50%, yellow)', true, false, true, false, '',
+            undefined);
+        const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+          stylesPane: stylesSidebarPane,
+          matchedStyles: mockMatchedStyles,
+          property: cssPropertyWithColorMix,
+          isShorthand: false,
+          inherited: false,
+          overloaded: false,
+          newProperty: true,
+        });
+
+        const addPopoverSpy = sinon.spy(stylesSidebarPane, 'addPopover');
+        stylePropertyTreeElement.updateTitle();
+        const colorMixSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-color-mix-swatch');
+        assertNotNullOrUndefined(colorMixSwatch);
+        renderElementIntoDOM(colorMixSwatch);
+
+        assert.isTrue(addPopoverSpy.calledOnce);
+        assert.strictEqual(addPopoverSpy.args[0][0], colorMixSwatch.icon);
+        assert.strictEqual(addPopoverSpy.args[0][1]()?.textContent, '#ff8000');
+      });
+
+      it('shows a popover with it\'s computed color as wide gamut if necessary', () => {
+        const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
+            mockCssStyleDeclaration, 0, 'color', 'color-mix(in srgb, oklch(.5 .5 .5) 50%, yellow)', true, false, true,
+            false, '', undefined);
+        const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+          stylesPane: stylesSidebarPane,
+          matchedStyles: mockMatchedStyles,
+          property: cssPropertyWithColorMix,
+          isShorthand: false,
+          inherited: false,
+          overloaded: false,
+          newProperty: true,
+        });
+
+        const addPopoverSpy = sinon.spy(stylesSidebarPane, 'addPopover');
+        stylePropertyTreeElement.updateTitle();
+        const colorMixSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-color-mix-swatch');
+        assertNotNullOrUndefined(colorMixSwatch);
+        renderElementIntoDOM(colorMixSwatch);
+
+        assert.isTrue(addPopoverSpy.calledOnce);
+        assert.strictEqual(addPopoverSpy.args[0][0], colorMixSwatch.icon);
+        assert.strictEqual(addPopoverSpy.args[0][1]()?.textContent, 'color(srgb 1 0.24 0.17)');
+      });
+
+      it('propagates updates to outer color-mixes', () => {
+        const cssPropertyWithColorMix = new SDK.CSSProperty.CSSProperty(
+            mockCssStyleDeclaration, 0, 'color', 'color-mix(in srgb, color-mix(in oklch, red, green), blue)', true,
+            false, true, false, '', undefined);
+        const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
+          stylesPane: stylesSidebarPane,
+          matchedStyles: mockMatchedStyles,
+          property: cssPropertyWithColorMix,
+          isShorthand: false,
+          inherited: false,
+          overloaded: false,
+          newProperty: true,
+        });
+
+        stylePropertyTreeElement.updateTitle();
+
+        const outerColorMix = stylePropertyTreeElement.valueElement?.querySelector('devtools-color-mix-swatch');
+        assertNotNullOrUndefined(outerColorMix);
+        const handler = sinon.fake();
+        outerColorMix.addEventListener(InlineEditor.ColorMixSwatch.Events.ColorChanged, handler);
+        const innerColorMix = outerColorMix.querySelector('devtools-color-mix-swatch');
+        assertNotNullOrUndefined(innerColorMix);
+        assert.strictEqual(outerColorMix.getText(), 'color-mix(in srgb, color-mix(in oklch, red, green), blue)');
+        assert.strictEqual(innerColorMix.getText(), 'color-mix(in oklch, red, green)');
+        innerColorMix.setFirstColor('blue');
+        assert.deepStrictEqual(
+            handler.args[0][0].data, {text: 'color-mix(in srgb, color-mix(in oklch, blue, green), blue)'});
+        assert.strictEqual(outerColorMix.getText(), 'color-mix(in srgb, color-mix(in oklch, blue, green), blue)');
+
+        // setFirstColor does not actually update the rendered color swatches or the textContent, which is why the first
+        // color is still red here.
+        innerColorMix.querySelector('devtools-color-swatch')?.setFormat(Common.Color.Format.HEX);
+        assert.strictEqual(outerColorMix.getText(), 'color-mix(in srgb, color-mix(in oklch, #ff0000, green), blue)');
+        assert.deepStrictEqual(
+            handler.args[1][0].data, {text: 'color-mix(in srgb, color-mix(in oklch, #ff0000, green), blue)'});
+      });
     });
 
     describe('animation-name', () => {
