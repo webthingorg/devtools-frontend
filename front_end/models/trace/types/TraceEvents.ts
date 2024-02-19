@@ -995,6 +995,18 @@ export interface TraceEventUserTiming extends TraceEventData {
 
 export type TraceEventPairableUserTiming = TraceEventUserTiming&TraceEventPairableAsync;
 
+export const TRACE_ORIGIN_MARKER_NAME = 'trace-origin';
+
+export interface TraceEventTraceOriginMarker extends TraceEventPerformanceMeasureBegin {
+  args: TraceEventArgs&{
+    detail: string,
+    startTime: MilliSeconds,
+  };
+  cat: 'blink.user_timing';
+  id: string;
+  name: typeof TRACE_ORIGIN_MARKER_NAME;
+}
+
 export interface TraceEventPerformanceMeasureBegin extends TraceEventPairableUserTiming {
   args: TraceEventArgs&{
     detail?: string,
@@ -1741,6 +1753,12 @@ export function isSyntheticConsoleTiming(traceEventData: TraceEventData): traceE
 export function isTraceEventPerformanceMeasure(traceEventData: TraceEventData):
     traceEventData is TraceEventPerformanceMeasure {
   return traceEventData.cat === 'blink.user_timing' && isTraceEventAsyncPhase(traceEventData);
+}
+
+export function isTraceEventTraceOriginMarker(event: TraceEventData): event is TraceEventTraceOriginMarker {
+  return (isTraceEventPerformanceMeasure(event) || isTraceEventPerformanceMark(event)) &&
+      (event.ph === Phase.ASYNC_NESTABLE_START || event.ph === Phase.ASYNC_NESTABLE_INSTANT) &&
+      event.name === TRACE_ORIGIN_MARKER_NAME;
 }
 
 export function isTraceEventPerformanceMark(traceEventData: TraceEventData):

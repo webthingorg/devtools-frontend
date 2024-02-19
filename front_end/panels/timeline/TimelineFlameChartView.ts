@@ -15,7 +15,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
-import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
+import {Events as ExtensionDataEvents, ExtensionDataGatherer} from './ExtensionDataGatherer.js';
 import {type PerformanceModel} from './PerformanceModel.js';
 import {TimelineDetailsView} from './TimelineDetailsView.js';
 import {TimelineRegExp} from './TimelineFilters.js';
@@ -82,6 +82,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
   #gameKeyMatches = 0;
   #gameTimeout = setTimeout(() => ({}), 0);
+  #onEntriesModifiedBound = this.onEntriesModified.bind(this);
   constructor(delegate: TimelineModeViewDelegate) {
     super();
     this.element.classList.add('timeline-flamechart');
@@ -160,6 +161,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateColorMapper();
 
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
+    ExtensionDataGatherer.instace().addEventListener(
+        ExtensionDataEvents.ExtensionDataAdded, this.#onEntriesModifiedBound);
   }
 
   #keydownHandler(event: KeyboardEvent): void {
@@ -205,6 +208,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.networkDataProvider.setWindowTimes(visibleWindow.min, visibleWindow.max);
     this.networkFlameChart.setWindowTimes(visibleWindow.min, visibleWindow.max, shouldAnimate);
     this.updateSearchResults(false, false);
+  }
+
+  onEntriesModified(): void {
+    this.mainFlameChart.update(true);
   }
 
   isNetworkTrackShownForTests(): boolean {

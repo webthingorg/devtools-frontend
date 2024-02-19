@@ -34,6 +34,7 @@ import * as Platform from '../../../../core/platform/platform.js';
 import * as Root from '../../../../core/root/root.js';
 import type * as TimelineModel from '../../../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
+import * as TraceBounds from '../../../../services/trace_bounds/trace_bounds.js';
 import * as UI from '../../legacy.js';
 import * as ThemeSupport from '../../theme_support/theme_support.js';
 
@@ -2930,13 +2931,21 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.scheduleUpdate();
   }
 
-  update(): void {
-    if (!this.timelineData()) {
+  update(rebuild = false): void {
+    if (rebuild) {
+      this.reset();
+    }
+    if (!this.timelineData(rebuild)) {
       return;
     }
     this.resetCanvas();
     this.updateHeight();
     this.updateBoundaries();
+    const traceBoundsState = TraceBounds.TraceBounds.BoundsManager.instance().state();
+    if (traceBoundsState) {
+      const visibleWindow = traceBoundsState.milli.timelineTraceWindow;
+      this.setWindowTimes(visibleWindow.min, visibleWindow.max);
+    }
     this.draw();
     if (!this.chartViewport.isDragging()) {
       this.updateHighlight();

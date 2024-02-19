@@ -16,6 +16,11 @@ const rendererProcessesByFrameId: FrameProcessData = new Map();
 let mainFrameId: string = '';
 let mainFrameURL: string = '';
 
+// The baseline for performance timestamps of the inspected target. See: https://developer.mozilla.org/en-US/docs/Web/API/Performance/timeOrigin
+let targetOrigin: Types.Timing.MicroSeconds;
+// Time difference between the tracing clock and the Unix epoch.
+let tracingTimeOffset: Types.Timing.MicroSeconds;
+
 const framesByProcessId = new Map<Types.TraceEvents.ProcessID, Map<string, Types.TraceEvents.TraceFrame>>();
 
 // We will often want to key data by the browser process, GPU process and top
@@ -288,6 +293,21 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     }
     return;
   }
+  // We inject a performance.measure mark right after we started tracing
+  // to calculate metadata from the clocks of the inspected target:
+  // the tracing clock and high res monotonic clock used for performance
+  // measurements. This allows us to compare timestamps from the trace
+  // with timestamps from other programs (i.e. extensions).
+  if (Types.TraceEvents.isTraceEventTraceOriginMarker(event)) {
+    const detail = JSON.parse(event.args.detail);
+    if (!('timeOrigin' in detail)) {
+      return;
+    }
+    targetOrigin = Helpers.Timing.millisecondsToMicroseconds(detail.timeOrigin);
+    const markStartTime = Helpers.Timing.millisecondsToMicroseconds(event.args.startTime);
+    tracingTimeOffset = Types.Timing.MicroSeconds(targetOrigin + markStartTime - event.ts);
+    return;
+  }
 }
 
 export async function finalize(): Promise<void> {
@@ -399,6 +419,8 @@ export type MetaHandlerData = {
               topLevelRendererIds: Set<Types.TraceEvents.ProcessID>,
               frameByProcessId: Map<Types.TraceEvents.ProcessID, Map<string, Types.TraceEvents.TraceFrame>>,
               mainFrameNavigations: Types.TraceEvents.TraceEventNavigationStart[],
+              targetOrigin: Types.Timing.MicroSeconds,
+              tracingTimeOffset: Types.Timing.MicroSeconds,
 };
 
 // Each frame has a single render process at a given time but it can have
@@ -443,5 +465,7 @@ export function data(): MetaHandlerData {
     frameByProcessId: new Map(framesByProcessId),
     mainFrameNavigations: [...mainFrameNavigations],
     traceIsGeneric,
+    targetOrigin,
+    tracingTimeOffset,
   };
 }
