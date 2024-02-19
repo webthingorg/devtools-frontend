@@ -421,6 +421,14 @@
   --app-color-coverage-unused: var(--sys-color-error-bright);
 }
 
+:root.baseline {
+  --sys-color-surface5: rgb(234 240 249 / 100%);
+  --sys-color-surface4: rgb(237 239 246 / 100%);
+  --sys-color-surface3: rgb(238 243 250 / 100%);
+  --sys-color-surface2: rgb(243 246 252 / 100%);
+  --sys-color-surface1: rgb(247 249 253 / 100%);
+}
+
 .-theme-with-dark-background {
   --color-primary-old: rgb(138 180 248);
   --color-primary-variant: rgb(102 157 246);

@@ -151,6 +151,10 @@ export class ThemeSupport extends EventTarget {
       this.customSheets.clear();
       this.dispatchEvent(new ThemeChangeEvent());
     }
+
+    const baselineThemeSelected =
+        getComputedStyle(document.body).getPropertyValue('--user-color-source') === 'baseline';
+    document.documentElement.classList.toggle('baseline', baselineThemeSelected);
   }
 }
 
