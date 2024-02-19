@@ -33,6 +33,24 @@
       "message": "Could this part also be imported from Common.Base64?",
       "revId": "3df0b37de671f00f399ecb9911d9029994a044aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06278a82_2f0b44a8",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-19T11:43:13Z",
+      "side": 1,
+      "message": "The map works slightly differently so I wanted to preserve that. Otherwise the VLQ code has to do something like `.chareCodeAt(0)` instead of looking into the map directly.\n\nAlternatively we could also move the map to `Base64.ts`.",
+      "parentUuid": "956786b5_b5fbf5f4",
+      "revId": "3df0b37de671f00f399ecb9911d9029994a044aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
