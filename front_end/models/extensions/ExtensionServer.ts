@@ -53,6 +53,9 @@ import {PrivateAPI} from './ExtensionAPI.js';
 import {ExtensionButton, ExtensionPanel, ExtensionSidebarPane} from './ExtensionPanel.js';
 import {HostUrlPattern} from './HostUrlPattern.js';
 import {LanguageExtensionEndpoint} from './LanguageExtensionEndpoint.js';
+import {
+  PerformanceExtensionDataProvider as PerformanceExtensionDataProvider,
+} from './PerformanceExtensionDataProvider.js';
 import {RecorderExtensionEndpoint} from './RecorderExtensionEndpoint.js';
 import {RecorderPluginManager} from './RecorderPluginManager.js';
 
@@ -211,6 +214,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
         PrivateAPI.Commands.RegisterRecorderExtensionPlugin, this.registerRecorderExtensionEndpoint.bind(this));
     this.registerHandler(PrivateAPI.Commands.CreateRecorderView, this.onCreateRecorderView.bind(this));
     this.registerHandler(PrivateAPI.Commands.ShowRecorderView, this.onShowRecorderView.bind(this));
+    this.registerHandler(
+        PrivateAPI.Commands.RegisterPerformanceExtensionData, this.registerPerformanceExtensionData.bind(this));
     window.addEventListener('message', this.onWindowMessage, false);  // Only for main window.
 
     const existingTabId =
@@ -287,6 +292,17 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.postNotification(PrivateAPI.Events.ButtonClicked + identifier);
   }
 
+  profilingStarted(): void {
+    this.postNotification(PrivateAPI.Events.ProfilingStarted);
+  }
+
+  profilingStopped(): void {
+    this.postNotification(PrivateAPI.Events.ProfilingStopped);
+  }
+
+  profileParsed(profile: unknown): void {
+    this.postNotification(PrivateAPI.Events.ProfileParsed, profile);
+  }
   private registerLanguageExtensionEndpoint(
       message: PrivateAPI.ExtensionServerRequestMessage, _shared_port: MessagePort): Record {
     if (message.command !== PrivateAPI.Commands.RegisterLanguageExtensionPlugin) {
@@ -404,6 +420,16 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       onShown,
       onHidden,
     });
+    return this.status.OK();
+  }
+
+  private registerPerformanceExtensionData(message: PrivateAPI.ExtensionServerRequestMessage): Record {
+    if (message.command !== PrivateAPI.Commands.RegisterPerformanceExtensionData) {
+      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.RegisterPerformanceExtensionData}`);
+    }
+    const {extensionName, data, id} = message;
+    this.dispatchEventToListeners(
+        Events.PerformanceExtensionDataAdded, new PerformanceExtensionDataProvider(extensionName, data, id));
     return this.status.OK();
   }
 
@@ -1360,10 +1386,12 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
 export const enum Events {
   SidebarPaneAdded = 'SidebarPaneAdded',
+  PerformanceExtensionDataAdded = 'PerformanceDataProviderAdded',
 }
 
 export type EventTypes = {
   [Events.SidebarPaneAdded]: ExtensionSidebarPane,
+  [Events.PerformanceExtensionDataAdded]: PerformanceExtensionDataProvider,
 };
 
 class ExtensionServerPanelView extends UI.View.SimpleView {
