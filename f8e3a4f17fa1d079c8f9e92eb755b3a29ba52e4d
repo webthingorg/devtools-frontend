@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85d63588_e9aece51",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-19T16:01:07Z",
+      "side": 1,
+      "message": "I think the idea is, we want to understand which popover is shown when a popover is shown. So, it would be good to have a way to differentiate the shown popovers.\n\nI\u0027m not exactly sure if we can or cannot deduct which popover is shown from the context, so; just to be safe, it\u0027d be nice if we can differentiate them at that stage.",
+      "parentUuid": "8c130022_238a5d40",
+      "revId": "f8e3a4f17fa1d079c8f9e92eb755b3a29ba52e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a5dc568_d2881305",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 2
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "this isn\u0027t just about centering, also about nicely sizing the popover.",
       "parentUuid": "8a5dc568_d2881305",
+      "revId": "f8e3a4f17fa1d079c8f9e92eb755b3a29ba52e4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b0e5f79_0fbad007",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-19T16:01:07Z",
+      "side": 1,
+      "message": "Ah I see, cool!",
+      "parentUuid": "d2a35ced_2380fa9d",
       "revId": "f8e3a4f17fa1d079c8f9e92eb755b3a29ba52e4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
