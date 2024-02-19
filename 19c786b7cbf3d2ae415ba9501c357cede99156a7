@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27522f4b_e5a70b3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-19T16:31:11Z",
+      "side": 1,
+      "message": "The values for pink/on-pink should stay the same for dark mode, right?",
+      "revId": "19c786b7cbf3d2ae415ba9501c357cede99156a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
