@@ -16,6 +16,40 @@
       "message": "Hi Philip,\n\nthis CL adds the back-end changes in order to report the loaded resources to DevTools. PTAL! (windows bot seems to have unrelated issues)",
       "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef556a0_a70dae5a",
+        "filename": "extensions/cxx_debugging/src/DWARFSymbols.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-20T12:49:27Z",
+      "side": 1,
+      "message": "Relying on thrown Errors means we\u0027re going to miss loading failures for the dwp file. Have you considered reporting from within the resource loader directly? Maybe we can pass a callback or the entire host interface to loadSymbols.",
+      "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bb39111_fc379f1a",
+        "filename": "extensions/cxx_debugging/src/DWARFSymbols.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-20T12:49:27Z",
+      "side": 1,
+      "message": "I vaguely remember that there was some unexpected shared state with the wrapping we\u0027re doing here. I believe node_ops is shared across all nodes and not necessarily just the lazy loaded ones. That\u0027s why we\u0027re doing the `oldget !\u003d\u003d wrapper` check below. pessimistically rethrowing errors as EEXIST wasn\u0027t a problem before, but the reporting might be. Let\u0027s double check the FS implementation to understand what we\u0027re really doing here, maybe we need some additional checks in place that we\u0027re reporting the right stuff.",
+      "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
