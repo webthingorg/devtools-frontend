@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3af35f0c_1a6c0466",
+        "filename": "front_end/.eslintrc.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-20T07:52:43Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "dc4b3e4e_4c3da9fd",
+      "range": {
+        "startLine": 155,
+        "startChar": 16,
+        "endLine": 155,
+        "endChar": 22
+      },
+      "revId": "0f044856e24e8690fdca9471b73521810b9d5013",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1e89c45_cf478a77",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-20T07:15:14Z",
       "side": 1,
       "message": "Are we gonna have a follow-up cleanup effort where we\u0027ll use module local imports? Instead of importing the entrypoint in the unit test?\n\nBtw that might also require a change to the `deps` of the `unittests` BUILD.gn targets, since we\u0027ll have to depend on the `devtools_module` instead of the `:bundle`.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "0f044856e24e8690fdca9471b73521810b9d5013",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8aabc4_a1943aa8",
+        "filename": "front_end/models/bindings/CompilerScriptMapping.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-20T07:52:43Z",
+      "side": 1,
+      "message": "Currently not possible (offline discussion).",
+      "parentUuid": "f1e89c45_cf478a77",
       "range": {
         "startLine": 14,
         "startChar": 0,
