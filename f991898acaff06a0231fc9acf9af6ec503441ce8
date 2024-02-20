@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73857dbf_79a4634e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-20T15:03:47Z",
+      "side": 1,
+      "message": "I\u0027ll disable the failing layout tests first before landing this.",
+      "revId": "f991898acaff06a0231fc9acf9af6ec503441ce8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
