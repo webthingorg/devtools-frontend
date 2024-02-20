@@ -54,6 +54,10 @@ export class GlassPane {
     this.marginBehavior = MarginBehavior.DefaultMargin;
   }
 
+  setJSLog(jslog: string): void {
+    this.contentElement.setAttribute('jslog', jslog);
+  }
+
   isShowing(): boolean {
     return this.widgetInternal.isShowing();
   }
