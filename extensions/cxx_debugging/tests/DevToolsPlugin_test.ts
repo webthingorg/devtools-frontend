@@ -32,6 +32,37 @@ describe('DevToolsPlugin', () => {
       const sources = await plugin.addRawModule('?ü', '', {url: makeURL('/build/tests/inputs/hello.s.wasm')});
       expect(sources).to.deep.equal(expectedSources);
     });
+
+    it('reports missing module', async () => {
+      const hostInterface = new TestHostInterface();
+      const spy = sinon.spy(hostInterface, 'reportResourceLoad');
+
+      const url = makeURL('/build/tests/inputs/notExistent.s.wasm');
+      const plugin = await createPlugin(hostInterface, new ResourceLoader());
+      try {
+        await plugin.addRawModule('0', '', {url});
+      } catch (_) {
+      }
+      assert.isTrue(spy.calledOnceWithExactly(
+          url,
+          {success: false, errorMessage: `NotFoundError: Unable to load debug symbols from \'${url}\' (Not Found)`}));
+    });
+
+    it('reports loaded module and potentially missing dwp', async () => {
+      const hostInterface = new TestHostInterface();
+      const spy = sinon.spy(hostInterface, 'reportResourceLoad');
+
+      const url = makeURL('/build/tests/inputs/hello.s.wasm');
+      const plugin = await createPlugin(hostInterface, new ResourceLoader());
+      await plugin.addRawModule('0', '', {url});
+
+      const dwpUrl = makeURL('/build/tests/inputs/hello.s.wasm.dwp');
+      assert.isTrue(spy.calledTwice);
+      assert.isTrue(spy.calledWith(url, {success: true, size: 401}));
+      assert.isTrue(spy.calledWith(
+          dwpUrl, {success: false, errorMessage: `Couldn't load potentially missing dwp file: '${dwpUrl}'`}));
+    });
+
   });
 
   describe('rawLocationToSourceLocation', () => {
@@ -163,6 +194,7 @@ describe('DevToolsPlugin', () => {
         readonly local = {local: 9, stopId: 10, result: {type: 'i32', value: 5} as WasmValue};
         readonly global = {global: 10, stopId: 11, result: {type: 'i32', value: 6} as WasmValue};
         readonly op = {op: 11, stopId: 12, result: {type: 'i32', value: 7} as WasmValue};
+
         async getWasmLinearMemory(offset: number, length: number, stopId: unknown): Promise<ArrayBuffer> {
           if (offset === this.memory.offset && length === this.memory.length && stopId === this.memory.stopId) {
             return this.memory.result;
@@ -186,6 +218,10 @@ describe('DevToolsPlugin', () => {
             return this.op.result;
           }
           throw new Error('Unexpected arguments to call');
+        }
+        reportResourceLoad(_resourceUrl: string, _status: {success: boolean, errorMessage?: string, size?: number}):
+            void {
+          throw new Error('Method not implemented.');
         }
       }
 
@@ -217,5 +253,35 @@ describe('DevToolsPlugin', () => {
         expect(callResult).to.deep.equal(result);
       }
     });
+  });
+
+  it('provides a method to report resource loads', async () => {
+    class TestAsyncHostInterface implements AsyncHostInterface {
+      async getWasmLinearMemory(_offset: number, _length: number, _stopId: unknown): Promise<ArrayBuffer> {
+        throw new Error('Method not implemented.');
+      }
+      async getWasmLocal(_local: number, _stopId: unknown): Promise<WasmValue> {
+        throw new Error('Method not implemented.');
+      }
+      async getWasmGlobal(_global: number, _stopId: unknown): Promise<WasmValue> {
+        throw new Error('Method not implemented.');
+      }
+      async getWasmOp(_op: number, _stopId: unknown): Promise<WasmValue> {
+        throw new Error('Method not implemented.');
+      }
+      reportResourceLoad(_resourceUrl: string, _status: {success: boolean, errorMessage?: string, size?: number}):
+          void {
+      }
+    }
+
+    const hostInterface = new TestAsyncHostInterface();
+    const worker = new Worker('/build/tests/DevToolsPluginTestWorker.js', {type: 'module'});
+    const rpc = new WorkerRPC<AsyncHostInterface, TestWorkerInterface>(worker, hostInterface);
+
+    const resourceUrl = 'test.dwo';
+    const status = {success: true};
+    const spy = sinon.spy(hostInterface, 'reportResourceLoad');
+    await rpc.sendMessage('reportResourceLoadForTest', resourceUrl, status);
+    assert.isTrue(spy.calledOnceWithExactly(resourceUrl, status));
   });
 });
