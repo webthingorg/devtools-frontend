@@ -591,6 +591,7 @@ export class ContextMenu extends SubMenu {
       const item = itemWithId(this.openHostedMenu, id);
       if (item && item.jslogContext) {
         void VisualLogging.logClick(item, new MouseEvent('click'));
+        void VisualLogging.logResize(this.openHostedMenu, new DOMRect(0, 0, 0, 0));
       }
     }
 
