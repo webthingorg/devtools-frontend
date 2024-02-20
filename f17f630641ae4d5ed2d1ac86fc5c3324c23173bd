@@ -33,6 +33,24 @@
       "message": "The height of the `computed` widget takes the height of its content and its container `view-container` has a height and scrollbar.\n\nSo, in vertical position, this doesn\u0027t report a resize when it is resized. You can try it out with:\n\n* Making DevTools\u0027 window\u0027s width small so that computed pane is rendered below Elements panel.\n* Resizing the computed pane.",
       "revId": "f17f630641ae4d5ed2d1ac86fc5c3324c23173bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d164ecef_70300623",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-20T10:22:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "fbc2176b_5eba3077",
+      "revId": "f17f630641ae4d5ed2d1ac86fc5c3324c23173bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
