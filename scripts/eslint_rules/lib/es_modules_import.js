@@ -14,6 +14,7 @@ const FRONT_END_DIRECTORY = path.join(__dirname, '..', '..', '..', 'front_end');
 const THIRD_PARTY_DIRECTORY = path.join(FRONT_END_DIRECTORY, 'third_party');
 const INSPECTOR_OVERLAY_DIRECTORY = path.join(__dirname, '..', '..', '..', 'front_end', 'inspector_overlay');
 const COMPONENT_DOCS_DIRECTORY = path.join(FRONT_END_DIRECTORY, 'ui', 'components', 'docs');
+const TEST_UNITTESTS_DIRECTORY = path.join(__dirname, '..', '..', '..', 'test', 'unittests');
 
 const CROSS_NAMESPACE_MESSAGE =
     'Incorrect cross-namespace import: "{{importPathForErrorMessage}}". Use "import * as Namespace from \'../namespace/namespace.js\';" instead.';
@@ -248,6 +249,30 @@ module.exports = {
                 importPathForErrorMessage,
               }
             });
+          } else if (path.dirname(importingFileName) === path.dirname(exportingFileName)) {
+            if (!importingFileName.endsWith('.test.ts') || importingFileName.startsWith(TEST_UNITTESTS_DIRECTORY)) {
+              return;
+            }
+
+            // Unit tests must import the from the entry points even for same-namespace
+            // imports, as we otherwise break the module system (in Release builds).
+            const importingDirectoryName = path.basename(path.dirname(importingFileName));
+            if (!isModuleEntrypoint(exportingFileName)) {
+              console.log(importingFileName);
+              const namespaceNameForErrorMessage =
+                  importingDirectoryName.substring(0, 1).toUpperCase() + importingDirectoryName.substring(1);
+              const namespaceFilenameForErrorMessage = importingDirectoryName;
+              context.report({
+                node,
+                message:
+                    'Incorrect same-namespace import: "{{importPathForErrorMessage}}". Use "import * as {{namespaceNameForErrorMessage}} from \'./{{namespaceFilenameForErrorMessage}}.js\';" instead.',
+                data: {
+                  importPathForErrorMessage,
+                  namespaceNameForErrorMessage,
+                  namespaceFilenameForErrorMessage,
+                },
+              });
+            }
           }
         }
       }
