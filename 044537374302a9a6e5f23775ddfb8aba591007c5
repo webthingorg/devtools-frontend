@@ -34,6 +34,24 @@
       "parentUuid": "87e4e424_79f51165",
       "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf42c61_7a671b60",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-20T13:36:52Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "fe194423_2d25725a",
+      "revId": "044537374302a9a6e5f23775ddfb8aba591007c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

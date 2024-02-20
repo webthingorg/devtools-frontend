@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecb88fdf_8ba9b81e",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-20T13:36:52Z",
+      "side": 1,
+      "message": "Maybe staying as a pure interface would be better? Does TypeScript have the notion of default methods? Would that help in this case?",
+      "parentUuid": "a884dbf2_1dedf3cc",
+      "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83d84f3e_ddf9c020",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Yes, whenever there are nested swatches we\u0027ll need to hook up events to propagate updates. Alternatively, we could reparse and rerender values whenever we apply style edits, but that feels a little bit brittle and costly.\n\nNote that that\u0027s not new, we just never had the ability to have that sort of nesting in general. Some cases, like color-mix, manually implement nesting and also propagate update events.",
       "parentUuid": "83d84f3e_ddf9c020",
+      "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee67626_0e34e31d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-20T13:36:52Z",
+      "side": 1,
+      "message": "I\u0027m wondering if we can come up with better ways to do this, but that\u0027s out of the scope of this CL. One step at a time I guess.",
+      "parentUuid": "5863af3d_dad2b407",
       "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
