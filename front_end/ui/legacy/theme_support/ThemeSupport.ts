@@ -151,6 +151,13 @@ export class ThemeSupport extends EventTarget {
       this.customSheets.clear();
       this.dispatchEvent(new ThemeChangeEvent());
     }
+
+    // Baseline is the name of Chrome's default color theme. The collective name for the rest of the color themes is dynamic.
+    // In the baseline theme Chrome uses custom values for surface colors, whereas for dynamic themes these are color-mixed.
+    // To match Chrome we need to know if the baseline theme is currently active and assign specific values to surface colors.
+    const baselineThemeSelected =
+        getComputedStyle(document.body).getPropertyValue('--user-color-source') === 'baseline';
+    document.documentElement.classList.toggle('baseline', baselineThemeSelected);
   }
 }
 
