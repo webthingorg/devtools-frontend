@@ -1,0 +1,20 @@
+# Copyright 2022 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../../../../third_party/typescript/typescript.gni")
+
+ts_library("insights") {
+  testonly = true
+  sources = [
+    "RenderBlockingRequests_test.ts",
+  ]
+
+  deps = [
+    "../../../../../../front_end/core/platform:bundle",
+    "../../../../../../front_end/generated",
+    "../../../../../../front_end/models/trace:bundle",
+    "../../../../../../front_end/panels/timeline:bundle",
+    "../../../helpers",
+  ]
+}
