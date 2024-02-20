@@ -37,6 +37,7 @@ group("front_end") {
     "models/trace",
     "models/trace/extras",
     "models/trace/handlers",
+    "models/trace/insights",
     "models/trace/helpers",
     "models/trace/root-causes",
     "models/trace/types",
