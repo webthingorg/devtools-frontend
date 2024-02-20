@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d8e878d_782e9c93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-20T08:21:10Z",
+      "side": 1,
+      "message": "lgtm, but we should have an ESLint rule in place that enforces entrypoint imports in unit tests. Otherwise folks will start using relative imports and be surprised when stuff breaks flakily.",
+      "revId": "611e680f52f8b74a92ab0e4a870f97d2d043f839",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
