@@ -406,6 +406,24 @@
       "parentUuid": "34c724ae_0b7776ba",
       "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4accbe2a_c28a33d0",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-02-20T21:54:16Z",
+      "side": 1,
+      "message": "Gotcha😊 yeah thanks for clarifying. I\u0027d update to use `Schedule postMessage`. Also, thinking more about this, does it make sense to update these names on the backend events as well, so there\u0027s consistency across trace emitting code, and what the user actually sees on both devtools and perfetto UI?",
+      "parentUuid": "eadcf997_60a0e224",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
