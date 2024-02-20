@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "bdcb59d86ce67be2819c64950a45dde609467baf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "630dd7e1_77e76e2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-20T15:52:44Z",
+      "side": 1,
+      "message": "Nice, as a FYI; running the tests failed for me before running `gn clean`; so if anyone comes saying that running the tests are broken, they probably need to run `gn clean {target}`.",
+      "revId": "bdcb59d86ce67be2819c64950a45dde609467baf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
