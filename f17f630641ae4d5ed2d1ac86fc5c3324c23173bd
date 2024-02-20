@@ -51,6 +51,24 @@
       "parentUuid": "fbc2176b_5eba3077",
       "revId": "f17f630641ae4d5ed2d1ac86fc5c3324c23173bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a50e4d38_83610ece",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-20T10:35:44Z",
+      "side": 1,
+      "message": "Same issue exists for \"Styles\" and \"Layout\" panes too.",
+      "parentUuid": "d164ecef_70300623",
+      "revId": "f17f630641ae4d5ed2d1ac86fc5c3324c23173bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
