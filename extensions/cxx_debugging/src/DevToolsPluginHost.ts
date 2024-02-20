@@ -28,6 +28,9 @@ export class WorkerPlugin implements Chrome.DevTools.LanguageExtensionPlugin, As
   getWasmOp(op: number, stopId: unknown): Promise<WasmValue> {
     return chrome.devtools.languageServices.getWasmOp(op, stopId);
   }
+  reportResourceLoad(resourceUrl: string, status: {success: boolean, errorMessage?: string, size?: number}): void {
+    chrome.devtools.languageServices.reportResourceLoad(resourceUrl, status);
+  }
 
   static async create(
       moduleConfigurations: ModuleConfigurations = DEFAULT_MODULE_CONFIGURATIONS,

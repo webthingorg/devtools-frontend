@@ -175,8 +175,28 @@ export class DWARFLanguageExtensionPlugin implements Chrome.DevTools.LanguageExt
           };
       const backend = await createSymbolsBackend({instantiateWasm: instantiateWasmWrapper});
 
-      const {symbolsFileName, symbolsDwpFileName} =
-          await this.resourceLoader.loadSymbols(rawModuleId, rawModule, symbolsURL, backend.FS);
+      let loadSymbolsResult: {symbolsFileName: string, symbolsDwpFileName?: string};
+      try {
+        loadSymbolsResult = await this.resourceLoader.loadSymbols(rawModuleId, rawModule, symbolsURL, backend.FS);
+      } catch (e) {
+        this.hostInterface.reportResourceLoad(symbolsURL.href, {success: false, errorMessage: (e as Error).message});
+        throw e;
+      }
+
+      const {symbolsFileName, symbolsDwpFileName} = loadSymbolsResult;
+
+      const symbolsSize = backend.FS.stat('/' + symbolsFileName).size;
+      this.hostInterface.reportResourceLoad(symbolsURL.href, {success: true, size: symbolsSize});
+      const symbolsDwpUrl = `${symbolsURL.href}.dwp`;
+      if (symbolsDwpFileName) {
+        const symbolsDwpSize = backend.FS.stat(symbolsDwpFileName).size;
+        this.hostInterface.reportResourceLoad(symbolsDwpUrl, {success: true, size: symbolsDwpSize});
+      } else {
+        this.hostInterface.reportResourceLoad(
+            symbolsDwpUrl,
+            {success: false, errorMessage: `Couldn't load potentially missing dwp file: '${symbolsDwpUrl}'`});
+      }
+
       const moduleInfo = new ModuleInfo(symbolsURL.href, symbolsFileName, symbolsDwpFileName, backend);
 
       const addRawModuleResponse = manage(moduleInfo.dwarfSymbolsPlugin.AddRawModule(rawModuleId, symbolsFileName));
@@ -207,13 +227,16 @@ export class DWARFLanguageExtensionPlugin implements Chrome.DevTools.LanguageExt
             backend.FS.createPath('/', parentDirectory.substring(1), true, true);
           }
 
-          const node = backend.FS.createLazyFile(
-                           parentDirectory, fileName, new URL(dwoFile, symbolsURL).href, true, false) as LazyFSNode;
+          const dwoURL = new URL(dwoFile, symbolsURL).href;
+          const node = backend.FS.createLazyFile(parentDirectory, fileName, dwoURL, true, false) as LazyFSNode;
           const oldget = node.node_ops.getattr;
           const wrapper = (n: FS.FSNode): unknown => {
             try {
-              return oldget(n);
-            } catch (_) {
+              const file = oldget(n);
+              this.hostInterface.reportResourceLoad(dwoURL, {success: true, size: file.size});
+              return file;
+            } catch (e) {
+              this.hostInterface.reportResourceLoad(dwoURL, {success: false, errorMessage: (e as Error).message});
               // Rethrow any error fetching the content as errno 44 (EEXIST)
               // TypeScript doesn't know about the ErrnoError constructor
               // @ts-ignore
