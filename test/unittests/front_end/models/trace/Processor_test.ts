@@ -31,8 +31,10 @@ describeWithEnvironment('TraceProcessor', async function() {
     // Check parsing after reset.
     processor.reset();
     assert.isNull(processor.data);
+    assert.isNull(processor.insights);
     await processor.parse(file);
     assert.isNotNull(processor.data);
+    assert.isNotNull(processor.insights);
     // Cleanup.
     processor.reset();
 
@@ -52,10 +54,13 @@ describeWithEnvironment('TraceProcessor', async function() {
 
     // Check if data is null immediately after resetting.
     assert.isNull(processor.data);
+    assert.isNull(processor.insights);
     await processor.parse(file);
     assert.isNotNull(processor.data);
+    assert.isNotNull(processor.insights);
     processor.reset();
     assert.isNull(processor.data);
+    assert.isNull(processor.insights);
 
     // Check resetting while parsing.
     try {
@@ -72,8 +77,10 @@ describeWithEnvironment('TraceProcessor', async function() {
 
     // Check parsing after resetting while parsing.
     assert.isNull(processor.data);
+    assert.isNull(processor.insights);
     await processor.parse(file);
     assert.isNotNull(processor.data);
+    assert.isNotNull(processor.insights);
   });
 
   it('can be given a subset of handlers to run and will run just those along with the meta handler', async function() {
@@ -239,6 +246,50 @@ describeWithEnvironment('TraceProcessor', async function() {
       assert.throws(
           () => TraceModel.Processor.sortHandlers(handlers),
           `Found dependency cycle in trace event handlers: ${cyclePath}`);
+    });
+  });
+
+  describe('insights', () => {
+    it('returns no insights if no navigations', async function() {
+      const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
+      const file = await TraceLoader.rawEvents(this, 'basic.json.gz');
+
+      await processor.parse(file);
+      if (!processor.insights) {
+        throw new Error('No insights');
+      }
+
+      assert.strictEqual(processor.insights.size, 0);
+    });
+
+    it('returns insights for a navigation', async function() {
+      const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
+      const file = await TraceLoader.rawEvents(this, 'load-simple.json.gz');
+
+      await processor.parse(file);
+      if (!processor.insights) {
+        throw new Error('No insights');
+      }
+
+      const insights = Array.from(processor.insights.values());
+      assert.strictEqual(insights.length, 1);
+      assert.strictEqual(insights[0].RenderBlockingRequests.renderBlockingRequests.length, 2);
+    });
+
+    it('returns insights for multiple navigations', async function() {
+      const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
+      const file = await TraceLoader.rawEvents(this, 'multiple-navigations.json.gz');
+
+      await processor.parse(file);
+      if (!processor.insights) {
+        throw new Error('No insights');
+      }
+
+      const insights = Array.from(processor.insights.values());
+      assert.strictEqual(insights.length, 3);
+      assert.strictEqual(insights[0].RenderBlockingRequests.renderBlockingRequests.length, 5);
+      assert.strictEqual(insights[1].RenderBlockingRequests.renderBlockingRequests.length, 5);
+      assert.strictEqual(insights[2].RenderBlockingRequests.renderBlockingRequests.length, 10);
     });
   });
 });

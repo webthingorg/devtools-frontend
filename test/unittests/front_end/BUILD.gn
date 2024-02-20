@@ -38,6 +38,7 @@ group("front_end") {
     "models/trace/extras",
     "models/trace/handlers",
     "models/trace/helpers",
+    "models/trace/insights",
     "models/trace/root-causes",
     "models/trace/types",
     "models/workspace",
