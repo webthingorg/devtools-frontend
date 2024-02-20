@@ -48,8 +48,8 @@ import {FontEditorSectionManager} from './ColorSwatchPopoverIcon.js';
 import * as ElementsComponents from './components/components.js';
 import {linkifyDeferredNodeReference} from './DOMLinkifier.js';
 import {ElementsPanel} from './ElementsPanel.js';
+import stylePropertiesSectionStyles from './stylePropertiesSection.css.js';
 import {type Context, StylePropertyTreeElement} from './StylePropertyTreeElement.js';
-import stylesSectionTreeStyles from './stylesSectionTree.css.js';
 import {StylesSidebarPane} from './StylesSidebarPane.js';
 
 const UIStrings = {
@@ -114,6 +114,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const STYLE_TAG = '<style>';
 const DEFAULT_MAX_PROPERTIES = 50;
+const INDENTATION_WIDTH = 2;
 
 export class StylePropertiesSection {
   protected parentPane: StylesSidebarPane;
@@ -127,7 +128,7 @@ export class StylePropertiesSection {
   private forceShowAll: boolean;
   private readonly originalPropertiesCount: number;
   element: HTMLDivElement;
-  private readonly innerElement: HTMLElement;
+  readonly #styleRuleElement: HTMLElement;
   private readonly titleElement: HTMLElement;
   propertiesTreeOutline: UI.TreeOutline.TreeOutlineInShadow;
   private showAllButton: HTMLButtonElement;
@@ -143,7 +144,9 @@ export class StylePropertiesSection {
   private hoverableSelectorsMode: boolean;
   private isHiddenInternal: boolean;
 
-  private ancestorRuleListElement: HTMLElement;
+  #ancestorRuleListElement: HTMLElement;
+  #ancestorClosingBracesElement: HTMLElement;
+  #nestingLevel: number = 0;
 
   // Used to identify buttons that trigger a flexbox or grid editor.
   nextEditorTriggerButtonIdx = 1;
@@ -181,21 +184,30 @@ export class StylePropertiesSection {
     UI.ARIAUtils.markAsListitem(this.element);
     this.element.addEventListener('keydown', this.onKeyDown.bind(this), false);
     parentPane.sectionByElement.set(this.element, this);
-    this.innerElement = this.element.createChild('div');
+    this.#styleRuleElement = this.element.createChild('div', 'style-rule');
 
-    this.titleElement = this.innerElement.createChild('div', 'styles-section-title ' + (rule ? 'styles-selector' : ''));
+    this.#ancestorRuleListElement = document.createElement('div');
+    this.#ancestorRuleListElement.classList.add('ancestor-rule-list');
+    this.element.prepend(this.#ancestorRuleListElement);
+    this.#ancestorClosingBracesElement = document.createElement('div');
+    this.#ancestorClosingBracesElement.classList.add('ancestor-closing-braces');
+    this.element.append(this.#ancestorClosingBracesElement);
+    this.updateQueryList();
+
+    this.titleElement =
+        this.#styleRuleElement.createChild('div', 'styles-section-title ' + (rule ? 'styles-selector' : ''));
 
     this.propertiesTreeOutline = new UI.TreeOutline.TreeOutlineInShadow();
     this.propertiesTreeOutline.setFocusable(false);
-    this.propertiesTreeOutline.registerCSSFiles([stylesSectionTreeStyles]);
+    this.propertiesTreeOutline.registerCSSFiles([stylePropertiesSectionStyles]);
     this.propertiesTreeOutline.element.classList.add('style-properties', 'matched-styles', 'monospace');
-    this.innerElement.appendChild(this.propertiesTreeOutline.element);
+    this.#styleRuleElement.appendChild(this.propertiesTreeOutline.element);
 
     this.showAllButton = UI.UIUtils.createTextButton('', this.showAllItems.bind(this), {
       className: 'styles-show-all',
       jslogContext: 'elements.show-all-style-properties',
     });
-    this.innerElement.appendChild(this.showAllButton);
+    this.#styleRuleElement.appendChild(this.showAllButton);
 
     const selectorContainer = document.createElement('div');
     selectorContainer.classList.add('selector-container');
@@ -210,7 +222,7 @@ export class StylePropertiesSection {
     const openBrace = selectorContainer.createChild('span', 'sidebar-pane-open-brace');
     openBrace.textContent = ' {';
 
-    const closeBrace = this.innerElement.createChild('div', 'sidebar-pane-closing-brace');
+    const closeBrace = this.#styleRuleElement.createChild('div', 'sidebar-pane-closing-brace');
     closeBrace.textContent = '}';
 
     if (this.styleInternal.parentRule) {
@@ -220,7 +232,7 @@ export class StylePropertiesSection {
       newRuleButton.element.tabIndex = -1;
       if (!this.newStyleRuleToolbar) {
         this.newStyleRuleToolbar =
-            new UI.Toolbar.Toolbar('sidebar-pane-section-toolbar new-rule-toolbar', this.innerElement);
+            new UI.Toolbar.Toolbar('sidebar-pane-section-toolbar new-rule-toolbar', this.#styleRuleElement);
       }
       this.newStyleRuleToolbar.appendToolbarItem(newRuleButton);
       UI.ARIAUtils.markAsHidden(this.newStyleRuleToolbar.element);
@@ -274,9 +286,7 @@ export class StylePropertiesSection {
       }
     }
 
-    this.ancestorRuleListElement = this.titleElement.createChild('div', 'ancestor-rule-list');
     this.selectorRefElement = this.titleElement.createChild('div', 'styles-section-subtitle');
-    this.updateQueryList();
     this.updateRuleOrigin();
     this.titleElement.appendChild(selectorContainer);
 
@@ -745,6 +755,8 @@ export class StylePropertiesSection {
     let scopeIndex = 0;
     let supportsIndex = 0;
     let nestingIndex = 0;
+    this.#nestingLevel = 0;
+    const ancestorRuleElements = [];
     for (const ruleType of rule.ruleTypes) {
       let ancestorRuleElement;
       switch (ruleType) {
@@ -764,7 +776,21 @@ export class StylePropertiesSection {
           ancestorRuleElement = this.createNestingElement(rule.nestingSelectors?.[nestingIndex++]);
           break;
       }
-      ancestorRuleElement && this.ancestorRuleListElement.prepend(ancestorRuleElement);
+      if (ancestorRuleElement) {
+        this.#ancestorRuleListElement.prepend(ancestorRuleElement);
+        ancestorRuleElements.unshift(ancestorRuleElement);
+
+        const closingBrace = document.createElement('div');
+        closingBrace.textContent = '}';
+        closingBrace.style.marginLeft = `${this.#nestingLevel * INDENTATION_WIDTH}ch`;
+        this.#ancestorClosingBracesElement.prepend(closingBrace);
+
+        for (const [i, element] of ancestorRuleElements.entries()) {
+          element.style.marginLeft = `${i * INDENTATION_WIDTH}ch`;
+        }
+
+        this.#nestingLevel++;
+      }
     }
   }
 
@@ -872,7 +898,7 @@ export class StylePropertiesSection {
       return;
     }
     const nestingElement = document.createElement('div');
-    nestingElement.textContent = nestingSelector;
+    nestingElement.textContent = `${nestingSelector} {`;
     return nestingElement;
   }
 
@@ -900,14 +926,16 @@ export class StylePropertiesSection {
       }
     });
 
-    this.ancestorRuleListElement.prepend(containerElement);
+    this.#ancestorRuleListElement.prepend(containerElement);
   }
 
   private updateQueryList(): void {
-    this.ancestorRuleListElement.removeChildren();
+    this.#ancestorRuleListElement.removeChildren();
+    this.#ancestorClosingBracesElement.removeChildren();
     if (this.styleInternal.parentRule && this.styleInternal.parentRule instanceof SDK.CSSRule.CSSStyleRule) {
       this.createAncestorRules(this.styleInternal.parentRule);
     }
+    this.#styleRuleElement.style.marginLeft = `${this.#nestingLevel * INDENTATION_WIDTH}ch`;
   }
 
   isPropertyInherited(propertyName: string): boolean {
