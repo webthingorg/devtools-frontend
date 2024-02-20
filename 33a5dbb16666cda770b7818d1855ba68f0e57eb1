@@ -388,6 +388,24 @@
       "parentUuid": "5aa6ea0a_d4f806e4",
       "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eadcf997_60a0e224",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-20T21:28:31Z",
+      "side": 1,
+      "message": "The opposite. :)   \"Verb Verb Noun\" is awkward.  \"Verb Noun\" isn\u0027t.   \nOur user-visible trace event names tend to avoid camelcase API names, but.. I think maintaining that convention here makes this harder to parse.\n\nSo.. does `Schedule postMessage` work for you?",
+      "parentUuid": "34c724ae_0b7776ba",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
