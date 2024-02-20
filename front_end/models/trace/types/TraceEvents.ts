@@ -1006,7 +1006,10 @@ export type TraceEventPerformanceMeasureEnd = TraceEventPairableUserTiming&Trace
 export type TraceEventPerformanceMeasure = TraceEventPerformanceMeasureBegin|TraceEventPerformanceMeasureEnd;
 
 export interface TraceEventPerformanceMark extends TraceEventUserTiming {
-  ph: Phase.INSTANT|Phase.MARK;
+  args: TraceEventArgs&{
+    detail?: string,
+  };
+  ph: Phase.INSTANT|Phase.MARK|Phase.ASYNC_NESTABLE_INSTANT;
 }
 
 export interface TraceEventConsoleTimeBegin extends TraceEventPairableAsyncBegin {
@@ -1033,15 +1036,15 @@ export interface TraceEventTimeStamp extends TraceEventData {
 }
 
 export interface TraceEventExtensionMeasureBegin extends TraceEventPerformanceMeasureBegin {
-  name: `devtools-entry-${string}`;
+  name: `devtools-${string}-flame-chart-entry`;
 }
 
 export interface TraceEventExtensionMeasureEnd extends TraceEventPerformanceMeasureEnd {
-  name: `devtools-entry-${string}`;
+  name: `devtools-${string}-flame-chart-entry`;
 }
 
 export interface TraceEventExtensionMark extends TraceEventPerformanceMark {
-  name: `devtools-entry-${string}`;
+  name: `devtools-${string}-flame-chart-entry`;
   ph: Phase.INSTANT|Phase.MARK;
 }
 
@@ -1150,6 +1153,7 @@ export function isTraceEventPipelineReporter(event: TraceEventData): event is Tr
 // display the right information, so we create these synthetic events.
 export interface SyntheticEventPair<T extends TraceEventPairableAsync = TraceEventPairableAsync> extends
     TraceEventData {
+  name: T['name'];
   cat: T['cat'];
   id?: string;
   id2?: {local?: string, global?: string};
@@ -1169,6 +1173,12 @@ export type SyntheticUserTimingPair = SyntheticEventPair<TraceEventPerformanceMe
 export type SyntheticConsoleTimingPair = SyntheticEventPair<TraceEventConsoleTime>;
 
 export type SyntheticAnimationPair = SyntheticEventPair<TraceEventAnimation>;
+
+export interface SyntheticExtensionPair extends SyntheticEventPair<TraceEventExtensionMeasure> {
+  args: SyntheticEventPair<TraceEventExtensionMeasure>['args']&{
+    detail?: string,
+  };
+}
 
 export interface SyntheticInteractionPair extends SyntheticEventPair<TraceEventEventTiming> {
   // InteractionID and type are available within the beginEvent's data, but we
@@ -1235,6 +1245,22 @@ export interface TraceEventDrawFrame extends TraceEventInstant {
     layerTreeId: number,
     frameSeqId: number,
   };
+}
+
+export interface ExtensionFlamechartEntryPayload {
+  name: string;
+  color: string;
+  track: string;
+  detailsText?: string;
+  hint?: string;
+}
+
+/**
+ * Synthetic events created for extension tracks.
+ */
+export interface SyntheticExtensionEntry extends SyntheticTraceEntry {
+  args: TraceEventArgs&ExtensionFlamechartEntryPayload&{extensionName: string};
+  cat: 'timeline-extension';
 }
 
 export function isTraceEventDrawFrame(event: TraceEventData): event is TraceEventDrawFrame {
@@ -1506,6 +1532,10 @@ export function isTraceEventUpdateCounters(event: TraceEventData): event is Trac
   return event.name === 'UpdateCounters';
 }
 
+export function isTraceEventSyntheticExtensionEntry(event: TraceEventData): event is SyntheticExtensionEntry {
+  return event.cat === 'timeline-extension';
+}
+
 export function isThreadName(
     traceEventData: TraceEventData,
     ): traceEventData is TraceEventThreadName {
@@ -1717,7 +1747,20 @@ export function isTraceEventPerformanceMeasure(traceEventData: TraceEventData):
 export function isTraceEventPerformanceMark(traceEventData: TraceEventData):
     traceEventData is TraceEventPerformanceMark {
   return traceEventData.cat === 'blink.user_timing' &&
-      (traceEventData.ph === Phase.MARK || traceEventData.ph === Phase.INSTANT);
+      (traceEventData.ph === Phase.MARK || traceEventData.ph === Phase.INSTANT ||
+       traceEventData.ph === Phase.ASYNC_NESTABLE_INSTANT);
+}
+
+export function isTraceEventExtensionPerformanceMark(traceEventData: TraceEventData):
+    traceEventData is TraceEventExtensionMark {
+  return (traceEventData.ph === Phase.MARK || traceEventData.ph === Phase.INSTANT) &&
+      traceEventData.name.startsWith('devtools-') && traceEventData.name.endsWith('-flame-chart-entry');
+}
+
+export function isTraceEventExtensionMeasure(traceEventData: TraceEventData):
+    traceEventData is TraceEventExtensionMeasure {
+  return isTraceEventPerformanceMeasure(traceEventData) && traceEventData.name.startsWith('devtools-') &&
+      traceEventData.name.endsWith('-flame-chart-entry');
 }
 
 export function isTraceEventConsoleTime(traceEventData: TraceEventData): traceEventData is TraceEventConsoleTime {
