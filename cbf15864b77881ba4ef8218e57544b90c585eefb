@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a86738_dbae4a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-20T09:34:07Z",
+      "side": 1,
+      "message": "Hi Philip,\n\nthis CL adds the back-end changes in order to report the loaded resources to DevTools. PTAL! (windows bot seems to have unrelated issues)",
+      "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
