@@ -16,6 +16,23 @@
       "message": "Ergün, please kindly take a look:) We need to wait for the backend CL to land first though, CCed you there",
       "revId": "31aa83edd5cb906db8fe408cd1334e628004fd99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "816c7056_8dc73202",
+        "filename": "front_end/ui/legacy/theme_support/ThemeSupport.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-20T09:45:45Z",
+      "side": 1,
+      "message": "Can we add a comment here why it is needed?\n\nAlso, it\u0027d be cool to explain:\n* What the `baseline` is.\n* What the issue is when we don\u0027t adjust the colors.",
+      "revId": "31aa83edd5cb906db8fe408cd1334e628004fd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
