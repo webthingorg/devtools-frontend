@@ -16,6 +16,24 @@
       "message": "The values for pink/on-pink should stay the same for dark mode, right?",
       "revId": "19c786b7cbf3d2ae415ba9501c357cede99156a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdcf302b_80fcdcb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-02-20T16:26:11Z",
+      "side": 1,
+      "message": "They are different in light and dark, we just forgot to add the dark mode colors;\n\nLight:\n--sys-color-pink: var(--ref-palette-pink40);\n--sys-color-on-pink: var(--ref-palette-pink100);\n\nDark:\n--sys-color-pink: var(--ref-palette-pink80);\n--sys-color-on-pink: var(--ref-palette-pink20);",
+      "parentUuid": "27522f4b_e5a70b3b",
+      "revId": "19c786b7cbf3d2ae415ba9501c357cede99156a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
