@@ -33,6 +33,42 @@
       "message": "LGTM. How do we avoid duplicate registrations in the future?",
       "revId": "6a8f501b009aa4cf48c6642e47a913abe62663ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49f9a552_3b1cea9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-20T09:56:02Z",
+      "side": 1,
+      "message": "We don\u0027t currently, but that doesn\u0027t seem like an actual problem. If it turns out to be an issue we could just add an eslint rule to check for duplicates, so we don\u0027t find out at runtime.",
+      "parentUuid": "ca52c77f_b01d0074",
+      "revId": "6a8f501b009aa4cf48c6642e47a913abe62663ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7447149_e89cf461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-20T09:56:02Z",
+      "side": 1,
+      "message": "@andoli@chromium.org is already aware.",
+      "parentUuid": "aa88e8a0_d0be7ece",
+      "revId": "6a8f501b009aa4cf48c6642e47a913abe62663ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
