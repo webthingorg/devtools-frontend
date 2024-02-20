@@ -26,7 +26,7 @@ describe('CSSQuery', () => {
 
     assert.strictEqual(
         queryElement.innerText,
-        '@container (min-width: 10px)',
+        '@container (min-width: 10px) {',
         'text content of query element should match query text',
     );
   });
@@ -54,7 +54,7 @@ describe('CSSQuery', () => {
 
     assert.strictEqual(
         queryElement.innerText,
-        '@container container-query-1 (max-width: 10px)',
+        '@container container-query-1 (max-width: 10px) {',
         'text content of query element should match query text',
     );
 
