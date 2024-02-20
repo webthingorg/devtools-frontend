@@ -16,6 +16,24 @@
       "message": "Just to double check, it should be different to light theme (pink70 vs pink60), otherwise LGTM",
       "revId": "fb0105ddb4a004dc7be89659f0e7e093c79cf95e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbfe6cda_7b517569",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-02-20T16:24:04Z",
+      "side": 1,
+      "message": "Yes in this case it\u0027s on purpose!",
+      "parentUuid": "08d3e015_f289e8e5",
+      "revId": "fb0105ddb4a004dc7be89659f0e7e093c79cf95e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
