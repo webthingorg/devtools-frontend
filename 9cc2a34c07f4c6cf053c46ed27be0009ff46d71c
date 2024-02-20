@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b94d56d0_54bd706c",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-20T14:55:00Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "a1ae4603_8f2cec81",
+      "revId": "9cc2a34c07f4c6cf053c46ed27be0009ff46d71c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67efdf5e_08e6f620",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-20T14:42:17Z",
       "side": 1,
       "message": "(nit): typo visibility",
+      "revId": "9cc2a34c07f4c6cf053c46ed27be0009ff46d71c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3006a990_09dc7d29",
+        "filename": "test/unittests/front_end/ui/visual_logging/LoggingDriver.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-20T14:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67efdf5e_08e6f620",
       "revId": "9cc2a34c07f4c6cf053c46ed27be0009ff46d71c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
