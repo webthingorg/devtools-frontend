@@ -816,8 +816,15 @@ export class StringCharIterator {
     let result = 0;
     let shift = 0;
     let digit: number = VLQ_CONTINUATION_MASK;
-    while (digit & VLQ_CONTINUATION_MASK && this.hasNext()) {
-      digit = Common.Base64.BASE64_CODES[this.nextCharCode()];
+    while (digit & VLQ_CONTINUATION_MASK) {
+      if (!this.hasNext()) {
+        throw new Error('Unexpected end of input while decodling VLQ number!');
+      }
+      const charCode = this.nextCharCode();
+      digit = Common.Base64.BASE64_CODES[charCode];
+      if (charCode !== 65 /* 'A' */ && digit === 0) {
+        throw new Error(`Unexpected char '${String.fromCharCode(charCode)}' encountered while decoding`);
+      }
       result += (digit & VLQ_BASE_MASK) << shift;
       shift += VLQ_BASE_SHIFT;
     }
