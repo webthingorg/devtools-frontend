@@ -33,6 +33,24 @@
       "message": "Can we add a comment here why it is needed?\n\nAlso, it\u0027d be cool to explain:\n* What the `baseline` is.\n* What the issue is when we don\u0027t adjust the colors.",
       "revId": "31aa83edd5cb906db8fe408cd1334e628004fd99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32312ddd_980d7d98",
+        "filename": "front_end/ui/legacy/theme_support/ThemeSupport.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-20T12:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "816c7056_8dc73202",
+      "revId": "31aa83edd5cb906db8fe408cd1334e628004fd99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
