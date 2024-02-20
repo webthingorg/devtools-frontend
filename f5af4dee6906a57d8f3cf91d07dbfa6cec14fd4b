@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfc451f9_c6db185b",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-20T19:42:28Z",
+      "side": 1,
+      "message": "I think that would come out to be an abstract class. I\u0027m not opposed, how about I tackle that in a followup? I have some things in mind for a bigger refactoring for the Color hierarchy anyways.",
+      "parentUuid": "ecb88fdf_8ba9b81e",
+      "revId": "f5af4dee6906a57d8f3cf91d07dbfa6cec14fd4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83d84f3e_ddf9c020",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
