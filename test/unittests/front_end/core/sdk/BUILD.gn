@@ -41,6 +41,7 @@ ts_library("sdk") {
     "ServiceWorkerManager.test.ts",
     "SourceMap.test.ts",
     "SourceMapManager.test.ts",
+    "SourceMapScopes.test.ts",
     "StorageKeyManager.test.ts",
     "Target.test.ts",
     "TargetManager.test.ts",
