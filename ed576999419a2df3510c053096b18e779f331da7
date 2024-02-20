@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f12a1a06_c827d2c8",
+        "filename": "scripts/eslint_rules/lib/es_modules_import.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-20T13:25:36Z",
+      "side": 1,
+      "message": "nit: `import the` what?",
+      "revId": "ed576999419a2df3510c053096b18e779f331da7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
