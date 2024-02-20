@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1ae4603_8f2cec81",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-20T14:42:17Z",
+      "side": 1,
+      "message": "WDYT of doing this in `menuCleared` method where it is also called in cases the menu is closed in a different way? (e.g. clicking outside)",
+      "revId": "9cc2a34c07f4c6cf053c46ed27be0009ff46d71c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67efdf5e_08e6f620",
+        "filename": "test/unittests/front_end/ui/visual_logging/LoggingDriver.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-20T14:42:17Z",
+      "side": 1,
+      "message": "(nit): typo visibility",
+      "revId": "9cc2a34c07f4c6cf053c46ed27be0009ff46d71c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
