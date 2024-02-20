@@ -1546,11 +1546,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     this.drawMarkers(context, timelineData, markerIndices);
 
+    this.drawTrackLevelNumbers(context, timelineData);
     this.drawEventTitles(context, timelineData, titleIndices, canvasWidth);
     context.restore();
 
     this.drawGroupHeaders(canvasWidth, canvasHeight);
-    this.drawFlowEvents(context);
+    this.drawFlowEvents(context, canvasWidth, canvasHeight);
     this.drawMarkerLines();
     const dividersData = TimelineGrid.calculateGridOffsets(this);
     const navStartTimes = this.dataProvider.mainFrameNavigationStartEvents?.() || [];
@@ -1770,6 +1771,18 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // like one solid block and is not very easy to distinguish when events
     // start and end.
     context.rect(barX, barY, barWidth - 0.5, barHeight - 1);
+  }
+
+  drawTrackLevelNumbers(context: CanvasRenderingContext2D, timelineData: FlameChartTimelineData): void {
+    const allLevels = new Set(timelineData.entryLevels);
+    const max = Math.max(...Array.from(allLevels));
+    context.font = this.#font;
+    context.fillStyle = 'gray';
+    for (let levelNum = 0; levelNum <= max; levelNum++) {
+      const y = this.levelToOffset(levelNum) + this.levelHeight(levelNum) - this.textBaseline - 6;  // 6 fudge factor
+      const x = 5;
+      context.fillText(levelNum.toString(), x, y + this.textBaseline);
+    }
   }
 
   #eventBarHeight(timelineData: FlameChartTimelineData, entryIndex: number): number {
@@ -2286,55 +2299,101 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
   }
 
-  private drawFlowEvents(context: CanvasRenderingContext2D): void {
-    const td = this.timelineData();
-    if (!td) {
-      return;
-    }
-
+  private drawFlowEvents(context: CanvasRenderingContext2D, _width: number, _height: number): void {
+    context.save();
     const ratio = window.devicePixelRatio;
     const top = this.chartViewport.scrollOffset();
-    const arrowLineWidth = 6;
-    const arrowWidth = 3;
-
-    context.save();
+    const arrowWidth = 6;
     context.scale(ratio, ratio);
     context.translate(0, -top);
 
     context.fillStyle = '#7f5050';
     context.strokeStyle = '#7f5050';
+    const td = this.timelineData();
+    if (!td) {
+      return;
+    }
 
-    for (let i = 0; i < this.selectedEntryIndex; ++i) {
+    /**
+     * CLs landing this impl:
+     * - https://codereview.chromium.org/794073004/diff/100001/Source/devtools/front_end/ui/FlameChart.js loislo, original
+     * - https://codereview.chromium.org/2745653009/diff/20001/third_party/WebKit/Source/devtools/front_end/perf_ui/FlameChart.js pfeldman, rewrite
+     * - https://codereview.chromium.org/2746333002/diff/40001/third_party/WebKit/Source/devtools/front_end/perf_ui/FlameChart.js pfeldman, tweak beziers
+     */
+
+    const endIndex = Platform.ArrayUtilities.lowerBound(
+        td.flowStartTimes, this.chartViewport.windowRightTime(), Platform.ArrayUtilities.DEFAULT_COMPARATOR);
+
+    context.lineWidth = 0.5;
+    for (let i = 0; i < endIndex; ++i) {
       if (!td.flowEndTimes[i] || td.flowEndTimes[i] < this.chartViewport.windowLeftTime()) {
         continue;
       }
       const startX = this.chartViewport.timeToPosition(td.flowStartTimes[i]);
-      const endX = this.chartViewport.timeToPosition(td.flowEndTimes[i]);
+      const endX = this.chartViewport.timeToPosition(td.flowEndTimes[i]) + 1;  // push the arrow 1px into the box.
       const startLevel = td.flowStartLevels[i];
       const endLevel = td.flowEndLevels[i];
       const startY = this.levelToOffset(startLevel) + this.levelHeight(startLevel) / 2;
       const endY = this.levelToOffset(endLevel) + this.levelHeight(endLevel) / 2;
-      const lineLength = endX - startX;
 
-      // Draw an arrow in an 'elbow connector' shape
+      const distanceX = endX - startX;
+      const segmentLen = Math.min(distanceX / 4, 40);
+      // Used to avoid the lines drawing on top of eachother
+      const spread = 15;
+      const startSemicircleRadius = 2;
+      const isNarrow = segmentLen <= arrowWidth * 2;
+      const segmentY = isNarrow ? startY : startY - (i % spread);
+
+      const p: {x: number, y: number}[] = [];
+      p.push({x: startX, y: startY});
+      p.push({x: startX + startSemicircleRadius, y: startY});
+      p.push({x: startX + segmentLen + 2 * arrowWidth, y: startY});  // p[2]: bez1 control point A
+      p.push({x: startX + segmentLen, y: segmentY});                 // p[3]: bez1 control point B
+      p.push({x: startX + segmentLen * 2, y: segmentY});             // p[4]: start of middle segment
+      p.push({x: endX - segmentLen * 2, y: segmentY});               // p[5]: end of middle segment
+      p.push({x: endX - segmentLen, y: segmentY});                   // p[6]: bez2 control point A
+      p.push({x: endX - segmentLen - 2 * arrowWidth, y: endY});      // p[7]: bez2 control point B
+      p.push({x: endX - arrowWidth, y: endY});
       context.beginPath();
-      context.moveTo(startX, startY);
-      context.lineTo(startX + lineLength / 2, startY);
-      context.lineTo(startX + lineLength / 2, endY);
-      context.lineTo(endX, endY);
+      context.moveTo(p[1].x, p[1].y);
+      if (isNarrow) {
+        // Skip the middle segment, and bezier from start to end.
+        context.bezierCurveTo(p[2].x, p[2].y, p[7].x, p[7].y, p[8].x, p[8].y);
+      } else {
+        context.bezierCurveTo(p[2].x, p[2].y, p[3].x, p[3].y, p[4].x, p[4].y);
+        context.lineTo(p[5].x, p[5].y);
+        context.bezierCurveTo(p[6].x, p[6].y, p[7].x, p[7].y, p[8].x, p[8].y);
+      }
       context.stroke();
 
-      // Make line an arrow if the line is long enough to fit the arrow head. Othewise, draw a thinner line without the arrow head.
-      if (lineLength > arrowWidth) {
-        context.lineWidth = 0.5;
-        context.beginPath();
-        context.moveTo(endX, endY);
-        context.lineTo(endX - arrowLineWidth, endY - 3);
-        context.lineTo(endX - arrowLineWidth, endY + 3);
-        context.fill();
-      } else {
-        context.lineWidth = 0.2;
-      }
+      // Draw (left) half-circle on the right edge of the start
+      context.beginPath();
+      context.arc(startX, startY, startSemicircleRadius, -Math.PI / 2, Math.PI / 2, false);
+      context.fill();
+
+      // Draw arrow head at the left edge of the end
+      context.beginPath();
+      context.moveTo(endX, endY);
+      context.lineTo(endX - arrowWidth, endY - 3);
+      context.lineTo(endX - arrowWidth, endY + 3);
+      context.fill();
+
+      // // Draw debug control point circles
+      // context.fillStyle = 'red';
+      // context.beginPath();
+      // context.arc(p[2].x, p[2].y, 3, 0, 2 * Math.PI);
+      // context.fill();
+      // context.beginPath();
+      // context.arc(p[3].x, p[3].y, 3, 0, 2 * Math.PI);
+      // context.fill();
+
+      // context.fillStyle = 'green';
+      // context.beginPath();
+      // context.arc(p[6].x, p[6].y, 3, 0, 2 * Math.PI);
+      // context.fill();
+      // context.beginPath();
+      // context.arc(p[7].x, p[7].y, 3, 0, 2 * Math.PI);
+      // context.fill();
     }
     context.restore();
   }
@@ -3061,18 +3120,17 @@ export class FlameChartTimelineData {
   selectedGroup: Group|null;
   private constructor(
       entryLevels: number[]|Uint16Array, entryTotalTimes: number[]|Float32Array, entryStartTimes: number[]|Float64Array,
-      groups: Group[]|null, entryDecorations: FlameChartDecoration[][] = [], flowStartTimes: number[] = [],
-      flowStartLevels: number[] = [], flowEndTimes: number[] = [], flowEndLevels: number[] = []) {
+      groups: Group[]|null, entryDecorations: FlameChartDecoration[][] = []) {
     this.entryLevels = entryLevels;
     this.entryTotalTimes = entryTotalTimes;
     this.entryStartTimes = entryStartTimes;
     this.entryDecorations = entryDecorations;
     this.groups = groups || [];
     this.markers = [];
-    this.flowStartTimes = flowStartTimes || [];
-    this.flowStartLevels = flowStartLevels || [];
-    this.flowEndTimes = flowEndTimes || [];
-    this.flowEndLevels = flowEndLevels || [];
+    this.flowStartTimes = [];
+    this.flowStartLevels = [];
+    this.flowEndTimes = [];
+    this.flowEndLevels = [];
     this.selectedGroup = null;
   }
 
@@ -3084,14 +3142,9 @@ export class FlameChartTimelineData {
     entryStartTimes: FlameChartTimelineData['entryStartTimes'],
     groups: FlameChartTimelineData['groups']|null,
     entryDecorations?: FlameChartDecoration[][],
-    flowStartTimes?: FlameChartTimelineData['flowStartTimes'],
-    flowStartLevels?: FlameChartTimelineData['flowStartLevels'],
-    flowEndTimes?: FlameChartTimelineData['flowEndTimes'],
-    flowEndLevels?: FlameChartTimelineData['flowEndLevels'],
   }): FlameChartTimelineData {
     return new FlameChartTimelineData(
-        data.entryLevels, data.entryTotalTimes, data.entryStartTimes, data.groups, data.entryDecorations || [],
-        data.flowStartTimes || [], data.flowStartLevels || [], data.flowEndTimes || [], data.flowEndLevels || []);
+        data.entryLevels, data.entryTotalTimes, data.entryStartTimes, data.groups, data.entryDecorations || []);
   }
 
   // TODO(crbug.com/1501055) Thinking about refactor this class, so we can avoid create a new object when modifying the
