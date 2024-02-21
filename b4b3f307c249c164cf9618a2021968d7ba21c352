@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf6ff0a7_990cfc56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3228416
+      },
+      "writtenOn": "2024-02-21T02:54:01Z",
+      "side": 1,
+      "message": "Super simple change that aligns labels with their check boxes with CSS. No one was working on this small issue so I thought I\u0027d have a go.",
+      "revId": "b4b3f307c249c164cf9618a2021968d7ba21c352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
