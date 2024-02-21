@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "631e06e1_e6e4331a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-21T22:09:41Z",
+      "side": 1,
+      "message": "Now that I checked our existing behavior, it seems that we are already doing #1 of the UX updates: we currently show the style rule link with the appplied style rule. I would prefer to keep this then.",
+      "parentUuid": "65eb77fe_c7c7a60b",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d6c482a_94baa148",
         "filename": "config/gni/devtools_grd_files.gni",
         "patchSetId": 8
