@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6569a189_fedc62f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T14:15:11Z",
+      "side": 1,
+      "message": "I think implementation wise it looks good, I have some UX observations and two bugs as comment :)\n\nIt seems like there are 2 (maybe unintended) UX changes here:\n1. We now show the rule location in a nested fashion, in other words, the link is shown inside the `style-rule`.\n2. The checkboxes are shown in a nested fashion, in other words, the checkbox is shown after the nesting margin.\n\nI wonder if these are intended. Personally, I think I\u0027d prefer if we keep the previous behavior: rendering the rule location on the top right and the checkboxes in a stable place.\n\nIn addition to that, I think there are two bugs:\n1. For a nested rule, if the enable checkbox is shown already and you click on editing the name, the checkbox jumps to the left.\n2. Clicking on \"add new rule\" button results in an edit area for selector inside the nested rule but there is no nesting on that text area. In addition to that, committing the textarea for the new rule doesn\u0027t add a new rule with a CDP erorr saying \"NotFoundError Cannot insert rule in non-media rule.\" (This exists in stable too)\n\nI think it\u0027d be cool to address these:\n1. Checkbox jumping bug.\n2. The text area for adding new rule either shows up with nesting margin, or, \"add new rule\" doesn\u0027t take current nested rule into account and just creates a rule without nesting.\n3. Discuss whether we want the checkbox inside the \"style rule\" after nesting margin or without nesting margin.\n4. Discuss whether we want the rule location to be shown on the top right of the section as before, or shown in inside the \"style rule\" with nesting (discussing these last two with Peter and/or DevRel folks would be nice).",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d6c482a_94baa148",
         "filename": "config/gni/devtools_grd_files.gni",
         "patchSetId": 8
@@ -31,6 +48,41 @@
       "writtenOn": "2024-02-21T09:41:29Z",
       "side": 1,
       "message": "This is a drive-by rename to avoid the confusion about what the CSS file is doing.",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc21eec1_11c46b56",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 8
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T14:15:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7d6c482a_94baa148",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87f951de_4b83b6e9",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T14:15:11Z",
+      "side": 1,
+      "message": "(nit): we don\u0027t need type `number` here as long as we assign a number value to it in definition :)",
       "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
