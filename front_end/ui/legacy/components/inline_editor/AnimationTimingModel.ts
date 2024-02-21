@@ -8,10 +8,10 @@ import {CSSLinearEasingModel} from './CSSLinearEasingModel.js';
 
 // Provides a unified interface for both linear easing and cubic bezier
 // models and handles the parsing for animation-timing texts.
-export abstract class AnimationTimingModel {
-  abstract asCSSText(): string;
+export type AnimationTimingModel = CSSLinearEasingModel|UI.Geometry.CubicBezier;
 
-  static parse(text: string): AnimationTimingModel|null {
+export namespace AnimationTimingModel {
+  export function parse(text: string): AnimationTimingModel|null {
     // Try to parse as a CSSLinearEasingModel first.
     // The reason is: `linear` keyword is valid in both
     // models, however we want to treat it as a `CSSLinearEasingModel`
