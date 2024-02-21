@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65eb77fe_c7c7a60b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-21T21:43:48Z",
+      "side": 1,
+      "message": "Hi Ergün, thanks for checking the UX! Yes these two UX updates are intentional:\n1. the link to the rule location is intentionally kept at the same line with the *actual* style rule being applied, because when you click the link, it takes you to this exact style rule, not any of the ancestor rules (because they may be close or far away to this applied rule). Therefore I think it would be better at the same line with this style rule\u0027s header. Better locality 😊\n\n2. The nested checkbox location is also intended, since they are also closer to the declaration being modified. There are two \"directions\" of stability we can go about this: (1) is to keep the checkbox _globally stable_, i.e. always to the very left; (2) is to keep the checkbox _locally_ stable_, i.e. always to the immediate left of the declaration. I chose the (2) because I think when you toggle the checkbox, your focus is primarily on the declaration, and the context switch would be less. Also if you move the checkbox away, there would be a higher chance of clicking the wrong line, since now that we are nesting stuff.\n\nBut it\u0027s just one opinion vs. the other. Let me ask this in the chat to see what other folks think.\n\nFor the two bugs:\n1. let\u0027s resolve that after we have agreements on the UX.\n2. yeah that\u0027s a known issue unfortunately. I\u0027ll fix this separately.",
+      "parentUuid": "6569a189_fedc62f2",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d6c482a_94baa148",
         "filename": "config/gni/devtools_grd_files.gni",
         "patchSetId": 8
@@ -83,6 +101,24 @@
       "writtenOn": "2024-02-21T14:15:11Z",
       "side": 1,
       "message": "(nit): we don\u0027t need type `number` here as long as we assign a number value to it in definition :)",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ee96d1_952cf929",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-21T21:43:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87f951de_4b83b6e9",
       "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
