@@ -71,6 +71,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83370cb1_2576d0aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-21T22:10:20Z",
+      "side": 1,
+      "message": "Also it seems that the copy behavior is still not perfect. I\u0027ll see if I can fix that as well.",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d6c482a_94baa148",
