@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73558d8f_46bb5f2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T15:35:05Z",
+      "side": 1,
+      "message": "LGTM with some comments :)",
+      "revId": "024af4a9d4df37cd8c10f72d8851497901d380c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa339d8d_0aa44d41",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T15:35:05Z",
+      "side": 1,
+      "message": "I think we\u0027re not using `model` anywhere in the renderer, can we remove keeping it around and just use it for syntax checking?",
+      "revId": "024af4a9d4df37cd8c10f72d8851497901d380c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854853e6_441fc10d",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T15:35:05Z",
+      "side": 1,
+      "message": "We can use `InlineEditor.AnimationTimingModel.AnimationTimingModel` instead of the union of these two.",
+      "revId": "024af4a9d4df37cd8c10f72d8851497901d380c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "258f4bd7_f8bbd5c1",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T15:35:05Z",
+      "side": 1,
+      "message": "I think we can simplify the check here a bit like this, WDYT?\n\n---\n```\n  override matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {\n    const text \u003d matching.ast.text(node);\n    const isCubicBezierKeyword \u003d node.name \u003d\u003d\u003d \u0027ValueName\u0027 \u0026\u0026 UI.Geometry.CubicBezier.KeywordValues.has(text);\n    const isCubicBezierOrLinearFunction \u003d node.name \u003d\u003d\u003d \u0027CallExpression\u0027 \u0026\u0026 [\u0027cubic-bezier\u0027, \u0027linear\u0027].includes(matching.ast.text(node.getChild(\u0027Callee\u0027)));\n    if (!isCubicBezierKeyword \u0026\u0026 !isCubicBezierOrLinearFunction) {\n      return null;\n    }\n\n    const model \u003d InlineEditor.CSSLinearEasingModel.CSSLinearEasingModel.parse(text) ?? UI.Geometry.CubicBezier.parse(text);\n    if (!model) {\n      return null;\n    }\n    return this.createMatch(text, model);\n  }\n```",
+      "revId": "024af4a9d4df37cd8c10f72d8851497901d380c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c13728f7_25c63987",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T15:35:05Z",
+      "side": 1,
+      "message": "I think we need to check here again whether the syntax is correct or not to decide whether to render it as a text or as a swatch.",
+      "revId": "024af4a9d4df37cd8c10f72d8851497901d380c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf45c574_0113b0b9",
+        "filename": "front_end/ui/legacy/components/inline_editor/AnimationTimingModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T15:35:05Z",
+      "side": 1,
+      "message": "As I read the documentation, it doesn\u0027t feel like using the `namespace` is the correct way of doing this[1]; I think an abstract class is a better fit here (though I understand that it is confusing why the types match without an explicit reason -- like `extends` or smt.)\n\nSo I prefer keeping this as the way before :)\n\n[1]: It feels like `namespace` is more on the side of code organization rather than providing concrete structures that we can interact with. For example, we can extend namespaces in other parts of the code without touching its defined place. https://www.typescriptlang.org/docs/handbook/namespaces.html#first-steps",
+      "revId": "024af4a9d4df37cd8c10f72d8851497901d380c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
