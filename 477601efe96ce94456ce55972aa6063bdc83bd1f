@@ -33,6 +33,24 @@
       "message": "Just for your consideration: The API should also be testable through a unittest, which is less fragile and a lot faster than e2e tests. See for example the tests in https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/unittests/front_end/models/extensions/ExtensionServer_test.ts;drc\u003d7fb55c06ec2f092e95d2f2437e5216e68cb64e21;l\u003d670",
       "revId": "477601efe96ce94456ce55972aa6063bdc83bd1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "521752ed_f3d71973",
+        "filename": "test/e2e/extensions/debugger-language-plugins_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-21T09:16:56Z",
+      "side": 1,
+      "message": "I have replaced the e2e test with a unittest now, ptal! In changing that, I made the API call awaitable.",
+      "parentUuid": "9d88d98a_b4437e90",
+      "revId": "477601efe96ce94456ce55972aa6063bdc83bd1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

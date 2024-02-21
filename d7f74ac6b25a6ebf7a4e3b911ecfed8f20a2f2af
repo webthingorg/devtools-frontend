@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a61ebc20_f84e546b",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-21T09:16:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14d4b132_edd497bd",
+      "range": {
+        "startLine": 275,
+        "startChar": 46,
+        "endLine": 275,
+        "endChar": 52
+      },
+      "revId": "d7f74ac6b25a6ebf7a4e3b911ecfed8f20a2f2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95dd1258_ddd53d36",
