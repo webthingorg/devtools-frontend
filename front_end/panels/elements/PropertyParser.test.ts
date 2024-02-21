@@ -596,7 +596,7 @@ describe('PropertyParser', () => {
     checkFailure('in srgb', '0% red', 'blue 0%');
   });
 
-  it('parses vars correctly', () => {
+  it('parses vars', () => {
     for (const succeed
              of ['var(--a)', 'var(--a, 123)', 'var(--a, calc(1+1))', 'var(--a, var(--b))', 'var(--a, var(--b, 123))',
                  'var(--a, a b c)']) {
@@ -618,6 +618,24 @@ describe('PropertyParser', () => {
           new Elements.PropertyParser.VariableMatcher(nilRenderer(Elements.PropertyParser.VariableMatch)));
 
       assert.isNull(match, text);
+    }
+  });
+
+  it('parses URLs', () => {
+    const url = 'http://example.com';
+    {
+      const {match, text} = matchSingleValue(
+          'background-image', `url(${url})`, Elements.PropertyParser.URLMatch,
+          new Elements.PropertyParser.URLMatcher(nilRenderer(Elements.PropertyParser.URLMatch)));
+      Platform.assertNotNullOrUndefined(match);
+      assert.strictEqual(match.url, url, text);
+    }
+    {
+      const {match, text} = matchSingleValue(
+          'background-image', `url("${url}")`, Elements.PropertyParser.URLMatch,
+          new Elements.PropertyParser.URLMatcher(nilRenderer(Elements.PropertyParser.URLMatch)));
+      Platform.assertNotNullOrUndefined(match);
+      assert.strictEqual(match.url, url, text);
     }
   });
 });
