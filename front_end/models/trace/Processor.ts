@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Handlers from './handlers/handlers.js';
+import * as Insights from './insights/insights.js';
 import * as Types from './types/types.js';
 
 const enum Status {
@@ -36,6 +37,7 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
   readonly #traceHandlers: Handlers.Types.HandlersWithMeta<EnabledModelHandlers>;
   #status = Status.IDLE;
   #modelConfiguration = Types.Configuration.DEFAULT;
+  #insights: Insights.Types.TraceInsightData|null = null;
 
   static createWithAllHandlers(): TraceProcessor<typeof Handlers.ModelHandlers> {
     return new TraceProcessor(Handlers.ModelHandlers, Types.Configuration.DEFAULT);
@@ -117,6 +119,8 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
       handler.reset();
     }
 
+    this.#insights = null;
+
     this.#status = Status.IDLE;
   }
 
@@ -182,6 +186,42 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
     }
 
     return data as Handlers.Types.EnabledHandlerDataWithMeta<EnabledModelHandlers>;
+  }
+
+  get insights(): Insights.Types.TraceInsightData|null {
+    if (!this.data) {
+      return null;
+    }
+
+    if (this.#insights) {
+      return this.#insights;
+    }
+
+    this.#insights = new Map();
+
+    for (const nav of this.data.Meta.mainFrameNavigations) {
+      if (!nav.args.frame || !nav.args.data?.navigationId) {
+        continue;
+      }
+
+      const context = {
+        frameId: nav.args.frame,
+        navigationId: nav.args.data.navigationId,
+      };
+
+      const navInsights = {} as Insights.Types.NavigationInsightData;
+      for (const [name, insightRunner] of Object.entries(Insights.InsightRunners)) {
+        const deps = insightRunner.deps();
+        if (deps.some(dep => !this.#traceHandlers[dep])) {
+          continue;
+        }
+        Object.assign(navInsights, {[name]: insightRunner.generateInsight(context)});
+      }
+
+      this.#insights.set(context.navigationId, navInsights);
+    }
+
+    return this.#insights;
   }
 }
 
