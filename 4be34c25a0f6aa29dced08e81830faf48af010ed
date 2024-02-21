@@ -106,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "516fe9a7_5d4282f2",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-21T08:54:34Z",
+      "side": 1,
+      "message": "Yeah, lines are implicitly increasing since we encode them as a delta. Just leaving the comment here in case someone else looks at the CL :)",
+      "parentUuid": "6e090e0c_552be3f0",
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4740e52_5389ebf5",
