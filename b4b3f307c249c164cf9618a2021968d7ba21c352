@@ -16,6 +16,23 @@
       "message": "Super simple change that aligns labels with their check boxes with CSS. No one was working on this small issue so I thought I\u0027d have a go.",
       "revId": "b4b3f307c249c164cf9618a2021968d7ba21c352",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f9da53a_055737b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-21T14:50:12Z",
+      "side": 1,
+      "message": "Nice, thank you!",
+      "revId": "b4b3f307c249c164cf9618a2021968d7ba21c352",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
