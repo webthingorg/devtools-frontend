@@ -6,6 +6,7 @@ import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
+import * as Network from '../../panels/network/network.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as Bindings from '../bindings/bindings.js';
 import * as Extensions from '../extensions/extensions.js';
@@ -21,7 +22,11 @@ import {
   getExtensionOrigin,
 } from '../../../test/unittests/front_end/helpers/ExtensionHelpers.js';
 import {type Chrome} from '../../../extension-api/ExtensionAPI.js';
-import {createTarget, expectConsoleLogs} from '../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
+import {
+  createTarget,
+  expectConsoleLogs,
+  registerNoopActions,
+} from '../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
 
 describeWithDevtoolsExtension('Extensions', {}, context => {
   it('are initialized after the target is initialized and navigated to a non-privileged URL', async () => {
@@ -729,10 +734,12 @@ describeWithDevtoolsExtension('Wasm extension API', {}, context => {
 });
 
 describeWithDevtoolsExtension('Language Extension API', {}, context => {
-  it('reports loaded resources', async () => {
+  beforeEach(() => {
     const target = createTarget();
     target.setInspectedURL('http://example.com' as Platform.DevToolsPath.UrlString);
+  });
 
+  it('reports loaded resources', async () => {
     const pageResourceLoader =
         SDK.PageResourceLoader.PageResourceLoader.instance({forceNew: true, loadOverride: null, maxConcurrentLoads: 1});
     const spy = sinon.spy(pageResourceLoader, 'resourceLoadedThroughExtension');
@@ -753,5 +760,31 @@ describeWithDevtoolsExtension('Language Extension API', {}, context => {
       errorMessage: undefined,
     };
     assert.deepEqual(resource, expectedResource);
+  });
+
+  it('shows the network panel', async () => {
+    registerNoopActions(['network.toggle-recording', 'network.clear']);
+    const dummyStorage = new Common.Settings.SettingsStorage({});
+
+    for (const settingName of ['networkColorCodeResourceTypes', 'network.group-by-frame']) {
+      Common.Settings.registerSettingExtension({
+        settingName,
+        settingType: Common.Settings.SettingType.BOOLEAN,
+        defaultValue: false,
+      });
+    }
+    Common.Settings.Settings.instance({
+      forceNew: true,
+      syncedStorage: dummyStorage,
+      globalStorage: dummyStorage,
+      localStorage: dummyStorage,
+    });
+    Network.NetworkPanel.NetworkPanel.instance();
+    const revealStub = sinon.stub(Network.NetworkPanel.NetworkPanel, 'revealAndFilter');
+
+    await context.chrome.devtools?.panels.network.show({filter: 'foobar'});
+
+    assert.isTrue(revealStub.calledOnce);
+    assert.deepStrictEqual(revealStub.args[0][0], [{filterType: null, filterValue: 'foobar'}]);
   });
 });
