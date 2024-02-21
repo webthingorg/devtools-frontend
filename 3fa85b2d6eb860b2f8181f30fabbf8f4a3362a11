@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91f6cf7_31f474c9",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-21T14:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea91d26f_5e4df3a3",
+      "revId": "3fa85b2d6eb860b2f8181f30fabbf8f4a3362a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0b35e4b_f8313f3d",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-21T14:35:05Z",
       "side": 1,
       "message": "(nit): Can we keep this simple and pass `jslogContext` directly here without `elements` prefix to be able to track what this is better. We can add `elements` prefix in the places that `jslogContext` is specified. (e.g. let\u0027s say I have seen `elements.css-var`, so that\u0027s what I\u0027d search in the code to find the place it is added)",
+      "revId": "3fa85b2d6eb860b2f8181f30fabbf8f4a3362a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04796de_85a8570b",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-21T14:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0b35e4b_f8313f3d",
       "revId": "3fa85b2d6eb860b2f8181f30fabbf8f4a3362a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb74154_cb5f6976",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-21T14:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd7053e1_9821bf05",
+      "revId": "3fa85b2d6eb860b2f8181f30fabbf8f4a3362a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "713faa62_67cf86f0",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-02-21T14:35:05Z",
       "side": 1,
       "message": "(nit): Can we rename this to `setJsLog` for consistency? (I have seen `parseJsLog` in the code 😊)",
+      "revId": "3fa85b2d6eb860b2f8181f30fabbf8f4a3362a11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0036e762_8acb9e14",
+        "filename": "front_end/ui/legacy/GlassPane.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-21T14:59:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713faa62_67cf86f0",
       "revId": "3fa85b2d6eb860b2f8181f30fabbf8f4a3362a11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
