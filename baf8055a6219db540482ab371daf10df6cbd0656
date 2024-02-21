@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6c482a_94baa148",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 8
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-21T09:41:29Z",
+      "side": 1,
+      "message": "This is a drive-by rename to avoid the confusion about what the CSS file is doing.",
+      "revId": "baf8055a6219db540482ab371daf10df6cbd0656",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
