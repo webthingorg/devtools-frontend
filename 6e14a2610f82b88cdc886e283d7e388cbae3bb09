@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "badc4a93_edd3c039",
+        "filename": "front_end/panels/explain/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-21T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e2f6a0a_19724cbc",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 29
+      },
+      "revId": "6e14a2610f82b88cdc886e283d7e388cbae3bb09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbdd182a_6033269f",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-21T13:41:15Z",
       "side": 1,
       "message": "This should be `./components:bundle`. And the `components:unittests` target needs to be added to to \"root\" unit test group.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 29
+      },
+      "revId": "6e14a2610f82b88cdc886e283d7e388cbae3bb09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "306fab22_aa53382b",
+        "filename": "front_end/panels/linear_memory_inspector/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-21T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbdd182a_6033269f",
       "range": {
         "startLine": 69,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "060a9bae_dce376cc",
+        "filename": "front_end/panels/network/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-21T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c785245_6eb5e142",
+      "range": {
+        "startLine": 166,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 29
+      },
+      "revId": "6e14a2610f82b88cdc886e283d7e388cbae3bb09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b50c4cc1_0d535f0e",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-02-21T13:41:15Z",
       "side": 1,
       "message": "dito",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 29
+      },
+      "revId": "6e14a2610f82b88cdc886e283d7e388cbae3bb09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb3774ce_fcefde58",
+        "filename": "front_end/panels/protocol_monitor/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-21T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b50c4cc1_0d535f0e",
       "range": {
         "startLine": 71,
         "startChar": 4,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ec4dc6f_ece2b833",
+        "filename": "front_end/panels/recorder/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-21T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad476248_ef4dbf2a",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 3
+      },
+      "revId": "6e14a2610f82b88cdc886e283d7e388cbae3bb09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19ef8843_9ac14033",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-02-21T13:41:15Z",
       "side": 1,
       "message": "There is now a bunch of `/components:unittests` missing that need to be added here.\n\nFrom what I can see the components sub-directories for `explain`, `linear_memory_inspector`, `network` and `protocol_monitor`.",
+      "range": {
+        "startLine": 52,
+        "startChar": 3,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "6e14a2610f82b88cdc886e283d7e388cbae3bb09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15038543_b2fe0823",
+        "filename": "test/unittests/front_end/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-21T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19ef8843_9ac14033",
       "range": {
         "startLine": 52,
         "startChar": 3,
