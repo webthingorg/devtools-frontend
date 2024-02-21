@@ -6,6 +6,7 @@ import {assert} from 'chai';
 
 import type * as Timeline from '../../../../../front_end/panels/timeline/timeline.js';
 import type * as LegacyUI from '../../../../../front_end/ui/legacy/legacy.js';
+import {TraceBounds} from '../../../../../front_end/services/trace_bounds/trace_bounds.js';
 import {getBrowserAndPages, waitFor, waitForMany} from '../../../../shared/helper.js';
 import {describe, it} from '../../../../shared/mocha-extensions.js';
 import {loadComponentDocExample, preloadForCodeCoverage} from '../../../helpers/shared.js';
@@ -128,5 +129,63 @@ describe('FlameChart', function() {
     const installTimerHandle = await waitFor('.timeline-details-chip-title');
     const installTimerTitle = await installTimerHandle.evaluate(element => element.innerHTML);
     assert.isTrue(installTimerTitle.includes('Install Timer'));
+  });
+
+  it.only('the initiator is outside of the current breadcrumb', async () => {
+    await loadComponentDocExample('performance_panel/basic.html?trace=web-dev');
+    await waitFor('.timeline-flamechart');
+    const {frontend} = getBrowserAndPages();
+
+    const traceBoundsManager = TraceBounds.BoundsManager.instance();
+    
+    // Add some margin to the coordinates so that we don't click right
+    // in the entry's border.
+    const margin = 3;
+
+    // Click on an entry that has an initiator and click the initiator link.
+    const titleForTimerFire = 'Timer Fired';
+    const timeStampForTimerFire = 1020035170393;
+    const {x: timerFireEntryX, y: timerFireEntryY} =
+        await getCoordinatesForEntryWithTitleAndTs(titleForTimerFire, timeStampForTimerFire);
+    await frontend.mouse.click(timerFireEntryX + margin, timerFireEntryY + margin);
+
+    const timerFireHandle = await waitFor('.timeline-details-chip-title');
+    const timerFireTitle = await timerFireHandle.evaluate(element => element.innerHTML);
+    assert.isTrue(timerFireTitle.includes('Timer Fired'));
+    const initiatorLink = await waitFor('[data-row-title="Initiated by"] .timeline-details-view-row-value');
+    await initiatorLink.click();
+
+    // Make sure the highlighting element is on the initiator, with some
+    // margin error.
+    const titleForTimerInstall = 'Install Timer';
+    const timeStampForTimerInstall = 1020035169385;
+    const {x: timerInstallEntryX, y: timerInstallEntryY} =
+        await getCoordinatesForEntryWithTitleAndTs(titleForTimerInstall, timeStampForTimerInstall);
+
+    const highlightElement = await waitFor('.flame-chart-selected-element');
+
+    const {x: highlightX, y: highlightY} = await highlightElement.evaluate(element => {
+      const {x, y} = element.getBoundingClientRect();
+      return {x, y};
+    });
+
+    assert.isTrue(highlightX <= timerInstallEntryX + margin && highlightX >= timerInstallEntryX - margin);
+    assert.isTrue(highlightY <= timerInstallEntryY + margin && highlightY >= timerInstallEntryY - margin);
+
+    // Make sure the initiator details are visible.
+    const installTimerHandle = await waitFor('.timeline-details-chip-title');
+    const installTimerTitle = await installTimerHandle.evaluate(element => element.innerHTML);
+    assert.isTrue(installTimerTitle.includes('Install Timer'));
+
+    console.log("state: ", traceBoundsManager.state()?.milli);
+    console.log(timeStampForTimerFire);
+    const newBounds = {
+      min: timeStampForTimerInstall,
+      max: timeStampForTimerInstall + 200,
+      range: 200,
+    }
+    // traceBoundsManager.setMiniMapBounds(newBounds)
+
+    console.log(await waitFor('[data-row-title="Initiated by"] .timeline-details-view-row-value'));
   });
 });
