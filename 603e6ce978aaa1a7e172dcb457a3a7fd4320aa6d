@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04cdc57_0ce2dbdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-21T02:26:43Z",
+      "side": 1,
+      "message": "Hey folks, I think this is in a reviewable state now that it has tests and most type issues are resolved. PTAL.",
+      "revId": "603e6ce978aaa1a7e172dcb457a3a7fd4320aa6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa09497e_0d1b3f66",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-21T02:26:43Z",
+      "side": 1,
+      "message": "I think there\u0027s a way for us to leverage TS and exclude the insights which are missing dependencies. It requires updating (fixing?) type usages elsewhere in the repo and may be overkill so I\u0027ll look into that in a follow-up.\n\nThis object with optional fields should suffice for now.",
+      "revId": "603e6ce978aaa1a7e172dcb457a3a7fd4320aa6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
