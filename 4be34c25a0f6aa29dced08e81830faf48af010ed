@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b37ac51_2c34ef17",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-21T08:28:46Z",
+      "side": 1,
+      "message": "Added a try/catch around the \"parse source map\" call.",
+      "parentUuid": "93dc7976_9983e186",
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6dd3220_d941457d",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-20T11:58:40Z",
       "side": 1,
       "message": "Does this need validation for the order of items?",
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f6cc143_922e7904",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-21T08:28:46Z",
+      "side": 1,
+      "message": "Ordered w.r.t to source positions? I added a check in the generator and test for it. I don\u0027t think it would be strictly necessary but it might help out tool developers while they work on generating source map scopes.",
+      "parentUuid": "c6dd3220_d941457d",
       "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -89,6 +125,30 @@
       "side": 1,
       "message": "No true preference, tbh. I think this is fine as is.",
       "parentUuid": "b4740e52_5389ebf5",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 19
+      },
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe188420_8f77975c",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-21T08:28:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7c04073b_637ed26f",
       "range": {
         "startLine": 89,
         "startChar": 0,
@@ -146,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a08b93b_edeea9b9",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-21T08:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "346702c9_57fdcb41",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 29
+      },
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16ba502d_8d412867",
@@ -159,6 +243,24 @@
       "writtenOn": "2024-02-20T11:58:40Z",
       "side": 1,
       "message": "For unexpected commas?",
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea092421_836133ac",
+        "filename": "test/unittests/front_end/core/sdk/SourceMapScopes.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-21T08:28:46Z",
+      "side": 1,
+      "message": "Ops, done!",
+      "parentUuid": "16ba502d_8d412867",
       "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
