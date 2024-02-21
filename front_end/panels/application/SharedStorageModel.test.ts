@@ -124,6 +124,7 @@ describeWithMockConnection('SharedStorageModel', () => {
     creationTime: 100 as Protocol.Network.TimeSinceEpoch,
     length: 4,
     remainingBudget: 2.5,
+    bytesUsed: 2000,
   } as unknown as Protocol.Storage.SharedStorageMetadata;
 
   const ENTRIES = [
