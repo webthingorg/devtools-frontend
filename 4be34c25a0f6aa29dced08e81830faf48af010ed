@@ -232,6 +232,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb87023d_b72a1ab8",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-21T08:47:46Z",
+      "side": 1,
+      "message": "The check is for columns only, are lines monotonically increasing? Or can it happen that an end item comes before a start item, or vice versa?",
+      "parentUuid": "6a08b93b_edeea9b9",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 29
+      },
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16ba502d_8d412867",
         "filename": "test/unittests/front_end/core/sdk/SourceMapScopes.test.ts",
         "patchSetId": 2
