@@ -41,6 +41,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import imagePreviewStyles from '../../ui/legacy/components/utils/imagePreview.css.js';
@@ -2589,20 +2590,35 @@ export class TimelineUIUtils {
 
   private static createEntryLink(entry: TraceEngine.Types.TraceEvents.TraceEventData): HTMLElement {
     const link = document.createElement('span');
-    link.classList.add('devtools-link');
-    UI.ARIAUtils.markAsLink(link);
-    link.tabIndex = 0;
-    link.textContent = this.eventTitle(entry);
-    link.addEventListener('click', () => {
-      TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((entry)));
-    });
 
-    link.addEventListener('keydown', event => {
-      if (event.key === 'Enter') {
+    const traceBoundsState = TraceBounds.TraceBounds.BoundsManager.instance().state();
+    if (!traceBoundsState) {
+      return link;
+    }
+
+    // Check is the entry is outside of the current breadcrumb. If it is, don't create a link to navigate to it because there is no way to navigate outside breadcrumb without removing it.
+    // Consider entry outside breadcrumb only if it is fully outside. If a part of it is visible, we can still select it.
+    const isEntryOutsideBreadcrumb = traceBoundsState.micro.minimapTraceBounds.min > entry.ts ||
+        traceBoundsState.micro.minimapTraceBounds.max < entry.ts;
+
+    if (!isEntryOutsideBreadcrumb) {
+      link.classList.add('devtools-link');
+      UI.ARIAUtils.markAsLink(link);
+      link.tabIndex = 0;
+      link.addEventListener('click', () => {
         TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((entry)));
-        event.consume(true);
-      }
-    });
+      });
+
+      link.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((entry)));
+          event.consume(true);
+        }
+      });
+    }
+
+    link.textContent =
+        this.eventTitle(entry) + ((isEntryOutsideBreadcrumb) ? ' (outside of the breadcrumb range)' : '');
 
     return link;
   }
