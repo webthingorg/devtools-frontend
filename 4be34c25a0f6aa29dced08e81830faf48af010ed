@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e090e0c_552be3f0",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-21T08:48:18Z",
+      "side": 1,
+      "message": "The check is for columns only, are lines monotonically increasing? Or can it happen that an end item comes before a start item, or vice versa?",
+      "parentUuid": "6f6cc143_922e7904",
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4740e52_5389ebf5",
         "filename": "front_end/core/sdk/SourceMapScopes.ts",
         "patchSetId": 2
@@ -244,6 +262,30 @@
       "side": 1,
       "message": "The check is for columns only, are lines monotonically increasing? Or can it happen that an end item comes before a start item, or vice versa?",
       "parentUuid": "6a08b93b_edeea9b9",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 29
+      },
+      "revId": "4be34c25a0f6aa29dced08e81830faf48af010ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2693d36c_c0fdd6a7",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-21T08:48:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fb87023d_b72a1ab8",
       "range": {
         "startLine": 133,
         "startChar": 4,
