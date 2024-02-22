@@ -496,6 +496,24 @@
       "parentUuid": "6d91baa5_0634ff7a",
       "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faf7f4c8_5381c36f",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-02-22T23:25:26Z",
+      "side": 1,
+      "message": "@paulirish@google.com - Given the `SchedulePostMessage` event is emitted as an instant event as appropriate from the backend with zero duration, does it still make sense to have this called `Post Message`? Thinking it might be better to have this named `Schedule Postmessage` instead to avoid giving the impression that the entire postMessage takes zero time.",
+      "parentUuid": "b12676a1_66205566",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
