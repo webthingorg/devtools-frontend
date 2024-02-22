@@ -347,8 +347,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     for (const pseudoClass of pseudoClasses) {
       const pseudoClassForced = forcedPseudoState ? forcedPseudoState.indexOf(pseudoClass) >= 0 : false;
       stateMenu.defaultSection().appendCheckboxItem(
-          ':' + pseudoClass, setPseudoStateCallback.bind(null, pseudoClass, !pseudoClassForced), pseudoClassForced,
-          false);
+          ':' + pseudoClass, setPseudoStateCallback.bind(null, pseudoClass, !pseudoClassForced), pseudoClassForced);
     }
 
     function setPseudoStateCallback(pseudoState: string, enabled: boolean): void {

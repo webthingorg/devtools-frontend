@@ -206,16 +206,20 @@ export class Section {
     return item;
   }
 
-  appendCheckboxItem(
-      label: string, handler: () => void, checked?: boolean, disabled?: boolean, additionalElement?: Element,
-      tooltip?: Platform.UIString.LocalizedString, jslogContext?: string): Item {
-    const item = new Item(this.contextMenu, 'checkbox', label, disabled, checked, tooltip, jslogContext);
+  appendCheckboxItem(label: string, handler: () => void, checked?: boolean, options?: {
+    disabled?: boolean,
+    additionalElement?: Element,
+    tooltip?: Platform.UIString.LocalizedString,
+    jslogContext?: string,
+  }): Item {
+    const item = new Item(
+        this.contextMenu, 'checkbox', label, options?.disabled, checked, options?.tooltip, options?.jslogContext);
     this.items.push(item);
     if (this.contextMenu) {
       this.contextMenu.setHandler(item.id(), handler);
     }
-    if (additionalElement) {
-      item.customElement = additionalElement;
+    if (options?.additionalElement) {
+      item.customElement = options?.additionalElement;
     }
     return item;
   }

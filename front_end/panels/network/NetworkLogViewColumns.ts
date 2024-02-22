@@ -648,11 +648,11 @@ export class NetworkLogViewColumns {
 
       for (const columnConfig of group) {
         // Make sure that at least one item in every group is enabled
-        const isDisabled = visibleColumns.length === 1 && visibleColumns[0] === columnConfig;
+        const disabled = visibleColumns.length === 1 && visibleColumns[0] === columnConfig;
         const title = columnConfig.title instanceof Function ? columnConfig.title() : columnConfig.title;
 
         contextMenu.headerSection().appendCheckboxItem(
-            title, this.toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible, isDisabled);
+            title, this.toggleColumnVisibility.bind(this, columnConfig), columnConfig.visible, {disabled});
       }
 
       contextMenu.headerSection().appendSeparator();
