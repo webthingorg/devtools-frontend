@@ -16,6 +16,69 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "2a9c96b0bbdeaedee916be296c086829e7207b99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c07620_2acc8ca9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-22T06:55:57Z",
+      "side": 1,
+      "message": "lgtm % some missing deps we could fix up as part of this CL",
+      "revId": "2a9c96b0bbdeaedee916be296c086829e7207b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "802e1198_cde888e5",
+        "filename": "front_end/panels/settings/components/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-22T06:55:57Z",
+      "side": 1,
+      "message": "Missing some deps here.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 6
+      },
+      "revId": "2a9c96b0bbdeaedee916be296c086829e7207b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4614f6_1b568b8e",
+        "filename": "front_end/panels/timeline/components/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-22T06:55:57Z",
+      "side": 1,
+      "message": "Here as well I think",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 6
+      },
+      "revId": "2a9c96b0bbdeaedee916be296c086829e7207b99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
