@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50d25dd4_f22ac957",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T10:41:47Z",
+      "side": 1,
+      "message": "`Math.random()` returns a number between `0 - 1`; so the result is something like `0.342342343` and I only need the `3424323` as a random number. Does it make sense?",
+      "parentUuid": "867a9c5b_4fc51c7f",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3257b425_b14734e6",
         "filename": "front_end/panels/animation/AnimationDOMNode.ts",
         "patchSetId": 20
@@ -65,6 +83,24 @@
       "writtenOn": "2024-02-20T14:58:49Z",
       "side": 1,
       "message": "qq: why do we need to check both `\u0027scrollingElement\u0027 in this` and `!this.scrollingElement`? Can we just directly check `!this.scrollingElement` instead?",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3726fb8_661831a6",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T10:41:47Z",
+      "side": 1,
+      "message": "`scrollingElement` only exists in the `Document` and not on the `Element`. So, we\u0027re not able to directly check `!this.scrollingElement` where TS gets angry at us.\n\nSo, the first check makes sure that `this` is a `Document`. Then, it might be that `scrollingElement` exists in the document though it can be `null`. So, that\u0027s why we\u0027re doing the second check to return `0`.\n\nIf it is a document and if the `scrollingElement` is not null, we\u0027re returning the `scrollTop` of the scrolling element. Does it make sense?",
+      "parentUuid": "3257b425_b14734e6",
       "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "564950ed_c4d43378",
+        "filename": "front_end/panels/animation/AnimationGroupPreviewUI.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T10:41:47Z",
+      "side": 1,
+      "message": "No, it\u0027s for not showing the scale animation when the user comes back to the tab with the same previews. So, after the initial animation, we mark it to not show animations when it is rendered again.",
+      "parentUuid": "051b4abc_bae6dd90",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc0df089_a323bebe",
         "filename": "front_end/panels/animation/AnimationModel.ts",
         "patchSetId": 20
@@ -105,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "536a5f91_9d938c44",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T10:41:47Z",
+      "side": 1,
+      "message": "I think, semantically the `time` still reflects the same thing: \"when\". For `startTime` case, it reflects when the animation is going to start.\n\nSo, I think the name `time` is a good fit here to use, albeit it is rather unconventional to have a time definition in `pixels` :)",
+      "parentUuid": "dc0df089_a323bebe",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3a607ec_31ea9ed3",
         "filename": "front_end/panels/animation/AnimationModel.ts",
         "patchSetId": 20
@@ -116,6 +188,24 @@
       "writtenOn": "2024-02-20T14:58:49Z",
       "side": 1,
       "message": "Looking at the code, may I assume that we don\u0027t have to look at other animations in `this.#animationsInternal`, since they will be the same type (scroll driven or NOT scroll driven), in the same group?",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee47341_e0bf1085",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T10:41:47Z",
+      "side": 1,
+      "message": "Yep, that\u0027s the case :)",
+      "parentUuid": "d3a607ec_31ea9ed3",
       "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

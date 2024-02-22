@@ -33,6 +33,24 @@
       "message": "Hey folks, I think this is ready for review. Let me know what you think!",
       "revId": "7b1104777bccb397ff443196dce2f130adeafef0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bce8b2e_a03c341c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T10:41:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "79b78fa8_948c074f",
+      "revId": "7b1104777bccb397ff443196dce2f130adeafef0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
