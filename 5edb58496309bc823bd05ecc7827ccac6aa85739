@@ -16,6 +16,159 @@
       "message": "I\u0027m going to remove the failing web test and move it as an E2E test to this repo. The reason it fails is that now previewMap is created async after `animationStarted` event.",
       "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267c78d2_b2d4d903",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "Couple of comments but overall this looks great!",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c74954b1_fde08714",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "The removed code had a return here if the object wasn\u0027t found, is it okay to remove that?",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b169364_77bb9afe",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0127808a_6f6aa871",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "It feels like this should not be a CONSTANT, rather a regular function.",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c224895_1b13c5cd",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "This is a little hard to digest. Is this different from\n```\npayload \u003d {...payload, ...payload.viewScrollTimeline}; // If the deep copy is strictly necessary\nif (payload.viewOrScrollTimeline.startOffset) {\n  payload.viewOrScrollTimeline.startOffset /\u003d devicePixelRatio;\n}\nif (payload.viewOrScrollTimeline.endOffset) {\n  payload.viewOrScrollTimeline.endOffset /\u003d devicePixelRatio;\n}\n```\n?",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a6d5b50_92f6f87e",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "In which situations does this happen? I\u0027m wondering if returning `percentage` unchanged may lead to confusion for callers.",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb9ddcba_7a994683",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "Just food for thought: instead of a unitless number, can we come up with some type(s) that let us nicely tell pixels and time apart?",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b84e56a_4b6c73f0",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "Should this function also have the \u0027milliseconds or pixels\u0027 comment as well?",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b42606d_ce3c7c5d",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T13:09:46Z",
+      "side": 1,
+      "message": "How about using a throttler for this instead? Just for consistency",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
