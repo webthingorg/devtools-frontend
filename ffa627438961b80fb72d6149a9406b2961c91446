@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3510d7f3_c9df6fd0",
+        "filename": "front_end/models/trace/handlers/RendererHandler.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-22T22:33:05Z",
+      "side": 1,
+      "message": "lets rename the method so the local can be self-descriptive\n\n```suggestion\n  const samplesHandlerData \u003d getSamplesHandlerData();\n```",
+      "revId": "ffa627438961b80fb72d6149a9406b2961c91446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
