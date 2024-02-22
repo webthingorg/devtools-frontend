@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4c1dc3_db570e9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-22T05:15:36Z",
+      "side": 1,
+      "message": "lgtm % last nit",
+      "revId": "77c0fef1bbd954490a366ae451f780eaa0584f1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91c22b84_b95f3568",
+        "filename": "test/interactions/panels/performance/timeline/timeline_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-22T05:15:36Z",
+      "side": 1,
+      "message": "Do we need to file a bug here to track re-enablement?",
+      "range": {
+        "startLine": 109,
+        "startChar": 15,
+        "endLine": 109,
+        "endChar": 19
+      },
+      "revId": "77c0fef1bbd954490a366ae451f780eaa0584f1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
