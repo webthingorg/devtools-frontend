@@ -168,6 +168,24 @@
       "message": "these .data() calls to handlers make a fresh copy of the data. (That\u0027s a separate problem).. \n\nBut regardless..  WDYT about receiving traceParsedData/data as a param of generateInsight and pulling off that?\n\nextending that thought a bit.. maybe your .some() check in Processor should check what\u0027s on traceParsedData instead of what handlers are registered.",
       "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f0fc2d_f2dafe2d",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-22T23:55:44Z",
+      "side": 1,
+      "message": "Yeah that\u0027s how it was before, it\u0027s difficult to get the dependencies to play nicely with typescript. I will see if there is a way to go back though...",
+      "parentUuid": "746f70e7_ad28f6fb",
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
