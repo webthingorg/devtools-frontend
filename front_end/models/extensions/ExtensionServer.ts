@@ -212,6 +212,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.registerHandler(PrivateAPI.Commands.ReportResourceLoad, this.onReportResourceLoad.bind(this));
     this.registerHandler(PrivateAPI.Commands.CreateRecorderView, this.onCreateRecorderView.bind(this));
     this.registerHandler(PrivateAPI.Commands.ShowRecorderView, this.onShowRecorderView.bind(this));
+    this.registerHandler(PrivateAPI.Commands.ShowNetworkPanel, this.onShowNetworkPanel.bind(this));
     window.addEventListener('message', this.onWindowMessage, false);  // Only for main window.
 
     const existingTabId =
@@ -399,6 +400,14 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     }
     RecorderPluginManager.instance().showView(message.id);
     return undefined;
+  }
+
+  private onShowNetworkPanel(message: PrivateAPI.ExtensionServerRequestMessage): Record|undefined {
+    if (message.command !== PrivateAPI.Commands.ShowNetworkPanel) {
+      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.ShowNetworkPanel}`);
+    }
+    this.dispatchEventToListeners(Events.NetworkPanelRequested, {filter: message.filter});
+    return this.status.OK();
   }
 
   private onCreateRecorderView(message: PrivateAPI.ExtensionServerRequestMessage, port: MessagePort): Record {
@@ -1381,10 +1390,12 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
 export const enum Events {
   SidebarPaneAdded = 'SidebarPaneAdded',
+  NetworkPanelRequested = 'NetworkPanelRequested',
 }
 
 export type EventTypes = {
   [Events.SidebarPaneAdded]: ExtensionSidebarPane,
+  [Events.NetworkPanelRequested]: {filter: string},
 };
 
 class ExtensionServerPanelView extends UI.View.SimpleView {
