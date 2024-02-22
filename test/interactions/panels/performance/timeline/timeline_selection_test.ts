@@ -6,6 +6,7 @@ import {assert} from 'chai';
 
 import type * as Timeline from '../../../../../front_end/panels/timeline/timeline.js';
 import type * as LegacyUI from '../../../../../front_end/ui/legacy/legacy.js';
+import type * as Types from '../../../../../front_end/models/trace/types/types.js';
 import {getBrowserAndPages, waitFor, waitForMany} from '../../../../shared/helper.js';
 import {describe, it} from '../../../../shared/mocha-extensions.js';
 import {loadComponentDocExample, preloadForCodeCoverage} from '../../../helpers/shared.js';
@@ -40,6 +41,25 @@ describe('FlameChart', function() {
       const {x, y} = eventCoordinates;
       return {x, y};
     }, title, tsMicroSecs);
+  }
+
+  
+  async function getPanel(): Promise<Timeline.TimelinePanel.TimelinePanel> {
+    const perfPanel = await waitFor('.vbox.panel.timeline');
+    
+    return await perfPanel.evaluate((element: Element) => {
+      const panelWidget = element as LegacyUI.Widget.WidgetElement;
+      const timelinePanel = panelWidget.__widget as Timeline.TimelinePanel.TimelinePanel;
+      const window = {
+        startTime: 1020034823 as Types.Timing.MilliSeconds,
+        endTime: 1020034830 as Types.Timing.MilliSeconds,
+      }
+      timelinePanel.minimapComponent.addBreadcrumb(window);
+      
+      console.log("widget ", panelWidget.__widget);
+      return timelinePanel;
+      
+    });
   }
 
   it('shows the details of an entry when selected on the timeline', async () => {
@@ -128,5 +148,96 @@ describe('FlameChart', function() {
     const installTimerHandle = await waitFor('.timeline-details-chip-title');
     const installTimerTitle = await installTimerHandle.evaluate(element => element.innerHTML);
     assert.isTrue(installTimerTitle.includes('Install Timer'));
+  });
+
+  // it.only('the initiator is outside of the current breadcrumb', async () => {
+  //   await loadComponentDocExample('performance_panel/basic.html?trace=web-dev');
+  //   await waitFor('.timeline-flamechart');
+  //   const {frontend} = getBrowserAndPages();
+
+  //   // Add some margin to the coordinates so that we don't click right
+  //   // in the entry's border.
+  //   const margin = 3;
+
+  //   // Click on an entry that has an initiator and click the initiator link.
+  //   const titleForTimerFire = 'Timer Fired';
+  //   const timeStampForTimerFire = 1020035170393;
+  //   const {x: timerFireEntryX, y: timerFireEntryY} =
+  //       await getCoordinatesForEntryWithTitleAndTs(titleForTimerFire, timeStampForTimerFire);
+  //   await frontend.mouse.click(timerFireEntryX + margin, timerFireEntryY + margin);
+
+  //   const timerFireHandle = await waitFor('.timeline-details-chip-title');
+  //   const timerFireTitle = await timerFireHandle.evaluate(element => element.innerHTML);
+  //   assert.isTrue(timerFireTitle.includes('Timer Fired'));
+  //   const initiatorLink = await waitFor('[data-row-title="Initiated by"] .timeline-details-view-row-value');
+  //   await initiatorLink.click();
+
+  //   // Make sure the highlighting element is on the initiator, with some
+  //   // margin error.
+  //   const titleForTimerInstall = 'Install Timer';
+  //   const timeStampForTimerInstall = 1020035169385;
+  //   const {x: timerInstallEntryX, y: timerInstallEntryY} =
+  //       await getCoordinatesForEntryWithTitleAndTs(titleForTimerInstall, timeStampForTimerInstall);
+
+  //   const highlightElement = await waitFor('.flame-chart-selected-element');
+
+  //   const {x: highlightX, y: highlightY} = await highlightElement.evaluate(element => {
+  //     const {x, y} = element.getBoundingClientRect();
+  //     return {x, y};
+  //   });
+
+  //   assert.isTrue(highlightX <= timerInstallEntryX + margin && highlightX >= timerInstallEntryX - margin);
+  //   assert.isTrue(highlightY <= timerInstallEntryY + margin && highlightY >= timerInstallEntryY - margin);
+
+  //   // Make sure the initiator details are visible.
+  //   const installTimerHandle = await waitFor('.timeline-details-chip-title');
+  //   const installTimerTitle = await installTimerHandle.evaluate(element => element.innerHTML);
+  //   assert.isTrue(installTimerTitle.includes('Install Timer'));
+
+  //   const panel = getPanel()
+
+  //   const timerFireHandle2 = await waitFor('.timeline-details-chip-title');
+  //   const timerFireTitle2 = await timerFireHandle2.evaluate(element => element.innerHTML);
+  //   assert.isTrue(timerFireTitle2.includes('Install Timer'));
+  //   const initiatorLink2 = await waitFor('[data-row-title="Initiator for"] .timeline-details-view-row-value');
+
+  //   console.log("the link ", await initiatorLink2.evaluate(element => element.textContent));
+  //   console.log(await initiatorLink2.click());
+  // });
+
+  it.only('the initiator is outside of the current breadcrumb', async () => {
+    await loadComponentDocExample('performance_panel/basic.html?trace=web-dev');
+    await waitFor('.timeline-flamechart');
+    const {frontend} = getBrowserAndPages();
+
+    // Add some margin to the coordinates so that we don't click right
+    // in the entry's border.
+    const margin = 3;
+
+    // Click on an entry that has an initiator and click the initiator link.
+    const titleForTimerFire = 'Timer Fired';
+    const timeStampForTimerFire = 1020035170393;
+    const {x: timerFireEntryX, y: timerFireEntryY} =
+        await getCoordinatesForEntryWithTitleAndTs(titleForTimerFire, timeStampForTimerFire);
+    await frontend.mouse.click(timerFireEntryX + margin, timerFireEntryY + margin);
+
+    const timerFireHandle = await waitFor('.timeline-details-chip-title');
+    const timerFireTitle = await timerFireHandle.evaluate(element => element.innerHTML);
+    assert.isTrue(timerFireTitle.includes('Timer Fired'));
+    const initiatorLink = await waitFor('[data-row-title="Initiated by"] .timeline-details-view-row-value');
+    // await initiatorLink.click();
+
+    // check initiator text
+    console.log("the link first ", await initiatorLink.evaluate(element => element.textContent));
+    
+    // change breadcrumb
+    getPanel()
+    
+    // check name again
+    const timerFireHandle2 = await waitFor('.timeline-details-chip-title');
+    const timerFireTitle2 = await timerFireHandle2.evaluate(element => element.innerHTML);
+    assert.isTrue(timerFireTitle2.includes('Timer Fired'));
+    const initiatorLink2 = await waitFor('[data-row-title="Initiated by"] .timeline-details-view-row-value');
+    console.log("the link second ", await initiatorLink2.evaluate(element => element.textContent));
   });
 });

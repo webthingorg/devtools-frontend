@@ -279,7 +279,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private readonly panelToolbar: UI.Toolbar.Toolbar;
   private readonly panelRightToolbar: UI.Toolbar.Toolbar;
   private readonly timelinePane: UI.Widget.VBox;
-  readonly #minimapComponent = new TimelineMiniMap();
+  readonly minimapComponent = new TimelineMiniMap();
   private readonly statusPaneContainer: HTMLElement;
   private readonly flameChart: TimelineFlameChartView;
   private readonly searchableViewInternal: UI.SearchableView.SearchableView;
@@ -351,7 +351,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.toggleRecordAction = UI.ActionRegistry.ActionRegistry.instance().getAction('timeline.toggle-recording');
     this.recordReloadAction = UI.ActionRegistry.ActionRegistry.instance().getAction('timeline.record-reload');
 
-    this.#historyManager = new TimelineHistoryManager(this.#minimapComponent);
+    this.#historyManager = new TimelineHistoryManager(this.minimapComponent);
 
     this.performanceModel = null;
     this.traceLoadStart = null;
@@ -386,7 +386,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     const topPaneElement = this.timelinePane.element.createChild('div', 'hbox');
     topPaneElement.id = 'timeline-overview-panel';
 
-    this.#minimapComponent.show(topPaneElement);
+    this.minimapComponent.show(topPaneElement);
 
     this.statusPaneContainer = this.timelinePane.element.createChild('div', 'status-pane-container fill');
 
@@ -780,7 +780,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       return;
     }
 
-    this.#minimapComponent.setData({
+    this.minimapComponent.setData({
       traceParsedData,
       isCpuProfile,
       settings: {
@@ -1176,7 +1176,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     const isCpuProfile = this.#traceEngineModel.metadata(this.#traceEngineActiveTraceIndex)?.dataOrigin ===
         TraceEngine.Types.File.DataOrigin.CPUProfile;
 
-    this.#minimapComponent.reset();
+    this.minimapComponent.reset();
     // Order is important: the bounds must be set before we initiate any UI
     // rendering.
     if (traceParsedData) {
@@ -1218,8 +1218,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     // Set the initial zoom and if we are using breadcrumbs, create the initial breadcrum.
     // We expect traceParsedData to always exist, this check is to keep TS happy.
     if (traceParsedData) {
-      if (this.#minimapComponent.breadcrumbsActivated) {
-        this.#minimapComponent.addInitialBreadcrumb();
+      if (this.minimapComponent.breadcrumbsActivated) {
+        this.minimapComponent.addInitialBreadcrumb();
       }
 
       // To calculate the activity we might want to zoom in, we find the last

@@ -37,6 +37,11 @@ export class Breadcrumbs {
   }
 
   add(newBreadcrumbTraceWindow: TraceEngine.Types.Timing.TraceWindowMicroSeconds): void {
+    console.log("last crumb min ", this.lastBreadcrumb.window.min);
+    console.log("last crumb max ", this.lastBreadcrumb.window.max);
+
+    console.log("the new min ", newBreadcrumbTraceWindow.min);
+    console.log("the new max ", newBreadcrumbTraceWindow.max);
     if (this.isTraceWindowWithinTraceWindow(newBreadcrumbTraceWindow, this.lastBreadcrumb.window)) {
       const newBreadcrumb = {
         window: newBreadcrumbTraceWindow,
