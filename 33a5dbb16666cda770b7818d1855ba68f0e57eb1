@@ -460,6 +460,24 @@
       "parentUuid": "af3c52ac_a51f363c",
       "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d91baa5_0634ff7a",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-02-22T01:47:20Z",
+      "side": 1,
+      "message": "Yhup, I\u0027ve updated the C++ to use the `SchedulePostMessage` and `HandlePostMessage` for the trace events. On the devtools side, the user-facing strings for these are `Post Message` and `On Message` respectively.",
+      "parentUuid": "b7a1a95f_34cb6fe1",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
