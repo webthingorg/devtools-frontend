@@ -5,6 +5,7 @@
 import("../../../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../../../scripts/build/ninja/devtools_module.gni")
 import("../../../../scripts/build/ninja/generate_css.gni")
+import("../../../../third_party/typescript/typescript.gni")
 
 generate_css("css_files") {
   sources = [ "syncSection.css" ]
@@ -36,6 +37,16 @@ devtools_entrypoint("bundle") {
   visibility = [
     ":*",
     "../*",
-    "../../../../test/unittests/front_end/panels/settings/components/*",
+  ]
+}
+
+ts_library("unittests") {
+  testonly = true
+
+  sources = [ "SyncSection.test.ts" ]
+
+  deps = [
+    ":bundle",
+    "../../../../test/unittests/front_end/helpers",
   ]
 }
