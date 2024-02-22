@@ -34,6 +34,24 @@
       "parentUuid": "01347ca9_f4f436c3",
       "revId": "75d55af8ad349bf49d854859c0bd3ccf2e5b1f5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8236a0ee_979937e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-02-22T13:35:28Z",
+      "side": 1,
+      "message": "I have manually tested this and will test it more once I add functionality that uses this API, though my understanding is that e2e tests have to stub out this API so automated testing will be challenging.",
+      "parentUuid": "01347ca9_f4f436c3",
+      "revId": "75d55af8ad349bf49d854859c0bd3ccf2e5b1f5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
