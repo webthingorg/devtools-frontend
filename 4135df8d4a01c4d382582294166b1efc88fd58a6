@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94c7193b_45a1783b",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-22T19:01:44Z",
+      "side": 1,
+      "message": "In my head `data` and `insights` represent two different things, but I can see how \"data\" would be the output of the trace processor and insights are an output.\n\nMaybe we could rename `data` to something like `models` but I would prefer that in a follow-up for sure",
+      "parentUuid": "96ef6f97_30f3c25f",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 10
+      },
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6301414_6b006090",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 18
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-22T11:50:09Z",
       "side": 1,
       "message": "do we want to be explicit about the props of the insight runners or just rely on TS to figure that out? I guess that as with handlers we can\u0027t enforce a type directly because they are modules so I don\u0027t feel strong about it",
+      "range": {
+        "startLine": 214,
+        "startChar": 34,
+        "endLine": 214,
+        "endChar": 41
+      },
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a395877_328aab5a",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-22T19:01:44Z",
+      "side": 1,
+      "message": "I think we can rely on TS to figure it out. Like you said, these are modules and we would need to restructure as classes or something to enforce the type directly.\n\nIn the event that a handler doesn\u0027t implement `deps` or whatever TS should automatically detect it, the error will just appear here rather than on the module itself.\n\nPossibly related: I\u0027m planning on improving the type handling of deps in a follow-up",
+      "parentUuid": "c6301414_6b006090",
       "range": {
         "startLine": 214,
         "startChar": 34,
