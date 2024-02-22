@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1bb1d80e_afbc7501",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Ah, good catch. Updated the return value to be an object with value and returned early if the result is null. WDYT?",
+      "parentUuid": "c74954b1_fde08714",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b169364_77bb9afe",
         "filename": "front_end/core/sdk/DOMModel.ts",
         "patchSetId": 21
@@ -65,6 +83,24 @@
       "writtenOn": "2024-02-22T13:09:46Z",
       "side": 1,
       "message": "Same as above.",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aad2d47_4ba1b32c",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8b169364_77bb9afe",
       "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afed0949_d976c8f6",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0127808a_6f6aa871",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c224895_1b13c5cd",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-02-22T13:09:46Z",
       "side": 1,
       "message": "This is a little hard to digest. Is this different from\n```\npayload \u003d {...payload, ...payload.viewScrollTimeline}; // If the deep copy is strictly necessary\nif (payload.viewOrScrollTimeline.startOffset) {\n  payload.viewOrScrollTimeline.startOffset /\u003d devicePixelRatio;\n}\nif (payload.viewOrScrollTimeline.endOffset) {\n  payload.viewOrScrollTimeline.endOffset /\u003d devicePixelRatio;\n}\n```\n?",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e07b5f_d7051880",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Ah, this looks much better. Deep copy is not necessary, updated here :)",
+      "parentUuid": "2c224895_1b13c5cd",
       "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -122,6 +194,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ead59ddf_31259435",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Actually this situation is not possible at this stage unless there is a bug. I think we can throw here. I added a comment explaining this and updated the code to throw for that case. WDYT?",
+      "parentUuid": "9a6d5b50_92f6f87e",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb9ddcba_7a994683",
         "filename": "front_end/panels/animation/AnimationModel.ts",
         "patchSetId": 21
@@ -133,6 +223,24 @@
       "writtenOn": "2024-02-22T13:09:46Z",
       "side": 1,
       "message": "Just food for thought: instead of a unitless number, can we come up with some type(s) that let us nicely tell pixels and time apart?",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e31f6e08_33eed928",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Ah yes, I thought about this with some branded types; though I have seen that it required adding a lot of type assertions in places.\n\nI\u0027ll try this again but would it be alright to do it in a separate CL to not block this CL on that one?",
+      "parentUuid": "eb9ddcba_7a994683",
       "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +262,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09de8cb6_1bfd98b9",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Ah yes, added that comment to some more places :)",
+      "parentUuid": "9b84e56a_4b6c73f0",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b42606d_ce3c7c5d",
@@ -167,6 +293,24 @@
       "writtenOn": "2024-02-22T13:09:46Z",
       "side": 1,
       "message": "How about using a throttler for this instead? Just for consistency",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed02834_1a5c65ba",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T14:11:37Z",
+      "side": 1,
+      "message": "Makes sense, updated it :)",
+      "parentUuid": "7b42606d_ce3c7c5d",
       "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
