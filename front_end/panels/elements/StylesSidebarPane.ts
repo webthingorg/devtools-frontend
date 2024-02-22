@@ -2321,10 +2321,6 @@ export class StylesSidebarPropertyRenderer {
       return valueElement;
     }
 
-    if (metadata.isStringProperty(this.propertyName)) {
-      UI.Tooltip.Tooltip.install(valueElement, unescapeCssString(this.propertyValue));
-    }
-
     const matchers: Matcher[] = [...this.matchers];
 
     // AST matching applies regexes bottom-up to subexpressions. This requires the regexes to be explicit enough to only
