@@ -365,7 +365,7 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
     // Sniffed in tests.
   }
 
-  private filterItems(): void {
+  private filterItems(forcedTop: number[] = []): void {
     this.filterTimer = 0;
     if (this.scoringTimer) {
       clearTimeout(this.scoringTimer);
@@ -417,15 +417,21 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
       let i;
 
       for (i = fromIndex; i < this.provider.itemCount() && workDone < maxWorkItems; ++i) {
-        // Filter out non-matching items quickly.
-        if (filterRegex && !filterRegex.test(this.provider.itemKeyAt(i))) {
-          continue;
-        }
+        const forcedIndex = forcedTop.indexOf(i);
+        let score = 0;
+        if (forcedIndex !== -1) {
+          score = 10000 - forcedIndex;
+        } else {
+          // Filter out non-matching items quickly.
+          if (filterRegex && !filterRegex.test(this.provider.itemKeyAt(i))) {
+            continue;
+          }
 
-        // Score item.
-        const score = this.provider.itemScoreAt(i, query);
-        if (query) {
-          workDone++;
+          // Score item.
+          score = this.provider.itemScoreAt(i, query);
+          if (query) {
+            workDone++;
+          }
         }
 
         // Find its index in the scores array (earlier elements have bigger scores).
@@ -507,7 +513,7 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
       await this.queryChangedCallback(this.query);
     }
     if (this.provider) {
-      this.provider.queryChanged(this.cleanValue());
+      this.provider.queryChanged(this.cleanValue(), this.filterItems.bind(this));
     }
   }
 
@@ -621,7 +627,7 @@ export class Provider {
     return query;
   }
 
-  queryChanged(_query: string): void {
+  queryChanged(_query: string, _filterItems: (forcedTop: number[]) => void): void {
   }
 
   notFoundText(_query: string): string {

@@ -33,16 +33,33 @@ const UIStrings = {
    * @description Hint text to indicate that a selected command is deprecated
    */
   deprecated: '— deprecated',
+
+  /**
+   * @description Hint text to indicate that AI will take a while to respond
+   */
+  queryingAI: 'querying AI – this is going to take a while',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/quick_open/CommandMenu.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 let commandMenuInstance: CommandMenu;
 
+interface AidaRequest {
+  input: string;
+  client: string;
+  options?: {
+    temperature?: Number,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    model_id?: string,
+  };
+}
+
 export class CommandMenu {
   private readonly commandsInternal: Command[];
+  private commandPrompt: string;
   private constructor() {
     this.commandsInternal = [];
+    this.commandPrompt = '';
     this.loadCommands();
   }
 
@@ -252,10 +269,13 @@ export const enum PanelOrDrawer {
 
 export class CommandMenuProvider extends Provider {
   private commands: Command[];
+  private commandPrompt: string;
+  private queryingAI: boolean = false;
 
   constructor(commandsForTest: Command[] = []) {
     super();
     this.commands = commandsForTest;
+    this.commandPrompt = '';
   }
 
   override attach(): void {
@@ -284,6 +304,11 @@ export class CommandMenuProvider extends Provider {
     }
 
     this.commands = this.commands.sort(commandComparator);
+
+    this.commandPrompt = '';
+    for (const [index, command] of this.commands.entries()) {
+      this.commandPrompt += index + ': (' + command.title + ', ' + command.key.replace('\u0000', ', ') + ')\n';
+    }
 
     function commandComparator(left: Command, right: Command): number {
       const cats = Platform.StringUtilities.compare(left.category, right.category);
@@ -353,7 +378,100 @@ export class CommandMenuProvider extends Provider {
   }
 
   override notFoundText(): string {
+    if (this.queryingAI) {
+      return i18nString(UIStrings.queryingAI);
+    }
     return i18nString(UIStrings.noCommandsFound);
+  }
+
+  setQueryingAI(queryingAI: boolean): void {
+    this.queryingAI = queryingAI;
+  }
+
+  override queryChanged(query: string, filterItems: (forcedTop: number[]) => void): void {
+    if (query.endsWith('?')) {
+      const prompt = 'This is the available list of commands by index:\n' + this.commandPrompt + '\n\n' +
+          'Give me the indices of the five most suitable commands in this list for this query, ranked in decreasing suitability:\n' +
+          query;
+      const aiRanking: number[] = [];
+      const setQueryingAI = this.setQueryingAI.bind(this);
+      setQueryingAI(true);
+      this.getRanking(prompt)
+          .then(function(value) {
+            for (const match of value.matchAll(/\d+/g)) {
+              aiRanking.push(parseInt(match[0]));
+            }
+          })
+          .finally(function() {
+            setQueryingAI(false);
+          })
+          .then(function() {
+            filterItems(aiRanking);
+          });
+    }
+    return undefined;
+  }
+
+  buildApiRequest(input: string): AidaRequest {
+    const request: AidaRequest = {
+      input,
+      client: 'CHROME_DEVTOOLS',
+      options: {
+        temperature: 0,
+        model_id: 'codey_gemit_m_streaming_chrome',
+      },
+    };
+    return request;
+  }
+
+  async getRanking(input: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!Host.InspectorFrontendHost.InspectorFrontendHostInstance.doAidaConversation) {
+        return reject(new Error('doAidaConversation is not available'));
+      }
+      console.time('request');
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.doAidaConversation(
+          JSON.stringify(this.buildApiRequest(input)),
+          result => {
+            console.timeEnd('request');
+            try {
+              const results = JSON.parse(result.response);
+              const text = [];
+              let inCodeChunk = false;
+              const CODE_CHUNK_SEPARATOR = '\n`````\n';
+              for (const result of results) {
+                if ('textChunk' in result) {
+                  if (inCodeChunk) {
+                    text.push(CODE_CHUNK_SEPARATOR);
+                    inCodeChunk = false;
+                  }
+                  text.push(result.textChunk.text);
+                } else if ('codeChunk' in result) {
+                  if (!inCodeChunk) {
+                    text.push(CODE_CHUNK_SEPARATOR);
+                    inCodeChunk = true;
+                  }
+                  text.push(result.codeChunk.code);
+                } else if ('error' in result) {
+                  if (result['detail']?.[0]?.error?.code === 403) {
+                    throw new Error('Server responded: permission denied');
+                  }
+                  throw new Error(`Server responded: ${JSON.stringify(result)}`);
+                } else {
+                  throw new Error('Unknown chunk result');
+                }
+              }
+              if (inCodeChunk) {
+                text.push(CODE_CHUNK_SEPARATOR);
+                inCodeChunk = false;
+              }
+              resolve(text.join(''));
+            } catch (err) {
+              reject(err);
+            }
+          },
+      );
+    });
   }
 }
 
