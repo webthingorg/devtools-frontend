@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9686d3ae_d34e463f",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T14:42:07Z",
+      "side": 1,
+      "message": "That sounds risky, why random and not just a counter?",
+      "parentUuid": "50d25dd4_f22ac957",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3257b425_b14734e6",
         "filename": "front_end/panels/animation/AnimationDOMNode.ts",
         "patchSetId": 20
@@ -171,6 +189,24 @@
       "side": 1,
       "message": "I think, semantically the `time` still reflects the same thing: \"when\". For `startTime` case, it reflects when the animation is going to start.\n\nSo, I think the name `time` is a good fit here to use, albeit it is rather unconventional to have a time definition in `pixels` :)",
       "parentUuid": "dc0df089_a323bebe",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6ecdf1_bb5b8272",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T14:42:07Z",
+      "side": 1,
+      "message": "\"progress\"?",
+      "parentUuid": "536a5f91_9d938c44",
       "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

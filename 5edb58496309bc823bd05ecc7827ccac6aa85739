@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb0304a3_2f4b845c",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T14:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bb1d80e_afbc7501",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b169364_77bb9afe",
@@ -210,6 +228,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d0a2bb4_6dc1fa52",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T14:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ead59ddf_31259435",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb9ddcba_7a994683",
@@ -241,6 +277,24 @@
       "side": 1,
       "message": "Ah yes, I thought about this with some branded types; though I have seen that it required adding a lot of type assertions in places.\n\nI\u0027ll try this again but would it be alright to do it in a separate CL to not block this CL on that one?",
       "parentUuid": "eb9ddcba_7a994683",
+      "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "945b7b7b_057ad940",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-22T14:42:07Z",
+      "side": 1,
+      "message": "Ack. I think maybe a full class is easier to work with than a branded setup.",
+      "parentUuid": "e31f6e08_33eed928",
       "revId": "5edb58496309bc823bd05ecc7827ccac6aa85739",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
