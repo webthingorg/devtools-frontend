@@ -38,6 +38,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
+import * as Extensions from '../../models/extensions/extensions.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as Workspace from '../../models/workspace/workspace.js';
@@ -328,6 +329,13 @@ export class NetworkPanel extends UI.Panel.Panel implements
     Logs.NetworkLog.NetworkLog.instance().addEventListener(
         Logs.NetworkLog.Events.RequestUpdated, this.onUpdateRequest, this);
     Logs.NetworkLog.NetworkLog.instance().addEventListener(Logs.NetworkLog.Events.Reset, this.onNetworkLogReset, this);
+
+    Extensions.ExtensionServer.ExtensionServer.instance().addEventListener(
+        Extensions.ExtensionServer.Events.NetworkPanelRequested, NetworkPanel.onNetworkPanelRequested);
+  }
+
+  static onNetworkPanelRequested(event: Common.EventTarget.EventTargetEvent<{filter: string}>): void {
+    void NetworkPanel.revealAndFilter([{filterType: null, filterValue: event.data.filter}]);
   }
 
   static instance(opts?: {

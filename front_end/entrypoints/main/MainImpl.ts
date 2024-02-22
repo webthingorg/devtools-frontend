@@ -47,6 +47,7 @@ import * as IssuesManager from '../../models/issues_manager/issues_manager.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
+import * as Network from '../../panels/network/network.js';
 import * as Snippets from '../../panels/snippets/snippets.js';
 import * as Timeline from '../../panels/timeline/timeline.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
@@ -519,6 +520,9 @@ export class MainImpl {
     });
     // @ts-ignore e2e test global
     self.Extensions.extensionServer = Extensions.ExtensionServer.ExtensionServer.instance({forceNew: true});
+    Extensions.ExtensionServer.ExtensionServer.instance().addEventListener(
+        Extensions.ExtensionServer.Events.NetworkPanelRequested,
+        Network.NetworkPanel.NetworkPanel.onNetworkPanelRequested);
 
     new Persistence.FileSystemWorkspaceBinding.FileSystemWorkspaceBinding(
         Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.instance(),
