@@ -2,14 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as SDK from '../../core/sdk/sdk.js';
-import * as MobileThrottling from './mobile_throttling.js';
 import {dispatchClickEvent} from '../../../test/unittests/front_end/helpers/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
+import * as SDK from '../../core/sdk/sdk.js';
+
+import * as MobileThrottling from './mobile_throttling.js';
 
 const {assert} = chai;
 
 describeWithEnvironment('ThrottlingManager', () => {
+  beforeEach(() => {
+    MobileThrottling.ThrottlingManager.ThrottlingManager.instance({forceNew: true});
+  });
   describe('OfflineToolbarCheckbox', () => {
     it('has initial checked state which depends on throttling setting', () => {
       const throttlingManager = MobileThrottling.ThrottlingManager.throttlingManager();
