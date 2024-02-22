@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7a6147b_276b6c8a",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-22T22:52:23Z",
+      "side": 1,
+      "message": "Oh we get a fresh opportunity to name things! \\o/ Let\u0027s apply a bit of https://github.com/GoogleChrome/lighthouse/blob/main/docs/new-audits.md#naming\n\nI could see us calling this one `RenderBlocking`. And it\u0027s the oracle for all things render-blocking. Yes, requests are probably the main/only thing, but... maybe we can have insights be broader/topical than we\u0027ve previously framed it.\n\n(Handlers are similarly topical).",
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96ef6f97_30f3c25f",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 18
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "In my head `data` and `insights` represent two different things, but I can see how \"data\" would be the output of the trace processor and insights are an output.\n\nMaybe we could rename `data` to something like `models` but I would prefer that in a follow-up for sure",
       "parentUuid": "96ef6f97_30f3c25f",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 10
+      },
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1040d4ac_b828ceb0",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-22T22:52:23Z",
+      "side": 1,
+      "message": "This obj is equivalent to `traceParsedData`. This name gets used all over.\n\nMight as well rename this getter to that.  it only lives for a very short period as `data`.  I can see it happening in this CL. :)",
+      "parentUuid": "94c7193b_45a1783b",
       "range": {
         "startLine": 178,
         "startChar": 6,
@@ -108,6 +149,23 @@
         "endLine": 214,
         "endChar": 41
       },
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746f70e7_ad28f6fb",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-22T22:52:23Z",
+      "side": 1,
+      "message": "these .data() calls to handlers make a fresh copy of the data. (That\u0027s a separate problem).. \n\nBut regardless..  WDYT about receiving traceParsedData/data as a param of generateInsight and pulling off that?\n\nextending that thought a bit.. maybe your .some() check in Processor should check what\u0027s on traceParsedData instead of what handlers are registered.",
       "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
