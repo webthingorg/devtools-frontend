@@ -33,6 +33,24 @@
       "message": "LGTM, why enable only a subset though?",
       "revId": "5b7813c368e4b0dc5ab4dcaa8f77e7aa83564e92",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b6099e7_699fc4f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-22T13:16:06Z",
+      "side": 1,
+      "message": "Play it safe? 😎",
+      "parentUuid": "52fb6cb2_19d8bfc1",
+      "revId": "5b7813c368e4b0dc5ab4dcaa8f77e7aa83564e92",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
