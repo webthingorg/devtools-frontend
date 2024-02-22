@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import {
-  assertElement,
   assertShadowRoot,
   getCleanTextContentFromElements,
   getElementWithinComponent,
@@ -44,10 +43,8 @@ describeWithLocale('SharedStorageMetadataView', () => {
     const component = await makeView('https://example.com/');
 
     const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
-    assertShadowRoot(report.shadowRoot);
-
-    const titleElement = report.shadowRoot.querySelector('.report-title');
-    assert.strictEqual(titleElement?.textContent, 'https://example.com');
+    const {textContent} = report.shadowRoot!.querySelector('.report-title')!;
+    assert.strictEqual(textContent, 'https://example.com');
 
     assertShadowRoot(component.shadowRoot);
 
@@ -66,10 +63,8 @@ describeWithLocale('SharedStorageMetadataView', () => {
     const component = await makeView('https://example.com/^0https://test.example');
 
     const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
-    assertShadowRoot(report.shadowRoot);
-
-    const titleElement = report.shadowRoot.querySelector('.report-title');
-    assert.strictEqual(titleElement?.textContent, 'https://example.com');
+    const {textContent} = report.shadowRoot!.querySelector('.report-title')!;
+    assert.strictEqual(textContent, 'https://example.com');
 
     assertShadowRoot(component.shadowRoot);
 
@@ -86,10 +81,8 @@ describeWithLocale('SharedStorageMetadataView', () => {
     const component = await makeView('https://example.com/^43735928559^5110521^6');
 
     const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
-    assertShadowRoot(report.shadowRoot);
-
-    const titleElement = report.shadowRoot.querySelector('.report-title');
-    assert.strictEqual(titleElement?.textContent, 'https://example.com');
+    const {textContent} = report.shadowRoot!.querySelector('.report-title')!;
+    assert.strictEqual(textContent, 'https://example.com');
 
     assertShadowRoot(component.shadowRoot);
 
@@ -109,10 +102,8 @@ describeWithLocale('SharedStorageMetadataView', () => {
     const component = await makeView('https://example.com/^13735928559^2110521');
 
     const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
-    assertShadowRoot(report.shadowRoot);
-
-    const titleElement = report.shadowRoot.querySelector('.report-title');
-    assert.strictEqual(titleElement?.textContent, 'https://example.com');
+    const {textContent} = report.shadowRoot!.querySelector('.report-title')!;
+    assert.strictEqual(textContent, 'https://example.com');
 
     assertShadowRoot(component.shadowRoot);
 
@@ -127,10 +118,8 @@ describeWithLocale('SharedStorageMetadataView', () => {
     const component = await makeView('https://example.com/^31');
 
     const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
-    assertShadowRoot(report.shadowRoot);
-
-    const titleElement = report.shadowRoot.querySelector('.report-title');
-    assert.strictEqual(titleElement?.textContent, 'https://example.com');
+    const {textContent} = report.shadowRoot!.querySelector('.report-title')!;
+    assert.strictEqual(textContent, 'https://example.com');
 
     assertShadowRoot(component.shadowRoot);
 
@@ -152,10 +141,8 @@ describeWithLocale('SharedStorageMetadataView', () => {
     });
 
     const report = getElementWithinComponent(component, 'devtools-report', ReportView.ReportView.Report);
-    assertShadowRoot(report.shadowRoot);
-
-    const titleElement = report.shadowRoot.querySelector('.report-title');
-    assert.strictEqual(titleElement?.textContent, 'https://example.com');
+    const {textContent} = report.shadowRoot!.querySelector('.report-title')!;
+    assert.strictEqual(textContent, 'https://example.com');
 
     assertShadowRoot(component.shadowRoot);
 
@@ -201,15 +188,12 @@ describeWithLocale('SharedStorageMetadataView', () => {
         },
         storageBucketsModel as unknown as SDK.StorageBucketsModel.StorageBucketsModel);
 
-    assertShadowRoot(component.shadowRoot);
-
-    const buttons = component.shadowRoot.querySelectorAll('devtools-button');
+    const buttons = component.shadowRoot!.querySelectorAll('devtools-button');
 
     assert.strictEqual(buttons.length, 1);
-    assertElement(buttons[0], HTMLElement);
 
-    const deleteButton = buttons[0];
-    assert.strictEqual(deleteButton.textContent?.trim(), 'Delete bucket');
+    const [deleteButton] = buttons;
+    assert.strictEqual(deleteButton.textContent!.trim(), 'Delete bucket');
 
     const showDialog = sinon.stub(UI.UIUtils.ConfirmDialog, 'show').resolves(true);
     deleteButton.click();
