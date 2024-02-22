@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a473400d_dd613da5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-22T11:50:09Z",
+      "side": 1,
+      "message": "this is awesome, lgtm with small thoughts!",
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ef6f97_30f3c25f",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-22T11:50:09Z",
+      "side": 1,
+      "message": "since the processor now exports more data besides the handlers\u0027 output it\u0027s worth updating this name to be specific about what it returns (can be a follow up)",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 10
+      },
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6301414_6b006090",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-22T11:50:09Z",
+      "side": 1,
+      "message": "do we want to be explicit about the props of the insight runners or just rely on TS to figure that out? I guess that as with handlers we can\u0027t enforce a type directly because they are modules so I don\u0027t feel strong about it",
+      "range": {
+        "startLine": 214,
+        "startChar": 34,
+        "endLine": 214,
+        "endChar": 41
+      },
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
