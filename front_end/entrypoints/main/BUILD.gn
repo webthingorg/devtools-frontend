@@ -29,6 +29,7 @@ devtools_module("main") {
     "../../models/logs:bundle",
     "../../models/persistence:bundle",
     "../../models/workspace:bundle",
+    "../../panels/network:bundle",
     "../../panels/snippets:bundle",
     "../../panels/timeline:bundle",
     "../../ui/components/icon_button:bundle",
