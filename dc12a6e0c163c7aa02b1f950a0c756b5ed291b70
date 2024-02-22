@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c17e18_e498b052",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-22T23:24:49Z",
+      "side": 1,
+      "message": "lgtm!  love this so much.",
+      "revId": "dc12a6e0c163c7aa02b1f950a0c756b5ed291b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3bfb901_e2c5929f",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-22T23:24:49Z",
+      "side": 1,
+      "message": "that\u0027s some unexpected indentation..",
+      "revId": "dc12a6e0c163c7aa02b1f950a0c756b5ed291b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d3ee7e_35e9fcbd",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-22T23:24:49Z",
+      "side": 1,
+      "message": "and here.",
+      "revId": "dc12a6e0c163c7aa02b1f950a0c756b5ed291b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
