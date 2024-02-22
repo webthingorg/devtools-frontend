@@ -305,6 +305,7 @@ export interface SyntheticNetworkRequest extends TraceEventComplete {
       encodedDataLength: number,
       frame: string,
       fromServiceWorker: boolean,
+      isLinkPreload: boolean,
       host: string,
       mimeType: string,
       pathname: string,
@@ -317,8 +318,12 @@ export interface SyntheticNetworkRequest extends TraceEventComplete {
       requestId: string,
       requestingFrameUrl: string,
       statusCode: number,
+      resourceType: Protocol.Network.ResourceType,
+      responseHeaders: Array<{name: string, value: string}>,
+      fetchPriorityHint: FetchPriorityHint,
       url: string,
       // Optional fields
+      initiator?: Initiator,
       requestMethod?: string,
       timing?: TraceEventResourceReceiveResponseTimingData,
     },
@@ -765,7 +770,17 @@ export interface SyntheticLayoutShift extends TraceEventLayoutShift {
 }
 
 export type Priority = 'Low'|'High'|'Medium'|'VeryHigh'|'Highest';
+export type FetchPriorityHint = 'low'|'high'|'auto';
 export type RenderBlocking = 'blocking'|'non_blocking'|'in_body_parser_blocking'|'potentially_blocking';
+
+export interface Initiator {
+  type: Protocol.Network.InitiatorType;
+  fetchType: string;
+  columnNumber?: number;
+  lineNumber?: number;
+  url?: string;
+}
+
 export interface TraceEventResourceSendRequest extends TraceEventInstant {
   name: 'ResourceSendRequest';
   args: TraceEventArgs&{
@@ -777,6 +792,9 @@ export interface TraceEventResourceSendRequest extends TraceEventInstant {
       // TODO(crbug.com/1457985): change requestMethod to enum when confirm in the backend code.
       requestMethod?: string,
       renderBlocking?: RenderBlocking,
+                    resourceType: Protocol.Network.ResourceType,
+                    fetchPriorityHint: FetchPriorityHint,
+      initiator?: Initiator,
     },
   };
 }
@@ -851,11 +869,13 @@ export interface TraceEventResourceReceiveResponse extends TraceEventInstant {
       frame: string,
       fromCache: boolean,
       fromServiceWorker: boolean,
-      mimeType: string,
-      requestId: string,
-      responseTime: MilliSeconds,
-      statusCode: number,
-      timing: TraceEventResourceReceiveResponseTimingData,
+      isLinkPreload?: boolean,
+                   mimeType: string,
+                   requestId: string,
+                   responseTime: MilliSeconds,
+                   statusCode: number,
+                   timing: TraceEventResourceReceiveResponseTimingData,
+      headers?: Array<{name: string, value: string}>,
     },
   };
 }
