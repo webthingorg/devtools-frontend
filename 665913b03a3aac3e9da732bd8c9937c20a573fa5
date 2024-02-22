@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df1d623_146f54ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T08:37:16Z",
+      "side": 1,
+      "message": "LGTM with a nit suggestion :)",
+      "revId": "665913b03a3aac3e9da732bd8c9937c20a573fa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e739512a_3e1106ff",
+        "filename": "front_end/ui/legacy/ContextMenu.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-22T08:37:16Z",
+      "side": 1,
+      "message": "(nit): While we\u0027re doing this, can we put `checked` into the options object as well to not have a boolean parameter without a name? Otherwise, it\u0027s hard to understand the meaning of the last boolean parameter without going to the function definition. (like `appendCheckboxItem(label, handler, true)` doesn\u0027t mean anything regarding the `true` argument by its own)",
+      "revId": "665913b03a3aac3e9da732bd8c9937c20a573fa5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
