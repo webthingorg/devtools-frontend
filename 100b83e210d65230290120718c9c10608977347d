@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9916ab3b_a5fddcc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T14:54:23Z",
+      "side": 1,
+      "message": "awesome! lgtm 😊",
+      "revId": "100b83e210d65230290120718c9c10608977347d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e35bd194_7ff29240",
+        "filename": "front_end/models/trace/extras/FetchNodes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T14:54:23Z",
+      "side": 1,
+      "message": "Out of curiosity, why is the cache for arrays of ids and not individual ids? could we not get more success in getting cashed ids if it was per node?",
+      "range": {
+        "startLine": 85,
+        "startChar": 37,
+        "endLine": 85,
+        "endChar": 68
+      },
+      "revId": "100b83e210d65230290120718c9c10608977347d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
