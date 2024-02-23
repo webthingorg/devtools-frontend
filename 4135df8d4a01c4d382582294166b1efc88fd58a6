@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3684ed5a_dc106da2",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-23T00:12:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7a6147b_276b6c8a",
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96ef6f97_30f3c25f",
@@ -96,6 +114,30 @@
       "side": 1,
       "message": "This obj is equivalent to `traceParsedData`. This name gets used all over.\n\nMight as well rename this getter to that.  it only lives for a very short period as `data`.  I can see it happening in this CL. :)",
       "parentUuid": "94c7193b_45a1783b",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 10
+      },
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b0f700e_c3ab73c2",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-23T00:12:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1040d4ac_b828ceb0",
       "range": {
         "startLine": 178,
         "startChar": 6,
