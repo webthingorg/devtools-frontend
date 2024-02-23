@@ -231,6 +231,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "461b5db8_9e229387",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-23T11:32:59Z",
+      "side": 1,
+      "message": "I find \"progress\" a bit confusing for time based animations now 😅\n\nI think the change of reporting different value types while keeping the same name is in line with the DOM API `animation.startTime` where it\u0027s now reporting either a number (as millisecond) or percentage (as percentage of progress based timeline); so I\u0027d prefer not to dwell on this name too much. A better way would be to really reflect this in types and I\u0027m going to give it a try in a separate CL. WDYT?",
+      "parentUuid": "2c6ecdf1_bb5b8272",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3a607ec_31ea9ed3",
         "filename": "front_end/panels/animation/AnimationModel.ts",
         "patchSetId": 20
