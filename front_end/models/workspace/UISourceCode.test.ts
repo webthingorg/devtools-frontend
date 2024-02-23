@@ -28,11 +28,11 @@ describe('UISourceCode', () => {
 
   it('can return canononical script ID', async () => {
     const sutObject = setupMockedUISourceCode('https://example.com/');
-    sutObject.contentTypeStub.name.returns('nameExample');
+    sutObject.contentTypeStub.name.returns('name-example');
 
     const result = sutObject.sut.canononicalScriptId();
 
-    assert.strictEqual(result, 'nameExample,https://example.com/');
+    assert.strictEqual(result, 'name-example,https://example.com/');
   });
 
   it('can return parent URL', async () => {

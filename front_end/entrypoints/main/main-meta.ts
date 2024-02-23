@@ -659,7 +659,7 @@ Common.Settings.registerSettingExtension({
 
 Common.Settings.registerSettingExtension({
   category: Common.Settings.SettingCategory.GLOBAL,
-  settingName: 'currentDockState',
+  settingName: 'currentDockState' as Lowercase<string>,
   settingType: Common.Settings.SettingType.ENUM,
   defaultValue: 'right',
   options: [

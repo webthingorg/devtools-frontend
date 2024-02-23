@@ -49,11 +49,11 @@ export class Item {
   customElement?: Element;
   private shortcut?: string;
   #tooltip: Common.UIString.LocalizedString|undefined;
-  protected jslogContext: string|undefined;
+  protected jslogContext: Lowercase<string>|undefined;
 
   constructor(
       contextMenu: ContextMenu|null, type: 'checkbox'|'item'|'separator'|'subMenu', label?: string, disabled?: boolean,
-      checked?: boolean, tooltip?: Platform.UIString.LocalizedString, jslogContext?: string) {
+      checked?: boolean, tooltip?: Platform.UIString.LocalizedString, jslogContext?: Lowercase<string>) {
     this.typeInternal = type;
     this.label = label;
     this.disabled = disabled;
@@ -154,7 +154,7 @@ export class Section {
     disabled?: boolean,
     additionalElement?: Element,
     tooltip?: Platform.UIString.LocalizedString,
-    jslogContext?: string,
+    jslogContext?: Lowercase<string>,
   }): Item {
     const item = new Item(
         this.contextMenu, 'item', label, options?.disabled, undefined, options?.tooltip, options?.jslogContext);
@@ -168,7 +168,7 @@ export class Section {
     return item;
   }
 
-  appendCustomItem(element: Element, jslogContext?: string): Item {
+  appendCustomItem(element: Element, jslogContext?: Lowercase<string>): Item {
     const item = new Item(this.contextMenu, 'item', undefined, undefined, undefined, undefined, jslogContext);
     item.customElement = element;
     this.items.push(item);
@@ -181,7 +181,7 @@ export class Section {
     return item;
   }
 
-  appendAction(actionId: string, label?: string, optional?: boolean): void {
+  appendAction(actionId: Lowercase<string>, label?: string, optional?: boolean): void {
     if (optional && !ActionRegistry.instance().hasAction(actionId)) {
       return;
     }
@@ -199,7 +199,7 @@ export class Section {
     }
   }
 
-  appendSubMenuItem(label: string, disabled?: boolean, jslogContext?: string): SubMenu {
+  appendSubMenuItem(label: string, disabled?: boolean, jslogContext?: Lowercase<string>): SubMenu {
     const item = new SubMenu(this.contextMenu, label, disabled, jslogContext);
     item.init();
     this.items.push(item);
@@ -211,7 +211,7 @@ export class Section {
     disabled?: boolean,
     additionalElement?: Element,
     tooltip?: Platform.UIString.LocalizedString,
-    jslogContext?: string,
+    jslogContext?: Lowercase<string>,
   }): Item {
     const item = new Item(
         this.contextMenu, 'checkbox', label, options?.disabled, options?.checked, options?.tooltip,
@@ -231,7 +231,7 @@ export class SubMenu extends Item {
   private readonly sections: Map<string, Section>;
   private readonly sectionList: Section[];
 
-  constructor(contextMenu: ContextMenu|null, label?: string, disabled?: boolean, jslogContext?: string) {
+  constructor(contextMenu: ContextMenu|null, label?: string, disabled?: boolean, jslogContext?: Lowercase<string>) {
     super(contextMenu, 'subMenu', label, disabled, undefined, undefined, jslogContext);
     this.sections = new Map();
     this.sectionList = [];
@@ -373,7 +373,7 @@ export interface ContextMenuOptions {
   onSoftMenuClosed?: () => void;
   x?: number;
   y?: number;
-  jsLogContext?: string;
+  jsLogContext?: Lowercase<string>;
 }
 
 export class ContextMenu extends SubMenu {
@@ -385,7 +385,7 @@ export class ContextMenu extends SubMenu {
   private x: number;
   private y: number;
   private onSoftMenuClosed?: () => void;
-  private jsLogContext?: string;
+  private jsLogContext?: Lowercase<string>;
   private readonly handlers: Map<number, () => void>;
   override idInternal: number;
   private softMenu?: SoftContextMenu;
@@ -713,7 +713,7 @@ export interface ProviderRegistration<T> {
 
 export interface ContextMenuItemRegistration {
   location: ItemLocation;
-  actionId: string;
+  actionId: Lowercase<string>;
   order?: number;
   experiment?: Root.Runtime.ExperimentName;
 }

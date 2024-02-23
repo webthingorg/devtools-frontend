@@ -247,7 +247,7 @@ export class MetricsSidebarPane extends ElementsSidebarPane {
     // Position types for which top, left, bottom and right are ignored.
     const noPositionType = new Set<string>(['static']);
 
-    const boxes = ['content', 'padding', 'border', 'margin', 'position'];
+    const boxes = ['content', 'padding', 'border', 'margin', 'position'] as Lowercase<string>[];
     const boxColors = [
       Common.Color.PageHighlight.Content,
       Common.Color.PageHighlight.Padding,

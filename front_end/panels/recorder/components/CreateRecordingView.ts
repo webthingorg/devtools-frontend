@@ -328,7 +328,7 @@ export class CreateRecordingView extends HTMLElement {
                     <input
                       @keydown=${this.#onKeyDown}
                       .value=${selectorType}
-                      jslog=${VisualLogging.toggle().track({click: true}).context(`selector-${selectorType}`)}
+                      jslog=${VisualLogging.toggle().track({click: true}).context(`selector-${selectorType}` as Lowercase<string>)}
                       checked=${LitHtml.Directives.ifDefined(
                         checked ? checked : undefined,
                       )}
@@ -355,7 +355,7 @@ export class CreateRecordingView extends HTMLElement {
               @click=${this.startRecording}
               .label=${i18nString(UIStrings.startRecording)}
               .shape=${'circle'}
-              jslog=${VisualLogging.action(Actions.RecorderActions.StartRecording).track({click: true})}
+              jslog=${VisualLogging.action(Actions.RecorderActions.StartRecording as Lowercase<string>).track({click: true})}
               title=${Models.Tooltip.getTooltipForActions(
                 i18nString(UIStrings.startRecording),
                 Actions.RecorderActions.StartRecording,

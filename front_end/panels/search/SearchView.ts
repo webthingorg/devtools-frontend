@@ -115,7 +115,7 @@ export class SearchView extends UI.Widget.VBox {
   #throttler: Common.Throttler.Throttler;
   #pendingSearchResults: SearchResult[] = [];
 
-  constructor(settingKey: string, throttler: Common.Throttler.Throttler) {
+  constructor(settingKey: Lowercase<string>, throttler: Common.Throttler.Throttler) {
     super(true);
     this.setMinimumSize(0, 40);
 
@@ -185,14 +185,16 @@ export class SearchView extends UI.Widget.VBox {
     this.searchResultsMessageElement = searchStatusBarElement.createChild('div', 'search-message');
 
     this.advancedSearchConfig = Common.Settings.Settings.instance().createLocalSetting(
-        settingKey + '-search-config', new Workspace.SearchConfig.SearchConfig('', true, false).toPlainObject());
+        settingKey + '-search-config' as Lowercase<string>,
+        new Workspace.SearchConfig.SearchConfig('', true, false).toPlainObject());
 
     this.load();
     this.searchScope = null;
   }
 
-  private static appendToolbarToggle(toolbar: UI.Toolbar.Toolbar, text: string, tooltip: string, jslogContext: string):
-      UI.Toolbar.ToolbarToggle {
+  private static appendToolbarToggle(
+      toolbar: UI.Toolbar.Toolbar, text: string, tooltip: string,
+      jslogContext: Lowercase<string>): UI.Toolbar.ToolbarToggle {
     const toggle = new UI.Toolbar.ToolbarToggle(tooltip, undefined, undefined, jslogContext);
     toggle.setText(text);
     toggle.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => toggle.setToggled(!toggle.toggled()));

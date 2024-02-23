@@ -479,7 +479,7 @@ export interface CategoryData {
   checked?: boolean;
   additionalContent?: LitHtml.LitTemplate;
   forceOpen?: boolean;
-  loggingContext: string;
+  loggingContext: Lowercase<string>;
 }
 
 export class Category extends HTMLElement {
@@ -491,7 +491,7 @@ export class Category extends HTMLElement {
   #checked: boolean|undefined = undefined;
   #additionalContent: LitHtml.LitTemplate|undefined = undefined;
   #forceOpen: boolean|undefined = undefined;
-  #loggingContext = '';
+  #loggingContext: Lowercase<string> = '';
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [requestHeadersViewStyles, Input.checkboxStyles];
@@ -499,8 +499,8 @@ export class Category extends HTMLElement {
 
   set data(data: CategoryData) {
     this.#title = data.title;
-    this.#expandedSetting =
-        Common.Settings.Settings.instance().createSetting('request-info-' + data.name + '-category-expanded', true);
+    this.#expandedSetting = Common.Settings.Settings.instance().createSetting(
+        'request-info-' + data.name + '-category-expanded' as Lowercase<string>, true);
     this.#headerCount = data.headerCount;
     this.#checked = data.checked;
     this.#additionalContent = data.additionalContent;

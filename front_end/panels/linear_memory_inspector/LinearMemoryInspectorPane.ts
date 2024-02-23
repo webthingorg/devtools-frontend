@@ -55,7 +55,7 @@ export class LinearMemoryInspectorPane extends Common.ObjectWrapper.eventMixin<E
     return view as LinearMemoryInspectorView;
   }
 
-  create(tabId: string, title: string, arrayWrapper: LazyUint8Array, address?: number): void {
+  create(tabId: Lowercase<string>, title: string, arrayWrapper: LazyUint8Array, address?: number): void {
     const inspectorView = new LinearMemoryInspectorView(arrayWrapper, address, tabId);
     this.#tabbedPane.appendTab(tabId, title, inspectorView, undefined, false, true);
     this.#tabbedPane.selectTab(tabId);

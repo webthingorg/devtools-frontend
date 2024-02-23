@@ -866,7 +866,7 @@ export class JSONEditor extends LitElement {
     iconName: string,
     classMap: {[name: string]: string|boolean|number},
     onClick: (event: MouseEvent) => void,
-    jslogContext: string,
+    jslogContext: Lowercase<string>,
   }): LitHtml.TemplateResult|undefined {
     return html`
           <devtools-button

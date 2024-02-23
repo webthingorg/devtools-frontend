@@ -74,7 +74,7 @@ export class PreRegisteredView implements View {
     return this.viewRegistration.persistence === ViewPersistence.TRANSIENT;
   }
 
-  viewId(): string {
+  viewId(): Lowercase<string> {
     return this.viewRegistration.id;
   }
 
@@ -329,7 +329,7 @@ export class ViewManager {
   }
 
   createTabbedLocation(
-      revealCallback?: (() => void), location?: string, restoreSelection?: boolean, allowReorder?: boolean,
+      revealCallback?: (() => void), location?: Lowercase<string>, restoreSelection?: boolean, allowReorder?: boolean,
       defaultTab?: string|null): TabbedViewLocation {
     return new TabbedLocation(this, revealCallback, location, restoreSelection, allowReorder, defaultTab);
   }
@@ -584,7 +584,7 @@ class TabbedLocation extends Location implements TabbedViewLocation {
   private readonly views: Map<string, View>;
 
   constructor(
-      manager: ViewManager, revealCallback?: (() => void), location?: string, restoreSelection?: boolean,
+      manager: ViewManager, revealCallback?: (() => void), location?: Lowercase<string>, restoreSelection?: boolean,
       allowReorder?: boolean, defaultTab?: string|null) {
     const tabbedPane = new TabbedPane();
     if (allowReorder) {
@@ -603,10 +603,12 @@ class TabbedLocation extends Location implements TabbedViewLocation {
     // until the user decide to close them
     this.setOrUpdateCloseableTabsSetting();
 
-    this.tabOrderSetting = Common.Settings.Settings.instance().createSetting(location + '-tab-order', {});
+    this.tabOrderSetting =
+        Common.Settings.Settings.instance().createSetting(location + '-tab-order' as Lowercase<string>, {});
     this.tabbedPaneInternal.addEventListener(TabbedPaneEvents.TabOrderChanged, this.persistTabOrder, this);
     if (restoreSelection) {
-      this.lastSelectedTabSetting = Common.Settings.Settings.instance().createSetting(location + '-selected-tab', '');
+      this.lastSelectedTabSetting =
+          Common.Settings.Settings.instance().createSetting(location + '-selected-tab' as Lowercase<string>, '');
     }
     this.defaultTab = defaultTab;
 

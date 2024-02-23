@@ -258,7 +258,7 @@ export class SuggestionInput extends LitElement {
   @property({type: Boolean}) declare disabled: boolean;
   @property() declare strikethrough: boolean;
   @property() declare mimeType: string;
-  @property() declare jslogContext?: string;
+  @property() declare jslogContext?: Lowercase<string>;
 
   constructor() {
     super();

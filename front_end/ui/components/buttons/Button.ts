@@ -43,7 +43,7 @@ interface ButtonState {
   value?: string;
   title?: string;
   iconName?: string;
-  jslogContext?: string;
+  jslogContext?: Lowercase<string>;
 }
 
 interface CommonButtonData {
@@ -57,7 +57,7 @@ interface CommonButtonData {
   type?: ButtonType;
   value?: string;
   title?: string;
-  jslogContext?: string;
+  jslogContext?: Lowercase<string>;
 }
 
 export type ButtonData = CommonButtonData&(|{
@@ -172,7 +172,7 @@ export class Button extends HTMLElement {
     return this.#props.jslogContext;
   }
 
-  set jslogContext(jslogContext: string|undefined) {
+  set jslogContext(jslogContext: Lowercase<string>|undefined) {
     this.#props.jslogContext = jslogContext;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }

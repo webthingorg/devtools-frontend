@@ -123,7 +123,7 @@ export class SearchableView extends VBox {
   private currentQuery?: string;
   private valueChangedTimeoutId?: number;
 
-  constructor(searchable: Searchable, replaceable: Replaceable|null, settingName?: string) {
+  constructor(searchable: Searchable, replaceable: Replaceable|null, settingName?: Lowercase<string>) {
     super(true);
     this.registerRequiredCSS(searchableViewStyles);
     searchableViewsByElement.set(this.element, this);

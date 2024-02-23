@@ -52,7 +52,7 @@ export class ThrottlingPresets {
       description: i18nString(UIStrings.noThrottling),
       network: SDK.NetworkManager.NoThrottlingConditions,
       cpuThrottlingRate: SDK.CPUThrottlingManager.CPUThrottlingRates.NoThrottling,
-      jslogContext: 'No throttling',
+      jslogContext: 'no-throttling',
     };
   }
 
@@ -75,7 +75,7 @@ export class ThrottlingPresets {
       description: i18nString(UIStrings.slowGXCpuSlowdown),
       network: SDK.NetworkManager.Slow3GConditions,
       cpuThrottlingRate: SDK.CPUThrottlingManager.CPUThrottlingRates.LowEndMobile,
-      jslogContext: 'lowEndMobile',
+      jslogContext: 'low-end-mobile',
     };
   }
 
@@ -85,7 +85,7 @@ export class ThrottlingPresets {
       description: i18nString(UIStrings.fastGXCpuSlowdown),
       network: SDK.NetworkManager.Fast3GConditions,
       cpuThrottlingRate: SDK.CPUThrottlingManager.CPUThrottlingRates.MidTierMobile,
-      jslogContext: 'midTierMobile',
+      jslogContext: 'mid-tier-mobile',
     };
   }
 
@@ -134,7 +134,7 @@ export interface Conditions {
   description: string;
   network: SDK.NetworkManager.Conditions;
   cpuThrottlingRate: number;
-  jslogContext?: string;
+  jslogContext?: Lowercase<string>;
 }
 
 export interface NetworkThrottlingConditionsGroup {
@@ -152,5 +152,5 @@ export type ConditionsList = (Conditions|PlaceholderConditions|null)[];
 export interface PlaceholderConditions {
   title: string;
   description: string;
-  jslogContext?: string;
+  jslogContext?: Lowercase<string>;
 }

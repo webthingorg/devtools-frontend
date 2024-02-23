@@ -420,7 +420,7 @@ export class DeviceModeToolbar {
     for (const title of ['Continuous', 'Folded']) {
       contextMenu.defaultSection().appendCheckboxItem(
           title, this.spanClicked.bind(this),
-          {checked: title === this.currentDevicePosture(), jslogContext: title.toLowerCase()});
+          {checked: title === this.currentDevicePosture(), jslogContext: title.toLowerCase() as Lowercase<string>});
     }
   }
 
@@ -451,7 +451,7 @@ export class DeviceModeToolbar {
     boundAppendScaleItem('150%', 1.5);
     boundAppendScaleItem('200%', 2);
 
-    function appendScaleItem(this: DeviceModeToolbar, title: string, value: number): void {
+    function appendScaleItem(this: DeviceModeToolbar, title: Lowercase<string>, value: number): void {
       contextMenu.defaultSection().appendCheckboxItem(
           title, this.onScaleMenuChanged.bind(this, value),
           {checked: this.model.scaleSetting().get() === value, jslogContext: title});
@@ -473,13 +473,13 @@ export class DeviceModeToolbar {
         EmulationModel.DeviceModeModel.defaultMobileScaleFactor :
         window.devicePixelRatio;
     appendDeviceScaleFactorItem(
-        contextMenu.headerSection(), i18nString(UIStrings.defaultF, {PH1: defaultValue}), 0, 'DPR: default');
-    appendDeviceScaleFactorItem(contextMenu.defaultSection(), '1', 1, 'DPR: 1');
-    appendDeviceScaleFactorItem(contextMenu.defaultSection(), '2', 2, 'DPR: 2');
-    appendDeviceScaleFactorItem(contextMenu.defaultSection(), '3', 3, 'DPR: 3');
+        contextMenu.headerSection(), i18nString(UIStrings.defaultF, {PH1: defaultValue}), 0, 'dpr-default');
+    appendDeviceScaleFactorItem(contextMenu.defaultSection(), '1', 1, 'dpr-1');
+    appendDeviceScaleFactorItem(contextMenu.defaultSection(), '2', 2, 'dpr-2');
+    appendDeviceScaleFactorItem(contextMenu.defaultSection(), '3', 3, 'dpr-3');
 
     function appendDeviceScaleFactorItem(
-        section: UI.ContextMenu.Section, title: string, value: number, jslogContext: string): void {
+        section: UI.ContextMenu.Section, title: string, value: number, jslogContext: Lowercase<string>): void {
       section.appendCheckboxItem(
           title, deviceScaleFactorSetting.set.bind(deviceScaleFactorSetting, value),
           {checked: deviceScaleFactorSetting.get() === value, jslogContext});
@@ -495,7 +495,8 @@ export class DeviceModeToolbar {
 
     function appendUAItem(title: string, value: EmulationModel.DeviceModeModel.UA): void {
       contextMenu.defaultSection().appendCheckboxItem(
-          title, uaSetting.set.bind(uaSetting, value), {checked: uaSetting.get() === value, jslogContext: value});
+          title, uaSetting.set.bind(uaSetting, value),
+          {checked: uaSetting.get() === value, jslogContext: Platform.StringUtilities.toKebabCase(value)});
     }
   }
 
@@ -534,7 +535,7 @@ export class DeviceModeToolbar {
       }
 
       const isEnabled = setting.get();
-      const jslogContext = `${context}-${isEnabled ? 'disable' : 'enable'}`;
+      const jslogContext = `${context}-${isEnabled ? 'disable' : 'enable'}` as Lowercase<string>;
       section.appendItem(
           isEnabled ? title1 : title2, setting.set.bind(setting, !setting.get()), {disabled, jslogContext});
     }

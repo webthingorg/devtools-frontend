@@ -36,7 +36,7 @@ import popoverStyles from './popover.css.legacy.js';
 const CONTENT_ELEMENT_TO_POPOVER_HELPER = new WeakMap<Element, PopoverHelper>();
 
 export class PopoverHelper {
-  static createPopover = (jslogContext?: string): GlassPane => {
+  static createPopover = (jslogContext?: Lowercase<string>): GlassPane => {
     const popover = new GlassPane(`${VisualLogging.popover(jslogContext).parent('popoverParent')}`);
     popover.registerRequiredCSS(popoverStyles);
     popover.setSizeBehavior(SizeBehavior.MeasureContent);
@@ -56,8 +56,9 @@ export class PopoverHelper {
   private readonly boundMouseDown: (event: Event) => void;
   private readonly boundMouseMove: (ev: Event) => void;
   private readonly boundMouseOut: (event: Event) => void;
-  readonly #jslogContext: string;
-  constructor(container: Element, getRequest: (arg0: MouseEvent) => PopoverRequest | null, jslogContext: string) {
+  readonly #jslogContext: Lowercase<string>;
+  constructor(
+      container: Element, getRequest: (arg0: MouseEvent) => PopoverRequest | null, jslogContext: Lowercase<string>) {
     this.disableOnClick = false;
     this.hasPadding = false;
     this.getRequest = getRequest;

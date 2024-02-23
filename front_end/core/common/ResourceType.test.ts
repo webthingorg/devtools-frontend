@@ -29,8 +29,8 @@ describe('ResourceCategory class', () => {
 describeWithEnvironment('ResourceType class', () => {
   it('is able to be instantiated successfully', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
-    assert.strictEqual(resourceType.name(), 'Type Test Name', 'name was not set correctly');
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
+    assert.strictEqual(resourceType.name(), 'type-test-name', 'name was not set correctly');
     assert.strictEqual(resourceType.title(), 'Type Test Title', 'title was not set correctly');
     assert.strictEqual(resourceType.category().title(), 'Category Test Title', 'category title was not set correctly');
     assert.strictEqual(
@@ -237,13 +237,13 @@ describeWithEnvironment('ResourceType class', () => {
 
   it('is able to return its title successfully', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.strictEqual(resourceType.title(), 'Type Test Title', 'title was not returned correctly');
   });
 
   it('is able to return its isTextType value successfully', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.isTrue(resourceType.isTextType(), 'isTextType was not returned correctly');
   });
 
@@ -262,7 +262,7 @@ describeWithEnvironment('ResourceType class', () => {
   it('is able to return whether or not its a script if its name is not equal to the values "script" or "sm-script"',
      () => {
        const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-       const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+       const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
        assert.isFalse(resourceType.isScript(), 'the resource should not be considered as a script');
      });
 
@@ -274,7 +274,7 @@ describeWithEnvironment('ResourceType class', () => {
 
   it('is able to return whether or not its a document if its name does not equal the value "document"', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.isFalse(resourceType.isDocument(), 'the resource should not be considered as a document');
   });
 
@@ -292,7 +292,7 @@ describeWithEnvironment('ResourceType class', () => {
 
   it('is able to determine if a resource has scripts if it is not a script or a document', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.isFalse(resourceType.hasScripts(), 'the resource should not be considered as a having scripts');
   });
 
@@ -311,7 +311,7 @@ describeWithEnvironment('ResourceType class', () => {
   it('is able to return whether or not its a stylesheet if its name is not equal to the values "stylesheet" or "sm-stylesheet"',
      () => {
        const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-       const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+       const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
        assert.isFalse(resourceType.isStyleSheet(), 'the resource should not be considered as a stylesheet');
      });
 
@@ -335,7 +335,7 @@ describeWithEnvironment('ResourceType class', () => {
 
   it('is able to return whether it is a document, a script or a stylesheet if it was none of those things', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.isFalse(
         resourceType.isDocumentOrScriptOrStyleSheet(),
         'the resource should be considered as a doucment, a script or a stylesheet');
@@ -343,21 +343,21 @@ describeWithEnvironment('ResourceType class', () => {
 
   it('is able to determine if it is from source map if it began with "sm-"', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('sm-Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('sm-type-test-name', typeTestTitle, testResourceCategory, true);
     assert.isTrue(resourceType.isFromSourceMap(), 'the resource should be considered to be from source map');
   });
 
   it('is able to determine if it is from source map if it did not begin with "sm-"', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.isFalse(resourceType.isFromSourceMap(), 'the resource should not be considered to be from source map');
   });
 
   it('is able to be converted to a string by returning its name', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.strictEqual(
-        resourceType.toString(), 'Type Test Name', 'the resource type was not converted to a string correctly');
+        resourceType.toString(), 'type-test-name', 'the resource type was not converted to a string correctly');
   });
 
   it('is able to return the canonical mime type of a document', () => {
@@ -383,7 +383,7 @@ describeWithEnvironment('ResourceType class', () => {
 
   it('returns an empty string as a canonical mime type if it was not a document, a script or a stylesheet', () => {
     const testResourceCategory = new ResourceCategory(categoryTestTitle, categoryTestShortTitle);
-    const resourceType = new ResourceType('Type Test Name', typeTestTitle, testResourceCategory, true);
+    const resourceType = new ResourceType('type-test-name', typeTestTitle, testResourceCategory, true);
     assert.strictEqual(resourceType.canonicalMimeType(), '', 'the canonical mime type was not returned correctly');
   });
 

@@ -179,7 +179,7 @@ export class LinearMemoryNavigator extends HTMLElement {
     this.dispatchEvent(new AddressInputChangedEvent(addressInput.value, mode));
   }
 
-  #createButton(data: {icon: string, title: string, event: Event, enabled: boolean, jslogContext: string}):
+  #createButton(data: {icon: string, title: string, event: Event, enabled: boolean, jslogContext: Lowercase<string>}):
       LitHtml.TemplateResult {
     return html`
       <button class="navigator-button" ?disabled=${!data.enabled}

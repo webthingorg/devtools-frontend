@@ -189,7 +189,7 @@ export class NavigatorView extends UI.Widget.VBox implements SDK.TargetManager.O
   private groupByAuthored?: boolean;
   private groupByDomain?: boolean;
   private groupByFolder?: boolean;
-  constructor(jslogContext: string, enableAuthoredGrouping?: boolean) {
+  constructor(jslogContext: Lowercase<string>, enableAuthoredGrouping?: boolean) {
     super(true);
 
     this.placeholder = null;
@@ -1328,7 +1328,7 @@ export class NavigatorFolderTreeElement extends UI.TreeOutline.TreeElement {
     this.hoverCallback(false);
   }
 
-  static #contextForType(type: string): string {
+  static #contextForType(type: string): Lowercase<string> {
     switch (type) {
       case Types.Domain:
         return 'domain';

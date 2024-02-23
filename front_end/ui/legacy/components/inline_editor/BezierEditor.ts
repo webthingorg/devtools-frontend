@@ -136,7 +136,11 @@ export class BezierEditor extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     const presetElement = document.createElement('div');
     presetElement.classList.add('bezier-preset-category');
     presetElement.setAttribute(
-        'jslog', `${VisualLogging.bezierPresetCategory().track({click: true}).context(presetGroup[0].name)}`);
+        'jslog',
+        `${
+            VisualLogging.bezierPresetCategory()
+                .track({click: true})
+                .context(presetGroup[0].name as Lowercase<string>)}`);
     const iconElement = UI.UIUtils.createSVGChild(presetElement, 'svg', 'bezier-preset monospace');
     const category = {presets: presetGroup, presetIndex: 0, icon: presetElement};
     this.presetUI.draw(pivot, iconElement);

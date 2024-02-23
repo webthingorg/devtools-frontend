@@ -362,7 +362,7 @@ export class Editor<T> {
   }
 
   createInput(
-      name: string, type: string, title: string,
+      name: Lowercase<string>, type: string, title: string,
       validator: (arg0: T, arg1: number, arg2: EditorControl) => ValidatorResult): HTMLInputElement {
     const input = (createInput('', type) as HTMLInputElement);
     input.placeholder = title;
@@ -376,8 +376,8 @@ export class Editor<T> {
   }
 
   createSelect(
-      name: string, options: string[], validator: (arg0: T, arg1: number, arg2: EditorControl) => ValidatorResult,
-      title?: string): HTMLSelectElement {
+      name: Lowercase<string>, options: string[],
+      validator: (arg0: T, arg1: number, arg2: EditorControl) => ValidatorResult, title?: string): HTMLSelectElement {
     const select = document.createElement('select');
     select.setAttribute('jslog', `${VisualLogging.dropDown().track({change: true}).context(name)}`);
     select.classList.add('chrome-select');

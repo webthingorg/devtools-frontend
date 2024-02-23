@@ -2637,7 +2637,7 @@ export class DropDownTypesUI extends Common.ObjectWrapper.ObjectWrapper<UI.Filte
   }
 
   private addRequestType(contextMenu: UI.ContextMenu.ContextMenu, name: string, label: string): void {
-    const jslogContext = name.toLowerCase().replace(/\s/g, '-');
+    const jslogContext = name.toLowerCase().replace(/\s/g, '-') as Lowercase<string>;
     contextMenu.defaultSection().appendCheckboxItem(label, () => {
       this.setting.get()[name] = !this.setting.get()[name];
       this.toggleTypeFilter(name);

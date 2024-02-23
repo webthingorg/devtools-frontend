@@ -221,7 +221,7 @@ export class ReplayButton extends HTMLElement {
       .action=${Actions.RecorderActions.ReplayRecording}
       .value=${this.#settings?.replayExtension || this.#settings?.speed}
       .groups=${groups}
-      jslog=${VisualLogging.action(Actions.RecorderActions.ReplayRecording).track({click: true})}>
+      jslog=${VisualLogging.action(Actions.RecorderActions.ReplayRecording as Lowercase<string>).track({click: true})}>
     </${SelectButton.litTagName}>`,
       this.#shadow,
       { host: this },

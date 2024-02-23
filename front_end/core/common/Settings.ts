@@ -76,8 +76,8 @@ export class Settings {
       const isRegex = registration.settingType === SettingType.REGEX;
 
       const setting = isRegex && typeof defaultValue === 'string' ?
-          this.createRegExpSetting(settingName, defaultValue, undefined, storageType) :
-          this.createSetting(settingName, defaultValue, storageType);
+          this.createRegExpSetting(settingName as Lowercase<string>, defaultValue, undefined, storageType) :
+          this.createSetting(settingName as Lowercase<string>, defaultValue, storageType);
 
       setting.setTitleFunction(registration.title);
       if (registration.userActionCondition) {
@@ -165,7 +165,11 @@ export class Settings {
     return setting;
   }
 
-  createSetting<T>(key: string, defaultValue: T, storageType?: SettingStorageType): Setting<T> {
+  createLegacySetting<T>(key: string, defaultValue: T, storageType?: SettingStorageType): Setting<T> {
+    return this.createSetting(key as Lowercase<string>, defaultValue, storageType);
+  }
+
+  createSetting<T>(key: Lowercase<string>, defaultValue: T, storageType?: SettingStorageType): Setting<T> {
     const storage = this.storageFromType(storageType);
     let setting = (this.#registry.get(key) as Setting<T>);
     if (!setting) {
@@ -175,12 +179,13 @@ export class Settings {
     return setting;
   }
 
-  createLocalSetting<T>(key: string, defaultValue: T): Setting<T> {
+  createLocalSetting<T>(key: Lowercase<string>, defaultValue: T): Setting<T> {
     return this.createSetting(key, defaultValue, SettingStorageType.Local);
   }
 
-  createRegExpSetting(key: string, defaultValue: string, regexFlags?: string, storageType?: SettingStorageType):
-      RegExpSetting {
+  createRegExpSetting(
+      key: Lowercase<string>, defaultValue: string, regexFlags?: string,
+      storageType?: SettingStorageType): RegExpSetting {
     if (!this.#registry.get(key)) {
       this.#registry.set(
           key, new RegExpSetting(key, defaultValue, this.#eventSupport, this.storageFromType(storageType), regexFlags));
@@ -347,8 +352,8 @@ export class Setting<V> {
   #deprecation: Deprecation|null = null;
 
   constructor(
-      readonly name: string, readonly defaultValue: V, private readonly eventSupport: ObjectWrapper<GenericEvents>,
-      readonly storage: SettingsStorage) {
+      readonly name: Lowercase<string>, readonly defaultValue: V,
+      private readonly eventSupport: ObjectWrapper<GenericEvents>, readonly storage: SettingsStorage) {
     storage.register(this.name);
   }
 
@@ -562,8 +567,8 @@ export class RegExpSetting extends Setting<any> {
   #regex?: RegExp|null;
 
   constructor(
-      name: string, defaultValue: string, eventSupport: ObjectWrapper<GenericEvents>, storage: SettingsStorage,
-      regexFlags?: string) {
+      name: Lowercase<string>, defaultValue: string, eventSupport: ObjectWrapper<GenericEvents>,
+      storage: SettingsStorage, regexFlags?: string) {
     super(name, defaultValue ? [{pattern: defaultValue}] : [], eventSupport, storage);
     this.#regexFlags = regexFlags;
   }
@@ -622,11 +627,11 @@ export class VersionController {
 
   constructor() {
     // If no version setting is found, we initialize with the current version and don't do anything.
-    this.#globalVersionSetting = Settings.instance().createSetting(
+    this.#globalVersionSetting = Settings.instance().createLegacySetting(
         VersionController.GLOBAL_VERSION_SETTING_NAME, VersionController.CURRENT_VERSION, SettingStorageType.Global);
-    this.#syncedVersionSetting = Settings.instance().createSetting(
+    this.#syncedVersionSetting = Settings.instance().createLegacySetting(
         VersionController.SYNCED_VERSION_SETTING_NAME, VersionController.CURRENT_VERSION, SettingStorageType.Synced);
-    this.#localVersionSetting = Settings.instance().createSetting(
+    this.#localVersionSetting = Settings.instance().createLegacySetting(
         VersionController.LOCAL_VERSION_SETTING_NAME, VersionController.CURRENT_VERSION, SettingStorageType.Local);
   }
 
@@ -676,17 +681,17 @@ export class VersionController {
   }
 
   private updateVersionFrom1To2(): void {
-    Settings.instance().createSetting('previouslyViewedFiles', []).set([]);
+    Settings.instance().createLegacySetting('previouslyViewedFiles', []).set([]);
   }
 
   private updateVersionFrom2To3(): void {
-    Settings.instance().createSetting('fileSystemMapping', {}).set({});
-    removeSetting(Settings.instance().createSetting('fileMappingEntries', []));
+    Settings.instance().createLegacySetting('fileSystemMapping', {}).set({});
+    removeSetting(Settings.instance().createLegacySetting('fileMappingEntries', []));
   }
 
   private updateVersionFrom3To4(): void {
-    const advancedMode = Settings.instance().createSetting('showHeaSnapshotObjectsHiddenProperties', false);
-    moduleSetting('showAdvancedHeapSnapshotProperties').set(advancedMode.get());
+    const advancedMode = Settings.instance().createLegacySetting('showHeaSnapshotObjectsHiddenProperties', false);
+    moduleSetting('showAdvancedHeapSnapshotProperties' as Lowercase<string>).set(advancedMode.get());
     removeSetting(advancedMode);
   }
 
@@ -720,7 +725,7 @@ export class VersionController {
       const oldNameH = oldName + 'H';
 
       let newValue: {}|null = null;
-      const oldSetting = Settings.instance().createSetting(oldName, empty);
+      const oldSetting = Settings.instance().createLegacySetting(oldName, empty);
       if (oldSetting.get() !== empty) {
         newValue = newValue || {};
         // @ts-expect-error
@@ -729,7 +734,7 @@ export class VersionController {
         newValue.vertical.size = oldSetting.get();
         removeSetting(oldSetting);
       }
-      const oldSettingH = Settings.instance().createSetting(oldNameH, empty);
+      const oldSettingH = Settings.instance().createLegacySetting(oldNameH, empty);
       if (oldSettingH.get() !== empty) {
         newValue = newValue || {};
         // @ts-expect-error
@@ -739,7 +744,7 @@ export class VersionController {
         removeSetting(oldSettingH);
       }
       if (newValue) {
-        Settings.instance().createSetting(newName, {}).set(newValue);
+        Settings.instance().createLegacySetting(newName, {}).set(newValue);
       }
     }
   }
@@ -754,7 +759,7 @@ export class VersionController {
     };
 
     for (const oldName in settingNames) {
-      const oldSetting = Settings.instance().createSetting(oldName, null);
+      const oldSetting = Settings.instance().createLegacySetting(oldName, null);
       if (oldSetting.get() === null) {
         removeSetting(oldSetting);
         continue;
@@ -766,7 +771,7 @@ export class VersionController {
       removeSetting(oldSetting);
       const showMode = hidden ? 'OnlyMain' : 'Both';
 
-      const newSetting = Settings.instance().createSetting(newName, {});
+      const newSetting = Settings.instance().createLegacySetting(newName, {});
       const newValue = newSetting.get() || {};
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
       // @ts-expect-error
@@ -795,7 +800,8 @@ export class VersionController {
     const empty = {};
     for (const name in settingNames) {
       const setting =
-          Settings.instance().createSetting<{vertical?: {size?: number}, horizontal?: {size?: number}}>(name, empty);
+          Settings.instance().createLegacySetting<{vertical?: {size?: number}, horizontal?: {size?: number}}>(
+              name, empty);
       const value = setting.get();
       if (value === empty) {
         continue;
@@ -818,7 +824,7 @@ export class VersionController {
     const settingNames = ['skipStackFramesPattern', 'workspaceFolderExcludePattern'];
 
     for (let i = 0; i < settingNames.length; ++i) {
-      const setting = Settings.instance().createSetting<string|unknown[]>(settingNames[i], '');
+      const setting = Settings.instance().createLegacySetting<string|unknown[]>(settingNames[i], '');
       let value = setting.get();
       if (!value) {
         return;
@@ -850,7 +856,7 @@ export class VersionController {
   private updateVersionFrom10To11(): void {
     const oldSettingName = 'customDevicePresets';
     const newSettingName = 'customEmulatedDeviceList';
-    const oldSetting = Settings.instance().createSetting<unknown>(oldSettingName, undefined);
+    const oldSetting = Settings.instance().createLegacySetting<unknown>(oldSettingName, undefined);
     const list = oldSetting.get();
     if (!Array.isArray(list)) {
       return;
@@ -883,7 +889,7 @@ export class VersionController {
       newList.push(device);
     }
     if (newList.length) {
-      Settings.instance().createSetting<unknown[]>(newSettingName, []).set(newList);
+      Settings.instance().createLegacySetting<unknown[]>(newSettingName, []).set(newList);
     }
     removeSetting(oldSetting);
   }
@@ -894,18 +900,18 @@ export class VersionController {
 
   private updateVersionFrom12To13(): void {
     this.migrateSettingsFromLocalStorage();
-    removeSetting(Settings.instance().createSetting('timelineOverviewMode', ''));
+    removeSetting(Settings.instance().createLegacySetting('timelineOverviewMode', ''));
   }
 
   private updateVersionFrom13To14(): void {
     const defaultValue = {'throughput': -1, 'latency': 0};
-    Settings.instance().createSetting('networkConditions', defaultValue).set(defaultValue);
+    Settings.instance().createLegacySetting('networkConditions', defaultValue).set(defaultValue);
   }
 
   private updateVersionFrom14To15(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const setting = Settings.instance().createLocalSetting<any>('workspaceExcludedFolders', {});
+    const setting = Settings.instance().createLocalSetting<any>('workspaceExcludedFolders' as Lowercase<string>, {});
     const oldValue = setting.get();
     const newValue: {
       [x: string]: string[],
@@ -922,7 +928,7 @@ export class VersionController {
   private updateVersionFrom15To16(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const setting = Settings.instance().createSetting<any>('InspectorView.panelOrder', {});
+    const setting = Settings.instance().createLegacySetting<any>('InspectorView.panelOrder', {});
     const tabOrders = setting.get();
     for (const key of Object.keys(tabOrders)) {
       tabOrders[key] = (tabOrders[key] + 1) * 10;
@@ -933,7 +939,7 @@ export class VersionController {
   private updateVersionFrom16To17(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const setting = Settings.instance().createSetting<any>('networkConditionsCustomProfiles', []);
+    const setting = Settings.instance().createLegacySetting<any>('networkConditionsCustomProfiles', []);
     const oldValue = setting.get();
     const newValue = [];
     if (Array.isArray(oldValue)) {
@@ -953,7 +959,7 @@ export class VersionController {
   private updateVersionFrom17To18(): void {
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const setting = Settings.instance().createLocalSetting<any>('workspaceExcludedFolders', {});
+    const setting = Settings.instance().createLocalSetting<any>('workspaceExcludedFolders' as Lowercase<string>, {});
     const oldValue = setting.get();
     const newValue: {
       [x: string]: string,
@@ -974,9 +980,10 @@ export class VersionController {
 
   private updateVersionFrom18To19(): void {
     const defaultColumns = {status: true, type: true, initiator: true, size: true, time: true};
-    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const visibleColumnSettings = Settings.instance().createSetting<any>('networkLogColumnsVisibility', defaultColumns);
+    const visibleColumnSettings =
+        // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        Settings.instance().createLegacySetting<any>('networkLogColumnsVisibility', defaultColumns);
     const visibleColumns = visibleColumnSettings.get();
     visibleColumns.name = true;
     visibleColumns.timeline = true;
@@ -992,20 +999,20 @@ export class VersionController {
       }
       configs[columnId.toLowerCase()] = {visible: visibleColumns[columnId]};
     }
-    const newSetting = Settings.instance().createSetting('networkLogColumns', {});
+    const newSetting = Settings.instance().createLegacySetting('networkLogColumns', {});
     newSetting.set(configs);
     removeSetting(visibleColumnSettings);
   }
 
   private updateVersionFrom19To20(): void {
-    const oldSetting = Settings.instance().createSetting('InspectorView.panelOrder', {});
-    const newSetting = Settings.instance().createSetting('panel-tabOrder', {});
+    const oldSetting = Settings.instance().createLegacySetting('InspectorView.panelOrder', {});
+    const newSetting = Settings.instance().createLegacySetting('panel-tabOrder', {});
     newSetting.set(oldSetting.get());
     removeSetting(oldSetting);
   }
 
   private updateVersionFrom20To21(): void {
-    const networkColumns = Settings.instance().createSetting('networkLogColumns', {});
+    const networkColumns = Settings.instance().createLegacySetting('networkLogColumns', {});
     const columns = (networkColumns.get() as {
       [x: string]: string,
     });
@@ -1031,8 +1038,8 @@ export class VersionController {
   }
 
   private updateVersionFrom23To24(): void {
-    const oldSetting = Settings.instance().createSetting('searchInContentScripts', false);
-    const newSetting = Settings.instance().createSetting('searchInAnonymousAndContentScripts', false);
+    const oldSetting = Settings.instance().createLegacySetting('searchInContentScripts', false);
+    const newSetting = Settings.instance().createLegacySetting('searchInAnonymousAndContentScripts', false);
     newSetting.set(oldSetting.get());
     removeSetting(oldSetting);
   }
@@ -1041,20 +1048,20 @@ export class VersionController {
     const defaultColumns = {status: true, type: true, initiator: true, size: true, time: true};
     // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const networkLogColumnsSetting = Settings.instance().createSetting<any>('networkLogColumns', defaultColumns);
+    const networkLogColumnsSetting = Settings.instance().createLegacySetting<any>('networkLogColumns', defaultColumns);
     const columns = networkLogColumnsSetting.get();
     delete columns.product;
     networkLogColumnsSetting.set(columns);
   }
 
   private updateVersionFrom25To26(): void {
-    const oldSetting = Settings.instance().createSetting('messageURLFilters', {});
+    const oldSetting = Settings.instance().createLegacySetting('messageURLFilters', {});
     const urls = Object.keys(oldSetting.get());
     const textFilter = urls.map(url => `-url:${url}`).join(' ');
     if (textFilter) {
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const textFilterSetting = Settings.instance().createSetting<any>('console.textFilter', '');
+      const textFilterSetting = Settings.instance().createLegacySetting<any>('console.textFilter', '');
       const suffix = textFilterSetting.get() ? ` ${textFilterSetting.get()}` : '';
       textFilterSetting.set(`${textFilter}${suffix}`);
     }
@@ -1065,7 +1072,7 @@ export class VersionController {
     function renameKeyInObjectSetting(settingName: string, from: string, to: string): void {
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const setting = Settings.instance().createSetting<any>(settingName, {});
+      const setting = Settings.instance().createLegacySetting<any>(settingName, {});
       const value = setting.get();
       if (from in value) {
         value[to] = value[from];
@@ -1075,7 +1082,7 @@ export class VersionController {
     }
 
     function renameInStringSetting(settingName: string, from: string, to: string): void {
-      const setting = Settings.instance().createSetting(settingName, '');
+      const setting = Settings.instance().createLegacySetting(settingName, '');
       const value = setting.get();
       if (value === from) {
         setting.set(to);
@@ -1088,7 +1095,7 @@ export class VersionController {
   }
 
   private updateVersionFrom27To28(): void {
-    const setting = Settings.instance().createSetting('uiTheme', 'systemPreferred');
+    const setting = Settings.instance().createLegacySetting('uiTheme', 'systemPreferred');
     if (setting.get() === 'default') {
       setting.set('systemPreferred');
     }
@@ -1098,7 +1105,7 @@ export class VersionController {
     function renameKeyInObjectSetting(settingName: string, from: string, to: string): void {
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const setting = Settings.instance().createSetting<any>(settingName, {});
+      const setting = Settings.instance().createLegacySetting<any>(settingName, {});
       const value = setting.get();
       if (from in value) {
         value[to] = value[from];
@@ -1108,7 +1115,7 @@ export class VersionController {
     }
 
     function renameInStringSetting(settingName: string, from: string, to: string): void {
-      const setting = Settings.instance().createSetting(settingName, '');
+      const setting = Settings.instance().createLegacySetting(settingName, '');
       const value = setting.get();
       if (value === from) {
         setting.set(to);
@@ -1122,11 +1129,11 @@ export class VersionController {
 
   private updateVersionFrom29To30(): void {
     // Create new location agnostic setting
-    const closeableTabSetting = Settings.instance().createSetting('closeableTabs', {});
+    const closeableTabSetting = Settings.instance().createLegacySetting('closeableTabs', {});
 
     // Read current settings
-    const panelCloseableTabSetting = Settings.instance().createSetting('panel-closeableTabs', {});
-    const drawerCloseableTabSetting = Settings.instance().createSetting('drawer-view-closeableTabs', {});
+    const panelCloseableTabSetting = Settings.instance().createLegacySetting('panel-closeableTabs', {});
+    const drawerCloseableTabSetting = Settings.instance().createLegacySetting('drawer-view-closeableTabs', {});
     const openTabsInPanel = panelCloseableTabSetting.get();
     const openTabsInDrawer = panelCloseableTabSetting.get();
 
@@ -1142,7 +1149,7 @@ export class VersionController {
   private updateVersionFrom30To31(): void {
     // Remove recorder_recordings setting that was used for storing recordings
     // by an old recorder experiment.
-    const recordingsSetting = Settings.instance().createSetting('recorder_recordings', []);
+    const recordingsSetting = Settings.instance().createLegacySetting('recorder_recordings', []);
     removeSetting(recordingsSetting);
   }
 
@@ -1162,8 +1169,9 @@ export class VersionController {
   }
 
   updateVersionFrom32To33(): void {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const previouslyViewedFilesSetting = Settings.instance().createLocalSetting<any>('previouslyViewedFiles', []);
+    const previouslyViewedFilesSetting =
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        Settings.instance().createLocalSetting<any>('previouslyViewedFiles' as Lowercase<string>, []);
     let previouslyViewedFiles = previouslyViewedFilesSetting.get();
 
     // Discard old 'previouslyViewedFiles' items that don't have a 'url' property.
@@ -1229,7 +1237,7 @@ export class VersionController {
 
   updateVersionFrom35To36(): void {
     // We have changed the default from 'false' to 'true' and this updates the existing setting just for once.
-    Settings.instance().createSetting('showThirdPartyIssues', true).set(true);
+    Settings.instance().createLegacySetting('showThirdPartyIssues', true).set(true);
   }
 
   updateVersionFrom36To37(): void {
@@ -1249,11 +1257,11 @@ export class VersionController {
     for (const key of Settings.instance().globalStorage.keys()) {
       if ((key.startsWith('data-grid-') && key.endsWith('-column-weights')) || key.endsWith('-tab-order') ||
           key === 'views-location-override' || key === 'closeable-tabs') {
-        const setting = Settings.instance().createSetting(key, {});
+        const setting = Settings.instance().createLegacySetting(key, {});
         setting.set(Platform.StringUtilities.toKebabCaseKeys(setting.get()));
       }
       if (key.endsWith('-selected-tab')) {
-        const setting = Settings.instance().createSetting(key, '');
+        const setting = Settings.instance().createLegacySetting(key, '');
         setting.set(Platform.StringUtilities.toKebabCase(setting.get()));
       }
     }

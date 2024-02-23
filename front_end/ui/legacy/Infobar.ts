@@ -57,7 +57,7 @@ export class Infobar {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       type: Type, text: string, actions?: InfobarAction[], disableSetting?: Common.Settings.Setting<any>,
       /* TODO(crbug.com/1354548) Remove with JS Profiler deprecation */ isCloseable: boolean = true,
-      jsLogContext?: string) {
+      jsLogContext?: Lowercase<string>) {
     this.element = document.createElement('div');
     if (jsLogContext) {
       this.element.setAttribute('jslog', `${VisualLogging.infoBar().context(jsLogContext)}`);
@@ -246,7 +246,7 @@ export interface InfobarAction {
   highlight: boolean;
   delegate: (() => void)|null;
   dismiss: boolean;
-  jsLogContext?: string;
+  jsLogContext?: Lowercase<string>;
 }
 
 export const enum Type {

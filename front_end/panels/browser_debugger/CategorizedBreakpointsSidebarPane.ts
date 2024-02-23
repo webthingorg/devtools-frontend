@@ -194,11 +194,12 @@ export abstract class CategorizedBreakpointsSidebarPane extends UI.Widget.VBox {
   }
 
   private createCategory(name: SDK.CategorizedBreakpoint.Category): void {
-    const labelNode = UI.UIUtils.CheckboxLabel.create(getLocalizedCategory(name), undefined, undefined, name);
+    const labelNode =
+        UI.UIUtils.CheckboxLabel.create(getLocalizedCategory(name), undefined, undefined, name as Lowercase<string>);
     labelNode.checkboxElement.addEventListener('click', this.categoryCheckboxClicked.bind(this, name), true);
     labelNode.checkboxElement.tabIndex = -1;
 
-    const treeElement = new UI.TreeOutline.TreeElement(labelNode, undefined, name);
+    const treeElement = new UI.TreeOutline.TreeElement(labelNode, undefined, name as Lowercase<string>);
     treeElement.listItemElement.addEventListener('keydown', event => {
       this.handleSpaceKeyEventOnBreakpoint(event, this.#categories.get(name));
     });

@@ -560,7 +560,9 @@ export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
   private glyph?: string;
   private adorner?: HTMLElement;
 
-  constructor(title: string, glyphOrAdorner?: string|Adorners.Adorner.Adorner, text?: string, jslogContext?: string) {
+  constructor(
+      title: string, glyphOrAdorner?: string|Adorners.Adorner.Adorner, text?: string,
+      jslogContext?: Lowercase<string>) {
     const element = document.createElement('button');
     element.classList.add('toolbar-button');
     super(element);
@@ -675,7 +677,7 @@ export class ToolbarInput extends ToolbarItem<ToolbarInput.EventTypes> {
   constructor(
       placeholder: string, accessiblePlaceholder?: string, growFactor?: number, shrinkFactor?: number, tooltip?: string,
       completions?: ((arg0: string, arg1: string, arg2?: boolean|undefined) => Promise<Suggestion[]>),
-      dynamicCompletions?: boolean, jslogContext?: string) {
+      dynamicCompletions?: boolean, jslogContext?: Lowercase<string>) {
     const element = document.createElement('div');
     element.classList.add('toolbar-input');
     super(element);
@@ -779,7 +781,7 @@ export class ToolbarToggle extends ToolbarButton {
   private readonly untoggledGlyph: string|undefined;
   private readonly toggledGlyph: string|undefined;
 
-  constructor(title: string, glyph?: string, toggledGlyph?: string, jslogContext?: string) {
+  constructor(title: string, glyph?: string, toggledGlyph?: string, jslogContext?: Lowercase<string>) {
     super(title, glyph, '');
     this.toggledInternal = false;
     this.untoggledGlyph = glyph;
@@ -825,7 +827,8 @@ export class ToolbarMenuButton extends ToolbarButton {
   private readonly contextMenuHandler: (arg0: ContextMenu) => void;
   private readonly useSoftMenu: boolean;
   private triggerTimeout?: number;
-  constructor(contextMenuHandler: (arg0: ContextMenu) => void, useSoftMenu?: boolean, jslogContext?: string) {
+  constructor(
+      contextMenuHandler: (arg0: ContextMenu) => void, useSoftMenu?: boolean, jslogContext?: Lowercase<string>) {
     super('', 'dots-vertical', undefined, jslogContext);
     if (jslogContext) {
       this.element.setAttribute('jslog', `${VisualLogging.dropDown().track({click: true}).context(jslogContext)}`);
@@ -873,7 +876,7 @@ export class ToolbarSettingToggle extends ToolbarToggle {
 
   constructor(
       setting: Common.Settings.Setting<boolean>, glyph: string, title: string, toggledGlyph?: string,
-      jslogContext?: string) {
+      jslogContext?: Lowercase<string>) {
     super(title, glyph, toggledGlyph, jslogContext);
     this.defaultTitle = title;
     this.setting = setting;
@@ -921,7 +924,9 @@ export interface ItemsProvider {
 export class ToolbarComboBox extends ToolbarItem<void> {
   protected selectElementInternal: HTMLSelectElement;
 
-  constructor(changeHandler: ((arg0: Event) => void)|null, title: string, className?: string, jslogContext?: string) {
+  constructor(
+      changeHandler: ((arg0: Event) => void)|null, title: string, className?: string,
+      jslogContext?: Lowercase<string>) {
     const element = document.createElement('span');
     element.classList.add('toolbar-select-container');
     super(element);
@@ -1071,7 +1076,8 @@ export class ToolbarSettingComboBox extends ToolbarComboBox {
 export class ToolbarCheckbox extends ToolbarItem<void> {
   inputElement: HTMLInputElement;
 
-  constructor(text: string, tooltip?: string, listener?: ((arg0: MouseEvent) => void), jslogContext?: string) {
+  constructor(
+      text: string, tooltip?: string, listener?: ((arg0: MouseEvent) => void), jslogContext?: Lowercase<string>) {
     super(CheckboxLabel.create(text));
     this.element.classList.add('checkbox');
     this.inputElement = (this.element as CheckboxLabel).checkboxElement;

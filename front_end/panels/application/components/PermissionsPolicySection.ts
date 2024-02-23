@@ -69,7 +69,7 @@ export interface PermissionsPolicySectionData {
 
 export function renderIconLink(
     iconName: string, title: Platform.UIString.LocalizedString, clickHandler: (() => void)|(() => Promise<void>),
-    jsLogContext: string): LitHtml.TemplateResult {
+    jsLogContext: Lowercase<string>): LitHtml.TemplateResult {
   // Disabled until https://crbug.com/1079231 is fixed.
   // clang-format off
   return LitHtml.html`

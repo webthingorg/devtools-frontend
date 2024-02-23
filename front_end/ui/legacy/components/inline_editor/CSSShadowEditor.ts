@@ -76,9 +76,9 @@ export class CSSShadowEditor extends Common.ObjectWrapper.eventMixin<EventTypes,
     this.insetButton.addEventListener('click', this.onButtonClick.bind(this), false);
 
     const xField = this.contentElement.createChild('div', 'shadow-editor-field');
-    this.xInput = this.createTextInput(xField, i18nString(UIStrings.xOffset), 'xOffset');
+    this.xInput = this.createTextInput(xField, i18nString(UIStrings.xOffset), 'x-offset');
     const yField = this.contentElement.createChild('div', 'shadow-editor-field');
-    this.yInput = this.createTextInput(yField, i18nString(UIStrings.yOffset), 'yOffset');
+    this.yInput = this.createTextInput(yField, i18nString(UIStrings.yOffset), 'y-offset');
     this.xySlider = (xField.createChild('canvas', 'shadow-editor-2D-slider') as HTMLCanvasElement);
     this.xySlider.setAttribute('jslog', `${VisualLogging.slider('xy').track({click: true, drag: true})}`);
     this.xySlider.width = canvasSize;
@@ -100,7 +100,7 @@ export class CSSShadowEditor extends Common.ObjectWrapper.eventMixin<EventTypes,
     this.spreadSlider = this.createSlider(this.spreadField, 'spread');
   }
 
-  private createTextInput(field: Element, propertyName: string, jslogContext: string): HTMLInputElement {
+  private createTextInput(field: Element, propertyName: string, jslogContext: Lowercase<string>): HTMLInputElement {
     const label = field.createChild('label', 'shadow-editor-label');
     label.textContent = propertyName;
     label.setAttribute('for', propertyName);
@@ -115,7 +115,7 @@ export class CSSShadowEditor extends Common.ObjectWrapper.eventMixin<EventTypes,
     return textInput;
   }
 
-  private createSlider(field: Element, jslogContext: string): HTMLInputElement {
+  private createSlider(field: Element, jslogContext: Lowercase<string>): HTMLInputElement {
     const slider = UI.UIUtils.createSlider(0, maxRange, -1);
     slider.addEventListener('input', this.onSliderInput.bind(this), false);
     slider.setAttribute('jslog', `${VisualLogging.slider().track({click: true, drag: true}).context(jslogContext)}`);

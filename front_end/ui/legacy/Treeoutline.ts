@@ -451,7 +451,7 @@ export class TreeElement {
   private trailingIconsElement: HTMLElement|null;
   protected selectionElementInternal: HTMLElement|null;
   private disableSelectFocus: boolean;
-  constructor(title?: string|Node, expandable?: boolean, jslogContext?: string|number) {
+  constructor(title?: string|Node, expandable?: boolean, jslogContext?: Lowercase<string>|number) {
     this.treeOutline = null;
     this.parent = null;
     this.previousSibling = null;

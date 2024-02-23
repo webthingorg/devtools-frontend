@@ -555,8 +555,12 @@ export class LinkableNameRenderer extends LinkableNameMatch {
     this.#treeElement = treeElement;
   }
 
-  #getLinkData():
-      {jslogContext: string, metric: null|Host.UserMetrics.SwatchType, ruleBlock: string, isDefined: boolean} {
+  #getLinkData(): {
+    jslogContext: Lowercase<string>,
+    metric: null|Host.UserMetrics.SwatchType,
+    ruleBlock: string,
+    isDefined: boolean,
+  } {
     switch (this.properyName) {
       case LinkableNameProperties.AnimationName:
         return {

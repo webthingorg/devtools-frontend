@@ -72,15 +72,16 @@ export class PlayerDetailView extends UI.TabbedPane.TabbedPane implements Trigge
     this.timelineView = new PlayerEventsTimeline();
 
     this.appendTab(
-        PlayerDetailViewTabs.Properties, i18nString(UIStrings.properties), this.propertyView,
+        PlayerDetailViewTabs.Properties as Lowercase<string>, i18nString(UIStrings.properties), this.propertyView,
         i18nString(UIStrings.playerProperties));
     this.appendTab(
-        PlayerDetailViewTabs.Events, i18nString(UIStrings.events), this.eventView, i18nString(UIStrings.playerEvents));
+        PlayerDetailViewTabs.Events as Lowercase<string>, i18nString(UIStrings.events), this.eventView,
+        i18nString(UIStrings.playerEvents));
     this.appendTab(
-        PlayerDetailViewTabs.Messages, i18nString(UIStrings.messages), this.messageView,
+        PlayerDetailViewTabs.Messages as Lowercase<string>, i18nString(UIStrings.messages), this.messageView,
         i18nString(UIStrings.playerMessages));
     this.appendTab(
-        PlayerDetailViewTabs.Timeline, i18nString(UIStrings.timeline), this.timelineView,
+        PlayerDetailViewTabs.Timeline as Lowercase<string>, i18nString(UIStrings.timeline), this.timelineView,
         i18nString(UIStrings.playerTimeline));
   }
 

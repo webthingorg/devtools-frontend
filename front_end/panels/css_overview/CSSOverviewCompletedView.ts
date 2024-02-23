@@ -661,7 +661,7 @@ export class CSSOverviewCompletedView extends UI.Widget.VBox {
       this.#viewMap.set(id, view);
     }
 
-    this.#elementContainer.appendTab(id, tabTitle, view, true);
+    this.#elementContainer.appendTab(id as Lowercase<string>, tabTitle, view, true);
   }
 
   #fontInfoToFragment(fontInfo: Map<string, Map<string, Map<string, number[]>>>): UI.Fragment.Fragment {
@@ -691,8 +691,8 @@ export class CSSOverviewCompletedView extends UI.Widget.VBox {
   }
 
   #groupToFragment(
-      items: Map<string, (number | UnusedDeclaration | Protocol.CSS.CSSMedia)[]>, type: string, dataLabel: string,
-      path: string = ''): UI.Fragment.Fragment {
+      items: Map<string, (number | UnusedDeclaration | Protocol.CSS.CSSMedia)[]>, type: Lowercase<string>,
+      dataLabel: string, path: string = ''): UI.Fragment.Fragment {
     // Sort by number of items descending.
     const values = Array.from(items.entries()).sort((d1, d2) => {
       const v1Nodes = d1[1];
@@ -710,7 +710,7 @@ export class CSSOverviewCompletedView extends UI.Widget.VBox {
       return UI.Fragment.Fragment.build`<li>
         <div class="title">${title}</div>
         <button data-type="${type}" data-path="${path}" data-${dataLabel}="${title}"
-        jslog="${VisualLogging.action().track({click: true}).context(`css-overview.${type}`)}">
+        jslog="${VisualLogging.action().track({click: true}).context(`css-overview.${type}` as Lowercase<string>)}">
           <div class="details">${itemLabel}</div>
           <div class="bar-container">
             <div class="bar" style="width: ${width}%;"></div>
@@ -860,7 +860,7 @@ export class DetailsView extends Common.ObjectWrapper.eventMixin<EventTypes, typ
     });
   }
 
-  appendTab(id: string, tabTitle: string, view: UI.Widget.Widget, isCloseable?: boolean): void {
+  appendTab(id: Lowercase<string>, tabTitle: string, view: UI.Widget.Widget, isCloseable?: boolean): void {
     if (!this.#tabbedPane.hasTab(id)) {
       this.#tabbedPane.appendTab(id, tabTitle, view, undefined, undefined, isCloseable);
     }

@@ -266,7 +266,7 @@ export class RemoveBreakpointEvent extends Event {
 const COPY_ACTION_PREFIX = 'copy-step-as-';
 
 type Action = {
-  id: string,
+  id: Lowercase<string>,
   label: string,
   group: string,
   groupTitle: string,
@@ -544,7 +544,7 @@ export class StepView extends HTMLElement {
   }
 
   #getActions = (): Array<Action> => {
-    const actions = [];
+    const actions: Array<Action> = [];
 
     if (!this.#isPlaying) {
       if (this.#step) {
@@ -594,7 +594,7 @@ export class StepView extends HTMLElement {
     if (this.#step) {
       for (const converter of this.#builtInConverters || []) {
         actions.push({
-          id: COPY_ACTION_PREFIX + Platform.StringUtilities.toKebabCase(converter.getId()),
+          id: Platform.StringUtilities.toKebabCase(COPY_ACTION_PREFIX + converter.getId()),
           label: converter.getFormatName(),
           group: 'copy',
           groupTitle: i18nString(UIStrings.copyAs),
@@ -602,7 +602,7 @@ export class StepView extends HTMLElement {
       }
       for (const converter of this.#extensionConverters || []) {
         actions.push({
-          id: COPY_ACTION_PREFIX + Platform.StringUtilities.toKebabCase(converter.getId()),
+          id: Platform.StringUtilities.toKebabCase(COPY_ACTION_PREFIX + converter.getId()),
           label: converter.getFormatName(),
           group: 'copy',
           groupTitle: i18nString(UIStrings.copyAs),
@@ -676,7 +676,7 @@ export class StepView extends HTMLElement {
                 item => {
                   return LitHtml.html`<${Menus.Menu.MenuItem.litTagName}
                       .value=${item.id}
-                      jslog=${VisualLogging.action().track({click: true}).context(`${item.id}`)}
+                      jslog=${VisualLogging.action().track({click: true}).context(item.id)}
                     >
                       ${item.label}
                     </${Menus.Menu.MenuItem.litTagName}>

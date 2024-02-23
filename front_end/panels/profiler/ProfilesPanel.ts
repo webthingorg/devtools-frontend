@@ -112,7 +112,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
   };
   fileSelectorElement!: HTMLInputElement;
   selectedProfileType?: ProfileType;
-  constructor(name: string, profileTypes: ProfileType[], recordingActionId: string) {
+  constructor(name: Lowercase<string>, profileTypes: ProfileType[], recordingActionId: string) {
     super(name);
     this.profileTypes = profileTypes;
 

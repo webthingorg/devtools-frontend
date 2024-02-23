@@ -602,5 +602,5 @@ export function isUnderTest(prefs?: {
     return prefs['isUnderTest'] === 'true';
   }
   return Common.Settings.Settings.hasInstance() &&
-      Common.Settings.Settings.instance().createSetting('isUnderTest', false).get();
+      Common.Settings.Settings.instance().createSetting('isUnderTest' as Lowercase<string>, false).get();
 }
