@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1836feb9_8d14c453",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-23T14:09:41Z",
+      "side": 1,
+      "message": "LGTM. Exciting!",
+      "revId": "dc12a6e0c163c7aa02b1f950a0c756b5ed291b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b3bfb901_e2c5929f",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 4
