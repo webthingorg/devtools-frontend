@@ -33,6 +33,23 @@
       "message": "Nice! It makes sense to me :)",
       "revId": "35b7742131fe69e2bd725bdaa88acde32965ac8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a170eb_0c24bf6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-23T12:27:32Z",
+      "side": 1,
+      "message": "Makes sense to me too! Thanks, Benedikt!:)",
+      "revId": "35b7742131fe69e2bd725bdaa88acde32965ac8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
