@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeca977a_6007ef74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-23T10:04:52Z",
+      "side": 1,
+      "message": "Yang suggested we refactor the client so it can be more easily re-used.",
+      "revId": "740fd20657ed96be3a5c3a887f45bf16396d7fc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
