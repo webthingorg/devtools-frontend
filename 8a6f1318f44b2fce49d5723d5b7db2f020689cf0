@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43873148_4dc0005f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T10:39:51Z",
+      "side": 1,
+      "message": "Thanks for review 😊",
+      "revId": "8a6f1318f44b2fce49d5723d5b7db2f020689cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00ace1a7_2d879417",
@@ -41,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3377c14_f40ede35",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T10:39:51Z",
+      "side": 1,
+      "message": "yes! great catch",
+      "parentUuid": "00ace1a7_2d879417",
+      "range": {
+        "startLine": 2605,
+        "startChar": 85,
+        "endLine": 2605,
+        "endChar": 94
+      },
+      "revId": "8a6f1318f44b2fce49d5723d5b7db2f020689cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "987fb7b3_a41ca36b",
@@ -54,6 +95,30 @@
       "writtenOn": "2024-02-23T09:55:18Z",
       "side": 1,
       "message": "let\u0027s call `i18nString` on the UI string\n```suggestion\n        this.eventTitle(entry) + (isEntryOutsideBreadcrumb ? \u0027 \u0027 + i18nString(UIStrings.outsideBreadcrumbRange) : \u0027\u0027);\n```",
+      "range": {
+        "startLine": 2625,
+        "startChar": 68,
+        "endLine": 2625,
+        "endChar": 101
+      },
+      "revId": "8a6f1318f44b2fce49d5723d5b7db2f020689cf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "874cb2fe_5f3a490a",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2625,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T10:39:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "987fb7b3_a41ca36b",
       "range": {
         "startLine": 2625,
         "startChar": 68,
