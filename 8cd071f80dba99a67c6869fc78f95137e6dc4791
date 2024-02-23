@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4dad940_2ba05cd5",
+        "filename": "front_end/panels/timeline/Initiators.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T15:15:34Z",
+      "side": 1,
+      "message": "ah this mistake keeps coming up 😄",
+      "parentUuid": "7ddb7824_90bd3377",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "8cd071f80dba99a67c6869fc78f95137e6dc4791",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53801ce7_82c5be5e",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e583254_86d545f7",
+        "filename": "front_end/panels/timeline/Initiators.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T15:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53801ce7_82c5be5e",
+      "range": {
+        "startLine": 72,
+        "startChar": 9,
+        "endLine": 72,
+        "endChar": 50
+      },
+      "revId": "8cd071f80dba99a67c6869fc78f95137e6dc4791",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "607b1255_45b38ca9",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-02-23T14:22:21Z",
       "side": 1,
       "message": "q: could this cause extra arrows to be drawn that we don\u0027t want to draw (f.e. if they are outside the visible bounds)? Or we are certain that that will never happen",
+      "range": {
+        "startLine": 2310,
+        "startChar": 24,
+        "endLine": 2310,
+        "endChar": 46
+      },
+      "revId": "8cd071f80dba99a67c6869fc78f95137e6dc4791",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f179450_bfa8f6f6",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2310,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-02-23T15:15:34Z",
+      "side": 1,
+      "message": "the next line is checking if the end of the event is smaller than the left window so we should be fine",
+      "parentUuid": "607b1255_45b38ca9",
       "range": {
         "startLine": 2310,
         "startChar": 24,
