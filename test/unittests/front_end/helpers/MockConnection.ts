@@ -115,7 +115,6 @@ class MockConnection extends ProtocolClient.InspectorBackend.Connection {
       if (!handler) {
         return;
       }
-
       let result = handler.call(undefined, outgoingMessage.params) || {};
       if ('then' in result) {
         result = await result;
