@@ -16,6 +16,23 @@
       "message": "she\u0027s a beauty!   great catch.",
       "revId": "69741662b1347ba645b5b6de867b971b30cce926",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98577e5b_c50f57a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-23T06:07:38Z",
+      "side": 1,
+      "message": "great catch, thank you!! fwiw we have b/41484172 to avoid these copies completely",
+      "revId": "69741662b1347ba645b5b6de867b971b30cce926",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
