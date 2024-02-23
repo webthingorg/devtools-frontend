@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "24486736_2841f072",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-23T00:50:03Z",
+      "side": 1,
+      "message": "Yeam, lmao wut. Must have been the auto style.",
+      "parentUuid": "b3bfb901_e2c5929f",
+      "revId": "dc12a6e0c163c7aa02b1f950a0c756b5ed291b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "12d3ee7e_35e9fcbd",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 4
