@@ -16,6 +16,24 @@
       "message": "that\u0027s not the correct bug link",
       "revId": "4749f6baae3bec434641050cc208a87f4d3d053e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa6d56d_ff6eff64",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-23T12:22:49Z",
+      "side": 1,
+      "message": "Ah thanks or the catch, my mind thought the ids stayed the same after migration 😅",
+      "parentUuid": "e4b41cbc_008f362c",
+      "revId": "4749f6baae3bec434641050cc208a87f4d3d053e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
