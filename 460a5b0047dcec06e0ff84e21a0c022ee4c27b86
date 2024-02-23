@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f80af1a5_b5c25e81",
+        "filename": "front_end/generated/protocol.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 3097,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-02-23T18:26:40Z",
+      "side": 1,
+      "message": "This can probably also be moved to the protocol roll CL.",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a0e09b_29469899",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-02-23T18:26:40Z",
+      "side": 1,
+      "message": "I\u0027m confused by this type declaration; it has a non-null assertion `!` but it is declared as an Event or null?",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7c8297b_c0b911d2",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-02-23T18:26:40Z",
+      "side": 1,
+      "message": "Why is it necessary to clone the event?",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c517788_217fe779",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-02-23T18:26:40Z",
+      "side": 1,
+      "message": "I kind of don\u0027t like this mechanism of determining whether you need to display something by creating the displaying element and asking it if it should display itself.",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c47fac2_f2ea283b",
+        "filename": "front_end/ui/components/linkifier/LinkifierImpl.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-02-23T18:26:40Z",
+      "side": 1,
+      "message": "Adding link text as an API to the Linkifier feels like it should be a separate CL.",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a065d7_f8660222",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 11
+      },
+      "lineNbr": 2160,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-02-23T18:26:40Z",
+      "side": 1,
+      "message": "In general our partners like to see the protocol rolls in a separate CL.",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
