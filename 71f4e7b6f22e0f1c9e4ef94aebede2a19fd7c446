@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed6b8c0_d9163f49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-23T14:04:19Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "71f4e7b6f22e0f1c9e4ef94aebede2a19fd7c446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a42fb2_5a617672",
+        "filename": "front_end/models/trace/extras/FetchNodes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-23T14:04:19Z",
+      "side": 1,
+      "message": "small fix to ensure the caching actually works, since trace events contain node id arrays. Caching by sets was useless because we create a new set (from the node id array) every time we want to fetch dom nodes, so the cached value is never used.",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 13
+      },
+      "revId": "71f4e7b6f22e0f1c9e4ef94aebede2a19fd7c446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
