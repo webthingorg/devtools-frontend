@@ -107,7 +107,7 @@ describeWithEnvironment('Action registration', () => {
   it('throws an error trying to register an action with an invalid id', () => {
     assert.throws(() => {
       UI.ActionRegistration.registerActionExtension({
-        actionId: 'quickOpen.show',
+        actionId: 'quickOpen.show' as Lowercase<string>,
         category: UI.ActionRegistration.ActionCategory.GLOBAL,
       });
     });

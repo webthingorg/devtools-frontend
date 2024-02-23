@@ -10,7 +10,7 @@ import {ViewManager} from './ViewManager.js';
 import {VBox, type Widget} from './Widget.js';
 
 export interface View {
-  viewId(): string;
+  viewId(): Lowercase<string>;
 
   title(): Platform.UIString.LocalizedString;
 
@@ -42,7 +42,7 @@ export class SimpleView extends VBox implements View {
     this.#viewId = viewId ?? Platform.StringUtilities.toKebabCase(title);
   }
 
-  viewId(): string {
+  viewId(): Lowercase<string> {
     return this.#viewId;
   }
 

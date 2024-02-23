@@ -196,7 +196,7 @@ export class StorageView extends UI.ThrottledWidget.ThrottledWidget {
       this.settings.set(
           type,
           Common.Settings.Settings.instance().createSetting(
-              'clear-storage-' + Platform.StringUtilities.toKebabCase(type), true));
+              Platform.StringUtilities.toKebabCase('clear-storage-' + type), true));
     }
 
     this.includeThirdPartyCookiesSetting =

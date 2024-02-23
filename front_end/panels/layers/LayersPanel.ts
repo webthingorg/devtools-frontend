@@ -90,7 +90,8 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
     this.layerDetailsView = new LayerViewer.LayerDetailsView.LayerDetailsView(this.layerViewHost);
     this.layerDetailsView.addEventListener(
         LayerViewer.LayerDetailsView.Events.PaintProfilerRequested, this.onPaintProfileRequested, this);
-    this.tabbedPane.appendTab(DetailsViewTabs.Details, i18nString(UIStrings.details), this.layerDetailsView);
+    this.tabbedPane.appendTab(
+        DetailsViewTabs.Details as Lowercase<string>, i18nString(UIStrings.details), this.layerDetailsView);
 
     this.paintProfilerView = new LayerPaintProfilerView(this.showImage.bind(this));
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabClosed, this.onTabClosed, this);
@@ -189,7 +190,8 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
       this.layerBeingProfiled = selection.layer();
       if (!this.tabbedPane.hasTab(DetailsViewTabs.Profiler)) {
         this.tabbedPane.appendTab(
-            DetailsViewTabs.Profiler, i18nString(UIStrings.profiler), this.paintProfilerView, undefined, true, true);
+            DetailsViewTabs.Profiler as Lowercase<string>, i18nString(UIStrings.profiler), this.paintProfilerView,
+            undefined, true, true);
       }
       this.tabbedPane.selectTab(DetailsViewTabs.Profiler);
       this.paintProfilerView.profile(snapshotWithRect.snapshot);

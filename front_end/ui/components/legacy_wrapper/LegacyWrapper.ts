@@ -24,7 +24,7 @@ export type LegacyWrapper<T extends UI.Widget.Widget, Component extends Wrappabl
 
 export function
 legacyWrapper<T extends Constructor<UI.Widget.Widget>, Component extends WrappableComponent<InstanceType<T>>>(
-    base: T, component: Component, jsLogContext?: string): LegacyWrapper<InstanceType<T>, Component> {
+    base: T, component: Component, jsLogContext?: Lowercase<string>): LegacyWrapper<InstanceType<T>, Component> {
   return new class extends base {
     #component: Component;
 

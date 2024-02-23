@@ -111,7 +111,7 @@ export class Action extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     this.actionRegistration = actionRegistration;
   }
 
-  id(): string {
+  id(): Lowercase<string> {
     return this.actionRegistration.actionId;
   }
 
@@ -422,7 +422,7 @@ export interface ActionRegistration {
   /**
    * The unique id of an Action extension.
    */
-  actionId: string;
+  actionId: Lowercase<string>;
   /**
    * The category with which the action is displayed in the UI.
    */

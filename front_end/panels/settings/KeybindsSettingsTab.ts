@@ -481,7 +481,7 @@ export class ShortcutListItem {
   }
 
   private createIconButton(
-      label: string, iconName: string, className: string, jslogContext: string,
+      label: string, iconName: string, className: string, jslogContext: Lowercase<string>,
       listener: () => void): HTMLButtonElement {
     const button = document.createElement('button') as HTMLButtonElement;
     button.setAttribute('jslog', `${VisualLogging.action().track({click: true}).context(jslogContext)}`);

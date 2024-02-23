@@ -25,11 +25,11 @@ export class SizeInputElement extends HTMLElement {
   #size = '0';
   #placeholder = '';
   #title: Platform.UIString.LocalizedString;
-  #jslogContext: string;
+  #jslogContext: Lowercase<string>;
 
   static readonly litTagName = LitHtml.literal`device-mode-emulation-size-input`;
 
-  constructor(title: Platform.UIString.LocalizedString, {jslogContext}: {jslogContext: string}) {
+  constructor(title: Platform.UIString.LocalizedString, {jslogContext}: {jslogContext: Lowercase<string>}) {
     super();
     this.#title = title;
     this.#jslogContext = jslogContext;

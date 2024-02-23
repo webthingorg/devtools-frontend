@@ -40,28 +40,28 @@ const setting = 'console-insights-enabled';
 
 const actions = [
   {
-    actionId: 'explain.console-message.hover',
+    actionId: 'explain.console-message.hover' as Lowercase<string>,
     title: i18nLazyString(UIStrings.explainThisMessage),
     contextTypes(): [typeof Console.ConsoleViewMessage.ConsoleViewMessage] {
       return [Console.ConsoleViewMessage.ConsoleViewMessage];
     },
   },
   {
-    actionId: 'explain.console-message.context.error',
+    actionId: 'explain.console-message.context.error' as Lowercase<string>,
     title: i18nLazyString(UIStrings.explainThisError),
     contextTypes(): [] {
       return [];
     },
   },
   {
-    actionId: 'explain.console-message.context.warning',
+    actionId: 'explain.console-message.context.warning' as Lowercase<string>,
     title: i18nLazyString(UIStrings.explainThisWarning),
     contextTypes(): [] {
       return [];
     },
   },
   {
-    actionId: 'explain.console-message.context.other',
+    actionId: 'explain.console-message.context.other' as Lowercase<string>,
     title: i18nLazyString(UIStrings.explainThisMessage),
     contextTypes(): [] {
       return [];

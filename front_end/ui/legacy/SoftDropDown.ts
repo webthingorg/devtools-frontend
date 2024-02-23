@@ -39,7 +39,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
   private width: number;
   private listWasShowing200msAgo: boolean;
 
-  constructor(model: ListModel<T>, delegate: Delegate<T>, jslogContext?: string) {
+  constructor(model: ListModel<T>, delegate: Delegate<T>, jslogContext?: Lowercase<string>) {
     this.delegate = delegate;
     this.selectedItem = null;
     this.model = model;

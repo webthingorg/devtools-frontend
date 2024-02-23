@@ -51,7 +51,7 @@ export class RecorderSettings {
       this.#selectorTypes.set(
           selectorType,
           Common.Settings.Settings.instance().createSetting(
-              `recorder-${selectorType}-selector-enabled`,
+              `recorder-${selectorType}-selector-enabled` as Lowercase<string>,
               true,
               ),
       );

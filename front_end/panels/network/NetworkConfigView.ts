@@ -338,7 +338,7 @@ export class NetworkConfigView extends UI.Widget.VBox {
       Zstd: Protocol.Network.ContentEncoding.Zstd,
     };
     for (const encoding of Object.values(contentEncodings)) {
-      const label = UI.UIUtils.CheckboxLabel.create(encoding, true, undefined, encoding);
+      const label = UI.UIUtils.CheckboxLabel.create(encoding, true, undefined, encoding as Lowercase<string>);
       encodingsSection.appendChild(label);
       checkboxes.set(encoding, label.checkboxElement);
     }

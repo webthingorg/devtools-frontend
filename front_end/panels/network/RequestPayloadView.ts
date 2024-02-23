@@ -511,12 +511,12 @@ export class Category extends UI.TreeOutline.TreeElement {
   private readonly expandedSetting: Common.Settings.Setting<boolean>;
   override expanded: boolean;
 
-  constructor(root: UI.TreeOutline.TreeOutline, name: string, title?: string) {
+  constructor(root: UI.TreeOutline.TreeOutline, name: Lowercase<string>, title?: string) {
     super(title || '', true);
     this.toggleOnClick = true;
     this.hidden = true;
-    this.expandedSetting =
-        Common.Settings.Settings.instance().createSetting('request-info-' + name + '-category-expanded', true);
+    this.expandedSetting = Common.Settings.Settings.instance().createSetting(
+        'request-info-' + name + '-category-expanded' as Lowercase<string>, true);
     this.expanded = this.expandedSetting.get();
     this.listItemElement.setAttribute('jslog', `${VisualLogging.section().context(name)}`);
     root.appendChild(this);

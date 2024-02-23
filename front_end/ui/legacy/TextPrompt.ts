@@ -70,7 +70,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
   private oldTabIndex?: number;
   private completeTimeout?: number;
   private disableDefaultSuggestionForEmptyInputInternal?: boolean;
-  jslogContext: string|undefined = undefined;
+  jslogContext: Lowercase<string>|undefined = undefined;
 
   constructor() {
     super();

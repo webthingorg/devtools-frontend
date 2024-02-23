@@ -87,7 +87,7 @@ UI.ViewManager.registerViewExtension({
 
 UI.ActionRegistration.registerActionExtension({
   category: UI.ActionRegistration.ActionCategory.RECORDER,
-  actionId: Actions.RecorderActions.CreateRecording,
+  actionId: Actions.RecorderActions.CreateRecording as Lowercase<string>,
   title: i18nLazyString(UIStrings.createRecording),
   async loadActionDelegate() {
     const Recorder = await loadRecorderModule();
@@ -97,7 +97,7 @@ UI.ActionRegistration.registerActionExtension({
 
 UI.ActionRegistration.registerActionExtension({
   category: UI.ActionRegistration.ActionCategory.RECORDER,
-  actionId: Actions.RecorderActions.StartRecording,
+  actionId: Actions.RecorderActions.StartRecording as Lowercase<string>,
   title: i18nLazyString(UIStrings.startStopRecording),
   contextTypes() {
     return maybeRetrieveContextTypes(
@@ -120,7 +120,7 @@ UI.ActionRegistration.registerActionExtension({
 
 UI.ActionRegistration.registerActionExtension({
   category: UI.ActionRegistration.ActionCategory.RECORDER,
-  actionId: Actions.RecorderActions.ReplayRecording,
+  actionId: Actions.RecorderActions.ReplayRecording as Lowercase<string>,
   title: i18nLazyString(UIStrings.replayRecording),
   contextTypes() {
     return maybeRetrieveContextTypes(
@@ -143,7 +143,7 @@ UI.ActionRegistration.registerActionExtension({
 
 UI.ActionRegistration.registerActionExtension({
   category: UI.ActionRegistration.ActionCategory.RECORDER,
-  actionId: Actions.RecorderActions.ToggleCodeView,
+  actionId: Actions.RecorderActions.ToggleCodeView as Lowercase<string>,
   title: i18nLazyString(UIStrings.toggleCode),
   contextTypes() {
     return maybeRetrieveContextTypes(

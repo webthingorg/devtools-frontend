@@ -931,9 +931,9 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return this.visibleColumnsArray.findIndex(column => column.id === columnId);
   }
 
-  setName(name: string): void {
-    this.columnWeightsSetting =
-        Common.Settings.Settings.instance().createSetting('data-grid-' + name + '-column-weights', {});
+  setName(name: Lowercase<string>): void {
+    this.columnWeightsSetting = Common.Settings.Settings.instance().createSetting(
+        'data-grid-' + name + '-column-weights' as Lowercase<string>, {});
     this.loadColumnWeights();
   }
 

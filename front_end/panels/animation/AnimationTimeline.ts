@@ -298,7 +298,10 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
                                           i18nString(UIStrings.pause);
       button.setAttribute(
           'jslog',
-          `${VisualLogging.action().context(`animations.playback-rate-${playbackRate * 100}`).track({click: true})}`);
+          `${
+              VisualLogging.action()
+                  .context(`animations.playback-rate-${playbackRate * 100}` as Lowercase<string>)
+                  .track({click: true})}`);
       playbackRates.set(button, playbackRate);
       button.addEventListener('click', this.setPlaybackRate.bind(this, playbackRate));
       UI.ARIAUtils.markAsOption(button);

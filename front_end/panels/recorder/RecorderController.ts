@@ -1293,7 +1293,7 @@ export class RecorderController extends LitElement {
                     <${
                       Menus.Menu.MenuItem.litTagName
                     } .value=${converter.getId()}
-                      jslog=${VisualLogging.item(`converter-${converter.getFormatName()}`).track({click: true})}>
+                      jslog=${VisualLogging.item(`converter-${converter.getFormatName()}` as Lowercase<string>).track({click: true})}>
                       ${converter.getFormatName()}
                     </${Menus.Menu.MenuItem.litTagName}>
                   `;
@@ -1310,7 +1310,7 @@ export class RecorderController extends LitElement {
                     <${
                       Menus.Menu.MenuItem.litTagName
                     } .value=${converter.getId()}
-                      jslog=${VisualLogging.item(`converter-${converter.getFormatName()}`).track({click: true})}>
+                      jslog=${VisualLogging.item(`converter-${converter.getFormatName()}` as Lowercase<string>).track({click: true})}>
                     ${converter.getFormatName()}
                     </${Menus.Menu.MenuItem.litTagName}>
                   `;

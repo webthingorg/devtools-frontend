@@ -1074,7 +1074,7 @@ export const createTextChildren = (element: Element|DocumentFragment, ...childre
 
 export function createTextButton(text: string, clickHandler?: ((arg0: Event) => void), opts?: {
   className?: string,
-  jslogContext?: string,
+  jslogContext?: Lowercase<string>,
   primary?: boolean,
 }): HTMLButtonElement {
   const element = document.createElement('button');
@@ -1096,7 +1096,7 @@ export function createTextButton(text: string, clickHandler?: ((arg0: Event) => 
   return element;
 }
 
-export function createInput(className?: string, type?: string, jslogContext?: string): HTMLInputElement {
+export function createInput(className?: string, type?: string, jslogContext?: Lowercase<string>): HTMLInputElement {
   const element = document.createElement('input');
   if (className) {
     element.className = className;
@@ -1148,7 +1148,7 @@ export function createLabel(title: string, className?: string, associatedControl
 }
 
 export function createRadioLabel(
-    name: string, title: string, checked?: boolean, jslogContext?: string): DevToolsRadioButton {
+    name: string, title: string, checked?: boolean, jslogContext?: Lowercase<string>): DevToolsRadioButton {
   const element = (document.createElement('span', {is: 'dt-radio'}) as DevToolsRadioButton);
   element.radioElement.name = name;
   element.radioElement.checked = Boolean(checked);
@@ -1208,7 +1208,7 @@ export class CheckboxLabel extends HTMLSpanElement {
     this.shadowRootInternal.createChild('slot');
   }
 
-  static create(title?: string, checked?: boolean, subtitle?: string, jslogContext?: string): CheckboxLabel {
+  static create(title?: string, checked?: boolean, subtitle?: string, jslogContext?: Lowercase<string>): CheckboxLabel {
     if (!CheckboxLabel.constructorInternal) {
       CheckboxLabel.constructorInternal = Utils.registerCustomElement('span', 'dt-checkbox', CheckboxLabel);
     }

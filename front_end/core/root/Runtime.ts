@@ -146,7 +146,7 @@ export class ExperimentsSupport {
         () => !this.#experimentNames.has(experimentName), 'Duplicate registration of experiment ' + experimentName);
     this.#experimentNames.add(experimentName);
     this.#experiments.push(new Experiment(
-        this, experimentName, experimentTitle, Boolean(unstable),
+        this, experimentName as Lowercase<string>, experimentTitle, Boolean(unstable),
         docLink as Platform.DevToolsPath.UrlString ?? Platform.DevToolsPath.EmptyUrlString,
         feedbackLink as Platform.DevToolsPath.UrlString ?? Platform.DevToolsPath.EmptyUrlString));
   }
@@ -236,14 +236,14 @@ export class ExperimentsSupport {
 }
 
 export class Experiment {
-  name: string;
+  name: Lowercase<string>;
   title: string;
   unstable: boolean;
   docLink?: Platform.DevToolsPath.UrlString;
   readonly feedbackLink?: Platform.DevToolsPath.UrlString;
   readonly #experiments: ExperimentsSupport;
   constructor(
-      experiments: ExperimentsSupport, name: string, title: string, unstable: boolean,
+      experiments: ExperimentsSupport, name: Lowercase<string>, title: string, unstable: boolean,
       docLink: Platform.DevToolsPath.UrlString, feedbackLink: Platform.DevToolsPath.UrlString) {
     this.name = name;
     this.title = title;

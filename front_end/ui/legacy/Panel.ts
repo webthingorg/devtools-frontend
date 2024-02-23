@@ -37,9 +37,9 @@ import {SplitWidget} from './SplitWidget.js';
 import {VBox} from './Widget.js';
 
 export class Panel extends VBox {
-  protected panelName: string;
+  protected panelName: Lowercase<string>;
 
-  constructor(name: string) {
+  constructor(name: Lowercase<string>) {
     super();
 
     this.element.setAttribute('jslog', `${VisualLogging.panel().context(name).track({resize: true})}`);
@@ -75,11 +75,11 @@ export class PanelWithSidebar extends Panel {
   private readonly mainWidget: VBox;
   private readonly sidebarWidget: VBox;
 
-  constructor(name: string, defaultWidth?: number) {
+  constructor(name: Lowercase<string>, defaultWidth?: number) {
     super(name);
 
-    this.panelSplitWidget =
-        new SplitWidget(true, false, this.panelName + '-panel-split-view-state', defaultWidth || 200);
+    this.panelSplitWidget = new SplitWidget(
+        true, false, (this.panelName + '-panel-split-view-state') as Lowercase<string>, defaultWidth || 200);
     this.panelSplitWidget.show(this.element);
 
     this.mainWidget = new VBox();

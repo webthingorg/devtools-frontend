@@ -72,7 +72,7 @@ export class SettingCheckbox extends HTMLElement {
             .checked=${this.#setting.disabledReason() ? false : this.#setting.get()}
             ?disabled=${this.#setting.disabled()}
             @change=${this.#checkboxChanged}
-            jslog=${VisualLogging.toggle().track({click: true}).context(this.#setting.name)}
+            jslog=${VisualLogging.toggle().track({click: true}).context(this.#setting.name as Lowercase<string>)}
             aria-label=${this.#setting.title()}
           />
           ${this.#setting.title()}${reason}${icon}

@@ -165,7 +165,7 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
 
     this.headersViewComponent = new NetworkComponents.RequestHeadersView.RequestHeadersView(request);
     this.appendTab(
-        headersTab, i18nString(UIStrings.headers),
+        headersTab as Lowercase<string>, i18nString(UIStrings.headers),
         LegacyWrapper.LegacyWrapper.legacyWrapper(UI.Widget.VBox, this.headersViewComponent),
         i18nString(UIStrings.headers));
 
@@ -185,23 +185,23 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     if (request.resourceType() === Common.ResourceType.resourceTypes.WebSocket) {
       const frameView = new ResourceWebSocketFrameView(request);
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.WsFrames, i18nString(UIStrings.messages), frameView,
-          i18nString(UIStrings.websocketMessages));
+          NetworkForward.UIRequestLocation.UIRequestTabs.WsFrames as Lowercase<string>, i18nString(UIStrings.messages),
+          frameView, i18nString(UIStrings.websocketMessages));
     } else if (request.mimeType === Platform.MimeType.MimeType.EVENTSTREAM) {
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.EventSource, i18nString(UIStrings.eventstream),
-          new EventSourceMessagesView(request));
+          NetworkForward.UIRequestLocation.UIRequestTabs.EventSource as Lowercase<string>,
+          i18nString(UIStrings.eventstream), new EventSourceMessagesView(request));
 
       this.responseView = new RequestResponseView(request);
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.Response, i18nString(UIStrings.response), this.responseView,
-          i18nString(UIStrings.rawResponseData));
+          NetworkForward.UIRequestLocation.UIRequestTabs.Response as Lowercase<string>, i18nString(UIStrings.response),
+          this.responseView, i18nString(UIStrings.rawResponseData));
     } else {
       this.responseView = new RequestResponseView(request);
       const previewView = new RequestPreviewView(request);
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.Preview, i18nString(UIStrings.preview), previewView,
-          i18nString(UIStrings.responsePreview));
+          NetworkForward.UIRequestLocation.UIRequestTabs.Preview as Lowercase<string>, i18nString(UIStrings.preview),
+          previewView, i18nString(UIStrings.responsePreview));
       const signedExchangeInfo = request.signedExchangeInfo();
       if (signedExchangeInfo && signedExchangeInfo.errors && signedExchangeInfo.errors.length) {
         const icon = new IconButton.Icon.Icon();
@@ -210,8 +210,8 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
         this.setTabIcon(NetworkForward.UIRequestLocation.UIRequestTabs.Preview, icon);
       }
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.Response, i18nString(UIStrings.response), this.responseView,
-          i18nString(UIStrings.rawResponseData));
+          NetworkForward.UIRequestLocation.UIRequestTabs.Response as Lowercase<string>, i18nString(UIStrings.response),
+          this.responseView, i18nString(UIStrings.rawResponseData));
 
       if (this.requestInternal.hasOverriddenContent) {
         const icon = new IconButton.Icon.Icon();
@@ -223,16 +223,17 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     }
 
     this.appendTab(
-        NetworkForward.UIRequestLocation.UIRequestTabs.Initiator, i18nString(UIStrings.initiator),
+        NetworkForward.UIRequestLocation.UIRequestTabs.Initiator as Lowercase<string>, i18nString(UIStrings.initiator),
         new RequestInitiatorView(request), i18nString(UIStrings.requestInitiatorCallStack));
 
     this.appendTab(
-        NetworkForward.UIRequestLocation.UIRequestTabs.Timing, i18nString(UIStrings.timing),
+        NetworkForward.UIRequestLocation.UIRequestTabs.Timing as Lowercase<string>, i18nString(UIStrings.timing),
         new RequestTimingView(request, calculator), i18nString(UIStrings.requestAndResponseTimeline));
 
     if (request.trustTokenParams()) {
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.TrustTokens, i18nString(UIStrings.trustTokens),
+          NetworkForward.UIRequestLocation.UIRequestTabs.TrustTokens as Lowercase<string>,
+          i18nString(UIStrings.trustTokens),
           LegacyWrapper.LegacyWrapper.legacyWrapper(
               UI.Widget.VBox, new NetworkComponents.RequestTrustTokensView.RequestTrustTokensView(request)),
           i18nString(UIStrings.trustTokenOperationDetails));
@@ -286,8 +287,8 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     if (cookiesPresent && !this.cookiesView) {
       this.cookiesView = new RequestCookiesView(this.requestInternal);
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.Cookies, i18nString(UIStrings.cookies), this.cookiesView,
-          i18nString(UIStrings.requestAndResponseCookies));
+          NetworkForward.UIRequestLocation.UIRequestTabs.Cookies as Lowercase<string>, i18nString(UIStrings.cookies),
+          this.cookiesView, i18nString(UIStrings.requestAndResponseCookies));
     }
     if (this.requestInternal.hasThirdPartyCookiePhaseoutIssue()) {
       const icon = new IconButton.Icon.Icon();
@@ -304,8 +305,8 @@ export class NetworkItemView extends UI.TabbedPane.TabbedPane {
     if (this.requestInternal.queryParameters || await this.requestInternal.requestFormData()) {
       this.payloadView = new RequestPayloadView(this.requestInternal);
       this.appendTab(
-          NetworkForward.UIRequestLocation.UIRequestTabs.Payload, i18nString(UIStrings.payload), this.payloadView,
-          i18nString(UIStrings.payload), /* userGesture=*/ void 0,
+          NetworkForward.UIRequestLocation.UIRequestTabs.Payload as Lowercase<string>, i18nString(UIStrings.payload),
+          this.payloadView, i18nString(UIStrings.payload), /* userGesture=*/ void 0,
           /* isCloseable=*/ void 0, /* isPreviewFeature=*/ void 0, /* index=*/ 1);
     }
   }

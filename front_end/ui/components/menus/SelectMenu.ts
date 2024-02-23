@@ -79,7 +79,7 @@ export interface SelectMenuData {
   /**
    * Specifies a context for the visual element.
    */
-  jslogContext: string;
+  jslogContext: Lowercase<string>;
 }
 type TitleCallback = () => LitHtml.TemplateResult;
 
@@ -192,7 +192,7 @@ export class SelectMenu extends HTMLElement {
     return this.#props.jslogContext;
   }
 
-  set jslogContext(jslogContext: string) {
+  set jslogContext(jslogContext: Lowercase<string>) {
     this.#props.jslogContext = jslogContext;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
@@ -320,7 +320,7 @@ export interface SelectMenuButtonData {
   arrowDirection: Dialogs.Dialog.DialogVerticalPosition;
   disabled: boolean;
   singleArrow: boolean;
-  jslogContext: string;
+  jslogContext: Lowercase<string>;
 }
 export class SelectMenuButton extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-select-menu-button`;
@@ -393,11 +393,11 @@ export class SelectMenuButton extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
-  get jslogContext(): string {
+  get jslogContext(): Lowercase<string> {
     return this.#props.jslogContext;
   }
 
-  set jslogContext(jslogContext: string) {
+  set jslogContext(jslogContext: Lowercase<string>) {
     this.#props.jslogContext = jslogContext;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }

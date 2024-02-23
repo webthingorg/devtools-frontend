@@ -652,7 +652,8 @@ export class StepEditor extends LitElement {
     this.#ensureFocus(`[data-attribute=${attribute}].attribute devtools-suggestion-input`);
   };
 
-  #renderInlineButton(opts: {class: string, title: string, iconName: string, onClick: (event: MouseEvent) => void}):
+  #renderInlineButton(
+      opts: {class: Lowercase<string>, title: string, iconName: string, onClick: (event: MouseEvent) => void}):
       LitHtml.TemplateResult|undefined {
     if (this.disabled) {
       return;
@@ -1141,7 +1142,7 @@ export class StepEditor extends LitElement {
           .variant=${Buttons.Button.Variant.SECONDARY}
           class="add-row"
           data-attribute=${attr}
-          jslog=${VisualLogging.action(`add-${Platform.StringUtilities.toKebabCase(attr)}`)}
+          jslog=${VisualLogging.action(Platform.StringUtilities.toKebabCase(`add-${attr}`))}
           @click=${this.#handleAddRowClickEvent}
         >
           ${i18nString(UIStrings.addAttribute, {

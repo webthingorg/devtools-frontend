@@ -84,22 +84,22 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.defaultDetailsWidget.element.classList.add('timeline-details-view');
     this.defaultDetailsContentElement =
         this.defaultDetailsWidget.element.createChild('div', 'timeline-details-view-body vbox');
-    this.appendTab(Tab.Details, i18nString(UIStrings.summary), this.defaultDetailsWidget);
+    this.appendTab(Tab.Details as Lowercase<string>, i18nString(UIStrings.summary), this.defaultDetailsWidget);
     this.setPreferredTab(Tab.Details);
 
     this.rangeDetailViews = new Map();
     this.updateContentsScheduled = false;
 
     const bottomUpView = new BottomUpTimelineTreeView();
-    this.appendTab(Tab.BottomUp, i18nString(UIStrings.bottomup), bottomUpView);
+    this.appendTab(Tab.BottomUp as Lowercase<string>, i18nString(UIStrings.bottomup), bottomUpView);
     this.rangeDetailViews.set(Tab.BottomUp, bottomUpView);
 
     const callTreeView = new CallTreeTimelineTreeView();
-    this.appendTab(Tab.CallTree, i18nString(UIStrings.callTree), callTreeView);
+    this.appendTab(Tab.CallTree as Lowercase<string>, i18nString(UIStrings.callTree), callTreeView);
     this.rangeDetailViews.set(Tab.CallTree, callTreeView);
 
     const eventsView = new EventsTimelineTreeView(delegate);
-    this.appendTab(Tab.EventLog, i18nString(UIStrings.eventLog), eventsView);
+    this.appendTab(Tab.EventLog as Lowercase<string>, i18nString(UIStrings.eventLog), eventsView);
     this.rangeDetailViews.set(Tab.EventLog, eventsView);
 
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this.tabSelected, this);
@@ -164,7 +164,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
   }
 
-  private appendTab(id: string, tabTitle: string, view: UI.Widget.Widget, isCloseable?: boolean): void {
+  private appendTab(id: Lowercase<string>, tabTitle: string, view: UI.Widget.Widget, isCloseable?: boolean): void {
     this.tabbedPane.appendTab(id, tabTitle, view, undefined, undefined, isCloseable);
     if (this.preferredTabId !== this.tabbedPane.selectedTabId) {
       this.tabbedPane.selectTab(id);
@@ -263,7 +263,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
         const layersView = this.layersView();
         layersView.showLayerTree(layerTreeForFrame);
         if (!this.tabbedPane.hasTab(Tab.LayerViewer)) {
-          this.appendTab(Tab.LayerViewer, i18nString(UIStrings.layers), layersView);
+          this.appendTab(Tab.LayerViewer as Lowercase<string>, i18nString(UIStrings.layers), layersView);
         }
       }
     } else if (TimelineSelection.isRangeSelection(selectionObject)) {
@@ -308,7 +308,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
     paintProfilerView.setSnapshot(snapshot);
     if (!this.tabbedPane.hasTab(Tab.PaintProfiler)) {
-      this.appendTab(Tab.PaintProfiler, i18nString(UIStrings.paintProfiler), paintProfilerView, true);
+      this.appendTab(
+          Tab.PaintProfiler as Lowercase<string>, i18nString(UIStrings.paintProfiler), paintProfilerView, true);
     }
     this.tabbedPane.selectTab(Tab.PaintProfiler, true);
   }
@@ -343,7 +344,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     if (this.tabbedPane.hasTab(Tab.PaintProfiler)) {
       return;
     }
-    this.appendTab(Tab.PaintProfiler, i18nString(UIStrings.paintProfiler), paintProfilerView);
+    this.appendTab(Tab.PaintProfiler as Lowercase<string>, i18nString(UIStrings.paintProfiler), paintProfilerView);
   }
 
   private updateSelectedRangeStats(startTime: number, endTime: number): void {
@@ -365,10 +366,10 @@ export class TimelineDetailsView extends UI.Widget.VBox {
 }
 
 export enum Tab {
-  Details = 'Details',
-  EventLog = 'EventLog',
-  CallTree = 'CallTree',
-  BottomUp = 'BottomUp',
-  PaintProfiler = 'PaintProfiler',
-  LayerViewer = 'LayerViewer',
+  Details = 'details',
+  EventLog = 'eventLog',
+  CallTree = 'call-tree',
+  BottomUp = 'bottom-up',
+  PaintProfiler = 'paint-profiler',
+  LayerViewer = 'layer-viewer',
 }

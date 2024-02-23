@@ -586,8 +586,7 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     if (page === undefined) {
       return this.status.E_BADARG('page', 'Resources paths cannot point to non-extension resources');
     }
-    let persistentId = this.getExtensionOrigin(port) + message.title;
-    persistentId = persistentId.replace(/\s/g, '');
+    const persistentId = Platform.StringUtilities.toKebabCase(this.getExtensionOrigin(port) + message.title);
     const panelView = new ExtensionServerPanelView(
         persistentId, i18n.i18n.lockedString(message.title), new ExtensionPanel(this, persistentId, id, page));
     this.clientObjects.set(id, panelView);
@@ -1388,16 +1387,16 @@ export type EventTypes = {
 };
 
 class ExtensionServerPanelView extends UI.View.SimpleView {
-  private readonly name: string;
+  private readonly name: Lowercase<string>;
   private readonly panel: UI.Panel.Panel;
 
-  constructor(name: string, title: Platform.UIString.LocalizedString, panel: UI.Panel.Panel) {
+  constructor(name: Lowercase<string>, title: Platform.UIString.LocalizedString, panel: UI.Panel.Panel) {
     super(title);
     this.name = name;
     this.panel = panel;
   }
 
-  override viewId(): string {
+  override viewId(): Lowercase<string> {
     return this.name;
   }
 

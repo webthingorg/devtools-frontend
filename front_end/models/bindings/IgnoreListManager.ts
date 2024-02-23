@@ -435,12 +435,12 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
   }
 
   getIgnoreListURLContextMenuItems(uiSourceCode: Workspace.UISourceCode.UISourceCode):
-      Array<{text: string, callback: () => void, jslogContext: string}> {
+      Array<{text: string, callback: () => void, jslogContext: Lowercase<string>}> {
     if (uiSourceCode.project().type() === Workspace.Workspace.projectTypes.FileSystem) {
       return [];
     }
 
-    const menuItems: Array<{text: string, callback: () => void, jslogContext: string}> = [];
+    const menuItems: Array<{text: string, callback: () => void, jslogContext: Lowercase<string>}> = [];
     const canIgnoreList = this.canIgnoreListUISourceCode(uiSourceCode);
     const isIgnoreListed = this.isUserOrSourceMapIgnoreListedUISourceCode(uiSourceCode);
     const {isContentScript, isKnownThirdParty} = this.getGeneralRulesForUISourceCode(uiSourceCode);
@@ -468,8 +468,8 @@ export class IgnoreListManager implements SDK.TargetManager.SDKModelObserver<SDK
   }
 
   private getIgnoreListGeneralContextMenuItems(options?: IgnoreListGeneralRules):
-      Array<{text: string, callback: () => void, jslogContext: string}> {
-    const menuItems: Array<{text: string, callback: () => void, jslogContext: string}> = [];
+      Array<{text: string, callback: () => void, jslogContext: Lowercase<string>}> {
+    const menuItems: Array<{text: string, callback: () => void, jslogContext: Lowercase<string>}> = [];
     if (options?.isContentScript) {
       menuItems.push({
         text: i18nString(UIStrings.addAllContentScriptsToIgnoreList),

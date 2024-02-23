@@ -69,7 +69,8 @@ export class EmptyWidget extends VBox {
     return this.contentElement.appendChild(learnMoreLink) as HTMLElement;
   }
 
-  appendWarning(message: string, learnMoreLink: Platform.DevToolsPath.UrlString, jsLogContext?: string): Infobar {
+  appendWarning(message: string, learnMoreLink: Platform.DevToolsPath.UrlString, jsLogContext?: Lowercase<string>):
+      Infobar {
     function openLink(): void {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(learnMoreLink);
     }
@@ -79,7 +80,7 @@ export class EmptyWidget extends VBox {
       highlight: true,
       delegate: openLink,
       dismiss: false,
-      jsLogContext: 'learn-more',
+      jsLogContext: 'learn-more' as Lowercase<string>,
     }] :
                                     undefined;
 

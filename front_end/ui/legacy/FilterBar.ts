@@ -79,15 +79,15 @@ export class FilterBar extends Common.ObjectWrapper.eventMixin<FilterBarEventTyp
   private alwaysShowFilters?: boolean;
   private showingWidget?: boolean;
 
-  constructor(name: string, visibleByDefault?: boolean) {
+  constructor(name: Lowercase<string>, visibleByDefault?: boolean) {
     super();
     this.registerRequiredCSS(filterStyles);
     this.enabled = true;
     this.element.classList.add('filter-bar');
     this.element.setAttribute('jslog', `${VisualLogging.toolbar('filter-bar')}`);
 
-    this.stateSetting =
-        Common.Settings.Settings.instance().createSetting('filter-bar-' + name + '-toggled', Boolean(visibleByDefault));
+    this.stateSetting = Common.Settings.Settings.instance().createSetting(
+        'filter-bar-' + name + '-toggled' as Lowercase<string>, Boolean(visibleByDefault));
     this.filterButtonInternal =
         new ToolbarSettingToggle(this.stateSetting, 'filter', i18nString(UIStrings.filter), 'filter-filled', 'filter');
 
@@ -476,7 +476,7 @@ export class CheckboxFilterUI extends Common.ObjectWrapper.ObjectWrapper<FilterU
   private checkboxElement: HTMLInputElement;
   constructor(
       className: string, title: string, activeWhenChecked?: boolean, setting?: Common.Settings.Setting<boolean>,
-      jslogContext?: string) {
+      jslogContext?: Lowercase<string>) {
     super();
     this.filterElement = document.createElement('div');
     this.filterElement.classList.add('filter-checkbox-filter');

@@ -43,7 +43,7 @@ export class ExtensionPanel extends UI.Panel.Panel implements UI.SearchableView.
   private readonly panelToolbar: UI.Toolbar.Toolbar;
   private readonly searchableViewInternal: UI.SearchableView.SearchableView;
 
-  constructor(server: ExtensionServer, panelName: string, id: string, pageURL: string) {
+  constructor(server: ExtensionServer, panelName: Lowercase<string>, id: string, pageURL: string) {
     super(panelName);
     this.server = server;
     this.id = id;

@@ -47,7 +47,7 @@ export function createTarget(
 }
 
 function createSettingValue(
-    category: Common.Settings.SettingCategory, settingName: string, defaultValue: unknown,
+    category: Common.Settings.SettingCategory, settingName: Lowercase<string>, defaultValue: unknown,
     settingType = Common.Settings.SettingType.BOOLEAN): Common.Settings.SettingRegistration {
   return {category, settingName, defaultValue, settingType};
 }
@@ -93,7 +93,7 @@ export function stubNoopSettings() {
   } as unknown as Common.Settings.Settings);
 }
 
-export function registerNoopActions(actionIds: string[]): void {
+export function registerNoopActions(actionIds: Lowercase<string>[]): void {
   for (const actionId of actionIds) {
     UI.ActionRegistration.maybeRemoveActionExtension(actionId);
     UI.ActionRegistration.registerActionExtension({
@@ -286,7 +286,7 @@ export async function initializeGlobalVars({reset = true} = {}) {
       {forceNew: true, win: window, frontendHost: Host.InspectorFrontendHost.InspectorFrontendHostInstance});
 
   // Initialize theme support and context menus.
-  Common.Settings.Settings.instance().createSetting('uiTheme', 'systemPreferred');
+  Common.Settings.Settings.instance().createLegacySetting('uiTheme', 'systemPreferred');
   UI.UIUtils.initializeUIUtils(document);
 }
 
@@ -400,7 +400,7 @@ describeWithLocale.skip = function(title: string, fn: (this: Mocha.Suite) => voi
   });
 };
 
-export function createFakeSetting<T>(name: string, defaultValue: T): Common.Settings.Setting<T> {
+export function createFakeSetting<T>(name: Lowercase<string>, defaultValue: T): Common.Settings.Setting<T> {
   const storage = new Common.Settings.SettingsStorage({}, Common.Settings.NOOP_STORAGE, 'test');
   return new Common.Settings.Setting(name, defaultValue, new Common.ObjectWrapper.ObjectWrapper(), storage);
 }

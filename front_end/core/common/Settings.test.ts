@@ -342,7 +342,7 @@ describe('VersionController', () => {
   describe('updateVersionFrom32To33', () => {
     it('correctly discards previously viewed files without url properties', () => {
       const versionController = new VersionController();
-      const previouslyViewedFilesSetting = settings.createLocalSetting('previouslyViewedFiles', [
+      const previouslyViewedFilesSetting = settings.createLocalSetting('previouslyViewedFiles' as Lowercase<string>, [
         {url: 'http://localhost:3000', scrollLineNumber: 1},
         {scrollLineNumber: 1},
         {},
@@ -361,7 +361,7 @@ describe('VersionController', () => {
 
     it('correctly adds resourceTypeName to previously viewed files', () => {
       const versionController = new VersionController();
-      const previouslyViewedFilesSetting = settings.createLocalSetting('previouslyViewedFiles', [
+      const previouslyViewedFilesSetting = settings.createLocalSetting('previouslyViewedFiles' as Lowercase<string>, [
         {url: 'http://localhost:3000', scrollLineNumber: 1},
         {url: 'webpack:///src/foo.ts'},
       ]);
@@ -452,7 +452,8 @@ describe('VersionController', () => {
   describe('updateVersionFrom35To36', () => {
     it('update showThirdPartyIssues setting value to true', () => {
       const versionController = new VersionController();
-      const showThirdPartyIssuesSetting = settings.createLocalSetting('showThirdPartyIssues', false);
+      const showThirdPartyIssuesSetting =
+          settings.createLocalSetting('showThirdPartyIssues' as Lowercase<string>, false);
       versionController.updateVersionFrom35To36();
       assert.isTrue(showThirdPartyIssuesSetting.get());
     });

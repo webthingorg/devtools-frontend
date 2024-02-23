@@ -145,7 +145,7 @@ interface LinkSwatchRenderData {
   isDefined: boolean;
   text: string;
   onLinkActivate: (linkText: string) => void;
-  jslogContext: string;
+  jslogContext: Lowercase<string>;
 }
 
 export class LinkSwatch extends HTMLElement {

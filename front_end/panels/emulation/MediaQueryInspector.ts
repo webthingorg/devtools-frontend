@@ -150,7 +150,7 @@ export class MediaQueryInspector extends UI.Widget.Widget implements
       const title = contextMenuItems[i];
       subMenuItem.defaultSection().appendItem(
           title, this.revealSourceLocation.bind(this, (uiLocations.get(title) as Workspace.UISourceCode.UILocation)),
-          {jslogContext: 'revealInSourceCode'});
+          {jslogContext: 'reveal-in-source-code'});
     }
     void contextMenu.show();
   }

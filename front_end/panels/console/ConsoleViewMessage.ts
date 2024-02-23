@@ -1329,7 +1329,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     return i18nString(UIStrings.explainThisMessage);
   }
 
-  getExplainActionId(): string {
+  getExplainActionId(): Lowercase<string> {
     if (this.message.level === Protocol.Log.LogEntryLevel.Error) {
       return EXPLAIN_CONTEXT_ERROR_ACTION_ID;
     }

@@ -227,8 +227,8 @@ export class TabbedPane extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   appendTab(
-      id: string, tabTitle: string, view: Widget, tabTooltip?: string, userGesture?: boolean, isCloseable?: boolean,
-      isPreviewFeature?: boolean, index?: number): void {
+      id: Lowercase<string>, tabTitle: string, view: Widget, tabTooltip?: string, userGesture?: boolean,
+      isCloseable?: boolean, isPreviewFeature?: boolean, index?: number): void {
     const closeable = typeof isCloseable === 'boolean' ? isCloseable : Boolean(this.closeableTabs);
     const tab = new TabbedPaneTab(this, id, tabTitle, closeable, Boolean(isPreviewFeature), view, tabTooltip);
     tab.setDelegate((this.delegate as TabbedPaneTabDelegate));

@@ -93,7 +93,7 @@ export class AdornerSettingsPane extends HTMLElement {
             class="adorner-status"
             type="checkbox" name=${adorner}
             .checked=${isEnabled}
-            jslog=${VisualLogging.toggle(adorner).track({change: true})}
+            jslog=${VisualLogging.toggle(adorner as Lowercase<string>).track({change: true})}
             data-adorner=${adorner}>
           <span class="adorner-name">${adorner}</span>
         </label>

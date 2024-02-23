@@ -153,7 +153,7 @@ export interface ConfigStringBuilder {
    * @param value Optional context, which can be either a string or a number.
    * @returns The builder itself.
    */
-  context: (value: string|number|undefined) => ConfigStringBuilder;
+  context: (value: Lowercase<string>|number|undefined) => ConfigStringBuilder;
 
   /**
    * Speficies the name of a `ParentProvider` used to lookup the parent visual element.
@@ -187,13 +187,13 @@ export interface ConfigStringBuilder {
   toString: () => string;
 }
 
-export function makeConfigStringBuilder(veName: VisualElementName, context?: string): ConfigStringBuilder {
+export function makeConfigStringBuilder(veName: VisualElementName, context?: Lowercase<string>): ConfigStringBuilder {
   const components: string[] = [veName];
   if (typeof context !== 'undefined') {
     components.push(`context: ${context}`);
   }
   return {
-    context: function(value: string|number|undefined): ConfigStringBuilder {
+    context: function(value: Lowercase<string>|number|undefined): ConfigStringBuilder {
       if (typeof value !== 'undefined') {
         components.push(`context: ${value}`);
       }

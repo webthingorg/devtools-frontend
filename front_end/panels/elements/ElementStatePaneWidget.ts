@@ -65,7 +65,7 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       }
       node.domModel().cssModel().forcePseudoState(node, state, event.target.checked);
     };
-    const createElementStateCheckbox = (state: string): Element => {
+    const createElementStateCheckbox = (state: Lowercase<string>): Element => {
       const td = document.createElement('td');
       const label = UI.UIUtils.CheckboxLabel.create(':' + state);
       const input = label.checkboxElement;

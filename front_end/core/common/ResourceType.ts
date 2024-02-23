@@ -150,13 +150,14 @@ const str_ = i18n.i18n.registerUIStrings('core/common/ResourceType.ts', UIString
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 export class ResourceType {
-  readonly #nameInternal: string;
+  readonly #nameInternal: Lowercase<string>;
   readonly #titleInternal: () => Platform.UIString.LocalizedString;
   readonly #categoryInternal: ResourceCategory;
   readonly #isTextTypeInternal: boolean;
 
   constructor(
-      name: string, title: () => Platform.UIString.LocalizedString, category: ResourceCategory, isTextType: boolean) {
+      name: Lowercase<string>, title: () => Platform.UIString.LocalizedString, category: ResourceCategory,
+      isTextType: boolean) {
     this.#nameInternal = name;
     this.#titleInternal = title;
     this.#categoryInternal = category;
@@ -268,7 +269,7 @@ export class ResourceType {
     return 'text/javascript+plain';
   }
 
-  name(): string {
+  name(): Lowercase<string> {
     return this.#nameInternal;
   }
 

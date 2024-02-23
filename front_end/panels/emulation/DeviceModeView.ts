@@ -181,7 +181,11 @@ export class DeviceModeView extends UI.Widget.VBox {
       const block = (outer.createChild('div', 'device-mode-preset-bar') as HTMLElement);
       block.createChild('span').textContent = titles[i] + ' \u2013 ' + sizes[i] + 'px';
       block.setAttribute(
-          'jslog', `${VisualLogging.action().track({click: true}).context(`device-mode-preset-${sizes[i]}px`)}`);
+          'jslog',
+          `${
+              VisualLogging.action()
+                  .track({click: true})
+                  .context(`device-mode-preset-${sizes[i]}px` as Lowercase<string>)}`);
       block.addEventListener('click', applySize.bind(this, sizes[i]), false);
       this.blockElementToWidth.set(block, sizes[i]);
       this.presetBlocks.push(block);

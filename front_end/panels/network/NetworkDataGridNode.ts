@@ -865,7 +865,7 @@ export class NetworkRequestNode extends NetworkNode {
   override displayType(): string {
     const mimeType = this.requestInternal.mimeType || this.requestInternal.requestContentType() || '';
     const resourceType = this.requestInternal.resourceType();
-    let simpleType = resourceType.name();
+    let simpleType = resourceType.name() as string;
 
     if (resourceType === Common.ResourceType.resourceTypes.Other ||
         resourceType === Common.ResourceType.resourceTypes.Image) {

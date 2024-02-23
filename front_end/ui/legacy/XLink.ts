@@ -24,8 +24,9 @@ export class XLink extends XElement {
   private clickable: boolean;
   private readonly onClick: (arg0: Event) => void;
   private readonly onKeyDown: (arg0: KeyboardEvent) => void;
-  static create(url: string, linkText?: string, className?: string, preventClick?: boolean, jsLogContext?: string):
-      HTMLElement {
+  static create(
+      url: string, linkText?: string, className?: string, preventClick?: boolean,
+      jsLogContext?: Lowercase<string>): HTMLElement {
     if (!linkText) {
       linkText = url;
     }

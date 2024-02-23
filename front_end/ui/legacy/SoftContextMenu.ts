@@ -646,7 +646,7 @@ export interface SoftContextMenuDescriptor {
   element?: Element;
   shortcut?: string;
   tooltip?: Platform.UIString.LocalizedString;
-  jslogContext?: string;
+  jslogContext?: Lowercase<string>;
 }
 interface ElementMenuDetails {
   customElement?: HTMLElement;

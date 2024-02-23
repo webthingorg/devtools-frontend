@@ -17,7 +17,7 @@ export interface EnumSettingOption extends BaseSettingOption {
 }
 
 export interface BaseSetting {
-  name: string;
+  name: Lowercase<string>;
   type: Common.Settings.SettingType.BOOLEAN|Common.Settings.SettingType.ENUM;
   title: string;
 }

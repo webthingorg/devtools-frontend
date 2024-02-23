@@ -77,7 +77,7 @@ export class SplitWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typ
   private savedShowMode: string;
 
   constructor(
-      isVertical: boolean, secondIsSidebar: boolean, settingName?: string, defaultSidebarWidth?: number,
+      isVertical: boolean, secondIsSidebar: boolean, settingName?: Lowercase<string>, defaultSidebarWidth?: number,
       defaultSidebarHeight?: number, constraintsInDip?: boolean) {
     super(true);
     this.element.classList.add('split-widget');
@@ -826,7 +826,7 @@ export class SplitWidget extends Common.ObjectWrapper.eventMixin<EventTypes, typ
   createShowHideSidebarButton(
       showTitle: Common.UIString.LocalizedString, hideTitle: Common.UIString.LocalizedString,
       shownString: Common.UIString.LocalizedString, hiddenString: Common.UIString.LocalizedString,
-      jslogContext?: string): ToolbarButton {
+      jslogContext?: Lowercase<string>): ToolbarButton {
     this.showSidebarButtonTitle = showTitle;
     this.hideSidebarButtonTitle = hideTitle;
     this.shownSidebarString = shownString;

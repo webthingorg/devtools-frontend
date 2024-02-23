@@ -378,7 +378,7 @@ export interface ContextMenuDescriptor {
   enabled?: boolean;
   checked?: boolean;
   subItems?: ContextMenuDescriptor[];
-  jslogContext?: string;
+  jslogContext?: Lowercase<string>;
 }
 export interface LoadNetworkResourceResult {
   statusCode: number;

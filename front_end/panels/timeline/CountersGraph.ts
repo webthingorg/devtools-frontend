@@ -198,8 +198,8 @@ export class CountersGraph extends UI.Widget.VBox {
     this.currentValuesBar.id = 'counter-values-bar';
   }
 
-  private createCounter(uiName: string, settingsKey: string, color: string, formatter?: ((arg0: number) => string)):
-      Counter {
+  private createCounter(
+      uiName: string, settingsKey: Lowercase<string>, color: string, formatter?: ((arg0: number) => string)): Counter {
     const counter = new Counter();
     this.counters.push(counter);
     this.counterUI.push(new CounterUI(this, uiName, settingsKey, color, counter, formatter));
@@ -406,13 +406,14 @@ export class CounterUI {
   private marker: HTMLElement;
 
   constructor(
-      countersPane: CountersGraph, title: string, settingsKey: string, graphColor: string, counter: Counter,
+      countersPane: CountersGraph, title: string, settingsKey: Lowercase<string>, graphColor: string, counter: Counter,
       formatter?: (arg0: number) => string) {
     this.countersPane = countersPane;
     this.counter = counter;
     this.formatter = formatter || Platform.NumberUtilities.withThousandsSeparator;
 
-    this.setting = Common.Settings.Settings.instance().createSetting('timeline-counters-graph-' + settingsKey, true);
+    this.setting = Common.Settings.Settings.instance().createSetting(
+        'timeline-counters-graph-' + settingsKey as Lowercase<string>, true);
     this.setting.setTitle(title);
     this.filter = new UI.Toolbar.ToolbarSettingCheckbox(this.setting, title);
     this.filter.inputElement.classList.add('-theme-preserve-input');

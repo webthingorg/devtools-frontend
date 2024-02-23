@@ -226,6 +226,7 @@ export interface SettingRegistration {
   /**
    * The identifier of the setting.
    */
+  // settingName: Lowercase<string>;
   settingName: string;
   /**
    * Determines how the possible values of the setting are expressed.
