@@ -581,6 +581,11 @@ export const selectTextFromNodeToNode = async (
   }, await from, await to, direction);
 };
 
+export const seeMoreTabs = async (root?: puppeteer.ElementHandle<Element>) => {
+  const moreTabsButton = await waitForAria('More tabs', root);
+  await moreTabsButton.click();
+};
+
 export const closePanelTab = async (panelTabSelector: string) => {
   // Get close button from tab element
   const selector = `${panelTabSelector} > .tabbed-pane-close-button`;

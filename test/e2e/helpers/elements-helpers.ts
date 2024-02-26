@@ -3,23 +3,24 @@
 // found in the LICENSE file.
 import {assert} from 'chai';
 import type * as puppeteer from 'puppeteer-core';
-import {AsyncScope} from '../../shared/async-scope.js';
 
+import {AsyncScope} from '../../shared/async-scope.js';
 import {
   $,
   $$,
   click,
+  clickElement,
   getBrowserAndPages,
   getTextContent,
   goToResource,
   pressKey,
+  seeMoreTabs,
   step,
   summonSearchBox,
   timeout,
   typeText,
   waitFor,
   waitForAria,
-  clickElement,
   waitForFunction,
 } from '../../shared/helper.js';
 
@@ -762,8 +763,7 @@ export const toggleAccessibilityPane = async () => {
   let a11yPane = await $('Accessibility', undefined, 'aria');
   if (!a11yPane) {
     const elementsPanel = await waitForAria('Elements panel');
-    const moreTabs = await waitForAria('More tabs', elementsPanel);
-    await clickElement(moreTabs);
+    await seeMoreTabs(elementsPanel);
     a11yPane = await waitForAria('Accessibility');
   }
   await clickElement(a11yPane);
