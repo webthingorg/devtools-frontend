@@ -56,6 +56,30 @@
       },
       "revId": "44ac08f36a08075f81bf5ac8d905cf5a2e4dc2e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "905a269c_9777fe70",
+        "filename": "test/unittests/front_end/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-02-26T07:00:45Z",
+      "side": 1,
+      "message": "Just checked manually: It was over-eager copy\u0026paste 😊",
+      "parentUuid": "67d87812_0ec6b0c1",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 59
+      },
+      "revId": "44ac08f36a08075f81bf5ac8d905cf5a2e4dc2e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
