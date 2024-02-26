@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Host from '../../../core/host/host.js';
+import * as ThemeSupport from '../theme_support/theme_support.js';
 
 // export class instead of function to make sinon spying possible (it cannot mock ES modules)
 export class DynamicTheming {
@@ -27,6 +28,7 @@ export class DynamicTheming {
     document.body.appendChild(newColorsCssLink);
     if (colorCssNode && await newColorsLoaded) {
       colorCssNode.remove();
+      ThemeSupport.ThemeSupport.instance().applyTheme(document);
     }
   }
 }
