@@ -84,7 +84,7 @@ export class GoToLineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
     return '';
   }
 
-  override queryChanged(query: string): void {
+  override queryChanged(query: string, _filterItems: (forcedTop: number[]) => void): void {
     this.#goToLineStrings = [];
     const position = this.parsePosition(query);
     const sourceFrame = this.currentSourceFrame();

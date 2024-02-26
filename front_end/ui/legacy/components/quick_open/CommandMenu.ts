@@ -33,6 +33,11 @@ const UIStrings = {
    * @description Hint text to indicate that a selected command is deprecated
    */
   deprecated: '— deprecated',
+
+  /**
+   * @description Hint text to indicate that AI will take a while to respond
+   */
+  queryingAI: 'querying AI – this is going to take a while',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/quick_open/CommandMenu.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -41,8 +46,10 @@ let commandMenuInstance: CommandMenu;
 
 export class CommandMenu {
   private readonly commandsInternal: Command[];
+  private commandPrompt: string;
   private constructor() {
     this.commandsInternal = [];
+    this.commandPrompt = '';
     this.loadCommands();
   }
 
@@ -252,10 +259,13 @@ export const enum PanelOrDrawer {
 
 export class CommandMenuProvider extends Provider {
   private commands: Command[];
+  private commandPrompt: string;
+  private queryingAI: boolean = false;
 
   constructor(commandsForTest: Command[] = []) {
     super();
     this.commands = commandsForTest;
+    this.commandPrompt = '';
   }
 
   override attach(): void {
@@ -284,6 +294,11 @@ export class CommandMenuProvider extends Provider {
     }
 
     this.commands = this.commands.sort(commandComparator);
+
+    this.commandPrompt = '';
+    for (const [index, command] of this.commands.entries()) {
+      this.commandPrompt += index + ': (' + command.title + ', ' + command.key.replace('\u0000', ', ') + ')\n';
+    }
 
     function commandComparator(left: Command, right: Command): number {
       const cats = Platform.StringUtilities.compare(left.category, right.category);
@@ -353,7 +368,47 @@ export class CommandMenuProvider extends Provider {
   }
 
   override notFoundText(): string {
+    if (this.queryingAI) {
+      return i18nString(UIStrings.queryingAI);
+    }
     return i18nString(UIStrings.noCommandsFound);
+  }
+
+  setQueryingAI(queryingAI: boolean): void {
+    this.queryingAI = queryingAI;
+  }
+
+  override queryChanged(query: string, filterItems: (forcedTop: number[]) => void): void {
+    if (query.endsWith('?')) {
+      const aiRanking: number[] = [];
+      const setQueryingAI = this.setQueryingAI.bind(this);
+      setQueryingAI(true);
+      this.getRanking(query)
+          .then(function(value) {
+            for (const match of value.matchAll(/\d+/g)) {
+              aiRanking.push(parseInt(match[0]));
+            }
+          })
+          .finally(function() {
+            setQueryingAI(false);
+          })
+          .then(function() {
+            filterItems(aiRanking);
+          });
+    }
+    return undefined;
+  }
+
+  async getRanking(query: string): Promise<string> {
+    const aidaClient = new Host.AidaClient.AidaClient();
+    const prompt = 'This is the available list of commands by index:\n' + this.commandPrompt + '\n\n' +
+        'Give me the indices of the five most suitable commands in this list for this query, ranked in decreasing suitability:\n' +
+        query;
+    let result: string = '';
+    for await (const response of aidaClient.fetch(prompt)) {
+      result = response.explanation;
+    }
+    return Promise.resolve(result);
   }
 }
 
