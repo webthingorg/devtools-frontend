@@ -184,6 +184,24 @@ export class CompatibilityTracksAppender {
     return this.#flameChartData;
   }
 
+  getHiddenEvents(group: PerfUI.FlameChart.Group): TraceEngine.Types.TraceEvents.TraceEventData[]|void{
+    const appender = this.#trackForGroup.get(group);
+    if (appender && appender.entriesFilter) {
+      return appender.entriesFilter().invisibleEntries();
+    } else {
+      console.warn('Could not get hidden events.');
+    }
+  }
+  
+  getModifiedEntries(group: PerfUI.FlameChart.Group): TraceEngine.Types.TraceEvents.TraceEventData[]|void{
+    const appender = this.#trackForGroup.get(group);
+    if (appender && appender.entriesFilter) {
+      return appender.entriesFilter().modifiedEntries();
+    } else {
+      console.warn('Could not get modified events.');
+    }
+  }
+
   modifyTree(
       group: PerfUI.FlameChart.Group, entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
       type: TraceEngine.EntriesFilter.FilterAction): void {
@@ -202,7 +220,7 @@ export class CompatibilityTracksAppender {
     if (appender && appender.entriesFilter) {
       return appender.entriesFilter().findPossibleActions(node);
     }
-    console.warn('Could not modify tree on a track.');
+    console.warn('Could not find possible context menu actions.');
   }
 
   findHiddenDescendantsAmount(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry):
