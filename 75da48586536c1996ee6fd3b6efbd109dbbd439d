@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e158511_3eb5af22",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-26T14:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7465ca64_034453fa",
+      "revId": "75da48586536c1996ee6fd3b6efbd109dbbd439d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61ec41d2_723a1ec3",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-26T14:39:05Z",
       "side": 1,
       "message": "```suggestion\n  await click(\u0027aria/More tabs\u0027, {root});\n```",
+      "revId": "75da48586536c1996ee6fd3b6efbd109dbbd439d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "984dd5a7_228b83a9",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-26T14:46:23Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "61ec41d2_723a1ec3",
       "revId": "75da48586536c1996ee6fd3b6efbd109dbbd439d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
