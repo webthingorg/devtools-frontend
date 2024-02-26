@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20f2e0a3_91f07415",
+        "filename": "front_end/panels/animation/AnimationDOMNode.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-26T13:07:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e3726fb8_661831a6",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "051b4abc_bae6dd90",
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "No, it\u0027s for not showing the scale animation when the user comes back to the tab with the same previews. So, after the initial animation, we mark it to not show animations when it is rendered again.",
       "parentUuid": "051b4abc_bae6dd90",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c88aaab6_5a73153c",
+        "filename": "front_end/panels/animation/AnimationGroupPreviewUI.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-26T13:07:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "564950ed_c4d43378",
       "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -265,6 +301,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a561b7_a2b52c23",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-26T13:07:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d76daa4a_15b95e35",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3a607ec_31ea9ed3",
@@ -296,6 +350,24 @@
       "side": 1,
       "message": "Yep, that\u0027s the case :)",
       "parentUuid": "d3a607ec_31ea9ed3",
+      "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a359cb_8224ccbd",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-26T13:07:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2ee47341_e0bf1085",
       "revId": "6911adda2ed74a5310d94f941cb70bb3ac63e34a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
