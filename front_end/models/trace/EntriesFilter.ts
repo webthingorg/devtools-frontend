@@ -111,6 +111,13 @@ export class EntriesFilter {
   invisibleEntries(): Types.TraceEvents.TraceEventData[] {
     return this.#invisibleEntries;
   }
+  
+  /**
+   * Returns the set of entries that are invisible given the set of applied actions.
+   **/
+  modifiedEntries(): Types.TraceEvents.TraceEventData[] {
+    return this.#modifiedVisibleEntries;
+  }
 
   /**
    * Applies an action to hide entries or removes entries
@@ -149,7 +156,18 @@ export class EntriesFilter {
         allDescendants.forEach(descendant => entriesToHide.add(descendant));
         // If there are any children to hide, add selected entry to modifiedVisibleEntries array to identify in the UI that children of the selected entry are modified.
         if (entriesToHide.size > 0) {
+          allDescendants.forEach(descendant => {
+            // remove from modified
+            this.#modifiedVisibleEntries = this.#modifiedVisibleEntries.filter(entry => {
+              if(entry == descendant){
+
+                console.log("removed");
+              }
+              return entry !== descendant
+            });
+          });
           this.#modifiedVisibleEntries.push(action.entry);
+          // remove all children from modified
         }
         break;
       }
