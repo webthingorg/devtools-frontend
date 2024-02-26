@@ -270,6 +270,24 @@
       "parentUuid": "38f0fc2d_f2dafe2d",
       "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54441314_7ea9f005",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-26T19:10:08Z",
+      "side": 1,
+      "message": "I was able to create a slightly better dep system that uses `traceParsedData` as input to `generateInsight`. LMK what you think, can revert and do the TODO thing if it\u0027s too messy or whatever.",
+      "parentUuid": "e2504d8d_40fb1af6",
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
