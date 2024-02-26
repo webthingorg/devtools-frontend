@@ -16,6 +16,23 @@
       "message": "Alex, could you please take a look?",
       "revId": "6e8c058d1588732a4f62a1c60e10b0f375c03379",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50796fc3_cbbf5cb7",
+        "filename": "test/shared/helper.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-02-26T14:26:48Z",
+      "side": 1,
+      "message": "Let\u0027s use the click helper instead waitForAria + click",
+      "revId": "6e8c058d1588732a4f62a1c60e10b0f375c03379",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
