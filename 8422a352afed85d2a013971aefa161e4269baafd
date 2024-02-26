@@ -16,6 +16,23 @@
       "message": "Hi Philip,\n\nI\u0027m adding the autoroller bot to COMMON_OWNERS. PTAL!",
       "revId": "8422a352afed85d2a013971aefa161e4269baafd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0709e251_78e9be3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-26T09:24:49Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\n(Adding for Owner)\n\nI\u0027m adding the autoroller bot to the COMMON_OWNERS file such that we can automatically trigger CQ on autorolls. This was missing for rolls of the browser protocol. PTAL!",
+      "revId": "8422a352afed85d2a013971aefa161e4269baafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
