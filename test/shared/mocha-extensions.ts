@@ -6,6 +6,16 @@ import * as FS from 'fs';
 import * as Mocha from 'mocha';
 import * as Path from 'path';
 
+const Runner = require('mocha/lib/runner');
+const originalRunnerRun = Runner.prototype.runTest;
+Runner.prototype.runTest = function(done: Mocha.Done) {
+  if (this._grep && this._grep.toString() !== '/.*/') {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (globalThis as any).grep = this._grep;
+  }
+  originalRunnerRun.call(this, done);
+};
+
 import {getBrowserAndPages} from '../conductor/puppeteer-state.js';
 import {ScreenshotError} from '../shared/screenshot-error.js';
 
