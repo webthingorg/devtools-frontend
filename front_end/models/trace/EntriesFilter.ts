@@ -111,6 +111,13 @@ export class EntriesFilter {
   invisibleEntries(): Types.TraceEvents.TraceEventData[] {
     return this.#invisibleEntries;
   }
+  
+  /**
+   * Returns the set of entries that are invisible given the set of applied actions.
+   **/
+  modifiedEntries(): Types.TraceEvents.TraceEventData[] {
+    return this.#modifiedVisibleEntries;
+  }
 
   /**
    * Applies an action to hide entries or removes entries
