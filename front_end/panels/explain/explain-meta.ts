@@ -12,15 +12,15 @@ const UIStrings = {
   /**
    *@description Message to offer insights for a console error message
    */
-  explainThisError: 'Explain this error',
+  explainThisError: 'Understand this error',
   /**
    *@description Message to offer insights for a console warning message
    */
-  explainThisWarning: 'Explain this warning',
+  explainThisWarning: 'Understand this warning',
   /**
    *@description Message to offer insights for a console message
    */
-  explainThisMessage: 'Explain this message',
+  explainThisMessage: 'Understand this message',
   /**
    * @description The setting title to enable the console insights feature via
    * the settings tab.
