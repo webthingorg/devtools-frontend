@@ -1427,9 +1427,15 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
     this.lastInitiatorEntry = entryIndex;
 
+    let hiddenEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
+    if(this.timelineDataInternal.selectedGroup) {
+      hiddenEvents = this.compatibilityTracksAppender?.getHiddenEvents(this.timelineDataInternal.selectedGroup) ?? [];
+    }
+
     const initiatorPairs = eventInitiatorPairsToDraw(
         this.traceEngineData,
         event,
+        hiddenEvents,
     );
     // This means there is no change for arrows.
     if (previousInitiatorPairsLength === 0 && initiatorPairs.length === 0) {

@@ -184,6 +184,15 @@ export class CompatibilityTracksAppender {
     return this.#flameChartData;
   }
 
+  getHiddenEvents(group: PerfUI.FlameChart.Group): TraceEngine.Types.TraceEvents.TraceEventData[]|void{
+    const appender = this.#trackForGroup.get(group);
+    if (appender && appender.entriesFilter) {
+      return appender.entriesFilter().invisibleEntries();
+    } else {
+      console.warn('Could not get hidden events.');
+    }
+  }
+
   modifyTree(
       group: PerfUI.FlameChart.Group, entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry,
       type: TraceEngine.EntriesFilter.FilterAction): void {

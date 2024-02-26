@@ -18,16 +18,18 @@ export interface InitiatorPair {
 export function eventInitiatorPairsToDraw(
     traceEngineData: TraceEngine.Handlers.Types.TraceParseData,
     selectedEvent: TraceEngine.Types.TraceEvents.TraceEventData,
+    hiddenEvents: TraceEngine.Types.TraceEvents.TraceEventData[]
     ): readonly InitiatorPair[] {
   return [
-    ...findEventInitiatorPairsPredecessors(traceEngineData, selectedEvent),
-    ...findEventInitiatorPairsDirectSuccessors(traceEngineData, selectedEvent),
+    ...findEventInitiatorPairsPredecessors(traceEngineData, selectedEvent, hiddenEvents),
+    ...findEventInitiatorPairsDirectSuccessors(traceEngineData, selectedEvent, hiddenEvents),
   ];
 }
 
 function findEventInitiatorPairsPredecessors(
     traceEngineData: TraceEngine.Handlers.Types.TraceParseData,
     selectedEvent: TraceEngine.Types.TraceEvents.TraceEventData,
+    hiddenEvents: TraceEngine.Types.TraceEvents.TraceEventData[]
     ): readonly InitiatorPair[] {
   const pairs: InitiatorPair[] = [];
 
@@ -42,6 +44,13 @@ function findEventInitiatorPairsPredecessors(
       // be the current event, so we work back through the
       // trace and find the initiator of the initiator, and so
       // on...
+      // here check if either is hidden and if it is, get the last modified
+      if(hiddenEvents.includes(currentEvent)) {
+        console.log("damn");
+      }
+      if(hiddenEvents.includes(currentInitiator)) {
+        console.log("damn");
+      }
       pairs.push({event: currentEvent, initiator: currentInitiator});
       currentEvent = currentInitiator;
       continue;
@@ -72,6 +81,7 @@ function findEventInitiatorPairsPredecessors(
 function findEventInitiatorPairsDirectSuccessors(
     traceEngineData: TraceEngine.Handlers.Types.TraceParseData,
     selectedEvent: TraceEngine.Types.TraceEvents.TraceEventData,
+    hiddenEvents: TraceEngine.Types.TraceEvents.TraceEventData[],
     ): readonly InitiatorPair[] {
   const pairs: InitiatorPair[] = [];
 
