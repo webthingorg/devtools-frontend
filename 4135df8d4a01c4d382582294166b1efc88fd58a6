@@ -252,6 +252,24 @@
       "parentUuid": "746f70e7_ad28f6fb",
       "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2504d8d_40fb1af6",
+        "filename": "front_end/models/trace/insights/RenderBlockingRequests.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-26T18:20:13Z",
+      "side": 1,
+      "message": "you could leave a todo referencing crbug.com/41484172",
+      "parentUuid": "38f0fc2d_f2dafe2d",
+      "revId": "4135df8d4a01c4d382582294166b1efc88fd58a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
