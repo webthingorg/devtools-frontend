@@ -234,6 +234,8 @@ describe('SelectMenu', () => {
   });
 
   it('triggers a selectmenuselected event using the enter key', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    assert.isDefined((globalThis as any).grep);
     const {frontend} = getBrowserAndPages();
     await openMenu();
     await frontend.keyboard.press('ArrowDown');
@@ -254,6 +256,8 @@ describe('SelectMenu', () => {
   });
 
   it('closes the dialog using the esc key', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    assert.isDefined((globalThis as any).grep);
     const {frontend} = getBrowserAndPages();
     await openMenu();
     await frontend.keyboard.press('Escape');

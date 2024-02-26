@@ -59,6 +59,8 @@ describe('The Application Tab', () => {
       });
 
   it('shows a preview of the cookie value (crbug.com/462370)', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    assert.isDefined((globalThis as any).grep);
     const {target} = getBrowserAndPages();
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');

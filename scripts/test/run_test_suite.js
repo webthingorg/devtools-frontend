@@ -60,7 +60,7 @@ const yargsObject =
         .option('mocha-grep', {
           type: 'string',
           desc:
-              'Mocha\'s grep option [https://mochajs.org/#-grep-regexp-g-regexp] which only runs tests whose titles matches the provided regular expression',
+              'Mocha\'s grep option [--grep <regexp>, -g <regexp>] which only runs tests whose titles matches the provided regular expression',
         })
         .option('invert', {
           type: 'boolean',
@@ -254,6 +254,7 @@ function executeTestSuite({
   if (jobs > 1) {
     argumentsForNode.push(`--jobs=${jobs}`);
   }
+
   const result = childProcess.spawnSync(nodePath(), argumentsForNode, {encoding: 'utf-8', stdio: 'inherit', cwd});
 
   if (result.error) {

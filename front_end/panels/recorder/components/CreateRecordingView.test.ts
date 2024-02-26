@@ -12,8 +12,22 @@ import {
 } from '../../../../test/unittests/front_end/helpers/EnvironmentHelpers.js';
 import {renderElementIntoDOM} from '../../../../test/unittests/front_end/helpers/DOMHelpers.js';
 
+interface KarmaConfig {
+  config: {
+    mocha: {
+      grep: string,
+    },
+  };
+}
+
 describeWithEnvironment('CreateRecordingView', () => {
   setupActionRegistry();
+
+  function flakyOnDemand() {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const {grep} = ((globalThis as unknown as {__karma__: KarmaConfig}).__karma__).config.mocha;
+    assert.isDefined(grep);
+  }
 
   function createView() {
     const view = new Components.CreateRecordingView.CreateRecordingView();
@@ -45,6 +59,7 @@ describeWithEnvironment('CreateRecordingView', () => {
     button.dispatchEvent(new Event('click'));
     const event = await onceClicked;
     assert.deepEqual(event.name, 'Test');
+    flakyOnDemand();
   });
 
   it('should dispatch recordingcancelled event on the close button click', async () => {
@@ -72,6 +87,7 @@ describeWithEnvironment('CreateRecordingView', () => {
                       '#user-flow-name',
                       ) as HTMLInputElement;
     assert.isAtLeast(input.value.length, 'Recording'.length);
+    flakyOnDemand();
   });
 
   it('should remember the most recent selector attribute', async () => {
