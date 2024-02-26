@@ -39,6 +39,30 @@
       },
       "revId": "100b83e210d65230290120718c9c10608977347d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c21858_7192f995",
+        "filename": "front_end/models/trace/extras/FetchNodes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-26T07:12:37Z",
+      "side": 1,
+      "message": "that\u0027s a good point. The reason is we are caching the result of this CDP call, which is done based on a list of node ids. Basically we check if we did a call before to prevent repeating it. But I take your point that we could be better off by caching the result per node id and making the CDP call only for the nodes for which we don\u0027t have a result, that would give us more flexibility. We can do that as a follow up",
+      "parentUuid": "e35bd194_7ff29240",
+      "range": {
+        "startLine": 85,
+        "startChar": 37,
+        "endLine": 85,
+        "endChar": 68
+      },
+      "revId": "100b83e210d65230290120718c9c10608977347d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
