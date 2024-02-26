@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75c7c4a0_c4803af7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-26T09:23:01Z",
+      "side": 1,
+      "message": "Hi Philip,\n\nI\u0027m adding the autoroller bot to COMMON_OWNERS. PTAL!",
+      "revId": "8422a352afed85d2a013971aefa161e4269baafd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
