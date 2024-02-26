@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a2d9150_5aa9f103",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-02-26T13:08:13Z",
+      "side": 1,
+      "message": "It would be great if we have have the binding behavior documented somewhere.",
+      "revId": "bc05f15b776a7a1ba37a7d97c70fea409db2cf18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
