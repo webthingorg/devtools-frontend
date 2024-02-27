@@ -937,6 +937,7 @@ self.injectedExtensionAPI = function(
 
     reportResourceLoad: function(resourceUrl: string, status: {success: boolean, errorMessage?: string, size?: number}):
         Promise<void> {
+          console.error('reportResourceLoad in extension api');
           return new Promise(
               resolve => extensionServer.sendRequest(
                   {
