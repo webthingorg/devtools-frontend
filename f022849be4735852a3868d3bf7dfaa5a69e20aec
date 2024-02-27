@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a748eb3_379158ee",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-27T11:02:37Z",
+      "side": 1,
+      "message": "No, this is an oversight. Added.",
+      "parentUuid": "2a16862f_cea6dbd2",
+      "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46c2d838_a4bc232f",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81af2da0_ea4878f8",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-27T11:02:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46c2d838_a4bc232f",
+      "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9407eb5c_4abbf994",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-02-27T09:57:06Z",
       "side": 1,
       "message": "It seems like on each click to the select element we mark it open. However, in Windows, the select element can be clicked again to close it. Should we handle that case too and update `selectOpen` state?",
+      "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef31371_904ebc29",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-02-27T11:02:37Z",
+      "side": 1,
+      "message": "No, as discussed, we only track appearance, not disappearance, so we don\u0027t care when the select is closed, only when it is first opened to log the impression of options.",
+      "parentUuid": "9407eb5c_4abbf994",
       "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
