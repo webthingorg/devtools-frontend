@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2bb821d_2d3866e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-27T18:13:17Z",
+      "side": 1,
+      "message": "looking nice",
+      "revId": "78faf70fe1575204db25f5eec5552b1e6fefc892",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4cdd259_623fe2ca",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-02-27T18:13:17Z",
+      "side": 1,
+      "message": "The only thing that stands out to me is these. Kinda surprised it\u0027s not using something like ~`Array\u003ckeyof typeof Handlers.ModelHandlers\u003e`. But.. my type-fu is weak, so.. No strong feeling.\n\nBut.. is being explicit here required for things to work?\n\nAlso.. is the order important? I noticed it swapped.\n\nNo big deal on these. Just curious.",
+      "range": {
+        "startLine": 10,
+        "startChar": 23,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "78faf70fe1575204db25f5eec5552b1e6fefc892",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
