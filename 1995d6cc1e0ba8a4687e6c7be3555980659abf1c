@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "1995d6cc1e0ba8a4687e6c7be3555980659abf1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4242385_e0ec36aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-02-27T09:20:54Z",
+      "side": 1,
+      "message": "Does this work? LGTM if it does:) I thought you have to explicitly specify tabindex for it to be tab-able",
+      "revId": "1995d6cc1e0ba8a4687e6c7be3555980659abf1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
