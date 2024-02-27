@@ -39,6 +39,30 @@
       },
       "revId": "0ee4bfb4b616d12092914dc17a6e642aed50650f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dbc72cd_e449b438",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-02-27T08:53:41Z",
+      "side": 1,
+      "message": "I am not sure whether this is necessary. Is there a scenario where this would be relevant?\n\nHow can request cookies become exempted? There (currently) is no `this.#expemtedRequestCookiesInternal`.",
+      "parentUuid": "fb22dd98_86a17132",
+      "range": {
+        "startLine": 1637,
+        "startChar": 39,
+        "endLine": 1637,
+        "endChar": 70
+      },
+      "revId": "0ee4bfb4b616d12092914dc17a6e642aed50650f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
