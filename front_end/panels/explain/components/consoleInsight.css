@@ -145,7 +145,8 @@ textarea {
 }
 
 .buttons {
-  margin-bottom: 16px;
+  display: flex;
+  gap: 5px;
 }
 
 .disclaimer {
