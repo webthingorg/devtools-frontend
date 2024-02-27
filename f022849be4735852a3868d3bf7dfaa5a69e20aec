@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a16862f_cea6dbd2",
+        "filename": "front_end/panels/elements/components/LayoutPane.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-27T09:57:06Z",
+      "side": 1,
+      "message": "Do we not want to track `click` for these options?",
+      "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c2d838_a4bc232f",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-27T09:57:06Z",
+      "side": 1,
+      "message": "ditto: why don\u0027t we track click for this `option` and we track for the other ones?",
+      "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9407eb5c_4abbf994",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-27T09:57:06Z",
+      "side": 1,
+      "message": "It seems like on each click to the select element we mark it open. However, in Windows, the select element can be clicked again to close it. Should we handle that case too and update `selectOpen` state?",
+      "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
