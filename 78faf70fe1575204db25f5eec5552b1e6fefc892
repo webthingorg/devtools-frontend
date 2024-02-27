@@ -39,6 +39,30 @@
       },
       "revId": "78faf70fe1575204db25f5eec5552b1e6fefc892",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8849fe8e_930d380f",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-27T18:48:32Z",
+      "side": 1,
+      "message": "Order shouldn\u0027t be important. Being explicit is allows TS to know which specific deps will be used via the return value. We could inform TS about these dependencies elsewhere, but I thought it made the most sense to explicitly define the TS deps stuff on `deps`.",
+      "parentUuid": "f4cdd259_623fe2ca",
+      "range": {
+        "startLine": 10,
+        "startChar": 23,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "78faf70fe1575204db25f5eec5552b1e6fefc892",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
