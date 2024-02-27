@@ -104,6 +104,24 @@
       "parentUuid": "9407eb5c_4abbf994",
       "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "127afafa_4cae8727",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-27T11:49:43Z",
+      "side": 1,
+      "message": "Cool, thanks!",
+      "parentUuid": "0ef31371_904ebc29",
+      "revId": "f022849be4735852a3868d3bf7dfaa5a69e20aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
