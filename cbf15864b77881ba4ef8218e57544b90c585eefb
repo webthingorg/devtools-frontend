@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "328111ac_c981e3c5",
+        "filename": "extensions/cxx_debugging/src/DWARFSymbols.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-27T11:42:53Z",
+      "side": 1,
+      "message": "I\u0027ve passed the hostInterface to loadSymbols now!",
+      "parentUuid": "3ef556a0_a70dae5a",
+      "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bb39111_fc379f1a",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-20T12:49:27Z",
       "side": 1,
       "message": "I vaguely remember that there was some unexpected shared state with the wrapping we\u0027re doing here. I believe node_ops is shared across all nodes and not necessarily just the lazy loaded ones. That\u0027s why we\u0027re doing the `oldget !\u003d\u003d wrapper` check below. pessimistically rethrowing errors as EEXIST wasn\u0027t a problem before, but the reporting might be. Let\u0027s double check the FS implementation to understand what we\u0027re really doing here, maybe we need some additional checks in place that we\u0027re reporting the right stuff.",
+      "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ae9d1e1_d780b1e1",
+        "filename": "extensions/cxx_debugging/src/DWARFSymbols.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-27T11:42:53Z",
+      "side": 1,
+      "message": "Good point! Thanks for pointing that out!\n\nI\u0027ve had a look at how we interject, and why we rely on `getattr` and how it is used in the MEMFS definition. Since we are 1. affecting more nodes than we actually want (all nodes are affected as you said), and since 2. the reason for checking the `oldget !\u003d\u003d wrapper` is not super obvious, I have looked for an alternate solution. Here\u0027s what I found:\n\n* the exists check somewhere in LLVM is requesting the `stats` of the `FSNode`, which calls `getattr`\n* `getattr` is accessing `usedBytes` [0], which triggers the loading\n* the loading itself, is done in `cacheLength` [1], which is a function set on the prototype of the `LazyFSNode` content (the `LazyUint8Array`[2])\n\nSo instead of wrapping `getattr`, which is in a way non-specific to the lazy loading, and is reused across all `MEMFS` nodes, I\u0027m wrapping the `cacheLength`. I\u0027m introducing a `cacheLength` function that will forward to the protoype call of `cacheLength`. This way, we actually just change the node in focus and need fewer checks to make sure the reporting is correct.\n\nWDYT?\n\n[0] https://github.com/emscripten-core/emscripten/blob/ad6cfa2627cb7cd8bf144b7e83ac8c3280f18b3a/src/library_memfs.js#L149\n[1] https://github.com/emscripten-core/emscripten/blob/3319a313d3b589624d342b650884caaf8cd9ef30/src/library_fs.js#L1672\n[2] https://github.com/emscripten-core/emscripten/blob/3319a313d3b589624d342b650884caaf8cd9ef30/src/library_fs.js#L1657",
+      "parentUuid": "6bb39111_fc379f1a",
       "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
