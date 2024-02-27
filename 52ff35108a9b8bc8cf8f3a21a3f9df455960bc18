@@ -16,6 +16,23 @@
       "message": "Hi Philip!\n\nThanks for the review, and pointing these things out. I\u0027ve updated the CL, ptal!",
       "revId": "52ff35108a9b8bc8cf8f3a21a3f9df455960bc18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71536551_d818011d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-27T12:34:56Z",
+      "side": 1,
+      "message": "Looks great! Do you think there\u0027s a way to test it?",
+      "revId": "52ff35108a9b8bc8cf8f3a21a3f9df455960bc18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

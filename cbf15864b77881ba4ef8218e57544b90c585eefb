@@ -86,6 +86,24 @@
       "parentUuid": "6bb39111_fc379f1a",
       "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a29b603_f44bc330",
+        "filename": "extensions/cxx_debugging/src/DWARFSymbols.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-27T12:34:56Z",
+      "side": 1,
+      "message": "nice!",
+      "parentUuid": "7ae9d1e1_d780b1e1",
+      "revId": "cbf15864b77881ba4ef8218e57544b90c585eefb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
