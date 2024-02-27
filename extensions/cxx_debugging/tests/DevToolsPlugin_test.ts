@@ -32,6 +32,36 @@ describe('DevToolsPlugin', () => {
       const sources = await plugin.addRawModule('?ü', '', {url: makeURL('/build/tests/inputs/hello.s.wasm')});
       expect(sources).to.deep.equal(expectedSources);
     });
+
+    it('reports missing module', async () => {
+      const hostInterface = new TestHostInterface();
+      const spy = sinon.spy(hostInterface, 'reportResourceLoad');
+
+      const url = makeURL('/build/tests/inputs/notExistent.s.wasm');
+      const plugin = await createPlugin(hostInterface, new ResourceLoader());
+      try {
+        await plugin.addRawModule('0', '', {url});
+      } catch (_) {
+      }
+      assert.isTrue(spy.calledOnceWithExactly(
+          url,
+          {success: false, errorMessage: `NotFoundError: Unable to load debug symbols from \'${url}\' (Not Found)`}));
+    });
+
+    it('reports loaded module and potentially missing dwp', async () => {
+      const hostInterface = new TestHostInterface();
+      const spy = sinon.spy(hostInterface, 'reportResourceLoad');
+
+      const url = makeURL('/build/tests/inputs/hello.s.wasm');
+      const plugin = await createPlugin(hostInterface, new ResourceLoader());
+      await plugin.addRawModule('0', '', {url});
+
+      const dwpUrl = makeURL('/build/tests/inputs/hello.s.wasm.dwp');
+      assert.isTrue(spy.calledTwice);
+      assert.isTrue(spy.calledWith(url, {success: true, size: 401}));
+      assert.isTrue(spy.calledWith(dwpUrl, {success: false, errorMessage: 'Failed to fetch dwp file: Not Found'}));
+    });
+
   });
 
   describe('rawLocationToSourceLocation', () => {
@@ -187,6 +217,10 @@ describe('DevToolsPlugin', () => {
           }
           throw new Error('Unexpected arguments to call');
         }
+        reportResourceLoad(_resourceUrl: string, _status: {success: boolean, errorMessage?: string, size?: number}):
+            Promise<void> {
+          throw new Error('Method not implemented.');
+        }
       }
 
       // To be able to test the synchronous API calls we need a worker. In order to test the wasm state APIs explicitely
@@ -217,5 +251,36 @@ describe('DevToolsPlugin', () => {
         expect(callResult).to.deep.equal(result);
       }
     });
+  });
+
+  it('provides a method to report resource loads', async () => {
+    class TestAsyncHostInterface implements AsyncHostInterface {
+      async getWasmLinearMemory(_offset: number, _length: number, _stopId: unknown): Promise<ArrayBuffer> {
+        throw new Error('Method not implemented.');
+      }
+      async getWasmLocal(_local: number, _stopId: unknown): Promise<WasmValue> {
+        throw new Error('Method not implemented.');
+      }
+      async getWasmGlobal(_global: number, _stopId: unknown): Promise<WasmValue> {
+        throw new Error('Method not implemented.');
+      }
+      async getWasmOp(_op: number, _stopId: unknown): Promise<WasmValue> {
+        throw new Error('Method not implemented.');
+      }
+      reportResourceLoad(_resourceUrl: string, _status: {success: boolean, errorMessage?: string, size?: number}):
+          Promise<void> {
+        return Promise.resolve();
+      }
+    }
+
+    const hostInterface = new TestAsyncHostInterface();
+    const worker = new Worker('/build/tests/DevToolsPluginTestWorker.js', {type: 'module'});
+    const rpc = new WorkerRPC<AsyncHostInterface, TestWorkerInterface>(worker, hostInterface);
+
+    const resourceUrl = 'test.dwo';
+    const status = {success: true};
+    const spy = sinon.spy(hostInterface, 'reportResourceLoad');
+    await rpc.sendMessage('reportResourceLoadForTest', resourceUrl, status);
+    assert.isTrue(spy.calledOnceWithExactly(resourceUrl, status));
   });
 });
