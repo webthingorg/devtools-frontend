@@ -33,6 +33,24 @@
       "message": "this LGTM but I believe now all handlers are always run (and we could get rid of the `EnabledHandlers...` type. Or are there cases where this doesn\u0027t happen?",
       "revId": "e84f6b0ed4e39f43a9acd1a6eb97af0e205572f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ae38a0_c143cad6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-28T18:08:18Z",
+      "side": 1,
+      "message": "I found this case which only uses `Screenshots`:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/network/NetworkPanel.ts;l\u003d820?q\u003dnetworkpanel.ts\u0026ss\u003dchromium\n\nAlso Lighthouse currently cherry-picks its handlers:\n\nhttps://github.com/GoogleChrome/lighthouse/blob/main/core/computed/trace-engine-result.js#L20\n\nI think I will land this to at least eliminate the partial types. Happy to remove this type complexity in the future if `EnabledHandlers...` is no longer needed.",
+      "parentUuid": "0eaf8bbf_8841b53e",
+      "revId": "e84f6b0ed4e39f43a9acd1a6eb97af0e205572f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
