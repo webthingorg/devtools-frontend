@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "476ab036_6fb04169",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-28T08:50:08Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/infra/infra/+/5328169 is the packaging-side change",
+      "revId": "191085e0576dd0e3fc9182e52ad1400702f33eb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e49fa4ce_7d451674",
