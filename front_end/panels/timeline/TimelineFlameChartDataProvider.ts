@@ -521,6 +521,19 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.timelineDataInternal.entryDecorations[eventIndex] = decorationsForEvent;
   }
 
+  #removeAllFlowDecorationsFromEvents(): void {
+    if (!this.timelineDataInternal) {
+      return;
+    }
+    for (let i = 0; i < this.timelineDataInternal.entryDecorations.length; i++) {
+      let decorationsForEvent = this.timelineDataInternal.entryDecorations[i] || [];
+      decorationsForEvent = decorationsForEvent.filter(decorationIter => {
+        return decorationIter.type !== PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE;
+      });
+      this.timelineDataInternal.entryDecorations[i] = decorationsForEvent;
+    }
+  }
+
   /**
    * Appends a track in the flame chart using the legacy system.
    * @param track the legacy track to be rendered.
@@ -1377,6 +1390,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       return false;
     }
 
+    this.#removeAllFlowDecorationsFromEvents();
+
     const previousInitiatorPairsLength = this.timelineDataInternal.flowStartTimes.length;
     // |entryIndex| equals -1 means there is no entry selected, just clear the
     // initiator cache if there is any previous arrow and return true to
@@ -1433,13 +1448,28 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (eventIndex === null || initiatorIndex === null) {
         continue;
       }
-      const {startTime} = TraceEngine.Legacy.timesForEventInMilliseconds(pair.event);
+      const {startTime, endTime} = TraceEngine.Legacy.timesForEventInMilliseconds(pair.event);
+
       const {endTime: initiatorEndTime, startTime: initiatorStartTime} =
           TraceEngine.Legacy.timesForEventInMilliseconds(pair.initiator);
 
       const td = this.timelineDataInternal;
       td.flowStartTimes.push(initiatorEndTime || initiatorStartTime);
       td.flowStartLevels.push(td.entryLevels[initiatorIndex]);
+
+      if (endTime && pair.isEntryCollapsed) {
+        // Add a decoration of a circle around the 'collapse arrow'
+        this.#addDecorationToEvent(
+            this.entryData.indexOf(pair.event),
+            {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
+      }
+
+      if (endTime && pair.isInitiatorCollapsed) {
+        this.#addDecorationToEvent(
+            this.entryData.indexOf(pair.initiator),
+            {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
+      }
+
       td.flowEndTimes.push(startTime);
       td.flowEndLevels.push(td.entryLevels[eventIndex]);
     }
