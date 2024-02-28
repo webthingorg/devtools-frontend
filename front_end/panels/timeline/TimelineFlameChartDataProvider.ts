@@ -1433,14 +1433,29 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (eventIndex === null || initiatorIndex === null) {
         continue;
       }
-      const {startTime} = TraceEngine.Legacy.timesForEventInMilliseconds(pair.event);
+      const {startTime, endTime} = TraceEngine.Legacy.timesForEventInMilliseconds(pair.event);
+      
       const {endTime: initiatorEndTime, startTime: initiatorStartTime} =
           TraceEngine.Legacy.timesForEventInMilliseconds(pair.initiator);
 
       const td = this.timelineDataInternal;
       td.flowStartTimes.push(initiatorEndTime || initiatorStartTime);
       td.flowStartLevels.push(td.entryLevels[initiatorIndex]);
-      td.flowEndTimes.push(startTime);
+
+      if(endTime && pair.isEntryCollapsed) {
+        td.flowEndTimes.push(endTime);
+        td.flowDecoration.push(true);
+        // Add a decoration of a circle around the 'collapse arrow'
+        this.#addDecorationToEvent(this.entryData.indexOf(pair.event), {type: PerfUI.FlameChart.FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW, withCircleAround: true});
+      } else {
+        td.flowEndTimes.push(startTime);
+        td.flowDecoration.push(false);
+      }
+
+      if(endTime && pair.isInitiatorCollapsed) {
+        this.#addDecorationToEvent(this.entryData.indexOf(pair.initiator), {type: PerfUI.FlameChart.FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW, withCircleAround: true});
+      }
+
       td.flowEndLevels.push(td.entryLevels[eventIndex]);
     }
     return true;
