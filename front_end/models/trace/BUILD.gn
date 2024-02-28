@@ -31,11 +31,15 @@ devtools_module("trace") {
 devtools_entrypoint("bundle") {
   entrypoint = "trace.ts"
 
-  deps = [ ":trace" ]
+  deps = [
+    ":trace",
+    # "../../entrypoints/sample_data_worker:worker_entrypoint",
+  ]
 
   visibility = [
     ":*",
     "../../core/sdk:unittests",
+    # "../../entrypoints/sample_data_worker/*",
     "../../legacy_test_runner/*",
     "../../panels/lighthouse/*",
     "../../panels/network/*",

@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../core/common/common.js';
 import * as Platform from '../../../core/platform/platform.js';
 import * as Helpers from '../helpers/helpers.js';
 import * as Types from '../types/types.js';
@@ -122,7 +123,7 @@ export async function finalize(): Promise<void> {
   const {mainFrameId, rendererProcessesByFrame, threadsInProcess} = metaHandlerData();
   assignMeta(processes, mainFrameId, rendererProcessesByFrame, threadsInProcess);
   sanitizeProcesses(processes);
-  buildHierarchy(processes);
+  await buildHierarchy(processes);
   sanitizeThreads(processes);
   Helpers.Trace.sortTraceEventsInPlace(allTraceEntries);
   handlerState = HandlerState.FINALIZED;
@@ -311,36 +312,113 @@ export function sanitizeThreads(processes: Map<Types.TraceEvents.ProcessID, Rend
  *  |-- Task B --||-- Task D --|
  *   |- Task C -|
  */
-export function buildHierarchy(
+export async function buildHierarchy(
     processes: Map<Types.TraceEvents.ProcessID, RendererProcess>,
-    options?: {filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean}}): void {
+    options?: {filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean}}): Promise<void> {
   const samplesData = samplesHandlerData();
+
+  let completionPromiseResolve: () => void, completionPromiseReject: (error: Error) => void;
+  const completionPromise = new Promise<void>((resolve, reject) => {
+    completionPromiseResolve = resolve;
+    completionPromiseReject = reject;
+  });
+
+  /**
+   * A simple worker pool.
+   */
+  class WorkerPool {
+    #workers: Common.Worker.WorkerWrapper[] = [];
+    #tasksInFlight = 0;
+
+    constructor(workerUrl: URL, numWorkers: number, onTaskComplete: (data: any) => void) {
+      for (let i = 0; i < numWorkers; i++) {
+        const worker = Common.Worker.WorkerWrapper.fromURL(workerUrl);
+        worker.onmessage = (e) => {
+          this.#tasksInFlight--;
+          onTaskComplete(e.data)
+        };
+        this.#workers.push(worker);
+      }
+    }
+
+    dispose() {
+      for (const worker of this.#workers) {
+        worker.dispose();
+      }
+    }
+
+    createTask(workerIndex: number, data: any) {
+      this.#workers[workerIndex].postMessage(data);
+      this.#tasksInFlight++;
+    }
+
+    getPendingTaskCount() {
+      return this.#tasksInFlight;
+    }
+  }
+
+  const threadLookup = new Map();
+  const workerUrl = new URL('./RendererHandler-worker.js', import.meta.url);
+  const numWorkers = Math.max(2, navigator.hardwareConcurrency - 1);
+  const pool = new WorkerPool(workerUrl, numWorkers, (data) => {
+    if (data.error) {
+      completionPromiseReject(data.error);
+      return;
+    }
+
+    const {profileCalls, treeData} = data;
+    if (profileCalls) {
+      allTraceEntries.concat(profileCalls);
+    }
+    // Update the entryToNode map with the entries from this thread
+    for (const [entry, node] of treeData.entryToNode) {
+      entryToNode.set(entry, node);
+    }
+    threadLookup.get(`${data.pid},${data.tid}`).tree = treeData.tree;
+
+    if (pool.getPendingTaskCount() === 0) {
+      completionPromiseResolve();
+    }
+  });
+
+  // Generate task descriptors.
+  const tasks = [];
   for (const [pid, process] of processes) {
     for (const [tid, thread] of process.threads) {
       if (!thread.entries.length) {
         thread.tree = Helpers.TreeHelpers.makeEmptyTraceEntryTree();
         continue;
       }
-      // Step 1. Massage the data.
-      Helpers.Trace.sortTraceEventsInPlace(thread.entries);
-      // Step 2. Inject profile calls from samples
-      const cpuProfile = samplesData.profilesInProcess.get(pid)?.get(tid)?.parsedProfile;
-      const samplesIntegrator =
-          cpuProfile && new Helpers.SamplesIntegrator.SamplesIntegrator(cpuProfile, pid, tid, config);
-      const profileCalls = samplesIntegrator?.buildProfileCalls(thread.entries);
-      if (profileCalls) {
-        allTraceEntries = [...allTraceEntries, ...profileCalls];
-        thread.entries = Helpers.Trace.mergeEventsInOrder(thread.entries, profileCalls);
-      }
-      // Step 3. Build the tree.
-      const treeData = Helpers.TreeHelpers.treify(thread.entries, options);
-      thread.tree = treeData.tree;
-      // Update the entryToNode map with the entries from this thread
-      for (const [entry, node] of treeData.entryToNode) {
-        entryToNode.set(entry, node);
-      }
+
+      const rawProfile = samplesData.profilesInProcess.get(pid)?.get(tid)?.rawProfile;
+      const entries = thread.entries;
+      tasks.push({config, options, pid, tid, entries, rawProfile});
+
+      threadLookup.set(`${pid},${tid}`, thread);
     }
   }
+
+  // Sort tasks by length of entires, which is a proxy for how long it will take to process.
+  // Then distribute the workload evenly in the worker pool.
+  const workerWeights = [];
+  for (let i = 0; i < numWorkers; i++) {
+    workerWeights.push(0);
+  }
+  tasks.sort((a, b) => {
+    return b.entries.length - a.entries.length;
+  });
+  for (const task of tasks) {
+    let workerIndex = 0;
+    for (let i = 1; i < numWorkers; i++) {
+      if (workerWeights[i] < workerWeights[workerIndex]) {
+        workerIndex = i;
+      }
+    }
+    workerWeights[workerIndex] += task.entries.length;
+    pool.createTask(workerIndex, task);
+  }
+
+  return completionPromise.finally(() => pool.dispose());
 }
 
 export function makeCompleteEvent(event: Types.TraceEvents.TraceEventBegin|

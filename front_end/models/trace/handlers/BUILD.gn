@@ -91,3 +91,21 @@ ts_library("unittests") {
     "../../../testing",
   ]
 }
+
+devtools_entrypoint("render_handler_worker") {
+  entrypoint = "RendererHandler-worker.ts"
+
+  is_web_worker = true
+
+  deps = [
+    ":bundle",
+    "../../../core/platform:bundle",
+    "../../../models/trace:bundle",
+  ]
+
+  visibility = [
+    "../../../../front_end",
+  ]
+
+  # visibility += devtools_entrypoints_visibility
+}
