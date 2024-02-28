@@ -50,11 +50,14 @@ export class Dialog extends Common.ObjectWrapper.eventMixin<EventTypes, typeof G
   private readonly targetDocumentKeyDownHandler: (event: Event) => void;
   private escapeKeyCallback: ((arg0: Event) => void)|null;
 
-  constructor() {
+  constructor(jslogContext?: string) {
     super();
     this.registerRequiredCSS(dialogStyles);
     this.contentElement.tabIndex = 0;
     this.contentElement.addEventListener('focus', () => this.widget().focus(), false);
+    if (jslogContext) {
+      this.contentElement.setAttribute('jslog', `${VisualLogging.dialog(jslogContext).track({resize: true})}`);
+    }
     this.widget().setDefaultFocusedElement(this.contentElement);
     this.setPointerEventsBehavior(PointerEventsBehavior.BlockedByGlassPane);
     this.setOutsideClickCallback(event => {

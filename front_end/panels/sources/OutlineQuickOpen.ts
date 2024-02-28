@@ -329,6 +329,10 @@ export class OutlineQuickOpen extends QuickOpen.FilteredListWidget.Provider {
     }
   }
 
+  override jslogContext(_: number): string {
+    return 'source-symbol';
+  }
+
   override selectItem(itemIndex: number|null, _promptValue: string): void {
     if (itemIndex === null) {
       return;

@@ -1945,10 +1945,11 @@ QuickOpen.FilteredListWidget.registerProvider({
   iconWidth: '20px',
   async provider() {
     const Sources = await loadSourcesModule();
-    return new Sources.OutlineQuickOpen.OutlineQuickOpen();
+    return new Sources.OutlineQuickOpen.OutlineQuickOpen('source-symbol');
   },
   titlePrefix: i18nLazyString(UIStrings.goTo),
   titleSuggestion: i18nLazyString(UIStrings.symbol),
+  jslogContext: 'source-symbol',
 });
 
 QuickOpen.FilteredListWidget.registerProvider({
@@ -1957,10 +1958,11 @@ QuickOpen.FilteredListWidget.registerProvider({
   iconWidth: '20px',
   async provider() {
     const Sources = await loadSourcesModule();
-    return new Sources.GoToLineQuickOpen.GoToLineQuickOpen();
+    return new Sources.GoToLineQuickOpen.GoToLineQuickOpen('source-line');
   },
   titlePrefix: i18nLazyString(UIStrings.goTo),
   titleSuggestion: i18nLazyString(UIStrings.line),
+  jslogContext: 'source-line',
 });
 
 QuickOpen.FilteredListWidget.registerProvider({
@@ -1969,8 +1971,9 @@ QuickOpen.FilteredListWidget.registerProvider({
   iconWidth: '20px',
   async provider() {
     const Sources = await loadSourcesModule();
-    return new Sources.OpenFileQuickOpen.OpenFileQuickOpen();
+    return new Sources.OpenFileQuickOpen.OpenFileQuickOpen('source-file');
   },
   titlePrefix: i18nLazyString(UIStrings.open),
   titleSuggestion: i18nLazyString(UIStrings.file),
+  jslogContext: 'source-file',
 });

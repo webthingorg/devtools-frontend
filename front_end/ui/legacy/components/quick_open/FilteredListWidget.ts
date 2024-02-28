@@ -8,6 +8,7 @@ import * as Platform from '../../../../core/platform/platform.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as Diff from '../../../../third_party/diff/diff.js';
 import * as TextPrompt from '../../../../ui/components/text_prompt/text_prompt.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
 import filteredListWidgetStyles from './filteredListWidget.css.js';
@@ -77,6 +78,8 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
     this.inputBoxElement.data = {ariaLabel: i18nString(UIStrings.quickOpenPrompt), prefix: '', suggestion: ''};
     this.inputBoxElement.addEventListener(
         TextPrompt.TextPrompt.PromptInputEvent.eventName, this.onInput.bind(this), false);
+    this.inputBoxElement.setAttribute(
+        'jslog', `${VisualLogging.textField().track({keydown: 'Enter|Tab|ArrowUp|ArrowDown|PageUp|PageDown'})}`);
     hbox.appendChild(this.inputBoxElement);
 
     this.hintElement = hbox.createChild('span', 'filtered-list-widget-hint');
@@ -165,7 +168,7 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
       dialogTitle = i18nString(UIStrings.quickOpen);
     }
 
-    this.dialog = new UI.Dialog.Dialog();
+    this.dialog = new UI.Dialog.Dialog('quick-open');
     UI.ARIAUtils.setLabel(this.dialog.contentElement, dialogTitle);
     this.dialog.setMaxContentSize(new UI.Geometry.Size(504, 340));
     this.dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.SetExactWidthMaxHeight);
@@ -247,6 +250,12 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
     }
     event.preventDefault();
     const selectedIndexInProvider = this.provider.itemCount() ? this.list.selectedItem() : null;
+    if (selectedIndexInProvider) {
+      const element = this.list.elementAtIndex(this.list.selectedIndex());
+      if (element) {
+        void VisualLogging.logClick(element, event);
+      }
+    }
 
     this.selectItem(selectedIndexInProvider);
     if (this.dialog) {
@@ -278,6 +287,8 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
     subtitleElement.textContent = '\u200B';
     if (this.provider) {
       this.provider.renderItem(item, this.cleanValue(), titleElement, subtitleElement);
+      wrapperElement.setAttribute(
+          'jslog', `${VisualLogging.item(this.provider.jslogContext(item)).track({click: true})}`);
     }
     UI.ARIAUtils.markAsOption(itemElement);
     return wrapperElement;
@@ -579,7 +590,9 @@ export type EventTypes = {
 
 export class Provider {
   private refreshCallback!: () => void;
-  constructor() {
+  #jslogContext: string;
+  constructor(jslogContext: string) {
+    this.#jslogContext = jslogContext;
   }
 
   setRefreshCallback(refreshCallback: () => void): void {
@@ -602,6 +615,10 @@ export class Provider {
   }
 
   renderItem(_itemIndex: number, _query: string, _titleElement: Element, _subtitleElement: Element): void {
+  }
+
+  jslogContext(_itemIndex: number): string {
+    return this.#jslogContext;
   }
 
   renderAsTwoRows(): boolean {
@@ -647,4 +664,30 @@ export interface ProviderRegistration {
   provider: () => Promise<Provider>;
   titlePrefix: (() => string);
   titleSuggestion?: (() => string);
+  jslogContext: string;
 }
+
+// VisualLogging.registerContextProvider('quickOpenKeydown', async (e: VisualLogging.Loggable|Event) => {
+//   if (!(e instanceof KeyboardEvent)) {
+//     return;
+//   }
+//   switch (e.key) {
+//     case Platform.KeyboardUtilities.ENTER_KEY:
+//       const selected = this.provider?.itemCount() ? this.list.selectedItem() : null;
+//       return this.provider.jslogContext(selected);
+//     case Platform.KeyboardUtilities.TAB_KEY:
+//       if (keyboardEvent.shiftKey) {
+//         return 'previous';
+//       }
+//       return 'autocomplete';
+//     case Platform.KeyboardUtilities.ArrowKey.UP:
+//       return 'previous';
+//     case Platform.KeyboardUtilities.ArrowKey.DOWN:
+//       return 'next';
+//     case Platform.KeyboardUtilities.PageKey.UP:
+//       return 'previous-page';
+//     case Platform.KeyboardUtilities.PageKey.DOWN:
+//       handled = this.list.selectItemNextPage(false);
+//       return 'next-page';
+//   }
+// });

@@ -14,10 +14,11 @@ export class HelpQuickOpen extends Provider {
     iconName: string,
     iconWidth: string,
     title: string,
+    jslogContext: string,
   }[];
 
-  constructor() {
-    super();
+  constructor(jslogContext: string) {
+    super(jslogContext);
     this.providers = [];
     getRegisteredProviders().forEach(this.addProvider.bind(this));
   }
@@ -29,6 +30,7 @@ export class HelpQuickOpen extends Provider {
         iconName: extension.iconName,
         iconWidth: extension.iconWidth,
         title: extension.titlePrefix() + ' ' + extension.titleSuggestion(),
+        jslogContext: extension.jslogContext,
       });
     }
   }
@@ -59,6 +61,10 @@ export class HelpQuickOpen extends Provider {
     UI.UIUtils.createTextChild(titleElement, provider.title);
   }
 
+  override jslogContext(itemIndex: number): string {
+    return this.providers[itemIndex].jslogContext;
+  }
+
   override selectItem(itemIndex: number|null, _promptValue: string): void {
     if (itemIndex !== null) {
       QuickOpenImpl.show(this.providers[itemIndex].prefix);
@@ -74,7 +80,8 @@ registerProvider({
   prefix: '?',
   iconName: 'help',
   iconWidth: '20px',
-  provider: () => Promise.resolve(new HelpQuickOpen()),
+  provider: () => Promise.resolve(new HelpQuickOpen('help')),
   titlePrefix: () => 'Help',
   titleSuggestion: undefined,
+  jslogContext: 'help',
 });

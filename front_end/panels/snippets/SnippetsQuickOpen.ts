@@ -31,7 +31,7 @@ let snippetsQuickOpenInstance: SnippetsQuickOpen;
 export class SnippetsQuickOpen extends QuickOpen.FilteredListWidget.Provider {
   private snippets: Workspace.UISourceCode.UISourceCode[];
   private constructor() {
-    super();
+    super('snippet');
     this.snippets = [];
   }
 
@@ -90,4 +90,5 @@ QuickOpen.FilteredListWidget.registerProvider({
   provider: () => Promise.resolve(SnippetsQuickOpen.instance()),
   titlePrefix: i18nLazyString(UIStrings.run),
   titleSuggestion: i18nLazyString(UIStrings.snippet),
+  jslogContext: 'snippet',
 });
