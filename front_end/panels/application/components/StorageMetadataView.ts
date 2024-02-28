@@ -264,7 +264,6 @@ export class StorageMetadataView extends LegacyWrapper.LegacyWrapper.WrappableCo
 customElements.define('devtools-storage-metadata-view', StorageMetadataView);
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLElementTagNameMap {
     'devtools-storage-metadata-view': StorageMetadataView;
   }
