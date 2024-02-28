@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4802fdb8_2d99a610",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-28T10:42:29Z",
+      "side": 1,
+      "message": "LGTM with small nits",
+      "revId": "9eb9e3014cd62119a4b922bf0894f7b7bddbe932",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead5e8d8_4b2473d6",
+        "filename": "front_end/panels/timeline/Initiators.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-28T10:42:29Z",
+      "side": 1,
+      "message": "nit: since `getClosestVisibleAncestorsPair` modifies the object in place we don\u0027t need to reassign the original array, we could use a `for` loop",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "9eb9e3014cd62119a4b922bf0894f7b7bddbe932",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07809c7a_dc9cd6f0",
+        "filename": "front_end/panels/timeline/Initiators.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-28T10:42:29Z",
+      "side": 1,
+      "message": "should we ensure there aren\u0027t duplicates?",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "9eb9e3014cd62119a4b922bf0894f7b7bddbe932",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
