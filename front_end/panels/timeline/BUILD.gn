@@ -115,6 +115,7 @@ devtools_module("timeline") {
     "../../ui/legacy/theme_support:bundle",
     "../../ui/lit-html:bundle",
     "./components:bundle",
+    "./fixtures/traces",
   ]
 
   visibility = [ "../../component_docs/*" ]

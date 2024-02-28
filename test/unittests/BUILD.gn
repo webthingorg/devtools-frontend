@@ -17,7 +17,6 @@ group("unittests") {
     "../../front_end/ui/legacy:copy_stylesheets_for_server",
     "../../inspector_overlay:unittests",
     "../shared",
-    "fixtures/traces",
     "front_end",
   ]
 }
