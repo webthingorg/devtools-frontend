@@ -33,6 +33,24 @@
       "message": "Is this something external CfT users would benefit from as well? In that case we should document this somewhere more prominent and maybe provide the helper script.",
       "revId": "5c5d938ef24678e73acff861002a07fced248ddc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "964479e3_f3d61697",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-28T08:30:02Z",
+      "side": 1,
+      "message": "I\u0027m not sure exactly how it works. This should have also been an issue with Chromium builds. And it seems to also depend on the passed arguments. E.g. only when we started via Karma was this a problem. Interactions and e2e tests seem to be fine.\n\nI wouldn\u0027t worry. If the CfT binary fails to start because of this, it spits out the bit.ly link mentioned in the CL, which explains the issue and links to the PY script. So CfT users should be able to resolve this just from the error message.",
+      "parentUuid": "c8003334_49da4114",
+      "revId": "5c5d938ef24678e73acff861002a07fced248ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
