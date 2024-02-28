@@ -34,7 +34,7 @@ export class AddDebugInfoURLDialog extends UI.Widget.HBox {
 
     this.contentElement.createChild('label').textContent = label;
 
-    this.input = UI.UIUtils.createInput('add-source-map', 'text');
+    this.input = UI.UIUtils.createInput('add-source-map', 'text', 'url');
     this.input.addEventListener('keydown', this.onKeyDown.bind(this), false);
     this.contentElement.appendChild(this.input);
 
@@ -43,7 +43,7 @@ export class AddDebugInfoURLDialog extends UI.Widget.HBox {
     });
     this.contentElement.appendChild(addButton);
 
-    this.dialog = new UI.Dialog.Dialog();
+    this.dialog = new UI.Dialog.Dialog('add-source-map-url');
     this.dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.MeasureContent);
     this.dialog.setDefaultFocusedElement(this.input);
 
