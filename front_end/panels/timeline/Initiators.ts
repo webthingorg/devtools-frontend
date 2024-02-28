@@ -7,6 +7,8 @@ import * as TraceEngine from '../../models/trace/trace.js';
 export interface InitiatorPair {
   event: TraceEngine.Types.TraceEvents.TraceEventData;
   initiator: TraceEngine.Types.TraceEvents.TraceEventData;
+  isEntryCollapsed?: boolean;
+  isInitiatorCollapsed?: boolean;
 }
 /**
  * Given an event that the user has selected, this function returns all the
@@ -109,6 +111,7 @@ function getClosestVisibleAncestorsPair(
       nextParent = nextParent.parent ?? undefined;
     }
     pair.event = nextParent?.entry ?? pair.event;
+    pair.isEntryCollapsed = true;
   }
 
   if (hiddenEntries.includes(pair.initiator)) {
@@ -117,6 +120,7 @@ function getClosestVisibleAncestorsPair(
       nextParent = nextParent.parent ?? undefined;
     }
     pair.initiator = nextParent?.entry ?? pair.initiator;
+    pair.isInitiatorCollapsed = true;
   }
 
   return pair;

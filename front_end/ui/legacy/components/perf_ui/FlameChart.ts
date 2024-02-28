@@ -1636,9 +1636,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         sortDecorationsForRenderingOrder(decorationsForEvent);
       }
       const entryStartTime = entryStartTimes[entryIndex];
+      const duration = entryTotalTimes[entryIndex];
+      const barX = this.timeToPositionClipped(entryStartTime);
+      const barLevel = entryLevels[entryIndex];
+      const barHeight = this.#eventBarHeight(timelineData, entryIndex);
+      const barY = this.levelToOffset(barLevel);
+      let barWidth = this.#eventBarWidth(timelineData, entryIndex);
 
       for (const decoration of decorationsForEvent) {
-        const duration = entryTotalTimes[entryIndex];
         switch (decoration.type) {
           case FlameChartDecorationType.CANDY: {
             const candyStripeStartTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.startAtTime);
@@ -1671,11 +1676,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             break;
           }
           case FlameChartDecorationType.WARNING_TRIANGLE: {
-            const barX = this.timeToPositionClipped(entryStartTime);
-            const barLevel = entryLevels[entryIndex];
-            const barHeight = this.#eventBarHeight(timelineData, entryIndex);
-            const barY = this.levelToOffset(barLevel);
-            let barWidth = this.#eventBarWidth(timelineData, entryIndex);
             if (typeof decoration.customEndTime !== 'undefined') {
               // The user can pass a customEndTime to tell us where the event's box ends and therefore where we should draw the triangle. So therefore we calculate the width by taking the end time off the start time.
               const endTimeMilli = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(decoration.customEndTime);
@@ -1697,11 +1697,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             break;
           }
           case FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW: {
-            const barX = this.timeToPositionClipped(entryStartTime);
-            const barLevel = entryLevels[entryIndex];
-            const barHeight = this.#eventBarHeight(timelineData, entryIndex);
-            const barY = this.levelToOffset(barLevel);
-            const barWidth = this.#eventBarWidth(timelineData, entryIndex);
             context.save();
             context.beginPath();
             context.rect(barX, barY, barWidth, barHeight);
@@ -1714,12 +1709,15 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
               context.clip();
               context.beginPath();
               context.fillStyle = '#474747';
-              context.moveTo(
-                  barX + barWidth - triangleSize - triangleHorizontalPadding, barY + triangleVerrticalPadding);
-              context.lineTo(barX + barWidth - triangleHorizontalPadding, barY + triangleVerrticalPadding);
-              context.lineTo(
-                  barX + barWidth - triangleHorizontalPadding - triangleSize / 2,
-                  barY + barHeight - triangleVerrticalPadding);
+              const arrowAX = barX + barWidth - triangleSize - triangleHorizontalPadding;
+              const arrowAY = barY + triangleVerrticalPadding;
+              context.moveTo(arrowAX, arrowAY);
+              const arrowBX = barX + barWidth - triangleHorizontalPadding;
+              const arrowBY = barY + triangleVerrticalPadding;
+              context.lineTo(arrowBX, arrowBY);
+              const arrowCX = barX + barWidth - triangleHorizontalPadding - triangleSize / 2;
+              const arrowCY = barY + barHeight - triangleVerrticalPadding;
+              context.lineTo(arrowCX, arrowCY);
             } else {
               const triangleSize = 8;
               context.clip();
@@ -1731,6 +1729,31 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             }
             context.fill();
             context.restore();
+            break;
+          }
+          case FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE: {
+            // The circle is only drawn when the initiator arrow is going to/from some hidden entry. Make sure that the entry also has a decoration for hidden children.
+            if (!decorationsForEvent.find(
+                    decoration => decoration.type === FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW)) {
+              // This should not happen, break if it does.
+              break;
+            }
+            // The arrow the circle is drawn around if only drawn ff the bar is wider than double the arrow button. If it not, we do not need the circle.
+            if (barWidth > barHeight * 2) {
+              context.save();
+              context.beginPath();
+              context.rect(barX, barY, barWidth, barHeight);
+              context.clip();
+              context.beginPath();
+              context.fillStyle = '#474747';
+              const triangleCenterX = barX + barWidth - 17 / 2;
+              const triangleCenterY = barY + 17 / 2;
+              const circleRadius = 6;
+              context.beginPath();
+              context.arc(triangleCenterX, triangleCenterY, circleRadius, 0, 2 * Math.PI);
+              context.stroke();
+              context.restore();
+            }
             break;
           }
         }
@@ -2324,17 +2347,28 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       context.moveTo(startX, startY);
       context.lineTo(startX + lineLength / 2, startY);
       context.lineTo(startX + lineLength / 2, endY);
-      context.lineTo(endX, endY);
+      if (td.flowDecoration[i]) {
+        context.lineTo(endX - this.barHeight, endY);
+      } else {
+        context.lineTo(endX, endY);
+      }
       context.stroke();
 
       // Make line an arrow if the line is long enough to fit the arrow head. Othewise, draw a thinner line without the arrow head.
       if (lineLength > arrowWidth) {
         context.lineWidth = 0.5;
         context.beginPath();
-        context.moveTo(endX, endY);
-        context.lineTo(endX - arrowLineWidth, endY - 3);
-        context.lineTo(endX - arrowLineWidth, endY + 3);
-        context.fill();
+        if (td.flowDecoration[i]) {
+          context.moveTo(endX - this.barHeight, endY);
+          context.lineTo(endX - this.barHeight - arrowLineWidth, endY - 3);
+          context.lineTo(endX - this.barHeight - arrowLineWidth, endY + 3);
+          context.fill();
+        } else {
+          context.moveTo(endX, endY);
+          context.lineTo(endX - arrowLineWidth, endY - 3);
+          context.lineTo(endX - arrowLineWidth, endY + 3);
+          context.fill();
+        }
       } else {
         context.lineWidth = 0.2;
       }
@@ -3002,6 +3036,7 @@ export const enum FlameChartDecorationType {
   CANDY = 'CANDY',
   WARNING_TRIANGLE = 'WARNING_TRIANGLE',
   HIDDEN_DESCENDANTS_ARROW = 'HIDDEN_DESCENDANTS_ARROW',
+  INITIATOR_HIDDEN_CIRCLE = 'INITIATOR_ENTRY_HIDDEN',
 }
 
 /**
@@ -3026,6 +3061,8 @@ export type FlameChartDecoration = {
   customEndTime?: TraceEngine.Types.Timing.MicroSeconds,
 }|{
   type: FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW,
+}|{
+  type: FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE,
 };
 
 // We have to ensure we draw the decorations in a particular order; warning
@@ -3034,6 +3071,7 @@ const decorationDrawOrder: Record<FlameChartDecorationType, number> = {
   CANDY: 1,
   WARNING_TRIANGLE: 2,
   HIDDEN_DESCENDANTS_ARROW: 3,
+  INITIATOR_ENTRY_HIDDEN: 4,
 };
 
 export function sortDecorationsForRenderingOrder(decorations: FlameChartDecoration[]): void {
@@ -3050,7 +3088,7 @@ export class FlameChartTimelineData {
    * An array of entry decorations, where each item in the array is an array of
    * decorations for the event at that index.
    **/
-  readonly entryDecorations: FlameChartDecoration[][];
+  entryDecorations: FlameChartDecoration[][];
   groups: Group[];
   markers: FlameChartMarker[];
 
@@ -3060,12 +3098,14 @@ export class FlameChartTimelineData {
   flowStartLevels: number[];
   flowEndTimes: number[];
   flowEndLevels: number[];
+  flowDecoration: boolean[];
 
   selectedGroup: Group|null;
   private constructor(
       entryLevels: number[]|Uint16Array, entryTotalTimes: number[]|Float32Array, entryStartTimes: number[]|Float64Array,
       groups: Group[]|null, entryDecorations: FlameChartDecoration[][] = [], flowStartTimes: number[] = [],
-      flowStartLevels: number[] = [], flowEndTimes: number[] = [], flowEndLevels: number[] = []) {
+      flowStartLevels: number[] = [], flowEndTimes: number[] = [], flowEndLevels: number[] = [],
+      flowDecoration: boolean[] = []) {
     this.entryLevels = entryLevels;
     this.entryTotalTimes = entryTotalTimes;
     this.entryStartTimes = entryStartTimes;
@@ -3076,6 +3116,7 @@ export class FlameChartTimelineData {
     this.flowStartLevels = flowStartLevels || [];
     this.flowEndTimes = flowEndTimes || [];
     this.flowEndLevels = flowEndLevels || [];
+    this.flowDecoration = flowDecoration || [];
     this.selectedGroup = null;
   }
 
