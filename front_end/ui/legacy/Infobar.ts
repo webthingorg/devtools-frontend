@@ -60,7 +60,7 @@ export class Infobar {
       jslogContext?: string) {
     this.element = document.createElement('div');
     if (jslogContext) {
-      this.element.setAttribute('jslog', `${VisualLogging.dialog(jslogContext).track({resize: true})}`);
+      this.element.setAttribute('jslog', `${VisualLogging.infoBar().context(jslogContext)}`);
     }
     this.element.classList.add('flex-none');
     this.shadowRoot =

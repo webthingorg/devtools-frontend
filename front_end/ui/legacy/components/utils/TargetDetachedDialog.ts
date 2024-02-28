@@ -50,7 +50,7 @@ export class TargetDetachedDialog extends SDK.SDKModel.SDKModel<void> implements
     if (parentTarget && parentTarget.type() !== SDK.Target.Type.Browser) {
       return;
     }
-    const dialog = new UI.Dialog.Dialog('target-crashed');
+    const dialog = new UI.Dialog.Dialog();
     dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.MeasureContent);
     dialog.addCloseButton();
     dialog.setDimmed(true);

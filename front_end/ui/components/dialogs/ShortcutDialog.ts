@@ -136,7 +136,6 @@ export class ShortcutDialog extends HTMLElement {
         on-render=${ComponentHelpers.Directives.nodeRenderedCallback(node => {
           this.#dialog = node as DialogElement;
         })}
-        jslog=${VisualLogging.dialog('shortcuts').track({resize: true})}
       >
         <div class="keybinds-category-header">
           <span class="keybinds-category-header-text">${i18nString(UIStrings.dialogTitle)}</span>
