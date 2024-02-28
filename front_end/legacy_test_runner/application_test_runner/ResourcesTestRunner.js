@@ -25,10 +25,6 @@ export const resetState = async function() {
   }
 };
 
-export const createWebSQLDatabase = function(name) {
-  return TestRunner.evaluateInPageAsync(`_openWebSQLDatabase("${name}")`);
-};
-
 export const requestURLComparer = function(r1, r2) {
   return r1.request.url.localeCompare(r2.request.url);
 };
@@ -154,10 +150,6 @@ export const dumpCookies = function() {
   }
 };
 
-export const databaseModel = function() {
-  return TestRunner.mainTarget.model(Application.DatabaseModel.DatabaseModel);
-};
-
 export const domStorageModel = function() {
   return TestRunner.mainTarget.model(Application.DOMStorageModel.DOMStorageModel);
 };
@@ -165,9 +157,3 @@ export const domStorageModel = function() {
 export const indexedDBModel = function() {
   return TestRunner.mainTarget.model(Application.IndexedDBModel.IndexedDBModel);
 };
-
-TestRunner.deprecatedInitAsync(`
-  function _openWebSQLDatabase(name) {
-    return new Promise(resolve => openDatabase(name, '1.0', '', 1024 * 1024, resolve));
-  }
-`);
