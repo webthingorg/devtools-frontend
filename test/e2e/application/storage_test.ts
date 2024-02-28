@@ -21,7 +21,7 @@ const CLEAR_SITE_DATA_BUTTON_SELECTOR = '#storage-view-clear-button';
 describe('The Application Tab', () => {
   describe('contains a Storage pane', function() {
     // The tests in this suite are particularly slow, as they perform a lot of actions
-    this.timeout(20000);
+    this.timeout(60000);
     beforeEach(async () => {
       const {target} = getBrowserAndPages();
       await navigateToApplicationTab(target, 'storage-quota');
