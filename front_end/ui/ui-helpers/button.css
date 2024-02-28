@@ -1,0 +1,94 @@
+/*
+ * Copyright 2024 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.hover-layer,
+.ripple-layer {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+}
+
+button {
+  height: var(--size-10);
+  border-radius: var(--sys-shape-corner-full);
+  padding: 0 var(--size-6);
+  font: var(--sys-typescale-body4-medium);
+  background: none;
+  color: var(--sys-color-primary);
+
+  & .hover-layer {
+    background-color: var(--sys-color-state-hover-on-subtle);
+    visibility: hidden;
+  }
+
+  & .ripple-layer {
+    background-color: var(--sys-color-state-ripple-neutral-on-subtle);
+    visibility: hidden;
+  }
+
+  &:focus {
+    outline: 2px solid var(--sys-color-state-focus-ring);
+    outline-offset: 2px;
+  }
+
+  &:hover .hover-layer {
+    visibility: visible;
+  }
+
+  &:active .ripple-layer {
+    visibility: visible;
+  }
+}
+
+button:has(.icon) {
+  padding-left: var(--size-4);
+}
+
+button.primary {
+  color: var(--sys-color-on-primary);
+  background-color: var(--sys-color-primary);
+
+  & .hover-layer {
+    background-color: var(--sys-color-state-hover-on-prominent);
+    visibility: hidden;
+  }
+
+  & .ripple-layer {
+    background-color: var(--sys-color-state-ripple-primary);
+    visibility: hidden;
+  }
+}
+
+button.outlined {
+  border: 1px solid var(--sys-color-tonal-outline);
+}
+
+button.text {
+  /* nothing? */
+}
+
+button.micro {
+  height: var(--size-7);
+  padding: 0 var(--size-5);
+  font: var(--sys-typescale-body5-medium);
+}
+
+button.micro:has(.icon) {
+  padding-left: var(--size-3);
+}
+
+button.icon {
+  /* this is different */
+
+  /* height: var(--size-10);
+  width: var(--size-10);
+  color: var(--sys-color-on-surface-subtle); */
+}
+
+span.icon {
+  margin-right: var(--size-2);
+  background-color: currentColor;
+}
