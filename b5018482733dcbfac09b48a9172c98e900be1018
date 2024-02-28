@@ -16,6 +16,46 @@
       "message": "I have a HUGE collection of traces that exhibit various bugs and I love to easily load them.  While I can do the same in perf panel, it\u0027s much faster to build/load the standalone component. \n\nI\u0027ve reused the `loadTimelineFromURL` param as it has the same role/semantics in the full frontend.\n\nLastly, the blob.type info was already available. :)",
       "revId": "b5018482733dcbfac09b48a9172c98e900be1018",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce704b99_6d449fdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-28T19:07:07Z",
+      "side": 1,
+      "message": "nice improvement! LGTM",
+      "revId": "b5018482733dcbfac09b48a9172c98e900be1018",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c86bb52_74ac8330",
+        "filename": "front_end/ui/components/docs/performance_panel/basic.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-28T19:07:07Z",
+      "side": 1,
+      "message": "nit: I guess we can drop the ticks here too",
+      "range": {
+        "startLine": 133,
+        "startChar": 36,
+        "endLine": 133,
+        "endChar": 62
+      },
+      "revId": "b5018482733dcbfac09b48a9172c98e900be1018",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
