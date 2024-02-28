@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f860bc73_cb50ecfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-28T13:16:18Z",
+      "side": 1,
+      "message": "Hi Kateryna, hi Yuzu,\n\nI\u0027m rolling the protocol changes, but we still need meaningful descriptions for the newly introduced reason by : https://crrev.com/c/5320657.\n\n@yuzus@chromium.org Could you help me to find a good description here for a follow up update, or alternatively create a CL?",
+      "revId": "da8dd573154e74b283e9f036fd60e35f94d51713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
