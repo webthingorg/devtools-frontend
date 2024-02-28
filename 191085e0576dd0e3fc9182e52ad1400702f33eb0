@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "957faa05_12fcac58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-28T09:05:25Z",
+      "side": 1,
+      "message": "lgtm % comment\n\nNice! Really hope this works with the indexer :)",
+      "revId": "191085e0576dd0e3fc9182e52ad1400702f33eb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1354a01f_0c2effa3",
+        "filename": "BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-28T09:05:25Z",
+      "side": 1,
+      "message": "Should we call this `.txt` or is it really a JSON now?",
+      "range": {
+        "startLine": 188,
+        "startChar": 48,
+        "endLine": 188,
+        "endChar": 52
+      },
+      "revId": "191085e0576dd0e3fc9182e52ad1400702f33eb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e49fa4ce_7d451674",
@@ -31,6 +71,47 @@
       "writtenOn": "2024-02-28T08:46:08Z",
       "side": 1,
       "message": "This flag is what keeps us from trying to compile the new tsconfig. is that too brittle?",
+      "revId": "191085e0576dd0e3fc9182e52ad1400702f33eb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e4a6f91_4062f13d",
+        "filename": "third_party/typescript/ts_library.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-28T09:05:25Z",
+      "side": 1,
+      "message": "I think it\u0027s fine.",
+      "parentUuid": "e49fa4ce_7d451674",
+      "revId": "191085e0576dd0e3fc9182e52ad1400702f33eb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d974029_9cc76629",
+        "filename": "third_party/typescript/typescript.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-02-28T09:05:25Z",
+      "side": 1,
+      "message": "I think we should be able to rewrite this as.\n\n```\nmetadata \u003d {\n  typescript_files \u003d ts_files\n}\n\nif (is_debug) {\n  metadata.grd_files \u003d _javascript_implementation_files\n}\n```\n\nI just wasn\u0027t sure if this syntax works, but I think I have seen it in some other GN files. (Also the current code has a typo: `typescrpt_files` instead of `typescript_files`).",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 5
+      },
       "revId": "191085e0576dd0e3fc9182e52ad1400702f33eb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
