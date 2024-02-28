@@ -141,6 +141,7 @@ devtools_entrypoint("bundle") {
     "../js_profiler/*",
     "../lighthouse/*",
     "../recorder/*",
+    "./fixtures/traces",
     "./track_appenders:unittests",
   ]
 
