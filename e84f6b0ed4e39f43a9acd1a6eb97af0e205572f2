@@ -16,6 +16,23 @@
       "message": "Very fancy. WFM but better have Connor or Andres see if they spot anything off.",
       "revId": "e84f6b0ed4e39f43a9acd1a6eb97af0e205572f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eaf8bbf_8841b53e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-28T13:46:10Z",
+      "side": 1,
+      "message": "this LGTM but I believe now all handlers are always run (and we could get rid of the `EnabledHandlers...` type. Or are there cases where this doesn\u0027t happen?",
+      "revId": "e84f6b0ed4e39f43a9acd1a6eb97af0e205572f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
