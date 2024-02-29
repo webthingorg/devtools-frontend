@@ -9,8 +9,8 @@ const path = require('path');
 const glob = require('glob');
 const fs = require('fs');
 const rimraf = require('rimraf');
-const debugCheck = require('./debug-check.js');
-const ResultsDb = require('../shared/resultsdb.js');
+const {debugCheck} = require('./shared/debug-check.js');
+const ResultsDb = require('./shared/resultsdb.js');
 
 const USER_DEFINED_COVERAGE_FOLDERS = process.env['COVERAGE_FOLDERS'];
 
@@ -38,19 +38,17 @@ if (coverageEnabled) {
     rimraf.sync(fullPathToDirectory);
   }
 
-  debugCheck(__dirname).then(isDebug => {
-    if (!isDebug) {
-      const warning = `The unit tests appear to be running against a non-debug build and
+  if (!debugCheck(__dirname)) {
+    const warning = `The unit tests appear to be running against a non-debug build and
 your coverage report will be inaccurate and incomplete due to the bundle being rolled-up.
 
 Therefore, coverage has been disabled.
 
 In order to get a complete coverage report please run against a
 target with is_debug = true in the args.gn file.`;
-      console.warn(colors.magenta(warning));
-      coverageEnabled = false;
-    }
-  });
+    console.warn(colors.magenta(warning));
+    coverageEnabled = false;
+  }
 }
 // true by default
 const TEXT_COVERAGE_ENABLED = coverageEnabled && !process.env['NO_TEXT_COVERAGE'];
@@ -59,7 +57,7 @@ const HTML_COVERAGE_ENABLED = coverageEnabled && !process.env['NO_HTML_COVERAGE'
 // false by default
 const SHUFFLE = process.env['SHUFFLE'];
 
-const GEN_DIRECTORY = path.join(__dirname, '..', '..');
+const GEN_DIRECTORY = path.join(__dirname, '..');
 const ROOT_DIRECTORY = path.join(GEN_DIRECTORY, '..', '..', '..');
 const singleRun = !(DEBUG_ENABLED || REPEAT_ENABLED);
 
