@@ -34,6 +34,24 @@
       "parentUuid": "67d7f65d_1c17f89d",
       "revId": "255811eb57820223132d69de726c3ab5d39b1cab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "039db2ce_61e6c7d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-29T13:50:14Z",
+      "side": 1,
+      "message": "Yeah, I think that would be useful; in case we\u0027d decide to remove some adorners, for example.",
+      "parentUuid": "57665101_42c82853",
+      "revId": "255811eb57820223132d69de726c3ab5d39b1cab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
