@@ -1418,7 +1418,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
     // Remove all previously assigned decorations indicating that the flow event entries are hidden
     this.#removeAllCollapsedFlowEventsDecorations();
-    const previousInitiatorPairsLength = this.timelineDataInternal.flowStartTimes.length;
+    const previousInitiatorPairsLength = this.timelineDataInternal.initiatorPairs.length;
     // |entryIndex| equals -1 means there is no entry selected, just clear the
     // initiator cache if there is any previous arrow and return true to
     // re-render.
@@ -1471,6 +1471,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     for (const pair of initiatorPairs) {
       const eventIndex = this.getIndexForEvent(pair.event);
       const initiatorIndex = this.getIndexForEvent(pair.initiator);
+      if(eventIndex && initiatorIndex) {
+        this.timelineDataInternal.initiatorPairs.push([initiatorIndex, eventIndex]);
+      }
       if (eventIndex === null || initiatorIndex === null) {
         continue;
       }
@@ -1480,8 +1483,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
           TraceEngine.Legacy.timesForEventInMilliseconds(pair.initiator);
 
       const td = this.timelineDataInternal;
-      td.flowStartTimes.push(initiatorEndTime || initiatorStartTime);
-      td.flowStartLevels.push(td.entryLevels[initiatorIndex]);
+      // td.flowStartTimes.push(initiatorEndTime || initiatorStartTime);
+      // td.flowStartLevels.push(td.entryLevels[initiatorIndex]);
 
       // Add a decoration of a circle around the 'collapse arrow' to show that the entry is hidden
       if (pair.isEntryHidden) {
@@ -1498,8 +1501,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         this.#eventsWithCircleDecorationIndexes.push(this.entryData.indexOf(pair.initiator));
       }
 
-      td.flowEndTimes.push(startTime);
-      td.flowEndLevels.push(td.entryLevels[eventIndex]);
+      // td.flowEndTimes.push(startTime);
+      // td.flowEndLevels.push(td.entryLevels[eventIndex]);
     }
     return true;
   }
