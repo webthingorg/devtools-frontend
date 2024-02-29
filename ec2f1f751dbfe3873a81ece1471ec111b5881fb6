@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f93361_e057888d",
+        "filename": "test/unittests/fixtures/traces/multiple-navigations-render-blocking.json.gz",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-02-29T08:59:14Z",
+      "side": 1,
+      "message": "fyi the traces folder was just moved to front_end/panels/timeline/fixtures:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5330907",
+      "revId": "ec2f1f751dbfe3873a81ece1471ec111b5881fb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
