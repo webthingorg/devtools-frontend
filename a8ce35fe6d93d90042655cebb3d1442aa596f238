@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "296ba43e_5a58c0f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-29T12:54:39Z",
+      "side": 1,
+      "message": "Hi Benedikt,\n\nI\u0027m disabling a flaky source map test, ptal!",
+      "revId": "a8ce35fe6d93d90042655cebb3d1442aa596f238",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
