@@ -2220,6 +2220,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableGridMode),
       ariaLabelActive: i18nString(UIStrings.disableGridMode),
+      jslogContext: 'grid-mode',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2263,6 +2264,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableScrollSnap),
       ariaLabelActive: i18nString(UIStrings.disableScrollSnap),
+      jslogContext: 'scroll-snap',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2307,6 +2309,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableFlexMode),
       ariaLabelActive: i18nString(UIStrings.disableFlexMode),
+      jslogContext: 'flex-mode',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2352,6 +2355,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableScrollSnap),
       ariaLabelActive: i18nString(UIStrings.disableScrollSnap),
+      jslogContext: 'scroll-snap',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2389,6 +2393,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.openMediaPanel),
       ariaLabelActive: i18nString(UIStrings.openMediaPanel),
+      jslogContext: 'media',
     });
 
     context.styleAdorners.push(adorner);
