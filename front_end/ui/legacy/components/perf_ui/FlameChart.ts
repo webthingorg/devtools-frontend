@@ -91,6 +91,32 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/components/perf_ui/FlameChart.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+const EDITION_MODE_INDENT = 50;
+// This number is get from front_end/ui/components/buttons/button.css
+const EDIT_BUTTON_SIZE = 16;
+
+// These are copied from front_end/images/*.svg, because we need to draw them with canvas.
+// edit.svg
+const editIconPath =
+    'M4.5 15.5h.875l7.875-7.875-.438-.437-.437-.438L4.5 14.625v.875ZM3 17v-3L13.708 3.292A.965.965 0 0 1 14.417 3c.277 0 .513.097.708.292l1.583 1.583c.195.195.292.43.292.708a.965.965 0 0 1-.292.709L6 17H3Zm10.25-9.375-.438-.437-.437-.438.875.875Z';
+// checkmark.svg
+const saveIconPath = 'm8.229 14.062-3.521-3.541L5.75 9.479l2.479 2.459 6.021-6L15.292 7l-7.063 7.062Z';
+// arrow-up.svg
+const moveUpIconPath = 'M9.25 17V5.875L7.062 8.062L6 7L10 3L14 7L12.938 8.062L10.75 5.875V17H9.25Z';
+// arrow-down.svg
+const moveDownIconPath = 'M9.25 3V14.125L7.062 11.938L6 13L10 17L14 13L12.938 11.938L10.75 14.125V3H9.25Z';
+// bin.svg
+const hideIconPath =
+    'M6.5 17c-.417 0-.77-.146-1.062-.438A1.444 1.444 0 0 1 5 15.5v-10H4V4h4V3h4v1h4v1.5h-1v10c0 .417-.146.77-.438 1.062A1.444 1.444 0 0 1 13.5 17h-7Zm7-11.5h-7v10h7v-10ZM8 14h1.5V7H8v7Zm2.5 0H12V7h-1.5v7Z';
+
+const enum EditButtonType {
+  UP = 'UP',
+  DOWN = 'DOWN',
+  HIDE = 'HIDE',
+  EDIT = 'EDIT',
+  SAVE = 'SAVE',
+}
+
 export class FlameChartDelegate {
   windowChanged(_startTime: number, _endTime: number, _animate: boolean): void {
   }
@@ -141,7 +167,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private textBaseline: number;
   private textPadding: number;
   private readonly headerLeftPadding: number;
-  private arrowSide: number;
+  private readonly arrowSide: number;
   private readonly expansionArrowIndent: number;
   private readonly headerLabelXPadding: number;
   private readonly headerLabelYPadding: number;
@@ -185,6 +211,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   #groupTreeRoot?: GroupTreeNode|null;
   #searchResultEntryIndex: number;
   #searchResultHighlightElements: HTMLElement[] = [];
+  #editMode: boolean = false;
 
   constructor(
       dataProvider: FlameChartDataProvider, flameChartDelegate: FlameChartDelegate,
@@ -456,30 +483,48 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     if (this.chartViewport.isDragging()) {
       return;
     }
-    if (this.coordinatesToGroupIndex(mouseEvent.offsetX, mouseEvent.offsetY, true /* headerOnly */) >= 0) {
+    // Check if the mouse is hovering any group's header area
+    const groupIndex = this.coordinatesToGroupIndex(mouseEvent.offsetX, mouseEvent.offsetY, true /* headerOnly */);
+    if (groupIndex >= 0) {
       this.hideHighlight();
       this.viewportElement.style.cursor = 'pointer';
+      // Show edit icon for the hovered group
+      this.resetCanvas();
+      this.draw(/* hoveredGroupIndex= */ groupIndex);
       return;
     }
+    // No group is hovered.
+
+    // Redraw the flame chart to clear the potentially previously draw edit icon.
+    this.resetCanvas();
+    this.draw();
+
     this.updateHighlight();
   }
 
   private updateHighlight(): void {
     const entryIndex = this.coordinatesToEntryIndex(this.lastMouseOffsetX, this.lastMouseOffsetY);
     // Each time the entry highlight is updated, we need to check if the mouse is hovering over a
-    // button that indicates hidden child elements and if so, update the button highlight
+    // button that indicates hidden child elements and if so, update the button highlight.
     this.updateHiddenChildrenArrowHighlighPosition(entryIndex);
+
+    // No entry is hovered.
     if (entryIndex === -1) {
       this.hideHighlight();
-      const group = this.coordinatesToGroupIndex(this.lastMouseOffsetX, this.lastMouseOffsetY, false /* headerOnly */);
-      if (group >= 0 && this.rawTimelineData && this.rawTimelineData.groups &&
-          this.rawTimelineData.groups[group].selectable) {
+      const groupIndex =
+          this.coordinatesToGroupIndex(this.lastMouseOffsetX, this.lastMouseOffsetY, false /* headerOnly */);
+      if (groupIndex >= 0 && this.rawTimelineData && this.rawTimelineData.groups &&
+          this.rawTimelineData.groups[groupIndex].selectable) {
+        // This means the mouse is in a selectable group's area, and not hovering any entry.
         this.viewportElement.style.cursor = 'pointer';
       } else {
+        // This means the mouse is not hovering any selectable track, and not hovering any entry.
         this.viewportElement.style.cursor = 'default';
       }
       return;
     }
+
+    // Some entry is hovered.
     if (this.chartViewport.isDragging()) {
       return;
     }
@@ -558,6 +603,34 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // we skip the click. Otherwise we jump to the sources.
     const clickThreshold = 5;
     if (this.maxDragOffset > clickThreshold) {
+      return;
+    }
+
+    // If any button is clicked, we should handle the action only and ignore others.
+    const {groupIndex, editButtonType} = this.#coordinatesToGroupIndexAndButton(mouseEvent.offsetX, mouseEvent.offsetY);
+    if (groupIndex >= 0) {
+      switch (editButtonType) {
+        case EditButtonType.UP:
+          this.moveGroupUp(groupIndex);
+          return;
+        case EditButtonType.DOWN:
+          this.moveGroupDown(groupIndex);
+          return;
+        case EditButtonType.HIDE:
+          this.hideGroup(groupIndex);
+          return;
+        case EditButtonType.SAVE:
+        case EditButtonType.EDIT:
+          this.#editMode = !this.#editMode;
+          this.resetCanvas();
+          this.draw();
+          return;
+      }
+    }
+
+    // Ignore any other actions when users is customizing the tracks.
+    // For example, we won't toggle the expand status in the editing mode.
+    if (this.#editMode) {
       return;
     }
 
@@ -1364,7 +1437,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   /**
-   * Given an entry's index, retrns its title
+   * Given an entry's index, returns its title
    */
   entryTitle(entryIndex: number): string|null {
     return this.dataProvider.entryTitle(entryIndex);
@@ -1393,14 +1466,103 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   /**
-   * Given offset of the cursor, returns the index of the group.
-   * This function is public for test purpose.
+   * Given offset of the cursor, returns the index of the group and the button user clicked.
+   * Will return -1 for index and undefined for button if no button is clicked.
    * @param x
    * @param y
-   * @param headerOnly if we only want to check the cursor is inside the header area, This is used for expand/collapse
-   * a track now.
-   * @returns the index of the group
+   * @returns the index of the group and the button user clicked
    */
+  #coordinatesToGroupIndexAndButton(x: number, y: number): {groupIndex: number, editButtonType?: EditButtonType} {
+    if (!this.rawTimelineData || !this.rawTimelineData.groups || !this.groupOffsets) {
+      return {groupIndex: -1};
+    }
+
+    if (x < 0 || y < 0) {
+      return {groupIndex: -1};
+    }
+    y += this.chartViewport.scrollOffset();
+    const groups = this.rawTimelineData.groups || [];
+
+    let groupIndex = -1;
+
+    // The real order of the groups is the preorder traversal, and it will match the order in the sortedGroup.
+    // So we first do a preorder traversal to get an array of GroupIndex. And then based on the visual index we got
+    // before, we can get the real group index.
+    if (this.#groupTreeRoot) {
+      const sortedGroupIndexes: number[] = [];
+
+      function traverse(root: GroupTreeNode): void {
+        sortedGroupIndexes.push(root.index);
+        for (const child of root.children) {
+          traverse(child);
+        }
+      }
+      traverse(this.#groupTreeRoot);
+      // Skip the one whose index is -1, because we added to represent the top
+      // level to be the parent of all groups.
+      sortedGroupIndexes.shift();
+
+      // This shouldn't happen, because the tree should have the fake root and all groups. Add a sanity check to avoid
+      // error.
+      if (sortedGroupIndexes.length !== groups.length) {
+        console.warn('The data from the group tree doesn\'t match the data from DataProvider.');
+        return {groupIndex: -1};
+      }
+
+      // Add an extra index, which is equal to the length of the |groups|, this
+      // will be used for the coordinates after the last group.
+      // If the coordinates after the last group, it will return in later check
+      // `groupIndex >= groups.length` anyway. But add one more element to make
+      // this array same length as the |groupOffsets|.
+      sortedGroupIndexes.push(groups.length);
+
+      for (let i = 0; i < sortedGroupIndexes.length; i++) {
+        const index = sortedGroupIndexes[i];
+        const nextIndex = sortedGroupIndexes[i + 1] ?? sortedGroupIndexes.length;
+
+        if (y >= this.groupOffsets[index] && y < this.groupOffsets[nextIndex]) {
+          if (y < this.groupOffsets[index] + groups[index].style.height) {
+            groupIndex = index;
+          }
+          break;
+        }
+      }
+    }
+
+    if (groupIndex < 0 || groupIndex >= groups.length) {
+      return {groupIndex: -1};
+    }
+
+    const context = (this.canvas.getContext('2d') as CanvasRenderingContext2D);
+    context.save();
+    context.font = this.#font;
+
+    if (this.#editMode) {
+      if (0 <= x && x < EDIT_BUTTON_SIZE) {
+        return {groupIndex, editButtonType: EditButtonType.UP};
+      }
+      if (EDIT_BUTTON_SIZE <= x && x < EDIT_BUTTON_SIZE * 2) {
+        return {groupIndex, editButtonType: EditButtonType.DOWN};
+      }
+      if (EDIT_BUTTON_SIZE * 2 <= x && x < EDIT_BUTTON_SIZE * 3) {
+        return {groupIndex, editButtonType: EditButtonType.HIDE};
+      }
+      const left = EDITION_MODE_INDENT + this.headerLeftPadding + this.labelWidthForGroup(context, groups[groupIndex]);
+      if (left <= x && x < left + EDIT_BUTTON_SIZE) {
+        return {groupIndex, editButtonType: EditButtonType.SAVE};
+      }
+
+    } else {
+      const left = this.headerLeftPadding + this.labelWidthForGroup(context, groups[groupIndex]);
+      if (left <= x && x < left + EDIT_BUTTON_SIZE) {
+        return {groupIndex, editButtonType: EditButtonType.EDIT};
+      }
+    }
+    context.restore();
+
+    return {groupIndex: -1};
+  }
+
   coordinatesToGroupIndex(x: number, y: number, headerOnly: boolean): number {
     if (!this.rawTimelineData || !this.rawTimelineData.groups || !this.groupOffsets) {
       return -1;
@@ -1469,7 +1631,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const context = (this.canvas.getContext('2d') as CanvasRenderingContext2D);
     context.save();
     context.font = this.#font;
-    const right = this.headerLeftPadding + this.labelWidthForGroup(context, groups[groupIndex]);
+    const left = (this.#editMode ? EDITION_MODE_INDENT : 0) + this.headerLeftPadding;
+    const right = left + this.labelWidthForGroup(context, groups[groupIndex]) + EDIT_BUTTON_SIZE;
     context.restore();
     if (x > right) {
       return -1;
@@ -1493,7 +1656,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         timelineData.markers, time, (markerTimestamp, marker) => markerTimestamp - marker.startTime());
   }
 
-  private draw(): void {
+  private draw(hoveredGroupIndex?: number): void {
     const timelineData = this.timelineData();
     if (!timelineData) {
       return;
@@ -1552,7 +1715,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.drawEventTitles(context, timelineData, titleIndices, canvasWidth);
     context.restore();
 
-    this.drawGroupHeaders(canvasWidth, canvasHeight);
+    this.drawGroupHeaders(canvasWidth, canvasHeight, hoveredGroupIndex);
     this.drawFlowEvents(context, timelineData);
     this.drawMarkerLines();
     const dividersData = TimelineGrid.calculateGridOffsets(this);
@@ -1927,9 +2090,20 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return {colorBuckets, titleIndices, markerIndices};
   }
 
-  private drawGroupHeaders(width: number, height: number): void {
+  /**
+   * The function to draw the group headers. It will draw the title by default.
+   * And when a group is hovered, it will add a edit button.
+   * And will draw the move up/down, hide and save button if user enter the editing mode.
+   * @param width
+   * @param height
+   * @param hoveredGroupIndex This is used to show the edit icon for hovered group. If it is undefined or -1, it means
+   * there is no group being hovered.
+   */
+  private drawGroupHeaders(width: number, height: number, hoveredGroupIndex?: number): void {
     const context = (this.canvas.getContext('2d') as CanvasRenderingContext2D);
     const top = this.chartViewport.scrollOffset();
+    // Add an indent to the group headers. This area will show the buttons to customize the groups.
+    const left = this.#editMode ? EDITION_MODE_INDENT : 0;
     const ratio = window.devicePixelRatio;
     if (!this.rawTimelineData) {
       return;
@@ -1948,7 +2122,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     context.save();
     context.scale(ratio, ratio);
-    context.translate(0, -top);
+    context.translate(left, -top);
     context.font = this.#font;
 
     context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
@@ -1997,7 +2171,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.forEachGroupInViewport((offset, index, group) => {
       context.font = this.#font;
       if (this.isGroupCollapsible(index) && !group.expanded || group.style.shareHeaderLine) {
-        const width = this.labelWidthForGroup(context, group) + 2;
+        const width = this.labelWidthForGroup(context, group) + (hoveredGroupIndex === index ? EDIT_BUTTON_SIZE : 0);
         if (this.isGroupFocused(index)) {
           context.fillStyle =
               ThemeSupport.ThemeSupport.instance().getComputedValue('--selected-group-background', this.contentElement);
@@ -2013,9 +2187,21 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             group.style.height - 2 * this.headerLabelYPadding);
       }
       context.fillStyle = group.style.color;
-      context.fillText(
-          group.name, Math.floor(this.expansionArrowIndent * (group.style.nestingLevel + 1) + this.arrowSide),
-          offset + group.style.height - this.textBaseline);
+      const titleStart = Math.floor(this.expansionArrowIndent * (group.style.nestingLevel + 1) + this.arrowSide);
+      context.fillText(group.name, titleStart, offset + group.style.height - this.textBaseline);
+
+      if (this.#editMode) {
+        // We only allow to reorder the top level groups.
+        if (group.style.nestingLevel === 0) {
+          drawIcon(-EDITION_MODE_INDENT, offset, moveUpIconPath);
+          drawIcon(-EDITION_MODE_INDENT + EDIT_BUTTON_SIZE, offset, moveDownIconPath);
+        }
+        drawIcon(-EDITION_MODE_INDENT + EDIT_BUTTON_SIZE * 2, offset, hideIconPath);
+
+        drawIcon(this.labelWidthForGroup(context, group), offset, saveIconPath);
+      } else if (hoveredGroupIndex === index) {
+        drawIcon(this.labelWidthForGroup(context, group), offset, editIconPath);
+      }
     });
     context.restore();
 
@@ -2038,8 +2224,20 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         const bracketLength = 10;
         context.fillStyle =
             ThemeSupport.ThemeSupport.instance().getComputedValue('--selected-group-border', this.contentElement);
+        // The selected group indicator will be blue and in this kind of shape. And we will draw it with three
+        // rectangles.
+        // +-+---+
+        // |-|---+
+        // | |
+        // | |
+        // |-|---+
+        // +-+---+
+
+        // The vertical stroke
         context.fillRect(0, offset - lineWidth, lineWidth, groupHeight - group.style.padding + 2 * lineWidth);
+        // The top horizontal stroke
         context.fillRect(0, offset - lineWidth, bracketLength, lineWidth);
+        // The top horizontal stroke
         context.fillRect(0, offset + groupHeight - group.style.padding, bracketLength, lineWidth);
       }
     });
@@ -2062,6 +2260,20 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       context.lineTo(-arrowCenterOffset, this.arrowSide / 2);
       context.lineTo(arrowHeight - arrowCenterOffset, 0);
       context.fill();
+      context.restore();
+    }
+
+    function drawIcon(x: number, y: number, pathData: string, iconColor: string = '--sys-color-token-subtle'): void {
+      const p = new Path2D(pathData);
+
+      context.save();
+      context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue(iconColor);
+      context.translate(x, y);
+      // The pathData from front_end/images folder is for a 20 pixel icon.
+      // So we add a scale to draw the icon in a correct size.
+      const scale = EDIT_BUTTON_SIZE / 20;
+      context.scale(scale, scale);
+      context.fill(p);
       context.restore();
     }
   }
@@ -2215,7 +2427,39 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const parentGroupVisible = last ? last.visible : false;
       const thisGroupVisible = !group.hidden && parentGroupVisible && (!this.isGroupCollapsible(i) || group.expanded);
       groupStack.push({nestingLevel: group.style.nestingLevel, visible: Boolean(thisGroupVisible)});
-      const nextOffset = i === groups.length - 1 ? groupOffsets[i + 1] + group.style.padding : groupOffsets[i + 1];
+
+      if (!this.#groupTreeRoot) {
+        return;
+      }
+      const sortedGroupIndexes: number[] = [];
+
+      function traverse(root: GroupTreeNode): void {
+        sortedGroupIndexes.push(root.index);
+        for (const child of root.children) {
+          traverse(child);
+        }
+      }
+      traverse(this.#groupTreeRoot);
+      // Skip the one whose index is -1, because we added to represent the top
+      // level to be the parent of all groups.
+      sortedGroupIndexes.shift();
+
+      // This shouldn't happen, because the tree should have the fake root and all groups. Add a sanity check to avoid
+      // error.
+      if (sortedGroupIndexes.length !== groups.length) {
+        console.warn('The data from the group tree doesn\'t match the data from DataProvider.');
+        return;
+      }
+
+      // Add an extra index, which is equal to the length of the |groups|, this
+      // will be used for the coordinates after the last group.
+      // If the coordinates after the last group, it will return in later check
+      // `groupIndex >= groups.length` anyway. But add one more element to make
+      // this array same length as the |groupOffsets|.
+      sortedGroupIndexes.push(groups.length);
+
+      const currentIndex = sortedGroupIndexes.indexOf(i);
+      const nextOffset = groupOffsets[sortedGroupIndexes[currentIndex + 1]];
       if (!parentGroupVisible || group.hidden) {
         continue;
       }
@@ -2239,7 +2483,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
   private labelWidthForGroup(context: CanvasRenderingContext2D, group: Group): number {
     return UI.UIUtils.measureTextWidth(context, group.name) +
-        this.expansionArrowIndent * (group.style.nestingLevel + 1) + 2 * this.headerLabelXPadding;
+        this.expansionArrowIndent * (group.style.nestingLevel + 1) + this.arrowSide + this.headerLabelXPadding;
   }
 
   private drawCollapsedOverviewForGroup(group: Group, y: number, endLevel: number): void {
@@ -2731,8 +2975,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       this.visibleLevelOffsets[level] = currentOffset;
       this.visibleLevelHeights[level] = height;
 
-      if (thisLevelIsVisible ||
-          (parentGroupIsVisible && groups[groupNode.index].style.shareHeaderLine && isFirstOnLevel)) {
+      if (!groups[groupNode.index].hidden &&
+          (thisLevelIsVisible ||
+           (parentGroupIsVisible && groups[groupNode.index].style.shareHeaderLine && isFirstOnLevel))) {
         currentOffset += height;
       }
     }
@@ -2991,6 +3236,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.highlightedEntryIndex = -1;
     this.selectedEntryIndex = -1;
     this.selectedGroupIndex = -1;
+    this.#editMode = false;
   }
 
   scheduleUpdate(): void {
