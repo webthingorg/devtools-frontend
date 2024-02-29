@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd8c196_edefcc61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-02-29T13:30:33Z",
+      "side": 1,
+      "message": "Hi Andrés,\n\nI\u0027m disabling a flaky timeline test, ptal!",
+      "revId": "1233c8fb5670b910275603f20638b01dedc87882",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
