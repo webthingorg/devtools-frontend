@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d5685a_151b18a6",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-29T22:20:42Z",
+      "side": 1,
+      "message": "I took another look at the network request handler. It seems like what we want is actually `lcpRequest.ts`:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/trace/handlers/NetworkRequestsHandler.ts;l\u003d411?q\u003dNetworkRequestsH\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2F\n\nSeems like `sendStartTime` is different from the overall start time, the handler just uses `ts` as the overall start time.\n\n```suggestion\n  const lcpStartTs \u003d Types.Timing.MicroSeconds(lcpRequest.ts - nav.ts);\n```",
+      "revId": "dd751ab014aa6a23d553b044b604e442949dc03e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdcc8cb8_fc03308e",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-02-29T22:20:42Z",
+      "side": 1,
+      "message": "These should both always be valid numbers right? Is there some other situation that would cause us to not enter this if block?",
+      "revId": "dd751ab014aa6a23d553b044b604e442949dc03e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
