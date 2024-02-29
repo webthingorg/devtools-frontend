@@ -8,6 +8,7 @@ import("../../../third_party/typescript/typescript.gni")
 
 devtools_module("visual_logging") {
   sources = [
+    "Debugging.ts",
     "DomState.ts",
     "Loggable.ts",
     "LoggingConfig.ts",
