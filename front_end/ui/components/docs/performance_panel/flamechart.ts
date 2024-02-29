@@ -299,10 +299,7 @@ function renderExample5() {
           startLevel: 0,
           style: defaultGroupStyle,
         }],
-        flowStartTimes: [10, 20, 20, 55, 57.4, 10],
-        flowStartLevels: [2, 0, 0, 0, 2, 1],
-        flowEndTimes: [15, 40, 40, 55.4, 80, 80],
-        flowEndLevels: [0, 2, 0, 2, 0, 1],
+        initiatorPairs: [[0, 1], [0, 3]],
       });
     }
   }
