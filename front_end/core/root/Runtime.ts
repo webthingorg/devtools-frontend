@@ -294,6 +294,7 @@ export const enum ExperimentName {
   TRACK_CONTEXT_MENU = 'track-context-menu',
   AUTOFILL_VIEW = 'autofill-view',
   INDENTATION_MARKERS_TEMP_DISABLE = 'sources-frame-indentation-markers-temporarily-disable',
+  TIMELINE_SHOW_POST_MESSAGE_EVENTS = 'timeline-show-postmessage-events',
 }
 
 /**

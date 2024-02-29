@@ -156,3 +156,7 @@ This is a trace where we loaded web.dev/inp, but the initial URL reported by the
 ### render-blocking-in-iframe
 
 Contains a navigation to a page with a render blocking request `style.css?main` and an iframe. The iframe also contains a render blocking request `style.css?iframe`.
+
+### postmessage-initiators
+
+Contains a `postMessage.Handler`, and associating `postMessage.Dispatch` call.
