@@ -168,7 +168,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   #eventToDisallowRoot = new WeakMap<TraceEngine.Legacy.Event, boolean>();
   #font: string;
   #eventIndexByEvent: WeakMap<TraceEngine.Types.TraceEvents.TraceEventData, number|null> = new WeakMap();
-  #eventsWithCircleDecorationIndexes: number[] = [];
 
   constructor() {
     super();
@@ -522,25 +521,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     const decorationsForEvent = this.timelineDataInternal.entryDecorations[eventIndex] || [];
     decorationsForEvent.push(decoration);
     this.timelineDataInternal.entryDecorations[eventIndex] = decorationsForEvent;
-  }
-
-  /**
-   * Removes all circle decorations that indicate
-   * that the initiator or initiated entry are hidden.
-   * Remove them every time a new entry is chosen.
-   */
-  #removeAllCollapsedFlowEventsDecorations(): void {
-    this.#eventsWithCircleDecorationIndexes.forEach(index => {
-      if (!this.timelineDataInternal) {
-        return;
-      }
-      let decorationsForEvent = this.timelineDataInternal.entryDecorations[index] || [];
-      decorationsForEvent = decorationsForEvent.filter(decorationIter => {
-        return decorationIter.type !== PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE;
-      });
-      this.timelineDataInternal.entryDecorations[index] = decorationsForEvent;
-    });
-    this.#eventsWithCircleDecorationIndexes = [];
   }
 
   /**
@@ -1416,7 +1396,6 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
 
     // Remove all previously assigned decorations indicating that the flow event entries are hidden
-    this.#removeAllCollapsedFlowEventsDecorations();
     const previousInitiatorPairsLength = this.timelineDataInternal.initiatorPairs.length;
     // |entryIndex| equals -1 means there is no entry selected, just clear the
     // initiator cache if there is any previous arrow and return true to
@@ -1472,22 +1451,8 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       if (eventIndex === null || initiatorIndex === null) {
         continue;
       }
-      this.timelineDataInternal.initiatorPairs.push({initiatorIndex, eventIndex});
-
-      // Add a decoration of a circle around the 'collapse arrow' to show that the entry is hidden
-      if (pair.isEntryHidden) {
-        this.#addDecorationToEvent(
-            this.entryData.indexOf(pair.event),
-            {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
-        this.#eventsWithCircleDecorationIndexes.push(this.entryData.indexOf(pair.event));
-      }
-
-      if (pair.isInitiatorHidden) {
-        this.#addDecorationToEvent(
-            this.entryData.indexOf(pair.initiator),
-            {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
-        this.#eventsWithCircleDecorationIndexes.push(this.entryData.indexOf(pair.initiator));
-      }
+      this.timelineDataInternal.initiatorPairs.push(
+          {initiatorIndex, eventIndex, isInitiatorHidden: pair.isInitiatorHidden, isEntryHidden: pair.isEntryHidden});
     }
     return true;
   }

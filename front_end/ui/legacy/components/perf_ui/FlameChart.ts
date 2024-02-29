@@ -1731,32 +1731,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             context.restore();
             break;
           }
-          case FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE: {
-            // The circle is only drawn when the initiator arrow is going to/from some hidden entry. Make sure that the entry also has a decoration for hidden children.
-            if (!decorationsForEvent.find(
-                    decoration => decoration.type === FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW)) {
-              // This should not happen, break if it does.
-              break;
-            }
-            // The arrow that the circle is drawn around if only drawn if the bar is wider than double the arrow button.
-            // If it not, we do not need the circle either.
-            if (barWidth > barHeight * 2) {
-              context.save();
-              context.beginPath();
-              context.rect(barX, barY, barWidth, barHeight);
-              context.clip();
-              context.beginPath();
-              context.fillStyle = '#474747';
-              const triangleCenterX = barX + barWidth - this.barHeight / 2;
-              const triangleCenterY = barY + this.barHeight / 2;
-              const circleRadius = 6;
-              context.beginPath();
-              context.arc(triangleCenterX, triangleCenterY, circleRadius, 0, 2 * Math.PI);
-              context.stroke();
-              context.restore();
-            }
-            break;
-          }
         }
       }
     }
@@ -2342,8 +2316,25 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       if (initiatorArrowEndTime < this.chartViewport.windowLeftTime()) {
         continue;
       }
-      const startX = this.chartViewport.timeToPosition(initiatorArrowStartTime);
-      const endX = this.chartViewport.timeToPosition(initiatorArrowEndTime);
+      let startX = this.chartViewport.timeToPosition(initiatorArrowStartTime);
+      let endX = this.chartViewport.timeToPosition(initiatorArrowEndTime);
+
+      // Draw a circle arround 'collapsed entries' arrow to indicate that the initiated entry is hidden
+      if (pair.isInitiatorHidden) {
+        const {circleEndX} = this.drawCircleArroundCollapseArrow(pair.initiatorIndex, context, timelineData);
+        // If the circle exists around the initiator, start the initiator arrow from the circle end
+        if (circleEndX) {
+          startX = circleEndX;
+        }
+      }
+      if (pair.isEntryHidden) {
+        const {circleStartX} = this.drawCircleArroundCollapseArrow(pair.eventIndex, context, timelineData);
+        // If the circle exists around the initiated event, draw the initiator arrow until the circle beginning
+        if (circleStartX) {
+          endX = circleStartX;
+        }
+      }
+
       const startLevel = entryLevels[pair.initiatorIndex];
       const endLevel = entryLevels[pair.eventIndex];
       const startY = this.levelToOffset(startLevel) + this.levelHeight(startLevel) / 2;
@@ -2371,6 +2362,51 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       }
     }
     context.restore();
+  }
+
+  private drawCircleArroundCollapseArrow(
+      entryIndex: number, context: CanvasRenderingContext2D,
+      timelineData: FlameChartTimelineData): {circleStartX?: number, circleEndX?: number} {
+    const decorationsForEvent = timelineData.entryDecorations.at(entryIndex);
+    // The circle is only drawn when the initiator arrow is going to/from some hidden entry. Make sure that the entry also has a decoration for hidden children.
+    if (!decorationsForEvent ||
+        !decorationsForEvent.find(
+            decoration => decoration.type === FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW)) {
+      // This should not happen, break if it does.
+      return {};
+    }
+
+    const {entryStartTimes, entryLevels} = timelineData;
+    // The large version of 'hidden entries' is displayed
+    // only when the bar width is over double the height.
+    // We do not want to draw the circle if the arrow is not visible.
+    const barWidth = this.#eventBarWidth(timelineData, entryIndex);
+    if (barWidth < this.barHeight * 2) {
+      return {};
+    }
+
+    const entryStartTime = entryStartTimes[entryIndex];
+    const barX = this.timeToPositionClipped(entryStartTime);
+    const barLevel = entryLevels[entryIndex];
+    const barHeight = this.#eventBarHeight(timelineData, entryIndex);
+    const barY = this.levelToOffset(barLevel);
+
+    context.save();
+    context.beginPath();
+    context.rect(barX, barY, barWidth, barHeight);
+    context.clip();
+    context.lineWidth = 1;
+    context.beginPath();
+    context.fillStyle = '#474747';
+    const triangleCenterX = barX + barWidth - this.barHeight / 2;
+    const triangleCenterY = barY + this.barHeight / 2;
+    const circleRadius = 6;
+    context.beginPath();
+    context.arc(triangleCenterX, triangleCenterY, circleRadius, 0, 2 * Math.PI);
+    context.stroke();
+    context.restore();
+
+    return {circleStartX: triangleCenterX - circleRadius, circleEndX: triangleCenterX + circleRadius};
   }
 
   /**
@@ -3032,13 +3068,14 @@ export const MinimalTimeWindowMs = 0.5;
 export interface FlameChartInitiatorPair {
   initiatorIndex: number;
   eventIndex: number;
+  isEntryHidden?: boolean;
+  isInitiatorHidden?: boolean;
 }
 
 export const enum FlameChartDecorationType {
   CANDY = 'CANDY',
   WARNING_TRIANGLE = 'WARNING_TRIANGLE',
   HIDDEN_DESCENDANTS_ARROW = 'HIDDEN_DESCENDANTS_ARROW',
-  INITIATOR_HIDDEN_CIRCLE = 'INITIATOR_ENTRY_HIDDEN',
 }
 
 /**
@@ -3063,8 +3100,6 @@ export type FlameChartDecoration = {
   customEndTime?: TraceEngine.Types.Timing.MicroSeconds,
 }|{
   type: FlameChartDecorationType.HIDDEN_DESCENDANTS_ARROW,
-}|{
-  type: FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE,
 };
 
 // We have to ensure we draw the decorations in a particular order; warning
@@ -3073,7 +3108,6 @@ const decorationDrawOrder: Record<FlameChartDecorationType, number> = {
   CANDY: 1,
   WARNING_TRIANGLE: 2,
   HIDDEN_DESCENDANTS_ARROW: 3,
-  INITIATOR_ENTRY_HIDDEN: 4,
 };
 
 export function sortDecorationsForRenderingOrder(decorations: FlameChartDecoration[]): void {
