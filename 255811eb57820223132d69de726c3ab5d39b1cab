@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d7f65d_1c17f89d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-02-29T13:40:03Z",
+      "side": 1,
+      "message": "WDYT of adding a new visual element `adorner` and updating the `jslog` attribute on data setter?\n\nOtherwise, for non-clickable adorners (currently, `AD` adorner I think) we won\u0027t have a log.",
+      "revId": "255811eb57820223132d69de726c3ab5d39b1cab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
