@@ -2607,6 +2607,9 @@ export class TimelineUIUtils {
     // Consider entry outside breadcrumb only if it is fully outside. If a part of it is visible, we can still select it.
     const isEntryOutsideBreadcrumb = traceBoundsState.micro.minimapTraceBounds.min > entry.ts + (entry.dur || 0) ||
         traceBoundsState.micro.minimapTraceBounds.max < entry.ts;
+    
+    // Check if it is in the hidden array
+    const isEntryHidden = false;
 
     if (!isEntryOutsideBreadcrumb) {
       link.classList.add('devtools-link');
