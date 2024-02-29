@@ -42,3 +42,10 @@ export type EnabledInsightRunners<EnabledModelHandlers extends {[key: string]: H
  */
 export type RequiredData<D extends() => Array<keyof typeof Handlers.ModelHandlers>> =
     Pick<Handlers.Types.EnabledHandlerDataWithMeta<typeof Handlers.ModelHandlers>, ReturnType<D>[number]>;
+
+/**
+ * Returning error status of insight.
+ */
+export interface InsightError {
+  message: string;
+}
