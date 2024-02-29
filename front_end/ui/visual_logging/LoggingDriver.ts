@@ -186,7 +186,8 @@ async function process(): Promise<void> {
       const trackKeyDown = loggingState.config.track?.has('keydown');
       const codes = loggingState.config.track?.get('keydown')?.split(',') || [];
       if (trackKeyDown) {
-        element.addEventListener('keydown', logKeyDown(codes, keyboardLogThrottler), {capture: true});
+        element.addEventListener(
+            'keydown', (e: Event) => logKeyDown(e, undefined, codes, keyboardLogThrottler), {capture: true});
       }
       if (loggingState.config.track?.has('resize')) {
         const updateSize = (): void => {
