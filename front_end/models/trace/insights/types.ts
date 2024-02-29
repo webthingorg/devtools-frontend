@@ -20,7 +20,7 @@ type InsightRunnersType = typeof InsightsRunners;
  * Contains insights for a specific navigation.
  */
 export type NavigationInsightData<H extends {[key: string]: Handlers.Types.TraceEventHandler}> = {
-  [I in keyof EnabledInsightRunners<H>]: ReturnType<EnabledInsightRunners<H>[I]>;
+  [I in keyof EnabledInsightRunners<H>]: ReturnType<EnabledInsightRunners<H>[I]>|Error;
 };
 
 /**

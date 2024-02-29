@@ -262,6 +262,22 @@ describeWithEnvironment('TraceProcessor', function() {
       assert.strictEqual(processor.insights.size, 0);
     });
 
+    it('captures errors thrown by insights', async function() {
+      const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
+
+      // This trace has no first paint, which should cause `RenderBlocking` to throw
+      const file = await TraceLoader.rawEvents(this, 'user-timings.json.gz');
+
+      await processor.parse(file);
+      if (!processor.insights) {
+        throw new Error('No insights');
+      }
+
+      const insights = Array.from(processor.insights.values());
+      assert.strictEqual(insights.length, 1);
+      assert(insights[0].RenderBlocking instanceof Error, 'RenderBlocking did not throw an error');
+    });
+
     it('skips insights that are missing one or more dependencies', async function() {
       const processor = new TraceModel.Processor.TraceProcessor({
         Animation: TraceModel.Handlers.ModelHandlers.Animations,
@@ -289,6 +305,11 @@ describeWithEnvironment('TraceProcessor', function() {
 
       const insights = Array.from(processor.insights.values());
       assert.strictEqual(insights.length, 1);
+
+      if (insights[0].RenderBlocking instanceof Error) {
+        throw new Error('RenderBlocking threw an error');
+      }
+
       assert.strictEqual(insights[0].RenderBlocking.renderBlockingRequests.length, 2);
     });
 
@@ -303,6 +324,17 @@ describeWithEnvironment('TraceProcessor', function() {
 
       const insights = Array.from(processor.insights.values());
       assert.strictEqual(insights.length, 3);
+
+      if (insights[0].RenderBlocking instanceof Error) {
+        throw new Error('RenderBlocking threw an error');
+      }
+      if (insights[1].RenderBlocking instanceof Error) {
+        throw new Error('RenderBlocking threw an error');
+      }
+      if (insights[2].RenderBlocking instanceof Error) {
+        throw new Error('RenderBlocking threw an error');
+      }
+
       assert.strictEqual(insights[0].RenderBlocking.renderBlockingRequests.length, 5);
       assert.strictEqual(insights[1].RenderBlocking.renderBlockingRequests.length, 5);
       assert.strictEqual(insights[2].RenderBlocking.renderBlockingRequests.length, 10);
