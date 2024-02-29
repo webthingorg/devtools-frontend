@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccf02a1f_80688f3f",
+        "filename": "front_end/core/sdk/SourceMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-02-29T10:31:04Z",
+      "side": 1,
+      "message": "nit: Doesn\u0027t need the assignment, both can just be a `return`.",
+      "revId": "e27a91313daf9334793173e2d1f7b1ba446a782f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
