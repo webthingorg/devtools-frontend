@@ -1806,6 +1806,7 @@ export class ShortcutTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.reveal),
       ariaLabelActive: i18nString(UIStrings.reveal),
+      jslogContext: 'reveal',
     });
     adorner.addEventListener('mousedown', e => e.consume(), false);
     ElementsPanel.instance().registerAdorner(adorner);
