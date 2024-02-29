@@ -1476,16 +1476,16 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
       // Add a decoration of a circle around the 'collapse arrow' to show that the entry is hidden
       if (pair.isEntryHidden) {
-        this.#addDecorationToEvent(
-            this.entryData.indexOf(pair.event),
-            {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
+        // this.#addDecorationToEvent(
+        //     this.entryData.indexOf(pair.event),
+        //     {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
         this.#eventsWithCircleDecorationIndexes.push(this.entryData.indexOf(pair.event));
       }
 
       if (pair.isInitiatorHidden) {
-        this.#addDecorationToEvent(
-            this.entryData.indexOf(pair.initiator),
-            {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
+        // this.#addDecorationToEvent(
+        //     this.entryData.indexOf(pair.initiator),
+        //     {type: PerfUI.FlameChart.FlameChartDecorationType.INITIATOR_HIDDEN_CIRCLE});
         this.#eventsWithCircleDecorationIndexes.push(this.entryData.indexOf(pair.initiator));
       }
     }
