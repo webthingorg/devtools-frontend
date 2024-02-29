@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6555f423_494e069a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002525
+      },
+      "writtenOn": "2024-02-29T12:53:27Z",
+      "side": 1,
+      "message": "Rebasing on top of main branch doesn\u0027t work in Gerrit UI.\nIs this something you can do easily locally by any chance Simon?",
+      "revId": "b2d18df14bb9fae48f9f31519b7d83d399c9c8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
