@@ -51,6 +51,23 @@
       "parentUuid": "91dea098_343e5ede",
       "revId": "98bcb43211bee8602fa0c34635a847709a049d86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e0f49a_80324e2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124630
+      },
+      "writtenOn": "2024-02-29T12:28:12Z",
+      "side": 1,
+      "message": "I\u0027m going to mark this CL as Abandonded. Before that, we may want to revert https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5081999 to cleanup. WDYT?",
+      "revId": "98bcb43211bee8602fa0c34635a847709a049d86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
