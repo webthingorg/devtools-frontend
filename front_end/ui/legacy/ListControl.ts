@@ -316,15 +316,19 @@ export class ListControl<T> {
     switch (event.key) {
       case 'ArrowUp':
         selected = this.selectPreviousItem(true, false);
+        VisualLogging.logKeyDown(event, 'select-previous');
         break;
       case 'ArrowDown':
         selected = this.selectNextItem(true, false);
+        VisualLogging.logKeyDown(event, 'select-next');
         break;
       case 'PageUp':
         selected = this.selectItemPreviousPage(false);
+        VisualLogging.logKeyDown(event, 'select-previous-page');
         break;
       case 'PageDown':
         selected = this.selectItemNextPage(false);
+        VisualLogging.logKeyDown(event, 'select-next-page');
         break;
     }
     if (selected) {

@@ -4,6 +4,7 @@
 
 import * as Common from '../../../../core/common/common.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
 import {ColorSwatch} from './ColorSwatch.js';
@@ -138,11 +139,13 @@ export class SwatchPopoverHelper extends Common.ObjectWrapper.ObjectWrapper<Even
     if (event.key === 'Enter') {
       this.hide(true);
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'save-edit');
       return;
     }
     if (event.key === Platform.KeyboardUtilities.ESCAPE_KEY) {
       this.hide(false);
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'cancel-edit');
     }
   }
 }

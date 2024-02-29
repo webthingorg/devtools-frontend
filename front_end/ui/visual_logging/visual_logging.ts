@@ -9,8 +9,8 @@ import * as NonDomState from './NonDomState.js';
 
 export type Loggable = LoggableModule.Loggable;
 export {startLogging, stopLogging, addDocument} from './LoggingDriver.js';
-export {logClick, logImpressions, logResize} from './LoggingEvents.js';
-export {registerContextProvider, registerParentProvider} from './LoggingState.js';
+export {logClick, logImpressions, logResize, logKeyDown, logChange} from './LoggingEvents.js';
+export {registerParentProvider} from './LoggingState.js';
 
 export function registerLoggable(loggable: Loggable, config: string, parent: Loggable|null): void {
   if (!LoggingDriver.isLogging()) {
@@ -28,6 +28,7 @@ export function registerLoggable(loggable: Loggable, config: string, parent: Log
  * Ideally the `action`s context should match the ID of an `UI.ActionRegistration.Action`.
  */
 export const action = LoggingConfig.makeConfigStringBuilder.bind(null, 'Action');
+export const adorner = LoggingConfig.makeConfigStringBuilder.bind(null, 'Adorner');
 export const animationClip = LoggingConfig.makeConfigStringBuilder.bind(null, 'AnimationClip');
 export const bezierCurveEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'BezierCurveEditor');
 export const bezierEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'BezierEditor');

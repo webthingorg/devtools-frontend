@@ -350,10 +350,12 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
       case 'ArrowLeft':
       case 'ArrowUp':
         this.focusNextPlaybackRateButton(event.target, /* focusPrevious */ true);
+        void VisualLogging.logKeyDown(event, 'select-previous');
         break;
       case 'ArrowRight':
       case 'ArrowDown':
         this.focusNextPlaybackRateButton(event.target);
+        void VisualLogging.logKeyDown(event, 'select-next');
         break;
     }
   }
@@ -669,18 +671,24 @@ export class AnimationTimeline extends UI.Widget.VBox implements SDK.TargetManag
       case ' ':
       case 'Enter':
         void this.selectAnimationGroup(group);
+        if (event.currentTarget) {
+          void VisualLogging.logClick(event.currentTarget, event);
+        }
         break;
       case 'Backspace':
       case 'Delete':
         this.removeAnimationGroup(group, event);
+        VisualLogging.logKeyDown(event, 'delete');
         break;
       case 'ArrowLeft':
       case 'ArrowUp':
         this.focusNextGroup(group, /* target */ event.target, /* focusPrevious */ true);
+        VisualLogging.logKeyDown(event, 'select-previous');
         break;
       case 'ArrowRight':
       case 'ArrowDown':
         this.focusNextGroup(group, /* target */ event.target);
+        VisualLogging.logKeyDown(event, 'select-next');
     }
   }
 

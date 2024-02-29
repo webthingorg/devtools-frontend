@@ -253,7 +253,7 @@ export class SoftContextMenu {
       subMenuTimer: undefined,
     };
 
-    if (item.jslogContext) {
+    if (item.jslogContext && !item.element?.hasAttribute('jslog')) {
       if (item.type === 'checkbox') {
         menuItemElement.setAttribute(
             'jslog', `${VisualLogging.toggle().track({click: true}).context(item.jslogContext)}`);
@@ -564,6 +564,7 @@ export class SoftContextMenu {
         return;
       }
       this.triggerAction(this.highlightedMenuItemElement, keyboardEvent);
+      VisualLogging.logClick(this.highlightedMenuItemElement, keyboardEvent);
       if (detailsForElement.subItems && this.subMenu) {
         this.subMenu.highlightNext();
       }

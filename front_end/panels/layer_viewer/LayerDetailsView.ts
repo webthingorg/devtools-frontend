@@ -349,6 +349,7 @@ export class LayerDetailsView extends Common.ObjectWrapper.eventMixin<EventTypes
       if (event.key === 'Enter') {
         event.consume();
         this.invokeProfilerLink();
+        void VisualLogging.logClick(this.paintProfilerLink, event);
       }
     });
     this.paintProfilerLink.setAttribute(

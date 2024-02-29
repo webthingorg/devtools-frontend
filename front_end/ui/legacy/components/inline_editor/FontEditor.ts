@@ -7,6 +7,7 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
 import fontEditorStyles from './fontEditor.css.js';
@@ -345,7 +346,8 @@ export class FontEditor extends Common.ObjectWrapper.eventMixin<EventTypes, type
     field.appendChild(selectInput);
 
     const deleteToolbar = new UI.Toolbar.Toolbar('', field);
-    const deleteButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.deleteS, {PH1: label}), 'bin');
+    const deleteButton =
+        new UI.Toolbar.ToolbarButton(i18nString(UIStrings.deleteS, {PH1: label}), 'bin', undefined, 'delete');
     deleteToolbar.appendToolbarItem(deleteButton);
     const fontSelectorObject = {label: selectLabel, input: selectInput, deleteButton, index};
     deleteButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
@@ -355,6 +357,7 @@ export class FontEditor extends Common.ObjectWrapper.eventMixin<EventTypes, type
       if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
         this.deleteFontSelector(fontSelectorObject.index);
         event.consume();
+        void VisualLogging.logClick(deleteButton, event);
       }
     }, false);
     this.fontSelectors.push(fontSelectorObject);

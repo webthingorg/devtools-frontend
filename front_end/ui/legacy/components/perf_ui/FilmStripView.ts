@@ -88,6 +88,7 @@ export class FilmStripView extends Common.ObjectWrapper.eventMixin<EventTypes, t
     element.addEventListener('keydown', event => {
       if (event.code === 'Enter' || event.code === 'Space') {
         this.onMouseEvent(Events.FrameSelected, time);
+        void VisualLogging.logClick(element, event);
       }
     });
 
@@ -225,25 +226,31 @@ export class Dialog {
     switch (keyboardEvent.key) {
       case 'ArrowLeft':
         if (Host.Platform.isMac() && keyboardEvent.metaKey) {
+          VisualLogging.logKeyDown(event, 'select-first');
           this.onFirstFrame();
         } else {
+          VisualLogging.logKeyDown(event, 'select-previous');
           this.onPrevFrame();
         }
         break;
 
       case 'ArrowRight':
         if (Host.Platform.isMac() && keyboardEvent.metaKey) {
+          VisualLogging.logKeyDown(event, 'select-last');
           this.onLastFrame();
         } else {
+          VisualLogging.logKeyDown(event, 'select-next');
           this.onNextFrame();
         }
         break;
 
       case 'Home':
+        VisualLogging.logKeyDown(event, 'select-first');
         this.onFirstFrame();
         break;
 
       case 'End':
+        VisualLogging.logKeyDown(event, 'select-last');
         this.onLastFrame();
         break;
     }

@@ -8,6 +8,7 @@ import * as Platform from '../../../../core/platform/platform.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as Diff from '../../../../third_party/diff/diff.js';
 import * as TextPrompt from '../../../../ui/components/text_prompt/text_prompt.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
 import filteredListWidgetStyles from './filteredListWidget.css.js';
@@ -524,21 +525,27 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
       case Platform.KeyboardUtilities.TAB_KEY:
         if (keyboardEvent.shiftKey) {
           handled = this.list.selectPreviousItem(true, false);
+          VisualLogging.logKeyDown(keyboardEvent, 'select-previous');
           break;
         }
         handled = this.tabKeyPressed();
+        VisualLogging.logKeyDown(keyboardEvent, 'accept-autocomplete');
         break;
       case Platform.KeyboardUtilities.ArrowKey.UP:
         handled = this.list.selectPreviousItem(true, false);
+        VisualLogging.logKeyDown(keyboardEvent, 'select-previous');
         break;
       case Platform.KeyboardUtilities.ArrowKey.DOWN:
         handled = this.list.selectNextItem(true, false);
+        VisualLogging.logKeyDown(keyboardEvent, 'select-next');
         break;
       case Platform.KeyboardUtilities.PageKey.UP:
         handled = this.list.selectItemPreviousPage(false);
+        VisualLogging.logKeyDown(keyboardEvent, 'select-previous-page');
         break;
       case Platform.KeyboardUtilities.PageKey.DOWN:
         handled = this.list.selectItemNextPage(false);
+        VisualLogging.logKeyDown(keyboardEvent, 'select-next-page');
         break;
     }
     if (handled) {

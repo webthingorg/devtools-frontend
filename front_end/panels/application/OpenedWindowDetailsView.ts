@@ -8,6 +8,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import openedWindowDetailsViewStyles from './openedWindowDetailsView.css.js';
 
@@ -106,6 +107,7 @@ function linkifyIcon(iconType: string, title: string, eventHandler: () => (void|
     if (event.key === 'Enter') {
       event.consume(true);
       void eventHandler();
+      void VisualLogging.logClick(span, event);
     }
   });
   return span;

@@ -9,6 +9,7 @@ import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import coverageListViewStyles from './coverageListView.css.js';
 import {
@@ -311,6 +312,10 @@ export class CoverageListView extends UI.Widget.VBox {
     }
     event.consume(true);
     void this.revealSourceForSelectedNode();
+    const selectedCell = this.dataGrid.selectedNode?.element().querySelector('[jslog]');
+    if (selectedCell) {
+      VisualLogging.logClick(selectedCell, event);
+    }
   }
 
   private async revealSourceForSelectedNode(): Promise<void> {

@@ -135,6 +135,7 @@ export class Infobar {
       if (event.keyCode === Keys.Esc.code) {
         this.dispose();
         event.consume();
+        VisualLogging.logClick(this.closeButton, event);
         return;
       }
 
@@ -145,6 +146,7 @@ export class Infobar {
       if (event.key === 'Enter' && this.hasDetails) {
         this.onToggleDetails();
         event.consume();
+        VisualLogging.logClick(this.toggleElement, event);
         return;
       }
     });

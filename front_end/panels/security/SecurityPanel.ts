@@ -1432,6 +1432,7 @@ export class SecurityMainView extends UI.Widget.VBox {
     requestsAnchor.addEventListener('keydown', event => {
       if (event.key === 'Enter') {
         this.showNetworkFilter(filterKey, event);
+        VisualLogging.logClick(requestsAnchor, event);
       }
     });
   }

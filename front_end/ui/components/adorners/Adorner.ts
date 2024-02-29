@@ -4,6 +4,7 @@
 
 import type * as Platform from '../../../core/platform/platform.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as VisualElements from '../../visual_logging/visual_logging.js';
 
 import adornerStyles from './adorner.css.js';
 
@@ -74,13 +75,18 @@ export class Adorner extends HTMLElement {
     ariaLabelActive: Platform.UIString.LocalizedString,
     isToggle?: boolean,
     shouldPropagateOnKeydown?: boolean,
+    jslogContext?: string,
   }): void {
-    const {isToggle = false, shouldPropagateOnKeydown = false, ariaLabelDefault, ariaLabelActive} = options;
+    const {isToggle = false, shouldPropagateOnKeydown = false, ariaLabelDefault, ariaLabelActive, jslogContext} =
+        options;
 
     this.#isToggle = isToggle;
     this.#ariaLabelDefault = ariaLabelDefault;
     this.#ariaLabelActive = ariaLabelActive;
     this.setAttribute('aria-label', ariaLabelDefault);
+    if (jslogContext) {
+      this.setAttribute('jslog', `${VisualElements.adorner(jslogContext).track({click: true})}`);
+    }
 
     if (isToggle) {
       this.addEventListener('click', () => {

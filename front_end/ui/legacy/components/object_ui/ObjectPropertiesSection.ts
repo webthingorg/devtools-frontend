@@ -38,6 +38,7 @@ import * as JavaScriptMetaData from '../../../../models/javascript_metadata/java
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as TextEditor from '../../../components/text_editor/text_editor.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 import type * as Components from '../utils/utils.js';
 
@@ -1313,11 +1314,13 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     if (keyboardEvent.key === 'Enter') {
       keyboardEvent.consume();
       void this.editingCommitted(originalContent);
+      VisualLogging.logKeyDown(event, 'save-edit');
       return;
     }
     if (keyboardEvent.key === Platform.KeyboardUtilities.ESCAPE_KEY) {
       keyboardEvent.consume();
       this.editingCancelled();
+      VisualLogging.logKeyDown(event, 'cancel-edit');
       return;
     }
   }
@@ -1808,6 +1811,7 @@ export class ExpandableTextPropertyValue extends ObjectPropertyValue {
         const keyboardEvent = (event as KeyboardEvent);
         if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
           this.expandText();
+          VisualLogging.logKeyDown(event, 'expand');
         }
       });
       UI.ARIAUtils.markAsButton(this.expandElement);
@@ -1824,6 +1828,7 @@ export class ExpandableTextPropertyValue extends ObjectPropertyValue {
       const keyboardEvent = (event as KeyboardEvent);
       if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
         this.copyText();
+        void VisualLogging.logClick(copyButton, event);
       }
     });
     UI.ARIAUtils.markAsButton(copyButton);

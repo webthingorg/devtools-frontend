@@ -1015,6 +1015,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       }
       this.editing && this.editing.commit();
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'save-edit');
     };
 
     function editingCommitted(
@@ -1106,6 +1107,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
             key: 'Mod-Enter',
             run: () => {
               this.editing?.commit();
+              VisualLogging.logKeyDown(null, 'save-edit');
               return true;
             },
           },
@@ -1113,6 +1115,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
             key: 'Escape',
             run: () => {
               this.editing?.cancel();
+              VisualLogging.logKeyDown(null, 'cancel-edit');
               return true;
             },
           },
@@ -2220,6 +2223,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableGridMode),
       ariaLabelActive: i18nString(UIStrings.disableGridMode),
+      jslogContext: 'grid',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2263,6 +2267,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableScrollSnap),
       ariaLabelActive: i18nString(UIStrings.disableScrollSnap),
+      jslogContext: 'scroll-snap',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2307,6 +2312,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableFlexMode),
       ariaLabelActive: i18nString(UIStrings.disableFlexMode),
+      jslogContext: 'flex',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2352,6 +2358,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.enableScrollSnap),
       ariaLabelActive: i18nString(UIStrings.disableScrollSnap),
+      jslogContext: 'scroll-snap',
     });
 
     node.domModel().overlayModel().addEventListener(
@@ -2389,6 +2396,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       shouldPropagateOnKeydown: false,
       ariaLabelDefault: i18nString(UIStrings.openMediaPanel),
       ariaLabelActive: i18nString(UIStrings.openMediaPanel),
+      jslogContext: 'media',
     });
 
     context.styleAdorners.push(adorner);

@@ -91,7 +91,7 @@ export const linkifyNodeReference = function(
   const shadowRoot =
       UI.Utils.createShadowRootWithCoreStyles(root, {cssFile: [domLinkifierStyles], delegatesFocus: undefined});
   const link = (shadowRoot.createChild('div', 'node-link') as HTMLDivElement);
-  link.setAttribute('jslog', `${VisualLogging.link('node').track({click: true, keydown: 'Enter'})}`);
+  link.setAttribute('jslog', `${VisualLogging.link('node').track({click: true})}`);
 
   decorateNodeLabel(node, link, options.tooltip);
 
@@ -105,6 +105,7 @@ export const linkifyNodeReference = function(
   if (!options.preventKeyboardFocus) {
     link.addEventListener('keydown', event => {
       if (event.key === 'Enter') {
+        VisualLogging.logClick(link, event);
         void Common.Revealer.reveal(node, false);
       }
     });
@@ -124,13 +125,18 @@ export const linkifyDeferredNodeReference = function(
   const shadowRoot =
       UI.Utils.createShadowRootWithCoreStyles(root, {cssFile: [domLinkifierStyles], delegatesFocus: undefined});
   const link = (shadowRoot.createChild('div', 'node-link') as HTMLDivElement);
-  link.setAttribute('jslog', `${VisualLogging.link('node').track({click: true, keydown: 'Enter'})}`);
+  link.setAttribute('jslog', `${VisualLogging.link('node').track({click: true})}`);
   link.createChild('slot');
   link.addEventListener('click', deferredNode.resolve.bind(deferredNode, onDeferredNodeResolved), false);
   link.addEventListener('mousedown', e => e.consume(), false);
 
   if (!options.preventKeyboardFocus) {
-    link.addEventListener('keydown', event => event.key === 'Enter' && deferredNode.resolve(onDeferredNodeResolved));
+    link.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        deferredNode.resolve(onDeferredNodeResolved);
+        VisualLogging.logClick(link, event);
+      }
+    });
     link.tabIndex = 0;
     UI.ARIAUtils.markAsLink(link);
   }

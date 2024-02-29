@@ -5,6 +5,7 @@
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import dialogStyles from './dialog.css.js';
 
@@ -28,6 +29,7 @@ export class AddDebugInfoURLDialog extends UI.Widget.HBox {
   private readonly input: HTMLInputElement;
   private readonly dialog: UI.Dialog.Dialog;
   private readonly callback: (arg0: Platform.DevToolsPath.UrlString) => void;
+  private readonly addButton: HTMLButtonElement;
   private constructor(
       label: Platform.UIString.LocalizedString, jslogContext: string,
       callback: (arg0: Platform.DevToolsPath.UrlString) => void) {
@@ -39,10 +41,10 @@ export class AddDebugInfoURLDialog extends UI.Widget.HBox {
     this.input.addEventListener('keydown', this.onKeyDown.bind(this), false);
     this.contentElement.appendChild(this.input);
 
-    const addButton = UI.UIUtils.createTextButton(i18nString(UIStrings.add), this.apply.bind(this), {
+    this.addButton = UI.UIUtils.createTextButton(i18nString(UIStrings.add), this.apply.bind(this), {
       jslogContext: 'add',
     });
-    this.contentElement.appendChild(addButton);
+    this.contentElement.appendChild(this.addButton);
 
     this.dialog = new UI.Dialog.Dialog(jslogContext);
     this.dialog.setSizeBehavior(UI.GlassPane.SizeBehavior.MeasureContent);
@@ -82,6 +84,7 @@ export class AddDebugInfoURLDialog extends UI.Widget.HBox {
     if (event.key === 'Enter') {
       event.consume(true);
       this.apply();
+      void VisualLogging.logClick(this.addButton, event);
     }
   }
   override wasShown(): void {

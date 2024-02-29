@@ -163,6 +163,7 @@ export class JSONEditor extends LitElement {
           parameters: this.getParameters(),
           targetId: this.targetId,
         }));
+        VisualLogging.logChange(event);
       }
     });
   }

@@ -166,11 +166,13 @@ class SuggestionBox extends LitElement {
           event.stopPropagation();
           event.preventDefault();
           this.#moveCursor(1);
+          VisualLogging.logKeyDown(event, 'select-next');
           break;
         case 'ArrowUp':
           event.stopPropagation();
           event.preventDefault();
           this.#moveCursor(-1);
+          VisualLogging.logKeyDown(event, 'select-previous');
           break;
       }
     }
@@ -179,6 +181,10 @@ class SuggestionBox extends LitElement {
       case 'Enter':
         if (this.#suggestions[this.cursor]) {
           this.#dispatchSuggestEvent(this.#suggestions[this.cursor]);
+          const suggestionElement = this.querySelector('li.selected');
+          if (suggestionElement) {
+            void VisualLogging.logClick(suggestionElement, event);
+          }
         }
         event.preventDefault();
         break;
@@ -222,9 +228,12 @@ class SuggestionBox extends LitElement {
       ${this.#suggestions.map((suggestion, index) => {
       return html`<li
           class=${classMap({
-        selected: index === this.cursor,
+        previous: index === this.cursor,
       })}
           @mousedown=${this.#dispatchSuggestEvent.bind(this, suggestion)}
+          jslog=${VisualLogging.item('suggestion').track({
+        click: true,
+      })}
         >
           ${suggestion}
         </li>`;
@@ -273,7 +282,7 @@ export class SuggestionInput extends LitElement {
     this.mimeType = '';
     this.autocomplete = true;
     this.addEventListener('blur', this.#handleBlurEvent);
-    let jslog = VisualLogging.value().track({keydown: true});
+    let jslog = VisualLogging.value().track({keydown: true, change: true});
     if (this.jslogContext) {
       jslog = jslog.context(this.jslogContext);
     }
@@ -312,6 +321,7 @@ export class SuggestionInput extends LitElement {
   #handleKeyDownEvent = (event: KeyboardEvent): void => {
     if (event.key === 'Enter') {
       event.preventDefault();
+      VisualLogging.logChange(event);
     }
   };
 

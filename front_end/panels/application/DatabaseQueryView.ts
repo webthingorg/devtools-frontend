@@ -33,6 +33,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {type Database} from './DatabaseModel.js';
 
@@ -113,6 +114,7 @@ export class DatabaseQueryView extends Common.ObjectWrapper.eventMixin<EventType
         } else {
           return;
         }
+        VisualLogging.logKeyDown(event, 'select-previous');
         break;
       case 'ArrowDown':
         if (this.virtualSelectedIndex < this.queryResults.length - 1) {
@@ -120,12 +122,15 @@ export class DatabaseQueryView extends Common.ObjectWrapper.eventMixin<EventType
         } else {
           return;
         }
+        VisualLogging.logKeyDown(event, 'select-next');
         break;
       case 'Home':
         this.virtualSelectedIndex = 0;
+        VisualLogging.logKeyDown(event, 'select-first');
         break;
       case 'End':
         this.virtualSelectedIndex = this.queryResults.length - 1;
+        VisualLogging.logKeyDown(event, 'select-last');
         break;
       default:
         return;

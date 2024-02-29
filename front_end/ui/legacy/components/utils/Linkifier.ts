@@ -39,6 +39,7 @@ import * as Breakpoints from '../../../../models/breakpoints/breakpoints.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
 import * as Workspace from '../../../../models/workspace/workspace.js';
 import type * as IconButton from '../../../components/icon_button/icon_button.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
 const UIStrings = {
@@ -614,6 +615,7 @@ export class Linkifier extends Common.ObjectWrapper.ObjectWrapper<EventTypes> im
         if (event.key === 'Enter' && Linkifier.handleClick(event)) {
           event.consume(true);
         }
+        void VisualLogging.logClick(link, event);
       }, false);
     } else {
       link.classList.add('devtools-link-prevent-click');

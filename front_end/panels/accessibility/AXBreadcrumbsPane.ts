@@ -202,18 +202,22 @@ export class AXBreadcrumbsPane extends AccessibilitySubPane {
     let handled = false;
     if (keyboardEvent.key === 'ArrowUp' && !keyboardEvent.altKey) {
       handled = this.preselectPrevious();
+      VisualLogging.logKeyDown(event, 'select-previous');
     } else if ((keyboardEvent.key === 'ArrowDown') && !keyboardEvent.altKey) {
       handled = this.preselectNext();
+      VisualLogging.logKeyDown(event, 'select-next');
     } else if (keyboardEvent.key === 'ArrowLeft' && !keyboardEvent.altKey) {
       if (preselectedBreadcrumb.hasExpandedChildren()) {
         this.collapseBreadcrumb(preselectedBreadcrumb);
       } else {
         handled = this.preselectParent();
       }
+      VisualLogging.logKeyDown(event, 'collapse-or-ascend');
     } else if ((keyboardEvent.key === 'Enter' ||
                 (keyboardEvent.key === 'ArrowRight' && !keyboardEvent.altKey &&
                  preselectedBreadcrumb.axNode().hasOnlyUnloadedChildren()))) {
       handled = this.inspectDOMNode(preselectedBreadcrumb.axNode());
+      void VisualLogging.logClick(preselectedBreadcrumb.element(), event);
     }
 
     if (handled) {

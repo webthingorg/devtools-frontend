@@ -550,8 +550,13 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     filterBar.addDivider();
 
     const filterItems =
-        Object.values(Common.ResourceType.resourceCategories)
-            .map(category => ({name: category.title(), label: () => category.shortTitle(), title: category.title()}));
+        Object.entries(Common.ResourceType.resourceCategories).map(([key, category]) => ({
+                                                                     name: category.title(),
+                                                                     label: () => category.shortTitle(),
+                                                                     title: category.title(),
+                                                                     jslogContext:
+                                                                         Platform.StringUtilities.toKebabCase(key),
+                                                                   }));
 
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.NETWORK_PANEL_FILTER_BAR_REDESIGN)) {
       this.resourceCategoryFilterUI = new DropDownTypesUI(filterItems, this.networkResourceTypeFiltersSetting);
@@ -1121,6 +1126,10 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
       if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
         this.dispatchEventToListeners(Events.RequestActivated, {showPanel: true, takeFocus: true});
         event.consume(true);
+        const selectedCell = this.dataGrid.selectedNode?.element().querySelector('[jslog]');
+        if (selectedCell) {
+          VisualLogging.logClick(selectedCell, event);
+        }
       }
     });
     this.dataGrid.element.addEventListener('keyup', event => {
@@ -1132,6 +1141,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
         if (SDK.NetworkManager.NetworkManager.canReplayRequest(request)) {
           SDK.NetworkManager.NetworkManager.replayRequest(request);
+          VisualLogging.logKeyDown(event, 'replay-xhr');
         }
       }
     });

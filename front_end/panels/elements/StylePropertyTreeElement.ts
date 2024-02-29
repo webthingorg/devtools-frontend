@@ -1729,10 +1729,12 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       switch (result) {
         case 'cancel':
           this.editingCancelled(null, context);
+          void VisualLogging.logKeyDown(event, 'canel-edit');
           break;
         case 'forward':
         case 'backward':
           void this.editingCommitted(target.textContent || '', context, result);
+          void VisualLogging.logKeyDown(event, 'save-edit-and-move-${result}');
           break;
       }
 
@@ -1771,6 +1773,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       // Enter or colon (for name)/semicolon outside of string (for value).
       event.consume(true);
       void this.editingCommitted(target.textContent || '', context, 'forward');
+      void VisualLogging.logKeyDown(event, 'save-edit-and-move-forward');
       return;
     }
   }
