@@ -483,7 +483,7 @@ export class SourceMap {
     // we have the list available.
     const sources = sourceMapToSourceList.get(map);
     const names = map.names ?? [];
-    const stringCharIterator = new StringCharIterator(map.mappings);
+    const stringCharIterator = new TokenIterator(map.mappings);
     let sourceURL: Platform.DevToolsPath.UrlString|undefined = sources && sources[sourceIndex];
 
     while (true) {
@@ -500,21 +500,21 @@ export class SourceMap {
         }
       }
 
-      columnNumber += stringCharIterator.decodeVLQ();
+      columnNumber += stringCharIterator.nextVLQ();
       if (!stringCharIterator.hasNext() || this.isSeparator(stringCharIterator.peek())) {
         this.mappings().push(new SourceMapEntry(lineNumber, columnNumber));
         continue;
       }
 
-      const sourceIndexDelta = stringCharIterator.decodeVLQ();
+      const sourceIndexDelta = stringCharIterator.nextVLQ();
       if (sourceIndexDelta) {
         sourceIndex += sourceIndexDelta;
         if (sources) {
           sourceURL = sources[sourceIndex];
         }
       }
-      sourceLineNumber += stringCharIterator.decodeVLQ();
-      sourceColumnNumber += stringCharIterator.decodeVLQ();
+      sourceLineNumber += stringCharIterator.nextVLQ();
+      sourceColumnNumber += stringCharIterator.nextVLQ();
 
       if (!stringCharIterator.hasNext() || this.isSeparator(stringCharIterator.peek())) {
         this.mappings().push(
@@ -522,7 +522,7 @@ export class SourceMap {
         continue;
       }
 
-      nameIndex += stringCharIterator.decodeVLQ();
+      nameIndex += stringCharIterator.nextVLQ();
       this.mappings().push(new SourceMapEntry(
           lineNumber, columnNumber, sourceURL, sourceLineNumber, sourceColumnNumber, names[nameIndex]));
     }
@@ -559,7 +559,7 @@ export class SourceMap {
       let endLineNumber = 0;
       let endColumnNumber = 0;
 
-      const stringCharIterator = new StringCharIterator(scopes);
+      const stringCharIterator = new TokenIterator(scopes);
       const entries: ScopeTreeEntry[] = [];
       let atStart = true;
       while (stringCharIterator.hasNext()) {
@@ -571,11 +571,11 @@ export class SourceMap {
           // Unexpected character.
           return;
         }
-        nameIndex += stringCharIterator.decodeVLQ();
-        startLineNumber += stringCharIterator.decodeVLQ();
-        startColumnNumber += stringCharIterator.decodeVLQ();
-        endLineNumber += stringCharIterator.decodeVLQ();
-        endColumnNumber += stringCharIterator.decodeVLQ();
+        nameIndex += stringCharIterator.nextVLQ();
+        startLineNumber += stringCharIterator.nextVLQ();
+        startColumnNumber += stringCharIterator.nextVLQ();
+        endLineNumber += stringCharIterator.nextVLQ();
+        endColumnNumber += stringCharIterator.nextVLQ();
         entries.push(new ScopeTreeEntry(
             startLineNumber, startColumnNumber, endLineNumber, endColumnNumber, names[nameIndex] ?? '<invalid>'));
       }
@@ -790,7 +790,7 @@ const VLQ_BASE_SHIFT = 5;
 const VLQ_BASE_MASK = (1 << 5) - 1;
 const VLQ_CONTINUATION_MASK = 1 << 5;
 
-export class StringCharIterator {
+export class TokenIterator {
   readonly #string: string;
   #position: number;
 
@@ -816,7 +816,7 @@ export class StringCharIterator {
     return this.#position < this.#string.length;
   }
 
-  decodeVLQ(): number {
+  nextVLQ(): number {
     // Read unsigned value.
     let result = 0;
     let shift = 0;
@@ -838,5 +838,22 @@ export class StringCharIterator {
     const negative = result & 1;
     result >>= 1;
     return negative ? -result : result;
+  }
+
+  /**
+   * @returns the next VLQ number without iterating further. Or returns null if
+   * the iterator is at the end or it's not a valid number.
+   */
+  peekVLQ(): null|number {
+    const pos = this.#position;
+    let result: null|number = null;
+    try {
+      result = this.nextVLQ();
+    } catch {
+      result = null;
+    } finally {
+      this.#position = pos;  // Reset the iterator.
+    }
+    return result;
   }
 }
