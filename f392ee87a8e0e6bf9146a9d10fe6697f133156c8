@@ -77,6 +77,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9827e7c3_bbb9f7a0",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-01T23:45:30Z",
+      "side": 1,
+      "message": "Yeah all good. A fair question.\n\n\u003eHow the values are determined\n\nI\u0027m targeting long tasks that are no smaller than 100ms and not bigger than 200ms.  Because this is an obviously long operation I don\u0027t mind going above 100ms. (Also, all of the finalize() and loadingComplete() is a big long task, so... how much does it really matter than we have a responsive main thread during event loading?? That\u0027s  up for debate. :) Anyway...\n\nI couldn\u0027t resist illustrating the situation. :p  https://imgur.com/wzp8BnR\n\n\n-------\n\nAfter the iterator change, but before these two eventsPerChunk changes.. I see…\neach chunk of #parse take 25-45ms. and\neach chunk of timelineLoader take 8-14ms.\n\nThese task sizes are too small and we\u0027re just wasting time yielding. So I bumped it up, yeah. :)\n\n(Actually while writing this out,  I bumped up #parse eventsPerChunk from 30k to 50k. The 50k size chunks is what you see in the image)\n\n\n\u003e Why are they do different?\n\n#parse is running all handleEvent for each handler.  timelineLoader is running addEvent in legacyTracingModel.  That\u0027s a lot cheaper than the handlers.. but.. a FAIR comparison to OPP would include the timelineModel costs. But that\u0027s gone, thanks to you. :)\n\n(TimelineLoader is only invoked via loading from file/url. In a normal recording legacytracingmodel just runs on each dataCollected. There\u0027s no manual chunking past that)\n\n\n\n--- \n\nAll this is timed on my 2017 iMac Pro. While it does have 36 logical cores (nice.).. they\u0027re still 2017-ish 2.3 GHz.. not the new Apple Silicon, etc. \n\nGiven all that, I expect even on a weak chromebook these tasks shouldn\u0027t breach 350ms, which feels fine.  And ofc on Apple Silicon these tasks are sub 50ms again.",
+      "parentUuid": "0e0509f7_ace84f91",
+      "range": {
+        "startLine": 168,
+        "startChar": 27,
+        "endLine": 168,
+        "endChar": 34
+      },
+      "revId": "f392ee87a8e0e6bf9146a9d10fe6697f133156c8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fd4ffaa3_0777b9ae",
         "filename": "test/unittests/front_end/models/trace/ModelImpl_test.ts",
         "patchSetId": 8
