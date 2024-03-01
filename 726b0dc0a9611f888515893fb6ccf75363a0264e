@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa740d24_c2614a6e",
+        "filename": "front_end/models/trace/types/Configuration.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-01T23:57:44Z",
+      "side": 1,
+      "message": "Also.. even though we setTimeout for 0, the browser clamps it to 4ms (based on some nesting/repeating heuristics)..  https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/modules/scheduler/dom_timer.cc;l\u003d52-57;drc\u003d1488d703e48d8860dcd039be2cec254e2b56594a\n\nWhen `await scheduler.yield()` ships, we can adopt that. It adds no extra idle room between tasks. It\u0027s kinda beautiful. \n\ncheck it: https://imgur.com/uXMalZe",
+      "revId": "726b0dc0a9611f888515893fb6ccf75363a0264e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
