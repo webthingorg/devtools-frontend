@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f17cf7e3_a3637a57",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-01T00:19:22Z",
+      "side": 1,
+      "message": "feels good to me. Done.",
+      "parentUuid": "11d5685a_151b18a6",
+      "revId": "dd751ab014aa6a23d553b044b604e442949dc03e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdcc8cb8_fc03308e",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-29T22:20:42Z",
       "side": 1,
       "message": "These should both always be valid numbers right? Is there some other situation that would cause us to not enter this if block?",
+      "revId": "dd751ab014aa6a23d553b044b604e442949dc03e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "902eae4f_f624d5fd",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-01T00:19:22Z",
+      "side": 1,
+      "message": "iiuc I think these are not valid when the LCP is text. but yeah you\u0027re right that this check isn\u0027t needed since the lcpRequest check above implies the same",
+      "parentUuid": "bdcc8cb8_fc03308e",
       "revId": "dd751ab014aa6a23d553b044b604e442949dc03e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
