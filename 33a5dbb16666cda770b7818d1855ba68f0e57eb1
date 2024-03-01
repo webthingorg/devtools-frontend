@@ -532,6 +532,24 @@
       "parentUuid": "faf7f4c8_5381c36f",
       "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cead6fed_32fb2ed5",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-03-01T22:58:22Z",
+      "side": 1,
+      "message": "Great I\u0027ve updated this. Those screenshots were before it was an instant event.",
+      "parentUuid": "967ebd2e_649daf6a",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
