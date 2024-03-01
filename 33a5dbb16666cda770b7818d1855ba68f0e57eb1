@@ -514,6 +514,24 @@
       "parentUuid": "b12676a1_66205566",
       "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "967ebd2e_649daf6a",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 22
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-01T02:28:23Z",
+      "side": 1,
+      "message": "Yeah sounds good. That is consistent with \u0027Schedule Style Recalculation\u0027 etc.  Good call.\n\nI guess the https://imgur.com/a/PNAJwkL screenshots were before it was an instant event?",
+      "parentUuid": "faf7f4c8_5381c36f",
+      "revId": "33a5dbb16666cda770b7818d1855ba68f0e57eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
