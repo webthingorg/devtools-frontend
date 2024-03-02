@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bcd6676_2d523d05",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-02T01:10:22Z",
+      "side": 1,
+      "message": "While vpython should correctly use vpython3... This has been weird on my machine. When invoked via this watchbuild, it fails with a `AttributeError: \u0027module\u0027 object has no attribute \u0027run\u0027` error.  Shrug.\n\nSwapping here to depot_tools\u0027 vpython3 fixes it and seems legit anyway.",
+      "revId": "ace3e90c6faa7d072abe46af5204a333bf9b149b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
