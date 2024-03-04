@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc06f54_7d5405c6",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-04T09:43:17Z",
+      "side": 1,
+      "message": "As far as I see, we don\u0027t debounce in `logKeyDown` when there isn\u0027t a `throttler` passed.\n\nI think, in here we need to debounce manually then; otherwise this can result in too many events that probably are not meaningful, let\u0027s say, when the user continuously presses up or down to change a number in styles pane. WDYT?",
+      "revId": "b8275409c9c2594551427f4c026505b80d88a5b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
