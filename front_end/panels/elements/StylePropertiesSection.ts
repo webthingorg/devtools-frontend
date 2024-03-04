@@ -234,6 +234,7 @@ export class StylePropertiesSection {
         this.onFontEditorButtonClicked();
       }, this);
       this.fontEditorButton.element.addEventListener('keydown', event => {
+        // Need an explicit handler to prevent parent handler start editing
         if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
           event.consume(true);
           this.onFontEditorButtonClicked();

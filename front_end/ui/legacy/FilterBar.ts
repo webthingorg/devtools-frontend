@@ -31,7 +31,6 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Platform from '../../core/platform/platform.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 import * as IconButton from '../components/icon_button/icon_button.js';
 
@@ -370,7 +369,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper<Filt
   }
 
   private addBit(name: string, label: string, title?: string): void {
-    const typeFilterElement = (this.filtersElement.createChild('span', name) as HTMLElement);
+    const typeFilterElement = (this.filtersElement.createChild('button', name) as HTMLElement);
     typeFilterElement.tabIndex = -1;
     this.typeFilterElementTypeNames.set(typeFilterElement, name);
     createTextChild(typeFilterElement, label);
@@ -413,8 +412,6 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper<Filt
       if (this.keyFocusNextBit(element, false /* selectPrevious */)) {
         event.consume(true);
       }
-    } else if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
-      this.onTypeFilterClicked(event);
     }
   }
 

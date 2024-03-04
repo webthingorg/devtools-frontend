@@ -56,7 +56,8 @@
   margin: 0;
 }
 
-.filter-bitset-filter span {
+.filter-bitset-filter button {
+  border: none;
   color: var(--sys-color-on-surface);
   outline: 1px solid var(--sys-color-neutral-outline);
   outline-offset: -1px;
@@ -73,17 +74,17 @@
   font-size: 11px;
 }
 
-.filter-bitset-filter span:focus-visible {
+.filter-bitset-filter button:focus-visible {
   outline: -webkit-focus-ring-color auto 5px;
 }
 
-.filter-bitset-filter span:hover {
+.filter-bitset-filter button:hover {
   outline: none;
   background: var(--sys-color-state-hover-on-subtle);
 }
 
-.filter-bitset-filter span.selected,
-.filter-bitset-filter span:active {
+.filter-bitset-filter button.selected,
+.filter-bitset-filter button:active {
   color: var(--sys-color-on-tonal-container);
   outline: none;
   background-color: var(--sys-color-tonal-container);
@@ -222,9 +223,9 @@ button.toolbar-item:focus-visible {
 }
 
 @media (forced-colors: active) {
-  .filter-bitset-filter span:hover,
-  .filter-bitset-filter span.selected,
-  .filter-bitset-filter span:active {
+  .filter-bitset-filter button:hover,
+  .filter-bitset-filter button.selected,
+  .filter-bitset-filter button:active {
     forced-color-adjust: none;
     background: Highlight;
     color: HighlightText;

@@ -187,7 +187,7 @@ export class CoverageListView extends UI.Widget.VBox {
     this.dataGrid.setResizeMethod(DataGrid.DataGrid.ResizeMethod.Last);
     this.dataGrid.setStriped(true);
     this.dataGrid.element.classList.add('flex-auto');
-    this.dataGrid.element.addEventListener('keydown', this.onKeyDown.bind(this), false);
+    // this.dataGrid.element.addEventListener('keydown', this.onKeyDown.bind(this), false);
     this.dataGrid.addEventListener(DataGrid.DataGrid.Events.OpenedNode, this.onOpenedNode, this);
     this.dataGrid.addEventListener(DataGrid.DataGrid.Events.SortingChanged, this.sortingChanged, this);
 
@@ -305,13 +305,13 @@ export class CoverageListView extends UI.Widget.VBox {
     void this.revealSourceForSelectedNode();
   }
 
-  private onKeyDown(event: KeyboardEvent): void {
-    if (!(event.key === 'Enter')) {
-      return;
-    }
-    event.consume(true);
-    void this.revealSourceForSelectedNode();
-  }
+  // private onKeyDown(event: KeyboardEvent): void {
+  //   if (!(event.key === 'Enter')) {
+  //     return;
+  //   }
+  //   event.consume(true);
+  //   void this.revealSourceForSelectedNode();
+  // }
 
   private async revealSourceForSelectedNode(): Promise<void> {
     const node = this.dataGrid.selectedNode;
