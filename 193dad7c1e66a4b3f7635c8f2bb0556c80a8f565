@@ -16,6 +16,23 @@
       "message": "hey Ergün!  ptal!",
       "revId": "193dad7c1e66a4b3f7635c8f2bb0556c80a8f565",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af1c3fbe_6ac6b139",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-04T09:48:32Z",
+      "side": 1,
+      "message": "LGTM, thanks! :)",
+      "revId": "193dad7c1e66a4b3f7635c8f2bb0556c80a8f565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
