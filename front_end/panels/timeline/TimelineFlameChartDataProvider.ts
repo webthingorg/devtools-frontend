@@ -213,10 +213,10 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.compatibilityTracksAppender?.modifyTree(group, entry, action);
   }
 
-  findPossibleContextMenuActions(group: PerfUI.FlameChart.Group, node: number):
+  findPossibleContextMenuActions(node: number):
       TraceEngine.EntriesFilter.PossibleFilterActions|void {
     const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
-    return this.compatibilityTracksAppender?.findPossibleContextMenuActions(group, entry);
+    return TraceEngine.EntriesFilter.EntriesFilter.instance().findPossibleActions(entry);
   }
 
   private buildGroupStyle(extra: Object): PerfUI.FlameChart.GroupStyle {
