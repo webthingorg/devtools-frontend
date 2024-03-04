@@ -112,7 +112,8 @@ function tokenizePropertyValue(value: string, name?: string): Elements.PropertyP
 function injectVariableSubstitutions(variables: Record<string, string>) {
   const {getComputedText} = Elements.PropertyParser.BottomUpTreeMatching.prototype;
   sinon.stub(Elements.PropertyParser.BottomUpTreeMatching.prototype, 'getComputedText')
-      .callsFake(function(this: Elements.PropertyParser.BottomUpTreeMatching, node: CodeMirror.SyntaxNode): string {
+      .callsFake(function(
+          this: Elements.PropertyParser.BottomUpTreeMatching, range: {from: number, to: number}): string {
         if (this.computedText.chunkCount === 0) {
           for (const [varName, value] of Object.entries(variables)) {
             const varText = `var(${varName})`;
@@ -122,7 +123,7 @@ function injectVariableSubstitutions(variables: Record<string, string>) {
             }
           }
         }
-        return getComputedText.call(this, node);
+        return getComputedText.call(this, range);
       });
 }
 
@@ -717,6 +718,18 @@ describe('PropertyParser', () => {
     assert.deepStrictEqual(match('animation-name', 'first'), ['first']);
     assert.deepStrictEqual(match('font-palette', 'first'), ['first']);
     assert.deepStrictEqual(match('position-fallback', 'first'), ['first']);
+    {
+      injectVariableSubstitutions({
+        '--duration-and-easing': '1s linear',
+      });
+      assert.deepStrictEqual(match('animation', '1s linear --animation-name'), ['--animation-name']);
+      assert.deepStrictEqual(match('animation', '1s linear linear'), ['linear']);
+      assert.deepStrictEqual(
+          match('animation', '1s linear --first-name, 1s ease-in --second-name'), ['--first-name', '--second-name']);
+      assert.deepStrictEqual(match('animation', 'var(--duration-and-easing) linear'), ['linear']);
+      assert.deepStrictEqual(match('animation', '1s linear --animation-name'), ['--animation-name']);
+      assert.deepStrictEqual(match('animation', '1s linear'), []);
+    }
   });
 
   it('parses easing functions properly', () => {
