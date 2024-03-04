@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98c97dc_8ac653bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-04T07:10:39Z",
+      "side": 1,
+      "message": "Looks like you uploaded the change with your `@gmail` address. This makes it a bit annoying. (We require signed CLAs for external contribs). Maybe re-upload with the @google address?",
+      "revId": "d02e5529e60934089b93d90abbf569a2e6398327",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
