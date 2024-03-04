@@ -34,6 +34,24 @@
       "parentUuid": "ca97c850_ef42ee65",
       "revId": "303226f0fac12c8e7e48c0288720ce07b39db6ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8026b8d_c88fde0f",
+        "filename": "test/interactions/goldens/linux/performance/multiple_initiators.png",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-04T16:26:26Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "3e22170a_8b948bf0",
+      "revId": "303226f0fac12c8e7e48c0288720ce07b39db6ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
