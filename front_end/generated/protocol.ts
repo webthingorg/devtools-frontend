@@ -13746,32 +13746,6 @@ export namespace Storage {
   }
 
   /**
-   * Ad advertising element inside an interest group.
-   */
-  export interface InterestGroupAd {
-    renderURL: string;
-    metadata?: string;
-  }
-
-  /**
-   * The full details of an interest group.
-   */
-  export interface InterestGroupDetails {
-    ownerOrigin: string;
-    name: string;
-    expirationTime: Network.TimeSinceEpoch;
-    joiningOrigin: string;
-    biddingLogicURL?: string;
-    biddingWasmHelperURL?: string;
-    updateURL?: string;
-    trustedBiddingSignalsURL?: string;
-    trustedBiddingSignalsKeys: string[];
-    userBiddingSignals?: string;
-    ads: InterestGroupAd[];
-    adComponents: InterestGroupAd[];
-  }
-
-  /**
    * Enum of shared storage access types.
    */
   export const enum SharedStorageAccessType {
@@ -14293,7 +14267,7 @@ export namespace Storage {
   }
 
   export interface GetInterestGroupDetailsResponse extends ProtocolResponseWithError {
-    details: InterestGroupDetails;
+    details: any;
   }
 
   export interface SetInterestGroupTrackingRequest {

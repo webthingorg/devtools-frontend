@@ -20387,91 +20387,6 @@
                     ]
                 },
                 {
-                    "id": "InterestGroupAd",
-                    "description": "Ad advertising element inside an interest group.",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "renderURL",
-                            "type": "string"
-                        },
-                        {
-                            "name": "metadata",
-                            "optional": true,
-                            "type": "string"
-                        }
-                    ]
-                },
-                {
-                    "id": "InterestGroupDetails",
-                    "description": "The full details of an interest group.",
-                    "type": "object",
-                    "properties": [
-                        {
-                            "name": "ownerOrigin",
-                            "type": "string"
-                        },
-                        {
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "name": "expirationTime",
-                            "$ref": "Network.TimeSinceEpoch"
-                        },
-                        {
-                            "name": "joiningOrigin",
-                            "type": "string"
-                        },
-                        {
-                            "name": "biddingLogicURL",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "biddingWasmHelperURL",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "updateURL",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "trustedBiddingSignalsURL",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "trustedBiddingSignalsKeys",
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "name": "userBiddingSignals",
-                            "optional": true,
-                            "type": "string"
-                        },
-                        {
-                            "name": "ads",
-                            "type": "array",
-                            "items": {
-                                "$ref": "InterestGroupAd"
-                            }
-                        },
-                        {
-                            "name": "adComponents",
-                            "type": "array",
-                            "items": {
-                                "$ref": "InterestGroupAd"
-                            }
-                        }
-                    ]
-                },
-                {
                     "id": "SharedStorageAccessType",
                     "description": "Enum of shared storage access types.",
                     "type": "string",
@@ -21430,7 +21345,7 @@
                     "returns": [
                         {
                             "name": "details",
-                            "$ref": "InterestGroupDetails"
+                            "type": "object"
                         }
                     ]
                 },
