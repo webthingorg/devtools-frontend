@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b540a3_6414730f",
+        "filename": "front_end/ui/components/docs/performance_panel/flamechart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-04T16:24:36Z",
+      "side": 1,
+      "message": "Great point. Changed it everywhere to `initiatorsData`",
+      "parentUuid": "d05d4771_a6cc01ed",
+      "range": {
+        "startLine": 321,
+        "startChar": 8,
+        "endLine": 321,
+        "endChar": 22
+      },
+      "revId": "ef4374a91ae2eb965714ca1ce27d00432f0f7658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b1297fd_c49904cc",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-04T09:25:23Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 3068,
+        "startChar": 17,
+        "endLine": 3068,
+        "endChar": 40
+      },
+      "revId": "ef4374a91ae2eb965714ca1ce27d00432f0f7658",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd3edc7f_15d21af8",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 3068,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-04T16:24:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b1297fd_c49904cc",
       "range": {
         "startLine": 3068,
         "startChar": 17,

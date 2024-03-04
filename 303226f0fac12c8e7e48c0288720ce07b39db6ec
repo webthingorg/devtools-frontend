@@ -16,6 +16,24 @@
       "message": "the image on the right shows an entry has a new triangle pointing to the bottom right (next to the `60` time marker). Is this unexpected?",
       "revId": "303226f0fac12c8e7e48c0288720ce07b39db6ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e22170a_8b948bf0",
+        "filename": "test/interactions/goldens/linux/performance/multiple_initiators.png",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-04T16:24:36Z",
+      "side": 0,
+      "message": "yes! this is because I added HIDDEN_DESCENDANTS_ARROW decoration to this entry and when it doesn\u0027t fit, it shows up like this instead of the arrow down. It\u0027s there to test that the initiator arrow behaves as normal when the small version of the decoration exists",
+      "parentUuid": "ca97c850_ef42ee65",
+      "revId": "303226f0fac12c8e7e48c0288720ce07b39db6ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
