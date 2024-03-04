@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da1de1d8_f998f279",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-04T16:29:26Z",
+      "side": 1,
+      "message": "LGTM thanks!!",
+      "revId": "d74c015742b682c2483ac87e213c976097a6e2df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ada733a6_ac7c3e6d",
+        "filename": "front_end/panels/timeline/Initiators.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-04T16:29:26Z",
+      "side": 1,
+      "message": "typo: data\n```suggestion\n  it(\u0027returns the initiator data\u0027, async function() {\n```",
+      "range": {
+        "startLine": 13,
+        "startChar": 28,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "d74c015742b682c2483ac87e213c976097a6e2df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
