@@ -848,7 +848,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     // Check which actions are possible on an entry.
     // If an action would not change the entries (for example it has no children to collapse), we do not need to show it.
-    return this.dataProvider.findPossibleContextMenuActions?.(group, this.selectedEntryIndex);
+    return this.dataProvider.findPossibleContextMenuActions?.(this.selectedEntryIndex);
   }
 
   onContextMenu(_event: Event): void {
@@ -3223,7 +3223,7 @@ export interface FlameChartDataProvider {
 
   modifyTree?(group: Group, node: number, action: TraceEngine.EntriesFilter.FilterAction): void;
 
-  findPossibleContextMenuActions?(group: Group, node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
+  findPossibleContextMenuActions?(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
 }
 
 export interface FlameChartMarker {

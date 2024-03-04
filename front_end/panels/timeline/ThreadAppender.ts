@@ -207,10 +207,11 @@ export class ThreadAppender implements TrackAppender {
       this.appenderName = 'Thread_AuctionWorklet';
     }
 
-    this.#entriesFilter = new TraceEngine.EntriesFilter.EntriesFilter(
+    TraceEngine.EntriesFilter.EntriesFilter.instance().setEntryToNode(
         this.threadType === TraceEngine.Handlers.Threads.ThreadType.CPU_PROFILE ? traceParsedData.Samples.entryToNode :
                                                                                   traceParsedData.Renderer.entryToNode);
 
+    this.#entriesFilter = TraceEngine.EntriesFilter.EntriesFilter.instance();
     this.#url = this.#traceParsedData.Renderer?.processes.get(this.#processId)?.url || '';
   }
   entriesFilter(): TraceEngine.EntriesFilter.EntriesFilter {

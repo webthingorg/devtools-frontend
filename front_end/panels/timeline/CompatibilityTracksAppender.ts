@@ -211,16 +211,6 @@ export class CompatibilityTracksAppender {
     }
   }
 
-  findPossibleContextMenuActions(
-      group: PerfUI.FlameChart.Group,
-      node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): TraceEngine.EntriesFilter.PossibleFilterActions|void {
-    const appender = this.#trackForGroup.get(group);
-    if (appender && appender.entriesFilter) {
-      return appender.entriesFilter().findPossibleActions(node);
-    }
-    console.warn('Could not find possible context menu actions.');
-  }
-
   findHiddenDescendantsAmount(group: PerfUI.FlameChart.Group, node: TraceEngine.Types.TraceEvents.SyntheticTraceEntry):
       number|void {
     const appender = this.#trackForGroup.get(group);
