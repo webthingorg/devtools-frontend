@@ -16,6 +16,24 @@
       "message": "Rebasing on top of main branch doesn\u0027t work in Gerrit UI.\nIs this something you can do easily locally by any chance Simon?",
       "revId": "b2d18df14bb9fae48f9f31519b7d83d399c9c8e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9136d5c2_d631e351",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-04T07:05:47Z",
+      "side": 1,
+      "message": "I fixed up the CL 😊 For the future, you can patch in the CL locally with `git cl patch -f \u003cnumber\u003e`. Once you rebase that branch on top of `origin/main` you can resolve the conflicts locally, and then reupload with `git cl upload` as usual.",
+      "parentUuid": "6555f423_494e069a",
+      "revId": "b2d18df14bb9fae48f9f31519b7d83d399c9c8e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
