@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca97c850_ef42ee65",
+        "filename": "test/interactions/goldens/linux/performance/multiple_initiators.png",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-04T09:25:23Z",
+      "side": 0,
+      "message": "the image on the right shows an entry has a new triangle pointing to the bottom right (next to the `60` time marker). Is this unexpected?",
+      "revId": "303226f0fac12c8e7e48c0288720ce07b39db6ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
