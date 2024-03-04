@@ -367,13 +367,23 @@ export function cssMetadata(): CSSMetadata {
 
 /**
  * The pipe character '|' indicates where text selection should be set.
+ *
+ * Spec: https://drafts.csswg.org/css-images-4/#image-values
+ * <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient>
+ * <gradient> = [
+  <linear-gradient()> | <repeating-linear-gradient()> |
+  <radial-gradient()> | <repeating-radial-gradient()> |
+  <conic-gradient()>  | <repeating-conic-gradient()> ]
  */
 const imageValuePresetMap = new Map([
-  ['linear-gradient', 'linear-gradient(|45deg, black, transparent|)'],
-  ['radial-gradient', 'radial-gradient(|black, transparent|)'],
-  ['repeating-linear-gradient', 'repeating-linear-gradient(|45deg, black, transparent 100px|)'],
-  ['repeating-radial-gradient', 'repeating-radial-gradient(|black, transparent 100px|)'],
-  ['url', 'url(||)'],
+  ['linear-gradient()', 'linear-gradient(|45deg, black, transparent|)'],
+  ['radial-gradient()', 'radial-gradient(|black, transparent|)'],
+  ['conic-gradient()', 'conic-gradient(|from 45deg, red, orange, yellow, green, teal, blue, purple|)'],
+  ['repeating-linear-gradient()', 'repeating-linear-gradient(|45deg, black, transparent 100px|)'],
+  ['repeating-radial-gradient()', 'repeating-radial-gradient(|black, transparent 100px|)'],
+  ['repeating-conic-gradient()', 'repeating-conic-gradient(|black 0deg 25%, white 0deg 50%|)'],  // Checkerboard
+  ['url()', 'url(||)'],
+  // TODO: add image-set(), cross-fade()
 ]);
 
 const filterValuePresetMap = new Map([
@@ -393,9 +403,18 @@ const filterValuePresetMap = new Map([
 const valuePresets = new Map([
   ['filter', filterValuePresetMap],
   ['backdrop-filter', filterValuePresetMap],
+
   ['background', imageValuePresetMap],
   ['background-image', imageValuePresetMap],
+
+  ['mask-image', imageValuePresetMap],
   ['-webkit-mask-image', imageValuePresetMap],
+
+  ['list-style', imageValuePresetMap],
+  ['list-style-image', imageValuePresetMap],
+
+  ['border-image', imageValuePresetMap],
+  ['border-image-source', imageValuePresetMap],
   [
     'transform',
     new Map([
@@ -581,7 +600,36 @@ const extraPropertyValues = {
   '-webkit-text-emphasis-position': {values: ['over', 'under']},
   'alignment-baseline': {values: ['before-edge', 'after-edge', 'text-before-edge', 'text-after-edge', 'hanging']},
   'page-break-before': {values: ['left', 'right', 'always', 'avoid']},
-  'border-image': {values: ['repeat', 'stretch', 'space', 'round']},
+  'border-image': {
+    values: [
+      'none',  // border-image-source
+      'repeat',
+      'stretch',
+      'space',
+      'round',
+      // TODO: add auto border-image-width
+      // TODO: add fill for border-image-slice
+      'linear-gradient()',
+      'radial-gradient()',
+      'conic-gradient()',
+      'repeating-linear-gradient()',
+      'repeating-radial-gradient()',
+      'repeating-conic-gradient()',
+      'url()',
+    ],
+  },
+  'border-image-source': {
+    values: [
+      'none',
+      'linear-gradient()',
+      'radial-gradient()',
+      'conic-gradient()',
+      'repeating-linear-gradient()',
+      'repeating-radial-gradient()',
+      'repeating-conic-gradient()',
+      'url()',
+    ],
+  },
   'text-decoration':
       {values: ['blink', 'line-through', 'overline', 'underline', 'wavy', 'double', 'solid', 'dashed', 'dotted']},
   // List taken from https://drafts.csswg.org/css-fonts-4/#generic-font-families
@@ -825,15 +873,27 @@ const extraPropertyValues = {
       'border-box',
       'content-box',
       'padding-box',
-      'linear-gradient',
-      'radial-gradient',
-      'repeating-linear-gradient',
-      'repeating-radial-gradient',
-      'url',
+      'text',  // background-clip
+      'linear-gradient()',
+      'radial-gradient()',
+      'conic-gradient()',
+      'repeating-linear-gradient()',
+      'repeating-radial-gradient()',
+      'repeating-conic-gradient()',
+      'url()',
     ],
   },
-  'background-image':
-      {values: ['linear-gradient', 'radial-gradient', 'repeating-linear-gradient', 'repeating-radial-gradient', 'url']},
+  'background-image': {
+    values: [
+      'linear-gradient()',
+      'radial-gradient()',
+      'conic-gradient()',
+      'repeating-linear-gradient()',
+      'repeating-radial-gradient()',
+      'repeating-conic-gradient()',
+      'url()',
+    ],
+  },
   'background-position': {values: ['top', 'bottom', 'left', 'right', 'center']},
   'background-position-x': {values: ['left', 'right', 'center']},
   'background-position-y': {values: ['top', 'bottom', 'center']},
@@ -1117,8 +1177,28 @@ const extraPropertyValues = {
       'plus-lighter',
     ],
   },
-  '-webkit-mask-image':
-      {values: ['linear-gradient', 'radial-gradient', 'repeating-linear-gradient', 'repeating-radial-gradient', 'url']},
+  'mask-image': {
+    values: [
+      'linear-gradient()',
+      'radial-gradient()',
+      'conic-gradient()',
+      'repeating-linear-gradient()',
+      'repeating-radial-gradient()',
+      'repeating-conic-gradient()',
+      'url()',
+    ],
+  },
+  '-webkit-mask-image': {
+    values: [
+      'linear-gradient()',
+      'radial-gradient()',
+      'conic-gradient()',
+      'repeating-linear-gradient()',
+      'repeating-radial-gradient()',
+      'repeating-conic-gradient()',
+      'url()',
+    ],
+  },
   '-webkit-mask-origin': {values: ['border', 'border-box', 'content', 'content-box', 'padding', 'padding-box']},
   '-webkit-mask-position': {values: ['top', 'bottom', 'left', 'right', 'center']},
   '-webkit-mask-position-x': {values: ['left', 'right', 'center']},
