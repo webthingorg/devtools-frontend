@@ -23,11 +23,11 @@ const RESIZE_LOG_INTERVAL = 1000;
 const RESIZE_REPORT_THRESHOLD = 50;
 
 let processingThrottler: Common.Throttler.Throttler|null;
-let keyboardLogThrottler: Common.Throttler.Throttler;
+export let keyboardLogThrottler: Common.Throttler.Throttler;
 let hoverLogThrottler: Common.Throttler.Throttler;
 let dragLogThrottler: Common.Throttler.Throttler;
-let clickLogThrottler: Common.Throttler.Throttler;
-let resizeLogThrottler: Common.Throttler.Throttler;
+export let clickLogThrottler: Common.Throttler.Throttler;
+export let resizeLogThrottler: Common.Throttler.Throttler;
 
 const mutationObservers = new WeakMap<Node, MutationObserver>();
 const documents: Document[] = [];
@@ -134,16 +134,17 @@ async function process(): Promise<void> {
       }
     }
     if (!loggingState.processed) {
+      loggingState.context = await contextAsNumber(loggingState.config.context);
       if (loggingState.config.track?.has('click')) {
         element.addEventListener('click', e => {
           const loggable = e.currentTarget as Element;
-          void clickLogThrottler.schedule(async () => logClick(loggable, e));
+          logClick(clickLogThrottler)(loggable, e);
         }, {capture: true});
       }
       if (loggingState.config.track?.has('dblclick')) {
         element.addEventListener('dblclick', e => {
           const loggable = e.currentTarget as Element;
-          void clickLogThrottler.schedule(async () => logClick(loggable, e, {doubleClick: true}));
+          logClick(clickLogThrottler)(loggable, e, {doubleClick: true});
         }, {capture: true});
       }
       const trackHover = loggingState.config.track?.has('hover');
@@ -164,7 +165,7 @@ async function process(): Promise<void> {
       const trackKeyDown = loggingState.config.track?.has('keydown');
       const codes = loggingState.config.track?.get('keydown')?.split('|') || [];
       if (trackKeyDown) {
-        element.addEventListener('keydown', logKeyDown(codes, keyboardLogThrottler), {capture: true});
+        element.addEventListener('keydown', logKeyDown(keyboardLogThrottler, codes), {capture: true});
       }
       if (loggingState.config.track?.has('resize')) {
         const updateSize = (): void => {
@@ -174,7 +175,7 @@ async function process(): Promise<void> {
           }
           if (Math.abs(overlap.width - loggingState.size.width) >= RESIZE_REPORT_THRESHOLD ||
               Math.abs(overlap.height - loggingState.size.height) >= RESIZE_REPORT_THRESHOLD) {
-            void logResize(element, overlap, resizeLogThrottler);
+            void logResize(resizeLogThrottler)(element, overlap);
           }
         };
         new ResizeObserver(updateSize).observe(element);
@@ -206,7 +207,7 @@ async function process(): Promise<void> {
         element.addEventListener('change', e => {
           for (const option of (element as HTMLSelectElement).selectedOptions) {
             if (getLoggingState(option)?.config.track?.has('click')) {
-              void logClick(option, e);
+              void logClick(clickLogThrottler)(option, e);
             }
           }
         }, {capture: true});
@@ -221,6 +222,7 @@ async function process(): Promise<void> {
     if (!visible) {
       continue;
     }
+    loggingState.context = await contextAsNumber(loggingState.config.context);
     processForDebugging(loggable);
     visibleLoggables.push(loggable);
     loggingState.impressionLogged = true;
@@ -230,4 +232,22 @@ async function process(): Promise<void> {
   }
   await logImpressions(visibleLoggables);
   Host.userMetrics.visualLoggingProcessingDone(performance.now() - startTime);
+}
+
+export async function contextAsNumber(context: string|undefined): Promise<number|undefined> {
+  if (typeof context === 'undefined') {
+    return undefined;
+  }
+  const number = parseInt(context, 10);
+  if (!isNaN(number)) {
+    return number;
+  }
+  if (!crypto.subtle) {
+    // Layout tests run in an insecure context where crypto.subtle is not available.
+    return 0xDEADBEEF;
+  }
+  const encoder = new TextEncoder();
+  const data = encoder.encode(context);
+  const digest = await crypto.subtle.digest('SHA-1', data);
+  return new DataView(digest).getUint32(0, true);
 }
