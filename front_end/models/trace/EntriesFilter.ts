@@ -13,6 +13,7 @@ export const enum FilterAction {
   COLLAPSE_REPEATING_DESCENDANTS = 'COLLAPSE_REPEATING_DESCENDANTS',
   RESET_CHILDREN = 'RESET_CHILDREN',
   UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
+  REVEAL_ENTRY = 'REVEAL_ENTRY',
 }
 
 export interface UserFilterAction {
@@ -179,6 +180,10 @@ export class EntriesFilter {
         this.#makeEntryChildrenVisible(action.entry);
         break;
       }
+      case FilterAction.REVEAL_ENTRY: {
+        this.#revealEntry(action.entry);
+        break;
+      }
       default:
         Platform.assertNever(action.type, `Unknown EntriesFilter action: ${action.type}`);
     }
@@ -275,6 +280,11 @@ export class EntriesFilter {
     }
 
     return repeatingNodes;
+  }
+
+  #revealEntry(entry: Types.TraceEvents.SyntheticTraceEntry): void {
+    // if()
+    console.log("revealing");
   }
 
   /**

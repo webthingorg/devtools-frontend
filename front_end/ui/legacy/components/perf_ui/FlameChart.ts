@@ -2838,6 +2838,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   setSelectedEntry(entryIndex: number): void {
+    this.makeEntryVisible(entryIndex);
+
+    console.log("set");
     // Check if the button that resets children of the entry is clicked. We need to check it even if the entry
     // clicked is not selected to avoid needing to double click
     if (this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
@@ -2852,6 +2855,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+  }
+
+  /**
+   * If an entry is hidden by a context menu action, reveal it.
+   * 
+   */
+  makeEntryVisible(entryIndex: number) {
+    this.modifyTree(TraceEngine.EntriesFilter.FilterAction.REVEAL_ENTRY, entryIndex);
   }
 
   private entryHasDecoration(entryIndex: number, decorationType: FlameChartDecorationType): boolean {
