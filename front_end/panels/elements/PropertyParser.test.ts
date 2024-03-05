@@ -78,7 +78,8 @@ function matchSingleValue<T extends Elements.PropertyParser.Match, ArgTs extends
   }
 
   const matchedResult = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, [matcher]);
-  const match = matchedResult.getMatch(ast.tree);
+  const matchedNode = TreeSearch.find(ast, n => matchedResult.getMatch(n) instanceof matchType);
+  const match = matchedNode && matchedResult.getMatch(matchedNode);
 
   return {
     ast,
@@ -114,11 +115,14 @@ function injectVariableSubstitutions(variables: Record<string, string>) {
   sinon.stub(Elements.PropertyParser.BottomUpTreeMatching.prototype, 'getComputedText')
       .callsFake(function(this: Elements.PropertyParser.BottomUpTreeMatching, node: CodeMirror.SyntaxNode): string {
         if (this.computedText.chunkCount === 0) {
+          const propertyOffset = this.ast.rule.indexOf('--');
+          assert.isAbove(propertyOffset, 0);
           for (const [varName, value] of Object.entries(variables)) {
             const varText = `var(${varName})`;
-            for (let offset = this.ast.propertyValue.indexOf(varText); offset >= 0;
-                 offset = this.ast.propertyValue.indexOf(varText, offset + 1)) {
-              this.computedText.push({text: varText, type: 'var', render: () => [], computedText: () => value}, offset);
+            for (let offset = this.ast.rule.indexOf(varText); offset >= 0;
+                 offset = this.ast.rule.indexOf(varText, offset + 1)) {
+              this.computedText.push(
+                  {text: varText, type: 'var', render: () => [], computedText: () => value}, offset - propertyOffset);
             }
           }
         }
@@ -215,14 +219,14 @@ describe('PropertyParser', () => {
     const matchedResult = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, []);
     const context = new Elements.PropertyParser.RenderingContext(ast, matchedResult);
     assert.deepStrictEqual(
-        textFragments(Elements.PropertyParser.Renderer.render(tree, context).nodes).join(''), `--property: ${property}`,
+        textFragments(Elements.PropertyParser.Renderer.render(tree, context).nodes).join(''), property,
         Printer.walk(ast).get());
   });
 
   it('parses comments', () => {
     const property = '/* color: red */blue/* color: red */';
     const ast = tokenizePropertyValue(property);
-    const topNode = ast.tree.parent?.parent?.parent?.parent;
+    const topNode = ast.tree.parent?.parent?.parent;
     Platform.assertNotNullOrUndefined(topNode);
     assert.strictEqual(
         Printer.walk(ast.subtree(topNode)).get(), ` StyleSheet: *{--property: /* color: red */blue/* color: red */;}
@@ -543,12 +547,12 @@ describe('PropertyParser', () => {
 
   it('correctly produces the computed text during matching', () => {
     const ast = tokenizePropertyValue('1px /* red */ solid');
-    const width = ast.tree.parent?.getChild('NumberLiteral');
+    const width = ast.tree.getChild('NumberLiteral');
     Platform.assertNotNullOrUndefined(width);
-    const style = ast.tree.parent?.getChild('ValueName');
+    const style = ast.tree.getChild('ValueName');
     Platform.assertNotNullOrUndefined(style);
     const matching = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, []);
-    assert.strictEqual(matching.computedText.get(0, ast.propertyValue.length), '1px  solid');
+    assert.strictEqual(matching.getComputedText(ast.tree), '--property: 1px  solid');
     assert.strictEqual(matching.getComputedText(width), '1px');
     assert.strictEqual(matching.getComputedText(style), 'solid');
   });
@@ -556,7 +560,7 @@ describe('PropertyParser', () => {
   it('retains tokenization in the computed text', () => {
     const ast = tokenizePropertyValue('dark/**/gray');
     const matching = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, []);
-    assert.strictEqual(matching.computedText.get(0, ast.propertyValue.length), 'dark gray');
+    assert.strictEqual(matching.getComputedText(ast.tree), '--property: dark gray');
   });
 
   it('parses color-mix with vars', () => {
@@ -705,7 +709,7 @@ describe('PropertyParser', () => {
           ast,
           [new Elements.PropertyParser.LinkableNameMatcher(nilRenderer(Elements.PropertyParser.LinkableNameMatch))]);
 
-      const matches = Elements.PropertyParser.siblings(ast.tree)
+      const matches = Elements.PropertyParser.ASTUtils.siblings(Elements.PropertyParser.ASTUtils.declValue(ast.tree))
                           .map(n => matchedResult.getMatch(n))
                           .filter(
                               (n): n is Elements.PropertyParser.LinkableNameMatch =>
@@ -753,5 +757,13 @@ describe('PropertyParser', () => {
     match('quotes', '"\'" "\'"');
     match('content', '"foobar"');
     match('--image-file-accelerometer-back', 'url("devtools\:\/\/devtools\/bundled\/Images\/accelerometer-back\.svg")');
+  });
+
+  it('parses shadows correctly', () => {
+    const {match, text} = matchSingleValue(
+        'box-shadow', '/*0*/3px 3px red, -1em 0 .4em /*a*/ olive /*b*/', Elements.PropertyParser.ShadowMatch,
+        new Elements.PropertyParser.ShadowMatcher(nilRenderer(Elements.PropertyParser.ShadowMatch)));
+    Platform.assertNotNullOrUndefined(match, text);
+    assert.strictEqual(match.text, '--property: /*0*/3px 3px red, -1em 0 .4em /*a*/ olive');
   });
 });
