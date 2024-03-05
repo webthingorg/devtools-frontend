@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "add55bd9_86c72736",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-05T18:59:14Z",
+      "side": 1,
+      "message": "Updated to show ms instead of us as suggested. Thanks.",
+      "parentUuid": "6d17731e_d98426a3",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a71379bc_fa97aad0",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-17T00:44:15Z",
       "side": 1,
       "message": "Only very few people understand what this number means. Luckily Nolan Lawson explained the selector matching bloom filter (https://nolanlawson.com/2023/01/17/my-talk-on-css-runtime-performance/ ) , but.. it\u0027s still incredibly esoteric knowledge. \n\nThe best I\u0027ve come up with this is switching this to a percentage (`fastRejectCount/(matchAttemptCount-MatchCount)`) and framing it as \"% of slow-path non-matches\".  I think this is a small improvement over the current framing. It\u0027ll definitely need docs regardless.",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52bc7631_be656f04",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-05T18:59:14Z",
+      "side": 1,
+      "message": "Added a new column of \"% of slow-path non-matches\" as suggested. Thanks.",
+      "parentUuid": "a71379bc_fa97aad0",
       "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a346a1ba_b7ce948e",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-05T18:59:14Z",
+      "side": 1,
+      "message": "Do you prefer not showing \u0027Match Count\u0027?",
+      "parentUuid": "bc9965d7_7e2144b9",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59f924dd_5a047f84",
         "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
         "patchSetId": 10
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fcdec905_20b49c98",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-05T18:59:14Z",
+      "side": 1,
+      "message": "I can reproduce this issue. It is related to the function `shouldAutoScrollToBottom` in the DataGrid class. It happens when 1) user has scrolled to the button of the datagrid then, 2) rerun profiling. Looks like a feature in datagrid but I can add a flag to disable this feature for selector stats in datagrid if preferred.",
+      "parentUuid": "59f924dd_5a047f84",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "846c2545_cf5e3b59",
         "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
         "patchSetId": 10
@@ -99,6 +171,24 @@
       "writtenOn": "2024-02-17T00:44:15Z",
       "side": 1,
       "message": "move this column after match count, before Selector ?   I don\u0027t see a good reason why it should be second. But let me know if you got one. :)",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac83546d_b38147b4",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-05T18:59:14Z",
+      "side": 1,
+      "message": "updated as suggested. Thanks.",
+      "parentUuid": "846c2545_cf5e3b59",
       "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

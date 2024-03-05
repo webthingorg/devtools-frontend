@@ -365,6 +365,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e413d43f_f3887e6b",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-05T18:59:14Z",
+      "side": 1,
+      "message": "I created a new setting and flag for the selector stats. I\u0027ll add a test case ensure that the selector stats feature does not add significant overhead.",
+      "parentUuid": "b2e9937a_f010e8e4",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "064df29a_13072b16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-05T18:59:14Z",
+      "side": 1,
+      "message": "Hi Paul, I have updated implementation as suggested, PTAL.\n\nThanks,\nGavin",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
