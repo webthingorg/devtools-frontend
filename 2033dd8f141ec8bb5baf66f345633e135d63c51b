@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "2033dd8f141ec8bb5baf66f345633e135d63c51b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d16d17f8_c8076347",
+        "filename": "test/perf/report/report.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-05T12:58:40Z",
+      "side": 1,
+      "message": "As discussed offline, might want to remove the SingleMeasure",
+      "revId": "2033dd8f141ec8bb5baf66f345633e135d63c51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
