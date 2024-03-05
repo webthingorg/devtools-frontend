@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0514e7dd_ea6a039c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-03-05T13:00:48Z",
+      "side": 1,
+      "message": "LGTM.\n\nBut now that I see it, can we remove the period \".\" from the footer and also make \"insights\" lower-case? So that it reads \"Learn more about Console insights\"\n\nThanks.",
+      "revId": "4184c4c572eae0eb21cf18ebb3f06d2f9e1c19e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
