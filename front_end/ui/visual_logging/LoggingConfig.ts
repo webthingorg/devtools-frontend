@@ -59,10 +59,10 @@ enum VisualElements {
   ColorEyeDropper = 37,
   ColorPicker = 38,
   /* 39 used to be CopyColor, but free to grab now */
-  CssAngleEditor = 40,
-  CssFlexboxEditor = 41,
-  CssGridEditor = 42,
-  CssShadowEditor = 43,
+  /* 40 used to be CssAngleEditor, but free to grab now */
+  /* 41 used to be CssFlexboxEditor, but free to grab now */
+  /* 42 used to be CssGridEditor, but free to grab now */
+  /* 43 used to be CssShadowEditor, but free to grab now */
   Link = 44,
   /* 45 used to be Next, but free to grab now */
   Item = 46,

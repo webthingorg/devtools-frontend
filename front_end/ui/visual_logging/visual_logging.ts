@@ -44,11 +44,7 @@ export const counter = LoggingConfig.makeConfigStringBuilder.bind(null, 'Counter
  * for bezier control points or keyframes in AnimationUI.
  */
 export const controlPoint = LoggingConfig.makeConfigStringBuilder.bind(null, 'ControlPoint');
-export const cssAngleEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssAngleEditor');
 export const cssColorMix = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssColorMix');
-export const cssFlexboxEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssFlexboxEditor');
-export const cssGridEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssGridEditor');
-export const cssShadowEditor = LoggingConfig.makeConfigStringBuilder.bind(null, 'CssShadowEditor');
 export const deviceModeRuler = LoggingConfig.makeConfigStringBuilder.bind(null, 'DeviceModeRuler');
 export const domBreakpoint = LoggingConfig.makeConfigStringBuilder.bind(null, 'DOMBreakpoint');
 export const drawer = LoggingConfig.makeConfigStringBuilder.bind(null, 'Drawer');

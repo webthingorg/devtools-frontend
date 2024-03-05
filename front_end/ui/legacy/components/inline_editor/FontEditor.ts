@@ -7,6 +7,7 @@ import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
+import * as VisualLogging from '../../../visual_logging/visual_logging.js';
 import * as UI from '../../legacy.js';
 
 import fontEditorStyles from './fontEditor.css.js';
@@ -126,6 +127,7 @@ export class FontEditor extends Common.ObjectWrapper.eventMixin<EventTypes, type
   constructor(propertyMap: Map<string, string>) {
     super(true);
     this.selectedNode = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
+    this.contentElement.setAttribute('jslog', `${VisualLogging.dialog('font-editor').parent('mapped')}`);
 
     this.propertyMap = propertyMap;
     this.contentElement.tabIndex = 0;
