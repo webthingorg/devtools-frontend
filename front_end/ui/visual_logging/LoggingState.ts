@@ -94,10 +94,3 @@ export function registerParentProvider(name: string, provider: ParentProvider): 
   }
   parentProviders.set(name, provider);
 }
-
-const parentMap = new WeakMap<Element, Element>();
-registerParentProvider('mapped', (e: Element) => parentMap.get(e));
-
-export function setMappedParent(element: Element, parent: Element): void {
-  parentMap.set(element, parent);
-}
