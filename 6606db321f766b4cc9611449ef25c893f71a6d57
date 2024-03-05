@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46413812_f2c4d3ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T09:02:16Z",
+      "side": 1,
+      "message": "Nice! There\u0027s the renderer portion missing still, are you adding this in a followup?",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d771cf_0926b20c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T09:02:16Z",
+      "side": 1,
+      "message": "Why not update the enum for this?",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "764fff83_25a21a2c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T09:02:16Z",
+      "side": 1,
+      "message": "This check will only match for nodes that are immediate children of the declaration, so it will for example not work for a var fallback, while the bit above will.\n\nYou could check instead if [node.from, node.to] falls into the full range of one of the `declarations` groups.",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9157e1c0_ba68460d",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T09:02:16Z",
+      "side": 1,
+      "message": "Matter of taste, but I prefer for loops for this kind of iteration :)",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98722ece_6e8d8774",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T09:02:16Z",
+      "side": 1,
+      "message": "I think we actually don\u0027t need that last condition here. Why do we need the VariableName check?",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
