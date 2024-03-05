@@ -633,24 +633,26 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
         const ast = Elements.PropertyParser.tokenizePropertyValue(
             stylePropertyTreeElement.value, stylePropertyTreeElement.name);
         assertNotNullOrUndefined(ast);
-        const {computedText} = Elements.PropertyParser.BottomUpTreeMatching.walk(
+        const matching = Elements.PropertyParser.BottomUpTreeMatching.walk(
             ast, [Elements.StylePropertyTreeElement.VariableRenderer.matcher(
                      stylePropertyTreeElement, stylePropertyTreeElement.property.ownerStyle)]);
         const res = {
-          hasUnresolvedVars: computedText.hasUnresolvedVars(0, value.length),
-          computedText: computedText.get(0, value.length),
+          hasUnresolvedVars: matching.hasUnresolvedVars(ast.tree),
+          computedText: matching.getComputedText(ast.tree),
         };
         return res;
       }
 
-      assert.deepStrictEqual(await matchProperty('var( --blue    )'), {hasUnresolvedVars: false, computedText: 'blue'});
       assert.deepStrictEqual(
-          await matchProperty('var(--no, var(--blue))'), {hasUnresolvedVars: false, computedText: 'blue'});
+          await matchProperty('var( --blue    )'), {hasUnresolvedVars: false, computedText: '--property: blue'});
       assert.deepStrictEqual(
-          await matchProperty('pre var(--no) post'), {hasUnresolvedVars: true, computedText: 'pre var(--no) post'});
+          await matchProperty('var(--no, var(--blue))'), {hasUnresolvedVars: false, computedText: '--property: blue'});
+      assert.deepStrictEqual(
+          await matchProperty('pre var(--no) post'),
+          {hasUnresolvedVars: true, computedText: '--property: pre var(--no) post'});
       assert.deepStrictEqual(
           await matchProperty('var(--no, var(--no2))'),
-          {hasUnresolvedVars: true, computedText: 'var(--no, var(--no2))'});
+          {hasUnresolvedVars: true, computedText: '--property: var(--no, var(--no2))'});
     });
   });
 
