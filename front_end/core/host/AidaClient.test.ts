@@ -135,6 +135,72 @@ describe('AidaClient', () => {
     ]);
   });
 
+  it('handles chunked response with multiple objects per chunk', async () => {
+    sinon.stub(Host.InspectorFrontendHost.InspectorFrontendHostInstance, 'doAidaConversation')
+        .callsFake(async (_, streamId, callback) => {
+          const response = JSON.stringify([
+            {textChunk: {text: 'Three Rings for the Elven-kings under the sky,\n'}, metadata: {rpcGlobalId: 123}},
+            {textChunk: {text: 'Seven for the Dwarf-lords in their halls of stone,\n'}, metadata: {rpcGlobalId: 123}},
+            {textChunk: {text: 'new Nine for Mortal Men doomed to die,\n'}, metadata: {rpcGlobalId: 123}},
+            {textChunk: {text: 'One for the Dark Lord on his dark throne\n'}, metadata: {rpcGlobalId: 123}},
+            {textChunk: {text: 'In the Land of Mordor where the Shadows lie.\n'}, metadata: {rpcGlobalId: 123}},
+            {textChunk: {text: 'One Ring to rule them all, One Ring to find them,\n'}, metadata: {rpcGlobalId: 123}},
+            {
+              textChunk: {text: 'One Ring to bring them all, and in the darkness bind them\n'},
+              metadata: {rpcGlobalId: 123},
+            },
+            {textChunk: {text: 'In the Land of Mordor where the Shadows lie.\n'}, metadata: {rpcGlobalId: 123}},
+          ]);
+          const chunks = response.split(',{');
+          await new Promise(resolve => setTimeout(resolve, 0));
+          Host.ResourceLoader.streamWrite(streamId, chunks[0] + ',{' + chunks[1]);
+          await new Promise(resolve => setTimeout(resolve, 0));
+          Host.ResourceLoader.streamWrite(streamId, ',{' + chunks[2] + ',{' + chunks[3]);
+          await new Promise(resolve => setTimeout(resolve, 0));
+          Host.ResourceLoader.streamWrite(streamId, ',{' + chunks[4] + ',{' + chunks[5]);
+          await new Promise(resolve => setTimeout(resolve, 0));
+          Host.ResourceLoader.streamWrite(streamId, ',{' + chunks[6] + ',{' + chunks[7]);
+          callback({statusCode: 200});
+        });
+
+    const provider = new Host.AidaClient.AidaClient();
+    const results = await getAllResults(provider);
+    assert.deepStrictEqual(results, [
+      {
+        explanation: 'Three Rings for the Elven-kings under the sky,\n' +
+            'Seven for the Dwarf-lords in their halls of stone,\n',
+        metadata: {rpcGlobalId: 123},
+      },
+      {
+        explanation: 'Three Rings for the Elven-kings under the sky,\n' +
+            'Seven for the Dwarf-lords in their halls of stone,\n' +
+            'new Nine for Mortal Men doomed to die,\n' +
+            'One for the Dark Lord on his dark throne\n',
+        metadata: {rpcGlobalId: 123},
+      },
+      {
+        explanation: 'Three Rings for the Elven-kings under the sky,\n' +
+            'Seven for the Dwarf-lords in their halls of stone,\n' +
+            'new Nine for Mortal Men doomed to die,\n' +
+            'One for the Dark Lord on his dark throne\n' +
+            'In the Land of Mordor where the Shadows lie.\n' +
+            'One Ring to rule them all, One Ring to find them,\n',
+        metadata: {rpcGlobalId: 123},
+      },
+      {
+        explanation: 'Three Rings for the Elven-kings under the sky,\n' +
+            'Seven for the Dwarf-lords in their halls of stone,\n' +
+            'new Nine for Mortal Men doomed to die,\n' +
+            'One for the Dark Lord on his dark throne\n' +
+            'In the Land of Mordor where the Shadows lie.\n' +
+            'One Ring to rule them all, One Ring to find them,\n' +
+            'One Ring to bring them all, and in the darkness bind them\n' +
+            'In the Land of Mordor where the Shadows lie.\n',
+        metadata: {rpcGlobalId: 123},
+      },
+    ]);
+  });
+
   it('handles subsequent code chunks', async () => {
     sinon.stub(Host.InspectorFrontendHost.InspectorFrontendHostInstance, 'doAidaConversation')
         .callsFake(async (_, streamId, callback) => {
