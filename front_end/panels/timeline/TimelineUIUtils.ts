@@ -2608,7 +2608,10 @@ export class TimelineUIUtils {
     const isEntryOutsideBreadcrumb = traceBoundsState.micro.minimapTraceBounds.min > entry.ts + (entry.dur || 0) ||
         traceBoundsState.micro.minimapTraceBounds.max < entry.ts;
 
-    if (!isEntryOutsideBreadcrumb) {
+    // Check if it is in the hidden array
+    const isEntryHidden = TraceEngine.EntriesFilter.EntriesFilter.instance().inEntryInvisible(entry);
+
+    if (!isEntryOutsideBreadcrumb && !isEntryHidden) {
       link.classList.add('devtools-link');
       UI.ARIAUtils.markAsLink(link);
       link.tabIndex = 0;
@@ -2624,8 +2627,13 @@ export class TimelineUIUtils {
       });
     }
 
-    link.textContent =
-        this.eventTitle(entry) + (isEntryOutsideBreadcrumb ? ' ' + i18nString(UIStrings.outsideBreadcrumbRange) : '');
+    if (isEntryHidden) {
+      link.textContent = this.eventTitle(entry) + ' (entry is hidden)';
+    } else if (isEntryOutsideBreadcrumb) {
+      link.textContent = this.eventTitle(entry) + ' ' + i18nString(UIStrings.outsideBreadcrumbRange);
+    } else {
+      link.textContent = this.eventTitle(entry);
+    }
 
     return link;
   }
