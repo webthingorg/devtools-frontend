@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12143418_2fd9b4de",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T09:04:07Z",
+      "side": 1,
+      "message": "What do you think about the version of this API I\u0027m adding in https://crrev.com/c/5339754? I actually wanted to abstract out most of the text range logic.",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7d771cf_0926b20c",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 3
