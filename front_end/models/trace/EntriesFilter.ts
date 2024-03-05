@@ -13,6 +13,7 @@ export const enum FilterAction {
   COLLAPSE_REPEATING_DESCENDANTS = 'COLLAPSE_REPEATING_DESCENDANTS',
   RESET_CHILDREN = 'RESET_CHILDREN',
   UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
+  REVEAL_ENTRY = 'REVEAL_ENTRY',
 }
 
 export interface UserFilterAction {
@@ -27,6 +28,7 @@ export interface PossibleFilterActions {
   [FilterAction.COLLAPSE_REPEATING_DESCENDANTS]: boolean;
   [FilterAction.RESET_CHILDREN]: boolean;
   [FilterAction.UNDO_ALL_ACTIONS]: boolean;
+  [FilterAction.REVEAL_ENTRY]: boolean;
 }
 
 /**
@@ -72,6 +74,7 @@ export class EntriesFilter {
         [FilterAction.COLLAPSE_REPEATING_DESCENDANTS]: false,
         [FilterAction.RESET_CHILDREN]: false,
         [FilterAction.UNDO_ALL_ACTIONS]: false,
+        [FilterAction.REVEAL_ENTRY]: false,
       };
     }
     const entryParent = entryNode.parent;
@@ -89,6 +92,7 @@ export class EntriesFilter {
       [FilterAction.COLLAPSE_REPEATING_DESCENDANTS]: allVisibleRepeatingDescendants.length > 0,
       [FilterAction.RESET_CHILDREN]: allInVisibleDescendants.length > 0,
       [FilterAction.UNDO_ALL_ACTIONS]: this.#invisibleEntries.length > 0,
+      [FilterAction.REVEAL_ENTRY]: this.#invisibleEntries.includes(entry),
     };
     return possibleActions;
   }
@@ -177,6 +181,10 @@ export class EntriesFilter {
       }
       case FilterAction.RESET_CHILDREN: {
         this.#makeEntryChildrenVisible(action.entry);
+        break;
+      }
+      case FilterAction.REVEAL_ENTRY: {
+        this.#revealEntry(action.entry);
         break;
       }
       default:
@@ -275,6 +283,22 @@ export class EntriesFilter {
     }
 
     return repeatingNodes;
+  }
+
+  #revealEntry(entry: Types.TraceEvents.SyntheticTraceEntry): void {
+    // Find the closest modified parent
+    const entryNode = this.#entryToNode.get(entry);
+    if (!entryNode) {
+      // Invalid node was given, just ignore and move on.
+      return;
+    }
+    let modifiedParent = entryNode;
+    while(!this.#modifiedVisibleEntries.includes(modifiedParent.entry)) {
+      console.log("searchin");
+      modifiedParent = modifiedParent.parent;
+    }
+
+    this.#makeEntryChildrenVisible(modifiedParent.entry);
   }
 
   /**

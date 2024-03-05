@@ -1352,6 +1352,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (this.lastSelection && this.lastSelection.timelineSelection.object === selection.object) {
       return this.lastSelection.entryIndex;
     }
+    // does not contain anymore
+    // need to check entry to node if its the entry
+    // if(typeof selection === TraceEngine.Types.TraceEvents) {
+      const node = this.traceEngineData?.Renderer.entryToNode.get(selection.object)
+    // }
+    console.log("node ", node);
+
     const index = this.entryData.indexOf(selection.object);
     if (index !== -1) {
       this.lastSelection = new Selection(selection, index);

@@ -2850,8 +2850,22 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       this.chartViewport.hideRangeSelection();
     }
     this.selectedEntryIndex = entryIndex;
+    this.makeEntryVisible(entryIndex);
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+  }
+
+  /**
+   * If an entry is hidden by a context menu action, reveal it.
+   * 
+   */
+  makeEntryVisible(entryIndex: number) {
+    // console.log("here 2");
+    const possibleActions = this.getPossibleActions()
+    if(possibleActions?.[TraceEngine.EntriesFilter.FilterAction.REVEAL_ENTRY]) {
+      // console.log("yes");
+      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.REVEAL_ENTRY, entryIndex);
+    }
   }
 
   private entryHasDecoration(entryIndex: number, decorationType: FlameChartDecorationType): boolean {
