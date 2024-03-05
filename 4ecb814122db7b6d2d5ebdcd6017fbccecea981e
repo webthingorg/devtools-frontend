@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7674b179_bcf72dad",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T18:51:04Z",
+      "side": 1,
+      "message": "This needs a codemirror roll.",
+      "revId": "4ecb814122db7b6d2d5ebdcd6017fbccecea981e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74cffcd5_c88d3db7",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-05T18:51:04Z",
+      "side": 1,
+      "message": "This is behavior change, the legacy renderer would have rejected the entire property, but I see no problem rendering the partial shadow swatches, do you?",
+      "revId": "4ecb814122db7b6d2d5ebdcd6017fbccecea981e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
