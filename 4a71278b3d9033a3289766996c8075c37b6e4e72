@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b07cf5b_e91c63c3",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T08:01:01Z",
+      "side": 1,
+      "message": "alternatively, we could use an `Image` element whose `src` attribute points to the svg url and then call `context.drawImage(img,...)`, not sure how that would end up looking tho",
+      "parentUuid": "0f53c8d8_f64446e0",
+      "range": {
+        "startLine": 101,
+        "startChar": 5,
+        "endLine": 101,
+        "endChar": 246
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cd5727c6_0b86c62f",
