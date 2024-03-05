@@ -319,6 +319,8 @@ export class GenericSettingsTab extends SettingsTab {
         {jslogContext: 'settings.restore-defaults-and-reload'});
     this.appendSection().appendChild(restoreAndReloadButton);
 
+    this.#trackConsoleInsightSettingChange();
+
     function restoreAndReload(): void {
       Common.Settings.Settings.instance().clearAll();
       Components.Reload.reload();
@@ -338,6 +340,28 @@ export class GenericSettingsTab extends SettingsTab {
   override willHide(): void {
     super.willHide();
     UI.Context.Context.instance().setFlavor(GenericSettingsTab, null);
+  }
+
+  #trackConsoleInsightSettingChange(): void {
+    // Keep in sync with front_end/panels/explain/*.
+    const setting = (() => {
+      try {
+        return Common.Settings.moduleSetting('console-insights-enabled');
+      } catch {
+        return null;
+      }
+    })();
+    if (!setting) {
+      return;
+    }
+    setting.addChangeListener(() => {
+      // If setting was turned on, re-set the consent.
+      if (setting.get()) {
+        Common.Settings.Settings.instance()
+            .createLocalSetting('console-insights-onboarding-finished', false)
+            .set(false);
+      }
+    });
   }
 
   private updateSyncSection(): void {
