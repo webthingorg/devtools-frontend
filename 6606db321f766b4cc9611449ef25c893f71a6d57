@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4abe4cd7_39acce20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-05T13:04:31Z",
+      "side": 1,
+      "message": "I think we still use the `LinkableNameRenderer` with `animation-name` so it is working out of the box :)\n\n---\n(Edit: removed the distinction and rendered `Animation` too)",
+      "parentUuid": "46413812_f2c4d3ab",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12143418_2fd9b4de",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9f5fc1f_05179e31",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-05T13:04:31Z",
+      "side": 1,
+      "message": "Since I didn\u0027t use it that much, I might miss something.\n\nThough I think I\u0027d prefer keeping getting a substring of a text logic as simple as possible without requiring to pass a node but needing only a `range`.",
+      "parentUuid": "12143418_2fd9b4de",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7d771cf_0926b20c",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 3
@@ -48,6 +84,24 @@
       "writtenOn": "2024-03-05T09:02:16Z",
       "side": 1,
       "message": "Why not update the enum for this?",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40fe4b7_2933fc62",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-05T13:04:31Z",
+      "side": 1,
+      "message": "We needed to separate two things here:\n1 - The properties that can have linkable names (which contains the `animation` property)\n2 - The actual properties that are linkable names (`animation-name` part inside an `animation` shorthand)\n\nPreviously they were the same, since the properties themselves was linkable. Now, they are not the same since the value of the `animation` property is not linkable but the value inside that corresponds to an `animation-name` is linkable.\n\nSo, `isLinkableNameProperty` now returns the CSS properties that can contain linkable names and `LinkableNameProperty` is the actual property / (or part) that is the linkable name.\n\nI think it got confusing when we mixed the CSS values that correspond to the linkable CSS properties and actual CSS properties. 😅\n\n---\n\nEdit: removed the distinction",
+      "parentUuid": "c7d771cf_0926b20c",
       "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e8426b02_a5d5fed8",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-05T13:04:31Z",
+      "side": 1,
+      "message": "Ah great catch, thanks! :)",
+      "parentUuid": "764fff83_25a21a2c",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9157e1c0_ba68460d",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 3
@@ -82,6 +154,24 @@
       "writtenOn": "2024-03-05T09:02:16Z",
       "side": 1,
       "message": "Matter of taste, but I prefer for loops for this kind of iteration :)",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb7d148f_19589168",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-05T13:04:31Z",
+      "side": 1,
+      "message": "Updated it to use a for loop :)",
+      "parentUuid": "9157e1c0_ba68460d",
       "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -99,6 +189,24 @@
       "writtenOn": "2024-03-05T09:02:16Z",
       "side": 1,
       "message": "I think we actually don\u0027t need that last condition here. Why do we need the VariableName check?",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f88d0036_9b5f202e",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-05T13:04:31Z",
+      "side": 1,
+      "message": "We need to match `--keyframe-name` type of names too as this is a valid declaration:\n\n`animation: 1s linear --keyframe-name`\n\nand this is a valid keyframe name.\n```\n@keyframes --keyframe-name {...}\n```\n---\nThis applies to other linkable names too I think.\n\nWDYT?\n\n---\n\n(Edit: resolving after offline discussion)",
+      "parentUuid": "98722ece_6e8d8774",
       "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
