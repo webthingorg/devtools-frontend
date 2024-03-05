@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "795c7429_ebaffd7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "this is looking amazing!! Added some comments, mostly small nits and suggestion to add tests. Thank you!",
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f53c8d8_f64446e0",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "I wonder if we could read the content of the svg files here to avoid hardcoding the paths. We could use `DOMParser()` to extract the path for example. wdyt?",
+      "range": {
+        "startLine": 101,
+        "startChar": 5,
+        "endLine": 101,
+        "endChar": 246
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd5727c6_0b86c62f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "great to see more inline comments explaining how all this works, thanks!! :D",
+      "range": {
+        "startLine": 518,
+        "startChar": 0,
+        "endLine": 518,
+        "endChar": 92
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3688d4d_c1671054",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "this deserves some tests. We have tests for canvas interactions at [1] maybe we can reuse some code/inspiration from that :)\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/interactions/panels/performance/timeline/timeline_selection_test.ts;bpv\u003d1",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 7
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8c80c23_fb21049a",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "```suggestion\n    // Ignore any other actions when user is customizing the tracks.\n```",
+      "range": {
+        "startLine": 631,
+        "startChar": 43,
+        "endLine": 631,
+        "endChar": 45
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01036ca7_590fb535",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "😎",
+      "range": {
+        "startLine": 1440,
+        "startChar": 29,
+        "endLine": 1440,
+        "endChar": 36
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1864a211_4183cadc",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "to avoid as much duplication as possible let\u0027s use `coordinatesToGroupIndex` and adapt if needed",
+      "range": {
+        "startLine": 1476,
+        "startChar": 4,
+        "endLine": 1538,
+        "endChar": 30
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adbe843c_1b262dca",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1550,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "let\u0027s make this name more specific to say which item this left offset refers to and maybe also relative to what",
+      "range": {
+        "startLine": 1550,
+        "startChar": 12,
+        "endLine": 1550,
+        "endChar": 16
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7cad7a8_cbd409a2",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1556,
+        "startChar": 12,
+        "endLine": 1556,
+        "endChar": 16
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f694a0c9_31fd4c9f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1634,
+        "startChar": 10,
+        "endLine": 1634,
+        "endChar": 14
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cecca79f_72b33178",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-05T07:27:00Z",
+      "side": 1,
+      "message": "nit: IMO having this parameter here feels a bit unexpected given that it serves a very specific purpose (drawing edit icons) in a very general function (drawing the whole timeline). wdyt if instead of passing this value as a param we used a class property we set and get accordingly?",
+      "range": {
+        "startLine": 1659,
+        "startChar": 15,
+        "endLine": 1659,
+        "endChar": 32
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
