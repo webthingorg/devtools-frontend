@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9402a3a3_2c71f47b",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-05T13:24:41Z",
+      "side": 1,
+      "message": "I understand that the building blocks we work with would be a node, that makes sense. Updated here to use inclusive `getComputedText`",
+      "parentUuid": "a9f5fc1f_05179e31",
+      "revId": "6606db321f766b4cc9611449ef25c893f71a6d57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7d771cf_0926b20c",
