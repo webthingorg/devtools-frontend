@@ -64,5 +64,21 @@ devtools_entrypoint("meta") {
     "./emulation:meta",
   ]
 
-  visibility = [ "../../entrypoints/*" ]
+  visibility = [
+    ":unittests",
+    "../../entrypoints/*",
+  ]
+}
+
+ts_library("unittests") {
+  testonly = true
+
+  sources = [ "SettingsScreen.test.ts" ]
+
+  deps = [
+    ":bundle",
+    ":meta",
+    "../../core/common:bundle",
+    "../../testing",
+  ]
 }
