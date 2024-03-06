@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1195db99_3312f31f",
+        "filename": "front_end/third_party/additional_readme_paths.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-06T09:50:05Z",
+      "side": 1,
+      "message": "Forward slashes worry me here: do we have a chromium windows builder bot?",
+      "revId": "fc10568b00b79a2fe8f9a83a18aa9204eb4ccf67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
