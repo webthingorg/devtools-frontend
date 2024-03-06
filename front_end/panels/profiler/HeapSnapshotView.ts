@@ -1861,6 +1861,7 @@ export class HeapAllocationStackView extends UI.Widget.Widget {
       }
       if (Components.Linkifier.Linkifier.invokeFirstAction(linkInfo)) {
         event.consume(true);
+        void VisualLogging.logClick(link, event);
       }
       return;
     }
@@ -1869,8 +1870,10 @@ export class HeapAllocationStackView extends UI.Widget.Widget {
     const keyboardEvent = (event as KeyboardEvent);
     if (keyboardEvent.key === 'ArrowUp') {
       navDown = false;
+      void VisualLogging.logKeyDown(event, 'select-previous');
     } else if (keyboardEvent.key === 'ArrowDown') {
       navDown = true;
+      void VisualLogging.logKeyDown(event, 'select-next');
     } else {
       return;
     }

@@ -142,7 +142,7 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
       element.parentElement.insertBefore(this.proxyElement, element);
     }
     this.contentElement.appendChild(element);
-    let jslog = VisualLogging.textField().track({keydown: true});
+    let jslog = VisualLogging.textField().track({change: true});
     if (this.jslogContext) {
       jslog = jslog.context(this.jslogContext);
     }
@@ -340,12 +340,14 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
 
     switch (event.key) {
       case 'Tab':
+        void VisualLogging.logKeyDown(event, 'accept-autocomplete');
         handled = this.tabKeyPressed(event);
         break;
       case 'ArrowLeft':
       case 'ArrowUp':
       case 'PageUp':
       case 'Home':
+        void VisualLogging.logKeyDown(event, 'clear-autocomplete');
         this.clearAutocomplete();
         break;
       case 'PageDown':
@@ -353,19 +355,23 @@ export class TextPrompt extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
       case 'ArrowDown':
       case 'End':
         if (this.isCaretAtEndOfPrompt()) {
+          void VisualLogging.logKeyDown(event, 'accept-autocomplete');
           handled = this.acceptAutoComplete();
         } else {
+          void VisualLogging.logKeyDown(event, 'clear-autocomplete');
           this.clearAutocomplete();
         }
         break;
       case 'Escape':
         if (this.isSuggestBoxVisible()) {
+          void VisualLogging.logKeyDown(event, 'clear-autocomplete');
           this.clearAutocomplete();
           handled = true;
         }
         break;
       case ' ':  // Space
         if (event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey) {
+          void VisualLogging.logKeyDown(event, 'clear-autocomplete');
           this.autoCompleteSoon(true);
           handled = true;
         }

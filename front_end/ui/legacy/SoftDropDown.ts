@@ -50,7 +50,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
     if (jslogContext) {
       this.element.setAttribute(
           'jslog',
-          `${VisualLogging.dropDown().track({click: true, keydown: 'ArrowUp|ArrowDown|Enter'}).context(jslogContext)}`,
+          `${VisualLogging.dropDown().track({click: true}).context(jslogContext)}`,
       );
     }
     this.element.classList.add('soft-dropdown');
@@ -148,11 +148,13 @@ export class SoftDropDown<T> implements ListDelegate<T> {
         this.show(event);
         this.list.selectItemNextPage();
         handled = true;
+        void VisualLogging.logKeyDown(event, 'select-next');
         break;
       case 'ArrowDown':
         this.show(event);
         this.list.selectItemPreviousPage();
         handled = true;
+        void VisualLogging.logKeyDown(event, 'select-previous');
         break;
       case 'Enter':
       case ' ':
@@ -174,9 +176,11 @@ export class SoftDropDown<T> implements ListDelegate<T> {
     switch (event.key) {
       case 'ArrowLeft':
         handled = this.list.selectPreviousItem(false, false);
+        void VisualLogging.logKeyDown(event, 'select-previous');
         break;
       case 'ArrowRight':
         handled = this.list.selectNextItem(false, false);
+        void VisualLogging.logKeyDown(event, 'select-next');
         break;
       case 'Home':
         for (let i = 0; i < this.model.length; i++) {
@@ -186,6 +190,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
             break;
           }
         }
+        void VisualLogging.logKeyDown(event, 'select-first');
         break;
       case 'End':
         for (let i = this.model.length - 1; i >= 0; i--) {
@@ -195,6 +200,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
             break;
           }
         }
+        void VisualLogging.logKeyDown(event, 'select-last');
         break;
       case 'Escape':
         this.hide(event);
@@ -205,6 +211,7 @@ export class SoftDropDown<T> implements ListDelegate<T> {
       case ' ':
         this.selectHighlightedItem();
         this.hide(event);
+        void VisualLogging.logChange(event);
         handled = true;
         break;
       default:

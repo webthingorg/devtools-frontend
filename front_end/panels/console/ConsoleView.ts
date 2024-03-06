@@ -285,7 +285,7 @@ export class ConsoleView extends UI.Widget.VBox implements
   private searchRegex!: RegExp|null;
   private groupableMessages: Map<string, ConsoleViewMessage[]>;
   private readonly groupableMessageTitle: Map<string, ConsoleViewMessage>;
-  private readonly shortcuts: Map<number, () => void>;
+  private readonly shortcuts: Map<number, (e: Event) => void>;
   private regexMatchRanges: RegexMatchRange[];
   private readonly consoleContextSelector: ConsoleContextSelector;
   private readonly filterStatusText: UI.Toolbar.ToolbarText;
@@ -1363,8 +1363,9 @@ export class ConsoleView extends UI.Widget.VBox implements
         this.clearPromptBackwards.bind(this));
   }
 
-  private clearPromptBackwards(): void {
+  private clearPromptBackwards(event: Event): void {
     this.prompt.clear();
+    void VisualLogging.logKeyDown(event, 'clear-prompt');
   }
 
   private promptKeyDown(event: Event): void {
@@ -1377,7 +1378,7 @@ export class ConsoleView extends UI.Widget.VBox implements
     const shortcut = UI.KeyboardShortcut.KeyboardShortcut.makeKeyFromEvent(keyboardEvent);
     const handler = this.shortcuts.get(shortcut);
     if (handler) {
-      handler();
+      handler(event);
       keyboardEvent.preventDefault();
     }
   }

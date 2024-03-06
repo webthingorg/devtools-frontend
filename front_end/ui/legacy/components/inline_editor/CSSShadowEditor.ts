@@ -222,6 +222,7 @@ export class CSSShadowEditor extends Common.ObjectWrapper.eventMixin<EventTypes,
     target.selectionEnd = target.value.length;
     this.onTextInput(event);
     event.consume(true);
+    void VisualLogging.logKeyDown(event, 'element-value-modification');
 
     function customNumberHandler(prefix: string, number: number, suffix: string): string {
       if (!suffix.length) {
@@ -371,6 +372,7 @@ export class CSSShadowEditor extends Common.ObjectWrapper.eventMixin<EventTypes,
     if (!shiftX && !shiftY) {
       return;
     }
+    void VisualLogging.logKeyDown(event, 'move-shadow');
     event.consume(true);
 
     if (shiftX) {

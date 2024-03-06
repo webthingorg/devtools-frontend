@@ -10,6 +10,7 @@ import type * as Protocol from '../../generated/protocol.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import liveHeapProfileStyles from './liveHeapProfile.css.js';
 
@@ -282,6 +283,10 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
     }
     event.consume(true);
     this.revealSourceForSelectedNode();
+    const selectedCell = this.dataGrid.selectedNode?.element().querySelector('[jslog]');
+    if (selectedCell) {
+      void VisualLogging.logClick(selectedCell, event);
+    }
   }
 
   revealSourceForSelectedNode(): void {

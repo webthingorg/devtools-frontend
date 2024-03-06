@@ -1449,6 +1449,7 @@ export class NavigatorSourceTreeElement extends UI.TreeOutline.TreeElement {
 
   override onspace(): boolean {
     this.navigatorView.sourceSelected(this.uiSourceCode, true);
+    void VisualLogging.logClick(this.listItemElement, new MouseEvent('click'));
     return true;
   }
 

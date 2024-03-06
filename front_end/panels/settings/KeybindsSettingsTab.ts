@@ -404,6 +404,7 @@ export class ShortcutListItem {
       if (Platform.KeyboardUtilities.isEscKey(event)) {
         this.settingsTab.stopEditing(this.item);
         event.consume(true);
+        void VisualLogging.logKeyDown(event, 'cancel-edit');
       }
     });
   }

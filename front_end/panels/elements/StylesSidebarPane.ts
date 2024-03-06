@@ -564,22 +564,26 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
       case 'ArrowLeft': {
         sectionToFocus = section.previousSibling() || section.lastSibling();
         willIterateForward = false;
+        void VisualLogging.logKeyDown(event, 'select-previous');
         break;
       }
       case 'ArrowDown':
       case 'ArrowRight': {
         sectionToFocus = section.nextSibling() || section.firstSibling();
         willIterateForward = true;
+        void VisualLogging.logKeyDown(event, 'select-next');
         break;
       }
       case 'Home': {
         sectionToFocus = section.firstSibling();
         willIterateForward = true;
+        void VisualLogging.logKeyDown(event, 'select-first');
         break;
       }
       case 'End': {
         sectionToFocus = section.lastSibling();
         willIterateForward = false;
+        void VisualLogging.logKeyDown(event, 'select-last');
         break;
       }
     }

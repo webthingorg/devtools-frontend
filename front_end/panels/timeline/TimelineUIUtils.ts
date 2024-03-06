@@ -48,6 +48,7 @@ import imagePreviewStyles from '../../ui/legacy/components/utils/imagePreview.cs
 import * as LegacyComponents from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {CLSRect} from './CLSLinkifier.js';
 import * as TimelineComponents from './components/components.js';
@@ -2620,6 +2621,7 @@ export class TimelineUIUtils {
         if (event.key === 'Enter') {
           TimelinePanel.instance().select(TimelineSelection.fromTraceEvent((entry)));
           event.consume(true);
+          void VisualLogging.logClick(link, event);
         }
       });
     }
@@ -2808,6 +2810,7 @@ export class TimelineUIUtils {
       if (keyEvent.key === 'Enter') {
         TimelinePanel.instance().select(TimelineSelection.fromTraceEvent(event));
         keyEvent.consume(true);
+        void VisualLogging.logClick(container, keyEvent);
       }
     });
     return stylesContainer;

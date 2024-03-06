@@ -53,7 +53,7 @@ export const logClick = (throttler: Common.Throttler.Throttler) => (
   if (!loggingState) {
     return;
   }
-  const button = event instanceof MouseEvent ? event.button : 0;
+  const button = event instanceof MouseEvent && 'sourceCapabilities' in event ? event.button : -1;
   const clickEvent: Host.InspectorFrontendHostAPI
       .ClickEvent = {veid: loggingState.veid, mouseButton: button, doubleClick: Boolean(options?.doubleClick)};
   void throttler.schedule(async () => {

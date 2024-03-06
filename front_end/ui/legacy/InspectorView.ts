@@ -423,6 +423,7 @@ export class InspectorView extends VBox implements ViewLocationResolver {
         panelIndex = keyboardEvent.keyCode - 0x61;
       }
       if (panelIndex !== -1) {
+        void VisualLogging.logKeyDown(event, `panel-${panelIndex}`);
         const panelName = this.tabbedPane.tabIds()[panelIndex];
         if (panelName) {
           if (!Dialog.hasInstance() && !this.currentPanelLocked) {

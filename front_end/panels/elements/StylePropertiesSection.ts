@@ -251,6 +251,7 @@ export class StylePropertiesSection {
         if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
           event.consume(true);
           this.onFontEditorButtonClicked();
+          void VisualLogging.logClick(this.fontEditorButton?.element as HTMLElement, event);
         }
       }, false);
       this.fontEditorToolbar.appendToolbarItem(this.fontEditorButton);
@@ -518,8 +519,10 @@ export class StylePropertiesSection {
 
     if (keyboardEvent.key === 'ArrowLeft') {
       focusNext = focusable[focusedIndex - 1] || this.element;
+      void VisualLogging.logKeyDown(keyboardEvent, 'select-previous');
     } else if (keyboardEvent.key === 'ArrowRight') {
       focusNext = focusable[focusedIndex + 1] || this.element;
+      void VisualLogging.logKeyDown(keyboardEvent, 'select-previous');
     } else if (keyboardEvent.key === 'ArrowUp' || keyboardEvent.key === 'ArrowDown') {
       this.focusNext(this.element);
       return;
@@ -542,6 +545,7 @@ export class StylePropertiesSection {
       case ' ':
         this.startEditingAtFirstPosition();
         keyboardEvent.consume(true);
+        void VisualLogging.logKeyDown(event, 'edit');
         break;
       case 'ArrowLeft':
       case 'ArrowRight':

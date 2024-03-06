@@ -165,6 +165,13 @@ async function process(): Promise<void> {
       }
       if (loggingState.config.track?.has('change')) {
         element.addEventListener('change', logChange, {capture: true});
+        if ((element as HTMLElement).isContentEditable) {
+          element.addEventListener('keydown', (e: Event) => {
+            if ((e as KeyboardEvent).code === 'Enter') {
+              void logChange(e);
+            }
+          }, {capture: true});
+        }
       }
       const trackKeyDown = loggingState.config.track?.has('keydown');
       const codes = loggingState.config.track?.get('keydown')?.split('|') || [];
@@ -208,7 +215,7 @@ async function process(): Promise<void> {
             onSelectOpen();
           }
         }, {capture: true});
-        element.addEventListener('change', e => {
+        element.addEventListener('change', (e: Event) => {
           for (const option of (element as HTMLSelectElement).selectedOptions) {
             if (getLoggingState(option)?.config.track?.has('click')) {
               void logClick(clickLogThrottler)(option, e);

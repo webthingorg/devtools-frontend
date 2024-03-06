@@ -528,8 +528,10 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       if (event.key === 'Enter' && !this.isEditing()) {
         this.startEditing();
         event.consume(true);
+        void VisualLogging.logKeyDown(event, 'edit');
       } else if (event.key === 'Delete' && !this.isEditing()) {
         this.deleteWatchExpression(event);
+        void VisualLogging.logKeyDown(event, 'delete');
       }
     });
   }
@@ -561,6 +563,7 @@ export class WatchExpression extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     const isEscapeKey = Platform.KeyboardUtilities.isEscKey(event);
     if (event.key === 'Enter' || isEscapeKey) {
       this.finishEditing(event, isEscapeKey);
+      void VisualLogging.logKeyDown(event, 'save-edit');
     }
   }
 

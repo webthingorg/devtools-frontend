@@ -533,21 +533,27 @@ export class FilteredListWidget extends Common.ObjectWrapper.eventMixin<EventTyp
       case Platform.KeyboardUtilities.TAB_KEY:
         if (keyboardEvent.shiftKey) {
           handled = this.list.selectPreviousItem(true, false);
+          void VisualLogging.logKeyDown(keyboardEvent, 'select-previous');
           break;
         }
         handled = this.tabKeyPressed();
+        void VisualLogging.logKeyDown(keyboardEvent, 'accept-autocomplete');
         break;
       case Platform.KeyboardUtilities.ArrowKey.UP:
         handled = this.list.selectPreviousItem(true, false);
+        void VisualLogging.logKeyDown(keyboardEvent, 'select-previous');
         break;
       case Platform.KeyboardUtilities.ArrowKey.DOWN:
         handled = this.list.selectNextItem(true, false);
+        void VisualLogging.logKeyDown(keyboardEvent, 'select-next');
         break;
       case Platform.KeyboardUtilities.PageKey.UP:
         handled = this.list.selectItemPreviousPage(false);
+        void VisualLogging.logKeyDown(keyboardEvent, 'select-previous-page');
         break;
       case Platform.KeyboardUtilities.PageKey.DOWN:
         handled = this.list.selectItemNextPage(false);
+        void VisualLogging.logKeyDown(keyboardEvent, 'select-next-page');
         break;
     }
     if (handled) {

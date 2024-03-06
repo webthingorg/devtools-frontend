@@ -978,12 +978,14 @@ export class ElementsTreeOutline extends
       if (keyboardEvent.key === 'ArrowUp' && node.previousSibling) {
         node.moveTo(node.parentNode, node.previousSibling, this.selectNodeAfterEdit.bind(this, treeElement.expanded));
         keyboardEvent.consume(true);
+        void VisualLogging.logKeyDown(event, 'move-up');
         return;
       }
       if (keyboardEvent.key === 'ArrowDown' && node.nextSibling) {
         node.moveTo(
             node.parentNode, node.nextSibling.nextSibling, this.selectNodeAfterEdit.bind(this, treeElement.expanded));
         keyboardEvent.consume(true);
+        void VisualLogging.logKeyDown(event, 'move-down');
         return;
       }
     }

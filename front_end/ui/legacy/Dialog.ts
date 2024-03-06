@@ -201,6 +201,7 @@ export class Dialog extends Common.ObjectWrapper.eventMixin<EventTypes, typeof G
       if (this.closeOnEscape) {
         event.consume(true);
         this.hide();
+        void VisualLogging.logKeyDown(event, 'close');
       }
     }
   }

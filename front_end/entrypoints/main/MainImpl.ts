@@ -855,8 +855,10 @@ export class MainMenuItem implements UI.Toolbar.Provider {
         let dir = 0;
         if (event.key === 'ArrowLeft') {
           dir = -1;
+          void VisualLogging.logKeyDown(event, 'select-previous');
         } else if (event.key === 'ArrowRight') {
           dir = 1;
+          void VisualLogging.logKeyDown(event, 'select-next');
         } else if (event.key === 'ArrowDown') {
           const contextMenuElement = dockItemElement.closest('.soft-context-menu');
           contextMenuElement?.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowDown'}));

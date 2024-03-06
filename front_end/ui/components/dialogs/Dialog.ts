@@ -7,6 +7,7 @@ import * as WindowBoundsService from '../../../services/window_bounds/window_bou
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
 import dialogStyles from './dialog.css.js';
 
@@ -598,6 +599,7 @@ export class Dialog extends HTMLElement {
     event.preventDefault();
     this.#closeDialog();
     this.dispatchEvent(new ForcedDialogClose());
+    void VisualLogging.logKeyDown(event, 'close');
   }
 
   #onCancel(event: Event): void {
