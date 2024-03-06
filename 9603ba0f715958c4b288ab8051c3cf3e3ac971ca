@@ -16,6 +16,87 @@
       "message": "Do you know a better way to do smth like this?",
       "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b000e1a1_0aa3f8b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-06T09:01:27Z",
+      "side": 1,
+      "message": "No, I don\u0027t think I have a better way. But a fundamental question: Is the `SettingsScreen` the only place that can change `console-insights-enabled`? The quick access menu (Ctrl-P) can\u0027t do it?\n\nOtherwise you\u0027d have to add this tracking logic to `MainImpl.ts` after we set up the `Settings` instance.",
+      "parentUuid": "0df123b6_af734955",
+      "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0819bf0a_ad852d9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-06T09:01:27Z",
+      "side": 1,
+      "message": "generally lgtm, but a question",
+      "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25ad7e4f_e45a72ad",
+        "filename": "front_end/panels/settings/SettingsScreen.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-06T09:01:27Z",
+      "side": 1,
+      "message": "This needs to be `import * as Settings from \u0027./settings.js\u0027`;\n\nOtherwise, you could run into duplicate state in release builds: The test imports the unbundled JS files, while the rest of DevTools uses the `:bundle` entrypoint. Which means you have two different ES modules with `SettingsScreen` state in it.\n\ncc @bmeurer@chromium.org: This should probably be an ESLint rule.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef35bd3a_a435ce15",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-06T09:01:27Z",
+      "side": 1,
+      "message": "I think I\u0027d find the following slightly more readable:\n\n```\nlet setting: Common.Settings.Setting\u003cunknown\u003e;\ntry {\n  setting \u003d Common.Settings.moduleSetting(\u0027console-insights-enabled\u0027);\n} catch {\n  return;\n}\n```\n\nTS narrows the type so you can skip the `null` check.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 5
+      },
+      "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
