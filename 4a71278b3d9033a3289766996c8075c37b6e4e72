@@ -67,6 +67,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "21662332_c5a07f3e",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "I think the DOMParser is get an element from string, but we need the string to draw in canvas\nI tried the `drawImage ` one and the url somehow not working correctly.",
+      "parentUuid": "8b07cf5b_e91c63c3",
+      "range": {
+        "startLine": 101,
+        "startChar": 5,
+        "endLine": 101,
+        "endChar": 246
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd5727c6_0b86c62f",
         "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
         "patchSetId": 2
@@ -111,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49898d3d_2e89f17f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3688d4d_c1671054",
+      "range": {
+        "startLine": 628,
+        "startChar": 6,
+        "endLine": 628,
+        "endChar": 7
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8c80c23_fb21049a",
@@ -124,6 +172,30 @@
       "writtenOn": "2024-03-05T07:27:00Z",
       "side": 1,
       "message": "```suggestion\n    // Ignore any other actions when user is customizing the tracks.\n```",
+      "range": {
+        "startLine": 631,
+        "startChar": 43,
+        "endLine": 631,
+        "endChar": 45
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2237ad33_fc6af948",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "f8c80c23_fb21049a",
       "range": {
         "startLine": 631,
         "startChar": 43,
@@ -180,6 +252,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7056b7d_8f75d934",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1864a211_4183cadc",
+      "range": {
+        "startLine": 1476,
+        "startChar": 4,
+        "endLine": 1538,
+        "endChar": 30
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adbe843c_1b262dca",
@@ -193,6 +289,30 @@
       "writtenOn": "2024-03-05T07:27:00Z",
       "side": 1,
       "message": "let\u0027s make this name more specific to say which item this left offset refers to and maybe also relative to what",
+      "range": {
+        "startLine": 1550,
+        "startChar": 12,
+        "endLine": 1550,
+        "endChar": 16
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46d609f2_51046941",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1550,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adbe843c_1b262dca",
       "range": {
         "startLine": 1550,
         "startChar": 12,
@@ -226,6 +346,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b650f436_c117f365",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7cad7a8_cbd409a2",
+      "range": {
+        "startLine": 1556,
+        "startChar": 12,
+        "endLine": 1556,
+        "endChar": 16
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f694a0c9_31fd4c9f",
@@ -249,6 +393,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3a1c67_baf5beca",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f694a0c9_31fd4c9f",
+      "range": {
+        "startLine": 1634,
+        "startChar": 10,
+        "endLine": 1634,
+        "endChar": 14
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cecca79f_72b33178",
@@ -262,6 +430,30 @@
       "writtenOn": "2024-03-05T07:27:00Z",
       "side": 1,
       "message": "nit: IMO having this parameter here feels a bit unexpected given that it serves a very specific purpose (drawing edit icons) in a very general function (drawing the whole timeline). wdyt if instead of passing this value as a param we used a class property we set and get accordingly?",
+      "range": {
+        "startLine": 1659,
+        "startChar": 15,
+        "endLine": 1659,
+        "endChar": 32
+      },
+      "revId": "4a71278b3d9033a3289766996c8075c37b6e4e72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50fc418e_16f15556",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-06T16:04:14Z",
+      "side": 1,
+      "message": "I prefer to not set one, the reason is we will redraw almost after every interactions. And some of them we suppose to reset this `hoveredGroupIndex`, some are not. And if we forget some place, it will result in a bug.\n\nSome example is the `selectedGroupIndex`: crrev.com/c/5018340",
+      "parentUuid": "cecca79f_72b33178",
       "range": {
         "startLine": 1659,
         "startChar": 15,
