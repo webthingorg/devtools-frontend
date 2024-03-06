@@ -34,6 +34,24 @@
       "parentUuid": "04fe2970_8bf8718d",
       "revId": "61c311658c5df4c0d61dbcd4fca3d026f184a934",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9432faeb_faa4a46f",
+        "filename": "front_end/ui/visual_logging/LoggingEvents.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T11:43:02Z",
+      "side": 0,
+      "message": "Acknowledged, thanks!",
+      "parentUuid": "63dad813_037c2575",
+      "revId": "61c311658c5df4c0d61dbcd4fca3d026f184a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
