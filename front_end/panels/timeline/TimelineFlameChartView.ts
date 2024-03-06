@@ -374,6 +374,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   }
 
   setSelection(selection: TimelineSelection|null): void {
+    this.mainDataProvider.revealIfHidden(selection);
     let index = this.mainDataProvider.entryIndexForSelection(selection);
     this.mainFlameChart.setSelectedEntry(index);
     index = this.networkDataProvider.entryIndexForSelection(selection);

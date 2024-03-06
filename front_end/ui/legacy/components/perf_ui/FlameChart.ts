@@ -2852,7 +2852,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+    this.update();
   }
+
 
   private entryHasDecoration(entryIndex: number, decorationType: FlameChartDecorationType): boolean {
     const timelineData = this.timelineData();
@@ -3224,6 +3226,8 @@ export interface FlameChartDataProvider {
   modifyTree?(group: Group, node: number, action: TraceEngine.EntriesFilter.FilterAction): void;
 
   findPossibleContextMenuActions?(group: Group, node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
+
+  revealParent?(group: Group, selection: number): void;
 }
 
 export interface FlameChartMarker {

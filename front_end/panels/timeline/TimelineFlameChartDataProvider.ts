@@ -35,6 +35,7 @@ import * as Root from '../../core/root/root.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import {type SyntheticTraceEntry} from '../../models/trace/types/TraceEvents.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
@@ -1343,6 +1344,28 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return false;
   }
 
+  revealIfHidden(selection: TimelineSelection|null): void {
+        if (!selection || TimelineSelection.isRangeSelection(selection.object) ||
+            TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object)) {
+          return;
+        }
+
+        let index = this.entryData.indexOf(selection.object);
+
+        // If the selection object is an event, it might be hidden by the context menu
+        // action and not be present in entryData as it only contains visible entries.
+        // Threfore, get the index from the entryToNode map.
+        if (index === -1 && TimelineSelection.isTraceEventSelection(selection.object)) {
+          const node = this.traceEngineData?.Renderer.entryToNode.get(selection.object);
+          console.log("node id ", node?.id);
+          // need to expand it somehow from here
+          if(node?.id && this.timelineDataInternal?.selectedGroup) {
+            this.revealParent(this.timelineDataInternal?.selectedGroup, node?.id)
+            this.timelineData(true);
+          }
+        }
+  }
+
   entryIndexForSelection(selection: TimelineSelection|null): number {
     if (!selection || TimelineSelection.isRangeSelection(selection.object) ||
         TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object)) {
@@ -1352,11 +1375,18 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (this.lastSelection && this.lastSelection.timelineSelection.object === selection.object) {
       return this.lastSelection.entryIndex;
     }
-    const index = this.entryData.indexOf(selection.object);
+    
+    let index = this.entryData.indexOf(selection.object);
     if (index !== -1) {
       this.lastSelection = new Selection(selection, index);
     }
+
+    console.log("entrey id ", index);
     return index;
+  }
+
+  revealParent(group: PerfUI.FlameChart.Group, selection: number): boolean {
+    return this.compatibilityTracksAppender?.revealParent(group, selection) ?? false;
   }
 
   getIndexForEvent(targetEvent: TraceEngine.Types.TraceEvents.TraceEventData): number|null {
