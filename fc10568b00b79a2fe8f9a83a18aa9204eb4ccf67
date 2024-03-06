@@ -52,6 +52,24 @@
       "parentUuid": "7d63c300_a68786bc",
       "revId": "fc10568b00b79a2fe8f9a83a18aa9204eb4ccf67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296d33dd_aff24adc",
+        "filename": "front_end/third_party/additional_readme_paths.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-06T10:43:35Z",
+      "side": 1,
+      "message": "https://source.chromium.org/chromium/chromium/src/+/main:tools/licenses/licenses.py;l\u003d665;drc\u003d7102efeb479b044c0a5b2755d4742b557c0f2d88",
+      "parentUuid": "2e0ea12d_ba2674ac",
+      "revId": "fc10568b00b79a2fe8f9a83a18aa9204eb4ccf67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
