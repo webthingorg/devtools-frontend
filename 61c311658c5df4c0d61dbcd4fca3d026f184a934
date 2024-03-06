@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04fe2970_8bf8718d",
+        "filename": "front_end/ui/visual_logging/LoggingEvents.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T11:34:40Z",
+      "side": 0,
+      "message": "Just to double check, removing setting context of the event is intended right? -- and if so, is keeping setting the context in `logKeyDown` intended too?",
+      "revId": "61c311658c5df4c0d61dbcd4fca3d026f184a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
