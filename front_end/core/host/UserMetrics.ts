@@ -650,6 +650,8 @@ export enum Action {
   InsightErroredCannotParseChunk = 137,
   InsightErroredUnknownChunk = 138,
   InsightErroredOther = 139,
+  AutofillReceived = 140,
+  AutofillReceivedAndTabAutoOpened = 141,
   MaxValue = 140,
 }
 
