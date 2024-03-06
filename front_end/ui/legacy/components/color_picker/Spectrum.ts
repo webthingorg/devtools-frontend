@@ -330,7 +330,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     this.textValues = [];
     for (let i = 0; i < 4; ++i) {
       const inputValue = UI.UIUtils.createInput('spectrum-text-value');
-      inputValue.setAttribute('jslog', `${VisualLogging.value().track({keydown: true}).context(i)}`);
+      inputValue.setAttribute('jslog', `${VisualLogging.value().track({change: true}).context(i)}`);
       this.displayContainer.appendChild(inputValue);
       inputValue.maxLength = 4;
       this.textValues.push(inputValue);
@@ -610,6 +610,9 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     if (Platform.KeyboardUtilities.isEscKey(event) || Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
       this.togglePalettePanel(false);
       event.consume(true);
+      if (this.closeButton) {
+        void VisualLogging.logClick(this.closeButton.element, event);
+      }
     }
   }
 
@@ -621,6 +624,7 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
       case 'ArrowDown':
       case 'ArrowUp':
         sliderNewPosition(event);
+        VisualLogging.logKeyDown(event, 'change');
         event.consume(true);
     }
   }
@@ -954,15 +958,19 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     switch (keyboardEvent.key) {
       case 'ArrowLeft':
         nextColorIndex = colorIndex - 1;
+        VisualLogging.logKeyDown(event, 'select-previous');
         break;
       case 'ArrowRight':
         nextColorIndex = colorIndex + 1;
+        VisualLogging.logKeyDown(event, 'select-next');
         break;
       case 'ArrowUp':
         nextColorIndex = colorIndex - ITEMS_PER_PALETTE_ROW;
+        VisualLogging.logKeyDown(event, 'select-previous-page');
         break;
       case 'ArrowDown':
         nextColorIndex = colorIndex + ITEMS_PER_PALETTE_ROW;
+        VisualLogging.logKeyDown(event, 'select-next-page');
         break;
     }
     if (nextColorIndex !== undefined && nextColorIndex > -1 &&
@@ -982,9 +990,11 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     } else if (event.key === 'ArrowUp' && target.previousElementSibling) {
       (target.previousElementSibling as HTMLElement).focus();
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'select-previous');
     } else if (event.key === 'ArrowDown' && target.nextElementSibling) {
       (target.nextElementSibling as HTMLElement).focus();
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'select-next');
     }
   }
 
@@ -996,6 +1006,9 @@ export class Spectrum extends Common.ObjectWrapper.eventMixin<EventTypes, typeof
     if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
       this.addColorToCustomPalette();
       event.consume(true);
+      if (event.currentTarget) {
+        void VisualLogging.logClick(event.currentTarget, event);
+      }
     }
   }
 

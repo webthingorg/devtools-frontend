@@ -81,6 +81,7 @@ export class Adorner extends HTMLElement {
     ariaLabelActive: Platform.UIString.LocalizedString,
     isToggle?: boolean,
     shouldPropagateOnKeydown?: boolean,
+    jslogContext?: string,
   }): void {
     const {isToggle = false, shouldPropagateOnKeydown = false, ariaLabelDefault, ariaLabelActive} = options;
 

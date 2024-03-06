@@ -140,11 +140,13 @@ export class SwatchPopoverHelper extends Common.ObjectWrapper.ObjectWrapper<Even
     if (event.key === 'Enter') {
       this.hide(true);
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'save-edit');
       return;
     }
     if (event.key === Platform.KeyboardUtilities.ESCAPE_KEY) {
       this.hide(false);
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'cancel-edit');
     }
   }
 }

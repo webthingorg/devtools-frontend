@@ -1119,8 +1119,10 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       // Select the first or last node based on the arrow key direction
       if (event.key === 'ArrowUp' && !event.altKey) {
         nextSelectedNode = this.lastSelectableNode();
+        VisualLogging.logKeyDown(event, 'select-last');
       } else if (event.key === 'ArrowDown' && !event.altKey) {
         nextSelectedNode = this.firstSelectableNode();
+        VisualLogging.logKeyDown(event, 'select-first');
       }
       handled = nextSelectedNode ? true : false;
     } else if (event.key === 'ArrowUp' && !event.altKey) {
@@ -1129,12 +1131,14 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
         nextSelectedNode = nextSelectedNode.traversePreviousNode(true);
       }
       handled = nextSelectedNode ? true : false;
+      VisualLogging.logKeyDown(event, 'select-previous');
     } else if (event.key === 'ArrowDown' && !event.altKey) {
       nextSelectedNode = this.selectedNode.traverseNextNode(true);
       while (nextSelectedNode && !nextSelectedNode.selectable) {
         nextSelectedNode = nextSelectedNode.traverseNextNode(true);
       }
       handled = nextSelectedNode ? true : false;
+      VisualLogging.logKeyDown(event, 'select-next');
     } else if (event.key === 'ArrowLeft') {
       if (this.selectedNode.expanded) {
         if (event.altKey) {
@@ -1152,6 +1156,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
           this.selectedNode.parent.collapse();
         }
       }
+      VisualLogging.logKeyDown(event, 'collapse-or-ascend');
     } else if (event.key === 'ArrowRight') {
       if (!this.selectedNode.revealed) {
         this.selectedNode.reveal();
@@ -1169,10 +1174,12 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
           }
         }
       }
+      VisualLogging.logKeyDown(event, 'expand-or-descend');
     } else if (event.keyCode === 8 || event.keyCode === 46) {
       if (this.deleteCallback) {
         handled = true;
         this.deleteCallback(this.selectedNode);
+        VisualLogging.logKeyDown(event, 'delete');
       }
     } else if (event.key === 'Enter') {
       if (this.editCallback) {
@@ -1185,6 +1192,7 @@ export class DataGridImpl<T> extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       } else {
         this.dispatchEventToListeners(Events.OpenedNode, this.selectedNode);
       }
+      void VisualLogging.logClick(this.selectedNode.element(), event);
     }
 
     if (nextSelectedNode) {

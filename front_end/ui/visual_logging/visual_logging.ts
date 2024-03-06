@@ -9,8 +9,8 @@ import * as NonDomState from './NonDomState.js';
 
 export type Loggable = LoggableModule.Loggable;
 export {startLogging, stopLogging, addDocument} from './LoggingDriver.js';
-export {logClick, logImpressions, logResize} from './LoggingEvents.js';
-export {registerContextProvider, registerParentProvider, setMappedParent} from './LoggingState.js';
+export {logClick, logImpressions, logResize, logKeyDown, logChange} from './LoggingEvents.js';
+export {registerParentProvider, setMappedParent} from './LoggingState.js';
 
 export function registerLoggable(loggable: Loggable, config: string, parent: Loggable|null): void {
   if (!LoggingDriver.isLogging()) {

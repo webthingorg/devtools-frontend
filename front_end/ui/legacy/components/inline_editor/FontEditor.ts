@@ -361,6 +361,7 @@ export class FontEditor extends Common.ObjectWrapper.eventMixin<EventTypes, type
       if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
         this.deleteFontSelector(fontSelectorObject.index);
         event.consume();
+        void VisualLogging.logClick(deleteButton, event);
       }
     }, false);
     this.fontSelectors.push(fontSelectorObject);

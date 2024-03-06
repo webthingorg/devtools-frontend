@@ -1126,6 +1126,10 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
       if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
         this.dispatchEventToListeners(Events.RequestActivated, {showPanel: true, takeFocus: true});
         event.consume(true);
+        const selectedCell = this.dataGrid.selectedNode?.element().querySelector('[jslog]');
+        if (selectedCell) {
+          void VisualLogging.logClick(selectedCell, event);
+        }
       }
     });
     this.dataGrid.element.addEventListener('keyup', event => {
@@ -1137,6 +1141,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
 
         if (SDK.NetworkManager.NetworkManager.canReplayRequest(request)) {
           SDK.NetworkManager.NetworkManager.replayRequest(request);
+          VisualLogging.logKeyDown(event, 'replay-xhr');
         }
       }
     });

@@ -206,12 +206,10 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
     }
     element.addEventListener('keydown', event => {
       let handled = false;
-      if (event.key === ' ') {
+      if (event.key === ' ' || event.key === 'Enter') {
         this.checkboxClicked(item, enabled);
         handled = true;
-      } else if (event.key === 'Enter') {
-        this.labelClicked(item);
-        handled = true;
+        void VisualLogging.logClick(element, event);
       }
 
       if (handled) {

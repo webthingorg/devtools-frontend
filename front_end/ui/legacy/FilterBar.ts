@@ -417,6 +417,9 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper<Filt
       }
     } else if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
       this.onTypeFilterClicked(event);
+      if (event.target) {
+        void VisualLogging.logClick(event.target, event);
+      }
     }
   }
 

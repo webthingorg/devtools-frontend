@@ -958,6 +958,7 @@ export class TabbedPane extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const tab = this.tabs.find(tab => tab.tabElement === nextTabElement);
     if (tab) {
       this.selectTab(tab.id, true);
+      void VisualLogging.logClick(tab.tabElement, event);
     }
     (nextTabElement as HTMLElement).focus();
   }

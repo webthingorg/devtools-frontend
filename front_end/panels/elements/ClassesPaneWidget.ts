@@ -83,6 +83,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
 
     if (event.key === 'Enter') {
       event.consume();
+      VisualLogging.logKeyDown(event, 'accept-autocomplete');
       if (this.prompt.acceptAutoComplete()) {
         return;
       }
@@ -97,6 +98,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       text = '';
     }
 
+    VisualLogging.logKeyDown(event, 'clear-autocomplete');
     this.prompt.clearAutocomplete();
     eventTarget.textContent = '';
 

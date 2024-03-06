@@ -679,6 +679,7 @@ export class WebauthnPaneImpl extends UI.Widget.VBox implements
     nameField.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.key === 'Enter') {
         this.#handleSaveNameButton(titleElement, nameField, editName, saveName, activeLabel);
+        void VisualLogging.logClick(saveName, event);
       }
     });
 

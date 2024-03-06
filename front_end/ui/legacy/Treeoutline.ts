@@ -295,15 +295,20 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     if (!this.selectedTreeElement) {
       if (event.key === 'ArrowUp' && !event.altKey) {
         handled = this.selectLast();
+        VisualLogging.logKeyDown(event, 'select-last');
       } else if (event.key === 'ArrowDown' && !event.altKey) {
         handled = this.selectFirst();
+        VisualLogging.logKeyDown(event, 'select-first');
       }
     } else if (event.key === 'ArrowUp' && !event.altKey) {
       handled = this.selectPrevious();
+      VisualLogging.logKeyDown(event, 'select-previous');
     } else if (event.key === 'ArrowDown' && !event.altKey) {
       handled = this.selectNext();
+      VisualLogging.logKeyDown(event, 'select-next');
     } else if (event.key === 'ArrowLeft') {
       handled = this.selectedTreeElement.collapseOrAscend(event.altKey);
+      VisualLogging.logKeyDown(event, 'collapse-or-ascend');
     } else if (event.key === 'ArrowRight') {
       if (!this.selectedTreeElement.revealed()) {
         this.selectedTreeElement.reveal();
@@ -311,16 +316,21 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
       } else {
         handled = this.selectedTreeElement.descendOrExpand(event.altKey);
       }
+      VisualLogging.logKeyDown(event, 'descend-or-expand');
     } else if (event.keyCode === 8 /* Backspace */ || event.keyCode === 46 /* Delete */) {
       handled = this.selectedTreeElement.ondelete();
+      VisualLogging.logKeyDown(event, 'delete');
     } else if (event.key === 'Enter') {
       handled = this.selectedTreeElement.onenter();
+      void VisualLogging.logClick(this.selectedTreeElement.listItemElement, event);
     } else if (event.keyCode === Keys.Space.code) {
       handled = this.selectedTreeElement.onspace();
     } else if (event.key === 'Home') {
       handled = this.selectFirst();
+      VisualLogging.logKeyDown(event, 'select-first');
     } else if (event.key === 'End') {
       handled = this.selectLast();
+      VisualLogging.logKeyDown(event, 'select-last');
     }
 
     if (handled) {

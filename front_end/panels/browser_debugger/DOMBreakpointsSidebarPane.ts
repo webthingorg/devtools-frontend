@@ -196,6 +196,7 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
       if (event.key === ' ') {
         checkboxLabel.checkboxElement.click();
         event.consume(true);
+        void VisualLogging.logClick(element, event);
       }
     });
 

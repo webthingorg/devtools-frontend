@@ -312,20 +312,31 @@ export class Editor<T> {
   constructor() {
     this.element = document.createElement('div');
     this.element.classList.add('editor-container');
-    this.element.addEventListener(
-        'keydown', onKeyDown.bind(null, Platform.KeyboardUtilities.isEscKey, this.cancelClicked.bind(this)), false);
+    this.element.addEventListener('keydown', onKeyDown.bind(null, Platform.KeyboardUtilities.isEscKey, e => {
+      this.cancelClicked();
+      VisualLogging.logKeyDown(e, 'cancel');
+    }), false);
 
     this.contentElementInternal = this.element.createChild('div', 'editor-content');
-    this.contentElementInternal.addEventListener('keydown', onKeyDown.bind(null, event => {
-      if (event.key !== 'Enter') {
-        return false;
-      }
-      if (event.target instanceof HTMLSelectElement) {
-        // 'Enter' on <select> is supposed to open the drop down, so don't swallow that here.
-        return false;
-      }
-      return true;
-    }, this.commitClicked.bind(this)), false);
+    this.contentElementInternal.addEventListener(
+        'keydown',
+        onKeyDown.bind(
+            null,
+            event => {
+              if (event.key !== 'Enter') {
+                return false;
+              }
+              if (event.target instanceof HTMLSelectElement) {
+                // 'Enter' on <select> is supposed to open the drop down, so don't swallow that here.
+                return false;
+              }
+              return true;
+            },
+            (e: KeyboardEvent) => {
+              this.commitClicked();
+              VisualLogging.logKeyDown(e, 'commit');
+            }),
+        false);
 
     const buttonsRow = this.element.createChild('div', 'editor-buttons');
     this.commitButton = createTextButton('', this.commitClicked.bind(this), {
@@ -343,10 +354,12 @@ export class Editor<T> {
     this.errorMessageContainer = this.element.createChild('div', 'list-widget-input-validation-error');
     ARIAUtils.markAsAlert(this.errorMessageContainer);
 
-    function onKeyDown(predicate: (arg0: KeyboardEvent) => boolean, callback: () => void, event: KeyboardEvent): void {
+    function onKeyDown(
+        predicate: (arg0: KeyboardEvent) => boolean, callback: (event: KeyboardEvent) => void,
+        event: KeyboardEvent): void {
       if (predicate(event)) {
         event.consume(true);
-        callback();
+        callback(event);
       }
     }
 

@@ -1314,11 +1314,13 @@ export class ObjectPropertyTreeElement extends UI.TreeOutline.TreeElement {
     if (keyboardEvent.key === 'Enter') {
       keyboardEvent.consume();
       void this.editingCommitted(originalContent);
+      VisualLogging.logKeyDown(event, 'save-edit');
       return;
     }
     if (keyboardEvent.key === Platform.KeyboardUtilities.ESCAPE_KEY) {
       keyboardEvent.consume();
       this.editingCancelled();
+      VisualLogging.logKeyDown(event, 'cancel-edit');
       return;
     }
   }

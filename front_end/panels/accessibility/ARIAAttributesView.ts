@@ -181,12 +181,14 @@ export class ARIAAttributesTreeElement extends UI.TreeOutline.TreeElement {
       const target = event.target as HTMLElement;
       this.editingCommitted(target.textContent || '', previousContent);
       event.consume();
+      VisualLogging.logKeyDown(event, 'save-edit');
       return;
     }
 
     if (Platform.KeyboardUtilities.isEscKey(event)) {
       this.editingCancelled();
       event.consume();
+      VisualLogging.logKeyDown(event, 'cancel-edit');
       return;
     }
   }

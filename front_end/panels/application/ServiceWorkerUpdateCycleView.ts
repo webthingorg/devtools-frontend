@@ -271,21 +271,26 @@ export class ServiceWorkerUpdateCycleView {
     if ((!expanded && keyboardEvent.key === 'ArrowRight') || (expanded && keyboardEvent.key === 'ArrowLeft')) {
       this.toggle(startRow, endRow, target, expanded);
       event.preventDefault();
+      VisualLogging.logKeyDown(event, expanded ? 'collapse' : 'expand');
       return;
     }
     if (keyboardEvent.key === 'ArrowDown') {
       if (this.selectedRowIndex >= 0) {
         this.selectNextRow();
+        VisualLogging.logKeyDown(event, 'select-next');
       } else {
         this.selectFirstRow();
+        VisualLogging.logKeyDown(event, 'select-first');
       }
       event.preventDefault();
     }
     if (keyboardEvent.key === 'ArrowUp') {
       if (this.selectedRowIndex >= 0) {
         this.selectPreviousRow();
+        VisualLogging.logKeyDown(event, 'select-previous');
       } else {
         this.selectLastRow();
+        VisualLogging.logKeyDown(event, 'select-last');
       }
       event.preventDefault();
     }

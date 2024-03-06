@@ -60,6 +60,7 @@ export class XLink extends XElement {
     };
     this.onKeyDown = (event: KeyboardEvent) => {
       if (Platform.KeyboardUtilities.isEnterOrSpaceKey(event)) {
+        void VisualLogging.logClick(this, event);
         event.consume(true);
         if (this.hrefInternal) {
           Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(this.hrefInternal);

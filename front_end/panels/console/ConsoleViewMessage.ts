@@ -54,6 +54,7 @@ import * as ObjectUI from '../../ui/legacy/components/object_ui/object_ui.js';
 import objectValueStyles from '../../ui/legacy/components/object_ui/objectValue.css.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {format, updateStyle} from './ConsoleFormat.js';
 import consoleViewStyles from './consoleView.css.js';
@@ -1257,6 +1258,10 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     }
 
     this.elementInternal.className = 'console-message-wrapper';
+    this.elementInternal.setAttribute('jslog', `${VisualLogging.item('console-message').track({
+                                        click: true,
+                                        keydown: 'ArrowUp|ArrowDown|ArrowLeft|ArrowRight|Enter|Space',
+                                      })}`);
     this.elementInternal.removeChildren();
     this.consoleRowWrapper = this.elementInternal.createChild('div');
     this.consoleRowWrapper.classList.add('console-row-wrapper');
@@ -1865,6 +1870,7 @@ export class ConsoleGroupViewMessage extends ConsoleViewMessage {
       if ((event.key === 'ArrowLeft' && !this.collapsedInternal) ||
           (event.key === 'ArrowRight' && this.collapsedInternal)) {
         this.setCollapsed(!this.collapsedInternal);
+        VisualLogging.logKeyDown(event, this.collapsedInternal ? 'expand' : 'collapse');
         return true;
       }
     }

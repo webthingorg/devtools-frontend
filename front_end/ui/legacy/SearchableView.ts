@@ -445,6 +445,7 @@ export class SearchableView extends VBox {
     if (Platform.KeyboardUtilities.isEscKey(event)) {
       this.closeSearch();
       event.consume(true);
+      VisualLogging.logKeyDown(event, 'close');
       return;
     }
     if (!(event.key === 'Enter')) {
@@ -453,14 +454,17 @@ export class SearchableView extends VBox {
 
     if (!this.currentQuery) {
       this.performSearch(true, true, event.shiftKey);
+      VisualLogging.logKeyDown(event, 'search');
     } else {
       this.jumpToNextSearchResult(event.shiftKey);
+      VisualLogging.logKeyDown(event, 'select-next');
     }
   }
 
   private onReplaceKeyDown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       this.replace();
+      VisualLogging.logKeyDown(event, 'replace');
     }
   }
 
