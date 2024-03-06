@@ -1352,11 +1352,25 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (this.lastSelection && this.lastSelection.timelineSelection.object === selection.object) {
       return this.lastSelection.entryIndex;
     }
+    // does not contain anymore
+    // need to check entry to node if its the entry
+    if(TraceEngine.Types.TraceEvents.isSyntheticTraceEntry(selection.object)) {
+      const node = this.traceEngineData?.Renderer.entryToNode.get(selection.object)
+      return node?.id
+    }
+
     const index = this.entryData.indexOf(selection.object);
     if (index !== -1) {
       this.lastSelection = new Selection(selection, index);
     }
     return index;
+  }
+
+  revealParent(group: PerfUI.FlameChart.Group, selection: number): boolean {
+    if(this.compatibilityTracksAppender?.revealParent) {
+      return this.compatibilityTracksAppender?.revealParent(group, selection);
+    }
+    return false;
   }
 
   getIndexForEvent(targetEvent: TraceEngine.Types.TraceEvents.TraceEventData): number|null {
