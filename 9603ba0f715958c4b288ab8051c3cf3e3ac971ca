@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57c7398f_bf610958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-06T09:40:16Z",
+      "side": 1,
+      "message": "Let me move it to MainImpl then (too easy to enable that)",
+      "parentUuid": "5d54c839_76be3792",
+      "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25ad7e4f_e45a72ad",
@@ -143,6 +161,30 @@
       "writtenOn": "2024-03-06T09:01:27Z",
       "side": 1,
       "message": "I think I\u0027d find the following slightly more readable:\n\n```\nlet setting: Common.Settings.Setting\u003cunknown\u003e;\ntry {\n  setting \u003d Common.Settings.moduleSetting(\u0027console-insights-enabled\u0027);\n} catch {\n  return;\n}\n```\n\nTS narrows the type so you can skip the `null` check.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 5
+      },
+      "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3fbfa0_a420ac2b",
+        "filename": "front_end/panels/settings/SettingsScreen.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-06T09:40:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef35bd3a_a435ce15",
       "range": {
         "startLine": 150,
         "startChar": 0,
