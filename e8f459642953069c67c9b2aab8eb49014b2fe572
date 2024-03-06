@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7fc15d2f_008a57b3",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-06T18:21:17Z",
+      "side": 1,
+      "message": "How about using a real property name if available? See updated CL.\n\nI had considered falling back to just the property value when calling getComputedText for the declaration, but that feels unnecessarily complicated. So far the contract\u0027s been that callers everywhere need to be aware of what type of ast node they\u0027re holding, so when they\u0027re calling getComputedText for the declaration they need to be prepared for the result.",
+      "parentUuid": "b758a467_8e772dae",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "020c570e_8feea097",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 6
@@ -66,6 +84,24 @@
       "writtenOn": "2024-03-06T12:49:59Z",
       "side": 1,
       "message": "I didn\u0027t see where the `nodeGroups` is used, can you explain why we need it?",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0c1275f_03ae9ed8",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-06T18:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "020c570e_8feea097",
       "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -83,6 +119,24 @@
       "writtenOn": "2024-03-06T12:49:59Z",
       "side": 1,
       "message": "Can we add a comment here, what exactly is 2? :)",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b33ce138_a1701fa1",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-06T18:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a7e5811_eae9ebb5",
       "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -106,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5cf2e0a7_f3f377e2",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-06T18:21:17Z",
+      "side": 1,
+      "message": "yes, the children of `computedValue.tree` are [VariableName, \u0027:\u0027, CallExpression], so we need that extra hop.",
+      "parentUuid": "9a2eda7e_e4272099",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2411746_c845affd",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 6
@@ -123,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f1ca2d8_95b2d33c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-06T18:21:17Z",
+      "side": 1,
+      "message": "I totally agree, the tree walking was a lot nicer before. Do you have a better idea how to make matching the entire declaration work?",
+      "parentUuid": "f2411746_c845affd",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7975cee6_17a9c5a0",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 6
@@ -134,6 +224,24 @@
       "writtenOn": "2024-03-06T12:49:59Z",
       "side": 1,
       "message": "Why do we need concatting with important here as we expect the `important` node  to already exist in the `shadow` declaration? See the case `box-shadow: 12px 11px 5px 21px 48px red !important`",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acb97e27_0c5c8a1b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-06T18:21:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7975cee6_17a9c5a0",
       "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
