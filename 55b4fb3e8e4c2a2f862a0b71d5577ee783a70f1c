@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4228ed6a_6833b56b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-03-06T15:29:33Z",
+      "side": 1,
+      "message": "Sample invocation: https://luci-milo.appspot.com/ui/inv/u-leese-2024-03-06-14-27-00-42940143c1634d4a/test-results?sortby\u003d\u0026groupby\u003d",
+      "revId": "55b4fb3e8e4c2a2f862a0b71d5577ee783a70f1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
