@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18e4db84_6a191331",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-06T19:15:50Z",
+      "side": 1,
+      "message": "TTFB should always be defined right? Same with renderDelay?\n\n```suggestion\n  ttfb: Types.Timing.MilliSeconds;\n```",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7545ee96_f1bfb43c",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-06T19:15:50Z",
+      "side": 1,
+      "message": "Technically we want `receiveHeadersStart` which is actually in the trace but was never added to this `requeset.args.data.timing` in typescript. Can you add that in this PR?",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "090a6606_276b63fd",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-06T19:15:50Z",
+      "side": 1,
+      "message": "Isn\u0027t `ts` already in micro seconds? Is there a type error if you remove?\n\n```suggestion\n  const lcpStartTs \u003d lcpRequest.ts - nav.ts;\n```",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20dbf8d3_7362caf4",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-06T19:15:50Z",
+      "side": 1,
+      "message": "Can you extract the code where you find the largest image paint and then find the LCP request to a helper function like `findLCPRequest` or something similar?",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
