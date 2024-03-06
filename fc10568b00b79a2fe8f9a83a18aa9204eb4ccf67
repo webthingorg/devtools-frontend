@@ -34,6 +34,24 @@
       "parentUuid": "1195db99_3312f31f",
       "revId": "fc10568b00b79a2fe8f9a83a18aa9204eb4ccf67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e0ea12d_ba2674ac",
+        "filename": "front_end/third_party/additional_readme_paths.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-06T10:42:55Z",
+      "side": 1,
+      "message": "I verified that it works on Linux but I am not sure if Python on Windows will work. It looks like https://docs.python.org/3/library/pathlib.html might actually handle it properly.",
+      "parentUuid": "7d63c300_a68786bc",
+      "revId": "fc10568b00b79a2fe8f9a83a18aa9204eb4ccf67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
