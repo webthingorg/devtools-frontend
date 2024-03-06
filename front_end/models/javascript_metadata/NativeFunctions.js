@@ -7952,6 +7952,10 @@ export const NativeFunctions = [
     signatures: [["metadata"]]
   },
   {
+    name: "RTCEncodedVideoFrame",
+    signatures: [["originalFrame","?newMetadata"]]
+  },
+  {
     name: "RTCErrorEvent",
     signatures: [["type","eventInitDict"]]
   },
