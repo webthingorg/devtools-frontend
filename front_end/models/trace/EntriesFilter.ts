@@ -179,6 +179,10 @@ export class EntriesFilter {
         this.#makeEntryChildrenVisible(action.entry);
         break;
       }
+      case FilterAction.REVEAL_ENTRY: {
+        this.revealEntry(action.entry);
+        break;
+      }
       default:
         Platform.assertNever(action.type, `Unknown EntriesFilter action: ${action.type}`);
     }
@@ -275,6 +279,21 @@ export class EntriesFilter {
     }
 
     return repeatingNodes;
+  }
+
+  revealEntry(entry: Types.TraceEvents.SyntheticTraceEntry): void {
+    // Find the closest modified parent
+    const entryNode = this.#entryToNode.get(entry);
+    if (!entryNode) {
+      // Invalid node was given, just ignore and move on.
+      return;
+    }
+    let modifiedParent = entryNode;
+    while (modifiedParent.parent && !this.#modifiedVisibleEntries.includes(modifiedParent.entry)) {
+      modifiedParent = modifiedParent.parent;
+    }
+
+    this.#makeEntryChildrenVisible(modifiedParent.entry);
   }
 
   /**
