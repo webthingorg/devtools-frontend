@@ -16,6 +16,24 @@
       "message": "Forward slashes worry me here: do we have a chromium windows builder bot?",
       "revId": "fc10568b00b79a2fe8f9a83a18aa9204eb4ccf67",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d63c300_a68786bc",
+        "filename": "front_end/third_party/additional_readme_paths.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-06T10:03:52Z",
+      "side": 1,
+      "message": "Does anyone else consume the `additional_readme_paths.json`? IIUC then we don\u0027t actually follow the paths since the python filters it out.\n\nBut yes, it\u0027s not ideal.",
+      "parentUuid": "1195db99_3312f31f",
+      "revId": "fc10568b00b79a2fe8f9a83a18aa9204eb4ccf67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
