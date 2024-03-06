@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e14b5346_5d227b6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "Looks solid to me!\n\nAlso, wdyt of putting `ShadowModel` back to the `InlineEditor`? I feel like `StylePropertyTreeElement` getting convoluted with swatch specific logic too much and if we have the place, it might be better to move swatch specific logic outside.",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b758a467_8e772dae",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "I think using fake property `--property` shouldn\u0027t leak to tests or other parts of the code. Can we find a better solution here?\n\nI\u0027d prefer passing fake property name or the regular property name explicit I think:\nmaybe having two functions:\n\n- `tokenizeDeclaration(propertyName, propertyValue)` which would return text with `${propertyName}: ${propertyValue}`\n- `tokenizePropertyValue(propertyValue)` which will hide the fake property name.\n\nWDYT? (I think this is similar to the other comment about renaming to `tokenizeDeclaration`)",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020c570e_8feea097",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "I didn\u0027t see where the `nodeGroups` is used, can you explain why we need it?",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a7e5811_eae9ebb5",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "Can we add a comment here, what exactly is 2? :)",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a2eda7e_e4272099",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "Do we really need this `declValue` call here as the previous `computedValue.tree` is already a `declaration` with `[\"--property\", \":\", \"color-mix(...)\"]`, so matching the `callArgs` should still match `color-mix\u0027s args; isn\u0027t it?",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2411746_c845affd",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "Should we rename this to `tokenizeDeclaration` as it is now returning a tree corresponding to a declaration?\n\nThough... now it feels a bit awkward that it is returning a declaration SyntaxNode with a fake property name.",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7975cee6_17a9c5a0",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "Why do we need concatting with important here as we expect the `important` node  to already exist in the `shadow` declaration? See the case `box-shadow: 12px 11px 5px 21px 48px red !important`",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc6a8b0_4f12e756",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "Looking forward to seeing the increase here actually, thanks to being able to render shadow swatches with `var()`s now! :)",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

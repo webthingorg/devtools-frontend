@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1675367_f99a1ed4",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7674b179_bcf72dad",
+      "revId": "4ecb814122db7b6d2d5ebdcd6017fbccecea981e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74cffcd5_c88d3db7",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-05T18:51:04Z",
       "side": 1,
       "message": "This is behavior change, the legacy renderer would have rejected the entire property, but I see no problem rendering the partial shadow swatches, do you?",
+      "revId": "4ecb814122db7b6d2d5ebdcd6017fbccecea981e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e9346f_00c77478",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-06T12:49:59Z",
+      "side": 1,
+      "message": "I think so too, SGTM!",
+      "parentUuid": "74cffcd5_c88d3db7",
       "revId": "4ecb814122db7b6d2d5ebdcd6017fbccecea981e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
