@@ -16,6 +16,24 @@
       "message": "Just to double check, removing setting context of the event is intended right? -- and if so, is keeping setting the context in `logKeyDown` intended too?",
       "revId": "61c311658c5df4c0d61dbcd4fca3d026f184a934",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63dad813_037c2575",
+        "filename": "front_end/ui/visual_logging/LoggingEvents.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-06T11:38:35Z",
+      "side": 0,
+      "message": "Yes, it is. There\u0027s no point in repeating the same context value that was already logged with the impression. For the keydown we might log a custom context value, different from the impression one.",
+      "parentUuid": "04fe2970_8bf8718d",
+      "revId": "61c311658c5df4c0d61dbcd4fca3d026f184a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
