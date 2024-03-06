@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "074faa00_18bd89b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-06T17:11:50Z",
+      "side": 1,
+      "message": "Hard to do that cleanly. ShadowProperty depends on SyntaxNode and RenderingContext, the first one is a just ugly, but the second one introduces an import cycle.",
+      "parentUuid": "e14b5346_5d227b6c",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b758a467_8e772dae",
