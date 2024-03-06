@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44c455ca_ce3c7bc9",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-03-06T17:03:22Z",
+      "side": 1,
+      "message": "Ideally, we\u0027d also track hover events for datagrid rows. But since we don\u0027t care about row hovers for most/all other data grids, it\u0027s probably not worth the additional veLogging noise, or not worth the additional code complexity of adding logic for conditionally logging row hover events only for this specific data grid.",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 53
+      },
+      "revId": "c481893686ab7629cf79643ebfc9fabdf4261a88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
