@@ -148,6 +148,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df7373d_52c8f8c6",
+        "filename": "front_end/panels/settings/SettingsScreen.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-06T09:51:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "25ad7e4f_e45a72ad",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "9603ba0f715958c4b288ab8051c3cf3e3ac971ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef35bd3a_a435ce15",
