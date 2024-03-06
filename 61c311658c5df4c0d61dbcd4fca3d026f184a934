@@ -16,6 +16,24 @@
       "message": "Somehow it does not fail locally but shows up on bots.",
       "revId": "61c311658c5df4c0d61dbcd4fca3d026f184a934",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d0cbe5_91b5096b",
+        "filename": "scripts/build/assert_third_party_readmes.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-06T09:58:38Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "91662833_18150b4b",
+      "revId": "61c311658c5df4c0d61dbcd4fca3d026f184a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
