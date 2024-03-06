@@ -142,6 +142,29 @@ export class SettingsScreen extends UI.Widget.VBox implements UI.View.ViewLocati
     tabbedPane.selectTab('preferences');
     tabbedPane.addEventListener(UI.TabbedPane.Events.TabInvoked, this.tabInvoked, this);
     this.reportTabOnReveal = false;
+    this.#trackConsoleInsightSettingChange();
+  }
+
+  #trackConsoleInsightSettingChange(): void {
+    // Keep in sync with front_end/panels/explain/*.
+    const setting = (() => {
+      try {
+        return Common.Settings.moduleSetting('console-insights-enabled');
+      } catch {
+        return null;
+      }
+    })();
+    if (!setting) {
+      return;
+    }
+    setting.addChangeListener(() => {
+      // If setting was turned on, reset the consent.
+      if (setting.get()) {
+        Common.Settings.Settings.instance()
+            .createLocalSetting('console-insights-onboarding-finished', false)
+            .set(false);
+      }
+    });
   }
 
   static instance(opts: {forceNew: boolean|null} = {forceNew: null}): SettingsScreen {

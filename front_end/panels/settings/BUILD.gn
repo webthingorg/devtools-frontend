@@ -64,5 +64,8 @@ devtools_entrypoint("meta") {
     "./emulation:meta",
   ]
 
-  visibility = [ "../../entrypoints/*" ]
+  visibility = [
+    ":unittests",
+    "../../entrypoints/*",
+  ]
 }
