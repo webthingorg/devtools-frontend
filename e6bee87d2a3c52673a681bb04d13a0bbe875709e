@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaafc1f7_f6157e1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-06T09:45:13Z",
+      "side": 1,
+      "message": "lgtm % missing devtools_grd_files entry.",
+      "revId": "e6bee87d2a3c52673a681bb04d13a0bbe875709e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a8a2188_884a6859",
+        "filename": "front_end/panels/settings/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-06T09:45:13Z",
+      "side": 1,
+      "message": "This change is superfluous now.",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 17
+      },
+      "revId": "e6bee87d2a3c52673a681bb04d13a0bbe875709e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
