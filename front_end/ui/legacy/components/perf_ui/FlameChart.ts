@@ -2838,6 +2838,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   setSelectedEntry(entryIndex: number): void {
+    this.makeEntryVisible(entryIndex);
     // Check if the button that resets children of the entry is clicked. We need to check it even if the entry
     // clicked is not selected to avoid needing to double click
     if (this.isMouseOverRevealChildrenArrow(this.lastMouseOffsetX, entryIndex)) {
@@ -2852,6 +2853,32 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+  }
+
+  /**
+   * If an entry is hidden by a context menu action, reveal it.
+   */
+  makeEntryVisible(entryIndex: number): void {
+    const data = this.timelineData();
+    if (!data) {
+      return;
+    }
+    const group = data.groups.at(this.selectedGroupIndex);
+    // Early exit here if there is no group or:
+    // 1. The group is not expanded: it needs to be expanded to allow the
+    //    context menu actions to occur.
+    // 2. The group does not have the showStackContextMenu flag which indicates
+    //    that it does not show entries that support the stack actions.
+    if (!group || !group.expanded || !group.showStackContextMenu) {
+      return;
+    }
+
+    // find the parent from here somehow
+    const needUpdate = this.dataProvider.revealParent?.(group, entryIndex);
+    if (needUpdate) {
+      this.dataProvider.timelineData(true);
+      this.update();
+    }
   }
 
   private entryHasDecoration(entryIndex: number, decorationType: FlameChartDecorationType): boolean {
@@ -3224,6 +3251,8 @@ export interface FlameChartDataProvider {
   modifyTree?(group: Group, node: number, action: TraceEngine.EntriesFilter.FilterAction): void;
 
   findPossibleContextMenuActions?(group: Group, node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
+
+  revealParent?(group: Group, selection: number): void;
 }
 
 export interface FlameChartMarker {

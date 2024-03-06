@@ -35,6 +35,7 @@ import * as Root from '../../core/root/root.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import {type SyntheticTraceEntry} from '../../models/trace/types/TraceEvents.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
@@ -1352,11 +1353,23 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (this.lastSelection && this.lastSelection.timelineSelection.object === selection.object) {
       return this.lastSelection.entryIndex;
     }
+    // If the selection object is an event, it might be hidden by the context menu
+    // action and not be present in entryData as it only contains visible entries.
+    // Threfore, get the index from the entryToNode map.
+    if (TimelineSelection.isTraceEventSelection(selection.object)) {
+      const node = this.traceEngineData?.Renderer.entryToNode.get(selection.object as SyntheticTraceEntry);
+      return node?.id ?? -1;
+    }
+
     const index = this.entryData.indexOf(selection.object);
     if (index !== -1) {
       this.lastSelection = new Selection(selection, index);
     }
     return index;
+  }
+
+  revealParent(group: PerfUI.FlameChart.Group, selection: number): boolean {
+    return this.compatibilityTracksAppender?.revealParent(group, selection) ?? false;
   }
 
   getIndexForEvent(targetEvent: TraceEngine.Types.TraceEvents.TraceEventData): number|null {
