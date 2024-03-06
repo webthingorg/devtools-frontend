@@ -20,6 +20,7 @@ export abstract class Linkifier {
 export interface Options {
   tooltip?: string;
   preventKeyboardFocus?: boolean;
+  textContent?: string;
 }
 
 const registeredLinkifiers: LinkifierRegistration[] = [];

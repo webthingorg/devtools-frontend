@@ -1607,6 +1607,8 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       attrValueElement.appendChild(linkifySrcset.call(this, value));
     } else if (nodeName === 'image' && (name === 'xlink:href' || name === 'href')) {
       attrValueElement.appendChild(linkifySrcset.call(this, value));
+    } else if (name === 'popovertarget') {
+      void this.linkifyElementById(attrValueElement, value);
     } else {
       setValueWithEntities.call(this, attrValueElement, value);
     }
@@ -1666,6 +1668,28 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
 
     return attrSpanElement;
+  }
+
+  private async linkifyElementById(attributeValue: Element, id: string): Promise<void> {
+    const defaultFragment = document.createElement('span');
+    defaultFragment.textContent = id;
+    const ownerDocument = this.nodeInternal.ownerDocument;
+    if (!ownerDocument) {
+      attributeValue.append(defaultFragment);
+      return;
+    }
+    const nodeId = await this.nodeInternal.domModel().querySelector(ownerDocument.id, `#${id}`);
+    const node = this.nodeInternal.domModel().nodeForId(nodeId);
+    if (!node) {
+      attributeValue.append(defaultFragment);
+      return;
+    }
+    const link = await Common.Linkifier.Linkifier.linkify(node, {
+      preventKeyboardFocus: true,
+      tooltip: undefined,
+      textContent: id,
+    });
+    attributeValue.append(link);
   }
 
   private buildPseudoElementDOM(parentElement: DocumentFragment, pseudoElementName: string): void {
