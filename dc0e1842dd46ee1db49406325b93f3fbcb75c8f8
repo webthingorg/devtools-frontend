@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49bd5739_0ffaf27c",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-03-07T14:40:31Z",
+      "side": 1,
+      "message": "Got it, thanks!",
+      "parentUuid": "e1268d3e_1a890c54",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 48
+      },
+      "revId": "dc0e1842dd46ee1db49406325b93f3fbcb75c8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bafaefb0_a825c20e",
