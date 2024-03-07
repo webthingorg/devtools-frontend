@@ -27,6 +27,8 @@ function setVeDebuggingEnabled(enabled: boolean): void {
   }
 }
 
+setVeDebuggingEnabled(true);
+
 // @ts-ignore
 globalThis.setVeDebuggingEnabled = setVeDebuggingEnabled;
 
@@ -76,11 +78,17 @@ function processElementForDebugging(element: Element, loggingState: LoggingState
   }
 }
 
+const debugEvents: string[] = [];
+
 export function showDebugPopoverForEvent(name: string, config?: LoggingConfig, context?: string): void {
   if (!veDebuggingEnabled) {
     return;
   }
-  showDebugPopover(`${name}: ${config ? debugString(config) : ''}; ${context ? 'context: ' + context : ''}`);
+  debugEvents.push(`${name}: ${config ? debugString(config) : ''}; ${context ? 'context: ' + context : ''}`);
+  if (debugEvents.length > 3) {
+    debugEvents.shift();
+  }
+  showDebugPopover(debugEvents.join('<br>'));
 }
 
 function processNonDomLoggableForDebugging(loggable: Loggable, loggingState: LoggingState): void {

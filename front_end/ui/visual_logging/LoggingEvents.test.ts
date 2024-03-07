@@ -85,7 +85,7 @@ describe('LoggingEvents', () => {
     );
     const event = new KeyboardEvent('keydown');
     sinon.stub(event, 'currentTarget').value(element);
-    VisualLogging.LoggingEvents.logKeyDown(throttler)(event);
+    void VisualLogging.LoggingEvents.logKeyDown(throttler)(event);
     await assertThrottled(recordKeyDown);
     assert.deepStrictEqual(stabilizeEvent(recordKeyDown.firstCall.firstArg), {veid: 0});
   });
@@ -97,7 +97,7 @@ describe('LoggingEvents', () => {
     );
     const event = new KeyboardEvent('keydown', {code: 'Enter'});
     sinon.stub(event, 'currentTarget').value(element);
-    VisualLogging.LoggingEvents.logKeyDown(throttler, ['Enter', 'Escape'])(event);
+    void VisualLogging.LoggingEvents.logKeyDown(throttler, ['Enter', 'Escape'])(event);
     await assertThrottled(recordKeyDown);
     assert.deepStrictEqual(stabilizeEvent(recordKeyDown.firstCall.firstArg), {veid: 0});
   });
@@ -109,7 +109,7 @@ describe('LoggingEvents', () => {
     );
     const event = new KeyboardEvent('keydown', {code: 'Enter'});
     sinon.stub(event, 'currentTarget').value(element);
-    VisualLogging.LoggingEvents.logKeyDown(throttler)(event, 21);
+    void VisualLogging.LoggingEvents.logKeyDown(throttler)(event, 21);
     await assertThrottled(recordKeyDown);
     assert.deepStrictEqual(stabilizeEvent(recordKeyDown.firstCall.firstArg), {veid: 0, context: 21});
   });
@@ -121,7 +121,7 @@ describe('LoggingEvents', () => {
     );
     const event = new KeyboardEvent('keydown', {code: 'KeyQ'});
     sinon.stub(event, 'currentTarget').value(element);
-    VisualLogging.LoggingEvents.logKeyDown(throttler, ['Enter', 'Escape'])(event);
+    void VisualLogging.LoggingEvents.logKeyDown(throttler, ['Enter', 'Escape'])(event);
     assert.isFalse(recordKeyDown.called);
   });
 

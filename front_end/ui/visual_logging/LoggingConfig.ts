@@ -87,7 +87,7 @@ export enum VisualElements {
   /* 65 used to be ToggleElementSearch, but free to grab now */
   PanelTabHeader = 66,
   Menu = 67,
-  /* 68 used to be DeveloperResourcesPanel, but free to grab now */
+  TableRow = 68,
   TableHeader = 69,
   TableCell = 70,
   /* 71 used to be StylesComputedPane, but free to grab now */
@@ -198,7 +198,12 @@ export function makeConfigStringBuilder(veName: VisualElementName, context?: str
       resize?: boolean,
     }): ConfigStringBuilder {
       components.push(`track: ${
-          Object.entries(options).map(([key, value]) => value !== true ? `${key}: ${value}` : key).join(', ')}`);
+          Object.entries(options)
+              .map(
+                  ([key, value]) => typeof value === 'string' ? `${key}: ${value}` :
+                      value ? key :
+                              '')
+              .join(', ')}`);
       return this;
     },
     toString: function(): string {
