@@ -12548,6 +12548,12 @@
                             "type": "boolean"
                         },
                         {
+                            "name": "fromEarlyHints",
+                            "description": "Specifies that the request was served from the prefetch cache.",
+                            "optional": true,
+                            "type": "boolean"
+                        },
+                        {
                             "name": "serviceWorkerRouterInfo",
                             "description": "Information about how Service Worker Static Router was used.",
                             "experimental": true,
