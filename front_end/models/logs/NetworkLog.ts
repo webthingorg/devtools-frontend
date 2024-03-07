@@ -257,6 +257,8 @@ export class NetworkLog extends Common.ObjectWrapper.ObjectWrapper<EventTypes> i
       } else if (initiator.type === Protocol.Network.InitiatorType.SignedExchange) {
         type = SDK.NetworkRequest.InitiatorType.SignedExchange;
         url = initiator.url as Platform.DevToolsPath.UrlString || Platform.DevToolsPath.EmptyUrlString;
+      } else if (initiator.type === Protocol.Network.InitiatorType.EarlyHints) {
+        type = SDK.NetworkRequest.InitiatorType.EarlyHints;
       }
     }
     initiatorInfo.info = {type, url, lineNumber, columnNumber, scriptId, stack: initiatorStack, initiatorRequest};

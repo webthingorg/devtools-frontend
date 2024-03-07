@@ -8363,6 +8363,10 @@ export namespace Network {
      */
     fromPrefetchCache?: boolean;
     /**
+     * Specifies that the request was served from the prefetch cache.
+     */
+    fromEarlyHints?: boolean;
+    /**
      * Information about how Service Worker Static Router was used.
      */
     serviceWorkerRouterInfo?: ServiceWorkerRouterInfo;
