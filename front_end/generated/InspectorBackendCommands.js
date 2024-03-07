@@ -648,7 +648,7 @@ inspectorBackend.registerEvent("Network.requestServedFromCache", ["requestId"]);
 inspectorBackend.registerEvent("Network.requestWillBeSent", ["requestId", "loaderId", "documentURL", "request", "timestamp", "wallTime", "initiator", "redirectHasExtraInfo", "redirectResponse", "type", "frameId", "hasUserGesture"]);
 inspectorBackend.registerEvent("Network.resourceChangedPriority", ["requestId", "newPriority", "timestamp"]);
 inspectorBackend.registerEvent("Network.signedExchangeReceived", ["requestId", "info"]);
-inspectorBackend.registerEvent("Network.responseReceived", ["requestId", "loaderId", "timestamp", "type", "response", "hasExtraInfo", "frameId"]);
+inspectorBackend.registerEvent("Network.responseReceived", ["requestId", "loaderId", "timestamp", "type", "response", "earlyHintsHit", "hasExtraInfo", "frameId"]);
 inspectorBackend.registerEvent("Network.webSocketClosed", ["requestId", "timestamp"]);
 inspectorBackend.registerEvent("Network.webSocketCreated", ["requestId", "url", "initiator"]);
 inspectorBackend.registerEvent("Network.webSocketFrameError", ["requestId", "timestamp", "errorMessage"]);

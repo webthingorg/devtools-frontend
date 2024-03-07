@@ -1476,6 +1476,12 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     return this.#initiatorInternal || null;
   }
 
+  setEarlyHintsInitiator(): void {
+    if (this.#initiatorInternal) {
+      this.#initiatorInternal.type = Protocol.Network.InitiatorType.EarlyHints;
+    }
+  }
+
   hasUserGesture(): boolean|null {
     return this.#hasUserGesture ?? null;
   }
@@ -1815,6 +1821,7 @@ export const enum InitiatorType {
   Preload = 'preload',
   SignedExchange = 'signedExchange',
   Preflight = 'preflight',
+  EarlyHints = 'early hints',
 }
 
 export enum WebSocketFrameType {

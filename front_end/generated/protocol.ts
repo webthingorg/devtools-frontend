@@ -9862,6 +9862,10 @@ export namespace Network {
      */
     response: Response;
     /**
+     * Whether the response is loaded via early hints
+     */
+    earlyHintsHit: boolean;
+    /**
      * Indicates whether requestWillBeSentExtraInfo and responseReceivedExtraInfo events will be
      * or were emitted for this request.
      */

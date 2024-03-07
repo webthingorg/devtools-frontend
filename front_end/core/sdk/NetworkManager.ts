@@ -691,10 +691,12 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     networkRequest.setFromMemoryCache();
   }
 
-  responseReceived({requestId, loaderId, timestamp, type, response, frameId}: Protocol.Network.ResponseReceivedEvent):
-      void {
+  responseReceived({requestId, loaderId, timestamp, type, response, earlyHintsHit, frameId}:
+                       Protocol.Network.ResponseReceivedEvent): void {
     const networkRequest = this.#requestsById.get(requestId);
     const lowercaseHeaders = NetworkManager.lowercaseHeaders(response.headers);
+    // console.log('responseReceived: ', response.url);
+    // console.log('early_hints_hit: ', earlyHintsHit);
     if (!networkRequest) {
       const lastModifiedHeader = lowercaseHeaders['last-modified'];
       // We missed the requestWillBeSent.
@@ -712,6 +714,11 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
     networkRequest.responseReceivedTime = timestamp;
     networkRequest.setResourceType(Common.ResourceType.resourceTypes[type]);
+
+    if (earlyHintsHit) {
+      // console.log('responseReceived: earlyHintsHit');
+      networkRequest.setEarlyHintsInitiator();
+    }
 
     this.updateNetworkRequestWithResponse(networkRequest, response);
 

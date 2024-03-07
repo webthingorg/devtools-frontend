@@ -14698,6 +14698,11 @@
                             "$ref": "Response"
                         },
                         {
+                            "name": "earlyHintsHit",
+                            "description": "Whether the response is loaded via early hints",
+                            "type": "boolean"
+                        },
+                        {
                             "name": "hasExtraInfo",
                             "description": "Indicates whether requestWillBeSentExtraInfo and responseReceivedExtraInfo events will be\nor were emitted for this request.",
                             "experimental": true,

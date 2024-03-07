@@ -6727,6 +6727,8 @@ domain Network
       ResourceType type
       # Response data.
       Response response
+      # Whether the response is loaded via early hints
+      boolean earlyHintsHit
       # Indicates whether requestWillBeSentExtraInfo and responseReceivedExtraInfo events will be
       # or were emitted for this request.
       experimental boolean hasExtraInfo
