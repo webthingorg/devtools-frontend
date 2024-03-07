@@ -267,6 +267,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "655cd3ad_48da75ab",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-07T12:52:21Z",
+      "side": 1,
+      "message": "Ah that\u0027s fair, WDYT of:\n* Removing my version of `tokenizePropertyValue`.\n* Marking `name` as required in `tokenizeDeclaration`.\n* Using `tokenizeDeclaration` with fake names on the call side if we don\u0027t care about the name.\n\nThat way:\n* We\u0027re consistent with the name of the function: it\u0027s always returning a SyntaxTree for declaration.\n* The function is semantically more meaningful: as a declaration consists of a property name and a value.",
+      "parentUuid": "eb224a9d_47f04797",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7975cee6_17a9c5a0",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 6
