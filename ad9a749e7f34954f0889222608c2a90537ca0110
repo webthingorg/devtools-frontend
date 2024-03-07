@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b459d8_3fe8a12c",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-07T14:15:16Z",
+      "side": 1,
+      "message": "How about putting duration and percentage into a tooltip additionally?",
+      "revId": "ad9a749e7f34954f0889222608c2a90537ca0110",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
