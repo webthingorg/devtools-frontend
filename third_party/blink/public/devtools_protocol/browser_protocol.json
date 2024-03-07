@@ -12662,6 +12662,7 @@
                                 "preload",
                                 "SignedExchange",
                                 "preflight",
+                                "EarlyHints",
                                 "other"
                             ]
                         },
@@ -14571,6 +14572,17 @@
                 {
                     "name": "requestServedFromCache",
                     "description": "Fired if request ended up loading from cache.",
+                    "parameters": [
+                        {
+                            "name": "requestId",
+                            "description": "Request identifier.",
+                            "$ref": "RequestId"
+                        }
+                    ]
+                },
+                {
+                    "name": "requestServedFromEarlyHints",
+                    "description": "Fired if request reuses the data loaded by early hints.",
                     "parameters": [
                         {
                             "name": "requestId",
