@@ -5869,6 +5869,7 @@ domain Network
         preload
         SignedExchange
         preflight
+        EarlyHints
         other
       # Initiator JavaScript stack trace, set for Script only.
       optional Runtime.StackTrace stack
@@ -6668,6 +6669,12 @@ domain Network
 
   # Fired if request ended up loading from cache.
   event requestServedFromCache
+    parameters
+      # Request identifier.
+      RequestId requestId
+
+  # Fired if request reuses the data loaded by early hints.
+  event requestServedFromEarlyHints
     parameters
       # Request identifier.
       RequestId requestId

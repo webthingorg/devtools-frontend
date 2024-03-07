@@ -8455,6 +8455,7 @@ export namespace Network {
     Preload = 'preload',
     SignedExchange = 'SignedExchange',
     Preflight = 'preflight',
+    EarlyHints = 'EarlyHints',
     Other = 'other',
   }
 
@@ -9755,6 +9756,16 @@ export namespace Network {
    * Fired if request ended up loading from cache.
    */
   export interface RequestServedFromCacheEvent {
+    /**
+     * Request identifier.
+     */
+    requestId: RequestId;
+  }
+
+  /**
+   * Fired if request reuses the data loaded by early hints.
+   */
+  export interface RequestServedFromEarlyHintsEvent {
     /**
      * Request identifier.
      */
