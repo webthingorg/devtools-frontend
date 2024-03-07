@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5abf0635_b0fa6b34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-07T10:18:11Z",
+      "side": 1,
+      "message": "Do you maybe want to link to crbug.com or issues.chromium.org instead?",
+      "revId": "cf5c64b38325dc8539cab29b9f12301f5eec311c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
