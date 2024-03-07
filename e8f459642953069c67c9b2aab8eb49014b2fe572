@@ -176,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d43ce99_d7f2c02e",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-07T10:13:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5cf2e0a7_f3f377e2",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2411746_c845affd",
@@ -207,6 +225,24 @@
       "side": 1,
       "message": "I totally agree, the tree walking was a lot nicer before. Do you have a better idea how to make matching the entire declaration work?",
       "parentUuid": "f2411746_c845affd",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd73c49d_7a2f4b75",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-07T10:13:48Z",
+      "side": 1,
+      "message": "I wasn\u0027t able to come up with a different way to introduce matching declarations (I was thinking maybe changing the API would help like matching a declaration would go in a different path with a different kind of matcher).\n\nFrom the syntactic/API perspective though, I was thinking something along the lines of this diff: https://paste.googleplex.com/6392585158918144\n\n* Tokenizing a declaration would require a `name`\n* Tokenizing a property value will not accept a `name` and won\u0027t trouble itself with the name.\n\nI thought that would fit better to the ways we\u0027re doing tokenizing. WDYT?",
+      "parentUuid": "1f1ca2d8_95b2d33c",
       "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
