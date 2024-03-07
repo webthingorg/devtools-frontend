@@ -16,6 +16,40 @@
       "message": "Hey Ergün, I changed the code up a bit to also account for the second baseline theme (backend already landed). Could you please take another look?:)",
       "revId": "2a5f590c316b84e99f181d389d69be1740a3ffcd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eb3deda_369a1d9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-07T15:57:25Z",
+      "side": 1,
+      "message": "LGTM after fixing the tests :)",
+      "revId": "2a5f590c316b84e99f181d389d69be1740a3ffcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43c067c7_98345889",
+        "filename": "front_end/ui/legacy/theme_support/ThemeSupport.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-07T15:57:25Z",
+      "side": 1,
+      "message": "(nit): typo on `greyscale` -\u003e `grayscale`",
+      "revId": "2a5f590c316b84e99f181d389d69be1740a3ffcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
