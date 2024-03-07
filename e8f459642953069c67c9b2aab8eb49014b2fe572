@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb224a9d_47f04797",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-07T10:50:20Z",
+      "side": 1,
+      "message": "`tokenizePropertyValue` would then also return a declaration SyntaxNode though, is that acceptable?",
+      "parentUuid": "dd73c49d_7a2f4b75",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7975cee6_17a9c5a0",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 6
