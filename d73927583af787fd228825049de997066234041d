@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10605725_f34a6077",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-07T11:38:39Z",
+      "side": 1,
+      "message": "Nice! One thing that needs fixing, other than that LGTM!",
+      "revId": "d73927583af787fd228825049de997066234041d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4da709c3_580fe3df",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-07T11:38:39Z",
+      "side": 1,
+      "message": "This implies that a regular `find` walks the entire tree instead of terminating early. Additionally, returning false below terminates traversal of the subtree, so this couldn\u0027t be used to, for example, find all the var()s if there\u0027s some nesting.\n\nInstead, you could use the original traversal, but inside `findAll` wrap the predicate into a function that always returns false and builds the #foundAll list locally.",
+      "revId": "d73927583af787fd228825049de997066234041d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
