@@ -25,6 +25,7 @@ export interface MetaData {
   cpuThrottling?: number;
   hardwareConcurrency?: number;
   dataOrigin?: DataOrigin;
+  annotations?: string;
 }
 
 export type Contents = TraceFile|TraceEventData[];
