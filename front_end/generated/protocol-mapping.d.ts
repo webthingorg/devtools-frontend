@@ -207,6 +207,10 @@ export namespace ProtocolMapping {
      */
     'Network.requestServedFromCache': [Protocol.Network.RequestServedFromCacheEvent];
     /**
+     * Fired if request reuses the data loaded by early hints.
+     */
+    'Network.requestServedFromEarlyHints': [Protocol.Network.RequestServedFromEarlyHintsEvent];
+    /**
      * Fired when page is about to send HTTP request.
      */
     'Network.requestWillBeSent': [Protocol.Network.RequestWillBeSentEvent];

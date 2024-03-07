@@ -237,8 +237,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   readonly #documentURLInternal: Platform.DevToolsPath.UrlString;
   readonly #frameIdInternal: Protocol.Page.FrameId|null;
   readonly #loaderIdInternal: Protocol.Network.LoaderId|null;
-  readonly #initiatorInternal: Protocol.Network.Initiator|null|undefined;
   readonly #hasUserGesture: boolean|undefined;
+  #initiatorInternal: Protocol.Network.Initiator|null|undefined;
   #redirectSourceInternal: NetworkRequest|null;
   #preflightRequestInternal: NetworkRequest|null;
   #preflightInitiatorRequestInternal: NetworkRequest|null;
@@ -1476,6 +1476,12 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     return this.#initiatorInternal || null;
   }
 
+  setEarlyHintsInitiator(): void {
+    this.#initiatorInternal = {
+      type: Protocol.Network.InitiatorType.EarlyHints,
+    } as Protocol.Network.Initiator;
+  }
+
   hasUserGesture(): boolean|null {
     return this.#hasUserGesture ?? null;
   }
@@ -1815,6 +1821,7 @@ export const enum InitiatorType {
   Preload = 'preload',
   SignedExchange = 'signedExchange',
   Preflight = 'preflight',
+  EarlyHints = 'early hints',
 }
 
 export enum WebSocketFrameType {

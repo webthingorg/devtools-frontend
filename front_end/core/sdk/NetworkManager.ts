@@ -691,6 +691,15 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     networkRequest.setFromMemoryCache();
   }
 
+  requestServedFromEarlyHints({requestId}: Protocol.Network.RequestServedFromEarlyHintsEvent): void {
+    const networkRequest = this.#requestsById.get(requestId);
+    if (!networkRequest) {
+      return;
+    }
+
+    networkRequest.setEarlyHintsInitiator();
+  }
+
   responseReceived({requestId, loaderId, timestamp, type, response, frameId}: Protocol.Network.ResponseReceivedEvent):
       void {
     const networkRequest = this.#requestsById.get(requestId);
