@@ -8007,6 +8007,7 @@ export namespace Network {
     headers: Headers;
     /**
      * HTTP POST request data.
+     * Use postDataEntries instead.
      */
     postData?: string;
     /**
@@ -8014,7 +8015,7 @@ export namespace Network {
      */
     hasPostData?: boolean;
     /**
-     * Request body elements. This will be converted from base64 to binary
+     * Request body elements (post data broken into individual entries).
      */
     postDataEntries?: PostDataEntry[];
     /**
@@ -8361,6 +8362,10 @@ export namespace Network {
      * Specifies that the request was served from the prefetch cache.
      */
     fromPrefetchCache?: boolean;
+    /**
+     * Specifies that the request was served from the early hints.
+     */
+    fromEarlyHints?: boolean;
     /**
      * Information about how Service Worker Static Router was used.
      */
@@ -9791,6 +9796,16 @@ export namespace Network {
    * Fired if request ended up loading from cache.
    */
   export interface RequestServedFromCacheEvent {
+    /**
+     * Request identifier.
+     */
+    requestId: RequestId;
+  }
+
+  /**
+   * Fired if request reuses the data loaded by early hints.
+   */
+  export interface RequestServedFromEarlyHintsEvent {
     /**
      * Request identifier.
      */

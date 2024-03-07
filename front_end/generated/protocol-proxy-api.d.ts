@@ -2107,6 +2107,11 @@ declare namespace ProtocolProxyApi {
     requestServedFromCache(params: Protocol.Network.RequestServedFromCacheEvent): void;
 
     /**
+     * Fired if request reuses the data loaded by early hints.
+     */
+    requestServedFromEarlyHints(params: Protocol.Network.RequestServedFromEarlyHintsEvent): void;
+
+    /**
      * Fired when page is about to send HTTP request.
      */
     requestWillBeSent(params: Protocol.Network.RequestWillBeSentEvent): void;
