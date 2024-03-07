@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a359bd21_fab51924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-03-07T12:57:45Z",
+      "side": 1,
+      "message": "LGTM with 2 questions",
+      "revId": "dc0e1842dd46ee1db49406325b93f3fbcb75c8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "447621f7_29b24917",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-03-07T12:57:45Z",
+      "side": 1,
+      "message": "What does the change event cause to happen?",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 48
+      },
+      "revId": "dc0e1842dd46ee1db49406325b93f3fbcb75c8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bafaefb0_a825c20e",
+        "filename": "front_end/panels/sources/components/HeadersView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-03-07T12:57:45Z",
+      "side": 1,
+      "message": "You want to be able to distinguish between the wildcard pattern and all other patterns. Am I interpreting this correctly?",
+      "range": {
+        "startLine": 408,
+        "startChar": 42,
+        "endLine": 408,
+        "endChar": 79
+      },
+      "revId": "dc0e1842dd46ee1db49406325b93f3fbcb75c8f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
