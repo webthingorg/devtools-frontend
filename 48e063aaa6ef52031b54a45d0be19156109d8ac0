@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33e9d946_a4ab17a2",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-07T01:32:33Z",
+      "side": 1,
+      "message": "oops didnt finish my comment.  I\u0027m slightly considering that \u0027Match hit %\u0027 is going to be more useful.. But.. I\u0027m not sure. This is a small tweak IMO so I\u0027m fine to consider it after the CL lands.\n\nLet\u0027s go ahead with Match Count  :)",
+      "parentUuid": "a346a1ba_b7ce948e",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59f924dd_5a047f84",
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "I can reproduce this issue. It is related to the function `shouldAutoScrollToBottom` in the DataGrid class. It happens when 1) user has scrolled to the button of the datagrid then, 2) rerun profiling. Looks like a feature in datagrid but I can add a flag to disable this feature for selector stats in datagrid if preferred.",
       "parentUuid": "59f924dd_5a047f84",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c30d2e4e_0826777b",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-07T01:32:33Z",
+      "side": 1,
+      "message": "Ah that\u0027s it yup!  \nI\u0027m fine if you want to fix this in a follow-up CL.  I\u0027m not very familiar with this DataGrid component and don\u0027t know what kind of fix the owners prefer. But generally some option to disable the autoScrollToBottom makes sense to me.  :)",
+      "parentUuid": "fcdec905_20b49c98",
       "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

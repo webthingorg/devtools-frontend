@@ -16,6 +16,74 @@
       "message": "Hi Paul, I have updated implementation as suggested, PTAL.\n\nThanks,\nGavin",
       "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9370f5_3c0261cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-07T01:32:33Z",
+      "side": 1,
+      "message": "great updates. thank you!",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0385e74b_0bfabb32",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-07T01:32:33Z",
+      "side": 1,
+      "message": "wdyt about passing an `initialSort` for elapsed / desc ?",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e03e5df_1e7c5030",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-07T01:32:33Z",
+      "side": 1,
+      "message": "column order wise.. I think my ideal is \n\nElapsed | MatchAttempts | MatchCount | RejectPercentage | Selector | StyleSheetId\n\n(I personally think the percentage communicates the data better than fastRejectCount, thus we don\u0027t need the count.  But.. if you prefer to keep that.. sure.. it could fit in right before RefjectPercentage)",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "895ce645_5d095637",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-07T01:32:33Z",
+      "side": 1,
+      "message": "is there a way to set text alignment in these numeric cells to right-aligned?",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
