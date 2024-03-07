@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85fc1545_2372bff3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-07T10:36:13Z",
+      "side": 1,
+      "message": "Thanks 😊",
+      "revId": "9d4cb6aa646b750be84dec1101e208b55c6d05af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4276e874_800d33f5",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-03-07T08:42:41Z",
       "side": 1,
       "message": "```suggestion\n    // the case that this Entry is hidden by the Context Menu action.\n```",
+      "range": {
+        "startLine": 1357,
+        "startChar": 16,
+        "endLine": 1357,
+        "endChar": 20
+      },
+      "revId": "9d4cb6aa646b750be84dec1101e208b55c6d05af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff9f107_2a0caa71",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-07T10:36:13Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "4276e874_800d33f5",
       "range": {
         "startLine": 1357,
         "startChar": 16,
