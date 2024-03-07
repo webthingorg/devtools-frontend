@@ -16,6 +16,24 @@
       "message": "How about putting duration and percentage into a tooltip additionally?",
       "revId": "ad9a749e7f34954f0889222608c2a90537ca0110",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00756fae_c838543a",
+        "filename": "front_end/panels/animation/AnimationTimeline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-07T15:54:54Z",
+      "side": 1,
+      "message": "Discussed offline:\n* Showing percentages at all might be confusing\n* The duration is already known as it is the last value of the timeline.",
+      "parentUuid": "d4b459d8_3fe8a12c",
+      "revId": "ad9a749e7f34954f0889222608c2a90537ca0110",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
