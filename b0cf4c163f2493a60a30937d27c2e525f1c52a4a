@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fc5b4aa_65bc37d8",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-07T23:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18e4db84_6a191331",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7545ee96_f1bfb43c",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-06T19:15:50Z",
       "side": 1,
       "message": "Technically we want `receiveHeadersStart` which is actually in the trace but was never added to this `requeset.args.data.timing` in typescript. Can you add that in this PR?",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3922597_a3baa0bb",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-07T23:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7545ee96_f1bfb43c",
       "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed29b35_e20bfb2c",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-07T23:28:31Z",
+      "side": 1,
+      "message": "Yeah I get a type error on this one :/ Done",
+      "parentUuid": "090a6606_276b63fd",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20dbf8d3_7362caf4",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-03-06T19:15:50Z",
       "side": 1,
       "message": "Can you extract the code where you find the largest image paint and then find the LCP request to a helper function like `findLCPRequest` or something similar?",
+      "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b160bac0_1b95fa1a",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-07T23:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20dbf8d3_7362caf4",
       "revId": "b0cf4c163f2493a60a30937d27c2e525f1c52a4a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
