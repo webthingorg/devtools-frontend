@@ -12662,6 +12662,7 @@
                                 "preload",
                                 "SignedExchange",
                                 "preflight",
+                                "EarlyHints",
                                 "other"
                             ]
                         },
@@ -14717,6 +14718,11 @@
                             "name": "response",
                             "description": "Response data.",
                             "$ref": "Response"
+                        },
+                        {
+                            "name": "earlyHintsHit",
+                            "description": "Whether the response is loaded via early hints",
+                            "type": "boolean"
                         },
                         {
                             "name": "hasExtraInfo",

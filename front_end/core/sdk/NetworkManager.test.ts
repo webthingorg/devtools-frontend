@@ -141,6 +141,7 @@ describe('NetworkDispatcher', () => {
           requestId: 'mockId',
           loaderId: 'mockLoaderId',
           frameId: 'mockFrameId',
+          earlyHintsHit: false,
           timestamp: 581734.083213,
           type: Protocol.Network.ResourceType.Document,
           response: {

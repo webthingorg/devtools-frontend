@@ -155,6 +155,10 @@ const UIStrings = {
    */
   preload: 'Preload',
   /**
+   *@description Cell title in Network Data Grid Node of the Network panel
+   */
+  earlyHints: 'early hints',
+  /**
    *@description Text in Network Data Grid Node of the Network panel
    */
   signedexchange: 'signed-exchange',
@@ -1487,6 +1491,13 @@ export class NetworkRequestNode extends NetworkNode {
       case SDK.NetworkRequest.InitiatorType.SignedExchange: {
         cell.appendChild(Components.Linkifier.Linkifier.linkifyURL(initiator.url));
         this.appendSubtitle(cell, i18nString(UIStrings.signedexchange));
+        break;
+      }
+
+      case SDK.NetworkRequest.InitiatorType.EarlyHints: {
+        UI.Tooltip.Tooltip.install(cell, i18nString(UIStrings.earlyHints));
+        cell.classList.add('network-dim-cell');
+        cell.appendChild(document.createTextNode(i18nString(UIStrings.earlyHints)));
         break;
       }
 
