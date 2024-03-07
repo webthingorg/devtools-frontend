@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "531b2a00_9beebd07",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-07T23:47:02Z",
+      "side": 1,
+      "message": "I think we should just return the `lcpResource` here, and if we don\u0027t find the LCP image paint event (above on L87) just return undefined.\n\nThen the return value of this function can be used as an indicator of if the LCP was an image or not.",
+      "revId": "e31e4bdfad2e7e13a19f1e968c8d41cb44ffd31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9013fa8_ce5a688e",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-07T23:47:02Z",
+      "side": 1,
+      "message": "Looks like `mainFrameURL` is treated more as a decorator for the entire trace so this won\u0027t reliably give the URL that we want. What if there were multiple navigations?\n\nThe url found in `nav` should be what you\u0027re looking for, OR better yet it looks like `context.navigationId` ALSO happens to be the `requestId` of the main document.",
+      "revId": "e31e4bdfad2e7e13a19f1e968c8d41cb44ffd31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f3b06d4e_8c03cb11",
