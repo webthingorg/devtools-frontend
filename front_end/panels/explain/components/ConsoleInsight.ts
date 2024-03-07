@@ -133,7 +133,7 @@ export class CloseEvent extends Event {
   }
 }
 
-type PublicPromptBuilder = Pick<PromptBuilder, 'buildPrompt'>;
+type PublicPromptBuilder = Pick<PromptBuilder, 'buildPrompt'|'getSearchQuery'>;
 type PublicAidaClient = Pick<Host.AidaClient.AidaClient, 'fetch'>;
 
 function localizeType(sourceType: SourceType): string {
@@ -384,6 +384,11 @@ export class ConsoleInsight extends HTMLElement {
     this.#openFeedbackFrom();
   }
 
+  #onSearch(): void {
+    const query = this.#promptBuilder.getSearchQuery();
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.openSearchResultsInNewTab(query);
+  }
+
   async #onConsentReminderConfirmed(): Promise<void> {
     this.#transitionTo({
       type: State.LOADING,
@@ -578,6 +583,21 @@ export class ConsoleInsight extends HTMLElement {
     // clang-format on
   }
 
+  #renderSearchButton(): LitHtml.TemplateResult {
+    // clang-format off
+    return html`<${Buttons.Button.Button.litTagName}
+      @click=${this.#onSearch}
+      class="search-button"
+      .data=${
+        {
+          variant: Buttons.Button.Variant.SECONDARY,
+        } as Buttons.Button.ButtonData
+      }
+    >
+      Search this error instead
+    </${Buttons.Button.Button.litTagName}>`;
+  }
+
   #renderLearnMoreAboutInsights(): LitHtml.TemplateResult {
     // clang-format off
     return html`<x-link href=${DOGFOODINFO_URL} class="link">Learn more about Console insights</x-link>`;
@@ -616,6 +636,9 @@ export class ConsoleInsight extends HTMLElement {
             <${ConsoleInsightSourcesList.litTagName} .sources=${this.#state.sources}>
             </${ConsoleInsightSourcesList.litTagName}>
           </details>
+          <div class="buttons">
+            ${this.#renderSearchButton()}
+          </div>
         </main>`;
       case State.ERROR:
         return html`
