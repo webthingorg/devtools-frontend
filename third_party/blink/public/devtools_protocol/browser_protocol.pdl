@@ -5539,10 +5539,11 @@ domain Network
       # HTTP request headers.
       Headers headers
       # HTTP POST request data.
-      optional string postData
+      # Use postDataEntries instead.
+      deprecated optional string postData
       # True when the request has POST data. Note that postData might still be omitted when this flag is true when the data is too long.
       optional boolean hasPostData
-      # Request body elements. This will be converted from base64 to binary
+      # Request body elements (post data broken into individual entries).
       experimental optional array of PostDataEntry postDataEntries
       # The mixed content type of the request.
       optional Security.MixedContentType mixedContentType
@@ -5816,6 +5817,8 @@ domain Network
       optional boolean fromServiceWorker
       # Specifies that the request was served from the prefetch cache.
       optional boolean fromPrefetchCache
+      # Specifies that the request was served from the early hints.
+      optional boolean fromEarlyHints
       # Information about how Service Worker Static Router was used.
       experimental optional ServiceWorkerRouterInfo serviceWorkerRouterInfo
       # Total number of bytes received for this request so far.
@@ -6692,6 +6695,12 @@ domain Network
 
   # Fired if request ended up loading from cache.
   event requestServedFromCache
+    parameters
+      # Request identifier.
+      RequestId requestId
+
+  # Fired if request reuses the data loaded by early hints.
+  event requestServedFromEarlyHints
     parameters
       # Request identifier.
       RequestId requestId
