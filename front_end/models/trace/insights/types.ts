@@ -18,6 +18,9 @@ type InsightRunnersType = typeof InsightsRunners;
 
 export enum InsightWarning {
   NO_FP = 'NO_FP',
+  NO_LCP = 'NO_LCP',
+  // No network request could be identified as the primary HTML document.
+  NO_DOCUMENT_REQUEST = 'NO_DOCUMENT_REQUEST',
 }
 
 export type InsightResult<R extends Record<string, unknown>> = R&{
@@ -53,3 +56,10 @@ export type EnabledInsightRunners<H extends {[key: string]: Handlers.Types.Trace
  */
 export type RequiredData<D extends() => Array<keyof typeof Handlers.ModelHandlers>> =
     Handlers.Types.EnabledHandlerDataWithMeta<Pick<typeof Handlers.ModelHandlers, ReturnType<D>[number]>>;
+
+/**
+ * Returning error status of insight.
+ */
+export interface InsightError {
+  message: string;
+}
