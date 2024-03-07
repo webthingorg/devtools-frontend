@@ -12068,7 +12068,8 @@
                         },
                         {
                             "name": "postData",
-                            "description": "HTTP POST request data.",
+                            "description": "HTTP POST request data.\nUse postDataEntries instead.",
+                            "deprecated": true,
                             "optional": true,
                             "type": "string"
                         },
@@ -12080,7 +12081,7 @@
                         },
                         {
                             "name": "postDataEntries",
-                            "description": "Request body elements. This will be converted from base64 to binary",
+                            "description": "Request body elements (post data broken into individual entries).",
                             "experimental": true,
                             "optional": true,
                             "type": "array",
@@ -12543,6 +12544,12 @@
                         {
                             "name": "fromPrefetchCache",
                             "description": "Specifies that the request was served from the prefetch cache.",
+                            "optional": true,
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "fromEarlyHints",
+                            "description": "Specifies that the request was served from the early hints.",
                             "optional": true,
                             "type": "boolean"
                         },
@@ -14634,6 +14641,17 @@
                 {
                     "name": "requestServedFromCache",
                     "description": "Fired if request ended up loading from cache.",
+                    "parameters": [
+                        {
+                            "name": "requestId",
+                            "description": "Request identifier.",
+                            "$ref": "RequestId"
+                        }
+                    ]
+                },
+                {
+                    "name": "requestServedFromEarlyHints",
+                    "description": "Fired if request reuses the data loaded by early hints.",
                     "parameters": [
                         {
                             "name": "requestId",

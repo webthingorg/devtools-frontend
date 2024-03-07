@@ -194,6 +194,15 @@ describe('NetworkDispatcher', () => {
         {name: 'set-cookie', value: 'color=green'},
       ]);
     });
+
+    it('Override initiator type after receiving \'requestServedFromEarlyHints\'', () => {
+      networkDispatcher.requestWillBeSent(requestWillBeSentEvent);
+      networkDispatcher.requestServedFromEarlyHints({
+        requestId: 'mockId' as Protocol.Network.RequestId,
+      });
+
+      assert.deepEqual(networkDispatcher.requestForId('mockId')?.fromEarlyHints(), true);
+    });
   });
 
   describeWithEnvironment('WebBundle requests', () => {
