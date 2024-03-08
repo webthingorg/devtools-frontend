@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c9a7012_3890c5e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-08T14:50:14Z",
+      "side": 1,
+      "message": "+1 with a comment",
+      "revId": "0ae015361f30479eed9286548c998a6c8de53b97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35362f00_d7107fdd",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-08T14:50:14Z",
+      "side": 1,
+      "message": "WDYT of adding `panelName` to context instead of `panelIndex`?",
+      "revId": "0ae015361f30479eed9286548c998a6c8de53b97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
