@@ -27,6 +27,7 @@
   align-items: flex-start;
   white-space: nowrap;
   flex: 0 0 var(--timeline-controls-width);
+  z-index: 1;
 }
 
 .animation-node-description > * {
@@ -264,6 +265,15 @@ rect.animation-timeline-grid-line {
   height: 100%;
   z-index: 100;
   cursor: not-allowed;
+}
+
+.container {
+  position: relative;
+}
+
+svg.animation-ui.higher {
+  z-index: 2;
+  position: absolute;
 }
 
 svg.animation-ui g:first-child {
