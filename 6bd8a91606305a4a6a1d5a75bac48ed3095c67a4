@@ -39,6 +39,30 @@
       },
       "revId": "6bd8a91606305a4a6a1d5a75bac48ed3095c67a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c882315f_cce39ed9",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-08T22:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "324fbeb3_d91195ea",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 3
+      },
+      "revId": "6bd8a91606305a4a6a1d5a75bac48ed3095c67a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
