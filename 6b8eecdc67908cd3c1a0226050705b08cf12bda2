@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd116ce0_d0ccb4cc",
+        "filename": "front_end/ui/components/dialogs/ShortcutDialog.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-08T07:47:38Z",
+      "side": 1,
+      "message": "How exactly does this work? It will track whenever that key is pressed on that element? Is the tracking setup orthogonal to how/which keys are actually handled by the element, or is there some form of enforcement?",
+      "revId": "6b8eecdc67908cd3c1a0226050705b08cf12bda2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
