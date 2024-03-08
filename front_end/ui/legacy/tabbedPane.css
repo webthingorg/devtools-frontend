@@ -93,7 +93,15 @@
   border-bottom: 1px solid var(--sys-color-divider);
   overflow: visible;
   width: 100%;
+<<<<<<< HEAD   (0b26a9 [sources] Fix endless loop in execution token highlighting.)
   background-color: var(--sys-color-cdt-base);
+=======
+  background-color: var(--app-color-toolbar-background);
+
+  & > * {
+    cursor: initial;
+  }
+>>>>>>> CHANGE (0508f1 Use hardcoded values for surface colors in baseline theme)
 }
 
 .tabbed-pane-header-contents {
