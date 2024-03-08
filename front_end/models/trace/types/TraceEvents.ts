@@ -852,6 +852,7 @@ interface TraceEventResourceReceiveResponseTimingData {
   pushEnd: MilliSeconds;
   pushStart: MilliSeconds;
   receiveHeadersEnd: MilliSeconds;
+  receiveHeadersStart: MilliSeconds;
   requestTime: Seconds;
   sendEnd: MilliSeconds;
   sendStart: MilliSeconds;
