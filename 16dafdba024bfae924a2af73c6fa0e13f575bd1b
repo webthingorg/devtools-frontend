@@ -16,6 +16,24 @@
       "message": "Is this one intentional? Doesn\u0027t follow the same pattern :)",
       "revId": "16dafdba024bfae924a2af73c6fa0e13f575bd1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b9f2d92_6f6b5233",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-08T13:43:15Z",
+      "side": 1,
+      "message": "Not in this CL. Reverted.",
+      "parentUuid": "728aa222_8b58b8e9",
+      "revId": "16dafdba024bfae924a2af73c6fa0e13f575bd1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
