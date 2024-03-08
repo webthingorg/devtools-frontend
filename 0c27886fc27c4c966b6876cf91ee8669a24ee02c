@@ -33,6 +33,24 @@
       "message": "Could you explain this bit? if the delayOrStartTime is negative this will do the wrong thing, will it not?",
       "revId": "0c27886fc27c4c966b6876cf91ee8669a24ee02c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24aca3e9_15d87132",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-08T13:06:59Z",
+      "side": 1,
+      "message": "Ah yes, thanks for the catch! Since we now allow negative delay too, decreasing the duration when the start point is in negative is a better UX. Updated it :)",
+      "parentUuid": "0e83191e_38d775c2",
+      "revId": "0c27886fc27c4c966b6876cf91ee8669a24ee02c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
