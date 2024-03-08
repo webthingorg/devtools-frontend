@@ -34,6 +34,24 @@
       "parentUuid": "bd116ce0_d0ccb4cc",
       "revId": "6b8eecdc67908cd3c1a0226050705b08cf12bda2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb2a7497_43e7f34e",
+        "filename": "front_end/ui/components/dialogs/ShortcutDialog.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-08T08:11:54Z",
+      "side": 1,
+      "message": "Understood, thanks for clarifying!",
+      "parentUuid": "8e5fa215_2b693543",
+      "revId": "6b8eecdc67908cd3c1a0226050705b08cf12bda2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
