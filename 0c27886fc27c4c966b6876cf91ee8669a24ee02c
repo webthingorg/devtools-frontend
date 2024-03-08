@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8dd8c38_89f4df75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-08T11:49:34Z",
+      "side": 1,
+      "message": "Looks good overall but one question",
+      "revId": "0c27886fc27c4c966b6876cf91ee8669a24ee02c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e83191e_38d775c2",
+        "filename": "front_end/panels/animation/AnimationUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-08T11:49:34Z",
+      "side": 1,
+      "message": "Could you explain this bit? if the delayOrStartTime is negative this will do the wrong thing, will it not?",
+      "revId": "0c27886fc27c4c966b6876cf91ee8669a24ee02c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
