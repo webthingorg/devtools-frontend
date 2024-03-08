@@ -11826,6 +11826,7 @@ export namespace Page {
     CookieDisabled = 'CookieDisabled',
     HTTPAuthRequired = 'HTTPAuthRequired',
     CookieFlushed = 'CookieFlushed',
+    BroadcastChannelOnMessage = 'BroadcastChannelOnMessage',
     WebSocket = 'WebSocket',
     WebTransport = 'WebTransport',
     WebRTC = 'WebRTC',
