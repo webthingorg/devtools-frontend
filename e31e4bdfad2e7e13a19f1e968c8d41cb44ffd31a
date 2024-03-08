@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b35deb7_0e0dd6f3",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-08T00:07:16Z",
+      "side": 1,
+      "message": "talked about this offline - was thinking a bit ahead on this one where it would be useful to have this when we look that the loading/preload attributes beyond the context of the phases",
+      "parentUuid": "531b2a00_9beebd07",
+      "revId": "e31e4bdfad2e7e13a19f1e968c8d41cb44ffd31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9013fa8_ce5a688e",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-07T23:47:02Z",
       "side": 1,
       "message": "Looks like `mainFrameURL` is treated more as a decorator for the entire trace so this won\u0027t reliably give the URL that we want. What if there were multiple navigations?\n\nThe url found in `nav` should be what you\u0027re looking for, OR better yet it looks like `context.navigationId` ALSO happens to be the `requestId` of the main document.",
+      "revId": "e31e4bdfad2e7e13a19f1e968c8d41cb44ffd31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26bb1976_76ee0631",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-08T00:07:16Z",
+      "side": 1,
+      "message": "sweeeet didn\u0027t know about this one. Done",
+      "parentUuid": "b9013fa8_ce5a688e",
       "revId": "e31e4bdfad2e7e13a19f1e968c8d41cb44ffd31a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
