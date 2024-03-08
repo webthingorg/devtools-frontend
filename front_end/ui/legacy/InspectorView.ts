@@ -190,8 +190,10 @@ export class InspectorView extends VBox implements ViewLocationResolver {
     this.drawerSplitWidget.installResizer(this.drawerTabbedPane.headerElement());
     this.drawerSplitWidget.setSidebarWidget(this.drawerTabbedPane);
     this.drawerTabbedPane.rightToolbar().appendToolbarItem(closeDrawerButton);
-    this.drawerTabbedPane.headerElement().setAttribute(
-        'jslog', `${VisualLogging.toolbar('drawer').track({drag: true})}`);
+    this.drawerTabbedPane.headerElement().setAttribute('jslog', `${VisualLogging.toolbar('drawer').track({
+                                                         drag: true,
+                                                         keydown: 'ArrowUp|ArrowLeft|ArrowDown|ArrowRight|Enter|Space',
+                                                       })}`);
 
     // Create main area tabbed pane.
     this.tabbedLocation = ViewManager.instance().createTabbedLocation(
@@ -222,7 +224,10 @@ export class InspectorView extends VBox implements ViewLocationResolver {
     const mainHeaderElement = this.tabbedPane.headerElement();
     ARIAUtils.markAsNavigation(mainHeaderElement);
     ARIAUtils.setLabel(mainHeaderElement, i18nString(UIStrings.mainToolbar));
-    mainHeaderElement.setAttribute('jslog', `${VisualLogging.toolbar('main').track({drag: true})}`);
+    mainHeaderElement.setAttribute('jslog', `${VisualLogging.toolbar('main').track({
+                                     drag: true,
+                                     keydown: 'ArrowUp|ArrowLeft|ArrowDown|ArrowRight|Enter|Space',
+                                   })}`);
 
     // Store the initial selected panel for use in launch histograms
     Host.userMetrics.setLaunchPanel(this.tabbedPane.selectedTabId);
@@ -423,6 +428,7 @@ export class InspectorView extends VBox implements ViewLocationResolver {
         panelIndex = keyboardEvent.keyCode - 0x61;
       }
       if (panelIndex !== -1) {
+        void VisualLogging.logKeyDown(event, `panel-${panelIndex}`);
         const panelName = this.tabbedPane.tabIds()[panelIndex];
         if (panelName) {
           if (!Dialog.hasInstance() && !this.currentPanelLocked) {

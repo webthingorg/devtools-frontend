@@ -371,7 +371,7 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper<Filt
   }
 
   private addBit(name: string, label: string, title?: string): void {
-    const typeFilterElement = (this.filtersElement.createChild('span', name) as HTMLElement);
+    const typeFilterElement = (this.filtersElement.createChild('button', name) as HTMLElement);
     typeFilterElement.tabIndex = -1;
     this.typeFilterElementTypeNames.set(typeFilterElement, name);
     createTextChild(typeFilterElement, label);
@@ -381,7 +381,8 @@ export class NamedBitSetFilterUI extends Common.ObjectWrapper.ObjectWrapper<Filt
     }
     typeFilterElement.addEventListener('click', this.onTypeFilterClicked.bind(this), false);
     typeFilterElement.addEventListener('keydown', this.onTypeFilterKeydown.bind(this), false);
-    typeFilterElement.setAttribute('jslog', `${VisualLogging.item(name).track({click: true})}`);
+    typeFilterElement.setAttribute(
+        'jslog', `${VisualLogging.item(name).track({click: true, keydown: 'ArrowUp|ArrowDown|ArrowLeft|ArrowRight'})}`);
     this.typeFilterElements.push(typeFilterElement);
   }
 

@@ -128,7 +128,7 @@ export class ProfilesPanel extends UI.Panel.PanelWithSidebar implements DataDisp
 
     this.sidebarTree.appendChild(this.profilesItemTreeElement);
 
-    this.sidebarTree.element.addEventListener('keydown', this.onKeyDown.bind(this), false);
+    // this.sidebarTree.element.addEventListener('keydown', this.onKeyDown.bind(this), false);
 
     this.profileViews = document.createElement('div');
     this.profileViews.id = 'profile-views';

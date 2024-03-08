@@ -112,6 +112,24 @@ export const logKeyDown =
       });
     };
 
+async function contextAsNumber(context: string|undefined): Promise<number|undefined> {
+  if (typeof context === 'undefined') {
+    return undefined;
+  }
+  const number = parseInt(context, 10);
+  if (!isNaN(number)) {
+    return number;
+  }
+  if (!crypto.subtle) {
+    // Layout tests run in an insecure context where crypto.subtle is not available.
+    return 0xDEADBEEF;
+  }
+  const encoder = new TextEncoder();
+  const data = encoder.encode(context);
+  const digest = await crypto.subtle.digest('SHA-1', data);
+  return new DataView(digest).getUint32(0, true);
+}
+
 function contextFromKeyCodes(event: Event): string|undefined {
   if (!(event instanceof KeyboardEvent)) {
     return undefined;
@@ -131,22 +149,4 @@ function contextFromKeyCodes(event: Event): string|undefined {
   }
   components.push(event.key.toLowerCase());
   return components.join('-');
-}
-
-async function contextAsNumber(context: string|undefined): Promise<number|undefined> {
-  if (typeof context === 'undefined') {
-    return undefined;
-  }
-  const number = parseInt(context, 10);
-  if (!isNaN(number)) {
-    return number;
-  }
-  if (!crypto.subtle) {
-    // Layout tests run in an insecure context where crypto.subtle is not available.
-    return 0xDEADBEEF;
-  }
-  const encoder = new TextEncoder();
-  const data = encoder.encode(context);
-  const digest = await crypto.subtle.digest('SHA-1', data);
-  return new DataView(digest).getUint32(0, true);
 }
