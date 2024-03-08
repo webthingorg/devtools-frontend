@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52c702c_661a2b0c",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-08T00:26:01Z",
+      "side": 1,
+      "message": "nit: If `imagePaint` is defined then `lcpResource` should be defined as well right? Could we enforce that invariant in this function?\n\n```suggestion\nfunction findLCPResource(\n    traceParsedData: RequiredData\u003ctypeof deps\u003e,\n    lcpEvent: Types.TraceEvents.TraceEventLargestContentfulPaintCandidate): {\n  imagePaint: Types.TraceEvents.TraceEventLargestImagePaintCandidate,\n  lcpResource: Types.TraceEvents.SyntheticNetworkRequest|undefined,\n}| undefined {\n```",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 3
+      },
+      "revId": "9d8c5fee327c697399f72b0a0415c1144d7df441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b70cf689_77c8a25d",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-08T00:26:01Z",
+      "side": 1,
+      "message": "We should probably rethink this a bit as the trace could include multiple navigations. We need to narrow the scope here to just the requests made for `context.navigationId`.\n\nYou can see how I did this for render blocking:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/trace/insights/RenderBlocking.ts;l\u003d42-43?q\u003drenderblocking\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2F",
+      "revId": "9d8c5fee327c697399f72b0a0415c1144d7df441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
