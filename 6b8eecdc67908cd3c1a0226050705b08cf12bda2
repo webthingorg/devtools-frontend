@@ -16,6 +16,24 @@
       "message": "How exactly does this work? It will track whenever that key is pressed on that element? Is the tracking setup orthogonal to how/which keys are actually handled by the element, or is there some form of enforcement?",
       "revId": "6b8eecdc67908cd3c1a0226050705b08cf12bda2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e5fa215_2b693543",
+        "filename": "front_end/ui/components/dialogs/ShortcutDialog.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-08T08:04:44Z",
+      "side": 1,
+      "message": "It will debounce the events and log only those that have matching codes. It is orthogonal by design with no enforcement, It is important to keep logging decoupled from the variety of UI implementations we have. It is also the only practical way to it with the current code, otherwise we would have to sprinkle half of the codebase with explicit logging (check out my attempt to do it the crrev.com/c/5335160)",
+      "parentUuid": "bd116ce0_d0ccb4cc",
+      "revId": "6b8eecdc67908cd3c1a0226050705b08cf12bda2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
