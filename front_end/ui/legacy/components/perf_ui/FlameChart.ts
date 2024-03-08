@@ -181,6 +181,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private forceDecorationCache?: Int8Array|null;
   private entryColorsCache?: string[]|null;
   private totalTime?: number;
+  private lastIndexOfUpdatedPopover: number;
   #font: string;
   #groupTreeRoot?: GroupTreeNode|null;
   #searchResultEntryIndex: number;
@@ -257,6 +258,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     this.lastMouseOffsetX = 0;
     this.selectedGroupIndex = -1;
+    this.lastIndexOfUpdatedPopover = -1;
 
     // Keyboard focused group is used to navigate groups irrespective of whether they are selectable or not
     this.keyboardFocusedGroup = -1;
@@ -500,6 +502,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   private updatePopover(entryIndex: number): void {
+    // Just update position if cursor is hovering the same entry.
+    if (entryIndex === this.lastIndexOfUpdatedPopover) {
+      return this.updatePopoverOffset();
+    }
     this.entryInfo.removeChildren();
     const data = this.timelineData();
     if (!data) {
@@ -515,6 +521,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       this.entryInfo.appendChild(popoverElement);
       this.updatePopoverOffset();
     }
+    this.lastIndexOfUpdatedPopover = entryIndex;
   }
 
   private updatePopoverOffset(): void {
