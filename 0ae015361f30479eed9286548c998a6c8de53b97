@@ -33,6 +33,24 @@
       "message": "WDYT of adding `panelName` to context instead of `panelIndex`?",
       "revId": "0ae015361f30479eed9286548c998a6c8de53b97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79b1b2b_0a75599e",
+        "filename": "front_end/ui/legacy/InspectorView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-08T16:04:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35362f00_d7107fdd",
+      "revId": "0ae015361f30479eed9286548c998a6c8de53b97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
