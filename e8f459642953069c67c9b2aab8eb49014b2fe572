@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff1a7e98_9f12a155",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-08T10:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fc15d2f_008a57b3",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "020c570e_8feea097",
@@ -279,6 +297,24 @@
       "side": 1,
       "message": "Ah that\u0027s fair, WDYT of:\n* Removing my version of `tokenizePropertyValue`.\n* Marking `name` as required in `tokenizeDeclaration`.\n* Using `tokenizeDeclaration` with fake names on the call side if we don\u0027t care about the name.\n\nThat way:\n* We\u0027re consistent with the name of the function: it\u0027s always returning a SyntaxTree for declaration.\n* The function is semantically more meaningful: as a declaration consists of a property name and a value.",
       "parentUuid": "eb224a9d_47f04797",
+      "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cbcd517_a990e6b0",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-08T10:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "655cd3ad_48da75ab",
       "revId": "e8f459642953069c67c9b2aab8eb49014b2fe572",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
