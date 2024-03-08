@@ -586,3 +586,11 @@
 devtools-feedback-button {
   float: right;
 }
+
+devtools-timeline-current-page-metrics {
+  word-break: break-all;
+  max-height: 60vh;
+  overflow-y: auto;
+  display: block;
+  user-select: text;
+}
