@@ -28,6 +28,7 @@ copy_to_gen("traces") {
     "invalidate-style-class-name-change.json.gz",
     "large-layout-small-recalc.json.gz",
     "large-recalc-style.json.gz",
+    "lcp-images-rasterizer.json.gz",
     "lcp-images.json.gz",
     "lcp-web-font.json.gz",
     "load-simple.json.gz",
