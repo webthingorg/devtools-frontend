@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b785672_6e211064",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-09T00:58:13Z",
+      "side": 1,
+      "message": "Given that aixba@ is fairly new to the codebase.. also interested in Andres\u0027s thoughts.",
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28728dad_9d7f5e52",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-09T00:58:13Z",
+      "side": 1,
+      "message": "lets go with `findLCPRequest`",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 24
+      },
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1cad141_604a5f05",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-09T00:58:13Z",
+      "side": 1,
+      "message": "i prefer `null` rather than undefined, to be more clear it was intended.",
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55d3e851_9c6b8f0c",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-09T00:58:13Z",
+      "side": 1,
+      "message": "the amount of possible errors within here kinda scare me. where are these caught? and/or why should i not be scared? :)",
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
