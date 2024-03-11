@@ -18,6 +18,115 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e7d80d5_7cc85a70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-11T11:45:25Z",
+      "side": 1,
+      "message": "LGTM with nits and a small observation :)",
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "786f2268_17e5ae8d",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-11T11:45:25Z",
+      "side": 1,
+      "message": "typo\n```suggestion\n   * The time between when the user initiates loading the page until when\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 58,
+        "endLine": 17,
+        "endChar": 62
+      },
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82410099_85aeab73",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-11T11:45:25Z",
+      "side": 1,
+      "message": "typo\n```suggestion\n   * The time between ttfb and the LCP resource request being started.\n```",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 74
+      },
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee499038_1eb2f4d0",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-11T11:45:25Z",
+      "side": 1,
+      "message": "nit: let\u0027s make this name more specific (i.e. timestamp of the first document byte?)",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca7676b_f1b86092",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-11T11:45:25Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 14
+      },
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28728dad_9d7f5e52",
@@ -71,6 +180,29 @@
       "writtenOn": "2024-03-09T00:58:13Z",
       "side": 1,
       "message": "the amount of possible errors within here kinda scare me. where are these caught? and/or why should i not be scared? :)",
+      "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c251a4f_22d7f8b4",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-11T11:45:25Z",
+      "side": 1,
+      "message": "we are computing the score in the `PageLoadMetricsHandler` already, but it is formatted as a string value because it includes the time unit (see `MetricScore.score`). Maybe we can use that value to avoid recomputing the time relative to the navigation? If we need the number value, then maybe adding a new field to the `MetricScore` interface would do",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 17
+      },
       "revId": "26c10d46f607acfd769a8ba30deda9b958d99f57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
