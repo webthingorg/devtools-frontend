@@ -33,6 +33,24 @@
       "message": "missing \"// clang-format on\" at the end",
       "revId": "5e5c601de680647657ba231c683ebe8dca19e56d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd66227a_383c6865",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-03-11T09:44:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38a5bd03_c8d76e99",
+      "revId": "5e5c601de680647657ba231c683ebe8dca19e56d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
