@@ -382,6 +382,11 @@ export class MainImpl {
         'Enable Autofill view',
     );
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.SAVE_AND_LOAD_TRACE_WITH_ANNOTATIONS,
+        'Enable save and load trace with annotations in Performance Panel',
+    );
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'css-type-component-length-deprecate',
       'set-all-breakpoints-eagerly',
