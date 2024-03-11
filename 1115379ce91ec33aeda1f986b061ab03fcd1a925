@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1eb88d9_aa76a3b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-03-11T13:55:05Z",
+      "side": 1,
+      "message": "Hi Philip,\n\nhere\u0027s the follow up update for the dw_opcodes, ptal!",
+      "revId": "1115379ce91ec33aeda1f986b061ab03fcd1a925",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
