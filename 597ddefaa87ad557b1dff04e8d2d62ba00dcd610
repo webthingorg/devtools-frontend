@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9b2001_0b55f9b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-03-11T08:57:37Z",
+      "side": 1,
+      "message": "Ergün, please kindly take a look:) the tinted background is fixed now, as for the tests, in the hosted mode we don\u0027t refetch colors and don\u0027t update the theme id.",
+      "revId": "597ddefaa87ad557b1dff04e8d2d62ba00dcd610",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
