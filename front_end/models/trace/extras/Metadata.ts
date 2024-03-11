@@ -40,6 +40,7 @@ export async function forNewRecording(recordStartTime?: number): Promise<Types.F
       cpuThrottling,
       networkThrottling: networkTitle,
       hardwareConcurrency,
+      annotations: '',
     };
   } catch {
     // If anything went wrong, it does not really matter. The impact is that we

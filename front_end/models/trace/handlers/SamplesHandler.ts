@@ -13,9 +13,14 @@ import {HandlerState} from './types.js';
 const events =
     new Map<Types.TraceEvents.ProcessID, Map<Types.TraceEvents.ThreadID, Types.TraceEvents.TraceEventComplete[]>>();
 
+interface AnnotationIdentifier {
+  sampleIndex: number,
+  nodeDepth: number,
+}
+
 const profilesInProcess = new Map<Types.TraceEvents.ProcessID, Map<Types.TraceEvents.ThreadID, ProfileData>>();
 const entryToNode = new Map<Types.TraceEvents.SyntheticTraceEntry, Helpers.TreeHelpers.TraceEntryNode>();
-
+const nodeToAnnotationIdentifier= new Map<Helpers.TreeHelpers.TraceEntryNode, AnnotationIdentifier>();
 // The profile head, containing its metadata like its start
 // time, comes in a "Profile" event. The sample data comes in
 // "ProfileChunk" events. We match these ProfileChunks with their head
@@ -48,9 +53,10 @@ function buildProfileCalls(): void {
       const dataByThread = Platform.MapUtilities.getWithDefault(profilesInProcess, processId, () => new Map());
       profileModel.forEachFrame(openFrameCallback, closeFrameCallback);
       dataByThread.set(threadId, finalizedData);
+      console.log("maybeee: ", nodeToAnnotationIdentifier);
 
       function openFrameCallback(
-          depth: number, node: CPUProfile.ProfileTreeModel.ProfileNode, timeStampMs: number): void {
+          depth: number, node: CPUProfile.ProfileTreeModel.ProfileNode, timeStampMs: number, firstSampleIndex: number): void {
         if (threadId === undefined) {
           return;
         }
@@ -62,7 +68,10 @@ function buildProfileCalls(): void {
         indexStack.push(finalizedData.profileCalls.length - 1);
         const traceEntryNode = Helpers.TreeHelpers.makeEmptyTraceEntryNode(profileCall, nodeId);
         entryToNode.set(profileCall, traceEntryNode);
+        nodeToAnnotationIdentifier.set(traceEntryNode, {sampleIndex: firstSampleIndex, nodeDepth: traceEntryNode.depth});
+        // console.log("len ", entryToNode);
         traceEntryNode.depth = depth;
+        // Assigns root call here
         if (indexStack.length === 1) {
           // First call in the stack is a root call.
           finalizedData.profileTree?.roots.add(traceEntryNode);
@@ -98,6 +107,7 @@ function buildProfileCalls(): void {
       }
     }
   }
+// console.log("len ", entryToNode);
 }
 
 export function reset(): void {
