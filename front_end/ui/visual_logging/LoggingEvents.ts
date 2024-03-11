@@ -90,6 +90,8 @@ export async function logChange(event: Event): Promise<void> {
   showDebugPopoverForEvent('Change', loggingState?.config);
 }
 
+let pendingKeyDownContext: string|null = null;
+
 export const logKeyDown =
     (throttler: Common.Throttler.Throttler, codes?: string[]) => async (event: Event|null, context?: string) => {
       if (!(event instanceof KeyboardEvent)) {
@@ -106,9 +108,16 @@ export const logKeyDown =
       if (context) {
         keyDownEvent.context = await contextAsNumber(context);
       }
+
+      if (pendingKeyDownContext && context && pendingKeyDownContext !== context) {
+        void throttler.process?.();
+      }
+
+      pendingKeyDownContext = context || null;
       void throttler.schedule(async () => {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance.recordKeyDown(keyDownEvent);
         showDebugPopoverForEvent('KeyDown', loggingState?.config, context);
+        pendingKeyDownContext = null;
       });
     };
 
