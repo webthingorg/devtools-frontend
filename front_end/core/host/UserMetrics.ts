@@ -1114,6 +1114,7 @@ export enum DevtoolsExperiments {
   'sources-frame-indentation-markers-temporarily-disable' = 83,
   'heap-snapshot-treat-backing-store-as-containing-object' = 84,
   'css-type-component-length-deprecate' = 85,
+  'save-and-load-trace-with-annotations' = 86,
 
   // Increment this when new experiments are added.
   'MaxValue' = 86,
