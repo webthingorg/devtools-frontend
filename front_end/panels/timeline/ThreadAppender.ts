@@ -8,6 +8,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as AnnotationsManager from '../../services/annotations/annotations_manager.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import {
@@ -211,6 +212,8 @@ export class ThreadAppender implements TrackAppender {
         this.threadType === TraceEngine.Handlers.Threads.ThreadType.CPU_PROFILE ? traceParsedData.Samples.entryToNode :
                                                                                   traceParsedData.Renderer.entryToNode);
 
+    const annotations = new AnnotationsManager.AnnotationsManager.AnnotationsManager();
+// 
     this.#url = this.#traceParsedData.Renderer?.processes.get(this.#processId)?.url || '';
   }
   entriesFilter(): TraceEngine.EntriesFilter.EntriesFilter {

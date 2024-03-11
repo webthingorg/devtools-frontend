@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Platform from '../../../core/platform/platform.js';
+import * as AnnotationsManager from '../../../services/annotations/annotations_manager.js';
 import * as Helpers from '../helpers/helpers.js';
 import * as Types from '../types/types.js';
 
@@ -124,6 +125,8 @@ export async function finalize(): Promise<void> {
   sanitizeProcesses(processes);
   buildHierarchy(processes);
   sanitizeThreads(processes);
+  // Pass unsorted entries to Annotations Manager to identify where the original posibition of the entry is
+  AnnotationsManager.AnnotationsManager.AnnotationsManager.instance();
   Helpers.Trace.sortTraceEventsInPlace(allTraceEntries);
   handlerState = HandlerState.FINALIZED;
 }
