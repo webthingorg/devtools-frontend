@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c418653_1c3acfe1",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-11T13:17:02Z",
+      "side": 1,
+      "message": "just realized we need to update this to 87\n```suggestion\n  \u0027MaxValue\u0027 \u003d 87,\n```",
+      "range": {
+        "startLine": 1120,
+        "startChar": 0,
+        "endLine": 1120,
+        "endChar": 18
+      },
+      "revId": "7fed4b2b1e586425e039f8a2d98807ebd0a67f3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
