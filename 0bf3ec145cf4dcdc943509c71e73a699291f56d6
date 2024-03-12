@@ -22,6 +22,30 @@
       },
       "revId": "0bf3ec145cf4dcdc943509c71e73a699291f56d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11fc0f1c_2fc343fe",
+        "filename": "front_end/panels/mobile_throttling/throttlingSettingsTab.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1247458
+      },
+      "writtenOn": "2024-03-12T19:33:46Z",
+      "side": 0,
+      "message": "Fixed the overlapping!",
+      "parentUuid": "079f6224_ad6dc0a2",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "0bf3ec145cf4dcdc943509c71e73a699291f56d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

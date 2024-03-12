@@ -22,6 +22,30 @@
       },
       "revId": "ba24eac1a22a24ececdf2e8a996e3ff1ac9e1c42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1252fe8d_86e12e62",
+        "filename": "front_end/panels/mobile_throttling/ThrottlingSettingsTab.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1247458
+      },
+      "writtenOn": "2024-03-12T19:33:46Z",
+      "side": 1,
+      "message": "We should definitely translate those.",
+      "parentUuid": "5290564c_70334cd6",
+      "range": {
+        "startLine": 327,
+        "startChar": 66,
+        "endLine": 327,
+        "endChar": 78
+      },
+      "revId": "ba24eac1a22a24ececdf2e8a996e3ff1ac9e1c42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
