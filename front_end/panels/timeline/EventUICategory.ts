@@ -608,7 +608,7 @@ export function getCategoryStyles(): CategoryPalette {
   return categoryStyles;
 }
 
-function maybeInitSylesMap(): EventStylesMap {
+export function maybeInitSylesMap(): EventStylesMap {
   if (eventStylesMap) {
     return eventStylesMap;
   }

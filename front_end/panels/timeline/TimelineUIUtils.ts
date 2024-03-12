@@ -51,7 +51,13 @@ import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
 import {CLSRect} from './CLSLinkifier.js';
 import * as TimelineComponents from './components/components.js';
-import {getCategoryStyles, getEventStyle, TimelineCategory, TimelineRecordStyle} from './EventUICategory.js';
+import {
+  getCategoryStyles,
+  getEventStyle,
+  maybeInitSylesMap,
+  TimelineCategory,
+  TimelineRecordStyle,
+} from './EventUICategory.js';
 import {titleForInteractionEvent} from './InteractionsTrackAppender.js';
 import {SourceMapsResolver} from './SourceMapsResolver.js';
 import {TimelinePanel} from './TimelinePanel.js';
@@ -1279,6 +1285,10 @@ export class TimelineUIUtils {
       if (TimelineUIUtils.isUserFrame(frame)) {
         return TimelineUIUtils.colorForId(frame.url);
       }
+    }
+    if (TraceEngine.Legacy.eventIsFromNewEngine(event) &&
+        TraceEngine.Types.Extensions.isSyntheticExtensionEntry(event)) {
+      return event.args.color;
     }
     let parsedColor = TimelineUIUtils.eventStyle(event).category.getComputedColorValue();
     // This event is considered idle time but still rendered as a scripting event here
@@ -2829,10 +2839,10 @@ export class TimelineUIUtils {
   }
 
   static visibleTypes(): string[] {
-    const eventStyles = TimelineUIUtils.initEventStyles();
+    const eventStyles = maybeInitSylesMap();
     const result = [];
-    for (const name in eventStyles) {
-      if (!eventStyles[name].hidden) {
+    for (const [name, style] of eventStyles) {
+      if (!style.hidden) {
         result.push(name);
       }
     }
