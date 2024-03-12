@@ -608,7 +608,7 @@ export function getCategoryStyles(): CategoryPalette {
   return categoryStyles;
 }
 
-function maybeInitSylesMap(): EventStylesMap {
+export function maybeInitSylesMap(): EventStylesMap {
   if (eventStylesMap) {
     return eventStylesMap;
   }
@@ -971,10 +971,6 @@ function maybeInitSylesMap(): EventStylesMap {
     [
       TraceEngine.Types.TraceEvents.KnownEventName.MinorGC,
       new TimelineRecordStyle(i18nString(UIStrings.minorGc), defaultCategoryStyles.Scripting),
-    ],
-    [
-      TraceEngine.Types.TraceEvents.KnownEventName.IncrementalGCMarking,
-      new TimelineRecordStyle(i18nString(UIStrings.gcEvent), defaultCategoryStyles.Scripting),
     ],
     [
       TraceEngine.Types.TraceEvents.KnownEventName.CPPGCSweep,

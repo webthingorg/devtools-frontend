@@ -30,7 +30,7 @@ describe('Performance panel', function() {
       const height = await datagrid.evaluate(elem => elem.clientHeight);
       return height > 150;
     });
-    await assertElementScreenshotUnchanged(datagrid, 'performance/bottomUp.png', 3);
+    await assertElementScreenshotUnchanged(datagrid, 'performance/bottomUp.png', 0);
   });
 
   itScreenshot('renders correctly the Call Tree datagrid', async () => {

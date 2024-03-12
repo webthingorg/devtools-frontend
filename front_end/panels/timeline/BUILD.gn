@@ -61,6 +61,7 @@ devtools_module("timeline") {
     "EventUICategory.ts",
     "EventsTimelineTreeView.ts",
     "ExtensionDataGatherer.ts",
+    "ExtensionTrackAppender.ts",
     "GPUTrackAppender.ts",
     "Initiators.ts",
     "InteractionsTrackAppender.ts",
