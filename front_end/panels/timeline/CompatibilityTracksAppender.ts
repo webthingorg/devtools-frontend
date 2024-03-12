@@ -12,6 +12,8 @@ import {AnimationsTrackAppender} from './AnimationsTrackAppender.js';
 import {getEventLevel} from './AppenderUtils.js';
 import * as TimelineComponents from './components/components.js';
 import {getEventStyle} from './EventUICategory.js';
+import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
+import {ExtensionTrackAppender} from './ExtensionTrackAppender.js';
 import {GPUTrackAppender} from './GPUTrackAppender.js';
 import {InteractionsTrackAppender} from './InteractionsTrackAppender.js';
 import {LayoutShiftsTrackAppender} from './LayoutShiftsTrackAppender.js';
@@ -162,6 +164,7 @@ export class CompatibilityTracksAppender {
     this.#allTrackAppenders.push(this.#layoutShiftsTrackAppender);
 
     this.#addThreadAppenders();
+    this.#addExtensionAppenders();
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       for (const group of this.#flameChartData.groups) {
         // We only need to update the color here, because FlameChart will call `scheduleUpdate()` when theme is changed.
@@ -236,6 +239,13 @@ export class CompatibilityTracksAppender {
       return appender.entriesFilter().findHiddenDescendantsAmount(node);
     }
     console.warn('Could not find hidden entries on a track.');
+  }
+
+  #addExtensionAppenders(): void {
+    const tracks = ExtensionDataGatherer.instace().getExtensionData();
+    for (const trackData of tracks) {
+      this.#allTrackAppenders.push(new ExtensionTrackAppender(this, trackData));
+    }
   }
 
   #addThreadAppenders(): void {
@@ -592,6 +602,10 @@ export class CompatibilityTracksAppender {
       // period.
       // Therefore we mark them as visible so they are appended onto the Thread
       // track, and hence accessible by the CountersGraph view.
+      return true;
+    }
+
+    if (TraceEngine.Types.Extensions.isSyntheticExtensionEntry(entry)) {
       return true;
     }
 

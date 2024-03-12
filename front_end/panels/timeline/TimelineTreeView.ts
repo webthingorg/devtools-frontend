@@ -682,6 +682,10 @@ export class GridNode extends DataGrid.SortableDataGrid.SortableDataGridNode<Gri
       const eventCategory = eventStyle.category;
       UI.ARIAUtils.setLabel(icon, eventCategory.title);
       icon.style.backgroundColor = eventCategory.getComputedColorValue();
+      if (TraceEngine.Legacy.eventIsFromNewEngine(event) &&
+          TraceEngine.Types.Extensions.isSyntheticExtensionEntry(event)) {
+        icon.style.backgroundColor = event.args.color;
+      }
     }
     return cell;
   }
