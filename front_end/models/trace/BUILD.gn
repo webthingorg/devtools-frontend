@@ -43,6 +43,7 @@ devtools_entrypoint("bundle") {
     "../../panels/recorder/*",
     "../../panels/timeline/*",
     "../../services/trace_bounds/*",
+    "../../services/annotations/*",
     "../../services/tracing/*",
     "../../testing/*",
     "../../testing/*",

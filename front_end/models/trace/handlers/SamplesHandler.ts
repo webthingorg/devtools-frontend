@@ -13,9 +13,14 @@ import {HandlerState} from './types.js';
 const events =
     new Map<Types.TraceEvents.ProcessID, Map<Types.TraceEvents.ThreadID, Types.TraceEvents.TraceEventComplete[]>>();
 
+interface AnnotationIdentifier {
+  sampleIndex: number,
+  nodeDepth: number,
+}
+
 const profilesInProcess = new Map<Types.TraceEvents.ProcessID, Map<Types.TraceEvents.ThreadID, ProfileData>>();
 const entryToNode = new Map<Types.TraceEvents.SyntheticTraceEntry, Helpers.TreeHelpers.TraceEntryNode>();
-
+const nodeToAnnotationIdentifier= new Map<Helpers.TreeHelpers.TraceEntryNode, AnnotationIdentifier>();
 // The profile head, containing its metadata like its start
 // time, comes in a "Profile" event. The sample data comes in
 // "ProfileChunk" events. We match these ProfileChunks with their head
@@ -48,9 +53,10 @@ function buildProfileCalls(): void {
       const dataByThread = Platform.MapUtilities.getWithDefault(profilesInProcess, processId, () => new Map());
       profileModel.forEachFrame(openFrameCallback, closeFrameCallback);
       dataByThread.set(threadId, finalizedData);
+      // console.log("maybeee: ", nodeToAnnotationIdentifier);
 
       function openFrameCallback(
-          depth: number, node: CPUProfile.ProfileTreeModel.ProfileNode, timeStampMs: number): void {
+          depth: number, node: CPUProfile.ProfileTreeModel.ProfileNode, timeStampMs: number, firstSampleIndex: number): void {
         if (threadId === undefined) {
           return;
         }
@@ -62,7 +68,10 @@ function buildProfileCalls(): void {
         indexStack.push(finalizedData.profileCalls.length - 1);
         const traceEntryNode = Helpers.TreeHelpers.makeEmptyTraceEntryNode(profileCall, nodeId);
         entryToNode.set(profileCall, traceEntryNode);
+        nodeToAnnotationIdentifier.set(traceEntryNode, {sampleIndex: firstSampleIndex, nodeDepth: traceEntryNode.depth});
+        // console.log("len ", entryToNode);
         traceEntryNode.depth = depth;
+        // Assigns root call here
         if (indexStack.length === 1) {
           // First call in the stack is a root call.
           finalizedData.profileTree?.roots.add(traceEntryNode);
@@ -98,6 +107,7 @@ function buildProfileCalls(): void {
       }
     }
   }
+// console.log("len ", entryToNode);
 }
 
 export function reset(): void {
@@ -121,11 +131,15 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     throw new Error('Samples Handler is not initialized');
   }
 
+  // Save the index of event into Annotations Manager to map the index to entry
+
+
   /**
    * A fake trace event created to support CDP.Profiler.Profiles in the
    * trace engine.
    */
   if (Types.TraceEvents.isSyntheticCpuProfile(event)) {
+    console.log("isSyntheticCpuProfile ", event);
     // At the moment we are attaching to a single node target so we
     // should only get a single CPU profile. The values of the process
     // id and thread id are not really important, so we use the data
@@ -142,6 +156,7 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   }
 
   if (Types.TraceEvents.isTraceEventProfile(event)) {
+    // console.log("isTraceEventProfile ", event);
     // Do not use event.args.data.startTime as it is in CLOCK_MONOTONIC domain,
     // but use profileEvent.ts which has been translated to Perfetto's clock
     // domain. Also convert from ms to us.
@@ -153,12 +168,14 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     return;
   }
   if (Types.TraceEvents.isTraceEventProfileChunk(event)) {
+    // console.log("isTraceEventProfileChunk ", event);
     const profileData = getOrCreatePreProcessedData(event.pid, event.id);
     const cdpProfile = profileData.rawProfile;
     const nodesAndSamples: Types.TraceEvents.TraceEventPartialProfile|undefined =
         event.args?.data?.cpuProfile || {samples: []};
     const samples = nodesAndSamples?.samples || [];
     const nodes: CPUProfile.CPUProfileDataModel.ExtendedProfileNode[] = [];
+    // console.log("node ", event);
     for (const n of nodesAndSamples?.nodes || []) {
       const lineNumber = typeof n.callFrame.lineNumber === 'undefined' ? -1 : n.callFrame.lineNumber;
       const columnNumber = typeof n.callFrame.columnNumber === 'undefined' ? -1 : n.callFrame.columnNumber;
