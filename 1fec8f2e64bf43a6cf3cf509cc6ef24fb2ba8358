@@ -16,6 +16,24 @@
       "message": "Recorder does not support these new attribute and probably does not need an update here",
       "revId": "1fec8f2e64bf43a6cf3cf509cc6ef24fb2ba8358",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c67f237c_83775fd1",
+        "filename": "front_end/panels/recorder/RecorderController.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1247458
+      },
+      "writtenOn": "2024-03-12T15:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41aab3a6_38105623",
+      "revId": "1fec8f2e64bf43a6cf3cf509cc6ef24fb2ba8358",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
