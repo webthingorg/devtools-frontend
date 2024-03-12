@@ -22,6 +22,30 @@
       },
       "revId": "7fed4b2b1e586425e039f8a2d98807ebd0a67f3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9202b25f_88de732d",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-12T15:47:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c418653_1c3acfe1",
+      "range": {
+        "startLine": 1120,
+        "startChar": 0,
+        "endLine": 1120,
+        "endChar": 18
+      },
+      "revId": "7fed4b2b1e586425e039f8a2d98807ebd0a67f3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
