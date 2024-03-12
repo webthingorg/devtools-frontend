@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d4b4bb_e18b48b9",
+        "filename": "front_end/ui/legacy/textButton.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-03-12T14:44:23Z",
+      "side": 1,
+      "message": "This is related to https://crbug.com/329124096",
+      "revId": "45f6ad10a096efa19b39ac9b0b66d2fd66798f67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
