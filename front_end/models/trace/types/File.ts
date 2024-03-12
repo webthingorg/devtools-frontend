@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {type TraceEventData} from './TraceEvents.js';
+import { type AnnotationsManager } from '../../../services/annotations/annotations_manager.js';
 export type TraceFile = {
   traceEvents: readonly TraceEventData[],
   metadata: MetaData,
@@ -25,6 +26,7 @@ export interface MetaData {
   cpuThrottling?: number;
   hardwareConcurrency?: number;
   dataOrigin?: DataOrigin;
+  annotations?: AnnotationsManager.Annotations;
 }
 
 export type Contents = TraceFile|TraceEventData[];

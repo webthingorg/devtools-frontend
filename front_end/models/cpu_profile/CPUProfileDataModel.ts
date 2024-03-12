@@ -373,7 +373,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
    * and when it's closed
    */
   forEachFrame(
-      openFrameCallback: (depth: number, node: ProfileNode, timestamp: number) => void,
+      openFrameCallback: (depth: number, node: ProfileNode, timestamp: number, firstSampleIndex: number) => void,
       closeFrameCallback: (depth: number, node: ProfileNode, timestamp: number, dur: number, selfTime: number) => void,
       startTime?: number, stopTime?: number): void {
     if (!this.profileHead || !this.samples) {
@@ -427,7 +427,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
       if (gcNode && node === gcNode) {
         // GC samples have no stack, so we just put GC node on top of the last recorded sample.
         gcParentNode = prevNode;
-        openFrameCallback(gcParentNode.depth + 1, gcNode, sampleTime);
+        openFrameCallback(gcParentNode.depth + 1, gcNode, sampleTime, sampleIndex);
         stackStartTimes[++stackTop] = sampleTime;
         stackChildrenDuration[stackTop] = 0;
         prevId = id;
@@ -493,7 +493,7 @@ export class CPUProfileDataModel extends ProfileTreeModel {
           break;
         }
         node = currentNode;
-        openFrameCallback(currentNode.depth, currentNode, sampleTime);
+        openFrameCallback(currentNode.depth, currentNode, sampleTime, sampleIndex);
         stackStartTimes[++stackTop] = sampleTime;
         stackChildrenDuration[stackTop] = 0;
       }
