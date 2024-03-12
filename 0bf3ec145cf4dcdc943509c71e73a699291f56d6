@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "079f6224_ad6dc0a2",
+        "filename": "front_end/panels/mobile_throttling/throttlingSettingsTab.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-12T16:12:30Z",
+      "side": 0,
+      "message": "I think this was to avoid button overlapping with the text. I remember when you showed me, it did look ok after the change, but I don\u0027t remember how exactly. Could you add a screenshot to the CL description?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "0bf3ec145cf4dcdc943509c71e73a699291f56d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
