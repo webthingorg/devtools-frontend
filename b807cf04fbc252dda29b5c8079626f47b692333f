@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ce464f_3be2390c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-12T14:31:32Z",
+      "side": 1,
+      "message": "Before we add this in production, could you please add it in google3/googledata/html/external_content/scs_corp/chrome_devtools/console_insights_eval/strategies/simple_question/strategy.js so that we can asses the impact.",
+      "revId": "b807cf04fbc252dda29b5c8079626f47b692333f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
