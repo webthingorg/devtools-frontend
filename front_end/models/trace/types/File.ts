@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {type AnnotationsManager} from '../../../services/annotations_manager/annotations_manager.js';
+
 import {type TraceEventData} from './TraceEvents.js';
 export type TraceFile = {
   traceEvents: readonly TraceEventData[],
@@ -25,6 +27,7 @@ export interface MetaData {
   cpuThrottling?: number;
   hardwareConcurrency?: number;
   dataOrigin?: DataOrigin;
+  annotations?: AnnotationsManager.Annotations;
 }
 
 export type Contents = TraceFile|TraceEventData[];
