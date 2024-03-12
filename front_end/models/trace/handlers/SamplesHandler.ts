@@ -15,7 +15,6 @@ const events =
 
 const profilesInProcess = new Map<Types.TraceEvents.ProcessID, Map<Types.TraceEvents.ThreadID, ProfileData>>();
 const entryToNode = new Map<Types.TraceEvents.SyntheticTraceEntry, Helpers.TreeHelpers.TraceEntryNode>();
-
 // The profile head, containing its metadata like its start
 // time, comes in a "Profile" event. The sample data comes in
 // "ProfileChunk" events. We match these ProfileChunks with their head
