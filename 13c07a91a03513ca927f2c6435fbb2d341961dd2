@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c8ff62b_04aa3827",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-13T08:50:05Z",
+      "side": 1,
+      "message": "Why do we need to handle early hints ExtraResponseInfo separately here? \n\nWould it be enough to check `ExtraResponseInfo.statusCode` in the `NetworkRequest.addExtraResponseInfo` and put headers to the `earlyHintsHeaders` instead of `responseHeaders`",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1843,
+        "endChar": 3
+      },
+      "revId": "13c07a91a03513ca927f2c6435fbb2d341961dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ab48b4_4fc68e54",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-13T08:50:05Z",
+      "side": 1,
+      "message": "Can we use ResponseHeaderSection instead?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 58
+      },
+      "revId": "13c07a91a03513ca927f2c6435fbb2d341961dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
