@@ -571,6 +571,17 @@ describeWithMockConnection('TimelineUIUtils', function() {
           value: 'Schedule Style Recalculation',
         },
         {
+          title: 'Selector Stats',
+          value:
+              'Open Capture settings and select "" to record detailed statistics about CSS selectors processed during this Recalculate style event.',
+        },
+        {
+          title: 'Recalculation Forced',
+          // The Stack trace output would be here but the detailRow helper is
+          // unable to parse it, hence why this returns empty.
+          value: '',
+        },
+        {
           title: 'Pending for',
           value: '7.1 ms',
         },
