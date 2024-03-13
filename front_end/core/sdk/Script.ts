@@ -390,16 +390,12 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   }
 
   get frameId(): Protocol.Page.FrameId {
-    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-    // @ts-expect-error
-    if (typeof this[frameIdSymbol] !== 'string') {
-      // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-      // @ts-expect-error
-      this[frameIdSymbol] = frameIdForScript(this);
+    let frameId = frameIdMap.get(this);
+    if (frameId === undefined) {
+      frameId = frameIdForScript(this);
+      frameIdMap.set(this, frameId);
     }
-    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-    // @ts-expect-error
-    return this[frameIdSymbol];
+    return frameId;
   }
 
   /**
@@ -466,17 +462,17 @@ export class Script implements TextUtils.ContentProvider.ContentProvider, FrameA
   }
 }
 
-const frameIdSymbol = Symbol('frameid');
+const frameIdMap = new WeakMap<Script, Protocol.Page.FrameId>();
 
-function frameIdForScript(script: Script): Protocol.Page.FrameId|null {
+function frameIdForScript(script: Script): Protocol.Page.FrameId {
   const executionContext = script.executionContext();
-  if (executionContext) {
-    return executionContext.frameId || null;
+  if (executionContext && executionContext.frameId !== undefined) {
+    return executionContext.frameId;
   }
   // This is to overcome compilation cache which doesn't get reset.
   const resourceTreeModel = script.debuggerModel.target().model(ResourceTreeModel);
   if (!resourceTreeModel || !resourceTreeModel.mainFrame) {
-    return null;
+    throw new Error(`Unable to determine frame ID for script ${script.scriptId}`);
   }
   return resourceTreeModel.mainFrame.id;
 }

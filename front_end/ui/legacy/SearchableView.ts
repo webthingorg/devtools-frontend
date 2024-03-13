@@ -101,9 +101,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class SearchableView extends VBox {
   private searchProvider: Searchable;
   private replaceProvider: Replaceable|null;
-  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private setting: Common.Settings.Setting<any>|null;
+  private setting: Common.Settings.Setting<{caseSensitive: boolean, isRegex: boolean}>|null;
   private replaceable: boolean;
   private readonly footerElementContainer: HTMLElement;
   private readonly footerElement: HTMLElement;
@@ -131,7 +129,9 @@ export class SearchableView extends VBox {
 
     this.searchProvider = searchable;
     this.replaceProvider = replaceable;
-    this.setting = settingName ? Common.Settings.Settings.instance().createSetting(settingName, {}) : null;
+    this.setting = settingName ?
+        Common.Settings.Settings.instance().createSetting(settingName, {caseSensitive: false, isRegex: false}) :
+        null;
     this.replaceable = false;
 
     this.contentElement.createChild('slot');
@@ -268,7 +268,7 @@ export class SearchableView extends VBox {
     if (!this.setting) {
       return;
     }
-    const settingValue = this.setting.get() || {};
+    const settingValue = this.setting.get();
     if (this.caseSensitiveButton) {
       settingValue.caseSensitive = this.caseSensitiveButton.toggled();
     }
@@ -279,12 +279,12 @@ export class SearchableView extends VBox {
   }
 
   private loadSetting(): void {
-    const settingValue = this.setting ? (this.setting.get() || {}) : {};
+    const settingValue = this.setting?.get();
     if (this.searchProvider.supportsCaseSensitiveSearch() && this.caseSensitiveButton) {
-      this.caseSensitiveButton.setToggled(Boolean(settingValue.caseSensitive));
+      this.caseSensitiveButton.setToggled(Boolean(settingValue?.caseSensitive));
     }
     if (this.searchProvider.supportsRegexSearch() && this.regexButton) {
-      this.regexButton.setToggled(Boolean(settingValue.isRegex));
+      this.regexButton.setToggled(Boolean(settingValue?.isRegex));
     }
   }
 
