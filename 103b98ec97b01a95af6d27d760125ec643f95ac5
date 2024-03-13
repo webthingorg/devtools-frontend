@@ -34,6 +34,24 @@
       "parentUuid": "41cce7b2_6414f91b",
       "revId": "103b98ec97b01a95af6d27d760125ec643f95ac5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb323253_01e1e751",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1226494
+      },
+      "writtenOn": "2024-03-13T13:21:21Z",
+      "side": 1,
+      "message": "I am just confused as to how it will build after without the front_end/panels/application/InterestGroupTreeElement.ts and the corresponding test changes from the CL I linked above.",
+      "parentUuid": "c1d34982_0c4e113c",
+      "revId": "103b98ec97b01a95af6d27d760125ec643f95ac5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
