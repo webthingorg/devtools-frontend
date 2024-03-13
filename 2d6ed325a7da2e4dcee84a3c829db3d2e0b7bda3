@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eac2225_357243ba",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-13T20:38:15Z",
+      "side": 1,
+      "message": "```suggestion\n  const metricScore \u003d navMetrics.get(Handlers.ModelHandlers.PageLoadMetrics.MetricName.LCP);\n  if (!metricScore) {\n    return {warnings: [InsightWarning.NO_LCP]};\n  }\n  \n  const lcpEvent \u003d metricScore.event;\n  const lcpTiming \u003d metricScore.timing;\n```",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 3
+      },
+      "revId": "2d6ed325a7da2e4dcee84a3c829db3d2e0b7bda3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
