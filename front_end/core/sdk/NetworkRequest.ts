@@ -328,6 +328,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #timingInternal?: Protocol.Network.ResourceTiming;
   #requestHeadersTextInternal?: string;
   #responseHeadersInternal?: NameValue[];
+  #earlyHintsHeadersInternal?: NameValue[];
   #sortedResponseHeadersInternal?: NameValue[];
   #responseCookiesInternal?: Cookie[];
   #serverTimingsInternal?: ServerTiming[]|null;
@@ -1017,6 +1018,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.dispatchEventToListeners(Events.ResponseHeadersChanged);
   }
 
+  get earlyHintsHeaders(): NameValue[] {
+    return this.#earlyHintsHeadersInternal || [];
+  }
+
+  set earlyHintsHeaders(x: NameValue[]) {
+    this.#earlyHintsHeadersInternal = x;
+  }
+
   get originalResponseHeaders(): Protocol.Fetch.HeaderEntry[] {
     return this.#originalResponseHeaders;
   }
@@ -1651,6 +1660,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
                                                      uiString: setCookieBlockedReasonToUiString(blockedReason),
                                                    })));
     }
+  }
+
+  addEarlyHintsInfo(extraResponseInfo: ExtraResponseInfo): void {
+    this.earlyHintsHeaders = extraResponseInfo.responseHeaders;
   }
 
   // This is called by `NetworkManager.finishNetworkRequest()` and not earlier

@@ -121,6 +121,8 @@ const CONNECTION_TYPES = new Map([
   ['wimax', Protocol.Network.ConnectionType.Wimax],
 ]);
 
+const EARLY_HINTS_STATUS_CODE = 103;
+
 export class NetworkManager extends SDKModel<EventTypes> {
   readonly dispatcher: NetworkDispatcher;
   readonly fetchDispatcher: FetchDispatcher;
@@ -930,7 +932,11 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
                                                       exemptionReason: exemptedCookie.exemptionReason,
                                                     })),
     };
-    this.getExtraInfoBuilder(requestId).addResponseExtraInfo(extraResponseInfo);
+    if (statusCode === EARLY_HINTS_STATUS_CODE) {
+      this.getExtraInfoBuilder(requestId).addResponseEarlyHintsInfo(extraResponseInfo);
+    } else {
+      this.getExtraInfoBuilder(requestId).addResponseExtraInfo(extraResponseInfo);
+    }
   }
 
   private getExtraInfoBuilder(requestId: string): ExtraInfoBuilder {
@@ -1801,6 +1807,7 @@ class ExtraInfoBuilder {
   readonly #requests: NetworkRequest[];
   #requestExtraInfos: (ExtraRequestInfo|null)[];
   #responseExtraInfos: (ExtraResponseInfo|null)[];
+  #responseEarlyHintsInfos: (ExtraResponseInfo|null)[];
   #finishedInternal: boolean;
   #webBundleInfo: WebBundleInfo|null;
   #webBundleInnerRequestInfo: WebBundleInnerRequestInfo|null;
@@ -1808,6 +1815,7 @@ class ExtraInfoBuilder {
   constructor() {
     this.#requests = [];
     this.#requestExtraInfos = [];
+    this.#responseEarlyHintsInfos = [];
     this.#responseExtraInfos = [];
     this.#finishedInternal = false;
     this.#webBundleInfo = null;
@@ -1827,6 +1835,11 @@ class ExtraInfoBuilder {
   addResponseExtraInfo(info: ExtraResponseInfo): void {
     this.#responseExtraInfos.push(info);
     this.sync(this.#responseExtraInfos.length - 1);
+  }
+
+  addResponseEarlyHintsInfo(info: ExtraResponseInfo): void {
+    this.#responseEarlyHintsInfos.push(info);
+    this.sync(this.#responseEarlyHintsInfos.length - 1);
   }
 
   setWebBundleInfo(info: WebBundleInfo): void {
@@ -1864,6 +1877,12 @@ class ExtraInfoBuilder {
     if (responseExtraInfo) {
       req.addExtraResponseInfo(responseExtraInfo);
       this.#responseExtraInfos[index] = null;
+    }
+
+    const responseEarlyHintsInfo = this.#responseEarlyHintsInfos[index];
+    if (responseEarlyHintsInfo) {
+      req.addEarlyHintsInfo(responseEarlyHintsInfo);
+      this.#responseEarlyHintsInfos[index] = null;
     }
   }
 

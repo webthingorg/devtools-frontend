@@ -87,6 +87,54 @@ export interface ResponseHeaderSectionData {
   toReveal?: {section: NetworkForward.UIRequestLocation.UIHeaderSection, header?: string};
 }
 
+export class EarlyHintsHeaderSection extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-early-hints-header-section`;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #request?: Readonly<SDK.NetworkRequest.NetworkRequest>;
+  #headers: HeaderDescriptor[] = [];
+
+  connectedCallback(): void {
+    this.#shadow.adoptedStyleSheets = [responseHeaderSectionStyles];
+  }
+
+  set data(data: ResponseHeaderSectionData) {
+    this.#request = data.request;
+
+    this.#headers = this.#request.earlyHintsHeaders.map(header => ({
+                                                          name: Platform.StringUtilities.toLowerCaseString(header.name),
+                                                          value: header.value,
+                                                        }));
+    this.#headers.sort((a, b) => Platform.StringUtilities.compare(a.name, b.name));
+
+    if (data.toReveal?.section === NetworkForward.UIRequestLocation.UIHeaderSection.Request) {
+      this.#headers.filter(header => header.name === data.toReveal?.header?.toLowerCase()).forEach(header => {
+        header.highlight = true;
+      });
+    }
+
+    this.#render();
+  }
+
+  #render(): void {
+    if (!this.#request) {
+      return;
+    }
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    render(html`
+      ${this.#headers.map(header => html`
+        <${HeaderSectionRow.litTagName} .data=${{
+        header: header,
+      } as HeaderSectionRowData}></${HeaderSectionRow.litTagName}>
+      `)}
+    `, this.#shadow, { host: this });
+    // clang-format on
+  }
+}
+
+customElements.define('devtools-early-hints-header-section', EarlyHintsHeaderSection);
+
 export class ResponseHeaderSection extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-response-header-section`;
   readonly #shadow = this.attachShadow({mode: 'open'});
@@ -522,6 +570,7 @@ customElements.define('devtools-response-header-section', ResponseHeaderSection)
 declare global {
   interface HTMLElementTagNameMap {
     'devtools-response-header-section': ResponseHeaderSection;
+    'devtools-early-hints-header-section': EarlyHintsHeaderSection;
   }
 }
 
