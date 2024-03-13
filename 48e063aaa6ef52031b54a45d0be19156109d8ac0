@@ -194,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7a0936_b2e3d6e3",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "I\u0027ll created a follow-up CL to update the datagrid component.",
+      "parentUuid": "c30d2e4e_0826777b",
+      "revId": "48e063aaa6ef52031b54a45d0be19156109d8ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "846c2545_cf5e3b59",

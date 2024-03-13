@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67af9dc3_4d93188f",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "updated as suggested. Thanks.",
+      "parentUuid": "0385e74b_0bfabb32",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e03e5df_1e7c5030",
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9011e203_2ab0fa42",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "updated as suggested. Thanks.",
+      "parentUuid": "9e03e5df_1e7c5030",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "895ce645_5d095637",
@@ -82,6 +118,24 @@
       "writtenOn": "2024-03-07T01:32:33Z",
       "side": 1,
       "message": "is there a way to set text alignment in these numeric cells to right-aligned?",
+      "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e17174fe_dcc61fe8",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "updated to set numeric cells right aligned.",
+      "parentUuid": "895ce645_5d095637",
       "revId": "84de85bf4e25bc7e4a9da619802774d3b14834c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

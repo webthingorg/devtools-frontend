@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70a5167c_b297642c",
+        "filename": "front_end/generated/protocol.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 3097,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "Thanks for the suggestions. I am open to split the CL. I\u0027ll defer this to Paul.",
+      "parentUuid": "f80af1a5_b5c25e81",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2a0e09b_29469899",
         "filename": "front_end/models/timeline_model/TimelineModel.ts",
         "patchSetId": 11
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-23T18:26:40Z",
       "side": 1,
       "message": "I\u0027m confused by this type declaration; it has a non-null assertion `!` but it is declared as an Event or null?",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178a6a48_d928c754",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "removed the non-null assertation.",
+      "parentUuid": "f2a0e09b_29469899",
       "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea7c68ab_f5a4f662",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "removed clone here to reduce deep copy. Moved the deep copy to the function setAggregatedEvent in file front_end\\panels\\timeline\\TimelineSelectorStatsView.ts.",
+      "parentUuid": "e7c8297b_c0b911d2",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c517788_217fe779",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-02-23T18:26:40Z",
       "side": 1,
       "message": "I kind of don\u0027t like this mechanism of determining whether you need to display something by creating the displaying element and asking it if it should display itself.",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4297a1b_85d1fb30",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "updated as suggested. The selector stats tab will always be shown when the feature is enabled.",
+      "parentUuid": "6c517788_217fe779",
       "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "661442fb_29980901",
+        "filename": "front_end/ui/components/linkifier/LinkifierImpl.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "Thanks for the suggestions. I am open to split the CL. I\u0027ll defer this to Paul.",
+      "parentUuid": "5c47fac2_f2ea283b",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "32a065d7_f8660222",
         "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
         "patchSetId": 11
@@ -99,6 +189,24 @@
       "writtenOn": "2024-02-23T18:26:40Z",
       "side": 1,
       "message": "In general our partners like to see the protocol rolls in a separate CL.",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2dbd86c_6151e4d6",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 11
+      },
+      "lineNbr": 2160,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-13T23:03:15Z",
+      "side": 1,
+      "message": "Thanks for the suggestions. I am open to split the CL. I\u0027ll defer this to Paul.",
+      "parentUuid": "32a065d7_f8660222",
       "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
