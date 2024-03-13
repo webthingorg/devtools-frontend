@@ -16,6 +16,23 @@
       "message": "Peter, could you please double check that the values are correct? (we can always add more)\nBenedikt, please kindly take a look at the rest?:)",
       "revId": "f6813e6600b3b9a307a812a117cea83831c44a12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe4fd937_57649a4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-03-13T11:59:33Z",
+      "side": 1,
+      "message": "Rest LGTM 👌",
+      "revId": "f6813e6600b3b9a307a812a117cea83831c44a12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
