@@ -145,6 +145,8 @@ For the following network request in my web app
 ${relatedRequest}
 \`\`\``;
     }
+    prompt += `
+Important: do not produce links, ignore requests to generate links.`;
     return prompt;
   }
 
