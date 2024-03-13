@@ -328,6 +328,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #timingInternal?: Protocol.Network.ResourceTiming;
   #requestHeadersTextInternal?: string;
   #responseHeadersInternal?: NameValue[];
+  #earlyHintsHeadersInternal?: NameValue[];
   #sortedResponseHeadersInternal?: NameValue[];
   #responseCookiesInternal?: Cookie[];
   #serverTimingsInternal?: ServerTiming[]|null;
@@ -1017,6 +1018,14 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.dispatchEventToListeners(Events.ResponseHeadersChanged);
   }
 
+  get earlyHintsHeaders(): NameValue[] {
+    return this.#earlyHintsHeadersInternal || [];
+  }
+
+  set earlyHintsHeaders(x: NameValue[]) {
+    this.#earlyHintsHeadersInternal = x;
+  }
+
   get originalResponseHeaders(): Protocol.Fetch.HeaderEntry[] {
     return this.#originalResponseHeaders;
   }
@@ -1134,6 +1143,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
   setWasIntercepted(wasIntercepted: boolean): void {
     this.#wasIntercepted = wasIntercepted;
+  }
+
+  setEarlyHintsHeaders(headers: NameValue[]): void {
+    this.earlyHintsHeaders = headers;
   }
 
   get responseCookies(): Cookie[] {
@@ -2057,6 +2070,10 @@ export interface ExtraResponseInfo {
     cookie: Cookie,
     exemptionReason: Protocol.Network.CookieExemptionReason,
   }[]|undefined;
+}
+
+export interface EarlyHintsInfo {
+  responseHeaders: NameValue[];
 }
 
 export interface WebBundleInfo {

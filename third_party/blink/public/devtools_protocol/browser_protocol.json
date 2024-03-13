@@ -13818,6 +13818,27 @@
                             "description": "Connection type if known.",
                             "optional": true,
                             "$ref": "ConnectionType"
+                        },
+                        {
+                            "name": "packetLoss",
+                            "description": "WebRTC packet loss (percent, 0-100). 0 disables packet loss emulation, 100 drops all the packets.",
+                            "experimental": true,
+                            "optional": true,
+                            "type": "number"
+                        },
+                        {
+                            "name": "packetQueueLength",
+                            "description": "WebRTC packet queue length (packet). 0 removes any queue length limitations.",
+                            "experimental": true,
+                            "optional": true,
+                            "type": "integer"
+                        },
+                        {
+                            "name": "packetReordering",
+                            "description": "WebRTC packetReordering feature.",
+                            "experimental": true,
+                            "optional": true,
+                            "type": "boolean"
                         }
                     ]
                 },
@@ -15020,6 +15041,23 @@
                             "items": {
                                 "$ref": "ExemptedSetCookieWithReason"
                             }
+                        }
+                    ]
+                },
+                {
+                    "name": "responseReceivedEarlyHints",
+                    "description": "Fired when 103 Early Hints headers is received in addition to the common response.\nNot every responseReceived event will have an responseReceivedEarlyHints fired.\nOnly one responseReceivedEarlyHints may be fired for eached responseReceived event.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "requestId",
+                            "description": "Request identifier. Used to match this information to another responseReceived event.",
+                            "$ref": "RequestId"
+                        },
+                        {
+                            "name": "headers",
+                            "description": "Raw response headers as they were received over the wire.",
+                            "$ref": "Headers"
                         }
                     ]
                 },
@@ -17418,6 +17456,7 @@
                         "CookieDisabled",
                         "HTTPAuthRequired",
                         "CookieFlushed",
+                        "BroadcastChannelOnMessage",
                         "WebSocket",
                         "WebTransport",
                         "WebRTC",
