@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "b4a0ccbfe2ef1b3a08f786f10d36051f0928b5fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b35f6cd_25cbfddd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-13T13:54:25Z",
+      "side": 1,
+      "message": "LGTM. that\u0027s a lot of code deleted 🎊",
+      "revId": "b4a0ccbfe2ef1b3a08f786f10d36051f0928b5fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44d7b6f9_01cd5c5c",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-13T13:54:25Z",
+      "side": 1,
+      "message": "Could we make EventCategory an Enum to get rid of the strings and not needing to define the type separately from eventCategories array?",
+      "revId": "b4a0ccbfe2ef1b3a08f786f10d36051f0928b5fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
