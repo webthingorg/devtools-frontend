@@ -374,12 +374,12 @@ describeWithMockConnection('TimelineUIUtils', function() {
     });
 
     it('should return the correct rgb value for a corresponding CSS variable', function() {
-      const parsedColor = Timeline.TimelineUIUtils.TimelineUIUtils.categories().scripting.getComputedColorValue();
+      const parsedColor = Timeline.EventUICategory.getCategoryStyles().scripting.getComputedColorValue();
       assert.strictEqual('rgb(2 2 2)', parsedColor);
     });
 
     it('should return the color as a CSS variable', function() {
-      const cssVariable = Timeline.TimelineUIUtils.TimelineUIUtils.categories().scripting.getCSSValue();
+      const cssVariable = Timeline.EventUICategory.getCategoryStyles().scripting.getCSSValue();
       assert.strictEqual('var(--app-color-scripting)', cssVariable);
     });
 
