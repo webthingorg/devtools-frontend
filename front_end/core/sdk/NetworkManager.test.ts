@@ -194,6 +194,22 @@ describe('NetworkDispatcher', () => {
         {name: 'set-cookie', value: 'color=green'},
       ]);
     });
+
+    it('has populated early hints headers after receiving \'repsonseReceivedEarlyHints\'', () => {
+      const earlyHintsEvent = {
+        requestId: 'mockId' as Protocol.Network.RequestId,
+        headers: {
+          'link': '</style.css>; as=style;',
+        } as Protocol.Network.Headers,
+      };
+      networkDispatcher.requestWillBeSent(requestWillBeSentEvent);
+      networkDispatcher.loadingFinished(loadingFinishedEvent);
+      networkDispatcher.responseReceivedEarlyHints(earlyHintsEvent);
+
+      assert.deepEqual(networkDispatcher.requestForId('mockId')?.earlyHintsHeaders, [
+        {name: 'link', value: '</style.css>; as=style;'},
+      ]);
+    });
   });
 
   describeWithEnvironment('WebBundle requests', () => {
