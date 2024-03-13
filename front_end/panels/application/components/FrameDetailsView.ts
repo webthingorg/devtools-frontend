@@ -19,6 +19,7 @@ import * as Coordinator from '../../../ui/components/render_coordinator/render_c
 import * as ReportView from '../../../ui/components/report_view/report_view.js';
 import * as Components from '../../../ui/legacy/components/utils/utils.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as UIHelpers from '../../../ui/ui-helpers/ui-helpers.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
 import frameDetailsReportViewStyles from './frameDetailsReportView.css.js';
@@ -733,6 +734,15 @@ export class FrameDetailsReportView extends LegacyWrapper.LegacyWrapper.Wrappabl
         ${cspInfo.source === Protocol.Network.ContentSecurityPolicySource.HTTP ? i18n.i18n.lockedString('HTTP header') : i18n.i18n.lockedString('Meta tag')}
         ${this.#renderEffectiveDirectives(cspInfo.effectiveDirectives)}
       </${ReportView.ReportView.ReportValue.litTagName}>
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Primary, 'watch', 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Primary, undefined, 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Outlined, 'scissors', 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Outlined, undefined, 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Text, 'info', 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Text, undefined, 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Micro, 'scissors', 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Micro, undefined, 'Click me')}
+      ${UIHelpers.Button.createButton(UIHelpers.Button.Type.Icon, 'gear', undefined)}
     `;
     // clang-format on
   }
