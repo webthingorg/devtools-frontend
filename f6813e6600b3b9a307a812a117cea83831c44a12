@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7236977a_3267b91e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-03-13T11:37:51Z",
+      "side": 1,
+      "message": "Peter, could you please double check that the values are correct? (we can always add more)\nBenedikt, please kindly take a look at the rest?:)",
+      "revId": "f6813e6600b3b9a307a812a117cea83831c44a12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
