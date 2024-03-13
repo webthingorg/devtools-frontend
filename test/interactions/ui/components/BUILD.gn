@@ -6,6 +6,7 @@ import("../../../../third_party/typescript/typescript.gni")
 
 node_ts_library("components") {
   sources = [
+    "ButtonHelper_test.ts",
     "Dialog_test.ts",
     "IconDialog_test.ts",
     "SelectMenu_test.ts",

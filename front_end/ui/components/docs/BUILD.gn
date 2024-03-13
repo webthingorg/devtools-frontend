@@ -14,6 +14,7 @@ group("docs") {
     "../../../panels/timeline/fixtures/traces",
     "./breadcrumbs_perf",
     "./button",
+    "./button-helper",
     "./color_swatch",
     "./computed_style_property",
     "./computed_style_trace",
