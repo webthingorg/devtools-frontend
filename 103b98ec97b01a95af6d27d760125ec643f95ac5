@@ -52,6 +52,24 @@
       "parentUuid": "c1d34982_0c4e113c",
       "revId": "103b98ec97b01a95af6d27d760125ec643f95ac5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57986f5d_1ef67759",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-03-13T13:53:02Z",
+      "side": 1,
+      "message": "I see. I\u0027ve merged this change with the roll.",
+      "parentUuid": "bb323253_01e1e751",
+      "revId": "103b98ec97b01a95af6d27d760125ec643f95ac5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
