@@ -9240,6 +9240,18 @@ export namespace Network {
      * Connection type if known.
      */
     connectionType?: ConnectionType;
+    /**
+     * WebRTC packet loss (percent, 0-100). 0 disables packet loss emulation, 100 drops all the packets.
+     */
+    packetLoss?: number;
+    /**
+     * WebRTC packet queue length (packet). 0 removes any queue length limitations.
+     */
+    packetQueueLength?: integer;
+    /**
+     * WebRTC packetReordering feature.
+     */
+    packetReordering?: boolean;
   }
 
   export interface EnableRequest {
@@ -10132,6 +10144,22 @@ export namespace Network {
      * the response with the corresponding reason.
      */
     exemptedCookies?: ExemptedSetCookieWithReason[];
+  }
+
+  /**
+   * Fired when 103 Early Hints headers is received in addition to the common response.
+   * Not every responseReceived event will have an responseReceivedEarlyHints fired.
+   * Only one responseReceivedEarlyHints may be fired for eached responseReceived event.
+   */
+  export interface ResponseReceivedEarlyHintsEvent {
+    /**
+     * Request identifier. Used to match this information to another responseReceived event.
+     */
+    requestId: RequestId;
+    /**
+     * Raw response headers as they were received over the wire.
+     */
+    headers: Headers;
   }
 
   export const enum TrustTokenOperationDoneEventStatus {
@@ -11826,6 +11854,7 @@ export namespace Page {
     CookieDisabled = 'CookieDisabled',
     HTTPAuthRequired = 'HTTPAuthRequired',
     CookieFlushed = 'CookieFlushed',
+    BroadcastChannelOnMessage = 'BroadcastChannelOnMessage',
     WebSocket = 'WebSocket',
     WebTransport = 'WebTransport',
     WebRTC = 'WebRTC',
