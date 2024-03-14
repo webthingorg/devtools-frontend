@@ -159,6 +159,24 @@
       "parentUuid": "73d945cb_7b199d2c",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73f612d1_c9e4a298",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-14T12:48:01Z",
+      "side": 1,
+      "message": "Instead of introducing helpers we can introduce components with LitElement and I think this shouldn\u0027t change the approach that much.\n\nWe can still keep the `createButton` helper even and make it return an HTMLElement instead of a Lit template.\n\nThough, your call on whether to update current button styles or creating a new component :)",
+      "parentUuid": "d40bc5e8_3e997d3b",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
