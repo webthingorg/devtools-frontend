@@ -87,6 +87,24 @@
       "parentUuid": "1e8296bf_4df09e68",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ecc7aa1_c805d12d",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-03-14T10:27:49Z",
+      "side": 1,
+      "message": "This makes sense!\nWe could add an eslint rule that complains about adding `\u003cbutton\u003e`s, wdyt?\n\nI feel like a helper would help avoid many questions when adding buttons, like \u0027does the text need to be in a span or div, or plainly in-between `\u003cbutton\u003e\u003c/button\u003e`?\u0027\u003chow exactly do I add an icon inside a button?\u003e etc.\nWe would need to enforce following a certain pattern here too, but not have the ease of use and convenience that a helper brings",
+      "parentUuid": "e266d55c_f0d13733",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
