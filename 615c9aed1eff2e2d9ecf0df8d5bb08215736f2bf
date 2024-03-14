@@ -69,6 +69,24 @@
       "parentUuid": "cd3730cb_cd57d7a5",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e266d55c_f0d13733",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-14T10:03:53Z",
+      "side": 1,
+      "message": "How do you enforce that people use helpers?\nIf you are feeling strongly about enforcing 1 icon on the left, how about\n\n\n    button .icon:not(:first-element-child) {\n      display: none; \n    }",
+      "parentUuid": "1e8296bf_4df09e68",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
