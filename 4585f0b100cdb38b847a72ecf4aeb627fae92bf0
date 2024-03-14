@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78949adb_cd59e908",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-14T09:46:50Z",
+      "side": 1,
+      "message": "I see. Changed it, let\u0027s stick to the pattern. Thank you!",
+      "parentUuid": "cb0c37a8_44d9eafc",
+      "range": {
+        "startLine": 62,
+        "startChar": 31,
+        "endLine": 62,
+        "endChar": 49
+      },
+      "revId": "4585f0b100cdb38b847a72ecf4aeb627fae92bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ee4ff9b_804d4177",
