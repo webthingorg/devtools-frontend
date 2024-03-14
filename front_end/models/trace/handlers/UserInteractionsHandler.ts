@@ -16,11 +16,15 @@ import {HandlerState} from './types.js';
 // because they are effectively global, so we just track all that we find.
 const allEvents: Types.TraceEvents.TraceEventEventTiming[] = [];
 
+const beginCommitCompositorFrameEvents: Types.TraceEvents.TraceEventBeginCommitCompositorFrame[] = [];
+
 export const LONG_INTERACTION_THRESHOLD = Helpers.Timing.millisecondsToMicroseconds(Types.Timing.MilliSeconds(200));
 
 export interface UserInteractionsData {
   /** All the user events we found in the trace */
   allEvents: readonly Types.TraceEvents.TraceEventEventTiming[];
+  /** All the BeginCommitCompositorFrame events we found in the trace */
+  beginCommitCompositorFrameEvents: readonly Types.TraceEvents.TraceEventBeginCommitCompositorFrame[];
   /** All the interaction events we found in the trace that had an
    * interactionId and a duration > 0
    **/
@@ -56,6 +60,7 @@ let handlerState = HandlerState.UNINITIALIZED;
 
 export function reset(): void {
   allEvents.length = 0;
+  beginCommitCompositorFrameEvents.length = 0;
   interactionEvents.length = 0;
   eventTimingStartEventsForInteractions.length = 0;
   eventTimingEndEventsById.clear();
@@ -67,6 +72,11 @@ export function reset(): void {
 export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   if (handlerState !== HandlerState.INITIALIZED) {
     throw new Error('Handler is not initialized');
+  }
+
+  if (Types.TraceEvents.isTraceEventBeginCommitCompositorFrame(event)) {
+    beginCommitCompositorFrameEvents.push(event);
+    return;
   }
 
   if (!Types.TraceEvents.isTraceEventEventTiming(event)) {
@@ -327,6 +337,7 @@ export async function finalize(): Promise<void> {
 export function data(): UserInteractionsData {
   return {
     allEvents: [...allEvents],
+    beginCommitCompositorFrameEvents: [...beginCommitCompositorFrameEvents],
     interactionEvents: [...interactionEvents],
     interactionEventsWithNoNesting: [...interactionEventsWithNoNesting],
     longestInteractionEvent,
