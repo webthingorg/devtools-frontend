@@ -33,6 +33,24 @@
       "message": "I\u0027m afraid this `\u003cstyle\u003e` approach might not work very well:\n* Especially since we don\u0027t have a shadow root here, the styles are not scoped and they can creep up to other components because of name collisions. This can cause unwanted breakages.\n* The approach for creating a css text from a stylesheet and then using it inside \u003cstyle\u003e tag feels hacky.\n\nWe\u0027ve been discussing whether to have a helper or a web component; among other reasons, because of this styling issue I\u0027d prefer to introduce a web component.\n\nWe were thinking to introduce LitElement components and we can go for that. WDYT?\n\nFor naming the component, we can say this is a `devtools-gm-button` :)",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd3730cb_cd57d7a5",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-14T09:54:03Z",
+      "side": 1,
+      "message": "I share your concerns Ergün and my first instinct would be do the same, BUT:\nI\u0027d like to make it as hard as possible for people to build wrong UI, so `\u003cbutton\u003e` look material by default, is a great way to achieve that. This would make global style sheets a feature not, a bug. \n\nI wonder if we can avoid the helper all together, use ::before and ::after instead of `div.hover-layer` and `div.ripple-layer` and have styles in a global stylesheet?",
+      "parentUuid": "f0b2c9eb_c3de29b0",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
