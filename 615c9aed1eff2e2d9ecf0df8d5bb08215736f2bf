@@ -123,6 +123,24 @@
       "parentUuid": "e266d55c_f0d13733",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73d945cb_7b199d2c",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-03-14T10:41:52Z",
+      "side": 1,
+      "message": "Okay, I see this requires more discussion than expected. Let\u0027s shelve adding global styles/helpers/components for now and just update the css for existing button implementation(s) to make progress with Material update.",
+      "parentUuid": "e95b8468_db84524e",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
