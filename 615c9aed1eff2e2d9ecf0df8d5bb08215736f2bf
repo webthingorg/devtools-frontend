@@ -51,6 +51,24 @@
       "parentUuid": "f0b2c9eb_c3de29b0",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e8296bf_4df09e68",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-03-14T10:00:08Z",
+      "side": 1,
+      "message": "I like the idea of making the style global, but would still prefer to have a helper, since we also want to enforce that e.g. a button can only have 1 icon before the text and not multiple / after text etc.",
+      "parentUuid": "cd3730cb_cd57d7a5",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
