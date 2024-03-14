@@ -1,0 +1,146 @@
+/*
+ * Copyright 2024 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.icon {
+  mask: var(--icon-url) center / contain no-repeat;
+  background-color: currentColor;
+  display: block;
+}
+
+.label {
+  display: inline;
+}
+
+.hover-layer,
+.ripple-layer {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+button {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  height: var(--sys-size-11);
+  width: fit-content;
+  border-radius: var(--sys-shape-corner-full);
+  border: none;
+  padding: 0 var(--sys-size-6);
+  font: var(--sys-typescale-body4-medium);
+  background: none;
+  color: var(--sys-color-primary);
+
+  &:focus-visible {
+    outline: 2px solid var(--sys-color-state-focus-ring);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    color: var(--sys-color-state-disabled);
+    pointer-events: none;
+  }
+
+  &:not(.icon-button):has(.icon) {
+    padding-left: var(--sys-size-4);
+  }
+
+  &:not(.icon-button) .icon {
+    width: var(--sys-size-9);
+    height: var(--sys-size-9);
+    margin-right: var(--sys-size-2);
+  }
+
+  & .hover-layer {
+    background-color: var(--sys-color-state-hover-on-subtle);
+    visibility: hidden;
+  }
+
+  & .ripple-layer {
+    background-color: var(--sys-color-state-ripple-neutral-on-subtle);
+    visibility: hidden;
+  }
+
+  &:hover .hover-layer {
+    visibility: visible;
+  }
+
+  &:active .ripple-layer {
+    visibility: visible;
+  }
+}
+
+button.primary {
+  color: var(--sys-color-on-primary);
+  background-color: var(--sys-color-primary);
+
+  & .hover-layer {
+    background-color: var(--sys-color-state-hover-on-prominent);
+  }
+
+  & .ripple-layer {
+    background-color: var(--sys-color-state-ripple-primary);
+  }
+
+  &:disabled {
+    color: var(--sys-color-state-disabled);
+    background-color: var(--sys-color-state-disabled-container);
+    pointer-events: none;
+  }
+}
+
+button.outlined {
+  border: 1px solid var(--sys-color-tonal-outline);
+
+  &:disabled {
+    border-color: var(--sys-color-state-disabled);
+    pointer-events: none;
+  }
+}
+
+button.micro {
+  height: var(--sys-size-7);
+  padding: 0 var(--sys-size-5);
+  font: var(--sys-typescale-body5-medium);
+  border: 1px solid var(--sys-color-tonal-outline);
+
+  &:disabled {
+    border-color: var(--sys-color-state-disabled);
+    pointer-events: none;
+  }
+
+  &:not(.icon-button):has(.icon) {
+    padding-left: var(--sys-size-3);
+  }
+
+  &:not(.icon-button) .icon {
+    height: var(--sys-size-6);
+    width: var(--sys-size-6);
+  }
+}
+
+/* Separate icon-button */
+button.icon-button {
+  height: var(--sys-size-11);
+  width: var(--sys-size-11);
+  color: var(--sys-color-on-surface-subtle);
+  padding: 0;
+  justify-content: center;
+
+  /* stylelint-disable no-descending-specificity */
+  & .icon {
+    width: calc(100% - var(--sys-size-5));
+    height: calc(100% - var(--sys-size-5));
+  }
+  /* stylelint-enable no-descending-specificity */
+
+  &:disabled {
+    color: var(--sys-color-state-disabled);
+  }
+}

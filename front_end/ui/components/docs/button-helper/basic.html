@@ -1,0 +1,34 @@
+<!--
+  Copyright 2024 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Button example</title>
+    <style>
+      #container {
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      #div-13 .icon-button.plus {
+        width: var(--sys-size-12);
+        height: var(--sys-size-12);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+    <form onsubmit="event.preventDefault(); alert('submitted');" id="form">
+      <input name="field" placeholder="Enter smth" />
+    </form>
+    <script type="module" src="./basic.js"></script>
+  </body>
+</html>
