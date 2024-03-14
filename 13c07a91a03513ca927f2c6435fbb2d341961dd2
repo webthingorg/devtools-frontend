@@ -93,6 +93,30 @@
       },
       "revId": "13c07a91a03513ca927f2c6435fbb2d341961dd2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6632046_6a59ee30",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-14T07:27:24Z",
+      "side": 1,
+      "message": "Yes, good idea!",
+      "parentUuid": "10da81a4_81a27b3d",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 58
+      },
+      "revId": "13c07a91a03513ca927f2c6435fbb2d341961dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
