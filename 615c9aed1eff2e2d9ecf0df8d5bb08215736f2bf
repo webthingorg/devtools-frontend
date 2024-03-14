@@ -105,6 +105,24 @@
       "parentUuid": "e266d55c_f0d13733",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e95b8468_db84524e",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-14T10:32:42Z",
+      "side": 1,
+      "message": "I think having a broader discussion of putting styles to global would be good before committing to this strategy.\n\nI understand the aim of \"making it as hard as possible for people to build wrong UI\" and global styles helping with this. Though I think this approach will come with its downsides and regressions.\n\n* How are we going to make sure that the styles we edit here are not going to cause issues for other parts of the codebase? It\u0027ll be super hard to make sure that any change we make in global styles here won\u0027t cause any regressions in other parts of the app.\n\n* The direction of the effects might reverse as well: the styles of other components affecting the style of these helpers. I see that since we assumed encapsulation for styles in web components; we used generic class names like `wrapper` without any attempt to make them unique in global namespace. Without realizing this, we can use class names in these helpers that collide with those class names and we don\u0027t even realize unless we use them in those specific places.\n\nI\u0027d prefer having a more explicit way of ensuring UI consistency be it through cultural means like educating people that we\u0027re using GMButtons for all button needs or by enforcing rules like adding a lint rule for not using \"\u003cbutton\u003e\" and asking people to use \"GMButton\".",
+      "parentUuid": "e266d55c_f0d13733",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
