@@ -33,6 +33,24 @@
       "message": "Just link to the full URL?",
       "revId": "33222e753f15a9a8bb845c7cab61ae7acf1268f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2afc7cf_25b18d51",
+        "filename": "scripts/test/run_unittests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-14T09:18:47Z",
+      "side": 1,
+      "message": "Chromium spits out the same `bit.ly` link on the command line when it dies. IMO it\u0027s better since it\u0027ll always point to the up-to-date documentation :)",
+      "parentUuid": "62f1c18d_eacf5fd4",
+      "revId": "33222e753f15a9a8bb845c7cab61ae7acf1268f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
