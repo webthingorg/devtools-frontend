@@ -673,7 +673,7 @@ export class ConsoleInsight extends HTMLElement {
         switch (this.#state.page) {
           case ConsentOnboardingPage.PAGE1:
             return html`<main>
-              <p>This notice and our <x-link href="https://policies.google.com/privacy" class="link" jslog=${VisualLogging.link('privacy-notice').track({click: true})}>privacy notice</x-link> describe how Console insights in Chrome DevTools handles your data. Please read them carefully.</p>
+              <p>This notice and our <x-link href="https://policies.google.com/privacy" class="link" jslog=${VisualLogging.link('privacy-notice').track({click: true})}>privacy notice</x-link> describe how "Understand this message" in Chrome DevTools handles your data. Please read them carefully.</p>
 
               <p>"Understand this message" uses the console message, associated stack trace, related source code, and the associated network headers as input data. When you use this feature, Google collects this input data, generated output, related feature usage information, and your feedback. Google uses this data to provide, improve, and develop Google products and services and machine learning technologies, including Google's enterprise products such as Google Cloud.</p>
 
