@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb0c37a8_44d9eafc",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-14T08:39:52Z",
+      "side": 1,
+      "message": "ah I see. Usually singletons in the codebase throw when the getter is called for the first time and the data to instatiate is not passed. That gives the advantage that we don\u0027t have to check if the instance is null/undefined everytime we call it. The disadvantage is that you need to ensure the instance is initialized properly at some point or it will throw.\n\nI think it\u0027d be nice to stick to this pattern for practicality and consitency but if you feel strong about it, I\u0027m happy to land it as-is as well.",
+      "parentUuid": "7de2f00a_a9a0f070",
+      "range": {
+        "startLine": 62,
+        "startChar": 31,
+        "endLine": 62,
+        "endChar": 49
+      },
+      "revId": "4585f0b100cdb38b847a72ecf4aeb627fae92bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ee4ff9b_804d4177",
         "filename": "front_end/models/trace/EntriesFilter.ts",
         "patchSetId": 13
