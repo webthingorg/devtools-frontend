@@ -653,6 +653,10 @@ export class TimelineUIUtils {
         return TimelineUIUtils.colorForId(frame.url);
       }
     }
+    if (TraceEngine.Legacy.eventIsFromNewEngine(event) &&
+        TraceEngine.Types.Extensions.isSyntheticExtensionEntry(event)) {
+      return event.args.color;
+    }
     let parsedColor = TimelineUIUtils.eventStyle(event).category.getComputedColorValue();
     // This event is considered idle time but still rendered as a scripting event here
     // to connect the StreamingCompileScriptParsing events it belongs to.
