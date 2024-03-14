@@ -19,6 +19,7 @@ import {
   Events,
   type PageVisibleSecurityState,
   SecurityModel,
+  securityStateCompare,
   SecurityStyleExplanation,
   SummaryMessages,
 } from './SecurityModel.js';
@@ -726,7 +727,7 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
 
   private securityStateMin(stateA: Protocol.Security.SecurityState, stateB: Protocol.Security.SecurityState):
       Protocol.Security.SecurityState {
-    return SecurityModel.SecurityStateComparator(stateA, stateB) < 0 ? stateA : stateB;
+    return securityStateCompare(stateA, stateB) < 0 ? stateA : stateB;
   }
 
   modelAdded(securityModel: SecurityModel): void {

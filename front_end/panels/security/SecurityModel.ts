@@ -59,17 +59,8 @@ export class SecurityModel extends SDK.SDKModel.SDKModel<EventTypes> {
   networkManager(): SDK.NetworkManager.NetworkManager {
     return this.target().model(SDK.NetworkManager.NetworkManager) as SDK.NetworkManager.NetworkManager;
   }
-
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  static SecurityStateComparator(a: Protocol.Security.SecurityState|null, b: Protocol.Security.SecurityState|null):
-      number {
-    const securityStateMap = getOrCreateSecurityStateOrdinalMap();
-    const aScore = a && securityStateMap.get(a) || 0;
-    const bScore = b && securityStateMap.get(b) || 0;
-
-    return aScore - bScore;
-  }
 }
+
 let securityStateToOrdinal: Map<Protocol.Security.SecurityState, number>|null = null;
 
 const getOrCreateSecurityStateOrdinalMap = (): Map<Protocol.Security.SecurityState, number> => {
@@ -91,6 +82,15 @@ const getOrCreateSecurityStateOrdinalMap = (): Map<Protocol.Security.SecuritySta
   }
   return securityStateToOrdinal;
 };
+
+export function securityStateCompare(
+    a: Protocol.Security.SecurityState|null, b: Protocol.Security.SecurityState|null): number {
+  const securityStateMap = getOrCreateSecurityStateOrdinalMap();
+  const aScore = a && securityStateMap.get(a) || 0;
+  const bScore = b && securityStateMap.get(b) || 0;
+
+  return aScore - bScore;
+}
 
 SDK.SDKModel.SDKModel.register(SecurityModel, {capabilities: SDK.Target.Capability.Security, autostart: false});
 
