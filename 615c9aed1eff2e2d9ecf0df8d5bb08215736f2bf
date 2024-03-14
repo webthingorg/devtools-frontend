@@ -141,6 +141,24 @@
       "parentUuid": "e95b8468_db84524e",
       "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d40bc5e8_3e997d3b",
+        "filename": "front_end/ui/ui-helpers/Button.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-14T11:58:52Z",
+      "side": 1,
+      "message": "I think Ergün has a point, making it work for button might be challenging in practice given that we will do a gradual migration. I\u0027d vote for a custom component, so that we can write `\u003cdevtools-gm-button\u003e` or event`\u003cdevtools-button\u003e` for now and maybe will be able to replace it with `\u003cbutton\u003e` later.",
+      "parentUuid": "73d945cb_7b199d2c",
+      "revId": "615c9aed1eff2e2d9ecf0df8d5bb08215736f2bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
