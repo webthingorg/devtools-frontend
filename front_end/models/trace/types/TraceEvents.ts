@@ -797,6 +797,7 @@ export interface Initiator {
   columnNumber?: number;
   lineNumber?: number;
   url?: string;
+  stack?: Protocol.Runtime.StackTrace,
 }
 
 export interface TraceEventResourceSendRequest extends TraceEventInstant {
@@ -813,6 +814,7 @@ export interface TraceEventResourceSendRequest extends TraceEventInstant {
       requestMethod?: string,
       renderBlocking?: RenderBlocking,
       initiator?: Initiator,
+      stack?: Protocol.Runtime.StackTrace,
     },
   };
 }

@@ -347,6 +347,13 @@ export async function finalize(): Promise<void> {
     const requestingFrameUrl =
         Helpers.Trace.activeURLForFrameAtTime(frame, finalSendRequest.ts, rendererProcessesByFrame) || '';
 
+    // For historical reasons, the stack is not stored directly on the initiator structure in the trace.
+    const initiator = finalSendRequest.args.data.initiator;
+    const stack = finalSendRequest.args.data.stack;
+    if (initiator && stack) {
+      initiator.stack = stack;
+    }
+
     // Construct a synthetic trace event for this network request.
     const networkEvent: Types.TraceEvents.SyntheticNetworkRequest = {
       args: {

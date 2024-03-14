@@ -28,7 +28,7 @@ export interface InjectedIframe {
 
 export interface RootCauseRequest {
   request: Types.TraceEvents.SyntheticNetworkRequest;
-  initiator?: Protocol.Network.Initiator;
+  initiator?: Types.TraceEvents.Initiator;
 }
 
 export interface FontChange extends RootCauseRequest {
@@ -361,8 +361,7 @@ export class LayoutShiftRootCauses {
       if (layoutInvalidation.ts - previousRequestEndTime < MAX_DELTA_FOR_FONT_REQUEST) {
         const requestInInvalidationWindow: RootCauseRequest = {request: previousRequest};
 
-        const initiator = this.#protocolInterface.getInitiatorForRequest(
-            previousRequest.args.data.url as Platform.DevToolsPath.UrlString);
+        const initiator = previousRequest.args.data.initiator;
         requestInInvalidationWindow.initiator = initiator || undefined;
         requestsInInvalidationWindow.push(requestInInvalidationWindow);
       } else {

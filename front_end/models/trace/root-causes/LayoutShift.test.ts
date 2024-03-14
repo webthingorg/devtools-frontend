@@ -193,10 +193,6 @@ describeWithMockConnection('LayoutShift root causes', () => {
       matchedStylesMock = {};
 
       rootCausesEngine = new TraceEngine.RootCauses.RootCauses.RootCauses({
-        getInitiatorForRequest(_: string): Protocol.Network.Initiator |
-            null {
-              return null;
-            },
         async pushNodesByBackendIdsToFrontend(backendNodeIds: Protocol.DOM.BackendNodeId[]):
             Promise<Protocol.DOM.NodeId[]> {
               return backendNodeIds.map(id => {
