@@ -3104,6 +3104,15 @@ export namespace CSS {
     rootLayer: CSSLayerData;
   }
 
+  export interface GetLocationForSelectorRequest {
+    styleSheetId: StyleSheetId;
+    selectorText: string;
+  }
+
+  export interface GetLocationForSelectorResponse extends ProtocolResponseWithError {
+    ranges: SourceRange[];
+  }
+
   export interface TrackComputedStyleUpdatesRequest {
     propertiesToTrack: CSSComputedStyleProperty[];
   }
@@ -14108,6 +14117,24 @@ export namespace Storage {
     ExcessiveReports = 'excessiveReports',
   }
 
+  /**
+   * A single Related Website Set object.
+   */
+  export interface RelatedWebsiteSet {
+    /**
+     * The primary site of this set, along with the ccTLDs if there is any.
+     */
+    primarySites: string[];
+    /**
+     * The associated sites of this set, along with the ccTLDs if there is any.
+     */
+    associatedSites: string[];
+    /**
+     * The service sites of this set, along with the ccTLDs if there is any.
+     */
+    serviceSites: string[];
+  }
+
   export interface GetStorageKeyForFrameRequest {
     frameId: Page.FrameId;
   }
@@ -14373,6 +14400,10 @@ export namespace Storage {
 
   export interface SetAttributionReportingTrackingRequest {
     enable: boolean;
+  }
+
+  export interface GetRelatedWebsiteSetsResponse extends ProtocolResponseWithError {
+    sets: RelatedWebsiteSet[];
   }
 
   /**
