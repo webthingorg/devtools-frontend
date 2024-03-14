@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1020497_59b11b60",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-03-14T06:51:49Z",
+      "side": 1,
+      "message": "It\u0027s pointed out that reusing the extra response info will break the redirect handling in the backend CL so we\u0027ve replaced the logic with a separate event.",
+      "parentUuid": "7c8ff62b_04aa3827",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1843,
+        "endChar": 3
+      },
+      "revId": "13c07a91a03513ca927f2c6435fbb2d341961dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50ab48b4_4fc68e54",
         "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-13T08:50:05Z",
       "side": 1,
       "message": "Can we use ResponseHeaderSection instead?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 58
+      },
+      "revId": "13c07a91a03513ca927f2c6435fbb2d341961dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10da81a4_81a27b3d",
+        "filename": "front_end/panels/network/components/ResponseHeaderSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-03-14T06:51:49Z",
+      "side": 1,
+      "message": "The new class will access `request.earlyHintsHeaders` and nothing else. Simply reusing the `ResponseHeaderSection` is not possible since it will present data fron `request.sortedResponseHeaders`. Would a common base class work?",
+      "parentUuid": "50ab48b4_4fc68e54",
       "range": {
         "startLine": 90,
         "startChar": 0,
