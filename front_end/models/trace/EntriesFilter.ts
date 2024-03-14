@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Platform from '../../core/platform/platform.js';
+import * as AnnotationsManager from '../../services/annotations_manager/annotations_manager.js';
+
 import * as Helpers from './helpers/helpers.js';
 import * as Types from './types/types.js';
 
@@ -204,6 +206,8 @@ export class EntriesFilter {
     }
 
     this.#invisibleEntries.push(...entriesToHide);
+    // Save hidden entries into the Annotations Manager to save them into the file if the trace is chosen to be saved with annotations
+    AnnotationsManager.AnnotationsManager.AnnotationsManager.instance().setHiddenEntries(this.#invisibleEntries);
 
     return this.#invisibleEntries;
   }
