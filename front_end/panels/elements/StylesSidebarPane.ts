@@ -58,7 +58,14 @@ import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import * as LayersWidget from './LayersWidget.js';
-import {LegacyRegexMatcher, type Matcher, renderPropertyValue} from './PropertyParser.js';
+import {
+  type LegacyRegexMatch,
+  LegacyRegexMatcher,
+  type Matcher,
+  MatchType,
+  type RendererMap,
+  renderPropertyValue,
+} from './PropertyParser.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {
   BlankStylePropertiesSection,
@@ -2211,10 +2218,11 @@ export class StylesSidebarPropertyRenderer {
   private lengthHandler: ((arg0: string) => Node)|null;
   private animationHandler: ((data: string) => Node)|null;
   matchers: Matcher[];
+  rendererMap: RendererMap;
 
   constructor(
       rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string,
-      matchers: Matcher[] = []) {
+      matchers: Matcher[] = [], rendererMap: RendererMap) {
     this.rule = rule;
     this.node = node;
     this.propertyName = name;
@@ -2225,6 +2233,7 @@ export class StylesSidebarPropertyRenderer {
     this.lengthHandler = null;
     this.animationHandler = null;
     this.matchers = matchers;
+    this.rendererMap = rendererMap;
   }
 
   setFontHandler(handler: (arg0: string) => Node): void {
@@ -2303,10 +2312,20 @@ export class StylesSidebarPropertyRenderer {
     if (!Root.Runtime.experiments.isEnabled('css-type-component-length-deprecate') && this.lengthHandler) {
       // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
       matchers.push(
-          new LegacyRegexMatcher(asLineMatch(InlineEditor.CSSLengthUtils.CSSLengthRegex), this.lengthHandler));
+          new LegacyRegexMatcher(asLineMatch(InlineEditor.CSSLengthUtils.CSSLengthRegex), MatchType.LegacyRegexLength));
+      this.rendererMap[MatchType.LegacyRegexLength] = {
+        render: (node: unknown, context: unknown, match: LegacyRegexMatch) => {
+          if (!this.lengthHandler) {
+            return [];
+          }
+
+          const rendered = this.lengthHandler(match.matchedText);
+          return rendered ? [rendered, document.createTextNode(match.suffix)] : [];
+        },
+      };
     }
 
-    renderPropertyValue(this.propertyName, this.propertyValue, matchers)
+    renderPropertyValue(this.propertyName, this.propertyValue, matchers, this.rendererMap)
         .forEach(node => valueElement.appendChild(node));
     valueElement.normalize();
     return valueElement;
