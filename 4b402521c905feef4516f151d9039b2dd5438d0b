@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574785d3_a52c1741",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 6
+      },
+      "lineNbr": 6359,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-15T14:50:52Z",
+      "side": 1,
+      "message": "Protocol should be updated by the roller, no need to have these files in the CL",
+      "range": {
+        "startLine": 6359,
+        "startChar": 0,
+        "endLine": 6359,
+        "endChar": 105
+      },
+      "revId": "4b402521c905feef4516f151d9039b2dd5438d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
