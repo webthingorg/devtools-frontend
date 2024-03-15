@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2973d81a_652bccfd",
+        "filename": "front_end/services/annotations_manager/BUILD.gn",
+        "patchSetId": 23
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-15T14:24:43Z",
+      "side": 1,
+      "message": "nits: 2024\n```suggestion\n# Copyright 2024 The Chromium Authors. All rights reserved.\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "5a6c502e30c7e6ba5072dfc63317f651b048df35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
