@@ -16,6 +16,24 @@
       "message": "This shouldn\u0027t return text but call into Renderer instead. You can handle both cases (empty and one-element list) in one go if you call Renderer on `ASTUtils.declVal(_)`",
       "revId": "7b4cca99e5d7c861be1b41139d353458c0fc18e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b93f405_425d16d4",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-15T11:11:33Z",
+      "side": 1,
+      "message": "Done; thanks for the suggestion!",
+      "parentUuid": "43327e36_2ca9941e",
+      "revId": "7b4cca99e5d7c861be1b41139d353458c0fc18e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

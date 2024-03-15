@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "081ec145_2370515e",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-15T11:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "769e1e2e_4e34e4a1",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8105cc7_b3abb7ab",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f02a678_f95600d1",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-15T11:11:33Z",
+      "side": 1,
+      "message": "Nice suggestion! I didn\u0027t un-join all the way through, since I think the part we are testing is if the lines are divided correctly.",
+      "parentUuid": "f8105cc7_b3abb7ab",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33a34300_2d0f95ec",
@@ -65,6 +101,24 @@
       "writtenOn": "2024-03-15T08:52:33Z",
       "side": 1,
       "message": "How about adding `[` here and `]` below as well? Otherwise line-names will rendered as `[ line-name ]` with spaces around the brackets.",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0026df90_e97d2804",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-15T11:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33a34300_2d0f95ec",
       "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd6d625e_018542fa",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-15T11:11:33Z",
+      "side": 1,
+      "message": "I added some comments the explain this. PTAL, thanks!",
+      "parentUuid": "2917a3d9_c43177ca",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3405b6a1_85a85cea",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 1
@@ -99,6 +171,24 @@
       "writtenOn": "2024-03-15T08:52:33Z",
       "side": 1,
       "message": "This could be written as `ASTUtils.siblings(ASTUtils.declValue(node))`, avoiding the magic constant 2.",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59df4765_a07c353b",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-15T11:11:33Z",
+      "side": 1,
+      "message": "Nice tip, thanks!",
+      "parentUuid": "3405b6a1_85a85cea",
       "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -116,6 +206,24 @@
       "writtenOn": "2024-03-15T09:29:20Z",
       "side": 1,
       "message": "Calling `text` on node returns the text for the full declaration. Instead, call `textRange` with the first and last element of `siblings(declVal(node))`",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd4307f8_9998bed0",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-15T11:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a366c86_2ecbb55f",
       "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
