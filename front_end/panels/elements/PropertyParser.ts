@@ -1007,6 +1007,87 @@ class TextMatcher implements Matcher {
   }
 }
 
+export abstract class GridTemplateMatch implements Match {
+  readonly type: string = 'grid-template';
+  constructor(readonly text: string, readonly lines: CodeMirror.SyntaxNode[][]) {
+  }
+  abstract render(node: CodeMirror.SyntaxNode, context: RenderingContext): Node[];
+}
+
+export class GridTemplateMatcher extends MatcherBase<typeof GridTemplateMatch> {
+  override accepts(propertyName: string): boolean {
+    return SDK.CSSMetadata.cssMetadata().isGridAreaDefiningProperty(propertyName);
+  }
+  override matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    if (node.name !== 'Declaration' || matching.hasUnresolvedVars(node)) {
+      return null;
+    }
+
+    const lines: CodeMirror.SyntaxNode[][] = [];
+    let hasLeadingLineNames = false;
+    let needClosingLineNames = false;
+    let curLine: CodeMirror.SyntaxNode[] = [];
+    // Gather row definitions of [<line-names>? <string> <track-size>? <line-names>?], which
+    // be rendered into separate lines.
+    function parseNodes(nodes: CodeMirror.SyntaxNode[], varParsingMode = false): void {
+      for (const curNode of nodes) {
+        if (matching.getMatch(curNode)?.type === 'var') {
+          const computedValueTree = tokenizeDeclaration('--property', matching.getComputedText(curNode));
+          if (!computedValueTree) {
+            continue;
+          }
+          const varNodes = ASTUtils.siblings(ASTUtils.declValue(computedValueTree.tree));
+          if (varNodes.length === 0) {
+            continue;
+          }
+          if ((varNodes[0].name === 'StringLiteral' && !hasLeadingLineNames) ||
+              (varNodes[0].name === 'LineNames' && !needClosingLineNames)) {
+            // The variable value either starts with a string, or with a line name that belongs to a new row;
+            // therefore we start a new line with the variable.
+            lines.push(curLine);
+            curLine = [curNode];
+          } else {
+            curLine.push(curNode);
+          }
+          // We parse computed nodes of this variable to correctly advance local states, but
+          // these computed nodes won't be added to the lines.
+          parseNodes(varNodes, true);
+        } else if (curNode.name === 'BinaryExpression') {
+          parseNodes(ASTUtils.siblings(curNode.firstChild));
+        } else if (curNode.name === 'StringLiteral') {
+          if (!varParsingMode) {
+            if (hasLeadingLineNames) {
+              curLine.push(curNode);
+            } else {
+              lines.push(curLine);
+              curLine = [curNode];
+            }
+          }
+          needClosingLineNames = true;
+          hasLeadingLineNames = false;
+        } else if (curNode.name === 'LineNames') {
+          if (!varParsingMode) {
+            if (needClosingLineNames) {
+              curLine.push(curNode);
+            } else {
+              lines.push(curLine);
+              curLine = [curNode];
+            }
+          }
+          hasLeadingLineNames = !needClosingLineNames;
+          needClosingLineNames = !needClosingLineNames;
+        } else if (!varParsingMode) {
+          curLine.push(curNode);
+        }
+      }
+    }
+
+    parseNodes(ASTUtils.children(node).slice(2) /* value nodes */);
+    lines.push(curLine);
+    return this.createMatch(matching.ast.text(node), lines.filter(line => line.length > 0));
+  }
+}
+
 function declaration(rule: string): CodeMirror.SyntaxNode|null {
   return cssParser.parse(rule).topNode.getChild('RuleSet')?.getChild('Block')?.getChild('Declaration') ?? null;
 }
