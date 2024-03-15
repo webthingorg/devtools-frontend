@@ -16,6 +16,91 @@
       "message": "Finally PTAL, thanks!",
       "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "769e1e2e_4e34e4a1",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-15T08:52:33Z",
+      "side": 1,
+      "message": "How about also a case where we\u0027d have to break inside of the var()?\nlike `--double-row: var(--row) var(--row)`.",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8105cc7_b3abb7ab",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-15T08:52:33Z",
+      "side": 1,
+      "message": "Is it maybe safer to deep compare the array contents instead of joining them all together? That way we can be certain we\u0027re exactly testing the returned structure.",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a34300_2d0f95ec",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-15T08:52:33Z",
+      "side": 1,
+      "message": "How about adding `[` here and `]` below as well? Otherwise line-names will rendered as `[ line-name ]` with spaces around the brackets.",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2917a3d9_c43177ca",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-15T08:52:33Z",
+      "side": 1,
+      "message": "I think I don\u0027t really understand what the states are. Why do we need the two flags here, what do they each signal? Could you maybe add a comment?",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3405b6a1_85a85cea",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-15T08:52:33Z",
+      "side": 1,
+      "message": "This could be written as `ASTUtils.siblings(ASTUtils.declValue(node))`, avoiding the magic constant 2.",
+      "revId": "65954bf5fefbad9cf2854997d1e2395944298bef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
