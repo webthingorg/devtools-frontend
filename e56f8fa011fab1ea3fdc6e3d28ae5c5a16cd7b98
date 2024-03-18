@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbd396b6_79540e98",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-18T14:54:04Z",
+      "side": 1,
+      "message": "We can make a Map\u003cConstructor\u003cMatch\u003e, MatchRenderer\u003e or a Record. It feels redundant having the type and the enum which means the same thing (and has to be kept in sync).",
+      "parentUuid": "56093f67_012e11ab",
+      "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28225a7c_fd6b149c",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 1
