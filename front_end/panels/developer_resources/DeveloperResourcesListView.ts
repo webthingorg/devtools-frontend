@@ -115,6 +115,22 @@ export class DeveloperResourcesListView extends UI.Widget.VBox {
     this.setDefaultFocusedChild(dataGridWidget);
   }
 
+  select(item: SDK.PageResourceLoader.PageResource): void {
+    const node = this.nodeForItem.get(item);
+    if (node) {
+      if (this.isVisibleFilter(node.item)) {
+        node.select();
+      }
+    }
+  }
+
+  selectedItem(): SDK.PageResourceLoader.PageResource|null {
+    if (!this.dataGrid.selectedNode) {
+      return null;
+    }
+    return (this.dataGrid.selectedNode as GridNode).item;
+  }
+
   private populateContextMenu(
       contextMenu: UI.ContextMenu.ContextMenu,
       gridNode: DataGrid.DataGrid.DataGridNode<

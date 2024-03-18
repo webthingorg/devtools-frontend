@@ -58,6 +58,14 @@ export interface PageResource {
   size: number|null;
 }
 
+export class ResourceInitiatorKey {
+  readonly key: string;
+
+  constructor(key: string) {
+    this.key = key;
+  }
+}
+
 let pageResourceLoader: PageResourceLoader|null = null;
 
 interface LoadQueueEntry {
