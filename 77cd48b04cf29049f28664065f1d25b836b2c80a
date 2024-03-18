@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "77cd48b04cf29049f28664065f1d25b836b2c80a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f2e53ff_5b85378a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-03-18T15:26:15Z",
+      "side": 1,
+      "message": "Thanks, Wolfgang!\n\nAnd thank you, Mathias, for noticing!",
+      "revId": "77cd48b04cf29049f28664065f1d25b836b2c80a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
