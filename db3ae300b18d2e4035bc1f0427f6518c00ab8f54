@@ -34,6 +34,24 @@
       "parentUuid": "012d484d_78034cda",
       "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6049868_a8f1fd90",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-18T22:37:48Z",
+      "side": 1,
+      "message": "Yeah I guess these are fine as diagnostic values. IMO this is where we should \"interpret\" the values since this engine should be the source of truth for our insights.\n\nI\u0027m ok with this for now, but we should be cautious if interpreting the values gets too complicated. I can see these being pretty straightforward though.",
+      "parentUuid": "81811271_20939b01",
+      "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
