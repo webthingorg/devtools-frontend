@@ -14,7 +14,7 @@ import {logChange, logClick, logDrag, logHover, logImpressions, logKeyDown, logR
 import {getLoggingState, getOrCreateLoggingState} from './LoggingState.js';
 import {getNonDomState, unregisterAllLoggables, unregisterLoggable} from './NonDomState.js';
 
-const PROCESS_DOM_INTERVAL = 500;
+const PROCESS_DOM_INTERVAL = 1000;
 const KEYBOARD_LOG_INTERVAL = 3000;
 const HOVER_LOG_INTERVAL = 1000;
 const DRAG_LOG_INTERVAL = 500;
@@ -220,7 +220,7 @@ async function process(): Promise<void> {
   }
   for (const {loggable, config, parent} of getNonDomState().loggables) {
     const loggingState = getOrCreateLoggingState(loggable, config, parent);
-    const visible = !loggingState.parent || loggingState.parent.impressionLogged;
+    const visible = !parent || loggingState.parent?.impressionLogged;
     if (!visible) {
       continue;
     }
