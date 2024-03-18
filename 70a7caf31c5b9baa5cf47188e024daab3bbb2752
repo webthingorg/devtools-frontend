@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37e097ce_fc925e28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-18T16:19:32Z",
+      "side": 1,
+      "message": "Yep!",
+      "parentUuid": "a0475bff_3415739f",
+      "revId": "70a7caf31c5b9baa5cf47188e024daab3bbb2752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2aa71094_9916e46a",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79ba2d01_deffe489",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-18T16:19:32Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion here. Originally we ran only the URL matcher if the property is not parsedOk [0]. Looks like we accidentally stopped looking at parsedOk. This CL brings the original behavior (module URLs), sort of fixing an unintentional change in the last two versions or so.\n\n\n[0] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/StylePropertyTreeElement.ts;drc\u003db18de3545ad3453ad63a6edecc31a5f81478a6a6",
+      "parentUuid": "2aa71094_9916e46a",
+      "revId": "70a7caf31c5b9baa5cf47188e024daab3bbb2752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0f1fbe6_afb039b0",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
@@ -65,6 +101,24 @@
       "writtenOn": "2024-03-18T13:54:50Z",
       "side": 1,
       "message": "It seems like the experiment check is missing here for adding this matcher. We still need to check whether the experiment is enabled or not to add length matcher.",
+      "revId": "70a7caf31c5b9baa5cf47188e024daab3bbb2752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3cdd81b_c7449bba",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-18T16:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0f1fbe6_afb039b0",
       "revId": "70a7caf31c5b9baa5cf47188e024daab3bbb2752",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
