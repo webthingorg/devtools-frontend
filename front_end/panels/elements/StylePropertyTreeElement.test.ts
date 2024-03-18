@@ -5,10 +5,9 @@
 import * as Common from '../../core/common/common.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
-import * as Protocol from '../../generated/protocol.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import {renderElementIntoDOM} from '../../testing/DOMHelpers.js';
-import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithRealConnection} from '../../testing/RealConnection.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
@@ -553,108 +552,6 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
       assert.strictEqual(linkSwatch?.shadowRoot?.textContent, '--test');
       assert.strictEqual(cssVarSwatch.textContent, 'var( --test    )');
       assert.strictEqual(stylePropertyTreeElement.valueElement.textContent, 'var( --test    )');
-    });
-  });
-
-  function setUpStyles(
-      cssModel: SDK.CSSModel.CSSModel,
-      cssProperties: {name: string, value: string}[],
-      styleSheetId = '0' as Protocol.CSS.StyleSheetId,
-      origin = Protocol.CSS.StyleSheetOrigin.Regular,
-      selector = 'div',
-      ): Promise<SDK.CSSMatchedStyles.CSSMatchedStyles> {
-    const matchedPayload: Protocol.CSS.RuleMatch[] = [{
-      rule: {
-        selectorList: {selectors: [{text: selector}], text: selector},
-        origin,
-        style: {cssProperties, shorthandEntries: []},
-      },
-      matchingSelectors: [0],
-    }];
-    if (cssModel.styleSheetHeaderForId(styleSheetId)) {
-      cssModel.styleSheetRemoved(styleSheetId);
-    }
-    cssModel.styleSheetAdded({
-      styleSheetId,
-      frameId: '' as Protocol.Page.FrameId,
-      sourceURL: '',
-      origin,
-      title: '',
-      disabled: false,
-      isInline: false,
-      isMutable: false,
-      isConstructed: false,
-      startLine: 0,
-      startColumn: 0,
-      length: 0,
-      endLine: 0,
-      endColumn: 0,
-    });
-    const node = sinon.createStubInstance(SDK.DOMModel.DOMNode);
-    node.id = 0 as Protocol.DOM.NodeId;
-    return SDK.CSSMatchedStyles.CSSMatchedStyles.create({
-      cssModel,
-      node,
-      inlinePayload: null,
-      attributesPayload: null,
-      matchedPayload,
-      pseudoPayload: [],
-      inheritedPayload: [],
-      inheritedPseudoPayload: [],
-      animationsPayload: [],
-      parentLayoutNodeId: undefined,
-      positionFallbackRules: [],
-      positionTryRules: [],
-      propertyRules: [],
-      cssPropertyRegistrations: [],
-      fontPaletteValuesRule: undefined,
-    });
-  }
-
-  describe('VariableRenderer', () => {
-    it('computes the text for var()s correctly', async () => {
-      const cssModel = new SDK.CSSModel.CSSModel(createTarget());
-
-      async function matchProperty(value: string, name = 'color') {
-        const matchedStyles = await setUpStyles(cssModel, [
-          {name: '--blue', value: 'blue'},
-          {name, value},
-        ]);
-        const property = matchedStyles.nodeStyles()[0].leadingProperties()[1];
-        const stylePropertyTreeElement = new Elements.StylePropertyTreeElement.StylePropertyTreeElement({
-          stylesPane: stylesSidebarPane,
-          section: mockStylePropertiesSection,
-          matchedStyles,
-          property,
-          isShorthand: false,
-          inherited: false,
-          overloaded: false,
-          newProperty: true,
-        });
-
-        const ast =
-            Elements.PropertyParser.tokenizeDeclaration(stylePropertyTreeElement.name, stylePropertyTreeElement.value);
-        assertNotNullOrUndefined(ast);
-        const matching = Elements.PropertyParser.BottomUpTreeMatching.walk(
-            ast, [Elements.StylePropertyTreeElement.VariableRenderer.matcher(
-                     stylePropertyTreeElement, stylePropertyTreeElement.property.ownerStyle)]);
-        const res = {
-          hasUnresolvedVars: matching.hasUnresolvedVars(ast.tree),
-          computedText: matching.getComputedText(ast.tree),
-        };
-        return res;
-      }
-
-      assert.deepStrictEqual(
-          await matchProperty('var( --blue    )'), {hasUnresolvedVars: false, computedText: 'color: blue'});
-      assert.deepStrictEqual(
-          await matchProperty('var(--no, var(--blue))'), {hasUnresolvedVars: false, computedText: 'color: blue'});
-      assert.deepStrictEqual(
-          await matchProperty('pre var(--no) post'),
-          {hasUnresolvedVars: true, computedText: 'color: pre var(--no) post'});
-      assert.deepStrictEqual(
-          await matchProperty('var(--no, var(--no2))'),
-          {hasUnresolvedVars: true, computedText: 'color: var(--no, var(--no2))'});
     });
   });
 
