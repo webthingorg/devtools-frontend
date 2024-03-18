@@ -72,6 +72,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7d2cfdf_7740509b",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-03-18T03:51:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aec315a9_e50f50a9",
+      "range": {
+        "startLine": 1843,
+        "startChar": 0,
+        "endLine": 1843,
+        "endChar": 3
+      },
+      "revId": "13c07a91a03513ca927f2c6435fbb2d341961dd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50ab48b4_4fc68e54",

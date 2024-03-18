@@ -22,6 +22,30 @@
       },
       "revId": "4b402521c905feef4516f151d9039b2dd5438d0b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1d8ca95_44497be0",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 6
+      },
+      "lineNbr": 6359,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-03-18T03:51:38Z",
+      "side": 1,
+      "message": "I\u0027ll update the CL once the backend change is merged.",
+      "parentUuid": "574785d3_a52c1741",
+      "range": {
+        "startLine": 6359,
+        "startChar": 0,
+        "endLine": 6359,
+        "endChar": 105
+      },
+      "revId": "4b402521c905feef4516f151d9039b2dd5438d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
