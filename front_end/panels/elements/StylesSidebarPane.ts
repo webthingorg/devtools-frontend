@@ -58,7 +58,15 @@ import {ElementsPanel} from './ElementsPanel.js';
 import {ElementsSidebarPane} from './ElementsSidebarPane.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import * as LayersWidget from './LayersWidget.js';
-import {LegacyRegexMatcher, type Matcher, renderPropertyValue} from './PropertyParser.js';
+import {
+  type LegacyRegexMatch,
+  LegacyRegexMatcher,
+  type Matcher,
+  type MatchRenderer,
+  MatchType,
+  type RendererMap,
+  renderPropertyValue,
+} from './PropertyParser.js';
 import {StyleEditorWidget} from './StyleEditorWidget.js';
 import {
   BlankStylePropertiesSection,
@@ -2217,34 +2225,33 @@ export function escapeUrlAsCssComment(urlText: string): string {
   }
   return url.toString();
 }
+type MatchAndRenderer = {
+  type: MatchType,
+  matcher: Matcher,
+  renderer: MatchRenderer,
+};
 
 export class StylesSidebarPropertyRenderer {
-  private rule: SDK.CSSRule.CSSRule|null;
-  private node: SDK.DOMModel.DOMNode|null;
   readonly propertyName: string;
   readonly propertyValue: string;
-  private fontHandler: ((arg0: string) => Node)|null;
   private shadowHandler: ((arg0: string, arg1: string) => Node)|null;
   private lengthHandler: ((arg0: string) => Node)|null;
   private animationHandler: ((data: string) => Node)|null;
   matchers: Matcher[];
+  rendererMap: RendererMap;
 
-  constructor(
-      rule: SDK.CSSRule.CSSRule|null, node: SDK.DOMModel.DOMNode|null, name: string, value: string,
-      matchers: Matcher[] = []) {
-    this.rule = rule;
-    this.node = node;
+  constructor(name: string, value: string, matcherAndRenderers: MatchAndRenderer[]) {
     this.propertyName = name;
     this.propertyValue = value;
-    this.fontHandler = null;
     this.shadowHandler = null;
     this.lengthHandler = null;
     this.animationHandler = null;
-    this.matchers = matchers;
-  }
-
-  setFontHandler(handler: (arg0: string) => Node): void {
-    this.fontHandler = handler;
+    this.rendererMap = {};
+    this.matchers = [];
+    for (const {type, matcher, renderer} of matcherAndRenderers) {
+      this.matchers.push(matcher);
+      this.rendererMap[type] = renderer;
+    }
   }
 
   setShadowHandler(handler: (arg0: string, arg1: string) => Node): void {
@@ -2309,10 +2316,20 @@ export class StylesSidebarPropertyRenderer {
     if (!Root.Runtime.experiments.isEnabled('css-type-component-length-deprecate') && this.lengthHandler) {
       // TODO(changhaohan): crbug.com/1138628 refactor this to handle unitless 0 cases
       matchers.push(
-          new LegacyRegexMatcher(asLineMatch(InlineEditor.CSSLengthUtils.CSSLengthRegex), this.lengthHandler));
+          new LegacyRegexMatcher(asLineMatch(InlineEditor.CSSLengthUtils.CSSLengthRegex), MatchType.LegacyRegexLength));
+      this.rendererMap[MatchType.LegacyRegexLength] = {
+        render: (node: unknown, context: unknown, match: LegacyRegexMatch) => {
+          if (!this.lengthHandler) {
+            return [];
+          }
+
+          const rendered = this.lengthHandler(match.matchedText);
+          return rendered ? [rendered, document.createTextNode(match.suffix)] : [];
+        },
+      };
     }
 
-    renderPropertyValue(this.propertyName, this.propertyValue, matchers)
+    renderPropertyValue(this.propertyName, this.propertyValue, matchers, this.rendererMap)
         .forEach(node => valueElement.appendChild(node));
     valueElement.normalize();
     return valueElement;
