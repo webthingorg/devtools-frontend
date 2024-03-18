@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56093f67_012e11ab",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-18T14:00:17Z",
+      "side": 1,
+      "message": "I thought a map between a `match` \u003c-\u003e `matchRenderer` would be the best option however we\u0027re not able to use `instanceof` for indexing a map.\n\nThough we can also use an array of `MatchRenderer`s with `type` being ` ClassOf\u003cMatch\u003e` but it doesn\u0027t quite work for `LegacyRegexMatch`es since they can correspond to more than one matches. (though I see that we\u0027re almost getting rid of them).\n\nIn my opinion, I\u0027d prefer to go with having a `MatchType` for matches and having an enum for keeping track of them (what kind of matches we can emit etc.).\n\nWhy do you think having a match type would be bad?",
+      "parentUuid": "71a2bfaf_ccf85aaf",
+      "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28225a7c_fd6b149c",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-18T08:07:59Z",
       "side": 1,
       "message": "Why not keep the existing `computedText?()` member? Checking which Matches support it seems overly complicated.",
+      "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5df7f9d_1495e117",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-18T14:00:17Z",
+      "side": 1,
+      "message": "Makes sense, brought it back :)\n\nOverall though, I think I\u0027d prefer to keep everything related to holding a computext text away from BottomUpTreeMatching, Matchers and Matches. It\u0027d be cool to keep tree matching responsibility encapsulated and pure from the non-tree-matching related logic.\n\nI\u0027m thinking of `onMatch` kind of API from the BottomUpTreeMatching and we can hold `computedText` on the rendering context for rendering responsibility.",
+      "parentUuid": "28225a7c_fd6b149c",
       "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2024-03-18T08:07:59Z",
       "side": 1,
       "message": "Comments matches also have computed text.",
+      "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "386266c1_45e2626c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-18T14:00:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a38a2b1e_11a300cd",
       "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
