@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012d484d_78034cda",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-18T16:33:50Z",
+      "side": 1,
+      "message": "This is where we should add our opinionated advice. I think these should be surfaced as boolean flags like `shouldPreloadImage`, `shouldIncreasePriorityHint`, `shouldRemoveLazyLoading` etc.",
+      "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
