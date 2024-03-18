@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71a2bfaf_ccf85aaf",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-18T08:07:59Z",
+      "side": 1,
+      "message": "Do we even need MatchType? That was one of the things I was planning to revisit, isn\u0027t instanceof just as good maybe?",
+      "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28225a7c_fd6b149c",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-18T08:07:59Z",
+      "side": 1,
+      "message": "Why not keep the existing `computedText?()` member? Checking which Matches support it seems overly complicated.",
+      "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a38a2b1e_11a300cd",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-18T08:07:59Z",
+      "side": 1,
+      "message": "Comments matches also have computed text.",
+      "revId": "e56f8fa011fab1ea3fdc6e3d28ae5c5a16cd7b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
