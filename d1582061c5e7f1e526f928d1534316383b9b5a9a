@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82b0a509_0c823784",
+        "filename": "front_end/models/trace/insights/InteractionToNextPaint.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-03-18T20:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78f61ac8_72bf842f",
+      "revId": "d1582061c5e7f1e526f928d1534316383b9b5a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d356da6e_85eacc33",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-18T19:46:24Z",
       "side": 1,
       "message": "Navigation ids should be unique across frames, so we shouldn\u0027t need to match the `frameId` here.",
+      "revId": "d1582061c5e7f1e526f928d1534316383b9b5a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a7a379_7d503c38",
+        "filename": "front_end/models/trace/insights/InteractionToNextPaint.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-03-18T20:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d356da6e_85eacc33",
       "revId": "d1582061c5e7f1e526f928d1534316383b9b5a9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
