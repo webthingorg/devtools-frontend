@@ -37,7 +37,7 @@ export const LENGTH_UNITS = [
   LengthUnit.VMAX,
 ] as const;
 
-export const CSSLengthRegex = new RegExp(`(?<value>[+-]?\\d*\\.?\\d+)(?<unit>${LENGTH_UNITS.join('|')})`);
+export const CSSLengthRegex = new RegExp(`^(?<value>[+-]?\\d*\\.?\\d+)(?<unit>${LENGTH_UNITS.join('|')})$`);
 
 export interface Length {
   value: number;
