@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18208d69_0aaf47a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-03-18T10:38:49Z",
+      "side": 1,
+      "message": "Hi Philip,\n\nthis CL is connecting the warning in the error box with the developer resource panel. PTAL!",
+      "revId": "d1a56035d1301c6866e82f7606119386398954a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
