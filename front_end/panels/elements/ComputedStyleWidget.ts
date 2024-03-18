@@ -47,7 +47,15 @@ import computedStyleSidebarPaneStyles from './computedStyleSidebarPane.css.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {PlatformFontsWidget} from './PlatformFontsWidget.js';
 import {categorizePropertyName, type Category, DefaultCategoryOrder} from './PropertyNameCategories.js';
-import {ColorMatch, ColorMatcher, type RenderingContext} from './PropertyParser.js';
+import {
+  ColorMatch,
+  ColorMatcher,
+  type RenderingContext,
+  StringMatch,
+  StringMatcher,
+  URLMatch,
+  URLMatcher,
+} from './PropertyParser.js';
 import {StylePropertiesSection} from './StylePropertiesSection.js';
 import {StringRenderer, URLRenderer} from './StylePropertyTreeElement.js';
 import {StylesSidebarPropertyRenderer} from './StylesSidebarPane.js';
@@ -115,9 +123,11 @@ function renderPropertyContents(
   if (valueFromCache) {
     return valueFromCache;
   }
-  const renderer = new StylesSidebarPropertyRenderer(
-      null, node, propertyName, propertyValue,
-      [ColorRenderer.matcher(), URLRenderer.matcher(null, node), StringRenderer.matcher()]);
+  const renderer = new StylesSidebarPropertyRenderer(propertyName, propertyValue, [{
+                                                       type: ColorMatch,
+                                                       matcher: new ColorMatcher(),
+                                                       renderer: new ColorRenderer(),
+                                                     }]);
   const name = renderer.renderName();
   name.slot = 'name';
   const value = renderer.renderValue();
@@ -157,9 +167,23 @@ const createTraceElement =
      linkifier: Components.Linkifier.Linkifier): ElementsComponents.ComputedStyleTrace.ComputedStyleTrace => {
       const trace = new ElementsComponents.ComputedStyleTrace.ComputedStyleTrace();
 
-      const renderer = new StylesSidebarPropertyRenderer(
-          null, node, property.name, (property.value as string),
-          [ColorRenderer.matcher(), URLRenderer.matcher(null, node), StringRenderer.matcher()]);
+      const renderer = new StylesSidebarPropertyRenderer(property.name, (property.value as string), [
+        {
+          type: ColorMatch,
+          matcher: new ColorMatcher(),
+          renderer: new ColorRenderer(),
+        },
+        {
+          type: URLMatch,
+          matcher: new URLMatcher(),
+          renderer: new URLRenderer(null, node),
+        },
+        {
+          type: StringMatch,
+          matcher: new StringMatcher(),
+          renderer: new StringRenderer(),
+        },
+      ]);
       const valueElement = renderer.renderValue();
       valueElement.slot = 'trace-value';
       trace.appendChild(valueElement);
@@ -179,11 +203,11 @@ const createTraceElement =
       return trace;
     };
 
-class ColorRenderer extends ColorMatch {
-  render(_node: unknown, context: RenderingContext): Node[] {
+class ColorRenderer {
+  render(_node: unknown, context: RenderingContext, match: ColorMatch): Node[] {
     const swatch = new InlineEditor.ColorSwatch.ColorSwatch();
     swatch.setReadonly(true);
-    swatch.renderColor(this.text, true);
+    swatch.renderColor(match.text, true);
     const valueElement = document.createElement('span');
     valueElement.textContent = swatch.getText();
     swatch.append(valueElement);
@@ -196,10 +220,6 @@ class ColorRenderer extends ColorMatch {
 
     context.addControl('color', swatch);
     return [swatch];
-  }
-
-  static matcher(): ColorMatcher {
-    return new ColorMatcher(text => new ColorRenderer(text));
   }
 }
 
