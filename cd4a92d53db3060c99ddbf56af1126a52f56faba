@@ -16,6 +16,29 @@
       "message": "awesome fix up!",
       "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "465e34fb_a75d7174",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-18T23:56:01Z",
+      "side": 1,
+      "message": "Is your expectation that we also remove this, long-term? (That seems to be the aim of the linked bug, right?)",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
