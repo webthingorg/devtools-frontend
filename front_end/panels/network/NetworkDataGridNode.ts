@@ -213,7 +213,7 @@ const UIStrings = {
    */
   servedFromDiskCacheResourceSizeS: 'Served from disk cache, resource size: {PH1}',
   /**
-   *@description Text of a DOM element in Network Data Grid Node of the Network panel
+   *@description Text of a DOM element in Network Data Grid Node of the Network panel for service worker router.
    */
   serviceWorkerRouter: '(`ServiceWorker router`)',
   /**
