@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ad9e5ed_6c7421d8",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-03-18T13:23:48Z",
+      "side": 1,
+      "message": "Random drive-by comment: this line still includes a mention.",
+      "revId": "59b68bb34537c0b3fe1fcf16b09b59cee8667b75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
