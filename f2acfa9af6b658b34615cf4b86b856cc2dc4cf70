@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17a435e0_fde5e709",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-18T11:39:31Z",
+      "side": 1,
+      "message": "I know this is basically the same with the current implementation, but what does this function do exactly? Is it extended by some subclasses?",
+      "revId": "f2acfa9af6b658b34615cf4b86b856cc2dc4cf70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
