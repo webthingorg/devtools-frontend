@@ -34,6 +34,24 @@
       "parentUuid": "17a435e0_fde5e709",
       "revId": "f2acfa9af6b658b34615cf4b86b856cc2dc4cf70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "495ae648_950595e7",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-18T12:32:41Z",
+      "side": 1,
+      "message": "Oh I see how it works. So it replaces the previously throttled `logX` with a dummy call. Makes sense.",
+      "parentUuid": "b5534090_ed87ced3",
+      "revId": "f2acfa9af6b658b34615cf4b86b856cc2dc4cf70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
