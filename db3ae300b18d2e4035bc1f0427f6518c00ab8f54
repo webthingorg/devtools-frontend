@@ -16,6 +16,24 @@
       "message": "This is where we should add our opinionated advice. I think these should be surfaced as boolean flags like `shouldPreloadImage`, `shouldIncreasePriorityHint`, `shouldRemoveLazyLoading` etc.",
       "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81811271_20939b01",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-18T20:57:06Z",
+      "side": 1,
+      "message": "Was thinking about this - whether these attributes should be \"interpreted\" here or further down the line. I don\u0027t know what the answer to that is at the moment. but i\u0027m leaning towards this just returning the \"raw\" values (as we might want them for the UI?). seems like the most straightforward step before adding opinionated advice part?\n\nThough if there have already been more thoughts around this i\u0027m open!",
+      "parentUuid": "012d484d_78034cda",
+      "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
