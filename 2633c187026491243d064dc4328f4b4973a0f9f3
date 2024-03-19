@@ -18,6 +18,40 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c32ee331_cb532054",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T15:57:09Z",
+      "side": 1,
+      "message": "Added some comments from our discussion today :)",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15fbe925_85b9e9b9",
+        "filename": "front_end/panels/elements/ComputedStyleWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T15:57:09Z",
+      "side": 1,
+      "message": "I think we don\u0027t need the listeners in computed style widget :)",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0eda7e5a_7f7ae942",
@@ -49,6 +83,41 @@
       "side": 1,
       "message": "Alternatively, isn\u0027t it good enough if I just check if the computed value came from the fallback instead of the var? Only then should the swatches be connected, and since the computed value is a color there can really only be one swatch in the fallback (the controls map doesn\u0027t automatically propagate across recursive rendering calls).",
       "parentUuid": "0eda7e5a_7f7ae942",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3e12cc_d2945973",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T15:57:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "26cd6cf5_f9ddd6d2",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "584b1f62_cf81d9c1",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T15:57:09Z",
+      "side": 1,
+      "message": "I think it\u0027d be good to have a comment here explaining the reason for this check and in which case this path is executed.",
       "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +157,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f61857f1_357f97df",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T15:57:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "56c77f22_621a39bd",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d70be92d_e28ba5d1",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T15:57:09Z",
+      "side": 1,
+      "message": "I think we can bring back separating `readonlyColor` and `readonlyFormat`; as the UX win does not justify the special case implemented for separating two.\n\n(discussing offline, you also mentioned being able to remove `ColorFormatChanged` and only use `ColorValueChanged` event instead of that)",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f66ce947_332963c8",
@@ -118,6 +222,23 @@
       "writtenOn": "2024-01-23T19:30:44Z",
       "side": 1,
       "message": "Currently the shortcut \"c\" doesn\u0027t work because we\u0027re not setting the flavor when the color popover is open. We need to `setFlavor` when the popover is open.",
+      "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7a0ff08_b4bb6bd8",
+        "filename": "front_end/ui/legacy/components/inline_editor/ColorSwatch.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T15:57:09Z",
+      "side": 1,
+      "message": "Since we\u0027re only calling this whenever `renderColor` is called; WDYT of renaming this to `ColorRendered` event? `ColorValueChanged` felt a bit confusing especially when a similar but different event exists in the same component (ColorEdited)",
       "revId": "2633c187026491243d064dc4328f4b4973a0f9f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
