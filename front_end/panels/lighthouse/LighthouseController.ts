@@ -27,7 +27,7 @@ const UIStrings = {
       'There may be stored data affecting loading performance in this location: {PH1}. Audit this page in an incognito window to prevent those resources from affecting your scores.',
   /**
    *@description Text when stored data in multiple locations may affect Lighthouse run
-   *@example {IndexedDB, WebSQL} PH1
+   *@example {IndexedDB} PH1
    */
   thereMayBeStoredDataAffectingLoadingPlural:
       'There may be stored data affecting loading performance in these locations: {PH1}. Audit this page in an incognito window to prevent those resources from affecting your scores.',
@@ -48,10 +48,6 @@ const UIStrings = {
    *@description Text in Application Panel Sidebar of the Application panel
    */
   indexeddb: 'IndexedDB',
-  /**
-   *@description Text in Application Panel Sidebar of the Application panel
-   */
-  webSql: 'Web SQL',
   /**
    *@description Text of checkbox to include running the performance audits in Lighthouse
    */
@@ -362,6 +358,7 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
     }
     const locations = usageData.usageBreakdown.filter(usage => usage.usage)
                           .map(usage => STORAGE_TYPE_NAMES.get(usage.storageType))
+                          .filter(Boolean)
                           .map(i18nStringFn => i18nStringFn ? i18nStringFn() : undefined)
                           .filter(Boolean);
     if (locations.length === 1) {
@@ -632,7 +629,6 @@ export class LighthouseController extends Common.ObjectWrapper.ObjectWrapper<Eve
 const STORAGE_TYPE_NAMES = new Map([
   [Protocol.Storage.StorageType.Local_storage, i18nLazyString(UIStrings.localStorage)],
   [Protocol.Storage.StorageType.Indexeddb, i18nLazyString(UIStrings.indexeddb)],
-  [Protocol.Storage.StorageType.Websql, i18nLazyString(UIStrings.webSql)],
 ]);
 
 export const Presets: Preset[] = [
