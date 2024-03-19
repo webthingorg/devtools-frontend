@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7243f6a0_0f54b005",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-19T05:26:21Z",
+      "side": 1,
+      "message": "We could remove this localized string altogether. There is nothing that is actually translated here.\n\nWe can replace `UIStrings.serviceWorkerRouter` with `i18n.i18n.lockedString(\u0027(ServiceWorker router)`);\n\nWdyt?",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 50
+      },
+      "revId": "68b8de56102f90c4004af95bdaca344f62669486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
