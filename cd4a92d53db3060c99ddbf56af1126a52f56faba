@@ -63,6 +63,47 @@
       },
       "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a8400a_115224e9",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2024-03-19T00:16:31Z",
+      "side": 1,
+      "message": "sg. maybe add a bug comment onto the discussion of comments2-4 ?",
+      "parentUuid": "415fde94_687cc984",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23340937_3092a8df",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1111657
+      },
+      "writtenOn": "2024-03-19T00:16:31Z",
+      "side": 1,
+      "message": "Is your expectation that we also remove this, long-term? (That seems to be the aim of the linked bug, right?)",
+      "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
