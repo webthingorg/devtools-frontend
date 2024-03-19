@@ -22,6 +22,30 @@
       },
       "revId": "5a6c502e30c7e6ba5072dfc63317f651b048df35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a04298cd_e3fe9717",
+        "filename": "front_end/services/annotations_manager/BUILD.gn",
+        "patchSetId": 23
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-19T17:14:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2973d81a_652bccfd",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "5a6c502e30c7e6ba5072dfc63317f651b048df35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
