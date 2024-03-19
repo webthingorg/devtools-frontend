@@ -39,6 +39,30 @@
       },
       "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "415fde94_687cc984",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-03-19T00:08:48Z",
+      "side": 1,
+      "message": "Maybe? The way handlers are written absolutely requires copying somewhere. Or a larger refactor.\n\nThe real fix is handlers should be classes, and they should append to their member properties when constructing their data models. That way, the processor just instantiates them for each run, and `data()` returning references to member variables w/o copying them would be totally fine. But we don\u0027t have classes, we have reset(), initialize(), finalize(), etc., and we have a leaky `data()` that gives access to a module-scoped global (well, it didn\u0027t, that\u0027s what the copying is for).",
+      "parentUuid": "465e34fb_a75d7174",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
