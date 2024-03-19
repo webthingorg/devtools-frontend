@@ -383,6 +383,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eab0d80f_7aa4b9b0",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-19T05:19:24Z",
+      "side": 1,
+      "message": "Added a test case to validate the performance of the selector stats feature. Currently I set a tentative shreshold of 1% to ensure that the overhead of time cost with selector stats feature enabled is no more than 1% compared to that with the feature disabled.",
+      "parentUuid": "e413d43f_f3887e6b",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6
