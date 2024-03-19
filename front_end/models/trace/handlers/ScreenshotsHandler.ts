@@ -81,8 +81,8 @@ function getPresentationTimestamp(screenshotEvent: Types.TraceEvents.TraceEventS
   return updatedTs ?? screenshotEvent.ts;
 }
 
-export function data(): Types.TraceEvents.SyntheticScreenshot[] {
-  return [...syntheticScreenshotEvents];
+export function data(): readonly Types.TraceEvents.SyntheticScreenshot[] {
+  return syntheticScreenshotEvents;
 }
 
 export function deps(): TraceEventHandlerName[] {
