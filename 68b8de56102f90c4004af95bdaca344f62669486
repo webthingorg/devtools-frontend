@@ -22,6 +22,30 @@
       },
       "revId": "68b8de56102f90c4004af95bdaca344f62669486",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cbf119d_cabac7c7",
+        "filename": "front_end/panels/network/NetworkDataGridNode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-03-19T07:39:00Z",
+      "side": 1,
+      "message": "Ah that\u0027s true, updated it to use locked string.",
+      "parentUuid": "7243f6a0_0f54b005",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 50
+      },
+      "revId": "68b8de56102f90c4004af95bdaca344f62669486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
