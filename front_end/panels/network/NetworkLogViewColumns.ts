@@ -181,6 +181,7 @@ export class NetworkLogViewColumns {
   private waterfallHeaderElement!: HTMLElement;
   private waterfallColumnSortIcon!: IconButton.Icon.Icon;
   private activeWaterfallSortId!: string;
+  #isWaterfallColumnChecked = true;
   private popoverHelper?: UI.PopoverHelper.PopoverHelper;
   private hasScrollerTouchStarted?: boolean;
   private scrollerTouchStartPos?: number;
@@ -419,8 +420,11 @@ export class NetworkLogViewColumns {
         (this.waterfallColumn.contentElement.createChild('div', 'network-waterfall-header') as HTMLElement);
     this.waterfallHeaderElement.setAttribute('jslog', `${VisualLogging.tableHeader('waterfall').track({click: true})}`);
     this.waterfallHeaderElement.addEventListener('click', waterfallHeaderClicked.bind(this));
-    this.waterfallHeaderElement.addEventListener(
-        'contextmenu', event => this.innerHeaderContextMenu(new UI.ContextMenu.ContextMenu(event)));
+    this.waterfallHeaderElement.addEventListener('contextmenu', event => {
+      const contextMenu = new UI.ContextMenu.ContextMenu(event);
+      this.innerHeaderContextMenu(contextMenu);
+      void contextMenu.show();
+    });
     this.waterfallHeaderElement.createChild('div', 'hover-layer');
     const innerElement = this.waterfallHeaderElement.createChild('div');
     innerElement.textContent = i18nString(UIStrings.waterfall);
@@ -556,8 +560,21 @@ export class NetworkLogViewColumns {
       return;
     }
     this.gridMode = gridMode;
+    this.updateWaterfallVisibility();
+    this.networkLogView.element.classList.toggle('grid-mode', gridMode);
+    this.updateColumns();
+    this.updateRowsSize();
+  }
 
-    if (gridMode) {
+  private toggleColumnVisibility(columnConfig: Descriptor): void {
+    this.loadCustomColumnsAndSettings();
+    columnConfig.visible = !columnConfig.visible;
+    this.saveColumnsSettings();
+    this.updateColumns();
+  }
+
+  private updateWaterfallVisibility(): void {
+    if (this.gridMode && this.#isWaterfallColumnChecked) {
       this.splitWidget.showBoth();
       this.activeScroller = this.waterfallScroller;
       this.waterfallScroller.scrollTop = this.dataGridScroller.scrollTop;
@@ -568,16 +585,6 @@ export class NetworkLogViewColumns {
       this.activeScroller = this.dataGridScroller;
       this.dataGridInternal.setScrollContainer(this.dataGridScroller);
     }
-    this.networkLogView.element.classList.toggle('brief-mode', !gridMode);
-    this.updateColumns();
-    this.updateRowsSize();
-  }
-
-  private toggleColumnVisibility(columnConfig: Descriptor): void {
-    this.loadCustomColumnsAndSettings();
-    columnConfig.visible = !columnConfig.visible;
-    this.saveColumnsSettings();
-    this.updateColumns();
   }
 
   private saveColumnsSettings(): void {
@@ -666,6 +673,10 @@ export class NetworkLogViewColumns {
           title, this.toggleColumnVisibility.bind(this, columnConfig),
           {checked: columnConfig.visible, jslogContext: columnConfig.id});
     }
+    contextMenu.headerSection().appendCheckboxItem(i18nString(UIStrings.waterfall), () => {
+      this.#isWaterfallColumnChecked = !this.#isWaterfallColumnChecked;
+      this.updateWaterfallVisibility();
+    }, {checked: this.#isWaterfallColumnChecked, jslogContext: 'waterfall'});
 
     const responseSubMenu =
         contextMenu.footerSection().appendSubMenuItem(i18nString(UIStrings.responseHeaders), false, 'response-headers');
