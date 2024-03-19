@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b30cd34f_d9be4350",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-19T12:58:22Z",
+      "side": 1,
+      "message": "Consider adding the screenshots to the bug instead, since this goes into the git log for eternity :)",
+      "revId": "d1a56035d1301c6866e82f7606119386398954a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "18208d69_0aaf47a5",
@@ -14,6 +31,40 @@
       "writtenOn": "2024-03-18T10:38:49Z",
       "side": 1,
       "message": "Hi Philip,\n\nthis CL is connecting the warning in the error box with the developer resource panel. PTAL!",
+      "revId": "d1a56035d1301c6866e82f7606119386398954a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "120bd316_f4f1c130",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-19T12:58:22Z",
+      "side": 1,
+      "message": "Looks really good!\n\nTwo small suggestions.",
+      "revId": "d1a56035d1301c6866e82f7606119386398954a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "052c6822_7524ad22",
+        "filename": "front_end/core/sdk/PageResourceLoader.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-19T12:58:22Z",
+      "side": 1,
+      "message": "This is a ResourceKey rather, isn\u0027t it?",
       "revId": "d1a56035d1301c6866e82f7606119386398954a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
