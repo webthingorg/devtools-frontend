@@ -104,6 +104,48 @@
       "message": "Is your expectation that we also remove this, long-term? (That seems to be the aim of the linked bug, right?)",
       "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7532386_89358b56",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-03-19T20:31:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "23340937_3092a8df",
+      "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ad436ec_a2235fb9",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-03-19T20:31:04Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "79a8400a_115224e9",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
