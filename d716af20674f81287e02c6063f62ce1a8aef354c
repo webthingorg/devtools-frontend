@@ -16,6 +16,69 @@
       "message": "Hello Simon, would you please review this change? Thanks!",
       "revId": "d716af20674f81287e02c6063f62ce1a8aef354c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03d13357_f52ccdf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-19T06:47:05Z",
+      "side": 1,
+      "message": "lgtm with a question",
+      "revId": "d716af20674f81287e02c6063f62ce1a8aef354c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e52a792_19ad3496",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-19T06:47:05Z",
+      "side": 1,
+      "message": "Drive-by comment: This whole `fieldName` business is very hard to follow. We could improve the situation a bit with TypeScript (as a future follow-up). IIUC then the overall type is something like `keyof HeapSnapshotNode|\u0027!edgeName\u0027|\u0027!edgeDistance\u0027`;\n\nFor `compareEdgeField`, `fieldName` should only be `\u0027!edgeName\u0027|\u0027!edgeDistance\u0027`.\n\nIf we spell this out explicitly then we could also type `getValueForSorting` very strictly, since we could type it as `getValueForSorting(fieldName: \u0027!edgeDistance\u0027)`.\n\nJust an idea. It might make other parts of the code more cumbersome to deal with and actually regress readability, in which case we should refrain from such a refactoring.",
+      "range": {
+        "startLine": 2334,
+        "startChar": 30,
+        "endLine": 2334,
+        "endChar": 47
+      },
+      "revId": "d716af20674f81287e02c6063f62ce1a8aef354c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbbb98b8_6f4a91ec",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2712,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-19T06:47:05Z",
+      "side": 1,
+      "message": "Just double checking that this delete is intentional here. I must admit that I don\u0027t fully follow the refactoring here. So to make sure I mostly got it:\n\n* Since we now extract a different part of the name (via regex) we don\u0027t need the keyId/nodeId shenanigans from before.\n* We use `!pendingEphemeronEdges.delete` logic to skip the first edge but consider the second one.\n* The code assumes that `match.duplicatedPart` occurs only 2 times, or at least always in pairs?",
+      "range": {
+        "startLine": 2712,
+        "startChar": 37,
+        "endLine": 2712,
+        "endChar": 43
+      },
+      "revId": "d716af20674f81287e02c6063f62ce1a8aef354c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
