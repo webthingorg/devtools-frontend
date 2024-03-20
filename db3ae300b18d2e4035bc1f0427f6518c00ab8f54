@@ -52,6 +52,24 @@
       "parentUuid": "81811271_20939b01",
       "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde31d82_de0d1ea9",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-03-20T12:31:49Z",
+      "side": 1,
+      "message": "IMO it makes sense to have this module be the source of insights interpretation. If we also need the raw values in the UI I\u0027d say it\u0027s fine to include it as part of the exported data data, maybe something like we do with PageLoadMetricsHandler::MetricScore?",
+      "parentUuid": "d6049868_a8f1fd90",
+      "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
