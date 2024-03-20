@@ -158,7 +158,7 @@ export class ChunkedFileReader implements ChunkedReader {
       return;
     }
     const decodedString = this.#decoder.decode(buffer, {stream: !endOfFile});
-    await this.#output.write(decodedString);
+    await this.#output.write(decodedString, endOfFile);
     if (this.#isCanceled) {
       return;
     }
