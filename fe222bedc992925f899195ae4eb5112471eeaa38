@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a46894a_b5b59838",
+        "filename": "front_end/models/trace/insights/Viewport.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-20T19:48:23Z",
+      "side": 1,
+      "message": "Gotcha. In that case, how do you feel about a warning as well as return `null`?",
+      "parentUuid": "15915c37_389ec1c5",
+      "revId": "fe222bedc992925f899195ae4eb5112471eeaa38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b80ab60_787c87e8",
         "filename": "front_end/models/trace/insights/Viewport.ts",
         "patchSetId": 2
