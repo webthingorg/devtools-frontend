@@ -32,7 +32,14 @@ import * as Platfrom from '../../core/platform/platform.js';
 import type * as HeapSnapshotModel from '../../models/heap_snapshot_model/heap_snapshot_model.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 
-import {type HeapSnapshotHeader, HeapSnapshotProgress, JSHeapSnapshot, type Profile} from './HeapSnapshot.js';
+import {
+  type BigUint32Array,
+  BigUint32ArrayImpl,
+  type HeapSnapshotHeader,
+  HeapSnapshotProgress,
+  JSHeapSnapshot,
+  type Profile,
+} from './HeapSnapshot.js';
 import {type HeapSnapshotWorkerDispatcher} from './HeapSnapshotWorkerDispatcher.js';
 
 export class HeapSnapshotLoader {
@@ -43,7 +50,7 @@ export class HeapSnapshotLoader {
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   #snapshot?: {[x: string]: any};
-  #array!: number[]|Uint32Array|null;
+  #array!: BigUint32Array|null;
   #arrayIndex!: number;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -124,7 +131,7 @@ export class HeapSnapshotLoader {
       if (!this.#array) {
         throw new Error('Array not instantiated');
       }
-      this.#array[this.#arrayIndex++] = nextNumber;
+      this.#array.setValue(this.#arrayIndex++, nextNumber);
     }
   }
 
@@ -175,15 +182,15 @@ export class HeapSnapshotLoader {
     }
   }
 
-  async #parseArray(name: string, title: string, length?: number): Promise<number[]|Uint32Array> {
+  async #parseArray(name: string, title: string, length?: number): Promise<BigUint32Array> {
     const nameIndex = await this.#findToken(name);
     const bracketIndex = await this.#findToken('[', nameIndex);
     this.#json = this.#json.slice(bracketIndex + 1);
-    this.#array = length ? new Uint32Array(length) : [];
+    this.#array = BigUint32ArrayImpl.create(length);
     this.#arrayIndex = 0;
     while (this.#parseUintArray()) {
       if (length) {
-        this.#progress.updateProgress(title, this.#arrayIndex, this.#array.length);
+        this.#progress.updateProgress(title, this.#arrayIndex, this.#array.getLength());
       } else {
         this.#progress.updateStatus(title);
       }
@@ -219,19 +226,19 @@ export class HeapSnapshotLoader {
     const nodes = await this.#parseArray(
         '"nodes"', 'Loading nodes… {PH1}%',
         this.#snapshot.snapshot.meta.node_fields.length * this.#snapshot.snapshot.node_count);
-    this.#snapshot.nodes = (nodes as Uint32Array);
+    this.#snapshot.nodes = nodes.asUint32ArrayOrFail();
 
     const edges = await this.#parseArray(
         '"edges"', 'Loading edges… {PH1}%',
         this.#snapshot.snapshot.meta.edge_fields.length * this.#snapshot.snapshot.edge_count);
-    this.#snapshot.edges = (edges as Uint32Array);
+    this.#snapshot.edges = edges;
 
     if (this.#snapshot.snapshot.trace_function_count) {
       const traceFunctionInfos = await this.#parseArray(
           '"trace_function_infos"', 'Loading allocation traces… {PH1}%',
           this.#snapshot.snapshot.meta.trace_function_info_fields.length *
               this.#snapshot.snapshot.trace_function_count);
-      this.#snapshot.trace_function_infos = (traceFunctionInfos as Uint32Array);
+      this.#snapshot.trace_function_infos = traceFunctionInfos.asUint32ArrayOrFail();
 
       const thisTokenEndIndex = await this.#findToken(':');
       const nextTokenIndex = await this.#findToken('"', thisTokenEndIndex);
@@ -243,12 +250,12 @@ export class HeapSnapshotLoader {
 
     if (this.#snapshot.snapshot.meta.sample_fields) {
       const samples = await this.#parseArray('"samples"', 'Loading samples…');
-      this.#snapshot.samples = (samples as number[]);
+      this.#snapshot.samples = samples.asArrayOrFail();
     }
 
     if (this.#snapshot.snapshot.meta['location_fields']) {
       const locations = await this.#parseArray('"locations"', 'Loading locations…');
-      this.#snapshot.locations = (locations as number[]);
+      this.#snapshot.locations = locations.asArrayOrFail();
     } else {
       this.#snapshot.locations = [];
     }
