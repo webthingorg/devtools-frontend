@@ -476,6 +476,11 @@ export class ConsoleInsight extends HTMLElement {
       type: State.CONSENT_ONBOARDING,
       page: ConsentOnboardingPage.PAGE2,
     });
+    this.#focusHeader();
+  }
+
+  #focusHeader(): void {
+    (this.#shadow.querySelector('header h2') as HTMLElement | undefined)?.focus();
   }
 
   #termsChecked(): boolean {
@@ -496,6 +501,7 @@ export class ConsoleInsight extends HTMLElement {
       consentReminderConfirmed: false,
       consentOnboardingFinished: this.#getOnboardingCompletedSetting().get(),
     });
+    this.#focusHeader();
     void this.#generateInsightIfNeeded();
   }
 
@@ -504,6 +510,7 @@ export class ConsoleInsight extends HTMLElement {
       type: State.CONSENT_ONBOARDING,
       page: ConsentOnboardingPage.PAGE1,
     });
+    this.#focusHeader();
   }
 
   #renderCancelButton(): LitHtml.TemplateResult {
@@ -875,7 +882,7 @@ export class ConsoleInsight extends HTMLElement {
       <div class="wrapper" jslog=${VisualLogging.pane('console-insights').track({resize: true})}>
         <header>
           <div class="filler">
-            <h2>
+            <h2 tabindex="-1">
               ${this.#getHeader()}
             </h2>
           </div>
