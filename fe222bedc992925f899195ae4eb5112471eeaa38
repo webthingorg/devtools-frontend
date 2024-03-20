@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b80ab60_787c87e8",
+        "filename": "front_end/models/trace/insights/Viewport.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-20T15:40:13Z",
+      "side": 1,
+      "message": "we got both early return and break in here. lets use just one of those?\n\ni kinda prefer the early return so we dont have to risk accidentally using `let mobileOptimized \u003d true` when its not.",
+      "revId": "fe222bedc992925f899195ae4eb5112471eeaa38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
