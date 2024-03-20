@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ac0a769_06312bb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-20T10:47:47Z",
+      "side": 1,
+      "message": "Hi Danil, PTAL, thanks!",
+      "revId": "f0f35c06e9d3128c444daa41ef272a2d73f7d217",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62240d6b_259056ba",
+        "filename": "front_end/core/common/Settings.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-20T10:47:47Z",
+      "side": 1,
+      "message": "Drive-by comment.",
+      "revId": "f0f35c06e9d3128c444daa41ef272a2d73f7d217",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c9cc84_d1f66df2",
+        "filename": "front_end/panels/css_overview/CSSOverviewCompletedView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-20T10:47:47Z",
+      "side": 1,
+      "message": "Drive-by spelling fix.",
+      "revId": "f0f35c06e9d3128c444daa41ef272a2d73f7d217",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed76227d_fa301c24",
+        "filename": "front_end/panels/network/NetworkLogViewColumns.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-03-20T10:47:47Z",
+      "side": 1,
+      "message": "Another drive-by spelling fix.",
+      "revId": "f0f35c06e9d3128c444daa41ef272a2d73f7d217",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
