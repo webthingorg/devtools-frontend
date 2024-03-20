@@ -59,7 +59,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   private totalSize!: number;
   private readonly jsonTokenizer: TextUtils.TextUtils.BalancedJSONTokenizer;
   private filter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null;
-  #collectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
+  collectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
 
   #traceFinalizedCallbackForTest?: () => void;
   #traceFinalizedPromiseForTest: Promise<void>;
@@ -95,8 +95,24 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
         loader.reportErrorAndCancelLoading((fileReader.error() as any).message);
       }
     });
+    
     return loader;
   }
+
+  static async loadFromFile2(file: File, client: Client): Promise<TimelineLoader> {
+    const loader = new TimelineLoader(client);
+    await client.loadingStarted();
+    const txt = await file.text()
+    const trace = JSON.parse(txt);
+    if (Array.isArray(trace.nodes)) {
+      loader.buffer = txt;
+    }
+    const events = Array.isArray(trace.traceEvents) ? trace.traceEvents : trace;
+    void loader.addEvents(events);
+    return loader;
+  }
+
+  
 
   static loadFromEvents(events: TraceEngine.TracingManager.EventPayload[], client: Client): TimelineLoader {
     const loader = new TimelineLoader(client);
@@ -200,71 +216,86 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
    * Common.StringOutputStream.StringOutputStream instance has decoded a chunk. This path is only used
    * by `loadFromURL()`; it's NOT used by `loadFromEvents` or `loadFromFile`.
    */
-  async write(chunk: string): Promise<void> {
-    if (!this.client) {
-      return Promise.resolve();
-    }
-    this.loadedBytes += chunk.length;
-    if (this.firstRawChunk) {
-      await this.client.loadingStarted();
-      // Ensure we paint the loading dialog before continuing
-      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-    } else {
-      let progress = undefined;
-      if (this.totalSize) {
-        progress = this.loadedBytes / this.totalSize;
-        // For compressed traces, we can't provide a definite progress percentage. So, just keep it moving.
-        progress = progress > 1 ? progress - Math.floor(progress) : progress;
-      }
-      await this.client.loadingProgress(progress);
-    }
-    this.firstRawChunk = false;
 
-    if (this.state === State.Initial) {
-      if (chunk.match(/^{(\s)*"nodes":(\s)*\[/)) {
-        this.state = State.LoadingCPUProfileFromFile;
-      } else if (chunk[0] === '{') {
-        this.state = State.LookingForEvents;
-      } else if (chunk[0] === '[') {
-        this.state = State.ReadingEvents;
-      } else {
-        this.reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataUnknownJson));
-        return Promise.resolve();
-      }
+  async write(chunk: string, endOfFile: boolean): Promise<void> {
+    console.log("end ", endOfFile);
+    this.buffer += chunk;
+
+    if(endOfFile) {
+      const trace = JSON.parse(this.buffer);
+      let items = (trace.traceEvents as TraceEngine.TracingManager.EventPayload[]);
+      
+      // this.writeBalancedJSON(trace.traceEvents)
+      
+      // this.#collectEvents(items);
+      // this.addEvents(items);
+      // (this.tracingModel as TraceEngine.Legacy.TracingModel).addEvents(items);
+      
     }
 
-    if (this.state === State.LoadingCPUProfileFromFile) {
-      this.buffer += chunk;
-      return Promise.resolve();
-    }
+    // if (!this.client) {
+    //   return Promise.resolve();
+    // }
+    // this.loadedBytes += chunk.length;
+    // if (this.firstRawChunk) {
+    //   await this.client.loadingStarted();
+    //   // Ensure we paint the loading dialog before continuing
+    //   await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    // } else {
+    //   let progress = undefined;
+    //   if (this.totalSize) {
+    //     progress = this.loadedBytes / this.totalSize;
+    //     // For compressed traces, we can't provide a definite progress percentage. So, just keep it moving.
+    //     progress = progress > 1 ? progress - Math.floor(progress) : progress;
+    //   }
+    //   await this.client.loadingProgress(progress);
+    // }
+    // this.firstRawChunk = false;
 
-    if (this.state === State.LookingForEvents) {
-      const objectName = '"traceEvents":';
-      const startPos = this.buffer.length - objectName.length;
-      this.buffer += chunk;
-      const pos = this.buffer.indexOf(objectName, startPos);
-      if (pos === -1) {
-        return Promise.resolve();
-      }
-      chunk = this.buffer.slice(pos + objectName.length);
-      this.state = State.ReadingEvents;
-    }
+    // if (this.state === State.Initial) {
+    //   if (chunk.match(/^{(\s)*"nodes":(\s)*\[/)) {
+    //     this.state = State.LoadingCPUProfileFromFile;
+    //   } else if (chunk[0] === '{') {
+    //     this.state = State.LookingForEvents;
+    //   } else if (chunk[0] === '[') {
+    //     this.state = State.ReadingEvents;
+    //   } else {
+    //     this.reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataUnknownJson));
+    //     return Promise.resolve();
+    //   }
+    // }
 
-    if (this.state !== State.ReadingEvents) {
-      return Promise.resolve();
-    }
-    // This is where we actually do the loading of events from JSON: the JSON
-    // Tokenizer writes the JSON to a buffer, and then as a callback the
-    // writeBalancedJSON method below is invoked. It then parses this chunk
-    // of JSON as a set of events, and adds them to the TracingModel via
-    // addEvents()
-    if (this.jsonTokenizer.write(chunk)) {
-      return Promise.resolve();
-    }
-    this.state = State.SkippingTail;
-    if (this.firstChunk) {
-      this.reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineInputWrongJson));
-    }
+    // if (this.state === State.LoadingCPUProfileFromFile) {
+    //   this.buffer += chunk;
+    //   return Promise.resolve();
+    // }
+
+    // if (this.state === State.LookingForEvents) {
+    //   const objectName = '"traceEvents":';
+    //   const startPos = this.buffer.length - objectName.length;
+    //   this.buffer += chunk;
+    //   const pos = this.buffer.indexOf(objectName, startPos);
+    //   if (pos === -1) {
+    //     return Promise.resolve();
+    //   }
+    //   chunk = this.buffer.slice(pos + objectName.length);
+    //   this.state = State.ReadingEvents;
+    // }
+
+    // if (this.state !== State.ReadingEvents) {
+    //   return Promise.resolve();
+    // }
+    // // This is where we actually do the loading of events from JSON: the JSON
+    // // Tokenizer writes the JSON to a buffer, and then as a callback the
+    // // writeBalancedJSON method below is invoked. It then parses this chunk
+    // // of JSON as a set of events, and adds them to the TracingModel via
+    // // addEvents()
+    // if (this.jsonTokenizer.write(chunk)) {
+      // return Promise.resolve();
+    // }
+    // if (this.firstChunk) {
+    //   this.reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineInputWrongJson));
+    // }
     return Promise.resolve();
   }
 
@@ -327,6 +358,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   }
 
   private async finalizeTrace(): Promise<void> {
+    console.log("finalizing");
     if (this.state === State.LoadingCPUProfileFromFile) {
       this.parseCPUProfileFormat(this.buffer);
       this.buffer = '';
@@ -334,7 +366,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     (this.tracingModel as TraceEngine.Legacy.TracingModel).tracingComplete();
     await (this.client as Client)
         .loadingComplete(
-            this.#collectedEvents, this.tracingModel, this.filter, this.isCpuProfile(), /* recordingStartTime=*/ null);
+            this.collectedEvents, this.tracingModel, this.filter, this.isCpuProfile(), /* recordingStartTime=*/ null);
     this.#traceFinalizedCallbackForTest?.();
   }
 
@@ -359,8 +391,8 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
 
   #collectEvents(events: TraceEngine.TracingManager.EventPayload[]): void {
     // Once the old engine is removed, this can be updated to use the types from the new engine and avoid the `as unknown`.
-    this.#collectedEvents =
-        this.#collectedEvents.concat(events as unknown as TraceEngine.Types.TraceEvents.TraceEventData);
+    this.collectedEvents =
+        this.collectedEvents.concat(events as unknown as TraceEngine.Types.TraceEvents.TraceEventData);
   }
 }
 
