@@ -16,6 +16,24 @@
       "message": "I can tell from the early exits in both these methods that getNode will never be called more than once for a single iteration of this for loop. They happen to be mutually exclusive. Since its incidental and future additions here may not necessarily be mutually exclusive, we shouldn\u0027t refactor further to make \"getNode is only called once\" more obvious.\n\nWe still may call getNode more often than we\u0027d like - if we get multiple invalidation events for the same node. I believe that could happen, don\u0027t know how common. To help with that, and also make how often getNode is called more obvious, we could put a cache in front of getNode.\n\nJust an idea. This CL is good as is.",
       "revId": "f638dfb937d1388601b6ea8cd1588ec5288dbe2c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95a571a_88eaf6b3",
+        "filename": "front_end/models/trace/root-causes/LayoutShift.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-20T22:01:17Z",
+      "side": 1,
+      "message": "A cache could work, but I expect future revisions to remove the need to talk to CDP and since this addresses the immediate problem I think this is fine for now.",
+      "parentUuid": "012fbe00_30b6106d",
+      "revId": "f638dfb937d1388601b6ea8cd1588ec5288dbe2c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
