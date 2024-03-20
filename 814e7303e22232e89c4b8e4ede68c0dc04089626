@@ -34,6 +34,24 @@
       "parentUuid": "c85e10eb_bdf839f5",
       "revId": "814e7303e22232e89c4b8e4ede68c0dc04089626",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "640da0b1_06f00173",
+        "filename": "front_end/panels/recorder/recorder-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-03-20T13:14:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a6544d5f_b7d42a68",
+      "revId": "814e7303e22232e89c4b8e4ede68c0dc04089626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
