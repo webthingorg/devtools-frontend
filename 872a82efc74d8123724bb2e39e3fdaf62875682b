@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "750ac24b_fed0b81c",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-20T11:43:36Z",
+      "side": 1,
+      "message": "concat",
+      "range": {
+        "startLine": 177,
+        "startChar": 9,
+        "endLine": 177,
+        "endChar": 16
+      },
+      "revId": "872a82efc74d8123724bb2e39e3fdaf62875682b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
