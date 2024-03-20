@@ -70,6 +70,24 @@
       "parentUuid": "d6049868_a8f1fd90",
       "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a6ade43_91928a25",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-03-20T20:12:32Z",
+      "side": 1,
+      "message": "sgtm! went ahead and rephrased these to be more \"insightful\", thanks y\u0027all :)",
+      "parentUuid": "cde31d82_de0d1ea9",
+      "revId": "db3ae300b18d2e4035bc1f0427f6518c00ab8f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
