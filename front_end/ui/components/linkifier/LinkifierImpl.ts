@@ -15,6 +15,7 @@ export interface LinkifierData {
   url: Platform.DevToolsPath.UrlString;
   lineNumber?: number;
   columnNumber?: number;
+  linkText?: string;
 }
 
 export class LinkifierClick extends Event {
@@ -35,11 +36,13 @@ export class Linkifier extends HTMLElement {
   #url: Platform.DevToolsPath.UrlString = Platform.DevToolsPath.EmptyUrlString;
   #lineNumber?: number;
   #columnNumber?: number;
+  #linkText?: string;
 
   set data(data: LinkifierData) {
     this.#url = data.url;
     this.#lineNumber = data.lineNumber;
     this.#columnNumber = data.columnNumber;
+    this.#linkText = data.linkText;
 
     if (!this.#url) {
       throw new Error('Cannot construct a Linkifier without providing a valid string URL.');
@@ -63,6 +66,15 @@ export class Linkifier extends HTMLElement {
   }
 
   async #render(): Promise<void> {
+    if (this.#linkText) {
+      await coordinator.write(() => {
+        LitHtml.render(
+            // eslint-disable-next-line rulesdir/ban_a_tags_in_lit_html
+            LitHtml.html`<a class="link" href=${this.#url} @click=${this.#onLinkActivation}>${this.#linkText}</a>`,
+            this.#shadow, {host: this});
+      });
+      return;
+    }
     // Disabled until https://crbug.com/1079231 is fixed.
     await coordinator.write(() => {
       // clang-format off
