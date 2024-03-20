@@ -22,6 +22,30 @@
       },
       "revId": "a7269da3d136012e03500ad6895e41787b34661f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "007ff1ff_d049ba39",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2024-03-20T13:30:41Z",
+      "side": 1,
+      "message": "Not really—it\u0027s not a common thing to need to set attributes not related to styling on editor-internal DOM structure like this, so the library has no provision for it.",
+      "parentUuid": "ed6c92b4_73369432",
+      "range": {
+        "startLine": 725,
+        "startChar": 4,
+        "endLine": 725,
+        "endChar": 8
+      },
+      "revId": "a7269da3d136012e03500ad6895e41787b34661f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
