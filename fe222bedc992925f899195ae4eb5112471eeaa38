@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15915c37_389ec1c5",
+        "filename": "front_end/models/trace/insights/Viewport.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-03-20T18:39:49Z",
+      "side": 1,
+      "message": "Yes, if a trace does not have a \"BeginCommitCompositorFrame\". This could happen if the trace is short enough and nothing of real interest happens. Indicating \"we don\u0027t know\" is better than an exception, since the case where it is missing isn\u0027t very exceptional.",
+      "parentUuid": "ae3c68d3_bbe4a7cd",
+      "revId": "fe222bedc992925f899195ae4eb5112471eeaa38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b80ab60_787c87e8",
         "filename": "front_end/models/trace/insights/Viewport.ts",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-20T15:40:13Z",
       "side": 1,
       "message": "we got both early return and break in here. lets use just one of those?\n\ni kinda prefer the early return so we dont have to risk accidentally using `let mobileOptimized \u003d true` when its not.",
+      "revId": "fe222bedc992925f899195ae4eb5112471eeaa38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c28922a_2b22311a",
+        "filename": "front_end/models/trace/insights/Viewport.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-03-20T18:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b80ab60_787c87e8",
       "revId": "fe222bedc992925f899195ae4eb5112471eeaa38",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
