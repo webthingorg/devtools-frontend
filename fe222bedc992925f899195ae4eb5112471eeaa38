@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae3c68d3_bbe4a7cd",
+        "filename": "front_end/models/trace/insights/Viewport.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-03-20T17:59:22Z",
+      "side": 1,
+      "message": "Are there realistic situations where we would expect this to happen? If not then I think we should throw an error instead of returning null.",
+      "revId": "fe222bedc992925f899195ae4eb5112471eeaa38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b80ab60_787c87e8",
         "filename": "front_end/models/trace/insights/Viewport.ts",
         "patchSetId": 2
