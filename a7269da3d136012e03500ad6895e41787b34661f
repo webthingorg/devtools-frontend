@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6c92b4_73369432",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-20T12:51:07Z",
+      "side": 1,
+      "message": "@marijnh@gmail.com, is there a better way to reliably set a custom HTML attribute on CM markup. These are annotations used to log user interactions.",
+      "range": {
+        "startLine": 725,
+        "startChar": 4,
+        "endLine": 725,
+        "endChar": 8
+      },
+      "revId": "a7269da3d136012e03500ad6895e41787b34661f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
