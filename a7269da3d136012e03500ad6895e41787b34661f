@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d637eb00_75a4f944",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-21T11:21:04Z",
+      "side": 1,
+      "message": "Yes, by the parent VE.",
+      "parentUuid": "3076fe52_97d05d1f",
+      "range": {
+        "startLine": 1935,
+        "startChar": 48,
+        "endLine": 1935,
+        "endChar": 64
+      },
+      "revId": "a7269da3d136012e03500ad6895e41787b34661f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed6c92b4_73369432",
@@ -101,6 +125,30 @@
       "writtenOn": "2024-03-21T05:44:47Z",
       "side": 1,
       "message": "left-overs to be removed?",
+      "range": {
+        "startLine": 816,
+        "startChar": 0,
+        "endLine": 818,
+        "endChar": 8
+      },
+      "revId": "a7269da3d136012e03500ad6895e41787b34661f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2184c6b2_a677cf1e",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-03-21T11:21:04Z",
+      "side": 1,
+      "message": "Yes, sorry. Removed.",
+      "parentUuid": "3a8f6701_684aa881",
       "range": {
         "startLine": 816,
         "startChar": 0,
