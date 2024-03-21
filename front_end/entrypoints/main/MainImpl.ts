@@ -295,7 +295,7 @@ export class MainImpl {
 
     // Sources
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.INDENTATION_MARKERS_TEMP_DISABLE, 'Disable Indentation Markers temporarily',
+        Root.Runtime.ExperimentName.INDENTATION_MARKERS_TEMP_DISABLE, 'Disable indentation markers temporarily',
         /* unstable= */ false, 'https://developer.chrome.com/blog/new-in-devtools-121/#indentation',
         'https://crbug.com/1479986');
 
@@ -321,7 +321,7 @@ export class MainImpl {
 
     // Font Editor
     Root.Runtime.experiments.register(
-        'font-editor', 'Enable new Font Editor tool within the Styles tab.', undefined,
+        'font-editor', 'Enable new font editor tool within the Styles tab', undefined,
         'https://developer.chrome.com/blog/new-in-devtools-89/#font');
 
     // Contrast issues reported via the Issues panel.
@@ -339,7 +339,7 @@ export class MainImpl {
 
     // Integrate CSS changes in the Styles pane.
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.STYLES_PANE_CSS_CHANGES, 'Sync CSS changes in the Styles pane');
+        Root.Runtime.ExperimentName.STYLES_PANE_CSS_CHANGES, 'Sync CSS changes in the Styles tab');
 
     // Highlights a violating node or attribute by rendering a squiggly line under it and adding a tooltip linking to the issues panel.
     // Right now violating nodes are exclusively form fields that contain an HTML issue, for example, and <input /> whose id is duplicate inside the form.
@@ -349,32 +349,32 @@ export class MainImpl {
 
     // Change grouping of sources panel to use Authored/Deployed trees
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.AUTHORED_DEPLOYED_GROUPING, 'Group sources into Authored and Deployed trees',
+        Root.Runtime.ExperimentName.AUTHORED_DEPLOYED_GROUPING, 'Group sources into authored and deployed trees',
         undefined, 'https://goo.gle/authored-deployed', 'https://goo.gle/authored-deployed-feedback');
 
     // Hide third party code (as determined by ignore lists or source maps)
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.JUST_MY_CODE, 'Hide ignore-listed code in sources tree view');
+        Root.Runtime.ExperimentName.JUST_MY_CODE, 'Hide ignore-listed code in Sources tree view');
 
     // Highlight important DOM properties in the Object Properties viewer.
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.IMPORTANT_DOM_PROPERTIES,
-        'Highlight important DOM properties in the Object Properties viewer');
+        'Highlight important DOM properties in the Properties tab');
 
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, 'Enable Speculative Loads Panel in Application panel',
+        Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, 'Enable Speculative loads panel in Application panel',
         true);
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
-        'Enable background page selector (e.g. for prerendering debugging)', false);
+        'Enable Background page selector (e.g. for prerendering debugging)', false);
 
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, 'Enable Storage Buckets Tree in Application panel', true);
+        Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, 'Enable Storage buckets tree in Application panel', true);
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.NETWORK_PANEL_FILTER_BAR_REDESIGN,
-        'Redesign of the filter bar in the Network Panel',
+        'Redesign of the Filter bar in the Network panel',
         false,
         'https://goo.gle/devtools-network-filter-redesign',
         'https://crbug.com/1500573',
@@ -390,12 +390,12 @@ export class MainImpl {
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.TIMELINE_SHOW_POST_MESSAGE_EVENTS,
-        'Timeline: Show postMessage dispatch and handling flows',
+        'Timeline: show postMessage dispatch and handling flows',
     );
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.SAVE_AND_LOAD_TRACE_WITH_ANNOTATIONS,
-        'Enable save and load trace with annotations in Performance Panel',
+        'Enable saving and loading traces with annotations in the Performance panel',
     );
 
     Root.Runtime.experiments.enableExperimentsByDefault([
