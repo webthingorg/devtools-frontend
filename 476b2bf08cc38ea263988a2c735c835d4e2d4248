@@ -39,6 +39,30 @@
       },
       "revId": "476b2bf08cc38ea263988a2c735c835d4e2d4248",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f9d02ac_a8e25670",
+        "filename": "test/e2e/console/console-insight_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-21T15:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c529a553_1fb2a571",
+      "range": {
+        "startLine": 132,
+        "startChar": 6,
+        "endLine": 132,
+        "endChar": 11
+      },
+      "revId": "476b2bf08cc38ea263988a2c735c835d4e2d4248",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
