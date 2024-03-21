@@ -454,9 +454,13 @@ export class MainImpl {
     themeSetting.addChangeListener(onThemeChange);
 
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
+<<<<<<< HEAD   (060461 [theme_support] Fix race condition when opening with Cmd+Shi)
         Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, async () => {
           await UI.Utils.DynamicTheming.fetchColors(document);
         }, this);
+=======
+        Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, () => ThemeSupport.ThemeSupport.fetchColors(document));
+>>>>>>> CHANGE (4fafca [cleanup] Make `ThemeSupport.fetchColors()` non-async.)
 
     UI.UIUtils.installComponentRootStyles((document.body as Element));
 
@@ -563,7 +567,11 @@ export class MainImpl {
     const app = (appProvider as Common.AppProvider.AppProvider).createApp();
     // It is important to kick controller lifetime after apps are instantiated.
     UI.DockController.DockController.instance().initialize();
+<<<<<<< HEAD   (060461 [theme_support] Fix race condition when opening with Cmd+Shi)
     await UI.Utils.DynamicTheming.fetchColors(document);
+=======
+    ThemeSupport.ThemeSupport.fetchColors(document);
+>>>>>>> CHANGE (4fafca [cleanup] Make `ThemeSupport.fetchColors()` non-async.)
     app.presentUI(document);
 
     if (UI.ActionRegistry.ActionRegistry.instance().hasAction('elements.toggle-element-search')) {

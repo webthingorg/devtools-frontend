@@ -27,9 +27,14 @@ export class AdvancedApp implements Common.App.App {
         UI.DockController.Events.BeforeDockSideChanged, this.openToolboxWindow, this);
 
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.events.addEventListener(
+<<<<<<< HEAD   (060461 [theme_support] Fix race condition when opening with Cmd+Shi)
         Host.InspectorFrontendHostAPI.Events.ColorThemeChanged, async () => {
           await UI.Utils.DynamicTheming.fetchColors(this.toolboxDocument);
         }, this);
+=======
+        Host.InspectorFrontendHostAPI.Events.ColorThemeChanged,
+        () => ThemeSupport.ThemeSupport.fetchColors(this.toolboxDocument));
+>>>>>>> CHANGE (4fafca [cleanup] Make `ThemeSupport.fetchColors()` non-async.)
   }
 
   /**
