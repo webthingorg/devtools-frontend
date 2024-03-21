@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b27d0de1_f1ae0a86",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-03-21T12:29:11Z",
+      "side": 1,
+      "message": "How about `Google account holder is a minor`?\nThe word GAIA might be unclear to non-Googlers. And the age check is using https://g3doc.corp.google.com/identity/accountcapabilities/definitions/base/identity/aadc/issubjecttoglobalminormoderestrictions/README.md behind the scenes, which might have different age limits per country.",
+      "range": {
+        "startLine": 37,
+        "startChar": 18,
+        "endLine": 37,
+        "endChar": 66
+      },
+      "revId": "6e48cfdd0f37ef21d2158275363674c5614f6ee5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
