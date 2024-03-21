@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c275939_4e0919f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "I updated some strings on the Experiments page. Please have a look if this makes sense to you.\n\n@semel@chromium.org please double check\n\n@victorporof@chromium.org I changed all occurrences of \"Timeline\" to \"Performance panel\", since the panel has been renamed. Makes sense?",
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ea98c91_ebabbfa7",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "UI surface: only first letter capitalized",
+      "range": {
+        "startLine": 326,
+        "startChar": 35,
+        "endLine": 326,
+        "endChar": 46
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e4f23d0_dcfcda73",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "Feature name, lower case",
+      "range": {
+        "startLine": 354,
+        "startChar": 84,
+        "endLine": 354,
+        "endChar": 111
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "671d682a_a701b41c",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "UI surface: capitalize first letter",
+      "range": {
+        "startLine": 367,
+        "startChar": 69,
+        "endLine": 367,
+        "endChar": 92
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c3d9f8_8dfa328f",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "UI surface (a button)",
+      "range": {
+        "startLine": 372,
+        "startChar": 16,
+        "endLine": 372,
+        "endChar": 40
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dbba84a_d84324c5",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "UI surface, capitalize only first letter",
+      "range": {
+        "startLine": 375,
+        "startChar": 66,
+        "endLine": 375,
+        "endChar": 86
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26dcaf15_fa3edf0f",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "UI surface, capitalize first letter",
+      "range": {
+        "startLine": 379,
+        "startChar": 25,
+        "endLine": 379,
+        "endChar": 35
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

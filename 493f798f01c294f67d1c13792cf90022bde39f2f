@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53ba4b9_fb611580",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:54:36Z",
+      "side": 1,
+      "message": "Feature name: lower case",
+      "range": {
+        "startLine": 298,
+        "startChar": 79,
+        "endLine": 298,
+        "endChar": 98
+      },
+      "revId": "493f798f01c294f67d1c13792cf90022bde39f2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
