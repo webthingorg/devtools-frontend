@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5006ec45_65eb1cfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-21T07:00:12Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "6dc1c5577410d2ad39eebc28a4cbcad105a58d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c0f2d6_e461c638",
+        "filename": "test/e2e/console/console-errors_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-21T07:00:12Z",
+      "side": 1,
+      "message": "Note that each stack trace gets it\u0027s own `div`. The expectation doesn\u0027t look nicely formatted because both div\u0027s `textContent` is concatenated. In the actual view the \"Caused by:\" appears on a new line.",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 59
+      },
+      "revId": "6dc1c5577410d2ad39eebc28a4cbcad105a58d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
