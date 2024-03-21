@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c54ec68_dae7c043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-03-21T14:52:27Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nPlease take a look at this CL.\n\nAlso, for some reason we have two screenshots that are pretty much the same?",
+      "revId": "48fc75e15f3004ce7f7d289a4a35cec7a5e8c18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
