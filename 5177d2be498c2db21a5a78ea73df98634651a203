@@ -107,6 +107,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80653f4b_251f912c",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-03-21T15:21:55Z",
+      "side": 1,
+      "message": "```suggestion\n        \u0027font-editor\u0027, \u0027Enable the new font editor in the Styles tab\u0027, undefined,\n```\nThat\u0027s a feature, so we don\u0027t capitalize in the middle a sentence, as per sentence case. \"Font editor\" isn\u0027t a name that can be found in the UI. If it was, you only need to capitalize it when can make type it in bold, which isn\u0027t the case in UI, am I right?\n\nSorry for the confusion, I\u0027ll update the guidelines and provide more examples.",
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e4f23d0_dcfcda73",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 4
@@ -153,6 +170,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04b05c8e_acace5f4",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-03-21T15:21:55Z",
+      "side": 1,
+      "message": "```suggestion\n        Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, \u0027Enable speculative loads in Application panel\u0027,\n```",
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05c3d9f8_8dfa328f",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 4
@@ -170,6 +204,23 @@
         "endLine": 372,
         "endChar": 40
       },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb9249e_05a33e86",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-03-21T15:21:55Z",
+      "side": 1,
+      "message": "```suggestion\n        \u0027Enable background page selector (for prerendering)\u0027, false);\n```",
       "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -199,6 +250,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f54c982e_da4635bc",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-03-21T15:21:55Z",
+      "side": 1,
+      "message": "```suggestion\n        Root.Runtime.ExperimentName.STORAGE_BUCKETS_TREE, \u0027Enable storage buckets tree in Application panel\u0027, true);\n```",
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26dcaf15_fa3edf0f",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 4
@@ -216,6 +284,23 @@
         "endLine": 379,
         "endChar": 35
       },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ace4ba_832d590c",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-03-21T15:21:55Z",
+      "side": 1,
+      "message": "```suggestion\n        \u0027Redesign of the filter bar in the Network panel\u0027,\n```\nAgain, it\u0027s not that we explicitly name this bar in UI as the **Filter** bar. It\u0027s a bar element without a name.",
       "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
