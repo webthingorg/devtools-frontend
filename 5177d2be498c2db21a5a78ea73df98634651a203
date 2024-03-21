@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa9db64c_f1a9a2b7",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-03-21T14:55:16Z",
+      "side": 1,
+      "message": "@victorporof@chromium.org should this be called \"... call stats in flame graph\"?",
+      "range": {
+        "startLine": 289,
+        "startChar": 87,
+        "endLine": 289,
+        "endChar": 104
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ea98c91_ebabbfa7",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 4
