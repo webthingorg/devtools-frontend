@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bcc0d06_70d78c4d",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-21T23:57:36Z",
+      "side": 0,
+      "message": "Do we still want to keep it? If yes, how can I check it when the object is parsed?",
+      "revId": "48a103d6af57e6bec756e341bf47cf2abea263cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
