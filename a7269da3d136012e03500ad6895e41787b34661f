@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38815d12_838468b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-21T05:44:47Z",
+      "side": 1,
+      "message": "lgtm with comments",
+      "revId": "a7269da3d136012e03500ad6895e41787b34661f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3076fe52_97d05d1f",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-21T05:44:47Z",
+      "side": 1,
+      "message": "Are we distinguishing inline vs gutter breakpoint markers via VE hierarchy?",
+      "range": {
+        "startLine": 1935,
+        "startChar": 48,
+        "endLine": 1935,
+        "endChar": 64
+      },
+      "revId": "a7269da3d136012e03500ad6895e41787b34661f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed6c92b4_73369432",
@@ -42,6 +82,29 @@
         "startLine": 725,
         "startChar": 4,
         "endLine": 725,
+        "endChar": 8
+      },
+      "revId": "a7269da3d136012e03500ad6895e41787b34661f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8f6701_684aa881",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-21T05:44:47Z",
+      "side": 1,
+      "message": "left-overs to be removed?",
+      "range": {
+        "startLine": 816,
+        "startChar": 0,
+        "endLine": 818,
         "endChar": 8
       },
       "revId": "a7269da3d136012e03500ad6895e41787b34661f",
