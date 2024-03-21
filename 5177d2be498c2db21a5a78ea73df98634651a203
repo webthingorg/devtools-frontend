@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4102354d_f32db07b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2024-03-21T15:08:06Z",
+      "side": 1,
+      "message": "Thanks Peter! Left a comment for the Perforamnce panel bit.",
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa9db64c_f1a9a2b7",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-03-21T14:55:16Z",
       "side": 1,
       "message": "@victorporof@chromium.org should this be called \"... call stats in flame graph\"?",
+      "range": {
+        "startLine": 289,
+        "startChar": 87,
+        "endLine": 289,
+        "endChar": 104
+      },
+      "revId": "5177d2be498c2db21a5a78ea73df98634651a203",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c19187_9f33d089",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2024-03-21T15:08:06Z",
+      "side": 1,
+      "message": "I don\u0027t think so, because it\u0027s not just in the flame graph. It\u0027s also in many other places in the Perf panel, such as the bottom-up and top-down call trees, summary tab etc.",
+      "parentUuid": "fa9db64c_f1a9a2b7",
       "range": {
         "startLine": 289,
         "startChar": 87,
