@@ -158,7 +158,7 @@ export class ChunkedFileReader implements ChunkedReader {
       return;
     }
     const decodedString = this.#decoder.decode(buffer, {stream: !endOfFile});
-    await this.#output.write(decodedString);
+    await this.#output.write(decodedString, endOfFile);
     if (this.#isCanceled) {
       return;
     }
@@ -190,6 +190,8 @@ export class ChunkedFileReader implements ChunkedReader {
     if (this.#streamReader) {
       const {value, done} = await this.#streamReader.read();
       if (done || !value) {
+        // Write empty string to inform of file end
+        await this.#output.write('', true);
         return this.finishRead();
       }
       void this.decodeChunkBuffer(value.buffer, false);
