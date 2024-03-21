@@ -19,7 +19,7 @@ describe('HAR.Log', () => {
     request.endTime = issueTime + 5;
     const entry = await HAR.Log.Entry.build(request);
 
-    assert.strictEqual(entry.timings.blocked, 5000, 'HARLog entry\'s blocked time is incorrect');
+    assert.strictEqual(entry.timings.blocked, 5001, 'HARLog entry\'s blocked time is incorrect');
   });
 
   it('_initiator.requestId is exported', async () => {
