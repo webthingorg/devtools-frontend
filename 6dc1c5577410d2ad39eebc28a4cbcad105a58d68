@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b67decf2_7602ed06",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-03-21T08:42:33Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a lot of value in translating \"Caused by\". The stack traces and error messages are coming from the page, which may or may not be localized. Using the DevTools UI language for text content that looks like it\u0027s coming from the page could be missleading.",
+      "parentUuid": "9f856e5a_3269c91d",
+      "revId": "6dc1c5577410d2ad39eebc28a4cbcad105a58d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94c0f2d6_e461c638",
