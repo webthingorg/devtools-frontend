@@ -26,6 +26,30 @@ export class AutofillModel extends SDKModel<EventTypes> implements ProtocolProxy
       return;
     }
     void this.agent.invoke_enable();
+    void (async () => {
+      void console.error(JSON.stringify(await this.agent.invoke_setAddresses({
+        addresses: [{
+          fields: [
+            {name: 'ADDRESS_HOME_COUNTRY', value: 'US'},
+            {name: 'NAME_FULL', value: 'USFirstName USMiddleName USLastName'},
+            {name: 'NAME_FIRST', value: 'USFirstName'},
+            {name: 'NAME_MIDDLE', value: 'USMiddleName'},
+            {name: 'NAME_LAST', value: 'USLastName'},
+            {name: 'COMPANY_NAME', value: 'USCompany'},
+            {name: 'ADDRESS_HOME_STREET_ADDRESS', value: '1600 Amphitheatre Parkway\nApartment 1'},
+            {name: 'ADDRESS_HOME_STREET_NAME', value: 'Amphitheatre Parkway'},
+            {name: 'ADDRESS_HOME_HOUSE_NUMBER', value: '1600'},
+            {name: 'ADDRESS_HOME_SUBPREMISE', value: '1'},
+            {name: 'ADDRESS_HOME_APT_NUM', value: '1'},
+            {name: 'ADDRESS_HOME_ZIP', value: '94043'},
+            {name: 'ADDRESS_HOME_CITY', value: 'Mountain View'},
+            {name: 'ADDRESS_HOME_STATE', value: 'CA'},
+            {name: 'EMAIL_ADDRESS', value: 'test@example.us'},
+            {name: 'PHONE_HOME_WHOLE_NUMBER', value: '601-952-1325'},
+          ],
+        }],
+      })));
+    })();
     this.#enabled = true;
   }
 
