@@ -14,9 +14,9 @@ const UIStrings = {
    */
   inputDelay: 'Input delay',
   /**
-   *@description Text shown next to the interaction event's thread processing time in the detail view.
+   *@description Text shown next to the interaction event's thread processing duration in the detail view.
    */
-  processingTime: 'Processing time',
+  processingTime: 'Processing duration',
   /**
    *@description Text shown next to the interaction event's presentation delay time in the detail view.
    */
