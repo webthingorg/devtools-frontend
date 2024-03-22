@@ -5,14 +5,21 @@
 import * as TraceEngine from '../../models/trace/trace.js';
 
 let instance: AnnotationsManager|null = null;
+type HashToEntryMap = Map<string, TraceEngine.Types.TraceEvents.SyntheticTraceEntry>;
 
 export class AnnotationsManager {
-  static instance(opts: {
-    forceNew: boolean|null,
-  } = {forceNew: null}): AnnotationsManager {
-    const forceNew = Boolean(opts.forceNew);
-    if (!instance || forceNew) {
-      instance = new AnnotationsManager();
+  /**
+   * Maps from a hash to an individual TraceEvent entry.
+   * We save annotations into the trace file by saving the applicable entry hash.
+   * Build a hash to entry map to faster find an entry to apply an annotation to.
+   **/
+  #hashToEntry: HashToEntryMap = new Map();
+
+  static maybeInstance(opts: {
+    entries: TraceEngine.Types.TraceEvents.SyntheticTraceEntry[]|null,
+  } = {entries: null}): AnnotationsManager|null {
+    if (opts.entries) {
+      instance = new AnnotationsManager(opts.entries);
     }
     return instance;
   }
@@ -20,7 +27,10 @@ export class AnnotationsManager {
   static removeInstance(): void {
     instance = null;
   }
-  private constructor() {
+
+  private constructor(entries: TraceEngine.Types.TraceEvents.SyntheticTraceEntry[]) {
+    // Fill hash to entry map
+    entries.map(entry => this.#hashToEntry.set(this.generateTraceEntryHash(entry), entry));
   }
 
   /**
@@ -49,5 +59,18 @@ export class AnnotationsManager {
       return `${entry.cat},${entry.name},${entry.ph},${entry.pid},${entry.tid},${entry.ts},${entry.tts}`;
     }
     return '';
+  }
+
+  applyAnnotations(annotations: TraceEngine.Types.File.Annotations): void {
+    if (annotations.hiddenRendererEventsHashes) {
+      const hiddenEntries: TraceEngine.Types.TraceEvents.SyntheticTraceEntry[] = [];
+      annotations.hiddenRendererEventsHashes.map(hiddenEntryHash => {
+        const hiddenEntry = this.#hashToEntry.get(hiddenEntryHash);
+        if (hiddenEntry) {
+          hiddenEntries.push(hiddenEntry);
+        }
+      });
+      TraceEngine.EntriesFilter.EntriesFilter.maybeInstance()?.setInvisibleEntries(hiddenEntries);
+    }
   }
 }
