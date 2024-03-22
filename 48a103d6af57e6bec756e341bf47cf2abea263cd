@@ -34,6 +34,23 @@
       "parentUuid": "4bcc0d06_70d78c4d",
       "revId": "48a103d6af57e6bec756e341bf47cf2abea263cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a49c96_e5cc7018",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-22T10:57:08Z",
+      "side": 0,
+      "message": "an observation: It looks like we were doing the file parsing twice for CPU profiles. We used to run the chunked parser and then also just parse the whole file at once after calling `finalizeTrace()` and checking if it\u0027s a CPU profile",
+      "revId": "48a103d6af57e6bec756e341bf47cf2abea263cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a59d581_7f176998",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-22T10:57:08Z",
+      "side": 1,
+      "message": "Thanks for the review and kind works! \nI agree we can go further with cleaning this up. It would be nice to not use a chunked parser at all, but I didn\u0027t find a different fitting one in our codebase.\n(Yeah, your gmail showed up first for me for some reason 😄)",
+      "revId": "bc80b6ad5bf741b4abc0969ad2a633c93322deaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30d2d716_c409ac54",
@@ -31,6 +48,24 @@
       "writtenOn": "2024-03-22T03:12:10Z",
       "side": 1,
       "message": "just double checking you want this here instead of on line 185...\n\nthese methods always break my brain, so... at this point i\u0027ll go with your call either way. just wanted to verify :)",
+      "revId": "bc80b6ad5bf741b4abc0969ad2a633c93322deaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00c2a24_d60c9626",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-22T10:57:08Z",
+      "side": 1,
+      "message": "good point! I\u0027ll move it down to return earlier in case the client doesn\u0027t exist and also it looks more natural on line 185 😄",
+      "parentUuid": "30d2d716_c409ac54",
       "revId": "bc80b6ad5bf741b4abc0969ad2a633c93322deaa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
