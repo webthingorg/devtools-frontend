@@ -37,7 +37,10 @@ function findFirstEntry(
 
 describe('AnnotationsManager', () => {
   it('correctly generates an entry hash', async function() {
-    const manager = AnnotationsManager.AnnotationsManager.AnnotationsManager.instance();
+    const manager = AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance();
+    if (!manager) {
+      throw new Error('Manager does not exist.');
+    }
     const data = await TraceLoader.traceEngine(null, 'basic-stack.json.gz');
     const mainThread = getMainThread(data.Renderer);
     assert.exists(manager);

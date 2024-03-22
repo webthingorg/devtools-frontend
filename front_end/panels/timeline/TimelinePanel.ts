@@ -691,7 +691,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     // Save annotations into the metadata if annotations the experiment is on
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.SAVE_AND_LOAD_TRACE_WITH_ANNOTATIONS) &&
         metadata) {
-      metadata.annotations = AnnotationsManager.AnnotationsManager.AnnotationsManager.instance().getAnnotations();
+      metadata.annotations = AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()?.getAnnotations();
     }
     if (!traceEvents) {
       return;
@@ -1180,7 +1180,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   setModel(
       model: PerformanceModel|null, exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null,
-      traceEngineIndex: number = -1): void {
+      traceEngineIndex: number = -1, metadata: TraceEngine.Types.File.MetaData|null = null,
+      collectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[]|null = null): void {
     this.performanceModel = model;
     this.#traceEngineActiveTraceIndex = traceEngineIndex;
     const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
@@ -1199,6 +1200,14 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       const samplesAndRendererEventsEntryToNodeMap =
           new Map([...traceParsedData.Samples.entryToNode, ...traceParsedData.Renderer.entryToNode]);
       TraceEngine.EntriesFilter.EntriesFilter.maybeInstance({entryToNodeMap: samplesAndRendererEventsEntryToNodeMap});
+
+      // If the annotations experiment is on and there are some annotations saved, apply the annotations from the file.
+      // The order here is important, we need to apply annotations after setModel call because some annotations need entryToNode map setup.
+      if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.SAVE_AND_LOAD_TRACE_WITH_ANNOTATIONS) &&
+          metadata?.annotations) {
+        AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance({entries: collectedEvents})
+            ?.applyAnnotations(metadata?.annotations);
+      }
 
       this.#applyActiveFilters(traceParsedData.Meta.traceIsGeneric, exclusiveFilter);
     }
@@ -1423,8 +1432,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       return;
     }
 
-    // TODO(b.corp.google.com/issues/313757110): Apply annotations from the file if they exist in the metadata.
-
     if (!this.performanceModel) {
       this.performanceModel = new PerformanceModel();
     }
@@ -1446,7 +1453,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       // the newest trace will be automatically set to active.
       this.#traceEngineActiveTraceIndex = this.#traceEngineModel.size() - 1;
 
-      this.setModel(this.performanceModel, exclusiveFilter, this.#traceEngineActiveTraceIndex);
+      this.setModel(
+          this.performanceModel, exclusiveFilter, this.#traceEngineActiveTraceIndex, metadata, collectedEvents);
 
       if (this.statusPane) {
         this.statusPane.remove();
