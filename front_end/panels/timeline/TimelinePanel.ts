@@ -1054,7 +1054,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
               /* tracingModel= */ null,
               /* exclusiveFilter= */ null,
               /* isCpuProfile= */ false,
-              /* recordingStartTime= */ null);
+              /* recordingStartTime= */ null,
+              /* metadata= */ null);
         });
     this.statusPane.showPane(this.statusPaneContainer);
     this.statusPane.updateStatus(i18nString(UIStrings.recordingFailed));
@@ -1403,7 +1404,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       collectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[],
       tracingModel: TraceEngine.Legacy.TracingModel|null,
       exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null, isCpuProfile: boolean,
-      recordingStartTime: number|null): Promise<void> {
+      recordingStartTime: number|null, metadata: TraceEngine.Types.File.MetaData|null): Promise<void> {
     this.#traceEngineModel.resetProcessor();
     SourceMapsResolver.clearResolvedNodeNames();
 
@@ -1422,6 +1423,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       return;
     }
 
+    // TODO(b.corp.google.com/issues/313757110): Apply annotations from the file if they exist in the metadata.
+
     if (!this.performanceModel) {
       this.performanceModel = new PerformanceModel();
     }
@@ -1432,7 +1435,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         // Calling setTracingModel now and setModel so much later, leads to several problems due to addEventListener order being unexpected
         // TODO(paulirish): Resolve this, or just wait for the death of tracingModel. :)
         this.performanceModel.setTracingModel(tracingModel, recordingIsFresh),
-        this.#executeNewTraceEngine(collectedEvents, recordingIsFresh, isCpuProfile, recordingStartTime),
+        this.#executeNewTraceEngine(collectedEvents, recordingIsFresh, isCpuProfile, recordingStartTime, metadata),
       ]);
 
       // This code path is only executed when a new trace is recorded/imported,
@@ -1510,13 +1513,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   async #executeNewTraceEngine(
       collectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[], isFreshRecording: boolean, isCpuProfile: boolean,
-      recordStartTime: number|null): Promise<void> {
-    const shouldGatherMetadata = isFreshRecording && !isCpuProfile;
-    const metadata =
-        shouldGatherMetadata ? await TraceEngine.Extras.Metadata.forNewRecording(recordStartTime ?? undefined) : {};
-    metadata.dataOrigin =
-        isCpuProfile ? TraceEngine.Types.File.DataOrigin.CPUProfile : TraceEngine.Types.File.DataOrigin.TraceEvents;
-
+      recordStartTime: number|null, metadata: TraceEngine.Types.File.MetaData|null): Promise<void> {
+    metadata = metadata ? metadata :
+                          await TraceEngine.Extras.Metadata.forNewRecording(isCpuProfile, recordStartTime ?? undefined);
     return this.#traceEngineModel.parse(
         collectedEvents,
         {
