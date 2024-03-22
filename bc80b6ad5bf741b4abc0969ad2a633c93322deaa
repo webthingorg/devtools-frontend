@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b40ebb_3618e3f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-22T03:12:10Z",
+      "side": 1,
+      "message": "Nice!  Beautiful clean-up.\n\nOf course we could go further. But this is a great improvement and I love it. Thanks\n\n(also lol i had no idea my gmail was within the autocomplete here. wild.)",
+      "revId": "bc80b6ad5bf741b4abc0969ad2a633c93322deaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d2d716_c409ac54",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-22T03:12:10Z",
+      "side": 1,
+      "message": "just double checking you want this here instead of on line 185...\n\nthese methods always break my brain, so... at this point i\u0027ll go with your call either way. just wanted to verify :)",
+      "revId": "bc80b6ad5bf741b4abc0969ad2a633c93322deaa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
