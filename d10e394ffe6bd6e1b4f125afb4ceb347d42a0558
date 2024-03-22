@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89d4181f_2728a00b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-22T03:01:16Z",
+      "side": 1,
+      "message": "lgtm. nice stuff.",
+      "revId": "d10e394ffe6bd6e1b4f125afb4ceb347d42a0558",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f8fb77_0dde2092",
+        "filename": "front_end/models/trace/insights/InteractionToNextPaint.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-22T03:01:16Z",
+      "side": 1,
+      "message": "this is a little funny to me. since highpercentileindex is a low number\nbut. i guess the comment explains it.",
+      "revId": "d10e394ffe6bd6e1b4f125afb4ceb347d42a0558",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
