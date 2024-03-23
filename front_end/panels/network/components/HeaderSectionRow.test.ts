@@ -294,7 +294,7 @@ describeWithEnvironment('HeaderSectionRow', () => {
     nameEditable.blur();
 
     assert.strictEqual(headerEditedEventCount, 0);
-    assert.strictEqual(nameEditable.innerText, 'Some-Header-Name');
+    assert.strictEqual(nameEditable.innerText, 'some-header-name');
   });
 
   it('resets edited value on escape key', async () => {
@@ -462,6 +462,42 @@ describeWithEnvironment('HeaderSectionRow', () => {
     await coordinator.done();
     assert.strictEqual(row.querySelector('devtools-icon.disallowed-characters'), null);
     assert.isTrue(hasReloadPrompt(component.shadowRoot));
+  });
+
+  it('split header name and value on pasted content', async () => {
+    const originalHeaderName = Platform.StringUtilities.toLowerCaseString('some-header-name');
+    const originalHeaderValue = 'someHeaderValue';
+    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+      name: originalHeaderName,
+      value: originalHeaderValue,
+      nameEditable: true,
+      valueEditable: true,
+    };
+    const editedHeaderName = 'Permissions-Policy: unload=(https://xyz.com)';
+
+    const {component, nameEditable} = await renderHeaderSectionRow(headerData);
+    assertShadowRoot(component.shadowRoot);
+    assertElement(nameEditable, HTMLElement);
+
+    let headerValueFromEvent = '';
+    let headerNameFromEvent = '';
+
+    component.addEventListener('headeredited', event => {
+      headerValueFromEvent = event.headerValue;
+      headerNameFromEvent = event.headerName;
+    });
+
+    nameEditable.focus();
+
+    const dt = new DataTransfer();
+    dt.setData('text/plain', editedHeaderName);
+    dt.setData('text/html', 'This is <b>bold</b>');
+    dispatchPasteEvent(nameEditable, {clipboardData: dt, bubbles: true});
+    nameEditable.blur();
+
+    await coordinator.done();
+    assert.strictEqual(headerNameFromEvent, 'permissions-policy');
+    assert.strictEqual(headerValueFromEvent, 'unload=(https://xyz.com)');
   });
 
   it('recoginzes only alphanumeric characters, dashes, and underscores as valid in header names', () => {
