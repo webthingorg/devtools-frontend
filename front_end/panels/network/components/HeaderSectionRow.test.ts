@@ -464,6 +464,41 @@ describeWithEnvironment('HeaderSectionRow', () => {
     assert.isTrue(hasReloadPrompt(component.shadowRoot));
   });
 
+  it('split header name and value on pasted content', async () => {
+    const originalHeaderName = Platform.StringUtilities.toLowerCaseString('some-header-name');
+    const originalHeaderValue = 'someHeaderValue';
+    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+      name: originalHeaderName,
+      value: originalHeaderValue,
+      nameEditable: true,
+      valueEditable: true,
+    };
+    const editedHeaderName = 'Permissions-Policy: unload=(https://xyz.com)';
+
+    const {component, nameEditable} = await renderHeaderSectionRow(headerData);
+    assertShadowRoot(component.shadowRoot);
+    assertElement(nameEditable, HTMLElement);
+
+    let headerValueFromEvent = '';
+    let headerNameFromEvent = '';
+
+    component.addEventListener('headeredited', event => {
+      headerValueFromEvent = event.headerValue;
+      headerNameFromEvent = event.headerName;
+    });
+
+    nameEditable.focus();
+
+    const dt = new DataTransfer();
+    dt.setData('text/plain', editedHeaderName);
+    dt.setData('text/html', 'This is <b>bold</b>');
+    dispatchPasteEvent(nameEditable, {clipboardData: dt, bubbles: true});
+    nameEditable.blur();
+
+    assert.strictEqual(headerNameFromEvent, 'Permissions-Policy');
+    assert.strictEqual(headerValueFromEvent, 'unload=(https://xyz.com)');
+  });
+
   it('recoginzes only alphanumeric characters, dashes, and underscores as valid in header names', () => {
     assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('AlphaNumeric123'), true);
     assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('Alpha Numeric'), false);
