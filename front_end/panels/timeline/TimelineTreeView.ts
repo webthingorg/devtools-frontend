@@ -26,10 +26,6 @@ const UIStrings = {
    */
   performance: 'Performance',
   /**
-   *@description Text to filter result items
-   */
-  filter: 'Filter',
-  /**
    *@description Time of a single activity, as opposed to the total time
    */
   selfTime: 'Self Time',
@@ -230,8 +226,8 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
     this.setModelWithEvents(model, track?.eventsForTreeView() || null);
   }
 
-  getToolbarInputAccessiblePlaceHolder(): string {
-    return '';
+  getToolbarInputAccessiblePlaceHolder(): Common.UIString.LocalizedString|undefined {
+    return undefined;
   }
 
   model(): PerformanceModel|null {
@@ -337,8 +333,7 @@ export class TimelineTreeView extends UI.Widget.VBox implements UI.SearchableVie
     }, this);
     toolbar.appendToolbarItem(this.matchWholeWord);
 
-    const textFilterUI =
-        new UI.Toolbar.ToolbarInput(i18nString(UIStrings.filter), this.getToolbarInputAccessiblePlaceHolder());
+    const textFilterUI = new UI.Toolbar.ToolbarFilter(undefined, this.getToolbarInputAccessiblePlaceHolder());
     this.textFilterUI = textFilterUI;
     textFilterUI.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, this.#filterChanged, this);
     toolbar.appendToolbarItem(textFilterUI);
@@ -1042,7 +1037,7 @@ export class CallTreeTimelineTreeView extends AggregatedTimelineTreeView {
     this.dataGrid.markColumnAsSortedBy('total', DataGrid.DataGrid.Order.Descending);
   }
 
-  override getToolbarInputAccessiblePlaceHolder(): string {
+  override getToolbarInputAccessiblePlaceHolder(): Common.UIString.LocalizedString|undefined {
     return i18nString(UIStrings.filterCallTree);
   }
 
@@ -1058,7 +1053,7 @@ export class BottomUpTimelineTreeView extends AggregatedTimelineTreeView {
     this.dataGrid.markColumnAsSortedBy('self', DataGrid.DataGrid.Order.Descending);
   }
 
-  override getToolbarInputAccessiblePlaceHolder(): string {
+  override getToolbarInputAccessiblePlaceHolder(): Common.UIString.LocalizedString|undefined {
     return i18nString(UIStrings.filterBottomup);
   }
 

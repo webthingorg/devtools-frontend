@@ -333,16 +333,15 @@ select.toolbar-item:focus-visible > * {
 
 .toolbar-input {
   width: 120px;
-  height: 19px;
-  padding: 4px 3px 3px;
+  height: var(--sys-size-10);
+  padding: 0 var(--sys-size-4) 0 var(--sys-size-5);
   margin: 1px 3px;
-  background: var(--sys-color-cdt-base-container);
-  border: 1px solid var(--sys-color-neutral-outline);
-  border-radius: 4px;
+  background: var(--sys-color-base-container);
+  border: 2px solid transparent;
+  border-radius: 100px;
   min-width: 35px;
 
-  &.focused,
-  &:not(.toolbar-input-empty) {
+  &.focused {
     border-color: var(--sys-color-state-focus-ring);
   }
 
@@ -350,9 +349,14 @@ select.toolbar-item:focus-visible > * {
     background: var(--sys-color-state-hover-on-subtle);
   }
 
-  & > input {
-    border: none;
-    flex-grow: 1;
+  & > devtools-icon {
+    color: var(--sys-color-on-surface-subtle);
+    width: var(--sys-size-8);
+    height: var(--sys-size-8);
+  }
+
+  &.disabled > devtools-icon {
+    color: var(--sys-color-state-disabled);
   }
 }
 
@@ -365,10 +369,16 @@ select.toolbar-item:focus-visible > * {
 
 .toolbar-input-clear-button > .search-cancel-button {
   display: block;
+  width: var(--sys-size-8);
+  height: var(--sys-size-8);
 }
 
 .toolbar-input-clear-button:hover {
   opacity: 99%;
+}
+
+.toolbar-input-empty {
+  color: var(--sys-color-on-surface-subtle);
 }
 
 .toolbar-input-empty .toolbar-input-clear-button {
