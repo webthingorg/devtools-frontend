@@ -66,7 +66,7 @@ export class EventsTimelineTreeView extends TimelineTreeView {
     }
   }
 
-  override getToolbarInputAccessiblePlaceHolder(): string {
+  override getToolbarInputAccessiblePlaceHolder(): Common.UIString.LocalizedString|undefined {
     return i18nString(UIStrings.filterEventLog);
   }
 

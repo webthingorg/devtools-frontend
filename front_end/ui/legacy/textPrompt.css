@@ -34,12 +34,22 @@
 }
 
 .text-prompt > .auto-complete-text {
-  color: var(--sys-color-token-subtle) !important; /* stylelint-disable-line declaration-no-important */
+  color: var(--sys-color-on-surface-subtle) !important; /* stylelint-disable-line declaration-no-important */
 }
 
-.text-prompt[data-placeholder]:empty::before {
-  content: attr(data-placeholder);
-  color: var(--sys-color-token-subtle);
+.text-prompt[data-placeholder] {
+  &:empty::before {
+    content: attr(data-placeholder);
+    color: var(--sys-color-token-subtle);
+  }
+
+  &.disabled:empty::before {
+    color: var(--sys-color-state-disabled);
+  }
+
+  &:focus:empty::before {
+    color: var(--sys-color-on-surface);
+  }
 }
 
 .text-prompt:not([data-placeholder]):empty::after {
@@ -49,7 +59,6 @@
 }
 
 .text-prompt.disabled {
-  opacity: 50%;
   cursor: default;
 }
 
@@ -64,9 +73,5 @@
 @media (forced-colors: active) {
   .text-prompt[data-placeholder]:empty::before {
     color: GrayText !important; /* stylelint-disable-line declaration-no-important */
-  }
-
-  .text-prompt.disabled {
-    opacity: 100%;
   }
 }
