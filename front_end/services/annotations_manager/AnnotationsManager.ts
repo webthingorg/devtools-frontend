@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as TraceEngine from '../../models/trace/trace.js';
+import type * as TimelineComponents from '../../panels/timeline/components/components.js';
 
 let instance: AnnotationsManager|null = null;
 type HashToEntryMap = Map<string, TraceEngine.Types.TraceEvents.SyntheticTraceEntry>;
@@ -17,6 +18,7 @@ export class AnnotationsManager {
    **/
   #hashToEntry: HashToEntryMap = new Map();
   #entriesFilter: TraceEngine.EntriesFilter.EntriesFilter;
+  #timelineBreadcrumbs: TimelineComponents.Breadcrumbs.Breadcrumbs|null = null;
 
   static maybeInstance(opts: {
     entryToNodeMap: EntryToNodeMap|null,
@@ -39,6 +41,10 @@ export class AnnotationsManager {
 
   getEntriesFilter(): TraceEngine.EntriesFilter.EntriesFilter {
     return this.#entriesFilter;
+  }
+
+  getTimelineBreadcrumbs(): TimelineComponents.Breadcrumbs.Breadcrumbs|null {
+    return this.#timelineBreadcrumbs;
   }
 
   /**
