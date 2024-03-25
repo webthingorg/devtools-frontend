@@ -31,17 +31,17 @@ describe('Timeline breadcrumbs', () => {
     crumbs.add(traceWindow1);
     crumbs.add(traceWindow2);
 
-    const breadcrumb2: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const breadcrumb2: TraceEngine.Types.File.Breadcrumb = {
       window: traceWindow2,
       child: null,
     };
 
-    const breadcrumb1: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const breadcrumb1: TraceEngine.Types.File.Breadcrumb = {
       window: traceWindow1,
       child: breadcrumb2,
     };
 
-    const initialBreadcrumb: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const initialBreadcrumb: TraceEngine.Types.File.Breadcrumb = {
       window: initialTraceWindow,
       child: breadcrumb1,
     };
@@ -77,17 +77,17 @@ describe('Timeline breadcrumbs', () => {
     crumbs.add(traceWindow1);
     crumbs.add(traceWindow2);
 
-    const breadcrumb2: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const breadcrumb2: TraceEngine.Types.File.Breadcrumb = {
       window: traceWindow2,
       child: null,
     };
 
-    const breadcrumb1: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const breadcrumb1: TraceEngine.Types.File.Breadcrumb = {
       window: traceWindow1,
       child: breadcrumb2,
     };
 
-    const initialBreadcrumb: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const initialBreadcrumb: TraceEngine.Types.File.Breadcrumb = {
       window: initialTraceWindow,
       child: breadcrumb1,
     };
@@ -149,17 +149,17 @@ describe('Timeline breadcrumbs', () => {
     crumbs.add(traceWindow1);
     crumbs.add(traceWindow2);
 
-    const breadcrumb2: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const breadcrumb2: TraceEngine.Types.File.Breadcrumb = {
       window: traceWindow2,
       child: null,
     };
 
-    const breadcrumb1: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const breadcrumb1: TraceEngine.Types.File.Breadcrumb = {
       window: traceWindow1,
       child: breadcrumb2,
     };
 
-    const initialBreadcrumb: TimelineComponents.Breadcrumbs.Breadcrumb = {
+    const initialBreadcrumb: TraceEngine.Types.File.Breadcrumb = {
       window: initialTraceWindow,
       child: breadcrumb1,
     };
