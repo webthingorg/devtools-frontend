@@ -721,6 +721,60 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       } else {
         const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
         traceAsString = Array.from(formattedTraceIter).join('');
+        // create a wrapper here
+        // while there are more script compiled event
+        const targets: EnhancedTraceTarget[] = [];
+        const executionContexts: EnhancedTraceExecutionContext[] = [];
+        const scripts: EnhancedTraceScript[] = [];
+        let executionContextCounter = 0;
+        traceEvents.forEach(traceEvent => {
+          if (traceEvent.name === 'ScriptCompiled') {
+            const data = traceEvent.args?.data;
+            if (!data) {
+              return;
+            }
+            // check the frame id
+            if (!targets.find(target => target.targetId === data?.frame)) {
+              // if not exist, create new target
+              targets.push({
+                targetId: data.frame,
+                type: 'page',
+                url: data.url,
+                pid: traceEvent.pid,
+              });
+            }
+            // create new exContext, script
+            executionContexts.push({
+              id: executionContextCounter,
+              origin: 'example',
+              name: 'example name',
+              auxData: {frameId: data.frame},
+            });
+            scripts.push({
+              scriptId: data.scriptId,
+              url: data.url,
+              executionContextId: executionContextCounter,
+              sourceText: data.sourceText,
+            });
+            executionContextCounter += 1;
+          }
+        });
+        // create the meta data
+        const meta: EnhancedTraceMeta = {
+          version: 'beta',
+        };
+
+        // bundle all datas along with traceAsString
+        // put traceAsString into the wrapper
+        const exportedTrace: EnhancedTrace = {
+          meta: meta,
+          targets: targets,
+          executionContexts: executionContexts,
+          scripts: scripts,
+          payload: '',
+        };
+        const exportedTraceString = JSON.stringify(exportedTrace);
+        traceAsString = exportedTraceString.slice(0, exportedTraceString.length - 3) + traceAsString + '}';
       }
       if (!traceAsString) {
         throw new Error('Trace content empty');
@@ -1712,6 +1766,43 @@ export interface TimelineModeViewDelegate {
   select(selection: TimelineSelection|null): void;
   selectEntryAtTime(events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, time: number): void;
   highlightEvent(event: TraceEngine.Legacy.CompatibleTraceEvent|null): void;
+}
+
+export interface EnhancedTraceMeta {
+  version: string;
+}
+
+export interface EnhancedTraceScript {
+  scriptId?: number;
+  url?: string;
+  executionContextId: number;
+  sourceText?: string;
+}
+
+export interface ExecutionContextAuxData {
+  frameId?: string;
+}
+
+export interface EnhancedTraceExecutionContext {
+  id: number;
+  origin: string;
+  name: string;
+  auxData: ExecutionContextAuxData;
+}
+
+export interface EnhancedTraceTarget {
+  targetId?: string;
+  type: string;
+  url?: string;
+  pid: number;
+}
+
+export interface EnhancedTrace {
+  meta: EnhancedTraceMeta;
+  targets: EnhancedTraceTarget[];
+  executionContexts: EnhancedTraceExecutionContext[];
+  scripts: EnhancedTraceScript[];
+  payload: string;
 }
 
 export class StatusPane extends UI.Widget.VBox {
