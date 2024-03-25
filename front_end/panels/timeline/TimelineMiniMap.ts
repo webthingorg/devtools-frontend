@@ -160,7 +160,7 @@ export class TimelineMiniMap extends
     };
   }
 
-  #removeBreadcrumb(breadcrumb: TimelineComponents.Breadcrumbs.Breadcrumb): void {
+  #removeBreadcrumb(breadcrumb: TraceEngine.Types.File.Breadcrumb): void {
     // Note this is slightly confusing: when the user clicks on a breadcrumb,
     // we do not remove it, but we do remove all of its children, and make it
     // the new active breadcrumb.

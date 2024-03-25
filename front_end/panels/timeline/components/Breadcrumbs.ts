@@ -4,14 +4,10 @@
 
 import type * as TraceEngine from '../../../models/trace/trace.js';
 
-export interface Breadcrumb {
-  window: TraceEngine.Types.Timing.TraceWindowMicroSeconds;
-  child: Breadcrumb|null;
-}
-
-export function flattenBreadcrumbs(initialBreadcrumb: Breadcrumb): Breadcrumb[] {
-  const allBreadcrumbs: Breadcrumb[] = [initialBreadcrumb];
-  let breadcrumbsIter: Breadcrumb = initialBreadcrumb;
+export function flattenBreadcrumbs(initialBreadcrumb: TraceEngine.Types.File.Breadcrumb):
+    TraceEngine.Types.File.Breadcrumb[] {
+  const allBreadcrumbs: TraceEngine.Types.File.Breadcrumb[] = [initialBreadcrumb];
+  let breadcrumbsIter: TraceEngine.Types.File.Breadcrumb = initialBreadcrumb;
 
   while (breadcrumbsIter.child !== null) {
     const iterChild = breadcrumbsIter.child;
@@ -25,8 +21,8 @@ export function flattenBreadcrumbs(initialBreadcrumb: Breadcrumb): Breadcrumb[] 
 }
 
 export class Breadcrumbs {
-  readonly initialBreadcrumb: Breadcrumb;
-  lastBreadcrumb: Breadcrumb;
+  initialBreadcrumb: TraceEngine.Types.File.Breadcrumb;
+  lastBreadcrumb: TraceEngine.Types.File.Breadcrumb;
 
   constructor(initialTraceWindow: TraceEngine.Types.Timing.TraceWindowMicroSeconds) {
     this.initialBreadcrumb = {
@@ -60,8 +56,19 @@ export class Breadcrumbs {
   }
 
   // Make breadcrumb active by removing all of its children and making it the last breadcrumb
-  makeBreadcrumbActive(newLastBreadcrumb: Breadcrumb): void {
+  makeBreadcrumbActive(newLastBreadcrumb: TraceEngine.Types.File.Breadcrumb): void {
     this.lastBreadcrumb = newLastBreadcrumb;
     this.lastBreadcrumb.child = null;
+  }
+
+  // Used to set an initial breadcrumbs from annotations loaded from a file
+  setInitialBreadcrumb(initialBreadcrumb: TraceEngine.Types.File.Breadcrumb): void {
+    this.initialBreadcrumb = initialBreadcrumb;
+    // Make last breadcrumb active
+    let lastBreadcrumb = initialBreadcrumb;
+    while (lastBreadcrumb.child !== null) {
+      lastBreadcrumb = lastBreadcrumb.child;
+    }
+    this.makeBreadcrumbActive(lastBreadcrumb);
   }
 }
