@@ -37,7 +37,7 @@ export function computeRelativeImageURL(cssURLValue: string): string {
 
 export class EmulatedDevice {
   title: string;
-  type: string;
+  type: Type;
   order!: number;
   vertical: Orientation;
   horizontal: Orientation;
@@ -50,7 +50,7 @@ export class EmulatedDevice {
   isFoldableScreen: boolean;
   verticalSpanned: Orientation;
   horizontalSpanned: Orientation;
-  #showInternal: string;
+  #showInternal: Show;
   #showByDefault: boolean;
 
   constructor() {
@@ -69,7 +69,7 @@ export class EmulatedDevice {
     this.verticalSpanned = {width: 0, height: 0, outlineInsets: null, outlineImage: null, hinge: null};
     this.horizontalSpanned = {width: 0, height: 0, outlineInsets: null, outlineImage: null, hinge: null};
 
-    this.#showInternal = _Show.Default;
+    this.#showInternal = Show.Default;
     this.#showByDefault = true;
   }
 
@@ -192,7 +192,7 @@ export class EmulatedDevice {
 
       const result = new EmulatedDevice();
       result.title = (parseValue(json, 'title', 'string') as string);
-      result.type = (parseValue(json, 'type', 'string') as string);
+      result.type = (parseValue(json, 'type', 'string') as Type);
       result.order = (parseValue(json, 'order', 'number', 0) as number);
       const rawUserAgent = (parseValue(json, 'user-agent', 'string') as string);
       result.userAgent = SDK.NetworkManager.MultitargetNetworkManager.patchUserAgentWithChromeVersion(rawUserAgent);
@@ -255,7 +255,7 @@ export class EmulatedDevice {
         result.modes.push(mode);
       }
       result.#showByDefault = (parseValue(json, 'show-by-default', 'boolean', undefined) as boolean);
-      result.#showInternal = (parseValue(json, 'show', 'string', _Show.Default) as string);
+      result.#showInternal = (parseValue(json, 'show', 'string', Show.Default) as Show);
 
       return result;
     } catch (e) {
@@ -445,14 +445,14 @@ export class EmulatedDevice {
     }
   }
   show(): boolean {
-    if (this.#showInternal === _Show.Default) {
+    if (this.#showInternal === Show.Default) {
       return this.#showByDefault;
     }
-    return this.#showInternal === _Show.Always;
+    return this.#showInternal === Show.Always;
   }
 
   setShow(show: boolean): void {
-    this.#showInternal = show ? _Show.Always : _Show.Never;
+    this.#showInternal = show ? Show.Always : Show.Never;
   }
 
   copyShowFrom(other: EmulatedDevice): void {
@@ -473,26 +473,24 @@ export const Vertical = 'vertical';
 export const HorizontalSpanned = 'horizontal-spanned';
 export const VerticalSpanned = 'vertical-spanned';
 
-export const Type = {
-  Phone: 'phone',
-  Tablet: 'tablet',
-  Notebook: 'notebook',
-  Desktop: 'desktop',
-  Unknown: 'unknown',
-};
+const enum Type {
+  Phone = 'phone',
+  Tablet = 'tablet',
+  Notebook = 'notebook',
+  Desktop = 'desktop',
+  Unknown = 'unknown',
+}
 
-export const Capability = {
-  Touch: 'touch',
-  Mobile: 'mobile',
-};
+export const enum Capability {
+  Touch = 'touch',
+  Mobile = 'mobile',
+}
 
-// TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const _Show = {
-  Always: 'Always',
-  Default: 'Default',
-  Never: 'Never',
-};
+const enum Show {
+  Always = 'Always',
+  Default = 'Default',
+  Never = 'Never',
+}
 
 let emulatedDevicesListInstance: EmulatedDevicesList;
 
