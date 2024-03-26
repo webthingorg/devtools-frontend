@@ -1139,7 +1139,7 @@ export enum RecordType {
   WebSocketSendHandshakeRequest = 'WebSocketSendHandshakeRequest',
   WebSocketReceiveHandshakeResponse = 'WebSocketReceiveHandshakeResponse',
   WebSocketDestroy = 'WebSocketDestroy',
-
+  WebSocketSend = 'WebSocketSend',
   EmbedderCallback = 'EmbedderCallback',
 
   SetLayerTreeId = 'SetLayerTreeId',

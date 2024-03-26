@@ -23,6 +23,7 @@ import {
   type TimelineFlameChartEntry,
 } from './TimelineFlameChartDataProvider.js';
 import {TimingsTrackAppender} from './TimingsTrackAppender.js';
+import {WebSocketsTrackAppender} from './WebSocketsTrackAppender.js';
 
 export type HighlightedEntryInfo = {
   title: string,
@@ -81,7 +82,8 @@ export interface TrackAppender {
 }
 
 export const TrackNames =
-    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet'] as const;
+    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet', 'WebSockets'] as
+    const;
 // Network track will use TrackAppender interface, but it won't be shown in Main flamechart.
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';
@@ -253,7 +255,42 @@ export class CompatibilityTracksAppender {
     }
 
     this.#threadAppenders.sort((a, b) => weight(a) - weight(b));
-    this.#allTrackAppenders.push(...this.#threadAppenders);
+    for (const threadAppender of this.#threadAppenders) {
+      // todo: optimize this search rundown so we don't have check every item every time
+      if (threadAppender.threadType === TraceEngine.Handlers.Threads.ThreadType.MAIN_THREAD) {
+        for (const webSocketData of this.#traceParsedData.WebSockets.traceData) {
+          if ('frame' in webSocketData) {
+            const renderProcessInfoList = this.#traceParsedData.Meta.rendererProcessesByFrame.get(webSocketData.frame);
+            if (!renderProcessInfoList) {
+              continue;
+            }
+
+            for (const pid of renderProcessInfoList.keys()) {
+              if (threadAppender.processId() === pid) {
+                this.#allTrackAppenders.push(
+                    new WebSocketsTrackAppender(this, this.#traceParsedData, webSocketData, threadAppender));
+              }
+            }
+          }
+        }
+      } else if (threadAppender.threadType === TraceEngine.Handlers.Threads.ThreadType.WORKER) {
+        for (const webSocketData of this.#traceParsedData.WebSockets.traceData) {
+          if ('workerId' in webSocketData) {
+            // const renderProcessInfoList = this.#traceParsedData.Meta.rendererProcessesByFrame.get(webSocketData.workerId);
+            // if (!renderProcessInfoList) {
+            //   continue;
+            // }
+
+            // for (const [pid, _] of renderProcessInfoList) {
+            //   if (threadAppender.processId() === pid) {
+            //     this.#allTrackAppenders.push(new WebSocketsTrackAppender(this, this.#traceParsedData, webSocketData));
+            //   }
+            // }
+          }
+        }
+      }
+      this.#allTrackAppenders.push(threadAppender);
+    }
   }
   /**
    * Given a trace event returns instantiates a legacy SDK.Event. This should

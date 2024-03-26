@@ -2004,6 +2004,7 @@ export interface TraceEventWebSocketCreate extends TraceEventInstant {
       identifier: number,
       url: string,
       frame?: string,
+      workerId?: string,
       websocketProtocol?: string,
       stackTrace?: TraceEventCallFrame,
     },
@@ -2011,6 +2012,39 @@ export interface TraceEventWebSocketCreate extends TraceEventInstant {
 }
 export function isTraceEventWebSocketCreate(event: TraceEventData): event is TraceEventWebSocketCreate {
   return event.name === KnownEventName.WebSocketCreate;
+}
+
+export interface TraceEventWebSocketInfo extends TraceEventInstant {
+  name: KnownEventName.WebSocketDestroy|KnownEventName.WebSocketReceiveHandshake|
+      KnownEventName.WebSocketReceiveHandshakeResponse;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: string,
+      url: string,
+      frame?: string,
+      workerId?: string,
+    },
+  };
+}
+export interface TraceEventWebSocketTransfer extends TraceEventInstant {
+  name: KnownEventName.WebSocketSend;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: string,
+      url: string,
+      frame?: string,
+      workerId?: string, dataLength: number, dir: 'send'|'receive',
+    },
+  };
+}
+export function isTraceEventWebSocketInfo(traceEventData: TraceEventData): traceEventData is TraceEventWebSocketInfo {
+  return traceEventData.name === 'WebSocketSendHandshakeRequest' ||
+      traceEventData.name === 'WebSocketReceiveHandshakeResponse' || traceEventData.name === 'WebSocketDestroy';
+}
+
+export function isTraceEventWebSocketTransfer(traceEventData: TraceEventData):
+    traceEventData is TraceEventWebSocketTransfer {
+  return traceEventData.name === 'WebSocketSend';
 }
 
 export interface TraceEventWebSocketSendHandshakeRequest extends TraceEventInstant {
@@ -2158,6 +2192,7 @@ export const enum KnownEventName {
   WebSocketSendHandshake = 'WebSocketSendHandshakeRequest',
   WebSocketReceiveHandshake = 'WebSocketReceiveHandshakeResponse',
   WebSocketDestroy = 'WebSocketDestroy',
+  WebSocketSend = 'WebSocketSend',
   CryptoDoEncrypt = 'DoEncrypt',
   CryptoDoEncryptReply = 'DoEncryptReply',
   CryptoDoDecrypt = 'DoDecrypt',
