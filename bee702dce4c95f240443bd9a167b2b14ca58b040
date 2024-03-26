@@ -16,6 +16,57 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "bee702dce4c95f240443bd9a167b2b14ca58b040",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5e82171_652a0f3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-26T08:31:55Z",
+      "side": 1,
+      "message": "LGTM, with a question",
+      "revId": "bee702dce4c95f240443bd9a167b2b14ca58b040",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48fa45aa_9cb8eacd",
+        "filename": "front_end/models/emulation/EmulatedDevices.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-26T08:31:55Z",
+      "side": 1,
+      "message": "Is this cast really safe? Should we at least check if the input is a Type?",
+      "revId": "bee702dce4c95f240443bd9a167b2b14ca58b040",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8261509d_b98874f1",
+        "filename": "front_end/models/emulation/EmulatedDevices.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-26T08:31:55Z",
+      "side": 1,
+      "message": "Same as above essentially.",
+      "revId": "bee702dce4c95f240443bd9a167b2b14ca58b040",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
