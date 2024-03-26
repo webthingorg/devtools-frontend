@@ -16,6 +16,24 @@
       "message": "Hi Victor and Yang, could anyone else help review this CL if Paul is busy?\n\nThanks,\nGuangyue Xu",
       "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72acf165_c209aee1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2024-03-26T15:16:55Z",
+      "side": 1,
+      "message": "Paul will take a look at this. Thanks for the ping!",
+      "parentUuid": "b97abdf6_c586214f",
+      "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
