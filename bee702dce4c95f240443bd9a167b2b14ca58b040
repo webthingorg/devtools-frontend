@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "749d5c20_71d7f78a",
+        "filename": "front_end/models/emulation/EmulatedDevices.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-03-26T08:42:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48fa45aa_9cb8eacd",
+      "revId": "bee702dce4c95f240443bd9a167b2b14ca58b040",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8261509d_b98874f1",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-03-26T08:31:55Z",
       "side": 1,
       "message": "Same as above essentially.",
+      "revId": "bee702dce4c95f240443bd9a167b2b14ca58b040",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3e2e80_c3bb744a",
+        "filename": "front_end/models/emulation/EmulatedDevices.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-03-26T08:42:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8261509d_b98874f1",
       "revId": "bee702dce4c95f240443bd9a167b2b14ca58b040",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
