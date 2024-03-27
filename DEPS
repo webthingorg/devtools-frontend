@@ -353,4 +353,9 @@ hooks = [
     'condition': 'build_with_chromium == False',
     'action': ['python3', 'third_party/node/node.py', '--output', 'scripts/deps/sync-vscode-settings.js']
   },
+  {
+    'name': 'node_modules',
+    'pattern': '.',
+    'action': ['python3', 'third_party/node/node.py', '--output', 'scripts/deps/fetch-node-modules.js']
+  },
 ]
