@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18669edc_277d4c96",
+        "filename": "front_end/panels/timeline/components/Breadcrumbs.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-27T20:44:56Z",
+      "side": 1,
+      "message": "How about rename these two functions to something like \"setBreadcrumbsByXXX\"\n```suggestion\n  setBreadcrumbsByInitialBreadcrumb(initialBreadcrumb: TraceEngine.Types.File.Breadcrumb): void {\n```",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 22
+      },
+      "revId": "dcab36658f2282c32057cd096cb494d22084d7db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
