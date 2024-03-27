@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd1fa239_9df23978",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-27T17:39:24Z",
+      "side": 1,
+      "message": "Added a warning as discussed offline",
+      "parentUuid": "535c5030_6702370a",
+      "range": {
+        "startLine": 149,
+        "startChar": 112,
+        "endLine": 149,
+        "endChar": 116
+      },
+      "revId": "dd61eebcfafdb449900b25a3d6cc1fb7e8124bcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e988d3cb_32c04f70",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-27T15:41:09Z",
       "side": 1,
       "message": "Then please add a comment to explain when a new instance will be created. And why we need both options to be non-null",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "dd61eebcfafdb449900b25a3d6cc1fb7e8124bcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b93aa18_c61877e9",
+        "filename": "front_end/services/annotations_manager/AnnotationsManager.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-27T17:39:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e988d3cb_32c04f70",
       "range": {
         "startLine": 23,
         "startChar": 9,
