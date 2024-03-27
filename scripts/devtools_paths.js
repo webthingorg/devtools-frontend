@@ -108,6 +108,17 @@ function nodePath() {
   return path.join(thirdPartyPath(), 'node', paths[os.platform()]);
 }
 
+function npmPath() {
+  const paths = {
+    'darwin': path.join(
+        'mac', process.arch === 'arm64' ? 'node-darwin-arm64' : 'node-darwin-x64', 'lib', 'node_modules', 'npm', 'bin',
+        'npm-cli.js'),
+    'linux': path.join('linux', 'node-linux-x64', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js'),
+    'win32': path.join('win', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js'),
+  };
+  return path.join(thirdPartyPath(), 'node', paths[os.platform()]);
+}
+
 /**
  * The path to the devtools-frontend node_modules folder.
  */
@@ -136,6 +147,7 @@ function downloadedChromeBinaryPath() {
 module.exports = {
   thirdPartyPath,
   nodePath,
+  npmPath,
   devtoolsRootPath,
   nodeModulesPath,
   mochaExecutablePath,
