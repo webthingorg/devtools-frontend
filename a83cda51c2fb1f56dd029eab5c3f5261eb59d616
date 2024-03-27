@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c938c01_f75180a7",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-27T20:39:03Z",
+      "side": 1,
+      "message": "Just have this code because it works and it\u0027s an easy \u0026 quick fix (since IO is soon).\nAnother CL for improving this is WIP (it;s a refactor so I would like to test more)",
+      "range": {
+        "startLine": 512,
+        "startChar": 5,
+        "endLine": 522,
+        "endChar": 18
+      },
+      "revId": "a83cda51c2fb1f56dd029eab5c3f5261eb59d616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
