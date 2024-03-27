@@ -954,7 +954,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return;
     }
 
-    this.contextMenu = new UI.ContextMenu.ContextMenu(_event, {useSoftMenu: true});
+    this.contextMenu = new UI.ContextMenu.ContextMenu(_event, {useSoftMenu: true, onSoftMenuClosed: () => {}});
 
     const hideEntryOption = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.hideFunction), () => {
       this.modifyTree(TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION, this.selectedEntryIndex);
