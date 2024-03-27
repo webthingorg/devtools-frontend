@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e93d16b7_82f3c09d",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-03-27T14:19:39Z",
+      "side": 1,
+      "message": "Button style will be adapted during the GM3 button migration (in order to avoid duplicate work changing it now, and then once more during the migration)",
+      "revId": "c5f4bdeb574f68948e18db9cf281ec42cc75ac07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

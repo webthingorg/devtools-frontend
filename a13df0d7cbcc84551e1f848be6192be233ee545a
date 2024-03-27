@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252782bc_5baea97b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-03-27T14:19:39Z",
+      "side": 1,
+      "message": "Hi Peter, hi Danil,\n\nHere\u0027s a CL to change ToolbarInput usages for filter bars, to adapt to GM3 (buttons still look different, this will change with the button migration).\n\nThis is CL 1 of probably 2 CLs for filter bars, with this updating most of the filter bars in DevTools. \n@petermueller: This change affects all filter bars in your update guide, except the one in the Network panel. There are more filter bars that are affected than in the guide, but probably it\u0027s enough to do the review on one of them, since they are all reusing the same implementation in this case.\n@dsv: One layout test is failing; if this one is LGTM\u0027d I\u0027ll disable it for landing this.\n\nPTAL!",
+      "revId": "a13df0d7cbcc84551e1f848be6192be233ee545a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
