@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a45dfe_730479a6",
+        "filename": "front_end/services/annotations_manager/AnnotationsManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-28T15:00:23Z",
+      "side": 1,
+      "message": "nits: let\u0027s change the name to reflect to index, for example\n```suggestion\n    const indexesOfSynteticEntries: number[] \u003d [];\n```",
+      "range": {
+        "startLine": 63,
+        "startChar": 10,
+        "endLine": 63,
+        "endChar": 33
+      },
+      "revId": "70c5b35d3d5de61dc702b923d64c4dd102137f45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf6be673_ca8a3ae2",
+        "filename": "front_end/services/annotations_manager/AnnotationsManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-28T15:00:23Z",
+      "side": 1,
+      "message": "Just to add a note, maybe thinking about adding a sanity check in the future, to guarantee we get the correct entry,",
+      "range": {
+        "startLine": 80,
+        "startChar": 3,
+        "endLine": 81,
+        "endChar": 60
+      },
+      "revId": "70c5b35d3d5de61dc702b923d64c4dd102137f45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
