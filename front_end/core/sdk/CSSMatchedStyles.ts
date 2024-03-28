@@ -260,6 +260,7 @@ export class CSSMatchedStyles {
   #pseudoDOMCascades?: Map<Protocol.DOM.PseudoType, DOMInheritanceCascade>;
   #customHighlightPseudoDOMCascades?: Map<string, DOMInheritanceCascade>;
   readonly #fontPaletteValuesRule: CSSFontPaletteValuesRule|undefined;
+  colorScheme?: string;
 
   static async create(payload: CSSMatchedStylesPayload): Promise<CSSMatchedStyles> {
     const cssMatchedStyles = new CSSMatchedStyles(payload);
@@ -315,6 +316,9 @@ export class CSSMatchedStyles {
       inheritedResult.matchedCSSRules = cleanUserAgentPayload(inheritedResult.matchedCSSRules);
     }
 
+    const colorSchemePromise = this.#cssModelInternal.domModel()?.target().runtimeAgent().invoke_evaluate(
+        {expression: 'window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches'});
+
     this.#mainDOMCascade =
         await this.buildMainCascade(inlinePayload, attributesPayload, matchedPayload, inheritedPayload);
     [this.#pseudoDOMCascades, this.#customHighlightPseudoDOMCascades] =
@@ -330,6 +334,11 @@ export class CSSMatchedStyles {
 
     for (const prop of this.#registeredProperties) {
       this.#registeredPropertyMap.set(prop.propertyName(), prop);
+    }
+
+    const colorSchemeResponse = await colorSchemePromise;
+    if (!colorSchemeResponse.exceptionDetails && !colorSchemeResponse.getError()) {
+      this.colorScheme = colorSchemeResponse.result.value ? 'dark' : 'light';
     }
   }
 
