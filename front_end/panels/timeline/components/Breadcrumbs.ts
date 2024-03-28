@@ -57,7 +57,7 @@ export class Breadcrumbs {
   }
 
   // Used to set an initial breadcrumbs from annotations loaded from a file
-  setInitialBreadcrumb(initialBreadcrumb: TraceEngine.Types.File.Breadcrumb): void {
+  setInitialBreadcrumbFromLoadedAnnotations(initialBreadcrumb: TraceEngine.Types.File.Breadcrumb): void {
     this.initialBreadcrumb = initialBreadcrumb;
     // Make last breadcrumb active
     let lastBreadcrumb = initialBreadcrumb;
