@@ -1074,4 +1074,64 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
       assert.deepStrictEqual(properties.map(p => p.source), [null, null, null, null]);
     });
   });
+
+  describe('LightDarkColorRenderer', () => {
+    it('renders light-dark correctly', () => {
+      function check(colorScheme: string, lightText: string, darkText: string) {
+        const lightDark = `light-dark(${lightText}, ${darkText})`;
+        mockMatchedStyles.colorScheme = colorScheme;
+        const stylePropertyTreeElement = getTreeElement('color', lightDark);
+        stylePropertyTreeElement.setComputedStyles(new Map([['color-scheme', 'light dark']]));
+        stylePropertyTreeElement.updateTitle();
+
+        const swatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-color-swatch');
+        assertNotNullOrUndefined(swatch);
+        assert.strictEqual(swatch?.textContent, lightDark);
+        const activeColor = colorScheme === 'light' ? lightText : darkText;
+        assert.strictEqual(swatch.getColor()?.getAuthoredText(), mockVariableMap[activeColor] ?? activeColor);
+        const [light, dark] = swatch.querySelectorAll('devtools-color-swatch');
+        assertNotNullOrUndefined(light);
+        assertNotNullOrUndefined(dark);
+        const active = colorScheme === 'light' ? light : dark;
+        const inactive = colorScheme === 'light' ? dark : light;
+        assert.strictEqual(inactive.parentElement?.style.textDecoration, 'line-through');
+        assert.strictEqual(active.parentElement?.style.textDecoration, '');
+      }
+
+      check('light', 'red', 'blue');
+      check('dark', 'red', 'blue');
+      check('light', 'red', 'var(--blue)');
+      check('dark', 'red', 'var(--blue)');
+      check('light', 'var(--blue)', 'red');
+      check('dark', 'var(--blue)', 'red');
+    });
+
+    it('renders light-dark without color-scheme correcyly', () => {
+      const lightDark = 'light-dark(red, blue)';
+      mockMatchedStyles.colorScheme = 'dark';
+      const stylePropertyTreeElement = getTreeElement('color', lightDark);
+      // leave color-scheme unset
+      stylePropertyTreeElement.updateTitle();
+
+      const swatches = stylePropertyTreeElement.valueElement?.querySelectorAll('devtools-color-swatch');
+      assertNotNullOrUndefined(swatches);
+      assert.lengthOf(swatches, 2);
+      assert.strictEqual(swatches[0].textContent, 'red');
+      assert.strictEqual(swatches[1].textContent, 'blue');
+    });
+
+    it('renders light-dark with undefined vars correctly', () => {
+      const lightDark = 'light-dark(red, var(--undefined))';
+      mockMatchedStyles.colorScheme = 'dark';
+      const stylePropertyTreeElement = getTreeElement('color', lightDark);
+      stylePropertyTreeElement.setComputedStyles(new Map([['color-scheme', 'light dark']]));
+      stylePropertyTreeElement.updateTitle();
+
+      const swatches = stylePropertyTreeElement.valueElement?.querySelectorAll('devtools-color-swatch');
+      assertNotNullOrUndefined(swatches);
+      assert.lengthOf(swatches, 1);
+      assert.strictEqual(swatches[0].textContent, 'red');
+      assert.strictEqual(swatches[0].parentElement?.style.textDecoration, '');
+    });
+  });
 });
