@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "051040c9_50adbb9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-03-28T05:52:53Z",
+      "side": 1,
+      "message": "Hi Benedikt!\n\nRemoving the soon to be expired histogram, ptal!",
+      "revId": "afa0cb7d271c759951e549c203d12f516500d9c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
