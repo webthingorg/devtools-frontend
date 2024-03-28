@@ -46,6 +46,8 @@ import {
   GridTemplateMatch,
   GridTemplateMatcher,
   LegacyRegexMatcher,
+  LightDarkColorMatch,
+  LightDarkColorMatcher,
   LinkableNameMatch,
   LinkableNameMatcher,
   LinkableNameProperties,
@@ -377,6 +379,63 @@ export class ColorRenderer extends ColorMatch {
     }
     const contrastInfo = new ColorPicker.ContrastInfo.ContrastInfo(await cssModel.getBackgroundColors(node.id));
     swatchIcon.setContrastInfo(contrastInfo);
+  }
+}
+
+export class LightDarkColorRenderer extends LightDarkColorMatch {
+  readonly #treeElement: StylePropertyTreeElement;
+  constructor(
+      treeElement: StylePropertyTreeElement, text: string, light: CodeMirror.SyntaxNode[],
+      dark: CodeMirror.SyntaxNode[]) {
+    super(text, light, dark);
+    this.#treeElement = treeElement;
+  }
+
+  static matcher(treeElement: StylePropertyTreeElement): LightDarkColorMatcher {
+    return new LightDarkColorMatcher((text, light, dark) => new LightDarkColorRenderer(treeElement, text, light, dark));
+  }
+  override render(node: CodeMirror.SyntaxNode, context: RenderingContext): Node[] {
+    const content = document.createElement('span');
+    content.appendChild(document.createTextNode('light-dark('));
+    const light = content.appendChild(document.createElement('span'));
+    content.appendChild(document.createTextNode(', '));
+    const dark = content.appendChild(document.createElement('span'));
+    content.appendChild(document.createTextNode(')'));
+    Renderer.renderInto(this.light, context, light);
+    Renderer.renderInto(this.dark, context, dark);
+
+    if (this.#treeElement.getComputedStyle('color-scheme') !== 'light dark') {
+      return [content];
+    }
+
+    const activeColor = this.activeColor();
+    if (activeColor &&
+        !context.matchedResult.hasUnresolvedVarsRange(activeColor[0], activeColor[activeColor.length - 1])) {
+      const colorText = context.matchedResult.getComputedTextRange(activeColor[0], activeColor[activeColor.length - 1]);
+      if (activeColor === this.light) {
+        dark.style.textDecoration = 'line-through';
+      } else {
+        light.style.textDecoration = 'line-through';
+      }
+      if (colorText && Common.Color.parse(colorText)) {
+        const colorSwatch = new ColorRenderer(this.#treeElement, colorText).renderColorSwatch(content);
+        context.addControl('color', colorSwatch);
+        return [colorSwatch];
+      }
+    }
+
+    return [content];
+  }
+
+  activeColor(): CodeMirror.SyntaxNode[]|undefined {
+    switch (this.#treeElement.matchedStyles().colorScheme) {
+      case 'dark':
+        return this.dark;
+      case 'light':
+        return this.light;
+      default:
+        return undefined;
+    }
   }
 }
 
@@ -1128,6 +1187,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.computedStyles = computedStyles;
   }
 
+  getComputedStyle(property: string): string|null {
+    return this.computedStyles?.get(property) ?? null;
+  }
+
   setParentsComputedStyles(parentsComputedStyles: Map<string, string>|null): void {
     this.parentsComputedStyles = parentsComputedStyles;
   }
@@ -1420,6 +1483,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
           StringRenderer.matcher(),
           ShadowRenderer.matcher(this),
           FontRenderer.matcher(this),
+          LightDarkColorRenderer.matcher(this),
           GridTemplateRenderer.matcher(),
         ] :
         [];
