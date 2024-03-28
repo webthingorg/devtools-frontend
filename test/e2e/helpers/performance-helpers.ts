@@ -6,7 +6,7 @@ import type * as puppeteer from 'puppeteer-core';
 
 import {click, goToResource, platform, waitFor, waitForAria} from '../../shared/helper.js';
 
-export const FILTER_TEXTBOX_SELECTOR = '[aria-label="Filter bottom-up"]';
+export const FILTER_TEXTBOX_SELECTOR = '[aria-label="Filter"]';
 export const RECORD_BUTTON_SELECTOR = '[aria-label="Record"]';
 export const RELOAD_AND_RECORD_BUTTON_SELECTOR = '[aria-label="Start profiling and reload page"]';
 export const STOP_BUTTON_SELECTOR = '[aria-label="Stop"]';
