@@ -63,9 +63,7 @@ export class AnnotationsManager {
     const hiddenEntries = this.#entriesFilter.invisibleEntries();
     if (hiddenEntries) {
       for (const entry of hiddenEntries) {
-        if (!TraceEngine.Types.TraceEvents.isProfileCall(entry)) {
           hashesOfSynteticEntries.push(this.generateTraceEntryHash(entry));
-        }
       }
     }
 
@@ -78,10 +76,9 @@ export class AnnotationsManager {
   }
 
   generateTraceEntryHash(entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): string {
-    if (!TraceEngine.Types.TraceEvents.isProfileCall(entry)) {
-      return `${entry.cat},${entry.name},${entry.ph},${entry.pid},${entry.tid},${entry.ts},${entry.tts}`;
-    }
-    return '';
+    // return `${entry.cat},${entry.name},${entry.ph},${entry.pid},${entry.tid},${entry.ts},${entry.tts}`;
+    // Use the index in the entries array instead
+    return JSON.stringify(entry);
   }
 
   applyAnnotations(annotations: TraceEngine.Types.File.Annotations): void {

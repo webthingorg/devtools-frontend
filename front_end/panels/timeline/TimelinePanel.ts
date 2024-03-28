@@ -1188,7 +1188,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       traceEngineIndex: number = -1, metadata: TraceEngine.Types.File.MetaData|null = null): void {
     this.performanceModel = model;
     this.#traceEngineActiveTraceIndex = traceEngineIndex;
-    const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
+  const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
     const isCpuProfile = this.#traceEngineModel.metadata(this.#traceEngineActiveTraceIndex)?.dataOrigin ===
         TraceEngine.Types.File.DataOrigin.CPUProfile;
 

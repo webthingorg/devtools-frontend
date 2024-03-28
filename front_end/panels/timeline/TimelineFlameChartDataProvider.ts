@@ -1388,6 +1388,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (fromCache) {
       return fromCache;
     }
+    // getting index here
     const index = this.entryData.indexOf(targetEvent);
     const result = index > -1 ? index : null;
     this.#eventIndexByEvent.set(targetEvent, result);
