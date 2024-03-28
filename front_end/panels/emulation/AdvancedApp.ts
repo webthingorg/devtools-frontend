@@ -43,8 +43,9 @@ export class AdvancedApp implements Common.App.App {
   presentUI(document: Document): void {
     const rootView = new UI.RootView.RootView();
 
-    this.rootSplitWidget =
-        new UI.SplitWidget.SplitWidget(false, true, 'inspector-view.split-view-state', 555, 300, true);
+    this.rootSplitWidget = new UI.SplitWidget.SplitWidget(false, true, 'inspector-view.split-view-state', 555, 300);
+    this.rootSplitWidget.constraintsInDip = true;
+
     this.rootSplitWidget.show(rootView.element);
     this.rootSplitWidget.setSidebarWidget(UI.InspectorView.InspectorView.instance());
     this.rootSplitWidget.setDefaultFocusedChild(UI.InspectorView.InspectorView.instance());
