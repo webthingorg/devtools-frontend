@@ -33,6 +33,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
+import * as Buttons from '../components/buttons/buttons.js';
 import * as IconButton from '../components/icon_button/icon_button.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
@@ -67,7 +68,7 @@ const UIStrings = {
   /**
    * @description Hover text for button to clear the filter that is applied
    */
-  clearFilter: 'Clear input',
+  clearFilter: 'Clear',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/FilterBar.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -219,27 +220,35 @@ export class TextFilterUI extends Common.ObjectWrapper.ObjectWrapper<FilterUIEve
     this.filterElement.className = 'filter-text-filter';
 
     const container = this.filterElement.createChild('div', 'filter-input-container');
+    const filterIcon = IconButton.Icon.create('filter');
+    container.appendChild(filterIcon);
     this.filterInputElement = container.createChild('span', 'filter-input-field');
 
     this.prompt = new TextPrompt();
     this.prompt.initialize(this.completions.bind(this), ' ', true);
     this.proxyElement = (this.prompt.attach(this.filterInputElement) as HTMLElement);
+    this.proxyElement.classList.add('filter-proxy');
     Tooltip.install(this.proxyElement, i18nString(UIStrings.egSmalldUrlacomb));
     this.prompt.setPlaceholder(i18nString(UIStrings.filter));
     this.prompt.addEventListener(Events.TextChanged, this.valueChanged.bind(this));
 
     this.suggestionProvider = null;
 
-    const clearButton = container.createChild('button', 'filter-input-clear-button');
-    Tooltip.install(clearButton, i18nString(UIStrings.clearFilter));
-    const clearIcon = new IconButton.Icon.Icon();
-    clearIcon.data = {color: 'var(--icon-default)', width: '16px', height: '16px', iconName: 'cross-circle-filled'};
-    clearButton.appendChild(clearIcon);
+    const clearButtonText = i18nString(UIStrings.clearFilter);
+    const clearButton = new Buttons.Button.Button();
+    clearButton.className = 'filter-input-clear-button';
+    clearButton.variant = Buttons.Button.Variant.ROUND;
+    clearButton.size = Buttons.Button.Size.SMALL;
+    clearButton.iconName = 'cross-circle-filled';
+    clearButton.title = clearButtonText;
+    clearButton.ariaLabel = clearButtonText;
+    clearButton.jslogContext = 'clear-filter';
+    container.appendChild(clearButton);
     clearButton.addEventListener('click', () => {
       this.clear();
       this.focus();
     });
-    clearButton.setAttribute('jslog', `${VisualLogging.action('clear-filter').track({click: true})}`);
+
     this.updateEmptyStyles();
   }
 
