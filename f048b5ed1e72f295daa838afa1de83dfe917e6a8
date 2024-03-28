@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4e9d12_03cfbc44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-28T13:00:08Z",
+      "side": 1,
+      "message": "LGTM 😊",
+      "revId": "f048b5ed1e72f295daa838afa1de83dfe917e6a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "014d8249_d87f2ff8",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 2128,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-28T13:00:08Z",
+      "side": 1,
+      "message": "beginning",
+      "range": {
+        "startLine": 2128,
+        "startChar": 53,
+        "endLine": 2128,
+        "endChar": 58
+      },
+      "revId": "f048b5ed1e72f295daa838afa1de83dfe917e6a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bc7fd3_adb503f9",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 3040,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-28T13:00:08Z",
+      "side": 1,
+      "message": "nit suggestion: `this.visibleLevels[level] \u003d this.#editMode ? false : !!thisLevelIsVisible;`",
+      "range": {
+        "startLine": 3040,
+        "startChar": 6,
+        "endLine": 3040,
+        "endChar": 89
+      },
+      "revId": "f048b5ed1e72f295daa838afa1de83dfe917e6a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
