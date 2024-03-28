@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5375c04_6125209d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-03-28T14:28:55Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nthanks for the comment, I\u0027ve split them into two now. PTAL!\n\n@petermueller: I\u0027ve removed you as reviewer here, as the relevant changes are not within this CL. I\u0027ll add you to the other CL instead.",
+      "revId": "5e206e03fb3143e024e4b9d36925719fc422716c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

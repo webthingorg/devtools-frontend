@@ -16,6 +16,24 @@
       "message": "Overall LGTM, but can we please have an implementation and adoption in two separate CLs. It was pretty hard follow what\u0027s going on like this.",
       "revId": "4d5fe663f56d08aeeed837e8beff93c11ca60060",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d458a46_303fd6ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-03-28T14:28:55Z",
+      "side": 1,
+      "message": "Of course. I\u0027ve split it into two now: 1. Edits to ToolbarInput class \u0026 TextPrompt, and adding the ToolbarFilter class, 2. moving the relevant usages of ToolbarInput to ToolbarFilter.",
+      "parentUuid": "6c690f33_edee05c6",
+      "revId": "4d5fe663f56d08aeeed837e8beff93c11ca60060",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
