@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8a59e7a6_6784658b",
+        "filename": "front_end/services/annotations_manager/AnnotationsManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-03-28T15:06:30Z",
+      "side": 1,
+      "message": "great point 😄",
+      "parentUuid": "55a45dfe_730479a6",
+      "range": {
+        "startLine": 63,
+        "startChar": 10,
+        "endLine": 63,
+        "endChar": 33
+      },
+      "revId": "70c5b35d3d5de61dc702b923d64c4dd102137f45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bf6be673_ca8a3ae2",
         "filename": "front_end/services/annotations_manager/AnnotationsManager.ts",
         "patchSetId": 6
