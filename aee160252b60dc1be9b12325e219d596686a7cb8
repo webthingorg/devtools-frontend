@@ -50,6 +50,24 @@
       "message": "Is there any advantage to moving the dependencies over to package.json?",
       "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22bc5f01_da5e212e",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-03-28T12:10:15Z",
+      "side": 1,
+      "message": "1) it is the expected location\n2) we could simplify the install to just call npm ci or npm i instead of installing packages one by one\n\nbut we can also prefer to keep it in the old loation",
+      "parentUuid": "9f61ace2_08f946ca",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
