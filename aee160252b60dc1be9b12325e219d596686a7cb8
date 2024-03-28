@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baf9957b_51d487bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-28T12:06:50Z",
+      "side": 1,
+      "message": "\"list is now in package.json\"?",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51dc998d_a7edeee9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-28T12:06:50Z",
+      "side": 1,
+      "message": "LGTM but I\u0027m not an OWNER here :)",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f61ace2_08f946ca",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-03-28T12:06:50Z",
+      "side": 1,
+      "message": "Is there any advantage to moving the dependencies over to package.json?",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
