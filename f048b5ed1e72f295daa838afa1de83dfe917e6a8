@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25b88918_c05690a3",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 2128,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-28T13:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "014d8249_d87f2ff8",
+      "range": {
+        "startLine": 2128,
+        "startChar": 53,
+        "endLine": 2128,
+        "endChar": 58
+      },
+      "revId": "f048b5ed1e72f295daa838afa1de83dfe917e6a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0bc7fd3_adb503f9",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-28T13:00:08Z",
       "side": 1,
       "message": "nit suggestion: `this.visibleLevels[level] \u003d this.#editMode ? false : !!thisLevelIsVisible;`",
+      "range": {
+        "startLine": 3040,
+        "startChar": 6,
+        "endLine": 3040,
+        "endChar": 89
+      },
+      "revId": "f048b5ed1e72f295daa838afa1de83dfe917e6a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b2cefb_8ea05f90",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 3040,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-03-28T13:48:38Z",
+      "side": 1,
+      "message": "Interesting, the presubmit changed `!!` to `Boolean()` 😂",
+      "parentUuid": "b0bc7fd3_adb503f9",
       "range": {
         "startLine": 3040,
         "startChar": 6,
