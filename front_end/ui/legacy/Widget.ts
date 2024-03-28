@@ -37,15 +37,91 @@ import * as ThemeSupport from './theme_support/theme_support.js';
 import * as Utils from './utils/utils.js';
 import {XWidget} from './XWidget.js';
 
-export class WidgetElement extends HTMLDivElement {
+type Constructor<T extends Widget> = new (arg1: WidgetElement<T>) => T;
+
+export interface WidgetElementInterface<WidgetT extends Widget = Widget> {
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/naming-convention, rulesdir/no_underscored_properties
-  override __widget!: Widget|null;
+  __widget: WidgetT|null;
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/naming-convention, rulesdir/no_underscored_properties
+  __widgetCounter: number|null;
+
+  getWidget(): WidgetT;
+  wasShown(): void;
+  willHide(): void;
+}
+
+export class WidgetElement<WidgetT extends Widget = Widget> extends HTMLDivElement implements
+    WidgetElementInterface<WidgetT> {
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/naming-convention, rulesdir/no_underscored_properties
+  override __widget!: WidgetT|null;
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   // eslint-disable-next-line @typescript-eslint/naming-convention, rulesdir/no_underscored_properties
   override __widgetCounter!: number|null;
+
+  #widgetClass: Constructor<WidgetT>;
+
+  set widgetClass(widgetClass: Constructor<WidgetT>) {
+    this.#widgetClass = widgetClass;
+    void this.createWidget();
+  }
+
+  getWidget(): WidgetT {
+    if (!this.__widget) {
+      this.createWidget();
+    }
+    return this.__widget as WidgetT;
+  }
+
   constructor() {
     super();
+    this.#widgetClass = Widget as unknown as Constructor<WidgetT>;
+    // void this.createWidget();
+  }
+
+  createWidget(): WidgetT {
+    return new (this.#widgetClass)(this);
+  }
+
+  connectedCallback(): void {
+    this.getWidget().show(this.parentElement as HTMLElement);
+  }
+
+  wasShown(): void {
+  }
+  willHide(): void {
+  }
+}
+
+customElements.define('devtools-widget', WidgetElement, {extends: 'div'});
+
+export abstract class WidgetBaseElement<WidgetT extends Widget = Widget> extends HTMLElement implements
+    WidgetElementInterface<WidgetT> {
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/naming-convention, rulesdir/no_underscored_properties
+  override __widget!: WidgetT|null;
+  // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+  // eslint-disable-next-line @typescript-eslint/naming-convention, rulesdir/no_underscored_properties
+  override __widgetCounter!: number|null;
+
+  getWidget(): WidgetT {
+    if (!this.__widget) {
+      this.createWidget();
+    }
+    return this.__widget as WidgetT;
+  }
+
+  abstract createWidget(): WidgetT;
+
+  connectedCallback(): void {
+    this.getWidget().show(this.parentElement as HTMLElement);
+  }
+
+  wasShown(): void {
+  }
+  willHide(): void {
   }
 }
 
@@ -75,22 +151,28 @@ export class Widget {
   private constraintsInternal?: Constraints;
   private invalidationsRequested?: boolean;
   private externallyManaged?: boolean;
-  constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
+  constructor(webComponent?: boolean|WidgetElement, delegatesFocus?: boolean) {
     this.contentElement = document.createElement('div');
     this.contentElement.classList.add('widget');
-    if (isWebComponent) {
-      this.element = (document.createElement('div') as WidgetElement);
-      this.element.classList.add('vbox');
-      this.element.classList.add('flex-auto');
-      this.shadowRoot = Utils.createShadowRootWithCoreStyles(this.element, {
-        cssFile: undefined,
-        delegatesFocus,
-      });
-      this.shadowRoot.appendChild(this.contentElement);
+    if (webComponent) {
+      this.element =
+          (webComponent instanceof HTMLElement ? webComponent : document.createElement('div')) as WidgetElement;
+      if (webComponent instanceof HTMLElement && webComponent.shadowRoot) {
+        this.shadowRoot = webComponent.shadowRoot;
+        this.contentElement = this.element as HTMLDivElement;
+      } else {
+        this.element.classList.add('vbox');
+        this.element.classList.add('flex-auto');
+        this.shadowRoot = Utils.createShadowRootWithCoreStyles(this.element, {
+          cssFile: undefined,
+          delegatesFocus,
+        });
+        this.shadowRoot.appendChild(this.contentElement);
+      }
     } else {
       this.element = (this.contentElement as WidgetElement);
     }
-    this.isWebComponent = isWebComponent;
+    this.isWebComponent = Boolean(webComponent);
     this.element.__widget = this;
     this.visibleInternal = false;
     this.isRoot = false;
@@ -201,6 +283,7 @@ export class Widget {
     if (this.inNotification()) {
       return;
     }
+    this.element.wasShown?.();
     this.restoreScrollPositions();
     this.notify(this.wasShown);
     this.callOnVisibleChildren(this.processWasShown);
@@ -212,6 +295,7 @@ export class Widget {
     }
     this.storeScrollPositions();
 
+    this.element.willHide?.();
     this.callOnVisibleChildren(this.processWillHide);
     this.notify(this.willHide);
     this.isShowingInternal = false;
@@ -623,8 +707,8 @@ const storedScrollPositions = new WeakMap<Element, {
 }>();
 
 export class VBox extends Widget {
-  constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
-    super(isWebComponent, delegatesFocus);
+  constructor(webComponent?: boolean|WidgetElement, delegatesFocus?: boolean) {
+    super(webComponent, delegatesFocus);
     this.contentElement.classList.add('vbox');
   }
 
