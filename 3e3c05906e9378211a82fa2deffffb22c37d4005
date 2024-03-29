@@ -419,6 +419,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f252beab_3f690dd8",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-29T20:53:15Z",
+      "side": 1,
+      "message": "Most (90+%) of the extra rendering time is from the function FindStyleSheet in file third_party\\blink\\renderer\\core\\css\\element_rule_collector.cc. The function was introduced in this CL: https://chromium-review.googlesource.com/c/chromium/src/+/4476693. We used to pass a style_sheet pointer to the aggregation function AggregateRulePerfData. Now we find the style sheet for every css rule dynamically which cost extra time.\n\nHowever, CSS selector matching time is not impacted by the extra time in the aggregation part. Developers can still utilize the elapsed time to optimize the CSS styles in their web apps.",
+      "parentUuid": "0ffd6eee_36c3bd94",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6
