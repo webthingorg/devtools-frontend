@@ -401,6 +401,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ffd6eee_36c3bd94",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-29T04:04:26Z",
+      "side": 1,
+      "message": "I recorded the rendering time with the selector stats feature disabled/enabled as follows: \nwebsite    | disabled | enabled\ngoogle.com | 52ms     | 89ms\nbing.com   | 487ms    | 1577ms\nyahoo.com  | 750ms    | 62964ms\n\nI\u0027ll investigate the extra rendering time.",
+      "parentUuid": "eab0d80f_7aa4b9b0",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6

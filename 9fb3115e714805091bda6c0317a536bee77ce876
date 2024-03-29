@@ -34,6 +34,23 @@
       "parentUuid": "b97abdf6_c586214f",
       "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fdd58d1_683d2e95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-03-29T04:04:26Z",
+      "side": 1,
+      "message": "Hi Paul,\n\nI reproduced the extra rendering time from the selector stats feature. I\u0027ll investigate the extra rendering time and let you know.\n\nThanks,\nGavin",
+      "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
