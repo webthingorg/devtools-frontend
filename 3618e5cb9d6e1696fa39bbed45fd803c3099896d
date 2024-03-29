@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1223b8ac_044be528",
+        "filename": "front_end/models/trace/root-causes/LayoutShift.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-03-29T21:28:15Z",
+      "side": 1,
+      "message": "i had to doublecheck the lifetime of this class. was a little afraid one instance was reused for multiple traces. (and nodeIds risk collision really easily)\n\nbut.. it\u0027s not used in RPP at all.\nand it\u0027s 1 per trace in LH. \n\nSo we\u0027re good.",
+      "revId": "3618e5cb9d6e1696fa39bbed45fd803c3099896d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
