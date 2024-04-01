@@ -99,6 +99,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03455fa1_06455525",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-04-01T18:57:51Z",
+      "side": 1,
+      "message": "I tried this idea today and found it to be pretty cumbersome, unfortunately. The primary problem is that ComparatorConfig is used for three distinct purposes:\n\n1. Sorting nodes in HeapSnapshotNodesProvider. Valid sorting keys here are \u0027name\u0027|\u0027retainedSize\u0027|\u0027distance\u0027|\u0027selfSize\u0027|\u0027id\u0027.\n2. Sorting edges in HeapSnapshotEdgesProvider. The sorting keys here are everything from the nodes above, plus \u0027!edgeName\u0027 and \u0027!edgeDistance\u0027. Both of these providers inherit from HeapSnapshotItemProvider, which contains the comparatorConfig property and exposes the proxy method sortAndRewind, which the UI code can call asynchronously.\n3. Sorting grid nodes on the UI thread, in HeapSnapshotSortableDataGrid.sortingChanged. This method uses various interesting sorting keys such as \u0027addedCount\u0027 which are not guaranteed at compile time to be present in the local variables nodeA and nodeB, but which are indeed present at runtime because those variables are instances of a subclass.",
+      "parentUuid": "cbf93277_f331b200",
+      "range": {
+        "startLine": 2334,
+        "startChar": 30,
+        "endLine": 2334,
+        "endChar": 47
+      },
+      "revId": "d716af20674f81287e02c6063f62ce1a8aef354c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbbb98b8_6f4a91ec",
