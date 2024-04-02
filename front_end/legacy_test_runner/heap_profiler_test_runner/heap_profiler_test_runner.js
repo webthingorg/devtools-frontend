@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as HeapSnapshotWorker from '../../entrypoints/heap_snapshot_worker/heap_snapshot_worker.js';
 import * as Profiler from '../../panels/profiler/profiler.js';
@@ -77,7 +78,11 @@ HeapProfilerTestRunner.createHeapSnapshotMockFactories = function() {
 
   HeapProfilerTestRunner.postprocessHeapSnapshotMock = function(mock) {
     mock.nodes = new Uint32Array(mock.nodes);
-    mock.edges = new Uint32Array(mock.edges);
+    const edges = Platform.TypedArrayUtilities.createBigUint32Array(mock.edges.length);
+    for (let i = 0; i < mock.edges.length; ++i) {
+      edges.setValue(i, mock.edges[i]);
+    }
+    mock.edges = edges;
     return mock;
   };
 
