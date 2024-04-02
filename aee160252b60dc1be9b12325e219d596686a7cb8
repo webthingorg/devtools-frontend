@@ -37,6 +37,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45a48976_f1b286f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-02T05:04:15Z",
+      "side": 1,
+      "message": "lgtm with nit and q\n\nq: Will the LICENSE checks on the audit mirror be sufficient for us so we can replace `manage_node_deps.py` with `npm i`?",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f638761d_423fcee5",
+        "filename": "scripts/check_esbuild_versions.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-02T05:04:15Z",
+      "side": 1,
+      "message": "nit: Fix indentation so both `*Version` variables start on the same column.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 44
+      },
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f61ace2_08f946ca",
         "filename": "scripts/deps/manage_node_deps.py",
         "patchSetId": 7
