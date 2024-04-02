@@ -1,23 +1,26 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-import * as Host from '../../../core/host/host.js';
-import * as i18n from '../../../core/i18n/i18n.js';
-import * as SDK from '../../../core/sdk/sdk.js';
-import * as Buttons from '../../../ui/components/buttons/buttons.js';
-import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
-import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
-import * as Menus from '../../../ui/components/menus/menus.js';
-import * as SuggestionInput from '../../../ui/components/suggestion_input/suggestion_input.js';
-import * as UI from '../../../ui/legacy/legacy.js';
-import * as LitHtml from '../../../ui/lit-html/lit-html.js';
-import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
-import * as ElementsComponents from '../../elements/components/components.js';
+import * as Host from '../../core/host/host.js';
+import * as i18n from '../../core/i18n/i18n.js';
+import * as SDK from '../../core/sdk/sdk.js';
+import * as ProtocolClient from '../../core/protocol_client/protocol_client.js';
+import * as Buttons from '../../ui/components/buttons/buttons.js';
+import * as Dialogs from '../../ui/components/dialogs/dialogs.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as Menus from '../../ui/components/menus/menus.js';
+import * as SuggestionInput from '../../ui/components/suggestion_input/suggestion_input.js';
+import * as UI from '../../ui/legacy/legacy.js';
+import * as LitHtml from '../../ui/lit-html/lit-html.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
+import * as ElementsComponents from '../elements/components/components.js';
+import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 
 import editorWidgetStyles from './JSONEditor.css.js';
+import toolbarStyles from './toolbar.css.js';
+import './Toolbar.js';
 
-const {html, Decorators, LitElement, Directives, nothing} = LitHtml;
-const {customElement, property, state} = Decorators;
+const {render, html, Directives, nothing} = LitHtml;
 const {live, classMap, repeat} = Directives;
 
 const UIStrings = {
@@ -37,15 +40,30 @@ const UIStrings = {
    *@description The title of a button to add custom key/value pairs to object parameters with no keys defined
    */
   addCustomProperty: 'Add custom property',
+  /**
+   * @description The title of a the button that sends a CDP command.
+   */
+  sendCommandCtrlEnter: 'Send command - Ctrl+Enter',
+  /**
+   * @description The title of a the button that sends a CDP command.
+   */
+  sendCommandCmdEnter: 'Send command - ⌘+Enter',
+  /**
+   * @description he title of a the button that copies a CDP command.
+   */
+  copyCommand: 'Copy command',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/components/JSONEditor.ts', UIStrings);
+const str_ = i18n.i18n.registerUIStrings('panels/protocol_monitor/JSONEditor.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'devtools-json-editor': JSONEditor;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     'devtools-json-editor': JSONEditor;
+//   }
+// }
+
+const copyIconUrl = new URL('../../Images/copy.svg', import.meta.url).toString();
+const sendIconUrl = new URL('../../Images/send.svg', import.meta.url).toString();
 
 export const enum ParameterType {
   String = 'string',
@@ -137,17 +155,38 @@ export function suggestionFilter(option: string, query: string): boolean {
   return option.toLowerCase().includes(query.toLowerCase());
 }
 
-@customElement('devtools-json-editor')
-export class JSONEditor extends LitElement {
-  static override styles = [editorWidgetStyles];
-  @property()
-  declare metadataByCommand: Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}>;
-  @property() declare typesByName: Map<string, Parameter[]>;
-  @property() declare enumsByName: Map<string, Record<string, string>>;
-  @state() declare parameters: Parameter[];
-  @state() declare targets: SDK.Target.Target[];
-  @state() command: string = '';
-  @state() targetId?: string;
+export interface ProtocolDomain {
+  readonly domain: string;
+  readonly metadata: {
+    [commandName: string]: {parameters: Parameter[], description: string, replyArgs: string[]},
+  };
+}
+
+export const buildProtocolMetadata = (domains: Iterable<ProtocolDomain>):
+    Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}> => {
+      const metadataByCommand:
+          Map<string, {parameters: Parameter[], description: string, replyArgs: string[]}> =
+              new Map();
+      for (const domain of domains) {
+        for (const command of Object.keys(domain.metadata)) {
+          metadataByCommand.set(command, domain.metadata[command]);
+        }
+      }
+      return metadataByCommand;
+    };
+
+const metadataByCommand = buildProtocolMetadata(
+    ProtocolClient.InspectorBackend.inspectorBackend.agentPrototypes.values() as Iterable<ProtocolDomain>);
+const typesByName = ProtocolClient.InspectorBackend.inspectorBackend.typeMap as Map<string, Parameter[]>;
+const enumsByName = ProtocolClient.InspectorBackend.inspectorBackend.enumMap as Map<string, Record<string, string>>;
+
+export class JSONEditor extends HTMLDivElement {
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  readonly #boundRender = this.render.bind(this);
+  declare parameters: Parameter[];
+  declare targets: SDK.Target.Target[];
+  command: string = '';
+  targetId?: string;
 
   #hintPopoverHelper?: UI.PopoverHelper.PopoverHelper;
 
@@ -165,10 +204,11 @@ export class JSONEditor extends LitElement {
         }));
       }
     });
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
-  override connectedCallback(): void {
-    super.connectedCallback();
+  connectedCallback(): void {
+    this.#shadow.adoptedStyleSheets = [editorWidgetStyles, toolbarStyles];
     this.#hintPopoverHelper = new UI.PopoverHelper.PopoverHelper(
         this, event => this.#handlePopoverDescriptions(event), 'protocol-monitor.hint');
     this.#hintPopoverHelper.setDisableOnClick(true);
@@ -180,8 +220,7 @@ export class JSONEditor extends LitElement {
     this.#handleAvailableTargetsChanged();
   }
 
-  override disconnectedCallback(): void {
-    super.disconnectedCallback();
+  disconnectedCallback(): void {
     this.#hintPopoverHelper?.hidePopover();
     this.#hintPopoverHelper?.dispose();
     const targetManager = SDK.TargetManager.TargetManager.instance();
@@ -194,6 +233,7 @@ export class JSONEditor extends LitElement {
     if (this.targets.length && this.targetId === undefined) {
       this.targetId = this.targets[0].id();
     }
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   getParameters(): {[key: string]: unknown} {
@@ -251,7 +291,7 @@ export class JSONEditor extends LitElement {
   displayCommand(command: string, parameters: Record<string, unknown>, targetId?: string): void {
     this.targetId = targetId;
     this.command = command;
-    const schema = this.metadataByCommand.get(this.command);
+    const schema = metadataByCommand.get(this.command);
     if (!schema?.parameters) {
       return;
     }
@@ -277,7 +317,7 @@ export class JSONEditor extends LitElement {
       }
     }
 
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #convertObjectToParameterSchema(key: string, value: unknown, schema?: Parameter, initialSchema?: Parameter[]):
@@ -331,7 +371,7 @@ export class JSONEditor extends LitElement {
       throw Error('Every object parameters should have a type ref');
     }
 
-    const nestedType = typeRef === DUMMY_DATA ? initialSchema : this.typesByName.get(typeRef);
+    const nestedType = typeRef === DUMMY_DATA ? initialSchema : typesByName.get(typeRef);
 
     if (!nestedType) {
       throw Error('No nested type for keys were found');
@@ -428,7 +468,7 @@ export class JSONEditor extends LitElement {
   #getDescriptionAndTypeForElement(hintElement: HTMLElement):
       {description: string, type?: ParameterType, replyArgs?: string[]}|undefined {
     if (hintElement.matches('.command')) {
-      const metadata = this.metadataByCommand.get(this.command);
+      const metadata = metadataByCommand.get(this.command);
       if (metadata) {
         return {description: metadata.description, replyArgs: metadata.replyArgs};
       }
@@ -466,7 +506,7 @@ export class JSONEditor extends LitElement {
   }
 
   populateParametersForCommandWithDefaultValues(): void {
-    const commandParameters = this.metadataByCommand.get(this.command)?.parameters;
+    const commandParameters = metadataByCommand.get(this.command)?.parameters;
     if (!commandParameters) {
       return;
     }
@@ -474,6 +514,7 @@ export class JSONEditor extends LitElement {
     this.parameters = commandParameters.map((parameter: Parameter) => {
       return this.#populateParameterDefaults(parameter);
     });
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #populateParameterDefaults(parameter: Parameter): Parameter {
@@ -485,7 +526,7 @@ export class JSONEditor extends LitElement {
 
       // Fallback to empty array is extremely rare.
       // It happens when the keys for an object are not registered like for Tracing.MemoryDumpConfig or headers for instance.
-      const nestedTypes = this.typesByName.get(typeRef) ?? [];
+      const nestedTypes = typesByName.get(typeRef) ?? [];
 
       const nestedParameters = nestedTypes.map(nestedType => {
         return this.#populateParameterDefaults(nestedType);
@@ -574,7 +615,7 @@ export class JSONEditor extends LitElement {
       object.isCorrectType = this.#isValueOfCorrectType(object, value);
     }
     // Needed to render the delete button for object parameters
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   };
 
   #saveNestedObjectParameterKey = (event: Event): void => {
@@ -590,7 +631,7 @@ export class JSONEditor extends LitElement {
     const {parameter} = this.#getChildByPath(pathArray);
     parameter.name = value;
     // Needed to render the delete button for object parameters
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   };
 
   #handleParameterInputKeydown = (event: KeyboardEvent): void => {
@@ -614,7 +655,7 @@ export class JSONEditor extends LitElement {
     const object = this.#getChildByPath(pathArray).parameter;
     object.isCorrectType = true;
 
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #handleCommandInputBlur = async(event: Event): Promise<void> => {
@@ -644,7 +685,7 @@ export class JSONEditor extends LitElement {
       if (!typeRef) {
         typeRef = DUMMY_DATA;
       }
-      const nestedTypes = this.typesByName.get(typeRef) ?? [];
+      const nestedTypes = typesByName.get(typeRef) ?? [];
 
       const nestedValue: Parameter[] =
           nestedTypes.map(nestedType => this.#createNestedParameter(nestedType, nestedType.name));
@@ -684,14 +725,14 @@ export class JSONEditor extends LitElement {
           throw Error('Every array parameter must have a typeRef');
         }
 
-        const nestedType = this.typesByName.get(typeRef) ?? [];
+        const nestedType = typesByName.get(typeRef) ?? [];
         const nestedValue: Parameter[] = nestedType.map(type => this.#createNestedParameter(type, type.name));
 
         let type = this.#isTypePrimitive(typeRef) ? typeRef : ParameterType.Object;
 
         // If the typeRef is actually a ref to an enum type, the type of the nested param should be a string
         if (nestedType.length === 0) {
-          if (this.enumsByName.get(typeRef)) {
+          if (enumsByName.get(typeRef)) {
             type = ParameterType.String;
           }
         }
@@ -719,7 +760,7 @@ export class JSONEditor extends LitElement {
         if (!parameter.value) {
           parameter.value = [];
         }
-        if (!this.typesByName.get(typeRef)) {
+        if (!typesByName.get(typeRef)) {
           parameter.value.push({
             type: ParameterType.String,
             name: '',
@@ -731,7 +772,7 @@ export class JSONEditor extends LitElement {
           });
           break;
         }
-        const nestedTypes = this.typesByName.get(typeRef) ?? [];
+        const nestedTypes = typesByName.get(typeRef) ?? [];
         const nestedValue: Parameter[] =
             nestedTypes.map(nestedType => this.#createNestedParameter(nestedType, nestedType.name));
         const nestedParameters = nestedTypes.map(nestedType => {
@@ -758,7 +799,7 @@ export class JSONEditor extends LitElement {
         parameter.value = defaultValueByType.get(parameter.type);
         break;
     }
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #handleClearParameter(parameter: Parameter, isParentArray?: boolean): void {
@@ -772,7 +813,7 @@ export class JSONEditor extends LitElement {
           parameter.value = undefined;
           break;
         }
-        if (!parameter.typeRef || !this.typesByName.get(parameter.typeRef)) {
+        if (!parameter.typeRef || !typesByName.get(parameter.typeRef)) {
           parameter.value = [];
         } else {
           parameter.value.forEach(param => this.#handleClearParameter(param, isParentArray));
@@ -789,7 +830,7 @@ export class JSONEditor extends LitElement {
         break;
     }
 
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #handleDeleteParameter(parameter: Parameter, parentParameter: Parameter): void {
@@ -806,7 +847,7 @@ export class JSONEditor extends LitElement {
         parentParameter.value[i].name = String(i);
       }
     }
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #renderTargetSelectorRow(): LitHtml.TemplateResult|undefined {
@@ -846,13 +887,13 @@ export class JSONEditor extends LitElement {
 
   #onTargetSelected(event: Menus.SelectMenu.SelectMenuItemSelectedEvent): void {
     this.targetId = event.itemValue as string;
-    this.requestUpdate();
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   #computeDropdownValues(parameter: Parameter): string[] {
     // The suggestion box should only be shown for parameters of type string and boolean
     if (parameter.type === ParameterType.String) {
-      const enums = this.enumsByName.get(`${parameter.typeRef}`) ?? {};
+      const enums = enumsByName.get(`${parameter.typeRef}`) ?? {};
       return Object.values(enums);
     }
     if (parameter.type === ParameterType.Boolean) {
@@ -929,7 +970,7 @@ export class JSONEditor extends LitElement {
           const isObject = parameter.type === ParameterType.Object;
           const isParamValueUndefined = parameter.value === undefined;
           const isParamOptional = parameter.optional;
-          const hasTypeRef = isObject && parameter.typeRef && this.typesByName.get(parameter.typeRef) !== undefined;
+          const hasTypeRef = isObject && parameter.typeRef && typesByName.get(parameter.typeRef) !== undefined;
           // This variable indicates that this parameter is a parameter nested inside an object parameter
           // that no keys defined inside the CDP documentation.
           const hasNoKeys = parameter.isKeyEditable;
@@ -1103,15 +1144,15 @@ export class JSONEditor extends LitElement {
     // clang-format on
   }
 
-  override render(): LitHtml.TemplateResult {
+  render(): void {
     // clang-format off
-    return html`
+    render(html`
     <div class="wrapper">
       ${this.#renderTargetSelectorRow()}
       <div class="row attribute padded">
         <div class="command">command<span class="separator">:</span></div>
         <devtools-suggestion-input
-          .options=${[...this.metadataByCommand.keys()]}
+          .options=${[...metadataByCommand.keys()]}
           .value=${this.command}
           .placeholder=${'Enter your command...'}
           .suggestionFilter=${suggestionFilter}
@@ -1127,7 +1168,25 @@ export class JSONEditor extends LitElement {
         ${this.#renderParameters(this.parameters)}
       ` : nothing}
     </div>
-    <devtools-pm-toolbar @copycommand=${this.#copyToClipboard} @commandsent=${this.#handleCommandSend}></devtools-pm-toolbar>`;
-    // clang-format on
+    <div class="toolbar">
+      <${Buttons.Button.Button.litTagName}
+        title=${i18nString(UIStrings.copyCommand)}
+        .size=${Buttons.Button.Size.SMALL}
+        .iconUrl=${copyIconUrl}
+        .variant=${Buttons.Button.Variant.TOOLBAR}
+        @click=${this.#copyToClipboard}
+        jslog=${VisualLogging.action('protocol-monitor.copy-command').track({click: true})}
+      ></${Buttons.Button.Button.litTagName}>
+      <${Buttons.Button.Button.litTagName}
+        .size=${Buttons.Button.Size.SMALL}
+        title=${Host.Platform.isMac() ? i18nString(UIStrings.sendCommandCmdEnter) : i18nString(UIStrings.sendCommandCtrlEnter)}
+        .iconUrl=${sendIconUrl}
+        .variant=${Buttons.Button.Variant.PRIMARY_TOOLBAR}
+        @click=${this.#handleCommandSend}
+        jslog=${VisualLogging.action('protocol-monitor.send-command').track({click: true})}
+      ></${Buttons.Button.Button.litTagName}>
+    </div>`, this.#shadow, {host: this});
   }
 }
+
+customElements.define('devtools-protocol-monitor-json-editor', JSONEditor, {extends: 'div'});

@@ -9,11 +9,18 @@ import("../../../third_party/typescript/typescript.gni")
 import("../visibility.gni")
 
 generate_css("css_files") {
-  sources = [ "protocolMonitor.css" ]
+  sources = [
+    "JSONEditor.css",
+    "protocolMonitor.css",
+    "toolbar.css",
+  ]
 }
 
 devtools_module("protocol_monitor") {
-  sources = [ "ProtocolMonitor.ts" ]
+  sources = [
+    "JSONEditor.ts",
+    "ProtocolMonitor.ts",
+  ]
 
   deps = [
     "../../core/host:bundle",
@@ -21,12 +28,15 @@ devtools_module("protocol_monitor") {
     "../../core/protocol_client:bundle",
     "../../core/sdk:bundle",
     "../../models/text_utils:bundle",
+    "../../ui/components/buttons:bundle",
     "../../ui/components/data_grid:bundle",
     "../../ui/components/icon_button:bundle",
+    "../../ui/components/menus:bundle",
+    "../../ui/components/suggestion_input:bundle",
     "../../ui/legacy:bundle",
     "../../ui/legacy/components/source_frame:bundle",
     "../../ui/lit-html:bundle",
-    "./components:bundle",
+    "../elements/components:bundle",
   ]
 }
 
@@ -62,11 +72,14 @@ devtools_entrypoint("meta") {
 ts_library("unittests") {
   testonly = true
 
-  sources = [ "ProtocolMonitor.test.ts" ]
+  sources = [
+    "JSONEditor.test.ts",
+    "ProtocolMonitor.test.ts",
+  ]
 
   deps = [
     ":bundle",
     "../../testing",
-    "./components:bundle",
+    "../../ui/components/suggestion_input:bundle",
   ]
 }
