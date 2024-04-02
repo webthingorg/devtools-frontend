@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6e6781a_86b48be5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-02T07:53:50Z",
+      "side": 1,
+      "message": "Alex and I discussed this offline last week, there were two reasons to keep manage_node_deps:\n- It sets up the right command line flags form `npm i` (so as to avoid esbuild fetching running external dependencies)\n- It purges unnecessary files so that they\u0027re not committed to the repo",
+      "parentUuid": "45a48976_f1b286f9",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f638761d_423fcee5",
         "filename": "scripts/check_esbuild_versions.js",
         "patchSetId": 7
