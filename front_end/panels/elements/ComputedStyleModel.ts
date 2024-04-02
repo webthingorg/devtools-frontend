@@ -18,6 +18,7 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper<Event
     this.cssModelInternal = null;
     this.eventListeners = [];
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.onNodeChanged, this);
+    this.updateModel(this.nodeInternal ? this.nodeInternal.domModel().cssModel() : null);
   }
 
   node(): SDK.DOMModel.DOMNode|null {

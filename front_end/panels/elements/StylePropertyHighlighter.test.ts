@@ -22,6 +22,7 @@ describeWithRealConnection('StylePropertyHighlighter', () => {
     await domModel.requestDocument();
     UI.Context.Context.instance().setFlavor(SDK.DOMModel.DOMNode, domModel.existingDocument());
     const stylesSidebarPane = Elements.StylesSidebarPane.StylesSidebarPane.instance({forceNew: true});
+    assertNotNullOrUndefined(stylesSidebarPane.cssModel());
     const matchedStyles = await SDK.CSSMatchedStyles.CSSMatchedStyles.create({
       cssModel: stylesSidebarPane.cssModel() as SDK.CSSModel.CSSModel,
       node: stylesSidebarPane.node() as SDK.DOMModel.DOMNode,
