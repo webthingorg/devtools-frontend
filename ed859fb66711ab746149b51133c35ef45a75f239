@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e75ee78_f701bc6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-02T11:05:17Z",
+      "side": 1,
+      "message": "I needed to update the test as the translated text is expected in the test. Can you PTAL again? :)",
+      "revId": "ed859fb66711ab746149b51133c35ef45a75f239",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
