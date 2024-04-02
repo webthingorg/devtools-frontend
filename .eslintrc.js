@@ -128,6 +128,8 @@ module.exports = {
      **/
     'import/no-duplicates': 'error',
 
+    'rulesdir/templatize_dom': 'error',
+
     // Try to spot '// console.log()' left over from debugging
     'rulesdir/commented_out_console': 'error',
 
