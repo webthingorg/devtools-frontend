@@ -277,6 +277,13 @@ describeWithMockConnection('NodeCascade', () => {
   it('correctly marks custom properties as Overloaded if they are registered as inherits: false', async () => {
     const target = createTarget();
     const cssModel = new SDK.CSSModel.CSSModel(target);
+    sinon.stub(target.runtimeAgent(), 'invoke_evaluate').resolves({
+      getError: () => undefined,
+      result: {
+        value: true,
+        type: Protocol.Runtime.RemoteObjectType.Boolean,
+      },
+    });
     const parentNode = sinon.createStubInstance(SDK.DOMModel.DOMNode);
     parentNode.id = 0 as Protocol.DOM.NodeId;
     const node = sinon.createStubInstance(SDK.DOMModel.DOMNode);
