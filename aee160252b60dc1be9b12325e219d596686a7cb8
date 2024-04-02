@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1c0ff42_2dc571a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-02T08:15:12Z",
+      "side": 1,
+      "message": "Moving to `gclient sync` won\u0027t be possible: as discovered it is blocked on Chrome infra (more details in the proposal doc).",
+      "parentUuid": "b5bc6f11_b4d368d7",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f638761d_423fcee5",
         "filename": "scripts/check_esbuild_versions.js",
         "patchSetId": 7
