@@ -68,6 +68,23 @@
       "message": "Hi Paul,\n\nMost of extra rendering time is from a backend CL which I explained in the comment. Please take a look.\n\nThanks,\nGavin",
       "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b4c7499_011bd26a",
+        "filename": "front_end/ui/components/linkifier/LinkifierImpl.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-02T00:51:18Z",
+      "side": 1,
+      "message": "There\u0027s definitely room to DRY this up. You can define a linktext var.. do a ternary on it.. and then a single set of invocations within this",
+      "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

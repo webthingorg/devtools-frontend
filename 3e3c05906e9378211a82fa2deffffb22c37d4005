@@ -437,6 +437,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77629636_ced3ee72",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-02T00:51:18Z",
+      "side": 1,
+      "message": "Thanks very much for the test.\nAdmittedly such a simple DOM and stylesheet won\u0027t really exercise the problem.  But. your bing/yahoo cases started to actually demonstrate this problem. \n\nYahoo having a one-minute of recalc/layout is.. pretty rough. We may have to more aggressively communicate the overhead of this.",
+      "parentUuid": "f252beab_3f690dd8",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6
