@@ -455,6 +455,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5272fa70_d9e8a6fe",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-04-02T21:54:44Z",
+      "side": 1,
+      "message": "Updated the test case to include 100k DOM. During my local runs, the rendering time difference in the test is from 10% to 30%.\n\nWould you recommend us optimizing the selector stats aggregation by passing the style_sheet pointer as a parameter instead of finding the style sheet in a loop?",
+      "parentUuid": "77629636_ced3ee72",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6

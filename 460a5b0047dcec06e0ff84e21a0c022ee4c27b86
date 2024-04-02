@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7338ac4a_44ace19f",
+        "filename": "front_end/generated/protocol.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 3097,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-04-02T21:54:44Z",
+      "side": 1,
+      "message": "this change has been removed in code rebase. When the backend change was landed, the CDP files in devtools frontend were updated.",
+      "parentUuid": "aff8b67f_f8a21162",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2a0e09b_29469899",
@@ -212,6 +230,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c59bfc75_4a0ced62",
+        "filename": "front_end/ui/components/linkifier/LinkifierImpl.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-04-02T21:54:44Z",
+      "side": 1,
+      "message": "I\u0027ll keep the linkifier changes in the same CL.",
+      "parentUuid": "fb0c79bc_84c9ca2e",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32a065d7_f8660222",
@@ -261,6 +297,24 @@
       "side": 1,
       "message": "same.. handled separately?",
       "parentUuid": "d2dbd86c_6151e4d6",
+      "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a82991db_84c8146a",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 11
+      },
+      "lineNbr": 2160,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-04-02T21:54:44Z",
+      "side": 1,
+      "message": "the change was removed in a code rebase. When the backend CDP CL has landed, the frontend files were updated to include the changes.",
+      "parentUuid": "5540b665_1b9a0767",
       "revId": "460a5b0047dcec06e0ff84e21a0c022ee4c27b86",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
