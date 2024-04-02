@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02efeca5_996b3553",
+        "filename": "front_end/panels/security/SecurityModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-02T12:42:24Z",
+      "side": 1,
+      "message": "drop `+ 1`?",
+      "range": {
+        "startLine": 76,
+        "startChar": 83,
+        "endLine": 76,
+        "endChar": 84
+      },
+      "revId": "2f5cbdd3393bd9c6fe06d1c4c65fd0a0283fa5f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
