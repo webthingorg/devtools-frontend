@@ -497,7 +497,7 @@ export const toLowerCaseString = function(input: string): LowerCaseString {
   return input.toLowerCase() as LowerCaseString;
 };
 
-const WORD = /[A-Z]{2,}(?=[A-Z0-9][a-z0-9]+|\b|_)|[A-Za-z][0-9]+[a-z]|[A-Z]?[a-z]+|[0-9][A-Za-z]+|[A-Z]|[0-9]+|[.]/g;
+const WORD = /[A-Z]{2,}(?=[A-Z0-9][a-z0-9]+|\b|_)|[A-Za-z][0-9]+[a-z]?|[A-Z]?[a-z]+|[0-9][A-Za-z]+|[A-Z]|[0-9]+|[.]/g;
 //            <---1---><------------2-----------> <--------3--------> <-----4----> <------5-----> <-----6----> <7>
 // 1: two or more consecutive uppercase letters. This is useful for identifying acronyms
 // 2: lookahead assertion that matches a word boundary
