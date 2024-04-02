@@ -2165,7 +2165,6 @@ export const enum KnownEventName {
   /* Gc */
   GC = 'GCEvent',
   DOMGC = 'BlinkGC.AtomicPhase',
-  IncrementalGCMarking = 'V8.GCIncrementalMarking',
   MajorGC = 'MajorGC',
   MinorGC = 'MinorGC',
   GCCollectGarbage = 'BlinkGC.AtomicPhase',
