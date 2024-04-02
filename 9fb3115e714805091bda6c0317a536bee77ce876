@@ -103,6 +103,24 @@
       "parentUuid": "1b4c7499_011bd26a",
       "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c58eff6_ceaf96fe",
+        "filename": "front_end/ui/components/linkifier/LinkifierImpl.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-02T22:31:31Z",
+      "side": 1,
+      "message": "ah I was thinking something slightly different. I tested this out and it seems okay to me. wdyt?\n\n\n      async #render(): Promise\u003cvoid\u003e {\n        const linkText \u003d this.#linkText ?? LinkifierUtils.linkText(this.#url, this.#lineNumber);\n        // Disabled until https://crbug.com/1079231 is fixed.\n        await coordinator.write(() \u003d\u003e {\n          // clang-format off\n          // eslint-disable-next-line rulesdir/ban_a_tags_in_lit_html\n          LitHtml.render(LitHtml.html`\u003ca class\u003d\"link\" href\u003d${this.#url} @click\u003d${this.#onLinkActivation}\u003e\u003cslot\u003e${linkText}\u003c/slot\u003e\u003c/a\u003e`, this.#shadow, { host: this});\n          // clang-format on\n        });\n      }\n\n\ndisclaimer: this area of the frontend isn\u0027t under my purview. :)",
+      "parentUuid": "1e03e8d2_e5ed96f9",
+      "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

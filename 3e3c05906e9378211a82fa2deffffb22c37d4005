@@ -473,6 +473,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2a40274_c8adbd71",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-02T22:31:31Z",
+      "side": 1,
+      "message": "\u003e Would you recommend us optimizing the selector stats aggregation by passing the style_sheet pointer as a parameter instead of finding the style sheet in a loop?\n\nI\u0027m less experienced within that codebase, so I can\u0027t say with confidence. \n\nBut if you think that could be some some low-hanging fruit, then, I\u0027m all for it! 😊",
+      "parentUuid": "5272fa70_d9e8a6fe",
+      "revId": "3e3c05906e9378211a82fa2deffffb22c37d4005",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3497dab5_f4b9efaf",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 6
