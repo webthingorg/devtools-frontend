@@ -2019,6 +2019,7 @@ export interface IncludedCookieWithReason {
 
 export interface ExemptedSetCookieWithReason {
   cookie: Cookie;
+  cookieLine: string;
   exemptionReason: Protocol.Network.CookieExemptionReason;
 }
 
@@ -2055,6 +2056,7 @@ export interface ExtraResponseInfo {
   cookiePartitionKeyOpaque: boolean|undefined;
   exemptedResponseCookies: {
     cookie: Cookie,
+    cookieLine: string,
     exemptionReason: Protocol.Network.CookieExemptionReason,
   }[]|undefined;
 }
