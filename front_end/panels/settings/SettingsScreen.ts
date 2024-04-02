@@ -82,10 +82,6 @@ const UIStrings = {
    */
   oneOrMoreSettingsHaveChanged: 'One or more settings have changed which requires a reload to take effect.',
   /**
-   * @description Label for a filter text input that controls which experiments are shown.
-   */
-  filterExperimentsLabel: 'Filter',
-  /**
    * @description Warning text shown when the user has entered text to filter the
    * list of experiments, but no experiments match the filter.
    */
@@ -399,7 +395,7 @@ export class GenericSettingsTab extends SettingsTab {
 export class ExperimentsSettingsTab extends SettingsTab {
   #experimentsSection: HTMLElement|undefined;
   #unstableExperimentsSection: HTMLElement|undefined;
-  #inputElement: HTMLInputElement;
+
   private readonly experimentToControl = new Map<Root.Runtime.Experiment, HTMLElement>();
 
   constructor() {
@@ -409,16 +405,16 @@ export class ExperimentsSettingsTab extends SettingsTab {
 
     this.element.setAttribute('jslog', `${VisualLogging.pane('experiments')}`);
 
-    const labelElement = filterSection.createChild('label');
-    labelElement.textContent = i18nString(UIStrings.filterExperimentsLabel);
-    this.#inputElement = UI.UIUtils.createInput('', 'text', 'experiments-filter');
-    UI.ARIAUtils.bindLabelToControl(labelElement, this.#inputElement);
-    filterSection.appendChild(this.#inputElement);
-    this.#inputElement.addEventListener(
-        'input', () => this.renderExperiments(this.#inputElement.value.toLowerCase()), false);
-    this.setDefaultFocusedElement(this.#inputElement);
+    const toolbar = new UI.Toolbar.Toolbar('settings-filter-toolbar', filterSection);
+    const filter = new UI.Toolbar.ToolbarFilter(undefined, 1, 1);
+    toolbar.appendToolbarItem(filter);
+    filterSection.appendChild(toolbar.element);
 
-    this.setFilter('');
+    this.setDefaultFocusedElement(filter.element);
+    filter.addEventListener(UI.Toolbar.ToolbarInput.Event.TextChanged, () => {
+      this.renderExperiments(filter.value());
+    });
+    this.renderExperiments('');
   }
 
   private renderExperiments(filterText: string): void {
@@ -520,11 +516,6 @@ export class ExperimentsSettingsTab extends SettingsTab {
         PanelUtils.highlightElement(element);
       }
     }
-  }
-
-  setFilter(filterText: string): void {
-    this.#inputElement.value = filterText;
-    this.#inputElement.dispatchEvent(new Event('input', {'bubbles': true, 'cancelable': true}));
   }
 
   override wasShown(): void {
