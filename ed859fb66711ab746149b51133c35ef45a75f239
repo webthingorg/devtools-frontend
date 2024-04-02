@@ -16,6 +16,24 @@
       "message": "I needed to update the test as the translated text is expected in the test. Can you PTAL again? :)",
       "revId": "ed859fb66711ab746149b51133c35ef45a75f239",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "955ec6c0_4c2291f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-02T11:59:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e75ee78_f701bc6d",
+      "revId": "ed859fb66711ab746149b51133c35ef45a75f239",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
