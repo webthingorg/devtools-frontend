@@ -16,6 +16,23 @@
       "message": "Hi Benedikt!\n\nRemoving the soon to be expired histogram, ptal!",
       "revId": "afa0cb7d271c759951e549c203d12f516500d9c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e7607c2_be367413",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-02T08:47:06Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "afa0cb7d271c759951e549c203d12f516500d9c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
