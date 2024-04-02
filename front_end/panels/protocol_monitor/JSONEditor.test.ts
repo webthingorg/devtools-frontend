@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 const {assert} = chai;
-import * as ProtocolMonitor from '../protocol_monitor.js';
+import * as ProtocolMonitor from './protocol_monitor.js';
 import {
   getEventPromise,
   dispatchKeyDownEvent,
@@ -11,30 +11,27 @@ import {
   dispatchClickEvent,
   renderElementIntoDOM,
   raf,
-} from '../../../testing/DOMHelpers.js';
-import * as ProtocolComponents from './components.js';
-import type * as SuggestionInput from '../../../ui/components/suggestion_input/suggestion_input.js';
-import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
+} from '../../testing/DOMHelpers.js';
+import type * as SuggestionInput from '../../ui/components/suggestion_input/suggestion_input.js';
+import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 
-import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
-import * as Menus from '../../../ui/components/menus/menus.js';
-import * as Host from '../../../core/host/host.js';
-import * as UI from '../../../ui/legacy/legacy.js';
+import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
+import * as Menus from '../../ui/components/menus/menus.js';
+import * as Host from '../../core/host/host.js';
+import * as UI from '../../ui/legacy/legacy.js';
 
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 describeWithEnvironment('JSONEditor', () => {
   const renderJSONEditor = () => {
-    const jsonEditor = new ProtocolComponents.JSONEditor.JSONEditor();
+    const jsonEditor = new ProtocolMonitor.JSONEditor.JSONEditor();
     jsonEditor.metadataByCommand = new Map();
-    jsonEditor.typesByName = new Map();
-    jsonEditor.enumsByName = new Map();
     jsonEditor.connectedCallback();
     renderElementIntoDOM(jsonEditor);
     return jsonEditor;
   };
 
-  const populateMetadata = async (jsonEditor: ProtocolComponents.JSONEditor.JSONEditor) => {
+  const populateMetadata = async (jsonEditor: ProtocolMonitor.JSONEditor.JSONEditor) => {
     const mockDomain = [
       {
         domain: 'Test',
@@ -207,9 +204,9 @@ describeWithEnvironment('JSONEditor', () => {
           },
         },
       },
-    ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
+    ] as Iterable<ProtocolMonitor.ProtocolMetadata.ProtocolDomain>;
 
-    const metadataByCommand = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(mockDomain);
+    const metadataByCommand = ProtocolMonitor.ProtocolMetadata.buildProtocolMetadata(mockDomain);
     jsonEditor.metadataByCommand = metadataByCommand;
     await jsonEditor.updateComplete;
   };
@@ -234,7 +231,7 @@ describeWithEnvironment('JSONEditor', () => {
   };
 
   const renderSuggestionBox = async (
-      command: string, jsonEditor: ProtocolComponents.JSONEditor.JSONEditor,
+      command: string, jsonEditor: ProtocolMonitor.JSONEditor.JSONEditor,
       enumsByName?: Map<string, Record<string, string>>) => {
     jsonEditor.command = command;
     if (enumsByName) {
@@ -274,18 +271,12 @@ describeWithEnvironment('JSONEditor', () => {
   const renderEditorForCommand = async(command: string, parameters: {[paramName: string]: unknown}): Promise<{
     inputs: NodeListOf<SuggestionInput.SuggestionInput.SuggestionInput>,
     displayedCommand: string,
-    jsonEditor: ProtocolComponents.JSONEditor.JSONEditor,
+    jsonEditor: ProtocolMonitor.JSONEditor.JSONEditor,
   }> => {
-    const typesByName = new Map();
-    typesByName.set('string', [
-      {name: 'param1', type: 'string', optional: false, description: 'display a string', typeRef: null},
-      {name: 'param2', type: 'string', optional: false, description: 'displays another string', typeRef: null},
-    ]);
 
     const jsonEditor = renderJSONEditor();
 
     await populateMetadata(jsonEditor);
-    jsonEditor.typesByName = typesByName;
 
     jsonEditor.displayCommand(command, parameters);
 
@@ -327,13 +318,10 @@ describeWithEnvironment('JSONEditor', () => {
     return paramInput;
   };
 
-  const renderWarningIcon = async (command: string, enumsByName?: Map<string, Record<string, string>>) => {
+  const renderWarningIcon = async (command: string) => {
     const jsonEditor = renderJSONEditor();
     await populateMetadata(jsonEditor);
     jsonEditor.command = command;
-    if (enumsByName) {
-      jsonEditor.enumsByName = enumsByName;
-    }
     jsonEditor.populateParametersForCommandWithDefaultValues();
     await jsonEditor.updateComplete;
 
@@ -486,13 +474,12 @@ describeWithEnvironment('JSONEditor', () => {
   describe('Display command written in editor inside input bar', () => {
     it('should display the command edited inside the CDP editor into the input bar', async () => {
       const split = new UI.SplitWidget.SplitWidget(true, false, 'protocol-monitor-split-container', 400);
-      const editorWidget = new ProtocolMonitor.ProtocolMonitor.EditorWidget();
-      const jsonEditor = editorWidget.jsonEditor;
+      const jsonEditor = new ProtocolMonitor.JSONEditor.JSONEditor();
       jsonEditor.command = 'Test.test';
       jsonEditor.parameters = [
         {
           name: 'test',
-          type: ProtocolComponents.JSONEditor.ParameterType.String,
+          type: ProtocolMonitor.JSONEditor.ParameterType.String,
           description: 'test',
           optional: false,
           value: 'test',
@@ -568,7 +555,7 @@ describeWithEnvironment('JSONEditor', () => {
           typeRef: 'string',
           description: 'test.',
         },
-      ] as ProtocolComponents.JSONEditor.Parameter[];
+      ] as ProtocolMonitor.JSONEditor.Parameter[];
       const jsonEditor = renderJSONEditor();
 
       jsonEditor.parameters = inputParameters;
@@ -846,7 +833,7 @@ describeWithEnvironment('JSONEditor', () => {
       ];
 
       const jsonEditor = renderJSONEditor();
-      jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      jsonEditor.parameters = inputParameters as ProtocolMonitor.JSONEditor.Parameter[];
       await jsonEditor.updateComplete;
 
       const param = jsonEditor.renderRoot.querySelector('[data-paramId=\'arrayParam\']');
@@ -950,7 +937,7 @@ describeWithEnvironment('JSONEditor', () => {
       };
 
       const jsonEditor = renderJSONEditor();
-      jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
+      jsonEditor.parameters = inputParameters as ProtocolMonitor.JSONEditor.Parameter[];
       await jsonEditor.updateComplete;
 
       const shadowRoot = jsonEditor.renderRoot;
@@ -1075,12 +1062,12 @@ describeWithEnvironment('JSONEditor', () => {
            },
          };
 
-         jsonEditor.parameters = inputParameters as ProtocolComponents.JSONEditor.Parameter[];
-         const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
+         jsonEditor.parameters = inputParameters as ProtocolMonitor.JSONEditor.Parameter[];
+         const responsePromise = getEventPromise(jsonEditor, ProtocolMonitor.JSONEditor.SubmitEditorEvent.eventName);
 
          dispatchKeyDownEvent(jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
 
-         const response = await responsePromise as ProtocolComponents.JSONEditor.SubmitEditorEvent;
+         const response = await responsePromise as ProtocolMonitor.JSONEditor.SubmitEditorEvent;
 
          assert.deepStrictEqual(response.data.parameters, expectedParameters);
        });
@@ -1092,7 +1079,7 @@ describeWithEnvironment('JSONEditor', () => {
          jsonEditor.parameters = [
            {
              name: 'testName',
-             type: ProtocolComponents.JSONEditor.ParameterType.String,
+             type: ProtocolMonitor.JSONEditor.ParameterType.String,
              description: 'test',
              optional: false,
              value: 'testValue',
@@ -1104,11 +1091,11 @@ describeWithEnvironment('JSONEditor', () => {
          if (!toolbar) {
            throw Error('No toolbar found !');
          }
-         const event = new ProtocolComponents.Toolbar.SendCommandEvent();
-         const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
+         const event = new ProtocolMonitor.Toolbar.SendCommandEvent();
+         const responsePromise = getEventPromise(jsonEditor, ProtocolMonitor.JSONEditor.SubmitEditorEvent.eventName);
 
          toolbar.dispatchEvent(event);
-         const response = await responsePromise as ProtocolComponents.JSONEditor.SubmitEditorEvent;
+         const response = await responsePromise as ProtocolMonitor.JSONEditor.SubmitEditorEvent;
 
          const expectedParameters = {
            'testName': 'testValue',
@@ -1177,7 +1164,7 @@ describeWithEnvironment('JSONEditor', () => {
     jsonEditor.parameters = [
       {
         name: 'test',
-        type: ProtocolComponents.JSONEditor.ParameterType.String,
+        type: ProtocolMonitor.JSONEditor.ParameterType.String,
         description: 'test',
         optional: false,
         value: 'test',
@@ -1197,7 +1184,7 @@ describeWithEnvironment('JSONEditor', () => {
     if (!toolbar) {
       throw Error('No toolbar found !');
     }
-    const event = new ProtocolComponents.Toolbar.CopyCommandEvent();
+    const event = new ProtocolMonitor.Toolbar.CopyCommandEvent();
     toolbar.dispatchEvent(event);
     await isCalled;
 
@@ -1334,12 +1321,12 @@ describeWithEnvironment('JSONEditor', () => {
        editors[4].blur();
        await jsonEditor.updateComplete;
 
-       const responsePromise = getEventPromise(jsonEditor, ProtocolComponents.JSONEditor.SubmitEditorEvent.eventName);
+       const responsePromise = getEventPromise(jsonEditor, ProtocolMonitor.JSONEditor.SubmitEditorEvent.eventName);
 
        // We send the command
        dispatchKeyDownEvent(jsonEditor, {key: 'Enter', ctrlKey: true, metaKey: true});
 
-       const response = await responsePromise as ProtocolComponents.JSONEditor.SubmitEditorEvent;
+       const response = await responsePromise as ProtocolMonitor.JSONEditor.SubmitEditorEvent;
 
        const expectedParameters = {
          'NoTypeRef': {
@@ -1388,9 +1375,9 @@ describeWithEnvironment('JSONEditor', () => {
 
   describe('Command suggestion filter', () => {
     it('filters the commands by substring match', async () => {
-      assert(ProtocolComponents.JSONEditor.suggestionFilter('Test', 'Tes'));
-      assert(ProtocolComponents.JSONEditor.suggestionFilter('Test', 'est'));
-      assert(!ProtocolComponents.JSONEditor.suggestionFilter('Test', 'dest'));
+      assert(ProtocolMonitor.JSONEditor.suggestionFilter('Test', 'Tes'));
+      assert(ProtocolMonitor.JSONEditor.suggestionFilter('Test', 'est'));
+      assert(!ProtocolMonitor.JSONEditor.suggestionFilter('Test', 'dest'));
     });
   });
 });
