@@ -554,7 +554,20 @@ export class DOMDebuggerManager implements SDKModelObserver<DOMDebuggerModel> {
         Category.Clipboard, ['copy', 'cut', 'paste', 'beforecopy', 'beforecut', 'beforepaste'], ['*']);
     this.createEventListenerBreakpoints(
         Category.Control,
-        ['resize', 'scroll', 'scrollend', 'zoom', 'focus', 'blur', 'select', 'change', 'submit', 'reset'], ['*']);
+        [
+          'resize',
+          'scroll',
+          'scrollend',
+          'snapchanging',
+          'zoom',
+          'focus',
+          'blur',
+          'select',
+          'change',
+          'submit',
+          'reset',
+        ],
+        ['*']);
     this.createEventListenerBreakpoints(Category.Device, ['deviceorientation', 'devicemotion'], ['*']);
     this.createEventListenerBreakpoints(
         Category.DomMutation,
