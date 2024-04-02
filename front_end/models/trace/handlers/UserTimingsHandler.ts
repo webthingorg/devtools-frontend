@@ -109,7 +109,6 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
 
   if (Types.TraceEvents.isTraceEventPerformanceMeasure(event)) {
     performanceMeasureEvents.push(event);
-    return;
   }
   if (Types.TraceEvents.isTraceEventPerformanceMark(event)) {
     performanceMarkEvents.push(event);
