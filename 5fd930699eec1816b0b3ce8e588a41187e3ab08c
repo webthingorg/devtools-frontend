@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52765eca_8db2fc08",
+        "filename": "front_end/models/trace/handlers/ExtensionTraceDataHandler.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:02:40Z",
+      "side": 1,
+      "message": "agreed! Removed",
+      "parentUuid": "676dd3b7_941eef64",
+      "revId": "5fd930699eec1816b0b3ce8e588a41187e3ab08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0937e917_62a6912c",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4a3f16b_9d796e91",
+        "filename": "front_end/models/trace/handlers/ExtensionTraceDataHandler.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:02:40Z",
+      "side": 1,
+      "message": "ts would complains on `beginEvent` not necessarily existing on `timing.args.data` or `detail` not necessarily existing on `timing.args.data` since the type isn\u0027t guarded at neither point.",
+      "parentUuid": "0937e917_62a6912c",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 83,
+        "endChar": 118
+      },
+      "revId": "5fd930699eec1816b0b3ce8e588a41187e3ab08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d82e7f0_900f60ff",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-04-03T14:47:43Z",
       "side": 1,
       "message": "how about `devtools.extension` ? (it doesn\u0027t practically matter, i\u0027m just trying to avoid perpetuating the `timeline` term :)",
+      "range": {
+        "startLine": 92,
+        "startChar": 8,
+        "endLine": 92,
+        "endChar": 26
+      },
+      "revId": "5fd930699eec1816b0b3ce8e588a41187e3ab08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f74314b2_f127688d",
+        "filename": "front_end/models/trace/types/Extensions.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:02:40Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "7d82e7f0_900f60ff",
       "range": {
         "startLine": 92,
         "startChar": 8,
@@ -98,6 +164,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ef7f3ef_6f1d9e5a",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:02:40Z",
+      "side": 1,
+      "message": "oof good catch. This happens when a `performance.measure` is called with a duration of 0. Back when I was prototyping this trace events for performance.marks didn\u0027t have a `detail` field so this was a good workaround. Removed",
+      "parentUuid": "12d528e8_3e279486",
+      "revId": "5fd930699eec1816b0b3ce8e588a41187e3ab08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30dadf77_92ca371a",
@@ -121,6 +205,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad33c6c_a2e2c95b",
+        "filename": "front_end/panels/timeline/ExtensionDataGatherer.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:02:40Z",
+      "side": 1,
+      "message": "great catch! Fixed",
+      "parentUuid": "30dadf77_92ca371a",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "5fd930699eec1816b0b3ce8e588a41187e3ab08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c46889de_bdf3c16a",
@@ -134,6 +242,24 @@
       "writtenOn": "2024-04-03T14:47:43Z",
       "side": 1,
       "message": "if it doesn\u0027t matter to you, i\u0027d move this down a few lines.. maybe right before the reset()",
+      "revId": "5fd930699eec1816b0b3ce8e588a41187e3ab08c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e4182f3_fa693fe1",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:02:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c46889de_bdf3c16a",
       "revId": "5fd930699eec1816b0b3ce8e588a41187e3ab08c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -33,6 +33,24 @@
       "message": "Is this needed?",
       "revId": "444d5c44d423f83b2474432ec42855c5286e52e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2bd550e_5c5fd64e",
+        "filename": "front_end/panels/timeline/ExtensionDataGatherer.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:02:40Z",
+      "side": 1,
+      "message": "ah good catch. It isn\u0027t. I think this is a left over from an old version :D. Removed.",
+      "parentUuid": "2327a4b2_03b0104e",
+      "revId": "444d5c44d423f83b2474432ec42855c5286e52e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
