@@ -166,6 +166,9 @@ async function process(): Promise<void> {
       }
       const trackKeyDown = loggingState.config.track?.keydown;
       if (trackKeyDown) {
+        if (loggingState.config.ve === 8) {
+          console.error('Adding text field event listener');
+        }
         element.addEventListener('keydown', e => logKeyDown(keyboardLogThrottler)(e.currentTarget, e), {capture: true});
       }
       if (loggingState.config.track?.resize) {
