@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e914002c_d45d9072",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-03T13:13:30Z",
+      "side": 1,
+      "message": "`var()` greys out the variable name if it\u0027s undefined, not if it\u0027s unused. The fallback isn\u0027t greyed out for example. I liked line-through because it\u0027s what we do for properties that aren\u0027t applying.",
+      "parentUuid": "dd27ecec_8dfa1698",
+      "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4d7e20c_0990d70c",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-03T08:57:13Z",
       "side": 1,
       "message": "Should we hook-up color change events from inner swatch to the outer color swatch?",
+      "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5745af_87f67f5c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-03T13:13:30Z",
+      "side": 1,
+      "message": "That can only be done once we\u0027ve sorted out the ColorSwatch/Popover thing.",
+      "parentUuid": "e4d7e20c_0990d70c",
       "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
