@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1384021c_b661ce64",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-03T14:47:43Z",
+      "side": 0,
+      "message": "sneaky perf win :)",
+      "revId": "bf6103185f3b5d2ca006bc290ebfa3304fef1dcd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
