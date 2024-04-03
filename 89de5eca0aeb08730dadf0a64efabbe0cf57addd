@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f4ca27_f28ecf88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T15:57:53Z",
+      "side": 1,
+      "message": "LGTM\nwe might need some tests to ensure this doesn\u0027t regress in the future, wdyt? can be done as follow ups",
+      "revId": "89de5eca0aeb08730dadf0a64efabbe0cf57addd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "981e7b77_8f12cad1",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1984,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T15:57:53Z",
+      "side": 1,
+      "message": "this comment might be here for a while so I think it makes sense to drop the \"now\" ;)\n```suggestion\n      // Since tracks can be reordered the |visibleLevelOffsets| is not necessarily sorted, so we need to check all levels.\n```",
+      "range": {
+        "startLine": 1983,
+        "startChar": 0,
+        "endLine": 1984,
+        "endChar": 20
+      },
+      "revId": "89de5eca0aeb08730dadf0a64efabbe0cf57addd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
