@@ -382,7 +382,7 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
   });
 
   describe('custom-properties', () => {
-    it('linkifies var functions to declarations', async () => {
+    it.on('linkifies var functions to declarations', async () => {
       const cssCustomPropertyDef = new SDK.CSSProperty.CSSProperty(
           mockCssStyleDeclaration, 0, '--prop', 'value', true, false, true, false, '', undefined);
       mockMatchedStyles.computeCSSVariable.callsFake(
