@@ -39,6 +39,30 @@
       },
       "revId": "89de5eca0aeb08730dadf0a64efabbe0cf57addd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa3ef01_5c817cd4",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1984,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-03T16:24:02Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "981e7b77_8f12cad1",
+      "range": {
+        "startLine": 1983,
+        "startChar": 0,
+        "endLine": 1984,
+        "endChar": 20
+      },
+      "revId": "89de5eca0aeb08730dadf0a64efabbe0cf57addd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
