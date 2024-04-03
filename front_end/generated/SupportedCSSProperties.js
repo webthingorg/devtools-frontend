@@ -2208,7 +2208,8 @@ export const generatedProperties = [
  },
  {
   "keywords": [
-   "auto"
+   "auto",
+   "-internal-user-margin"
   ],
   "name": "margin-bottom"
  },
@@ -2233,19 +2234,22 @@ export const generatedProperties = [
  },
  {
   "keywords": [
-   "auto"
+   "auto",
+   "-internal-user-margin"
   ],
   "name": "margin-left"
  },
  {
   "keywords": [
-   "auto"
+   "auto",
+   "-internal-user-margin"
   ],
   "name": "margin-right"
  },
  {
   "keywords": [
-   "auto"
+   "auto",
+   "-internal-user-margin"
   ],
   "name": "margin-top"
  },
@@ -3625,6 +3629,9 @@ export const generatedProperties = [
  },
  {
   "name": "translate"
+ },
+ {
+  "name": "types"
  },
  {
   "keywords": [

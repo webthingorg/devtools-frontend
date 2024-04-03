@@ -276,6 +276,12 @@ export namespace ProtocolMapping {
      */
     'Network.responseReceivedExtraInfo': [Protocol.Network.ResponseReceivedExtraInfoEvent];
     /**
+     * Fired when 103 Early Hints headers is received in addition to the common response.
+     * Not every responseReceived event will have an responseReceivedEarlyHints fired.
+     * Only one responseReceivedEarlyHints may be fired for eached responseReceived event.
+     */
+    'Network.responseReceivedEarlyHints': [Protocol.Network.ResponseReceivedEarlyHintsEvent];
+    /**
      * Fired exactly once for each Trust Token operation. Depending on
      * the type of the operation and whether the operation succeeded or
      * failed, the event is fired before the corresponding request was sent
@@ -2054,6 +2060,24 @@ export namespace ProtocolMapping {
      */
     'Emulation.setDeviceMetricsOverride': {
       paramsType: [Protocol.Emulation.SetDeviceMetricsOverrideRequest];
+      returnType: void;
+    };
+    /**
+     * Start reporting the given posture value to the Device Posture API.
+     * This override can also be set in setDeviceMetricsOverride().
+     */
+    'Emulation.setDevicePostureOverride': {
+      paramsType: [Protocol.Emulation.SetDevicePostureOverrideRequest];
+      returnType: void;
+    };
+    /**
+     * Clears a device posture override set with either setDeviceMetricsOverride()
+     * or setDevicePostureOverride() and starts using posture information from the
+     * platform again.
+     * Does nothing if no override is set.
+     */
+    'Emulation.clearDevicePostureOverride': {
+      paramsType: [];
       returnType: void;
     };
     'Emulation.setScrollbarsHidden': {
