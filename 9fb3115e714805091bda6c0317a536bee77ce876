@@ -121,6 +121,24 @@
       "parentUuid": "1e03e8d2_e5ed96f9",
       "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "847d532a_633d3504",
+        "filename": "front_end/ui/components/linkifier/LinkifierImpl.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-04-03T04:32:28Z",
+      "side": 1,
+      "message": "Updated as suggested. Thanks.",
+      "parentUuid": "7c58eff6_ceaf96fe",
+      "revId": "9fb3115e714805091bda6c0317a536bee77ce876",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
