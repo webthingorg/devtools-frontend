@@ -6427,6 +6427,10 @@ export const NativeFunctions = [
     signatures: [["mapper"]]
   },
   {
+    name: "first",
+    signatures: [["?options"]]
+  },
+  {
     name: "getPartNode",
     signatures: [["index"]]
   },

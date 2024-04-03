@@ -2132,6 +2132,12 @@ export const generatedProperties = [
   "name": "line-break"
  },
  {
+  "keywords": [
+   "none"
+  ],
+  "name": "line-clamp"
+ },
+ {
   "name": "line-gap-override"
  },
  {
@@ -4923,6 +4929,11 @@ export const generatedPropertyValues = {
    "normal",
    "strict",
    "anywhere"
+  ]
+ },
+ "line-clamp": {
+  "values": [
+   "none"
   ]
  },
  "line-height": {
