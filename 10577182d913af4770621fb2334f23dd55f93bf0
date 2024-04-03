@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b316f17a_c4931db9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545637
+      },
+      "writtenOn": "2024-04-03T15:12:15Z",
+      "side": 1,
+      "message": "Hi Alex, ptal at this attempt to add \"snapchanging\" to the list of event listener breakpoints under \"Control\". Given that the snapchanging feature is still only behind a Blink flag whose status is currently set to \"test\", can we go ahead with this change? I\u0027m not sure what the policy (if there is one) is. Thanks!",
+      "revId": "10577182d913af4770621fb2334f23dd55f93bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
