@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "444d5c44d423f83b2474432ec42855c5286e52e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2327a4b2_03b0104e",
+        "filename": "front_end/panels/timeline/ExtensionDataGatherer.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1513667
+      },
+      "writtenOn": "2024-04-03T10:24:08Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "444d5c44d423f83b2474432ec42855c5286e52e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
