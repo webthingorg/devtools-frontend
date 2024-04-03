@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e283d0e5_34a397bf",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T13:58:48Z",
+      "side": 0,
+      "message": "this event name was inherited from the NPP engine but never supported in the OPP. As part of this CL the event became visible in some screenshot tests, causing failures. To reconcile the diff I simply removed the event from our support list",
+      "parentUuid": "671ddb9c_274dd73f",
+      "revId": "7cc6b3c633738e173a8b17ef383c6a5e61229e58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f65cd11b_c6eba5e5",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-03T10:22:24Z",
       "side": 0,
       "message": "Ditto",
+      "revId": "7cc6b3c633738e173a8b17ef383c6a5e61229e58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e8a65ea_c696bc04",
+        "filename": "front_end/panels/timeline/EventUICategory.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T13:58:48Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "f65cd11b_c6eba5e5",
       "revId": "7cc6b3c633738e173a8b17ef383c6a5e61229e58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
