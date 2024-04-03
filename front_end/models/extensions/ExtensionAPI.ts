@@ -50,6 +50,8 @@ export namespace PrivateAPI {
     NetworkRequestFinished = 'network-request-finished',
     OpenResource = 'open-resource',
     PanelSearch = 'panel-search-',
+    ProfilingStarted = 'profiling-started-',
+    ProfilingStopped = 'profiling-stopped-',
     ResourceAdded = 'resource-added',
     ResourceContentCommitted = 'resource-content-committed',
     ViewShown = 'view-shown-',
@@ -344,6 +346,7 @@ namespace APIImpl {
   export interface InspectorExtensionAPI {
     languageServices: PublicAPI.Chrome.DevTools.LanguageExtensions;
     recorder: PublicAPI.Chrome.DevTools.RecorderExtensions;
+    performance: PublicAPI.Chrome.DevTools.Performance;
     network: PublicAPI.Chrome.DevTools.Network;
     panels: PublicAPI.Chrome.DevTools.Panels;
     inspectedWindow: PublicAPI.Chrome.DevTools.InspectedWindow;
@@ -520,6 +523,7 @@ self.injectedExtensionAPI = function(
     this.network = new (Constructor(Network))();
     this.languageServices = new (Constructor(LanguageServicesAPI))();
     this.recorder = new (Constructor(RecorderServicesAPI))();
+    this.performance = new (Constructor(Performance))();
     defineDeprecatedProperty(this, 'webInspector', 'resources', 'network');
   }
 
@@ -950,6 +954,21 @@ self.injectedExtensionAPI = function(
 
   };
 
+  function PerformanceImpl(this: PublicAPI.Chrome.DevTools.Performance): void {
+    function dispatchProfilingStartedEvent(this: APIImpl.EventSink<() => unknown>): void {
+      this._fire();
+    }
+
+    function dispatchProfilingStoppedEvent(this: APIImpl.EventSink<() => unknown>): void {
+      this._fire();
+    }
+
+    this.onProfilingStarted =
+        new (Constructor(EventSink))(PrivateAPI.Events.ProfilingStarted, dispatchProfilingStartedEvent);
+    this.onProfilingStopped =
+        new (Constructor(EventSink))(PrivateAPI.Events.ProfilingStopped, dispatchProfilingStoppedEvent);
+  }
+
   function declareInterfaceClass<ImplT extends APIImpl.Callable>(implConstructor: ImplT): (
       this: ThisParameterType<ImplT>, ...args: Parameters<ImplT>) => void {
     return function(this: ThisParameterType<ImplT>, ...args: Parameters<ImplT>): void {
@@ -979,6 +998,7 @@ self.injectedExtensionAPI = function(
 
   const LanguageServicesAPI = declareInterfaceClass(LanguageServicesAPIImpl);
   const RecorderServicesAPI = declareInterfaceClass(RecorderServicesAPIImpl);
+  const Performance = declareInterfaceClass(PerformanceImpl);
   const Button = declareInterfaceClass(ButtonImpl);
   const EventSink = declareInterfaceClass(EventSinkImpl);
   const ExtensionPanel = declareInterfaceClass(ExtensionPanelImpl);
@@ -1423,6 +1443,7 @@ self.injectedExtensionAPI = function(
   chrome.devtools!.panels.themeName = themeName;
   chrome.devtools!.languageServices = coreAPI.languageServices;
   chrome.devtools!.recorder = coreAPI.recorder;
+  chrome.devtools!.performance = coreAPI.performance;
 
   // default to expose experimental APIs for now.
   if (extensionInfo.exposeExperimentalAPIs !== false) {
