@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0c41553_0c8a6cc2",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:51:14Z",
+      "side": 1,
+      "message": "the -1 weight would force any unexpected track to be placed on top, which is... unexpected. I figured it makes sense to have any track we don\u0027t know about at the bottom.\n\nThe snippet in your quote refers to an entry vertical level, not to a track\u0027s weight when sorting, so this change shouldn\u0027t affect it.",
+      "parentUuid": "d505c2d9_9cffafe1",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d78e64c9_12d39921",
         "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
         "patchSetId": 13
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-03T19:48:24Z",
       "side": 1,
       "message": "what about this boi",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ec2fabe_6d7035fd",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:51:14Z",
+      "side": 1,
+      "message": "good catch! Updated to 12 for consistency.",
+      "parentUuid": "d78e64c9_12d39921",
       "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2024-04-03T19:48:24Z",
       "side": 1,
       "message": "probably shoulda left on a different CL but... this currently does a JSON.parse() on each .detail.devtools it finds. but only for filtering. feels kinda wasteful.  \n\n\nIf a measure has .detail.devtools but is missing some fields required for taking action on it... maybe we should render it in the Timings track?  Not sure.\n\nAn underlying thought is that the handler data probably shouldn\u0027t overlap, requiring this filtering to happen.\n\nI\u0027m okay without these being resolved now given the prototype-ish status, but.. something to think about.",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bca925_6b12401e",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:51:14Z",
+      "side": 1,
+      "message": "that\u0027s a good point. Right now the extension data handler takes the user timings output and looks for valid extension events, so they overlap. We could have the timings handler ignore extension events but that would require JSON.parsing the detail twice as well.\n\nAlternatively we could cache the extension events somehow and compare against that cache here in constant time. I\u0027m not sure if the effort is worth the saving tho. wdyt?",
+      "parentUuid": "3bff553e_be44f1ac",
       "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

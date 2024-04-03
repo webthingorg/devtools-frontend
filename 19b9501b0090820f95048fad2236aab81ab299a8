@@ -16,6 +16,24 @@
       "message": "how come?\n\nalso.. these might as well be `else if`s.. (but I know it\u0027s not the focus in this CL)",
       "revId": "19b9501b0090820f95048fad2236aab81ab299a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a73691d4_d49feff7",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-03T20:51:14Z",
+      "side": 0,
+      "message": "this was needed as a consequence of the overlap added between marks and measures types in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5272266/23/front_end/models/trace/types/TraceEvents.ts#1760. Since that piece will be removed (in https://crrev.com/c/5419358)can add the return again.",
+      "parentUuid": "ca9495da_1ddbf0cd",
+      "revId": "19b9501b0090820f95048fad2236aab81ab299a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
