@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cee928b5_6d6c0437",
+        "filename": "front_end/panels/elements/PropertyParser.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T08:57:13Z",
+      "side": 1,
+      "message": "Can we add a comment here on why this should fail? (I still low key prefer a different test for each different case but that\u0027s a discussion for some other time I think 😂)\n\n```suggestion\n    // light-dark() is only valid for color properties.\n    const {match, text} \u003d matchSingleValue(\n```",
+      "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd27ecec_8dfa1698",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T08:57:13Z",
+      "side": 1,
+      "message": "I think graying out the unused value instead of line-through would be a more consistent way of showing the \"non-affecting\" value -- similar to `var()`. WDYT?",
+      "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d7e20c_0990d70c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T08:57:13Z",
+      "side": 1,
+      "message": "Should we hook-up color change events from inner swatch to the outer color swatch?",
+      "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

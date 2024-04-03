@@ -16,6 +16,24 @@
       "message": "How brittle is this do you think?",
       "revId": "53b992336b81cc50e29e94fe98a021b1393cd0f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8156f3c_e660a78f",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T08:57:13Z",
+      "side": 1,
+      "message": "I think it should be fine. The only concern I have is having this inside `CSSMatchedStyles` and delaying `init` until this is resolved.\n\nWDYT of:\n* Exposing a method `prefersColorScheme` from CSSModel that returns `dark`, `light` or `null`? (nit: I\u0027d prefer having an enum for `dark` and `light`)\n* Using that method inside `LightDarkColorRenderer` before rendering?\n\nThat way:\n* We don\u0027t delay `init` for this call.\n* We don\u0027t need to stub out `invoke_evaluate` in unrelated tests.\n* We can stub out `prefersColorScheme` from CSSMatchedStyles for testing `LightDarkColorRenderer`.",
+      "parentUuid": "b0bec37b_6a4c52a6",
+      "revId": "53b992336b81cc50e29e94fe98a021b1393cd0f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
