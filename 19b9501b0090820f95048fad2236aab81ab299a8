@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca9495da_1ddbf0cd",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-03T19:48:24Z",
+      "side": 0,
+      "message": "how come?\n\nalso.. these might as well be `else if`s.. (but I know it\u0027s not the focus in this CL)",
+      "revId": "19b9501b0090820f95048fad2236aab81ab299a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d505c2d9_9cffafe1",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-03T19:48:24Z",
+      "side": 1,
+      "message": "I vaguely thought we had special -1 handling elsewhere. But.. I certainly don\u0027t like magical -1 handling, so.. I\u0027m all for this.\n\nah.. this is what i found.. from `NetworkTrackAppender`:\n\n      // -1 means this event is invisible.\n      if (this.#flameChartData.entryLevels[i] \u003d\u003d\u003d -1) {\n      \ndo you know the deal here? (or nancy)?",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d78e64c9_12d39921",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-03T19:48:24Z",
+      "side": 1,
+      "message": "what about this boi",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bff553e_be44f1ac",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-03T19:48:24Z",
+      "side": 1,
+      "message": "probably shoulda left on a different CL but... this currently does a JSON.parse() on each .detail.devtools it finds. but only for filtering. feels kinda wasteful.  \n\n\nIf a measure has .detail.devtools but is missing some fields required for taking action on it... maybe we should render it in the Timings track?  Not sure.\n\nAn underlying thought is that the handler data probably shouldn\u0027t overlap, requiring this filtering to happen.\n\nI\u0027m okay without these being resolved now given the prototype-ish status, but.. something to think about.",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
