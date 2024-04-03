@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2e25380_25084bf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-03T05:00:30Z",
+      "side": 1,
+      "message": "Hi Peter,\n\nThis is the CL to update the NetworkFilter as well. PTAL!\n(If you check out this CL, it will already include the updates to the other filters too, so that you don\u0027t need to do two check outs to check both CLs)",
+      "revId": "7413fee8b507416d7886d73862e263407de10ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
