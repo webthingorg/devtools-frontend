@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb850ba7_9c1a8c03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T09:25:11Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "b055eff198c302b7a22befbfede10846f4afb8f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d9a8e36_fb508287",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T09:25:11Z",
+      "side": 1,
+      "message": "Empty arg is evaluated as a file name I think and we get an error saying that \"Must use outdir when there are multiple input files\" for files that are not under `/test/` folder.\n\nWe can make `cjsForTests` an array and spread it in the `spawnSync` call, like this to avoid this error:\n* `const cjsForTests \u003d fileName.includes(\u0027/test/\u0027) ? [\u0027--format\u003dcjs\u0027] : []`",
+      "revId": "b055eff198c302b7a22befbfede10846f4afb8f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
