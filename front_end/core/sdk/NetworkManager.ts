@@ -882,6 +882,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
   requestIntercepted({}: Protocol.Network.RequestInterceptedEvent): void {
   }
 
+  responseReceivedEarlyHints(params: Protocol.Network.ResponseReceivedEarlyHintsEvent): void {
+    // Not implemented.
+  }
+
   requestWillBeSentExtraInfo(
       {requestId, associatedCookies, headers, clientSecurityState, connectTiming, siteHasCookieInOtherPartition}:
           Protocol.Network.RequestWillBeSentExtraInfoEvent): void {
