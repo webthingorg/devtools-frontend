@@ -9,6 +9,8 @@ import {
 import {getBaseTraceParseModelData} from '../../../testing/TraceHelpers.js';
 import * as TraceEngine from '../trace.js';
 
+import {type RootCauseProtocolInterface} from './RootCauses.js';
+
 type TraceParseData = TraceEngine.Handlers.Types.TraceParseData;
 type TraceParseDataMutable = TraceEngine.Handlers.Types.TraceParseDataMutable;
 
@@ -60,6 +62,7 @@ describeWithMockConnection('LayoutShift root causes', () => {
     let iframesNodeIds: number[];
     let shifts: TraceEngine.Types.TraceEvents.SyntheticLayoutShift[];
     let matchedStylesMock: Omit<Protocol.CSS.GetMatchedStylesForNodeResponse, 'getError'>;
+    let protocolInterface: RootCauseProtocolInterface;
     let computedStylesMock: Protocol.CSS.CSSComputedStyleProperty[];
     let fontFaceMock: Protocol.CSS.FontFace;
     const fontSource = 'mock-source.woff';
@@ -109,6 +112,7 @@ describeWithMockConnection('LayoutShift root causes', () => {
           data: {
             nodeId: i + 1 as Protocol.DOM.BackendNodeId,
             reason: TraceEngine.Types.TraceEvents.LayoutInvalidationReason.SIZE_CHANGED,
+            nodeName: 'IMG',
             frame: 'frame-id-123',
           },
         };
@@ -118,6 +122,7 @@ describeWithMockConnection('LayoutShift root causes', () => {
           data: {
             nodeId: i + 11 as Protocol.DOM.BackendNodeId,
             reason: TraceEngine.Types.TraceEvents.LayoutInvalidationReason.ADDED_TO_LAYOUT,
+            nodeName: 'IFRAME',
             frame: 'frame-id-123',
           },
         };
@@ -127,6 +132,7 @@ describeWithMockConnection('LayoutShift root causes', () => {
           data: {
             nodeId: i + 21 as Protocol.DOM.BackendNodeId,
             reason: TraceEngine.Types.TraceEvents.LayoutInvalidationReason.FONTS_CHANGED,
+            nodeName: 'DIV',
             frame: 'frame-id-123',
           },
         };
@@ -136,6 +142,7 @@ describeWithMockConnection('LayoutShift root causes', () => {
           data: {
             nodeId: i + 31 as Protocol.DOM.BackendNodeId,
             reason: TraceEngine.Types.TraceEvents.LayoutInvalidationReason.UNKNOWN,
+            nodeName: 'DIV',
             frame: 'frame-id-123',
           },
         };
@@ -158,14 +165,12 @@ describeWithMockConnection('LayoutShift root causes', () => {
       for (let i = 0 as Protocol.DOM.BackendNodeId; i < layoutInvalidationEvents.length; i++) {
         const backendNodeId = layoutInvalidationEvents[i].args.data.nodeId;
         const nodeId = i as unknown as Protocol.DOM.NodeId;
+        const nodeName = layoutInvalidationEvents[i].args.data.nodeName || 'DIV';
         const fakeNode = {
           backendNodeId,
           nodeId,
-          localName: 'img',
-          nodeName: layoutInvalidationEvents[i].args.data.reason ===
-                  TraceEngine.Types.TraceEvents.LayoutInvalidationReason.ADDED_TO_LAYOUT ?
-              'IFRAME' :
-              'IMG',
+          localName: nodeName.toLowerCase(),
+          nodeName,
           attributes: [],
           nodeType: Node.ELEMENT_NODE,
         } as unknown as Protocol.DOM.Node;
@@ -196,7 +201,7 @@ describeWithMockConnection('LayoutShift root causes', () => {
       computedStylesMock = [];
       matchedStylesMock = {};
 
-      rootCausesEngine = new TraceEngine.RootCauses.RootCauses.RootCauses({
+      protocolInterface = {
         getInitiatorForRequest(_: string): Protocol.Network.Initiator |
             null {
               return null;
@@ -234,7 +239,27 @@ describeWithMockConnection('LayoutShift root causes', () => {
               }
               return;
             },
+      };
+
+      rootCausesEngine = new TraceEngine.RootCauses.RootCauses.RootCauses(protocolInterface);
+    });
+
+    it('uses cached node details', async () => {
+      // Use duplicate node ids for invalidation events that use `getNode`
+      resizeEvents.forEach(e => {
+        e.args.data.nodeId = 1 as Protocol.DOM.BackendNodeId;
       });
+      injectedIframeEvents.forEach(e => {
+        e.args.data.nodeId = 11 as Protocol.DOM.BackendNodeId;
+      });
+
+      const getNodeSpy = sinon.spy(protocolInterface, 'getNode');
+
+      const rootCauses =
+          await Promise.all(shifts.map(shift => rootCausesEngine.layoutShifts.rootCausesForEvent(model, shift)));
+      assertArrayHasNoNulls(rootCauses);
+
+      assert.strictEqual(getNodeSpy.callCount, 2);
     });
 
     describe('Unsized media', () => {
@@ -427,6 +452,18 @@ describeWithMockConnection('LayoutShift root causes', () => {
            assert.strictEqual(shiftCausesNodeIds[4].length, 1);
            assert.strictEqual(shiftCausesNodeIds[4][0], iframesNodeIds[1]);
          });
+
+      it('ignores events that could not add or resize an iframe', async () => {
+        injectedIframeEvents.forEach(e => {
+          e.args.data.nodeName = 'DIV';
+          e.args.data.reason = TraceEngine.Types.TraceEvents.LayoutInvalidationReason.SIZE_CHANGED;
+        });
+
+        const rootCauses =
+            await Promise.all(shifts.map(shift => rootCausesEngine.layoutShifts.rootCausesForEvent(model, shift)));
+        assertArrayHasNoNulls(rootCauses);
+        assert(rootCauses.every(rc => rc.iframes.length === 0), 'contained iframe root causes');
+      });
     });
 
     describe('Font changes', () => {
