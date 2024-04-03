@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c48fba73_7b3c0c69",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T13:37:58Z",
+      "side": 1,
+      "message": "Ah, that\u0027s fair; thanks! :)",
+      "parentUuid": "e914002c_d45d9072",
+      "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4d7e20c_0990d70c",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "That can only be done once we\u0027ve sorted out the ColorSwatch/Popover thing.",
       "parentUuid": "e4d7e20c_0990d70c",
+      "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f83b1ed_985d7663",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-03T13:37:58Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fb5745af_87f67f5c",
       "revId": "2b1b9a76297e41f6150fcdf12231bb4657b41000",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
