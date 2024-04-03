@@ -104,6 +104,9 @@ export const logKeyDown =
         return;
       }
       const loggingState = loggable ? getLoggingState(loggable) : null;
+      if (event.code === 'ArrowDown') {
+        console.error(loggingState?.config.ve);
+      }
       const codes = (typeof loggingState?.config.track?.keydown === 'string') ? loggingState.config.track.keydown : '';
       if (codes.length && !codes.split('|').includes(event.code)) {
         return;
