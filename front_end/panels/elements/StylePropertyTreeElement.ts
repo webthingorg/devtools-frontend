@@ -46,6 +46,8 @@ import {
   GridTemplateMatch,
   GridTemplateMatcher,
   LegacyRegexMatcher,
+  LightDarkColorMatch,
+  LightDarkColorMatcher,
   LinkableNameMatch,
   LinkableNameMatcher,
   LinkableNameProperties,
@@ -377,6 +379,69 @@ export class ColorRenderer extends ColorMatch {
     }
     const contrastInfo = new ColorPicker.ContrastInfo.ContrastInfo(await cssModel.getBackgroundColors(node.id));
     swatchIcon.setContrastInfo(contrastInfo);
+  }
+}
+
+export class LightDarkColorRenderer extends LightDarkColorMatch {
+  readonly #treeElement: StylePropertyTreeElement;
+  constructor(
+      treeElement: StylePropertyTreeElement, text: string, light: CodeMirror.SyntaxNode[],
+      dark: CodeMirror.SyntaxNode[]) {
+    super(text, light, dark);
+    this.#treeElement = treeElement;
+  }
+
+  static matcher(treeElement: StylePropertyTreeElement): LightDarkColorMatcher {
+    return new LightDarkColorMatcher((text, light, dark) => new LightDarkColorRenderer(treeElement, text, light, dark));
+  }
+
+  override render(node: CodeMirror.SyntaxNode, context: RenderingContext): Node[] {
+    const content = document.createElement('span');
+    content.appendChild(document.createTextNode('light-dark('));
+    const light = content.appendChild(document.createElement('span'));
+    content.appendChild(document.createTextNode(', '));
+    const dark = content.appendChild(document.createElement('span'));
+    content.appendChild(document.createTextNode(')'));
+    Renderer.renderInto(this.light, context, light);
+    Renderer.renderInto(this.dark, context, dark);
+
+    if (this.#treeElement.getComputedStyle('color-scheme') !== 'light dark' ||
+        context.matchedResult.hasUnresolvedVars(node)) {
+      return [content];
+    }
+
+    const colorSwatch = new ColorRenderer(this.#treeElement, context.ast.text(node)).renderColorSwatch(content);
+    context.addControl('color', colorSwatch);
+    void this.applyColorScheme(context, colorSwatch, light, dark);
+
+    return [colorSwatch];
+  }
+
+  async applyColorScheme(
+      context: RenderingContext, colorSwatch: InlineEditor.ColorSwatch.ColorSwatch, light: HTMLSpanElement,
+      dark: HTMLSpanElement): Promise<void> {
+    const activeColor = await this.#activeColor();
+    if (!activeColor) {
+      return;
+    }
+    const inactiveColor = (activeColor === this.light) ? dark : light;
+    const colorText = context.matchedResult.getComputedTextRange(activeColor[0], activeColor[activeColor.length - 1]);
+    const color = colorText && Common.Color.parse(colorText);
+    inactiveColor.style.textDecoration = 'line-through';
+    if (color) {
+      colorSwatch.renderColor(color);
+    }
+  }
+
+  async #activeColor(): Promise<CodeMirror.SyntaxNode[]|undefined> {
+    switch (await this.#treeElement.parentPane().cssModel()?.colorScheme()) {
+      case SDK.CSSModel.ColorScheme.Dark:
+        return this.dark;
+      case SDK.CSSModel.ColorScheme.Light:
+        return this.light;
+      default:
+        return undefined;
+    }
   }
 }
 
@@ -1128,6 +1193,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.computedStyles = computedStyles;
   }
 
+  getComputedStyle(property: string): string|null {
+    return this.computedStyles?.get(property) ?? null;
+  }
+
   setParentsComputedStyles(parentsComputedStyles: Map<string, string>|null): void {
     this.parentsComputedStyles = parentsComputedStyles;
   }
@@ -1420,6 +1489,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
           StringRenderer.matcher(),
           ShadowRenderer.matcher(this),
           FontRenderer.matcher(this),
+          LightDarkColorRenderer.matcher(this),
           GridTemplateRenderer.matcher(),
         ] :
         [];

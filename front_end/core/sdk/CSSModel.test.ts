@@ -3,12 +3,14 @@
 // found in the LICENSE file.
 
 const {assert} = chai;
+import * as Common from '../common/common.js';
 import * as SDK from './sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import {assertNotNullOrUndefined} from '../platform/platform.js';
 import type * as Platform from '../platform/platform.js';
+import {describeWithRealConnection} from '../../testing/RealConnection.js';
 
 describeWithMockConnection('CSSModel', () => {
   it('gets the FontFace of a source URL', () => {
@@ -116,5 +118,26 @@ describeWithMockConnection('CSSModel', () => {
           cssModel.getStyleSheetIdsForURL('http://example.com/styles.css' as Platform.DevToolsPath.UrlString);
       assert.deepEqual(styleSheetIds, ['stylesheet']);
     });
+  });
+});
+
+describeWithRealConnection('CSSModel', () => {
+  it('correctly returns the color scheme', async () => {
+    const target = createTarget();
+    const emulationModel = target.model(SDK.EmulationModel.EmulationModel);
+    const cssModel = target.model(SDK.CSSModel.CSSModel);
+    assertNotNullOrUndefined(emulationModel);
+    assertNotNullOrUndefined(cssModel);
+    const mediaFeaturePrefersColorSchemeSetting =
+        Common.Settings.Settings.instance().moduleSetting<string>('emulated-css-media-feature-prefers-color-scheme');
+    mediaFeaturePrefersColorSchemeSetting.set('light');
+    await cssModel.once(SDK.CSSModel.Events.MediaQueryResultChanged);
+    assert.strictEqual(await cssModel?.colorScheme(), SDK.CSSModel.ColorScheme.Light);
+    mediaFeaturePrefersColorSchemeSetting.set('dark');
+    await cssModel.once(SDK.CSSModel.Events.MediaQueryResultChanged);
+    assert.strictEqual(await cssModel?.colorScheme(), SDK.CSSModel.ColorScheme.Dark);
+    mediaFeaturePrefersColorSchemeSetting.set('light');
+    await cssModel.once(SDK.CSSModel.Events.MediaQueryResultChanged);
+    assert.strictEqual(await cssModel?.colorScheme(), SDK.CSSModel.ColorScheme.Light);
   });
 });
