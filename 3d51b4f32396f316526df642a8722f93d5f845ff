@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2b3f74_96bf6150",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-04T22:15:37Z",
+      "side": 1,
+      "message": "lgtm with tiny nits",
+      "revId": "3d51b4f32396f316526df642a8722f93d5f845ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c980d8a2_a1edd09e",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-04T22:15:37Z",
+      "side": 1,
+      "message": "let\u0027s make it clear that we are talking about the arrow to expand the tracks",
+      "range": {
+        "startLine": 95,
+        "startChar": 7,
+        "endLine": 95,
+        "endChar": 12
+      },
+      "revId": "3d51b4f32396f316526df642a8722f93d5f845ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb73ccc_06595a73",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-04T22:15:37Z",
+      "side": 1,
+      "message": "typo indicates (same for the occurrences below)",
+      "range": {
+        "startLine": 105,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 39
+      },
+      "revId": "3d51b4f32396f316526df642a8722f93d5f845ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ebddeb4_aef20659",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-04T22:15:37Z",
+      "side": 1,
+      "message": "nit: do we want to store 0 in a variable? imo seems a bit weird that we call an empty value \"left padding\" or \"icon left\", etc.",
+      "range": {
+        "startLine": 144,
+        "startChar": 26,
+        "endLine": 144,
+        "endChar": 27
+      },
+      "revId": "3d51b4f32396f316526df642a8722f93d5f845ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
