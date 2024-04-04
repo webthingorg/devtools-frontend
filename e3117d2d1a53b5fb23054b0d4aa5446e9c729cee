@@ -33,6 +33,29 @@
       "message": "LGTM",
       "revId": "e3117d2d1a53b5fb23054b0d4aa5446e9c729cee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "859805c4_0b1ab849",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-04T16:10:08Z",
+      "side": 1,
+      "message": "could an iframe with an url arrive at this point?\n\nFor example, in https://trace.cafe/t/QHQIjcS6X4 the iframe incorrectly labelled as main points to an ad IRL. Is that URL taken from somewhere else?",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 22
+      },
+      "revId": "e3117d2d1a53b5fb23054b0d4aa5446e9c729cee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
