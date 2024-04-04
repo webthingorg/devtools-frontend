@@ -24,7 +24,7 @@ import {
   TimelineFlameChartDataProvider,
 } from './TimelineFlameChartDataProvider.js';
 import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetworkDataProvider.js';
-import {type TimelineModeViewDelegate} from './TimelinePanel.js';
+import {type TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
 import {type TimelineMarkerStyle, TimelineUIUtils} from './TimelineUIUtils.js';
@@ -44,7 +44,7 @@ const MAX_HIGHLIGHTED_SEARCH_ELEMENTS: number = 200;
 
 export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.FlameChart.FlameChartDelegate,
                                                                       UI.SearchableView.Searchable {
-  private readonly delegate: TimelineModeViewDelegate;
+  private readonly delegate: TimelinePanel;
   private model: PerformanceModel|null;
   private searchResults!: number[]|undefined;
   private eventListeners: Common.EventTarget.EventDescriptor[];
@@ -82,7 +82,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
   #gameKeyMatches = 0;
   #gameTimeout = setTimeout(() => ({}), 0);
-  constructor(delegate: TimelineModeViewDelegate) {
+  constructor(delegate: TimelinePanel) {
     super();
     this.element.classList.add('timeline-flamechart');
 
