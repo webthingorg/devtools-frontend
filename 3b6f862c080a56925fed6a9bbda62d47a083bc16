@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "facafd2a_888cafc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-04T19:33:58Z",
+      "side": 1,
+      "message": "I\u0027m cool with like.. disabling this iframe rootcause check until it\u0027s replaced with the trace event equivalent. The way this is done seems really inefficient, but the efficient fixes are large enough efforts that it\u0027s not worth it.. since we\u0027re going to drop all this with aixba\u0027s effort.\n\nwdyt of that?\n\n(but also. thank you for investigating these!)",
+      "revId": "3b6f862c080a56925fed6a9bbda62d47a083bc16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
