@@ -28,8 +28,8 @@ import * as Actions from '../recorder-actions/recorder-actions.js';
 import {ExtensionView} from './ExtensionView.js';
 import recordingViewStyles from './recordingView.css.js';
 import {
-  ReplayButton,
   type ReplayButtonData,
+  ReplaySection,
   type StartReplayEvent,
 } from './ReplayButton.js';
 import {
@@ -910,7 +910,7 @@ export class RecordingView extends HTMLElement {
                 )}
                 .data=${
                   {
-                    variant: Buttons.Button.Variant.ROUND,
+                    variant: Buttons.Button.Variant.ICON,
                     size: Buttons.Button.Size.SMALL,
                     iconName: 'cross',
                   } as Buttons.Button.ButtonData
@@ -950,13 +950,13 @@ export class RecordingView extends HTMLElement {
     if (this.#replayState.isPlaying) {
       return LitHtml.html`
         <${Buttons.Button.Button.litTagName} .jslogContext=${'abort-replay'} @click=${
-          this.#handleAbortReplay} .iconName=${'pause'} .variant=${Buttons.Button.Variant.SECONDARY}>
+          this.#handleAbortReplay} .iconName=${'pause'} .variant=${Buttons.Button.Variant.OUTLINED}>
           ${i18nString(UIStrings.cancelReplay)}
         </${Buttons.Button.Button.litTagName}>`;
     }
 
     // clang-format off
-    return LitHtml.html`<${ReplayButton.litTagName}
+    return LitHtml.html`<${ReplaySection.litTagName}
         .data=${
           {
             settings: this.#recorderSettings,
@@ -966,7 +966,7 @@ export class RecordingView extends HTMLElement {
         .disabled=${this.#replayState.isPlaying}
         @startreplay=${this.#handleTogglePlaying}
         >
-      </${ReplayButton.litTagName}>`;
+      </${ReplaySection.litTagName}>`;
     // clang-format on
   }
 
@@ -1084,7 +1084,7 @@ export class RecordingView extends HTMLElement {
           class="show-code"
           .data=${
             {
-              variant: Buttons.Button.Variant.SECONDARY,
+              variant: Buttons.Button.Variant.OUTLINED,
               title: Models.Tooltip.getTooltipForActions(
                 i18nString(UIStrings.showCode),
                 Actions.RecorderActions.ToggleCodeView,
@@ -1145,7 +1145,7 @@ export class RecordingView extends HTMLElement {
                     class="step add-assertion-button"
                     .data=${
                       {
-                        variant: Buttons.Button.Variant.SECONDARY,
+                        variant: Buttons.Button.Variant.OUTLINED,
                         title: i18nString(UIStrings.addAssertion),
                         jslogContext: 'add-assertion',
                       } as Buttons.Button.ButtonData
@@ -1223,7 +1223,7 @@ export class RecordingView extends HTMLElement {
                   .data=${
                     {
                       disabled: this.#replayState.isPlaying,
-                      variant: Buttons.Button.Variant.SECONDARY,
+                      variant: Buttons.Button.Variant.OUTLINED,
                       iconName: 'performance',
                       title: i18nString(UIStrings.performancePanel),
                       jslogContext: 'measure-performance',
@@ -1232,6 +1232,7 @@ export class RecordingView extends HTMLElement {
                 >
                   ${i18nString(UIStrings.performancePanel)}
                 </${Buttons.Button.Button.litTagName}>
+                <div class="separator"></div>
                 ${this.#renderReplayOrAbortButton()}
               </div>`
             : ''

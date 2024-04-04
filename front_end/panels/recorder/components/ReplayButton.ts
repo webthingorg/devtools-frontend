@@ -16,14 +16,19 @@ import {
   SelectButton,
   type SelectButtonClickEvent,
   type SelectButtonItem,
+  type SelectMenuSelectedEvent,
   Variant as SelectButtonVariant,
 } from './SelectButton.js';
 
 const UIStrings = {
   /**
+   * @description Replay button label
+   */
+  Replay: 'Replay',
+  /**
    * @description Button label for the normal speed replay option
    */
-  ReplayNormalButtonLabel: 'Replay',
+  ReplayNormalButtonLabel: 'Normal speed',
   /**
    * @description Item label for the normal speed replay option
    */
@@ -31,7 +36,7 @@ const UIStrings = {
   /**
    * @description Button label for the slow speed replay option
    */
-  ReplaySlowButtonLabel: 'Slow replay',
+  ReplaySlowButtonLabel: 'Slow speed',
   /**
    * @description Item label for the slow speed replay option
    */
@@ -39,7 +44,7 @@ const UIStrings = {
   /**
    * @description Button label for the very slow speed replay option
    */
-  ReplayVerySlowButtonLabel: 'Very slow replay',
+  ReplayVerySlowButtonLabel: 'Very slow speed',
   /**
    * @description Item label for the very slow speed replay option
    */
@@ -47,7 +52,7 @@ const UIStrings = {
   /**
    * @description Button label for the extremely slow speed replay option
    */
-  ReplayExtremelySlowButtonLabel: 'Extremely slow replay',
+  ReplayExtremelySlowButtonLabel: 'Extremely slow speed',
   /**
    * @description Item label for the slow speed replay option
    */
@@ -124,7 +129,7 @@ export interface ReplayButtonData {
 
 const REPLAY_EXTENSION_PREFIX = 'extension';
 
-export class ReplayButton extends HTMLElement {
+export class ReplaySection extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-replay-button`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   readonly #boundRender = this.#render.bind(this);
@@ -156,10 +161,31 @@ export class ReplayButton extends HTMLElement {
     );
   }
 
+  #handleSelectMenuSelected(event: SelectMenuSelectedEvent): void {
+    console.log(new Error().stack);
+    console.log('HANDLE SELECT MENU SELECTED CALEED WITH EVENT VALUE: ', event.value);
+    const speed = event.value as PlayRecordingSpeed;
+    if (this.#settings && event.value) {
+      console.log('SETTING WILL BE UPDATED');
+      const old = this.#settings.speed;
+      this.#settings.speed = speed;
+      console.log('UPDATED FROM: ', old, ' TO ', this.#settings.speed);
+      this.#settings.replayExtension = '';
+    }
+
+    Host.userMetrics.recordingReplaySpeed(replaySpeedToMetricSpeedMap[speed]);
+    void ComponentHelpers.ScheduledRender.scheduleRender(
+        this,
+        this.#boundRender,
+    );
+  }
+
   #handleSelectButtonClick(event: SelectButtonClickEvent): void {
+    console.log('HANDLE BUTTON CLICKED');
     event.stopPropagation();
 
     if (event.value.startsWith(REPLAY_EXTENSION_PREFIX)) {
+      console.log('ENTERS THIS');
       if (this.#settings) {
         this.#settings.replayExtension = event.value;
       }
@@ -179,14 +205,8 @@ export class ReplayButton extends HTMLElement {
       return;
     }
 
-    const speed = event.value as PlayRecordingSpeed;
-    if (this.#settings) {
-      this.#settings.speed = speed;
-      this.#settings.replayExtension = '';
-    }
-
-    Host.userMetrics.recordingReplaySpeed(replaySpeedToMetricSpeedMap[speed]);
-    this.dispatchEvent(new StartReplayEvent(event.value as PlayRecordingSpeed));
+    console.log('SPEED', this.#settings?.speed);
+    this.dispatchEvent(new StartReplayEvent(this.#settings ? this.#settings.speed : PlayRecordingSpeed.Normal));
     void ComponentHelpers.ScheduledRender.scheduleRender(
         this,
         this.#boundRender,
@@ -214,12 +234,14 @@ export class ReplayButton extends HTMLElement {
     LitHtml.render(
       LitHtml.html`
     <${SelectButton.litTagName}
+      @selectmenuselected=${this.#handleSelectMenuSelected}
       @selectbuttonclick=${this.#handleSelectButtonClick}
       .variant=${SelectButtonVariant.PRIMARY}
       .showItemDivider=${false}
       .disabled=${this.#props.disabled}
       .action=${Actions.RecorderActions.ReplayRecording}
       .value=${this.#settings?.replayExtension || this.#settings?.speed}
+      .buttonLabel=${i18nString(UIStrings.Replay)}
       .groups=${groups}
       jslog=${VisualLogging.action(Actions.RecorderActions.ReplayRecording).track({click: true})}>
     </${SelectButton.litTagName}>`,
@@ -232,7 +254,7 @@ export class ReplayButton extends HTMLElement {
 
 customElements.define(
     'devtools-replay-button',
-    ReplayButton,
+    ReplaySection,
 );
 
 declare global {
@@ -241,6 +263,6 @@ declare global {
   }
 
   interface HTMLElementTagNameMap {
-    'devtools-replay-button': ReplayButton;
+    'devtools-replay-button': ReplaySection;
   }
 }
