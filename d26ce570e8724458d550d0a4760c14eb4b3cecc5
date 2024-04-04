@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97970526_98ce5eb2",
+        "filename": "docs/dependencies.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-04T09:30:29Z",
+      "side": 1,
+      "message": "This is no longer in sync with the rest of the CL",
+      "range": {
+        "startLine": 58,
+        "startChar": 27,
+        "endLine": 58,
+        "endChar": 41
+      },
+      "revId": "d26ce570e8724458d550d0a4760c14eb4b3cecc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
