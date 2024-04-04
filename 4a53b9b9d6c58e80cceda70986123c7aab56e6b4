@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0032a32c_76596b58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-04T10:38:42Z",
+      "side": 1,
+      "message": "I have 2 nits 😅",
+      "revId": "4a53b9b9d6c58e80cceda70986123c7aab56e6b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc321cf_758141b4",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-04T10:38:42Z",
+      "side": 1,
+      "message": "Can we add a comment here how we decide on the activeColor? AFAIU, it\u0027s this:\n* If an element has `color-scheme` set to `light` or `dark`; we return the corresponding syntax node.\n* If an element has both `light` and `dark`; we check the `prefers-color-scheme` media query.",
+      "revId": "4a53b9b9d6c58e80cceda70986123c7aab56e6b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d3bbe77_ad53605d",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-04T10:38:42Z",
+      "side": 1,
+      "message": "I\u0027m having a hard time understanding the assertions here. Can we make them more explicit?\n\n```\nconst swatchColors \u003d await waitForSwatchColors();\nassert.strictEqual(swatchColors[0], red);\n\nawait toggleColorScheme({ isLight: false });\nconst swatchColorsForDark \u003d await waitForSwatchColors();\nassert.strictEqual(swatchColors[0], blue);\n```",
+      "revId": "4a53b9b9d6c58e80cceda70986123c7aab56e6b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
