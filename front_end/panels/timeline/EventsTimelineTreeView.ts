@@ -11,7 +11,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import {type EventCategory, getCategoryStyles} from './EventUICategory.js';
 import {Category, IsLong} from './TimelineFilters.js';
-import {type TimelineModeViewDelegate} from './TimelinePanel.js';
+import {type TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {TimelineTreeView} from './TimelineTreeView.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
@@ -43,9 +43,9 @@ const str_ = i18n.i18n.registerUIStrings('panels/timeline/EventsTimelineTreeView
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class EventsTimelineTreeView extends TimelineTreeView {
   private readonly filtersControl: Filters;
-  private readonly delegate: TimelineModeViewDelegate;
+  private readonly delegate: TimelinePanel;
   private currentTree!: TimelineModel.TimelineProfileTree.Node;
-  constructor(delegate: TimelineModeViewDelegate) {
+  constructor(delegate: TimelinePanel) {
     super();
     this.filtersControl = new Filters();
     this.filtersControl.addEventListener(Events.FilterChanged, this.onFilterChanged, this);

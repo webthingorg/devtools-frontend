@@ -15,7 +15,7 @@ import {EventsTimelineTreeView} from './EventsTimelineTreeView.js';
 import {type PerformanceModel} from './PerformanceModel.js';
 import {TimelineLayersView} from './TimelineLayersView.js';
 import {TimelinePaintProfilerView} from './TimelinePaintProfilerView.js';
-import {type TimelineModeViewDelegate} from './TimelinePanel.js';
+import {type TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {TimelineSelectorStatsView} from './TimelineSelectorStatsView.js';
 import {BottomUpTimelineTreeView, CallTreeTimelineTreeView, type TimelineTreeView} from './TimelineTreeView.js';
@@ -77,7 +77,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   #filmStrip: TraceEngine.Extras.FilmStrip.Data|null = null;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
 
-  constructor(delegate: TimelineModeViewDelegate) {
+  constructor(delegate: TimelinePanel) {
     super();
     this.element.classList.add('timeline-details');
 
