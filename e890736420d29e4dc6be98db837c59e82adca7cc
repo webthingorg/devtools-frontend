@@ -33,6 +33,24 @@
       "message": "I think it\u0027d be better if we don\u0027t use emulation model to trigger the different color scheme conditions as now this test not only tests `colorScheme` function but also the functionality of emulation model.\n\nI see that we\u0027re using mock connection above; can we use `setMockConnectionResponseHandler` for `Runtime.evaluate` to mock different conditions?",
       "revId": "e890736420d29e4dc6be98db837c59e82adca7cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f8d46d9_a4e0cfea",
+        "filename": "front_end/core/sdk/CSSModel.test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-04T07:16:50Z",
+      "side": 1,
+      "message": "By mocking the response I get no test coverage at all for the JS snippet we\u0027re executing, which I think is the most brittle part of the CL. That\u0027s why I picked a real connection set up with emulation, so that I could test the actual media query behavior.",
+      "parentUuid": "e945a599_2431ce66",
+      "revId": "e890736420d29e4dc6be98db837c59e82adca7cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
