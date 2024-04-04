@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cc892717_b5793e87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-04T09:26:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baf9957b_51d487bc",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "51dc998d_a7edeee9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -106,6 +124,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5a40cdc_a409a4de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-04T09:26:38Z",
+      "side": 1,
+      "message": "The mirror is expected to check all licenses according to the policy so I expect that we can remove custom scripting but perhaps we can test more: rejection messages should show up in https://npm.skia.org/rejection-logs-chrome-devtools after logging in via https://status.skia.org/\n\nLicense check tests/code is here https://skia.googlesource.com/buildbot/+/main/npm-audit-mirror/go/checks/license_check_test.go",
+      "parentUuid": "d1c0ff42_2dc571a5",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f638761d_423fcee5",
@@ -119,6 +155,30 @@
       "writtenOn": "2024-04-02T05:04:15Z",
       "side": 1,
       "message": "nit: Fix indentation so both `*Version` variables start on the same column.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 44
+      },
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff6dbd28_695168f1",
+        "filename": "scripts/check_esbuild_versions.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-04T09:26:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f638761d_423fcee5",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -178,6 +238,24 @@
       "side": 1,
       "message": "I don\u0027t have a strong preference. Maybe this could be split out into a separate CL for revertability?",
       "parentUuid": "22bc5f01_da5e212e",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1050f16a_5de98d0a",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-04T09:26:38Z",
+      "side": 1,
+      "message": "Moved back for now.",
+      "parentUuid": "eb99300f_4c3c489f",
       "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
