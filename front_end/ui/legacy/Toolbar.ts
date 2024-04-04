@@ -74,9 +74,11 @@ export class Toolbar {
   private contentElement: Element;
   private compactLayout = false;
 
-  constructor(className: string, parentElement?: Element) {
+  constructor(className: string, parentElement?: Element, element?: Element) {
     this.items = [];
-    this.element = (parentElement ? parentElement.createChild('div') : document.createElement('div')) as HTMLElement;
+    this.element = (element           ? element :
+                        parentElement ? parentElement.createChild('div') :
+                                        document.createElement('div')) as HTMLElement;
     this.element.className = className;
     this.element.classList.add('toolbar');
     this.enabled = true;
@@ -428,6 +430,25 @@ export class Toolbar {
     }
   }
 }
+
+export class ToolbarElement extends HTMLElement {
+  #toolbar: Toolbar;
+
+  constructor() {
+    super();
+    this.#toolbar = new Toolbar('', undefined, this);
+  }
+
+  set items(items: ToolbarItem[]) {
+    this.#toolbar.removeToolbarItems();
+    for (const item of items) {
+      this.#toolbar.appendToolbarItem(item);
+    }
+  }
+}
+
+customElements.define('devtools-toolbar', ToolbarElement);
+
 export interface ToolbarButtonOptions {
   label?: () => Platform.UIString.LocalizedString;
   showLabel: boolean;
