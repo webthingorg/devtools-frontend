@@ -16,6 +16,69 @@
       "message": "Hi Simon, would you please review this change? Thanks!",
       "revId": "e70249c309bd583f4cb9493196ac34621bd28d98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8810af4_ba87f529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-04T05:21:18Z",
+      "side": 1,
+      "message": "Very neat! lgtm with an API suggestion\n\n@Benedikt FYI, improvement for one kind of large heap snapshot.",
+      "revId": "e70249c309bd583f4cb9493196ac34621bd28d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce9a6e61_574e24f0",
+        "filename": "front_end/core/platform/TypedArrayUtilities.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-04T05:21:18Z",
+      "side": 1,
+      "message": "nit: Turn this into a `/** ... */` style comment so IDEs show the documentation more reliably.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 75
+      },
+      "revId": "e70249c309bd583f4cb9493196ac34621bd28d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e46949b_da003a3a",
+        "filename": "front_end/core/platform/TypedArrayUtilities.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-04T05:21:18Z",
+      "side": 1,
+      "message": "This is somewhat subtle. Depending whether this is `undefined`, the `as*` methods will either succeed or not.\n\nWe could make this more explicit with 2 create* methods. E.g. `createFixedBigUint32Array` and `createExpandableBigUint32Array`. The former takes a `length` parameter where-as the latter does not.\n\nBoth should also have a JSDoc comment explicitly spelling out which `as*` method to use for each.\n\nWe could add sub-interfaces where each has one of the `as*` methods, but that doesn\u0027t add a lot of value on the client side currently. So splitting the factory is a good compromise. Wdyt?",
+      "range": {
+        "startLine": 18,
+        "startChar": 37,
+        "endLine": 18,
+        "endChar": 53
+      },
+      "revId": "e70249c309bd583f4cb9493196ac34621bd28d98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
