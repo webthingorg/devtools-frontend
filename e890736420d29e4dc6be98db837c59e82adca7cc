@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0857144c_bf832538",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-04T09:51:40Z",
+      "side": 1,
+      "message": "Excellent catch, thank you! I misread the MDN entry, looks like. Updated the active scheme computation, do you want to take a look?",
+      "parentUuid": "a5fb1251_df67ea74",
+      "revId": "e890736420d29e4dc6be98db837c59e82adca7cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e945a599_2431ce66",
         "filename": "front_end/core/sdk/CSSModel.test.ts",
         "patchSetId": 8
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "By mocking the response I get no test coverage at all for the JS snippet we\u0027re executing, which I think is the most brittle part of the CL. That\u0027s why I picked a real connection set up with emulation, so that I could test the actual media query behavior.",
       "parentUuid": "e945a599_2431ce66",
+      "revId": "e890736420d29e4dc6be98db837c59e82adca7cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d35e33_68328b2e",
+        "filename": "front_end/core/sdk/CSSModel.test.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-04T09:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f8d46d9_a4e0cfea",
       "revId": "e890736420d29e4dc6be98db837c59e82adca7cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
