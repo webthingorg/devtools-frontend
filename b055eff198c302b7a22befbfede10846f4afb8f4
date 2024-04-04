@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db471978_bcb4a577",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-04T23:07:48Z",
+      "side": 1,
+      "message": "thx :)  \n\n\u003e Alternatively, we could just improve the speed of regular\nincremental builds.\n\nI managed to push this forward a tad.  `autoninja -C out/Default -d explain -vv` provides some useful output. My initial interpretation is that the `generate-tsconfig` stuff is kinda at fault. Feels like any TS file change invalidates the tsconfig, but the tsconfig in-turn invalidates a LOT of related files. And it then invalidates upwards into various `xx-entrypoint-tsconfig.json`s and that invalidates a bunch of frontend TS all over. \n\nNext, I managed to dump the ninja build graph as a visualization.  `autoninja -C out/Default/ -t graph front_end/models/trace/handlers/`  outputs some graphviz dot stuff. (Definitely need a smallish subfolder).  Then paste into http://magjac.com/graphviz-visual-editor/ and.. wait like 5 minutes? (Shrug)\nScreencap exploring it a tad: https://www.paulirish.com/i/ninja-build-graph-cdt.webm\n\nAnyway.. I think I may know what\u0027s at fault here.. stay tuned :)",
+      "parentUuid": "bb850ba7_9c1a8c03",
+      "revId": "b055eff198c302b7a22befbfede10846f4afb8f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d9a8e36_fb508287",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-03T09:25:11Z",
       "side": 1,
       "message": "Empty arg is evaluated as a file name I think and we get an error saying that \"Must use outdir when there are multiple input files\" for files that are not under `/test/` folder.\n\nWe can make `cjsForTests` an array and spread it in the `spawnSync` call, like this to avoid this error:\n* `const cjsForTests \u003d fileName.includes(\u0027/test/\u0027) ? [\u0027--format\u003dcjs\u0027] : []`",
+      "revId": "b055eff198c302b7a22befbfede10846f4afb8f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27852353_63a83a40",
+        "filename": "scripts/watch_build.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-04T23:07:48Z",
+      "side": 1,
+      "message": "omg YES. this is the kind of code review i loove. :)\n\nThanks so much for catching this. And the proposed solution is just \u003cchefs kiss\u003e.\n\nThanks! done",
+      "parentUuid": "9d9a8e36_fb508287",
       "revId": "b055eff198c302b7a22befbfede10846f4afb8f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
