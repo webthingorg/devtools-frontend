@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885bf6d5_9a69ddbd",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-04-04T23:50:42Z",
+      "side": 1,
+      "message": "Oh my, this popoverHelper implementation could use some tidying-up.",
+      "revId": "b1194ca24606f3ab211ab761d03b42085ebda8cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
