@@ -34,6 +34,24 @@
       "parentUuid": "b316f17a_c4931db9",
       "revId": "10577182d913af4770621fb2334f23dd55f93bf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25bca5d4_0294b59e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545637
+      },
+      "writtenOn": "2024-04-04T18:39:29Z",
+      "side": 1,
+      "message": "Thanks! Not totally sure what you mean by instrumented - I tested building devtools-frontend locally and launching a locally-built chrome with `--custom-devtools-frontend` and was able to set a \"snapchanging\" breakpoint which trapped at the right time.",
+      "parentUuid": "c7954ed2_a7ec7762",
+      "revId": "10577182d913af4770621fb2334f23dd55f93bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
