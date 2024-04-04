@@ -50,6 +50,24 @@
       "message": "I\u0027m having a hard time understanding the assertions here. Can we make them more explicit?\n\n```\nconst swatchColors \u003d await waitForSwatchColors();\nassert.strictEqual(swatchColors[0], red);\n\nawait toggleColorScheme({ isLight: false });\nconst swatchColorsForDark \u003d await waitForSwatchColors();\nassert.strictEqual(swatchColors[0], blue);\n```",
       "revId": "4a53b9b9d6c58e80cceda70986123c7aab56e6b4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b407910_bcdc14f9",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-04T10:52:41Z",
+      "side": 1,
+      "message": "Ah, talked offline and saw that the assertion is the wait condition on `waitForLightDark`; so there isn\u0027t a way to make them more explicit. We can discard this comment :)",
+      "parentUuid": "8d3bbe77_ad53605d",
+      "revId": "4a53b9b9d6c58e80cceda70986123c7aab56e6b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
