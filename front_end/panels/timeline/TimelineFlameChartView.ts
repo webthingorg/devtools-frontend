@@ -67,6 +67,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private readonly detailsSplitWidget: UI.SplitWidget.SplitWidget;
   private readonly detailsView: TimelineDetailsView;
   private readonly onMainEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
+  private readonly onMainEntryInvoked: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly onNetworkEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly boundRefresh: () => void;
   #selectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[]|null;
@@ -101,7 +102,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
     const mainViewGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timeline-flamechart-main-view-group-expansion', {});
-    this.mainDataProvider = new TimelineFlameChartDataProvider();
+    this.mainDataProvider = new TimelineFlameChartDataProvider(this.delegate.isNodeMode());
     this.mainDataProvider.addEventListener(
         TimelineFlameChartDataProviderEvents.DataChanged, () => this.mainFlameChart.scheduleUpdate());
     this.mainFlameChart = new PerfUI.FlameChart.FlameChart(this.mainDataProvider, this, mainViewGroupExpansionSetting);
@@ -143,9 +144,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.detailsSplitWidget.show(this.element);
 
     this.onMainEntrySelected = this.onEntrySelected.bind(this, this.mainDataProvider);
+    this.onMainEntryInvoked = this.#onEntryInvokes.bind(this, this.mainDataProvider);
     this.onNetworkEntrySelected = this.onEntrySelected.bind(this, this.networkDataProvider);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntrySelected, this.onMainEntrySelected, this);
-    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onMainEntrySelected, this);
+    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onMainEntryInvoked, this);
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.EntrySelected, this.onNetworkEntrySelected, this);
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryInvoked, this.onNetworkEntrySelected, this);
     this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.EntryHighlighted, this.onEntryHighlighted, this);
@@ -383,6 +385,17 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     if (this.detailsView) {
       // TODO(crbug.com/1459265):  Change to await after migration work.
       void this.detailsView.setSelection(selection);
+    }
+  }
+
+  async #onEntryInvokes(
+      dataProvider: PerfUI.FlameChart.FlameChartDataProvider,
+      event: Common.EventTarget.EventTargetEvent<number>): Promise<void> {
+    this.onEntrySelected(dataProvider, event);
+    const entryIndex = event.data;
+    if (dataProvider === this.mainDataProvider && dataProvider.canJumpToEntry(entryIndex)) {
+      const entry = (dataProvider as TimelineFlameChartDataProvider).eventByIndex(entryIndex);
+      this.delegate.jumpToEvent(entry);
     }
   }
 

@@ -169,8 +169,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   #eventToDisallowRoot = new WeakMap<TraceEngine.Legacy.Event, boolean>();
   #font: string;
   #eventIndexByEvent: WeakMap<TraceEngine.Types.TraceEvents.TraceEventData, number|null> = new WeakMap();
+  readonly #isNodeMode: boolean;
 
-  constructor() {
+  constructor(isNodeMode: boolean) {
     super();
     this.reset();
     this.#font = `${PerfUI.Font.DEFAULT_FONT_SIZE} ${PerfUI.Font.getFontFamilyForCanvas()}`;
@@ -185,6 +186,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     this.traceEngineData = null;
     this.minimumBoundaryInternal = 0;
     this.timeSpan = 0;
+    this.#isNodeMode = isNodeMode;
 
     this.headerLevel1 = this.buildGroupStyle({shareHeaderLine: false});
     this.headerLevel2 = this.buildGroupStyle({padding: 2, nestingLevel: 1, collapsible: false});
@@ -1347,7 +1349,13 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     return i18n.TimeUtilities.preciseMillisToString(value, precision);
   }
 
-  canJumpToEntry(_entryIndex: number): boolean {
+  canJumpToEntry(entryIndex: number): boolean {
+    if (this.#isNodeMode) {
+      const event = this.eventByIndex(entryIndex);
+      if (TraceEngine.Legacy.eventIsFromNewEngine(event) && TraceEngine.Types.TraceEvents.isProfileCall(event)) {
+        return true;
+      }
+    }
     return false;
   }
 
