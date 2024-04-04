@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
 import elementsTreeExpandButtonStyles from './elementsTreeExpandButton.css.js';
 
@@ -32,9 +33,11 @@ export class ElementsTreeExpandButton extends HTMLElement {
     // clang-format off
     // This button's innerText will be tested by e2e test and blink layout tests.
     // It can't have any other characters like '\n' or space, otherwise it will break tests.
-    LitHtml.render(LitHtml.html`<span
+    LitHtml.render(LitHtml.html`<button
         class="expand-button"
-        @click=${this.#clickHandler}><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>`,
+        tabindex="-1"
+        jslog=${VisualLogging.action('expand').track({click: true})}
+        @click=${this.#clickHandler}><span class="dot"></span><span class="dot"></span><span class="dot"></span></button>`,
       this.#shadow, {host: this});
     // clang-format on
   }
