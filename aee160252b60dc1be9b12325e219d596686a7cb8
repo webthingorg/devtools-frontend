@@ -258,6 +258,24 @@
       "parentUuid": "eb99300f_4c3c489f",
       "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c22523_d9480762",
+        "filename": "scripts/deps/manage_node_deps.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-04T09:56:35Z",
+      "side": 1,
+      "message": "Found a good advantage: if packages listed in package.json the mirror will periodically do a security audit and file bugs for the vulnerable packages.",
+      "parentUuid": "1050f16a_5de98d0a",
+      "revId": "aee160252b60dc1be9b12325e219d596686a7cb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
