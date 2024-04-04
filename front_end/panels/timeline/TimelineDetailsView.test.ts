@@ -2,22 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as TraceEngine from '../../models/trace/trace.js';
 import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
 import {TraceLoader} from '../../testing/TraceLoader.js';
 
 import * as Timeline from './timeline.js';
 
 const {assert} = chai;
-
-class MockViewDelegate implements Timeline.TimelinePanel.TimelineModeViewDelegate {
-  select(_selection: Timeline.TimelineSelection.TimelineSelection|null): void {
-  }
-  selectEntryAtTime(_events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, _time: number): void {
-  }
-  highlightEvent(_event: TraceEngine.Legacy.CompatibleTraceEvent|null): void {
-  }
-}
 
 function getRowDataForDetailsElement(details: HTMLElement) {
   return Array.from(details.querySelectorAll<HTMLDivElement>('.timeline-details-view-row')).map(row => {
@@ -28,10 +18,10 @@ function getRowDataForDetailsElement(details: HTMLElement) {
 }
 
 describeWithEnvironment('TimelineDetailsView', function() {
-  const mockViewDelegate = new MockViewDelegate();
+  const timelinePanel = new Timeline.TimelinePanel.TimelinePanel();
   it('displays the details of a network request event correctly', async function() {
     const data = await TraceLoader.allModels(this, 'lcp-web-font.json.gz');
-    const detailsView = new Timeline.TimelineDetailsView.TimelineDetailsView(mockViewDelegate);
+    const detailsView = new Timeline.TimelineDetailsView.TimelineDetailsView(timelinePanel);
 
     const networkRequests = data.traceParsedData.NetworkRequests.byTime;
     const cssRequest = networkRequests.find(request => {

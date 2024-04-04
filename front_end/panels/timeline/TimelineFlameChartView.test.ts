@@ -14,17 +14,6 @@ import * as Timeline from './timeline.js';
 
 const {assert} = chai;
 
-class MockViewDelegate implements Timeline.TimelinePanel.TimelineModeViewDelegate {
-  selection: Timeline.TimelineSelection.TimelineSelection|null = null;
-  select(selection: Timeline.TimelineSelection.TimelineSelection|null): void {
-    this.selection = selection;
-  }
-  selectEntryAtTime(_events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, _time: number): void {
-  }
-  highlightEvent(_event: TraceEngine.Legacy.Event|null): void {
-  }
-}
-
 const baseTraceWindow: TraceEngine.Types.Timing.TraceWindowMicroSeconds = {
   min: TraceEngine.Types.Timing.MicroSeconds(0),
   max: TraceEngine.Types.Timing.MicroSeconds(10_000),
@@ -38,9 +27,10 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'lcp-images.json.gz');
     // The timeline flamechart view will invoke the `select` method
     // of this delegate every time an event has matched on a search.
-    const mockViewDelegate = new MockViewDelegate();
+    const timelinePanel = new Timeline.TimelinePanel.TimelinePanel();
+    // const mockViewDelegate = new MockViewDelegate();
 
-    const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
+    const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(timelinePanel);
     const searchableView = new UI.SearchableView.SearchableView(flameChartView, null);
     flameChartView.setSearchableView(searchableView);
     flameChartView.setModel(performanceModel, traceParsedData);

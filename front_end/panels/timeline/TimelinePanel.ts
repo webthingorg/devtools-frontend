@@ -275,7 +275,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 let timelinePanelInstance: TimelinePanel;
 let isNode: boolean;
 
-export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineModeViewDelegate {
+export class TimelinePanel extends UI.Panel.Panel implements Client {
   private readonly dropTarget: UI.DropTarget.DropTarget;
   private readonly recordingOptionUIControls: UI.Toolbar.ToolbarItem[];
   private state: State;
@@ -1694,7 +1694,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.select(null);
   }
 
-  highlightEvent(event: TraceEngine.Legacy.Event|null): void {
+  highlightEvent(event: TraceEngine.Legacy.CompatibleTraceEvent|null): void {
     this.flameChart.highlightEvent(event);
   }
 
@@ -1758,11 +1758,6 @@ export const enum State {
 export const rowHeight = 18;
 
 export const headerHeight = 20;
-export interface TimelineModeViewDelegate {
-  select(selection: TimelineSelection|null): void;
-  selectEntryAtTime(events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, time: number): void;
-  highlightEvent(event: TraceEngine.Legacy.CompatibleTraceEvent|null): void;
-}
 
 export class StatusPane extends UI.Widget.VBox {
   private status: HTMLElement;

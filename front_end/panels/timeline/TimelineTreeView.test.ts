@@ -11,21 +11,13 @@ import * as Timeline from './timeline.js';
 
 const {assert} = chai;
 
-class MockViewDelegate implements Timeline.TimelinePanel.TimelineModeViewDelegate {
-  select(_selection: Timeline.TimelineSelection.TimelineSelection|null): void {
-  }
-  selectEntryAtTime(_events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, _time: number): void {
-  }
-  highlightEvent(_event: TraceEngine.Legacy.CompatibleTraceEvent|null): void {
-  }
-}
-
 describeWithEnvironment('TimelineTreeView', function() {
-  const mockViewDelegate = new MockViewDelegate();
+  // const mockViewDelegate = new MockViewDelegate();
+  const timelinePanel = new Timeline.TimelinePanel.TimelinePanel();
   describe('EventsTimelineTreeView', function() {
     it('Creates a tree from nestable async events', async function() {
       const data = await TraceLoader.allModels(this, 'sync-like-timings.json.gz');
-      const eventTreeView = new Timeline.EventsTimelineTreeView.EventsTimelineTreeView(mockViewDelegate);
+      const eventTreeView = new Timeline.EventsTimelineTreeView.EventsTimelineTreeView(timelinePanel);
       const consoleTimings = [...data.traceParsedData.UserTimings.consoleTimings];
       eventTreeView.setModelWithEvents(data.performanceModel, consoleTimings, data.traceParsedData);
       const tree = eventTreeView.buildTree();
@@ -41,7 +33,7 @@ describeWithEnvironment('TimelineTreeView', function() {
     });
     it('shows instant events as nodes', async function() {
       const data = await TraceLoader.allModels(this, 'user-timings.json.gz');
-      const eventTreeView = new Timeline.EventsTimelineTreeView.EventsTimelineTreeView(mockViewDelegate);
+      const eventTreeView = new Timeline.EventsTimelineTreeView.EventsTimelineTreeView(timelinePanel);
       const consoleTimings = [...data.traceParsedData.UserTimings.performanceMarks];
       eventTreeView.setModelWithEvents(data.performanceModel, consoleTimings, data.traceParsedData);
       const tree = eventTreeView.buildTree();
