@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fb1251_df67ea74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2024-04-04T08:43:00Z",
+      "side": 1,
+      "message": "After only a quick gloss at the code, I’m not entirely sure if it will cover all cases. By the looks of it, only the the Media Query and `color-scheme: light dark`  are checked?\n\nThe `color-scheme` property can also be set to either `light` or `dark`, on a per-element basis affecting the element itself (and its subtree).\n\nSee this demo for example: https://codepen.io/bramus/pen/LYMqRqV\n\nIs this covered? I don’t immediately see tests for `color-scheme: light` or `color-scheme: dark`",
+      "revId": "e890736420d29e4dc6be98db837c59e82adca7cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e945a599_2431ce66",
