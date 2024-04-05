@@ -14,17 +14,6 @@ import * as Timeline from './timeline.js';
 
 const {assert} = chai;
 
-class MockViewDelegate implements Timeline.TimelinePanel.TimelineModeViewDelegate {
-  selection: Timeline.TimelineSelection.TimelineSelection|null = null;
-  select(selection: Timeline.TimelineSelection.TimelineSelection|null): void {
-    this.selection = selection;
-  }
-  selectEntryAtTime(_events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, _time: number): void {
-  }
-  highlightEvent(_event: TraceEngine.Legacy.Event|null): void {
-  }
-}
-
 const baseTraceWindow: TraceEngine.Types.Timing.TraceWindowMicroSeconds = {
   min: TraceEngine.Types.Timing.MicroSeconds(0),
   max: TraceEngine.Types.Timing.MicroSeconds(10_000),
@@ -38,9 +27,9 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'lcp-images.json.gz');
     // The timeline flamechart view will invoke the `select` method
     // of this delegate every time an event has matched on a search.
-    const mockViewDelegate = new MockViewDelegate();
+    const timelinePanel = new Timeline.TimelinePanel.TimelinePanel();
 
-    const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
+    const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(timelinePanel);
     const searchableView = new UI.SearchableView.SearchableView(flameChartView, null);
     flameChartView.setSearchableView(searchableView);
     flameChartView.setModel(performanceModel, traceParsedData);
@@ -65,7 +54,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     assertSelectionName('PrePaint');
 
     function assertSelectionName(name: string) {
-      const selection = mockViewDelegate.selection;
+      const selection = timelinePanel.selectionForTest();
       if (!selection || !Timeline.TimelineSelection.TimelineSelection.isTraceEventSelection(selection.object)) {
         throw new Error('Selection is not present or not a Trace Event');
       }
@@ -80,9 +69,9 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'load-simple.json.gz');
     // The timeline flamechart view will invoke the `select` method
     // of this delegate every time an event has matched on a search.
-    const mockViewDelegate = new MockViewDelegate();
+    const timelinePanel = new Timeline.TimelinePanel.TimelinePanel();
 
-    const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
+    const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(timelinePanel);
     flameChartView.setModel(performanceModel, traceParsedData);
 
     assert.isTrue(flameChartView.isNetworkTrackShownForTests());
@@ -92,7 +81,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'basic.json.gz');
     // The timeline flamechart view will invoke the `select` method
     // of this delegate every time an event has matched on a search.
-    const mockViewDelegate = new MockViewDelegate();
+    const mockViewDelegate = new Timeline.TimelinePanel.TimelinePanel();
 
     const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
     flameChartView.setModel(performanceModel, traceParsedData);
@@ -102,7 +91,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
 
   it('Adds Hidden Descendants Arrow as a decoration when a Context Menu action is applied on a node', async function() {
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'load-simple.json.gz');
-    const mockViewDelegate = new MockViewDelegate();
+    const mockViewDelegate = new Timeline.TimelinePanel.TimelinePanel();
 
     const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
     flameChartView.setModel(performanceModel, traceParsedData);
@@ -150,7 +139,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
   it('Adds Hidden Descendants Arrow as a decoration when a Context Menu action is applied on a selected node with a key shorcut event',
      async function() {
        const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'load-simple.json.gz');
-       const mockViewDelegate = new MockViewDelegate();
+       const mockViewDelegate = new Timeline.TimelinePanel.TimelinePanel();
 
        const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
        flameChartView.setModel(performanceModel, traceParsedData);
@@ -201,7 +190,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
   it('Removes Hidden Descendants Arrow as a decoration when Reset Children action is applied on a node',
      async function() {
        const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'load-simple.json.gz');
-       const mockViewDelegate = new MockViewDelegate();
+       const mockViewDelegate = new Timeline.TimelinePanel.TimelinePanel();
 
        const flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
        flameChartView.setModel(performanceModel, traceParsedData);
@@ -266,7 +255,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
 
     this.beforeEach(async () => {
       const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'recursive-blocking-js.json.gz');
-      const mockViewDelegate = new MockViewDelegate();
+      const mockViewDelegate = new Timeline.TimelinePanel.TimelinePanel();
 
       flameChartView = new Timeline.TimelineFlameChartView.TimelineFlameChartView(mockViewDelegate);
       flameChartView.setModel(performanceModel, traceParsedData);

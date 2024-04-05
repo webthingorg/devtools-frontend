@@ -36,7 +36,7 @@ import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import {type TimelineModeViewDelegate} from './TimelinePanel.js';
+import {type TimelinePanel} from './TimelinePanel.js';
 
 const UIStrings = {
   /**
@@ -70,7 +70,7 @@ const str_ = i18n.i18n.registerUIStrings('panels/timeline/CountersGraph.ts', UIS
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class CountersGraph extends UI.Widget.VBox {
-  private readonly delegate: TimelineModeViewDelegate;
+  private readonly delegate: TimelinePanel;
   private readonly calculator: Calculator;
   private readonly header: UI.Widget.HBox;
   readonly toolbar: UI.Toolbar.Toolbar;
@@ -87,7 +87,7 @@ export class CountersGraph extends UI.Widget.VBox {
   private markerXPosition?: number;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
 
-  constructor(delegate: TimelineModeViewDelegate) {
+  constructor(delegate: TimelinePanel) {
     super();
     this.element.id = 'memory-graphs-container';
 
