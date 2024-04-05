@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "262b0aa6_f34edcd6",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-05T08:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c980d8a2_a1edd09e",
+      "range": {
+        "startLine": 95,
+        "startChar": 7,
+        "endLine": 95,
+        "endChar": 12
+      },
+      "revId": "3d51b4f32396f316526df642a8722f93d5f845ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bb73ccc_06595a73",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2453f018_b4755c70",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-05T08:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bb73ccc_06595a73",
+      "range": {
+        "startLine": 105,
+        "startChar": 31,
+        "endLine": 105,
+        "endChar": 39
+      },
+      "revId": "3d51b4f32396f316526df642a8722f93d5f845ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ebddeb4_aef20659",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-04-04T22:15:37Z",
       "side": 1,
       "message": "nit: do we want to store 0 in a variable? imo seems a bit weird that we call an empty value \"left padding\" or \"icon left\", etc.",
+      "range": {
+        "startLine": 144,
+        "startChar": 26,
+        "endLine": 144,
+        "endChar": 27
+      },
+      "revId": "3d51b4f32396f316526df642a8722f93d5f845ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876da411_4d6b073d",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-05T08:47:30Z",
+      "side": 1,
+      "message": "Ah good catch, i have another CL that will move the blue line to left, so it will add a little padding left to icons, but i still need UX approval for that design., Also just split the CL for easier review 😊",
+      "parentUuid": "2ebddeb4_aef20659",
       "range": {
         "startLine": 144,
         "startChar": 26,
