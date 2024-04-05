@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fce85f1_e4a2d1f6",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-05T06:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcc321cf_758141b4",
+      "revId": "4a53b9b9d6c58e80cceda70986123c7aab56e6b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d3bbe77_ad53605d",
