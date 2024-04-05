@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e95f420_52b59e9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-05T09:10:18Z",
+      "side": 1,
+      "message": "PTAL, I clicked the submit button to quick, and didn;t notice the `git cl upload` is not finished yet 😢",
+      "revId": "f70cb1e1684a6bb2aecb883e8f5f85ac1e41db86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
