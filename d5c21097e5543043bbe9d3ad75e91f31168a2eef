@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ebf7efa_8a522ea9",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-05T00:22:31Z",
+      "side": 1,
+      "message": "true! thx",
+      "parentUuid": "f0c41553_0c8a6cc2",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d78e64c9_12d39921",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "that\u0027s a good point. Right now the extension data handler takes the user timings output and looks for valid extension events, so they overlap. We could have the timings handler ignore extension events but that would require JSON.parsing the detail twice as well.\n\nAlternatively we could cache the extension events somehow and compare against that cache here in constant time. I\u0027m not sure if the effort is worth the saving tho. wdyt?",
       "parentUuid": "3bff553e_be44f1ac",
+      "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "627ec07a_d1ca05e0",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-05T00:22:31Z",
+      "side": 1,
+      "message": "I\u0027m not feeling too strongly here. We can move on.",
+      "parentUuid": "69bca925_6b12401e",
       "revId": "d5c21097e5543043bbe9d3ad75e91f31168a2eef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
