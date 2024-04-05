@@ -16,6 +16,144 @@
       "message": "PTAL, in fact I\u0027m not sure if there is a better way for this.\nAlso I tried to remove the interface `TimelineModeViewDelegate` to make code simpler, but I couldn\u0027t fix the tese: crrev.com/c/5426830",
       "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8efbb8c_795d05ff",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-05T15:57:01Z",
+      "side": 1,
+      "message": "maybe we can set a default value to avoid having to pass a value everytime?\n```suggestion\n  constructor(isNodeMode: boolean \u003d false) {\n```",
+      "range": {
+        "startLine": 174,
+        "startChar": 14,
+        "endLine": 174,
+        "endChar": 24
+      },
+      "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f86c9b96_eabcf924",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-05T15:57:01Z",
+      "side": 1,
+      "message": "ultra-tiny-optional-nit:\n```suggestion\n      return TraceEngine.Legacy.eventIsFromNewEngine(event) \u0026\u0026 TraceEngine.Types.TraceEvents.isProfileCall(event);\n```",
+      "range": {
+        "startLine": 1355,
+        "startChar": 0,
+        "endLine": 1357,
+        "endChar": 7
+      },
+      "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca48fba_43e3a612",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-05T15:57:01Z",
+      "side": 1,
+      "message": "typo: #onEntryInvoked",
+      "range": {
+        "startLine": 391,
+        "startChar": 9,
+        "endLine": 391,
+        "endChar": 23
+      },
+      "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5147d8de_733b903d",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-05T15:57:01Z",
+      "side": 1,
+      "message": "wdyt about a name that conveys the switch to the sources panel. f.e. `revealEntryInSourcesPanel` or something like that?",
+      "range": {
+        "startLine": 1671,
+        "startChar": 8,
+        "endLine": 1671,
+        "endChar": 19
+      },
+      "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac32c2e2_4d130e1a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-05T15:57:01Z",
+      "side": 1,
+      "message": "let\u0027s extract what we can from `#startCPUProfilingRecording` into a helper we use in both sites to avoid duplication",
+      "range": {
+        "startLine": 1673,
+        "startChar": 0,
+        "endLine": 1689,
+        "endChar": 7
+      },
+      "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b05116_2d737808",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-05T15:57:01Z",
+      "side": 1,
+      "message": "let\u0027s add a test for this behaviour. Likely an e2e test?",
+      "range": {
+        "startLine": 1701,
+        "startChar": 0,
+        "endLine": 1703,
+        "endChar": 47
+      },
+      "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
