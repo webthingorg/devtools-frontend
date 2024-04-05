@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7113280b_875daf4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-05T14:52:32Z",
+      "side": 1,
+      "message": "PTAL, in fact I\u0027m not sure if there is a better way for this.\nAlso I tried to remove the interface `TimelineModeViewDelegate` to make code simpler, but I couldn\u0027t fix the tese: crrev.com/c/5426830",
+      "revId": "67b35c4a7f1f894c207eb6b50cceca774d4d7dc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
