@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8338b8ed_da590e18",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-04-05T17:03:34Z",
+      "side": 1,
+      "message": "I took a look at an example trace, I think it\u0027s possible for there to be multiple `n` status events. WDYT about making this into a list or just using the first status event that has `args.data.compositeFailed` defined?",
+      "revId": "8eee01845b92dc6eaa412a7693a33501dc539af1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4af711d8_e510fd64",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-04-05T17:03:34Z",
+      "side": 1,
+      "message": "`failureMask` is a pretty inconvenient way of working with compositor failure reasons. I think this insight is a good place to map the failure mask to a set of enums so it\u0027s easier to work with.",
+      "revId": "8eee01845b92dc6eaa412a7693a33501dc539af1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11bb790_9d6d75be",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-04-05T17:03:34Z",
+      "side": 1,
+      "message": "We should just get the animations for the navigation under test. Maybe we could look at the timestamps of the animations?",
+      "revId": "8eee01845b92dc6eaa412a7693a33501dc539af1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a8d6f4_2f725dd6",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-04-05T17:03:34Z",
+      "side": 1,
+      "message": "Looks like `id`, `name` etc are actually in `data` as well haha",
+      "range": {
+        "startLine": 480,
+        "startChar": 2,
+        "endLine": 488,
+        "endChar": 6
+      },
+      "revId": "8eee01845b92dc6eaa412a7693a33501dc539af1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
