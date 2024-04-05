@@ -85,14 +85,6 @@ const UIStrings = {
    */
   visibleSelectors: '{n, plural, =1 {# visible selector listed below} other {# visible selectors listed below}}',
   /**
-   *@description Text in Styles Sidebar Pane of the Elements panel
-   */
-  invalidPropertyValue: 'Invalid property value',
-  /**
-   *@description Text in Styles Sidebar Pane of the Elements panel
-   */
-  unknownPropertyName: 'Unknown property name',
-  /**
    *@description Text to filter result items
    */
   filter: 'Filter',
@@ -126,13 +118,6 @@ const UIStrings = {
    */
   incrementdecrementWithMousewheelHundred:
       'Increment/decrement with mousewheel or up/down keys. {PH1}: ±100, Shift: ±10, Alt: ±0.1',
-  /**
-   *@description Announcement string for invalid properties.
-   *@example {Invalid property value} PH1
-   *@example {font-size} PH2
-   *@example {invalidValue} PH3
-   */
-  invalidString: '{PH1}, property name: {PH2}, property value: {PH3}',
   /**
    *@description Tooltip text that appears when hovering over the rendering button in the Styles Sidebar Pane of the Elements panel
    */
@@ -426,26 +411,6 @@ export class StylesSidebarPane extends Common.ObjectWrapper.eventMixin<EventType
 
   setUserOperation(userOperation: boolean): void {
     this.userOperation = userOperation;
-  }
-
-  createExclamationMark(property: SDK.CSSProperty.CSSProperty, title: HTMLElement|null): Element {
-    const exclamationElement = document.createElement('span');
-    exclamationElement.classList.add('exclamation-mark');
-    const invalidMessage = SDK.CSSMetadata.cssMetadata().isCSSPropertyName(property.name) ?
-        i18nString(UIStrings.invalidPropertyValue) :
-        i18nString(UIStrings.unknownPropertyName);
-    if (title === null) {
-      UI.Tooltip.Tooltip.install(exclamationElement, invalidMessage);
-    } else {
-      this.addPopover(exclamationElement, {contents: () => title});
-    }
-    const invalidString =
-        i18nString(UIStrings.invalidString, {PH1: invalidMessage, PH2: property.name, PH3: property.value});
-
-    // Storing the invalidString for future screen reader support when editing the property
-    property.setDisplayedStringForInvalidProperty(invalidString);
-
-    return exclamationElement;
   }
 
   static ignoreErrorsForProperty(property: SDK.CSSProperty.CSSProperty): boolean {

@@ -16,6 +16,7 @@ import * as ColorPicker from '../../ui/legacy/components/color_picker/color_pick
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {
@@ -77,12 +78,32 @@ import {
   unescapeCssString,
 } from './StylesSidebarPane.js';
 
+const {
+  render,
+  html,
+  Directives: {ref, createRef},
+} = LitHtml;
 const FlexboxEditor = ElementsComponents.StylePropertyEditor.FlexboxEditor;
 const GridEditor = ElementsComponents.StylePropertyEditor.GridEditor;
 
 export const activeHints = new WeakMap<Element, Hint>();
 
 const UIStrings = {
+  /**
+   *@description Announcement string for invalid properties.
+   *@example {Invalid property value} PH1
+   *@example {font-size} PH2
+   *@example {invalidValue} PH3
+   */
+  invalidString: '{PH1}, property name: {PH2}, property value: {PH3}',
+  /**
+   *@description Text in Styles Sidebar Pane of the Elements panel
+   */
+  unknownPropertyName: 'Unknown property name',
+  /**
+   *@description Text in Styles Sidebar Pane of the Elements panel
+   */
+  invalidPropertyValue: 'Invalid property value',
   /**
    *@description Text in Color Swatch Popover Icon of the Elements panel
    */
@@ -1115,7 +1136,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private expandedDueToFilter: boolean;
   valueElement: HTMLElement|null;
   nameElement: HTMLElement|null;
-  private expandElement: IconButton.Icon.Icon|null;
+  private expandElement = createRef<IconButton.Icon.Icon>();
   private originalPropertyText: string;
   private hasBeenEditedIncrementally: boolean;
   private prompt: CSSPropertyPrompt|null;
@@ -1149,7 +1170,6 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.expandedDueToFilter = false;
     this.valueElement = null;
     this.nameElement = null;
-    this.expandElement = null;
     this.originalPropertyText = '';
     this.hasBeenEditedIncrementally = false;
     this.prompt = null;
@@ -1455,13 +1475,13 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   private updateExpandElement(): void {
-    if (!this.expandElement) {
+    if (!this.expandElement.value) {
       return;
     }
     if (this.expanded) {
-      this.expandElement.name = 'triangle-down';
+      this.expandElement.value.name = 'triangle-down';
     } else {
-      this.expandElement.name = 'triangle-right';
+      this.expandElement.value.name = 'triangle-right';
     }
   }
 
@@ -1497,10 +1517,6 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
 
   private innerUpdateTitle(): void {
     this.updateState();
-    if (this.isExpandable()) {
-      this.expandElement = IconButton.Icon.create('triangle-right', 'expand-icon');
-      this.expandElement.setAttribute('jslog', `${VisualLogging.expand().track({click: true})}`);
-    }
 
     const matchers: Matcher[] = this.property.parsedOk ?
         [
@@ -1526,7 +1542,6 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       );
     }
 
-    this.listItemElement.removeChildren();
     this.valueElement = StylePropertyTreeElement.renderValueElement(this.name, this.value, matchers);
     this.nameElement = StylePropertyTreeElement.renderNameElement(this.name);
     if (this.property.name.startsWith('--') && this.nameElement) {
@@ -1541,67 +1556,115 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    const indent = Common.Settings.Settings.instance().moduleSetting('text-editor-indent').get();
-    UI.UIUtils.createTextChild(
-        this.listItemElement.createChild('span', 'styles-clipboard-only'),
-        indent.repeat(this.section().nestingLevel + 1) + (this.property.disabled ? '/* ' : ''));
-    if (this.nameElement) {
-      this.listItemElement.appendChild(this.nameElement);
-    }
-    if (this.valueElement) {
-      const lineBreakValue =
-          this.valueElement.firstElementChild && this.valueElement.firstElementChild.tagName === 'BR';
-      const separator = lineBreakValue ? ':' : ': ';
-      this.listItemElement.createChild('span', 'styles-name-value-separator').textContent = separator;
-      if (this.expandElement) {
-        this.listItemElement.appendChild(this.expandElement);
-      }
-      this.listItemElement.appendChild(this.valueElement);
-      const semicolon = this.listItemElement.createChild('span', 'styles-semicolon');
-      semicolon.textContent = ';';
-      semicolon.onmouseup = this.mouseUp.bind(this);
-      if (this.property.disabled) {
-        UI.UIUtils.createTextChild(this.listItemElement.createChild('span', 'styles-clipboard-only'), ' */');
-      }
-    }
-
-    if (this.valueElement && this.#parentSection.editable && this.property.name === 'display') {
+    let flexGridButton;
+    if (this.#parentSection.editable && this.property.name === 'display') {
       const propertyValue = this.property.trimmedValueWithoutImportant();
       const isFlex = propertyValue === 'flex' || propertyValue === 'inline-flex';
       const isGrid = propertyValue === 'grid' || propertyValue === 'inline-grid';
       if (isFlex || isGrid) {
         const key = `${this.#parentSection.getSectionIdx()}_${this.#parentSection.nextEditorTriggerButtonIdx}`;
-        const button = StyleEditorWidget.createTriggerButton(
-            this.parentPaneInternal, this.#parentSection, isFlex ? FlexboxEditor : GridEditor,
-            isFlex ? i18nString(UIStrings.flexboxEditorButton) : i18nString(UIStrings.gridEditorButton), key);
-        button.setAttribute(
-            'jslog', `${VisualLogging.showStyleEditor().track({click: true}).context(isFlex ? 'flex' : 'grid')}`);
+        // FIXME
+        flexGridButton = StyleEditorWidget.createTriggerButton(
+            this.parentPaneInternal,
+            this.#parentSection,
+            isFlex ? FlexboxEditor : GridEditor,
+            isFlex ? i18nString(UIStrings.flexboxEditorButton) : i18nString(UIStrings.gridEditorButton),
+            key,
+        );
+        flexGridButton.setAttribute(
+            'jslog',
+            `${VisualLogging.showStyleEditor().track({click: true}).context(isFlex ? 'flex' : 'grid')}`,
+        );
         this.#parentSection.nextEditorTriggerButtonIdx++;
-        button.addEventListener('click', () => {
+        flexGridButton.addEventListener('click', () => {
           Host.userMetrics.swatchActivated(
-              isFlex ? Host.UserMetrics.SwatchType.Flex : Host.UserMetrics.SwatchType.Grid);
+              isFlex ? Host.UserMetrics.SwatchType.Flex : Host.UserMetrics.SwatchType.Grid,
+          );
         });
-        this.listItemElement.appendChild(button);
         const helper = this.parentPaneInternal.swatchPopoverHelper();
         if (helper.isShowing(StyleEditorWidget.instance()) && StyleEditorWidget.instance().getTriggerKey() === key) {
-          helper.setAnchorElement(button);
+          helper.setAnchorElement(flexGridButton);
         }
       }
     }
+
+    const indent = Common.Settings.Settings.instance().moduleSetting('text-editor-indent').get();
+    const lineBreakValue = this.valueElement.firstElementChild && this.valueElement.firstElementChild.tagName === 'BR';
+    const registrationDetails = this.#getRegisteredPropertyDetails(
+        this.property.name,
+    );
+
+    const isValidProperty = this.property.parsedOk && this.parent && this.parent.root;
+    const invalidMessage = SDK.CSSMetadata.cssMetadata().isCSSPropertyName(
+                               this.property.name,
+                               ) ?
+        i18nString(UIStrings.invalidPropertyValue) :
+        i18nString(UIStrings.unknownPropertyName);
+    if (!this.property.parsedOk) {
+      const invalidString = i18nString(UIStrings.invalidString, {
+        PH1: invalidMessage,
+        PH2: this.property.name,
+        PH3: this.property.value,
+      });
+      // Storing the invalidString for future screen reader support when editing the property
+      this.property.setDisplayedStringForInvalidProperty(invalidString);
+    }
+
+    /* eslint-disable rulesdir/ban_literal_devtools_component_tag_names */
+    render(
+        html`<span
+                ?hidden=${this.property.parsedOk}
+                class='exclamation-mark'
+                title=${registrationDetails ? undefined : invalidMessage}
+                ${
+            ref(
+                e => e && registrationDetails && this.parentPane().addPopover(e, {
+                  contents: () => new ElementsComponents.CSSVariableValueView.CSSVariableParserError(
+                      registrationDetails,
+                      ),
+                }),
+                )}></span><input
+                  ?hidden=${!isValidProperty}
+                  class='enabled-button'
+                  type='checkbox'
+                  checked=${!this.property.disabled}
+                  jslog=${VisualLogging.toggle().track({
+          click: true,
+        })}
+                  @mousedown=${(event: MouseEvent) => event.consume()}
+                  @click=${(event: MouseEvent) => {
+      void this.toggleDisabled(!this.property.disabled);
+      event.consume();
+        }}
+                  aria-label="${this.nameElement.textContent} ${this.valueElement.textContent}"
+                  ></input><span
+                    class='styles-clipboard-only'>${
+            indent.repeat(
+                this.section().nestingLevel + 1,
+                )}${this.property.disabled ? '/* ' : ''}</span>${
+            this.nameElement}<span class='styles-name-value-separator'>${
+            lineBreakValue ? ':' : ': '}</span><devtools-icon name='triangle-right' class='expand-icon' ?hidden=${
+    !this.isExpandable()} jslog=${
+        VisualLogging.expand().track(
+            {click: true},
+            )} ${ref(this.expandElement)}></devtools-icon>${this.valueElement}<span class='styles-semicolon' @mouseup=${
+        this.mouseUp.bind(
+            this,
+            )}>;</span><span ?hidden=${!this.property.disabled} class='styles-clipboard-only'> */</span>${
+        flexGridButton || undefined}<devtools-icon ?hidden=${
+            !isValidProperty} name=copy class=copy style="border: 1px solid black;" title=${
+            i18nString(
+                UIStrings.copyDeclaration,
+                )} @click=${() => this.#copyDeclaration()}></devtools-icon>`,
+        this.listItemElement,
+        {host: this},
+    );
 
     if (this.property.parsedOk) {
       this.updateAuthoringHint();
     } else {
       // Avoid having longhands under an invalid shorthand.
       this.listItemElement.classList.add('not-parsed-ok');
-
-      const registrationDetails = this.#getRegisteredPropertyDetails(this.property.name);
-      const tooltip = registrationDetails ?
-          new ElementsComponents.CSSVariableValueView.CSSVariableParserError(registrationDetails) :
-          null;
-      // Add a separate exclamation mark IMG element with a tooltip.
-      this.listItemElement.insertBefore(
-          this.parentPaneInternal.createExclamationMark(this.property, tooltip), this.listItemElement.firstChild);
 
       // When the property is valid but the property value is invalid,
       // add line-through only to the property value.
@@ -1615,33 +1678,12 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.listItemElement.classList.add('inactive');
     }
     this.updateFilter();
+  }
 
-    if (this.property.parsedOk && this.parent && this.parent.root) {
-      const enabledCheckboxElement = document.createElement('input');
-      enabledCheckboxElement.className = 'enabled-button';
-      enabledCheckboxElement.type = 'checkbox';
-      enabledCheckboxElement.checked = !this.property.disabled;
-      enabledCheckboxElement.setAttribute('jslog', `${VisualLogging.toggle().track({click: true})}`);
-      enabledCheckboxElement.addEventListener('mousedown', event => event.consume(), false);
-      enabledCheckboxElement.addEventListener('click', event => {
-        void this.toggleDisabled(!this.property.disabled);
-        event.consume();
-      }, false);
-      if (this.nameElement && this.valueElement) {
-        UI.ARIAUtils.setLabel(
-            enabledCheckboxElement, `${this.nameElement.textContent} ${this.valueElement.textContent}`);
-      }
-
-      const copyIcon = IconButton.Icon.create('copy', 'copy');
-      UI.Tooltip.Tooltip.install(copyIcon, i18nString(UIStrings.copyDeclaration));
-      copyIcon.addEventListener('click', () => {
-        const propertyText = `${this.property.name}: ${this.property.value};`;
-        Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(propertyText);
-        Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.DeclarationViaChangedLine);
-      });
-      this.listItemElement.append(copyIcon);
-      this.listItemElement.insertBefore(enabledCheckboxElement, this.listItemElement.firstChild);
-    }
+  #copyDeclaration(): void {
+    const propertyText = `${this.property.name}: ${this.property.value};`;
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(propertyText);
+    Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.DeclarationViaChangedLine);
   }
 
   updateAuthoringHint(): void {
@@ -1714,7 +1756,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
 
-    if (this.expandElement && selectedElement === this.expandElement) {
+    if (this.expandElement.value && selectedElement === this.expandElement.value) {
       return;
     }
 
@@ -2458,7 +2500,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   override isEventWithinDisclosureTriangle(event: Event): boolean {
-    return event.target === this.expandElement;
+    return event.target === this.expandElement.value;
   }
 }
 export interface Context {
