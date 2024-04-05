@@ -18,6 +18,11 @@ class MockViewDelegate implements Timeline.TimelinePanel.TimelineModeViewDelegat
   }
   highlightEvent(_event: TraceEngine.Legacy.CompatibleTraceEvent|null): void {
   }
+  jumpToEvent(_event: TraceEngine.Legacy.CompatibleTraceEvent|null): void {
+  }
+  isNodeMode(): boolean {
+    return false;
+  }
 }
 
 describeWithEnvironment('TimelineTreeView', function() {
