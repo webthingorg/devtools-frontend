@@ -481,16 +481,17 @@ export interface TraceEventAnimation extends TraceEventData {
     id?: string,
     name?: string,
     nodeId?: number,
-    nodeName?: string,
-    state?: string,
-    compositeFailed?: number,
-    unsupportedProperties?: string[],
+    nodeName?: string, data: TraceEventArgsData&{
+      state?: string,
+      compositeFailed?: number,
+      unsupportedProperties?: string[],
+    },
   };
   name: 'Animation';
   id2?: {
     local?: string,
   };
-  ph: Phase.ASYNC_NESTABLE_START|Phase.ASYNC_NESTABLE_END;
+  ph: Phase.ASYNC_NESTABLE_START|Phase.ASYNC_NESTABLE_END|Phase.ASYNC_NESTABLE_INSTANT;
 }
 
 // Metadata events.
@@ -1011,7 +1012,7 @@ export interface TraceEventPrePaint extends TraceEventComplete {
 }
 
 export interface TraceEventPairableAsync extends TraceEventData {
-  ph: Phase.ASYNC_NESTABLE_START|Phase.ASYNC_NESTABLE_END;
+  ph: Phase.ASYNC_NESTABLE_START|Phase.ASYNC_NESTABLE_END|Phase.ASYNC_NESTABLE_INSTANT;
   // The id2 field gives flexibility to explicitly specify if an event
   // id is global among processes or process local. However not all
   // events use it, so both kind of ids need to be marked as optional.
@@ -1020,6 +1021,10 @@ export interface TraceEventPairableAsync extends TraceEventData {
 }
 export interface TraceEventPairableAsyncBegin extends TraceEventPairableAsync {
   ph: Phase.ASYNC_NESTABLE_START;
+}
+
+export interface TraceEventPairableAsyncStatus extends TraceEventPairableAsync {
+  ph: Phase.ASYNC_NESTABLE_INSTANT;
 }
 
 export interface TraceEventPairableAsyncEnd extends TraceEventPairableAsync {
@@ -1196,6 +1201,7 @@ export interface SyntheticEventPair<T extends TraceEventPairableAsync = TraceEve
   args: TraceEventArgs&{
     data: {
       beginEvent: T & TraceEventPairableAsyncBegin,
+      statusEvent: T&TraceEventPairableAsyncStatus,
       endEvent: T&TraceEventPairableAsyncEnd,
     },
   };

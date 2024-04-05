@@ -192,11 +192,13 @@ export function makeProfileCall(
 
 export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.TraceEventPairableAsync[]): Map<string, {
   begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
+  status: Types.TraceEvents.TraceEventPairableAsyncStatus | null,
   end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
 }> {
   // map to store begin and end of the event
   const matchedPairs: Map<string, {
     begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
+    status: Types.TraceEvents.TraceEventPairableAsyncStatus | null,
     end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
   }> = new Map();
 
@@ -210,16 +212,19 @@ export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.Tra
     // Console timings can be dispatched with the same id, so use the
     // event name as well to generate unique ids.
     const otherEventsWithID = Platform.MapUtilities.getWithDefault(matchedPairs, syntheticId, () => {
-      return {begin: null, end: null};
+      return {begin: null, status: null, end: null};
     });
 
     const isStartEvent = event.ph === Types.TraceEvents.Phase.ASYNC_NESTABLE_START;
+    const isStatusEvent = event.ph === Types.TraceEvents.Phase.ASYNC_NESTABLE_INSTANT;
     const isEndEvent = event.ph === Types.TraceEvents.Phase.ASYNC_NESTABLE_END;
 
     if (isStartEvent) {
       otherEventsWithID.begin = event as Types.TraceEvents.TraceEventPairableAsyncBegin;
     } else if (isEndEvent) {
       otherEventsWithID.end = event as Types.TraceEvents.TraceEventPairableAsyncEnd;
+    } else if (isStatusEvent) {
+      otherEventsWithID.status = event as Types.TraceEvents.TraceEventPairableAsyncStatus;
     }
   }
 
@@ -234,11 +239,13 @@ function getSyntheticId(event: Types.TraceEvents.TraceEventPairableAsync): strin
 export function createSortedSyntheticEvents<T extends Types.TraceEvents.TraceEventPairableAsync>(
     matchedPairs: Map<string, {
       begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
+      status: Types.TraceEvents.TraceEventPairableAsyncStatus | null,
       end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
     }>): MatchedPairType<T>[] {
   const syntheticEvents: MatchedPairType<T>[] = [];
   for (const [id, eventsPair] of matchedPairs.entries()) {
     const beginEvent = eventsPair.begin;
+    const statusEvent = eventsPair.status;
     const endEvent = eventsPair.end;
     if (!beginEvent || !endEvent) {
       // This should never happen, the backend only creates the events once it
@@ -246,9 +253,10 @@ export function createSortedSyntheticEvents<T extends Types.TraceEvents.TraceEve
       // If we do, something is very wrong, so let's just drop that problematic event.
       continue;
     }
-    const pair = {beginEvent, endEvent};
+    const pair = {beginEvent, statusEvent, endEvent};
     function eventsArePairable(data: {
       beginEvent: Types.TraceEvents.TraceEventPairableAsyncBegin,
+      statusEvent: Types.TraceEvents.TraceEventPairableAsyncStatus|null,
       endEvent: Types.TraceEvents.TraceEventPairableAsyncEnd,
     }): data is MatchedPairType<T>['args']['data'] {
       return Boolean(getSyntheticId(data.beginEvent)) &&
