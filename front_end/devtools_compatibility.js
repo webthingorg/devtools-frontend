@@ -1144,6 +1144,14 @@ const InspectorFrontendHostImpl = class {
   registerAidaClientEvent(request) {
     DevToolsAPI.sendMessageToEmbedder('registerAidaClientEvent', [request]);
   }
+
+  /**
+   * @param {number} frameId
+   * @param {function(!InspectorFrontendHostAPI.DoAidaConversationResult): void} cb
+   */
+  getDevtoolsTokenForFrame(frameId, cb) {
+    DevToolsAPI.sendMessageToEmbedder('getDevtoolsTokenForFrame', [frameId], cb);
+  }
 };
 
 window.InspectorFrontendHost = new InspectorFrontendHostImpl();

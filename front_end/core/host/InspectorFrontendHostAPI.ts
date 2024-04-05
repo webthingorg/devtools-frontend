@@ -145,6 +145,10 @@ export interface DoAidaConversationResult {
   detail?: string;
 }
 
+export interface GetDevtoolsTokenForFrameResult {
+  devtoolsFrameId?: string;
+}
+
 export interface VisualElementImpression {
   id: number;
   type: number;
@@ -362,6 +366,8 @@ export interface InspectorFrontendHostAPI {
 
   doAidaConversation: (request: string, streamId: number, cb: (result: DoAidaConversationResult) => void) => void;
   registerAidaClientEvent: (request: string) => void;
+
+  getDevtoolsTokenForFrame: (frameId: number, cb: (result: GetDevtoolsTokenForFrameResult) => void) => void;
 
   recordImpression(event: ImpressionEvent): void;
   recordClick(event: ClickEvent): void;

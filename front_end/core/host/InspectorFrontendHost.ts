@@ -48,6 +48,7 @@ import {
   Events,
   type EventTypes,
   type ExtensionDescriptor,
+  type GetDevtoolsTokenForFrameResult,
   type HoverEvent,
   type ImpressionEvent,
   type InspectorFrontendHostAPI,
@@ -481,6 +482,10 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   }
 
   registerAidaClientEvent(request: string): void {
+  }
+
+  getDevtoolsTokenForFrame(frameId: number, cb: (result: GetDevtoolsTokenForFrameResult) => void): void {
+    cb({});
   }
 
   recordImpression(event: ImpressionEvent): void {

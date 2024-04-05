@@ -127,6 +127,7 @@ export namespace PrivateAPI {
   }
 
   export interface EvaluateOptions {
+    frameId?: number;
     frameURL?: string;
     useContentScriptContext?: boolean;
     scriptExecutionContext?: string;
@@ -1185,10 +1186,12 @@ self.injectedExtensionAPI = function(
       extensionServer.sendRequest({command: PrivateAPI.Commands.Reload, options: options});
     },
 
-    eval: function(
-              expression: string,
-              evaluateOptions: {scriptExecutionContext?: string, frameURL?: string, useContentScriptContext?: boolean}):
-              Object |
+    eval: function(expression: string, evaluateOptions: {
+            frameId: number,
+            scriptExecutionContext?: string,
+            frameURL?: string,
+            useContentScriptContext?: boolean,
+          }): Object |
         null {
           const callback = extractCallbackArgument(arguments);
           function callbackWrapper(result: unknown): void {

@@ -817,8 +817,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return this.status.OK();
   }
 
-  private onEvaluateOnInspectedPage(message: PrivateAPI.ExtensionServerRequestMessage, port: MessagePort): Record
-      |undefined {
+  private async onEvaluateOnInspectedPage(message: PrivateAPI.ExtensionServerRequestMessage, port: MessagePort):
+      Promise<Record|undefined> {
     if (message.command !== PrivateAPI.Commands.EvaluateOnInspectedPage) {
       return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.EvaluateOnInspectedPage}`);
     }
@@ -1255,11 +1255,11 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return resourceURL.href as Platform.DevToolsPath.UrlString;
   }
 
-  evaluate(
+  async evaluate(
       expression: string, exposeCommandLineAPI: boolean, returnByValue: boolean,
       options: PrivateAPI.EvaluateOptions|undefined, securityOrigin: string,
-      callback: (arg0: string|null, arg1: SDK.RemoteObject.RemoteObject|null, arg2: boolean) => unknown): Record
-      |undefined {
+      callback: (arg0: string|null, arg1: SDK.RemoteObject.RemoteObject|null, arg2: boolean) => unknown):
+      Promise<Record|undefined> {
     let context;
 
     function resolveURLToFrame(url: Platform.DevToolsPath.UrlString): SDK.ResourceTreeModel.ResourceTreeFrame|null {
@@ -1275,7 +1275,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
     options = options || {};
     let frame;
-    if (options.frameURL) {
+    if (options.frameId !== undefined) {
+      frame = await SDK.ResourceTreeModel.ResourceTreeModel.frameForHostFrameId(options.frameId);
+    } else if (options.frameURL) {
       frame = resolveURLToFrame(options.frameURL as Platform.DevToolsPath.UrlString);
     } else {
       const target = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
