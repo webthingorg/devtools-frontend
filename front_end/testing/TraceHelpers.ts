@@ -48,7 +48,8 @@ export async function getMainFlameChartWithTracks(
   // This function is used to load a component example.
   const {traceParsedData, performanceModel} = await TraceLoader.allModels(/* context= */ null, traceFileName);
 
-  const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+  const dataProvider =
+      new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(/* isNodeMode= */ false);
   // The data provider still needs a reference to the legacy model to
   // work properly.
   dataProvider.setModel(performanceModel, traceParsedData);
@@ -91,7 +92,8 @@ export async function getMainFlameChartWithLegacyTrackTypes(
   const {traceParsedData, performanceModel, timelineModel} =
       await TraceLoader.allModels(/* context= */ null, traceFileName);
 
-  const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+  const dataProvider =
+      new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(/* isNodeMode= */ false);
   // The data provider still needs a reference to the legacy model to
   // work properly.
   dataProvider.setModel(performanceModel, traceParsedData);

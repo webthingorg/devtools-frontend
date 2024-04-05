@@ -17,7 +17,8 @@ import * as Timeline from './timeline.js';
 describeWithEnvironment('TimelineFlameChartDataProvider', function() {
   describe('groupTreeEvents', function() {
     it('returns the correct events for tree views given a flame chart group', async function() {
-      const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+      const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(
+          /* isNodeMode= */ false);
       const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'sync-like-timings.json.gz');
       dataProvider.setModel(performanceModel, traceParsedData);
       const timingsTrackGroup = dataProvider.timelineData().groups.find(g => g.name === 'Timings');
@@ -36,7 +37,8 @@ describeWithEnvironment('TimelineFlameChartDataProvider', function() {
     });
 
     it('filters out async events if they cannot be added to the tree', async function() {
-      const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+      const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(
+          /* isNodeMode= */ false);
       const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'timings-track.json.gz');
       dataProvider.setModel(performanceModel, traceParsedData);
       const timingsTrackGroup = dataProvider.timelineData().groups.find(g => g.name === 'Timings');
@@ -52,7 +54,8 @@ describeWithEnvironment('TimelineFlameChartDataProvider', function() {
   });
 
   it('adds candy stripe and triangle decorations to long tasks in the main thread', async function() {
-    const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+    const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(
+        /* isNodeMode= */ false);
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'one-second-interaction.json.gz');
     dataProvider.setModel(performanceModel, traceParsedData);
 
@@ -83,7 +86,8 @@ describeWithEnvironment('TimelineFlameChartDataProvider', function() {
   });
 
   it('populates the frames track with frames and screenshots', async function() {
-    const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+    const dataProvider =
+        new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(/* isNodeMode= */ false);
     const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'web-dev.json.gz');
     dataProvider.setModel(performanceModel, traceParsedData);
     const framesTrack = dataProvider.timelineData().groups.find(g => {
@@ -125,7 +129,8 @@ describeWithEnvironment('TimelineFlameChartDataProvider', function() {
         debuggerWorkspaceBinding,
       });
 
-      const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+      const dataProvider =
+          new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(/* isNodeMode= */ false);
       const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'react-hello-world.json.gz');
       dataProvider.setModel(performanceModel, traceParsedData);
 
@@ -151,7 +156,8 @@ describeWithEnvironment('TimelineFlameChartDataProvider', function() {
   });
 
   it('filters navigations to only return those that happen on the main frame', async function() {
-    const dataProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+    const dataProvider =
+        new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider(/* isNodeMode= */ false);
     const {traceParsedData, performanceModel} =
         await TraceLoader.allModels(this, 'multiple-navigations-with-iframes.json.gz');
 

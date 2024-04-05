@@ -40,6 +40,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
+import * as Bindings from '../../models/bindings/bindings.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as Workspace from '../../models/workspace/workspace.js';
@@ -476,6 +477,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
 
     return timelinePanelInstance;
+  }
+
+  isNodeMode(): boolean {
+    return isNode;
   }
 
   override searchableView(): UI.SearchableView.SearchableView|null {
@@ -1663,6 +1668,42 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     return true;
   }
 
+  async jumpToEvent(event: TraceEngine.Legacy.CompatibleTraceEvent|null): Promise<void> {
+    if (TraceEngine.Legacy.eventIsFromNewEngine(event) && TraceEngine.Types.TraceEvents.isProfileCall(event)) {
+      let cpuProfiler = UI.Context.Context.instance().flavor(SDK.CPUProfilerModel.CPUProfilerModel);
+      if (!cpuProfiler) {
+        // If there is no isolate selected, we will profile the first isolate that devtools connects to.
+        // If we profile all target, but this will cause some bugs like time for the function is calculated wrong,
+        // because the profiles will be concated and sorted together, so the total time will be amplified.
+        // Multiple targets problem might happen when you inspect multiple node servers on different port at same time,
+        // or when you let DevTools listen to both locolhost:9229 & 127.0.0.1:9229.
+        const firstNodeTarget =
+            SDK.TargetManager.TargetManager.instance().targets().find(target => target.type() === SDK.Target.Type.Node);
+        if (!firstNodeTarget) {
+          // Could not load any Node target. Just don't handle the jump action.
+          return;
+        }
+        if (firstNodeTarget) {
+          cpuProfiler = firstNodeTarget.model(SDK.CPUProfilerModel.CPUProfilerModel);
+        }
+      }
+      const debuggerModel = cpuProfiler?.debuggerModel();
+      if (!debuggerModel) {
+        return;
+      }
+      const script = debuggerModel.scriptForId(event.callFrame.scriptId);
+      if (!script) {
+        return;
+      }
+      const location =
+          (debuggerModel.createRawLocation(script, event.callFrame.lineNumber, event.callFrame.columnNumber) as
+           SDK.DebuggerModel.Location);
+      const uiLocation =
+          await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().rawLocationToUILocation(location);
+      await Common.Revealer.reveal(uiLocation);
+    }
+  }
+
   select(selection: TimelineSelection|null): void {
     this.selection = selection;
     this.flameChart.setSelection(selection);
@@ -1762,6 +1803,8 @@ export interface TimelineModeViewDelegate {
   select(selection: TimelineSelection|null): void;
   selectEntryAtTime(events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, time: number): void;
   highlightEvent(event: TraceEngine.Legacy.CompatibleTraceEvent|null): void;
+  jumpToEvent(event: TraceEngine.Legacy.CompatibleTraceEvent|null): void;
+  isNodeMode(): boolean;
 }
 
 export class StatusPane extends UI.Widget.VBox {
