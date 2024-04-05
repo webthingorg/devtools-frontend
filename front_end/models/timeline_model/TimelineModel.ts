@@ -1001,10 +1001,6 @@ export class TimelineModelImpl {
     return this.inspectedTargetEventsInternal;
   }
 
-  tracks(): Track[] {
-    return this.tracksInternal;
-  }
-
   rootFrames(): PageFrame[] {
     return Array.from(this.pageFrames.values()).filter(frame => !frame.parent);
   }
