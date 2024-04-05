@@ -146,6 +146,30 @@
       },
       "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34aded63_b36d3547",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-05T13:18:19Z",
+      "side": 1,
+      "message": "FWIW, I am plus one on handlers being classes. I remember Andrés and I discussing this sometime last year.",
+      "parentUuid": "7ad436ec_a2235fb9",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "cd4a92d53db3060c99ddbf56af1126a52f56faba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
