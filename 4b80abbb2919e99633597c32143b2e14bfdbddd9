@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "482e9979_b8f1fde7",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-05T00:26:30Z",
+      "side": 1,
+      "message": "wdyt about `TracingStarted` instead.  From a CDP pov, profiling is the v8 cpu profiler.  \n\nI\u0027m pushing us towards formally adopting \u0027trace\u0027 in the UI rather than \u0027profile\u0027, but clearly we didnt do it just yet.",
+      "revId": "4b80abbb2919e99633597c32143b2e14bfdbddd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
