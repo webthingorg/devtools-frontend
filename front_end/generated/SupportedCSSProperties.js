@@ -2809,9 +2809,7 @@ export const generatedProperties = [
  {
   "keywords": [
    "always",
-   "anchors-valid",
-   "anchors-visible",
-   "no-overflow"
+   "anchors-visible"
   ],
   "name": "position-visibility"
  },
@@ -5259,9 +5257,7 @@ export const generatedPropertyValues = {
  "position-visibility": {
   "values": [
    "always",
-   "anchors-valid",
-   "anchors-visible",
-   "no-overflow"
+   "anchors-visible"
   ]
  },
  "quotes": {
