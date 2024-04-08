@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "b52a9f96c0211537fb006b7235af7bbcbf21e393",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efef07be_7881e2c3",
+        "filename": "front_end/core/sdk/CPUThrottlingManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-08T08:24:08Z",
+      "side": 1,
+      "message": "is it a bit odd to have all the other tiers based on devices, but this one based on being too slow?\n\nI say that without having a suggestion for an alternative mind. Also, what text will actually be shown to the user in the UI for this throttling rate? Or are we not exposing it in the UI?",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 11
+      },
+      "revId": "b52a9f96c0211537fb006b7235af7bbcbf21e393",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
