@@ -47,9 +47,15 @@ import computedStyleSidebarPaneStyles from './computedStyleSidebarPane.css.js';
 import {ImagePreviewPopover} from './ImagePreviewPopover.js';
 import {PlatformFontsWidget} from './PlatformFontsWidget.js';
 import {categorizePropertyName, type Category, DefaultCategoryOrder} from './PropertyNameCategories.js';
-import {ColorMatch, ColorMatcher, type RenderingContext} from './PropertyParser.js';
+import {type ColorMatch, ColorMatcher} from './PropertyParser.js';
 import {StylePropertiesSection} from './StylePropertiesSection.js';
-import {StringRenderer, StylePropertyTreeElement, URLRenderer} from './StylePropertyTreeElement.js';
+import {
+  type MatchRenderer,
+  type RenderingContext,
+  StringRenderer,
+  StylePropertyTreeElement,
+  URLRenderer,
+} from './StylePropertyTreeElement.js';
 
 const UIStrings = {
   /**
@@ -117,8 +123,7 @@ function renderPropertyContents(
   const name = StylePropertyTreeElement.renderNameElement(propertyName);
   name.slot = 'name';
   const value = StylePropertyTreeElement.renderValueElement(
-      propertyName, propertyValue,
-      [ColorRenderer.matcher(), URLRenderer.matcher(null, node), StringRenderer.matcher()]);
+      propertyName, propertyValue, [new ColorRenderer(), new URLRenderer(null, node), new StringRenderer()]);
   value.slot = 'value';
   propertyContentsCache.set(cacheKey, {name, value});
   return {name, value};
@@ -156,8 +161,7 @@ const createTraceElement =
       const trace = new ElementsComponents.ComputedStyleTrace.ComputedStyleTrace();
 
       const valueElement = StylePropertyTreeElement.renderValueElement(
-          property.name, property.value,
-          [ColorRenderer.matcher(), URLRenderer.matcher(null, node), StringRenderer.matcher()]);
+          property.name, property.value, [new ColorRenderer(), new URLRenderer(null, node), new StringRenderer()]);
       valueElement.slot = 'trace-value';
       trace.appendChild(valueElement);
 
@@ -176,11 +180,11 @@ const createTraceElement =
       return trace;
     };
 
-class ColorRenderer extends ColorMatch {
-  render(_node: unknown, context: RenderingContext): Node[] {
+class ColorRenderer implements MatchRenderer<ColorMatch> {
+  render(match: ColorMatch, context: RenderingContext): Node[] {
     const swatch = new InlineEditor.ColorSwatch.ColorSwatch();
     swatch.setReadonly(true);
-    swatch.renderColor(this.text, true);
+    swatch.renderColor(match.text, true);
     const valueElement = document.createElement('span');
     valueElement.textContent = swatch.getText();
     swatch.append(valueElement);
@@ -195,8 +199,8 @@ class ColorRenderer extends ColorMatch {
     return [swatch];
   }
 
-  static matcher(): ColorMatcher {
-    return new ColorMatcher(text => new ColorRenderer(text));
+  matcher(): ColorMatcher {
+    return new ColorMatcher();
   }
 }
 

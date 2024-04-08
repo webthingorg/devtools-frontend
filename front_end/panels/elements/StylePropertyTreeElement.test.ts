@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Platform from '../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
@@ -636,8 +637,10 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
             Elements.PropertyParser.tokenizeDeclaration(stylePropertyTreeElement.name, stylePropertyTreeElement.value);
         assertNotNullOrUndefined(ast);
         const matching = Elements.PropertyParser.BottomUpTreeMatching.walk(
-            ast, [Elements.StylePropertyTreeElement.VariableRenderer.matcher(
-                     stylePropertyTreeElement, stylePropertyTreeElement.property.ownerStyle)]);
+            ast, [new Elements.StylePropertyTreeElement
+                      .VariableRenderer(stylePropertyTreeElement, stylePropertyTreeElement.property.ownerStyle)
+                      .matcher()]);
+
         const res = {
           hasUnresolvedVars: matching.hasUnresolvedVars(ast.tree),
           computedText: matching.getComputedText(ast.tree),
@@ -1002,8 +1005,8 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
     }
 
     it('shadow model renders text properties, authored properties, and computed text properties correctly', () => {
-      const renderingContext = sinon.createStubInstance(Elements.PropertyParser.RenderingContext);
-      const expansionContext = sinon.createStubInstance(Elements.PropertyParser.RenderingContext);
+      const renderingContext = sinon.createStubInstance(Elements.StylePropertyTreeElement.RenderingContext);
+      const expansionContext = sinon.createStubInstance(Elements.StylePropertyTreeElement.RenderingContext);
       const y = new StubSyntaxnode();
       const spread = new StubSyntaxnode();
       const blur = new StubSyntaxnode();
@@ -1035,7 +1038,7 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
         },
       ];
 
-      sinon.stub(Elements.PropertyParser.Renderer, 'render').callsFake((nodeOrNodes, context) => {
+      sinon.stub(Elements.StylePropertyTreeElement.Renderer, 'render').callsFake((nodeOrNodes, context) => {
         if (!Array.isArray(nodeOrNodes)) {
           nodeOrNodes = [nodeOrNodes];
         }
@@ -1162,6 +1165,68 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
       assert.lengthOf(swatches, 1);
       assert.strictEqual(swatches[0].textContent, 'red');
       assert.strictEqual(swatches[0].parentElement?.style.textDecoration, '');
+    });
+  });
+
+  describe('Renderer', () => {
+    function textFragments(nodes: Node[]): Array<string|null> {
+      return nodes.map(n => n.textContent);
+    }
+
+    it('parses text', () => {
+      assert.deepStrictEqual(
+          textFragments(Elements.StylePropertyTreeElement.renderPropertyValue('--p', 'var(--v)', [])),
+          ['var', '(', '--v', ')']);
+
+      assert.deepStrictEqual(
+          textFragments(
+              Elements.StylePropertyTreeElement.renderPropertyValue('--p', '/* comments are text */ 1px solid 4', [])),
+          ['/* comments are text */', ' ', '1px', ' ', 'solid', ' ', '4']);
+      assert.deepStrictEqual(
+          textFragments(Elements.StylePropertyTreeElement.renderPropertyValue(
+              '--p', '2px var(--double, var(--fallback, black)) #32a1ce rgb(124 125 21 0)', [])),
+          [
+            '2px', ' ', 'var',     '(', '--double', ',', ' ',   'var', '(',   '--fallback', ',',  ' ', 'black', ')',
+            ')',   ' ', '#32a1ce', ' ', 'rgb',      '(', '124', ' ',   '125', ' ',          '21', ' ', '0',     ')',
+          ]);
+    });
+
+    const cssParser = CodeMirror.css.cssLanguage.parser;
+    it('reproduces the input if nothing matched', () => {
+      const property = '2px var(--double, var(--fallback, black)) #32a1ce rgb(124 125 21 0)';
+      const rule = `*{--property: ${property};}`;
+      const tree = cssParser.parse(rule).topNode;
+      const ast = new Elements.PropertyParser.SyntaxTree(property, rule, tree);
+      const matchedResult = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, []);
+      const context = new Elements.StylePropertyTreeElement.RenderingContext(ast, new Map(), matchedResult);
+      assert.deepStrictEqual(
+          textFragments(Elements.StylePropertyTreeElement.Renderer.render(tree, context).nodes).join(''), rule,
+          Elements.PropertyParser.Printer.walk(ast).get());
+    });
+
+    it('correctly renders subtrees', () => {
+      const property = '2px var(--double, var(--fallback, black)) #32a1ce rgb(124 125 21 0)';
+      const rule = `*{--property: ${property};}`;
+      const tree = cssParser.parse(rule).topNode.firstChild?.firstChild?.nextSibling?.firstChild?.nextSibling;
+      Platform.assertNotNullOrUndefined(tree);
+      const ast = new Elements.PropertyParser.SyntaxTree(property, rule, tree);
+      const matchedResult = Elements.PropertyParser.BottomUpTreeMatching.walk(ast, []);
+      const context = new Elements.StylePropertyTreeElement.RenderingContext(ast, new Map(), matchedResult);
+      assert.deepStrictEqual(
+          textFragments(Elements.StylePropertyTreeElement.Renderer.render(tree, context).nodes).join(''), property,
+          Elements.PropertyParser.Printer.walk(ast).get());
+    });
+
+    it('renders trailing comments', () => {
+      const property = '/* color: red */ blue /* color: red */';
+      assert.strictEqual(
+          textFragments(Elements.StylePropertyTreeElement.renderPropertyValue('--p', property, [])).join(''), property);
+    });
+
+    it('renders malformed comments', () => {
+      const property = 'red /* foo: bar';
+      assert.strictEqual(
+          textFragments(Elements.StylePropertyTreeElement.renderPropertyValue('--p', property, [])).join(''), property);
     });
   });
 });
