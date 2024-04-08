@@ -87,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fc7772f_dd38c8af",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-04-08T13:06:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc4dfd5a_c7fc63cd",
+      "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4d7b041_c5098914",
@@ -104,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a632e077_9c49f815",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-04-08T13:06:16Z",
+      "side": 1,
+      "message": "I realized that, but I would prefer not to run this function another time. Let me create a local variable to both be clear and save the function run.",
+      "parentUuid": "d4d7b041_c5098914",
+      "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f996e13_c6e89cc8",
@@ -117,6 +153,24 @@
       "writtenOn": "2024-04-08T11:19:01Z",
       "side": 1,
       "message": "I think these don\u0027t apply since the keyword is `padding-box`, though why do we need this?",
+      "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc96397b_87dc2314",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-04-08T13:06:16Z",
+      "side": 1,
+      "message": "I don\u0027t know why these existed in the first place, but it seems that both these properties are not effective. I\u0027ve removed them. Thanks for noticing!",
+      "parentUuid": "9f996e13_c6e89cc8",
       "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
