@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef9f1611_f9af2b9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-08T13:46:05Z",
+      "side": 1,
+      "message": "That should be it!",
+      "parentUuid": "db0f3b0d_5cec6772",
+      "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cbe6cba_cdf81ef7",
         "filename": "front_end/panels/elements/PropertyParser.ts",
         "patchSetId": 1
@@ -83,6 +101,24 @@
       "writtenOn": "2024-04-08T13:14:13Z",
       "side": 1,
       "message": "WDYT of moving all these rendering logic to a new TS file under panels/elements/ as PropertyRenderer.ts and only exposing renderPropertyValue and related stuff as its public API? That way:\n\n* We encapsulate the complicated logic of rendering a property name/value into its own module.\n* We remove ComputedStyleWidget reaching out to StylePropertyTreeElement.ts.\n* We separate tests related to Renderer from StylePropertyTreeElement\u0027s tests.",
+      "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01396c0b_ba222abe",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-08T13:46:05Z",
+      "side": 1,
+      "message": "Which bits would you like to see moved? Just Renderer and anything related? or also the individual match renderers?",
+      "parentUuid": "da7d60b0_75c0d536",
       "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
