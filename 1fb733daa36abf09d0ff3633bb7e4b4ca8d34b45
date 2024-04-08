@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db0f3b0d_5cec6772",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T13:14:13Z",
+      "side": 1,
+      "message": "As far as I understand, these are all the changes:\n* Moving rendering related stuff to StylePropertyTreeElement from PropertyParser.\n* Bringing back `Printer` to the `PropertyParser`.\n* Adding a callback to VariableMatch to be able to provide computed text from outside.\n* Removing LegacyRegexMatcher and creating a LengthMatcher for the last remaining legacy regex matching use case.\n* Passing `rendererMap` in the rendering context and removing `render` from Match interface (similar to crrev.com/c/5372191).\n\nIs there anything I miss? :)",
+      "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cbe6cba_cdf81ef7",
+        "filename": "front_end/panels/elements/PropertyParser.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T13:14:13Z",
+      "side": 1,
+      "message": "I wonder why this Printer came back to PropertyParser? :) I think since it is only related to the tests, it should stay in the test file, WDYT?",
+      "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7d60b0_75c0d536",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T13:14:13Z",
+      "side": 1,
+      "message": "WDYT of moving all these rendering logic to a new TS file under panels/elements/ as PropertyRenderer.ts and only exposing renderPropertyValue and related stuff as its public API? That way:\n\n* We encapsulate the complicated logic of rendering a property name/value into its own module.\n* We remove ComputedStyleWidget reaching out to StylePropertyTreeElement.ts.\n* We separate tests related to Renderer from StylePropertyTreeElement\u0027s tests.",
+      "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
