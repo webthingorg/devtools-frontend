@@ -38,6 +38,7 @@ import * as TimelineUIUtils from './TimelineUIUtils.js';
 import * as TimingsTrackAppender from './TimingsTrackAppender.js';
 import * as UIDevtoolsController from './UIDevtoolsController.js';
 import * as UIDevtoolsUtils from './UIDevtoolsUtils.js';
+import * as WebSocketsTrackAppender from './WebSocketsTrackAppender.js';
 
 export {
   AnimationsTrackAppender,
@@ -76,4 +77,5 @@ export {
   TimingsTrackAppender,
   UIDevtoolsController,
   UIDevtoolsUtils,
+  WebSocketsTrackAppender,
 };

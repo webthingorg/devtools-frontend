@@ -50,6 +50,7 @@ import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js'
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
+import {type WebSocketsTrackAppender} from './WebSocketsTrackAppender.js';
 
 const UIStrings = {
   /**
@@ -485,6 +486,29 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         this.compatibilityTracksAppender ? this.compatibilityTracksAppender.allVisibleTrackAppenders() : [];
 
     allTrackAppenders.sort((a, b) => weight(a) - weight(b));
+
+    // At this point, all WebSocket tracks are near the front of the list (sort order of -1).
+    // We want to move them to be adjacent to the track to which they should be attached, so
+    // we can loop through the list by index:
+    //  - if we hit an Animations or Timings track, we can terminate the loop
+    //  - Otherwise, get the index of the track appender that the WebSocket track is associated with,
+    //    and connect them together
+    for (let i = 0; i < allTrackAppenders.length; i++) {
+      const currentTrack = allTrackAppenders[i];
+      if (currentTrack.appenderName === 'Animations' || currentTrack.appenderName === 'Timings') {
+        break;
+      }
+
+      if (currentTrack.appenderName === 'WebSockets') {
+        const associatedTrackAppender = (currentTrack as WebSocketsTrackAppender).associatedAppender;
+        const indexOfAssociated = allTrackAppenders.indexOf(associatedTrackAppender);
+        if (indexOfAssociated > i) {
+          allTrackAppenders.splice(i, 1);
+          allTrackAppenders.splice(indexOfAssociated - 1, 0, currentTrack);
+          i--;
+        }
+      }
+    }
 
     for (const appender of allTrackAppenders) {
       if (!this.traceEngineData) {
