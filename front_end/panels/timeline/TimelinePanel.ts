@@ -285,6 +285,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private readonly recordReloadAction: UI.ActionRegistration.Action;
   readonly #historyManager: TimelineHistoryManager;
   private performanceModel: PerformanceModel|null;
+  private fileMetaData: TraceEngine.Types.File.MetaData|null;
   private disableCaptureJSProfileSetting: Common.Settings.Setting<boolean>;
   private readonly captureLayersAndPicturesSetting: Common.Settings.Setting<boolean>;
   private readonly captureSelectorStatsSetting: Common.Settings.Setting<boolean>;
@@ -368,6 +369,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.#historyManager = new TimelineHistoryManager(this.#minimapComponent);
 
     this.performanceModel = null;
+    this.fileMetaData = null;
     this.traceLoadStart = null;
 
     this.disableCaptureJSProfileSetting =
@@ -767,16 +769,25 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   async showHistory(): Promise<void> {
+    const annotations = AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()?.getAnnotations();
+    if(annotations) {
+      this.#historyManager.updateCurrentRecordingAnnotations(annotations);  
+    }
     const recordingData = await this.#historyManager.showHistoryDropDown();
     if (recordingData && recordingData.traceParseDataIndex !== this.#traceEngineActiveTraceIndex) {
-      this.setModel(recordingData.legacyModel, /* exclusiveFilter= */ null, recordingData.traceParseDataIndex);
+      this.setModel(recordingData.legacyModel, /* exclusiveFilter= */ null, recordingData.traceParseDataIndex, /* metadata= */ recordingData.fileMetadata);
     }
   }
 
+  // When does that happen?
   navigateHistory(direction: number): boolean {
+    const annotations = AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()?.getAnnotations();
+    if(annotations) {
+      this.#historyManager.updateCurrentRecordingAnnotations(annotations);  
+    }
     const recordingData = this.#historyManager.navigate(direction);
     if (recordingData && recordingData.traceParseDataIndex !== this.#traceEngineActiveTraceIndex) {
-      this.setModel(recordingData.legacyModel, /* exclusiveFilter= */ null, recordingData.traceParseDataIndex);
+      this.setModel(recordingData.legacyModel, /* exclusiveFilter= */ null, recordingData.traceParseDataIndex, /* metadata= */ recordingData.fileMetadata);
     }
     return true;
   }
@@ -1206,7 +1217,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   setModel(
       model: PerformanceModel|null, exclusiveFilter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null = null,
       traceEngineIndex: number = -1, metadata: TraceEngine.Types.File.MetaData|null = null): void {
+        console.log("setting annotations ", metadata?.annotations?.entriesFilterAnnotations.hiddenEntriesIndexes.length);
     this.performanceModel = model;
+    this.fileMetaData = metadata;
     this.#traceEngineActiveTraceIndex = traceEngineIndex;
     const traceParsedData = this.#traceEngineModel.traceParsedData(this.#traceEngineActiveTraceIndex);
     const isCpuProfile = this.#traceEngineModel.metadata(this.#traceEngineActiveTraceIndex)?.dataOrigin ===
@@ -1506,6 +1519,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         data: {
           legacyModel: this.performanceModel,
           traceParseDataIndex: this.#traceEngineActiveTraceIndex,
+          fileMetadata: this.fileMetaData,
         },
         filmStripForPreview: TraceEngine.Extras.FilmStrip.fromTraceData(traceData),
         traceParsedData: traceData,

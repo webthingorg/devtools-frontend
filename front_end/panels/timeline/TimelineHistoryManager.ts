@@ -71,6 +71,8 @@ export type RecordingData = {
   // By storing only the index of this trace, the TimelinePanel can then look
   // up this trace's data (and metadata) via this index.
   traceParseDataIndex: number,
+  // Store file metadata so the annotations don't disappear when switching between traces
+  fileMetadata: TraceEngine.Types.File.MetaData|null,
 };
 
 export interface NewHistoryRecordingData {
@@ -150,8 +152,9 @@ export class TimelineHistoryManager {
   addRecording(newInput: NewHistoryRecordingData): void {
     const {legacyModel, traceParseDataIndex} = newInput.data;
     const filmStrip = newInput.filmStripForPreview;
+    const fileMetadata = newInput.data.fileMetadata;
     this.lastActiveTraceIndex = traceParseDataIndex;
-    this.recordings.unshift({legacyModel: legacyModel, traceParseDataIndex});
+    this.recordings.unshift({legacyModel: legacyModel, traceParseDataIndex, fileMetadata});
 
     // Order is important: this needs to happen first because lots of the
     // subsequent code depends on us storing the preview data into the map.
@@ -176,6 +179,15 @@ export class TimelineHistoryManager {
         throw new Error('Unable to find data for model');
       }
       return data.lastUsed;
+    }
+  }
+
+  updateCurrentRecordingAnnotations(annotations: TraceEngine.Types.File.Annotations): void {
+    if(this.lastActiveTraceIndex) {
+      const currRecording = this.recordings[this.lastActiveTraceIndex]
+      if(currRecording && currRecording.fileMetadata) {
+        currRecording.fileMetadata.annotations = annotations;
+      }
     }
   }
 
