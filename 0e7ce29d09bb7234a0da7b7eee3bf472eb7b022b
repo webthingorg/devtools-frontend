@@ -51,6 +51,74 @@
       "parentUuid": "7e6db447_6b01767e",
       "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f5fede0_2524d01f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T11:19:01Z",
+      "side": 1,
+      "message": "LGTM with a few nits :)",
+      "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc4dfd5a_c7fc63cd",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T11:19:01Z",
+      "side": 1,
+      "message": "Can we add a comment here on why we do this? :)",
+      "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d7b041_c5098914",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T11:19:01Z",
+      "side": 1,
+      "message": "(nit): Instead of checking `textContent.length` from the `selectorElement`; we can directly check on `this.headerText()` length :)",
+      "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f996e13_c6e89cc8",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T11:19:01Z",
+      "side": 1,
+      "message": "I think these don\u0027t apply since the keyword is `padding-box`, though why do we need this?",
+      "revId": "0e7ce29d09bb7234a0da7b7eee3bf472eb7b022b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
