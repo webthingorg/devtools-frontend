@@ -32,6 +32,7 @@ describeWithEnvironment('TimelineHistoryManager', function() {
           data: {
             legacyModel: firstFileModels.performanceModel,
             traceParseDataIndex: 1,
+            fileMetadata: null,
           },
           filmStripForPreview: null,
           traceParsedData: firstFileModels.traceParsedData,
@@ -44,6 +45,7 @@ describeWithEnvironment('TimelineHistoryManager', function() {
       data: {
         legacyModel: secondFileModels.performanceModel,
         traceParseDataIndex: 2,
+        fileMetadata: null,
       },
       filmStripForPreview: null,
       traceParsedData: secondFileModels.traceParsedData,
