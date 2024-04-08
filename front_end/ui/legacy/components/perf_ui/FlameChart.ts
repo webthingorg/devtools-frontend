@@ -96,44 +96,38 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
  * See `drawExpansionArrow` function to understand how we draw the arrow.
  * |headerLeftPadding|Arrow|
  * |expansionArrowIndent|
- *
+ * 
  * Normal mode:
  * - Nesting Level 0
  * |ICON_WIDTH|expansionArrowIndent|
- * |EDIT  ICON|headerLeftPadding|Arrow|LabelXPadding|Title|LabelXPadding|
- *            |<--                    labelWidth                     -->|
- *            ^ Blue line that indicates the focused group
- *
+ * |headerLeftPadding|EDIT  ICON|Arrow|LabelXPadding|Title|LabelXPadding|
+ *                   |ICON WIDTH|<--            labelWidth           -->|
+ * 
  * - Nesting Level 1
  * |ICON_WIDTH|expansionArrowIndent|expansionArrowIndent|
- * |EDIT  ICON|headerLeftPadding|                    |Arrow|LabelXPadding|Title|LabelXPadding|
- *            |<--                    labelWidth                                          -->|
- *            ^ Blue line that indicates the focused group
- *
+ * |headerLeftPadding|EDIT  ICON|                    |Arrow|LabelXPadding|Title|LabelXPadding|
+ *                   |ICON WIDTH|<--                      labelWidth                      -->|
+ * 
  * - Nesting Level 2
  * |ICON_WIDTH|expansionArrowIndent|expansionArrowIndent|expansionArrowIndent|
- * |EDIT  ICON|headerLeftPadding|                                         |Arrow|LabelXPadding|Title|LabelXPadding|
- *            |<--                                labelWidth                                                   -->|
- *            ^ Blue line that indicates the focused group
- *
+ * |headerLeftPadding|EDIT  ICON|                                         |Arrow|LabelXPadding|Title|LabelXPadding|
+ *                   |ICON WIDTH|<--                                labelWidth                                 -->|
+ * 
  * Edit mode:
  * - Nesting Level 0
  * |       EDITION_MODE_INDENT      |expansionArrowIndent|
- * | UP   ICON|DOWN  ICON|HIDE  ICON|headerLeftPadding|Arrow|LabelXPadding|Title|LabelXPadding|SAVE  ICON|
- *                                  |<--            labelWidth                             -->|
- *                                  ^ Blue line that indicates the focused group
- *
+ * |headerLeftPadding| UP   ICON|DOWN  ICON|HIDE  ICON|Arrow|LabelXPadding|Title|LabelXPadding|SAVE  ICON| 
+ *                   |<-    EDITION_MODE_INDENT     ->|<--            labelWidth           -->|
+ * 
  * - Nesting Level 1
  * |       EDITION_MODE_INDENT      |expansionArrowIndent|expansionArrowIndent|
- * | UP   ICON|DOWN  ICON|HIDE  ICON|headerLeftPadding|                    |Arrow|LabelXPadding|Title|LabelXPadding|SAVE  ICON|
- *                                  |<--                      labelWidth                                        -->|
- *                                  ^ Blue line that indicates the focused group
- *
+ * |headerLeftPadding| UP   ICON|DOWN  ICON|HIDE  ICON|                    |Arrow|LabelXPadding|Title|LabelXPadding|SAVE  ICON|
+ *                   |<-    EDITION_MODE_INDENT     ->|<--                      labelWidth                      -->|
+ * 
  * - Nesting Level 2
  * |       EDITION_MODE_INDENT      |expansionArrowIndent|expansionArrowIndent|expansionArrowIndent|
- * | UP   ICON|DOWN  ICON|HIDE  ICON|headerLeftPadding|                                         |Arrow|LabelXPadding|Title|LabelXPadding|SAVE  ICON|
- *                                  |<--                                labelWidth                                                   -->|
- *                                  ^ Blue line that indicates the focused group
+ * |headerLeftPadding| UP   ICON|DOWN  ICON|HIDE  ICON|                                         |Arrow|LabelXPadding|Title|LabelXPadding|SAVE  ICON|
+ *                   |<-    EDITION_MODE_INDENT     ->|<--                                labelWidth                                 -->|
  */
 const HEADER_LEFT_PADDING = 6;
 const ARROW_SIDE = 8;
@@ -141,7 +135,7 @@ const EXPANSION_ARROW_INDENT = HEADER_LEFT_PADDING + ARROW_SIDE / 2;
 const HEADER_LABEL_X_PADDING = 3;
 const HEADER_LABEL_Y_PADDING = 2;
 
-const ICON_LEFT_PADDING = 0;
+const ICON_LEFT_PADDING = HEADER_LEFT_PADDING;
 // This number is get from front_end/ui/components/buttons/button.css
 const EDIT_BUTTON_SIZE = 16;
 const EDITION_MODE_INDENT = EDIT_BUTTON_SIZE * 3;
@@ -1632,9 +1626,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const context = (this.canvas.getContext('2d') as CanvasRenderingContext2D);
     context.save();
     context.font = this.#font;
-    const saveIconLeft = EDITION_MODE_INDENT + this.labelWidthForGroup(context, groups[groupIndex]);
-    const headerRight = (this.#editMode ? EDITION_MODE_INDENT : EDIT_BUTTON_SIZE) +
-        this.labelWidthForGroup(context, groups[groupIndex]) + EDIT_BUTTON_SIZE;
+    const saveIconLeft = HEADER_LEFT_PADDING + EDITION_MODE_INDENT + this.labelWidthForGroup(context, groups[groupIndex]);
+    const headerRight = HEADER_LEFT_PADDING + (this.#editMode ? EDITION_MODE_INDENT : EDIT_BUTTON_SIZE) +
+       this.labelWidthForGroup(context, groups[groupIndex]);
     context.restore();
 
     if (this.#editMode) {
@@ -2182,9 +2176,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             context.fillStyle = (parsedColor.setAlpha(0.8).asString() as string);
           }
         }
+        context.save()
+        context.fillStyle = 'orange'
         context.fillRect(
-            iconsWidth, offset + HEADER_LABEL_Y_PADDING, labelBackgroundWidth,
+          iconsWidth + HEADER_LEFT_PADDING , offset + HEADER_LABEL_Y_PADDING, labelBackgroundWidth,
             group.style.height - 2 * HEADER_LABEL_Y_PADDING);
+        context.restore()
       }
       context.fillStyle = (this.#editMode && group.hidden) ?
           ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-token-subtle', this.contentElement) :
@@ -2194,10 +2191,17 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // function to understand how we draw the arrow.
       // So the header looks like this:
       // |ICON_WIDTH|expansionArrowIndent * (nesting level + 1)|
-      //                                                    |Arrow|LabelXPadding|Title|LabelXPadding|
-      //                                                          ^ titleStart
+      // |headerLeftPadding|EDIT  ICON|                     |Arrow|LabelXPadding|Title|LabelXPadding|
+      //                                                                        ^ titleStart
       const titleStart = iconsWidth + EXPANSION_ARROW_INDENT * (group.style.nestingLevel + 1) + ARROW_SIDE / 2 +
           HEADER_LABEL_X_PADDING;
+
+      // context.save()
+      // // context.fillStyle = 'blue'
+      // // context.fillRect(titleStart, 0, 50, 10)
+      // context.fillStyle = 'purple'
+      // context.fillRect(titleStart, 0, 50, 10)
+      // context.restore()
       context.fillText(group.name, titleStart, offset + group.style.height - this.textBaseline);
       if (this.#editMode && group.hidden) {
         // Draw a strikethrough line for the hidden tracks.
@@ -2220,17 +2224,52 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
           }
           drawIcon(HIDE_ICON_LEFT, offset, group.hidden ? showIconPath : hideIconPath, iconColor);
 
-          drawIcon(EDITION_MODE_INDENT + this.labelWidthForGroup(context, group), offset, saveIconPath, iconColor);
+          drawIcon(HEADER_LEFT_PADDING + EDITION_MODE_INDENT + this.labelWidthForGroup(context, group), offset, saveIconPath, iconColor);
         } else if (hoveredGroupIndex === index) {
           drawIcon(EDIT_ICON_LEFT, offset, editIconPath);
         }
       }
+
+    // return expansionArrowIndent * (group.style.nestingLevel + 1 - 1) + arrowSide + headerLabelXPadding + UI.UIUtils.measureTextWidth(context, group.name) + headerLabelXPadding;
+
+
+      context.save()
+
+      context.fillStyle = 'green'
+      const widthGreen = this.labelWidthForGroup(context, group) + (this.#editMode ? EDIT_BUTTON_SIZE : 0)
+      // console.warn(arrowSide+headerLabelXPadding + UI.UIUtils.measureTextWidth(context, group.name) + headerLabelXPadding - widthGreen)
+      // console.log(widthGreen - this.labelWidthForGroup(context, group), this.#editMode)
+      context.fillRect(HEADER_LEFT_PADDING + iconsWidth, offset, widthGreen,7)
+
+      context.fillStyle = 'red'
+      context.fillRect(0,offset,HEADER_LEFT_PADDING,1)
+      context.fillStyle = 'orange'
+      context.fillRect(HEADER_LEFT_PADDING,offset, iconsWidth ,2)
+      context.fillStyle = 'yellow'
+      context.fillRect(HEADER_LEFT_PADDING + iconsWidth, offset, ARROW_SIDE ,3)
+      context.fillStyle = 'purple'
+      context.fillRect(HEADER_LEFT_PADDING + iconsWidth + ARROW_SIDE, offset, HEADER_LABEL_X_PADDING ,4)
+      context.fillStyle = 'blue'
+      console.log(group.name, group.style.nestingLevel, titleStart === HEADER_LEFT_PADDING + iconsWidth + ARROW_SIDE + HEADER_LABEL_X_PADDING + EXPANSION_ARROW_INDENT * group.style.nestingLevel)
+      context.fillRect(titleStart, offset, UI.UIUtils.measureTextWidth(context, group.name) ,5)
+      context.fillStyle = 'pink'
+      context.fillRect(titleStart + UI.UIUtils.measureTextWidth(context, group.name) , offset,  HEADER_LABEL_X_PADDING,6)
+
+      console.log(HEADER_LEFT_PADDING + iconsWidth + widthGreen - (titleStart + UI.UIUtils.measureTextWidth(context, group.name) + HEADER_LABEL_X_PADDING))
+
+      context.restore()
     });
     context.restore();
 
     context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-token-subtle');
     this.forEachGroupInViewport((offset, index, group) => {
       if (this.isGroupCollapsible(index)) {
+        // const arrowIndent = this.expansionArrowIndent * (group.style.nestingLevel + 1)
+        // const arrowHeight = (offset + group.style.height - this.textBaseline - this.arrowSide / 2) * 2
+        // context.save()
+        // context.fillStyle = 'pink'
+        // context.fillRect(0, 0, arrowIndent, this.arrowSide)
+        // context.restore()
         drawExpansionArrow.call(
             this, iconsWidth + EXPANSION_ARROW_INDENT * (group.style.nestingLevel + 1),
             offset + group.style.height - this.textBaseline - ARROW_SIDE / 2,
@@ -2258,11 +2297,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         // +-+---+
 
         // The vertical stroke
-        context.fillRect(iconsWidth, offset - lineWidth, lineWidth, groupHeight - group.style.padding + 2 * lineWidth);
+        context.fillRect(0, offset - lineWidth, lineWidth, groupHeight - group.style.padding + 2 * lineWidth);
         // The top horizontal stroke
-        context.fillRect(iconsWidth, offset - lineWidth, bracketLength, lineWidth);
+        context.fillRect(0, offset - lineWidth, bracketLength, lineWidth);
         // The top horizontal stroke
-        context.fillRect(iconsWidth, offset + groupHeight - group.style.padding, bracketLength, lineWidth);
+        context.fillRect(0, offset + groupHeight - group.style.padding, bracketLength, lineWidth);
       }
     });
 
@@ -2278,6 +2317,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const arrowHeight = ARROW_SIDE * Math.sqrt(3) / 2;
       const arrowCenterOffset = Math.round(arrowHeight / 2);
       context.save();
+      // context.save();
+      // context.fillStyle = 'yellow'
+      // context.fillRect(x - this.arrowSide/2,y - this.arrowSide/2,this.arrowSide, this.arrowSide)
+      // context.restore();
       context.beginPath();
       context.translate(x, y);
       context.rotate(expanded ? Math.PI / 2 : 0);
@@ -2524,7 +2567,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    * Returns the width of the title label of the group, which include the left padding, arrow and the group header text.
    * This function is public for test reason.
    * |ICON_WIDTH|expansionArrowIndent * (nestingLevel + 1)|
-   * |EDIT  ICON|headerLeftPadding|                    |Arrow|LabelXPadding|Title|LabelXPadding|
+   * |headerLeftPadding|EDIT  ICON|                    |Arrow|LabelXPadding|Title|LabelXPadding|
    *                              |<--                      labelWidth                      -->|
    * @param context canvas context
    * @param group
@@ -2532,7 +2575,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    */
   labelWidthForGroup(context: CanvasRenderingContext2D, group: Group): number {
     return EXPANSION_ARROW_INDENT * (group.style.nestingLevel + 1) + ARROW_SIDE / 2 + HEADER_LABEL_X_PADDING +
-        UI.UIUtils.measureTextWidth(context, group.name) + HEADER_LABEL_X_PADDING;
+        UI.UIUtils.measureTextWidth(context, group.name) + HEADER_LABEL_X_PADDING - HEADER_LEFT_PADDING;
   }
 
   private drawCollapsedOverviewForGroup(group: Group, y: number, endLevel: number): void {
