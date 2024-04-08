@@ -121,6 +121,24 @@
       "parentUuid": "da7d60b0_75c0d536",
       "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03f5740a_c45be548",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-08T13:49:21Z",
+      "side": 1,
+      "message": "I think Renderer and the MatchRenderers that are commonly used between StylePropertyTreeElement and ComputedStyleWidget should move to the PropertyRenderer.\n\nMatchRenderers that are specifically related to the StylePropertyTreeElement should stay here I think.",
+      "parentUuid": "01396c0b_ba222abe",
+      "revId": "1fb733daa36abf09d0ff3633bb7e4b4ca8d34b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
