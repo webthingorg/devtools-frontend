@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f622d466_e84bb2e2",
+        "filename": "front_end/ui/legacy/TextPrompt.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-04-09T20:56:18Z",
+      "side": 1,
+      "message": "This line was meant to be removed. CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5441372",
+      "revId": "6afb011e98dfea359f19e53a9c1d4f46e9777de1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
