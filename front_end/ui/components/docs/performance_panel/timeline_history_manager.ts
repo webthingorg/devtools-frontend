@@ -35,6 +35,7 @@ new Timeline.TimelineHistoryManager.TimelineHistoryManager().addRecording({
   data: {
     legacyModel: performanceModel1,
     traceParseDataIndex: 0,
+    fileMetadata: null,
   },
   filmStripForPreview: TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData1),
   traceParsedData: traceParsedData1,
@@ -52,6 +53,7 @@ new Timeline.TimelineHistoryManager.TimelineHistoryManager().addRecording({
   data: {
     legacyModel: performanceModel2,
     traceParseDataIndex: 1,
+    fileMetadata: null,
   },
   filmStripForPreview: TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData2),
   traceParsedData: traceParsedData2,
