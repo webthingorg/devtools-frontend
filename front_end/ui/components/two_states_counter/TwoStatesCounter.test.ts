@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../testing/DOMHelpers.js';
+import {assertShadowRoot, renderElementIntoDOM} from '../../../testing/DOMHelpers.js';
 import * as Coordinator from '../render_coordinator/render_coordinator.js';
 
 import * as TwoStatesCounter from './two_states_counter.js';
@@ -25,7 +25,7 @@ function assertContentAndTitleForPart(
     counter: TwoStatesCounter.TwoStatesCounter.TwoStatesCounter, selector: string, content: string, title?: string) {
   assertShadowRoot(counter.shadowRoot);
   const activeCount = counter.shadowRoot.querySelector(selector);
-  assertElement(activeCount, HTMLSpanElement);
+  assert.instanceOf(activeCount, HTMLSpanElement);
   assert.strictEqual(activeCount.textContent?.trim(), `${content}`);
   assert.strictEqual(activeCount.title, title ? `${title}` : '');
 }

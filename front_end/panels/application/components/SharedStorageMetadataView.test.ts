@@ -4,7 +4,6 @@
 
 import type * as Protocol from '../../../generated/protocol.js';
 import {
-  assertElement,
   assertShadowRoot,
   dispatchClickEvent,
   getCleanTextContentFromElements,
@@ -118,7 +117,7 @@ describeWithLocale('SharedStorageMetadataView', () => {
     await coordinator.done({waitForWork: true});
 
     const resetButtonComponent = component.shadowRoot!.querySelector('devtools-button');
-    assertElement(resetButtonComponent, HTMLElement);
+    assert.instanceOf(resetButtonComponent, HTMLElement);
     dispatchClickEvent(resetButtonComponent);
 
     assert.isTrue(resetBudgetHandlerSpy.calledOnce);

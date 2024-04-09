@@ -7,7 +7,6 @@ import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Logs from '../../models/logs/logs.js';
 import * as TraceEngine from '../../models/trace/trace.js';
-import {assertElement} from '../../testing/DOMHelpers.js';
 import {createTarget, registerNoopActions} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
@@ -118,7 +117,7 @@ describeWithMockConnection('NetworkPanel', () => {
     const networkLogResetSpy = sinon.spy(Logs.NetworkLog.NetworkLog.instance(), 'reset');
     const toolbar = networkPanel.element.querySelector('.network-toolbar-container .toolbar');
     const button = toolbar!.shadowRoot!.querySelector('[aria-label="Clear network log"]');
-    assertElement(button, HTMLButtonElement);
+    assert.instanceOf(button, HTMLButtonElement);
     button.click();
     await coordinator.done({waitForWork: true});
     assert.isTrue(networkLogResetSpy.called);

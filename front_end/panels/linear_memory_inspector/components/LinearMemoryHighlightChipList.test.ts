@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import {
-  assertElement,
   assertShadowRoot,
   getElementWithinComponent,
   getEventPromise,
@@ -43,9 +42,9 @@ describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
     const shadowRoot = component.shadowRoot;
     assertShadowRoot(shadowRoot);
     const button = shadowRoot.querySelector(HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR);
-    assertElement(button, HTMLButtonElement);
+    assert.instanceOf(button, HTMLButtonElement);
     const expressionName = shadowRoot.querySelector(HIGHLIGHT_PILL_VARIABLE_NAME);
-    assertElement(expressionName, HTMLSpanElement);
+    assert.instanceOf(expressionName, HTMLSpanElement);
     assert.strictEqual(expressionName.innerText, 'myNumber');
   });
 
@@ -53,7 +52,7 @@ describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
     const shadowRoot = component.shadowRoot;
     assertShadowRoot(shadowRoot);
     const chip = shadowRoot.querySelector(HIGHLIGHT_CHIP);
-    assertElement(chip, HTMLDivElement);
+    assert.instanceOf(chip, HTMLDivElement);
     assert.isTrue(!chip.classList.contains('focused'));
 
     const highlightedMemory = {
@@ -103,7 +102,7 @@ describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
     const shadowRoot = component.shadowRoot;
     assertShadowRoot(shadowRoot);
     const button = shadowRoot.querySelector(HIGHLIGHT_PILL_JUMP_BUTTON_SELECTOR);
-    assertElement(button, HTMLButtonElement);
+    assert.instanceOf(button, HTMLButtonElement);
     button.click();
 
     assert.isNotNull(await eventPromise);
@@ -118,7 +117,7 @@ describeWithLocale('LinearMemoryInspectorHighlightChipList', () => {
     const shadowRoot = component.shadowRoot;
     assertShadowRoot(shadowRoot);
     const button = shadowRoot.querySelector(HIGHLIGHT_ROW_REMOVE_BUTTON_SELECTOR);
-    assertElement(button, HTMLButtonElement);
+    assert.instanceOf(button, HTMLButtonElement);
     button.click();
 
     assert.isNotNull(await eventPromise);

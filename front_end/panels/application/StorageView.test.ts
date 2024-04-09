@@ -5,7 +5,7 @@
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
-import {assertElement, dispatchFocusOutEvent} from '../../testing/DOMHelpers.js';
+import {dispatchFocusOutEvent} from '../../testing/DOMHelpers.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
@@ -71,18 +71,18 @@ describeWithMockConnection('StorageView', () => {
 
       const view = new Resources.StorageView.StorageView();
       const container = view.element.shadowRoot?.querySelector('.clear-storage-header') || null;
-      assertElement(container, HTMLDivElement);
+      assert.instanceOf(container, HTMLDivElement);
       const customQuotaCheckbox =
           container.shadowRoot!.querySelector('.quota-override-row span')!.shadowRoot!.querySelector(
               '[title="Simulate custom storage quota"]');
-      assertElement(customQuotaCheckbox, HTMLInputElement);
+      assert.instanceOf(customQuotaCheckbox, HTMLInputElement);
       customQuotaCheckbox.checked = true;
       const errorDiv = container.shadowRoot!.querySelector('.quota-override-error');
-      assertElement(errorDiv, HTMLDivElement);
+      assert.instanceOf(errorDiv, HTMLDivElement);
       assert.strictEqual(errorDiv.textContent, '');
 
       const editor = container.shadowRoot!.querySelector('.quota-override-notification-editor');
-      assertElement(editor, HTMLInputElement);
+      assert.instanceOf(editor, HTMLInputElement);
       editor.value = '9999999999999';
       dispatchFocusOutEvent(editor);
       await coordinator.done();

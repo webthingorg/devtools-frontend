@@ -68,7 +68,7 @@ describeWithLocale('SelectMenu', () => {
       assert.fail('devtools-select-menu-button not found');
       return;
     }
-    Helpers.assertElement(button, HTMLElement);
+    assert.instanceOf(button, HTMLElement);
     assert.strictEqual(button.innerText, 'Override Title');
   });
 
@@ -89,7 +89,7 @@ describeWithLocale('SelectMenu', () => {
       assert.fail('devtools-select-menu-button not found');
       return;
     }
-    Helpers.assertElement(button, HTMLElement);
+    assert.instanceOf(button, HTMLElement);
     assert.strictEqual(button.innerText, 'Override Title');
   });
 

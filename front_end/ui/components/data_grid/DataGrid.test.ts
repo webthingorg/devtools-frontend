@@ -19,7 +19,6 @@ import {
   getValuesOfBodyRowByAriaIndex,
 } from '../../../testing/DataGridHelpers.js';
 import {
-  assertElement,
   assertShadowRoot,
   dispatchClickEvent,
   dispatchFocusOutEvent,
@@ -290,7 +289,7 @@ describe('DataGrid', () => {
       assertShadowRoot(component.shadowRoot);
       await coordinator.done();
       const table = component.shadowRoot.querySelector('table');
-      assertElement(table, HTMLTableElement);
+      assert.instanceOf(table, HTMLTableElement);
       assert.strictEqual(table.getAttribute('aria-label'), label);
     });
 
@@ -299,7 +298,7 @@ describe('DataGrid', () => {
       assertShadowRoot(component.shadowRoot);
       await coordinator.done();
       const table = component.shadowRoot.querySelector('table');
-      assertElement(table, HTMLTableElement);
+      assert.instanceOf(table, HTMLTableElement);
       assert.strictEqual(table.getAttribute('aria-label'), null);
     });
 
@@ -308,7 +307,7 @@ describe('DataGrid', () => {
       assertShadowRoot(component.shadowRoot);
       await coordinator.done();
       const table = component.shadowRoot.querySelector('table');
-      assertElement(table, HTMLTableElement);
+      assert.instanceOf(table, HTMLTableElement);
       assert.strictEqual(table.getAttribute('aria-rowcount'), '3');
       assert.strictEqual(table.getAttribute('aria-colcount'), '3');
     });
@@ -320,7 +319,7 @@ describe('DataGrid', () => {
       assertShadowRoot(component.shadowRoot);
       await coordinator.done();
       const table = component.shadowRoot.querySelector('table');
-      assertElement(table, HTMLTableElement);
+      assert.instanceOf(table, HTMLTableElement);
       assert.strictEqual(table.getAttribute('aria-rowcount'), '3');
       assert.strictEqual(table.getAttribute('aria-colcount'), '3');
     });
@@ -477,7 +476,7 @@ describe('DataGrid', () => {
       assertShadowRoot(component.shadowRoot);
       await coordinator.done();
       const table = component.shadowRoot.querySelector('table');
-      assertElement(table, HTMLTableElement);
+      assert.instanceOf(table, HTMLTableElement);
       await emulateUserFocusingCellAt(component.shadowRoot, {column: 0, row: 1});
       emulateUserKeyboardNavigation(component.shadowRoot, 'ArrowUp');
       await coordinator.done();
@@ -587,7 +586,7 @@ describe('DataGrid', () => {
       await coordinator.done();
 
       const table = component.shadowRoot.querySelector('table');
-      assertElement(table, HTMLTableElement);
+      assert.instanceOf(table, HTMLTableElement);
       dispatchKeyDownEvent(table, {key: 'Enter'});
       const clickEvent = await columnHeaderClickEvent;
       assert.deepEqual(clickEvent.data, {column: columns[0], columnIndex: 0});
@@ -673,7 +672,7 @@ describe('DataGrid', () => {
       await coordinator.done();
       // // Ensure the row is updated to be marked as selected
       selectedRow = component.shadowRoot.querySelector('tbody tr.selected');
-      assertElement(selectedRow, HTMLTableRowElement);
+      assert.instanceOf(selectedRow, HTMLTableRowElement);
     });
 
     it('persists over re-renders when not focused', async () => {

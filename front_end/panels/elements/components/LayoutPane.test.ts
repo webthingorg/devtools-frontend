@@ -8,7 +8,6 @@ import {assertNotNullOrUndefined} from '../../../core/platform/platform.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import type * as Protocol from '../../../generated/protocol.js';
 import {
-  assertElement,
   assertShadowRoot,
   renderElementIntoDOM,
 } from '../../../testing/DOMHelpers.js';
@@ -58,7 +57,7 @@ describeWithMockConnection('LayoutPane', () => {
     assertShadowRoot(component.shadowRoot);
     return Array.from(component.shadowRoot.querySelectorAll(selector)).map(label => {
       const input = label.querySelector('[data-input]');
-      assertElement(input, HTMLElement);
+      assert.instanceOf(input, HTMLElement);
 
       return {
         label: label.getAttribute('title'),
@@ -84,7 +83,7 @@ describeWithMockConnection('LayoutPane', () => {
     assertShadowRoot(component.shadowRoot);
     assert.isTrue(Common.Settings.Settings.instance().moduleSetting('show-grid-track-sizes').get());
     const input = component.shadowRoot.querySelector('[data-boolean-setting] [data-input]');
-    assertElement(input, HTMLInputElement);
+    assert.instanceOf(input, HTMLInputElement);
 
     input.click();
 
@@ -159,7 +158,7 @@ describeWithMockConnection('LayoutPane', () => {
     assertShadowRoot(component.shadowRoot);
 
     const input = component.shadowRoot.querySelector('[data-element] [data-input]');
-    assertElement(input, HTMLInputElement);
+    assert.instanceOf(input, HTMLInputElement);
     input.click();
     assert.isTrue(highlightGrid.calledOnceWith(ID_1));
   });
@@ -176,7 +175,7 @@ describeWithMockConnection('LayoutPane', () => {
     assertShadowRoot(component.shadowRoot);
 
     const button = component.shadowRoot.querySelector('.show-element');
-    assertElement(button, HTMLElement);
+    assert.instanceOf(button, HTMLElement);
     button.click();
     assert.isTrue(reveal.calledOnceWith(node, false));
   });
@@ -185,9 +184,9 @@ describeWithMockConnection('LayoutPane', () => {
     const component = await renderComponent();
     assertShadowRoot(component.shadowRoot);
     const details = component.shadowRoot.querySelector('details');
-    assertElement(details, HTMLDetailsElement);
+    assert.instanceOf(details, HTMLDetailsElement);
     const summary = details.querySelector('summary');
-    assertElement(summary, HTMLElement);
+    assert.instanceOf(summary, HTMLElement);
     assert(details.open, 'The first details were not expanded by default');
     summary.dispatchEvent(new KeyboardEvent('keydown', {bubbles: true, cancelable: true, key: 'ArrowLeft'}));
     assert(!details.open, 'The details were not collapsed after sending ArrowLeft');

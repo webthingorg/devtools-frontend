@@ -8,7 +8,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as AutofillManager from '../../models/autofill_manager/autofill_manager.js';
 import {assertGridContents, getBodyRowByAriaIndex, getDataGrid} from '../../testing/DataGridHelpers.js';
-import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../testing/DOMHelpers.js';
+import {assertShadowRoot, renderElementIntoDOM} from '../../testing/DOMHelpers.js';
 import {createTarget, stubNoopSettings} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
@@ -175,7 +175,7 @@ describeWithMockConnection('AutofillView', () => {
     showViewStub.reset();
 
     const checkbox = view.shadowRoot.querySelector('input');
-    assertElement(checkbox, HTMLInputElement);
+    assert.instanceOf(checkbox, HTMLInputElement);
     assert.isTrue(checkbox.checked);
     checkbox.checked = false;
     let event = new Event('change');

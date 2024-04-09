@@ -85,14 +85,6 @@ type Constructor<T> = {
 };
 
 /**
- * Asserts that `element` is of type `T`.
- */
-export function assertElement<T extends Element>(
-    element: Element|null, elementClass: Constructor<T>): asserts element is T {
-  assert.instanceOf(element, elementClass);
-}
-
-/**
  * Asserts that all emenents of `nodeList` are at least of type `T`.
  */
 export function assertElements<T extends Element>(
@@ -104,7 +96,7 @@ export function getElementWithinComponent<T extends HTMLElement, V extends Eleme
     component: T, selector: string, elementClass: Constructor<V>) {
   assertShadowRoot(component.shadowRoot);
   const element = component.shadowRoot.querySelector(selector);
-  assertElement(element, elementClass);
+  assert.instanceOf(element, elementClass);
   return element;
 }
 

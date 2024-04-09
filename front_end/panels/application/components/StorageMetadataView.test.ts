@@ -5,7 +5,6 @@
 import type * as SDK from '../../../core/sdk/sdk.js';
 import * as Protocol from '../../../generated/protocol.js';
 import {
-  assertElement,
   assertShadowRoot,
   getCleanTextContentFromElements,
   getElementWithinComponent,
@@ -199,7 +198,7 @@ describeWithLocale('SharedStorageMetadataView', () => {
     assert.strictEqual(buttons.length, 1);
 
     const [deleteButton] = buttons;
-    assertElement(deleteButton, HTMLElement);
+    assert.instanceOf(deleteButton, HTMLElement);
     assert.strictEqual(deleteButton.textContent!.trim(), 'Delete bucket');
 
     const showDialog = sinon.stub(UI.UIUtils.ConfirmDialog, 'show').resolves(true);

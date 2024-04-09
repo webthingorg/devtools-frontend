@@ -8,7 +8,7 @@ import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as Workspace from '../../models/workspace/workspace.js';
-import {assertElement, dispatchPasteEvent} from '../../testing/DOMHelpers.js';
+import {dispatchPasteEvent} from '../../testing/DOMHelpers.js';
 import {createTarget, registerNoopActions} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -187,7 +187,7 @@ describeWithMockConnection('ConsoleView', () => {
       dt.setData('text/plain', 'foo');
 
       const messagesElement = consoleView.element.querySelector('#console-messages');
-      assertElement(messagesElement, HTMLElement);
+      assert.instanceOf(messagesElement, HTMLElement);
       dispatchPasteEvent(messagesElement, {clipboardData: dt, bubbles: true});
       assert.strictEqual(
           Common.Console.Console.instance().messages()[0].text,

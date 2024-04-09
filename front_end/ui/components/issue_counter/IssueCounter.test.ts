@@ -5,7 +5,6 @@
 import {assertNotNullOrUndefined} from '../../../core/platform/platform.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
 import {
-  assertElement,
   assertElements,
   assertShadowRoot,
   renderElementIntoDOM,
@@ -27,7 +26,7 @@ const renderIssueCounter = (data: IssueCounter.IssueCounter.IssueCounterData):
 
 export const extractIconGroups = (shadowRoot: ShadowRoot) => {
   const iconButton = shadowRoot.querySelector('icon-button');
-  assertElement(iconButton, IconButton.IconButton.IconButton);
+  assert.instanceOf(iconButton, IconButton.IconButton.IconButton);
   const iconButtonShadowRoot = iconButton.shadowRoot;
   assertNotNullOrUndefined(iconButtonShadowRoot);
   const icons = iconButtonShadowRoot.querySelectorAll('.status-icon');
@@ -47,11 +46,11 @@ export const extractIconGroups = (shadowRoot: ShadowRoot) => {
 
 export const extractButton = (shadowRoot: ShadowRoot) => {
   const iconButton = shadowRoot.querySelector('icon-button');
-  assertElement(iconButton, IconButton.IconButton.IconButton);
+  assert.instanceOf(iconButton, IconButton.IconButton.IconButton);
   const iconButtonShadowRoot = iconButton.shadowRoot;
   assertNotNullOrUndefined(iconButtonShadowRoot);
   const button = iconButtonShadowRoot.querySelector('button');
-  assertElement(button, HTMLButtonElement);
+  assert.instanceOf(button, HTMLButtonElement);
   return button;
 };
 

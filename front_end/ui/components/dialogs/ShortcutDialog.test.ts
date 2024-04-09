@@ -28,7 +28,7 @@ describeWithLocale('ShortcutDialog', () => {
     if (!dialog) {
       assert.fail('devtools-dialog not found');
     }
-    Helpers.assertElement(dialog, HTMLElement);
+    assert.instanceOf(dialog, HTMLElement);
     return dialog;
   }
 

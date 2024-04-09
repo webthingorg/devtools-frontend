@@ -5,7 +5,6 @@
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
-import {assertElement} from '../../testing/DOMHelpers.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 
@@ -110,7 +109,7 @@ describeWithMockConnection('SecurityPanel', () => {
 
     // Check that reload message is visible initially.
     const reloadMessage = securityPanel.sidebarTree.shadowRoot.querySelector('.security-main-view-reload-message');
-    assertElement(reloadMessage, HTMLLIElement);
+    assert.instanceOf(reloadMessage, HTMLLIElement);
     assert.isFalse(reloadMessage.classList.contains('hidden'));
 
     // Check that reload message is hidden when there is data to display.

@@ -4,7 +4,6 @@
 
 import type * as SDK from '../../../core/sdk/sdk.js';
 import {
-  assertElement,
   assertShadowRoot,
   getCleanTextContentFromElements,
   renderElementIntoDOM,
@@ -22,7 +21,7 @@ async function renderRequestHeaderSection(request: SDK.NetworkRequest.NetworkReq
   renderElementIntoDOM(component);
   component.data = {request};
   await coordinator.done();
-  assertElement(component, HTMLElement);
+  assert.instanceOf(component, HTMLElement);
   assertShadowRoot(component.shadowRoot);
   return component;
 }

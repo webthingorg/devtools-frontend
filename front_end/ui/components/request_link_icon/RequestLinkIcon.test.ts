@@ -8,7 +8,7 @@ import type * as SDK from '../../../core/sdk/sdk.js';
 import type * as Protocol from '../../../generated/protocol.js';
 import type * as Logs from '../../../models/logs/logs.js';
 import * as NetworkForward from '../../../panels/network/forward/forward.js';
-import {assertElement, assertShadowRoot, renderElementIntoDOM} from '../../../testing/DOMHelpers.js';
+import {assertShadowRoot, renderElementIntoDOM} from '../../../testing/DOMHelpers.js';
 import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
 import * as UI from '../../legacy/legacy.js';
 import * as IconButton from '../icon_button/icon_button.js';
@@ -36,12 +36,12 @@ export const extractElements = (shadowRoot: ShadowRoot): {
   label: HTMLSpanElement|null,
 } => {
   const icon = shadowRoot.querySelector('devtools-icon');
-  assertElement(icon, IconButton.Icon.Icon);
+  assert.instanceOf(icon, IconButton.Icon.Icon);
   const button = shadowRoot.querySelector('button');
-  assertElement(button, HTMLButtonElement);
+  assert.instanceOf(button, HTMLButtonElement);
   const label = shadowRoot.querySelector('button > span');
   if (label !== null) {
-    assertElement(label, HTMLSpanElement);
+    assert.instanceOf(label, HTMLSpanElement);
   }
   return {icon, button, label};
 };

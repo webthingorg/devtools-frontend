@@ -6,7 +6,6 @@ import * as Common from '../../../core/common/common.js';
 import type * as Platform from '../../../core/platform/platform.js';
 import * as Root from '../../../core/root/root.js';
 import {
-  assertElement,
   assertShadowRoot,
   renderElementIntoDOM,
 } from '../../../testing/DOMHelpers.js';
@@ -22,7 +21,7 @@ function renderSettingCheckbox(data: Settings.SettingCheckbox.SettingCheckboxDat
   assertShadowRoot(component.shadowRoot);
 
   const checkbox = component.shadowRoot.querySelector('input');
-  assertElement(checkbox, HTMLInputElement);
+  assert.instanceOf(checkbox, HTMLInputElement);
 
   return {component, checkbox};
 }

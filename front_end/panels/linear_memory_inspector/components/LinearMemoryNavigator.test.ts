@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import {
-  assertElement,
   assertElements,
   assertShadowRoot,
   getElementsWithinComponent,
@@ -65,7 +64,7 @@ describeWithLocale('LinearMemoryNavigator', () => {
     const shadowRoot = component.shadowRoot;
     assertShadowRoot(shadowRoot);
     const input = shadowRoot.querySelector(NAVIGATOR_ADDRESS_SELECTOR);
-    assertElement(input, HTMLInputElement);
+    assert.instanceOf(input, HTMLInputElement);
     assert.strictEqual(input.value, '20');
   });
 
@@ -82,7 +81,7 @@ describeWithLocale('LinearMemoryNavigator', () => {
     const shadowRoot = component.shadowRoot;
     assertShadowRoot(shadowRoot);
     const input = shadowRoot.querySelector(NAVIGATOR_ADDRESS_SELECTOR);
-    assertElement(input, HTMLInputElement);
+    assert.instanceOf(input, HTMLInputElement);
     assert.strictEqual(input.value, '16');
   });
 
@@ -93,7 +92,7 @@ describeWithLocale('LinearMemoryNavigator', () => {
     const shadowRoot = component.shadowRoot;
     assertShadowRoot(shadowRoot);
     const refreshButton = shadowRoot.querySelector(NAVIGATOR_REFRESH_BUTTON_SELECTOR);
-    assertElement(refreshButton, HTMLButtonElement);
+    assert.instanceOf(refreshButton, HTMLButtonElement);
     refreshButton.click();
 
     assert.isNotNull(await eventPromise);

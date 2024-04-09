@@ -6,7 +6,6 @@ import * as Common from '../../../core/common/common.js';
 import type * as Protocol from '../../../generated/protocol.js';
 import * as IssuesManager from '../../../models/issues_manager/issues_manager.js';
 import {
-  assertElement,
   assertShadowRoot,
   renderElementIntoDOM,
 } from '../../../testing/DOMHelpers.js';
@@ -35,9 +34,9 @@ export const extractElements = (shadowRoot: ShadowRoot): {
   button: HTMLButtonElement,
 } => {
   const icon = shadowRoot.querySelector('devtools-icon');
-  assertElement(icon, IconButton.Icon.Icon);
+  assert.instanceOf(icon, IconButton.Icon.Icon);
   const button = shadowRoot.querySelector('button');
-  assertElement(button, HTMLButtonElement);
+  assert.instanceOf(button, HTMLButtonElement);
   return {icon, button};
 };
 

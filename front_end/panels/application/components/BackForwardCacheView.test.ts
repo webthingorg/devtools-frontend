@@ -7,7 +7,6 @@ import {assertNotNullOrUndefined} from '../../../core/platform/platform.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Protocol from '../../../generated/protocol.js';
 import {
-  assertElement,
   assertShadowRoot,
   dispatchClickEvent,
   renderElementIntoDOM,
@@ -175,7 +174,7 @@ describeWithMockConnection('BackForwardCacheView', () => {
       } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
       const component = await renderBackForwardCacheView();
       const treeOutline = component.shadowRoot!.querySelector('devtools-tree-outline');
-      assertElement(treeOutline, TreeOutline.TreeOutline.TreeOutline);
+      assert.instanceOf(treeOutline, TreeOutline.TreeOutline.TreeOutline);
       assertShadowRoot(treeOutline.shadowRoot);
 
       const treeData = await Promise.all(
@@ -305,7 +304,7 @@ describeWithMockConnection('BackForwardCacheView', () => {
       } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
       const component = await renderBackForwardCacheView();
       const button = component.shadowRoot!.querySelector('[aria-label="Test back/forward cache"]');
-      assertElement(button, HTMLElement);
+      assert.instanceOf(button, HTMLElement);
       dispatchClickEvent(button);
 
       await new Promise<void>(resolve => {

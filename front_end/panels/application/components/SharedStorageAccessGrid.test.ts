@@ -5,7 +5,6 @@
 import * as Protocol from '../../../generated/protocol.js';
 import {getValuesOfAllBodyRows} from '../../../testing/DataGridHelpers.js';
 import {
-  assertElement,
   assertShadowRoot,
   getElementWithinComponent,
   renderElementIntoDOM,
@@ -79,6 +78,6 @@ describeWithLocale('SharedStorageAccessGrid', () => {
     assert.isNull(nullGridElement);
 
     const noEventsElement = component.shadowRoot!.querySelector('div.no-events-message');
-    assertElement(noEventsElement, HTMLDivElement);
+    assert.instanceOf(noEventsElement, HTMLDivElement);
   });
 });

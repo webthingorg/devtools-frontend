@@ -6,7 +6,6 @@ import * as Host from '../../../core/host/host.js';
 import type * as Platform from '../../../core/platform/platform.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
 import {
-  assertElement,
   assertShadowRoot,
   dispatchFocusEvent,
   dispatchFocusOutEvent,
@@ -144,7 +143,7 @@ describe('HeadersView', () => {
   async function pressButton(shadowRoot: ShadowRoot, rowIndex: number, selector: string): Promise<void> {
     const rowElements = shadowRoot.querySelectorAll('.row');
     const button = rowElements[rowIndex].querySelector(selector);
-    assertElement(button, HTMLElement);
+    assert.instanceOf(button, HTMLElement);
     button.click();
     await coordinator.done();
   }
@@ -213,11 +212,11 @@ describe('HeadersView', () => {
     ]);
 
     const addRuleButton = editor.shadowRoot.querySelector('.add-block');
-    assertElement(addRuleButton, HTMLElement);
+    assert.instanceOf(addRuleButton, HTMLElement);
     assert.strictEqual(addRuleButton.textContent?.trim(), 'Add override rule');
 
     const learnMoreLink = editor.shadowRoot.querySelector('.learn-more-row x-link');
-    assertElement(learnMoreLink, HTMLElement);
+    assert.instanceOf(learnMoreLink, HTMLElement);
     assert.strictEqual(learnMoreLink.title, 'https://goo.gle/devtools-override');
 
     const editables = editor.shadowRoot.querySelectorAll('.editable');
@@ -439,7 +438,7 @@ describe('HeadersView', () => {
     ]);
 
     const button = editor.shadowRoot.querySelector('.add-block');
-    assertElement(button, HTMLElement);
+    assert.instanceOf(button, HTMLElement);
     button.click();
     await coordinator.done();
 

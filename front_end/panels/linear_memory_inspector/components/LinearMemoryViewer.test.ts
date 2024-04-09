@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import {
-  assertElement,
   assertElements,
   assertShadowRoot,
   getElementsWithinComponent,
@@ -88,7 +87,7 @@ describe('LinearMemoryViewer', () => {
       component: LinearMemoryInspectorComponents.LinearMemoryViewer.LinearMemoryViewer, cellSelector: string) {
     assertShadowRoot(component.shadowRoot);
     const row = component.shadowRoot.querySelector(VIEWER_ROW_SELECTOR);
-    assertElement(row, HTMLDivElement);
+    assert.instanceOf(row, HTMLDivElement);
     const cellsPerRow = row.querySelectorAll(cellSelector);
     assert.isNotEmpty(cellsPerRow);
     assertElements(cellsPerRow, HTMLSpanElement);
@@ -174,7 +173,7 @@ describe('LinearMemoryViewer', () => {
 
     for (let i = 0, currentAddress = data.memoryOffset; i < addresses.length; currentAddress += numBytesPerRow, ++i) {
       const addressElement = addresses[i];
-      assertElement(addressElement, HTMLSpanElement);
+      assert.instanceOf(addressElement, HTMLSpanElement);
 
       const hex = currentAddress.toString(16).toUpperCase().padStart(8, '0');
       assert.strictEqual(addressElement.innerText, hex);
@@ -214,7 +213,7 @@ describe('LinearMemoryViewer', () => {
     assertShadowRoot(component.shadowRoot);
 
     const byte = component.shadowRoot.querySelector(VIEWER_BYTE_CELL_SELECTOR);
-    assertElement(byte, HTMLSpanElement);
+    assert.instanceOf(byte, HTMLSpanElement);
 
     const eventPromise = getEventPromise<LinearMemoryInspectorComponents.LinearMemoryViewer.ByteSelectedEvent>(
         component, 'byteselected');
@@ -260,7 +259,7 @@ describe('LinearMemoryViewer', () => {
     assertShadowRoot(component.shadowRoot);
 
     const asciiCell = component.shadowRoot.querySelector(VIEWER_TEXT_CELL_SELECTOR);
-    assertElement(asciiCell, HTMLSpanElement);
+    assert.instanceOf(asciiCell, HTMLSpanElement);
 
     const eventPromise = getEventPromise<LinearMemoryInspectorComponents.LinearMemoryViewer.ByteSelectedEvent>(
         component, 'byteselected');

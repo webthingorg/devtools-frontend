@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import {
-  assertElement,
   assertElements,
   assertShadowRoot,
   renderElementIntoDOM,
@@ -185,7 +184,7 @@ describe('IconButton', () => {
       });
       const {shadowRoot} = renderIconButton({clickHandler, groups: [defaultIcon]});
       const icon = shadowRoot.querySelector('.status-icon');
-      assertElement(icon, IconButton.Icon.Icon);
+      assert.instanceOf(icon, IconButton.Icon.Icon);
       icon.click();
       await clicked;
     });
@@ -197,7 +196,7 @@ describe('IconButton', () => {
       });
       const {shadowRoot} = renderIconButton({clickHandler, groups: [defaultIcon]});
       const icon = shadowRoot.querySelector('.icon-button');
-      assertElement(icon, HTMLButtonElement);
+      assert.instanceOf(icon, HTMLButtonElement);
       icon.click();
       await clicked;
     });
@@ -207,14 +206,14 @@ describe('IconButton', () => {
     it('is rendered when there is a click handler', async () => {
       const {shadowRoot} = renderIconButton({clickHandler: () => {}, groups: [defaultIcon]});
       const button = shadowRoot.querySelector('.icon-button');
-      assertElement(button, HTMLButtonElement);
+      assert.instanceOf(button, HTMLButtonElement);
       assert.isTrue(button.classList.contains('with-click-handler'));
     });
 
     it('is omitted when requested', async () => {
       const {shadowRoot} = renderIconButton({groups: [defaultIcon]});
       const button = shadowRoot.querySelector('.icon-button');
-      assertElement(button, HTMLButtonElement);
+      assert.instanceOf(button, HTMLButtonElement);
       assert.isFalse(button.classList.contains('with-click-handler'));
     });
   });

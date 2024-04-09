@@ -10,7 +10,6 @@ import * as Protocol from '../../../generated/protocol.js';
 import type * as Persistence from '../../../models/persistence/persistence.js';
 import * as Workspace from '../../../models/workspace/workspace.js';
 import {
-  assertElement,
   assertShadowRoot,
   dispatchInputEvent,
   getCleanTextContentFromElements,
@@ -47,7 +46,7 @@ async function renderResponseHeaderSection(request: SDK.NetworkRequest.NetworkRe
     toReveal: {section: NetworkForward.UIRequestLocation.UIHeaderSection.Response, header: 'highlighted-header'},
   };
   await coordinator.done();
-  assertElement(component, HTMLElement);
+  assert.instanceOf(component, HTMLElement);
   assertShadowRoot(component.shadowRoot);
   return component;
 }
@@ -62,10 +61,10 @@ async function editHeaderRow(
   assertShadowRoot(row.shadowRoot);
   const selector = headerAttribute === HeaderAttribute.HeaderName ? '.header-name' : '.header-value';
   const editableComponent = row.shadowRoot.querySelector(`${selector} devtools-editable-span`);
-  assertElement(editableComponent, HTMLElement);
+  assert.instanceOf(editableComponent, HTMLElement);
   assertShadowRoot(editableComponent.shadowRoot);
   const editable = editableComponent.shadowRoot.querySelector('.editable');
-  assertElement(editable, HTMLSpanElement);
+  assert.instanceOf(editable, HTMLSpanElement);
   editable.focus();
   editable.innerText = newValue;
   dispatchInputEvent(editable, {inputType: 'insertText', data: newValue, bubbles: true, composed: true});
@@ -77,10 +76,10 @@ async function removeHeaderRow(
     component: NetworkComponents.ResponseHeaderSection.ResponseHeaderSection, index: number): Promise<void> {
   assertShadowRoot(component.shadowRoot);
   const row = component.shadowRoot.querySelectorAll('devtools-header-section-row')[index];
-  assertElement(row, HTMLElement);
+  assert.instanceOf(row, HTMLElement);
   assertShadowRoot(row.shadowRoot);
   const button = row.shadowRoot.querySelector('.remove-header');
-  assertElement(button, HTMLElement);
+  assert.instanceOf(button, HTMLElement);
   button.click();
   await coordinator.done();
 }
@@ -141,10 +140,10 @@ function checkHeaderSectionRow(
   const nameEditableComponent =
       row.shadowRoot.querySelector<NetworkComponents.EditableSpan.EditableSpan>('.header-name devtools-editable-span');
   if (isNameEditable) {
-    assertElement(nameEditableComponent, HTMLElement);
+    assert.instanceOf(nameEditableComponent, HTMLElement);
     assertShadowRoot(nameEditableComponent.shadowRoot);
     const nameEditable = nameEditableComponent.shadowRoot.querySelector('.editable');
-    assertElement(nameEditable, HTMLSpanElement);
+    assert.instanceOf(nameEditable, HTMLSpanElement);
     const textContent =
         nameEditable.textContent?.trim() + (row.shadowRoot.querySelector('.header-name')?.textContent || '').trim();
     assert.strictEqual(textContent, headerName);
@@ -156,10 +155,10 @@ function checkHeaderSectionRow(
   const valueEditableComponent =
       row.shadowRoot.querySelector<NetworkComponents.EditableSpan.EditableSpan>('.header-value devtools-editable-span');
   if (isValueEditable) {
-    assertElement(valueEditableComponent, HTMLElement);
+    assert.instanceOf(valueEditableComponent, HTMLElement);
     assertShadowRoot(valueEditableComponent.shadowRoot);
     const valueEditable = valueEditableComponent.shadowRoot.querySelector('.editable');
-    assertElement(valueEditable, HTMLSpanElement);
+    assert.instanceOf(valueEditable, HTMLSpanElement);
     assert.strictEqual(valueEditable.textContent?.trim(), headerValue);
   } else {
     assert.strictEqual(valueEditableComponent, null);
@@ -200,7 +199,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     assertShadowRoot(component.shadowRoot);
 
     const row = component.shadowRoot.querySelectorAll('devtools-header-section-row')[1];
-    assertElement(row, HTMLElement);
+    assert.instanceOf(row, HTMLElement);
     assertShadowRoot(row.shadowRoot);
 
     const regex = /^\s*not-set\s*cross-origin-resource-policy:\s*$/;
@@ -236,14 +235,14 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     assertShadowRoot(component.shadowRoot);
 
     const row = component.shadowRoot.querySelector('devtools-header-section-row');
-    assertElement(row, HTMLElement);
+    assert.instanceOf(row, HTMLElement);
     assertShadowRoot(row.shadowRoot);
 
     assert.strictEqual(row.shadowRoot.querySelector('.header-name')?.textContent?.trim(), 'set-cookie:');
     assert.strictEqual(row.shadowRoot.querySelector('.header-value')?.textContent?.trim(), 'secure=only; Secure');
 
     const icon = row.shadowRoot.querySelector('devtools-icon');
-    assertElement(icon, HTMLElement);
+    assert.instanceOf(icon, HTMLElement);
     assert.strictEqual(
         icon.title,
         'This attempt to set a cookie via a Set-Cookie header was blocked because it had the ' +
@@ -758,7 +757,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     const {component, spy} = await setupHeaderEditing(headerOverridesFileContent, actualHeaders, originalHeaders);
     assertShadowRoot(component.shadowRoot);
     const addHeaderButton = component.shadowRoot.querySelector('.add-header-button');
-    assertElement(addHeaderButton, HTMLElement);
+    assert.instanceOf(addHeaderButton, HTMLElement);
     addHeaderButton.click();
     await coordinator.done();
 
@@ -821,7 +820,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     const {component, spy} = await setupHeaderEditing('[]', actualHeaders, actualHeaders);
     assertShadowRoot(component.shadowRoot);
     const addHeaderButton = component.shadowRoot.querySelector('.add-header-button');
-    assertElement(addHeaderButton, HTMLElement);
+    assert.instanceOf(addHeaderButton, HTMLElement);
     addHeaderButton.click();
     await coordinator.done();
 
@@ -862,7 +861,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     const {component} = await setupHeaderEditingWithRequest('[]', request);
     assertShadowRoot(component.shadowRoot);
     const addHeaderButton = component.shadowRoot.querySelector('.add-header-button');
-    assertElement(addHeaderButton, HTMLElement);
+    assert.instanceOf(addHeaderButton, HTMLElement);
     addHeaderButton.click();
     await coordinator.done();
 
@@ -1060,7 +1059,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     const {component, spy} = await setupHeaderEditingWithRequest(headerOverridesFileContent, request);
     assertShadowRoot(component.shadowRoot);
     const addHeaderButton = component.shadowRoot.querySelector('.add-header-button');
-    assertElement(addHeaderButton, HTMLElement);
+    assert.instanceOf(addHeaderButton, HTMLElement);
     addHeaderButton.click();
     await coordinator.done();
 
@@ -1113,7 +1112,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     const {component} = await setupHeaderEditingWithRequest(headerOverridesFileContent, request);
     assertShadowRoot(component.shadowRoot);
     const addHeaderButton = component.shadowRoot.querySelector('.add-header-button');
-    assertElement(addHeaderButton, HTMLElement);
+    assert.instanceOf(addHeaderButton, HTMLElement);
     addHeaderButton.click();
     await coordinator.done();
     assert.isFalse(isRowFocused(component, 0));
@@ -1147,7 +1146,7 @@ describeWithEnvironment('ResponseHeaderSection', () => {
     const {component} = await setupHeaderEditingWithRequest(headerOverridesFileContent, request);
     assertShadowRoot(component.shadowRoot);
     let addHeaderButton = component.shadowRoot.querySelector('.add-header-button');
-    assertElement(addHeaderButton, HTMLElement);
+    assert.instanceOf(addHeaderButton, HTMLElement);
     addHeaderButton.click();
     await coordinator.done();
 

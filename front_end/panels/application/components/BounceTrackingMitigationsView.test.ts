@@ -4,7 +4,6 @@
 
 import {getValuesOfAllBodyRows} from '../../../testing/DataGridHelpers.js';
 import {
-  assertElement,
   assertShadowRoot,
   dispatchClickEvent,
   getElementWithinComponent,
@@ -93,7 +92,7 @@ describeWithMockConnection('BounceTrackingMitigationsView', () => {
     await coordinator.done();
 
     const forceRunButton = component.shadowRoot!.querySelector('[aria-label="Force run"]');
-    assertElement(forceRunButton, HTMLElement);
+    assert.instanceOf(forceRunButton, HTMLElement);
     dispatchClickEvent(forceRunButton);
 
     await coordinator.done();
@@ -122,7 +121,7 @@ describeWithMockConnection('BounceTrackingMitigationsView', () => {
     await coordinator.done();
 
     const forceRunButton = component.shadowRoot!.querySelector('[aria-label="Force run"]');
-    assertElement(forceRunButton, HTMLElement);
+    assert.instanceOf(forceRunButton, HTMLElement);
     dispatchClickEvent(forceRunButton);
 
     await coordinator.done({waitForWork: true});

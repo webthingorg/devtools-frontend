@@ -7,7 +7,7 @@ import type * as Platform from '../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
-import {assertElement, getCleanTextContentFromElements} from '../../testing/DOMHelpers.js';
+import {getCleanTextContentFromElements} from '../../testing/DOMHelpers.js';
 import {createTarget, stubNoopSettings} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -304,7 +304,7 @@ describeWithMockConnection('AppManifestView', () => {
 
       const screenshotSection =
           reportView.element.shadowRoot?.querySelectorAll<HTMLDivElement>('.report-section')[7] || null;
-      assertElement(screenshotSection, HTMLDivElement);
+      assert.instanceOf(screenshotSection, HTMLDivElement);
       assert.deepStrictEqual(
           getCleanTextContentFromElements(screenshotSection, '.report-field-name').slice(0, 3),
           ['Form factor', 'Label', 'Platform']);
