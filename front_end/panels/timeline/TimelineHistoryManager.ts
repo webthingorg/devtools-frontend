@@ -6,6 +6,7 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as AnnotationsManager from '../../services/annotations_manager/annotations_manager.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {type PerformanceModel} from './PerformanceModel.js';
@@ -71,6 +72,8 @@ export type RecordingData = {
   // By storing only the index of this trace, the TimelinePanel can then look
   // up this trace's data (and metadata) via this index.
   traceParseDataIndex: number,
+  // Store file metadata so the annotations don't disappear when switching between traces
+  fileMetadata: TraceEngine.Types.File.MetaData|null,
 };
 
 export interface NewHistoryRecordingData {
@@ -150,8 +153,9 @@ export class TimelineHistoryManager {
   addRecording(newInput: NewHistoryRecordingData): void {
     const {legacyModel, traceParseDataIndex} = newInput.data;
     const filmStrip = newInput.filmStripForPreview;
+    const fileMetadata = newInput.data.fileMetadata;
     this.lastActiveTraceIndex = traceParseDataIndex;
-    this.recordings.unshift({legacyModel: legacyModel, traceParseDataIndex});
+    this.recordings.unshift({legacyModel: legacyModel, traceParseDataIndex, fileMetadata});
 
     // Order is important: this needs to happen first because lots of the
     // subsequent code depends on us storing the preview data into the map.
@@ -176,6 +180,16 @@ export class TimelineHistoryManager {
         throw new Error('Unable to find data for model');
       }
       return data.lastUsed;
+    }
+  }
+
+  updateCurrentRecordingAnnotations(): void {
+    const currentRecording = this.recordings.find(recording => {
+      return recording.traceParseDataIndex === this.lastActiveTraceIndex;
+    });
+    const annotations = AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()?.getAnnotations();
+    if (currentRecording && currentRecording.fileMetadata) {
+      currentRecording.fileMetadata.annotations = annotations;
     }
   }
 
@@ -240,6 +254,8 @@ export class TimelineHistoryManager {
     if (!data) {
       throw new Error('Unable to find data for model');
     }
+    // Before setting a new trace model, save the latest annotations for the current trace
+    this.updateCurrentRecordingAnnotations();
     data.lastUsed = Date.now();
     this.lastActiveTraceIndex = index;
     const modelTitle = this.title(index);
