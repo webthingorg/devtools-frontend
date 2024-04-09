@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8a5edb4_87c4f919",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-09T05:18:47Z",
+      "side": 1,
+      "message": "Hi Peter,\n\nfriendly ping - ptal at the filter bars 😊 (this CL has all filter bars, since it includes the previous CL: crrev.com/c/5402575).",
+      "revId": "76d8f964dd9a24b1def238d0782e67dee5bd7b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
