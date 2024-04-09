@@ -12,6 +12,7 @@ import * as path from 'path';
 import type * as puppeteer from 'puppeteer-core';
 
 import {getTestRunnerConfigSetting} from '../conductor/test_runner_config.js';
+import {SOURCE_ROOT} from '../Paths.js';
 import {
   getBrowserAndPages,
   platform,
@@ -19,6 +20,7 @@ import {
   waitFor,
 } from '../shared/helper.js';
 import {ScreenshotError} from '../shared/screenshot-error.js';
+import {TestConfig} from '../TestConfig.js';
 
 /**
  * The goldens screenshot folder is always taken from the source directory (NOT
@@ -26,10 +28,7 @@ import {ScreenshotError} from '../shared/screenshot-error.js';
  * flags from the test runner config to locate the source directory and read our
  * goldens from there.
  */
-const testRunnerCWD = getTestRunnerConfigSetting<string>('cwd', '');
-if (!testRunnerCWD) {
-  throw new Error('--cwd and --test-suite-source-dir must be provided when running the screenshot tests.');
-}
+const testRunnerCWD = getTestRunnerConfigSetting<string>('cwd', SOURCE_ROOT);
 const GOLDENS_FOLDER = path.join(testRunnerCWD, 'test', 'interactions', 'goldens', platform);
 
 /**
@@ -102,7 +101,7 @@ const assertScreenshotUnchangedWithRetries = async (
     // You can run the tests with ITERATIONS=2 to run each test twice. In that
     // case we would expect the generated screenshots to already exists, so if
     // we are running more than 1 iteration, we do not error.
-    const testIterations = process.env.ITERATIONS ? parseInt(process.env.ITERATIONS, 10) : 1;
+    const testIterations = process.env.ITERATIONS ? parseInt(process.env.ITERATIONS, 10) : TestConfig.repetitions;
     if (fs.existsSync(generatedScreenshotPath) && testIterations < 2) {
       // If this happened something went wrong during the clean-up at the start of the test run, so let's bail.
       throw new Error(`${generatedScreenshotPath} already exists.`);
@@ -160,8 +159,9 @@ const assertScreenshotUnchanged = async (options: ScreenshotAssertionOptions) =>
    * screenshot to change and therefore the test goldens need to be updated.
    */
   const shouldUpdate = Boolean(process.env.FORCE_UPDATE_ALL_GOLDENS) ||
-      Boolean(process.env.UPDATE_GOLDEN && process.env.UPDATE_GOLDEN === fileName);
-  const throwAfterGoldensUpdate = Boolean(process.env.THROW_AFTER_GOLDENS_UPDATE);
+      Boolean(process.env.UPDATE_GOLDEN && process.env.UPDATE_GOLDEN === fileName) ||
+      (TestConfig.onDiff.update && (TestConfig.onDiff.update === true || TestConfig.onDiff.update.includes(fileName)));
+  const throwAfterGoldensUpdate = Boolean(process.env.THROW_AFTER_GOLDENS_UPDATE ?? TestConfig.onDiff.throw);
 
   let onBotAndImageNotFound = false;
 
