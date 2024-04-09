@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const {assert} = chai;
-
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithRealConnection} from '../../testing/RealConnection.js';
 import * as SDK from '../../core/sdk/sdk.js';

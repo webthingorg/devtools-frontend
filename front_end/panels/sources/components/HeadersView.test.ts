@@ -29,7 +29,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 
 import * as SourcesComponents from './components.js';
 
-const {assert} = chai;
+
 const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 describe('HeadersView', () => {

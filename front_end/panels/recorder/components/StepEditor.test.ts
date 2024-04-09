@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const {assert} = chai;
-
 // eslint-disable-next-line rulesdir/es_modules_import
 import * as EnvironmentHelpers from '../../../testing/EnvironmentHelpers.js';
 import type * as Components from './components.js';

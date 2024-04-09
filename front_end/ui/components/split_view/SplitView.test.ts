@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const {assert} = chai;
-
 import * as SplitView from './split_view.js';
 import * as RenderCoordinator from '../render_coordinator/render_coordinator.js';
 

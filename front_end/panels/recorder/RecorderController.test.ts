@@ -4,8 +4,6 @@
 
 /* eslint-disable rulesdir/es_modules_import */
 
-const {assert} = chai;
-
 import {RecorderActions} from './recorder-actions/recorder-actions.js';
 import {RecorderController} from './recorder.js';
 import * as Models from './models/models.js';

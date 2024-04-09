@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const {assert} = chai;
-
 import * as Issues from '../../panels/issues/issues.js';
 import * as IssuesManager from '../issues_manager/issues_manager.js';
 import type * as SDK from '../../core/sdk/sdk.js';

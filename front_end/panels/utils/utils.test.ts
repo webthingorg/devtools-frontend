@@ -5,8 +5,6 @@
 import * as PanelUtils from './utils.js';
 import * as Diff from '../../third_party/diff/diff.js';
 
-const {assert} = chai;
-
 describe('panels/utils', () => {
   it('formats CSS changes from diff arrays', async () => {
     const original = `

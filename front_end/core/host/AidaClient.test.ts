@@ -5,8 +5,6 @@
 import * as Host from './host.js';
 import * as Root from '../root/root.js';
 
-const {assert} = chai;
-
 const TEST_MODEL_ID = 'testModelId';
 
 describe('AidaClient', () => {

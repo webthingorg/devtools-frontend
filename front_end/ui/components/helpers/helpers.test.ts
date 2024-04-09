@@ -35,8 +35,6 @@ const TestElement = class extends HTMLElement {
 };
 customElements.define('x-devtools-test-element', TestElement);
 
-const {assert} = chai;
-
 describe('ComponentHelpers', () => {
   describe('Directives', () => {
     describe('nodeRenderedCallback', () => {

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const {assert} = chai;
+
 import * as Workspace from '../workspace/workspace.js';
 import * as Persistence from '../persistence/persistence.js';
 import * as Bindings from '../bindings/bindings.js';

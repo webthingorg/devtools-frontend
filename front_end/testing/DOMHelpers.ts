@@ -12,8 +12,6 @@
 import type * as NodeText from '../ui/components/node_text/node_text.js';
 import * as UI from '../ui/legacy/legacy.js';
 
-const {assert} = chai;
-
 const TEST_CONTAINER_ID = '__devtools-test-container-id';
 
 interface RenderOptions {

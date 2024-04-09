@@ -4,8 +4,6 @@
 
 import * as TraceModel from '../trace.js';
 
-const {assert} = chai;
-
 import {defaultTraceEvent} from '../../../testing/TraceHelpers.js';
 import {TraceLoader} from '../../../testing/TraceLoader.js';
 

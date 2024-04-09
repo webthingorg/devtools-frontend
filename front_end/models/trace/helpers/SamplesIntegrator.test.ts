@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const {assert} = chai;
-
 import * as TraceModel from '../trace.js';
 import * as CPUProfile from '../../../models/cpu_profile/cpu_profile.js';
 import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';

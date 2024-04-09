@@ -14,8 +14,6 @@ import * as Logs from '../logs/logs.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
-const {assert} = chai;
-
 import {
   describeWithDevtoolsExtension,
   getExtensionOrigin,

@@ -18,8 +18,6 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import * as Sources from './sources.js';
 
-const {assert} = chai;
-
 import {
   describeWithMockConnection,
   setMockConnectionResponseHandler,
