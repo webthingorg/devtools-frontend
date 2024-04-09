@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3600732e_0552fb3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-09T10:38:01Z",
+      "side": 1,
+      "message": "Can you rubberstamp this revert please? Thanks! 🙏",
+      "revId": "5129f13c26a50a0bbdf4da8b6511e277ab95814c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
