@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2dc262_28d29f75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-04-09T19:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62138883_efe82308",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "7356053190361a475b8144f26554e3ccedafb3c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2b1d5b4_c1d255dd",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-09T14:03:54Z",
       "side": 1,
       "message": "do we need this? The trace model has a `metadata(index: number)` method that returns metadata for the existing index (which we already store). I\u0027m wondering if that is enough?",
+      "range": {
+        "startLine": 75,
+        "startChar": 1,
+        "endLine": 76,
+        "endChar": 53
+      },
+      "revId": "7356053190361a475b8144f26554e3ccedafb3c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c89a09_1c2928ce",
+        "filename": "front_end/panels/timeline/TimelineHistoryManager.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-04-09T19:59:34Z",
+      "side": 1,
+      "message": "you\u0027re right! I didn\u0027t realize we\u0027re saving it already. I changed the CL to just update annotations in the trace model before switching the trace",
+      "parentUuid": "b2b1d5b4_c1d255dd",
       "range": {
         "startLine": 75,
         "startChar": 1,
