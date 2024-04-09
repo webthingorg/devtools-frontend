@@ -25,4 +25,5 @@ node_ts_library("implementation") {
     "test_runner_config.ts",
     "test_server.ts",
   ]
+  deps = [ "../:runtests" ]
 }

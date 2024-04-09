@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {getBrowserAndPages, getTestServerPort, platform} from '../../shared/helper.js';
+import {TestConfig} from '../../TestConfig.js';
 
 const fontsByPlatform = {
   'mac': 'Helvetica Neue',
@@ -21,7 +22,7 @@ export const loadComponentDocExample = async (urlComponent: string) => {
   await frontend.evaluate(() => window.dispatchEvent(new Event('hidecomponentdocsui')));
 };
 
-const SHOULD_GATHER_COVERAGE_INFORMATION = process.env.COVERAGE === '1';
+const SHOULD_GATHER_COVERAGE_INFORMATION = process.env.COVERAGE === '1' || TestConfig.coverage;
 
 export const preloadForCodeCoverage = (name: string) => {
   if (!SHOULD_GATHER_COVERAGE_INFORMATION) {

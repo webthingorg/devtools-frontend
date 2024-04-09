@@ -7,6 +7,7 @@ import * as Path from 'path';
 
 import {getBrowserAndPages} from '../conductor/puppeteer-state.js';
 import {ScreenshotError} from '../shared/screenshot-error.js';
+import {TestConfig} from '../TestConfig.js';
 
 import {AsyncScope} from './async-scope.js';
 import {getEnvVar} from './config.js';
@@ -158,7 +159,7 @@ export const it = makeCustomWrappedIt();
 
 type MochaCallback = Mocha.Func|Mocha.AsyncFunc;
 
-const iterations = getEnvVar('ITERATIONS', 1);
+const iterations = getEnvVar('ITERATIONS', TestConfig.repetitions);
 
 function iterationSuffix(iteration: number): string {
   if (iteration === 0) {
