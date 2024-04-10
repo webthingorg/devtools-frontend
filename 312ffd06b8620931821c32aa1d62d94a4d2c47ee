@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "117ddddd_e74f0a3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-10T13:56:19Z",
+      "side": 1,
+      "message": "Hey hey, before taking a look at the CSS implementation details; I\u0027ve wanted to check how this looks in the changed places and I think there are a few things we need to fix.\n\nI\u0027ve collected them with screenshots here, PTAL: https://docs.google.com/document/d/14nuive5SLCh0F6cK4qpNV8l_fQOCrLu3-MNub9TcmCc/edit?tab\u003dt.0#heading\u003dh.kmf6d9s4jim2\n\nI\u0027ll continue the review after discussing these :)",
+      "revId": "312ffd06b8620931821c32aa1d62d94a4d2c47ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
