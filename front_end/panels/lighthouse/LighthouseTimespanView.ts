@@ -3,10 +3,11 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Buttons from '../../ui/components/buttons/buttons.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
-import {type LighthousePanel} from './LighthousePanel.js';
 import lighthouseDialogStyles from './lighthouseDialog.css.js';
+import {type LighthousePanel} from './LighthousePanel.js';
 
 const UIStrings = {
   /**
@@ -73,7 +74,7 @@ export class TimespanView extends UI.Dialog.Dialog {
     this.endButton = UI.UIUtils.createTextButton(
         i18nString(UIStrings.endTimespan),
         this.endTimespan.bind(this),
-        {primary: true, jslogContext: 'lighthouse.end-time-span'},
+        {variant: Buttons.Button.Variant.PRIMARY, jslogContext: 'lighthouse.end-time-span'},
     );
     const cancelButton = UI.UIUtils.createTextButton(i18nString(UIStrings.cancel), this.cancel.bind(this), {
       jslogContext: 'lighthouse.cancel',
