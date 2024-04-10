@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b4725a_57b6055e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-10T17:29:22Z",
+      "side": 1,
+      "message": "one more nit and then LGTM!",
+      "revId": "d7848a4dc13846b0f5a498c008c9f39b5d8ad10e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3878309f_543af6cd",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-10T17:29:22Z",
+      "side": 1,
+      "message": "can we use native JS private methods please? (`#saveAnnotationsForActiveTrace`).",
+      "range": {
+        "startLine": 786,
+        "startChar": 0,
+        "endLine": 786,
+        "endChar": 49
+      },
+      "revId": "d7848a4dc13846b0f5a498c008c9f39b5d8ad10e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
