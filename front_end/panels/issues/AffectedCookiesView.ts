@@ -8,6 +8,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
+import * as Buttons from '../../ui/components/buttons/buttons.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {AffectedItem, AffectedResourcesView} from './AffectedResourcesView.js';
@@ -85,7 +86,8 @@ export class AffectedCookiesView extends AffectedResourcesView {
           },
         ]));
       }, {
-        className: 'link-style devtools-link',
+        variant: Buttons.Button.Variant.TEXT,
+        className: 'devtools-link',
         jslogContext: 'issues.filter-network-requests-by-cookie',
       });
       name.appendChild(button);
@@ -127,7 +129,8 @@ export class AffectedRawCookieLinesView extends AffectedResourcesView {
             },
           ]));
         }, {
-          className: 'link-style devtools-link',
+          variant: Buttons.Button.Variant.TEXT,
+          className: 'devtools-link',
           jslogContext: 'issues.filter-network-requests-by-raw-cookie',
         });
         textButton.title = i18nString(UIStrings.filterSetCookieTitle);
