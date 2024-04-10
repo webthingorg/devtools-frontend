@@ -4,6 +4,7 @@
 
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Buttons from '../components/buttons/buttons.js';
 import * as VisualLogging from '../visual_logging/visual_logging.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
@@ -330,12 +331,12 @@ export class Editor<T> {
     const buttonsRow = this.element.createChild('div', 'editor-buttons');
     this.commitButton = createTextButton('', this.commitClicked.bind(this), {
       jslogContext: 'commit',
-      primary: true,
+      variant: Buttons.Button.Variant.PRIMARY,
     });
     buttonsRow.appendChild(this.commitButton);
     this.cancelButton = createTextButton(i18nString(UIStrings.cancelString), this.cancelClicked.bind(this), {
       jslogContext: 'cancel',
-      primary: true,
+      variant: Buttons.Button.Variant.PRIMARY,
     });
     this.cancelButton.setAttribute('jslog', `${VisualLogging.action('cancel').track({click: true})}`);
     buttonsRow.appendChild(this.cancelButton);
