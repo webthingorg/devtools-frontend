@@ -43,7 +43,7 @@ export class AnimationModel extends SDK.SDKModel.SDKModel<EventTypes> {
     this.dispatchEventToListeners(Events.ModelReset);
   }
 
-  private async devicePixelRatio(): Promise<number> {
+  async devicePixelRatio(): Promise<number> {
     const evaluateResult = await this.target().runtimeAgent().invoke_evaluate({expression: 'window.devicePixelRatio'});
     if (evaluateResult?.result.type === 'number') {
       return evaluateResult?.result.value as number ?? 1;
@@ -59,6 +59,25 @@ export class AnimationModel extends SDK.SDKModel.SDKModel<EventTypes> {
   animationCanceled(id: string): void {
     this.#pendingAnimations.delete(id);
     this.flushPendingAnimationsIfNeeded();
+  }
+
+  async animationUpdated(payload: Protocol.Animation.Animation): Promise<void> {
+    let foundAnimationGroup: AnimationGroup|undefined;
+    let foundAnimation: AnimationImpl|undefined;
+    for (const animationGroup of this.animationGroups.values()) {
+      foundAnimation = animationGroup.animations().find(animation => animation.id() === payload.id);
+      if (foundAnimation) {
+        foundAnimationGroup = animationGroup;
+        break;
+      }
+    }
+
+    if (!foundAnimation || !foundAnimationGroup) {
+      return;
+    }
+
+    await foundAnimation.rebase(payload);
+    this.dispatchEventToListeners(Events.AnimationGroupUpdated, foundAnimationGroup);
   }
 
   async animationStarted(payload: Protocol.Animation.Animation): Promise<void> {
@@ -203,11 +222,13 @@ export class AnimationModel extends SDK.SDKModel.SDKModel<EventTypes> {
 
 export enum Events {
   AnimationGroupStarted = 'AnimationGroupStarted',
+  AnimationGroupUpdated = 'AnimationGroupUpdated',
   ModelReset = 'ModelReset',
 }
 
 export type EventTypes = {
   [Events.AnimationGroupStarted]: AnimationGroup,
+  [Events.AnimationGroupUpdated]: AnimationGroup,
   [Events.ModelReset]: void,
 };
 
@@ -225,6 +246,30 @@ export class AnimationImpl {
 
   static parsePayload(animationModel: AnimationModel, payload: Protocol.Animation.Animation): AnimationImpl {
     return new AnimationImpl(animationModel, payload);
+  }
+
+  async rebase(incoming: Protocol.Animation.Animation): Promise<void> {
+    this.#payloadInternal.startTime = incoming.startTime;
+    this.#payloadInternal.playbackRate = incoming.playbackRate;
+    if (this.#payloadInternal.source && incoming.source) {
+      this.#payloadInternal.source.duration = incoming.source.duration;
+      this.#payloadInternal.source.delay = incoming.source.delay;
+      this.#payloadInternal.source.endDelay = incoming.source.endDelay;
+    }
+
+    if (this.#payloadInternal.viewOrScrollTimeline && incoming.viewOrScrollTimeline) {
+      const devicePixelRatio = await this.#animationModel.devicePixelRatio();
+      this.#payloadInternal.viewOrScrollTimeline.axis = incoming.viewOrScrollTimeline.axis;
+      if (incoming.viewOrScrollTimeline.startOffset !== undefined) {
+        this.#payloadInternal.viewOrScrollTimeline.startOffset =
+            incoming.viewOrScrollTimeline.startOffset / devicePixelRatio;
+      }
+
+      if (incoming.viewOrScrollTimeline.endOffset !== undefined) {
+        this.#payloadInternal.viewOrScrollTimeline.endOffset =
+            incoming.viewOrScrollTimeline.endOffset / devicePixelRatio;
+      }
+    }
   }
 
   // `startTime` and `duration` is represented as the
@@ -727,7 +772,8 @@ export class AnimationDispatcher implements ProtocolProxyApi.AnimationDispatcher
     void this.#animationModel.animationStarted(animation);
   }
 
-  animationUpdated(_params: Protocol.Animation.AnimationUpdatedEvent): void {
+  animationUpdated({animation}: Protocol.Animation.AnimationUpdatedEvent): void {
+    void this.#animationModel.animationUpdated(animation);
   }
 }
 
