@@ -20,7 +20,7 @@ describeWithEnvironment('ReplayButton', () => {
   let settings: Models.RecorderSettings.RecorderSettings;
   async function createReplayButton() {
     settings = new Models.RecorderSettings.RecorderSettings();
-    const component = new RecorderComponents.ReplayButton.ReplayButton();
+    const component = new RecorderComponents.ReplayButton.ReplaySection();
     component.data = {settings, replayExtensions: []};
     renderElementIntoDOM(component);
     await coordinator.done();
