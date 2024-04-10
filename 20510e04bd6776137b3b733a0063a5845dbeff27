@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0cb7f7f_b9c645f9",
+        "filename": "scripts/run_on_target.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc36e87f_f21be19b",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dee120e7_ecd2b79c",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-04-10T10:39:59Z",
       "side": 1,
       "message": "Why not let `yargs` handle all of this? We use it everywhere else anyway. If the logic above does something special we should point it out in a comment.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b98829_c961bd60",
+        "filename": "scripts/run_on_target.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done. I guess I didn\u0027t know about unparse when I wrote this, this is actually a whole lot nicer!",
+      "parentUuid": "dee120e7_ecd2b79c",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -106,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c966910_d6f6a01c",
+        "filename": "test/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Can you clarify what you mean by no other rule depending on build.js?\n\nUsing commonjs exports is somewhat required here since this corresponds to build output, where we use node module resolution (tsc generates require() code).",
+      "parentUuid": "d6037f58_f8104952",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 61
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dddc3ea0_f1168145",
         "filename": "test/conductor/BUILD.gn",
         "patchSetId": 6
@@ -117,6 +189,30 @@
       "writtenOn": "2024-04-10T10:39:59Z",
       "side": 1,
       "message": "nit: Now we have all three naming schemes :) Let\u0027s keep it consistent. Looks like we have 5 snake_case vs 2 kebab-case so far.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b847949_3997b04d",
+        "filename": "test/conductor/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dddc3ea0_f1168145",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "002215bb_e12f4cec",
+        "filename": "test/conductor/Paths.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9be1644a_aa40d11f",
+      "range": {
+        "startLine": 36,
+        "startChar": 13,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f12ed72_07ea77a7",
@@ -163,6 +283,30 @@
       "writtenOn": "2024-04-10T10:39:59Z",
       "side": 1,
       "message": "Gotta say, this took me a minute to parse. Maybe we can make it a bit more verbose for readability?",
+      "range": {
+        "startLine": 104,
+        "startChar": 12,
+        "endLine": 104,
+        "endChar": 98
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7484c5b2_9e4be5f8",
+        "filename": "test/conductor/TestConfig.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f12ed72_07ea77a7",
       "range": {
         "startLine": 104,
         "startChar": 12,
@@ -196,6 +340,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a920c1_cbcb3e31",
+        "filename": "test/conductor/mocha_hooks.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d53d7e18_52614ebd",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c30e28ba_20337c17",
@@ -219,6 +387,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d93e26a_cd9f8ff5",
+        "filename": "test/run.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c30e28ba_20337c17",
+      "range": {
+        "startLine": 21,
+        "startChar": 67,
+        "endLine": 21,
+        "endChar": 78
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36d9f521_ccf86167",
@@ -232,6 +424,30 @@
       "writtenOn": "2024-04-10T10:39:59Z",
       "side": 1,
       "message": "nit: `const success \u003d suites.every(([suite, files]) \u003d\u003e suite.run(files));`",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 3
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "721d4929_53f441a9",
+        "filename": "test/run.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-10T13:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36d9f521_ccf86167",
       "range": {
         "startLine": 131,
         "startChar": 0,
