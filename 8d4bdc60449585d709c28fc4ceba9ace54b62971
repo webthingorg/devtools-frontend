@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82b01b1a_e45a8ba0",
+        "filename": "package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-10T10:39:59Z",
+      "side": 0,
+      "message": "whats the motivation to remove the unittest watch invocation as part of this CL?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 179
+      },
+      "revId": "8d4bdc60449585d709c28fc4ceba9ace54b62971",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
