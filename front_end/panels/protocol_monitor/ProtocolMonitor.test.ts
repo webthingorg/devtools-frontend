@@ -2,9 +2,87 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as ProtocolClient from '../../core/protocol_client/protocol_client.js';
+import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
+import * as DataGrid from '../../ui/components/data_grid/data_grid.js';
+import * as UI from '../../ui/legacy/legacy.js';
+
 import * as ProtocolMonitor from './protocol_monitor.js';
 
-describe('ProtocolMonitor', () => {
+const Widget = UI.Widget.Widget;
+const EmptyWidget = UI.EmptyWidget.EmptyWidget;
+const ProtocolMonitorImpl = ProtocolMonitor.ProtocolMonitor.ProtocolMonitorImpl;
+const InspectorBackend = ProtocolClient.InspectorBackend;
+type ProtocolMonitorRender = ProtocolMonitor.ProtocolMonitor.Renderer;
+type TabbedPane = UI.TabbedPane.TabbedPane;
+type ToolbarElement = UI.Toolbar.ToolbarElement;
+type ToolbarToggle = UI.Toolbar.ToolbarToggle;
+type ToolbarButton = UI.Toolbar.ToolbarButton;
+type DataGridRow = DataGrid.DataGridUtils.Row;
+type DataGridController = DataGrid.DataGridController.DataGridController;
+type BodyCellFocusedEvent = DataGrid.DataGridEvents.BodyCellFocusedEvent;
+
+const fakeRenderer = sinon.stub().callsFake(view => {
+  view.splitWidget = sinon.createStubInstance(UI.SplitWidget.SplitWidget);
+  view.dataGrid = sinon.createStubInstance(DataGrid.DataGridController.DataGridController);
+  view.infoWidget = sinon.createStubInstance(ProtocolMonitor.ProtocolMonitor.InfoWidget);
+  view.bottomToolbar = new UI.Toolbar.ToolbarElement();
+  view.editor = sinon.createStubInstance(ProtocolMonitor.JSONEditor.JSONEditor);
+});
+
+describeWithEnvironment('ProtocolMonitor', () => {
+  it('can toggle recording', () => {
+    const protocolMonitor = new ProtocolMonitorImpl(fakeRenderer);
+    protocolMonitor.wasShown();
+    const toolbar = protocolMonitor.contentElement.querySelector('.protocol-monitor-toolbar') as ToolbarElement;
+
+    const recordButton = toolbar.items[0] as ToolbarToggle;
+    assert.isTrue(recordButton.toggled());
+
+    assert.isNotNull(InspectorBackend.test.onMessageSent);
+    assert.isNotNull(InspectorBackend.test.onMessageReceived);
+
+    recordButton.clicked(new MouseEvent('click'));
+
+    assert.isNull(InspectorBackend.test.onMessageSent);
+    assert.isNull(InspectorBackend.test.onMessageReceived);
+
+    recordButton.clicked(new MouseEvent('click'));
+
+    assert.isNotNull(InspectorBackend.test.onMessageSent);
+    assert.isNotNull(InspectorBackend.test.onMessageReceived);
+  });
+
+  const TEST_ROW = {
+    cells: [
+      {columnId: 'request', value: ''},
+      {columnId: 'response', value: ''},
+      {columnId: 'target', value: ''},
+      {columnId: 'type', value: ''},
+    ],
+  } as DataGridRow;
+
+  // it('can clear messages', ()=> {
+  //   const protocolMonitor = new ProtocolMonitorImpl();
+  //   protocolMonitor.wasShown();
+  //   const dataGrid =
+  //       protocolMonitor.contentElement.querySelector('devtools-data-grid-controller') as DataGridController;
+  //   dataGrid.data.rows.push(TEST_ROW);
+  //   protocolMonitor.onCellFocused({data: {row: TEST_ROW, cell: {}}} as BodyCellFocusedEvent);
+  //
+  //   const infoWidget = Widget.get(protocolMonitor.contentElement.querySelector('.protocol-monitor-info')!)!;
+  //   const tabbedPane = Widget.get(infoWidget.contentElement.querySelector('.tabbed-pane')!) as TabbedPane;
+  //   assert.isFalse(tabbedPane.tabViews().some(v => v instanceof EmptyWidget));
+  //
+  //   const toolbar = protocolMonitor.contentElement.querySelector('.protocol-monitor-toolbar') as ToolbarElement;
+  //   const clearButton = toolbar.items[1] as ToolbarButton;
+  //
+  //   clearButton.clicked(new MouseEvent('click'));
+  //
+  //   assert.isEmpty(dataGrid.data.rows);
+  //   assert.isTrue(tabbedPane.tabViews().every(v => v instanceof EmptyWidget));
+  // });
+  //
   describe('parseCommandInput', () => {
     it('parses various JSON formats', async () => {
       const input = {
@@ -98,7 +176,7 @@ describe('ProtocolMonitor', () => {
             },
           },
         },
-      ] as Iterable<ProtocolMonitor.ProtocolMonitor.ProtocolDomain>;
+      ] as Iterable<ProtocolMonitor.JSONEditor.ProtocolDomain>;
 
       const expectedCommands = new Map();
       expectedCommands.set('Test.test', {
@@ -129,7 +207,7 @@ describe('ProtocolMonitor', () => {
         replyArgs: ['Test3'],
       });
 
-      const metadataByCommand = ProtocolMonitor.ProtocolMonitor.buildProtocolMetadata(domains);
+      const metadataByCommand = ProtocolMonitor.JSONEditor.buildProtocolMetadata(domains);
       assert.deepStrictEqual(metadataByCommand, expectedCommands);
     });
   });
