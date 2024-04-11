@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "509f4308_5c1e790d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-11T14:22:58Z",
+      "side": 1,
+      "message": "Yes, one has to manually restore the `index.d.ts`. This file hasn\u0027t changed for a long time, so that shouldn\u0027t really be a problem until we get the chances upstreamed.",
+      "parentUuid": "b2bf641c_ca5aed69",
+      "revId": "59471d524519ce2e804be68985ad8d96abfe86a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39aba024_e24bfa33",
