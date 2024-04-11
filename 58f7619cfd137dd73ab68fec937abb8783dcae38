@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea357527_c81a19c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-11T08:09:38Z",
+      "side": 1,
+      "message": "PTAL, I\u0027m not sure if we should actually do this or if we should add support for \u0027mousedown\u0027 generally to VE logging.",
+      "revId": "58f7619cfd137dd73ab68fec937abb8783dcae38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
