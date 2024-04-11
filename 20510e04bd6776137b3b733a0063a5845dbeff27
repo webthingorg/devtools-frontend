@@ -176,6 +176,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10611938_e2ab8fff",
+        "filename": "test/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-11T04:50:12Z",
+      "side": 1,
+      "message": "Ack for the commonjs.\n\nI was hesitant for the following case: Let\u0027s assume we have a `ts_library` rule that imports `build.js`. Then `build.js` (and a hypothetical `build.d.ts`) need to be in the `gen` directly at the time the `ts_library` is built. This is trivially true and it looks like also Chromium spits out a bunch of simple files at `gn gen` time.\n\nBut nothing tells GN or the user that there is an actual dependency here, between the `build.js` and any user of it, which makes this implicit.\n\nI think I\u0027m fine with the current approach for now. I slightly prefer if this would be an actual rule that others can depend on to make this more explicit.",
+      "parentUuid": "9c966910_d6f6a01c",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 61
+      },
+      "revId": "20510e04bd6776137b3b733a0063a5845dbeff27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dddc3ea0_f1168145",
