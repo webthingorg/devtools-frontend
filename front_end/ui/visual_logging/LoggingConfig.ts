@@ -54,7 +54,7 @@ export enum VisualElements {
   Gutter = 22,
   MetricsBox = 23,
   MetricsBoxPart = 24,
-  /* 25 used to be DOMBreakpointsPane, but free to grab now */
+  PausedMessage = 25,
   DOMBreakpoint = 26,
   /* 27 used to be ElementPropertiesPane, but free to grab now */
   /* 28 used to be EventListenersPane, but free to grab now */
