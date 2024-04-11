@@ -339,6 +339,27 @@ export const y = "";
       Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().removeSourceMapping(mapping);
     });
 
+    it('recommends page reload if the sources are not complete', async () => {
+      const runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
+      const REQUEST_ID = '29.1' as Protocol.Network.RequestId;
+      const messageDetails = {
+        type: Protocol.Runtime.ConsoleAPICalledEventType.Log,
+        affectedResources: {
+          requestId: REQUEST_ID,
+        },
+      };
+      sinon.stub(Logs.NetworkLog.NetworkLog.instance(), 'requestsForId').withArgs(REQUEST_ID).returns([]);
+      const ERROR_MESSAGE = 'kaboom!';
+      const rawMessage = new SDK.ConsoleModel.ConsoleMessage(
+          runtimeModel, SDK.ConsoleModel.FrontendMessageSource.ConsoleAPI, /* level */ null, ERROR_MESSAGE,
+          messageDetails);
+      const {message} = createConsoleViewMessageWithStubDeps(rawMessage);
+      const promptBuilder = new Explain.PromptBuilder(message);
+      const {sources, isPageReloadRecommended} = await promptBuilder.buildPrompt();
+      assert.isTrue(isPageReloadRecommended, 'PromptBuilder did not recommend reloading the page');
+      assert.isNotTrue(sources.some(source => source.type === Explain.SourceType.NETWORK_REQUEST));
+    });
+
     it('builds a prompt with related request', async () => {
       const runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
       const REQUEST_ID = '29.1' as Protocol.Network.RequestId;
@@ -368,7 +389,7 @@ export const y = "";
           messageDetails);
       const {message} = createConsoleViewMessageWithStubDeps(rawMessage);
       const promptBuilder = new Explain.PromptBuilder(message);
-      const {prompt, sources} = await promptBuilder.buildPrompt();
+      const {prompt, sources, isPageReloadRecommended} = await promptBuilder.buildPrompt();
       assert.strictEqual(prompt, [
         PREAMBLE,
         ERROR_MESSAGE,
@@ -379,6 +400,7 @@ export const y = "";
         '```',
       ].join('\n'));
 
+      assert.isNotTrue(isPageReloadRecommended, 'PromptBuilder did recommend reloading the page');
       assert.deepStrictEqual(
           sources, [{type: 'message', value: ERROR_MESSAGE}, {type: 'networkRequest', value: RELATED_REQUEST}]);
     });
