@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa3107c6_70bbbea6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-04-11T20:37:57Z",
+      "side": 1,
+      "message": "This CL tries to add a 3PCD console message whenever a 3PCD issue is created. It\u0027s still WIP. But I was hoping to at least see the request link icon, which didn\u0027t show up when running it locally. Could you PTAL and see if I missed anything? Thanks!",
+      "revId": "ef515d01793f5e397a587d06c2566aa08f87594a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
