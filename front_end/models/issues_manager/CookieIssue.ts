@@ -6,6 +6,8 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
+import {type ConsoleMessage} from '../../core/sdk/ConsoleModel.js';
+import {type FrontendMessageSource} from '../../core/sdk/ConsoleModelTypes.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 
@@ -61,8 +63,9 @@ export class CookieIssue extends Issue {
   #issueDetails: Protocol.Audits.CookieIssueDetails;
 
   constructor(
-      code: string, issueDetails: Protocol.Audits.CookieIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel) {
-    super(code, issuesModel);
+      code: string, issueDetails: Protocol.Audits.CookieIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel,
+      issueId: Protocol.Audits.IssueId|undefined) {
+    super(code, issuesModel, issueId);
     this.#issueDetails = issueDetails;
   }
 
@@ -84,7 +87,10 @@ export class CookieIssue extends Issue {
    * Returns an array of issues from a given CookieIssueDetails.
    */
   static createIssuesFromCookieIssueDetails(
-      cookieIssueDetails: Protocol.Audits.CookieIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel): CookieIssue[] {
+      cookieIssueDetails: Protocol.Audits.CookieIssueDetails, issuesModel: SDK.IssuesModel.IssuesModel,
+      issueId: Protocol.Audits.IssueId|undefined): CookieIssue[] {
+    // TODO: `issueId` is undefined for now. Will need to set it when reporting the issue at the browser side.
+
     const issues: CookieIssue[] = [];
 
     // Exclusion reasons have priority. It means a cookie was blocked. Create an issue
@@ -96,7 +102,7 @@ export class CookieIssue extends Issue {
             exclusionReason, cookieIssueDetails.cookieWarningReasons, cookieIssueDetails.operation,
             cookieIssueDetails.cookieUrl as Platform.DevToolsPath.UrlString | undefined);
         if (code) {
-          issues.push(new CookieIssue(code, cookieIssueDetails, issuesModel));
+          issues.push(new CookieIssue(code, cookieIssueDetails, issuesModel, issueId));
         }
       }
       return issues;
@@ -109,7 +115,7 @@ export class CookieIssue extends Issue {
             warningReason, [], cookieIssueDetails.operation,
             cookieIssueDetails.cookieUrl as Platform.DevToolsPath.UrlString | undefined);
         if (code) {
-          issues.push(new CookieIssue(code, cookieIssueDetails, issuesModel));
+          issues.push(new CookieIssue(code, cookieIssueDetails, issuesModel, issueId));
         }
       }
     }
@@ -241,7 +247,7 @@ export class CookieIssue extends Issue {
       return [];
     }
 
-    return CookieIssue.createIssuesFromCookieIssueDetails(cookieIssueDetails, issuesModel);
+    return CookieIssue.createIssuesFromCookieIssueDetails(cookieIssueDetails, issuesModel, inspectorIssue.issueId);
   }
 
   static getSubCategory(code: string): CookieIssueSubCategory {
@@ -252,6 +258,17 @@ export class CookieIssue extends Issue {
       return CookieIssueSubCategory.ThirdPartyPhaseoutCookie;
     }
     return CookieIssueSubCategory.GenericCookie;
+  }
+
+  override maybeCreateConsoleMessage(): ConsoleMessage|undefined {
+    const issuesModel = this.model();
+    if (issuesModel && CookieIssue.getSubCategory(this.code()) === CookieIssueSubCategory.ThirdPartyPhaseoutCookie) {
+      return new SDK.ConsoleModel.ConsoleMessage(
+          issuesModel.target().model(SDK.RuntimeModel.RuntimeModel), FrontendMessageSource.IssuePanel,
+          Protocol.Log.LogEntryLevel.Warning, '<Dummy message>',
+          {affectedResources: {requestId: this.#issueDetails.request?.requestId, issueId: this.issueId}});
+    }
+    return;
   }
 }
 
