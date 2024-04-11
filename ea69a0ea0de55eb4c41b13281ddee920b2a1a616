@@ -16,6 +16,24 @@
       "message": "super-nit: Superfluous newline",
       "revId": "ea69a0ea0de55eb4c41b13281ddee920b2a1a616",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d66e25_1bfb821d",
+        "filename": "test/conductor/commandline.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-11T12:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c8b813d_3209de8e",
+      "revId": "ea69a0ea0de55eb4c41b13281ddee920b2a1a616",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
