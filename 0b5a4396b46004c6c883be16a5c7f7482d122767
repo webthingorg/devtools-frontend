@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "711df8de_0627d775",
+        "filename": "front_end/ui/visual_logging/visual_logging.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-11T07:02:07Z",
+      "side": 1,
+      "message": "This is pretty similar to the info bar, which we currently log as \u0027Dialog\u0027. maybe use it instead of a dedicated VE?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 95
+      },
+      "revId": "0b5a4396b46004c6c883be16a5c7f7482d122767",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
