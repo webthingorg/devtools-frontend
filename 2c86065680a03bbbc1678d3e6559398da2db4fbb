@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39f4be1_f9958dca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-11T12:12:39Z",
+      "side": 1,
+      "message": "Looks solid! Just on suggestion for a test.",
+      "revId": "2c86065680a03bbbc1678d3e6559398da2db4fbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88fcd9c1_15b7b013",
+        "filename": "front_end/panels/animation/AnimationModel.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-11T12:12:39Z",
+      "side": 1,
+      "message": "What do you think about adding a test that validates the result of a rebase? Specifically, verifies that after a rebase the two payloads are identical? It\u0027d be nice to have a way to prevent changes to the protocol being missed in the rebases.",
+      "revId": "2c86065680a03bbbc1678d3e6559398da2db4fbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
