@@ -8,6 +8,7 @@
   position: absolute;
   opacity: 0%;
   right: 0;
+  top: -3px;
 
   .watch-expression-title:hover & {
     opacity: 100%;
