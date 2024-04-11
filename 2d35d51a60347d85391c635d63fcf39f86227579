@@ -16,6 +16,24 @@
       "message": "If this returns false, we\u0027d show the hide button? maybe let\u0027s through a warning or return true to make it disabled?",
       "revId": "2d35d51a60347d85391c635d63fcf39f86227579",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9abaa9e_6aa6f65a",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3173,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-11T16:40:52Z",
+      "side": 1,
+      "message": "So this is a legacy problem, the `groups` could be empty array for the flame chart in memory panel \u0026 JS profile.\nBut true, let\u0027s return `true` instead",
+      "parentUuid": "d4b74e08_ed1f8863",
+      "revId": "2d35d51a60347d85391c635d63fcf39f86227579",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
