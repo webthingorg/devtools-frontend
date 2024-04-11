@@ -9,7 +9,10 @@ import * as Logs from '../../models/logs/logs.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import type * as Console from '../console/console.js';
 
+const MAX_MESSAGE_SIZE = 1000;
+const MAX_STACK_TRACE_SIZE = 1000;
 const MAX_CODE_SIZE = 1000;
+const MAX_HEADERS_SIZE = 1000;
 
 export enum SourceType {
   MESSAGE = 'message',
@@ -246,21 +249,33 @@ export function formatNetworkRequest(
     request:
         Pick<SDK.NetworkRequest.NetworkRequest, 'url'|'requestHeaders'|'responseHeaders'|'statusCode'|'statusText'>):
     string {
+  const formatHeaders = (title: string, headers: SDK.NetworkRequest.NameValue[]): string => formatLines(
+      title, headers.filter(allowHeader).map(header => header.name + ': ' + header.value + '\n'), MAX_HEADERS_SIZE);
   // TODO: anything else that might be relavant?
   // TODO: handle missing headers
   return `Request: ${request.url()}
 
-Request headers:
-${request.requestHeaders().filter(allowHeader).map(header => `${header.name}: ${header.value}`).join('\n')}
+${formatHeaders('Request headers:', request.requestHeaders())}
 
-Response headers:
-${request.responseHeaders.filter(allowHeader).map(header => `${header.name}: ${header.value}`).join('\n')}
+${formatHeaders('Response headers:', request.responseHeaders)}
 
 Response status: ${request.statusCode} ${request.statusText}`;
 }
 
 export function formatConsoleMessage(message: Console.ConsoleViewMessage.ConsoleViewMessage): string {
-  return message.toMessageTextString();
+  return message.toMessageTextString().substr(0, MAX_MESSAGE_SIZE);
+}
+
+function formatLines(title: string, lines: string[], maxLength: number): string {
+  let result = '';
+  for (const line of lines) {
+    if (result.length + line.length > maxLength) {
+      break;
+    }
+    result += line;
+  }
+  result = result.trim();
+  return result && title ? title + '\n' + result : result;
 }
 
 /**
@@ -276,14 +291,12 @@ export function formatStackTrace(message: Console.ConsoleViewMessage.ConsoleView
 
   const preview = previewContainer.shadowRoot?.querySelector('.stack-preview-container') as HTMLElement;
 
-  const nodes = preview.childTextNodes();
   // Gets application-level source mapped stack trace taking the ignore list
   // into account.
-  const messageContent = nodes
-                             .filter(n => {
-                               return !n.parentElement?.closest('.show-all-link,.show-less-link,.hidden-row');
-                             })
-                             .map(Components.Linkifier.Linkifier.untruncatedNodeText)
-                             .join('');
-  return messageContent.trim();
+  const lines = preview.childTextNodes()
+                    .filter(n => {
+                      return !n.parentElement?.closest('.show-all-link,.show-less-link,.hidden-row');
+                    })
+                    .map(Components.Linkifier.Linkifier.untruncatedNodeText);
+  return formatLines('', lines, MAX_STACK_TRACE_SIZE);
 }
