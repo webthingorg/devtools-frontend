@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2bf641c_ca5aed69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-11T13:49:00Z",
+      "side": 1,
+      "message": "What\u0027s the update story here? When install-deps overwrites index.d.ts the person running in needs to reapply the patch?",
+      "revId": "59471d524519ce2e804be68985ad8d96abfe86a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39aba024_e24bfa33",
         "filename": "front_end/models/breakpoints/BreakpointManager.test.ts",
         "patchSetId": 1
