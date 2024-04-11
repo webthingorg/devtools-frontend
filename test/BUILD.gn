@@ -23,6 +23,7 @@ group("unittests") {
     "../front_end:unittests",
     "../inspector_overlay:unittests",
     "shared",
+    "unit:karma",
   ]
 }
 
