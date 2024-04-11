@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cad1fe29_6d44c6fe",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-11T14:38:24Z",
+      "side": 1,
+      "message": "Ah true, updated it :)",
+      "parentUuid": "703345bb_298d0d3b",
+      "revId": "91ec9f9cd917d02ce6bab0b286617cd97b38f718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fca60a05_762d8445",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-11T14:33:20Z",
       "side": 1,
       "message": "Should we call it just `setPayload`?",
+      "revId": "91ec9f9cd917d02ce6bab0b286617cd97b38f718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2324965_8aa60f84",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-11T14:38:24Z",
+      "side": 1,
+      "message": "Sounds better, updated it :)",
+      "parentUuid": "fca60a05_762d8445",
       "revId": "91ec9f9cd917d02ce6bab0b286617cd97b38f718",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
