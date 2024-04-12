@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ef50469_206ec3b5",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-12T13:36:42Z",
+      "side": 1,
+      "message": "This means: Close to the station\n\nShould we keep these type of strings in english or in the local country language?",
+      "range": {
+        "startLine": 67,
+        "startChar": 54,
+        "endLine": 67,
+        "endChar": 71
+      },
+      "revId": "d8bad32e3a5a468b097aa90012ea198b3d1da48a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae272ef2_9883cf65",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-12T13:36:42Z",
+      "side": 1,
+      "message": "These 3 types are common in brazil: Neighborhood, landmark and overflow. Should I add more?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 74
+      },
+      "revId": "d8bad32e3a5a468b097aa90012ea198b3d1da48a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
