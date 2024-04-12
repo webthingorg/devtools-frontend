@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b460d4_9f9787a6",
+        "filename": "front_end/BUILD.gn",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-12T07:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d0fab1a_2513212c",
+      "range": {
+        "startLine": 240,
+        "startChar": 16,
+        "endLine": 240,
+        "endChar": 27
+      },
+      "revId": "573a851a5154190192a0fd93930f8a59c3b42fe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ba7d097_22f19ea6",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-12T05:26:52Z",
       "side": 1,
       "message": "```\n  return [this.suite, ...this.extraPaths].some(pathToCheck \u003d\u003e isContainedInDirectory(path.buildPath, pathToCheck.buildPath));\n ```",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "573a851a5154190192a0fd93930f8a59c3b42fe1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff338ca0_175d25c4",
+        "filename": "test/run.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-12T07:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba7d097_22f19ea6",
       "range": {
         "startLine": 79,
         "startChar": 0,
