@@ -59,7 +59,7 @@ describe('FlameChart', function() {
 
     // Add some margin to the coordinates so that we don't click right
     // in the entry's border.
-    const margin = 3;
+    const margin = 7;
 
     // Click on an entry on the timings track first.
     const titleForTimingEntry = 'label1';
