@@ -31,7 +31,6 @@
 import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
-import * as Root from '../../../../core/root/root.js';
 import type * as TimelineModel from '../../../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
 import * as UI from '../../legacy.js';
@@ -677,9 +676,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return;
     }
 
-    const trackConfigurationEnabled =
-        Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_TRACK_CONFIGURATION);
-    if (trackConfigurationEnabled) {
       // If any button is clicked, we should handle the action only and ignore others.
       const {groupIndex, editButtonType} =
           this.coordinatesToGroupIndexAndButton(mouseEvent.offsetX, mouseEvent.offsetY);
@@ -706,7 +702,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             this.draw();
             return;
         }
-      }
 
       // Ignore any other actions when user is customizing the tracks.
       // For example, we won't toggle the expand status in the editing mode.
@@ -2161,8 +2156,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     });
 
     context.save();
-    const trackConfigurationEnabled =
-        Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_TRACK_CONFIGURATION);
     // If there is only one track, we won't allow the track reordering or hiding.
     const trackConfigurationAllowed = groups.length > 1;
 
@@ -2211,7 +2204,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // [Edit]Track title
       // Edit mode:
       // [ Up ][Down][Hide]Track title[Save]
-      if (trackConfigurationEnabled && trackConfigurationAllowed) {
+      if (trackConfigurationAllowed) {
         if (this.#editMode) {
           const iconColor = group.hidden ? '--sys-color-token-subtle' : '--sys-color-on-surface';
           // We only allow to reorder the top level groups.
