@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa5b89d4_b30b1b29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-12T13:34:25Z",
+      "side": 1,
+      "message": "Hi folks\n\nI am adding the well formatted addresses to help users debugging their forms. I have in this CL an american and a brazilian addresses, both are real google office addresses.\n\nThe american address is pretty straightforward. For the brazilian one I added two more types for the neighborhood (ADDRESS_HOME_DEPENDENT_LOCALITY), landmark and overflow (which I know to be common).\n\nPlease let me know what you think, we can always iterate over",
+      "revId": "d743f935962fe56334311cf1a33ca4e5bbfaf0a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
