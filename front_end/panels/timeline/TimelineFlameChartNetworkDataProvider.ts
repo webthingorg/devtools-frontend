@@ -41,6 +41,11 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     this.#timelineDataInternal = null;
     this.#traceEngineData = traceEngineData;
     this.#events = traceEngineData?.NetworkRequests.byTime || [];
+    traceEngineData?.WebSockets.traceData.forEach(webSocketData => {
+      for (const event of webSocketData.events) {
+        this.#events.push(event as unknown as TraceEngine.Types.TraceEvents.SyntheticNetworkRequest);
+      }
+    });
 
     if (this.#traceEngineData) {
       this.#setTimingBoundsData(this.#traceEngineData);
@@ -127,6 +132,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
 
   entryTitle(index: number): string|null {
     const event = this.#events[index];
+    if (!event.args.data.url) {
+      return '(from Websocket)';
+    }
     const parsedURL = new Common.ParsedURL.ParsedURL(event.args.data.url);
     return parsedURL.isValid ? `${parsedURL.displayName} (${parsedURL.host})` : event.args.data.url || null;
   }
@@ -198,6 +206,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
       index: number, context: CanvasRenderingContext2D, _text: string|null, barX: number, barY: number,
       barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number): boolean {
     const event = this.#events[index];
+    if (event.name.includes('WebSocket')) {
+      return false;
+    }
 
     const {sendStart, headersEnd, finish, start, end} =
         this.getDecorationPixels(event, unclippedBarX, timeToPixelRatio);
@@ -280,7 +291,12 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     div.textContent = PerfUI.NetworkPriorities.uiLabelForNetworkPriority(
         (event.args.data.priority as Protocol.Network.ResourcePriority));
     div.style.color = this.#colorForPriority(event.args.data.priority) || 'black';
-    contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
+    if (!event.args.data.url) {
+      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle('websocket event', maxURLChars);
+    } else {
+      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
+    }
+
     return element;
   }
 
@@ -317,12 +333,14 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
    * PerfUI.FlameChart.FlameChartTimelineData instance to force the flamechart
    * to re-render.
    */
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   #updateTimelineData(startTime: number, endTime: number): void {
     if (!this.#networkTrackAppender || !this.#timelineDataInternal) {
       return;
     }
-    this.#maxLevel = this.#networkTrackAppender.filterTimelineDataBetweenTimes(
-        TraceEngine.Types.Timing.MilliSeconds(startTime), TraceEngine.Types.Timing.MilliSeconds(endTime));
+    // TODO: This is hiding rows, need to fix when there is websocket messages
+    // this.#maxLevel = this.#networkTrackAppender.filterTimelineDataBetweenTimes(
+    //     TraceEngine.Types.Timing.MilliSeconds(startTime), TraceEngine.Types.Timing.MilliSeconds(endTime));
 
     // TODO(crbug.com/1459225): Remove this recreating code.
     // Force to create a new PerfUI.FlameChart.FlameChartTimelineData instance

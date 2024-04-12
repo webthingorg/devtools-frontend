@@ -9,7 +9,7 @@ import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import {buildGroupStyle, buildTrackHeader, getEventLevel, getFormattedTime} from './AppenderUtils.js';
 import {type HighlightedEntryInfo, type TrackAppender, type TrackAppenderName} from './CompatibilityTracksAppender.js';
 import {InstantEventVisibleDurationMs} from './TimelineFlameChartDataProvider.js';
-import {TimelineUIUtils} from './TimelineUIUtils.js';
+import {NetworkCategory, TimelineUIUtils} from './TimelineUIUtils.js';
 
 const UIStrings = {
   /**
@@ -183,11 +183,15 @@ export class NetworkTrackAppender implements TrackAppender {
   /**
    * Gets the color an event added by this appender should be rendered with.
    */
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   colorForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
-    if (!TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(event)) {
-      throw new Error(`Unexpected Network Request: The event's type is '${event.name}'`);
-    }
-    const category = TimelineUIUtils.syntheticNetworkRequestCategory(event);
+    const category = NetworkCategory.Other;
+    // if (!TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(event)) {
+    //   // throw new Error(`Unexpected Network Request: The event's type is '${event.name}'`);
+    //   category = NetworkCategory.Other;
+    // } else {
+    //   category = TimelineUIUtils.syntheticNetworkRequestCategory(event);
+    // }
     return TimelineUIUtils.networkCategoryColor(category);
   }
 
