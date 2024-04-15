@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "948133d4_7dbeccc7",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1453423
+      },
+      "writtenOn": "2024-04-15T08:12:15Z",
+      "side": 1,
+      "message": "I\u0027ll send a fix for chrome/test/data/autofill/profiles/profiles.json.",
+      "parentUuid": "093b71db_f1d16a45",
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3a66eab_d07fbd4d",
         "filename": "front_end/core/sdk/AutofillModel.ts",
         "patchSetId": 5
@@ -105,6 +123,29 @@
         "startChar": 54,
         "endLine": 62,
         "endChar": 55
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4576744_812397c7",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1453423
+      },
+      "writtenOn": "2024-04-15T08:12:15Z",
+      "side": 1,
+      "message": "In BR, `overflow` acts as the in-building location. It contains floor and apartment number (Think of it as the \"Complemento\" field).\n```\n{name: \u0027ADDRESS_HOME_STREET_ADDRESS\u0027, value: \u0027Av. dos Andradas, 3000, Apartamento 1, Próximo estação Santa Efigênia\u0027},\n{name: \u0027ADDRESS_HOME_STREET_NAME\u0027, value: \u0027Av. dos Andradas, 3000\u0027},\n{name: \u0027ADDRESS_HOME_HOUSE_NUMBER\u0027, value: \u00273000\u0027},\n{name: \u0027ADDRESS_HOME_APT_NUM\u0027, value: \u0027Apartamento 1\u0027},\n{name: \u0027ADDRESS_HOME_LANDMARK\u0027, value: \u0027Próximo estação Santa Efigênia\u0027},\n{name: \u0027ADDRESS_HOME_OVERFLOW\u0027, value: \u0027Apartamento 1\u0027},\n{name: \u0027ADDRESS_HOME_DEPENDENT_LOCALITY\u0027, value: \u0027Santa Efigênia\u0027},\n```",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 41
       },
       "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
