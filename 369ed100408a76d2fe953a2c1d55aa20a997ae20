@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e91a38dd_4b877c59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-15T13:07:19Z",
+      "side": 1,
+      "message": "LGTM with 1 comment :)",
+      "revId": "369ed100408a76d2fe953a2c1d55aa20a997ae20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cc6ba08_89536019",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-15T13:07:19Z",
+      "side": 1,
+      "message": "I think it\u0027d be better to leave this in the places where this button is used as it is a workaround to fix line height \u0026 button height are not the same issue and this is not an inherent property of the button implementation.",
+      "revId": "369ed100408a76d2fe953a2c1d55aa20a997ae20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
