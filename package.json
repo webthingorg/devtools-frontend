@@ -136,5 +136,8 @@
     "webidl2": "24.2.2",
     "ws": "8.4.0",
     "yargs": "17.3.1"
+  },
+  "dependencies": {
+    "socket.io-parser": "^4.2.4"
   }
 }
