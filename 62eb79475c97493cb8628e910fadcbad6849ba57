@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "726a49dc_cd5ca1f9",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-04-15T07:41:53Z",
+      "side": 1,
+      "message": "Same as on V8 side CL: Please double check that this doesn\u0027t allow to bypass the AoD for this bucket.",
+      "range": {
+        "startLine": 982,
+        "startChar": 10,
+        "endLine": 982,
+        "endChar": 17
+      },
+      "revId": "62eb79475c97493cb8628e910fadcbad6849ba57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
