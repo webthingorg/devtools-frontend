@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "403ceae9_3e4d447e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-15T15:13:33Z",
+      "side": 1,
+      "message": "You need to set the `url` field on the `ConsoleMessage`.",
+      "parentUuid": "fa3107c6_70bbbea6",
+      "revId": "ef515d01793f5e397a587d06c2566aa08f87594a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f02ce37f_f53202f3",
         "filename": "front_end/models/issues_manager/CookieIssue.ts",
         "patchSetId": 2
