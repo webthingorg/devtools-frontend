@@ -36,6 +36,7 @@ devtools_module("issues_manager") {
     "QuirksModeIssue.ts",
     "RelatedIssue.ts",
     "SharedArrayBufferIssue.ts",
+    "SharedDictionaryIssue.ts",
     "SourceFrameIssuesManager.ts",
     "StylesheetLoadingIssue.ts",
   ]
@@ -172,6 +173,7 @@ devtools_issue_description_files = [
   "sharedArrayBuffer.md",
   "stylesheetLateImport.md",
   "stylesheetRequestFailed.md",
+  "sharedDictionaryInvalidStructuredHeader.md",
 ]
 
 devtools_pre_built("descriptions") {
