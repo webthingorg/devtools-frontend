@@ -16,6 +16,24 @@
       "message": "The box model for the button does not look clear to me. Is it possible to avoid shifting the layout by a random amount of pixels? (will leave a comment on the doc)",
       "revId": "6c308b8f7ccbb9aa289b292c7047388285153c8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef967c98_3dc1caba",
+        "filename": "front_end/panels/recorder/components/stepEditor.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-15T08:16:51Z",
+      "side": 1,
+      "message": "added an inline option to the component",
+      "parentUuid": "77a1d010_69d3fe77",
+      "revId": "6c308b8f7ccbb9aa289b292c7047388285153c8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
