@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c9c9e9_b4529046",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "948133d4_7dbeccc7",
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3a66eab_d07fbd4d",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-04-15T08:02:44Z",
       "side": 1,
       "message": "is this correct or should this be\n```\n            {name: \u0027NAME_LAST\u0027, value: \u0027Souza Silva\u0027},\n```\n?\n\nIs Souza a middle name or part of the last name?",
+      "range": {
+        "startLine": 56,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 48
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116a5d99_f54c203a",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "I mean both as family name, so your suggestion makes sense. Do we not have `NAME_LAST_FIRST` or `NAME_LAST_SECOND` in brazil\u0027s data model?",
+      "parentUuid": "e3a66eab_d07fbd4d",
       "range": {
         "startLine": 56,
         "startChar": 12,
@@ -82,6 +124,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "373db1a2_a1cfd468",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f34ff779_498edd2a",
+      "range": {
+        "startLine": 59,
+        "startChar": 95,
+        "endLine": 59,
+        "endChar": 111
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "418062dd_5ceff0b5",
@@ -95,6 +161,54 @@
       "writtenOn": "2024-04-15T08:02:44Z",
       "side": 1,
       "message": "```\n{name: \u0027ADDRESS_HOME_STREET_LOCATION\u0027, value: \u0027Av. dos Andradas, 3000\u0027},\n{name: \u0027ADDRESS_HOME_STREET_NAME\u0027, value: \u0027Av. dos Andradas\u0027},\n```",
+      "range": {
+        "startLine": 60,
+        "startChar": 71,
+        "endLine": 60,
+        "endChar": 77
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5faf27a_6901381d",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "418062dd_5ceff0b5",
+      "range": {
+        "startLine": 60,
+        "startChar": 71,
+        "endLine": 60,
+        "endChar": 77
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e67ebf3_7f5ff437",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "418062dd_5ceff0b5",
       "range": {
         "startLine": 60,
         "startChar": 71,
@@ -128,6 +242,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83f4d0aa_0c4053df",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06e8ce31_012a440e",
+      "range": {
+        "startLine": 62,
+        "startChar": 54,
+        "endLine": 62,
+        "endChar": 55
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8248c90d_c6deaadb",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06e8ce31_012a440e",
+      "range": {
+        "startLine": 62,
+        "startChar": 54,
+        "endLine": 62,
+        "endChar": 55
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4576744_812397c7",
@@ -141,6 +303,30 @@
       "writtenOn": "2024-04-15T08:12:15Z",
       "side": 1,
       "message": "In BR, `overflow` acts as the in-building location. It contains floor and apartment number (Think of it as the \"Complemento\" field).\n```\n{name: \u0027ADDRESS_HOME_STREET_ADDRESS\u0027, value: \u0027Av. dos Andradas, 3000, Apartamento 1, Próximo estação Santa Efigênia\u0027},\n{name: \u0027ADDRESS_HOME_STREET_NAME\u0027, value: \u0027Av. dos Andradas, 3000\u0027},\n{name: \u0027ADDRESS_HOME_HOUSE_NUMBER\u0027, value: \u00273000\u0027},\n{name: \u0027ADDRESS_HOME_APT_NUM\u0027, value: \u0027Apartamento 1\u0027},\n{name: \u0027ADDRESS_HOME_LANDMARK\u0027, value: \u0027Próximo estação Santa Efigênia\u0027},\n{name: \u0027ADDRESS_HOME_OVERFLOW\u0027, value: \u0027Apartamento 1\u0027},\n{name: \u0027ADDRESS_HOME_DEPENDENT_LOCALITY\u0027, value: \u0027Santa Efigênia\u0027},\n```",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 41
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da4fbadc_f04d6959",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-15T14:01:30Z",
+      "side": 1,
+      "message": "should `ADDRESS_HOME_APT_NUM` be `Apartamento 1` or just `1`?\n\nApplied the changes on landmark and overflow fields",
+      "parentUuid": "c4576744_812397c7",
       "range": {
         "startLine": 66,
         "startChar": 20,
