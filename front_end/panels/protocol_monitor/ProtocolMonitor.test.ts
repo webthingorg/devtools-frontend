@@ -26,7 +26,7 @@ const fakeView = sinon.stub().callsFake((input, output) => {
   output.splitWidget = sinon.createStubInstance(UI.SplitWidget.SplitWidget);
   output.dataGrid = sinon.createStubInstance(DataGrid.DataGridController.DataGridController);
   output.infoWidget = sinon.createStubInstance(ProtocolMonitor.ProtocolMonitor.InfoWidget);
-  output.bottomToolbar = sinon.createStubInstance(UI.Toolbar.ToolbarElement;
+  output.bottomToolbar = sinon.createStubInstance(UI.Toolbar.ToolbarElement);
   output.editor = sinon.createStubInstance(ProtocolMonitor.JSONEditor.JSONEditor);
 });
 

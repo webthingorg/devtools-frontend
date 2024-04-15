@@ -36,6 +36,7 @@
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import type * as IconButton from '../components/icon_button/icon_button.js';
+import * as LitHtml from '../lit-html/lit-html.js';
 import * as VisualLogging from '../visual_logging/visual_logging.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
@@ -49,7 +50,10 @@ import {
   deepElementFromPoint,
   enclosingNodeOrSelfWithNodeNameInArray,
   isEditing,
+  injectCoreStyles,
 } from './UIUtils.js';
+
+const {render, html, Directives: {ref}} = LitHtml;
 
 const nodeToParentTreeElementMap = new WeakMap<Node, TreeElement>();
 
@@ -69,7 +73,7 @@ export type EventTypes = {
   [Events.ElementSelected]: TreeElement,
 };
 
-export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
+export class TreeOutline<T extends TreeNode = TreeElement> extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   readonly rootElementInternal: TreeElement;
   renderSelection: boolean;
   selectedTreeElement: TreeElement|null;
@@ -83,6 +87,8 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
   private useLightSelectionColor: boolean;
   private treeElementToScrollIntoView: TreeElement|null;
   private centerUponScrollIntoView: boolean;
+
+  private itemRendererFn?: (node: T) => LitHtml.TemplateResult;
 
   constructor() {
     super();
@@ -384,9 +390,17 @@ export class TreeOutline extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
 
   onStartedEditingTitle(_treeElement: TreeElement): void {
   }
+
+  get itemRenderer(): typeof this.itemRendererFn {
+    return this.itemRendererFn;
+  }
+
+  set itemRenderer(renderer: typeof this.itemRendererFn) {
+    this.itemRendererFn = renderer;
+  }
 }
 
-export class TreeOutlineInShadow extends TreeOutline {
+export class TreeOutlineInShadow<T extends TreeNode = TreeElement> extends TreeOutline<T> {
   override element: HTMLElement;
   shadowRoot: ShadowRoot;
   private readonly disclosureElement: Element;
@@ -426,9 +440,51 @@ export class TreeOutlineInShadow extends TreeOutline {
   }
 }
 
+export class TreeOutlineCustomElement extends HTMLElement {
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  readonly treeOutline: TreeOutline;
+
+  constructor() {
+    super();
+    this.treeOutline = new TreeOutline();
+    this.treeOutline.contentElement.classList.add('tree-outline');
+    const disclosureElement = this.#shadow.createChild('div', 'tree-outline-disclosure');
+    disclosureElement.appendChild(this.treeOutline.contentElement);
+    this.treeOutline.renderSelection = true;
+
+    // Translate existing TreeOutline ("ObjectWrapper") events to DOM CustomEvents so clients can
+    // use lit templates to bind listeners.
+    this.treeOutline.addEventListener(Events.ElementSelected, this.#selectionChanged.bind(this));
+  }
+
+  connectedCallback(): void {
+    injectCoreStyles(this.#shadow);
+    ThemeSupport.ThemeSupport.instance().appendStyle(this.#shadow, treeoutlineStyles);
+  }
+
+  registerCSSFiles(cssFiles: CSSStyleSheet[]): void {
+    this.#shadow.adoptedStyleSheets = this.#shadow.adoptedStyleSheets.concat(cssFiles);
+  }
+
+  get itemRenderer(): ((node: TreeElement) => LitHtml.TemplateResult)|undefined {
+    return this.treeOutline.itemRenderer;
+  }
+
+  set itemRenderer(renderer: (node: TreeElement) => LitHtml.TemplateResult) {
+    this.treeOutline.itemRenderer = renderer;
+  }
+
+  #selectionChanged(event: Common.EventTarget.EventTargetEvent<TreeElement>): void {
+    const domEvent = new CustomEvent('elementSelected', { detail: event.data });
+    this.dispatchEvent(domEvent);
+  }
+}
+
+customElements.define('devtools-tree-outline-legacy', TreeOutlineCustomElement);  
+
 export const treeElementBylistItemNode = new WeakMap<Node, TreeElement>();
-export class TreeElement {
-  treeOutline: TreeOutline|null;
+export class TreeElement implements TreeNode {
+  treeOutline: TreeOutline<any>|null;
   parent: TreeElement|null;
   previousSibling: TreeElement|null;
   nextSibling: TreeElement|null;
@@ -628,6 +684,11 @@ export class TreeElement {
       this.treeOutline.dispatchEventToListeners(Events.ElementAttached, child);
     }
     const nextSibling = child.nextSibling ? child.nextSibling.listItemNode : null;
+    if (this.treeOutline?.itemRenderer) {
+      child.listItemNode.removeChildren();
+      // TODO: Create one `TreeElement` for each `TreeNode` model item and pass that to render.
+      render(this.treeOutline.itemRenderer(child), child.listItemNode);
+    }
     this.childrenListNode.insertBefore(child.listItemNode, nextSibling);
     this.childrenListNode.insertBefore(child.childrenListNode, nextSibling);
     if (child.selected) {
@@ -636,6 +697,13 @@ export class TreeElement {
     if (child.expanded) {
       child.expand();
     }
+  }
+
+  rerenderRequired(): void {
+    if (!this.treeOutline?.itemRenderer) {
+      return;
+    }
+    render(this.treeOutline.itemRenderer(this), this.listItemNode);
   }
 
   removeChildAtIndex(childIndex: number): void {
@@ -1414,3 +1482,11 @@ function loggingParentProvider(e: Element): Element|undefined {
 }
 
 VisualLogging.registerParentProvider('parentTreeItem', loggingParentProvider);
+
+export interface TreeNode {
+  children: () => TreeNode[];
+}
+
+export interface TreeNodeRenderer<T extends TreeNode> {
+  render(node: T, container: Element, renderBefore: Element|null): void;
+}

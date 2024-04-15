@@ -10,11 +10,14 @@ import * as Protocol from '../../generated/protocol.js';
 import type * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {ConsoleFilter, FilterType, type LevelsMask} from './ConsoleFilter.js';
 import consoleSidebarStyles from './consoleSidebar.css.js';
 import {type ConsoleViewMessage} from './ConsoleViewMessage.js';
+
+const {render, html, Directives: {ref}} = LitHtml;
 
 const UIStrings = {
   /**
@@ -52,8 +55,22 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/console/ConsoleSidebar.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+type Constructor<T, Args extends unknown[]> = {
+  new (...args: Args): T,
+};
+
+function typedRef<T extends Element, Args extends unknown[]>(
+  type: Constructor<T, Args>, callback: (_: T) => any): ReturnType<typeof ref> {
+    return ref((e?: Element) => {
+      if (!(e instanceof type)) {
+        throw new Error(`Expected an element of type ${type.name} but got ${e?.constructor?.name}`);
+      }
+      callback(e as T);
+    });
+}
+
 export class ConsoleSidebar extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox) {
-  private readonly tree: UI.TreeOutline.TreeOutlineInShadow;
+  private tree!: UI.TreeOutline.TreeOutline<URLGroupTreeElement|FilterTreeElement>;
   private selectedTreeElement: UI.TreeOutline.TreeElement|null;
   private readonly treeElements: FilterTreeElement[];
 
@@ -61,15 +78,34 @@ export class ConsoleSidebar extends Common.ObjectWrapper.eventMixin<EventTypes, 
     super(true);
     this.setMinimumSize(125, 0);
 
-    this.tree = new UI.TreeOutline.TreeOutlineInShadow();
-    this.tree.addEventListener(UI.TreeOutline.Events.ElementSelected, this.selectionChanged.bind(this));
-
     this.contentElement.setAttribute('jslog', `${VisualLogging.pane('sidebar').track({resize: true})}`);
-    this.contentElement.appendChild(this.tree.element);
     this.selectedTreeElement = null;
     this.treeElements = [];
     const selectedFilterSetting =
         Common.Settings.Settings.instance().createSetting<string|null>('console.sidebar-selected-filter', null);
+
+    render(html`
+        <devtools-tree-outline-legacy
+          @elementSelected="${this.selectionChanged}"
+          ${typedRef(UI.TreeOutline.TreeOutlineCustomElement, (tree) => {
+            this.tree = tree.treeOutline;
+            tree.registerCSSFiles([consoleSidebarStyles]);
+        })} .itemRenderer=${(node: URLGroupTreeElement|FilterTreeElement): LitHtml.TemplateResult => {
+          if (node instanceof URLGroupTreeElement) {
+            return html`
+              <div class="selection fill"></div>
+              <div class="leading-icons icons-container"><devtools-icon class="document"></devtools-icon></div>
+              <span class="tree-element-title">${node.filter().name}</span>
+              <span class="count">${node.messageCount}</span>`;
+          }
+          return html`
+            <div class="selection fill"></div>
+            <div class="leading-icons icons-container">${node.icon}</div>
+            <span class="tree-element-title">${i18nString(node.uiStringForFilterCount, {n: node.messageCount})}</span>`;
+        }}>
+        </devtools-tree-outline-legacy>
+      `, this.contentElement, { host: this });
+        
 
     const consoleAPIParsedFilters = [{
       key: FilterType.Source,
@@ -128,14 +164,9 @@ export class ConsoleSidebar extends Common.ObjectWrapper.eventMixin<EventTypes, 
     return true;
   }
 
-  private selectionChanged(event: Common.EventTarget.EventTargetEvent<UI.TreeOutline.TreeElement>): void {
-    this.selectedTreeElement = event.data;
+  private selectionChanged(event: CustomEvent): void {
+    this.selectedTreeElement = event.detail;
     this.dispatchEventToListeners(Events.FilterSelected);
-  }
-
-  override wasShown(): void {
-    super.wasShown();
-    this.tree.registerCSSFiles([consoleSidebarStyles]);
   }
 }
 
@@ -150,8 +181,8 @@ export type EventTypes = {
 class ConsoleSidebarTreeElement extends UI.TreeOutline.TreeElement {
   protected filterInternal: ConsoleFilter;
 
-  constructor(title: string|Node, filter: ConsoleFilter) {
-    super(title);
+  constructor(filter: ConsoleFilter) {
+    super();
     this.filterInternal = filter;
   }
 
@@ -161,20 +192,16 @@ class ConsoleSidebarTreeElement extends UI.TreeOutline.TreeElement {
 }
 
 export class URLGroupTreeElement extends ConsoleSidebarTreeElement {
-  private countElement: HTMLElement;
-  private messageCount: number;
+  messageCount: number;
 
   constructor(filter: ConsoleFilter) {
-    super(filter.name, filter);
-    this.countElement = this.listItemElement.createChild('span', 'count');
-    const icon = IconButton.Icon.create('document');
-    this.setLeadingIcons([icon]);
+    super(filter);
     this.messageCount = 0;
   }
 
   incrementAndUpdateCounter(): void {
     this.messageCount++;
-    this.countElement.textContent = `${this.messageCount}`;
+    this.rerenderRequired();
   }
 }
 
@@ -204,16 +231,18 @@ const stringForFilterSidebarItemMap = new Map<GroupName, string>([
 export class FilterTreeElement extends ConsoleSidebarTreeElement {
   private readonly selectedFilterSetting: Common.Settings.Setting<string|null>;
   private readonly urlTreeElements: Map<string|null, URLGroupTreeElement>;
-  private messageCount: number;
-  private uiStringForFilterCount: string;
+
+  messageCount: number;
+  readonly uiStringForFilterCount: string;
+  readonly icon: IconButton.Icon.Icon;
 
   constructor(
       filter: ConsoleFilter, icon: IconButton.Icon.Icon, selectedFilterSetting: Common.Settings.Setting<string|null>) {
-    super(filter.name, filter);
+    super(filter);
+    this.icon = icon;
     this.uiStringForFilterCount = stringForFilterSidebarItemMap.get(filter.name as GroupName) || '';
     this.selectedFilterSetting = selectedFilterSetting;
     this.urlTreeElements = new Map();
-    this.setLeadingIcons([icon]);
     this.messageCount = 0;
     this.updateCounter();
   }
@@ -235,16 +264,8 @@ export class FilterTreeElement extends ConsoleSidebarTreeElement {
   }
 
   private updateCounter(): void {
-    this.title = this.updateGroupTitle(this.messageCount);
     this.setExpandable(Boolean(this.childCount()));
-  }
-
-  private updateGroupTitle(messageCount: number): string {
-    if (this.uiStringForFilterCount) {
-      // eslint-disable-next-line rulesdir/l10n_i18nString_call_only_with_uistrings
-      return i18nString(this.uiStringForFilterCount, {n: messageCount});
-    }
-    return '';
+    this.rerenderRequired();
   }
 
   onMessageAdded(viewMessage: ConsoleViewMessage): void {
