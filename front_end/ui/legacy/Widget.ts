@@ -44,6 +44,64 @@ const originalAppendChild = Element.prototype.appendChild;
 const originalInsertBefore = Element.prototype.insertBefore;
 const originalRemoveChild = Element.prototype.removeChild;
 const originalRemoveChildren = Element.prototype.removeChildren;
+type WidgetClass<T = Widget> = new (arg1: WidgetElement) => T;
+type Constructor<T extends Widget> = new (arg1: WidgetElement<T>) => T;
+
+export class WidgetElement<WidgetT extends Widget = Widget> extends HTMLDivElement {
+  #widgetClass: Constructor<WidgetT>;
+
+  set widgetClass(widgetClass: Constructor<WidgetT>) {
+    this.#widgetClass = widgetClass;
+    void this.createWidget();
+  }
+
+  getWidget(): WidgetT {
+    if (!Widget.get(this)) {
+      this.createWidget();
+    }
+    return Widget.get(this) as WidgetT;
+  }
+
+  constructor() {
+    super();
+    this.#widgetClass = Widget as unknown as Constructor<WidgetT>;
+  }
+
+  createWidget(): WidgetT {
+    return new (this.#widgetClass)(this);
+  }
+
+  connectedCallback(): void {
+    this.getWidget().show(this.parentElement as HTMLElement);
+  }
+
+  wasShown(): void {
+  }
+  willHide(): void {
+  }
+}
+
+customElements.define('devtools-widget', WidgetElement, {extends: 'div'});
+
+export abstract class WidgetBaseElement<WidgetT extends Widget = Widget> extends HTMLElement {
+  getWidget(): WidgetT {
+    if (!Widget.get(this)) {
+      this.createWidget();
+    }
+    return Widget.get(this) as WidgetT;
+  }
+
+  abstract createWidget(): WidgetT;
+
+  connectedCallback(): void {
+    this.getWidget().show(this.parentElement as HTMLElement);
+  }
+
+  wasShown(): void {
+  }
+  willHide(): void {
+  }
+}
 
 function assert(condition: unknown, message: string): void {
   if (!condition) {
@@ -90,22 +148,28 @@ export class Widget {
   private constraintsInternal?: Constraints;
   private invalidationsRequested?: boolean;
   private externallyManaged?: boolean;
-  constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
+  constructor(webComponent?: boolean|WidgetElement, delegatesFocus?: boolean) {
     this.contentElement = document.createElement('div');
     this.contentElement.classList.add('widget');
-    if (isWebComponent) {
-      this.element = document.createElement('div');
-      this.element.classList.add('vbox');
-      this.element.classList.add('flex-auto');
-      this.shadowRoot = createShadowRootWithCoreStyles(this.element, {
-        cssFile: undefined,
-        delegatesFocus,
-      });
-      this.shadowRoot.appendChild(this.contentElement);
+    if (webComponent) {
+      this.element =
+          (webComponent instanceof HTMLElement ? webComponent : document.createElement('div')) as WidgetElement;
+      if (webComponent instanceof HTMLElement && webComponent.shadowRoot) {
+        this.shadowRoot = webComponent.shadowRoot;
+        this.contentElement = this.element as HTMLDivElement;
+      } else {
+        this.element.classList.add('vbox');
+        this.element.classList.add('flex-auto');
+        this.shadowRoot = createShadowRootWithCoreStyles(this.element, {
+          cssFile: undefined,
+          delegatesFocus,
+        });
+        this.shadowRoot.appendChild(this.contentElement);
+      }
     } else {
       this.element = this.contentElement;
     }
-    this.isWebComponent = isWebComponent;
+    this.isWebComponent = Boolean(webComponent);
     widgetMap.set(this.element, this);
     this.visibleInternal = false;
     this.isRoot = false;
@@ -198,6 +262,9 @@ export class Widget {
     if (this.inNotification()) {
       return;
     }
+    if (this.element instanceof WidgetElement || this.element instanceof WidgetBaseElement) {
+      this.element.wasShown();
+    }
     this.restoreScrollPositions();
     this.notify(this.wasShown);
     this.callOnVisibleChildren(this.processWasShown);
@@ -209,6 +276,9 @@ export class Widget {
     }
     this.storeScrollPositions();
 
+    if (this.element instanceof WidgetElement || this.element instanceof WidgetBaseElement) {
+      this.element.willHide();
+    }
     this.callOnVisibleChildren(this.processWillHide);
     this.notify(this.willHide);
     this.isShowingInternal = false;
@@ -625,8 +695,8 @@ const storedScrollPositions = new WeakMap<Element, {
 }>();
 
 export class VBox extends Widget {
-  constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
-    super(isWebComponent, delegatesFocus);
+  constructor(webComponent?: boolean|WidgetElement, delegatesFocus?: boolean) {
+    super(webComponent, delegatesFocus);
     this.contentElement.classList.add('vbox');
   }
 
