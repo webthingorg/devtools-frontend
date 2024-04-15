@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c892a1c0_beed2de6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-15T11:03:19Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "bbf123de303c0f7fb9f57c94c32d2a56a2493838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9090bd04_5f401d11",
+        "filename": "test/run.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-15T11:03:19Z",
+      "side": 1,
+      "message": "not blocking this CL, but this would be useful to make configurable, I\u0027ve done this before both to get more info and also because most of the time I prefer less output than Karma does by default.",
+      "range": {
+        "startLine": 116,
+        "startChar": 5,
+        "endLine": 116,
+        "endChar": 52
+      },
+      "revId": "bbf123de303c0f7fb9f57c94c32d2a56a2493838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
