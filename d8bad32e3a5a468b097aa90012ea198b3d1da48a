@@ -45,6 +45,54 @@
       },
       "revId": "d8bad32e3a5a468b097aa90012ea198b3d1da48a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f242a8e_09b0e7c6",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-15T08:02:44Z",
+      "side": 1,
+      "message": "I would suggest to stick with the local country language.",
+      "parentUuid": "2ef50469_206ec3b5",
+      "range": {
+        "startLine": 67,
+        "startChar": 54,
+        "endLine": 67,
+        "endChar": 71
+      },
+      "revId": "d8bad32e3a5a468b097aa90012ea198b3d1da48a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f60060_ce347eca",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-15T08:02:44Z",
+      "side": 1,
+      "message": "I would propose",
+      "parentUuid": "2ef50469_206ec3b5",
+      "range": {
+        "startLine": 67,
+        "startChar": 54,
+        "endLine": 67,
+        "endChar": 71
+      },
+      "revId": "d8bad32e3a5a468b097aa90012ea198b3d1da48a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

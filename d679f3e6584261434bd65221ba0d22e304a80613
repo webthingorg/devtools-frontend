@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "093b71db_f1d16a45",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-15T08:02:44Z",
+      "side": 1,
+      "message": "I think this should have a value of \"Apartment 1\"\n\nchrome/test/data/autofill/profiles/profiles.json seems to be wrong as well.",
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3a66eab_d07fbd4d",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-15T08:02:44Z",
+      "side": 1,
+      "message": "is this correct or should this be\n```\n            {name: \u0027NAME_LAST\u0027, value: \u0027Souza Silva\u0027},\n```\n?\n\nIs Souza a middle name or part of the last name?",
+      "range": {
+        "startLine": 56,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 48
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f34ff779_498edd2a",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-15T08:02:44Z",
+      "side": 1,
+      "message": "`Santa Efigênia` is not part of the street address (i.e. address lines) but a neighborhood.\n\nI would propose\n```\n{name: \u0027ADDRESS_HOME_STREET_ADDRESS\u0027, value: \u0027Av. dos Andradas, 3000\\nApartamento 1\\nSanta Efigênia\u0027},\n```",
+      "range": {
+        "startLine": 59,
+        "startChar": 95,
+        "endLine": 59,
+        "endChar": 111
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418062dd_5ceff0b5",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-15T08:02:44Z",
+      "side": 1,
+      "message": "```\n{name: \u0027ADDRESS_HOME_STREET_LOCATION\u0027, value: \u0027Av. dos Andradas, 3000\u0027},\n{name: \u0027ADDRESS_HOME_STREET_NAME\u0027, value: \u0027Av. dos Andradas\u0027},\n```",
+      "range": {
+        "startLine": 60,
+        "startChar": 71,
+        "endLine": 60,
+        "endChar": 77
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06e8ce31_012a440e",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-15T08:02:44Z",
+      "side": 1,
+      "message": "Apartamento 1",
+      "range": {
+        "startLine": 62,
+        "startChar": 54,
+        "endLine": 62,
+        "endChar": 55
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
