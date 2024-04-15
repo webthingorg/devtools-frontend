@@ -103,6 +103,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e50652ec_c4270a92",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1453423
+      },
+      "writtenOn": "2024-04-15T19:50:22Z",
+      "side": 1,
+      "message": "We do on all countries. Although only some of them use 2 last names. I think in this case you want to use both last name types.\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:components/autofill/core/browser/field_types.h;l\u003d303-305;drc\u003da783c3bab474ff68e675e2753f91c92ca817e072",
+      "parentUuid": "116a5d99_f54c203a",
+      "range": {
+        "startLine": 56,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 48
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f34ff779_498edd2a",
         "filename": "front_end/core/sdk/AutofillModel.ts",
         "patchSetId": 5
@@ -327,6 +351,30 @@
       "side": 1,
       "message": "should `ADDRESS_HOME_APT_NUM` be `Apartamento 1` or just `1`?\n\nApplied the changes on landmark and overflow fields",
       "parentUuid": "c4576744_812397c7",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 41
+      },
+      "revId": "d679f3e6584261434bd65221ba0d22e304a80613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "896e1418_2eefe16d",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1453423
+      },
+      "writtenOn": "2024-04-15T19:50:22Z",
+      "side": 1,
+      "message": "Right, `ADDRESS_HOME_APT_NUM` should be just `1`.",
+      "parentUuid": "da4fbadc_f04d6959",
       "range": {
         "startLine": 66,
         "startChar": 20,

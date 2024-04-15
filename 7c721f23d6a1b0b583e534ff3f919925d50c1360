@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1773e6c_cb290d73",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1453423
+      },
+      "writtenOn": "2024-04-15T19:50:22Z",
+      "side": 1,
+      "message": "One thing to clarify here. Many of the types on this entry are part of the generic address model that Autofill used for every country. With i18n, the address model for the US is simpler and only contains address lines, city, state and zip code.",
+      "range": {
+        "startLine": 33,
+        "startChar": 51,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "7c721f23d6a1b0b583e534ff3f919925d50c1360",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9df46a15_33b1fcd4",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1453423
+      },
+      "writtenOn": "2024-04-15T19:50:22Z",
+      "side": 1,
+      "message": "You can also add `ADDRESS_HOME_STREET_LOCATION` \u003d `1600 Amphitheatre`\n```suggestion\n            {name: \u0027ADDRESS_HOME_STREET_LOCATION\u0027, value: \u00271600 Amphitheatre Parkway\u0027},\n            {name: \u0027ADDRESS_HOME_SUBPREMISE\u0027, value: \u0027Apartment 1\u0027},\n```",
+      "revId": "7c721f23d6a1b0b583e534ff3f919925d50c1360",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
