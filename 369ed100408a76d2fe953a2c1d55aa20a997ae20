@@ -33,6 +33,24 @@
       "message": "I think it\u0027d be better to leave this in the places where this button is used as it is a workaround to fix line height \u0026 button height are not the same issue and this is not an inherent property of the button implementation.",
       "revId": "369ed100408a76d2fe953a2c1d55aa20a997ae20",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64009aae_f6a60d4e",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-15T14:43:49Z",
+      "side": 1,
+      "message": "Is it possible to set align-items: center on the host and set line-height to equal button height (since the button is of the fixed dimensions)? I also wonder if 3px would work reliably for each cases (some new token define sizes in rem)?",
+      "parentUuid": "6cc6ba08_89536019",
+      "revId": "369ed100408a76d2fe953a2c1d55aa20a997ae20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
