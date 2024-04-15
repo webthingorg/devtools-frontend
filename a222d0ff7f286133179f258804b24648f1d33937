@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "119d3369_be0db3fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-04-15T23:07:50Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nPlease take a look this change to update the socket.io-parser package from 4.2.1 to 4.2.4 to solve some security issues.\n\nThanks,\nGavin",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
