@@ -39,6 +39,30 @@
       },
       "revId": "ef515d01793f5e397a587d06c2566aa08f87594a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a32810e_8a9f897a",
+        "filename": "front_end/models/issues_manager/CookieIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-04-15T14:36:34Z",
+      "side": 1,
+      "message": "PTAL the question in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5448512/comments/fa3107c6_70bbbea6",
+      "parentUuid": "f02ce37f_f53202f3",
+      "range": {
+        "startLine": 268,
+        "startChar": 45,
+        "endLine": 268,
+        "endChar": 63
+      },
+      "revId": "ef515d01793f5e397a587d06c2566aa08f87594a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
