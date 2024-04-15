@@ -741,6 +741,29 @@ experimental domain Audits
       NoRegisterOsSourceHeader
       NoRegisterOsTriggerHeader
 
+  type SharedDictionaryError extends string
+    enum
+        Success
+        InternalError
+        FeatureDisabled
+        NonSecureContext
+        UnsupportedCrossOriginRedirectedNoCorsRequest
+        UnsupportedNavigationRequest
+        InvalidStructuredHeader
+        MatchFieldIsNotAString
+        MatchDestFieldIsNotAList
+        MatchDestFieldListItemIsNotAString
+        TypeFieldIsNotAToken
+        IdFieldIsNotAString
+        IdFieldTooLong
+        NoMatchField
+        ExpiredResponse
+        UnsupportedType
+        AlreadyRegistered
+        DisallowedBySettings
+        InvalidMatchField
+        ErrorWhileWriting
+
   # Details for issues around "Attribution Reporting API" usage.
   # Explainer: https://github.com/WICG/attribution-reporting-api
   type AttributionReportingIssueDetails extends object
@@ -766,6 +789,11 @@ experimental domain Audits
     properties
       string url
       optional SourceCodeLocation location
+
+  type SharedDictionaryIssueDetails extends object
+    properties
+      SharedDictionaryError sharedDictionaryError
+      AffectedRequest request
 
   type GenericIssueErrorType extends string
     enum
@@ -876,6 +904,8 @@ experimental domain Audits
       SilentMediationFailure
       ThirdPartyCookiesBlocked
       NotSignedInWithIdp
+      MissingTransientUserActivation
+      ReplacedByButtonMode
 
   type FederatedAuthUserInfoRequestIssueDetails extends object
     properties
@@ -970,6 +1000,7 @@ experimental domain Audits
       StylesheetLoadingIssue
       FederatedAuthUserInfoRequestIssue
       PropertyRuleIssue
+      SharedDictionaryIssue
 
   # This struct holds a list of optional fields with additional information
   # specific to the kind of issue. When adding a new issue code, please also
@@ -996,6 +1027,7 @@ experimental domain Audits
       optional StylesheetLoadingIssueDetails stylesheetLoadingIssueDetails
       optional PropertyRuleIssueDetails propertyRuleIssueDetails
       optional FederatedAuthUserInfoRequestIssueDetails federatedAuthUserInfoRequestIssueDetails
+      optional SharedDictionaryIssueDetails sharedDictionaryIssueDetails
 
   # A unique id for a DevTools inspector issue. Allows other entities (e.g.
   # exceptions, CDP message, console messages, etc.) to reference an issue.

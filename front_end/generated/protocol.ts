@@ -1017,6 +1017,29 @@ export namespace Audits {
     NoRegisterOsTriggerHeader = 'NoRegisterOsTriggerHeader',
   }
 
+  export const enum SharedDictionaryError {
+    Success = 'Success',
+    InternalError = 'InternalError',
+    FeatureDisabled = 'FeatureDisabled',
+    NonSecureContext = 'NonSecureContext',
+    UnsupportedCrossOriginRedirectedNoCorsRequest = 'UnsupportedCrossOriginRedirectedNoCorsRequest',
+    UnsupportedNavigationRequest = 'UnsupportedNavigationRequest',
+    InvalidStructuredHeader = 'InvalidStructuredHeader',
+    MatchFieldIsNotAString = 'MatchFieldIsNotAString',
+    MatchDestFieldIsNotAList = 'MatchDestFieldIsNotAList',
+    MatchDestFieldListItemIsNotAString = 'MatchDestFieldListItemIsNotAString',
+    TypeFieldIsNotAToken = 'TypeFieldIsNotAToken',
+    IdFieldIsNotAString = 'IdFieldIsNotAString',
+    IdFieldTooLong = 'IdFieldTooLong',
+    NoMatchField = 'NoMatchField',
+    ExpiredResponse = 'ExpiredResponse',
+    UnsupportedType = 'UnsupportedType',
+    AlreadyRegistered = 'AlreadyRegistered',
+    DisallowedBySettings = 'DisallowedBySettings',
+    InvalidMatchField = 'InvalidMatchField',
+    ErrorWhileWriting = 'ErrorWhileWriting',
+  }
+
   /**
    * Details for issues around "Attribution Reporting API" usage.
    * Explainer: https://github.com/WICG/attribution-reporting-api
@@ -1047,6 +1070,11 @@ export namespace Audits {
   export interface NavigatorUserAgentIssueDetails {
     url: string;
     location?: SourceCodeLocation;
+  }
+
+  export interface SharedDictionaryIssueDetails {
+    sharedDictionaryError: SharedDictionaryError;
+    request: AffectedRequest;
   }
 
   export const enum GenericIssueErrorType {
@@ -1167,6 +1195,8 @@ export namespace Audits {
     SilentMediationFailure = 'SilentMediationFailure',
     ThirdPartyCookiesBlocked = 'ThirdPartyCookiesBlocked',
     NotSignedInWithIdp = 'NotSignedInWithIdp',
+    MissingTransientUserActivation = 'MissingTransientUserActivation',
+    ReplacedByButtonMode = 'ReplacedByButtonMode',
   }
 
   export interface FederatedAuthUserInfoRequestIssueDetails {
@@ -1286,6 +1316,7 @@ export namespace Audits {
     StylesheetLoadingIssue = 'StylesheetLoadingIssue',
     FederatedAuthUserInfoRequestIssue = 'FederatedAuthUserInfoRequestIssue',
     PropertyRuleIssue = 'PropertyRuleIssue',
+    SharedDictionaryIssue = 'SharedDictionaryIssue',
   }
 
   /**
@@ -1314,6 +1345,7 @@ export namespace Audits {
     stylesheetLoadingIssueDetails?: StylesheetLoadingIssueDetails;
     propertyRuleIssueDetails?: PropertyRuleIssueDetails;
     federatedAuthUserInfoRequestIssueDetails?: FederatedAuthUserInfoRequestIssueDetails;
+    sharedDictionaryIssueDetails?: SharedDictionaryIssueDetails;
   }
 
   /**
