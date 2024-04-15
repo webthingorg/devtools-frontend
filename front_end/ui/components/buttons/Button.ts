@@ -18,16 +18,18 @@ declare global {
 export const enum Variant {
   PRIMARY = 'primary',
   TONAL = 'tonal',
-  SECONDARY = 'secondary',
+  OUTLINED = 'outlined',
+  TEXT = 'text',
   TOOLBAR = 'toolbar',
   // Just like toolbar but has a style similar to a primary button.
   PRIMARY_TOOLBAR = 'primary_toolbar',
-  ROUND = 'round',
+  ICON = 'icon',
 }
 
 export const enum Size {
+  MICRO = 'MICRO',
   SMALL = 'SMALL',
-  MEDIUM = 'MEDIUM',
+  REGULAR = 'REGULAR',
 }
 
 type ButtonType = 'button'|'submit'|'reset';
@@ -44,6 +46,7 @@ interface ButtonState {
   title?: string;
   iconName?: string;
   jslogContext?: string;
+  inline?: boolean;
 }
 
 interface CommonButtonData {
@@ -58,16 +61,17 @@ interface CommonButtonData {
   value?: string;
   title?: string;
   jslogContext?: string;
+  inline?: boolean;
 }
 
 export type ButtonData = CommonButtonData&(|{
-  variant: Variant.PRIMARY_TOOLBAR | Variant.TOOLBAR | Variant.ROUND,
+  variant: Variant.PRIMARY_TOOLBAR | Variant.TOOLBAR | Variant.ICON,
   iconUrl: string,
 }|{
-  variant: Variant.PRIMARY_TOOLBAR | Variant.TOOLBAR | Variant.ROUND,
+  variant: Variant.PRIMARY_TOOLBAR | Variant.TOOLBAR | Variant.ICON,
   iconName: string,
 }|{
-  variant: Variant.PRIMARY | Variant.SECONDARY | Variant.TONAL,
+  variant: Variant.PRIMARY | Variant.OUTLINED | Variant.TONAL | Variant.TEXT,
 });
 
 export class Button extends HTMLElement {
@@ -77,7 +81,7 @@ export class Button extends HTMLElement {
   readonly #boundRender = this.#render.bind(this);
   readonly #boundOnClick = this.#onClick.bind(this);
   readonly #props: ButtonState = {
-    size: Size.MEDIUM,
+    size: Size.REGULAR,
     disabled: false,
     active: false,
     spinner: false,
@@ -100,7 +104,8 @@ export class Button extends HTMLElement {
     this.#props.variant = data.variant;
     this.#props.iconUrl = data.iconUrl;
     this.#props.iconName = data.iconName;
-    this.#props.size = Size.MEDIUM;
+    this.#props.size = Size.REGULAR;
+    this.#props.inline = data.inline;
 
     if ('size' in data && data.size) {
       this.#props.size = data.size;
@@ -177,6 +182,11 @@ export class Button extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
+  set inline(inline: boolean|undefined) {
+    this.#props.inline = inline ? inline : false;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
   #setDisabledProperty(disabled: boolean): void {
     this.#props.disabled = disabled;
     this.toggleAttribute('disabled', disabled);
@@ -232,12 +242,12 @@ export class Button extends HTMLElement {
         throw new Error('Toolbar button does not accept children');
       }
     }
-    if (this.#props.variant === Variant.ROUND) {
+    if (this.#props.variant === Variant.ICON) {
       if (!this.#props.iconUrl && !this.#props.iconName) {
-        throw new Error('Round button requires an icon');
+        throw new Error('Icon button requires an icon');
       }
       if (!this.#isEmpty) {
-        throw new Error('Round button does not accept children');
+        throw new Error('Icon button does not accept children');
       }
     }
     if (this.#props.iconName && this.#props.iconUrl) {
@@ -247,19 +257,22 @@ export class Button extends HTMLElement {
     const classes = {
       primary: this.#props.variant === Variant.PRIMARY,
       tonal: this.#props.variant === Variant.TONAL,
-      secondary: this.#props.variant === Variant.SECONDARY,
+      outlined: this.#props.variant === Variant.OUTLINED,
+      text: this.#props.variant === Variant.TEXT,
       toolbar: this.#isToolbarVariant(),
       'primary-toolbar': this.#props.variant === Variant.PRIMARY_TOOLBAR,
-      round: this.#props.variant === Variant.ROUND,
+      icon: this.#props.variant === Variant.ICON,
       'text-with-icon': hasIcon && !this.#isEmpty,
       'only-icon': hasIcon && this.#isEmpty,
       'only-text': !hasIcon && !this.#isEmpty,
+      micro: this.#props.size === Size.MICRO,
       small: Boolean(this.#props.size === Size.SMALL),
       active: this.#props.active,
+      inline: this.#props.inline ? this.#props.inline : false,
     };
     const spinnerClasses = {
       primary: this.#props.variant === Variant.PRIMARY,
-      secondary: this.#props.variant === Variant.SECONDARY,
+      outlined: this.#props.variant === Variant.OUTLINED,
       disabled: Boolean(this.#props.disabled),
       spinner: true,
     };
