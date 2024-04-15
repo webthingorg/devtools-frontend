@@ -16,6 +16,29 @@
       "message": "This CL tries to add a 3PCD console message whenever a 3PCD issue is created. It\u0027s still WIP. But I was hoping to at least see the request link icon, which didn\u0027t show up when running it locally. Could you PTAL and see if I missed anything? Thanks!",
       "revId": "ef515d01793f5e397a587d06c2566aa08f87594a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f02ce37f_f53202f3",
+        "filename": "front_end/models/issues_manager/CookieIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-15T10:43:17Z",
+      "side": 1,
+      "message": "Why this value?",
+      "range": {
+        "startLine": 268,
+        "startChar": 45,
+        "endLine": 268,
+        "endChar": 63
+      },
+      "revId": "ef515d01793f5e397a587d06c2566aa08f87594a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
