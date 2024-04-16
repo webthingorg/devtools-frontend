@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddbc1d2f_a9857e08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-16T08:22:36Z",
+      "side": 1,
+      "message": "`npm audit --audit-level\u003dcritical` does not return any warnings for me.",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "119d3369_be0db3fc",
