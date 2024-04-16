@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8860bef4_e9c45ffe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-16T17:05:22Z",
+      "side": 1,
+      "message": "Simon, PTAL. I am not the most familiar with the targets system in DevTools, so it may be that there is a better way to deal with this. It made sense to me to dispose of crashed targets, but I am open to other solutions if you have alternatives that fit better. Thanks!",
+      "revId": "ba29f1124ace400b6760704970731bb581debd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
