@@ -9,6 +9,7 @@ import * as Protocol from '../../generated/protocol.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import {dispatchPasteEvent} from '../../testing/DOMHelpers.js';
 import {createTarget, registerNoopActions} from '../../testing/EnvironmentHelpers.js';
+import {expectCall} from '../../testing/ExpectStubCall.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -80,8 +81,7 @@ describeWithMockConnection('ConsoleView', () => {
         resolve => sinon.stub(fileManager, 'append')
                        .withArgs(FILENAME, sinon.match('message 1\nmessage 2\n'))
                        .callsFake((_1, _2) => resolve()));
-    const fileManagerCloseCall =
-        new Promise<void>(resolve => sinon.stub(fileManager, 'close').callsFake(_ => resolve()));
+    const fileManagerCloseCall = expectCall(sinon.stub(fileManager, 'close'));
     saveAsHandler.args[1]();
     assert.isTrue(fileManagerSave.calledOnceWith(FILENAME, '', true));
     await fileManagerAppendCall;
