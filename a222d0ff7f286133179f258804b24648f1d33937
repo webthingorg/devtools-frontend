@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d9b92a8_ea402416",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-16T08:53:18Z",
+      "side": 1,
+      "message": "Thanks for raising the issue with the socket.io-parser message guangyue.xu@! Unfortunately, although we recently moved the devDependencies to package.json, npm commands cannot be used directly since they do not match defaults and do not include extra steps performed in `npm run install-deps`. We have submitted the socket.io-parser update here https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5454234 and I created a CL to fix npm defaults https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5454393",
+      "parentUuid": "ab9b6fbb_9ede22b3",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddbc1d2f_a9857e08",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
