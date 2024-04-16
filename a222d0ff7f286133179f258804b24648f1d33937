@@ -120,6 +120,23 @@
       "parentUuid": "3e0cbe9a_d2fbe123",
       "revId": "a222d0ff7f286133179f258804b24648f1d33937",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f1397d3_44e8cc8a",
+        "filename": "node_modules/esbuild-linux-64/package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-16T08:27:05Z",
+      "side": 1,
+      "message": "I believe esbuild binaries should not be submitted",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
