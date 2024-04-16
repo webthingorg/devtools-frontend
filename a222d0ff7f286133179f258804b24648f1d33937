@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad08d171_4d45fe18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-16T08:13:09Z",
+      "side": 1,
+      "message": "is this update produced by running `npm run install-deps`? if not, it could be overwritten with the next deps installation?",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "119d3369_be0db3fc",
