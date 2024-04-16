@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1efd84d1_32043e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-04-16T07:08:10Z",
+      "side": 1,
+      "message": "I think the shadows entry is needed, but also a constraints section – maybe ask the luci team for a minimal configuration to use the bucket itself as a shadow bucket?",
+      "revId": "b46b66c4298870cf76436fa25ef8843e7c9b6193",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
