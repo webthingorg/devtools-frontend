@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab9b6fbb_9ede22b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-16T08:26:31Z",
+      "side": 1,
+      "message": "I have opened a fix via `npm run install-deps` that does not update extra packages https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5454234",
+      "parentUuid": "ad08d171_4d45fe18",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddbc1d2f_a9857e08",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
