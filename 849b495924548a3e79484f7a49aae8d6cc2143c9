@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d0a762_551ca9eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-16T13:17:09Z",
+      "side": 1,
+      "message": "PTAL, this required manually updating a dep to the CDP method update.",
+      "revId": "849b495924548a3e79484f7a49aae8d6cc2143c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
