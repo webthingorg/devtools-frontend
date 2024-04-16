@@ -36,6 +36,7 @@ devtools_module("issues_manager") {
     "QuirksModeIssue.ts",
     "RelatedIssue.ts",
     "SharedArrayBufferIssue.ts",
+    "SharedDictionaryIssue.ts",
     "SourceFrameIssuesManager.ts",
     "StylesheetLoadingIssue.ts",
   ]
@@ -172,6 +173,25 @@ devtools_issue_description_files = [
   "sharedArrayBuffer.md",
   "stylesheetLateImport.md",
   "stylesheetRequestFailed.md",
+  "sharedDictionaryDisallowedBySettings.md",
+  "sharedDictionaryErrorWhileWriting.md",
+  "sharedDictionaryExpiredResponse.md",
+  "sharedDictionaryFeatureDisabled.md",
+  "sharedDictionaryIdFieldIsNotAString.md",
+  "sharedDictionaryIdFieldTooLong.md",
+  "sharedDictionaryInsufficientResources.md",
+  "sharedDictionaryInvalidMatchField.md",
+  "sharedDictionaryInvalidStructuredHeader.md",
+  "sharedDictionaryMatchDestFieldIsNotAList.md",
+  "sharedDictionaryMatchDestFieldListItemIsNotAString.md",
+  "sharedDictionaryMatchFieldIsNotAString.md",
+  "sharedDictionaryNoMatchField.md",
+  "sharedDictionaryNonSecureContext.md",
+  "sharedDictionaryShuttingDown.md",
+  "sharedDictionaryTypeFieldIsNotAToken.md",
+  "sharedDictionaryUnsupportedCrossOriginRedirectedNoCorsRequest.md",
+  "sharedDictionaryUnsupportedNavigationRequest.md",
+  "sharedDictionaryUnsupportedType.md",
 ]
 
 devtools_pre_built("descriptions") {
