@@ -50,6 +50,24 @@
       "message": "lgtm % reverting the `chai/index.d.ts` changes to pass TS compilation.",
       "revId": "a222d0ff7f286133179f258804b24648f1d33937",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02208ec_61e8c8ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-16T04:59:15Z",
+      "side": 1,
+      "message": "For additional context: The upstream PR for @types/chai is https://github.com/DefinitelyTyped/DefinitelyTyped/pull/69364",
+      "parentUuid": "3e0cbe9a_d2fbe123",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
