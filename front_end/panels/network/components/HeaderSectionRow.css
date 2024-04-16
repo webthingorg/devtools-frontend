@@ -28,7 +28,6 @@
   min-width: 160px;
   max-width: 240px;
   flex-shrink: 0;
-  text-transform: capitalize;
   overflow-wrap: break-word;
 }
 
