@@ -33,6 +33,23 @@
       "message": "Thanks for fixing this.\n\nPlease note that we are not fully up-to-date with npm as we bake a proposed change to upstream `@types/chai` in DevTools. (Thats the origin for the TS compilation failures).\n\nIf you revert the `@types/chai/index.d.ts` changes, the CL should pass and be able to land.",
       "revId": "a222d0ff7f286133179f258804b24648f1d33937",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e0cbe9a_d2fbe123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-16T04:52:44Z",
+      "side": 1,
+      "message": "lgtm % reverting the `chai/index.d.ts` changes to pass TS compilation.",
+      "revId": "a222d0ff7f286133179f258804b24648f1d33937",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
