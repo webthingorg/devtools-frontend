@@ -16,6 +16,40 @@
       "message": "Simon, PTAL. I am not the most familiar with the targets system in DevTools, so it may be that there is a better way to deal with this. It made sense to me to dispose of crashed targets, but I am open to other solutions if you have alternatives that fit better. Thanks!",
       "revId": "ba29f1124ace400b6760704970731bb581debd68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ac6f29_3f245286",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-16T18:13:44Z",
+      "side": 1,
+      "message": "nice",
+      "revId": "ba29f1124ace400b6760704970731bb581debd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c1becf_232e6ef8",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-16T18:13:44Z",
+      "side": 1,
+      "message": "from a DRY POV, most of this is the same as the `targetDestroyed` method\n\ncould you call the target.dispose() and then `this.targetDestroyed(targetId)` ?\n\nno worries if not, just wanted to doublecheck..",
+      "revId": "ba29f1124ace400b6760704970731bb581debd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
