@@ -16,6 +16,24 @@
       "message": "How does this relate to https://crrev.com/c/5454583?",
       "revId": "460f295155762695b8d7b07f57d4564f929d7dce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2baa57f_041a7e7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-16T08:34:33Z",
+      "side": 1,
+      "message": "I left comments there",
+      "parentUuid": "f9b3bd62_7bf2a233",
+      "revId": "460f295155762695b8d7b07f57d4564f929d7dce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
