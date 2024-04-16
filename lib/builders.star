@@ -18,7 +18,7 @@ defaults = struct(
 acls = struct(
     readers = acl.entry(
         roles = acl.BUILDBUCKET_READER,
-        groups = "all",
+        groups = "alla",
     ),
 )
 

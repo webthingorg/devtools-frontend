@@ -8,12 +8,18 @@ LUCICFG_ENTRY_SCRIPTS = ['main.star']
 
 
 def CheckChangeOnUpload(input_api, output_api):
-  tests = []
-  for path in LUCICFG_ENTRY_SCRIPTS:
-    tests += input_api.canned_checks.CheckLucicfgGenOutput(
-        input_api, output_api, path)
+  tests = [CheckRunMain(input_api, output_api)]
   return input_api.RunTests(tests)
 
+def CheckRunMain(input_api, output_api):
+  return input_api.Command(
+            'main.star',
+            [ './main.star' ],
+            {
+                'stderr': input_api.subprocess.STDOUT,
+                'cwd': input_api.PresubmitLocalPath(),
+            },
+            output_api.PresubmitError)
 
 def CheckChangeOnCommit(input_api, output_api):
   return CheckChangeOnUpload(input_api, output_api)

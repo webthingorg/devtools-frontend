@@ -49,7 +49,7 @@ generate_ci_configs(
             branch = "refs/heads/main",
             view = "Shuffled",
             name_suffix = "",
-            priority = DEFAULT_PRIORITY + 30,
+            priority = DEFAULT_PRIORITY + 31,
         ),
         branch_section("beta"),
         branch_section("stable"),
