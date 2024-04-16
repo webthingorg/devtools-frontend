@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fed66a44_86db3cfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-16T09:48:34Z",
+      "side": 1,
+      "message": "PTAL, I tried to add a unit test for this in UISourceCodeFrame, but all the things I tried either didn\u0027t work, or were very brittle.\n\nIt boils down to the fact there is no promise I can wait on that tells me that the UISourceCodeFrame is done with all it\u0027s work.",
+      "revId": "f364a4e3b9ecba48f9b77bcd770c74bbe01b366d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
