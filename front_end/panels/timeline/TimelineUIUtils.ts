@@ -543,6 +543,24 @@ const UIStrings = {
    */
   entryIsHidden: '(entry is hidden)',
   /**
+   * @description Event title for when a WebSocket message was received
+   */
+  webSocketReceive: 'WebSocket message received',
+  /**
+   * @description Details text indicating how many bytes were received in a WebSocket message
+   * @example {1024} PH1
+   */
+  webSocketReceiveDetails: '{PH1} byte(s) received',
+  /**
+   * @description Event title for when a WebSocket message was sent
+   */
+  webSocketSend: 'WebSocket message sent',
+  /**
+   * @description Details text indicating how many bytes were sent in a WebSocket message
+   * @example {1024} PH1
+   */
+  webSocketSendDetails: '{PH1} byte(s) sent',
+  /**
    * @description Title of a row in the details view for a `Recalculate Styles` event that contains more info about selector stats tracing.
    */
   selectorStatsTitle: 'Selector Stats',
@@ -720,6 +738,12 @@ export class TimelineUIUtils {
     if (event.name === recordType.EventDispatch && eventData && eventData['type']) {
       return i18nString(UIStrings.sS, {PH1: title, PH2: eventData['type']});
     }
+    if (event.name === recordType.WebSocketSend) {
+      return i18nString(UIStrings.webSocketSend);
+    }
+    if (event.name === recordType.WebSocketReceive) {
+      return i18nString(UIStrings.webSocketReceive);
+    }
     return title;
   }
 
@@ -880,6 +904,14 @@ export class TimelineUIUtils {
         break;
       }
 
+      case recordType.WebSocketSend:
+        detailsText = i18nString(UIStrings.webSocketSendDetails, {PH1: eventData.dataLength});
+        break;
+
+      case recordType.WebSocketReceive:
+        detailsText = i18nString(UIStrings.webSocketReceiveDetails, {PH1: eventData.dataLength});
+        break;
+
       case recordType.EmbedderCallback:
         detailsText = eventData['callbackName'];
         break;
@@ -938,6 +970,8 @@ export class TimelineUIUtils {
       case recordType.WebSocketCreate:
       case recordType.WebSocketSendHandshakeRequest:
       case recordType.WebSocketReceiveHandshakeResponse:
+      case recordType.WebSocketSend:
+      case recordType.WebSocketReceive:
       case recordType.WebSocketDestroy: {
         detailsText = await TimelineUIUtils.buildDetailsTextForTraceEvent(event);
         break;
@@ -1475,6 +1509,8 @@ export class TimelineUIUtils {
       case recordTypes.WebSocketCreate:
       case recordTypes.WebSocketSendHandshakeRequest:
       case recordTypes.WebSocketReceiveHandshakeResponse:
+      case recordTypes.WebSocketReceive:
+      case recordTypes.WebSocketSend:
       case recordTypes.WebSocketDestroy: {
         // The events will be from tthe new engine; as we remove the old engine we can remove these checks.
         if (TraceEngine.Legacy.eventIsFromNewEngine(event) &&

@@ -41,6 +41,24 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     this.#timelineDataInternal = null;
     this.#traceEngineData = traceEngineData;
     this.#events = traceEngineData?.NetworkRequests.byTime || [];
+    traceEngineData?.WebSockets.traceData.forEach(webSocketData => {
+      let webSocketUrl = '';
+
+      const connectionEvent =
+          webSocketData.events.find(data => TraceEngine.Types.TraceEvents.isTraceEventWebSocketCreate(data)) as
+              TraceEngine.Types.TraceEvents.TraceEventWebSocketCreate |
+          undefined;
+      if (connectionEvent) {
+        webSocketUrl = connectionEvent.args.data.url;
+      }
+
+      for (const event of webSocketData.events) {
+        if (!event.args.data.url) {
+          event.args.data.url = webSocketUrl;
+        }
+        this.#events.push(event as unknown as TraceEngine.Types.TraceEvents.SyntheticNetworkRequest);
+      }
+    });
 
     if (this.#traceEngineData) {
       this.#setTimingBoundsData(this.#traceEngineData);
@@ -127,6 +145,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
 
   entryTitle(index: number): string|null {
     const event = this.#events[index];
+    if (!event.args.data.url) {
+      return '(from Websocket)';
+    }
     const parsedURL = new Common.ParsedURL.ParsedURL(event.args.data.url);
     return parsedURL.isValid ? `${parsedURL.displayName} (${parsedURL.host})` : event.args.data.url || null;
   }
@@ -198,6 +219,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
       index: number, context: CanvasRenderingContext2D, _text: string|null, barX: number, barY: number,
       barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number): boolean {
     const event = this.#events[index];
+    if (event.name.includes('WebSocket')) {
+      return false;
+    }
 
     const {sendStart, headersEnd, finish, start, end} =
         this.getDecorationPixels(event, unclippedBarX, timeToPixelRatio);
@@ -280,9 +304,91 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     div.textContent = PerfUI.NetworkPriorities.uiLabelForNetworkPriority(
         (event.args.data.priority as Protocol.Network.ResourcePriority));
     div.style.color = this.#colorForPriority(event.args.data.priority) || 'black';
-    contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
+    if (event.name.startsWith('WebSocket')) {
+      const title = this.#networkTrackAppender?.titleForWebSocketEvent(event) || '';
+      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(title, maxURLChars);
+    } else {
+      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
+    }
+
     return element;
   }
+
+  // prepareHighlightedEntryInfo(entryIndex: number): Element|null {
+  //   let time = '';
+  //   let title;
+  //   let warningElements: Element[] = [];
+  //   let nameSpanTimelineInfoTime = 'timeline-info-time';
+
+  //   const additionalContent: HTMLElement[] = [];
+
+  //   const entryType = this.entryType(entryIndex);
+  //   if (entryType === EntryType.TrackAppender) {
+  //     if (!this.compatibilityTracksAppender) {
+  //       return null;
+  //     }
+  //     const event = (this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.TraceEventData);
+  //     const timelineData = (this.timelineDataInternal as PerfUI.FlameChart.FlameChartTimelineData);
+  //     const eventLevel = timelineData.entryLevels[entryIndex];
+  //     const highlightedEntryInfo = this.highlightedEntryInfo(event, eventLevel);
+  //     title = highlightedEntryInfo.title;
+  //     time = highlightedEntryInfo.formattedTime;
+  //     warningElements = highlightedEntryInfo.warningElements || warningElements;
+  //   } else if (entryType === EntryType.Event) {
+  //     const event = (this.entryData[entryIndex] as TraceEngine.Legacy.Event);
+  //     const totalTime = event.duration;
+  //     const selfTime = event.selfTime;
+  //     const eps = 1e-6;
+  //     if (typeof totalTime === 'number') {
+  //       time = Math.abs(totalTime - selfTime) > eps && selfTime > eps ?
+  //           i18nString(UIStrings.sSelfS, {
+  //             PH1: i18n.TimeUtilities.millisToString(totalTime, true),
+  //             PH2: i18n.TimeUtilities.millisToString(selfTime, true),
+  //           }) :
+  //           i18n.TimeUtilities.millisToString(totalTime, true);
+  //     }
+  //     title = this.entryTitle(entryIndex);
+
+  //   } else if (entryType === EntryType.Frame) {
+  //     const frame = (this.entryData[entryIndex] as TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame);
+  //     time = i18n.TimeUtilities.preciseMillisToString(
+  //         TraceEngine.Helpers.Timing.microSecondsToMilliseconds(frame.duration), 1);
+
+  //     if (frame.idle) {
+  //       title = i18nString(UIStrings.idleFrame);
+  //     } else if (frame.dropped) {
+  //       if (frame.isPartial) {
+  //         title = i18nString(UIStrings.partiallyPresentedFrame);
+  //       } else {
+  //         title = i18nString(UIStrings.droppedFrame);
+  //       }
+  //       nameSpanTimelineInfoTime = 'timeline-info-warning';
+  //     } else {
+  //       title = i18nString(UIStrings.frame);
+  //     }
+  //   } else {
+  //     return null;
+  //   }
+
+  //   const element = document.createElement('div');
+  //   const root = UI.UIUtils.createShadowRootWithCoreStyles(element, {
+  //     cssFile: [timelineFlamechartPopoverStyles],
+  //     delegatesFocus: undefined,
+  //   });
+  //   const contents = root.createChild('div', 'timeline-flamechart-popover');
+  //   contents.createChild('span', nameSpanTimelineInfoTime).textContent = time;
+  //   contents.createChild('span', 'timeline-info-title').textContent = title;
+  //   if (warningElements) {
+  //     for (const warningElement of warningElements) {
+  //       warningElement.classList.add('timeline-info-warning');
+  //       contents.appendChild(warningElement);
+  //     }
+  //   }
+  //   for (const elem of additionalContent) {
+  //     contents.appendChild(elem);
+  //   }
+  //   return element;
+  // }
 
   #colorForPriority(priority: string): string|null {
     if (!this.#priorityToValue) {
@@ -317,12 +423,14 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
    * PerfUI.FlameChart.FlameChartTimelineData instance to force the flamechart
    * to re-render.
    */
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   #updateTimelineData(startTime: number, endTime: number): void {
     if (!this.#networkTrackAppender || !this.#timelineDataInternal) {
       return;
     }
+    // TODO: This is hiding rows, need to fix when there is websocket messages
     this.#maxLevel = this.#networkTrackAppender.filterTimelineDataBetweenTimes(
-        TraceEngine.Types.Timing.MilliSeconds(startTime), TraceEngine.Types.Timing.MilliSeconds(endTime));
+        this.#events, TraceEngine.Types.Timing.MilliSeconds(startTime), TraceEngine.Types.Timing.MilliSeconds(endTime));
 
     // TODO(crbug.com/1459225): Remove this recreating code.
     // Force to create a new PerfUI.FlameChart.FlameChartTimelineData instance
