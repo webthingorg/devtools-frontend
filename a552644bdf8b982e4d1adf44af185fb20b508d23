@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a0ca6a9_c7cbd0bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-17T14:44:37Z",
+      "side": 1,
+      "message": "Nice, Peter, looks good to me, thank you!:)",
+      "revId": "a552644bdf8b982e4d1adf44af185fb20b508d23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
