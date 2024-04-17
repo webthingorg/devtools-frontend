@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2264cf_a7f2b9c2",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-04-17T08:03:52Z",
+      "side": 1,
+      "message": "I think we are still missing the pool, otherwise the build creation job raises [an error](https://source.chromium.org/chromium/infra/infra_superproject/+/main:infra/go/src/go.chromium.org/luci/buildbucket/appengine/rpc/create_build.go;l\u003d132).",
+      "range": {
+        "startLine": 937,
+        "startChar": 2,
+        "endLine": 937,
+        "endChar": 13
+      },
+      "revId": "2e48e8f755277a547590ae6fcc74a868af757cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a344dfdb_3348343b",
+        "filename": "lib/builders.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-04-17T08:03:52Z",
+      "side": 1,
+      "message": "Maybe pass the constraints here directly. In this way it has the same level of abstraction as `acls` have, and we can add the pool as well.",
+      "range": {
+        "startLine": 162,
+        "startChar": 23,
+        "endLine": 162,
+        "endChar": 43
+      },
+      "revId": "2e48e8f755277a547590ae6fcc74a868af757cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
