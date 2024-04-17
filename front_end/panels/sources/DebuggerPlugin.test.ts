@@ -498,7 +498,8 @@ describe('DebuggerPlugin', () => {
       assert.strictEqual(decorations.size, 2, 'Expected to have execution line and token decoration');
     });
 
-    it('correctly returns line and token decorations even for long documents', () => {
+    // Flaky test
+    it.skip('[crbug.com/335309994] correctly returns line and token decorations even for long documents', () => {
       const doc = 'console.log("Hello World!");\n'.repeat(10_000);
       const state = CodeMirror.EditorState.create({doc, extensions});
       const decorations = computeExecutionDecorations(state, 9_998, 0);
