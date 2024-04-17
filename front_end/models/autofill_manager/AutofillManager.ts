@@ -86,12 +86,18 @@ export class AutofillManager extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       if (this.#filledFields[i].value === '') {
         continue;
       }
+
+      const needles = new Set([this.#filledFields[i].value]);
       // Regex replaces whitespace or comma/dot followed by whitespace with a single space.
-      const needle = this.#filledFields[i].value.replaceAll(/[.,]*\s+/g, ' ');
-      const matches = this.#address.replaceAll(/\s/g, ' ').matchAll(new RegExp(needle, 'g'));
-      for (const match of matches) {
-        if (typeof match.index !== 'undefined') {
-          this.#matches.push({startIndex: match.index, endIndex: match.index + match[0].length, filledFieldIndex: i});
+      needles.add(this.#filledFields[i].value.replaceAll(/[.,]*\s+/g, ' '));
+
+      const addressWithoutLineBreaks = this.#address.replaceAll(/\n/g, ' ');
+      let index, startIndex;
+      for (const needle of needles) {
+        startIndex = 0;
+        while ((index = addressWithoutLineBreaks.indexOf(needle, startIndex)) > -1) {
+          this.#matches.push({startIndex: index, endIndex: index + needle.length, filledFieldIndex: i});
+          startIndex = index + needle.length;
         }
       }
     }
