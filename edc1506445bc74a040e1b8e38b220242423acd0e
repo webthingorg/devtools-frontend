@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "634a3e65_4aa98431",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.test.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "Try this to trigger the event listener:\n```suggestion\n    dispatchPasteEvent(nameEditable, {clipboardData: dt, bubbles: true, composed: true});\n```",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 73
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "948f8161_08a60350",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "Why extract a function when it\u0027s only used here?",
+      "range": {
+        "startLine": 444,
+        "startChar": 4,
+        "endLine": 444,
+        "endChar": 46
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d63f1ae9_4f86a6cb",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "Would early exit if `getData()` returns null also work?",
+      "range": {
+        "startLine": 449,
+        "startChar": 69,
+        "endLine": 449,
+        "endChar": 86
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d79689_09f96f76",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "nit: separatorExists",
+      "range": {
+        "startLine": 450,
+        "startChar": 10,
+        "endLine": 450,
+        "endChar": 26
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9e8f0a_ec1450dc",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "```suggestion\n    if (separatorExists \u003c 0) {  // just the name\n```",
+      "range": {
+        "startLine": 452,
+        "startChar": 4,
+        "endLine": 452,
+        "endChar": 30
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67322d7e_bf2880e7",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "A value of 1 should be fine, shouldn\u0027t it? What should happen if it is 0?",
+      "range": {
+        "startLine": 456,
+        "startChar": 8,
+        "endLine": 456,
+        "endChar": 28
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca3ec30_7e118eba",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "This executes functionality which previously happend on focus out. Is this intentional to now do it earlier? What about validation?",
+      "range": {
+        "startLine": 459,
+        "startChar": 6,
+        "endLine": 459,
+        "endChar": 43
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "424752d4_97e83792",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T09:05:50Z",
+      "side": 1,
+      "message": "Should validation happen as well?",
+      "range": {
+        "startLine": 463,
+        "startChar": 6,
+        "endLine": 463,
+        "endChar": 34
+      },
+      "revId": "edc1506445bc74a040e1b8e38b220242423acd0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
