@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "801f4c1e_e769153f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-17T23:57:09Z",
+      "side": 1,
+      "message": "Hi Alex, could you please take a look at this. And if possible, verify the fix on a mac as well? Thanks!",
+      "revId": "b055d1a7f82c867217d055a916a9c4068f215a15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
