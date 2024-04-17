@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e570b24a_cd8ecae7",
+        "filename": "generated/cr-buildbucket.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-04-17T08:52:52Z",
+      "side": 1,
+      "message": "I was hoping it would be forgiving. Thanks for pointing the error out.",
+      "parentUuid": "fb2264cf_a7f2b9c2",
+      "range": {
+        "startLine": 937,
+        "startChar": 2,
+        "endLine": 937,
+        "endChar": 13
+      },
+      "revId": "2e48e8f755277a547590ae6fcc74a868af757cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a344dfdb_3348343b",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-17T08:03:52Z",
       "side": 1,
       "message": "Maybe pass the constraints here directly. In this way it has the same level of abstraction as `acls` have, and we can add the pool as well.",
+      "range": {
+        "startLine": 162,
+        "startChar": 23,
+        "endLine": 162,
+        "endChar": 43
+      },
+      "revId": "2e48e8f755277a547590ae6fcc74a868af757cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e9bfea9_0fe88a78",
+        "filename": "lib/builders.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-04-17T08:52:52Z",
+      "side": 1,
+      "message": "Currently we have this pool-bucket naming convention that allows me to specify just the service account. Maybe when this changes we lift the constraints out.",
+      "parentUuid": "a344dfdb_3348343b",
       "range": {
         "startLine": 162,
         "startChar": 23,
