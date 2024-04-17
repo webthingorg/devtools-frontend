@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84911ceb_0d98d8e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-17T06:58:41Z",
+      "side": 1,
+      "message": "I\u0027m curious, is this a frontend or backend issue? Do we receive a `detachedFromTarget` event for the crashing target and there is an ordering problem in the frontend? Or don\u0027t we receive  a `detachedFromTarget` event in the first place?\n\nThe CL is mostly fine with me, but we\u0027ll leave some traces of the crashing target in `#childTargetsBySessionId` and `#childTargetsById` that are cleaned up by `detachedFromTarget` normally.",
+      "revId": "ba29f1124ace400b6760704970731bb581debd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41c1becf_232e6ef8",
         "filename": "front_end/core/sdk/ChildTargetManager.ts",
         "patchSetId": 1
