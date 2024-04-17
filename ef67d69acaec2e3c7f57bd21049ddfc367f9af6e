@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179587ad_3335b98e",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2024-04-17T14:26:20Z",
+      "side": 1,
+      "message": "Not directly related to this patch since the old code did it too, but the way this and the next two statements all dispatch their own separate transaction isn\u0027t terribly efficient—could probably arrange for all the stuff they dispatch to be rolled into a single transaction, saving the editor 2 updates.",
+      "revId": "ef67d69acaec2e3c7f57bd21049ddfc367f9af6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85e56e37_d614fe94",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1520247
+      },
+      "writtenOn": "2024-04-17T14:26:20Z",
+      "side": 1,
+      "message": "Are you sure you want to completely recompute these for every update? That seems needlessly expensive.",
+      "revId": "ef67d69acaec2e3c7f57bd21049ddfc367f9af6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
