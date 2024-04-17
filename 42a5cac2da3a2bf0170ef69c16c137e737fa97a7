@@ -74,6 +74,30 @@
       },
       "revId": "42a5cac2da3a2bf0170ef69c16c137e737fa97a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8e778ba_1ffdd784",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-17T12:19:36Z",
+      "side": 1,
+      "message": "Thanks, that works but probably the icon is not accessible for screenreaders still.",
+      "parentUuid": "d724da5a_0bc617d2",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 114
+      },
+      "revId": "42a5cac2da3a2bf0170ef69c16c137e737fa97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
