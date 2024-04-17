@@ -198,7 +198,7 @@ export class HeaderSectionRow extends HTMLElement {
               @focusout=${this.#onHeaderNameFocusOut}
               @keydown=${this.#onKeyDown}
               @input=${this.#onHeaderNameEdit}
-              @paste=${this.#onHeaderNameEdit}
+              @paste=${this.#onHeaderNamePaste}
               .data=${{value: this.#header.name} as EditableSpanData}
             ></${EditableSpan.litTagName}>` :
             this.#header.name}:
@@ -384,19 +384,7 @@ export class HeaderSectionRow extends HTMLElement {
 
   #onHeaderValueFocusOut(event: Event): void {
     const target = event.target as EditableSpan;
-    if (!this.#header) {
-      return;
-    }
-    const headerValue = target.value.trim();
-    if (!compareHeaders(headerValue, this.#header.value?.trim())) {
-      this.#header.value = headerValue;
-      this.dispatchEvent(new HeaderEditedEvent(this.#header.name, headerValue));
-      void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
-    }
-
-    // Clear selection (needed when pressing 'enter' in editable span).
-    const selection = window.getSelection();
-    selection?.removeAllRanges();
+    this.#updateHeaderValue(target.value.trim());
   }
 
   #onHeaderNameFocusOut(event: Event): void {
@@ -448,11 +436,7 @@ export class HeaderSectionRow extends HTMLElement {
 
   #onHeaderNameEdit(event: Event): void {
     const editable = event.target as EditableSpan;
-    const isValidName = isValidHeaderName(editable.value);
-    if (this.#isValidHeaderName !== isValidName) {
-      this.#isValidHeaderName = isValidName;
-      void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
-    }
+    this.#validateHeaderName(editable.value);
   }
 
   #onHeaderValueEdit(event: Event): void {
@@ -466,6 +450,54 @@ export class HeaderSectionRow extends HTMLElement {
       }
       void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
     }
+  }
+
+  #onHeaderNamePaste(event: ClipboardEvent): void {
+    if (!event.clipboardData) {
+      return;
+    }
+
+    const editable = event.target as EditableSpan;
+    const editableValue = event.clipboardData.getData('text/plain') || '';
+    const separatorPosition = editableValue.indexOf(':');
+
+    if (separatorPosition < 1) {
+      // Not processing further either case 'abc' and ':abc'
+      this.#validateHeaderName(editableValue);
+      return;
+    }
+
+    const headerValue = editableValue.substring(separatorPosition + 1, editableValue.length).trim();
+    const headerName = editableValue.substring(0, separatorPosition);
+    editable.value = headerName;
+
+    this.#validateHeaderName(headerName);
+    this.#updateHeaderValue(headerValue);
+    editable.blur();
+  }
+
+  #validateHeaderName(value: string): void {
+    const isValidName = isValidHeaderName(value);
+    if (this.#isValidHeaderName !== isValidName) {
+      this.#isValidHeaderName = isValidName;
+      void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+    }
+  }
+
+  #updateHeaderValue(value: string): void {
+    if (!this.#header) {
+      return;
+    }
+
+    if (!compareHeaders(value, this.#header.value?.trim())) {
+      this.#header.value = value;
+      this.dispatchEvent(new HeaderEditedEvent(this.#header.name, value));
+      void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+    }
+
+    // Clear selection (needed when pressing 'enter' in editable span).
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
   }
 }
 
