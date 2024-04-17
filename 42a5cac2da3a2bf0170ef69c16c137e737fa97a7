@@ -33,6 +33,29 @@
       "message": "lgtm, any idea why the line number increased so much? rxjs shipping formatted sources now and something pulls in zod?",
       "revId": "42a5cac2da3a2bf0170ef69c16c137e737fa97a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d724da5a_0bc617d2",
+        "filename": "test/e2e/sources/overrides_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T10:50:28Z",
+      "side": 1,
+      "message": "Would it work if the query selector didn\u0027t query by aria attribute?\n```suggestion\n      const iconTitleElement \u003d await icons[0].$(\u0027[title\u003d\"Requests may be overridden locally, see the Sources panel\"]\u0027);\n\n```",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 114
+      },
+      "revId": "42a5cac2da3a2bf0170ef69c16c137e737fa97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
