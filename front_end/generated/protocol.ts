@@ -1017,6 +1017,32 @@ export namespace Audits {
     NoRegisterOsTriggerHeader = 'NoRegisterOsTriggerHeader',
   }
 
+  export const enum SharedDictionaryError {
+    UseErrorFailedToLoadDictionary = 'UseErrorFailedToLoadDictionary',
+    UseErrorUnexpectedContentDictionaryHeader = 'UseErrorUnexpectedContentDictionaryHeader',
+    UseErrorUnsupportedCrossOriginNoCorsRequest = 'UseErrorUnsupportedCrossOriginNoCorsRequest',
+    UseErrorMachingDictionaryFoundButNotUsed = 'UseErrorMachingDictionaryFoundButNotUsed',
+    WriteErrorInsufficientResources = 'WriteErrorInsufficientResources',
+    WriteErrorShuttingDown = 'WriteErrorShuttingDown',
+    WriteErrorFeatureDisabled = 'WriteErrorFeatureDisabled',
+    WriteErrorNonSecureContext = 'WriteErrorNonSecureContext',
+    WriteErrorUnsupportedCrossOriginNoCorsRequest = 'WriteErrorUnsupportedCrossOriginNoCorsRequest',
+    WriteErrorUnsupportedNavigationRequest = 'WriteErrorUnsupportedNavigationRequest',
+    WriteErrorInvalidStructuredHeader = 'WriteErrorInvalidStructuredHeader',
+    WriteErrorMatchFieldIsNotAString = 'WriteErrorMatchFieldIsNotAString',
+    WriteErrorMatchDestFieldIsNotAList = 'WriteErrorMatchDestFieldIsNotAList',
+    WriteErrorMatchDestFieldListItemIsNotAString = 'WriteErrorMatchDestFieldListItemIsNotAString',
+    WriteErrorTypeFieldIsNotAToken = 'WriteErrorTypeFieldIsNotAToken',
+    WriteErrorIdFieldIsNotAString = 'WriteErrorIdFieldIsNotAString',
+    WriteErrorIdFieldTooLong = 'WriteErrorIdFieldTooLong',
+    WriteErrorNoMatchField = 'WriteErrorNoMatchField',
+    WriteErrorExpiredResponse = 'WriteErrorExpiredResponse',
+    WriteErrorUnsupportedType = 'WriteErrorUnsupportedType',
+    WriteErrorDisallowedBySettings = 'WriteErrorDisallowedBySettings',
+    WriteErrorInvalidMatchField = 'WriteErrorInvalidMatchField',
+    WriteErrorRequestAborted = 'WriteErrorRequestAborted',
+  }
+
   /**
    * Details for issues around "Attribution Reporting API" usage.
    * Explainer: https://github.com/WICG/attribution-reporting-api
@@ -1047,6 +1073,11 @@ export namespace Audits {
   export interface NavigatorUserAgentIssueDetails {
     url: string;
     location?: SourceCodeLocation;
+  }
+
+  export interface SharedDictionaryIssueDetails {
+    sharedDictionaryError: SharedDictionaryError;
+    request: AffectedRequest;
   }
 
   export const enum GenericIssueErrorType {
@@ -1286,6 +1317,7 @@ export namespace Audits {
     StylesheetLoadingIssue = 'StylesheetLoadingIssue',
     FederatedAuthUserInfoRequestIssue = 'FederatedAuthUserInfoRequestIssue',
     PropertyRuleIssue = 'PropertyRuleIssue',
+    SharedDictionaryIssue = 'SharedDictionaryIssue',
   }
 
   /**
@@ -1314,6 +1346,7 @@ export namespace Audits {
     stylesheetLoadingIssueDetails?: StylesheetLoadingIssueDetails;
     propertyRuleIssueDetails?: PropertyRuleIssueDetails;
     federatedAuthUserInfoRequestIssueDetails?: FederatedAuthUserInfoRequestIssueDetails;
+    sharedDictionaryIssueDetails?: SharedDictionaryIssueDetails;
   }
 
   /**
