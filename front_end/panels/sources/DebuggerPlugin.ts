@@ -321,7 +321,7 @@ export class DebuggerPlugin extends Plugin {
       }),
       infobarState,
       breakpointMarkers,
-      CodeMirror.Prec.highest(executionLine.field),
+      CodeMirror.Prec.highest([executionLocationState, executionLocationPlugin]),
       CodeMirror.Prec.lowest(continueToMarkers.field),
       markIfContinueTo,
       valueDecorations.field,
@@ -1702,9 +1702,7 @@ export class DebuggerPlugin extends Plugin {
     if (executionLocation) {
       const editorLocation =
           this.transformer.uiLocationToEditorLocation(executionLocation.lineNumber, executionLocation.columnNumber);
-      const decorations =
-          computeExecutionDecorations(this.editor.state, editorLocation.lineNumber, editorLocation.columnNumber);
-      this.editor.dispatch({effects: executionLine.update.of(decorations)});
+      this.editor.dispatch({effects: setExecutionLocation.of(editorLocation)});
       void this.updateValueDecorations();
       if (this.controlDown) {
         void this.showContinueToLocations();
@@ -1712,9 +1710,9 @@ export class DebuggerPlugin extends Plugin {
     } else {
       this.editor.dispatch({
         effects: [
-          executionLine.update.of(CodeMirror.Decoration.none),
           continueToMarkers.update.of(CodeMirror.Decoration.none),
           valueDecorations.update.of(CodeMirror.Decoration.none),
+          clearExecutionLocation.of(null),
         ],
       });
     }
@@ -1990,30 +1988,66 @@ function defineStatefulDecoration(): {
 
 // Execution line highlight
 
+const executionLocationState = CodeMirror.StateField.define<null|number>({
+  create() {
+    return null;
+  },
+
+  update(val, tr) {
+    if (val) {
+      val = tr.changes.mapPos(val, -1, CodeMirror.MapMode.TrackDel);
+    }
+    for (const effect of tr.effects) {
+      if (effect.is(clearExecutionLocation)) {
+        val = null;
+      } else if (effect.is(setExecutionLocation)) {
+        const {lineNumber, columnNumber} = effect.value;
+        if (lineNumber >= tr.state.doc.lines) {
+          val = null;
+        } else {
+          const line = tr.state.doc.line(lineNumber + 1);
+          val = Math.min(line.to, line.from + columnNumber);
+        }
+      }
+    }
+    return val;
+  },
+});
+
+const setExecutionLocation = CodeMirror.StateEffect.define<{lineNumber: number, columnNumber: number}>();
+const clearExecutionLocation = CodeMirror.StateEffect.define<null>();
+
+const executionLocationPlugin = CodeMirror.ViewPlugin.define(
+    () => ({
+      decorations: CodeMirror.Decoration.none,
+      update({state}) {
+        this.decorations = computeExecutionDecorations(state, state.field(executionLocationState));
+      },
+    }),
+    {
+      decorations: ({decorations}) => decorations,
+    });
+
 const executionLineDeco = CodeMirror.Decoration.line({attributes: {class: 'cm-executionLine'}});
 const executionTokenDeco = CodeMirror.Decoration.mark({attributes: {class: 'cm-executionToken'}});
-const executionLine = defineStatefulDecoration();
 
 // Create decorations to indicate the current debugging position
 export function computeExecutionDecorations(
-    state: CodeMirror.EditorState, lineNumber: number, columnNumber: number): CodeMirror.DecorationSet {
-  const {doc} = state;
-  if (lineNumber >= doc.lines) {
+    state: CodeMirror.EditorState, position: null|number): CodeMirror.DecorationSet {
+  if (position === null) {
     return CodeMirror.Decoration.none;
   }
-  const line = doc.line(lineNumber + 1);
-  const decorations: CodeMirror.Range<CodeMirror.Decoration>[] = [executionLineDeco.range(line.from)];
-  const position = Math.min(line.to, line.from + columnNumber);
-  const syntaxTree = CodeMirror.ensureSyntaxTree(state, line.to, /* timeout= */ 500);
-  if (syntaxTree !== null) {
-    let syntaxNode = syntaxTree.resolveInner(position, 1);
-    if (syntaxNode.to === syntaxNode.from - 1 && /[(.]/.test(doc.sliceString(syntaxNode.from, syntaxNode.to))) {
-      syntaxNode = syntaxNode.resolve(syntaxNode.to, 1);
-    }
-    const tokenEnd = Math.min(line.to, syntaxNode.to);
-    if (tokenEnd > position) {
-      decorations.push(executionTokenDeco.range(position, tokenEnd));
-    }
+  const {doc} = state;
+  const line = doc.lineAt(position);
+  const decorations = [executionLineDeco.range(line.from)];
+  const syntaxTree = CodeMirror.syntaxTree(state);
+  let syntaxNode = syntaxTree.resolveInner(position, 1);
+  if (syntaxNode.to === syntaxNode.from - 1 && /[(.]/.test(doc.sliceString(syntaxNode.from, syntaxNode.to))) {
+    syntaxNode = syntaxNode.resolve(syntaxNode.to, 1);
+  }
+  const tokenEnd = Math.min(line.to, syntaxNode.to);
+  if (tokenEnd > position) {
+    decorations.push(executionTokenDeco.range(position, tokenEnd));
   }
   return CodeMirror.Decoration.set(decorations);
 }
