@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e80e9c32_8f72030c",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:13:00Z",
+      "side": 1,
+      "message": "`+16019521325` (we try to save phone numbers in international format)",
+      "range": {
+        "startLine": 45,
+        "startChar": 54,
+        "endLine": 45,
+        "endChar": 66
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3085840a_71dd579e",
         "filename": "front_end/core/sdk/AutofillModel.ts",
         "patchSetId": 7
@@ -128,6 +151,29 @@
         "startChar": 52,
         "endLine": 69,
         "endChar": 65
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62840a13_b68aeb26",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:13:00Z",
+      "side": 1,
+      "message": "`+553121286800`",
+      "range": {
+        "startLine": 74,
+        "startChar": 54,
+        "endLine": 74,
+        "endChar": 66
       },
       "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
