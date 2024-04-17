@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d31fb6a3_b3006dd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-17T08:33:11Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nPeter has reviewed the UI changes, ptal!",
+      "revId": "fcdc5d0fbe1eb4c78feb2d36f462c18ee90ba800",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
