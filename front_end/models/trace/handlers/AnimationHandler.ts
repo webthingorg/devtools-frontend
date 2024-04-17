@@ -22,6 +22,12 @@ export function reset(): void {
 
 export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   if (Types.TraceEvents.isTraceEventAnimation(event)) {
+    // Skip the animation events in running state they don't have the non composited animation information we want.
+    if (event.ph === Types.TraceEvents.Phase.ASYNC_NESTABLE_INSTANT) {
+      if (event.args.data.state === 'running') {
+        return;
+      }
+    }
     animations.push(event);
     return;
   }
