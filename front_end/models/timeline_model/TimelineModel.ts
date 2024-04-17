@@ -1258,7 +1258,6 @@ export class Track {
    */
   asyncEvents: TraceEngine.Legacy.AsyncEvent[];
   tasks: TraceEngine.Legacy.Event[];
-  private eventsForTreeViewInternal: TraceEngine.Legacy.Event[]|null;
   thread: TraceEngine.Legacy.Thread|null;
   constructor() {
     this.name = '';
@@ -1270,83 +1269,7 @@ export class Track {
     this.events = [];
     this.asyncEvents = [];
     this.tasks = [];
-    this.eventsForTreeViewInternal = null;
     this.thread = null;
-  }
-
-  /**
-   * Gets trace events that can be organized in a tree structure. This
-   * is used for the tree views in the Bottom-up, Call tree and Event
-   * log view in the details pane.
-   *
-   * Depending on the type of track, this data can vary:
-   * 1. Tracks that correspond to a thread in a trace:
-   *    Returns all the events (sync and async). For these tracks, all
-   *    events will be inside the `events` field. Async events will be
-   *    filtered later when the trees are actually built. For these
-   *    tracks, the asyncEvents field will be empty.
-   *
-   * 2. Other tracks (Interactions, Timings, etc.):
-   *    Returns instant events (which for these tracks are stored in the
-   *    `events` field) and async events (contained in `syncEvents`) if
-   *    they can be organized in a tree structure. This latter condition
-   *    is met if there is *not* a pair of async events e1 and e2 where:
-   *
-   *    e1.startTime <= e2.startTime && e1.endTime > e2.startTime && e1.endTime > e2.endTime.
-   *    or, graphically:
-   *    |------- e1 ------|
-   *      |------- e2 --------|
-   *    Because async events are filtered later, fake sync events are
-   *    created from the async events when the condition above is met.
-   */
-  eventsForTreeView(): TraceEngine.Legacy.Event[] {
-    if (this.eventsForTreeViewInternal) {
-      return this.eventsForTreeViewInternal;
-    }
-
-    const stack: TraceEngine.Legacy.Event[] = [];
-
-    function peekLastEndTime(): number {
-      const last = stack[stack.length - 1];
-      if (last !== undefined) {
-        const endTime = last.endTime;
-        if (endTime !== undefined) {
-          return endTime;
-        }
-      }
-      throw new Error('End time does not exist on event.');
-    }
-
-    this.eventsForTreeViewInternal = [...this.events];
-    // Attempt to build a tree from async events, as if they where
-    // sync.
-    for (const event of this.asyncEvents) {
-      const startTime = event.startTime;
-      let endTime: number|(number | undefined) = event.endTime;
-      if (endTime === undefined) {
-        endTime = startTime;
-      }
-      // Look for a potential parent for this event:
-      // one whose end time is after this event start time.
-      while (stack.length && startTime >= peekLastEndTime()) {
-        stack.pop();
-      }
-      if (stack.length && endTime > peekLastEndTime()) {
-        // If such an event exists but its end time is before this
-        // event's end time (they cannot be nested), then a tree cannot
-        // be made from this track's async events. Return the sync
-        // events.
-        this.eventsForTreeViewInternal = [...this.events];
-        break;
-      }
-      const fakeSyncEvent = new TraceEngine.Legacy.ConstructedEvent(
-          event.categoriesString, event.name, TraceEngine.Types.TraceEvents.Phase.COMPLETE, startTime, event.thread);
-      fakeSyncEvent.setEndTime(endTime);
-      fakeSyncEvent.addArgs(event.args);
-      this.eventsForTreeViewInternal.push(fakeSyncEvent);
-      stack.push(fakeSyncEvent);
-    }
-    return this.eventsForTreeViewInternal;
   }
 }
 
@@ -1462,10 +1385,6 @@ function getOrCreateEventData(event: TraceEngine.Legacy.ConstructedEvent|
 let eventToData =
     new Map<TraceEngine.Legacy.ConstructedEvent|TraceEngine.Types.TraceEvents.TraceEventData, EventOnTimelineData>();
 
-export interface InvalidationCause {
-  reason: string;
-  stackTrace: Protocol.Runtime.CallFrame[]|null;
-}
 export interface MetadataEvents {
   page: TraceEngine.Legacy.Event[];
   workers: TraceEngine.Legacy.Event[];
