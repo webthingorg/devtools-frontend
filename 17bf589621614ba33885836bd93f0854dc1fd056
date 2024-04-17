@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b33216_59a43dd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:10:21Z",
+      "side": 1,
+      "message": "Sorry, this needs some more work",
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3085840a_71dd579e",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:10:21Z",
+      "side": 1,
+      "message": "`Andar 2, Apartamento 1`",
+      "range": {
+        "startLine": 57,
+        "startChar": 82,
+        "endLine": 57,
+        "endChar": 95
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b905d80_02110c09",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:10:21Z",
+      "side": 1,
+      "message": "this should be deleted here. A dependent locality is not part of the street address but a separate hierarchy.",
+      "range": {
+        "startLine": 57,
+        "startChar": 95,
+        "endLine": 57,
+        "endChar": 111
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b3c58e_c2b18721",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:10:21Z",
+      "side": 1,
+      "message": "According to our current formatting logic this would be `Andar 2, Apartamento 1`",
+      "range": {
+        "startLine": 61,
+        "startChar": 54,
+        "endLine": 61,
+        "endChar": 67
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab691f6_e1a9470e",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:10:21Z",
+      "side": 1,
+      "message": "this would be `2`",
+      "range": {
+        "startLine": 63,
+        "startChar": 49,
+        "endLine": 63,
+        "endChar": 62
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee272155_3c35fa1a",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-17T15:10:21Z",
+      "side": 1,
+      "message": "This would also be `Andar 2, Apartamento 1`",
+      "range": {
+        "startLine": 69,
+        "startChar": 52,
+        "endLine": 69,
+        "endChar": 65
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
