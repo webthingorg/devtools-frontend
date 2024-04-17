@@ -77,6 +77,10 @@ h1 {
   grid-column: 3 / span 1;
 }
 
+.keybinds-infobar {
+  grid-column: 3;
+}
+
 .keybinds-shortcut.devtools-link {
   align-items: center;
   margin-left: 3px;
