@@ -51,6 +51,24 @@
       "parentUuid": "6cc6ba08_89536019",
       "revId": "369ed100408a76d2fe953a2c1d55aa20a997ae20",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a98384_7d1d716d",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-17T07:53:27Z",
+      "side": 1,
+      "message": "fixed vertical alignment without top property, as discussed via VC with Alex",
+      "parentUuid": "64009aae_f6a60d4e",
+      "revId": "369ed100408a76d2fe953a2c1d55aa20a997ae20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
