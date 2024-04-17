@@ -16,6 +16,46 @@
       "message": "Done changes. PTAL again!",
       "revId": "3ee90310f88054a61da8015b9b476a9f05505147",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c73517f6_6fd1907d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T14:18:28Z",
+      "side": 1,
+      "message": "The current behavior is that when you edit or paste into a header name/value, you can abort those changes with the escape button.\nIt would be great if we could keep this behavior consistent, so that it also works for the \"paste both header name and header value\" case.",
+      "revId": "3ee90310f88054a61da8015b9b476a9f05505147",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa6be57_77e896f0",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-17T14:18:28Z",
+      "side": 1,
+      "message": "nit: or",
+      "range": {
+        "startLine": 465,
+        "startChar": 50,
+        "endLine": 465,
+        "endChar": 53
+      },
+      "revId": "3ee90310f88054a61da8015b9b476a9f05505147",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
