@@ -88,6 +88,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec71219_235aeee4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-17T08:53:33Z",
+      "side": 1,
+      "message": "Great, thanks Simon!",
+      "revId": "ba29f1124ace400b6760704970731bb581debd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41c1becf_232e6ef8",
@@ -101,6 +118,24 @@
       "writtenOn": "2024-04-16T18:13:44Z",
       "side": 1,
       "message": "from a DRY POV, most of this is the same as the `targetDestroyed` method\n\ncould you call the target.dispose() and then `this.targetDestroyed(targetId)` ?\n\nno worries if not, just wanted to doublecheck..",
+      "revId": "ba29f1124ace400b6760704970731bb581debd68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea8647f6_6e571064",
+        "filename": "front_end/core/sdk/ChildTargetManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-17T08:53:33Z",
+      "side": 1,
+      "message": "`targetDestroyed` takes the TargetDestroyedEvent which is similar but not the same - so in this case I think it\u0027s easier to keep them apart.",
+      "parentUuid": "41c1becf_232e6ef8",
       "revId": "ba29f1124ace400b6760704970731bb581debd68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
