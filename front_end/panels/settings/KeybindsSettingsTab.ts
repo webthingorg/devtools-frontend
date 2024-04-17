@@ -222,6 +222,10 @@ export class KeybindsSettingsTab extends UI.Widget.VBox implements UI.ListContro
     }
   }
 
+  selectedListElement(): Element {
+    return this.list.elementAtIndex(this.list.selectedIndex());
+  }
+
   updateSelectedItemARIA(_fromElement: Element|null, _toElement: Element|null): boolean {
     return true;
   }
@@ -320,6 +324,7 @@ export class ShortcutListItem {
   private addShortcutLinkContainer: Element|null;
   private errorMessageElement: Element|null;
   private secondKeyTimeout: number|null;
+  private infoBar: UI.Infobar.Infobar|null;
   constructor(item: UI.ActionRegistration.Action, settingsTab: KeybindsSettingsTab, isEditing?: boolean) {
     this.isEditing = Boolean(isEditing);
     this.settingsTab = settingsTab;
@@ -334,8 +339,28 @@ export class ShortcutListItem {
     this.addShortcutLinkContainer = null;
     this.errorMessageElement = null;
     this.secondKeyTimeout = null;
+    this.infoBar = null;
 
     this.update();
+  }
+
+  showInfoBar(feedbackMessage: string): void {
+    if (!this.infoBar) {
+      this.infoBar = new UI.Infobar.Infobar(UI.Infobar.Type.Info, feedbackMessage, undefined, undefined, false);
+      this.infoBar.element.classList.add('keybinds-infobar', 'hidden');
+      this.infoBar.element.tabIndex = 0;
+    }
+    const shorcutItemElement = this.settingsTab.selectedListElement();
+    if (!shorcutItemElement.contains(this.infoBar.element)) {
+      shorcutItemElement.appendChild(this.infoBar.element);
+    }
+    this.infoBar.setText(feedbackMessage);
+    this.infoBar.element.classList.remove('hidden');
+    setTimeout(() => {
+      this.infoBar?.element.classList.add('hidden');
+      // reset focus
+      this.focus();
+    }, 2000);
   }
 
   focus(): void {
@@ -391,14 +416,14 @@ export class ShortcutListItem {
         i18nString(UIStrings.ResetShortcutsForAction), 'undo', '', 'undo', this.resetShortcutsToDefaults.bind(this)));
     this.confirmButton = this.createIconButton(
         i18nString(UIStrings.confirmChanges), 'checkmark', 'keybinds-confirm-button', 'confirm', () => {
-          UI.ARIAUtils.alert(UIStrings.shortcutChangesApplied);
           this.settingsTab.commitChanges(this.item, this.editedShortcuts);
+          this.showInfoBar(i18nString(UIStrings.shortcutChangesApplied));
         });
     this.element.appendChild(this.confirmButton);
     this.element.appendChild(
         this.createIconButton(i18nString(UIStrings.discardChanges), 'cross', 'keybinds-cancel-button', 'cancel', () => {
           this.settingsTab.stopEditing(this.item);
-          UI.ARIAUtils.alert(UIStrings.shortcutChangesDiscared);
+          this.showInfoBar(i18nString(UIStrings.shortcutChangesDiscared));
         }));
     this.element.addEventListener('keydown', event => {
       if (Platform.KeyboardUtilities.isEscKey(event)) {
@@ -457,11 +482,11 @@ export class ShortcutListItem {
             if (!shortcut.isDefault()) {
               this.shortcuts.splice(index, 1);
             }
-            UI.ARIAUtils.alert(i18nString(UIStrings.shortcutRemoved, {PH1: this.item.title()}));
             this.editedShortcuts.set(shortcut, null);
             this.update();
             this.focus();
             this.validateInputs();
+            this.showInfoBar(i18nString(UIStrings.shortcutRemoved, {PH1: this.item.title()}));
           }));
     } else {
       const keys = shortcut.descriptors.flatMap(descriptor => descriptor.name.split(' + '));
@@ -570,9 +595,9 @@ export class ShortcutListItem {
       this.shortcuts.push(shortcut);
       this.editedShortcuts.set(shortcut, shortcut.descriptors);
     });
-    UI.ARIAUtils.alert(UIStrings.shortcutChangesRestored);
     this.update();
     this.focus();
+    this.showInfoBar(i18nString(UIStrings.shortcutChangesRestored, {PH1: this.item.title()}));
   }
 
   onEscapeKeyPressed(event: Event): void {
