@@ -93,6 +93,30 @@
       },
       "revId": "2e48e8f755277a547590ae6fcc74a868af757cc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb8a435_76fb3c8b",
+        "filename": "lib/builders.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-04-17T11:31:24Z",
+      "side": 1,
+      "message": "Unfortunately, we don\u0027t have this convention as the privileged bots are shared across the v8 and devtools projects.",
+      "parentUuid": "7e9bfea9_0fe88a78",
+      "range": {
+        "startLine": 162,
+        "startChar": 23,
+        "endLine": 162,
+        "endChar": 43
+      },
+      "revId": "2e48e8f755277a547590ae6fcc74a868af757cc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
