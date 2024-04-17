@@ -219,7 +219,7 @@ describe('Overrides panel', function() {
       const iconTitleElement = await icons[0].$('aria/Requests may be overridden locally, see the Sources panel');
 
       assert.strictEqual(icons.length, 1);
-      assert.isNotNull(iconTitleElement);
+      assert.isNull(iconTitleElement);
     });
 
     await step('no indicator after clearing overrides configuration', async () => {
@@ -248,7 +248,7 @@ describe('Overrides panel', function() {
       const iconTitleElement = await icons[0].$('aria/Requests may be overridden locally, see the Sources panel');
 
       assert.strictEqual(icons.length, 1);
-      assert.isNotNull(iconTitleElement);
+      assert.isNull(iconTitleElement);
     });
   });
 
