@@ -198,7 +198,7 @@ export class HeaderSectionRow extends HTMLElement {
               @focusout=${this.#onHeaderNameFocusOut}
               @keydown=${this.#onKeyDown}
               @input=${this.#onHeaderNameEdit}
-              @paste=${this.#onHeaderNameEdit}
+              @paste=${this.#onHeaderNamePaste}
               .data=${{value: this.#header.name} as EditableSpanData}
             ></${EditableSpan.litTagName}>` :
             this.#header.name}:
@@ -384,19 +384,7 @@ export class HeaderSectionRow extends HTMLElement {
 
   #onHeaderValueFocusOut(event: Event): void {
     const target = event.target as EditableSpan;
-    if (!this.#header) {
-      return;
-    }
-    const headerValue = target.value.trim();
-    if (!compareHeaders(headerValue, this.#header.value?.trim())) {
-      this.#header.value = headerValue;
-      this.dispatchEvent(new HeaderEditedEvent(this.#header.name, headerValue));
-      void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
-    }
-
-    // Clear selection (needed when pressing 'enter' in editable span).
-    const selection = window.getSelection();
-    selection?.removeAllRanges();
+    this.#updateHeaderValue(target.value.trim());
   }
 
   #onHeaderNameFocusOut(event: Event): void {
@@ -448,17 +436,50 @@ export class HeaderSectionRow extends HTMLElement {
 
   #onHeaderNameEdit(event: Event): void {
     const editable = event.target as EditableSpan;
-    const isValidName = isValidHeaderName(editable.value);
+    this.#validateHeaderName(editable.value);
+  }
+
+  #onHeaderValueEdit(event: Event): void {
+    const editable = event.target as EditableSpan;
+    this.#validateHeaderValue(editable.value);
+  }
+
+  #onHeaderNamePaste(event: ClipboardEvent): void {
+    const editable = event.target as EditableSpan;
+    const editableValue = event.clipboardData?.getData('text/plain') || editable.value;
+    const isSeparatorExists = editableValue.indexOf(':');
+
+    if (!isSeparatorExists) {  // just the name
+      this.#validateHeaderName(editableValue);
+    }
+
+    if (isSeparatorExists > 1) {  // name with value
+      // value
+      const headerValue = editableValue.substring(isSeparatorExists + 1, editableValue.length).trim();
+      this.#updateHeaderValue(headerValue);
+
+      // name
+      const headerName = editableValue.substring(0, isSeparatorExists);
+      editable.value = headerName;
+
+      this.#validateHeaderName(headerName);
+      this.#validateHeaderValue(headerValue);
+
+      editable.blur();
+    }
+  }
+
+  #validateHeaderName(value: string): void {
+    const isValidName = isValidHeaderName(value);
     if (this.#isValidHeaderName !== isValidName) {
       this.#isValidHeaderName = isValidName;
       void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
     }
   }
 
-  #onHeaderValueEdit(event: Event): void {
-    const editable = event.target as EditableSpan;
+  #validateHeaderValue(value: string): void {
     const isEdited =
-        this.#header?.originalValue !== undefined && !compareHeaders(this.#header?.originalValue || '', editable.value);
+        this.#header?.originalValue !== undefined && !compareHeaders(this.#header?.originalValue || '', value);
     if (this.#isHeaderValueEdited !== isEdited) {
       this.#isHeaderValueEdited = isEdited;
       if (this.#header) {
@@ -466,6 +487,22 @@ export class HeaderSectionRow extends HTMLElement {
       }
       void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
     }
+  }
+
+  #updateHeaderValue(value: string): void {
+    if (!this.#header) {
+      return;
+    }
+
+    if (!compareHeaders(value, this.#header.value?.trim())) {
+      this.#header.value = value;
+      this.dispatchEvent(new HeaderEditedEvent(this.#header.name, value));
+      void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+    }
+
+    // Clear selection (needed when pressing 'enter' in editable span).
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
   }
 }
 
