@@ -143,7 +143,7 @@ export class KeybindsSettingsTab extends UI.Widget.VBox implements UI.ListContro
     this.editingItem = null;
     this.editingRow = null;
 
-    this.update();
+    void this.update();
   }
 
   createElementForItem(item: KeybindsItem): Element {
@@ -286,7 +286,7 @@ export class KeybindsSettingsTab extends UI.Widget.VBox implements UI.ListContro
     }
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     if (this.editingItem) {
       this.stopEditing(this.editingItem);
     }

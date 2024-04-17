@@ -199,12 +199,14 @@ export class LiveHeapProfileView extends UI.Widget.VBox {
       if (this.currentPollId !== pollId) {
         return;
       }
-      this.update(isolates, profiles);
+      void this.update(isolates, profiles);
       await new Promise(r => window.setTimeout(r, 3000));
     } while (this.currentPollId === pollId);
   }
 
-  update(isolates: SDK.IsolateManager.Isolate[], profiles: (Protocol.HeapProfiler.SamplingHeapProfile|null)[]): void {
+  override async update(
+      isolates: SDK.IsolateManager.Isolate[] = [],
+      profiles: (Protocol.HeapProfiler.SamplingHeapProfile|null)[] = []): Promise<void> {
     const dataByUrl = new Map<string, {
       size: number,
       isolates: Set<SDK.IsolateManager.Isolate>,

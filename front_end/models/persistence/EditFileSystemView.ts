@@ -107,7 +107,7 @@ export class EditFileSystemView extends UI.Widget.VBox implements UI.ListWidget.
     this.excludedFoldersList.setEmptyPlaceholder(excludedFoldersPlaceholder);
     this.excludedFoldersList.show(this.contentElement);
 
-    this.update();
+    void this.update();
   }
 
   dispose(): void {
@@ -118,7 +118,7 @@ export class EditFileSystemView extends UI.Widget.VBox implements UI.ListWidget.
     return IsolatedFileSystemManager.instance().fileSystem(this.fileSystemPath) as PlatformFileSystem;
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     if (this.muteUpdate) {
       return;
     }
@@ -158,7 +158,7 @@ export class EditFileSystemView extends UI.Widget.VBox implements UI.ListWidget.
     this.getFileSystem().addExcludedFolder(
         this.normalizePrefix(editor.control('path-prefix').value) as Platform.DevToolsPath.EncodedPathString);
     this.muteUpdate = false;
-    this.update();
+    void this.update();
   }
 
   beginEdit(item: string): UI.ListWidget.Editor<string> {

@@ -16,14 +16,14 @@ export class ThrottledWidget extends VBox {
     this.updateWhenVisible = false;
   }
 
-  protected doUpdate(): Promise<void> {
+  protected override doUpdate(): Promise<void> {
     return Promise.resolve();
   }
 
-  update(): void {
+  override update(): Promise<void> {
     this.updateWhenVisible = !this.isShowing();
     if (this.updateWhenVisible) {
-      return;
+      return Promise.resolve();
     }
     this.lastUpdatePromise = this.updateThrottler.schedule(() => {
       if (this.isShowing()) {
@@ -32,12 +32,17 @@ export class ThrottledWidget extends VBox {
       this.updateWhenVisible = true;
       return Promise.resolve();
     });
+    return this.lastUpdatePromise;
+  }
+
+  override pendingUpdate(): Promise<void> {
+    return this.lastUpdatePromise;
   }
 
   override wasShown(): void {
     super.wasShown();
     if (this.updateWhenVisible) {
-      this.update();
+      void this.update();
     }
   }
 }

@@ -32,7 +32,7 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.OverlayModel.OverlayModel, SDK.OverlayModel.Events.ScreenshotRequested, this.screenshotRequestedFromOverlay,
         this);
-    this.update(true);
+    void this.update(true);
   }
 
   static instance(opts: {
@@ -80,7 +80,7 @@ export class DeviceModeWrapper extends UI.Widget.VBox {
     this.captureScreenshot(false, clip);
   }
 
-  private update(force: boolean): void {
+  override async update(force?: boolean): Promise<void> {
     this.toggleDeviceModeAction.setToggled(this.showDeviceModeSetting.get());
     if (!force) {
       const showing = this.deviceModeView && this.deviceModeView.isShowing();

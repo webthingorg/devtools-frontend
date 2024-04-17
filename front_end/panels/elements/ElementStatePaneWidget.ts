@@ -144,9 +144,9 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
   override wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([elementStatePaneWidgetStyles]);
-    this.update();
+    void this.update();
   }
-  private update(): void {
+  override async update(): Promise<void> {
     let node = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
     if (node) {
       node = node.enclosingElementOrSelf();

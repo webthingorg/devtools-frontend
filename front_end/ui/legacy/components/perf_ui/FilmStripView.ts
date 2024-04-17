@@ -63,7 +63,7 @@ export class FilmStripView extends Common.ObjectWrapper.eventMixin<EventTypes, t
       this.reset();
       return;
     }
-    this.update();
+    void this.update();
   }
 
   createFrameElement(frame: TraceEngine.Extras.FilmStrip.Frame): HTMLButtonElement {
@@ -90,7 +90,7 @@ export class FilmStripView extends Common.ObjectWrapper.eventMixin<EventTypes, t
     return element;
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     const frames = this.#filmStrip?.frames;
     if (!frames || frames.length < 1) {
       return;

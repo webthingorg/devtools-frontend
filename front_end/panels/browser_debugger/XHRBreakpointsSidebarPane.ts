@@ -101,7 +101,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
     this.#emptyElement.addEventListener('contextmenu', this.emptyElementContextMenu.bind(this), true);
     this.#emptyElement.tabIndex = -1;
     this.restoreBreakpoints();
-    this.update();
+    void this.update();
   }
 
   static instance(): XHRBreakpointsSidebarPane {
@@ -140,7 +140,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
         SDK.DOMDebuggerModel.DOMDebuggerManager.instance().addXHRBreakpoint(text, true);
         this.setBreakpoint(text);
       }
-      this.update();
+      void this.update();
     }
 
     const config = new UI.InplaceEditor.Config(finishEditing.bind(this, true), finishEditing.bind(this, false));
@@ -267,7 +267,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
       this.#breakpoints.remove(index);
     }
     this.#breakpointElements.delete(breakKeyword);
-    this.update();
+    void this.update();
   }
 
   private addListElement(element: Element, beforeNode: Node|null): void {
@@ -297,7 +297,7 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
         SDK.DOMDebuggerModel.DOMDebuggerManager.instance().removeXHRBreakpoint(url);
         this.removeBreakpoint(url);
       }
-      this.update();
+      void this.update();
     }
     const removeAllTitle = i18nString(UIStrings.removeAllBreakpoints);
 
@@ -362,10 +362,10 @@ export class XHRBreakpointsSidebarPane extends UI.Widget.VBox implements UI.Cont
   }
 
   flavorChanged(_object: Object|null): void {
-    this.update();
+    void this.update();
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     const isEmpty = this.#breakpoints.length === 0;
     this.#list.element.classList.toggle('hidden', isEmpty);
     this.#emptyElement.classList.toggle('hidden', !isEmpty);

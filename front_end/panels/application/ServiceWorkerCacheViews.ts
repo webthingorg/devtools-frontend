@@ -156,7 +156,7 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
     this.summaryBarElement = (null as Element | null);
     this.loadingPromise = null;
 
-    this.update(cache);
+    void this.update(cache);
   }
 
   private resetDataGrid(): void {
@@ -285,7 +285,10 @@ export class ServiceWorkerCacheView extends UI.View.SimpleView {
     node.remove();
   }
 
-  update(cache: SDK.ServiceWorkerCacheModel.Cache): void {
+  override async update(cache: SDK.ServiceWorkerCacheModel.Cache|null = null): Promise<void> {
+    if (!cache) {
+      return;
+    }
     this.cache = cache;
     this.resetDataGrid();
     void this.updateData(true);

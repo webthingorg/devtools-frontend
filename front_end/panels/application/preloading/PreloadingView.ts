@@ -275,7 +275,7 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
     this.render();
   }
 
-  getInfobarContainerForTest(): HTMLDivElement {
+  getInfobarContainerForTest(): HTMLElement {
     return this.warningsView.contentElement;
   }
 

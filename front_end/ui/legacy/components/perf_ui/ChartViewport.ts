@@ -426,11 +426,11 @@ export class ChartViewport extends UI.Widget.VBox {
     this.isUpdateScheduled = true;
     void coordinator.write(() => {
       this.isUpdateScheduled = false;
-      this.update();
+      void this.update();
     });
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     this.updateRangeSelectionOverlay();
     this.delegate.update();
   }
@@ -465,7 +465,7 @@ export class ChartViewport extends UI.Widget.VBox {
     function animateWindowTimes(this: ChartViewport, startTime: number, endTime: number): void {
       this.visibleLeftTime = startTime;
       this.visibleRightTime = endTime;
-      this.update();
+      void this.update();
     }
   }
 

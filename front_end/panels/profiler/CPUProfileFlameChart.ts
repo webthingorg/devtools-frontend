@@ -205,9 +205,9 @@ export class CPUProfileFlameChart extends
     this.dispatchEventToListeners(PerfUI.FlameChart.Events.EntryInvoked, event.data);
   }
 
-  update(): void {
-    this.overviewPane.update();
-    this.mainPane.update();
+  override async update(): Promise<void> {
+    void this.overviewPane.update();
+    void this.mainPane.update();
   }
 
   performSearch(searchConfig: UI.SearchableView.SearchConfig, _shouldJump: boolean, jumpBackwards?: boolean): void {
@@ -370,7 +370,7 @@ export class OverviewPane extends Common.ObjectWrapper.eventMixin<OverviewPaneEv
     this.updateTimerId = this.element.window().requestAnimationFrame(this.update.bind(this));
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     this.updateTimerId = 0;
     const timelineData = this.timelineData();
     if (!timelineData) {

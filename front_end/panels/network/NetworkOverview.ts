@@ -138,7 +138,7 @@ export class NetworkOverview extends PerfUI.TimelineOverviewPane.TimelineOvervie
     void coordinator.write('NetworkOverview.render', this.update.bind(this));
   }
 
-  override update(): void {
+  override async update(): Promise<void> {
     const calculator = this.calculator();
 
     const newBoundary = new NetworkTimeBoundary(calculator.minimumBoundary(), calculator.maximumBoundary());

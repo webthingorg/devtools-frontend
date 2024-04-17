@@ -52,7 +52,7 @@ export class HeapTimelineOverview extends Common.ObjectWrapper.eventMixin<EventT
   start(): void {
     this.running = true;
     const drawFrame = (): void => {
-      this.update();
+      void this.update();
       if (this.running) {
         this.element.window().requestAnimationFrame(drawFrame);
       }
@@ -67,7 +67,7 @@ export class HeapTimelineOverview extends Common.ObjectWrapper.eventMixin<EventT
   setSamples(samples: Samples): void {
     this.profileSamples = samples;
     if (!this.running) {
-      this.update();
+      void this.update();
     }
   }
 
@@ -215,7 +215,7 @@ export class HeapTimelineOverview extends Common.ObjectWrapper.eventMixin<EventT
     this.windowWidth = this.windowRight - this.windowLeft;
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     this.updateTimerId = null;
     if (!this.isShowing()) {
       return;

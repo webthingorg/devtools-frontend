@@ -977,7 +977,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
     this.dataProvider.modifyTree?.(index, treeAction);
     this.dataProvider.timelineData(true);
-    this.update();
+    void this.update();
   }
 
   getPossibleActions(): TraceEngine.EntriesFilter.PossibleFilterActions|void {
@@ -3187,7 +3187,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
     this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
-    this.update();
+    void this.update();
   }
 
   private entryHasDecoration(entryIndex: number, decorationType: FlameChartDecorationType): boolean {
@@ -3344,7 +3344,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.scheduleUpdate();
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     if (!this.timelineData()) {
       return;
     }

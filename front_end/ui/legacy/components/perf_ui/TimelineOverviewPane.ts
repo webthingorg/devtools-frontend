@@ -120,7 +120,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
   }
 
   override wasShown(): void {
-    this.update();
+    void this.update();
   }
 
   override willHide(): void {
@@ -146,7 +146,7 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
       overviewControls[i].show(this.overviewGrid.element);
     }
     this.overviewControls = overviewControls;
-    this.update();
+    void this.update();
   }
 
   set showingScreenshots(isShowing: boolean) {
@@ -172,11 +172,12 @@ export class TimelineOverviewPane extends Common.ObjectWrapper.eventMixin<EventT
 
   scheduleUpdate(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
     void this.updateThrottler.schedule(async () => {
-      this.update(start, end);
+      void this.update(start, end);
     });
   }
 
-  private update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
+  override async update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds):
+      Promise<void> {
     if (!this.isShowing()) {
       return;
     }
@@ -352,7 +353,7 @@ export class TimelineOverviewBase extends UI.Widget.VBox implements TimelineOver
     return this.calculatorInternal;
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     throw new Error('Not implemented');
   }
 

@@ -122,7 +122,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
     UI.ARIAUtils.alert(announcementString);
 
     this.installNodeClasses(node);
-    this.update();
+    void this.update();
   }
 
   private onTextChanged(): void {
@@ -139,7 +139,7 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       return;
     }
     cachedClassesMap.delete(node);
-    this.update();
+    void this.update();
   }
 
   private onSelectedNodeChanged(event: Common.EventTarget.EventTargetEvent<SDK.DOMModel.DOMNode|null>): void {
@@ -148,16 +148,16 @@ export class ClassesPaneWidget extends UI.Widget.Widget {
       this.installNodeClasses(this.previousTarget);
     }
     this.previousTarget = event.data;
-    this.update();
+    void this.update();
   }
 
   override wasShown(): void {
     super.wasShown();
-    this.update();
+    void this.update();
     this.registerCSSFiles([classesPaneWidgetStyles]);
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     if (!this.isShowing()) {
       return;
     }

@@ -222,25 +222,25 @@ export class Layers3DView extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     if (this.showPaints()) {
       this.textureManager.setLayerTree(layerTree);
     }
-    this.update();
+    void this.update();
   }
 
   showImageForLayer(layer: SDK.LayerTreeBase.Layer, imageURL?: string): void {
     if (!imageURL) {
       this.layerTexture = null;
-      this.update();
+      void this.update();
       return;
     }
     void UI.UIUtils.loadImage(imageURL).then(image => {
       const texture = image && LayerTextureManager.createTextureForImage(this.gl || null, image);
       this.layerTexture = texture ? {layer: layer, texture: texture} : null;
-      this.update();
+      void this.update();
     });
   }
 
   override onResize(): void {
     this.resizeCanvas();
-    this.update();
+    void this.update();
   }
 
   override willHide(): void {
@@ -254,7 +254,7 @@ export class Layers3DView extends Common.ObjectWrapper.eventMixin<EventTypes, ty
       return;
     }
     this.resizeCanvas();
-    this.update();
+    void this.update();
   }
 
   updateLayerSnapshot(layer: SDK.LayerTreeBase.Layer): void {
@@ -263,7 +263,7 @@ export class Layers3DView extends Common.ObjectWrapper.eventMixin<EventTypes, ty
 
   private setOutline(type: OutlineType, selection: Selection|null): void {
     this.lastSelection[type] = selection;
-    this.update();
+    void this.update();
   }
 
   hoverObject(selection: Selection|null): void {
@@ -776,7 +776,7 @@ export class Layers3DView extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     }
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     if (!this.isShowing()) {
       this.needsUpdate = true;
       return;
@@ -938,7 +938,7 @@ export class Layers3DView extends Common.ObjectWrapper.eventMixin<EventTypes, ty
     } else {
       this.textureManager.reset();
     }
-    this.update();
+    void this.update();
   }
 
   private showPaints(): boolean {
