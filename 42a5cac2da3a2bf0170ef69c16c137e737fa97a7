@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17db89e0_3096ab90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-17T11:23:06Z",
+      "side": 1,
+      "message": "for rxjs we cannot distribute minified source, zod is a dependency of chromium-bidi that is a dependency of puppeteer",
+      "parentUuid": "0d513c47_a8bd4171",
+      "revId": "42a5cac2da3a2bf0170ef69c16c137e737fa97a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d724da5a_0bc617d2",
         "filename": "test/e2e/sources/overrides_test.ts",
         "patchSetId": 3
