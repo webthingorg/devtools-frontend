@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac6fc18_82768460",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-18T04:52:50Z",
+      "side": 1,
+      "message": "Could you elaborate a bit more in the CL description what exactly this CL fixes and how the current problem manifests that we don\u0027t use the right way to invoke Chrome?",
+      "revId": "807a4ed9d38242a1755c95c31e5e2a2adce6bfda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
