@@ -134,44 +134,6 @@ def remove_package_json_entries():
     return False
 
 
-def addClangFormat():
-    with open(path.join(devtools_paths.node_modules_path(), '.clang-format'),
-              'w+') as clang_format_file:
-        try:
-            clang_format_file.write('DisableFormat: true\n')
-        except:
-            print('Unable to write .clang-format file')
-            return True
-    return False
-
-
-def addOwnersFile():
-    with open(path.join(devtools_paths.node_modules_path(), 'OWNERS'),
-              'w+') as owners_file:
-        try:
-            owners_file.write('file://config/owner/INFRA_OWNERS\n')
-        except:
-            print('Unable to write OWNERS file')
-            return True
-    return False
-
-
-def addChromiumReadme():
-    with open(path.join(devtools_paths.node_modules_path(), 'README.chromium'),
-              'w+') as readme_file:
-        try:
-            readme_file.write(
-                'This directory hosts all packages downloaded from NPM that are used in either the build system or infrastructure scripts.\n'
-            )
-            readme_file.write(
-                'If you want to make any changes to this directory, please see "scripts/deps/manage_node_deps.py".\n'
-            )
-        except:
-            print('Unable to write README.chromium file')
-            return True
-    return False
-
-
 def run_npm_command():
     for (name, version) in DEPS.items():
         if (version.find('^') == 0):
@@ -196,19 +158,13 @@ def run_npm_command():
     ]):
         return True
 
+    if exec_command(['npm', 'run', 'postinstall']):
+        return True
+
     if remove_package_json_entries():
         return True
 
     if strip_private_fields():
-        return True
-
-    if addClangFormat():
-        return True
-
-    if addOwnersFile():
-        return True
-
-    if addChromiumReadme():
         return True
 
     return ensure_licenses()
