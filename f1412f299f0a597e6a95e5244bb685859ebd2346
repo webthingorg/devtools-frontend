@@ -33,6 +33,23 @@
       "message": "Jack, we need an OWNER here, thanks!",
       "revId": "f1412f299f0a597e6a95e5244bb685859ebd2346",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5b7b1f_39c93ee7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-18T10:14:10Z",
+      "side": 1,
+      "message": "lovely to see that py script gone!",
+      "revId": "f1412f299f0a597e6a95e5244bb685859ebd2346",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
