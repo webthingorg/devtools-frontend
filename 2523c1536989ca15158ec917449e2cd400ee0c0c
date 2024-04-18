@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a4f3a6_53086595",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-18T06:15:45Z",
+      "side": 1,
+      "message": "I am not sure if it is the best UI for this since the entire table is shifted by the message showing up. I will ask Peter for a review.",
+      "revId": "2523c1536989ca15158ec917449e2cd400ee0c0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
