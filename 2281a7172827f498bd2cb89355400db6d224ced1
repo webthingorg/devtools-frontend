@@ -34,6 +34,24 @@
       "parentUuid": "769f3ade_fe96e4e7",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5a5e1b3_e93a6301",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-18T17:20:21Z",
+      "side": 0,
+      "message": "It\u0027s hard to know for sure why this sometimes happens on MacOS without debugging code for voiceOver. I\u0027ve noticed in this case where shortcut changes are applied, we do an entire refresh of the list in the `update` call with `this.list.refreshAllItems()` which fundamentally removes list elements and adds new ones to the DOM with some potential focus changes along the way. I\u0027m not sure if this disrupts the alert but then again not sure why it would work on windows and not on MacOS.\n\nThat said, I think if we can provide some visual indication of the shortcut changes which in turn offers screen reader enhancements across all platforms that would be quite valuable.",
+      "parentUuid": "90709ba7_3d29bfd5",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
