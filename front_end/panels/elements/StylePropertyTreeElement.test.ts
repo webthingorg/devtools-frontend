@@ -253,7 +253,11 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
 
         // setFirstColor does not actually update the rendered color swatches or the textContent, which is why the first
         // color is still red here.
-        innerColorMix.querySelector('devtools-color-swatch')?.setFormat(Common.Color.Format.HEX);
+        const colorSwatch = innerColorMix.querySelector('devtools-color-swatch');
+        assert.isOk(colorSwatch);
+        const newColor = colorSwatch.getColor()?.as(Common.Color.Format.HEX);
+        assert.isOk(newColor);
+        colorSwatch.updateColor(newColor);
         assert.strictEqual(outerColorMix.getText(), 'color-mix(in srgb, color-mix(in oklch, #ff0000, green), blue)');
         assert.deepStrictEqual(
             handler.args[1][0].data, {text: 'color-mix(in srgb, color-mix(in oklch, #ff0000, green), blue)'});
@@ -303,7 +307,9 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
     assert.exists(expectedColorString);
     assert.match(expectedColorString, /lab\([-.0-9]* [-.0-9]* [-.0-9]*\)/);
 
-    swatch.setFormat(Common.Color.Format.LAB);
+    const newColor = swatch.getColor()?.as(Common.Color.Format.LAB);
+    assert.isOk(newColor);
+    swatch.updateColor(newColor);
     assert.deepEqual(stylePropertyTreeElement.renderedPropertyText(), `color: ${expectedColorString}`);
 
     assert.isTrue(applyStyleTextStub.alwaysCalledWith(`color: ${expectedColorString}`, false));
