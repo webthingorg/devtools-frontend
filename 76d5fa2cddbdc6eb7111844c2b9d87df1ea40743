@@ -16,6 +16,23 @@
       "message": "@meysarabadani@chromium.org Pls note that at the next branch cut cr-buildbucket.cfg file will get updated too.",
       "revId": "76d5fa2cddbdc6eb7111844c2b9d87df1ea40743",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75aff377_fde18b08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-04-18T11:13:49Z",
+      "side": 1,
+      "message": "lgtm \u0026 thanks",
+      "revId": "76d5fa2cddbdc6eb7111844c2b9d87df1ea40743",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
