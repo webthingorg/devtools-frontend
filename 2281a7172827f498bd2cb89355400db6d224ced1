@@ -52,6 +52,24 @@
       "parentUuid": "90709ba7_3d29bfd5",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7911639_01edcd7f",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-18T17:39:22Z",
+      "side": 0,
+      "message": "Thanks for clarification. We discussed it with Peter and I think we come to a conclusion that it would be probably not feasible to make all status indications visible whenever the alert does not work, it would be more interesting to fix the alert: are there are any work-arounds to try? for example, save the alert state and call it after the update is done?",
+      "parentUuid": "f5a5e1b3_e93a6301",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
