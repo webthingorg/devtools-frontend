@@ -16,6 +16,471 @@
       "message": "pmeenan@\nCould you please review this?\n\nThank you.",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b85dd736_8648e14b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "LGTM.\n\nJust a global s/Maching/Matching/ and some tweaks to the language of some of the error strings.",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7801707b_eacc5e4e",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n      Protocol.Audits.SharedDictionaryError.UseErrorMatchingDictionaryNotUsed,\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b5f31ad_89e95a8e",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n  UseErrorMatchingDictionaryNotUsed \u003d \u0027SharedDictionaryIssue::UseErrorMatchingDictionaryNotUsed\u0027,\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a3ea7b_05a2c337",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n    case Protocol.Audits.SharedDictionaryError.UseErrorMatchingDictionaryNotUsed:\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f091cd_a96629b9",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n      return IssueCode.UseErrorMatchingDictionaryNotUsed;\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6719452b_b3755c3c",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n    Protocol.Audits.SharedDictionaryError.UseErrorMatchingDictionaryNotUsed,\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f654be80_b530a10b",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n      file: \u0027sharedDictionaryUseErrorMatchingDictionaryNotUsed.md\u0027,\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b19634_00c7ee9a",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorCrossOriginNoCorsRequest.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Found a matching dictionary, but the dictionary can\u0027t be used for the cross origin no-cors request\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 10,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3af10585_8c127bcd",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorDictionaryLoadFailure.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Failed to load the matching dictionary\n\nA matching dictionary was found but it failed to load.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04b9e0fc_6ae66418",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorMachingDictionaryNotUsed.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Found a matching dictionary, but the dictionary is not used for the response\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab57c3f3_9a1d6f33",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorMachingDictionaryNotUsed.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\nConsider revisiting the `match` pattern or `match-dest` of the dictionary.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01dbdd39_7386266e",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorInvalidMatchField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Unable to parse the `match` field of the `Use-As-Dictionary` HTTP response header\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61bc840f_d210c8d9",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorInvalidStructuredHeader.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# `Use-As-Dictionary` HTTP response header is not a valid Structured Field value\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09231fc5_d616f09e",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNavigationRequest.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Can\u0027t register the response of the navigation request as a dictionary\n\nNavigation responses are not usable as compression dictionaries.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd0c2b5_fbe3da1c",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNoMatchField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# There is no `match` field in the `Use-As-Dictionary` HTTP response header\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "221f8653_d1d40911",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonListMatchDestField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# The `match-dest` field of the `Use-As-Dictionary` HTTP response header must be a list\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "935d02ce_cc3eba3c",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonSecureContext.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Unable to register a dictionary in a non-Secure Context\n\nCompression dictionaries are only available over HTTPS.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82d001c2_aa31e545",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonStringIdField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# The `id` field of the `Use-As-Dictionary` HTTP response header must be a string\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ecf547b_e4f552a7",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonStringInMatchDestList.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Items in the `match-dest` field of the `Use-As-Dictionary` HTTP response header must be strings\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6920d0c0_79aaae87",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonStringMatchField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# The `match` field of the `Use-As-Dictionary` HTTP response header must be a string\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfef69e2_3955c607",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonTokenTypeField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# The `type` field of the `Use-As-Dictionary` HTTP response header must be a token\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755d4ebd_3da2f4b7",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorRequestAborted.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# An error occurred while writing the dictionary\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7525fc_18afa51b",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorShuttingDown.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# Failed to write the dictionary due to shutdown\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "934c16b3_bc0db348",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorTooLongIdField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# The `id` field of the `Use-As-Dictionary` HTTP response header is too long\n\nThe `id` field must not be longer than 1024 characters.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d62aec_5f059578",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorUnsupportedType.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n# The `type` field of the `Use-As-Dictionary` HTTP response header must be `raw`\n\nOnly `raw` dictionaries are currently supported.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e61d98_7717ff17",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n                        \"UseErrorMatchingDictionaryNotUsed\",\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bbebaf_84706f56",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 13
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1139834
+      },
+      "writtenOn": "2024-04-18T14:29:18Z",
+      "side": 1,
+      "message": "```suggestion\n        UseErrorMatchingDictionaryNotUsed\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
