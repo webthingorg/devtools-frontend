@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f845e254_6cd90783",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-18T09:03:39Z",
+      "side": 1,
+      "message": "Yes, this is my (long-term) plan 😊\n\nBut untangling the value decorations is quite involved, so this needs more refactorings first.",
+      "parentUuid": "179587ad_3335b98e",
+      "revId": "ef67d69acaec2e3c7f57bd21049ddfc367f9af6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85e56e37_d614fe94",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-17T14:26:20Z",
       "side": 1,
       "message": "Are you sure you want to completely recompute these for every update? That seems needlessly expensive.",
+      "revId": "ef67d69acaec2e3c7f57bd21049ddfc367f9af6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "520ba9ad_d3e47ff0",
+        "filename": "front_end/panels/sources/DebuggerPlugin.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-18T09:03:39Z",
+      "side": 1,
+      "message": "Good point. I changed that now.",
+      "parentUuid": "85e56e37_d614fe94",
       "revId": "ef67d69acaec2e3c7f57bd21049ddfc367f9af6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
