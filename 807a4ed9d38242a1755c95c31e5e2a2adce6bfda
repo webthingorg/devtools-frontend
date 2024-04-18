@@ -16,6 +16,24 @@
       "message": "Could you elaborate a bit more in the CL description what exactly this CL fixes and how the current problem manifests that we don\u0027t use the right way to invoke Chrome?",
       "revId": "807a4ed9d38242a1755c95c31e5e2a2adce6bfda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56ddee3f_1ca36551",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-18T07:21:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ac6fc18_82768460",
+      "revId": "807a4ed9d38242a1755c95c31e5e2a2adce6bfda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
