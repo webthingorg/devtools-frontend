@@ -36,6 +36,8 @@ import sys
 import six
 import time
 
+from pathlib import Path
+
 # Depot tools imports
 import rdb_wrapper
 
@@ -575,7 +577,8 @@ def _CommonChecks(canned_checks):
         _CheckDevToolsRunESLintTests, _CheckDevToolsRunBuildTests,
         _CheckDevToolsNonJSFileLicenseHeaders, _CheckFormat,
         _CheckESBuildVersion, _CheckEnumeratedHistograms,
-        _CheckObsoleteScreenshotGoldens
+        _CheckObsoleteScreenshotGoldens, _CheckNodeModulesClangFormat,
+        _CheckNodeModulesOwners, _CheckNodeModulesReadme
     ]
     # Run the canned checks from `depot_tools` after the custom DevTools checks.
     # The canned checks for example check that lines have line endings. The
@@ -707,3 +710,63 @@ def _getFilesToLint(input_api, output_api, lint_config_files,
 
     should_bail_out = len(files_to_lint) == 0 and not run_full_check
     return should_bail_out, files_to_lint
+
+
+def remove_package_json_entries():
+    with open(devtools_paths.package_json_path(), 'r+') as pkg_file:
+        try:
+            pkg_data = load_json_file(pkg_file)
+
+            # Remove the dependencies and devDependencies from the root package.json
+            # so that they can't be used to overwrite the node_modules managed by this file.
+            for key in pkg_data.keys():
+                if key.find('dependencies') == 0:
+                    pkg_data.pop(key)
+
+            pkg_file.truncate(0)
+            pkg_file.seek(0)
+            json.dump(pkg_data, pkg_file, indent=2, separators=(',', ': '))
+            pkg_file.write('\n')
+        except:
+            print('Unable to fix: %s' % pkg)
+            return True
+    return False
+
+
+def _CheckNodeModulesClangFormat(input_api, output_api):
+    clang_format_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                               'node_modules', '.clang-format')
+    if not Path(clang_format_path).is_file():
+        return [
+            output_api.PresubmitError(
+                "node_modules/.clang-format is missing. Use npm run install-deps to re-create it."
+            )
+        ]
+
+    return []
+
+
+def _CheckNodeModulesOwners(input_api, output_api):
+    owners_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                         'node_modules', 'OWNERS')
+    if not Path(owners_path).is_file():
+        return [
+            output_api.PresubmitError(
+                "node_modules/OWNERS is missing. Use npm run install-deps to re-create it."
+            )
+        ]
+
+    return []
+
+
+def _CheckNodeModulesReadme(input_api, output_api):
+    readme_path = input_api.os_path.join(input_api.PresubmitLocalPath(),
+                                         'node_modules', 'README.chromium')
+    if not Path(readme_path).is_file():
+        return [
+            output_api.PresubmitError(
+                "node_modules/README.chromium is missing. Use npm run install-deps to re-create it."
+            )
+        ]
+
+    return []
