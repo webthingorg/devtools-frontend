@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f2c862_86d8af6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:35:40Z",
+      "side": 1,
+      "message": "Yes that is correct, this is the case for a certain field type classification. It is called STREET_ADDRESS and is the combination of all lines",
+      "parentUuid": "f8e85013_22402f02",
+      "range": {
+        "startLine": 13,
+        "startChar": 21,
+        "endLine": 13,
+        "endChar": 38
+      },
+      "revId": "46117bbb13a1215ba7316035d2220dea7c8447a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "af1d7005_92432ecf",
