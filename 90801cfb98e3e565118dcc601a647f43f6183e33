@@ -18,6 +18,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55a8fe31_dc7dc9b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-18T10:20:20Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "90801cfb98e3e565118dcc601a647f43f6183e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4351ee4_b33a6d4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-18T10:20:20Z",
+      "side": 1,
+      "message": "We rely on the scrolling interaction with the CodeMirror highlighter, because just forcing parsing will not trigger a view update.",
+      "parentUuid": "382e9859_c5f805ab",
+      "revId": "90801cfb98e3e565118dcc601a647f43f6183e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be3ce419_c52cf362",
@@ -31,6 +66,30 @@
       "writtenOn": "2024-04-18T09:18:58Z",
       "side": 1,
       "message": "nit: `extensions ??\u003d [];`",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "90801cfb98e3e565118dcc601a647f43f6183e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4677cf_3a2fab31",
+        "filename": "front_end/ui/components/text_editor/ExecutionPositionHighlighter.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-18T10:20:20Z",
+      "side": 1,
+      "message": "TBH I like the explicit `if` better 😊",
+      "parentUuid": "be3ce419_c52cf362",
       "range": {
         "startLine": 29,
         "startChar": 0,
