@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32b3f6ea_6c1b7928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "No worries, was hoping to get another review from you. Thanks!",
+      "parentUuid": "46b33216_59a43dd1",
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e80e9c32_8f72030c",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-04-17T15:13:00Z",
       "side": 1,
       "message": "`+16019521325` (we try to save phone numbers in international format)",
+      "range": {
+        "startLine": 45,
+        "startChar": 54,
+        "endLine": 45,
+        "endChar": 66
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9a81297_340dbec6",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e80e9c32_8f72030c",
       "range": {
         "startLine": 45,
         "startChar": 54,
@@ -89,6 +131,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e68fd26e_2ac854f4",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "Interesting...my reasoning was that someone adding their address in the settings page could add their neighborhood (in this case as adddress-line-3), so I guess this is not necessary impossible right?",
+      "parentUuid": "1b905d80_02110c09",
+      "range": {
+        "startLine": 57,
+        "startChar": 95,
+        "endLine": 57,
+        "endChar": 111
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e589133_4dfa1b5d",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3085840a_71dd579e",
+      "range": {
+        "startLine": 57,
+        "startChar": 82,
+        "endLine": 57,
+        "endChar": 95
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53b3c58e_c2b18721",
         "filename": "front_end/core/sdk/AutofillModel.ts",
         "patchSetId": 7
@@ -100,6 +190,30 @@
       "writtenOn": "2024-04-17T15:10:21Z",
       "side": 1,
       "message": "According to our current formatting logic this would be `Andar 2, Apartamento 1`",
+      "range": {
+        "startLine": 61,
+        "startChar": 54,
+        "endLine": 61,
+        "endChar": 67
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "692f06c0_3e7fe062",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53b3c58e_c2b18721",
       "range": {
         "startLine": 61,
         "startChar": 54,
@@ -133,6 +247,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b997cea7_dc4b01a1",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bab691f6_e1a9470e",
+      "range": {
+        "startLine": 63,
+        "startChar": 49,
+        "endLine": 63,
+        "endChar": 62
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee272155_3c35fa1a",
@@ -156,6 +294,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5e617d_65d2eb1d",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee272155_3c35fa1a",
+      "range": {
+        "startLine": 69,
+        "startChar": 52,
+        "endLine": 69,
+        "endChar": 65
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62840a13_b68aeb26",
@@ -169,6 +331,30 @@
       "writtenOn": "2024-04-17T15:13:00Z",
       "side": 1,
       "message": "`+553121286800`",
+      "range": {
+        "startLine": 74,
+        "startChar": 54,
+        "endLine": 74,
+        "endChar": 66
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb4efa7a_33e7fc7a",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-18T07:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62840a13_b68aeb26",
       "range": {
         "startLine": 74,
         "startChar": 54,
