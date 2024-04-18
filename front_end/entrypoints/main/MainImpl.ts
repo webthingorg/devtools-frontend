@@ -287,6 +287,9 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         'timeline-v8-runtime-call-stats', 'Timeline: V8 Runtime Call Stats on Timeline', true);
     Root.Runtime.experiments.register('timeline-extensions', 'Timeline: Enable User Timings based extensions', true);
+    Root.Runtime.experiments.register('timeline-enhanced-traces', 'Timeline: Enable collecting enhanced traces', true);
+    Root.Runtime.experiments.register(
+        'timeline-compiled-sources', 'Timeline: Enable collecting source text for compiled script', true);
 
     // Sources
     Root.Runtime.experiments.register(
