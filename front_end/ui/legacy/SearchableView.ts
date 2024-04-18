@@ -37,13 +37,14 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
+import * as Buttons from '../components/buttons/buttons.js';
+import * as IconButton from '../components/icon_button/icon_button.js';
 
 import * as ARIAUtils from './ARIAUtils.js';
 import {HistoryInput} from './HistoryInput.js';
 import {InspectorView} from './InspectorView.js';
 import searchableViewStyles from './searchableView.css.legacy.js';
-import {Toolbar, ToolbarButton, ToolbarToggle} from './Toolbar.js';
-import {Tooltip} from './Tooltip.js';
+import {Toolbar, ToolbarButton, ToolbarText, ToolbarToggle} from './Toolbar.js';
 import {createTextButton} from './UIUtils.js';
 import {VBox} from './Widget.js';
 
@@ -53,29 +54,45 @@ const UIStrings = {
    */
   replace: 'Replace',
   /**
+   *@description Tooltip text on a toggle to enable replacing one instance with input text for the ctrl+F search bar
+   */
+  enableFindAndReplace: 'Find and replace',
+  /**
+   *@description Tooltip text on a toggle to disable replacing one instance with input text for the ctrl+F search bar
+   */
+  disableFindAndReplace: 'Disable find and replace',
+  /**
    *@description Text to find an item
    */
   findString: 'Find',
   /**
-   *@description Text on a button to search previous instance for the ctrl+F search bar
+   *@description Tooltip text on a button to search previous instance for the ctrl+F search bar
    */
-  searchPrevious: 'Search previous',
+  searchPrevious: 'Show previous result',
   /**
-   *@description Text on a button to search next instance for the ctrl+F search bar
+   *@description Tooltip text on a button to search next instance for the ctrl+F search bar
    */
-  searchNext: 'Search next',
+  searchNext: 'Show next result',
   /**
-   *@description Text to search by matching case of the input
+   *@description Tooltip text on a toggle to enable search by matching case of the input
    */
-  matchCase: 'Match Case',
+  enableCaseSensitive: 'Enable case sensitive search',
   /**
-   *@description Text for searching with regular expressinn
+   *@description Tooltip text on a toggle to disable search by matching case of the input
    */
-  useRegularExpression: 'Use Regular Expression',
+  disableCaseSensitive: 'Disable case sensitive search',
   /**
-   *@description Text to cancel something
+   *@description Tooltip text on a toggle to enable searching with regular expressinn
    */
-  cancel: 'Cancel',
+  enableRegularExpression: 'Enable regular expressions',
+  /**
+   *@description Tooltip text on a toggle to disable searching with regular expressinn
+   */
+  disableRegularExpression: 'Disable regular expressions',
+  /**
+   *@description Tooltip text on a button to close the search bar
+   */
+  closeSearchBar: 'Close search bar',
   /**
    *@description Text on a button to replace all instances with input text for the ctrl+F search bar
    */
@@ -87,6 +104,12 @@ const UIStrings = {
    */
   dOfD: '{PH1} of {PH2}',
   /**
+   *@description Tooltip text to indicate the current match index and the total number of matches for the ctrl+F search bar
+   *@example {2} PH1
+   *@example {3} PH2
+   */
+  accessibledOfD: 'Shows result {PH1} of {PH2}',
+  /**
    *@description Text to indicate search result for the ctrl+F search bar
    */
   matchString: '1 match',
@@ -95,6 +118,10 @@ const UIStrings = {
    *@example {2} PH1
    */
   dMatches: '{PH1} matches',
+  /**
+   *@description Text on a button to search previous instance for the ctrl+F search bar
+   */
+  clearInput: 'Clear',
 };
 const str_ = i18n.i18n.registerUIStrings('ui/legacy/SearchableView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -110,13 +137,13 @@ export class SearchableView extends VBox {
   private replaceToggleButton: ToolbarToggle;
   private searchInputElement: HistoryInput;
   private matchesElement: HTMLElement;
-  private searchNavigationPrevElement: HTMLElement;
-  private searchNavigationNextElement: HTMLElement;
+  private cancelButtonElement: HTMLElement;
+  private searchNavigationPrevElement: ToolbarButton;
+  private searchNavigationNextElement: ToolbarButton;
   private readonly replaceInputElement: HTMLInputElement;
-  private readonly buttonsContainer: HTMLElement;
-  private caseSensitiveButton: ToolbarToggle|undefined;
-  private regexButton: ToolbarToggle|undefined;
-  private readonly secondRowButtons: HTMLElement;
+  private caseSensitiveButton: Buttons.Button.Button|undefined;
+  private regexButton: Buttons.Button.Button|undefined;
+  private readonly replaceButtons: HTMLElement;
   private replaceButtonElement: HTMLButtonElement;
   private replaceAllButtonElement: HTMLButtonElement;
   private minimalSearchQuerySize: number;
@@ -141,94 +168,142 @@ export class SearchableView extends VBox {
     this.footerElement.setAttribute('jslog', `${VisualLogging.toolbar('search').track({resize: true})}`);
 
     const replaceToggleToolbar = new Toolbar('replace-toggle-toolbar', this.footerElement);
-    this.replaceToggleButton = new ToolbarToggle(i18nString(UIStrings.replace), 'replace', undefined, 'repalce');
+    this.replaceToggleButton =
+        new ToolbarToggle(i18nString(UIStrings.enableFindAndReplace), 'replace', undefined, 'replace');
+    ARIAUtils.setLabel(this.replaceToggleButton.element, i18nString(UIStrings.enableFindAndReplace));
     this.replaceToggleButton.addEventListener(ToolbarButton.Events.Click, this.toggleReplace, this);
     replaceToggleToolbar.appendToolbarItem(this.replaceToggleButton);
 
-    const searchInputElements = this.footerElement.createChild('div', 'toolbar-search-inputs');
-    const searchControlElement = searchInputElements.createChild('div', 'toolbar-search-control');
+    const searchInputElements = this.footerElement.createChild('div', 'input-line');
+    const searchIcon = IconButton.Icon.create('search');
+    searchInputElements.appendChild(searchIcon);
 
     this.searchInputElement = HistoryInput.create();
+    ARIAUtils.setLabel(this.searchInputElement, i18nString(UIStrings.findString));
     this.searchInputElement.type = 'search';
-    this.searchInputElement.classList.add('search-replace', 'custom-search-input');
+    this.searchInputElement.classList.add('search-replace');
     this.searchInputElement.id = 'search-input-field';
+    this.searchInputElement.autocomplete = 'off';
     this.searchInputElement.placeholder = i18nString(UIStrings.findString);
     this.searchInputElement.setAttribute(
         'jslog',
         `${VisualLogging.textField('search').track({change: true, keydown: 'ArrowUp|ArrowDown|Enter|Escape'})}`);
-    searchControlElement.appendChild(this.searchInputElement);
-
-    this.matchesElement = searchControlElement.createChild('label', 'search-results-matches');
-    this.matchesElement.setAttribute('for', 'search-input-field');
-
-    const searchNavigationElement = searchControlElement.createChild('div', 'toolbar-search-navigation-controls');
-
-    this.searchNavigationPrevElement =
-        searchNavigationElement.createChild('div', 'toolbar-search-navigation toolbar-search-navigation-prev');
-    this.searchNavigationPrevElement.addEventListener('click', this.onPrevButtonSearch.bind(this), false);
-    Tooltip.install(this.searchNavigationPrevElement, i18nString(UIStrings.searchPrevious));
-    ARIAUtils.setLabel(this.searchNavigationPrevElement, i18nString(UIStrings.searchPrevious));
-    this.searchNavigationPrevElement.setAttribute(
-        'jslog', `${VisualLogging.action('select-previous').track({click: true})}`);
-
-    this.searchNavigationNextElement =
-        searchNavigationElement.createChild('div', 'toolbar-search-navigation toolbar-search-navigation-next');
-    this.searchNavigationNextElement.addEventListener('click', this.onNextButtonSearch.bind(this), false);
-    Tooltip.install(this.searchNavigationNextElement, i18nString(UIStrings.searchNext));
-    ARIAUtils.setLabel(this.searchNavigationNextElement, i18nString(UIStrings.searchNext));
-    this.searchNavigationPrevElement.setAttribute(
-        'jslog', `${VisualLogging.action('select-next').track({click: true})}`);
-
+    this.searchInputElement.addEventListener('focus', () => searchInputElements.classList.add('focused'));
+    this.searchInputElement.addEventListener('blur', () => searchInputElements.classList.remove('focused'));
     this.searchInputElement.addEventListener('keydown', this.onSearchKeyDown.bind(this), true);
     this.searchInputElement.addEventListener('input', this.onInput.bind(this), false);
-    this.replaceInputElement =
-        (searchInputElements.createChild('input', 'search-replace toolbar-replace-control hidden') as HTMLInputElement);
+    searchInputElements.appendChild(this.searchInputElement);
+
+    const clearButton = new Buttons.Button.Button();
+    clearButton.data = {
+      variant: Buttons.Button.Variant.ICON,
+      size: Buttons.Button.Size.SMALL,
+      jslogContext: 'clear-search',
+      title: i18nString(UIStrings.clearInput),
+      iconName: 'cross-circle-filled',
+    };
+    clearButton.classList.add('clear-button');
+    clearButton.addEventListener('click', () => {
+      this.searchInputElement.value = '';
+      this.onInput();
+    });
+    searchInputElements.appendChild(clearButton);
+
+    if (this.searchProvider.supportsRegexSearch()) {
+      // TODO(kimanh): Make use of GM3 Toggles.
+      this.regexButton = new Buttons.Button.Button();
+      this.regexButton.data = {
+        variant: Buttons.Button.Variant.ICON,
+        size: Buttons.Button.Size.SMALL,
+        iconName: 'regular-expression',
+        jslogContext: 'regex-search',
+        title: i18nString(UIStrings.enableCaseSensitive),
+      };
+      this.regexButton.addEventListener('click', () => this.toggleRegexSearch());
+      searchInputElements.appendChild(this.regexButton);
+    }
+
+    if (this.searchProvider.supportsCaseSensitiveSearch()) {
+      // TODO(kimanh): Make use of GM3 Toggles.
+      this.caseSensitiveButton = new Buttons.Button.Button();
+      this.caseSensitiveButton.data = {
+        variant: Buttons.Button.Variant.ICON,
+        size: Buttons.Button.Size.SMALL,
+        iconName: 'match-case',
+        title: i18nString(UIStrings.enableCaseSensitive),
+        jslogContext: 'match-case',
+      };
+
+      this.caseSensitiveButton.addEventListener('click', () => this.toggleCaseSensitiveSearch());
+      searchInputElements.appendChild(this.caseSensitiveButton);
+    }
+
+    const searchNavigationToolbar = new Toolbar('search-navigation-toolbar', this.footerElement);
+    this.searchNavigationPrevElement =
+        new ToolbarButton(i18nString(UIStrings.searchPrevious), 'chevron-up', undefined, 'select-previous');
+    this.searchNavigationPrevElement.addEventListener(ToolbarButton.Events.Click, () => this.onPrevButtonSearch());
+    searchNavigationToolbar.appendToolbarItem(this.searchNavigationPrevElement);
+    ARIAUtils.setLabel(this.searchNavigationPrevElement.element, i18nString(UIStrings.searchPrevious));
+
+    this.searchNavigationNextElement =
+        new ToolbarButton(i18nString(UIStrings.searchNext), 'chevron-down', undefined, 'select-next');
+    this.searchNavigationNextElement.addEventListener(ToolbarButton.Events.Click, () => this.onNextButtonSearch());
+    ARIAUtils.setLabel(this.searchNavigationNextElement.element, i18nString(UIStrings.searchNext));
+    searchNavigationToolbar.appendToolbarItem(this.searchNavigationNextElement);
+
+    const matchesText = new ToolbarText();
+    this.matchesElement = matchesText.element;
+    this.matchesElement.classList.add('search-results-matches');
+    searchNavigationToolbar.appendToolbarItem(matchesText);
+
+    const replaceInputElements = this.footerElement.createChild('div', 'input-line replace-element');
+    this.replaceInputElement = replaceInputElements.createChild('input', 'search-replace') as HTMLInputElement;
     this.replaceInputElement.addEventListener('keydown', this.onReplaceKeyDown.bind(this), true);
     this.replaceInputElement.placeholder = i18nString(UIStrings.replace);
     this.replaceInputElement.setAttribute(
         'jslog', `${VisualLogging.textField('replace').track({change: true, keydown: 'Enter'})}`);
+    this.replaceInputElement.addEventListener('focus', () => replaceInputElements.classList.add('focused'));
+    this.replaceInputElement.addEventListener('blur', () => replaceInputElements.classList.remove('focused'));
 
-    this.buttonsContainer = this.footerElement.createChild('div', 'toolbar-search-buttons');
-    const firstRowButtons = this.buttonsContainer.createChild('div', 'first-row-buttons');
-
-    const toolbar = new Toolbar('toolbar-search-options', firstRowButtons);
-
-    if (this.searchProvider.supportsCaseSensitiveSearch()) {
-      this.caseSensitiveButton = new ToolbarToggle(i18nString(UIStrings.matchCase), undefined, undefined, 'match-case');
-      this.caseSensitiveButton.setText('Aa');
-      this.caseSensitiveButton.addEventListener(ToolbarButton.Events.Click, this.toggleCaseSensitiveSearch, this);
-      toolbar.appendToolbarItem(this.caseSensitiveButton);
-    }
-
-    if (this.searchProvider.supportsRegexSearch()) {
-      this.regexButton =
-          new ToolbarToggle(i18nString(UIStrings.useRegularExpression), undefined, undefined, 'regex-search');
-      this.regexButton.setText('.*');
-      this.regexButton.addEventListener(ToolbarButton.Events.Click, this.toggleRegexSearch, this);
-      toolbar.appendToolbarItem(this.regexButton);
-    }
-
-    const cancelButtonElement = createTextButton(i18nString(UIStrings.cancel), this.closeSearch.bind(this), {
-      className: 'search-action-button',
-      jslogContext: 'close-search',
+    const replaceInputClearButton = new Buttons.Button.Button();
+    replaceInputClearButton.data = {
+      variant: Buttons.Button.Variant.ICON,
+      size: Buttons.Button.Size.SMALL,
+      jslogContext: 'clear-replace',
+      title: i18nString(UIStrings.clearInput),
+      iconName: 'cross-circle-filled',
+    };
+    replaceInputClearButton.classList.add('clear-button');
+    replaceInputClearButton.ariaLabel = i18nString(UIStrings.clearInput);
+    replaceInputClearButton.addEventListener('click', () => {
+      this.replaceInputElement.value = '';
     });
-    firstRowButtons.appendChild(cancelButtonElement);
+    replaceInputElements.appendChild(replaceInputClearButton);
 
-    this.secondRowButtons = this.buttonsContainer.createChild('div', 'second-row-buttons hidden');
-
+    this.replaceButtons = this.footerElement.createChild('div', 'second-row-buttons replace-element');
     this.replaceButtonElement = createTextButton(i18nString(UIStrings.replace), this.replace.bind(this), {
       className: 'search-action-button',
       jslogContext: 'replace',
     });
+    ARIAUtils.setLabel(this.replaceButtonElement, i18nString(UIStrings.replace));
     this.replaceButtonElement.disabled = true;
-    this.secondRowButtons.appendChild(this.replaceButtonElement);
+    this.replaceButtons.appendChild(this.replaceButtonElement);
 
     this.replaceAllButtonElement = createTextButton(i18nString(UIStrings.replaceAll), this.replaceAll.bind(this), {
       className: 'search-action-button',
       jslogContext: 'replace-all',
     });
-    this.secondRowButtons.appendChild(this.replaceAllButtonElement);
+    ARIAUtils.setLabel(this.replaceAllButtonElement, i18nString(UIStrings.replaceAll));
+    this.replaceButtons.appendChild(this.replaceAllButtonElement);
     this.replaceAllButtonElement.disabled = true;
+
+    const cancelToolbar = new Toolbar('cancel-toolbar', this.footerElement);
+    const cancelButton = new ToolbarButton(i18nString(UIStrings.closeSearchBar), 'cross', undefined, 'close-search');
+    ARIAUtils.setLabel(cancelButton.element, i18nString(UIStrings.closeSearchBar));
+    this.cancelButtonElement = cancelButton.element;
+    this.cancelButtonElement.classList.add('close-search-button');
+    cancelButton.addEventListener(ToolbarButton.Events.Click, () => this.closeSearch());
+    cancelToolbar.appendToolbarItem(cancelButton);
 
     this.minimalSearchQuerySize = 3;
     this.loadSetting();
@@ -245,7 +320,9 @@ export class SearchableView extends VBox {
 
   private toggleCaseSensitiveSearch(): void {
     if (this.caseSensitiveButton) {
-      this.caseSensitiveButton.setToggled(!this.caseSensitiveButton.toggled());
+      this.caseSensitiveButton.active = !this.caseSensitiveButton.active;
+      this.caseSensitiveButton.title = this.caseSensitiveButton.active ? i18nString(UIStrings.disableCaseSensitive) :
+                                                                         i18nString(UIStrings.enableCaseSensitive);
     }
     this.saveSetting();
     this.performSearch(false, true);
@@ -253,14 +330,21 @@ export class SearchableView extends VBox {
 
   private toggleRegexSearch(): void {
     if (this.regexButton) {
-      this.regexButton.setToggled(!this.regexButton.toggled());
+      this.regexButton.active = !this.regexButton.active;
+      this.regexButton.title = this.regexButton.active ? i18nString(UIStrings.disableRegularExpression) :
+                                                         i18nString(UIStrings.enableRegularExpression);
     }
     this.saveSetting();
     this.performSearch(false, true);
   }
 
   private toggleReplace(): void {
-    this.replaceToggleButton.setToggled(!this.replaceToggleButton.toggled());
+    const replaceEnabled = !this.replaceToggleButton.toggled();
+    this.replaceToggleButton.setToggled(replaceEnabled);
+    const label =
+        replaceEnabled ? i18nString(UIStrings.disableFindAndReplace) : i18nString(UIStrings.enableFindAndReplace);
+    ARIAUtils.setLabel(this.replaceToggleButton.element, label);
+    this.replaceToggleButton.element.title = label;
     this.updateSecondRowVisibility();
   }
 
@@ -270,10 +354,10 @@ export class SearchableView extends VBox {
     }
     const settingValue = this.setting.get() || {};
     if (this.caseSensitiveButton) {
-      settingValue.caseSensitive = this.caseSensitiveButton.toggled();
+      settingValue.caseSensitive = this.caseSensitiveButton.active;
     }
     if (this.regexButton) {
-      settingValue.isRegex = this.regexButton.toggled();
+      settingValue.isRegex = this.regexButton.active;
     }
     this.setting.set(settingValue);
   }
@@ -281,10 +365,18 @@ export class SearchableView extends VBox {
   private loadSetting(): void {
     const settingValue = this.setting ? (this.setting.get() || {}) : {};
     if (this.searchProvider.supportsCaseSensitiveSearch() && this.caseSensitiveButton) {
-      this.caseSensitiveButton.setToggled(Boolean(settingValue.caseSensitive));
+      this.caseSensitiveButton.active = Boolean(settingValue.caseSensitive);
+      const label = settingValue.caseSensitive ? i18nString(UIStrings.disableCaseSensitive) :
+                                                 i18nString(UIStrings.enableCaseSensitive);
+      this.caseSensitiveButton.title = label;
+      ARIAUtils.setLabel(this.caseSensitiveButton, label);
     }
     if (this.searchProvider.supportsRegexSearch() && this.regexButton) {
-      this.regexButton.setToggled(Boolean(settingValue.isRegex));
+      this.regexButton.active = Boolean(settingValue.isRegex);
+      const label = settingValue.regular ? i18nString(UIStrings.disableRegularExpression) :
+                                           i18nString(UIStrings.enableRegularExpression);
+      this.regexButton.title = label;
+      ARIAUtils.setLabel(this.regexButton, label);
     }
   }
 
@@ -294,9 +386,7 @@ export class SearchableView extends VBox {
 
   setPlaceholder(placeholder: string, ariaLabel?: string): void {
     this.searchInputElement.placeholder = placeholder;
-    if (ariaLabel) {
-      ARIAUtils.setLabel(this.searchInputElement, ariaLabel);
-    }
+    ARIAUtils.setLabel(this.searchInputElement, ariaLabel ?? placeholder);
   }
 
   setReplaceable(replaceable: boolean): void {
@@ -394,8 +484,8 @@ export class SearchableView extends VBox {
   private updateSearchNavigationButtonState(enabled: boolean): void {
     this.replaceButtonElement.disabled = !enabled;
     this.replaceAllButtonElement.disabled = !enabled;
-    this.searchNavigationPrevElement.classList.toggle('enabled', enabled);
-    this.searchNavigationNextElement.classList.toggle('enabled', enabled);
+    this.searchNavigationPrevElement.setEnabled(enabled);
+    this.searchNavigationNextElement.setEnabled(enabled);
   }
 
   private updateSearchMatchesCountAndCurrentMatchIndex(matches: number, currentMatchIndex: number): void {
@@ -403,10 +493,14 @@ export class SearchableView extends VBox {
       this.matchesElement.textContent = '';
     } else if (matches === 0 || currentMatchIndex >= 0) {
       this.matchesElement.textContent = i18nString(UIStrings.dOfD, {PH1: currentMatchIndex + 1, PH2: matches});
+      ARIAUtils.setLabel(
+          this.matchesElement, i18nString(UIStrings.accessibledOfD, {PH1: currentMatchIndex + 1, PH2: matches}));
     } else if (matches === 1) {
       this.matchesElement.textContent = i18nString(UIStrings.matchString);
+      ARIAUtils.setLabel(this.matchesElement, this.matchesElement.textContent);
     } else {
       this.matchesElement.textContent = i18nString(UIStrings.dMatches, {PH1: matches});
+      ARIAUtils.setLabel(this.matchesElement, this.matchesElement.textContent);
     }
     this.updateSearchNavigationButtonState(matches > 0);
   }
@@ -479,16 +573,16 @@ export class SearchableView extends VBox {
     }
   }
 
-  private onNextButtonSearch(_event: Event): void {
-    if (!this.searchNavigationNextElement.classList.contains('enabled')) {
+  private onNextButtonSearch(): void {
+    if (!this.searchNavigationNextElement.enabled) {
       return;
     }
     this.jumpToNextSearchResult();
     this.searchInputElement.focus();
   }
 
-  private onPrevButtonSearch(_event: Event): void {
-    if (!this.searchNavigationPrevElement.classList.contains('enabled')) {
+  private onPrevButtonSearch(): void {
+    if (!this.searchNavigationPrevElement.enabled) {
       return;
     }
     this.jumpToNextSearchResult(true);
@@ -525,22 +619,16 @@ export class SearchableView extends VBox {
 
   private currentSearchConfig(): SearchConfig {
     const query = this.searchInputElement.value;
-    const caseSensitive = this.caseSensitiveButton ? this.caseSensitiveButton.toggled() : false;
-    const isRegex = this.regexButton ? this.regexButton.toggled() : false;
+    const caseSensitive = this.caseSensitiveButton ? this.caseSensitiveButton.active : false;
+    const isRegex = this.regexButton ? this.regexButton.active : false;
     return new SearchConfig(query, caseSensitive, isRegex);
   }
 
   private updateSecondRowVisibility(): void {
     const secondRowVisible = this.replaceToggleButton.toggled();
     this.footerElementContainer.classList.toggle('replaceable', secondRowVisible);
-    this.secondRowButtons.classList.toggle('hidden', !secondRowVisible);
-    this.replaceInputElement.classList.toggle('hidden', !secondRowVisible);
 
-    if (secondRowVisible) {
-      this.replaceInputElement.focus();
-    } else {
-      this.searchInputElement.focus();
-    }
+    this.searchInputElement.focus();
     this.doResize();
   }
 
@@ -562,7 +650,7 @@ export class SearchableView extends VBox {
     this.replaceProvider.replaceAllWith(searchConfig, this.replaceInputElement.value);
   }
 
-  private onInput(_event: Event): void {
+  private onInput(): void {
     if (!Common.Settings.Settings.instance().moduleSetting('search-as-you-type').get()) {
       this.clearSearch();
       return;
