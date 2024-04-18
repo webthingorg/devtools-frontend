@@ -70,6 +70,24 @@
       "parentUuid": "f5a5e1b3_e93a6301",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850a950d_17ddf11d",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-18T18:18:08Z",
+      "side": 0,
+      "message": "Agreed. It\u0027s not feasible to use this strategy in all places when the alert doesn\u0027t work but maybe we can review on a case-by-case basis. \n\nIn terms of workarounds, I tried your suggestion already (only call alert after update is done). I know this approach works on windows but I\u0027ll need your help verifying this on a mac. Let me know if you have access to a mac to test this and i can update the patch",
+      "parentUuid": "e7911639_01edcd7f",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
