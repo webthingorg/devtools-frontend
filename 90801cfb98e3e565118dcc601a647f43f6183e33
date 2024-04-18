@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "382e9859_c5f805ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-18T09:18:58Z",
+      "side": 1,
+      "message": "lgtm, the tests are very nice IMO!\n\nq: Do we force AST parsing up to the paused position now manually (I didn\u0027t spot it) or do we rely on the paused position being scrolled into view and that triggers parsing via syntax highlighting?",
+      "revId": "90801cfb98e3e565118dcc601a647f43f6183e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be3ce419_c52cf362",
+        "filename": "front_end/ui/components/text_editor/ExecutionPositionHighlighter.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-18T09:18:58Z",
+      "side": 1,
+      "message": "nit: `extensions ??\u003d [];`",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "90801cfb98e3e565118dcc601a647f43f6183e33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
