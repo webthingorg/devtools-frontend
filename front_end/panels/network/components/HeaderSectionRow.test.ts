@@ -460,6 +460,44 @@ describeWithEnvironment('HeaderSectionRow', () => {
     assert.isTrue(hasReloadPrompt(component.shadowRoot));
   });
 
+  it('split header name and value on pasted content', async () => {
+    const originalHeaderName = Platform.StringUtilities.toLowerCaseString('some-header-name');
+    const originalHeaderValue = 'someHeaderValue';
+    const headerData: NetworkComponents.HeaderSectionRow.HeaderDescriptor = {
+      name: originalHeaderName,
+      value: originalHeaderValue,
+      nameEditable: true,
+      valueEditable: true,
+    };
+    const editedHeaderName = 'permissions-Policy: unload=(https://xyz.com)';
+
+    const {component, nameEditable} = await renderHeaderSectionRow(headerData);
+    assert.isNotNull(component.shadowRoot);
+    assert.instanceOf(nameEditable, HTMLElement);
+
+    let headerValueFromEvent = '';
+    let headerNameFromEvent = '';
+    let headerEditedEventCount = 0;
+
+    component.addEventListener('headeredited', event => {
+      headerValueFromEvent = event.headerValue;
+      headerNameFromEvent = event.headerName;
+      headerEditedEventCount++;
+    });
+
+    const dt = new DataTransfer();
+    dt.setData('text/plain', editedHeaderName);
+
+    nameEditable.focus();
+    dispatchPasteEvent(nameEditable, {clipboardData: dt, bubbles: true, composed: true});
+    nameEditable.blur();
+
+    await coordinator.done();
+    assert.strictEqual(headerEditedEventCount, 2);
+    assert.strictEqual(headerNameFromEvent, 'permissions-policy');
+    assert.strictEqual(headerValueFromEvent, 'unload=(https://xyz.com)');
+  });
+
   it('recoginzes only alphanumeric characters, dashes, and underscores as valid in header names', () => {
     assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('AlphaNumeric123'), true);
     assert.strictEqual(NetworkComponents.HeaderSectionRow.isValidHeaderName('Alpha Numeric'), false);
