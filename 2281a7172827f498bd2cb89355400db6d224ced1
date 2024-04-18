@@ -16,6 +16,24 @@
       "message": "Do you have details about why that does not work on MacOS?",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90709ba7_3d29bfd5",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-18T12:17:59Z",
+      "side": 0,
+      "message": "The alert seems to work for consoleCleared announcement https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/console/ConsoleView.ts;l\u003d1093;drc\u003de71698ba79bfda112a764e3af26414941eaafff9",
+      "parentUuid": "769f3ade_fe96e4e7",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
