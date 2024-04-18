@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77b37e7_81f7291b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-18T16:19:59Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "262abb5bd3a26efde2c62be708da26418a165986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "babae687_46bd0772",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-18T16:19:59Z",
+      "side": 1,
+      "message": "just checking - presumably this doesn\u0027t error if there haven\u0027t been any previous traces?",
+      "range": {
+        "startLine": 1061,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 42
+      },
+      "revId": "262abb5bd3a26efde2c62be708da26418a165986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
