@@ -177,6 +177,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca751ea7_945ecc02",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-18T14:27:12Z",
+      "side": 1,
+      "message": "we had to make a decision and we saw that some websites have dedicated fields for neighborhoods.",
+      "parentUuid": "e68fd26e_2ac854f4",
+      "range": {
+        "startLine": 57,
+        "startChar": 95,
+        "endLine": 57,
+        "endChar": 111
+      },
+      "revId": "17bf589621614ba33885836bd93f0854dc1fd056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53b3c58e_c2b18721",
