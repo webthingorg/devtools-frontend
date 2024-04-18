@@ -222,6 +222,10 @@ export class KeybindsSettingsTab extends UI.Widget.VBox implements UI.ListContro
     }
   }
 
+  selectedListElement(): Element {
+    return this.list.elementAtIndex(this.list.selectedIndex());
+  }
+
   updateSelectedItemARIA(_fromElement: Element|null, _toElement: Element|null): boolean {
     return true;
   }
@@ -320,6 +324,7 @@ export class ShortcutListItem {
   private addShortcutLinkContainer: Element|null;
   private errorMessageElement: Element|null;
   private secondKeyTimeout: number|null;
+  private infoBar: UI.Infobar.Infobar|null;
   constructor(item: UI.ActionRegistration.Action, settingsTab: KeybindsSettingsTab, isEditing?: boolean) {
     this.isEditing = Boolean(isEditing);
     this.settingsTab = settingsTab;
@@ -334,6 +339,7 @@ export class ShortcutListItem {
     this.addShortcutLinkContainer = null;
     this.errorMessageElement = null;
     this.secondKeyTimeout = null;
+    this.infoBar = null;
 
     this.update();
   }
@@ -391,14 +397,14 @@ export class ShortcutListItem {
         i18nString(UIStrings.ResetShortcutsForAction), 'undo', '', 'undo', this.resetShortcutsToDefaults.bind(this)));
     this.confirmButton = this.createIconButton(
         i18nString(UIStrings.confirmChanges), 'checkmark', 'keybinds-confirm-button', 'confirm', () => {
-          UI.ARIAUtils.alert(UIStrings.shortcutChangesApplied);
           this.settingsTab.commitChanges(this.item, this.editedShortcuts);
+          UI.ARIAUtils.alert(i18nString(UIStrings.shortcutChangesApplied, {PH1: this.item.title()}));
         });
     this.element.appendChild(this.confirmButton);
     this.element.appendChild(
         this.createIconButton(i18nString(UIStrings.discardChanges), 'cross', 'keybinds-cancel-button', 'cancel', () => {
           this.settingsTab.stopEditing(this.item);
-          UI.ARIAUtils.alert(UIStrings.shortcutChangesDiscared);
+          UI.ARIAUtils.alert(i18nString(UIStrings.shortcutChangesDiscared));
         }));
     this.element.addEventListener('keydown', event => {
       if (Platform.KeyboardUtilities.isEscKey(event)) {
@@ -457,11 +463,11 @@ export class ShortcutListItem {
             if (!shortcut.isDefault()) {
               this.shortcuts.splice(index, 1);
             }
-            UI.ARIAUtils.alert(i18nString(UIStrings.shortcutRemoved, {PH1: this.item.title()}));
             this.editedShortcuts.set(shortcut, null);
             this.update();
             this.focus();
             this.validateInputs();
+            UI.ARIAUtils.alert(i18nString(UIStrings.shortcutRemoved, {PH1: this.item.title()}));
           }));
     } else {
       const keys = shortcut.descriptors.flatMap(descriptor => descriptor.name.split(' + '));
@@ -570,9 +576,9 @@ export class ShortcutListItem {
       this.shortcuts.push(shortcut);
       this.editedShortcuts.set(shortcut, shortcut.descriptors);
     });
-    UI.ARIAUtils.alert(UIStrings.shortcutChangesRestored);
     this.update();
     this.focus();
+    UI.ARIAUtils.alert(i18nString(UIStrings.shortcutChangesRestored, {PH1: this.item.title()}));
   }
 
   onEscapeKeyPressed(event: Event): void {
