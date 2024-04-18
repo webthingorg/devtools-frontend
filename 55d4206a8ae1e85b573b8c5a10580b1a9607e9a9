@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8262d087_1845ea26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-18T08:36:22Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nThis CL changes the FilterBar such that the text filter is making use of the ToolbarFilter instead of a separate filter implementation. PTAL!",
+      "revId": "55d4206a8ae1e85b573b8c5a10580b1a9607e9a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
