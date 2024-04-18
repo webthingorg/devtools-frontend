@@ -118,7 +118,7 @@ export class IsolateSelector extends UI.Widget.VBox implements UI.ListControl.Li
     if (this.items.length === 1 || isolate.isMainThread()) {
       this.list.selectItem(item);
     }
-    this.update();
+    void this.update();
   }
 
   isolateChanged(isolate: SDK.IsolateManager.Isolate): void {
@@ -126,7 +126,7 @@ export class IsolateSelector extends UI.Widget.VBox implements UI.ListControl.Li
     if (item) {
       item.updateTitle();
     }
-    this.update();
+    void this.update();
   }
 
   isolateRemoved(isolate: SDK.IsolateManager.Isolate): void {
@@ -138,7 +138,7 @@ export class IsolateSelector extends UI.Widget.VBox implements UI.ListControl.Li
     if (this.items.length === 0) {
       this.list.element.tabIndex = -1;
     }
-    this.update();
+    void this.update();
   }
 
   targetChanged(event: Common.EventTarget.EventTargetEvent<SDK.Target.Target>): void {
@@ -231,7 +231,7 @@ export class IsolateSelector extends UI.Widget.VBox implements UI.ListControl.Li
         SDK.CPUProfilerModel.CPUProfilerModel, model && model.target().model(SDK.CPUProfilerModel.CPUProfilerModel));
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     this.updateTotal();
     this.list.invalidateRange(0, this.items.length);
   }

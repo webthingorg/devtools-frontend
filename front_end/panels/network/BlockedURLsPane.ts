@@ -98,7 +98,7 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
         SDK.NetworkManager.NetworkManager, SDK.NetworkManager.Events.RequestFinished, this.onRequestFinished, this,
         {scoped: true});
 
-    this.update();
+    void this.update();
     Logs.NetworkLog.NetworkLog.instance().addEventListener(Logs.NetworkLog.Events.Reset, this.onNetworkLogReset, this);
   }
 
@@ -149,7 +149,7 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
 
   private toggleEnabled(): void {
     this.manager.setBlockingEnabled(!this.manager.blockingEnabled());
-    this.update();
+    void this.update();
   }
 
   removeItemRequested(pattern: SDK.NetworkManager.BlockedPattern, index: number): void {
@@ -209,7 +209,7 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
     return editor;
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     const enabled = this.manager.blockingEnabled();
     this.list.element.classList.toggle('blocking-disabled', !enabled && Boolean(this.manager.blockedPatterns().length));
 
@@ -253,7 +253,7 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
 
   private onNetworkLogReset(_event: Common.EventTarget.EventTargetEvent<Logs.NetworkLog.ResetEvent>): void {
     this.blockedCountForUrl.clear();
-    this.update();
+    void this.update();
   }
 
   private onRequestFinished(event: Common.EventTarget.EventTargetEvent<SDK.NetworkRequest.NetworkRequest>): void {
@@ -261,7 +261,7 @@ export class BlockedURLsPane extends UI.Widget.VBox implements
     if (request.wasBlocked()) {
       const count = this.blockedCountForUrl.get(request.url()) || 0;
       this.blockedCountForUrl.set(request.url(), count + 1);
-      this.update();
+      void this.update();
     }
   }
   override wasShown(): void {

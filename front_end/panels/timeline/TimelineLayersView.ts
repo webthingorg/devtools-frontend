@@ -50,7 +50,7 @@ export class TimelineLayersView extends UI.SplitWidget.SplitWidget {
   showLayerTree(frameLayerTree: TimelineModel.TracingLayerTree.TracingFrameLayerTree): void {
     this.frameLayerTree = frameLayerTree;
     if (this.isShowing()) {
-      this.update();
+      void this.update();
     } else {
       this.updateWhenVisible = true;
     }
@@ -59,7 +59,7 @@ export class TimelineLayersView extends UI.SplitWidget.SplitWidget {
   override wasShown(): void {
     if (this.updateWhenVisible) {
       this.updateWhenVisible = false;
-      this.update();
+      void this.update();
     }
   }
 
@@ -72,7 +72,7 @@ export class TimelineLayersView extends UI.SplitWidget.SplitWidget {
     }
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     if (this.frameLayerTree) {
       void this.frameLayerTree.layerTreePromise().then(layerTree => this.layerViewHost.setLayerTree(layerTree));
     }

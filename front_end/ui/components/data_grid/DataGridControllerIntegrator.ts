@@ -36,11 +36,14 @@ export class DataGridControllerIntegrator extends UI.Widget.VBox {
     return this.#data;
   }
 
-  update(data: Readonly<DataGridControllerData>): void {
+  override async update(data?: Readonly<DataGridControllerData>): Promise<void> {
+    if (!data) {
+      return;
+    }
     this.#data = data;
     // Setting of `dataGrid.data` is compute heavy because of the
     // filtering logic. Thus, we're debouncing calls to the setter.
-    void this.#updateThrottler.schedule(async () => {
+    return this.#updateThrottler.schedule(async () => {
       this.dataGrid.data = data;
     });
   }

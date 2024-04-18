@@ -34,11 +34,11 @@ export class ElementsSidebarPane extends UI.Widget.VBox {
     return this.computedStyleModelInternal;
   }
 
-  async doUpdate(): Promise<void> {
+  override async doUpdate(): Promise<void> {
     return;
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     this.updateWhenVisible = !this.isShowing();
     if (this.updateWhenVisible) {
       return;
@@ -53,7 +53,7 @@ export class ElementsSidebarPane extends UI.Widget.VBox {
   override wasShown(): void {
     super.wasShown();
     if (this.updateWhenVisible) {
-      this.update();
+      void this.update();
     }
   }
 

@@ -97,7 +97,8 @@ export class TimelineEventOverviewNetwork extends TimelineEventOverview {
     this.#traceParsedData = traceParsedData;
   }
 
-  override update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
+  override async update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds):
+      Promise<void> {
     this.resetCanvas();
     this.#renderWithTraceParsedData(start, end);
   }
@@ -319,7 +320,7 @@ export class TimelineEventOverviewCPUActivity extends TimelineEventOverview {
     applyPattern(backgroundContext);
   }
 
-  override update(): void {
+  override async update(): Promise<void> {
     const traceBoundsState = TraceBounds.TraceBounds.BoundsManager.instance().state();
     const bounds = traceBoundsState?.milli.minimapTraceBounds;
     if (!bounds) {
@@ -373,7 +374,8 @@ export class TimelineEventOverviewResponsiveness extends TimelineEventOverview {
     return allWarningEvents;
   }
 
-  override update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
+  override async update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds):
+      Promise<void> {
     this.resetCanvas();
 
     const height = this.height();
@@ -427,9 +429,9 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
     this.reset();
   }
 
-  override update(
+  override async update(
       customStartTime?: TraceEngine.Types.Timing.MilliSeconds,
-      customEndTime?: TraceEngine.Types.Timing.MilliSeconds): void {
+      customEndTime?: TraceEngine.Types.Timing.MilliSeconds): Promise<void> {
     this.resetCanvas();
     const frames = this.#filmStrip ? this.#filmStrip.frames : [];
     if (!frames.length) {
@@ -564,7 +566,8 @@ export class TimelineEventOverviewMemory extends TimelineEventOverview {
     this.heapSizeLabel.textContent = '';
   }
 
-  override update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds): void {
+  override async update(start?: TraceEngine.Types.Timing.MilliSeconds, end?: TraceEngine.Types.Timing.MilliSeconds):
+      Promise<void> {
     this.resetCanvas();
     const ratio = window.devicePixelRatio;
 

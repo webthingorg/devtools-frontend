@@ -201,7 +201,7 @@ export class PaintProfilerView extends Common.ObjectWrapper.eventMixin<EventType
   }
 
   override onResize(): void {
-    this.update();
+    void this.update();
   }
 
   async setSnapshotAndLog(
@@ -216,7 +216,7 @@ export class PaintProfilerView extends Common.ObjectWrapper.eventMixin<EventType
     this.logCategories = this.log.map(PaintProfilerView.categoryForLogItem);
 
     if (!snapshot) {
-      this.update();
+      void this.update();
       this.populatePieChart(0, []);
       this.selectionWindowInternal.setEnabled(false);
       return;
@@ -230,7 +230,7 @@ export class PaintProfilerView extends Common.ObjectWrapper.eventMixin<EventType
 
     this.progressBanner.classList.add('hidden');
     this.profiles = profiles;
-    this.update();
+    void this.update();
     this.updatePieChart();
   }
 
@@ -243,7 +243,7 @@ export class PaintProfilerView extends Common.ObjectWrapper.eventMixin<EventType
     }
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     this.canvas.width = this.canvasContainer.clientWidth * window.devicePixelRatio;
     this.canvas.height = this.canvasContainer.clientHeight * window.devicePixelRatio;
     this.samplesPerBar = 0;
@@ -464,7 +464,7 @@ export class PaintProfilerCommandLogView extends UI.ThrottledWidget.ThrottledWid
 
   updateWindow(selectionWindow: {left: number, right: number}|null): void {
     this.selectionWindow = selectionWindow;
-    this.update();
+    void this.update();
   }
 
   override doUpdate(): Promise<void> {
@@ -507,7 +507,7 @@ export class LogTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   override onattach(): void {
-    this.update();
+    void this.update();
   }
 
   override async onpopulate(): Promise<void> {

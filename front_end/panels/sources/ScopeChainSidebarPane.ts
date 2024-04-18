@@ -156,7 +156,7 @@ export class ScopeChainSidebarPane extends UI.Widget.VBox implements UI.ContextF
     }
   }
 
-  private async update(): Promise<void> {
+  override async update(): Promise<void> {
     // The `resolveThisObject(callFrame)` and `resolveScopeChain(callFrame)` calls
     // below may take a while to complete, so indicate to the user that something
     // is happening (see https://crbug.com/1162416).

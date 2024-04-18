@@ -153,7 +153,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
 
     this.updateThrottler = new Common.Throttler.Throttler(100);
     this.maxAsyncStackChainDepth = defaultMaxAsyncStackChainDepth;
-    this.update();
+    void this.update();
 
     this.updateItemThrottler = new Common.Throttler.Throttler(100);
     this.scheduledForUpdateItems = new Set();
@@ -177,11 +177,11 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     this.showIgnoreListed = false;
     this.ignoreListCheckboxElement.checked = false;
     this.maxAsyncStackChainDepth = defaultMaxAsyncStackChainDepth;
-    this.update();
+    void this.update();
   }
 
   private debugInfoAttached(): void {
-    this.update();
+    void this.update();
   }
 
   private setSourceMapSubscription(debuggerModel: SDK.DebuggerModel.DebuggerModel|null): void {
@@ -202,11 +202,11 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     }
   }
 
-  private update(): void {
-    void this.updateThrottler.schedule(() => this.doUpdate());
+  override async update(): Promise<void> {
+    return this.updateThrottler.schedule(() => this.doUpdate());
   }
 
-  private async doUpdate(): Promise<void> {
+  protected override async doUpdate(): Promise<void> {
     this.locationPool.disposeAll();
 
     this.callFrameWarningsElement.classList.add('hidden');
@@ -429,7 +429,7 @@ export class CallStackSidebarPane extends UI.View.SimpleView implements UI.Conte
     showAllLink.textContent = i18nString(UIStrings.showMore);
     showAllLink.addEventListener('click', () => {
       this.maxAsyncStackChainDepth += defaultMaxAsyncStackChainDepth;
-      this.update();
+      void this.update();
     }, false);
     return element;
   }

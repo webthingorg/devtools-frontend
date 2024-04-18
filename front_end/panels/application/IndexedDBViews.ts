@@ -318,7 +318,7 @@ export class IDBDataView extends UI.View.SimpleView {
     this.pageSize = 50;
     this.skipCount = 0;
 
-    this.update(objectStore, index);
+    void this.update(objectStore, index);
     this.entries = [];
   }
 
@@ -478,7 +478,10 @@ export class IDBDataView extends UI.View.SimpleView {
     this.updateData(true);
   }
 
-  update(objectStore: ObjectStore, index: Index|null): void {
+  override async update(objectStore: ObjectStore|null = null, index: Index|null = null): Promise<void> {
+    if (!objectStore) {
+      return;
+    }
     this.objectStore = objectStore;
     this.index = index;
 

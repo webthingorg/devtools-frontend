@@ -168,7 +168,7 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     }
 
     this.#highlightedBreakpoint = null;
-    this.update();
+    void this.update();
   }
 
   static instance(): DOMBreakpointsSidebarPane {
@@ -346,10 +346,10 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
   }
 
   flavorChanged(_object: Object|null): void {
-    this.update();
+    void this.update();
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     const details = UI.Context.Context.instance().flavor(SDK.DebuggerModel.DebuggerPausedDetails);
     if (this.#highlightedBreakpoint) {
       const oldHighlightedBreakpoint = this.#highlightedBreakpoint;

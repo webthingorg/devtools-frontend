@@ -32,6 +32,7 @@ import '../../core/dom_extension/dom_extension.js';
 
 import * as Platform from '../../core/platform/platform.js';
 import * as Helpers from '../components/helpers/helpers.js';
+import * as RenderCoordinator from '../components/render_coordinator/render_coordinator.js';
 
 import {Constraints, Size} from './Geometry.js';
 import * as ThemeSupport from './theme_support/theme_support.js';
@@ -50,6 +51,29 @@ function assert(condition: unknown, message: string): void {
     throw new Error(message);
   }
 }
+type Constructor<T> = new (...args: any[]) => T;
+
+export class WidgetElement<WidgetT extends Widget> extends HTMLElement {
+  widgetClass?: Constructor<WidgetT>;
+
+  createWidget(): WidgetT {
+    if (!this.widgetClass || !('createOnDemand' in this.widgetClass)) {
+      throw new Error('No widget class');
+    }
+    return (this.widgetClass.createOnDemand as (e: Node) => WidgetT)(this);
+  }
+
+  connectedCallback(): void {
+    Widget.getOrCreateWidget(this).show(this.parentElement as HTMLElement);
+  }
+
+  wasShown(): void {
+  }
+  willHide(): void {
+  }
+}
+
+customElements.define('devtools-widget', WidgetElement);
 
 const widgetCounterMap = new WeakMap<Node, number>();
 const widgetMap = new WeakMap<Node, Widget>();
@@ -71,11 +95,12 @@ function decrementWidgetCounter(parentElement: Element, childElement: Element): 
   }
 }
 
+let id = 0;
+
 export class Widget {
-  readonly element: HTMLDivElement;
-  contentElement: HTMLDivElement;
-  private shadowRoot: ShadowRoot|undefined;
-  private readonly isWebComponent: boolean|undefined;
+  readonly element: HTMLElement;
+  contentElement: HTMLElement;
+  private shadowRoot: ShadowRoot|null;
   protected visibleInternal: boolean;
   private isRoot: boolean;
   private isShowingInternal: boolean;
@@ -90,22 +115,23 @@ export class Widget {
   private constraintsInternal?: Constraints;
   private invalidationsRequested?: boolean;
   private externallyManaged?: boolean;
-  constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
-    this.contentElement = document.createElement('div');
-    this.contentElement.classList.add('widget');
-    if (isWebComponent) {
-      this.element = document.createElement('div');
+  #id = `${this.constructor.name}_${id++}`;
+  constructor(useShadowDom?: boolean, delegatesFocus?: boolean, element?: HTMLElement) {
+    this.element = element || document.createElement('div');
+    this.shadowRoot = this.element.shadowRoot;
+    if (useShadowDom && !this.shadowRoot) {
       this.element.classList.add('vbox');
       this.element.classList.add('flex-auto');
       this.shadowRoot = createShadowRootWithCoreStyles(this.element, {
         cssFile: undefined,
         delegatesFocus,
       });
+      this.contentElement = document.createElement('div');
       this.shadowRoot.appendChild(this.contentElement);
     } else {
-      this.element = this.contentElement;
+      this.contentElement = this.element;
     }
-    this.isWebComponent = isWebComponent;
+    this.contentElement.classList.add('widget');
     widgetMap.set(this.element, this);
     this.visibleInternal = false;
     this.isRoot = false;
@@ -118,6 +144,10 @@ export class Widget {
     this.parentWidgetInternal = null;
   }
 
+  static createOnDemand(element: HTMLElement): Widget {
+    return new Widget(undefined, undefined, element);
+  }
+
   /**
    * Returns the {@link Widget} whose element is the given `node`, or `undefined`
    * if the `node` is not an element for a widget.
@@ -127,6 +157,26 @@ export class Widget {
    */
   static get(node: Node): Widget|undefined {
     return widgetMap.get(node);
+  }
+
+  static getOrCreateWidget<WidgetT extends Widget>(element: Node, type?: Constructor<WidgetT>): WidgetT {
+    if (!type) {
+      return Widget.getOrCreateWidget(element, Widget) as WidgetT;
+    }
+
+    let widget = Widget.get(element);
+    if (!widget) {
+      if (element instanceof WidgetElement) {
+        element.widgetClass ||= Widget;
+        widget = element.createWidget();
+      } else if ('createOnDemand' in type) {
+        widget = (type.createOnDemand as (e: Node) => WidgetT)(element);
+      }
+    }
+    if (!(widget instanceof type)) {
+      throw new Error(`Expected a widget of type ${type.name} but got ${widget?.constructor?.name}`);
+    }
+    return widget;
   }
 
   markAsRoot(): void {
@@ -198,6 +248,9 @@ export class Widget {
     if (this.inNotification()) {
       return;
     }
+    if (this.element instanceof WidgetElement) {
+      this.element.wasShown();
+    }
     this.restoreScrollPositions();
     this.notify(this.wasShown);
     this.callOnVisibleChildren(this.processWasShown);
@@ -209,6 +262,9 @@ export class Widget {
     }
     this.storeScrollPositions();
 
+    if (this.element instanceof WidgetElement) {
+      this.element.willHide();
+    }
     this.callOnVisibleChildren(this.processWillHide);
     this.notify(this.willHide);
     this.isShowingInternal = false;
@@ -466,7 +522,7 @@ export class Widget {
   }
 
   registerRequiredCSS(cssFile: {cssContent: string}): void {
-    if (this.isWebComponent) {
+    if (this.shadowRoot) {
       ThemeSupport.ThemeSupport.instance().appendStyle((this.shadowRoot as DocumentFragment), cssFile);
     } else {
       ThemeSupport.ThemeSupport.instance().appendStyle(this.element, cssFile);
@@ -475,7 +531,7 @@ export class Widget {
 
   registerCSSFiles(cssFiles: CSSStyleSheet[]): void {
     let root: ShadowRoot|Document;
-    if (this.isWebComponent && this.shadowRoot !== undefined) {
+    if (this.shadowRoot) {
       root = this.shadowRoot;
     } else {
       root = Helpers.GetRootNode.getRootNode(this.contentElement);
@@ -617,6 +673,19 @@ export class Widget {
     assert(!this.parentWidgetInternal, 'Attempt to mark widget as externally managed after insertion to the DOM');
     this.externallyManaged = true;
   }
+
+  protected doUpdate(): Promise<void> {
+    return Promise.resolve();
+  }
+
+  update(): Promise<void> {
+    return RenderCoordinator.RenderCoordinator.RenderCoordinator.instance().write(this.#id, () => this.doUpdate());
+  }
+
+  pendingUpdate(): Promise<void> {
+    return RenderCoordinator.RenderCoordinator.RenderCoordinator.instance().findPendingWrite(this.#id) ||
+        Promise.resolve();
+  }
 }
 
 const storedScrollPositions = new WeakMap<Element, {
@@ -625,8 +694,8 @@ const storedScrollPositions = new WeakMap<Element, {
 }>();
 
 export class VBox extends Widget {
-  constructor(isWebComponent?: boolean, delegatesFocus?: boolean) {
-    super(isWebComponent, delegatesFocus);
+  constructor(useShadowDom?: boolean, delegatesFocus?: boolean, element?: HTMLElement) {
+    super(useShadowDom, delegatesFocus, element);
     this.contentElement.classList.add('vbox');
   }
 
@@ -645,8 +714,8 @@ export class VBox extends Widget {
 }
 
 export class HBox extends Widget {
-  constructor(isWebComponent?: boolean) {
-    super(isWebComponent);
+  constructor(useShadowDom?: boolean) {
+    super(useShadowDom);
     this.contentElement.classList.add('hbox');
   }
 

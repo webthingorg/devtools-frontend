@@ -57,7 +57,7 @@ export class TimelinePaintProfilerView extends UI.SplitWidget.SplitWidget {
     super.wasShown();
     if (this.needsUpdateWhenVisible) {
       this.needsUpdateWhenVisible = false;
-      this.update();
+      void this.update();
     }
   }
 
@@ -102,7 +102,7 @@ export class TimelinePaintProfilerView extends UI.SplitWidget.SplitWidget {
 
   private updateWhenVisible(): void {
     if (this.isShowing()) {
-      this.update();
+      void this.update();
     } else {
       this.needsUpdateWhenVisible = true;
     }
@@ -139,7 +139,7 @@ export class TimelinePaintProfilerView extends UI.SplitWidget.SplitWidget {
     return tracingLayerTree ? tracingLayerTree.pictureForRasterTile(data.tileId.id_ref) : null;
   }
 
-  private update(): void {
+  override async update(): Promise<void> {
     this.logTreeView.setCommandLog([]);
     void this.paintProfilerView.setSnapshotAndLog(null, [], null);
 

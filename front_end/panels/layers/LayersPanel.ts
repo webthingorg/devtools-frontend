@@ -153,7 +153,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
     void this.updateThrottler.schedule(this.update.bind(this));
   }
 
-  private update(): Promise<void> {
+  override async update(): Promise<void> {
     if (this.model) {
       this.layerViewHost.setLayerTree(this.model.layerTree());
       const resourceModel = this.model.target().model(SDK.ResourceTreeModel.ResourceTreeModel);
@@ -175,7 +175,7 @@ export class LayersPanel extends UI.Panel.PanelWithSidebar implements SDK.Target
     }
     const selection = this.layerViewHost.selection();
     if (selection && selection.layer() === layer) {
-      this.layerDetailsView.update();
+      void this.layerDetailsView.update();
     }
     this.layers3DView.updateLayerSnapshot(layer);
   }

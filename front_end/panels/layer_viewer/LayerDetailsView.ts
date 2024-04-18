@@ -196,7 +196,7 @@ export class LayerDetailsView extends Common.ObjectWrapper.eventMixin<EventTypes
   selectObject(selection: Selection|null): void {
     this.selection = selection;
     if (this.isShowing()) {
-      this.update();
+      void this.update();
     }
   }
 
@@ -206,7 +206,7 @@ export class LayerDetailsView extends Common.ObjectWrapper.eventMixin<EventTypes
   override wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([layerDetailsViewStyles]);
-    this.update();
+    void this.update();
   }
 
   private onScrollRectClicked(index: number, event: Event): void {
@@ -298,7 +298,7 @@ export class LayerDetailsView extends Common.ObjectWrapper.eventMixin<EventTypes
         i18nString(UIStrings.nearestLayerShiftingContaining), constraint.nearestLayerShiftingContainingBlock());
   }
 
-  update(): void {
+  override async update(): Promise<void> {
     const layer = this.selection && this.selection.layer();
     if (!layer) {
       this.tableElement.remove();

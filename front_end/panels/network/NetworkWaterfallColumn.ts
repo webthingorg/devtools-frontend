@@ -215,7 +215,7 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
   }
 
   override wasShown(): void {
-    this.update();
+    void this.update();
     this.registerCSSFiles([networkWaterfallColumnStyles]);
   }
 
@@ -344,7 +344,8 @@ export class NetworkWaterfallColumn extends UI.Widget.VBox {
     void coordinator.write('NetworkWaterfallColumn.render', () => this.update());
   }
 
-  update(scrollTop?: number, eventDividers?: Map<string, number[]>, nodes?: NetworkNode[]): void {
+  override async update(scrollTop?: number, eventDividers?: Map<string, number[]>, nodes?: NetworkNode[]):
+      Promise<void> {
     if (scrollTop !== undefined && this.scrollTop !== scrollTop) {
       this.popoverHelper.hidePopover();
       this.scrollTop = scrollTop;
