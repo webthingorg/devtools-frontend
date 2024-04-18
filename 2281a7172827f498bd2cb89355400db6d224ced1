@@ -106,6 +106,24 @@
       "parentUuid": "850a950d_17ddf11d",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f9a94c_7c05973e",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-18T19:16:56Z",
+      "side": 0,
+      "message": "Awesome! Thank you. I\u0027ve updated the patch. Let me know if this works for mac as well",
+      "parentUuid": "b7657943_661627f5",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
