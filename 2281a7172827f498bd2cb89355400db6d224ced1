@@ -124,6 +124,24 @@
       "parentUuid": "b7657943_661627f5",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77c28db6_16ddbc20",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-18T20:36:20Z",
+      "side": 0,
+      "message": "So I found two things:\n\n1) settings are in a container marked as an ARIA modal dialog. The alerts are outside of the dialog and by looking in Chrome\u0027s a11y tree via the a11y tree experiment I can see that browser actually ignores those nodes, likely, because they are outside of the modal dialog. Potential solution: is to have alerts inside the dialog container.\n\n2) even if I marked the dialog as a non-modal, the alert would not be announced if I call the alert immediately, if I put it after a 5sec setTimeout then it is announced as expected. I believe this one is caused by the re-render and perhaps if there are too many things to announce some are dropped. Perhaps we need to make updates smarter to schedule the alert later.",
+      "parentUuid": "52f9a94c_7c05973e",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
