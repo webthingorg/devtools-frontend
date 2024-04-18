@@ -142,6 +142,24 @@
       "parentUuid": "52f9a94c_7c05973e",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "812aa2d7_1b056f95",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-18T22:36:14Z",
+      "side": 0,
+      "message": "Thanks for trying this out! Just to be sure I understand point 1) - are you saying that positioning the alert inside the settings container marked as modal dialog, would result in the announcement being made? \n\nIf this is the case, I know we hide the app-wide alert elements from the layout for some reason [here]( https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/ARIAUtils.ts;l\u003d374) but maybe we can do something different with an alert element inside the modal dialog\n\nFor 2) Agreed, re-rendering can be done better but I think all the alert callsites in this patch should be after re-rendering though. So if marking the dialog as non-modal and calling the alert after re-rendering doesn\u0027t produce the announcement, I suspect there might be other factors involved here.",
+      "parentUuid": "77c28db6_16ddbc20",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
