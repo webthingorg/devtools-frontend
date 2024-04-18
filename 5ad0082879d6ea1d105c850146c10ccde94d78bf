@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f60feac_1a9af43a",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-04-18T21:54:46Z",
+      "side": 1,
+      "message": "Do you need to have added this to the histogram first?",
+      "revId": "5ad0082879d6ea1d105c850146c10ccde94d78bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
