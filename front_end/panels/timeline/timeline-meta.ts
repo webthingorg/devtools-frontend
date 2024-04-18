@@ -79,7 +79,7 @@ async function loadTimelineModule(): Promise<typeof Timeline> {
 // part of the shell app, and thus all of the extensions registered in profiler
 // belong to all apps that extend from shell.
 // Instead, we register the extensions for the js profiler tab in panels/timeline/ and
-// js_profiler/ so that the tab is available only in the apps it belongs to.
+// js_timeline/ so that the tab is available only in the apps it belongs to.
 
 function maybeRetrieveContextTypes<T = unknown>(getClassCallBack: (timelineModule: typeof Timeline) => T[]): T[] {
   if (loadedTimelineModule === undefined) {
