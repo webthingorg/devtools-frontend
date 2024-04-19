@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56137468_8525b574",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7801707b_eacc5e4e",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b5f31ad_89e95a8e",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n  UseErrorMatchingDictionaryNotUsed \u003d \u0027SharedDictionaryIssue::UseErrorMatchingDictionaryNotUsed\u0027,\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24e1a745_6bf32611",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b5f31ad_89e95a8e",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa6880e9_cc917fb0",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05a3ea7b_05a2c337",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82f091cd_a96629b9",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n      return IssueCode.UseErrorMatchingDictionaryNotUsed;\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a46bcc7c_e62d357a",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82f091cd_a96629b9",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4e1084a_109cf1ae",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6719452b_b3755c3c",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f654be80_b530a10b",
@@ -133,6 +223,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n      file: \u0027sharedDictionaryUseErrorMatchingDictionaryNotUsed.md\u0027,\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "526a7052_69b70aa1",
+        "filename": "front_end/models/issues_manager/SharedDictionaryIssue.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f654be80_b530a10b",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -160,6 +268,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce2ae723_016f46f9",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorCrossOriginNoCorsRequest.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2b19634_00c7ee9a",
+      "range": {
+        "startLine": 1,
+        "startChar": 10,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3af10585_8c127bcd",
@@ -173,6 +305,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# Failed to load the matching dictionary\n\nA matching dictionary was found but it failed to load.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61f2e7ff_7ebf00cf",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorDictionaryLoadFailure.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3af10585_8c127bcd",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -194,6 +344,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138c501a_aa500ac1",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorMachingDictionaryNotUsed.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04b9e0fc_6ae66418",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab57c3f3_9a1d6f33",
@@ -207,6 +375,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\nConsider revisiting the `match` pattern or `match-dest` of the dictionary.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b81714_ef272a17",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryUseErrorMachingDictionaryNotUsed.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab57c3f3_9a1d6f33",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -228,6 +414,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ea4d34b_96ccb6eb",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorInvalidMatchField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01dbdd39_7386266e",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61bc840f_d210c8d9",
@@ -241,6 +445,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# `Use-As-Dictionary` HTTP response header is not a valid Structured Field value\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d4d857b_da1cbf0a",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorInvalidStructuredHeader.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61bc840f_d210c8d9",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -262,6 +484,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d8d63b1_ab900e72",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNavigationRequest.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09231fc5_d616f09e",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dd0c2b5_fbe3da1c",
@@ -275,6 +515,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# There is no `match` field in the `Use-As-Dictionary` HTTP response header\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7c6df4b_3d5154ae",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNoMatchField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dd0c2b5_fbe3da1c",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -296,6 +554,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e88d24e_087bb9df",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonListMatchDestField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "221f8653_d1d40911",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "935d02ce_cc3eba3c",
@@ -309,6 +585,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# Unable to register a dictionary in a non-Secure Context\n\nCompression dictionaries are only available over HTTPS.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "248cb07e_6f3b01ec",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonSecureContext.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "935d02ce_cc3eba3c",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -330,6 +624,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "563bae87_faa9d161",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonStringIdField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82d001c2_aa31e545",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ecf547b_e4f552a7",
@@ -343,6 +655,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# Items in the `match-dest` field of the `Use-As-Dictionary` HTTP response header must be strings\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e3a4cc2_964d7215",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonStringInMatchDestList.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ecf547b_e4f552a7",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -364,6 +694,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae9c0361_ed12082a",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonStringMatchField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6920d0c0_79aaae87",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfef69e2_3955c607",
@@ -377,6 +725,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# The `type` field of the `Use-As-Dictionary` HTTP response header must be a token\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b53f3460_1363a344",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorNonTokenTypeField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfef69e2_3955c607",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -398,6 +764,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3a4124_44d4e076",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorRequestAborted.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "755d4ebd_3da2f4b7",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f7525fc_18afa51b",
@@ -411,6 +795,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# Failed to write the dictionary due to shutdown\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "831f2224_486fc55b",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorShuttingDown.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f7525fc_18afa51b",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -432,6 +834,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bb04583_4bb37096",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorTooLongIdField.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "934c16b3_bc0db348",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78d62aec_5f059578",
@@ -445,6 +865,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n# The `type` field of the `Use-As-Dictionary` HTTP response header must be `raw`\n\nOnly `raw` dictionaries are currently supported.\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b81b93c_ba3304d2",
+        "filename": "front_end/models/issues_manager/descriptions/sharedDictionaryWriteErrorUnsupportedType.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78d62aec_5f059578",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -466,6 +904,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46309eaf_74798c4c",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7e61d98_7717ff17",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6bbebaf_84706f56",
@@ -479,6 +935,24 @@
       "writtenOn": "2024-04-18T14:29:18Z",
       "side": 1,
       "message": "```suggestion\n        UseErrorMatchingDictionaryNotUsed\n```",
+      "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5f9840_0a43a9c3",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 13
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-19T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bbebaf_84706f56",
       "revId": "8092e7bee4e7fa9cedd9b9f33adddc6e35b99a66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
