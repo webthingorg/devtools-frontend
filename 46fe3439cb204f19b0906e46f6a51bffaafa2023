@@ -22,6 +22,30 @@
       },
       "revId": "46fe3439cb204f19b0906e46f6a51bffaafa2023",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "473d2bd3_d480edcf",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-19T13:33:38Z",
+      "side": 0,
+      "message": "Ah yes good point - PTAL ! Now we gather all the ids from both engines and then push them over to CDP. Once the old engine is removed we can simplify this.",
+      "parentUuid": "90a477e9_c6e6e8d6",
+      "range": {
+        "startLine": 1215,
+        "startChar": 75,
+        "endLine": 1216,
+        "endChar": 70
+      },
+      "revId": "46fe3439cb204f19b0906e46f6a51bffaafa2023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
