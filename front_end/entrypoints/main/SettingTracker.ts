@@ -11,8 +11,8 @@ const consoleInsightsEnabledSettingName = 'console-insights-enabled';
 
 export class SettingTracker {
   constructor() {
-    this.#trackConsoleInsightSettingChange();
     this.#syncConsoleInsightSettingsWithQueryParams();
+    this.#trackConsoleInsightSettingChange();
   }
 
   #trackConsoleInsightSettingChange(): void {
