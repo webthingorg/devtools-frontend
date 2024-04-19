@@ -16,6 +16,108 @@
       "message": "Ergün, could you please take a look?:)",
       "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4100de36_70bfc410",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-19T09:45:48Z",
+      "side": 1,
+      "message": "I found out a few UI things to discuss, I didn\u0027t look into the places where `createTextButton` change might have affected; so it\u0027d be cool to go over them and check if there are any unintended UI changes.",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ed84ed_ed5819cc",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-19T09:45:48Z",
+      "side": 1,
+      "message": "Whoa, I think this button looks great!\n\nHowever, I have a concern: including this button changes the line height and this causes inconsistency in the UI:\n* The lines that don\u0027t have a text button have 22px height\n* The lines with text button have 30px height.\n\nis this something intentional or acceptable; or should we think of a solution to make them have the same line height?\n\nIn addition to that, it seems like padding inside the text button causes the text to start from inside; which causes the start of texts to not be vertically aligned in the list.\n\nSee the screenshot: https://g-issues.chromium.org/issues/40248266#comment21",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad2afef9_f1a0cea2",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-19T09:45:48Z",
+      "side": 1,
+      "message": "After this change, the buttons look too close to each other: b/40248266",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d57cf582_d5a34f41",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-19T09:45:48Z",
+      "side": 1,
+      "message": "I think returning our `Button` as `HTMLButtonElement` might be error prone as they are not exactly interchangable. For example, `HTMLButtonElement` contains a property `labels` or things like `formAction` where our `Button` doesn\u0027t have.\n\nSo, I\u0027d prefer if `createTextButton` returned our `Button` element and all the references to `HTMLButtonElement` replaced with `Buttons.Button.Button` in the places where `createTextButton` is used. WDYT?",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dab568dc_4251cfd8",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-19T09:45:48Z",
+      "side": 1,
+      "message": "(nit): we don\u0027t need the `?` operator in the second opts?.variant :)",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a3889c_041c0126",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-19T09:45:48Z",
+      "side": 1,
+      "message": "Not sure if it is directly because of this change, but the buttons in confirm dialog look too close to each other too: https://g-issues.chromium.org/issues/40248266#comment23",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
