@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8b000a6_eb8ab189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-04-19T04:30:30Z",
+      "side": 1,
+      "message": "Done. I also refactor the code. See the Escape effect result in https://crbug.com/330967147#comment4",
+      "parentUuid": "c73517f6_6fd1907d",
+      "revId": "3ee90310f88054a61da8015b9b476a9f05505147",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa6be57_77e896f0",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-04-17T14:18:28Z",
       "side": 1,
       "message": "nit: or",
+      "range": {
+        "startLine": 465,
+        "startChar": 50,
+        "endLine": 465,
+        "endChar": 53
+      },
+      "revId": "3ee90310f88054a61da8015b9b476a9f05505147",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0598a375_ae1fc772",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-04-19T04:30:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fa6be57_77e896f0",
       "range": {
         "startLine": 465,
         "startChar": 50,
