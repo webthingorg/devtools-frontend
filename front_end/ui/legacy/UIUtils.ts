@@ -37,6 +37,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
+import * as Buttons from '../components/buttons/buttons.js';
 import * as IconButton from '../components/icon_button/icon_button.js';
 import * as VisualLogging from '../visual_logging/visual_logging.js';
 
@@ -1083,17 +1084,14 @@ export const createTextChildren = (element: Element|DocumentFragment, ...childre
 export function createTextButton(text: string, clickHandler?: ((arg0: Event) => void), opts?: {
   className?: string,
   jslogContext?: string,
-  primary?: boolean,
+  variant?: Buttons.Button.Variant,
 }): HTMLButtonElement {
-  const element = document.createElement('button');
+  const element = new Buttons.Button.Button();
   if (opts?.className) {
     element.className = opts.className;
   }
   element.textContent = text;
-  element.classList.add('text-button');
-  if (opts?.primary) {
-    element.classList.add('primary-button');
-  }
+  element.variant = opts?.variant ? opts?.variant : Buttons.Button.Variant.OUTLINED;
   if (clickHandler) {
     element.addEventListener('click', clickHandler);
   }
@@ -1101,7 +1099,7 @@ export function createTextButton(text: string, clickHandler?: ((arg0: Event) => 
     element.setAttribute('jslog', `${VisualLogging.action().track({click: true}).context(opts.jslogContext)}`);
   }
   element.type = 'button';
-  return element;
+  return element as unknown as HTMLButtonElement;
 }
 
 export function createInput(className?: string, type?: string, jslogContext?: string): HTMLInputElement {
@@ -1570,7 +1568,8 @@ export class MessageDialog {
         dialog.contentElement, {cssFile: confirmDialogStyles, delegatesFocus: undefined});
     const content = shadowRoot.createChild('div', 'widget');
     await new Promise(resolve => {
-      const okButton = createTextButton(i18nString(UIStrings.ok), resolve, {jslogContext: 'confirm', primary: true});
+      const okButton = createTextButton(
+          i18nString(UIStrings.ok), resolve, {jslogContext: 'confirm', variant: Buttons.Button.Variant.PRIMARY});
       content.createChild('div', 'message').createChild('span').textContent = message;
       content.createChild('div', 'button').appendChild(okButton);
       dialog.setOutsideClickCallback(event => {
@@ -1598,7 +1597,7 @@ export class ConfirmDialog {
     const result = await new Promise<boolean>(resolve => {
       const okButton = createTextButton(
           /* text= */ options?.okButtonLabel || i18nString(UIStrings.ok), /* clickHandler= */ () => resolve(true),
-          {jslogContext: 'confirm', primary: true});
+          {jslogContext: 'confirm', variant: Buttons.Button.Variant.PRIMARY});
       buttonsBar.appendChild(okButton);
       buttonsBar.appendChild(createTextButton(
           options?.cancelButtonLabel || i18nString(UIStrings.cancel), () => resolve(false), {jslogContext: 'cancel'}));
