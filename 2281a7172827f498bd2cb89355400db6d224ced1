@@ -196,6 +196,24 @@
       "parentUuid": "11d3843a_8a8463f7",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bee422_9ffb78a1",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-19T19:08:54Z",
+      "side": 0,
+      "message": "Thanks for clarifying. Makes sense. With regards to re-rendering, the `commitChanges` function, removes and adds shortcut changes to a setting which has a changeListener set to the `update` call. Inside the update call we always do `this.list.refreshAllItems()` to re-render the entire list which feels a bit extra when we only change a single shortcut item. Maybe we can be smarter about when we really need to referesh the entire list vs. when we just need to refresh one list item?",
+      "parentUuid": "18fd740b_418e3fb3",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
