@@ -1471,7 +1471,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   #onSourceMapsNodeNamesResolved(): void {
-    this.flameChart.updateColorMapper();
+    this.flameChart.update();
   }
 
   async loadingComplete(
