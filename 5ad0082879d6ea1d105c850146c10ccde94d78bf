@@ -16,6 +16,24 @@
       "message": "Do you need to have added this to the histogram first?",
       "revId": "5ad0082879d6ea1d105c850146c10ccde94d78bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3a2390_2e4daf82",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-04-19T17:55:47Z",
+      "side": 1,
+      "message": "Looking at previous CLs it does seem like it should get added the time the experiment is registered.\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5215444\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5007625",
+      "parentUuid": "6f60feac_1a9af43a",
+      "revId": "5ad0082879d6ea1d105c850146c10ccde94d78bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
