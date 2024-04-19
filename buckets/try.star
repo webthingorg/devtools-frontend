@@ -126,7 +126,7 @@ builder_coverage(
     builder_name_pattern = "devtools_frontend_%s_rel",
     recipe_name = "devtools/devtools-frontend",
     execution_timeout = default_timeout,
-    properties = {"clobber": True, "parallel": True},
+    properties = {"clobber": True, "parallel": True, "coverage": False},
 )
 
 builder_coverage(
