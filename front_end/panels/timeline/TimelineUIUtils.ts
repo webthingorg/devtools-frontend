@@ -1199,6 +1199,9 @@ export class TimelineUIUtils {
         event[previewElementSymbol] = previewElement;
       }
 
+      // TODO: once the new engine can resolve nodeIds for the events that the
+      // old engine can, we can remove this block and use the FetchNodes helper
+      // called below.
       const nodeIdsToResolve = new Set<Protocol.DOM.BackendNodeId>();
       const timelineData = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(event);
       if (timelineData.backendNodeIds) {
@@ -1212,8 +1215,7 @@ export class TimelineUIUtils {
           relatedNodesMap = await domModel.pushNodesByBackendIdsToFrontend(nodeIdsToResolve);
         }
       }
-      if (traceParseData && TraceEngine.Legacy.eventIsFromNewEngine(event) &&
-          TraceEngine.Types.TraceEvents.isSyntheticLayoutShift(event)) {
+      if (traceParseData && TraceEngine.Legacy.eventIsFromNewEngine(event)) {
         relatedNodesMap = await TraceEngine.Extras.FetchNodes.extractRelatedDOMNodesFromEvent(traceParseData, event);
       }
     }
