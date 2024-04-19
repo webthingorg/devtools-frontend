@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90a477e9_c6e6e8d6",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-19T13:20:48Z",
+      "side": 0,
+      "message": "I think this would cause the dom nodes resolved for events we don\u0027t support yet to be dumped (since we are replacing `relatedNodesMap`).",
+      "range": {
+        "startLine": 1215,
+        "startChar": 75,
+        "endLine": 1216,
+        "endChar": 70
+      },
+      "revId": "46fe3439cb204f19b0906e46f6a51bffaafa2023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
