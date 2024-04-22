@@ -8,6 +8,9 @@
   --ref-typeface-weight-regular: 400;
   --ref-typeface-weight-medium: 500;
   --ref-typeface-weight-bold: 700;
+  --sys-drop-shadow:
+    0 1px 2px 0 rgb(0 0 0 / 30%),
+    0 2px 6px 0 rgb(0 0 0 / 15%);
   --sys-size-1: 1px;
   --sys-size-2: 0.125rem;
   --sys-size-3: 0.25rem;
