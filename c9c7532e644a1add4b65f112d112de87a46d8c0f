@@ -34,6 +34,24 @@
       "parentUuid": "242df713_57fe6f03",
       "revId": "c9c7532e644a1add4b65f112d112de87a46d8c0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5262224f_d3c854b3",
+        "filename": "test/run.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-22T08:04:53Z",
+      "side": 1,
+      "message": "Let\u0027s make `error` the default then? :)",
+      "parentUuid": "1a6cf41d_73642eb7",
+      "revId": "c9c7532e644a1add4b65f112d112de87a46d8c0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
