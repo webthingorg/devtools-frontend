@@ -563,8 +563,6 @@ export class TimelineModelImpl {
       }
 
       case RecordType.Paint: {
-        // With CompositeAfterPaint enabled, paint events are no longer
-        // associated with a Node, and nodeId will not be present.
         if ('nodeId' in eventData) {
           timelineData.backendNodeIds.push(eventData['nodeId']);
         }
@@ -577,13 +575,7 @@ export class TimelineModelImpl {
         break;
       }
 
-      case RecordType.ScrollLayer: {
-        timelineData.backendNodeIds.push(eventData['nodeId']);
-        break;
-      }
-
       case RecordType.PaintImage: {
-        timelineData.backendNodeIds.push(eventData['nodeId']);
         timelineData.url = eventData['url'];
         break;
       }
