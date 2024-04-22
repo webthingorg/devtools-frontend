@@ -82,9 +82,14 @@
   user-select: text;
 }
 
+.infobar-info-actions {
+  gap: var(--sys-size-6);
+  display: flex;
+  padding-left: 4px;
+}
+
 .infobar-button {
   color: var(--sys-color-token-subtle);
-  padding: 0 4px;
 }
 
 .info-icon {
@@ -112,11 +117,4 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-}
-
-.devtools-link.text-button:hover,
-.devtools-link.text-button:focus,
-.devtools-link.text-button:active {
-  background-color: transparent;
-  box-shadow: none;
 }

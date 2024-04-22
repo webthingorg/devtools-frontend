@@ -44,9 +44,9 @@ const UIStrings = {
    */
   selectJavascriptVmInstance: 'Select JavaScript VM instance',
   /**
-   *@description Text to load something
+   *@description Text to load a memory profile
    */
-  load: 'Load',
+  load: 'Load profile',
   /**
    *@description Control button text content in Profile Launcher View of a profiler tool
    */
@@ -112,11 +112,14 @@ export class ProfileLauncherView extends Common.ObjectWrapper.eventMixin<EventTy
       jslogContext: 'profiler.heap-toggle-recording',
       variant: Buttons.Button.Variant.PRIMARY,
     });
-    this.loadButton = UI.UIUtils.createTextButton(i18nString(UIStrings.load), this.loadButtonClicked.bind(this), {
-      jslogContext: 'profiler.load-from-file',
-    });
-    buttonsDiv.appendChild(this.controlButton);
+    this.loadButton = new Buttons.Button.Button();
+    this.loadButton.variant = Buttons.Button.Variant.OUTLINED;
+    this.loadButton.iconName = 'import';
+    this.loadButton.jslogContext = 'profiler.load-from-file';
+    this.loadButton.innerText = i18nString(UIStrings.load);
+    this.loadButton.addEventListener('click', this.loadButtonClicked.bind(this));
     buttonsDiv.appendChild(this.loadButton);
+    buttonsDiv.appendChild(this.controlButton);
     this.recordButtonEnabled = true;
 
     this.typeIdToOptionElementAndProfileType = new Map();

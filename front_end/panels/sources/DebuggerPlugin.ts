@@ -1493,7 +1493,7 @@ export class DebuggerPlugin extends Plugin {
         if (SDK.PageResourceLoader.PageResourceLoader.instance().getResourcesLoaded().get(pageResourceKey)) {
           const showRequest = UI.UIUtils.createTextButton(i18nString(UIStrings.showRequest), () => {
             void Common.Revealer.reveal(new SDK.PageResourceLoader.ResourceKey(pageResourceKey));
-          }, {className: 'devtools-link', jslogContext: 'show-request', variant: Buttons.Button.Variant.TEXT});
+          }, {variant: Buttons.Button.Variant.TEXT, className: 'devtools-link', jslogContext: 'show-request'});
           showRequest.style.setProperty('margin-left', '10px');
           showRequest.title = i18nString(UIStrings.openDeveloperResources);
           detailsRow.appendChild(showRequest);

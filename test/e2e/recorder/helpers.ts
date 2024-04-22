@@ -213,7 +213,9 @@ export async function clickSelectButtonItem(itemLabel: string, root: string) {
       'devtools-select-menu-button',
       selectMenu,
   );
+  console.log('SELECT MENU BUTTON : ', selectMenuButton);
   const selectMenuButtonArrow = await waitFor('#arrow', selectMenuButton);
+  console.log('SELECT MENU BUTTON ARROW: ', selectMenuButtonArrow);
   const animationEndPromise = waitForDialogAnimationEnd();
   await clickElement(selectMenuButtonArrow);
   await animationEndPromise;

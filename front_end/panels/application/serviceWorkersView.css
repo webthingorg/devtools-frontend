@@ -32,6 +32,7 @@
   /* This label contains important information that needs to be legible at all
      times. Don't shrink it. */
   flex-shrink: 0;
+  margin-right: var(--sys-size-4);
 }
 
 .service-worker-active-circle,
@@ -86,7 +87,7 @@
   border: 1px solid var(--sys-color-divider);
   display: flex;
   flex: auto;
-  margin-right: 4px;
+  margin-right: var(--sys-size-4);
   max-width: 400px;
   min-width: 80px;
 }
@@ -115,6 +116,7 @@
 
 .service-worker-client {
   display: flex;
+  gap: var(--sys-size-4);
 }
 
 .service-worker-client-focus-link {

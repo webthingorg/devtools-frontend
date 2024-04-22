@@ -20,7 +20,7 @@ describeWithEnvironment('ReplayButton', () => {
   let settings: Models.RecorderSettings.RecorderSettings;
   async function createReplayButton() {
     settings = new Models.RecorderSettings.RecorderSettings();
-    const component = new RecorderComponents.ReplayButton.ReplayButton();
+    const component = new RecorderComponents.ReplayButton.ReplaySection();
     component.data = {settings, replayExtensions: []};
     renderElementIntoDOM(component);
     await coordinator.done();
@@ -32,49 +32,26 @@ describeWithEnvironment('ReplayButton', () => {
     settings.speed = Models.RecordingPlayer.PlayRecordingSpeed.Normal;
   });
 
-  it('should change the button value when another option is selected in select menu', async () => {
+  it('should change select menu title when another option is selected', async () => {
     const component = await createReplayButton();
-    const selectButton = component.shadowRoot?.querySelector(
+    const selectSection = component.shadowRoot?.querySelector(
         'devtools-select-button',
     );
+    const selectMenu = selectSection?.shadowRoot?.querySelector('.select-button') as HTMLElement;
     assert.strictEqual(
-        selectButton?.value,
-        Models.RecordingPlayer.PlayRecordingSpeed.Normal,
+        selectMenu?.title,
+        'Normal speed',
     );
 
-    selectButton?.dispatchEvent(
-        new RecorderComponents.SelectButton.SelectButtonClickEvent(
+    selectSection?.dispatchEvent(
+        new RecorderComponents.SelectButton.SelectMenuSelectedEvent(
             Models.RecordingPlayer.PlayRecordingSpeed.Slow,
             ),
     );
     await coordinator.done();
     assert.strictEqual(
-        selectButton?.value,
-        Models.RecordingPlayer.PlayRecordingSpeed.Slow,
-    );
-  });
-
-  it('should emit startreplayevent on selectbuttonclick event', async () => {
-    const component = await createReplayButton();
-    const onceClicked = new Promise<RecorderComponents.ReplayButton.StartReplayEvent>(
-        resolve => {
-          component.addEventListener('startreplay', resolve, {once: true});
-        },
-    );
-
-    const selectButton = component.shadowRoot?.querySelector(
-        'devtools-select-button',
-    );
-    selectButton?.dispatchEvent(
-        new RecorderComponents.SelectButton.SelectButtonClickEvent(
-            Models.RecordingPlayer.PlayRecordingSpeed.Slow,
-            ),
-    );
-
-    const event = await onceClicked;
-    assert.deepEqual(
-        event.speed,
-        Models.RecordingPlayer.PlayRecordingSpeed.Slow,
+        selectMenu?.title,
+        'Slow speed',
     );
   });
 
@@ -85,7 +62,7 @@ describeWithEnvironment('ReplayButton', () => {
     );
 
     selectButton?.dispatchEvent(
-        new RecorderComponents.SelectButton.SelectButtonClickEvent(
+        new RecorderComponents.SelectButton.SelectMenuSelectedEvent(
             Models.RecordingPlayer.PlayRecordingSpeed.Slow,
             ),
     );

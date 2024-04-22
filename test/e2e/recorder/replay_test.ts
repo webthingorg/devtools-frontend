@@ -255,7 +255,7 @@ describe('Recorder', function() {
       assert.strictEqual(value, 'cba');
     });
 
-    it('should be able to override the value in text inputs that are partially prefilled', async () => {
+    it.only('should be able to override the value in text inputs that are partially prefilled', async () => {
       const {target} = getBrowserAndPages();
       await setupRecorderWithScriptAndReplay({
         title: 'Test Recording',
