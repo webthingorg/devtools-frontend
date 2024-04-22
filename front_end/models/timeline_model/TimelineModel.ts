@@ -563,11 +563,6 @@ export class TimelineModelImpl {
       }
 
       case RecordType.Paint: {
-        // With CompositeAfterPaint enabled, paint events are no longer
-        // associated with a Node, and nodeId will not be present.
-        if ('nodeId' in eventData) {
-          timelineData.backendNodeIds.push(eventData['nodeId']);
-        }
         // Only keep layer paint events, skip paints for subframes that get painted to the same layer as parent.
         if (!eventData['layerId']) {
           break;
@@ -577,13 +572,7 @@ export class TimelineModelImpl {
         break;
       }
 
-      case RecordType.ScrollLayer: {
-        timelineData.backendNodeIds.push(eventData['nodeId']);
-        break;
-      }
-
       case RecordType.PaintImage: {
-        timelineData.backendNodeIds.push(eventData['nodeId']);
         timelineData.url = eventData['url'];
         break;
       }
