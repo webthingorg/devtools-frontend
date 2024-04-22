@@ -49,8 +49,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private searchResults!: number[]|undefined;
   private eventListeners: Common.EventTarget.EventDescriptor[];
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private readonly showMemoryGraphSetting: Common.Settings.Setting<any>;
   private readonly networkSplitWidget: UI.SplitWidget.SplitWidget;
   private mainDataProvider: TimelineFlameChartDataProvider;
   private readonly mainFlameChart: PerfUI.FlameChart.FlameChart;
@@ -91,8 +89,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.eventListeners = [];
     this.#traceEngineData = null;
 
-    this.showMemoryGraphSetting = Common.Settings.Settings.instance().createSetting('timeline-show-memory', false);
-
     // Create main and network flamecharts.
     this.networkSplitWidget = new UI.SplitWidget.SplitWidget(false, false, 'timeline-flamechart-main-view', 150);
 
@@ -131,7 +127,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.chartSplitWidget.setSidebarWidget(this.countersView);
     this.chartSplitWidget.hideDefaultResizer();
     this.chartSplitWidget.installResizer((this.countersView.resizerElement() as Element));
-    this.updateCountersGraphToggle();
 
     // Create top level properties splitter.
     this.detailsSplitWidget = new UI.SplitWidget.SplitWidget(false, true, 'timeline-panel-details-split-view-state');
@@ -353,13 +348,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   override willHide(): void {
     this.networkFlameChartGroupExpansionSetting.removeChangeListener(this.resizeToPreferredHeights, this);
-    this.showMemoryGraphSetting.removeChangeListener(this.updateCountersGraphToggle, this);
     Bindings.IgnoreListManager.IgnoreListManager.instance().removeChangeListener(this.boundRefresh);
   }
 
   override wasShown(): void {
     this.networkFlameChartGroupExpansionSetting.addChangeListener(this.resizeToPreferredHeights, this);
-    this.showMemoryGraphSetting.addChangeListener(this.updateCountersGraphToggle, this);
     Bindings.IgnoreListManager.IgnoreListManager.instance().addChangeListener(this.boundRefresh);
     if (this.needsResizeToPreferredHeights) {
       this.resizeToPreferredHeights();
@@ -367,8 +360,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.#updateFlameCharts();
   }
 
-  private updateCountersGraphToggle(): void {
-    if (this.showMemoryGraphSetting.get()) {
+  updateCountersGraphToggle(showMemoryGraph: boolean): void {
+    if (showMemoryGraph) {
       this.chartSplitWidget.showBoth();
     } else {
       this.chartSplitWidget.hideSidebar();
