@@ -203,8 +203,7 @@ describe('LoggingEvents', () => {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance,
         'recordResize',
     );
-    VisualLogging.LoggingEvents.logResize(throttler)(element, new DOMRect(0, 0, 100, 50));
-    await assertThrottled(recordResize);
+    VisualLogging.LoggingEvents.logResize(element, new DOMRect(0, 0, 100, 50));
     assert.deepStrictEqual(stabilizeEvent(recordResize.firstCall.firstArg), {veid: 0, width: 100, height: 50});
   });
 
@@ -213,8 +212,7 @@ describe('LoggingEvents', () => {
         Host.InspectorFrontendHost.InspectorFrontendHostInstance,
         'recordResize',
     );
-    VisualLogging.LoggingEvents.logResize(throttler)(element, new DOMRect(0, 0, 100, 50));
-    await assertThrottled(recordResize);
+    VisualLogging.LoggingEvents.logResize(element, new DOMRect(0, 0, 100, 50));
     assert.deepStrictEqual(stabilizeEvent(recordResize.firstCall.firstArg), {veid: 0, width: 100, height: 50});
   });
 });

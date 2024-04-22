@@ -551,6 +551,57 @@ describe('LoggingDriver', () => {
     assert.deepStrictEqual(stabilizeEvent(recordResize.firstCall.firstArg), {veid: 0, width: 300, height: 300});
   });
 
+  it('throttles resize per element', async () => {
+    addLoggableElements();
+    const element1 = document.getElementById('element') as HTMLElement;
+    const element2 = element1.cloneNode() as HTMLElement;
+    document.getElementById('parent')?.appendChild(element2);
+    await VisualLoggingTesting.LoggingDriver.startLogging({resizeLogThrottler: throttler});
+    const recordResize = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordResize',
+    );
+
+    element1.style.height = '200px';
+    await expectCall(throttle);
+    element2.style.height = '200px';
+    await expectCall(throttle);
+    element1.style.height = '100px';
+    await expectCall(throttle);
+    element2.style.height = '100px';
+    const [work] = await expectCall(throttle);
+
+    assert.isFalse(recordResize.called);
+    await work();
+    assert.isTrue(recordResize.calledTwice);
+    assert.strictEqual(recordResize.firstCall.firstArg.height, 100);
+    assert.strictEqual(recordResize.lastCall.firstArg.height, 100);
+    assert.notStrictEqual(recordResize.firstCall.firstArg.veid, recordResize.lastCall.firstArg.veid);
+  });
+
+  it('only logs resize of the outer element', async () => {
+    addLoggableElements();
+    const element = document.getElementById('element') as HTMLElement;
+    const child = document.createElement('div');
+    child.setAttribute('jslog', 'TreeItem; track: resize');
+    element.appendChild(child);
+
+    await VisualLoggingTesting.LoggingDriver.startLogging({resizeLogThrottler: throttler});
+    const recordResize = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordResize',
+    );
+
+    element.style.width = '400px';
+    await expectCall(throttle);
+    const [work] = await expectCall(throttle);
+
+    assert.isFalse(recordResize.called);
+    await work();
+    assert.isTrue(recordResize.calledOnce);
+    assert.deepStrictEqual(stabilizeEvent(recordResize.firstCall.firstArg), {veid: 0, width: 400, height: 300});
+  });
+
   it('logs resize when removed from DOM', async () => {
     addLoggableElements();
     await VisualLoggingTesting.LoggingDriver.startLogging({resizeLogThrottler: throttler});
