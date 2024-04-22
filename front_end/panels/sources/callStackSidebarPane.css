@@ -64,7 +64,7 @@
 .async-header .call-frame-item-title {
   font-weight: bold;
   color: var(--sys-color-on-surface);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   margin-left: -5px;
   padding: 0 5px;
   z-index: 1;

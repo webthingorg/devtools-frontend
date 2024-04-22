@@ -23,7 +23,7 @@
   padding-right: 10px;
   padding-top: 1px;
   height: 27px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   position: absolute;
   bottom: 0;
   width: 100%;

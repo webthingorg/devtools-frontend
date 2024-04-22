@@ -30,7 +30,7 @@ slot {
 }
 
 :host([aria-pressed="true"]) slot {
-  color: var(--override-adorner-active-text-color, var(--sys-color-cdt-base-container));
+  color: var(--override-adorner-active-text-color, var(--sys-color-devtools-base));
   background-color: var(--override-adorner-active-background-color, var(--sys-color-primary));
   border: 1px solid var(--override-adorner-active-background-color, var(--sys-color-primary));
 }

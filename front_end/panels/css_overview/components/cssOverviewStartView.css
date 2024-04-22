@@ -12,7 +12,7 @@ h1 {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   overflow: auto;
 }
 

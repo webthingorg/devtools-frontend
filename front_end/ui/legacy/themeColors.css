@@ -334,8 +334,8 @@
 
   /* Universal surfaces */
 
-  --sys-color-cdt-base: var(--sys-color-base-container);
-  --sys-color-cdt-base-container: var(--sys-color-base);
+  --sys-color-devtools-base-container: var(--sys-color-base-container);
+  --sys-color-devtools-base: var(--sys-color-base);
 
   /* Tinted surfaces */
 
@@ -744,8 +744,8 @@
 
   /* Universal surfaces */
 
-  --sys-color-cdt-base: var(--sys-color-base);
-  --sys-color-cdt-base-container: var(--sys-color-base-container);
+  --sys-color-devtools-base-container: var(--sys-color-base);
+  --sys-color-devtools-base: var(--sys-color-base-container);
 
   /* Tinted surfaces */
 

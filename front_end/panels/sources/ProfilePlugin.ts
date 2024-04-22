@@ -164,12 +164,12 @@ const makeLineLevelProfilePlugin = (type: SourceFrame.SourceFrame.DecoratorType)
 const theme = CodeMirror.EditorView.baseTheme({
   '.cm-performanceGutter': {
     width: '60px',
-    backgroundColor: 'var(--sys-color-cdt-base-container)',
+    backgroundColor: 'var(--sys-color-devtools-base)',
     marginLeft: '3px',
   },
   '.cm-memoryGutter': {
     width: '48px',
-    backgroundColor: 'var(--sys-color-cdt-base-container)',
+    backgroundColor: 'var(--sys-color-devtools-base)',
     marginLeft: '3px',
   },
   '.cm-profileMarker': {

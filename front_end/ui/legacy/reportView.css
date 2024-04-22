@@ -5,11 +5,11 @@
  */
 
 :host {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .report-content-box {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   overflow: auto;
 }
 

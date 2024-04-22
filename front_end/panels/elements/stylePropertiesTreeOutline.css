@@ -229,7 +229,7 @@ ol.expanded {
   margin: 0 0 0 6px;
   position: absolute;
   top: -1px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-radius: 3px;
   display: inline-flex;
   align-items: center;

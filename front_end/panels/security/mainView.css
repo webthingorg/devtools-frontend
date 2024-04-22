@@ -11,7 +11,7 @@
 .security-main-view {
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .security-main-view > div {
@@ -85,7 +85,7 @@
   transform: rotate(-45deg);
   border-style: solid;
   border-width: 1px 1px 0 0;
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   border-color: var(--sys-color-neutral-outline);
 }
 
@@ -110,7 +110,7 @@
   border-style: solid;
   border-width: 1px 0;
   font-size: 15px;
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   border-color: var(--sys-color-neutral-outline);
   user-select: text;
 }
@@ -140,7 +140,7 @@
 
 .security-explanations-main {
   margin-top: -5px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
 }
 

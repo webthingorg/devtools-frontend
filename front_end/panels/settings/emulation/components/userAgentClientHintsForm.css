@@ -49,7 +49,7 @@
   padding: 3px 6px;
   border-radius: 2px;
   border: 1px solid var(--sys-color-neutral-outline);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   font-size: inherit;
   height: 18px;
 }

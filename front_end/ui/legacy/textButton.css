@@ -13,7 +13,7 @@
   padding: 0 12px;
   font-weight: 500;
   color: var(--sys-color-primary);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   flex: none;
   white-space: nowrap;
 }
@@ -31,7 +31,7 @@
 .text-button:not(:disabled):not(.primary-button):focus-visible {
   outline: 2px solid var(--sys-color-state-focus-ring);
   color: var(--sys-color-on-primary);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .text-button:not(:disabled):not(.running):focus,

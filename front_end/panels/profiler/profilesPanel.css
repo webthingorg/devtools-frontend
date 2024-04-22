@@ -34,7 +34,7 @@
 }
 
 .profile-view .data-grid table.data {
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
 }
 
 .profile-view .data-grid tr:not(.selected) .highlight {
@@ -64,7 +64,7 @@
 }
 
 .profiles-toolbar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
   flex-shrink: 0;
 }
@@ -142,7 +142,7 @@
 
 .empty-landing-page {
   position: absolute;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   justify-content: center;
   align-items: center;
   overflow: auto;

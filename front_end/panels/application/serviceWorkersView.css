@@ -60,7 +60,7 @@
 }
 
 .service-worker-installing-circle {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .service-worker-redundant-circle {
@@ -129,7 +129,7 @@
 }
 
 .service-worker-list {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   overflow: auto;
 }
 

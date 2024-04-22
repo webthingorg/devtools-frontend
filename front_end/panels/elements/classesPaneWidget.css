@@ -5,7 +5,7 @@
  */
 
 .styles-element-classes-pane {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
   padding: 6px 2px 2px;
 }
@@ -33,7 +33,7 @@
   line-height: 15px;
   margin-left: 3px;
   width: calc(100% - 7px);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   cursor: text;
 
   &:hover {

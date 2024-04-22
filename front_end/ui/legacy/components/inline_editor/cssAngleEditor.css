@@ -22,7 +22,7 @@
   top: 6px;
   width: 6em;
   height: 6em;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border: 0.5em solid var(--sys-color-neutral-outline);
   border-radius: 9em;
   box-shadow: var(--drop-shadow), inset 0 0 15px var(--box-shadow-outline-color);

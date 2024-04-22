@@ -49,7 +49,7 @@
   flex: 0 0 27px;
   line-height: 27px;
   padding-left: 5px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-top: 1px solid var(--sys-color-divider);
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -309,7 +309,7 @@
 
 .network-status-pane {
   color: var(--sys-color-token-subtle);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   z-index: 500;
   display: flex;
   justify-content: center;

@@ -148,8 +148,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       ];
       for (const header of headers) {
         header.color = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-on-surface');
-        header.backgroundColor =
-            ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
+        header.backgroundColor = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-devtools-base');
       }
     });
   }
@@ -174,7 +173,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       height: 17,
       collapsible: true,
       color: ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-on-surface'),
-      backgroundColor: ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container'),
+      backgroundColor: ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-devtools-base'),
       nestingLevel: 0,
       shareHeaderLine: true,
     };
@@ -863,7 +862,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     context.save();
 
     // Clear portions of initial rect to prepare for the ticks.
-    context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
+    context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-devtools-base');
     let desiredBoxStartX = timeToPixel(entry.processingStart);
     const desiredBoxEndX = timeToPixel(entry.processingEnd);
 

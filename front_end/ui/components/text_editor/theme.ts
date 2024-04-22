@@ -24,7 +24,7 @@ export const editorTheme = CM.EditorView.theme({
   },
 
   '.cm-panels': {
-    backgroundColor: 'var(--sys-color-cdt-base-container)',
+    backgroundColor: 'var(--sys-color-devtools-base)',
   },
 
   '.cm-panels-bottom': {
@@ -58,7 +58,7 @@ export const editorTheme = CM.EditorView.theme({
   '.cm-gutters': {
     borderRight: 'none',
     whiteSpace: 'nowrap',
-    backgroundColor: 'var(--sys-color-cdt-base-container)',
+    backgroundColor: 'var(--sys-color-devtools-base)',
   },
 
   '.cm-gutters .cm-foldGutterElement': {
@@ -150,13 +150,13 @@ export const editorTheme = CM.EditorView.theme({
   },
 
   '.cm-tooltip.cm-tooltip-autocomplete > ul': {
-    backgroundColor: 'var(--sys-color-cdt-base-container)',
+    backgroundColor: 'var(--sys-color-devtools-base)',
     maxHeight: '25em',
     minWidth: '16em',
     '& > li': {
       display: 'flex',
       justifyContent: 'space-between',
-      border: '1px solid var(--sys-color-cdt-base-container)',
+      border: '1px solid var(--sys-color-devtools-base)',
     },
     '& > li.cm-secondaryCompletion': {
       display: 'flex',
@@ -193,7 +193,7 @@ export const editorTheme = CM.EditorView.theme({
   },
 
   '.cm-tooltip.cm-tooltip-autocomplete.cm-conservativeCompletion > ul > li[aria-selected]': {
-    backgroundColor: 'var(--sys-color-cdt-base-container)',
+    backgroundColor: 'var(--sys-color-devtools-base)',
     border: '1px dotted var(--sys-color-on-surface)',
     '&, &.cm-secondaryCompletion::before': {
       color: 'var(--sys-color-on-surface)',

@@ -40,7 +40,7 @@
 
 .style-panes-wrapper {
   overflow: hidden scroll;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 
   & > div:not(:last-child) {
     border-bottom: 1px solid var(--sys-color-divider);
@@ -53,7 +53,7 @@
 }
 
 #elements-crumbs {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-top: 1px solid var(--sys-color-divider);
   overflow: hidden;
   width: 100%;
@@ -73,7 +73,7 @@ devtools-tree-outline {
   position: absolute;
   top: 16px;
   right: 20px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   display: flex;
   justify-content: center;
   align-items: center;

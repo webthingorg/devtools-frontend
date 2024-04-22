@@ -168,7 +168,7 @@ export class CompatibilityTracksAppender {
         // We only need to update the color here, because FlameChart will call `scheduleUpdate()` when theme is changed.
         group.style.color = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-on-surface');
         group.style.backgroundColor =
-            ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
+            ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-devtools-base');
       }
     });
   }

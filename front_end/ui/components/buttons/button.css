@@ -271,7 +271,7 @@ button {
   width: 12px;
   height: 12px;
   border-radius: 6px;
-  border: 2px solid var(--sys-color-cdt-base-container);
+  border: 2px solid var(--sys-color-devtools-base);
   animation: spinner-animation 1s linear infinite;
   border-right-color: transparent;
   margin-right: 4px;

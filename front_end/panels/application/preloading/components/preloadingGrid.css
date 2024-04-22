@@ -17,7 +17,7 @@
 
 .preloading-header {
   font-size: 15px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   padding: 1px 4px;
 }
 

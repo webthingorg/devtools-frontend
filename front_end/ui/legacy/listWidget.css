@@ -109,7 +109,7 @@
 }
 
 .editor-content input.error-input {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .text-prompt-container {
@@ -119,7 +119,7 @@
   box-shadow: var(--legacy-focus-ring-inactive-shadow);
   border-radius: 2px;
   width: 100%;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 
   &:focus {
     border: 1px solid var(--sys-color-state-focus-ring);

@@ -257,7 +257,7 @@ export class PerformanceMonitorImpl extends UI.Widget.HBox implements
       });
     }
     const backgroundColor =
-        Common.Color.parse(ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container'))
+        Common.Color.parse(ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-devtools-base'))
             ?.asLegacyColor();
 
     if (backgroundColor) {

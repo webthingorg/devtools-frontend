@@ -98,7 +98,7 @@
 
 .bezier-preview-container {
   position: relative;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   overflow: hidden;
   border-radius: 20px;
   width: 200%;
@@ -127,7 +127,7 @@
 }
 
 svg.bezier-preset-modify {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-radius: 35px;
   display: inline-block;
   visibility: hidden;

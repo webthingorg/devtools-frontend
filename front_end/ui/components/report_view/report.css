@@ -9,7 +9,7 @@
 }
 
 .content {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   display: grid;
   grid-template-columns: min-content 1fr;
   user-select: text;
@@ -23,6 +23,6 @@
   text-overflow: ellipsis;
   border-bottom: 1px solid var(--sys-color-divider);
   color: var(--sys-color-on-surface);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   grid-column-start: span 2;
 }

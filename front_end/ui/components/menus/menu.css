@@ -9,7 +9,7 @@
   width: fit-content;
   display: flex;
   align-items: center;
-  background-color: var(--override-menu-background-color, var(--sys-color-cdt-base-container));
+  background-color: var(--override-menu-background-color, var(--sys-color-devtools-base));
 }
 
 :host([has-open-dialog]) {
