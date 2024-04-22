@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae3cc520_5ae87721",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-22T12:18:15Z",
+      "side": 1,
+      "message": "Curious about your opinion on the background color in light theme.\n\nMy goal was to make it as light as possible. Even neutral99 was too tinted. So I colormixed it into something even lighter, to get maximum contrast.\n\nIf this feels to one-offish / hacky to you, I\u0027d also be open to use neutral100 in light theme.",
+      "revId": "46b5851e8bf3fb1578741fc3dc9fb4525af43465",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
