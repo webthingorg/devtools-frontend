@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "242df713_57fe6f03",
+        "filename": "test/run.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-22T07:55:16Z",
+      "side": 1,
+      "message": "I can\u0027t really put my finger on it, but this options a little feels too karma-specific. What would you think about something like this:\n\nDefault: log-level\u003dwarn\n--verbose, -v: log-level\u003dinfo\n-vv: log-level\u003ddebug\n\nThat would more align with what I\u0027m used to from command line tools. We could also add expanded-reporting on one of the two verbose levels. WDYT? I\u0027m sure we can also improve the logging for e2e tests a bit!",
+      "revId": "c9c7532e644a1add4b65f112d112de87a46d8c0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
