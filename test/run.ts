@@ -12,19 +12,21 @@ import {GEN_DIR, isContainedInDirectory, PathPair, SOURCE_ROOT} from './conducto
 
 const yargs = require('yargs');
 const unparse = require('yargs-unparser');
-const options = commandLineArgs(yargs(process.argv.slice(2)))
-                    .options('skip-ninja', {type: 'boolean', desc: 'Skip rebuilding'})
-                    .options('debug-driver', {type: 'boolean', hidden: true, desc: 'Debug the driver part of tests'})
-                    .positional('tests', {
-                      type: 'string',
-                      desc: 'Path to the test suite, starting from out/Target/gen directory.',
-                      normalize: true,
-                      default: ['front_end', 'test/e2e', 'test/interactions'].map(
-                          f => path.relative(process.cwd(), path.join(SOURCE_ROOT, f))),
-                    })
-                    .strict()
-                    .argv;
-const CONSUMED_OPTIONS = ['tests', 'skip-ninja', 'debug-driver'];
+const options =
+    commandLineArgs(yargs(process.argv.slice(2)))
+        .options('skip-ninja', {type: 'boolean', desc: 'Skip rebuilding'})
+        .options('debug-driver', {type: 'boolean', hidden: true, desc: 'Debug the driver part of tests'})
+        .options('log-level', {type: 'string', default: 'info', desc: 'Set the log level of the test runner'})
+        .positional('tests', {
+          type: 'string',
+          desc: 'Path to the test suite, starting from out/Target/gen directory.',
+          normalize: true,
+          default: ['front_end', 'test/e2e', 'test/interactions'].map(
+              f => path.relative(process.cwd(), path.join(SOURCE_ROOT, f))),
+        })
+        .strict()
+        .argv;
+const CONSUMED_OPTIONS = ['tests', 'skip-ninja', 'debug-driver', 'log-level'];
 
 function forwardOptions() {
   const forwardedOptions = {...options};
@@ -113,7 +115,7 @@ class KarmaTests extends Tests {
     return super.run(tests, [
       path.join(SOURCE_ROOT, 'node_modules', 'karma', 'bin', 'karma'), 'start',
       path.join(GEN_DIR, 'test', 'unit', 'karma.conf.js'), '--log-level',
-      'info',  // TODO(333423685) make configurable?
+      options['log-level'],  // TODO(333423685) make configurable?
     ]);
   }
 }
