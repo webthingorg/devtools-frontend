@@ -22,6 +22,30 @@
       },
       "revId": "a79a482cff0172b34478ddf66f495c09d02332b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba553356_d9e1f761",
+        "filename": "front_end/panels/timeline/timeline-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-22T15:27:41Z",
+      "side": 1,
+      "message": "Done. In fact this should be removed in the last CL",
+      "parentUuid": "74ab3839_777922f9",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 68
+      },
+      "revId": "a79a482cff0172b34478ddf66f495c09d02332b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
