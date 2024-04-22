@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7884f06_3e74a2d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:26:53Z",
+      "side": 1,
+      "message": "Thanks a bunch, Benedikt! Looks good to me % one nit",
+      "revId": "3c5973805385d0f10be9f725c9e45f0f5cd14800",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a44fb6ee_6359efb7",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:26:53Z",
+      "side": 1,
+      "message": "nit: can we please add the shape token and use it here instead? https://docs.google.com/presentation/d/12kY2tn84xfYD421OTeXMIHpvWoMne2Z06erfpM7-l-w/#slide\u003did.g2a03eb569a4_1_47",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "3c5973805385d0f10be9f725c9e45f0f5cd14800",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
