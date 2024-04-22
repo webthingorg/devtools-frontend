@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1bf7c1_f807b04c",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-22T15:59:05Z",
+      "side": 0,
+      "message": "Are we sure that the change of not passing `contrastInfo`s color format to `asString` won\u0027t cause any behavior changes?",
+      "revId": "b4558b2895d3e41812c777cb812217efb6a8f465",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

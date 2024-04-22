@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55941ddc_7b06513a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-22T15:59:05Z",
+      "side": 1,
+      "message": "I see two behavior issues:\n* When you open Color Picker for color `red`, it shows hex color `#ff0000ff` though we still want it to be shown as `red`.\n* When you you color picker to select a color, it adds alpha hex values too which we don\u0027t want when the color is fully opaque.",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ac75732_37ea5247",
+        "filename": "front_end/core/common/Color.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-22T15:59:05Z",
+      "side": 1,
+      "message": "I think the name of this text should change as we don\u0027t have SHORTHEX format now :)\n\nApplies to the name of other tests too.",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "334db4b9_17069762",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1970,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-22T15:59:05Z",
+      "side": 1,
+      "message": "Can we extract magic number 17 to a constant that describes its use or add comments on what\u0027s going on here? :)",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df7ad06a_5d70db1f",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-22T15:59:05Z",
+      "side": 1,
+      "message": "Can we add a comment here too to say that only possible hex representations with alpha is:\n* `#fffA`\n* `#ffffffAA`\n\n(It\u0027s not super visible without the comment as I needed to confirm the `#ffffffA` case is not needed to be handled here 😊)",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7a0a32_f5b9d882",
+        "filename": "front_end/ui/legacy/components/color_picker/FormatPickerContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-22T15:59:05Z",
+      "side": 1,
+      "message": "(nit): a better todo or a description is needed :)",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
