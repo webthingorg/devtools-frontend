@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2937e697_73e4512c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "Could you add tests for `externref`?",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9ab47498_5543bd96",
@@ -14,6 +31,159 @@
       "writtenOn": "2024-04-16T15:27:50Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b7d775_d866cf5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "Hi Jérôme,\n\nthanks a lot for your CL! I\u0027ve added a few questions/comments. The CL also doesn\u0027t seem to compile correctly, I\u0027ve started the CQ bots, see here for more info: https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_linux_dbg/b8749978481557419057/overview",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7ad1c1_865e96a7",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep only dealing with `RemoteObject`s as before. I think you can return a `RemoteObject` in `CustomFormatters`, then you also don\u0027t need the wrapping function `wrapRemoteFunction` either.\n\nCorrect me if I\u0027m missing something :)",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72b7439_0bbc1821",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "Why not explicitly using {type: \u0027externref\u0027, value: string}? I think that\u0027s more explicit than using \u0027other\u0027",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37a00df_724ca286",
+        "filename": "extensions/cxx_debugging/lib/WasmVendorPlugins.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "This is only used for `externref_t`, correct? So maybe rename to make that explicit, e.g.: `externref_type_sp`",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a28e509b_4e1a8994",
+        "filename": "extensions/cxx_debugging/lib/WasmVendorPlugins.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be in ll. 317 instead, i.e. outside of the `if(!type_sp)`?",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36978d62_99b39a05",
+        "filename": "extensions/cxx_debugging/src/Formatters.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "I think we can return a `RemoteObject` here, instead of the `ForeignObject`.\nWe already have other instances where we create the `RemoteObject` as a return, so I don\u0027t see why the `ForeignObject` would be required here? I.e. you could already use `JSON.parse` on the value at this stage.",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5e64b0_6ff6f84e",
+        "filename": "extensions/cxx_debugging/src/Formatters.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "You can merge the types in ll.274 and ll.275 into one line",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0baedab_2ef837f4",
+        "filename": "extensions/cxx_debugging/src/WasmTypes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "Why not directly use \u0027externref\u0027 instead of \u0027other\u0027?",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2472ff4_fea326df",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-22T11:18:56Z",
+      "side": 1,
+      "message": "Can we explicitly call out all cases (\u0027other\u0027 or \u0027externref\u0027 as suggested), and throw an error in the default case here?",
       "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
