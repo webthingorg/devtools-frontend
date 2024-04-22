@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48675a52_1cda374b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-04-22T18:55:23Z",
+      "side": 1,
+      "message": "Hi Jack, could you take a look at this CL when you get a chance? This CL is to collect the traces in devtools frontend to support enhanced traces",
+      "revId": "63674b2e33666e8dd107bfe89fc542bf234a0b08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
