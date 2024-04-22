@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "454fe79f_174b6e18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:16:04Z",
+      "side": 1,
+      "message": "I went now through these (at least those I could find / trigger), fixed some spacing / colors / button ordering (according to the update guide)",
+      "parentUuid": "4100de36_70bfc410",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96ed84ed_ed5819cc",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-19T09:45:48Z",
       "side": 1,
       "message": "Whoa, I think this button looks great!\n\nHowever, I have a concern: including this button changes the line height and this causes inconsistency in the UI:\n* The lines that don\u0027t have a text button have 22px height\n* The lines with text button have 30px height.\n\nis this something intentional or acceptable; or should we think of a solution to make them have the same line height?\n\nIn addition to that, it seems like padding inside the text button causes the text to start from inside; which causes the start of texts to not be vertically aligned in the list.\n\nSee the screenshot: https://g-issues.chromium.org/issues/40248266#comment21",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dd4678c_0f1a207d",
+        "filename": "front_end/panels/issues/AffectedCookiesView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:16:04Z",
+      "side": 1,
+      "message": "hm, good catch, these should not be buttons at all, but links, updated the CL!",
+      "parentUuid": "96ed84ed_ed5819cc",
       "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5572be3c_9b65465f",
+        "filename": "front_end/ui/legacy/ListWidget.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:16:04Z",
+      "side": 1,
+      "message": "fixed!",
+      "parentUuid": "ad2afef9_f1a0cea2",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d57cf582_d5a34f41",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-04-19T09:45:48Z",
       "side": 1,
       "message": "I think returning our `Button` as `HTMLButtonElement` might be error prone as they are not exactly interchangable. For example, `HTMLButtonElement` contains a property `labels` or things like `formAction` where our `Button` doesn\u0027t have.\n\nSo, I\u0027d prefer if `createTextButton` returned our `Button` element and all the references to `HTMLButtonElement` replaced with `Buttons.Button.Button` in the places where `createTextButton` is used. WDYT?",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "983fce86_97bcfd42",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:16:04Z",
+      "side": 1,
+      "message": "This makes sense! Updated:)",
+      "parentUuid": "d57cf582_d5a34f41",
       "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e670071_679920ac",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:16:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dab568dc_4251cfd8",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9a3889c_041c0126",
@@ -116,6 +206,24 @@
       "writtenOn": "2024-04-19T09:45:48Z",
       "side": 1,
       "message": "Not sure if it is directly because of this change, but the buttons in confirm dialog look too close to each other too: https://g-issues.chromium.org/issues/40248266#comment23",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bbcadbc_b1d9385d",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-22T14:16:04Z",
+      "side": 1,
+      "message": "added the gap and reversed the button order (as per Peter\u0027s mocks)",
+      "parentUuid": "c9a3889c_041c0126",
       "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
