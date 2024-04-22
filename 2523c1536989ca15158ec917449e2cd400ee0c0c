@@ -34,6 +34,24 @@
       "parentUuid": "c8a4f3a6_53086595",
       "revId": "2523c1536989ca15158ec917449e2cd400ee0c0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3096448c_11d46b73",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-22T20:22:35Z",
+      "side": 1,
+      "message": "Resolving this since it\u0027s been discussed already",
+      "parentUuid": "fcf6402d_0ae360ad",
+      "revId": "2523c1536989ca15158ec917449e2cd400ee0c0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
