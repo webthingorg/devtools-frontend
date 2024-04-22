@@ -22,7 +22,7 @@
   }
 
   &.read-only {
-    background-color: var(--sys-color-cdt-base-container);
+    background-color: var(--sys-color-devtools-base);
     font-style: italic;
   }
 
@@ -171,7 +171,7 @@
   overflow: hidden;
   position: sticky;
   top: 0;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   z-index: 2;
 }
 

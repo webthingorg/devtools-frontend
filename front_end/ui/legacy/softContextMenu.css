@@ -11,7 +11,7 @@
   padding: 4px 0;
   border: 1px solid var(--sys-color-neutral-outline);
   border-radius: 7px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   box-shadow: var(--drop-shadow);
 }
 

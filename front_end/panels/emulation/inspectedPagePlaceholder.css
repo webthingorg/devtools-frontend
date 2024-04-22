@@ -5,5 +5,5 @@
  */
 
 :host {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }

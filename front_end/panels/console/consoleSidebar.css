@@ -6,7 +6,7 @@
 
 :host {
   overflow: auto;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .tree-outline-disclosure {

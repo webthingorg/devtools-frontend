@@ -6,7 +6,7 @@
 
 .search-bar {
   flex: 0 0 31px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-top: 1px solid var(--sys-color-divider);
   display: flex;
   overflow: hidden;
@@ -44,7 +44,7 @@
 .toolbar-search-control {
   display: flex;
   position: relative;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .toolbar-search-control,

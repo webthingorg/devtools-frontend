@@ -199,7 +199,7 @@ it. */
   margin-top: calc(2 * var(--toolbar-height));
   padding: 3px 5px;
   color: var(--sys-color-token-subtle);
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   animation: 2s fade-out;
   font-weight: normal;
   border: 1px solid var(--sys-color-divider);
@@ -227,7 +227,7 @@ it. */
   background-color: var(--sys-color-primary-bright);
   width: 4.5px;
   height: 4.5px;
-  border: 2px solid var(--override-toolbar-background-color, --sys-color-cdt-base-container);
+  border: 2px solid var(--override-toolbar-background-color, --sys-color-devtools-base);
   border-radius: 50%;
   right: 0;
 }
@@ -326,7 +326,7 @@ select.toolbar-item:focus-visible {
 }
 
 select.toolbar-item:focus-visible > * {
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   border-radius: 7px;
 }
 /* Input */
@@ -357,7 +357,7 @@ select.toolbar-item:focus-visible > * {
     width: 100%;
     position: absolute;
     left: 0;
-    background: var(--sys-color-cdt-base);
+    background: var(--sys-color-devtools-base-container);
     z-index: -1;
   }
 
@@ -415,7 +415,7 @@ select.toolbar-item:focus-visible > * {
 .toolbar-shadow.floating {
   flex-direction: column;
   height: auto;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border: 1px solid var(--sys-color-divider);
   margin-top: -1px;
   width: 28px;

@@ -33,7 +33,7 @@
 }
 
 .timeline-toolbar-container > .toolbar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
 }
 
@@ -43,7 +43,7 @@
 
 .timeline-settings-pane {
   flex: none;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
 }
 
@@ -54,7 +54,7 @@
 }
 
 #timeline-overview-grid {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 #timeline-overview-grid .timeline-grid-header {
@@ -82,7 +82,7 @@
 }
 
 .timeline.panel .status-pane-container.tinted {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   pointer-events: auto;
 }
 
@@ -156,14 +156,14 @@
   flex: auto;
   overflow: auto;
   position: relative;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   user-select: text;
 }
 
 .timeline-details-view-block {
   flex: none;
   display: flex;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   flex-direction: column;
   padding-bottom: 5px;
   border-bottom: 1px solid var(--sys-color-divider);
@@ -356,7 +356,7 @@
 }
 
 .timeline-tree-view .toolbar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
 }
 
@@ -374,7 +374,7 @@
 }
 
 .timeline-tree-view .data-grid table.data {
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
 }
 
 .timeline-tree-view .data-grid .odd {
@@ -488,7 +488,7 @@
 
 .timeline-stack-view-header {
   height: 27px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   padding: 6px 10px;
   color: var(--sys-color-on-surface);
   white-space: nowrap;
@@ -497,7 +497,7 @@
 
 .timeline-landing-page {
   position: absolute;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   justify-content: center;
   align-items: center;
   overflow: auto;

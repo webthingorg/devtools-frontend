@@ -36,7 +36,7 @@ devtools-create-recording-view {
 }
 
 .header {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,7 +63,7 @@ select {
   padding: 0 5px;
   position: relative;
   color: var(--sys-color-on-surface);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   text-overflow: ellipsis;
 }
 
@@ -82,7 +82,7 @@ select:not([disabled]):focus-visible {
 }
 
 select option {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   color: var(--sys-color-on-surface);
 }
 

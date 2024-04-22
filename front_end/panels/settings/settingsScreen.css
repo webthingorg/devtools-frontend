@@ -6,7 +6,7 @@
 
 .settings-window-main {
   color: var(--sys-color-on-surface);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   padding: 11px 0 0;
 }
 

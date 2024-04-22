@@ -2110,7 +2110,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     context.translate(0, -top);
     context.font = this.#font;
 
-    context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
+    context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-devtools-base');
     // Fill the gap between groups.
     this.forEachGroupInViewport((offset, index, group) => {
       const paddingHeight = group.style.padding;
@@ -2301,7 +2301,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       context.save();
       context.translate(x, y);
       // This color is same as the background of the whole flame chart.
-      context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-cdt-base-container');
+      context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-devtools-base');
       context.fillRect(0, 0, EDIT_BUTTON_SIZE, EDIT_BUTTON_SIZE);
 
       context.fillStyle = ThemeSupport.ThemeSupport.instance().getComputedValue(iconColor);

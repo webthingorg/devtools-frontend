@@ -10,14 +10,14 @@
   flex-wrap: wrap;
   justify-content: left;
   align-items: center;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   margin: 8px 0;
   gap: 8px;
   row-gap: 6px;
 }
 
 .highlight-chip {
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   border: 1px solid var(--sys-color-divider);
   height: 18px;
   border-radius: 4px;

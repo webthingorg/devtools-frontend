@@ -6,7 +6,7 @@
 
 .editing {
   box-shadow: var(--drop-shadow);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   text-overflow: clip !important; /* stylelint-disable-line declaration-no-important */
   padding-left: 2px;
   margin-left: -2px;
@@ -232,7 +232,7 @@ select {
 @keyframes dom-update-highlight-animation {
   from {
     background-color: var(--sys-color-token-tag);
-    color: var(--sys-color-cdt-base-container);
+    color: var(--sys-color-devtools-base);
   }
 
   80% {
@@ -247,11 +247,11 @@ select {
 @keyframes dom-update-highlight-animation-dark {
   from {
     background-color: var(--sys-color-token-tag);
-    color: var(--sys-color-cdt-base-container);
+    color: var(--sys-color-devtools-base);
   }
 
   80% {
-    background-color: var(--sys-color-cdt-base-container);
+    background-color: var(--sys-color-devtools-base);
     color: inherit;
   }
 

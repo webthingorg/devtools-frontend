@@ -14,7 +14,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   box-sizing: border-box;
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   outline: none;
 }
 

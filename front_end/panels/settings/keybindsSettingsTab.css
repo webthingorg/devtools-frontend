@@ -36,7 +36,7 @@ h1 {
   border-radius: 3px;
   display: inline-block;
   margin: 0 0.1em;
-  text-shadow: 0 1px 0 var(--sys-color-cdt-base-container);
+  text-shadow: 0 1px 0 var(--sys-color-devtools-base);
   line-height: 1.5;
   white-space: nowrap;
 }

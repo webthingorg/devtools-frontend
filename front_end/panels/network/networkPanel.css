@@ -67,7 +67,7 @@
 
 .network-item-view {
   display: flex;
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
 }
 
 .network-item-preview-toolbar {
@@ -80,7 +80,7 @@
   margin: 6px;
   color: var(--sys-color-on-surface);
   overflow: auto;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .resource-timing-table {
@@ -107,7 +107,7 @@
 }
 
 .resources-dividers-label-bar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 #network-overview-grid .resources-dividers-label-bar {
@@ -142,12 +142,12 @@
 }
 
 .network-tabbed-pane {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .network-settings-pane {
   flex: none;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .network-settings-pane .toolbar {
@@ -164,7 +164,7 @@
 }
 
 .panel.network .toolbar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
 }
 

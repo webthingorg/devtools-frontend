@@ -27,7 +27,7 @@
   cursor: pointer;
   opacity: 0%;
   width: 0.8em;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .icon {

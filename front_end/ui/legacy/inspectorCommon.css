@@ -94,7 +94,7 @@ body {
   tab-size: 4;
   user-select: none;
   color: var(--sys-color-on-surface);
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
 }
 
 /* Default fonts */
@@ -210,7 +210,7 @@ iframe.fill {
 
 .overflow-auto {
   overflow: auto;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 iframe.widget {
@@ -251,7 +251,7 @@ select {
 select option,
 select optgroup,
 input {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 input {
@@ -312,7 +312,7 @@ input[type="checkbox"]:not(.-theme-preserve) {
 
 .editing {
   box-shadow: var(--drop-shadow);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   text-overflow: clip !important; /* stylelint-disable-line declaration-no-important */
   padding-left: 2px;
   margin-left: -2px;
@@ -413,7 +413,7 @@ input[type="checkbox"]:not(.-theme-preserve) {
 
 .chrome-select optgroup,
 .chrome-select option {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   color: var(--sys-color-on-surface);
 }
 
@@ -435,7 +435,7 @@ span[is="dt-icon-label"] {
 
 .full-widget-dimmed-banner {
   color: var(--sys-color-token-subtle);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -472,7 +472,7 @@ span[is="dt-icon-label"] {
 }
 
 .expandable-inline-button {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   color: var(--sys-color-on-surface);
   cursor: pointer;
   border-radius: 3px;
@@ -618,12 +618,12 @@ input.custom-search-input::-webkit-search-cancel-button:hover {
   right: 0;
   bottom: 0;
   z-index: 0;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .panel-sidebar {
   overflow-x: hidden;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 iframe.extension {

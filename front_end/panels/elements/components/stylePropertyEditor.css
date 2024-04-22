@@ -51,7 +51,7 @@
 
 .button {
   border: 1px solid var(--sys-color-neutral-outline);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   width: 24px;
   height: 24px;
   min-width: 24px;

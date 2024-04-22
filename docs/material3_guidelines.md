@@ -5,13 +5,13 @@
 ### Backgrounds
 
 All backgrounds should be either a surface or a container
-- default toolbar color: `--sys-color-cdt-base-container`
+- default toolbar color: `--sys-color-devtools-base`
 - secondary toolbar color (e.g. Sources sidebar section headers like 'Watch' or 'Breakpoints'): `--sys-color-surface2`
-- default data grid row color: `--sys-color-cdt-base-container`
+- default data grid row color: `--sys-color-devtools-base`
 - alternating grid row color: `--sys-color-surface1`
 - warning message: `--sys-color-surface-yellow`
 - error message: `--sys-color-surface-error`
-- info message: `--sys-color-cdt-base-container`
+- info message: `--sys-color-devtools-base`
 - info bar background: `--sys-color-neutral-container`
 
 States:
@@ -53,7 +53,7 @@ In case you can’t reuse a component and need to add some new UI element, pleas
 
 ### Troubleshooting
 
-1. For hover/focus colors for elements which background color is other than `--sys-color-cdt-base-container`
+1. For hover/focus colors for elements which background color is other than `--sys-color-devtools-base`
     or in case you need an opaque hover color use [state layer technique](https://carbon.googleplex.com/google-material-3/pages/interaction-states/state-layers).
     See [example CL](crrev.com/c/5003859)
 

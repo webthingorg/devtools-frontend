@@ -20,7 +20,7 @@
   padding-left: 8px;
   overflow: hidden;
   position: relative;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -64,7 +64,7 @@ line.animation-delay-line.animation-fill {
 }
 
 circle.animation-keyframe-point {
-  fill: var(--sys-color-cdt-base-container);
+  fill: var(--sys-color-devtools-base);
 }
 
 circle.animation-endpoint,
@@ -97,7 +97,7 @@ circle.animation-keyframe-point:active {
 
 .animation-timeline-toolbar-container {
   display: flex;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
   flex: 0 0 auto;
 }
@@ -120,7 +120,7 @@ circle.animation-keyframe-point:active {
   width: var(--timeline-controls-width);
   left: 0;
   margin-top: 28px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   z-index: 0;
   border-right: 1px solid var(--sys-color-divider);
 }
@@ -462,7 +462,7 @@ text.animation-timeline-grid-label {
 .animation-paused::before,
 .animation-paused::after {
   content: "";
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   width: 7px;
   height: 20px;
   border-radius: 2px;
@@ -563,7 +563,7 @@ text.animation-timeline-grid-label {
   & > devtools-icon {
     height: 16px;
     width: 16px;
-    color: var(--sys-color-cdt-base-container);
+    color: var(--sys-color-devtools-base);
   }
 
   &:hover {
@@ -598,7 +598,7 @@ text.animation-timeline-grid-label {
   }
 
   .animation-node-description:focus-visible {
-    background-color: var(--sys-color-cdt-base-container);
+    background-color: var(--sys-color-devtools-base);
     forced-color-adjust: none;
   }
 

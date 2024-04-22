@@ -20,7 +20,7 @@
 }
 
 .coverage-toolbar-summary {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-top: 1px solid var(--sys-color-divider);
   padding-left: 5px;
   flex: 0 0 19px;

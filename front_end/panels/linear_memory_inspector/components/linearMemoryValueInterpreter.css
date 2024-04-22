@@ -11,7 +11,7 @@
 
 .value-interpreter {
   border: 1px solid var(--sys-color-divider);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   overflow: hidden;
   width: 400px;
 }

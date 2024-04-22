@@ -20,7 +20,7 @@
 
 .wrapper {
   padding: 24px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   height: 100%;
   display: flex;
   flex-direction: column;

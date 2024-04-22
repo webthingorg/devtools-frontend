@@ -28,11 +28,11 @@
  */
 
 .console-view {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   overflow: hidden;
 
   --override-error-text-color: var(--sys-color-on-error-container);
-  --message-corner-rounder-background: var(--sys-color-cdt-base-container);
+  --message-corner-rounder-background: var(--sys-color-devtools-base);
 }
 
 .console-toolbar-container {
@@ -45,7 +45,7 @@
 }
 
 .console-toolbar-container > .toolbar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
 }
 
@@ -56,7 +56,7 @@
 
 .console-settings-pane {
   flex: none;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
 }
 
@@ -71,7 +71,7 @@
   user-select: text;
   transform: translateZ(0);
   overflow-anchor: none;  /* Chrome-specific scroll-anchoring opt-out */
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 #console-prompt {
@@ -179,7 +179,7 @@
 
 .console-message-repeat-count .expand-group-icon {
   position: static;
-  color: var(--sys-color-cdt-base-container);
+  color: var(--sys-color-devtools-base);
   margin-left: -1px;
 }
 
@@ -295,7 +295,7 @@
   position: relative;
   margin-bottom: -1px;
   margin-top: -1px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .console-message-wrapper .nesting-level-marker + .console-message::after {
@@ -478,7 +478,7 @@ devtools-console-insight {
   --width: 24px;
 
   align-items: center;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-radius: 50%;
   border: none;
   /* todo: extract to global styles and make it work with dark mode. */

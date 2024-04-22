@@ -15,7 +15,7 @@ describeWithEnvironment('AppenderUtils', () => {
     collapsible: true,
     // This color is same as --sys-color-on-surface in themeColors.css
     color: 'rgb(31 31 31 / 100%)',
-    // This color is same as --sys-color-cdt-base-container in themeColors.css
+    // This color is same as --sys-color-devtools-base in themeColors.css
     backgroundColor: 'rgb(250 249 248 / 100%)',
     nestingLevel: 0,
     shareHeaderLine: true,

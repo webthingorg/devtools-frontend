@@ -4,7 +4,7 @@
  * found in the LICENSE file.
  */
 .media-messages-header {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: 1px solid var(--sys-color-divider);
   min-height: 26px;
 }

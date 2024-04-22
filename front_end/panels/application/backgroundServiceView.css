@@ -5,7 +5,7 @@
  */
 
 .background-service-toolbar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-bottom: var(--sys-color-divider);
 }
 
@@ -20,7 +20,7 @@
 
 .background-service-preview {
   position: absolute;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   justify-content: center;
   align-items: center;
   overflow: auto;

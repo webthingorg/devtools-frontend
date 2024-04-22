@@ -26,7 +26,7 @@
 }
 
 :host-context(.sources-edit-breakpoint-dialog) .condition-editor {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   margin: 0 6px 20px 3px;
 }
 

@@ -29,7 +29,7 @@
   --icon-folder-workspace: var(--sys-color-orange);
   --icon-force-white: var(--sys-color-on-tonal-container);
   --icon-gap-focus-selected: var(--sys-color-tonal-container);
-  --icon-gap-default: var(--sys-color-cdt-base-container);
+  --icon-gap-default: var(--sys-color-devtools-base);
   --icon-gap-inactive: var(--sys-color-neutral-container);
   --icon-gap-hover: var(--sys-color-state-hover-on-subtle);
   --icon-gap-toolbar: var(--sys-color-surface1);

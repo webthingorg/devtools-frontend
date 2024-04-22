@@ -44,7 +44,7 @@
 .event-listener-button {
   padding: 0 5px;
   color: var(--sys-color-primary);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   border-radius: 7px;
   border: 1px solid var(--sys-color-tonal-outline);
   margin-left: 5px;

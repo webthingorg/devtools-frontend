@@ -52,7 +52,7 @@
 
 .circle-icon {
   fill: var(--sys-color-primary);
-  stroke: var(--sys-color-cdt-base-container);
+  stroke: var(--sys-color-devtools-base);
   stroke-width: 4px;
   r: 5px;
   cx: 8px;
@@ -61,7 +61,7 @@
 
 .is-start-of-group .circle-icon {
   r: 7px;
-  fill: var(--sys-color-cdt-base-container);
+  fill: var(--sys-color-devtools-base);
   stroke: var(--sys-color-primary);
   stroke-width: 2px;
 }
@@ -74,7 +74,7 @@
 .step.is-current .circle-icon {
   stroke-dasharray: 24 10;
   animation: rotate 1s linear infinite;
-  fill: var(--sys-color-cdt-base-container);
+  fill: var(--sys-color-devtools-base);
   stroke: var(--sys-color-primary);
   stroke-width: 2px;
 }
@@ -184,7 +184,7 @@ devtools-recorder-step-editor:hover {
 }
 
 devtools-recorder-step-editor.is-selected {
-  background-color: color-mix(in sRGB, var(--sys-color-tonal-container), var(--sys-color-cdt-base-container) 50%);
+  background-color: color-mix(in sRGB, var(--sys-color-tonal-container), var(--sys-color-devtools-base) 50%);
   border: 1px solid var(--sys-color-tonal-outline);
 }
 
@@ -230,7 +230,7 @@ devtools-recorder-step-editor.is-selected {
 }
 
 .step-actions:active {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .step.has-breakpoint .circle-icon {

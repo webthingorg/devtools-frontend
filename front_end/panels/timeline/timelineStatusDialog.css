@@ -9,7 +9,7 @@
   flex-direction: column;
   padding: 16px 16px 12px;
   align-self: center;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   box-shadow: var(--drop-shadow);
   border-radius: 10px;
 }

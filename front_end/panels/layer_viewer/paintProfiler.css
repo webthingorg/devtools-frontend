@@ -5,7 +5,7 @@
  */
 
 .paint-profiler-overview {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .paint-profiler-canvas-container {
@@ -23,7 +23,7 @@
 
 .paint-profiler-canvas-container canvas {
   z-index: 200;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   opacity: 95%;
   height: 100%;
   width: 100%;

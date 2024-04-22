@@ -71,7 +71,7 @@
   z-index: 2000;
   position: absolute;
   contain: content;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   pointer-events: none;
   padding: 4px 8px;
   white-space: nowrap;

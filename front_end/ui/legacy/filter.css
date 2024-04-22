@@ -29,7 +29,7 @@
  */
 
 .filter-bar {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   flex: none;
   flex-wrap: wrap;
   align-items: center;

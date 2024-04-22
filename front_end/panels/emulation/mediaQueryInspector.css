@@ -87,7 +87,7 @@
 }
 
 .media-inspector-marker-inactive .media-inspector-marker-min-max-width:not(:hover) {
-  background-color: color-mix(in sRGB, var(--sys-color-tertiary-container), var(--sys-color-cdt-base-container) 30%);
+  background-color: color-mix(in sRGB, var(--sys-color-tertiary-container), var(--sys-color-devtools-base) 30%);
 }
 
 .media-inspector-marker-inactive .media-inspector-marker-max-width:not(:hover) {

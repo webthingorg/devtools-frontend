@@ -28,7 +28,7 @@
   overflow-x: hidden;
   overflow-y: overlay;
   transform: translateZ(0);
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }
 
 .data-grid thead {

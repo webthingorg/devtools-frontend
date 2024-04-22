@@ -21,7 +21,7 @@
   cursor: default;
   white-space: nowrap;
   position: relative;
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   font-size: inherit;
   font-family: inherit;
 }
@@ -52,7 +52,7 @@
   flex-grow: 0;
   flex-shrink: 0;
   text-align: center;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   color: var(--sys-color-token-subtle);
   margin: 1px;
   outline: 1px solid var(--sys-color-neutral-outline);

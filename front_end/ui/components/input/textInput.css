@@ -13,7 +13,7 @@
   border: 1px solid var(--sys-color-neutral-outline);
   color: var(--sys-color-on-surface);
   border-radius: 3px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   font-family: inherit;
   font-size: inherit;
 }

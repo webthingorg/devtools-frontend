@@ -47,7 +47,7 @@
   transition: margin-top 0.1s ease-in-out;
   margin-top: -26px;
   padding-top: 25px;
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
   overflow: hidden;
   white-space: nowrap;
 }
@@ -71,5 +71,5 @@
 }
 
 .navigator-tabbed-pane {
-  background-color: var(--sys-color-cdt-base-container);
+  background-color: var(--sys-color-devtools-base);
 }

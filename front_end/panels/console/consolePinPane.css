@@ -13,7 +13,7 @@
 .console-pins {
   max-height: 200px;
   overflow-y: auto;
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
 
   --override-error-text-color: var(--sys-color-on-error-container);
 }
@@ -63,7 +63,7 @@
 }
 
 .console-pin-name:focus-within {
-  background: var(--sys-color-cdt-base-container);
+  background: var(--sys-color-devtools-base);
   border-radius: 4px;
   border: 1px solid var(--sys-color-state-focus-ring);
 }
