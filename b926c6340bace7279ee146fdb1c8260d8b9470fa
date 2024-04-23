@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96511fba_935938d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T13:37:03Z",
+      "side": 1,
+      "message": "\"Only use\"?",
+      "revId": "b926c6340bace7279ee146fdb1c8260d8b9470fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e24bf43a_6b3adb75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T13:37:03Z",
+      "side": 1,
+      "message": "-brings?",
+      "revId": "b926c6340bace7279ee146fdb1c8260d8b9470fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9043c27_e41923b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T13:37:03Z",
+      "side": 1,
+      "message": "Very nice!",
+      "revId": "b926c6340bace7279ee146fdb1c8260d8b9470fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
