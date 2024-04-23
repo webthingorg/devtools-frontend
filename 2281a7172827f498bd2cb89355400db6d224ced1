@@ -286,6 +286,24 @@
       "parentUuid": "3b1e1ed3_09053781",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c07f55d9_74316bfe",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-23T16:25:41Z",
+      "side": 0,
+      "message": "I think it is roughly for how long VoiceOver shows/announces the previous announcement. I tried with 2sec and that didn\u0027t work. Unfortunately, I do not know VoiceOver so well and for now it looks like it might be a bug in VoiceOver.",
+      "parentUuid": "4dc0613b_880718ee",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
