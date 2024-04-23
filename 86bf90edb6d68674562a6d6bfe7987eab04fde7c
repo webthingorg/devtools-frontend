@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "256df976_bd4aec96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-23T07:52:23Z",
+      "side": 1,
+      "message": "lgtm with two suggestions",
+      "revId": "86bf90edb6d68674562a6d6bfe7987eab04fde7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e52a09e_7a688262",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-23T07:52:23Z",
+      "side": 1,
+      "message": "I\u0027d probably call this `SHOW_BUTTON`",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 15
+      },
+      "revId": "86bf90edb6d68674562a6d6bfe7987eab04fde7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f85842_056c0c15",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-23T07:52:23Z",
+      "side": 1,
+      "message": "I think all of these should be prefixed with `TRACK_CONFIG` or something to make it clearer what they are editing/saving",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 30
+      },
+      "revId": "86bf90edb6d68674562a6d6bfe7987eab04fde7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
