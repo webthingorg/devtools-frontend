@@ -304,6 +304,42 @@
       "parentUuid": "4dc0613b_880718ee",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80e54476_d7abbeb6",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-23T17:56:33Z",
+      "side": 0,
+      "message": "Okay I\u0027m fine with using the delay for now if that works for you? I also tested on windows and narrator makes the announcement. We can follow up with a bug tracking the issue on VoiceOvera",
+      "parentUuid": "c07f55d9_74316bfe",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015dac54_1bc411fd",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-23T17:56:33Z",
+      "side": 0,
+      "message": "Ok",
+      "parentUuid": "c07f55d9_74316bfe",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
