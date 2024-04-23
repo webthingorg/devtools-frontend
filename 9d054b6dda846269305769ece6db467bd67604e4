@@ -34,6 +34,24 @@
       "parentUuid": "c5918d01_1fb04676",
       "revId": "9d054b6dda846269305769ece6db467bd67604e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb81536b_ce13cb23",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-23T14:43:44Z",
+      "side": 0,
+      "message": "Sorry I think I was getting confused between the two CLs, their dependency, and 1/2 being submitted. Also it\u0027s early. :)\n\nTotally agree this CL resolves the multiple instances of all 3 types.",
+      "parentUuid": "13be044a_5cffca2c",
+      "revId": "9d054b6dda846269305769ece6db467bd67604e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
