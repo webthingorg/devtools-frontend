@@ -268,6 +268,24 @@
       "parentUuid": "2d857073_82cda893",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc0613b_880718ee",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-23T16:22:03Z",
+      "side": 0,
+      "message": "Interesting. Any ideas on what could be done to improve DOM updates and fix the announcement besides the setTimeout? I\u0027m also interested in why 5000 works reliably. Is this maybe dependent on the list items?",
+      "parentUuid": "3b1e1ed3_09053781",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
