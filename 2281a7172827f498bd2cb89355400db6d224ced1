@@ -394,6 +394,24 @@
       "parentUuid": "4a1c4ff6_b5a06db6",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b821ad_cb435d9c",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-23T19:05:54Z",
+      "side": 0,
+      "message": "Interesting, did I hear it right that it kind of puts the alert in the middle of the bullet list announcement?",
+      "parentUuid": "a459db29_857bf0f7",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
