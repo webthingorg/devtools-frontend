@@ -121,6 +121,24 @@
       "message": "Can we use `Platform.StringUtilities.escapeForRegExp(...).replace(\u0027,\u0027, \u0027,?\u0027)` instead?",
       "revId": "46117bbb13a1215ba7316035d2220dea7c8447a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa8f91c5_a5b8ecb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-23T13:57:06Z",
+      "side": 1,
+      "message": "I\u0027m afraid I can\u0027t follow. Does this refer to the `needles.add(this.#filledFields[i].value.replaceAll(/[.,]*\\s+/g, \u0027 \u0027));` line?",
+      "parentUuid": "e1606a37_76ef9d6f",
+      "revId": "46117bbb13a1215ba7316035d2220dea7c8447a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
