@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef45721_2aa9e7dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-23T09:28:04Z",
+      "side": 1,
+      "message": "LGTM after two comments and the test fixes :)",
+      "revId": "a2c87f5c71f6382ab86b1eaf2a0c1fd403cfbf74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b63f7a6_f868611f",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-23T09:28:04Z",
+      "side": 1,
+      "message": "Can we remove HTMLButtonElement too?",
+      "revId": "a2c87f5c71f6382ab86b1eaf2a0c1fd403cfbf74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

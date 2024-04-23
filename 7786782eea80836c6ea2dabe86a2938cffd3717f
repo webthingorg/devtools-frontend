@@ -226,6 +226,24 @@
       "parentUuid": "c9a3889c_041c0126",
       "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dd18960_769cd233",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-23T09:28:04Z",
+      "side": 1,
+      "message": "I think reversing the order might be quite destructive change for the users, are we sure about it? :)",
+      "parentUuid": "3bbcadbc_b1d9385d",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
