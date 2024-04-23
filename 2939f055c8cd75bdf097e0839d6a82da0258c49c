@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8288e5fc_e7aa0ce4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "Hi Kim-Anh,\n\nThanks a lot for your review! The code should now compile. I have also fixed some minors issues and I have added a test.",
+      "revId": "2939f055c8cd75bdf097e0839d6a82da0258c49c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

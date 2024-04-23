@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "41dddd47_b10051f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2937e697_73e4512c",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9ab47498_5543bd96",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b07dac1a_9d773c97",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "I don\u0027t think this can work. There are two kinds of remote objects. The ones that corresponds directly to a Javascript or Wasm value in the V8 engine, and the ones managed by the C/C++ plugin. The remote objects created in `CustomFormatters` are of the latter kind, when I want to return a remote object of the former kind.",
+      "parentUuid": "7a7ad1c1_865e96a7",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d72b7439_0bbc1821",
         "filename": "extension-api/ExtensionAPI.d.ts",
         "patchSetId": 1
@@ -103,6 +139,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29b8375d_35dbc3d9",
+        "filename": "extensions/cxx_debugging/lib/WasmVendorPlugins.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f37a00df_724ca286",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a28e509b_4e1a8994",
@@ -116,6 +170,24 @@
       "writtenOn": "2024-04-22T11:18:56Z",
       "side": 1,
       "message": "Shouldn\u0027t this be in ll. 317 instead, i.e. outside of the `if(!type_sp)`?",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e03188c_0016ffd9",
+        "filename": "extensions/cxx_debugging/lib/WasmVendorPlugins.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "Oh, indeed!",
+      "parentUuid": "a28e509b_4e1a8994",
       "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -154,6 +226,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "072baf77_4f69b1b5",
+        "filename": "extensions/cxx_debugging/src/Formatters.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d5e64b0_6ff6f84e",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0baedab_2ef837f4",
@@ -173,6 +263,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60265884_a0ced9a0",
+        "filename": "extensions/cxx_debugging/src/WasmTypes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "I would actually like the extension API to support all reference types, not just `externref`. But maybe `reftype` (following the Wasm specification) would be clearer than `other`?\n\nLLVM only support type `externref` at the moment, but I have written a compiler from OCaml to Wasm GC and I would like to experiment with generating DWARF information so that one can use the C/C++ plugin for debugging (or I may write my own plugin).",
+      "parentUuid": "a0baedab_2ef837f4",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e2472ff4_fea326df",
         "filename": "front_end/models/extensions/ExtensionServer.ts",
         "patchSetId": 1
@@ -184,6 +292,24 @@
       "writtenOn": "2024-04-22T11:18:56Z",
       "side": 1,
       "message": "Can we explicitly call out all cases (\u0027other\u0027 or \u0027externref\u0027 as suggested), and throw an error in the default case here?",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "629d047e_c16248b6",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-23T12:03:08Z",
+      "side": 1,
+      "message": "If one wants to support all reference types, not just `externref`, there is no easy way to call out all cases.",
+      "parentUuid": "e2472ff4_fea326df",
       "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
