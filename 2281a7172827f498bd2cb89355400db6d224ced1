@@ -340,6 +340,24 @@
       "parentUuid": "c07f55d9_74316bfe",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e180f27b_db2ec77e",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-23T18:08:12Z",
+      "side": 0,
+      "message": "I don\u0027t think we should land the delayed announcement as it might be confusing to users. At the same time, I do not have a better solution and I will need to experiment more.\n\nDoes narrator also announce the alerts/labels from the DOM update first? Or how does it handle multiple announcements?",
+      "parentUuid": "80e54476_d7abbeb6",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
