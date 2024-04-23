@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81c86de5_0d301729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-23T10:38:22Z",
+      "side": 1,
+      "message": "As far as I see, the property changes to the nickname; so we\u0027re fine regarding that behavior :)\n\nand I think we shouldn\u0027t show nickname at all in the hex input box in the color picker (which is the behavior in this CL, AFAI see); wdyt?",
+      "parentUuid": "09d37d09_b48bf46d",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ac75732_37ea5247",
         "filename": "front_end/core/common/Color.test.ts",
         "patchSetId": 2
