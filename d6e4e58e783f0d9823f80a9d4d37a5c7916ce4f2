@@ -16,6 +16,24 @@
       "message": "Was this mean to replace line 572?",
       "revId": "d6e4e58e783f0d9823f80a9d4d37a5c7916ce4f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10e617d7_e5320486",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-23T21:01:06Z",
+      "side": 1,
+      "message": "Yes that\u0027s correct. I\u0027ll update",
+      "parentUuid": "4c0757eb_cd58321a",
+      "revId": "d6e4e58e783f0d9823f80a9d4d37a5c7916ce4f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
