@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09d37d09_b48bf46d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T09:20:43Z",
+      "side": 1,
+      "message": "#1 is existing behavior, modulo the extra alpha (#2).\n\nOne behavior change remains: If the input color is `red`, and you pick `#ffffff`, the result is `#ffffff` and not `white`. Is that acceptable?",
+      "parentUuid": "55941ddc_7b06513a",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ac75732_37ea5247",
         "filename": "front_end/core/common/Color.test.ts",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-22T15:59:05Z",
       "side": 1,
       "message": "I think the name of this text should change as we don\u0027t have SHORTHEX format now :)\n\nApplies to the name of other tests too.",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce5c8ef4_7a6fc2f5",
+        "filename": "front_end/core/common/Color.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T09:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ac75732_37ea5247",
       "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a6fd1e6_48fa22e0",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1970,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T09:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "334db4b9_17069762",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df7ad06a_5d70db1f",
@@ -69,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25bc0058_e4098d22",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T09:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df7ad06a_5d70db1f",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf7a0a32_f5b9d882",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-04-22T15:59:05Z",
       "side": 1,
       "message": "(nit): a better todo or a description is needed :)",
+      "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90897804_571eaedd",
+        "filename": "front_end/ui/legacy/components/color_picker/FormatPickerContextMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-23T09:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf7a0a32_f5b9d882",
       "revId": "e5a489d5e9d4d107b5225f0da02fec085c9775a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
