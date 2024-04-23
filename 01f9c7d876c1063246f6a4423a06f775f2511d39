@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c146e559_146f6357",
+        "filename": "front_end/ui/legacy/designTokens.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-23T09:56:06Z",
+      "side": 1,
+      "message": "There are 5 levels of dropshadows in total. Let\u0027s add these:\n\n--sys-elevation-level1: box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n--sys-elevation-level2: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);\n--sys-elevation-level3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);\n--sys-elevation-level4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30);\n--sys-elevation-level5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.30);\n\nThe correct one to use here is --sys-elevation-level3. It\u0027s different from your current. A design oversight in the design file.",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1138c787_8e65b21f",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-23T09:56:06Z",
+      "side": 1,
+      "message": "--sys-size-1",
+      "range": {
+        "startLine": 70,
+        "startChar": 12,
+        "endLine": 70,
+        "endChar": 15
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a06552_d69c033f",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-23T09:56:06Z",
+      "side": 1,
+      "message": "--sys-size-1",
+      "range": {
+        "startLine": 71,
+        "startChar": 19,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "414ab915_e5eaab7e",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-23T09:56:06Z",
+      "side": 1,
+      "message": "--sys-size-6",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
