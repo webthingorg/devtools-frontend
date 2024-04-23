@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dba4e46_d5ba08b9",
+        "filename": "front_end/models/trace/handlers/ImagePaintingHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-23T16:08:08Z",
+      "side": 1,
+      "message": "Hmm good point. In TimelineModel there is no sorting; I think because we rely on the fact that events happened before each other and the relationship between them means that we can safely assume the ordering is correct.\n\nI will keep an eye on this and if this causes any bugs 😊",
+      "parentUuid": "5ca1bd36_2cf257f9",
+      "range": {
+        "startLine": 78,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 24
+      },
+      "revId": "ead27bed87affc463315cae1b05f6e6a2399f320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dea74e26_949b3eec",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-23T13:57:37Z",
       "side": 1,
       "message": "question: can `DrawLazyPixelRef` and `DecodeLazyPixelRef` events with the same key belong to different threads?\n\nIf not and IIUC we could do approach 2 if and only if we could do approach 1 (if a `PaintImage` belongs in the same thread as a `DecodeLazyPixel`, a `DrawLazyPixel` and a `DecodeImage`, then a `PaintImage` belongs in the same thread `DecodeImage` [and we would have taken the first approach]).\n\nif so then it\u0027s all good 😎",
+      "range": {
+        "startLine": 94,
+        "startChar": 13,
+        "endLine": 96,
+        "endChar": 22
+      },
+      "revId": "ead27bed87affc463315cae1b05f6e6a2399f320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af5b826d_d4715dc2",
+        "filename": "front_end/models/trace/handlers/ImagePaintingHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-23T16:08:08Z",
+      "side": 1,
+      "message": "Yes they can - I double checked that against a recent trace and they do appear on different threads.",
+      "parentUuid": "dea74e26_949b3eec",
       "range": {
         "startLine": 94,
         "startChar": 13,
