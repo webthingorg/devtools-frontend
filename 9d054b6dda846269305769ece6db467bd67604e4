@@ -16,6 +16,24 @@
       "message": "After using observers for a long while, I only recently learned that a single observer can observe multiple targets. (Yeah, exactly what you\u0027re doing here with resize/Intersection Obs\u0027s).\n\nI am not 100% sure it\u0027s fine with shadow roots, but my manual test just now confirms that a MutationObs can also observe multiple discrete trees. Did you deliberately want to keep multiple instances of this one?\n\nNot a huge deal to me, either way.",
       "revId": "9d054b6dda846269305769ece6db467bd67604e4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13be044a_5cffca2c",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-23T14:37:27Z",
+      "side": 0,
+      "message": "I don\u0027t think I am keeping multiple instances.",
+      "parentUuid": "c5918d01_1fb04676",
+      "revId": "9d054b6dda846269305769ece6db467bd67604e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
