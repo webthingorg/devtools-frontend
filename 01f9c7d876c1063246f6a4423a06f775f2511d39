@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5fcf3f_55ded19a",
+        "filename": "front_end/ui/legacy/designTokens.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T11:03:32Z",
+      "side": 1,
+      "message": "Can you update the figma please?",
+      "parentUuid": "c146e559_146f6357",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce3c60b3_691edc70",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-23T10:24:21Z",
       "side": 1,
       "message": "height: var(--sys-size-11);\n\nDo we need the padding here if we define a height?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f96d1056_2f527cc9",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T11:03:32Z",
+      "side": 1,
+      "message": "We still need the left/right padding. But using height does indeed resolve the need for the margin trick with the experiment icon.",
+      "parentUuid": "ce3c60b3_691edc70",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b8ab4e7_3546eb2a",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T11:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15ce0168_cb0f96f0",
+      "range": {
+        "startLine": 67,
+        "startChar": 15,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1138c787_8e65b21f",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-04-23T09:56:06Z",
       "side": 1,
       "message": "--sys-size-1",
+      "range": {
+        "startLine": 70,
+        "startChar": 12,
+        "endLine": 70,
+        "endChar": 15
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe0b7bd_98d71e6b",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T11:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1138c787_8e65b21f",
       "range": {
         "startLine": 70,
         "startChar": 12,
@@ -116,6 +212,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e152238_cf4ee1e0",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T11:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40a06552_d69c033f",
+      "range": {
+        "startLine": 71,
+        "startChar": 19,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "414ab915_e5eaab7e",
@@ -139,6 +259,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adf684fe_efdf5520",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T11:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "414ab915_e5eaab7e",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4c9f1f9_10bb427f",
@@ -152,6 +296,30 @@
       "writtenOn": "2024-04-23T10:28:53Z",
       "side": 1,
       "message": "We need to adjust themeColors.css:\n\n```\n- 222  --sys-color-surface: var(--ref-palette-neutral100);\n+ 222  --sys-color-surface: var(--ref-palette-neutral99);\n\n+ 452  --sys-color-surface: var(--ref-palette-neutral100);\n```",
+      "range": {
+        "startLine": 429,
+        "startChar": 35,
+        "endLine": 429,
+        "endChar": 55
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87b3384d_9acc5132",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T11:03:32Z",
+      "side": 1,
+      "message": "Done with https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5471949",
+      "parentUuid": "b4c9f1f9_10bb427f",
       "range": {
         "startLine": 429,
         "startChar": 35,
