@@ -358,6 +358,24 @@
       "parentUuid": "80e54476_d7abbeb6",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a1c4ff6_b5a06db6",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-23T18:47:45Z",
+      "side": 0,
+      "message": "Unfortunately, I could not figure out any workarounds. I guess it has something to do with live regions handling by VoiceOver. I think it is interesting to understand how other readers handle the DOM update plus an alert at the same time.",
+      "parentUuid": "e180f27b_db2ec77e",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
