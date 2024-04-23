@@ -16,6 +16,23 @@
       "message": "Danil is the right person to review :)",
       "revId": "34545a5bfdca2b1bf4e857a924cbd67fa2b7dacb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae50aca0_7f458c3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-04-23T23:20:57Z",
+      "side": 1,
+      "message": "Thank you.",
+      "revId": "34545a5bfdca2b1bf4e857a924cbd67fa2b7dacb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
