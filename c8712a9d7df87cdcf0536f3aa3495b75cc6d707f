@@ -70,6 +70,30 @@
       },
       "revId": "c8712a9d7df87cdcf0536f3aa3495b75cc6d707f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3617513_dc90caf1",
+        "filename": "front_end/ui/legacy/SoftContextMenu.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T08:10:00Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "02be567e_9d3aa918",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 82
+      },
+      "revId": "c8712a9d7df87cdcf0536f3aa3495b75cc6d707f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
