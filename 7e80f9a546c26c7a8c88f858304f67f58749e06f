@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eef7a18_190ac30e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-23T08:15:51Z",
+      "side": 1,
+      "message": "Can you add a unit test to `CodeHighlighter.test.ts` please?",
+      "revId": "7e80f9a546c26c7a8c88f858304f67f58749e06f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
