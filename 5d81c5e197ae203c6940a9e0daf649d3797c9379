@@ -16,6 +16,24 @@
       "message": "just curious why not Meta handler?",
       "revId": "5d81c5e197ae203c6940a9e0daf649d3797c9379",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8678627_e1ef3d59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-23T15:29:45Z",
+      "side": 1,
+      "message": "Yeah...I went back and forth on that a few times. Decided that the Meta handler already did loads of stuff. But some of that is frames...so maybe yeah?\n\nI will see how I feel when I consume this handler\u0027s data (upcoming CL), might end up pushing it back onto the Meta handler...",
+      "parentUuid": "44440d4d_f2fb9a6f",
+      "revId": "5d81c5e197ae203c6940a9e0daf649d3797c9379",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
