@@ -137,6 +137,29 @@
       },
       "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4c9f1f9_10bb427f",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-23T10:28:53Z",
+      "side": 1,
+      "message": "We need to adjust themeColors.css:\n\n```\n- 222  --sys-color-surface: var(--ref-palette-neutral100);\n+ 222  --sys-color-surface: var(--ref-palette-neutral99);\n\n+ 452  --sys-color-surface: var(--ref-palette-neutral100);\n```",
+      "range": {
+        "startLine": 429,
+        "startChar": 35,
+        "endLine": 429,
+        "endChar": 55
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
