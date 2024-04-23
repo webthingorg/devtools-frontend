@@ -16,6 +16,23 @@
       "message": "Hi Jack, could you take a look at this CL when you get a chance? This CL is to collect the traces in devtools frontend to support enhanced traces",
       "revId": "63674b2e33666e8dd107bfe89fc542bf234a0b08",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d28fa1c_bf7dfaef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-23T07:40:18Z",
+      "side": 1,
+      "message": "this LGTM; I also want to let Paul review this just to confirm he is happy. Thanks!",
+      "revId": "63674b2e33666e8dd107bfe89fc542bf234a0b08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
