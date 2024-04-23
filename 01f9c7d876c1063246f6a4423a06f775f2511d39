@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce3c60b3_691edc70",
+        "filename": "front_end/ui/legacy/softContextMenu.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-23T10:24:21Z",
+      "side": 1,
+      "message": "height: var(--sys-size-11);\n\nDo we need the padding here if we define a height?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "01f9c7d876c1063246f6a4423a06f775f2511d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15ce0168_cb0f96f0",
         "filename": "front_end/ui/legacy/softContextMenu.css",
         "patchSetId": 6
