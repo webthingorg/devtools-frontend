@@ -337,7 +337,7 @@ export class ViewportDataGridNode<T> extends DataGridNode<ViewportDataGridNode<T
     this.children.splice(index, 0, child);
     child.recalculateSiblings(index);
     if (this.expanded && this.dataGrid) {
-      (this.dataGrid as ViewportDataGrid<T>).scheduleUpdateStructure();
+      // (this.dataGrid as ViewportDataGrid<T>).scheduleUpdateStructure();
     }
   }
 
