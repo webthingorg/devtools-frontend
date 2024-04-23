@@ -16,6 +16,52 @@
       "message": "ptal",
       "revId": "ead27bed87affc463315cae1b05f6e6a2399f320",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca1bd36_2cf257f9",
+        "filename": "front_end/models/trace/handlers/ImagePaintingHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-23T13:57:37Z",
+      "side": 1,
+      "message": "can we safely assume events will be handled in ts order? I ask because in some places we sort the events between handling and processing",
+      "range": {
+        "startLine": 78,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 24
+      },
+      "revId": "ead27bed87affc463315cae1b05f6e6a2399f320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea74e26_949b3eec",
+        "filename": "front_end/models/trace/handlers/ImagePaintingHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-23T13:57:37Z",
+      "side": 1,
+      "message": "question: can `DrawLazyPixelRef` and `DecodeLazyPixelRef` events with the same key belong to different threads?\n\nIf not and IIUC we could do approach 2 if and only if we could do approach 1 (if a `PaintImage` belongs in the same thread as a `DecodeLazyPixel`, a `DrawLazyPixel` and a `DecodeImage`, then a `PaintImage` belongs in the same thread `DecodeImage` [and we would have taken the first approach]).\n\nif so then it\u0027s all good 😎",
+      "range": {
+        "startLine": 94,
+        "startChar": 13,
+        "endLine": 96,
+        "endChar": 22
+      },
+      "revId": "ead27bed87affc463315cae1b05f6e6a2399f320",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
