@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "dfda8cacb8136b5c6fc99ffba3f61987535e7a7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce43141b_ba1a16c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-24T09:29:50Z",
+      "side": 1,
+      "message": "let\u0027s add a unit test",
+      "revId": "dfda8cacb8136b5c6fc99ffba3f61987535e7a7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ab5ec51_684e9751",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-24T09:29:50Z",
+      "side": 1,
+      "message": "please add core/root:bundle to deps in BUILD.gn for the explain target",
+      "revId": "dfda8cacb8136b5c6fc99ffba3f61987535e7a7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
