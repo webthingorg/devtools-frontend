@@ -50,6 +50,24 @@
       "message": "please add core/root:bundle to deps in BUILD.gn for the explain target",
       "revId": "dfda8cacb8136b5c6fc99ffba3f61987535e7a7f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e3f834d_343abeb9",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-24T10:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ab5ec51_684e9751",
+      "revId": "dfda8cacb8136b5c6fc99ffba3f61987535e7a7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
