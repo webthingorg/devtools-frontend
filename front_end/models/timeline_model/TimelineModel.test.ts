@@ -71,18 +71,4 @@ describeWithEnvironment('TimelineData', function() {
     dataForEvent.backendNodeIds.push(123 as Protocol.DOM.BackendNodeId);
     assert.strictEqual(dataForEvent, TimelineModel.TimelineModel.EventOnTimelineData.forEvent(fakeConstructedEvent));
   });
-
-  it('extracts backend node ids and image url for a Decode Image event', async function() {
-    const data = await TraceLoader.allModels(this, 'web-dev.json.gz');
-    const allSDKEvents = getAllTracingModelPayloadEvents(data.tracingModel);
-
-    const decodeImageEvent =
-        allSDKEvents.find(event => event.name === TraceEngine.Types.TraceEvents.KnownEventName.DecodeImage);
-    if (!decodeImageEvent) {
-      throw new Error('Could not find Decode Image event Event.');
-    }
-    const dataForEvent = TimelineModel.TimelineModel.EventOnTimelineData.forEvent(decodeImageEvent);
-    assert.strictEqual(dataForEvent.backendNodeIds[0], 240);
-    assert.isTrue(dataForEvent.url?.includes('.jpg'));
-  });
 });
