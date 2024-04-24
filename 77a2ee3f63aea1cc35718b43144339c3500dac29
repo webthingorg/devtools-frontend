@@ -33,6 +33,24 @@
       "message": "Thanks for taking a look at this, Wolfgang! Could we please use the `--sys-color-on-primary` for the icon when the row is selected?",
       "revId": "77a2ee3f63aea1cc35718b43144339c3500dac29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ef8164d_56128b9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-24T15:03:52Z",
+      "side": 1,
+      "message": "Made a mistake, we should use `--sys-color-on-tonal-container`, which is dark blue in baseline theme",
+      "parentUuid": "3a7c20f2_0a66eb4c",
+      "revId": "77a2ee3f63aea1cc35718b43144339c3500dac29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
