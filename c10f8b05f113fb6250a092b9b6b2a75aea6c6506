@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ff5f46_8cc4cfb7",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-24T12:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73101082_52d293a0",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d72b7439_0bbc1821",
@@ -351,6 +369,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda69299_b9ac5d5f",
+        "filename": "extensions/cxx_debugging/src/WasmTypes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-24T12:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daa25016_08987819",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2472ff4_fea326df",
@@ -382,6 +418,24 @@
       "side": 1,
       "message": "If one wants to support all reference types, not just `externref`, there is no easy way to call out all cases.",
       "parentUuid": "e2472ff4_fea326df",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8755791b_5a428753",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-24T12:57:58Z",
+      "side": 1,
+      "message": "I\u0027m now checking the type and subtype of the remote object, and correctly handling the case where the value does not actually exist.",
+      "parentUuid": "629d047e_c16248b6",
       "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

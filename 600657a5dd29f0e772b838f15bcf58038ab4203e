@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d7dcc0a_e93637c4",
+        "filename": "extensions/cxx_debugging/tests/inputs/externref.s",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-24T12:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "448ad0cf_a3a75bf6",
+      "revId": "600657a5dd29f0e772b838f15bcf58038ab4203e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c2004c1_f04dd893",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-24T10:54:27Z",
       "side": 1,
       "message": "nit: Maybe replace the path that spells out your folder structure?",
+      "revId": "600657a5dd29f0e772b838f15bcf58038ab4203e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e02c67_5fbf3b1f",
+        "filename": "extensions/cxx_debugging/tests/inputs/externref.s",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-24T12:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c2004c1_f04dd893",
       "revId": "600657a5dd29f0e772b838f15bcf58038ab4203e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

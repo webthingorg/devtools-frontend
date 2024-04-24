@@ -33,6 +33,24 @@
       "message": "nit: 2024 :)",
       "revId": "2939f055c8cd75bdf097e0839d6a82da0258c49c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "108531b6_35de8cb0",
+        "filename": "extensions/cxx_debugging/tests/Externref_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-24T12:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61d38266_1e882a35",
+      "revId": "2939f055c8cd75bdf097e0839d6a82da0258c49c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
