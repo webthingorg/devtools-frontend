@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff486a6d_1ad433de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-24T21:38:13Z",
+      "side": 1,
+      "message": "nice stuff!",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a65e1b0_91687750",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-24T21:38:13Z",
+      "side": 1,
+      "message": "as mentioned offline, if you teach the two helpers methods to incorporate `ASYNC_NESTABLE_INSTANT` into the synthetic event. then we have just 1 synthetic animation event per animation.\n\nand you wont need a bunch of this files changes.\n\nthat said, i definitely love the comments so... let\u0027s keep the meat of them. somewhere :)",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e38f9a_e8352336",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-24T21:38:13Z",
+      "side": 1,
+      "message": "can you ref the other type?\n\n    Types.TraceEvents.TraceEventAnimation[\u0027args\u0027][\u0027data\u0027][\u0027unsupportedProperties\u0027]",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45a759dd_534ab92c",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-24T21:38:13Z",
+      "side": 1,
+      "message": "hmm tbh i think this can live within your insights/CLS file. \n\nthere might even be some clever way to define the reasons along with the bitshifts. and then use some `Keys\u003c...\u003e` thing to define the enum.   maybe?  connor probably will have a better idea.",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2bbbc96_aede5fc4",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-24T21:38:13Z",
+      "side": 1,
+      "message": "whoa.. yeah looks like someone made a mistake earlier. i can verify nodeId/displayName are within args.data not just args.\n\nweird.",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
