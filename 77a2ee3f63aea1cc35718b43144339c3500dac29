@@ -51,6 +51,24 @@
       "parentUuid": "3a7c20f2_0a66eb4c",
       "revId": "77a2ee3f63aea1cc35718b43144339c3500dac29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21e85930_c7098dcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-04-24T15:18:03Z",
+      "side": 1,
+      "message": "Scratch that, we had in plans to do what I described above, but decided against it. The icon should not change its color on row selection. The screenshots attached to the CL show the correct behavior",
+      "parentUuid": "6ef8164d_56128b9d",
+      "revId": "77a2ee3f63aea1cc35718b43144339c3500dac29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
