@@ -430,6 +430,24 @@
       "parentUuid": "31b821ad_cb435d9c",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3abe1342_e905be48",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-24T06:23:23Z",
+      "side": 0,
+      "message": "VoiceOver does not do it, it takes one announcement and pronounces only it.",
+      "parentUuid": "271ec703_a29234ca",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
