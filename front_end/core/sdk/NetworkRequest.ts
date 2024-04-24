@@ -1,4 +1,4 @@
-// Copyright 2021 The Chromium Authors. All rights reserved.
+// Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -1154,7 +1154,15 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#wasIntercepted = wasIntercepted;
   }
 
+  static showWarning(msg: string): void {
+    Common.Console.Console.instance().warn(`${msg}`);
+  }
+
   setEarlyHintsHeaders(headers: NameValue[]): void {
+    const initiator = this.initiator();
+    if (initiator !== null && initiator.type !== Protocol.Network.InitiatorType.Other) {
+      NetworkRequest.showWarning(`EarlyHints headers received with "${this.url()}" will not be used`);
+    }
     this.earlyHintsHeaders = headers;
   }
 
