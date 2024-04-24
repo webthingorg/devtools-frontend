@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "204b2cfe_4361552b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-04-24T08:11:07Z",
+      "side": 1,
+      "message": "Can you take a look please? Thanks! 🙏\n\nThis was discussed with Peter in the morning, and the use of native menus here is intended. We might in the future decide whether we want to go with `\u003cselect\u003e` or `\u003cselectmenu\u003e` instead even, but that\u0027s a separate discussion.",
+      "revId": "ff54e61b6e58f82a80c1d107837e7bdaf7d0168a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
