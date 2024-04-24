@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e707c129_08f35ae6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-04-24T08:23:40Z",
+      "side": 1,
+      "message": "The commit message is outdated:\n- `indexOf` is not needed, the regex is being escaped instead.\n- The edge case of multiple commas for different reasons is now being handled correctly.",
+      "revId": "a97e11f1924466f3ca7b557c895391e3f90fd073",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
