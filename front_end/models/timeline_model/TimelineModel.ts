@@ -540,8 +540,7 @@ export class TimelineModelImpl {
         break;
       }
 
-      case RecordType.DecodeImage:
-      case RecordType.ResizeImage: {
+      case RecordType.DecodeImage: {
         let paintImageEvent = this.findAncestorEvent(RecordType.PaintImage);
         if (!paintImageEvent) {
           const decodeLazyPixelRefEvent = this.findAncestorEvent(RecordType.DecodeLazyPixelRef);
@@ -917,7 +916,6 @@ export enum RecordType {
   StartProfiling = 'CpuProfiler::StartProfiling',
 
   DecodeImage = 'Decode Image',
-  ResizeImage = 'Resize Image',
   DrawLazyPixelRef = 'Draw LazyPixelRef',
   DecodeLazyPixelRef = 'Decode LazyPixelRef',
 
