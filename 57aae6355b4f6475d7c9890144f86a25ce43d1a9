@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeb5544d_1b57dccd",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-24T13:00:50Z",
+      "side": 0,
+      "message": "these should have all been deleted in my previous CL, I left them commented out by mistake.",
+      "range": {
+        "startLine": 1265,
+        "startChar": 9,
+        "endLine": 1280,
+        "endChar": 0
+      },
+      "revId": "57aae6355b4f6475d7c9890144f86a25ce43d1a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
