@@ -318,7 +318,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     return this.status.OK();
   }
 
-  private async loadWasmValue<T>(expression: string, stopId: unknown): Promise<Record|T> {
+  private async loadWasmValue<T>(
+      expectValue: boolean, convert: (result: Protocol.Runtime.RemoteObject) => Record | T, expression: string,
+      stopId: unknown): Promise<Record|T> {
     const {pluginManager} = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
     const callFrame = pluginManager.callFrameForStopId(stopId as Bindings.DebuggerLanguagePlugins.StopId);
     if (!callFrame) {
@@ -328,12 +330,13 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       callFrameId: callFrame.id,
       expression,
       silent: true,
-      returnByValue: true,
+      returnByValue: !expectValue,
+      generatePreview: expectValue,
       throwOnSideEffect: true,
     });
 
     if (!result.exceptionDetails && !result.getError()) {
-      return result.result.value;
+      return convert(result.result);
     }
 
     return this.status.E_FAILED('Failed');
@@ -344,8 +347,32 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.GetWasmLinearMemory}`);
     }
     return await this.loadWasmValue<number[]>(
+        false, result => result.value,
         `[].slice.call(new Uint8Array(memories[0].buffer, ${Number(message.offset)}, ${Number(message.length)}))`,
         message.stopId);
+  }
+
+  private convertWasmValue(obj: Protocol.Runtime.RemoteObject): Chrome.DevTools.WasmValue|undefined|Record {
+    if (obj.type === 'undefined') {
+      return;
+    }
+    if (obj.type !== 'object' || obj.subtype !== 'wasmvalue') {
+      return this.status.E_FAILED('Bad object type');
+    }
+    const type = obj?.description;
+    const value: string = obj.preview?.properties?.find(o => o.name === 'value')?.value ?? '';
+    switch (type) {
+      case 'i32':
+      case 'f32':
+      case 'f64':
+        return {type, value: Number(value)};
+      case 'i64':
+        return {type, value: BigInt(value)};
+      case 'v128':
+        return {type, value};
+      default:
+        return {type: 'reftype', value: JSON.stringify(obj)};
+    }
   }
 
   private async onGetWasmGlobal(message: PrivateAPI.ExtensionServerRequestMessage):
@@ -354,7 +381,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.GetWasmGlobal}`);
     }
     const global = Number(message.global);
-    const result = await this.loadWasmValue<Chrome.DevTools.WasmValue>(`globals[${global}]`, message.stopId);
+    const result = await this.loadWasmValue<Chrome.DevTools.WasmValue|undefined>(
+        true, this.convertWasmValue, `globals[${global}]`, message.stopId);
     return result ?? this.status.E_BADARG('global', `No global with index ${global}`);
   }
 
@@ -364,7 +392,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.GetWasmLocal}`);
     }
     const local = Number(message.local);
-    const result = await this.loadWasmValue<Chrome.DevTools.WasmValue>(`locals[${local}]`, message.stopId);
+    const result = await this.loadWasmValue<Chrome.DevTools.WasmValue|undefined>(
+        true, this.convertWasmValue, `locals[${local}]`, message.stopId);
     return result ?? this.status.E_BADARG('local', `No local with index ${local}`);
   }
 
@@ -374,7 +403,8 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.GetWasmOp}`);
     }
     const op = Number(message.op);
-    const result = await this.loadWasmValue<Chrome.DevTools.WasmValue>(`stack[${op}]`, message.stopId);
+    const result = await this.loadWasmValue<Chrome.DevTools.WasmValue|undefined>(
+        true, this.convertWasmValue, `stack[${op}]`, message.stopId);
     return result ?? this.status.E_BADARG('op', `No operand with index ${op}`);
   }
 
