@@ -161,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d28cff5_1a07a5f3",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-24T16:20:00Z",
+      "side": 1,
+      "message": "I\u0027m not serializing the whole value, but just the remote object returned by `Debugger.evaluateOnCallFrame`, which is not much more than an object id and a preview. The preview should usually be short. In particular, I have just checked that JavaScript strings get shortened. The existing devtools machinery is used to display the object.\n\nIndeed, one could just return the externref\u0027s location, and query its value in `DebuggerPlugin.ts`. It seems that would require some amount of refactoring, moving the relevant functions out of `ExtensionServer.ts`.\n\nAlternatively, one could roundtrip just the `RemoteObjectId` through the extension and query the JavaScript runtime at the end to get back a preview. If you are concerned about the size of the preview, that might be the simplest thing to do.",
+      "parentUuid": "161e4bcd_b85f4830",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d72b7439_0bbc1821",
         "filename": "extension-api/ExtensionAPI.d.ts",
         "patchSetId": 1
