@@ -93,7 +93,7 @@ export const linkifyNodeReference = function(
   const link = (shadowRoot.createChild('button', 'node-link text-button link-style') as HTMLButtonElement);
   link.setAttribute('jslog', `${VisualLogging.link('node').track({click: true, keydown: 'Enter'})}`);
 
-  decorateNodeLabel(node, link, options.tooltip);
+  decorateNodeLabel(node, link);
 
   link.addEventListener('click', () => {
     void Common.Revealer.reveal(node, false);
