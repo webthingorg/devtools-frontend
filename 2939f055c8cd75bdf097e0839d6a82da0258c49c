@@ -16,6 +16,23 @@
       "message": "Hi Kim-Anh,\n\nThanks a lot for your review! The code should now compile. I have also fixed some minors issues and I have added a test.",
       "revId": "2939f055c8cd75bdf097e0839d6a82da0258c49c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61d38266_1e882a35",
+        "filename": "extensions/cxx_debugging/tests/Externref_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "nit: 2024 :)",
+      "revId": "2939f055c8cd75bdf097e0839d6a82da0258c49c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

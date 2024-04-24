@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73101082_52d293a0",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "You\u0027re right - in that case, could you add a comment to make the distinction clear?",
+      "parentUuid": "b07dac1a_9d773c97",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d72b7439_0bbc1821",
         "filename": "extension-api/ExtensionAPI.d.ts",
         "patchSetId": 1
@@ -118,6 +136,24 @@
       "writtenOn": "2024-04-22T11:18:56Z",
       "side": 1,
       "message": "Why not explicitly using {type: \u0027externref\u0027, value: string}? I think that\u0027s more explicit than using \u0027other\u0027",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfdb4eda_4a7bd456",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d72b7439_0bbc1821",
       "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -209,6 +245,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b33236cf_403601c5",
+        "filename": "extensions/cxx_debugging/src/Formatters.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36978d62_99b39a05",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d5e64b0_6ff6f84e",
@@ -275,6 +329,24 @@
       "side": 1,
       "message": "I would actually like the extension API to support all reference types, not just `externref`. But maybe `reftype` (following the Wasm specification) would be clearer than `other`?\n\nLLVM only support type `externref` at the moment, but I have written a compiler from OCaml to Wasm GC and I would like to experiment with generating DWARF information so that one can use the C/C++ plugin for debugging (or I may write my own plugin).",
       "parentUuid": "a0baedab_2ef837f4",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa25016_08987819",
+        "filename": "extensions/cxx_debugging/src/WasmTypes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "Yes, let\u0027s go for reftype!",
+      "parentUuid": "60265884_a0ced9a0",
       "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

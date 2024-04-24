@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33e50908_b87ce0c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "Thanks for the updates! Some answers below -- otherwise LGTM from my side",
+      "revId": "600657a5dd29f0e772b838f15bcf58038ab4203e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "448ad0cf_a3a75bf6",
+        "filename": "extensions/cxx_debugging/tests/inputs/externref.s",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "nit: we have opcodes defined in `dw_opcodes.ts`, consider to make use of them for readability",
+      "revId": "600657a5dd29f0e772b838f15bcf58038ab4203e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c2004c1_f04dd893",
+        "filename": "extensions/cxx_debugging/tests/inputs/externref.s",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-04-24T10:54:27Z",
+      "side": 1,
+      "message": "nit: Maybe replace the path that spells out your folder structure?",
+      "revId": "600657a5dd29f0e772b838f15bcf58038ab4203e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
