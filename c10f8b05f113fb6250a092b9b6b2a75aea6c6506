@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "161e4bcd_b85f4830",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-24T12:59:44Z",
+      "side": 1,
+      "message": "Serializing the externref value to JSON and roundtripping it through the extension can be problematic, for instance if the value is huge or contains circular references.\n\nHave you considered returning the externref\u0027s location as an alternative? externref references are supposed to be opaque, so there\u0027s not really a need for the extension to look at the value. Returning the reference \"itself\" here we could just use existing devtools machinery to display big and circular objects.",
+      "parentUuid": "73101082_52d293a0",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d72b7439_0bbc1821",
         "filename": "extension-api/ExtensionAPI.d.ts",
         "patchSetId": 1
