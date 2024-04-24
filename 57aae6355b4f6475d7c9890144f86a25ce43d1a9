@@ -22,6 +22,30 @@
       },
       "revId": "57aae6355b4f6475d7c9890144f86a25ce43d1a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09ef097f_279d1dcc",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-24T16:09:05Z",
+      "side": 0,
+      "message": "Ah yes good catch, I thought we didn\u0027t need this but we do. I will undo this change and add support in the new engine in a follow-up CL.",
+      "parentUuid": "a296ece1_b63c6117",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 580,
+        "endChar": 62
+      },
+      "revId": "57aae6355b4f6475d7c9890144f86a25ce43d1a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
