@@ -597,6 +597,7 @@ export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
 
   setGlyphOrAdorner(glyphOrAdorner: string|Adorners.Adorner.Adorner): void {
     if (glyphOrAdorner instanceof Adorners.Adorner.Adorner) {
+      this.setGlyph('');
       if (this.adorner) {
         this.adorner.replaceWith(glyphOrAdorner);
       } else {
@@ -628,15 +629,6 @@ export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
 
   setDarkText(): void {
     this.element.classList.add('dark-text');
-  }
-
-  turnIntoSelect(shrinkable: boolean|undefined = false): void {
-    this.element.classList.add('toolbar-has-dropdown');
-    if (shrinkable) {
-      this.element.classList.add('toolbar-has-dropdown-shrinkable');
-    }
-    const dropdownArrowIcon = IconButton.Icon.create('triangle-down', 'toolbar-dropdown-arrow');
-    this.element.appendChild(dropdownArrowIcon);
   }
 
   clicked(event: Event): void {
@@ -858,6 +850,7 @@ export class ToolbarMenuButton extends ToolbarButton {
   private readonly contextMenuHandler: (arg0: ContextMenu) => void;
   private readonly useSoftMenu: boolean;
   private triggerTimeout?: number;
+
   constructor(contextMenuHandler: (arg0: ContextMenu) => void, useSoftMenu?: boolean, jslogContext?: string) {
     super('', 'dots-vertical', undefined, jslogContext);
     if (jslogContext) {
@@ -866,6 +859,15 @@ export class ToolbarMenuButton extends ToolbarButton {
     this.contextMenuHandler = contextMenuHandler;
     this.useSoftMenu = Boolean(useSoftMenu);
     ARIAUtils.markAsMenuButton(this.element);
+  }
+
+  turnIntoSelect(shrinkable: boolean|undefined = false): void {
+    this.element.classList.add('toolbar-has-dropdown');
+    if (shrinkable) {
+      this.element.classList.add('toolbar-has-dropdown-shrinkable');
+    }
+    const dropdownArrowIcon = IconButton.Icon.create('triangle-down', 'toolbar-dropdown-arrow');
+    this.element.appendChild(dropdownArrowIcon);
   }
 
   override mouseDown(event: MouseEvent): void {
