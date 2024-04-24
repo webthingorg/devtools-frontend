@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8017df38_ceaad7a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-24T11:43:16Z",
+      "side": 1,
+      "message": "PTAL. Bit of clean-up to remove the old stuff required but will do that in a follow-up CL.",
+      "revId": "702c6c1997f466af0228bd62bb4bbba169373629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
