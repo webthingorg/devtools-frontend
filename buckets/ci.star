@@ -97,6 +97,7 @@ DevTools Linux</a> but has devtools_skip_typecheck=True.""",
                 "devtools_skip_typecheck": True,
                 "parallel": True,
                 "coverage": False,
+                "perf_benchmarks": True,
             },
             description_html = """
 This is the same with <a href="https://ci.chromium.org/p/devtools-frontend/builders/ci/Linux%20Compile%20Debug">
