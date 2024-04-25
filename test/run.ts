@@ -68,6 +68,31 @@ function ninja(stdio: 'inherit'|'pipe', ...args: string[]) {
   return {status, output};
 }
 
+function getBuildPathWithLineNumber(file: PathPair): string {
+  if (!file.buildLineNumber && !file.sourceLineNumber) {
+    return file.buildPath;
+  }
+
+  if (file.buildLineNumber) {
+    return `${file.buildPath}:${file.buildLineNumber}`;
+  }
+
+  const sourceMap = require('source-map');
+  try {
+    const sourceMapContents = JSON.parse(fs.readFileSync(`${file.buildPath}.map`, 'utf-8'));
+    const sourceMapConsumer = new sourceMap.SourceMapConsumer(sourceMapContents);
+    const source = path.relative(path.dirname(file.buildPath), file.sourcePath);
+    const buildLineNumber: number =
+        sourceMapConsumer.generatedPositionFor({source, line: file.sourceLineNumber, column: 0}).line + 1;
+
+    return `${file.buildPath}:${buildLineNumber}`;
+  } catch {
+    console.error(`Failed to resolve the source location for ${path.basename(file.buildPath)}:${
+        file.sourceLineNumber} using source maps`);
+    return file.buildPath;
+  }
+}
+
 class Tests {
   readonly suite: PathPair;
   readonly extraPaths: PathPair[];
@@ -94,7 +119,7 @@ class Tests {
     const argumentsForNode = [
       ...args,
       '--',
-      ...tests.map(t => t.buildPath),
+      ...tests.map(getBuildPathWithLineNumber),
       ...forwardOptions(),
     ];
     if (options['debug-driver']) {
@@ -131,7 +156,6 @@ class KarmaTests extends Tests {
 }
 
 // TODO(333423685)
-// - perf
 // - screenshots
 // - iterations
 // - expanded-reporting
