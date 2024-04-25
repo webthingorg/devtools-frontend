@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b4a0c64_1ae02a33",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-25T08:43:34Z",
+      "side": 1,
+      "message": "Let\u0027s generate an issue instead. The console is already spammed with all sort of things, Issues panel was introduced exactly for this kind of diagnostics. \n\nNormally these are generated on the chromium/blink side, like in https://source.chromium.org/chromium/chromium/src/+/main:content/browser/devtools/devtools_instrumentation.cc;l\u003d837;drc\u003dfa67bc861debe561f482e5023096ced07cf33f45;bpv\u003d0;bpt\u003d1 or https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_audits_issue.cc;l\u003d586?q\u003dissue%20devtools%20lang:cc%20-f:out%20f:blink\n\nbut we can also generate them in the frontend if needed",
+      "range": {
+        "startLine": 1157,
+        "startChar": 0,
+        "endLine": 1157,
+        "endChar": 41
+      },
+      "revId": "49cec7f10ebe69ae81edccc6e30441bbc969d0ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
