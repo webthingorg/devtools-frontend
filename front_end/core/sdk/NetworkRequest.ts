@@ -1154,7 +1154,15 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#wasIntercepted = wasIntercepted;
   }
 
+  static showWarning(msg: string): void {
+    Common.Console.Console.instance().warn(`${msg}`);
+  }
+
   setEarlyHintsHeaders(headers: NameValue[]): void {
+    const initiator = this.initiator();
+    if (headers?.length && initiator !== null && initiator.type !== Protocol.Network.InitiatorType.Other) {
+      NetworkRequest.showWarning(`EarlyHints headers received with "${this.url()}" will not be used`);
+    }
     this.earlyHintsHeaders = headers;
   }
 

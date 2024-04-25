@@ -237,6 +237,24 @@ describe('NetworkRequest', () => {
     request.originalResponseHeaders = [{name: 'duplicate', value: 'first'}, {name: 'duplicate', value: 'second'}];
     assert.isFalse(request.hasOverriddenHeaders());
   });
+
+  it('show warning message for early hints received with subresources', () => {
+    // Override SDK.NetworkRequest.NetworkRequest.showWarning to test the
+    // warning message.
+    SDK.NetworkRequest.NetworkRequest.showWarning = function(msg) {
+      throw new Error(msg);
+    };
+    const fakeRequest = SDK.NetworkRequest.NetworkRequest.createWithoutBackendRequest(
+        'fakeRequestId',
+        'url1' as Platform.DevToolsPath.UrlString,
+        'documentURL' as Platform.DevToolsPath.UrlString,
+        {'type': Protocol.Network.InitiatorType.Script} as Protocol.Network.Initiator,
+    );
+    fakeRequest.statusCode = 200;
+    assert.throws(() => {
+      fakeRequest.setEarlyHintsHeaders([{name: 'test', value: 'test'}]);
+    }, Error, 'EarlyHints headers received with "url1" will not be used');
+  });
 });
 
 describeWithMockConnection('NetworkRequest', () => {
