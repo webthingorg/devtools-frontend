@@ -16,7 +16,7 @@ describeWithEnvironment('AppenderUtils', () => {
     // This color is same as --sys-color-on-surface in themeColors.css
     color: 'rgb(31 31 31 / 100%)',
     // This color is same as --sys-color-cdt-base-container in themeColors.css
-    backgroundColor: 'rgb(250 249 248 / 100%)',
+    backgroundColor: 'color-mix(in sRGB, rgb(253 252 251 / 100%), rgb(255 255 255 / 100%) 50%)',
     nestingLevel: 0,
     shareHeaderLine: true,
   };
