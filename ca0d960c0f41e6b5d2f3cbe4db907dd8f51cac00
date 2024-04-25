@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1ed21e_8e606b11",
+        "filename": "front_end/models/trace/handlers/AnimationHandler.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T00:37:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a65e1b0_91687750",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3e38f9a_e8352336",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-24T21:38:13Z",
       "side": 1,
       "message": "can you ref the other type?\n\n    Types.TraceEvents.TraceEventAnimation[\u0027args\u0027][\u0027data\u0027][\u0027unsupportedProperties\u0027]",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b69d2740_93c107bd",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T00:37:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3e38f9a_e8352336",
       "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -82,6 +118,24 @@
       "writtenOn": "2024-04-24T21:38:13Z",
       "side": 1,
       "message": "whoa.. yeah looks like someone made a mistake earlier. i can verify nodeId/displayName are within args.data not just args.\n\nweird.",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da74ac3e_36f420a1",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T00:37:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2bbbc96_aede5fc4",
       "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
