@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf50420_7cffaa0e",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-25T15:02:30Z",
+      "side": 1,
+      "message": "TraceEventAsyncInstant  (more on this below)",
+      "range": {
+        "startLine": 211,
+        "startChar": 64,
+        "endLine": 211,
+        "endChar": 93
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd6c037_b9c5a270",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-25T15:02:30Z",
+      "side": 1,
+      "message": "where\u0027d you pick up the name `status event`?\n\nI cant find much reference to that being a canonical name so i\u0027d prefer we call them \"instant events\" if you\u0027re fine with it.",
+      "range": {
+        "startLine": 212,
+        "startChar": 90,
+        "endLine": 212,
+        "endChar": 103
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd43a97b_0970a824",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-25T15:02:30Z",
+      "side": 1,
+      "message": "add `status: []` here and you can simplify the 249-251 a bit.",
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28f507d0_176a209a",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-25T15:02:30Z",
+      "side": 1,
+      "message": "do me a favor and rename this to `matchedPairs` ? not sure why we were omitting the plural ..",
+      "range": {
+        "startLine": 271,
+        "startChar": 36,
+        "endLine": 271,
+        "endChar": 47
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb632c28_f1357231",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-25T15:02:30Z",
+      "side": 1,
+      "message": "do me a favor and do `const beginEventId \u003d id` ? (or refactor that away)\n\ni don\u0027t know why we\u0027ve been recomputing this thing when we already have that value in scope. \n\nanyway clearly not your fault but since you\u0027re here... :)",
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5970698e_ae95b6fe",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-25T15:02:30Z",
+      "side": 1,
+      "message": "compositeFailureEvents",
+      "range": {
+        "startLine": 90,
+        "startChar": 12,
+        "endLine": 90,
+        "endChar": 27
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
