@@ -12,11 +12,14 @@ import * as Timeline from '../panels/timeline/timeline.js';
 import * as ThemeSupport from '../ui/legacy/theme_support/theme_support.js';
 
 import {resetTestDOM} from './DOMHelpers.js';
+import {TestCapture} from './test_selection.js';
 import {
   checkForPendingActivity,
   startTrackingAsyncActivity,
   stopTrackingAsyncActivity,
 } from './TrackAsyncOperations.js';
+
+TestCapture.instance();
 
 beforeEach(() => {
   resetTestDOM();
