@@ -207,14 +207,21 @@ export function makeSyntheticTraceEntry(
   };
 }
 
-export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.TraceEventPairableAsync[]): Map<string, {
+/**
+ * Matches beginning events with TraceEventPairableAsyncEnd and TraceEventPairableAsyncStatus (ASYNC_NESTABLE_INSTANT)
+ * if provided, though currently only coming from Animations. Traces may contain multiple status events so we need to
+ * account for that.
+ */
+export function matchEvents(unpairedEvents: Types.TraceEvents.TraceEventPairableAsync[]): Map<string, {
   begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
   end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
+  status?: Types.TraceEvents.TraceEventPairableAsyncStatus[],
 }> {
   // map to store begin and end of the event
   const matchedPairs: Map<string, {
     begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
     end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
+    status?: Types.TraceEvents.TraceEventPairableAsyncStatus[],
   }> = new Map();
 
   // looking for start and end
@@ -232,14 +239,18 @@ export function matchBeginningAndEndEvents(unpairedEvents: Types.TraceEvents.Tra
 
     const isStartEvent = event.ph === Types.TraceEvents.Phase.ASYNC_NESTABLE_START;
     const isEndEvent = event.ph === Types.TraceEvents.Phase.ASYNC_NESTABLE_END;
+    const isStatusEvent = event.ph === Types.TraceEvents.Phase.ASYNC_NESTABLE_INSTANT;
 
     if (isStartEvent) {
       otherEventsWithID.begin = event as Types.TraceEvents.TraceEventPairableAsyncBegin;
     } else if (isEndEvent) {
       otherEventsWithID.end = event as Types.TraceEvents.TraceEventPairableAsyncEnd;
+    } else if (isStatusEvent) {
+      const statusEvents = otherEventsWithID.status || [];
+      statusEvents.push(event as Types.TraceEvents.TraceEventPairableAsyncStatus);
+      otherEventsWithID.status = [...statusEvents];
     }
   }
-
   return matchedPairs;
 }
 
@@ -249,46 +260,58 @@ function getSyntheticId(event: Types.TraceEvents.TraceEventPairableAsync): strin
 }
 
 export function createSortedSyntheticEvents<T extends Types.TraceEvents.TraceEventPairableAsync>(
-    matchedPairs: Map<string, {
+    matchedPair: Map<string, {
       begin: Types.TraceEvents.TraceEventPairableAsyncBegin | null,
       end: Types.TraceEvents.TraceEventPairableAsyncEnd | null,
+      status?: Types.TraceEvents.TraceEventPairableAsyncStatus[],
     }>,
     syntheticEventCallback?: (syntheticEvent: MatchedPairType<T>) => void,
     ): MatchedPairType<T>[] {
   const syntheticEvents: MatchedPairType<T>[] = [];
-  for (const [id, eventsPair] of matchedPairs.entries()) {
-    const beginEvent = eventsPair.begin;
-    const endEvent = eventsPair.end;
-    if (!beginEvent || !endEvent) {
+  for (const [id, eventsTriplet] of matchedPair.entries()) {
+    const beginEvent = eventsTriplet.begin;
+    const endEvent = eventsTriplet.end;
+    const statusEvents = eventsTriplet.status;
+    if (!beginEvent || !(endEvent || statusEvents)) {
       // This should never happen, the backend only creates the events once it
-      // has them both, so we should never get into this state.
+      // has them both (beginEvent & endEvent/statusEvents), so we should never get into this state.
       // If we do, something is very wrong, so let's just drop that problematic event.
       continue;
     }
-    const pair = {beginEvent, endEvent};
+    const triplet = {beginEvent, endEvent, statusEvents};
+    /**
+     * When trying to pair events with status events present, there are times when these
+     * ASYNC_NESTABLE_INSTANT ('n') don't have a corresponding ASYNC_NESTABLE_END ('e') event.
+     * In these cases, pair without needing the endEvent.
+     */
     function eventsArePairable(data: {
       beginEvent: Types.TraceEvents.TraceEventPairableAsyncBegin,
-      endEvent: Types.TraceEvents.TraceEventPairableAsyncEnd,
+      endEvent: Types.TraceEvents.TraceEventPairableAsyncEnd|null,
+      statusEvents?: Types.TraceEvents.TraceEventPairableAsyncStatus[],
     }): data is MatchedPairType<T>['args']['data'] {
-      return Boolean(getSyntheticId(data.beginEvent)) &&
-          getSyntheticId(data.beginEvent) === getSyntheticId(data.endEvent);
+      const beginEventId = getSyntheticId(data.beginEvent);
+      const statusEventsMatch =
+          data.statusEvents ? data.statusEvents.some(e => beginEventId === getSyntheticId(e)) : false;
+      const endEventMatch = data.endEvent ? beginEventId === getSyntheticId(data.endEvent) : false;
+      return Boolean(beginEventId) && (statusEventsMatch || endEventMatch);
     }
-    if (!eventsArePairable(pair)) {
+    if (!eventsArePairable(triplet)) {
       continue;
     }
+    const targetEvent = endEvent || beginEvent;
     const event: MatchedPairType<T> = {
-      cat: endEvent.cat,
-      ph: endEvent.ph,
-      pid: endEvent.pid,
-      tid: endEvent.tid,
+      cat: targetEvent.cat,
+      ph: targetEvent.ph,
+      pid: targetEvent.pid,
+      tid: targetEvent.tid,
       id,
       // Both events have the same name, so it doesn't matter which we pick to
       // use as the description
       name: beginEvent.name,
-      dur: Types.Timing.MicroSeconds(endEvent.ts - beginEvent.ts),
+      dur: Types.Timing.MicroSeconds(targetEvent.ts - beginEvent.ts),
       ts: beginEvent.ts,
       args: {
-        data: pair,
+        data: triplet,
       },
     };
 
@@ -308,7 +331,7 @@ export function createSortedSyntheticEvents<T extends Types.TraceEvents.TraceEve
 export function createMatchedSortedSyntheticEvents<T extends Types.TraceEvents.TraceEventPairableAsync>(
     unpairedAsyncEvents: T[],
     syntheticEventCallback?: (syntheticEvent: MatchedPairType<T>) => void): MatchedPairType<T>[] {
-  const matchedPairs = matchBeginningAndEndEvents(unpairedAsyncEvents);
+  const matchedPairs = matchEvents(unpairedAsyncEvents);
   const syntheticEvents = createSortedSyntheticEvents<T>(matchedPairs, syntheticEventCallback);
   return syntheticEvents;
 }
