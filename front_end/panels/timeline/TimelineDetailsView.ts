@@ -120,7 +120,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       return this.lazySelectorStatsView;
     }
 
-    this.lazySelectorStatsView = new TimelineSelectorStatsView();
+    this.lazySelectorStatsView = new TimelineSelectorStatsView(
+        this.#traceEngineData,
+    );
     return this.lazySelectorStatsView;
   }
 
@@ -348,7 +350,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
   }
 
-  private showAggregatedSelectorStats(events: TraceEngine.Legacy.Event[]): void {
+  private showAggregatedSelectorStats(events: TraceEngine.Types.TraceEvents.TraceEventUpdateLayoutTree[]): void {
     const selectorStatsView = this.selectorStatsView();
 
     selectorStatsView.setAggregatedEvent(events);
@@ -420,8 +422,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     const isSelectorStatsEnabled =
         Common.Settings.Settings.instance().createSetting('timeline-capture-selector-stats', false).get();
     if (this.#selectedEvents && isSelectorStatsEnabled) {
-      const eventsInRange = TimelineModel.TimelineModel.TimelineModelImpl.findRecalculateStyleEvents(
-          this.#selectedEvents, startTime, endTime);
+      const eventsInRange = TraceEngine.Helpers.Trace.findUpdateLayoutTreeEvents(
+          this.#selectedEvents,
+          TraceEngine.Helpers.Timing.millisecondsToMicroseconds(startTime),
+          TraceEngine.Helpers.Timing.millisecondsToMicroseconds(endTime),
+      );
       if (eventsInRange.length > 0) {
         this.showAggregatedSelectorStats(eventsInRange);
       }
