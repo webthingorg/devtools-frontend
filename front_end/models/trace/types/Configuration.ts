@@ -15,6 +15,12 @@ export type Configuration = Readonly<{
      * Show all events: disable the default filtering which hides and excludes some events.
      */
     timelineShowAllEvents: boolean,
+    /**
+     * The experiment to capture and display Selector Stats in the Performance
+     * Panel. We care about this in the engine because we can avoid some work in
+     * the handler if the user does not have this experiment enabled.
+     */
+    captureStyleSelectorStats: boolean,
   },
   processing: {
     /**
@@ -33,6 +39,7 @@ export const DEFAULT: Configuration = {
   experiments: {
     timelineV8RuntimeCallStats: false,
     timelineShowAllEvents: false,
+    captureStyleSelectorStats: false,
   },
   processing: {
 
