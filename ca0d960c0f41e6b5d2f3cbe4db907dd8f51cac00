@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff70a0f2_59a28b02",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-04-25T20:09:45Z",
+      "side": 1,
+      "message": "Well it seems we currently have an enumeration with nothing actually ever enumerating its values. So I\u0027d just make this a literal array and use the indicies as the flag index.\n\nBut presumably we want these error codes to be transformed into user facing strings. In which case we want an enum (but even better would be having these be UIString, right?)\n\ntldr - it\u0027s fine as it is. Probably needs to change soon for error messages so don\u0027t bother with any refactor that isn\u0027t solving that issue.",
+      "parentUuid": "45a759dd_534ab92c",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2bbbc96_aede5fc4",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 7
