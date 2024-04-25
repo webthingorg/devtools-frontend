@@ -179,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a646f22c_fb1d185d",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-04-25T11:54:53Z",
+      "side": 1,
+      "message": "Ah, I missed that it\u0027s the RemoteObject being handed out, not the actual value, that\u0027s my bad!\n\nI would really prefer not passing RemoteObjects or RemoteObjectIds to extensions. The objects/ids are an implementation detail that extensions should not rely on (if we pass them out, extensions will inevitably start depending on their internals). There\u0027s also a livetime issue, where DevTools discards RemoteObjects and invalidates IDs and the extension would not know about that.\n\nThis could work for the API: \ninterface ForeignObject {\n  valueClass: \u0027local\u0027|\u0027global\u0027|\u0027operand\u0027\n  index: number\n}\n\nI doubt the refactoring would be huge, it should actually simplify some things. For example, you might not have to keep a cache of externref values",
+      "parentUuid": "1d28cff5_1a07a5f3",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d72b7439_0bbc1821",
         "filename": "extension-api/ExtensionAPI.d.ts",
         "patchSetId": 1
