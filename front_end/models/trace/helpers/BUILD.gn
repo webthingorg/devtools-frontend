@@ -11,6 +11,7 @@ devtools_module("helpers") {
   sources = [
     "Extensions.ts",
     "SamplesIntegrator.ts",
+    "StyleSelectors.ts",
     "Timing.ts",
     "Trace.ts",
     "TreeHelpers.ts",
@@ -41,6 +42,7 @@ ts_library("unittests") {
 
   sources = [
     "SamplesIntegrator.test.ts",
+    "StyleSelectors.test.ts",
     "Timing.test.ts",
     "Trace.test.ts",
     "TreeHelpers.test.ts",
