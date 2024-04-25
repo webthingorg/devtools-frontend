@@ -197,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e0dd41b_a9d04b64",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-04-25T16:03:14Z",
+      "side": 1,
+      "message": "I\u0027m now keeping track of the externref location, following your suggestion, rather than passing around a remote object.",
+      "parentUuid": "a646f22c_fb1d185d",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d72b7439_0bbc1821",
         "filename": "extension-api/ExtensionAPI.d.ts",
         "patchSetId": 1
