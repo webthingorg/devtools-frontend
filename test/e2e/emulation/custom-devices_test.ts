@@ -29,7 +29,7 @@ import {
 
 const ADD_DEVICE_BUTTON_SELECTOR = '#custom-device-add-button';
 const FOCUSED_DEVICE_NAME_FIELD_SELECTOR = '#custom-device-name-field:focus';
-const EDITOR_ADD_BUTTON_SELECTOR = '.editor-buttons > button:first-child';
+const EDITOR_ADD_BUTTON_SELECTOR = '.editor-buttons > devtools-button:nth-of-type(2)';
 const FOCUSED_SELECTOR = '*:focus';
 
 async function elementTextContent(element: puppeteer.ElementHandle): Promise<string> {
@@ -112,6 +112,7 @@ describe('Custom devices', () => {
     await tabForward();  // Focus device model.
     await typeText('C-1-Gardener');
 
+    await tabForward();  // Focus cancel button.
     await tabForward();  // Focus add button.
 
     const finishAdd = await waitFor(FOCUSED_SELECTOR);
