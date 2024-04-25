@@ -795,12 +795,13 @@ export class TimelineUIUtils {
         detailsText = i18nString(UIStrings.sCollected, {PH1: Platform.NumberUtilities.bytesToString(delta)});
         break;
       }
-      case recordType.FunctionCall:
-        if (eventData && eventData['url'] && eventData['lineNumber'] !== undefined &&
-            eventData['columnNumber'] !== undefined) {
-          detailsText = eventData.url + ':' + (eventData.lineNumber + 1) + ':' + (eventData.columnNumber + 1);
+      case recordType.FunctionCall: {
+        const {lineNumber, columnNumber} = getZeroIndexedLineAndColumnNumbersForEvent(event);
+        if (lineNumber !== undefined && columnNumber !== undefined) {
+          detailsText = eventData.url + ':' + (lineNumber + 1) + ':' + (columnNumber + 1);
         }
         break;
+      }
       case recordType.JSRoot:
       case recordType.JSFrame:
       case recordType.JSIdleFrame:
@@ -836,9 +837,10 @@ export class TimelineUIUtils {
       case recordType.CompileScript:
       case recordType.CacheScript:
       case recordType.EvaluateScript: {
+        const {lineNumber} = getZeroIndexedLineAndColumnNumbersForEvent(event);
         const url = eventData && eventData['url'];
         if (url) {
-          detailsText = Bindings.ResourceUtils.displayNameForURL(url) + ':' + (eventData['lineNumber'] + 1);
+          detailsText = Bindings.ResourceUtils.displayNameForURL(url) + ':' + ((lineNumber || 0) + 1);
         }
         break;
       }
@@ -980,11 +982,12 @@ export class TimelineUIUtils {
       case recordType.JSFrame: {
         details = document.createElement('span');
         UI.UIUtils.createTextChild(details, TimelineUIUtils.frameDisplayName(eventData));
+        const {lineNumber, columnNumber} = getZeroIndexedLineAndColumnNumbersForEvent(event);
         const location = this.linkifyLocation({
           scriptId: eventData['scriptId'],
           url: eventData['url'],
-          lineNumber: eventData['lineNumber'],
-          columnNumber: eventData['columnNumber'],
+          lineNumber: lineNumber || 0,
+          columnNumber: columnNumber,
           target,
           isFreshRecording,
           linkifier,
@@ -1015,10 +1018,11 @@ export class TimelineUIUtils {
       case recordType.EvaluateScript: {
         const url = eventData['url'];
         if (url) {
+          const {lineNumber} = getZeroIndexedLineAndColumnNumbersForEvent(event);
           details = this.linkifyLocation({
             scriptId: null,
             url,
-            lineNumber: eventData['lineNumber'],
+            lineNumber: lineNumber || 0,
             columnNumber: 0,
             target,
             isFreshRecording,
@@ -1287,9 +1291,8 @@ export class TimelineUIUtils {
     if (TraceEngine.Legacy.eventIsFromNewEngine(event) && TraceEngine.Types.TraceEvents.isTraceEventV8Compile(event)) {
       url = event.args.data?.url as Platform.DevToolsPath.UrlString;
       if (url) {
-        const lineNumber = event.args?.data?.lineNumber || 0;
-        const columnNumber = event.args?.data?.columnNumber;
-        contentHelper.appendLocationRow(i18nString(UIStrings.script), url, lineNumber, columnNumber);
+        const {lineNumber, columnNumber} = getZeroIndexedLineAndColumnNumbersForEvent(event);
+        contentHelper.appendLocationRow(i18nString(UIStrings.script), url, lineNumber || 0, columnNumber);
       }
       const isEager = Boolean(event.args.data?.eager);
       if (isEager) {
@@ -1372,8 +1375,8 @@ export class TimelineUIUtils {
       case recordTypes.CacheScript: {
         url = eventData && eventData['url'] as Platform.DevToolsPath.UrlString;
         if (url) {
-          contentHelper.appendLocationRow(
-              i18nString(UIStrings.script), url, eventData['lineNumber'], eventData['columnNumber']);
+          const {lineNumber, columnNumber} = getZeroIndexedLineAndColumnNumbersForEvent(event);
+          contentHelper.appendLocationRow(i18nString(UIStrings.script), url, lineNumber || 0, columnNumber);
         }
         contentHelper.appendTextRow(
             i18nString(UIStrings.compilationCacheSize),
@@ -1384,8 +1387,8 @@ export class TimelineUIUtils {
       case recordTypes.EvaluateScript: {
         url = eventData && eventData['url'] as Platform.DevToolsPath.UrlString;
         if (url) {
-          contentHelper.appendLocationRow(
-              i18nString(UIStrings.script), url, eventData['lineNumber'], eventData['columnNumber']);
+          const {lineNumber, columnNumber} = getZeroIndexedLineAndColumnNumbersForEvent(event);
+          contentHelper.appendLocationRow(i18nString(UIStrings.script), url, lineNumber || 0, columnNumber);
         }
         break;
       }
@@ -2755,4 +2758,76 @@ function maybeTargetForEvent(
   }
 
   return targetForEvent(traceParsedData, event);
+}
+
+/**
+ * Different trace events return line/column numbers that are 1 or 0 indexed.
+ * This function knows which events return 1 indexed numbers and normalizes
+ * them. The UI expects 0 indexed line numbers, so that is what we return.
+ */
+export function getZeroIndexedLineAndColumnNumbersForEvent(event: TraceEngine.Legacy.CompatibleTraceEvent): {
+  lineNumber?: number,
+  columnNumber?: number,
+} {
+  // All events in the perf panel are now new engine events, but the types are
+  // not yet updated throughout the codebase as the old engine is removed.
+  // TOOD(crbug.com/40287735): change the type and remove this needless check.
+  if (!TraceEngine.Legacy.eventIsFromNewEngine(event)) {
+    return {};
+  }
+  // Some events emit line numbers that are 1 indexed, but the UI layer expects
+  // numbers to be 0 indexed. So here, if the event matches a known 1-indexed
+  // number event, we subtract one from the line and column numbers.
+  // Otherwise, if the event has args.data.lineNumber/colNumber, we return it
+  // as is.
+  const numbers = getRawLineAndColumnNumbersForEvent(event);
+  const {lineNumber, columnNumber} = numbers;
+
+  switch (event.name) {
+    // All these events have line/column numbers which are 1 indexed; so we
+    // subtract to make them 0 indexed.
+    case TraceEngine.Types.TraceEvents.KnownEventName.FunctionCall:
+    case TraceEngine.Types.TraceEvents.KnownEventName.EvaluateScript:
+    case TraceEngine.Types.TraceEvents.KnownEventName.Compile:
+    case TraceEngine.Types.TraceEvents.KnownEventName.CacheScript: {
+      return {
+        lineNumber: typeof lineNumber === 'number' ? lineNumber - 1 : undefined,
+        columnNumber: typeof columnNumber === 'number' ? columnNumber - 1 : undefined,
+      };
+    }
+    default: {
+      return numbers;
+    }
+  }
+}
+
+/**
+ * NOTE: you probably do not want this function!
+ *
+ * Some trace events have 0 indexed line/column numbers, and others have 1
+ * indexed. This function does NOT normalize them, but
+ * `getZeroIndexedLineAndColumnNumbersForEvent` does. It is best to use that!
+ *
+ * @see {@link getZeroIndexedLineAndColumnNumbersForEvent}
+ **/
+function getRawLineAndColumnNumbersForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): {
+  lineNumber?: number,
+  columnNumber?: number,
+} {
+  if (!event.args?.data) {
+    return {
+      lineNumber: undefined,
+      columnNumber: undefined,
+    };
+  }
+  let lineNumber: number|undefined = undefined;
+  let columnNumber: number|undefined = undefined;
+  if ('lineNumber' in event.args.data && typeof event.args.data.lineNumber === 'number') {
+    lineNumber = event.args.data.lineNumber;
+  }
+  if ('columnNumber' in event.args.data && typeof event.args.data.columnNumber === 'number') {
+    columnNumber = event.args.data.columnNumber;
+  }
+
+  return {lineNumber, columnNumber};
 }
