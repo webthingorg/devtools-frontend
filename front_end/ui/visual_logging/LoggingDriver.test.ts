@@ -372,6 +372,45 @@ describe('LoggingDriver', () => {
     assert.isTrue(recordKeyDown.calledOnce);
   });
 
+  it('logs change', async () => {
+    addLoggableElements();
+    await VisualLoggingTesting.LoggingDriver.startLogging({hoverLogThrottler});
+    const recordChange = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordChange',
+    );
+
+    const element = document.getElementById('element') as HTMLElement;
+    element.dispatchEvent(new KeyboardEvent('keydown', {'key': 'a'}));
+    element.dispatchEvent(new Event('change'));
+
+    assert.isTrue(recordChange.calledOnce);
+    assert.deepStrictEqual(
+        stabilizeEvent(recordChange.firstCall.firstCall), {veid: 0, keydown: true, paste: undefined, drop: undefined});
+
+    recordChange.resetHistory();
+    element.dispatchEvent(new Event('paste'));
+    element.dispatchEvent(new Event('change'));
+    assert.isTrue(recordChange.calledOnce);
+    assert.deepStrictEqual(
+        stabilizeEvent(recordChange.firstCall.firstCall), {veid: 0, keydown: undefined, paste: true, drop: undefined});
+
+    recordChange.resetHistory();
+    element.dispatchEvent(new Event('drop'));
+    element.dispatchEvent(new Event('change'));
+    assert.isTrue(recordChange.calledOnce);
+    assert.deepStrictEqual(
+        stabilizeEvent(recordChange.firstCall.firstCall), {veid: 0, keydown: undefined, paste: undefined, drop: true});
+
+    recordChange.resetHistory();
+    element.dispatchEvent(new Event('keydown'));
+    element.dispatchEvent(new Event('drop'));
+    element.dispatchEvent(new Event('change'));
+    assert.isTrue(recordChange.calledOnce);
+    assert.deepStrictEqual(
+        stabilizeEvent(recordChange.firstCall.firstCall), {veid: 0, keydown: true, paste: undefined, drop: true});
+  });
+
   it('logs hover', async () => {
     const hoverLogThrottler = new Common.Throttler.Throttler(1000000000);
     addLoggableElements();
