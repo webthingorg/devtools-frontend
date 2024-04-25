@@ -16,6 +16,69 @@
       "message": "ptal",
       "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfe83277_e74f046c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-25T17:39:15Z",
+      "side": 1,
+      "message": "LGTM\n\nrelated to this we have https://issues.chromium.org/issues/327213107. A single solution wasn\u0027t clear because some backend call frames are 0 based others 1 based. We didn\u0027t know this was a known fact back in the day :). Now I think we can use the new helper and add support for `InvalidateLayout`/`ScheduleStyleRecalculation`, extracting the numbers in their own base and returning as 0 based. Will do shortly, thanks!",
+      "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c28339c7_de8a3243",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-25T17:39:15Z",
+      "side": 1,
+      "message": "could we extract this into a single declaration we reuse in multiple tests?",
+      "range": {
+        "startLine": 91,
+        "startChar": 15,
+        "endLine": 91,
+        "endChar": 31
+      },
+      "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b86ddfa3_7bb76f49",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-25T17:39:15Z",
+      "side": 1,
+      "message": "there\u0027s a different behaviour in the linkifier util for undefined line numbers, do we want to always override it with 0?",
+      "range": {
+        "startLine": 989,
+        "startChar": 33,
+        "endLine": 989,
+        "endChar": 37
+      },
+      "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
