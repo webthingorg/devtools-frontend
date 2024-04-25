@@ -6,7 +6,7 @@ import * as Handlers from '../handlers/handlers.js';
 import * as Helpers from '../helpers/helpers.js';
 import * as Types from '../types/types.js';
 
-import {type InsightResult, InsightWarning, type NavigationInsightContext, type RequiredData} from './types.js';
+import {type InsightResult, InsightWarning, type NavigationInsightContext, type RequiredData, type InsightAnnotation} from './types.js';
 
 export function deps(): ['NetworkRequests', 'PageLoadMetrics', 'LargestImagePaint', 'Meta'] {
   return ['NetworkRequests', 'PageLoadMetrics', 'LargestImagePaint', 'Meta'];
@@ -68,6 +68,61 @@ function breakdownPhases(
     loadTime,
     renderDelay,
   };
+}
+
+function createAnnotations(nav: Types.TraceEvents.TraceEventNavigationStart, phases: LCPPhases): InsightAnnotation[] {
+  const annotations: InsightAnnotation[] = [];
+
+  // Determine end times (in microseconds) for each phase.
+  // Note that the middle to phases may not be present.
+  const loadDelayDur = phases.loadDelay ? Helpers.Timing.millisecondsToMicroseconds(phases.loadDelay) : null;
+  const loadTimeDur = phases.loadTime ? Helpers.Timing.millisecondsToMicroseconds(phases.loadTime) : null;
+  const renderDelayDur = Helpers.Timing.millisecondsToMicroseconds(phases.renderDelay);
+  const ttfb = Helpers.Timing.millisecondsToMicroseconds(phases.ttfb);
+  const loadDelay = loadDelayDur ? Types.Timing.MicroSeconds(ttfb + loadDelayDur) : null;
+  const loadTime = loadTimeDur && loadDelay ? Types.Timing.MicroSeconds(loadDelay + loadTimeDur) : null;
+  const renderDelay = Types.Timing.MicroSeconds(renderDelayDur + (loadTime ? loadTime : ttfb));
+
+  annotations.push({
+    type: 'range',
+    from: nav.ts,
+    to: ttfb,
+    text: 'Time to first byte',
+  });
+
+  if (loadDelay !== null && loadTime !== null) {
+    // All phases are present.
+    annotations.push({
+      type: 'range',
+      from: ttfb,
+      to: loadDelay,
+      text: 'Load delay',
+    });
+    annotations.push({
+      type: 'range',
+      from: loadDelay,
+      to: loadTime,
+      text: 'Load time',
+    });
+    annotations.push({
+      type: 'range',
+      from: loadTime,
+      to: renderDelay,
+      text: 'Render delay',
+    });
+  } else {
+    // Only ttfb and render delay phases are present.
+    annotations.push({
+      type: 'range',
+      from: ttfb,
+      to: renderDelay,
+      text: 'Render Delay',
+    });
+  }
+
+  // TODO: annotate render blocking requests in the critical path.
+
+  return annotations;
 }
 
 function findLCPRequest(
@@ -140,10 +195,14 @@ export function generateInsight(
     return {lcpMs, warnings: [InsightWarning.NO_DOCUMENT_REQUEST]};
   }
 
+  const phases = breakdownPhases(nav, mainReq, lcpMs, lcpResource);
+  const annotations = createAnnotations(nav, phases);
+
   if (!lcpResource) {
     return {
+      annotations,
       lcpMs,
-      phases: breakdownPhases(nav, mainReq, lcpMs, lcpResource),
+      phases,
     };
   }
 
@@ -152,8 +211,9 @@ export function generateInsight(
   const imageFetchPriorityHint = lcpResource?.args.data.fetchPriorityHint;
 
   return {
+    annotations,
     lcpMs,
-    phases: breakdownPhases(nav, mainReq, lcpMs, lcpResource),
+    phases,
     shouldRemoveLazyLoading: imageLoadingAttr === 'lazy',
     shouldIncreasePriorityHint: imageFetchPriorityHint !== 'high',
     shouldPreloadImage: !imagePreloaded,

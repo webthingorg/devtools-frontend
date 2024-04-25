@@ -4,7 +4,7 @@
 
 import {type SyntheticInteractionPair} from '../types/TraceEvents.js';
 
-import {type InsightResult, type NavigationInsightContext, type RequiredData} from './types.js';
+import {type InsightAnnotation, type InsightResult, type NavigationInsightContext, type RequiredData} from './types.js';
 
 export function deps(): ['UserInteractions'] {
   return ['UserInteractions'];
@@ -14,6 +14,36 @@ type Result = InsightResult<{
   longestInteractionEvent?: SyntheticInteractionPair,
   highPercentileInteractionEvent?: SyntheticInteractionPair,
 }>;
+
+function createAnnotations(event: SyntheticInteractionPair): InsightAnnotation[] {
+  // Determine end times (in microseconds) for each phase.
+  const startTs = event.args.data.beginEvent.ts;
+  const endTs = event.args.data.endEvent.ts;
+  const inputDelay = event.processingStart;
+  const processing = event.processingEnd;
+  const presentation = endTs;
+
+  return [
+    {
+      type: 'range',
+      from: startTs,
+      to: inputDelay,
+      text: 'Input delay',
+    },
+    {
+      type: 'range',
+      from: inputDelay,
+      to: processing,
+      text: 'Processing duration',
+    },
+    {
+      type: 'range',
+      from: processing,
+      to: presentation,
+      text: 'Presentation delay',
+    },
+  ];
+}
 
 export function generateInsight(traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): Result {
   const interactionEvents = traceParsedData.UserInteractions.interactionEvents.filter(event => {
@@ -35,6 +65,9 @@ export function generateInsight(traceParsedData: RequiredData<typeof deps>, cont
   }
   const normalizedInteractionEvents = [...longestByInteractionId.values()];
   normalizedInteractionEvents.sort((a, b) => b.dur - a.dur);
+  const longestInteractionEvent = normalizedInteractionEvents[0];
+  const annotations =
+    longestInteractionEvent ? createAnnotations(longestInteractionEvent) : undefined;
 
   // INP is the "nearest-rank"/inverted_cdf 98th percentile, except Chrome only
   // keeps the 10 worst events around, so it can never be more than the 10th from
@@ -43,7 +76,8 @@ export function generateInsight(traceParsedData: RequiredData<typeof deps>, cont
   const highPercentileIndex = Math.min(9, Math.floor(normalizedInteractionEvents.length / 50));
 
   return {
-    longestInteractionEvent: normalizedInteractionEvents[0],
+    annotations,
+    longestInteractionEvent,
     highPercentileInteractionEvent: normalizedInteractionEvents[highPercentileIndex],
   };
 }

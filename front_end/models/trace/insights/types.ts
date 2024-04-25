@@ -6,6 +6,8 @@ import type * as Handlers from '../handlers/handlers.js';
 
 import type * as InsightsRunners from './InsightRunners.js';
 
+import * as Types from '../types/types.js';
+
 /**
  * Context for which navigation an insight should look at.
  */
@@ -23,7 +25,29 @@ export enum InsightWarning {
   NO_DOCUMENT_REQUEST = 'NO_DOCUMENT_REQUEST',
 }
 
+export interface InsightLabelAnnotation {
+  type: 'label';
+  event: Types.TraceEvents.TraceEventData;
+  text: string;
+}
+
+export interface InsightDependencyAnnotation {
+  type: 'label';
+  text: string;
+  from: Types.TraceEvents.TraceEventData;
+}
+
+export interface InsightRangeAnnotation {
+  type: 'range';
+  from: Types.Timing.MicroSeconds;
+  to: Types.Timing.MicroSeconds;
+  text: string;
+}
+
+export type InsightAnnotation = InsightLabelAnnotation | InsightDependencyAnnotation | InsightRangeAnnotation;
+
 export type InsightResult<R extends Record<string, unknown>> = R&{
+  annotations?: InsightAnnotation[];
   warnings?: InsightWarning[],
 };
 
