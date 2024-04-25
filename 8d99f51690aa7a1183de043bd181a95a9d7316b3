@@ -79,6 +79,29 @@
       },
       "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05bd2c2f_7493bf2c",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2768,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-25T20:06:46Z",
+      "side": 1,
+      "message": "actually, just realized we also have stack trace helpers at [1]. Maybe it makes sense to have all of this together in the same place\n\nhttps://source.chromium.org/chromium/chromium/src/+/1126307f7e340df9dc69c0c74a21c918b3af699f:third_party/devtools-frontend/src/front_end/models/trace/helpers/Trace.ts;l\u003d1",
+      "range": {
+        "startLine": 2768,
+        "startChar": 16,
+        "endLine": 2768,
+        "endChar": 58
+      },
+      "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
