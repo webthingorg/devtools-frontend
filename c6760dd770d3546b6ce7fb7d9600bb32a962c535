@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8115a8e4_332f9c76",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T19:51:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcf50420_7cffaa0e",
+      "range": {
+        "startLine": 211,
+        "startChar": 64,
+        "endLine": 211,
+        "endChar": 93
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fd6c037_b9c5a270",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-25T15:02:30Z",
       "side": 1,
       "message": "where\u0027d you pick up the name `status event`?\n\nI cant find much reference to that being a canonical name so i\u0027d prefer we call them \"instant events\" if you\u0027re fine with it.",
+      "range": {
+        "startLine": 212,
+        "startChar": 90,
+        "endLine": 212,
+        "endChar": 103
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3fb545a_aa978657",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T19:51:52Z",
+      "side": 1,
+      "message": "funny yeah besides that I saw that they were referenced in LH as \u0027status\u0027, I don\u0027t see it anywhere else. I guess I took that and ran lol. \"instant\" is better!",
+      "parentUuid": "1fd6c037_b9c5a270",
       "range": {
         "startLine": 212,
         "startChar": 90,
@@ -64,6 +112,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fca16504_c89e69aa",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T19:51:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd43a97b_0970a824",
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28f507d0_176a209a",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-04-25T15:02:30Z",
       "side": 1,
       "message": "do me a favor and rename this to `matchedPairs` ? not sure why we were omitting the plural ..",
+      "range": {
+        "startLine": 271,
+        "startChar": 36,
+        "endLine": 271,
+        "endChar": 47
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cec7f678_b2f02016",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T19:51:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28f507d0_176a209a",
       "range": {
         "startLine": 271,
         "startChar": 36,
@@ -104,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2b72c9_51546610",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T19:51:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb632c28_f1357231",
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5970698e_ae95b6fe",
@@ -117,6 +225,30 @@
       "writtenOn": "2024-04-25T15:02:30Z",
       "side": 1,
       "message": "compositeFailureEvents",
+      "range": {
+        "startLine": 90,
+        "startChar": 12,
+        "endLine": 90,
+        "endChar": 27
+      },
+      "revId": "c6760dd770d3546b6ce7fb7d9600bb32a962c535",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f7a692f_fd86d8cc",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-25T19:51:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5970698e_ae95b6fe",
       "range": {
         "startLine": 90,
         "startChar": 12,
