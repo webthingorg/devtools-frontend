@@ -520,6 +520,24 @@
       "parentUuid": "ca7cee16_155397d1",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13b7e8bc_2ed16dc0",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-04-26T17:17:09Z",
+      "side": 0,
+      "message": "Do we need to fully deprecate ARIAUtils.alert though? I\u0027d suggest a case-by-case audit to understand when the announcement fails or isn\u0027t consistent on mac or some other platform. Also, given spatial constraints in different views, a visible status indication may not always be ideal.",
+      "parentUuid": "0c0575ac_94869a5b",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
