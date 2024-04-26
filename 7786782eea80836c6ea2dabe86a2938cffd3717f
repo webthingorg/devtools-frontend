@@ -244,6 +244,24 @@
       "parentUuid": "3bbcadbc_b1d9385d",
       "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0f71404_1123e072",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-04-26T06:36:07Z",
+      "side": 1,
+      "message": "In all dialogs (across DevTools, Chrome, Google) the confirming button needs to be on the right and the canceling on the left.\n\nIt\u0027s better to have all dialogs consistent to each other rather then to continue an inconsistency here.\n\nWhat I see from Ergüns screenshot though is that the buttons need to be right-aligned not centered.",
+      "parentUuid": "2dd18960_769cd233",
+      "revId": "7786782eea80836c6ea2dabe86a2938cffd3717f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
