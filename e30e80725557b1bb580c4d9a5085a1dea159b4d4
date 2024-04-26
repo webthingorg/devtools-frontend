@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01bc353a_649cd8f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-26T11:45:18Z",
+      "side": 1,
+      "message": "PTAL. Some screenshots here: https://imgur.com/a/zOXyqKU\n\nI know the initial design had the button at the top, but that is complicated as the FlameChart does not own that part of the UI. So for a compromise to enable us to get something out, I placed it at the bottom instead, whilst also making sure you can use the context menu. I think this is a reasonable trade-off.",
+      "revId": "e30e80725557b1bb580c4d9a5085a1dea159b4d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
