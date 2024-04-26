@@ -16,6 +16,24 @@
       "message": "https://web.dev/articles/fetch-priority#resource_priority  \nthis mismatch has always been like that. :)  \n\ni\u0027d be happy to add this doc in a comment here or something",
       "revId": "d5f8b9eebcdfa5e2cc48f45f4f42d838a32c37eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25821aa7_198c8f10",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-26T19:09:51Z",
+      "side": 0,
+      "message": "okay...... looking closer you can see these values are NEITHER of the two possibilities. It\u0027s this weird mismatch.  wow.\n\nanyway. you\u0027re right. I looked at some traces and we got the \"VeryLow\" and \"VeryHigh\" variant in these trace events.\n\n\nYou could replace this enum with `Protocol.Network.ResourcePriority` that\u0027d clean up some weird things aat happen in  timelineFlamechartNetworkDataProvider, timelineuiuitls, and perf_ui/NetworkPriorities.. i think!",
+      "parentUuid": "00420a2a_fb4fbb24",
+      "revId": "d5f8b9eebcdfa5e2cc48f45f4f42d838a32c37eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
