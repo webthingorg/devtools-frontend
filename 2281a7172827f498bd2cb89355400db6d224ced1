@@ -502,6 +502,24 @@
       "parentUuid": "adcef82f_f2440fab",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c0575ac_94869a5b",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-04-26T10:00:10Z",
+      "side": 0,
+      "message": "The response so far was that aria-live API is limited and cannot reliably control when/if/how the browser/SR announces the changes. I think it would make sense filing an issue that we should deprecate ARIAUtils.alert and have designs for all UIs relying on the off-screen alert to have visible status indication. I do not think we should solve it just for the keyboard shortcuts and probably we need a solution that would work across DevTools.",
+      "parentUuid": "ca7cee16_155397d1",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
