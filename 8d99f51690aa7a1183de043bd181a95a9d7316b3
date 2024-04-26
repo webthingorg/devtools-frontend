@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e2dcd7_365310a4",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-26T10:40:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c28339c7_de8a3243",
+      "range": {
+        "startLine": 91,
+        "startChar": 15,
+        "endLine": 91,
+        "endChar": 31
+      },
+      "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b86ddfa3_7bb76f49",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec28b354_f60d0b51",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-26T10:40:25Z",
+      "side": 1,
+      "message": "These events will have a line number, it\u0027s just the types don\u0027t know that. So I fallback to 0 just to keep TS happy (line number is required). This felt nicer than fighting TS or adding a bunch of really explicit checks.",
+      "parentUuid": "b86ddfa3_7bb76f49",
+      "range": {
+        "startLine": 989,
+        "startChar": 33,
+        "endLine": 989,
+        "endChar": 37
+      },
+      "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05bd2c2f_7493bf2c",
@@ -94,6 +142,30 @@
       "writtenOn": "2024-04-25T20:06:46Z",
       "side": 1,
       "message": "actually, just realized we also have stack trace helpers at [1]. Maybe it makes sense to have all of this together in the same place\n\nhttps://source.chromium.org/chromium/chromium/src/+/1126307f7e340df9dc69c0c74a21c918b3af699f:third_party/devtools-frontend/src/front_end/models/trace/helpers/Trace.ts;l\u003d1",
+      "range": {
+        "startLine": 2768,
+        "startChar": 16,
+        "endLine": 2768,
+        "endChar": 58
+      },
+      "revId": "8d99f51690aa7a1183de043bd181a95a9d7316b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b40c1e6_366a9e5b",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2768,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-26T10:40:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05bd2c2f_7493bf2c",
       "range": {
         "startLine": 2768,
         "startChar": 16,
