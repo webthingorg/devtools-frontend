@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00420a2a_fb4fbb24",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-26T18:31:54Z",
+      "side": 0,
+      "message": "https://web.dev/articles/fetch-priority#resource_priority  \nthis mismatch has always been like that. :)  \n\ni\u0027d be happy to add this doc in a comment here or something",
+      "revId": "d5f8b9eebcdfa5e2cc48f45f4f42d838a32c37eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
