@@ -34,6 +34,24 @@
       "parentUuid": "00420a2a_fb4fbb24",
       "revId": "d5f8b9eebcdfa5e2cc48f45f4f42d838a32c37eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d185971e_fa6720bb",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-04-26T19:10:18Z",
+      "side": 0,
+      "message": "already convinced paul offline butttt\n\n\njust look at https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_trace_events.cc;l\u003d833?q\u003d%22ResourceSendRequest%22%20f:.cc%20-f:out\u0026ss\u003dchromium%2Fchromium%2Fsrc\n\nthe so-called \"DevTools Priority\" strings are just how these blink-values are displayed in the network panel. backend never spits them out. and this enum is about annotating the trace.",
+      "parentUuid": "00420a2a_fb4fbb24",
+      "revId": "d5f8b9eebcdfa5e2cc48f45f4f42d838a32c37eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
