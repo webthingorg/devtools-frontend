@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72709f05_70bd615f",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-29T11:43:01Z",
+      "side": 0,
+      "message": "probably not needed anymore?",
+      "range": {
+        "startLine": 167,
+        "startChar": 9,
+        "endLine": 167,
+        "endChar": 21
+      },
+      "revId": "7bff914d49c1270980ac294852043d4c25cecdab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb18a89c_6ccdf99b",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-29T11:43:01Z",
+      "side": 0,
+      "message": "happy to see this being removed but are we sure we don\u0027t need it? The code below relies on its content and this block seems to be the only part where it\u0027s populated. If we are sure then we should be able to remove the code below as well",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 6
+      },
+      "revId": "7bff914d49c1270980ac294852043d4c25cecdab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5c1b70e_51be5be5",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-29T11:43:01Z",
+      "side": 0,
+      "message": "also not needed?",
+      "range": {
+        "startLine": 432,
+        "startChar": 8,
+        "endLine": 432,
+        "endChar": 19
+      },
+      "revId": "7bff914d49c1270980ac294852043d4c25cecdab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
