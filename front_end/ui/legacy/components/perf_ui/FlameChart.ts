@@ -1785,6 +1785,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         timelineData.markers, time, (markerTimestamp, marker) => markerTimestamp - marker.startTime());
   }
 
+  /**
+   * Draw the whole flame chart.
+   * Make sure |setWindowTimes| is called with correct time range before this function.
+   */
   private draw(): void {
     const timelineData = this.timelineData();
     if (!timelineData) {
@@ -3471,6 +3475,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   // function. But when the data is "real" changed, especially when groups[] is changed, make sure call this before
   // re-rendering.
   // This will also clear all the selected entry, group, etc.
+  // Remember to call |setWindowTimes| before draw the flame chart again.
   reset(): void {
     this.chartViewport.reset();
     this.rawTimelineData = null;
