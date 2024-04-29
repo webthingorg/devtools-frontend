@@ -2,7 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import type * as Platform from '../../core/platform/platform.js';
+import * as SDK from '../../core/sdk/sdk.js';
+import * as Bindings from '../../models/bindings/bindings.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as Workspace from '../../models/workspace/workspace.js';
 import * as AnnotationsManager from '../../services/annotations_manager/annotations_manager.js';
 import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
 import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
@@ -149,7 +153,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     ]);
   });
 
-  it('Adds Hidden Descendants Arrow as a decoration when a Context Menu action is applied on a selected node with a key shorcut event',
+  it('Adds Hidden Descendants Arrow as a decoration when a Context Menu action is applied on a selected node with a key shortcut event',
      async function() {
        const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'load-simple.json.gz');
        const mockViewDelegate = new MockViewDelegate();
@@ -265,6 +269,8 @@ describeWithEnvironment('TimelineFlameChartView', function() {
 
   describe('Context Menu Actions', function() {
     let flameChartView: Timeline.TimelineFlameChartView.TimelineFlameChartView;
+    let debuggerWorkspaceBinding: Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding;
+    let workspace: Workspace.Workspace.WorkspaceImpl;
 
     this.beforeEach(async () => {
       const {traceParsedData, performanceModel} = await TraceLoader.allModels(this, 'recursive-blocking-js.json.gz');
@@ -284,7 +290,24 @@ describeWithEnvironment('TimelineFlameChartView', function() {
       if (!mainTrack) {
         throw new Error('Could not find main track');
       }
+
+      // This code block will create a new IgnoreListManager for test.
+      const targetManager = SDK.TargetManager.TargetManager.instance();
+      workspace = Workspace.Workspace.WorkspaceImpl.instance({forceNew: true});
+      const resourceMapping = new Bindings.ResourceMapping.ResourceMapping(targetManager, workspace);
+      debuggerWorkspaceBinding = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance(
+          {forceNew: true, resourceMapping, targetManager});
+      Bindings.IgnoreListManager.IgnoreListManager.instance({forceNew: true, debuggerWorkspaceBinding});
     });
+
+    function generateContextMenuForNodeId(iDOfNode: number) {
+      // Highlight the node to make the Context Menu dispatch on this node
+      flameChartView.getMainFlameChart().highlightEntry(iDOfNode);
+
+      // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't
+      // need it to actually appear for this test, pass an empty event.
+      flameChartView.getMainFlameChart().onContextMenu(new MouseEvent(''));
+    }
 
     it('When an entry has no children, correctly make only Hide Entry enabled in the Context Menu action',
        async function() {
@@ -302,16 +325,13 @@ describeWithEnvironment('TimelineFlameChartView', function() {
           * for an entry with no children and a parent is to hide given entry only.
           * Since there are no children to hide, we don't want to show 'hide children' option.
           *
-          * To chieve that, we will dispatch the context menu on the 'updateCounters' function that does not have children.
+          * To achieve that, we will dispatch the context menu on the 'updateCounters' function that does not have
+          * children.
           * The ID of 'updateCounters' is 245.
           **/
 
          const iDOfNodeWithNoChildren = 245;
-         // Highlight the node to make the Context Menu dispatch on this node
-         flameChartView.getMainFlameChart().highlightEntry(iDOfNodeWithNoChildren);
-
-         // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
-         flameChartView.getMainFlameChart().onContextMenu(new MouseEvent(''));
+         generateContextMenuForNodeId(iDOfNodeWithNoChildren);
 
          assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 5);
          // Hide function enabled
@@ -375,18 +395,16 @@ describeWithEnvironment('TimelineFlameChartView', function() {
           * for an entry with children and a parent is to hide given entry, and hide children only.
           * Since there are no repeating children to hide, we don't want to show 'hide repeating children' option.
           *
-          * To chieve that, we will dispatch the context menu on the 'wait' function that has only non-repeating children.
+          * To achieve that, we will dispatch the context menu on the 'wait' function that has only non-repeating
+          * children.
           * The ID of the first 'wait' is 204.
           **/
 
          const iDOfNodeWithNoChildren = 204;
-         // Highlight the node to make the Context Menu dispatch on this node
-         flameChartView.getMainFlameChart().highlightEntry(iDOfNodeWithNoChildren);
+         generateContextMenuForNodeId(iDOfNodeWithNoChildren);
 
-         // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
-         flameChartView.getMainFlameChart().onContextMenu(new MouseEvent(''));
-
-         assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 5);
+         // This entry has URL, so there are 5 always-shown actions, and one to add script to ignore list.
+         assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 6);
          // Hide function enabled
          assert.strictEqual(
              flameChartView.getMainFlameChart()
@@ -446,20 +464,18 @@ describeWithEnvironment('TimelineFlameChartView', function() {
           * = now =  = now =   = now =  = now =
           *
           * In this test we want to test that the Context Menu option available
-          * for an entry with children repeating children and a parent is to hide given entry, hide children and hide repeating children.
+          * for an entry with children repeating children and a parent is to hide given entry, hide children and hide
+          * repeating children.
           *
-          * To chieve that, we will dispatch the context menu on the 'foo' function that has child 'foo' calls.
+          * To achieve that, we will dispatch the context menu on the 'foo' function that has child 'foo' calls.
           * The ID of the a matching 'foo' is 200.
           **/
 
          const iDOfNodeWithNoChildren = 200;
-         // Highlight the node to make the Context Menu dispatch on this node
-         flameChartView.getMainFlameChart().highlightEntry(iDOfNodeWithNoChildren);
+         generateContextMenuForNodeId(iDOfNodeWithNoChildren);
 
-         // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
-         flameChartView.getMainFlameChart().onContextMenu(new MouseEvent(''));
-
-         assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 5);
+         // This entry has URL, so there are 5 always-shown actions, and one to add script to ignore list.
+         assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 6);
          // Hide function enabled
          assert.strictEqual(
              flameChartView.getMainFlameChart()
@@ -519,20 +535,19 @@ describeWithEnvironment('TimelineFlameChartView', function() {
           * ===== wait =====   ===== wait =====
           * = now =  = now =   = now =  = now =
           *
-          * In this test we want to test that the Context Menu option available for an entry with no parent is only to hide children.
+          * In this test we want to test that the Context Menu option available for an entry with no parent is only to
+          * hide children.
           * If an entry has no parent, we don't want to show an option to hide the entry since when an entry is hidden,
-          * it is indicated by adding a decoration to the parent and if there is no parent, there is no way to show it is hidden.
+          * it is indicated by adding a decoration to the parent and if there is no parent, there is no way to show it
+          * is hidden.
           *
-          * To chieve that, we will dispatch the context menu on the 'Task' function that is on the top of the stack and has no parent.
+          * To achieve that, we will dispatch the context menu on the 'Task' function that is on the top of the stack
+          * and has no parent.
           * The ID of the a matching 'Task' is 62.
           **/
 
          const iDOfNodeWithNoChildren = 62;
-         // Highlight the node to make the Context Menu dispatch on this node
-         flameChartView.getMainFlameChart().highlightEntry(iDOfNodeWithNoChildren);
-
-         // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
-         flameChartView.getMainFlameChart().onContextMenu(new MouseEvent(''));
+         generateContextMenuForNodeId(iDOfNodeWithNoChildren);
 
          // Hide function disabled
          assert.strictEqual(
@@ -591,19 +606,16 @@ describeWithEnvironment('TimelineFlameChartView', function() {
        * ===== wait =====   ===== wait =====
        * = now =  = now =   = now =  = now =
        *
-       * In this test we want to test that the Reset Trace Context Menu option is disabled by default and enabled after some action has been applied.
+       * In this test we want to test that the Reset Trace Context Menu option is disabled by default and enabled after
+       * some action has been applied.
        *
-       * To chieve that, we will first check if Reset Trace is disabled and then dispatch a Context Menu action on "Task" entry and then check if Reset Trace is enabled.
+       * To achieve that, we will first check if Reset Trace is disabled and then dispatch a Context Menu action on
+       * "Task" entry and then check if Reset Trace is enabled.
        * The ID of the a matching 'Task' is 62.
        **/
 
       const iDOfNode = 62;
-      // Highlight the node to make the Context Menu dispatch on this node
-      flameChartView.getMainFlameChart().highlightEntry(iDOfNode);
-
-      // The mouse event passed to the Context Menu is used to indicate where the menu should appear. Since we don't need it to actually appear for this test, pass an empty event.
-      flameChartView.getMainFlameChart().onContextMenu(new MouseEvent(''));
-
+      generateContextMenuForNodeId(iDOfNode);
       assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 5);
       assert.strictEqual(
           flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(4)?.buildDescriptor().label,
@@ -614,13 +626,59 @@ describeWithEnvironment('TimelineFlameChartView', function() {
           false);
 
       flameChartView.getMainFlameChart().modifyTree(TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION, iDOfNode);
-      flameChartView.getMainFlameChart().highlightEntry(iDOfNode);
-      flameChartView.getMainFlameChart().onContextMenu(new MouseEvent(''));
+      generateContextMenuForNodeId(iDOfNode);
 
       // Check that Reset Trace is enabled
       assert.strictEqual(
           flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(4)?.buildDescriptor().enabled,
           true);
     });
+
+    it('When an entry has URL and is not ignored, correctly show the Add script to ignore list in the Context Menu action',
+       async function() {
+         // The important fields of this node:
+         // {
+         //   "name": "ProfileCall",
+         //   "nodeId": 40,
+         //   ...
+         //   "callFrame": {
+         //       ...
+         //       "url": "http://127.0.0.1:8080/"
+         //   }
+         // }
+         const iDOfNode = 192;
+         generateContextMenuForNodeId(iDOfNode);
+
+         assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 6);
+
+         assert.strictEqual(
+             flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(5)?.buildDescriptor().label,
+             'Add script to ignore list');
+       });
+
+    it('When an entry has URL and is ignored, correctly show the Remove script from ignore list in the Context Menu action',
+       async function() {
+         // The important fields of this node:
+         // {
+         //   "name": "ProfileCall",
+         //   "nodeId": 40,
+         //   ...
+         //   "callFrame": {
+         //       ...
+         //       "url": "http://127.0.0.1:8080/"
+         //   }
+         // }
+         const iDOfNode = 192;
+         Bindings.IgnoreListManager.IgnoreListManager.instance().ignoreListURL(
+             'http://127.0.0.1:8080/' as Platform.DevToolsPath.UrlString);
+
+         generateContextMenuForNodeId(iDOfNode);
+
+         assert.strictEqual(flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.length, 6);
+
+         assert.strictEqual(
+             flameChartView.getMainFlameChart().getContextMenu()?.defaultSection().items.at(5)?.buildDescriptor().label,
+             'Remove script from ignore list');
+       });
   });
 });
