@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b61d96_f4532c3e",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-29T12:37:18Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "72709f05_70bd615f",
+      "range": {
+        "startLine": 167,
+        "startChar": 9,
+        "endLine": 167,
+        "endChar": 21
+      },
+      "revId": "7bff914d49c1270980ac294852043d4c25cecdab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb18a89c_6ccdf99b",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e0d548_d0e1d776",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-29T12:37:18Z",
+      "side": 0,
+      "message": "I\u0027m pretty sure we don\u0027t need this; the loop below goes through tracingModel\u0027s processes and I think the lack of page frames won\u0027t cause problems here.\n\nI hope to follow-up with more CLs to remove more of this too so the rest of this code is not going to be long-lived 😊",
+      "parentUuid": "bb18a89c_6ccdf99b",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 6
+      },
+      "revId": "7bff914d49c1270980ac294852043d4c25cecdab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5c1b70e_51be5be5",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-04-29T11:43:01Z",
       "side": 0,
       "message": "also not needed?",
+      "range": {
+        "startLine": 432,
+        "startChar": 8,
+        "endLine": 432,
+        "endChar": 19
+      },
+      "revId": "7bff914d49c1270980ac294852043d4c25cecdab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ed5abf0_98881631",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-29T12:37:18Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f5c1b70e_51be5be5",
       "range": {
         "startLine": 432,
         "startChar": 8,
