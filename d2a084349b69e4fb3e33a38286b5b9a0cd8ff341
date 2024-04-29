@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af48803b_e6ccb1fb",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-29T13:46:04Z",
+      "side": 1,
+      "message": "Thanks! Since we have this parameter now, can we move the `console-view` special case one level up the stack?",
+      "range": {
+        "startLine": 239,
+        "startChar": 20,
+        "endLine": 239,
+        "endChar": 69
+      },
+      "revId": "d2a084349b69e4fb3e33a38286b5b9a0cd8ff341",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72662e4c_e41e0133",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-29T13:46:04Z",
+      "side": 1,
+      "message": "This could be called just `jslogContext`, which is how the value is effectively used.",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1041,
+        "endChar": 34
+      },
+      "revId": "d2a084349b69e4fb3e33a38286b5b9a0cd8ff341",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
