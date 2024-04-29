@@ -53,6 +53,7 @@ export class TextEditor extends HTMLElement {
       root: this.#shadow,
       dispatch: (tr: CodeMirror.Transaction, view: CodeMirror.EditorView) => {
         view.update([tr]);
+        this.#maybeDispatchInput(tr);
         if (tr.reconfigured) {
           this.#ensureSettingListeners();
         }
@@ -93,7 +94,9 @@ export class TextEditor extends HTMLElement {
       return this.#activeEditor.state;
     }
     if (!this.#pendingState) {
-      this.#pendingState = CodeMirror.EditorState.create({extensions: baseConfiguration('')});
+      this.#pendingState = CodeMirror.EditorState.create({
+        extensions: baseConfiguration(''),
+      });
     }
     return this.#pendingState;
   }
@@ -102,8 +105,6 @@ export class TextEditor extends HTMLElement {
     if (this.#pendingState === state) {
       return;
     }
-
-    this.#pendingState = state;
 
     if (this.#activeEditor) {
       this.#activeEditor.setState(state);
@@ -175,6 +176,14 @@ export class TextEditor extends HTMLElement {
       this.#devtoolsResizeObserver.observe(devtoolsElement);
     }
     window.addEventListener('resize', this.#resizeListener);
+  }
+
+  #maybeDispatchInput(transaction: CodeMirror.Transaction): void {
+    const userEvent = transaction.annotation(CodeMirror.Transaction.userEvent);
+    const inputType = userEvent ? CODE_MIRROR_USER_EVENT_TO_INPUT_EVENT_TYPE.get(userEvent) : null;
+    if (inputType) {
+      this.dispatchEvent(new InputEvent('input', {inputType}));
+    }
   }
 
   revealPosition(selection: CodeMirror.EditorSelection, highlight: boolean = true): void {
@@ -263,3 +272,18 @@ const highlightedLineState = CodeMirror.StateField.define<CodeMirror.DecorationS
   },
   provide: field => CodeMirror.EditorView.decorations.from(field, value => value),
 });
+
+const CODE_MIRROR_USER_EVENT_TO_INPUT_EVENT_TYPE = new Map([
+  ['input.type', 'insertText'],
+  ['input.type.compose', 'insertCompositionText'],
+  ['input.paste', 'insertFromPaste'],
+  ['input.drop', 'insertFromDrop'],
+  ['input.complete', 'insertReplacementText'],
+  ['delete.selection', 'deleteContent'],
+  ['delete.forward', 'deleteContentForward'],
+  ['delete.backward', 'deleteContentBackward'],
+  ['delete.cut', 'deleteByCut'],
+  ['move.drop', 'deleteByDrag'],
+  ['undo', 'historyUndo'],
+  ['redo', 'historyRedo'],
+]);
