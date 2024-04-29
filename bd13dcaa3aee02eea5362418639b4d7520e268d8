@@ -22,6 +22,30 @@
       },
       "revId": "bd13dcaa3aee02eea5362418639b4d7520e268d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2159a19_8e91ba55",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1790,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-04-29T16:18:05Z",
+      "side": 1,
+      "message": "This is hard, cuz in reset we will set time from 0 to 0, which is program-wise correct, and will then show an empty view.\nAlso if we set incorrect time range, it will break the flame chart too.",
+      "parentUuid": "65548088_211e68fd",
+      "range": {
+        "startLine": 1790,
+        "startChar": 0,
+        "endLine": 1790,
+        "endChar": 87
+      },
+      "revId": "bd13dcaa3aee02eea5362418639b4d7520e268d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
