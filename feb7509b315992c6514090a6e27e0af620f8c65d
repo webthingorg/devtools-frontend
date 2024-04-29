@@ -39,6 +39,30 @@
       },
       "revId": "feb7509b315992c6514090a6e27e0af620f8c65d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d3fb1a_578779de",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-29T12:38:14Z",
+      "side": 1,
+      "message": "Yes - I wasn\u0027t trying to change that behaviour, but now for all traces generated since my backend CL, we won\u0027t rely on this faulty logic.",
+      "parentUuid": "953f50e7_012f9872",
+      "range": {
+        "startLine": 230,
+        "startChar": 16,
+        "endLine": 230,
+        "endChar": 44
+      },
+      "revId": "feb7509b315992c6514090a6e27e0af620f8c65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
