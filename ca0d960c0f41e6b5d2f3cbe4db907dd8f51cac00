@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34a54850_f190c138",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-04-29T20:49:45Z",
+      "side": 1,
+      "message": "I feel good about leaving as is, and reworking down the line when error messages come in. This feel good to you too @paulirish@chromium.org?",
+      "parentUuid": "ff70a0f2_59a28b02",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2bbbc96_aede5fc4",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 7
