@@ -263,7 +263,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   #groupTreeRoot?: GroupTreeNode|null;
   #searchResultEntryIndex: number;
   #searchResultHighlightElements: HTMLElement[] = [];
-  #editMode: boolean = false;
+  #inTrackConfigEditMode: boolean = false;
 
   constructor(
       dataProvider: FlameChartDataProvider, flameChartDelegate: FlameChartDelegate,
@@ -1000,8 +1000,61 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return this.dataProvider.findPossibleContextMenuActions?.(this.selectedEntryIndex);
   }
 
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
   onContextMenu(_event: Event): void {
     // The context menu only applies if the user is hovering over an individual entry.
+=======
+  #buildEnterEditModeContextMenu(event: MouseEvent): void {
+    if (this.#inTrackConfigEditMode) {
+      return;
+    }
+
+    this.contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
+    const label = i18nString(UIStrings.enterTrackConfigurationMode);
+    this.contextMenu.defaultSection().appendItem(label, () => {
+      this.#enterEditMode();
+    });
+    void this.contextMenu.show();
+  }
+
+  #buildExitEditModeContextMenu(event: MouseEvent): void {
+    if (this.#inTrackConfigEditMode === false) {
+      return;
+    }
+    this.contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
+    const label = i18nString(UIStrings.exitTrackConfigurationMode);
+    this.contextMenu.defaultSection().appendItem(label, () => {
+      this.#exitEditMode();
+    });
+    void this.contextMenu.show();
+  }
+
+  #hasTrackConfigurationMode(): boolean {
+    // Track Configuration mode is off by default: a provider must define the
+    // function and have it return `true` to enable it.
+    return Boolean(this.dataProvider.hasTrackConfigurationMode && this.dataProvider.hasTrackConfigurationMode());
+  }
+
+  onContextMenu(event: MouseEvent): void {
+    const {hoverType} = this.coordinatesToGroupIndexAndHoverType(event.offsetX, event.offsetY);
+
+    // If the user is in edit mode, allow a right click anywhere to exit the mode.
+    if (this.#inTrackConfigEditMode) {
+      this.#buildExitEditModeContextMenu(event);
+      return;
+    }
+
+    // If we are not in edit mode, and the user right clicks on the header,
+    // allow them to enter edit mode.
+    // Data providers can disable the ability to enter this mode, hence the
+    // extra check. For example, in the DevTools Performance Panel the network
+    // data provider & flame chart does not support this mode, but the main one
+    // does.
+    if (hoverType === HoverType.INSIDE_TRACK_HEADER && this.#hasTrackConfigurationMode()) {
+      this.#buildEnterEditModeContextMenu(event);
+    }
+
+>>>>>>> CHANGE (acace7 FlameChart: enable providers to opt out of edit mode)
     if (this.highlightedEntryIndex === -1) {
       return;
     }
@@ -1608,19 +1661,92 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         const index = sortedGroupIndexes[i];
         const nextIndex = sortedGroupIndexes[i + 1] ?? sortedGroupIndexes.length;
 
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
         if (y >= this.groupOffsets[index] && y < this.groupOffsets[nextIndex]) {
           if (!headerOnly || y < this.groupOffsets[index] + groups[index].style.height) {
             groupIndex = index;
+=======
+        if (y >= this.groupOffsets[groupIndex] && y < this.groupOffsets[nextIndex]) {
+          // This section is used to calculate the position of current group's header
+          // If we are in edit mode, the track label is pushed right to make room for the icons.
+          const context = (this.canvas.getContext('2d') as CanvasRenderingContext2D);
+          context.save();
+          context.font = this.#font;
+          const headerRight = HEADER_LEFT_PADDING + (this.#inTrackConfigEditMode ? EDIT_MODE_TOTAL_ICON_WIDTH : 0) +
+              this.labelWidthForGroup(context, groups[groupIndex]);
+          context.restore();
+
+          const mouseInHeaderRow =
+              y >= this.groupOffsets[groupIndex] && y < this.groupOffsets[groupIndex] + groups[groupIndex].style.height;
+
+          if (this.#inTrackConfigEditMode) {
+            if (mouseInHeaderRow) {
+              if (UP_ICON_LEFT <= x && x < UP_ICON_LEFT + EDIT_ICON_WIDTH) {
+                return {groupIndex: groupIndex, hoverType: HoverType.TRACK_CONFIG_UP_BUTTON};
+              }
+              if (DOWN_ICON_LEFT <= x && x < DOWN_ICON_LEFT + EDIT_ICON_WIDTH) {
+                return {groupIndex: groupIndex, hoverType: HoverType.TRACK_CONFIG_DOWN_BUTTON};
+              }
+              if (HIDE_ICON_LEFT <= x && x < HIDE_ICON_LEFT + EDIT_ICON_WIDTH) {
+                return {
+                  groupIndex: groupIndex,
+                  hoverType: groups[groupIndex].hidden ? HoverType.TRACK_CONFIG_SHOW_BUTTON :
+                                                         HoverType.TRACK_CONFIG_HIDE_BUTTON,
+                };
+              }
+              if (mouseInHeaderRow && x <= headerRight) {
+                return {groupIndex: groupIndex, hoverType: HoverType.INSIDE_TRACK_HEADER};
+              }
+            }
+            // Ignore any other actions when user is customizing the tracks.
+            // For example, we won't toggle the expand status in the editing mode.
+          } else {
+            // User is not in edit mode so they can either be in the header, or in the track.
+            if (mouseInHeaderRow && x <= headerRight) {
+              return {groupIndex: groupIndex, hoverType: HoverType.INSIDE_TRACK_HEADER};
+            }
+            return {groupIndex: groupIndex, hoverType: HoverType.INSIDE_TRACK};
+>>>>>>> CHANGE (acace7 FlameChart: enable providers to opt out of edit mode)
           }
           break;
         }
       }
     }
 
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
     if (groupIndex < 0 || groupIndex >= groups.length) {
       return {groupIndex: -1};
+=======
+    return {groupIndex: -1, hoverType: HoverType.OUTSIDE_TRACKS};
+  }
+
+  #enterEditMode(): void {
+    const div = document.createElement('div');
+    div.classList.add('flame-chart-edit-confirm');
+    const button = new Buttons.Button.Button();
+    button.data = {
+      variant: Buttons.Button.Variant.PRIMARY,
+    };
+    button.innerText = i18nString(UIStrings.exitTrackConfigurationMode);
+    div.appendChild(button);
+    button.addEventListener('click', () => {
+      this.#exitEditMode();
+    });
+
+    this.viewportElement.appendChild(div);
+    this.#inTrackConfigEditMode = true;
+    this.updateLevelPositions();
+    this.draw();
+  }
+
+  #exitEditMode(): void {
+    const confirmButton = this.viewportElement.querySelector('.flame-chart-edit-confirm');
+    if (confirmButton) {
+      this.viewportElement.removeChild(confirmButton);
+>>>>>>> CHANGE (acace7 FlameChart: enable providers to opt out of edit mode)
     }
 
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
     const context = (this.canvas.getContext('2d') as CanvasRenderingContext2D);
     context.save();
     context.font = this.#font;
@@ -1655,6 +1781,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return {groupIndex: -1};
     }
     return {groupIndex};
+=======
+    this.#inTrackConfigEditMode = false;
+    this.updateLevelPositions();
+    this.draw();
+>>>>>>> CHANGE (acace7 FlameChart: enable providers to opt out of edit mode)
   }
 
   private markerIndexBeforeTime(time: number): number {
@@ -2162,7 +2293,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     // When it is normal mode, there is only an edit icon in the group headers.
     // When it is in edit mode, there are three icons to customize the groups.
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
     const iconsWidth = this.#editMode ? EDITION_MODE_INDENT : EDIT_BUTTON_SIZE;
+=======
+    const iconsWidth = this.#inTrackConfigEditMode ? EDIT_MODE_TOTAL_ICON_WIDTH : 0;
+>>>>>>> CHANGE (acace7 FlameChart: enable providers to opt out of edit mode)
     this.forEachGroupInViewport((offset, index, group) => {
       context.font = this.#font;
       if (this.isGroupCollapsible(index) && !group.expanded || group.style.shareHeaderLine) {
@@ -2181,7 +2316,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             iconsWidth + HEADER_LEFT_PADDING, offset + HEADER_LABEL_Y_PADDING, labelBackgroundWidth,
             group.style.height - 2 * HEADER_LABEL_Y_PADDING);
       }
-      context.fillStyle = (this.#editMode && group.hidden) ?
+      context.fillStyle = (this.#inTrackConfigEditMode && group.hidden) ?
           ThemeSupport.ThemeSupport.instance().getComputedValue('--sys-color-token-subtle', this.contentElement) :
           group.style.color;
 
@@ -2194,7 +2329,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const titleStart = iconsWidth + EXPANSION_ARROW_INDENT * (group.style.nestingLevel + 1) + ARROW_SIDE / 2 +
           HEADER_LABEL_X_PADDING;
       context.fillText(group.name, titleStart, offset + group.style.height - this.textBaseline);
-      if (this.#editMode && group.hidden) {
+      if (this.#inTrackConfigEditMode && group.hidden) {
         // Draw a strikethrough line for the hidden tracks.
         context.fillRect(
             titleStart, offset + group.style.height / 2, UI.UIUtils.measureTextWidth(context, group.name), 1);
@@ -2206,7 +2341,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // Edit mode:
       // [ Up ][Down][Hide]Track title[Save]
       if (trackConfigurationAllowed) {
-        if (this.#editMode) {
+        if (this.#inTrackConfigEditMode) {
           const iconColor = group.hidden ? '--sys-color-token-subtle' : '--sys-color-on-surface';
           // We only allow to reorder the top level groups.
           if (group.style.nestingLevel === 0) {
@@ -2233,7 +2368,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         drawExpansionArrow.call(
             this, iconsWidth + EXPANSION_ARROW_INDENT * (group.style.nestingLevel + 1),
             offset + group.style.height - this.textBaseline - ARROW_SIDE / 2,
-            this.#editMode ? false : Boolean(group.expanded));
+            this.#inTrackConfigEditMode ? false : Boolean(group.expanded));
       }
     });
 
@@ -2498,7 +2633,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const currentIndex = sortedGroupIndexes.indexOf(i);
       const nextOffset = groupOffsets[sortedGroupIndexes[currentIndex + 1]];
       // In edit mode all the groups are visible.
-      if (!this.#editMode && (!parentGroupVisible || group.hidden)) {
+      if (!this.#inTrackConfigEditMode && (!parentGroupVisible || group.hidden)) {
         continue;
       }
       callback(groupTop, i, group, firstGroup, nextOffset - groupTop);
@@ -3027,7 +3162,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       // the current offset, which will be used for the start level of current
       // group.
       // For edit mode, we will show all the groups whose name are not empty.
-      if ((this.#editMode && groups[groupNode.index].name) ||
+      if ((this.#inTrackConfigEditMode && groups[groupNode.index].name) ||
           (!groups[groupNode.index].hidden && parentGroupIsVisible && !groups[groupNode.index].style.shareHeaderLine)) {
         currentOffset += groups[groupNode.index].style.height;
       }
@@ -3085,9 +3220,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       }
 
       // If it's in edit mode, all the levels are hidden.
-      this.visibleLevels[level] = this.#editMode ? false : Boolean(thisLevelIsVisible);
+      this.visibleLevels[level] = this.#inTrackConfigEditMode ? false : Boolean(thisLevelIsVisible);
       this.visibleLevelOffsets[level] = currentOffset;
-      this.visibleLevelHeights[level] = this.#editMode ? 0 : height;
+      this.visibleLevelHeights[level] = this.#inTrackConfigEditMode ? 0 : height;
 
       // If this level not belong to any group, it is always shown, otherwise we need to check if it is visible.
       if (groupNode.index < 0 ||
@@ -3105,7 +3240,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     for (const child of groupNode.children) {
       // If the child is not the first child, we will add a padding top.
       // For edit mode, we will show all the groups whose name are not empty.
-      if ((this.#editMode && groups[child.index].name) ||
+      if ((this.#inTrackConfigEditMode && groups[child.index].name) ||
           (thisGroupLevelsAreVisible && !groups[child.index]?.hidden && child !== groupNode.children[0])) {
         currentOffset += (groups[child.index].style.padding ?? 0);
       }
@@ -3296,7 +3431,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    * Now this function is only used for tests.
    */
   setEditModeForTest(editMode: boolean): void {
-    this.#editMode = editMode;
+    this.#inTrackConfigEditMode = editMode;
   }
 
   /**
@@ -3371,7 +3506,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.highlightedEntryIndex = -1;
     this.selectedEntryIndex = -1;
     this.selectedGroupIndex = -1;
-    this.#editMode = false;
+    this.#inTrackConfigEditMode = false;
   }
 
   scheduleUpdate(): void {
@@ -3568,6 +3703,8 @@ export interface FlameChartDataProvider {
   modifyTree?(node: number, action: TraceEngine.EntriesFilter.FilterAction): void;
 
   findPossibleContextMenuActions?(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
+
+  hasTrackConfigurationMode(): boolean;
 }
 
 export interface FlameChartMarker {
