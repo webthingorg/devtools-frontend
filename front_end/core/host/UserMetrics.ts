@@ -1043,9 +1043,10 @@ export enum DevtoolsExperiments {
   'timeline-show-postmessage-events' = 86,
   'save-and-load-trace-with-annotations' = 87,
   'timeline-extensions' = 89,
+  'timeline-enable-old-timeline-model-engine' = 90,
 
   // Increment this when new experiments are added.
-  'MaxValue' = 90,
+  'MaxValue' = 91,
 }
 /* eslint-enable @typescript-eslint/naming-convention */
 
