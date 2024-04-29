@@ -63,6 +63,30 @@
       },
       "revId": "feb7509b315992c6514090a6e27e0af620f8c65d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44766bfc_944492df",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-29T12:54:58Z",
+      "side": 1,
+      "message": "Jack is wrong and can\u0027t read comments properly, sorry Andrés!\n\nUpdating the code to ensure we use EITHER the new flag or the old one, rather than accidentally using the old one if a frame has a flag set to false.",
+      "parentUuid": "25d3fb1a_578779de",
+      "range": {
+        "startLine": 230,
+        "startChar": 16,
+        "endLine": 230,
+        "endChar": 44
+      },
+      "revId": "feb7509b315992c6514090a6e27e0af620f8c65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
