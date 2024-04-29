@@ -31,7 +31,9 @@
 import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
+import * as Timeline from '../../../../panels/timeline/timeline.js';
 import * as UI from '../../legacy.js';
 import * as ThemeSupport from '../../theme_support/theme_support.js';
 
@@ -77,6 +79,14 @@ const UIStrings = {
    *@description Text for Hiding all repeating child entries of a function from the Flame Chart
    */
   hideRepeatingChildren: 'Hide repeating children',
+  /**
+   *@description Text for remove script from ignore list from the Flame Chart
+   */
+  removeScriptFromIgnoreList: 'Remove script from ignore list',
+  /**
+   *@description Text for add script to ignore list from the Flame Chart
+   */
+  addScriptToIgnoreList: 'Add script to ignore list',
   /**
    *@description Text for an action that shows all of the hidden children of an entry
    */
@@ -1065,6 +1075,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   onContextMenu(_event: Event): void {
+    // The context menu should only work for RPP main flame chart, so if current flame chart is not the RPP main flame
+    // chart, simply return to show the default context menu.
+    if (!(this.dataProvider instanceof Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider)) {
+      return;
+    }
     // The context menu only applies if the user is hovering over an individual entry.
     if (this.highlightedEntryIndex === -1) {
       return;
@@ -1124,6 +1139,26 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterAction.UNDO_ALL_ACTIONS],
       jslogContext: 'reset-trace',
     });
+
+    const event = this.dataProvider.eventByIndex(this.selectedEntryIndex);
+    const url = (event && TraceEngine.Types.TraceEvents.isProfileCall(event)) ?
+        event.callFrame.url as Platform.DevToolsPath.UrlString :
+        undefined;
+    if (url) {
+      if (Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(url)) {
+        this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.removeScriptFromIgnoreList), () => {
+          Bindings.IgnoreListManager.IgnoreListManager.instance().unIgnoreListURL(url);
+        }, {
+          jslogContext: 'remove-from-ignore-list',
+        });
+      } else {
+        this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.addScriptToIgnoreList), () => {
+          Bindings.IgnoreListManager.IgnoreListManager.instance().ignoreListURL(url);
+        }, {
+          jslogContext: 'add-to-ignore-list',
+        });
+      }
+    }
 
     void this.contextMenu.show();
   }
