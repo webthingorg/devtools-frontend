@@ -159,7 +159,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.#selectedEvents = selectedEvents;
     this.tabbedPane.closeTabs([Tab.PaintProfiler, Tab.LayerViewer], false);
     for (const view of this.rangeDetailViews.values()) {
-      view.setModelWithEvents(model, selectedEvents, traceEngineData);
+      view.setModelWithEvents(selectedEvents, traceEngineData);
     }
     this.lazyPaintProfilerView = null;
     this.lazyLayersView = null;
