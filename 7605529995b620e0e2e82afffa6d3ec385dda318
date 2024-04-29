@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a475ed6_ee8a1d40",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T23:50:49Z",
+      "side": 1,
+      "message": "i\u0027m assuming this wouldn\u0027t satisfy TS?\n\n    if (typeof event.args?.beginData?.frame \u003d\u003d\u003d \u0027string\u0027) {",
+      "revId": "7605529995b620e0e2e82afffa6d3ec385dda318",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
