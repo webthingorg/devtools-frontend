@@ -50,6 +50,24 @@
       "message": "Why not just a single experiment?  That\u0027d make sense to me.. :)",
       "revId": "63674b2e33666e8dd107bfe89fc542bf234a0b08",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaee0c42_45a056c5",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-04-29T16:49:30Z",
+      "side": 1,
+      "message": "I think what Jayson is showing here is that we reflected this specific implementation diff in Edge.\n\nIn short: there is a potential privacy problem by including actual source code in the trace. Consider an application in which we make a JSONP call to retrieve user data. (I know JSONP isn\u0027t in style anymore :D ) This would be realized as a script; and while it\u0027s theoretically feasible to compute a matching hash, it\u0027s expensive and an unbounded problem.\n\nAs a result, in Edge, we ensured that we always separated the \"Include script sources in enhanced traces\" feature, and that it was off by default.",
+      "parentUuid": "2b046f48_97a2195b",
+      "revId": "63674b2e33666e8dd107bfe89fc542bf234a0b08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
