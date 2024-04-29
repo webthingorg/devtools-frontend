@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f4aa78a_11ac928b",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T13:40:23Z",
+      "side": 1,
+      "message": "```suggestion\n  enterTrackConfigurationMode: \u0027Configure tracks…\u0027,\n```\n\nWe use ellipses after some menu items indicating there\u0027s another action. (We\u0027re not very consistent with it but.. i like it)",
+      "revId": "04c609dfb8b5aab429eb8bd5887064d07df8f1db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb0de31_e758ad50",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T13:40:23Z",
+      "side": 1,
+      "message": "somebody got 80 char comment rewrapping?  :p kinda odd since code only wraps at 120",
+      "revId": "04c609dfb8b5aab429eb8bd5887064d07df8f1db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e766be3_3b50c649",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T13:40:23Z",
+      "side": 1,
+      "message": "move this line to L1089?",
+      "revId": "04c609dfb8b5aab429eb8bd5887064d07df8f1db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e190661_3e775147",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T13:40:23Z",
+      "side": 1,
+      "message": ".textContent is safer in regards to XSS and it\u0027s faster.",
+      "revId": "04c609dfb8b5aab429eb8bd5887064d07df8f1db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
