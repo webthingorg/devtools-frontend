@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5e6d21_d51dfe97",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T23:03:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "34a54850_f190c138",
+      "revId": "ca0d960c0f41e6b5d2f3cbe4db907dd8f51cac00",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2bbbc96_aede5fc4",

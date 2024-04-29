@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca14758_a7a7a846",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T23:03:42Z",
+      "side": 1,
+      "message": "i just read through the demorgans laws [1] (again) thinking we could rewrite this for clarity but..  tbh i think its best like you have it.\n\n[1] like this https://ntgard.medium.com/https-medium-com-ntgard-boolean-logic-in-javascript-part-2-ec0b13169b2",
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
