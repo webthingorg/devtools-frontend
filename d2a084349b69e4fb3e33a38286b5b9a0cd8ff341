@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e632001_c34fde40",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-29T15:10:09Z",
+      "side": 1,
+      "message": "Makes sense, updated it! :)",
+      "parentUuid": "af48803b_e6ccb1fb",
+      "range": {
+        "startLine": 239,
+        "startChar": 20,
+        "endLine": 239,
+        "endChar": 69
+      },
+      "revId": "d2a084349b69e4fb3e33a38286b5b9a0cd8ff341",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72662e4c_e41e0133",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-29T13:46:04Z",
       "side": 1,
       "message": "This could be called just `jslogContext`, which is how the value is effectively used.",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1041,
+        "endChar": 34
+      },
+      "revId": "d2a084349b69e4fb3e33a38286b5b9a0cd8ff341",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94666b35_80a7f07b",
+        "filename": "front_end/ui/legacy/TabbedPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-04-29T15:10:09Z",
+      "side": 1,
+      "message": "Makes sense, updated it :)",
+      "parentUuid": "72662e4c_e41e0133",
       "range": {
         "startLine": 1041,
         "startChar": 0,
