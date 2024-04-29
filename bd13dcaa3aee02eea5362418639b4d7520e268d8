@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65548088_211e68fd",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1790,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-29T16:04:01Z",
+      "side": 1,
+      "message": "is there anyway we can error if this doesn\u0027t happen?",
+      "range": {
+        "startLine": 1790,
+        "startChar": 0,
+        "endLine": 1790,
+        "endChar": 87
+      },
+      "revId": "bd13dcaa3aee02eea5362418639b4d7520e268d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
