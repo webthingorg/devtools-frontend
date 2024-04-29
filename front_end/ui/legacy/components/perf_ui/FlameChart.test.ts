@@ -755,6 +755,7 @@ describeWithEnvironment('FlameChart', () => {
 
         // Start of the view (before the edit icon).
         assert.deepEqual(
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
             chartInstance.coordinatesToGroupIndexAndButton(0, 17, /* headerOnly= */ false), {groupIndex: 0});
         // Start of the edit icon.
         assert.deepEqual(
@@ -765,8 +766,12 @@ describeWithEnvironment('FlameChart', () => {
             chartInstance.coordinatesToGroupIndexAndButton(
                 /* HEADER_LEFT_PADDING + EDIT_BUTTON_SIZE */ 22, 17, /* headerOnly= */ false),
             {groupIndex: 0});
+=======
+            chartInstance.coordinatesToGroupIndexAndHoverType(0, 17),
+            {groupIndex: 0, hoverType: PerfUI.FlameChart.HoverType.INSIDE_TRACK_HEADER});
+>>>>>>> CHANGE (cd281a RPP: change track configuration UI)
         // End of the title label, For title label checking, the end is included.
-        const endOfTitle = /* HEADER_LEFT_PADDING + EDIT_BUTTON_SIZE */ 22 + labelWidth;
+        const endOfTitle = /* HEADER_LEFT_PADDING */ 6 + labelWidth;
         assert.deepEqual(
             chartInstance.coordinatesToGroupIndexAndButton(endOfTitle, 17, /* headerOnly= */ true), {groupIndex: 0});
         assert.deepEqual(
@@ -774,25 +779,48 @@ describeWithEnvironment('FlameChart', () => {
             {groupIndex: -1});
 
         chartInstance.setEditModeForTest(true);
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
         // Start of the view (before the first icon).
+=======
+        // Start of the view (before the first icon). Will return the track header.
+>>>>>>> CHANGE (cd281a RPP: change track configuration UI)
         assert.deepEqual(
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
             chartInstance.coordinatesToGroupIndexAndButton(0, 17, /* headerOnly= */ false), {groupIndex: 0});
+=======
+            chartInstance.coordinatesToGroupIndexAndHoverType(0, 17),
+            {groupIndex: 0, hoverType: PerfUI.FlameChart.HoverType.INSIDE_TRACK_HEADER});
+>>>>>>> CHANGE (cd281a RPP: change track configuration UI)
         // First icon (Up)
         assert.deepEqual(
             chartInstance.coordinatesToGroupIndexAndButton(/* HEADER_LEFT_PADDING */ 6, 17, /* headerOnly= */ false),
             {groupIndex: 0, editButtonType: PerfUI.FlameChart.EditButtonType.UP});
         // Second icon (Down)
         assert.deepEqual(
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
             chartInstance.coordinatesToGroupIndexAndButton(
                 /* HEADER_LEFT_PADDING + EDIT_BUTTON_SIZE */ 22, 17, /* headerOnly= */ false),
             {groupIndex: 0, editButtonType: PerfUI.FlameChart.EditButtonType.DOWN});
+=======
+            chartInstance.coordinatesToGroupIndexAndHoverType(
+                /* HEADER_LEFT_PADDING + EDIT_BUTTON_SIZE */ 25, 17),
+            {groupIndex: 0, hoverType: PerfUI.FlameChart.HoverType.TRACK_CONFIG_DOWN_BUTTON});
+>>>>>>> CHANGE (cd281a RPP: change track configuration UI)
         // Third icon (Hide)
         assert.deepEqual(
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
             chartInstance.coordinatesToGroupIndexAndButton(
                 /* HEADER_LEFT_PADDING + EDIT_BUTTON_SIZE * 2 */ 38, 17, /* headerOnly= */ false),
             {groupIndex: 0, editButtonType: PerfUI.FlameChart.EditButtonType.HIDE});
         // This is after the third icon, which is the start of the title label. so should only return the index of group.
+=======
+            chartInstance.coordinatesToGroupIndexAndHoverType(
+                /* HEADER_LEFT_PADDING + EDIT_BUTTON_SIZE * 2 + GAP_BETWEEN_EDIT_ICONS */ 44, 17),
+            {groupIndex: 0, hoverType: PerfUI.FlameChart.HoverType.TRACK_CONFIG_HIDE_BUTTON});
+        // This is after the third icon, which is the start of the title label, so should return INSIDE_TRACK_HEADER
+>>>>>>> CHANGE (cd281a RPP: change track configuration UI)
         assert.deepEqual(
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
             chartInstance.coordinatesToGroupIndexAndButton(
                 /* HEADER_LEFT_PADDING + EDITION_MODE_INDENT */ 54, 17, /* headerOnly= */ true),
             {groupIndex: 0});
@@ -811,6 +839,11 @@ describeWithEnvironment('FlameChart', () => {
         assert.deepEqual(
             chartInstance.coordinatesToGroupIndexAndButton(endOfSaveIcon, 17, /* headerOnly= */ true),
             {groupIndex: -1});
+=======
+            chartInstance.coordinatesToGroupIndexAndHoverType(
+                /* HEADER_LEFT_PADDING + EDIT_MODE_TOTAL_ICON_WIDTH */ 60, 17),
+            {groupIndex: 0, hoverType: PerfUI.FlameChart.HoverType.INSIDE_TRACK_HEADER});
+>>>>>>> CHANGE (cd281a RPP: change track configuration UI)
       });
     });
   });
