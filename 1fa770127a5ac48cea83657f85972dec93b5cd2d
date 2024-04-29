@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "1fa770127a5ac48cea83657f85972dec93b5cd2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73f23b32_82dc077b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-29T10:51:21Z",
+      "side": 1,
+      "message": "The failing test here is actually going to be removed in crrev.com/c/5494077, so I will land that first and then rebase this CL.",
+      "revId": "1fa770127a5ac48cea83657f85972dec93b5cd2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
