@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0444903b_12291e0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-29T14:16:01Z",
+      "side": 1,
+      "message": "Just noticed you can trigger the context menu within Network flamechart while it\u0027s collapsed into a single row. None of the 3 icons show up in that mode since it\u0027s all by itself. So.. We could just _not_ have the context menu in that case.\n\nDoesn\u0027t seem like a huge deal though if wiring that through is annoying.",
+      "revId": "985df7137369804a7b4e4fd97dc2e71df3ccfa8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
