@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "feb7509b315992c6514090a6e27e0af620f8c65d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "953f50e7_012f9872",
+        "filename": "front_end/models/trace/handlers/MetaHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-29T11:58:18Z",
+      "side": 1,
+      "message": "wouldn\u0027t this keep the false positives?\n\n(an iframe with url and and no parent would have been labelled as main frame before and after this change)",
+      "range": {
+        "startLine": 230,
+        "startChar": 16,
+        "endLine": 230,
+        "endChar": 44
+      },
+      "revId": "feb7509b315992c6514090a6e27e0af620f8c65d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
