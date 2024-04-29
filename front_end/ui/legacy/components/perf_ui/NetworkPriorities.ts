@@ -5,6 +5,7 @@
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Protocol from '../../../../generated/protocol.js';
 
+/* eslint-disable rulesdir/l10n_no_unused_message */
 const UIStrings = {
   /**
    *@description Text in Network Priorities of the Performance panel
@@ -35,11 +36,11 @@ export function uiLabelForNetworkPriority(priority: Protocol.Network.ResourcePri
 
 const uiLabelToPriorityMapInstance = new Map<string, Protocol.Network.ResourcePriority>();
 
-export function uiLabelToNetworkPriority(priorityLabel: string): string {
+export function uiLabelToNetworkPriority(priorityLabel: string): Protocol.Network.ResourcePriority {
   if (uiLabelToPriorityMapInstance.size === 0) {
     priorityUILabelMap().forEach((value, key) => uiLabelToPriorityMapInstance.set(value, key));
   }
-  return uiLabelToPriorityMapInstance.get(priorityLabel) || '';
+  return uiLabelToPriorityMapInstance.get(priorityLabel) || '' as Protocol.Network.ResourcePriority;
 }
 
 const priorityUILabelMapInstance: Map<Protocol.Network.ResourcePriority, string> = new Map();
