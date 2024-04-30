@@ -22,6 +22,30 @@
       },
       "revId": "2e64e203087bdda88e2dfdec433cffbc45c463b1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2f9e93_9b9feda2",
+        "filename": "front_end/panels/timeline/TimelineTreeView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-30T13:48:32Z",
+      "side": 0,
+      "message": "Heh was about to ask about it and then this comment popped up :). Acknowledged.",
+      "parentUuid": "ca7a631b_c6e65b0c",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 54
+      },
+      "revId": "2e64e203087bdda88e2dfdec433cffbc45c463b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
