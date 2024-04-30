@@ -16,6 +16,24 @@
       "message": "lgtm % test failures",
       "revId": "fe8a03ab8426e1692303507139582d08fe20487a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91e1d732_6c82a601",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-30T06:04:42Z",
+      "side": 1,
+      "message": "PTAL",
+      "parentUuid": "184f8336_88dfa6b6",
+      "revId": "fe8a03ab8426e1692303507139582d08fe20487a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
