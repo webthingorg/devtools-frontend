@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f319f441_1ab550ba",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-30T06:18:12Z",
+      "side": 0,
+      "message": "Just for my understanding: how does the `contenteditable\u003d\"plaintext-only\"` interact with this code here? Why do we no longer need this test?",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 74
+      },
+      "revId": "d7ef57b720d24bf16e2ffa45e867ffb0bff36567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
