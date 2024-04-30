@@ -85,6 +85,10 @@ export interface DataGridData {
   paddingRowsCount?: number;
   showScrollbar?: boolean;
   striped?: boolean;
+  /**
+   * Disable the auto-scroll on new data feature. This is enabled by default.
+   */
+  enableAutoScrollToBottom?: boolean;
 }
 
 const enum UserScrollState {
@@ -111,6 +115,8 @@ export class DataGrid extends HTMLElement {
   #paddingRowsCount = 10;
   #showScrollbar?: boolean = false;
   #striped?: boolean = false;
+  #enableAutoScrollToBottom: boolean = true;
+
   #currentResize: {
     rightCellCol: HTMLTableColElement,
     leftCellCol: HTMLTableColElement,
@@ -168,6 +174,7 @@ export class DataGrid extends HTMLElement {
       rows: this.#rows as Row[],
       activeSort: this.#sortState,
       contextMenus: this.#contextMenus,
+      enableAutoScrollToBottom: this.#enableAutoScrollToBottom,
       label: this.#label,
       paddingRowsCount: this.#paddingRowsCount,
       showScrollbar: this.#showScrollbar,
@@ -186,6 +193,9 @@ export class DataGrid extends HTMLElement {
     this.#label = data.label;
     this.#showScrollbar = data.showScrollbar;
     this.#striped = data.striped;
+    if (typeof data.enableAutoScrollToBottom === 'boolean') {
+      this.#enableAutoScrollToBottom = data.enableAutoScrollToBottom;
+    }
 
     /**
      * On first render, now we have data, we can figure out which cell is the
@@ -230,6 +240,10 @@ export class DataGrid extends HTMLElement {
   }
 
   #shouldAutoScrollToBottom(): boolean {
+    if (!this.#enableAutoScrollToBottom) {
+      return false;
+    }
+
     /**
      * If the user's last scroll took them to the bottom, then we assume they
      * want to automatically scroll.

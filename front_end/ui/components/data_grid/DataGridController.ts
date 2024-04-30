@@ -54,6 +54,10 @@ export interface DataGridControllerData {
   paddingRowsCount?: number;
   showScrollbar?: boolean;
   striped?: boolean;
+  /**
+   * Disable the auto-scroll on new data feature. This is enabled by default.
+   */
+  enableAutoScrollToBottom?: boolean;
 }
 
 export class DataGridController extends HTMLElement {
@@ -80,6 +84,8 @@ export class DataGridController extends HTMLElement {
   #sortState: Readonly<SortState>|null = null;
   #filters: readonly TextUtils.TextUtils.ParsedFilter[] = [];
 
+  #enableAutoScrollToBottom = true;
+
   #paddingRowsCount?: number;
 
   connectedCallback(): void {
@@ -91,6 +97,7 @@ export class DataGridController extends HTMLElement {
       columns: this.#originalColumns as Column[],
       rows: this.#originalRows as Row[],
       filters: this.#filters,
+      enableAutoScrollToBottom: this.#enableAutoScrollToBottom,
       contextMenus: this.#contextMenus,
       label: this.#label,
       paddingRowsCount: this.#paddingRowsCount,
@@ -108,6 +115,9 @@ export class DataGridController extends HTMLElement {
     this.#label = data.label;
     this.#showScrollbar = data.showScrollbar;
     this.#striped = data.striped;
+    if (typeof data.enableAutoScrollToBottom === 'boolean') {
+      this.#enableAutoScrollToBottom = data.enableAutoScrollToBottom;
+    }
 
     this.#columns = [...this.#originalColumns];
     this.#rows = this.#cloneAndFilterRows(data.rows, this.#filters);
@@ -266,6 +276,7 @@ export class DataGridController extends HTMLElement {
           paddingRowsCount: this.#paddingRowsCount,
           showScrollbar: this.#showScrollbar,
           striped: this.#striped,
+          enableAutoScrollToBottom: this.#enableAutoScrollToBottom,
         } as DataGridData}
         @columnheaderclick=${this.#onColumnHeaderClick}
         @contextmenucolumnsortclick=${this.#onContextMenuColumnSortClick}
