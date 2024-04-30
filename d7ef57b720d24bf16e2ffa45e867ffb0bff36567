@@ -22,6 +22,30 @@
       },
       "revId": "d7ef57b720d24bf16e2ffa45e867ffb0bff36567",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e23a4a18_1098bae2",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-04-30T06:28:29Z",
+      "side": 0,
+      "message": "This test was exercising a custom `paste` event handler, that was making sure that plain text was inserted instead of the formatted text. `contenteditable\u003d\"plaintext-only\"` does the same, but since we don\u0027t need to prevent default on the `paste` event, we get an `input` event with `inputType: \u0027inputFromPaste\u0027` which we can use for logging.\n\nThe test is removed as triggering paste behavior with a real clipboard is explicitly not permitted by the spec and just dispatching paste event won\u0027t affect the input content. Also I don\u0027t think we need to test that `contenteditable\u003d\"plaintext-only\"` work here.",
+      "parentUuid": "f319f441_1ab550ba",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 74
+      },
+      "revId": "d7ef57b720d24bf16e2ffa45e867ffb0bff36567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
