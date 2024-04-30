@@ -184,7 +184,7 @@ describeWithRealConnection('FrameDetailsView', () => {
       stackTraceText = stackTraceText.concat(getCleanTextContentFromElements(row.shadowRoot, '.stack-trace-row'));
     });
 
-    assert.deepEqual(stackTraceText[0], 'function1\xA0@\xA0http://www.example.com/script.js:16');
+    assert.deepEqual(stackTraceText[0], 'function1\xA0@\xA0http://www.example.com/script.js:16:11');
 
     const adScriptLink = component.shadowRoot.querySelector('devtools-report-value.ad-script-link');
     assert.exists(adScriptLink);
