@@ -94,7 +94,9 @@ export class TextEditor extends HTMLElement {
       return this.#activeEditor.state;
     }
     if (!this.#pendingState) {
-      this.#pendingState = CodeMirror.EditorState.create({extensions: baseConfiguration('')});
+      this.#pendingState = CodeMirror.EditorState.create({
+        extensions: baseConfiguration(''),
+      });
     }
     return this.#pendingState;
   }
@@ -103,8 +105,6 @@ export class TextEditor extends HTMLElement {
     if (this.#pendingState === state) {
       return;
     }
-
-    this.#pendingState = state;
 
     if (this.#activeEditor) {
       this.#activeEditor.setState(state);

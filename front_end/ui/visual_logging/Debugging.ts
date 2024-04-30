@@ -110,6 +110,9 @@ type Entry = {
   height?: number,
   mouseButton?: number,
   doubleClick?: boolean,
+  keydown?: boolean,
+  paste?: boolean,
+  drop?: boolean,
 };
 
 export function processImpressionsForDebugging(states: LoggingState[]): void {
