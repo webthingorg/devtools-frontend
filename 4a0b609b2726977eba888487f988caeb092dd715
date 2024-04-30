@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6b12cc6_a3d6f322",
+        "filename": "front_end/ui/legacy/components/perf_ui/NetworkPriorities.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T07:47:24Z",
+      "side": 1,
+      "message": "I don\u0027t think we should return an empty string as a priority here given it\u0027s not a valid value. Could we error instead? Or default to something?",
+      "range": {
+        "startLine": 42,
+        "startChar": 60,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "4a0b609b2726977eba888487f988caeb092dd715",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
