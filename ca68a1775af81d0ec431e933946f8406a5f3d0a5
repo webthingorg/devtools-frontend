@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf20e3e5_402606a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-04-30T04:48:41Z",
+      "side": 1,
+      "message": "Great stuff. \n\nAs mentioned, I run into bug with the datagrid. Upon first load of the selector stats view, or when zooming in and out.. The datagrid gets scrolled to the bottom and doesn\u0027t show the top of the grid.  If you have any ideas on a fix, that\u0027d be huge.",
+      "revId": "ca68a1775af81d0ec431e933946f8406a5f3d0a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
