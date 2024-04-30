@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5650aea0_2e3dbcf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-30T16:24:49Z",
+      "side": 1,
+      "message": "LGTM on behalf of Nancy who doesn\u0027t have a laptop atm :)",
+      "revId": "ac724327b0461ce0053f56c718aafd12fea2792b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
