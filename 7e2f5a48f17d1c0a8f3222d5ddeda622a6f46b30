@@ -16,6 +16,23 @@
       "message": "Hi folks.\n\nSimilarly to the CL before, please let me know if this matches a good mexican address.",
       "revId": "7e2f5a48f17d1c0a8f3222d5ddeda622a6f46b30",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f2accb6_9e83a442",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002543
+      },
+      "writtenOn": "2024-04-30T10:52:02Z",
+      "side": 1,
+      "message": "According to our model the overflow contains landmark and cross streets but not floor and unit.\n\nAlso we need ADDRESS_HOME_BETWEEN_STREETS_OR_LANDMARK as a field type.\n\nPTAL at https://battre.github.io/autocomplete-attribute-explainer/model/MX.html and https://source.chromium.org/chromium/chromium/src/+/main:components/autofill/core/browser/data_model/autofill_i18n_hierarchies.h;l\u003d44;drc\u003dfaeac9091b8d843864a55cf5203b540c9064a60c",
+      "revId": "7e2f5a48f17d1c0a8f3222d5ddeda622a6f46b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
