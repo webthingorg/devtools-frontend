@@ -31,6 +31,7 @@
 import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
+import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
 import * as Buttons from '../../../components/buttons/buttons.js';
 import * as UI from '../../legacy.js';
@@ -78,6 +79,14 @@ const UIStrings = {
    *@description Text for Hiding all repeating child entries of a function from the Flame Chart
    */
   hideRepeatingChildren: 'Hide repeating children',
+  /**
+   *@description Text for remove script from ignore list from the Flame Chart
+   */
+  removeScriptFromIgnoreList: 'Remove script from ignore list',
+  /**
+   *@description Text for add script to ignore list from the Flame Chart
+   */
+  addScriptToIgnoreList: 'Add script to ignore list',
   /**
    *@description Text for an action that shows all of the hidden children of an entry
    */
@@ -1088,6 +1097,12 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       this.#buildEnterEditModeContextMenu(event);
     }
 
+    // The following context menu should only work for the flame chart that support tree modification.
+    // So if the data provider doesn't have the |modifyTree| function, simply return to show the default context menu.
+    if (!this.dataProvider.modifyTree) {
+      return;
+    }
+
     if (this.highlightedEntryIndex === -1) {
       // If the user has not selected an individual entry, we do not show any
       // context menu, so finish here.
@@ -1096,7 +1111,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // Build the context menu for right clicking individual entries.
     // The context menu only applies if the user is hovering over an individual
     // entry, and we are not in edit mode (which we know we cannot be given the
-    // confidional checks above)
+    // conditional checks above)
 
     // Update the selected index to match the highlighted index, which
     // represents the entry under the cursor where the user has right clicked
@@ -1152,6 +1167,26 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterAction.UNDO_ALL_ACTIONS],
       jslogContext: 'reset-trace',
     });
+
+    const entry = this.dataProvider.eventByIndex?.(this.selectedEntryIndex);
+    const url = (entry && TraceEngine.Types.TraceEvents.isProfileCall(entry)) ?
+        entry.callFrame.url as Platform.DevToolsPath.UrlString :
+        undefined;
+    if (url) {
+      if (Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(url)) {
+        this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.removeScriptFromIgnoreList), () => {
+          Bindings.IgnoreListManager.IgnoreListManager.instance().unIgnoreListURL(url);
+        }, {
+          jslogContext: 'remove-from-ignore-list',
+        });
+      } else {
+        this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.addScriptToIgnoreList), () => {
+          Bindings.IgnoreListManager.IgnoreListManager.instance().ignoreListURL(url);
+        }, {
+          jslogContext: 'add-to-ignore-list',
+        });
+      }
+    }
 
     void this.contextMenu.show();
   }
@@ -3694,6 +3729,8 @@ export interface FlameChartDataProvider {
   findPossibleContextMenuActions?(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
 
   hasTrackConfigurationMode(): boolean;
+
+  eventByIndex?(entryIndex: number): TraceEngine.Types.TraceEvents.TraceEventData|null;
 }
 
 export interface FlameChartMarker {
