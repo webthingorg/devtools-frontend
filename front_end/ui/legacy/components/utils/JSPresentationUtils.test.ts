@@ -45,7 +45,7 @@ describeWithMockConnection('JSPresentationUtils', () => {
 
   it('uses url as link content if url is available', () => {
     const url = 'https://www.google.com/script.js';
-    const expectedLinkContent = 'www.google.com/script.js:1';
+    const expectedLinkContent = 'www.google.com/script.js:1:1';
     checkLinkContentForStackTracePreview(url, expectedLinkContent);
   });
 });
